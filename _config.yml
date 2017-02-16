@@ -103,4 +103,4 @@ description: "Wavefront documentation."
 
 # needed for sitemap.xml file only
 url: wavefrontHQ.github.io
-baseurl: /wf-docs
+baseurl: /docs
