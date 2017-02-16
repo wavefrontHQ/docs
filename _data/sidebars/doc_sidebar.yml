@@ -126,8 +126,16 @@ entries:
           url: /tag_getting_started.html
           output: web
 
+        - title: Alerts Pages
+          url: /tag_alerts.html
+          output: web
+
         - title: Dashboards Pages
           url: /tag_dashboards.html
+          output: web
+
+        - title: Events Pages
+          url: /tag_events.html
           output: web
 
         - title: Integrations Pages

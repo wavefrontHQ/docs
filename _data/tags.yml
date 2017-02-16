@@ -5,6 +5,7 @@ allowed-tags:
   - query_language
   - proxies
   - permissions
+  - alerts
   - events
   - integrations
   - api

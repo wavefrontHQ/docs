@@ -2,7 +2,6 @@
 title: Integrating Webhooks with Alerts
 keywords: webhooks
 tags: [alerts]
-datatable: true
 sidebar: doc_sidebar
 permalink: webhooks.html
 summary: This describes how to create webhooks.
@@ -183,3 +182,5 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 </tbody>
 </table>
+
+{% include links.html %}
