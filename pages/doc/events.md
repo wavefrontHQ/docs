@@ -6,4 +6,4 @@ sidebar: doc_sidebar
 permalink: events.html
 summary: This topic describes how to use events.
 ---
-{% include help/events.md %}
+{% include help/events_intro.md %}

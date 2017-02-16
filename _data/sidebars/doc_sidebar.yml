@@ -73,6 +73,18 @@ entries:
       url: /dashboard_variables.html
       output: web
 
+  - title: Alerts
+    output: web
+    folderitems:
+
+    - title: Managing Alerts
+      url: /alerts.html
+      output: web
+
+    - title: Integrating Webhooks with Alerts
+      url: /webhooks.html
+      output: web
+
   - title: Events
     output: web
     folderitems:
