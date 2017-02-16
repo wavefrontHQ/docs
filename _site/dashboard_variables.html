@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This topic describes how to use dashboard variables.">
+<meta name="keywords" content="dashboards,  dashboards">
+<title>Dashboard Variables | Wavefront</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-91867056-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/wavefront_favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-lg navbar-brand" href="/wf-docs/index.html">
+                <img src="/wf-docs/images/wavefront_logo_white.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="index.html">Documentation</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:stephanie@wavefront.com?subject=Wavefront Documentation feedback&body=I have some feedback about the Dashboard Variables page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Dashboard Variables">{title}</a></li>',
+                                noResultsText: 'No results found.', limit: 10, fuzzy: true, })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Wavefront </li>
+    
+    
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">About Wavefront Documentation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="introduction.html">Introduction to Wavefront</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tags.html">Introduction to Tags</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Release Notes</a>
+        <ul>
+            
+            
+            
+            <li><a href="50_release_notes.html">5.0 Release Notes</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Proxies</a>
+        <ul>
+            
+            
+            
+            <li><a href="wavefront_cli.html">Wavefront CLI</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxy_configuration.html">Wavefront Proxy Configuration</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxy_preprocessor_rules.html">Configuring Wavefront Proxy Preprocessor Rules</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Query Language</a>
+        <ul>
+            
+            
+            
+            <li><a href="time_series_language_reference.html">Time Series Query Language Reference</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Dashboards</a>
+        <ul>
+            
+            
+            
+            <li><a href="intro_dashboards.html">Introductory Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="managing_dashboards.html">Managing Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="dashboard_variables.html">Dashboards Variables</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Events</a>
+        <ul>
+            
+            
+            
+            <li><a href="events.html">Events</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Integrations</a>
+        <ul>
+            
+            
+            
+            <li><a href="aws_metrics_integration.html">AWS Metrics Integration</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="external_links.html">External Links</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="sending_log_data.html">Sending Log Data Metrics To Wavefront</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Tags</a>
+        <ul>
+            
+            
+            
+            <li><a href="tag_overview.html">Tag Overview</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Tag Pages</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="tag_getting_started.html">Getting Started Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="tag_dashboards.html">Dashboards Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="tag_integrations.html">Integrations Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="tag_proxies.html">Proxies Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="tag_query_language.html">Query Language Pages</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Dashboard Variables</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">This topic describes how to use dashboard variables.</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+<!--
+    <a target="_blank" href="https://github.com/WavefrontHQ/docs/gh-pagespages//dashboard_variables.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+-->
+    
+
+  <p>Dashboard variables enable you to dynamically choose the value of components of ts() queries across multiple charts on a dashboard. All Wavefront users can select and temporarily alter the value of a dashboard variable. Only users with Dashboard Management permission can permanently save changes.</p>
+
+<h2 id="what-is-a-dashboard-variable">What is a Dashboard Variable?</h2>
+
+<p>A dashboard variable is a placeholder that allows you to dynamically change the components of a ts() expression. Dashboard variables simply enable text replacement; dashboard variables can contain metric names, filters, advanced functions, or even a string such as “)))”, which could be inserted at the end of an expression. There are three types of dashboard variables: simple, list, and dynamic.</p>
+
+<h2 id="accessing-dashboard-variables">Accessing Dashboard Variables</h2>
+
+<p>To access the set of dashboard variables associated with a dashboard, click the ‘x²’ icon at the far right of the task bar.</p>
+
+<p><img src="images/dashboard_actions.png" alt="dashboard_actions.png" /></p>
+
+<p>The following screen capture shows a simple variable, which consists of a label (Zones), name (<strong>az</strong>), and value (<strong>tag=az-3 or source=app-3</strong>). The label should ideally provide some indication about what values the variable represents. You view the variable name by hovering over the label.</p>
+
+<p><img src="images/Image+2.PNG" alt="Image 2.PNG" /></p>
+
+<h2 id="creating-a-dashboard-variable">Creating a Dashboard Variable</h2>
+
+<ol>
+  <li>
+    <p>Put your dashboard into edit mode by clicking the pencil icon at the far right of the task bar.</p>
+
+    <p><img src="images/dashboard_actions.png" alt="dashboard_actions.png" /></p>
+
+    <ul>
+      <li>
+        <p>If there are no dashboard variables already defined, click <strong>Create</strong>.</p>
+
+        <p><img src="images/Image+3.PNG" alt="Image 3.PNG" /></p>
+      </li>
+      <li>
+        <p>If there is at least one variable associated with the dashboard, click ‘+’ to the right of the existing variable field.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Click the <span class="fa-edit fa"></span> icon to the right of the variable. The Query Parameters dialog displays:</p>
+
+    <p><img src="images/simple+var+with+non-editor+hide.PNG" alt="simple var with non-editor hide.PNG" /></p>
+  </li>
+  <li>Specify the variable name, label, and select the Variable Type. Fill in remaining fields depending on the variable type: <a href="#simple">simple</a>, <a href="#list">list</a>, and <a href="#dynamic">dynamic</a>.</li>
+  <li>Click <strong>Hide from non-editors</strong> to make your dashboard variable non-viewable/non-changeable by all users when the dashboard is not in edit mode. The dashboard variable can still be used in ts() queries and becomes visible when you put the dashboard into edit mode.</li>
+</ol>
+
+<h2 id="using-dashboard-variables">Using Dashboard Variables</h2>
+
+<p>You use a dashboard variable by referencing its name in a ts() expression using the syntax ${variableName}. For example, to use the variable <strong>az</strong>, you specify the following query: <strong>ts(cpu.loadavg.1m, ${az})</strong>. When this query is executed, Wavefront replaces ${az} with the associated variable value: ts(cpu.loadavg.1m, tag=az-3 or source=app-3).</p>
+
+<p><span id="simple"></span></p>
+
+<h2 id="simple-dashboard-variables">Simple Dashboard Variables</h2>
+
+<p>A <em>simple dashboard variable</em> maps a single variable to a single value. When you create a dashboard variable, by default the Variable Type is set to <strong>Simple</strong>.</p>
+
+<p>Enter a variable name (case sensitive) and label. We suggest keeping the variable name short. For simple dashboard variables, enter the string of text that you’d like to replace the dashboard variable with in a ts() query when it’s executed. Click Accept.</p>
+
+<p>To create a simple dashboard variable that represents a metric name, the text is set to the metric name “requests.latency”.</p>
+
+<p><img src="images/Image+7.PNG" alt="Image 7.PNG" /></p>
+
+<p>Click <strong>Save</strong> to save the dashboard and the dashboard variable. For this example, you can use variable in a ts() query as follows: ts(${Variable1}). By default this query returns requests latency data.</p>
+
+<h3 id="changing-variable-values">Changing Variable Values</h3>
+
+<p>You can quickly change the variable value in the Dashboard Variables section. For example you could display data for a different metric. Dashboard variables can be temporarily altered, but you must put the dashboard into edit mode in order to permanently save any changes.</p>
+
+<p>To temporarily change the text for a simple dashboard variable, access the Dashboard Variables section, click the value, and replace the existing value with the text of your choosing.</p>
+
+<p><span id="list"></span></p>
+
+<h2 id="list-dashboard-variables">List Dashboard Variables</h2>
+
+<p>A <em>list dashboard variable</em> maps a variable label to a list of labels and values. They allow expert users to set a predefined list of a list of meaningful labels and values for other users to choose from. For example, let’s assume that sources located in Availability Zone 1 are production and Availability Zone 2 are development. Instead of requiring a user to change the text from “tag=az-1” to “tag=az-2”, you can set the labels to “Production” and “Development”. This allows users to view the data they are interested in without necessarily needing to know the underlying information, such as source or metric names.</p>
+
+<p>To create a list dashboard variable, select <strong>Variable Type &gt; List</strong>:</p>
+
+<p><img src="images/list+var+with+non-editor+hide.PNG" alt="list var with non-editor hide.PNG" /></p>
+
+<p>Label and value fields display for you to enter in the dashboard variable parameters. Enter the Label you’d like to be displayed in the drop-down list of options for the dashboard variable to the left, and enter the text you’d like replace the variable name with to the right. You can add, remove, or clone fields by using the icons to the right of the source fields.</p>
+
+<p><img src="images/list+var+with+non-editor+hide+and+parameters.PNG" alt="list var with non-editor hide and parameters.PNG" /></p>
+
+<p>Choose the label and value to set as the default. Click <strong>Accept</strong>.</p>
+
+<p>Click <strong>Save</strong> to save your dashboard and the dashboard variable.</p>
+
+<p>In the dashboard, selecting <strong>Production</strong> replaces <strong>${var1}</strong> in a ts() query with <strong>tag=az-1</strong> and selecting <strong>Development</strong> replaces <strong>${var1}</strong> in a ts() query with <strong>tag=az-2</strong>.</p>
+
+<p><img src="images/Image+14.PNG" alt="Image 14.PNG" /></p>
+
+<p><span id="dynamic"></span></p>
+
+<h2 id="dynamic-dashboard-variables">Dynamic Dashboard Variables</h2>
+
+<p>A <em>dynamic dashboard variable</em> defines a variable whose set of values are dynamically determined by a query. Dynamic dashboard variables allow you to specify only a single metric name, source, source tag, or point tag at a time. You should use simple or list dashboard variables if you want to use wildcards to return more than 1 metric name, source, source tag, or point tag.</p>
+
+<p>To create a dynamic variable, select <strong>Variable Type &gt; Dynamic</strong>. A Field drop-down list and Query field displays.</p>
+
+<p><img src="images/dynamic+with+field+options.PNG" alt="dynamic with field options.PNG" /></p>
+
+<h3 id="field-options">Field Options</h3>
+
+<ul>
+  <li><strong>Source</strong> - Populates the variable with sources associated with the query in the Query field.</li>
+  <li><strong>Source Tag</strong> - Populates the variable with all source tags available in your system (whether or not they are associated with the query). You must still specify a query.</li>
+  <li><strong>Matching Source Tag</strong> - Populates the variable with source tags associated with the query in the Query field. If at least 1 source associated with a source tag is returned based from the query, the ‘Matching Source Tag’ displays.</li>
+  <li><strong>Metric</strong> - Populates the variable with metrics associated with the query in the Query field.</li>
+  <li><strong>Point Tag</strong> - Populates the variable with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.</li>
+</ul>
+
+<p>Suppose you want to populate a variable with list of metrics that start with <strong>requests</strong> and <strong>cpu</strong>. Choose <strong>Field &gt; Metric</strong> and enter <strong>ts(“requests*” or “cpu*”)</strong> in the Query field:</p>
+
+<p><img src="images/Image+20.PNG" alt="Image 20.PNG" /></p>
+
+<p>When you press enter, a Current Values section displays and displays every metric name that matches the query. As with list variables, you can select a specific value as the default. Click <strong>Accept</strong>.</p>
+
+<p>Click <strong>Save</strong> to save your dashboard and the dashboard variable.</p>
+
+<p><img src="images/Image+21.PNG" alt="Image 21.PNG" /></p>
+
+<p>After you save the dynamic dashboard variable, you can enter that variable name into a ts() query. For example, <strong>ts(${var2})</strong>. Selecting “cpu.usage.percentage” from the list of options replaces <strong>ts(${var2})</strong> with <strong>ts(“cpu.usage.percentage”)</strong>.</p>
+
+<p>To use a dynamic dashboard variable <strong>var2</strong> that refers to a source, source tag, or point tag, specify the following queries:</p>
+
+<ul>
+  <li><strong>Source</strong> - <strong>ts(&lt;metricName&gt;, source=${var2})</strong></li>
+  <li><strong>Source Tag</strong> - <strong>ts(&lt;metricName&gt;, tag=${var2})</strong></li>
+  <li><strong>Point Tag</strong> - <strong>ts(&lt;metricName&gt;, =${var2})</strong> <strong>pointTagKey</strong> must match the key you set up when you created the dynamic dashboard variable.</li>
+</ul>
+
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_dashboards.html" class="btn btn-default navbar-btn cursorNorm" role="button">dashboards</a>
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 Wavefront. All rights reserved. <br />
+ Site last generated: Feb 15, 2017 <br />
+<p></p>
+<p><img src="images/wavefront_logo.png" alt="Wavefront logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-91867056-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+</html>

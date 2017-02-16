@@ -1,0 +1,131 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: Wavefront
+  version:
+  folders:
+
+  - title: Overview
+    output: web
+    folderitems:
+
+    - title: About Wavefront Documentation
+      url: /index.html
+      output: web
+      type: homepage
+
+    - title: Introduction to Wavefront
+      url: /introduction.html
+      output: web
+      type: homepage
+
+    - title: Introduction to Tags
+      url: /tags.html
+      output: web
+      type: homepage
+
+  - title: Release Notes
+    output: web
+    folderitems:
+
+    - title: 5.0 Release Notes
+      url: /50_release_notes.html
+      output: web
+
+  - title: Proxies
+    output: web
+    folderitems:
+
+    - title: Wavefront CLI
+      url: /wavefront_cli.html
+      output: web
+
+    - title: Wavefront Proxy Configuration
+      url: /proxy_configuration.html
+      output: web
+
+    - title: Configuring Wavefront Proxy Preprocessor Rules
+      url: /proxy_preprocessor_rules.html
+      output: web
+
+  - title: Query Language
+    output: web
+    folderitems:
+
+    - title: Time Series Query Language Reference
+      url: /time_series_language_reference.html
+      output: web
+
+  - title: Dashboards
+    output: web
+    folderitems:
+
+    - title: Introductory Dashboards
+      url: /intro_dashboards.html
+      output: web
+
+    - title: Managing Dashboards
+      url: /managing_dashboards.html
+      output: web
+
+    - title: Dashboards Variables
+      url: /dashboard_variables.html
+      output: web
+
+  - title: Events
+    output: web
+    folderitems:
+
+    - title: Events
+      url: /events.html
+      output: web
+
+  - title: Integrations
+    output: web
+    folderitems:
+
+    - title: AWS Metrics Integration
+      url: /aws_metrics_integration.html
+      output: web
+
+    - title: External Links
+      url: /external_links.html
+      output: web
+
+    - title: Sending Log Data Metrics To Wavefront
+      url: /sending_log_data.html
+      output: web
+
+  - title: Tags
+    output: web
+    folderitems:
+
+    - title: Tag Overview
+      url: /tag_overview.html
+      output: web
+
+      subfolders:
+      - title: Tag Pages
+        output: web
+        subfolderitems:
+
+        - title: Getting Started Pages
+          url: /tag_getting_started.html
+          output: web
+
+        - title: Dashboards Pages
+          url: /tag_dashboards.html
+          output: web
+
+        - title: Integrations Pages
+          url: /tag_integrations.html
+          output: web
+
+        - title: Proxies Pages
+          url: /tag_proxies.html
+          output: web
+
+        - title: Query Language Pages
+          url: /tag_query_language.html
+          output: web

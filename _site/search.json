@@ -1,0 +1,273 @@
+[
+
+
+
+
+{
+"title": "Release Notes 5.0",
+"tags": "release_notes",
+"keywords": "",
+"url": "50_release_notes.html",
+"summary": "These are the release notes for Wavefront 5.0."
+}
+,
+
+
+
+{
+"title": "AWS Metrics Integration",
+"tags": "integrations",
+"keywords": "",
+"url": "aws_metrics_integration.html",
+"summary": "This topic describes how to send AWS data to Wavefront."
+}
+,
+
+
+
+{
+"title": "Docker Integration (cAdvisor)",
+"tags": "integrations",
+"keywords": "integrations",
+"url": "integrations_cadvisor.html",
+"summary": "This topic describes how to use cadvisor."
+}
+,
+
+
+
+{
+"title": "Dashboard Variables",
+"tags": "dashboards",
+"keywords": "dashboards",
+"url": "dashboard_variables.html",
+"summary": "This topic describes how to use dashboard variables."
+}
+,
+
+
+
+{
+"title": "Events",
+"tags": "events",
+"keywords": "events",
+"url": "events.html",
+"summary": "This topic describes how to use events."
+}
+,
+
+
+
+{
+"title": "External Links",
+"tags": "integrations",
+"keywords": "external links",
+"url": "external_links.html",
+"summary": "This topic describes how to use external links."
+}
+,
+
+
+
+
+
+{
+"title": "About Wavefront Documentation",
+"tags": "",
+"keywords": "homepage",
+"url": "index.html",
+"summary": "This is an introduction to Wavefront documentation."
+}
+,
+
+
+
+{
+"title": "Introductory Dashboards",
+"tags": "dashboardsgetting_started",
+"keywords": "dashboards",
+"url": "intro_dashboards.html",
+"summary": "This is an overview of the Introductory Dashboards."
+}
+,
+
+
+
+{
+"title": "Introduction to Wavefront",
+"tags": "getting_started",
+"keywords": "",
+"url": "introduction.html",
+"summary": "This is an introduction to the Wavefront architecture."
+}
+,
+
+
+
+{
+"title": "Managing Dashboards",
+"tags": "dashboards",
+"keywords": "dashboards",
+"url": "managing_dashboards.html",
+"summary": "This topic describes how to manage dashboards."
+}
+,
+
+
+
+{
+"title": "Scroll layout",
+"tags": "special_layouts",
+"keywords": "json, scrolling, scrollto, jquery plugin",
+"url": "jsmydoc_scroll.html",
+"summary": "This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way."
+}
+,
+
+
+
+{
+"title": "News",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "News",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news_archive.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Wavefront Proxy Configuration",
+"tags": "proxies",
+"keywords": "",
+"url": "proxy_configuration.html",
+"summary": "This topic describes how to configure the Wavefront proxy."
+}
+,
+
+
+
+{
+"title": "Configuring Wavefront Proxy Preprocessor Rules",
+"tags": "proxies",
+"keywords": "",
+"url": "proxy_preprocessor_rules.html",
+"summary": "This topic describes how to configure Wavefront proxy preprocessor rules."
+}
+,
+
+
+
+
+
+{
+"title": "Sending Log Data to Wavefront",
+"tags": "integrations",
+"keywords": "",
+"url": "sending_log_data.html",
+"summary": "This topic describes how to send log data to Wavefront."
+}
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "Tag Overview",
+"tags": "",
+"keywords": "tagging",
+"url": "tag_overview.html",
+"summary": "This is an overview to the tags section."
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Introduction to Tags",
+"tags": "getting_started",
+"keywords": "",
+"url": "tags.html",
+"summary": "This is an introduction to Wavefront tags."
+}
+,
+
+
+
+{
+"title": "Time Series Query Language Reference",
+"tags": "query_language",
+"keywords": "query language",
+"url": "time_series_language_reference.html",
+"summary": "This is a quick reference for the Wavefront time series query language."
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Wavefront CLI",
+"tags": "integrationsproxies",
+"keywords": "",
+"url": "wavefront_cli.html",
+"summary": "This topic describes how use the Wavefront CLI."
+}
+,
+
+
+
+{
+"title": "Wavefront CLI2",
+"tags": "proxies",
+"keywords": "proxies",
+"url": "wavefront_cli2.html",
+"summary": "This topic describes how to use the Wavefront CLI."
+}
+,
+
+
+
+
+
+{
+"title": "Welcome to the new Wavefront documentation site!",
+"tags": "newsgetting_started",
+"keywords": "",
+"url": "first.html",
+"summary": ""
+}
+
+
+
+]

@@ -1,0 +1,9 @@
+[submodule "_includes/help"]
+	path = _includes/help
+	url = https://github.com/wavefrontHQ/help
+[submodule "_includes/wavefront-cli"]
+	path = _includes/wavefront-cli
+	url = https://github.com/wavefrontHQ/wavefront-cli
+[submodule "_includes/integrations"]
+	path = _includes/integrations
+	url = https://github.com/wavefrontHQ/integrations
