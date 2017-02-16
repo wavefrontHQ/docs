@@ -31,7 +31,7 @@ summary: This topic describes how to use external links.
     <td>Point Tag Filter Regexes</td>
     <td>A point tag key and a regular expression that point tag values must match.</td>
     <td><strong>Tag Key</strong>=env<br/><strong>Filter Regex</strong>=prod\w+</td></tr></tbody></table>
-    Specify the external link URL template. The template employs mustache syntax. The properties supported by the template are:
+    Specify the external link URL template. The template employs [Mustache syntax](https://mustache.github.io/). The properties supported by the template are:
     <table>
     <tbody>
     <tr><th width="40%">Property</th><th width="60%">Description</th></tr>
@@ -53,34 +53,33 @@ summary: This topic describes how to use external links.
     </tr>
     </tbody>
     </table>
-    You can apply functions to transform their enclosed sections. All functions begin with the namespace functions.
+    You can apply functions to transform their enclosed sections. All functions begin with the namespace `functions`.
     <table>
     <tbody>
-    <tr><th width="55%">Function</th><th width="45%">Description</th></tr>
+    <tr><th width="60%">Function</th><th width="40%">Description</th></tr>
     <tr>
-    <td>urlEncode</td>
+    <td markdown="span">`urlEncode`</td>
     <td>URL Encoder</td>
     </tr>
     <tr>
-    <td>epochMillisToEpochSeconds</td>
+    <td markdown="span">`epochMillisToEpochSeconds`</td>
     <td>Converts epoch milliseconds to epoch seconds.</td>
     </tr>
     <tr>
-    <td>epochMillisToISO</td>
+    <td markdown="span">`epochMillisToISO`</td>
     <td markdown="span">Converts epoch milliseconds to an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Dates) representation.</td>
     </tr>
-    <tr>
-    <td>
-    epochMillisEra, epochMillisYearOfCentury,<br/>
-    epochMillisYear, epochMillisMonthOfYear,<br/>
-    epochMillisDayOfYear,  epochMillisDayOfMonth,<br/>
-    epochMillisWeekYear, epochMillisWeekOfWeekyear,<br/>
-    epochMillisDayOfWeek, epochMillisHalfDayOfDay,<br/>
-    epochMillisClockHourOfHalfday, epochMillisClockHourOfDay,<br/>
-    epochMillisHourOfHalfday, epochMillisHourOfDay,<br/>
-    epochMillisMinuteOfDay, epochMillisMinuteOfHour,<br/>
-    epochMillisSecondOfDay, epochMillisSecondOfMinute,<br/>
-    epochMillisMillisOfDay, epochMillisMillisOfSecond.
+    <tr><td markdown="span">`epochMillisEra,epochMilliscenturyOfEra,
+ epochMillisyearOfEra,epochMillisYearOfCentury,
+ epochMillisYear,epochMillisMonthOfYear,
+ epochMillisDayOfYear,epochMillisDayOfMonth,
+ epochMillisWeekyear,epochMillisWeekOfWeekyear,
+ epochMillisDayOfWeek,epochMillisHalfDayOfDay,
+ epochMillisClockHourOfHalfday,epochMillisClockHourOfDay,
+ epochMillisHourOfHalfday,epochMillisHourOfDay,
+ epochMillisMinuteOfDay,epochMillisMinuteOfHour,
+ epochMillisSecondOfDay,epochMillisSecondOfMinute,
+ epochMillisMillisOfDay,epochMillisMillisOfSecond`
     </td>
     <td markdown="span">
     0 for BC, 1 for AD. See [Joda-Time - Java date and time API](http://joda-time.sourceforge.net/field.html).

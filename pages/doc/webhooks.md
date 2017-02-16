@@ -24,7 +24,7 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 <td>A set of conditions that trigger the webhook:
 <ul>
 <li>Alert Opened - When the alert is opened (fired).</li>
-<li>Alert Status Updated - When the status of an already open/firing alert changes, e.g.: a new application/source meets the alert condition and joins the set.</li>
+<li>Alert Status Updated - When the status of an already open/firing alert changes, e.g. a new application/source meets the alert condition and joins the set.</li>
 <li>Alert Resolved - When the alert is resolved.</li>
 <li>Alert Affected by Maintenance Window - When the alert is affected by a maintenance window.</li>
 <li>Alert Snoozed - When the alert is snoozed.</li>
@@ -33,11 +33,11 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>URL</td>
-<td>The REST endpoint of your receiving application, e.g. Slack.</td>
+<td>The REST endpoint of the receiving application, e.g. Slack.</td>
 </tr>
 <tr>
 <td>Content Type</td>
-<td>The content type of the POST Body. The available content types are:
+<td>The content type of the POST Body:
 <ul>
 <li>application/json</li>
 <li>text/html</li>
@@ -48,20 +48,19 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>Custom Headers</td>
-<td>The name and value of one or more header to pass in the POST request.</td>
+<td>The name and value of one or more HTTP header to pass in the POST request.</td>
 </tr>
 <tr>
 <td>Webhook POST Body Template</td>
-<td>A template for a payload that the webhook sends via HTTP POST. The template supports the Mustache syntax and and a set of [payload variables](#variables).</td>
+<td markdown="span">A template for a payload that the webhook sends in the POST request. The template supports the [Mustache syntax](https://mustache.github.io/) and a set of [payload variables](#payload-variables).</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>A plain text area to add further information to describe the purpose of the webhook.</td>
+<td>Information to describe the purpose of the webhook.</td>
 </tr>
 </tbody>
 </table>
 
-<a name="variables"/>
 ## Payload Variables
 
 <table>
@@ -77,7 +76,7 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>reason</td>
-<td>The trigger that caused the webhook to send notification: e.g.: Alert_Opened or Alert_Snoozed etc.</td>
+<td>The trigger that caused the webhook to send notification: e.g. Alert Opened or Alert Snoozed, etc.</td>
 </tr>
 <tr>
 <td>name</td>
@@ -85,25 +84,23 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>severity</td>
-<td>The Alert severity (e.g.: INFO, SMOKE, WARN, SEVERE ).</td>
+<td>The alert severity (e.g. INFO, SMOKE, WARN, SEVERE).</td>
 </tr>
 <tr>
 <td>severityInfo</td>
-<td>
-<p><span style="font-family: arial, helvetica, sans-serif;">A flag set to True if the Alert severity is set to INFO.</p>
-</td>
+<td>A flag set to True if the alert severity is set to INFO.</td>
 </tr>
 <tr>
 <td>severitySmoke</td>
-<td>A flag set to True if the Alert severity is set to SMOKE.</td>
+<td>A flag set to True if the alert severity is set to SMOKE.</td>
 </tr>
 <tr>
 <td>severityWarn</td>
-<td>A flag set to True if the Alert severity is set to WARN.</td>
+<td>A flag set to True if the alert severity is set to WARN.</td>
 </tr>
 <tr>
 <td>severitySevere</td>
-<td>A flag set to True if the Alert severity is set to SEVERE.</td>
+<td>A flag set to True if the alert severity is set to SEVERE.</td>
 </tr>
 <tr>
 <td>condition</td>
@@ -119,8 +116,7 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>startedTime</td>
-<td>
-<p>The time the alert started firing.</p>
+<td>The time the alert started firing.
 </td>
 </tr>
 <tr>
@@ -149,8 +145,7 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>failingSources</td>
-<td>A list of hosts that are failing.</p>
-</td>
+<td>A list of hosts that are failing.</td>
 </tr>
 <tr>
 <td>inMaintenanceSources</td>
