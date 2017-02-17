@@ -4,7 +4,7 @@ keywords: dashboards
 tags: [dashboards, getting_started]
 sidebar: doc_sidebar
 permalink: intro_dashboards.html
-summary: This is an overview of the Introductory Dashboards.
+summary: This is an overview of the introductory dashboards.
 ---
 Wavefront offers a set of introductory dashboards to help new users learn about Wavefront components and use cases:
 
@@ -24,7 +24,6 @@ You can access any of these dashboards from the **Dashboards > All Dashboards** 
 The best dashboard to start with is the **Intro: Home** dashboard. This dashboard provides a brief description of the purpose behind the introductory dashboards as well as links to the other introductory dashboards:
 
 [<img src="images/intro-home.png" class="image-2 jive-image" width="1600" height="701" />](images/intro-home.png)
-
 
 The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for all new users in the <a href="https://community.wavefront.com/docs/DOC-1084#jive_content_id_CustomerWide_Preferences">customer-wide preferences</a> and a specific user in the <a href="https://community.wavefront.com/docs/DOC-1247">user preferences</a>.
 

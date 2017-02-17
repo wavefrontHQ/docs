@@ -21,7 +21,7 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 <tr>
 <td>Triggers</td>
-<td>A set of conditions that trigger the webhook:
+<td>The set of conditions that trigger the webhook:
 <ul>
 <li>Alert Opened - When the alert is opened (fired).</li>
 <li>Alert Status Updated - When the status of an already open/firing alert changes, e.g. a new application/source meets the alert condition and joins the set.</li>
