@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: introduction.html
 summary: This is an introduction to the Wavefront architecture.
 ---
-{% include help/proxies.md %}
+{% include help/proxies_intro.md %}
 
 The following sections describe these components in more detail.
 
