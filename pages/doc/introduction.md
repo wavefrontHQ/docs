@@ -5,7 +5,23 @@ sidebar: doc_sidebar
 permalink: introduction.html
 summary: This is an introduction to the Wavefront architecture.
 ---
-{% include help/proxies_intro.md %}
+Wavefront is a high performance streaming analytics platform designed for monitoring and optimization.  The service is
+unique in its ability to scale to very high data ingestion rates and query loads. The result is a technology stack
+unique in its ability to scale horizontally while providing access to all of the granular (not aggregated) data
+collected for all time.
+
+The major components of Wavefront include the *Wavefront SaaS application*, which facilitates economies of scale for
+deployment, flexibility, and time to value and the Wavefront proxy.  The *Wavefront proxy* is the interface to collector
+*agents*, which instrument hardware and software applications. The Wavefront application can also collect metrics
+directly from external metrics services such as those provided by Amazon Web Services. The diagram below depicts each of
+these components.
+
+![Wavefront architecture](images/wavefront_architecture.png)
+
+It's possible to have several data centers from different locations feeding data into Wavefront versus traditional on
+premise solutions which can only provide a view of one location at a time.  At a high level, the setup process typically
+consists of configuring collectors to send data to one or more Wavefront proxies and then configuring the Wavefront
+proxies to forward this data to the Wavefront application.
 
 The following sections describe these components in more detail.
 
@@ -54,19 +70,7 @@ layer, the data ingestion layer can have its capacity increased as you grow your
 
 ## Wavefront Proxy
 
-In most cases before metrics can begin streaming to Wavefront from a host, application, or service you must add a
-Wavefront proxy to your installation. The Wavefront proxy allows you to send your data to Wavefront in a secure, fast,
-and reliable manner.
-
-The proxy is a Java program that sends data to Wavefront over HTTPs and handles authentication with your Wavefront
-instance through a simple token. The proxy handles hundreds to thousands of simultaneous clients. It   consolidates
-points into configurable batches (usually 1 second), adding minimal latency (0.5 second, on average, due to the 1 second
-batches).
-
-The proxy works with Wavefront application response codes to ensure end-to-end flow control (due to rate limits or other
-capacity/performance thresholds). To address network connectivity issues, it queues point internally in memory and to
-disk. Once connectivity is restored it replays queued points but prioritizes real-time traffic. The proxy generates
-metrics on the Proxy's point rate and memory usage for easy monitoring of the pipeline within the Wavefront application.
+{% include help/proxies_intro.md %}
 
 In initial deployments you can start with one Wavefront proxy. However, to enable fault tolerance and higher data rates,
 production environments more typically employ a load balancer sending data to multiple Proxies as shown below:
@@ -75,7 +79,7 @@ production environments more typically employ a load balancer sending data to mu
 
 ## Agents
 
-Agents Agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include
+Agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include
 hosts, containers, and many different types of applications. Wavefront supports many standard agents, including
 [Telegraf](https://github.com/influxdata/telegraf), [Docker cAdvisor​](https://github.com/google/cadvisor), and others.
 
