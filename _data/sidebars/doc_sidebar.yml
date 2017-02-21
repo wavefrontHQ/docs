@@ -93,6 +93,10 @@ entries:
       url: /events.html
       output: web
 
+    - title: Displaying Events in Charts
+      url: /display_events.html
+      output: web
+
   - title: Integrations
     output: web
     folderitems:
