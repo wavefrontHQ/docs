@@ -10,11 +10,10 @@ unique in its ability to scale to very high data ingestion rates and query loads
 unique in its ability to scale horizontally while providing access to all of the granular (not aggregated) data
 collected for all time.
 
-The major components of Wavefront include the *Wavefront SaaS application*, which facilitates economies of scale for
-deployment, flexibility, and time to value and the Wavefront proxy.  The *Wavefront proxy* is the interface to collector
-*agents*, which instrument hardware and software applications. The Wavefront application can also collect metrics
-directly from external metrics services such as those provided by Amazon Web Services. The diagram below depicts each of
-these components.
+The major components of Wavefront include the **Wavefront SaaS application**, which facilitates economies of scale for
+deployment, flexibility, and time to value and the **Wavefront proxy**.  The Wavefront proxy is the interface to
+**collector agents**, which instrument hardware and software applications. The Wavefront application can also ingest metrics
+directly from external services such as Amazon Web Services. The diagram below depicts each of these components.
 
 ![Wavefront architecture](images/wavefront_architecture.png)
 
@@ -30,7 +29,9 @@ The following sections describe these components in more detail.
 The Wavefront application has the following components:
 
 -   user interface
--   query/compute layer
+-   REST API
+-   query layer
+-   compute layer
 -   storage layer
 -   data ingestion layer
 
@@ -38,15 +39,10 @@ Each of these components can be scaled out horizontally to accommodate different
 ingestion rates.
 
 The **user interface** (UI) is displayed to a browser, and all queries and computations are processed within the
-query/compute layer in the Wavefront cloud.  You log into the Wavefront UI via a standard web browser in many cases
+query and compute layers in the Wavefront application.  You log into the Wavefront UI via a standard web browser in many cases
 using an SSO solution.  One unique feature of the UI is the ability to display charts with data over any range of time
-(e.g. over an entire year). Another important architectural feature of Wavefront is the ability to use its API to
-interface with a custom application.  All actions within the UI have the capability of being accessed via the API.
-
-The **compute layer** combines points of data to display within a single pixel (depending on screen resolution)
-according to the summarization method that is most appropriate for your use case.  However, all calculations are done on
-the raw data set to ensure you get the most accurate representation of your query. For example, you may want to compare
-your data center's performance between two different years during the holiday period.
+(e.g. over an entire year). Another important architectural feature of Wavefront is the ability for custom applications
+to access Wavefront using the Wavefront **REST API**.  All actions within the UI can be accessed through the API.
 
 One of Wavefront's differentiators is the [Wavefront Time Series Query Language](time_series_language_reference), which
 allows you to harness the power of the platform to design your own key performance indicators from all of your metric
@@ -61,26 +57,29 @@ within your company about a particular condition that has been met.  For instanc
 server goes down.  The alerting functionality integrates with services such as PagerDuty to call the appropriate
 person/group in such a situation.
 
-The **storage layer** is designed to be elastic to accommodate an ever-changing number of metrics and sources.  These is
+The **compute layer** combines points of data to display within a single pixel (depending on screen resolution)
+according to the summarization method that is most appropriate for your use case.  However, all calculations are done on
+the raw data set to ensure you get the most accurate representation of your query. For example, you may want to compare
+your data center's performance between two different years during the holiday period.
+
+The **storage layer** is designed to be elastic to accommodate an ever-changing number of metrics and sources.  There is
 no fixed limit on the amount of data that can be stored in the storage layer.
 
 The **data ingestion layer** has been designed to accommodate extremely high data rates (in excess of 1 million points
 per second).  It can be scaled appropriately depending on your expected data rates and growth plans.  Like the storage
 layer, the data ingestion layer can have its capacity increased as you grow your usage of Wavefront.
 
-## Wavefront Proxy
-
 {% include help/proxies_intro.md %}
 
 In initial deployments you can start with one Wavefront proxy. However, to enable fault tolerance and higher data rates,
-production environments more typically employ a load balancer sending data to multiple Proxies as shown below:
+production environments more typically employ a load balancer sending data to multiple proxies as shown below:
 
 ![Wavefront architecture load balanced](images/wavefront_architecture_lb.png)
 
-## Agents
+## Collector Agents
 
-Agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include
-hosts, containers, and many different types of applications. Wavefront supports many standard agents, including
+Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include
+hosts, containers, and many different types of applications. Wavefront supports many standard collector agents, including
 [Telegraf](https://github.com/influxdata/telegraf), [Docker cAdvisor​](https://github.com/google/cadvisor), and others.
 
 {% include links.html %}
