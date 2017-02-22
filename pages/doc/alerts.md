@@ -9,3 +9,5 @@ summary: This describes how to manage alerts.
 ---
 
 {% include help/alerts_intro.md %}
+
+{% include help/create_alert.md %}
