@@ -6,11 +6,7 @@ sidebar: doc_sidebar
 permalink: display_events.html
 summary: This topic describes how to display events in charts.
 ---
-{% include help/events_intro.md %}
-
-## Displaying Events
-
-Icons associated with events can be displayed on the X-axis of a chart. If a single event occurs in a given time
+Icons associated with [events](events) can be displayed on the X-axis of a chart. If a single event occurs in a given time
 interval,  the event icon displays as a dot. If two or more events occur in a given time interval, the event icon
 displays as an asterisk <i class="fa fa-asterisk"></i>.  The color of an event icon is associated with the severity:
 
