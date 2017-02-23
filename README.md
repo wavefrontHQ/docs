@@ -1,1 +1,1 @@
-# wf-docs
+# Wavefront Documentation
