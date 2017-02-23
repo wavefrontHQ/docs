@@ -58,18 +58,19 @@ summary: This topic describes how to use external links.
     <tbody>
     <tr><th width="60%">Function</th><th width="40%">Description</th></tr>
     <tr>
-    <td markdown="span">`urlEncode`</td>
+    <td>urlEncode</td>
     <td>URL Encoder</td>
     </tr>
     <tr>
-    <td markdown="span">`epochMillisToEpochSeconds`</td>
+    <td>epochMillisToEpochSeconds</td>
     <td>Converts epoch milliseconds to epoch seconds.</td>
     </tr>
     <tr>
-    <td markdown="span">`epochMillisToISO`</td>
+    <td>epochMillisToISO</td>
     <td markdown="span">Converts epoch milliseconds to an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Dates) representation.</td>
     </tr>
-    <tr><td markdown="span">`epochMillisEra,epochMilliscenturyOfEra,
+    <tr>
+    <td>epochMillisEra,epochMilliscenturyOfEra,
      epochMillisyearOfEra,epochMillisYearOfCentury,
      epochMillisYear,epochMillisMonthOfYear,
      epochMillisDayOfYear,epochMillisDayOfMonth,
@@ -79,7 +80,7 @@ summary: This topic describes how to use external links.
      epochMillisHourOfHalfday,epochMillisHourOfDay,
      epochMillisMinuteOfDay,epochMillisMinuteOfHour,
      epochMillisSecondOfDay,epochMillisSecondOfMinute,
-     epochMillisMillisOfDay,epochMillisMillisOfSecond`
+     epochMillisMillisOfDay,epochMillisMillisOfSecond
     </td>
     <td markdown="span">
     0 for BC, 1 for AD. See [Joda-Time - Java date and time API](http://joda-time.sourceforge.net/field.html).
@@ -89,12 +90,37 @@ summary: This topic describes how to use external links.
     </table>
 1. Click **Save**.
 
-## Example
+## Example URL Template
+
+Consider the following external link URL template, which references the point tag name `service`:
+
 {% raw %}
 ```handlebars
 http://<hostname>?time:(from:'{{#functions.epochMillisToISO}}{{startEpochMillis}}{{/functions.epochMillisToISO}}',to:'{{#functions.epochMillisToISO}}{{endEpochMillis}}{{/functions.epochMillisToISO}}'))&{{#functions.urlEncode}}host:{{source}} AND source:"/mnt/logs/{{service}}.log"{{/functions.urlEncode}}'))
 ```
 {% endraw %}
 
+This template contains the substring:
+{% raw %}
+```handlebars
+{{#functions.urlEncode}}host:{{source}} AND source:"/mnt/logs/{{service}}.log"{{/functions.urlEncode}}
+```
+{% endraw %}
+
+Assuming `source=test` and `service=alerting`, the template evaluates to:
+
+{% raw %}
+```handlebars
+{{#functions.urlEncode}}host:test AND source:"/mnt/logs/alerting.log"{{/functions.urlEncode}}
+```
+{% endraw %}
+
+The string inside the function delimiters is URL encoded as:
+
+{% raw %}
+```handlebars
+host%3Atest%20AND%20source%3A%22%2Fmnt%2Flogs%2Falerting.log%22
+```
+{% endraw %}
 
 {% include links.html %}

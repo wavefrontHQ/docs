@@ -113,6 +113,14 @@ entries:
       url: /sending_log_data.html
       output: web
 
+  - title: Help
+    output: web
+    folderitems:
+
+    - title: Dashboards
+      url: /dashboards.html
+      output: web
+
   - title: Tags
     output: web
     folderitems:
