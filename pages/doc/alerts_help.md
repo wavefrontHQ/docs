@@ -15,6 +15,6 @@ You express a condition using [ts() queries](https://community.wavefront.com/doc
 
 ## Adding Notification Targets
 
-You can send notifications to targets such as email, pager services such as [PagerDuty](https://community.wavefront.com/docs/DOC-1056) and [VictorOps](https://community.wavefront.com/docs/DOC-1251), communication channels such as [Slack](https://community.wavefront.com/docs/DOC-1183) and [HipChat](https://community.wavefront.com/docs/DOC-1055) and you can also configure arbitrary actions such as invoking a [webhook]() and running an auto-remediation script.
+You can send notifications to targets such as email, pager services such as [PagerDuty](https://community.wavefront.com/docs/DOC-1056) and [VictorOps](https://community.wavefront.com/docs/DOC-1251), communication channels such as [Slack](https://community.wavefront.com/docs/DOC-1183) and [HipChat](https://community.wavefront.com/docs/DOC-1055), and you can also configure arbitrary actions such as invoking a [webhook](https://community.wavefront.com/docs/DOC-1054) and running an auto-remediation script.
 
 {% include links.html %}
