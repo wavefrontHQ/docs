@@ -4,6 +4,7 @@ keywords: dashboards
 sidebar: doc_sidebar
 toc: false
 permalink: rendering_test.html
+summary: This topic shows how different elements are rendered.
 ---
 
 ## Heading 2
@@ -12,10 +13,13 @@ permalink: rendering_test.html
 
 #### Heading 4
 
+
+A definition list:
+
 <dl>
 <dt>Definition Term</dt><dd>Definition</dd></dl>
 
-List with strong items.
+List with strong items:
 
 <ul>
 <li><strong>Item</strong> - Item details.</li>

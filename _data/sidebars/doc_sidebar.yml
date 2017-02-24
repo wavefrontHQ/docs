@@ -122,7 +122,11 @@ entries:
     folderitems:
 
     - title: Dashboards
-      url: /dashboards.html
+      url: /dashboards_help.html
+      output: web
+
+    - title: Alerts
+      url: /alerts_help.html
       output: web
 
     - title: Title

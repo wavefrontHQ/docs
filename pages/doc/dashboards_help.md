@@ -3,11 +3,11 @@ title: Dashboards
 keywords: dashboards
 sidebar: doc_sidebar
 toc: false
-permalink: dashboards.html
+permalink: dashboards_help.html
 ---
 ## Interacting with Dashboards and Charts
 
-Wavefront provides many ways to [work with dashboards and charts](https://community.wavefront.com/docs/DOC-1067).
+Wavefront provides many ways to [interact with dashboards and charts](https://community.wavefront.com/docs/DOC-1067).
 You can change time windows, share links, overlay events, and zoom in and out.
 
 ## Creating Charts
