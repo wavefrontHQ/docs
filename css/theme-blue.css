@@ -4,9 +4,9 @@
     font-size:16px;
 }
 
-
+h2 {color: #333333; }
 h3 {color: #333333; }
-h4 {color: #808080; }
+h4 {color: #333333; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background-color: #248ec2;

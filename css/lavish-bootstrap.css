@@ -50,7 +50,7 @@ abbr[title] {
 }
 b,
 strong {
-  font-weight: bold;
+  font-weight: 500;
 }
 dfn {
   font-style: italic;
@@ -491,7 +491,8 @@ dd {
   line-height: 1.428571429;
 }
 dt {
-  font-weight: bold;
+  font-weight: 500;
+  color: #333333;
 }
 dd {
   margin-left: 0;
