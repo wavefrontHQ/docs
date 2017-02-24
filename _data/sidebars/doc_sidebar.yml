@@ -81,6 +81,10 @@ entries:
       url: /alerts.html
       output: web
 
+    - title: Managing Maintenance Windows
+      url: /maintenance_windows.html
+      output: web
+
     - title: Integrating Webhooks with Alerts
       url: /webhooks.html
       output: web
@@ -119,6 +123,10 @@ entries:
 
     - title: Dashboards
       url: /dashboards.html
+      output: web
+
+    - title: Title
+      url: /rendering_test.html
       output: web
 
   - title: Tags
