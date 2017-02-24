@@ -121,8 +121,8 @@ entries:
     output: web
     folderitems:
 
-    - title: Dashboards
-      url: /dashboards_help.html
+    - title: Charts and Dashboards
+      url: /charts_dashboards_help.html
       output: web
 
     - title: Alerts
