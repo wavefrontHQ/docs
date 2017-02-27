@@ -4,7 +4,6 @@ keywords: dashboards
 sidebar: doc_sidebar
 toc: false
 permalink: rendering_test.html
-summary: This topic shows how different elements are rendered.
 ---
 
 ## Heading 2

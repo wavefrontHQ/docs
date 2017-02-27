@@ -5,7 +5,6 @@ tags: [query_language]
 datatable: true
 sidebar: doc_sidebar
 permalink: time_series_language_reference.html
-summary: This is a quick reference for the Wavefront time series query language.
 ---
 ## Query Elements
 <table width="100%">

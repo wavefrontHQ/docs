@@ -4,7 +4,6 @@ keywords:
 tags: [release_notes]
 sidebar: doc_sidebar
 permalink: 50_release_notes.html
-summary: These are the release notes for Wavefront 5.0.
 ---
 Wavefront 5.0 introduces many new capabilities focused on improving the usability of the UI, new alert and event behaviors, enhanced integration with logs, a new installer with an improved agent as the default, new integrations, and an updated API:
 

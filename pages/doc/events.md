@@ -4,7 +4,6 @@ keywords: events
 tags: [events]
 sidebar: doc_sidebar
 permalink: events.html
-summary: This topic describes how to manage events.
 ---
 {% include help/events_intro.md %}
 

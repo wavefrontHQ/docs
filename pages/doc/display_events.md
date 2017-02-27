@@ -4,7 +4,6 @@ keywords: events
 tags: [events]
 sidebar: doc_sidebar
 permalink: display_events.html
-summary: This topic describes how to display events in charts.
 ---
 Icons associated with [events](events) can be displayed on the X-axis of a chart. If a single event occurs in a given time
 interval,  the event icon displays as a dot. If two or more events occur in a given time interval, the event icon

@@ -5,7 +5,6 @@ tags: [alerts]
 datatable: true
 sidebar: doc_sidebar
 permalink: maintenance_windows.html
-summary: This describes how to manage maintenance windows.
 ---
 ## Creating a Maintenance Window
 

@@ -4,7 +4,6 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboard_variables.html
-summary: This topic describes how to use dashboard variables.
 ---
 Dashboard variables enable you to dynamically choose the value of components of ts() queries across multiple charts on a dashboard. All Wavefront users can select and temporarily alter the value of a dashboard variable. Only users with Dashboard Management permission can permanently save changes.
 
