@@ -4,6 +4,7 @@ keywords: webhooks
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: webhooks.html
+summary: This describes how to create webhooks.
 ---
 
 {% include help/webhooks_intro.md %}

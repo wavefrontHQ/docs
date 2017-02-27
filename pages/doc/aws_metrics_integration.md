@@ -4,6 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: aws_metrics_integration.html
+summary: This topic describes how to send AWS data to Wavefront.
 ---
 {% include help/aws_intro.md %}
 
@@ -116,7 +117,7 @@ You can view AWS metrics by selecting **Browse &gt; Metrics** and searching for 
 
 [<img src="images/aws_metrics.png" alt="aws_metrics.png"/>](images/aws_metrics.png)
 
-You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder **aws.ec2.**, then the metric **aws.ec2.cpuutilization**, and then refining the query by the **Region** point tag and the **topk** function yields the following chart:
+You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder **aws.ec2.**, then the metric **aws.ec2.cpuutilization**, and then refining the query by the **Region** point tag and the **topk** function yields the following chart:  
 
 [<img src="images/aws.cpuutilization.png" alt="aws.cpuutilization.png"/>](images/aws.cpuutilization.png)
 

@@ -4,6 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: sending_log_data.html
+summary: This topic describes how to send log data to Wavefront.
 ---
 Usually, the best way to send metrics to a monitoring system is to us a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from log data. This article describes two methods for sending log data metrics directly to your Wavefront Proxy: Filebeat and TCP. These methods are supported in Wavefront Proxy v4.4 and higher.
 

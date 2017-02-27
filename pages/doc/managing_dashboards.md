@@ -4,6 +4,7 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: managing_dashboards.html
+summary: This topic describes how to manage dashboards.
 ---
 ## Creating a Dashboard
 

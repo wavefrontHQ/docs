@@ -4,6 +4,7 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxy_configuration.html
+summary: This topic describes how to configure the Wavefront proxy.
 ---
 This document describes Wavefront proxy 4.4 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Version History](https://community.wavefront.com/docs/DOC-1131).
 
