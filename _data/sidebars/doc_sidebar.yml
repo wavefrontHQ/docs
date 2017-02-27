@@ -126,7 +126,7 @@ entries:
     folderitems:
 
     - title: Getting Data into Wavefront
-      url: /get_data.html
+      url: /get_data_help.html
       output: web
 
     - title: Charts and Dashboards
