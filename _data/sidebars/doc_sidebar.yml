@@ -109,6 +109,10 @@ entries:
       url: /aws_metrics_integration.html
       output: web
 
+    - title: cAdvisor Integration
+      url: /integrations_cadvisor.html
+      output: web
+
     - title: External Links
       url: /external_links.html
       output: web
