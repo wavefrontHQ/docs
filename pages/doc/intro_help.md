@@ -11,5 +11,6 @@ The major components of Wavefront include the **Wavefront SaaS application**, wh
 
 ![Wavefront architecture](images/wavefront_architecture.png)
 
+One of Wavefront's differentiators is the Time Series query language, or [ts() language](time_series_language_reference), which allows you to harness the power of the platform to design your own key performance indicators from all of your metric data. The ts() language has support for sophisticated statistical functions and can be used to construct simple and complex queries across multiple metrics/sources leveraging any combination of ts() functions (which include arithmetic operators, aggregate functions, time functions, filtering operators, conditional functions, etc.). 
 
 {% include links.html %}
