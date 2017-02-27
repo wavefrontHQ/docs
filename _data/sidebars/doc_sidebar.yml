@@ -125,6 +125,10 @@ entries:
     output: web
     folderitems:
 
+    - title: Introduction to Wavefront
+      url: /intro_help.html
+      output: web
+
     - title: Getting Data into Wavefront
       url: /get_data_help.html
       output: web

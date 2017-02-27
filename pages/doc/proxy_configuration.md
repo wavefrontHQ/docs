@@ -51,9 +51,9 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>buffer</td>
-<td>Location of buffer files for saving failed transmissions for retry. Default: <code class="highlighter-rouge">/var/spool/wavefront-proxy/buffer</code>.</td>
+<td>Location of buffer files for saving failed transmissions for retry. Default: <code>/var/spool/wavefront-proxy/buffer</code>.</td>
 <td>A valid path on the local file system.</td>
-<td><code class="highlighter-rouge">/var/spool/wavefront-proxy/buffer</code></td>
+<td><code>/var/spool/wavefront-proxy/buffer</code></td>
 <td>3.20</td>
 </tr>
 <tr>
@@ -144,9 +144,9 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>idFile</td>
-<td>Location of the PID file for the wavefront-proxy process. Default: <code class="highlighter-rouge">~/.dshell/id</code>.</td>
+<td>Location of the PID file for the wavefront-proxy process. Default: <code>~/.dshell/id</code>.</td>
 <td>A valid path on the local file system.</td>
-<td><code class="highlighter-rouge">/etc/wavefront/wavefront-proxy/.wavefront_id</code></td>
+<td><code>/etc/wavefront/wavefront-proxy/.wavefront_id</code></td>
 <td></td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr><tr>
 <td>logsIngestionConfigFile</td>
 <td>The file containing instructions for parsing log data into metrics.  See <a href="sending_log_data.html">Sending Log Data Metrics To Wavefront</a>.
-Default: <code class="highlighter-rouge">/etc/wavefront/wavefront-proxy/logsIngestion.yaml</code>.</td>
+Default: <code>/etc/wavefront/wavefront-proxy/logsIngestion.yaml</code>.</td>
 <td>A valid path on the local file system.</td>
 <td></td>
 <td>4.1</td>
@@ -190,7 +190,7 @@ production.nyc.dc1</td>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxy_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting points. Default: none.</td>
 <td>A valid path on the local file system.</td>
-<td><code class="highlighter-rouge">/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml</code></td>
+<td><code>/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml</code></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -391,31 +391,31 @@ If you have any other issues not listed below, or are having trouble resolving a
 <td>Install Java using your local package manager, and make sure that your path includes the Java binary.</td>
 </tr>
 <tr>
-<td>You see "Cannot fetch daemon configuration from remote server: org.jboss.resteasy.client.exception.ResteasyIOException: IOException" in <code class="highlighter-rouge">wavefront.log</code>.</td>
+<td>You see "Cannot fetch daemon configuration from remote server: org.jboss.resteasy.client.exception.ResteasyIOException: IOException" in <code>wavefront.log</code>.</td>
 <td>You may have an incorrect server URL in your wavefront.conf file; you may have blocked the outgoing connection to that server URL (port 443); or the Wavefront servers may be down.</td>
-<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://) provided to you by Wavefront and in your <code class="highlighter-rouge">wavefront.conf</code> file. If this fails, and you are certain that there are no firewall issues, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.</td>
+<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://) provided to you by Wavefront and in your <code>wavefront.conf</code> file. If this fails, and you are certain that there are no firewall issues, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.</td>
 </tr>
 <tr>
-<td>You see "Cannot post work unit result to Wavefront servers. Will enqueue and retry later." in <code class="highlighter-rouge">wavefront.log</code>.</td>
+<td>You see "Cannot post work unit result to Wavefront servers. Will enqueue and retry later." in <code>wavefront.log</code>.</td>
 <td>You may have an incorrect server URL in your wavefront.conf file; you may have blocked the outgoing connection to that server URL (port 443); or the Wavefront servers may be down.</td>
-<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://") provided to you by Wavefront and in your <code class="highlighter-rouge">wavefront.conf</code> file. If this fails, and you are certain that there are no firewall issues, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.</td>
+<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://") provided to you by Wavefront and in your <code>wavefront.conf</code> file. If this fails, and you are certain that there are no firewall issues, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.</td>
 </tr>
 <tr>
 <td>You see "Exception in thread "main" java.lang.UnsupportedClassVersionError:
-com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code class="highlighter-rouge">wavefront.log</code>.</span>
+com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code>wavefront.log</code>.</span>
 </td>
 <td>You are using Java 1.6 or lower instead of Java 1.7.</td>
 <td>Upgrade Java to 1.7 through your local package manager.</td>
 </tr>
 <tr>
-<td>You see "Exception in thread "Thread-2" java.net.BindException: Address already in use" in <code class="highlighter-rouge">wavefront.log</code>.</td>
+<td>You see "Exception in thread "Thread-2" java.net.BindException: Address already in use" in <code>wavefront.log</code>.</td>
 <td>You already have another process listening on port 2878, or may have started two proxies accidentally.</td>
 <td>Use the "ps" command to find and kill any existing proxies, and then start the proxy again.</td>
 </tr>
 <tr>
 <td>You can't "telnet localhost 2878"; the connection is refused.</td>
 <td>You may have an iptables rule blocking the traffic; the proxy might not be running; or you may be running "telnet localhost 2878" from a different machine from where the proxy is running.</td>
-<td>Use the <code class="highlighter-rouge">ps</code> command to make sure that the proxy is running, and examine your iptables rules to ensure that tcp port 2878 is accessible locally.</td>
+<td>Use the <code>ps</code> command to make sure that the proxy is running, and examine your iptables rules to ensure that tcp port 2878 is accessible locally.</td>
 </tr>
 </tbody>
 </table>
