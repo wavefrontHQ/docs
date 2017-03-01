@@ -430,7 +430,7 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 <tbody>
 <tr>
 <td><span>if(<span><span style="color: #3a0699;font-weight:bold;">expression</span></span>, <span style="color: #bf4b89;font-weight:bold;">ThenExpression</span>, <span class="expvar wysiwyg-color-yellow130" style="color: #08838c;font-weight:bold;">ElseExpression</span>)</span></td>
-<td><span>Returns <span><span style="color: #bf4b89;font-weight:bold;">ThenExpression</span></span></span> if <span style="color: #3a0699;font-weight:bold;">expression</span> &gt;=1. Otherwise, returns <span class="expvar wysiwyg-color-yellow130" style="color: #08838c;font-weight:bold;">ElseExpression</span>.
+<td><span>Returns <span><span style="color: #bf4b89;font-weight:bold;">ThenExpression</span></span></span> if <span style="color: #3a0699;font-weight:bold;">expression</span> &gt;=1. Otherwise, returns <span class="expvar wysiwyg-color-yellow130" style="color: #08838c;font-weight:bold;">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported.
 <span>Example: <span> if <span style="color: #505050;">(ts(<span style="color: #08838c;font-weight:bold;">my.metric</span>) &gt;= 10</span>, <span style="color: #bf4b89;font-weight:bold;">ts(my.metric)</span>, <span style="color: #08838c;font-weight:bold;">ts(another.metric)</span>)  returns </span><span style="color: #bf4b89;font-weight:bold;">ts(<span>my.metric</span>) only when <span style="color: #505050;">ts(<span style="color: #08838c;font-weight:bold">my.metric</span>)</span></span>&gt;= 10; when <span style="color: #505050;">ts(<span style="color: #08838c;font-weight:bold">my.metric</span>)</span></span> &lt; 10, it returns <span style="color: #08838c;font-weight:bold;">ts(<span>another.metric</span>)</span>.</td>
 </tr>
 </tbody>
@@ -753,6 +753,19 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 <tr>
 <td><span>haversine(<span style="color: #3a0699;font-weight:bold;">expression1</span>, <span style="color: #3a0699;font-weight:bold;">expression2</span>, <span style="color: #3a0699;font-weight:bold;">expression3</span>, ...)</span></td>
 <td><span>Returns the distance between coordinates. <span style="color: #3a0699;font-weight:bold;">expression</span><span style="color: #3a0699;font-weight:bold;">(s)</span> can be constants or ts() expressions.</span></td>
+</tr>
+</tbody>
+</table>
+
+## Troubleshooting
+
+<table style="width: 100%;">
+<tbody>
+<tr><th width="33%">Error</th><th width="34%">Resolution</th><th width="33%">Resolution</th></tr>
+<tr>
+<td>After entering a query expression the following error displays: <em>Query syntax error: Missing expression argument.</em></td>
+<td>An <span style="color: #3a0699;font-weight:bold;">expression</span> argument to a function is not well-formed.</td>
+<td>Build up the <span style="color: #3a0699;font-weight:bold;">expression</span> by small steps ensuring that the expression is valid at each step.</td>
 </tr>
 </tbody>
 </table>
