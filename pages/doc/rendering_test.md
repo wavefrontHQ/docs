@@ -17,7 +17,8 @@ summary: This topic shows how different elements are rendered.
 A definition list:
 
 <dl>
-<dt>Definition Term</dt><dd>Definition</dd></dl>
+<dt>Definition Term 1</dt><dd>Definition</dd>
+<dt>Definition Term 2</dt><dd>Definition</dd></dl>
 
 List with strong items:
 
