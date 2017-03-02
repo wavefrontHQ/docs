@@ -18,9 +18,7 @@ bar. Hover over the chart and set your cursor at a point in time. To make the ev
 If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.</li>
 </ul>
 
-
 ### Event Properties
-
 
 <table>
 <tbody>
