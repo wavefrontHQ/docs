@@ -53,7 +53,7 @@ entries:
     output: web
     folderitems:
 
-    - title: Time Series Query Language Reference
+    - title: Wavefront Query Language Quick Reference
       url: /time_series_language_reference.html
       output: web
 
