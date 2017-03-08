@@ -62,10 +62,10 @@ To configure which AWS metrics to ingest into Wavefront you can whitelist instan
 
 ### Wavefront Source Field
 
-Wavefront sets the value of the CloudWatch metric <a href="https://community.wavefront.com/docs/DOC-1031">source field</a> by service according to the following algorithm:
+Wavefront sets the value of the CloudWatch metric <a href="https://community.wavefront.com/docs/DOC-1031">source field</a> by service:
 
 -   **EC2** - the value of the **hostname**, **host**, or **name** [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), if the tags exist and you have an EC2 integration. Otherwise, the source is set to the Amazon instance ID.
--   **ELB** - the Amazon instance ID of the EC2 instance the load balancer is attached to.
+-   **EBS** - the Amazon instance ID of the EC2 instance the volume is attached to.
 -   All other services - the value of the *first* CloudWatch dimension. The supported dimensions appear at the bottom of the Amazon service metric documentation topic. For example, see [Amazon EC2 Dimensions](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ec2-metricscollected.html#ec2-metric-dimensions).
 
 ### Wavefront Point Tags
@@ -117,7 +117,7 @@ You can view AWS metrics by selecting **Browse &gt; Metrics** and searching for 
 
 [<img src="images/aws_metrics.png" alt="aws_metrics.png"/>](images/aws_metrics.png)
 
-You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder **aws.ec2.**, then the metric **aws.ec2.cpuutilization**, and then refining the query by the **Region** point tag and the **topk** function yields the following chart:  
+You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder **aws.ec2.**, then the metric **aws.ec2.cpuutilization**, and then refining the query by the **Region** point tag and the **topk** function yields the following chart:
 
 [<img src="images/aws.cpuutilization.png" alt="aws.cpuutilization.png"/>](images/aws.cpuutilization.png)
 

@@ -190,7 +190,7 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 -   Group by all available point tag keys: sum(ts(cpu.loadavg.1m), tags) or sum(ts(cpu.loadavg.1m), pointTags)
 -   Group by the region point tag key:sum(ts(cpu.loadavg.1m), region)
 
-<a name="filter">
+<span id="filter"></span>
 
 ## Filtering and Comparison Functions
 <table width="100%">
@@ -340,6 +340,8 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 </tr>
 </tbody>
 </table>
+
+<span id="moving"></span>
 
 ## Moving Window Time Functions
 <table width="100%">

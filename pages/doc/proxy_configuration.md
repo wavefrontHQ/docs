@@ -188,7 +188,7 @@ production.nyc.dc1</td>
 </tr>
 <tr>
 <td>preprocessorConfigFile</td>
-<td>Path to the optional preprocessor config file containing <a href="proxy_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting points. Default: none.</td>
+<td>Path to the optional preprocessor config file containing <a href="proxy_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: none.</td>
 <td>A valid path on the local file system.</td>
 <td><code>/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml</code></td>
 <td>4.1</td>

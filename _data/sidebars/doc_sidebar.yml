@@ -81,6 +81,10 @@ entries:
       url: /alerts.html
       output: web
 
+    - title: Alert States and Lifecycle
+      url: /alert_states_lifecycle.html
+      output: web
+
     - title: Managing Maintenance Windows
       url: /maintenance_windows.html
       output: web
