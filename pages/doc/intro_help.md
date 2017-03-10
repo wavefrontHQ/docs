@@ -6,6 +6,6 @@ permalink: intro_help.html
 ---
 {% include help/proxies_intro.md %}
 
-{% include help/add_proxy_first.md %}
+{% include help/proxy_first_add.md %}
 
 {% include links.html %}

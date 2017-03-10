@@ -7,6 +7,6 @@ permalink: alerts_help.html
 ---
 {% include help/alerts_intro.md %}
 
-{% include help/create_alert.md %}
+{% include help/alert_create.md %}
 
 {% include links.html %}
