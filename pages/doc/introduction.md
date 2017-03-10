@@ -24,7 +24,7 @@ proxies to forward this data to the Wavefront application.
 
 The following sections describe these components in more detail.
 
-## Wavefront Application
+## What is the Wavefront Application
 
 The Wavefront application has the following components:
 
@@ -44,9 +44,9 @@ to access Wavefront using the Wavefront **REST API**.  All actions within the UI
 Each of the layers can be scaled out horizontally to accommodate different use cases, data quantities, and
 ingestion rates.
 
-One of Wavefront's differentiators is the [Wavefront Time Series Query Language](time_series_language_reference), which
+One of Wavefront's differentiators is the [Wavefront Query Language](query_language_reference), which
 allows you to harness the power of the platform to design your own key performance indicators from all of your metric
-data. The ts() language has support for sophisticated statistical functions and can be used to construct simple and
+data. The query language has support for sophisticated statistical functions and can be used to construct simple and
 complex queries across multiple metrics/sources leveraging any combination of ts() functions (which include arithmetic
 operators, aggregate functions, time functions, filtering operators, conditional functions, etc.). The primary job of
 the **query layer** is to execute ts() language queries in the most efficient means possible. The query layer is
@@ -69,6 +69,9 @@ The **data ingestion layer** has been designed to accommodate extremely high dat
 per second).  It can be scaled appropriately depending on your expected data rates and growth plans.  Like the storage
 layer, the data ingestion layer can have its capacity increased as you grow your usage of Wavefront.
 
+In most cases before metrics can begin streaming to Wavefront from a host, application, or service you must add a
+Wavefront proxy to your installation.
+
 {% include help/proxies_intro.md %}
 
 In initial deployments you can start with one Wavefront proxy. However, to enable fault tolerance and higher data rates,
@@ -76,7 +79,7 @@ production environments more typically employ a load balancer sending data to mu
 
 ![Wavefront architecture load balanced](images/wavefront_architecture_lb.png)
 
-## Collector Agents
+## What is a Collector Agent
 
 Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include
 hosts, containers, and many different types of applications. Wavefront supports many standard collector agents, including
