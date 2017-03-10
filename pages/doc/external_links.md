@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: external_links.html
 summary: This topic describes how to use external links.
 ---
-{% include help/externallinks_intro.md %}
+{% include help/external_links_intro.md %}
 
 ## Creating an External Link
 

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: aws_metrics_integration.html
 summary: This topic describes how to send AWS data to Wavefront.
 ---
-{% include help/aws_intro.md %}
+{% include help/cloud_integrations_intro.md %}
 
 In summary, the integration options are:
 
