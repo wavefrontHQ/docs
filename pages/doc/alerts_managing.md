@@ -4,7 +4,7 @@ keywords: alerts
 tags: [alerts]
 datatable: true
 sidebar: doc_sidebar
-permalink: alerts.html
+permalink: alerts_managing.html
 summary: This describes how to manage alerts.
 ---
 ## Creating an Alert

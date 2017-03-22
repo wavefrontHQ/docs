@@ -3,10 +3,15 @@ title: AWS Metrics Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
-permalink: aws_metrics_integration.html
+permalink: integrations_aws_metrics.html
 summary: This topic describes how to send AWS data to Wavefront.
 ---
-Cloud integrations allow you to ingest metrics directly from cloud services. Wavefront offers [Amazon Web Services](http://aws.amazon.com) (AWS) [CloudWatch](http://aws.amazon.com/cloudwatch), [CloudTrail](http://aws.amazon.com/cloudtrail), and EC2 integrations.
+
+Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. Wavefront supports cloud integrations, which allow you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.
+ 
+You must have Proxy Management permission to set up an AWS cloud integration. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+
+Wavefront offers [Amazon Web Services](http://aws.amazon.com) (AWS) [CloudWatch](http://aws.amazon.com/cloudwatch), [CloudTrail](http://aws.amazon.com/cloudtrail), and EC2 integrations.
 
 - The CloudWatch integration retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data.

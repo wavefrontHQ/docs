@@ -3,7 +3,7 @@ title: Displaying Events in Charts
 keywords: events
 tags: [events]
 sidebar: doc_sidebar
-permalink: display_events.html
+permalink: events_displaying.html
 summary: This topic describes how to display events in charts.
 ---
 Icons associated with [events](events) can be displayed on the X-axis of a chart. If a single event occurs in a given time

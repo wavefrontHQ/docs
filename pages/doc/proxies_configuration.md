@@ -3,10 +3,10 @@ title: Wavefront Proxy Configuration
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
-permalink: proxy_configuration.html
-summary: This topic describes how to configure the Wavefront proxy.
+permalink: proxies_configuration.html
+summary: This topic describes how to configure a Wavefront proxy.
 ---
-This document describes Wavefront proxy 4.4 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Version History](https://community.wavefront.com/docs/DOC-1131).
+This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Version History](https://community.wavefront.com/docs/DOC-1131).
 
 ## Installing a Proxy
 
@@ -188,7 +188,7 @@ production.nyc.dc1</td>
 </tr>
 <tr>
 <td>preprocessorConfigFile</td>
-<td>Path to the optional preprocessor config file containing <a href="proxy_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: none.</td>
+<td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: none.</td>
 <td>A valid path on the local file system.</td>
 <td><code>/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml</code></td>
 <td>4.1</td>

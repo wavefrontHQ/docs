@@ -3,8 +3,8 @@ title: Integrating Webhooks with Alerts
 keywords: webhooks
 tags: [alerts]
 sidebar: doc_sidebar
-permalink: webhooks.html
-summary: This describes how to create webhooks.
+permalink: webhooks_alerts.html
+summary: This describes how to create webhooks and integrate them with alerts.
 ---
 
 {% include help/webhooks_intro.md %}

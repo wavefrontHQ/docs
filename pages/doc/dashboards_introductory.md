@@ -3,7 +3,7 @@ title: Introductory Dashboards
 keywords: dashboards
 tags: [dashboards, getting_started]
 sidebar: doc_sidebar
-permalink: intro_dashboards.html
+permalink: dashboards_introductory.html
 summary: This is an overview of the introductory dashboards.
 ---
 Wavefront offers a set of introductory dashboards to help new users learn about Wavefront components and use cases:

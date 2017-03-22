@@ -2,7 +2,7 @@
 title: Alert States and Lifecycle
 tags: [alerts]
 sidebar: doc_sidebar
-permalink: alert_states_lifecycle.html
+permalink: alerts_states_lifecycle.html
 summary: This article describes the alert lifecycle.
 ---
 

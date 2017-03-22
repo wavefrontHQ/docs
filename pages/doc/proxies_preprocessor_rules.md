@@ -3,7 +3,7 @@ title: Configuring Wavefront Proxy Preprocessor Rules
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
-permalink: proxy_preprocessor_rules.html
+permalink: proxies_preprocessor_rules.html
 summary: This topic describes how to configure Wavefront proxy preprocessor rules.
 ---
 Starting with version 4.1, the Wavefront proxy includes a preprocessor that applies various user-defined point filtering and altering rules before data is sent to Wavefront. One of the main goals of this functionality is to allow addressing correctable data quality issues within the existing data flow, when fixing the problem at the emitting source is not feasible. An example of such rule would be "before the point line is parsed, replace invalid characters with underscores", which allows points that would normally be rejected to flow into the system.

@@ -769,3 +769,5 @@ Example:
 </tr>
 </tbody>
 </table>
+
+{% include links.html %}

@@ -42,11 +42,11 @@ entries:
       output: web
 
     - title: Wavefront Proxy Configuration
-      url: /proxy_configuration.html
+      url: /proxies_configuration.html
       output: web
 
     - title: Configuring Wavefront Proxy Preprocessor Rules
-      url: /proxy_preprocessor_rules.html
+      url: /proxies_preprocessor_rules.html
       output: web
 
   - title: Query Language
@@ -62,15 +62,15 @@ entries:
     folderitems:
 
     - title: Introductory Dashboards
-      url: /intro_dashboards.html
+      url: /dashboards_introductory.html
       output: web
 
     - title: Managing Dashboards
-      url: /managing_dashboards.html
+      url: /dashboards_managing.html
       output: web
 
-    - title: Dashboards Variables
-      url: /dashboard_variables.html
+    - title: Dashboard Variables
+      url: /dashboards_variables.html
       output: web
 
   - title: Alerts
@@ -78,11 +78,11 @@ entries:
     folderitems:
 
     - title: Managing Alerts
-      url: /alerts.html
+      url: /alerts_managing.html
       output: web
 
     - title: Alert States and Lifecycle
-      url: /alert_states_lifecycle.html
+      url: /alerts_states_lifecycle.html
       output: web
 
     - title: Managing Maintenance Windows
@@ -90,7 +90,7 @@ entries:
       output: web
 
     - title: Integrating Webhooks with Alerts
-      url: /webhooks.html
+      url: /webhooks_alerts.html
       output: web
 
   - title: Events
@@ -102,7 +102,7 @@ entries:
       output: web
 
     - title: Displaying Events in Charts
-      url: /display_events.html
+      url: /events_displaying.html
       output: web
 
   - title: Integrations
@@ -110,7 +110,7 @@ entries:
     folderitems:
 
     - title: AWS Metrics Integration
-      url: /aws_metrics_integration.html
+      url: /integrations_aws_metrics.html
       output: web
 
     - title: cAdvisor Integration
@@ -122,27 +122,7 @@ entries:
       output: web
 
     - title: Sending Log Data Metrics To Wavefront
-      url: /sending_log_data.html
-      output: web
-
-  - title: Help
-    output: web
-    folderitems:
-
-    - title: Introduction to Wavefront
-      url: /intro_help.html
-      output: web
-
-    - title: Getting Data into Wavefront
-      url: /get_data_help.html
-      output: web
-
-    - title: Charts and Dashboards
-      url: /charts_dashboards_help.html
-      output: web
-
-    - title: Alerts
-      url: /alerts_help.html
+      url: /log_data_ingestion.html
       output: web
 
     - title: Title
