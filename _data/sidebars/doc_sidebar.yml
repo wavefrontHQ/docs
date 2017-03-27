@@ -24,6 +24,11 @@ entries:
       url: /tags_overview.html
       output: web
       type: homepage
+      
+    - title: Wavefront Charts
+      url: /charts.html
+      output: web
+
 
   - title: Release Notes
     output: web
