@@ -85,7 +85,7 @@ Click **Save** to save your dashboard and the dashboard variable.
 
 In the dashboard, selecting **Production** replaces **${var1}** in a ts() query with **tag=az-1** and selecting **Development** replaces **${var1}** in a ts() query with **tag=az-2**.
 
-![Varible list.png](images/db_list_variable.png)
+![Varible list.png](images/db_list_var.png)
 
 <span id="dynamic"></span>
 
