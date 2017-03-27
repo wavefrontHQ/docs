@@ -144,7 +144,7 @@ While Wavefront recommends that you move to the v2 API, the original API (`<Wave
 
 The API is now fully documented. When you open the <a href="https://community.wavefront.com/docs/DOC-1095">API documentation</a>, the Swagger specified API appears as:
 
-[<img src="images/Wavefront+API+v2.png" alt="Wavefront+API+v2.png" class="image-16 jive-image" width="1305" height="900" />](images/Wavefront+API+Bv2.png)
+[<img src="images/Wavefront_API_v2.png" alt="Wavefront_API_v2.png" class="image-16 jive-image" width="1305" height="900" />](images/Wavefront_API_Bv2.png)
 
 ### API Categories
 
