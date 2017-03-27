@@ -52,11 +52,11 @@ This release introduces several new patterns for performing actions on Wavefront
 
 -   Supports sorting along many axes including number of charts and favorites, last updated, updated by, and views:
 
-[<img src="images/dbfilter.png" alt="dbfilter.png" class="image-19 jive-image" width="139" height="152" />](images/dbfilter.png)
+[<img src="images/db_filter.png" alt="db_filter.png" class="image-19 jive-image" width="139" height="152" />](images/db_filter.png)
 
 -   Supports defining a global event() expression in dashboard preferences and corresponding display options:
 
-[<img src="images/dbevents.png" alt="dbevents.png" class="image-18 jive-image" width="198" height="138" />](images/dbevents.png)
+[<img src="images/db_events.png" alt="db_events.png" class="image-18 jive-image" width="198" height="138" />](images/db_events.png)
 
 -   The Landing page has been removed. The default landing page is now the **Intro: Home** dashboard. If the Default Dashboard property in user or customer preferences is empty, the landing page is **All Dashboards**.
 
