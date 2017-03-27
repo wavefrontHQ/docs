@@ -34,7 +34,7 @@ Tags allow you to flexibly manage and organize your Wavefront content. With this
 
 The following Alert Browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
-[<img src="images/MicroService.App4-Firing.png" alt="MicroService.App4-Firing.png" class="image-15 jive-image" width="119" height="549" />](images/MicroService.App4-Firing.png)
+[<img src="images/MicroService.App4_firing.png" alt="MicroService.App4_firing.png" class="image-15 jive-image" width="119" height="549" />](images/MicroService.App4_firing.png)
 
 ### Metrics
 
@@ -150,7 +150,7 @@ The API is now fully documented. When you open the <a href="https://community.wa
 
 Wavefront has added **eight** new categories of APIs and renamed the Management category to Source. The full list of categories is:
 
--   **Agent** - Retrieve information about Wavefront Proxies. Users with Agent Management permission can add and remove Wavefront Proxies.
+-   **Agent** - Retrieve information about Wavefront proxies. Users with Agent Management permission can add and remove Wavefront proxies.
 -   **Alert** - Retrieve all active, snoozed, in-maintenance, and invalid alerts. Users with Alert Management permission can create and update alerts.
 -   **Cloud Integration** - Retrieve integrations. Users with Agent Management permission can add and remove integrations with cloud services.
 -   **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with Dashboard Management permission can save, create, delete, clone, undelete dashboards.

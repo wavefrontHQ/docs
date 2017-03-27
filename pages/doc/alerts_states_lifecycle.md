@@ -34,7 +34,7 @@ An alert fires when its condition evaluates to at least one true value and zero 
 
 In the following example, the threshold for the alert is set to 50%. The event window from 09:34-09:35 identifies the interval during which the metric crossed the threshold going up. The event window from 09:39-09:40 identifies the interval during with the metric crossed the threshold going down. The settings for the alert were Alert fires = 2 minutes, Alert resolves = 2 minutes, and Checking frequency = 1 minute. The alert fires around 09:37:09 and resolves at 09:41:59.
 
-![Alert fires](images/alert-fire.png)
+![Alert fires](images/alert_fire.png)
 
 ## How do I determine how many alerts are firing?
 

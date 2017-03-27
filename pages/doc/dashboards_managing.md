@@ -56,13 +56,13 @@ From here you can rename your dashboard and enter a description. If you enter a 
 
 In a dashboard charts are contained in sections. By default, every dashboard has at least one section. A section table of contents displays directly below the time bar at the top of the dashboard. 
 
-[<img src="images/Section_Table_of_Contents.png" alt="Section Table of Contents.png" class="image-13 jive-image" width="698" height="102" />](images/Section_Table_of_Contents.png)
+![Section_Table_of_Contents](images/section_table_of_contents.png)
 
 You can quickly jump to a desired section by clicking it in the table of contents. If the table of contents is not displayed, then turn it on in the <a href="https://community.wavefront.com/docs/DOC-1068#prefs">Dashboard Display Preferences</a>.
 
 While editing a dashboard, you have the option of renaming a section, adding or removing a section, and moving a section up or down on the dashboard.
 
-[<img src="images/Section_Editing.png" alt="Section Editing.png" class="image-12 jive-image" width="1600" height="61" />](images/Section_Editing.png)
+![Section_Editing](images/section_editing.png)
 
 To change the name of a section, click the name. When you do this, the section name becomes editable. Hit enter or click anywhere away from the section name after the desired change is made. The icons on the right side of the section allow you to move the selected section, add a new section, and delete the selected section. You must save the dashboard for these changes to be permanent.
 
@@ -70,7 +70,7 @@ To change the name of a section, click the name. When you do this, the section n
 
 When your dashboard is in edit mode, you can resize individual chart rows on your dashboard by clicking the resize icons on the left side of each chart row:
 
-![Resize.png](images/Resize.png)
+![resize.png](images/resize.png)
 
 Resizing a chart row affects every chart located in that chart row.
 
@@ -120,7 +120,7 @@ To add tags to dashboards:
     - Click the **Create Tag** button, type a tag name, and click **Add**.
 
 ## Managing Charts
- 
+
 ### Adding Charts to a Dashboard
 
 To add a new chart to a dashboard:
@@ -136,7 +136,7 @@ To add a new chart to a dashboard:
 
 If you hover over an existing chart while a dashboard is in edit mode, three icons display in the bottom left corner of the chart box.
 
-[<img src="images/three_icons.png" alt="three icons.png" class="image-22 jive-image" width="34" height="81" />](images/three_icons.png)
+![three_icons](images/three_icons.png)
 
 that allow you to delete, clone, or edit the selected chart. When you clone a chart, it is created in a separate row below the selected chart.
 

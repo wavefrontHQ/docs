@@ -131,7 +131,7 @@ You can view AWS metrics by selecting **Browse &gt; Metrics** and searching for 
 
 You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder **aws.ec2.**, then the metric **aws.ec2.cpuutilization**, and then refining the query by the **Region** point tag and the **topk** function yields the following chart:
 
-[<img src="images/aws.cpuutilization.png" alt="aws.cpuutilization.png"/>](images/aws.cpuutilization.png)
+[<img src="images/aws_cpu_utilization.png" alt="aws_cpu_utilization.png"/>](images/aws_cpu_utilization.png)
 
 ### AWS Aggregate Metrics
 
@@ -139,10 +139,10 @@ All AWS metrics return the following aggregate metrics: average, maximum, minimu
 
 1.  Search for a specific metric, for example **aws.ec2.cpuutilization**:
 
-    [<img src="images/aws.cpuutilization_metric.png" alt="aws.cpuutilization_metric.png"/>](images/aws.cpuutilization_metric.png)
+    [<img src="images/aws_cpu_utilization_metric.png" alt="aws_cpu_utilization_metric.png"/>](images/aws_cpu_utilization_metric.png)
 
 2.  Click the metric folder, for example **aws.ec2.cpuutilization.,** to display the aggregate metrics:
 
-    [<img src="images/aws.cpuutilization_aggregate_metrics.png" alt="aws.cpuutilization_aggregate_metrics.png"/>](images/aws.cpuutilization_aggregate_metrics.png)
+    [<img src="images/aws_cpu_utilization_aggregate_metrics.png" alt="aws_cpu_utilization_aggregate_metrics.png"/>](images/aws_cpu_utilization_aggregate_metrics.png)
 
 {% include links.html %}
