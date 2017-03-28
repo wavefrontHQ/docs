@@ -9,7 +9,7 @@ summary: This topic describes how to send AWS data to Wavefront.
 
 Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. Wavefront supports cloud integrations, which allow you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.
  
-You must have Proxy Management permission to set up an AWS cloud integration. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+You must have [Proxy Management permission](permissions) to set up an AWS cloud integration. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
 
 Wavefront offers [Amazon Web Services](http://aws.amazon.com) (AWS) [CloudWatch](http://aws.amazon.com/cloudwatch), [CloudTrail](http://aws.amazon.com/cloudtrail), and EC2 integrations.
 
@@ -37,7 +37,7 @@ In summary, the integration options are:
 
 First grant Wavefront read-only access to your Amazon account. Run the Amazon Create New Role wizard where you provide Wavefront account and external IDs. In the Create New Role wizard Review, copy the Role ARN containing the Amazon account ID.
 
-[<img src="images/role_arn.png" alt="images/role_arn.png"/>](/images/role_arn.png)
+![Role ARN](images/role_arn.png)
 
 ## Adding a Cloud Integration
 
@@ -63,7 +63,7 @@ First grant Wavefront read-only access to your Amazon account. Run the Amazon Cr
 
 The Wavefront CloudWatch integration retrieves AWS metric and dimension data from AWS services using the AWS CloudWatch API. The complete list of metrics and dimensions that can be retrieved from AWS CloudWatch is available at <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon CloudWatch Metrics and Dimensions Reference</a>. In addition, you can publish <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">custom AWS metrics</a> that are also ingested by the Wavefront CloudWatch integration.
 
-<span id="whitelist">
+<a name="whitelist"></a>
 
 ### Configuring CloudWatch Metric Ingestion
 
@@ -71,6 +71,8 @@ To configure which AWS metrics to ingest into Wavefront you can whitelist instan
 
 -   **Instance and Volume Whitelist** fields - Whitelist instances and volumes by specifying <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">EC2 tags</a> (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume whitelisting you must also add an EC2 integration as the AWS tags are imported from EC2. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
 -   **RegExp Whitelist** field - Whitelist metrics by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for **elb** and **rds** (which come under **aws\.rds**), then use a regular expression such as: **^aws\.\(elb\|rds\)\.\*\$**. If you do not specify a regular expression, *all* CloudWatch metrics are retrieved.
+
+<a name="aws_sources"></a>
 
 ### Wavefront Source Field
 

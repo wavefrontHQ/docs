@@ -7,7 +7,16 @@ permalink: alerts_integration_webhooks.html
 summary: This describes how to create webhooks and integrate them with alerts.
 ---
 
-{% include help/webhooks_intro.md %}
+## What is a Webhook?
+
+A webhook is a user-defined HTTP callback. A webhook is usually triggered when a particular event occurs at the source
+site. When the event occurs, the source site makes an HTTP POST request to the URL configured for the webhook that
+contains data either passed as simple POST keys and values or in some other format such as JSON.
+
+To view and manage webhooks, select **Browse > Webhooks**.
+
+You must have [Alert Management permission](permissions) to manage webhooks. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+
 
 ## Creating a Webhook
 

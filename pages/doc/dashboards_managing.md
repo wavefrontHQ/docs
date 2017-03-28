@@ -6,6 +6,17 @@ sidebar: doc_sidebar
 permalink: dashboards_managing.html
 summary: This topic describes how to manage dashboards.
 ---
+
+## What is a Dashboard?
+
+Dashboards group a set of related [charts](charts). All charts in a dashboard share [display
+preferences](#prefs), [variables](dashboards_variables), and [events](events_charts#dashboards_events). Within
+dashboards you use [sections](#sections) to further organize charts.
+
+To view and manage dashboards, select **Dashboards > All Dashboards**.
+
+You must have [Dashboard Management permission](permissions) to manage dashboards. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+
 ## Creating a Dashboard
 
 The process for creating a dashboard can begin from the All Dashboards page, an existing dashboard, a chart, or the Metrics Browser.
@@ -21,6 +32,10 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 
 2.  Click **Create**. The dashboard displays in edit mode. You can either edit your dashboard at this time or save it and edit at a later time.
 
+## Deploying a Dashboard
+
+
+
 <span id="prefs"/>
 
 ## Setting Dashboard Preferences
@@ -28,8 +43,8 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 Dashboard preferences include:
 
 -   Dashboard name and description
--   Whether to display the description, <a href="https://community.wavefront.com/docs/DOC-1068#sections" section TOC</a>, and <a href="https://community.wavefront.com/docs/DOC-1062">dashboard variables</a>
--   A <a href="https://community.wavefront.com/docs/DOC-1063">global events() query</a>
+-   Whether to display the description, [section TOC](#sections), and [dashboard variables](dashboards_variables)
+-   A global [events() query](events_queries)
 -   Chart title display properties
 -   Default time window
 
@@ -58,7 +73,7 @@ In a dashboard charts are contained in sections. By default, every dashboard has
 
 ![Section_Table_of_Contents](images/section_table_of_contents.png)
 
-You can quickly jump to a desired section by clicking it in the table of contents. If the table of contents is not displayed, then turn it on in the <a href="https://community.wavefront.com/docs/DOC-1068#prefs">Dashboard Display Preferences</a>.
+You can quickly jump to a desired section by clicking it in the table of contents. If the table of contents is not displayed, then turn it on in the [Dashboard Display Preferences](#prefs).
 
 While editing a dashboard, you have the option of renaming a section, adding or removing a section, and moving a section up or down on the dashboard.
 
@@ -74,11 +89,11 @@ When your dashboard is in edit mode, you can resize individual chart rows on you
 
 Resizing a chart row affects every chart located in that chart row.
 
-### JSON Editing
+### Editing the Dashboard JSON
 
-All of the changes described above can also be done through the JSON editor. In order to access the JSON editor, click **Edit JSON** next to the **Save** button on the task bar. This link is only displayed when your dashboard is in edit mode. Only use this option if you have a good understanding of JSON.
+All of the changes described above can also be done by editing the dashboard's JSON format. In order to access the JSON editor, click **Edit JSON** next to the **Save** button on the task bar. This link is only displayed when your dashboard is in edit mode. Only use this option if you have a good understanding of JSON.
 
-When editing a dashboard, you may make several changes at a time. If you wish to remove a single change, but not the changes made before it, then you can click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
+When editing a dashboard, you may make several changes at a time. If you wish to remove a single change, but not the changes made before it, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
 
 ## Managing Dashboards
 
@@ -88,7 +103,7 @@ You can delete dashboards, revert a dashboard to a previous version, and manage 
 
 You can delete a dashboard from the All Dashboards page or the specific dashboard you want to remove.
 
--   From the All Dashboards page, locate the dashboard that you'd like to remove from the dashboards list and select  ![action_menu.png](images/action_menu.png#inline) **&gt; Delete**.
+-   From the All Dashboards page, locate the dashboard that you'd like to remove from the dashboards list and select  ![action_menu.png](images/action_menu.png#inline) **> Delete**.
 -   If you are viewing a dashboard and want to delete it, click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Delete**.
 
 You are prompted with a secondary message to confirm you want to delete the dashboard. Once confirmed, the dashboard is moved to the Trash bin.  You can view the Trash bin by clicking the trash toggle: Off -![trash_off.png](images/trash_off.png#inline#inline)  On - ![trash_on.png](images/trash_on.png#inline).
@@ -99,42 +114,33 @@ If you delete a dashboard by mistake, it can be recovered within 30 days of dele
 
 Wavefront keeps track of changes made to a dashboard, and displays those changes in the Dashboard History page. You can access a dashboard's history from the All Dashboards page or directly from a dashboard.
 
--   From the All Dashboards page, find the desired dashboard in the list and select ![action_menu.png](images/action_menu.png#inline) **&gt; Versions**.
+-   From the All Dashboards page, find the desired dashboard in the list and select ![action_menu.png](images/action_menu.png#inline) **> Versions**.
 -   From a dashboard,  click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Versions**.
 
 From the Past Versions page, each revision is listed along with the user who made the change, the day and time it was updated, and the change description.
 
-If you want to revert a change,  select ![action_menu.png](images/action_menu.png#inline) **&gt; Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list. You can also choose to view a previous dashboard version before reverting by clicking the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **&gt; Clone**  to create a new dashboard based on the revision you chose.
+If you want to revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list. You can also choose to view a previous dashboard version before reverting by clicking the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
 
-### Managing Tags
+### Managing Dashboard Tags
 
-Tags group together dashboards according to categories you define. By team, datacenter, or geo-location are just a few examples of how tags can be used. Tags display as blue tags in the filter bar and below each dashboard in the All Dashboards page. 
-
-To add tags to dashboards:
-
-1. Choose which dashboards to tag:
-    - Click the checkboxes next to the dashboard(s). Click the **+ Tag** button at the top of the page.
-    - Click **+tag** below a dashboard.
-2. Add existing tags or create a new tag:
-    - To add an existing tag, in the Search box optionally type a tag name to filter the list of tags. Click the tag.
-    - Click the **Create Tag** button, type a tag name, and click **Add**.
+See [Tags Overview](tags_overview#entity_tags).
 
 ## Managing Charts
 
-### Adding Charts to a Dashboard
+### Adding a Chart to a Dashboard
 
 To add a new chart to a dashboard:
 
 1.  Navigate to the dashboard and put it in edit mode.
-1.  Find the section you want to place the chart in. Click <span class="fa-plus-circle fa"/>  Add New Chart. An Add Chart box displays.
-1.  Enter a ts() expression into the source field. For information on ts() expressions, see <a href="https://community.wavefront.com/docs/DOC-1019" >Getting Started with Wavefront Query Language</a> and [Wavefront Query Language Quick Reference](query_language_reference).
-1.  In the Chart section, customize your chart. See <a href="https://community.wavefront.com/docs/DOC-1158">Wavefront Charts</a> to learn more about customization options.
+1.  Find the section you want to place the chart in. Click <span class="fa-plus-circle fa"/> Add New Chart. An Add Chart box displays.
+1.  Enter a Wavefront Query Language expression into the New Query field. See [Getting Started with Wavefront Query Language](query_language_getting_started) and [Wavefront Query Language Quick Reference](query_language_reference).
+1.  In the Chart section, customize your chart. See [Wavefront Charts](charts) to learn more about customization options.
 1.  Click **Accept**. The new chart displays in the section you selected.
 1.  Save the dashboard.
 
 ### Deleting, Cloning, and Making Permanent Changes to a Chart
 
-If you hover over an existing chart while a dashboard is in edit mode, three icons display in the bottom left corner of the chart box.
+If you hover over an existing chart while a dashboard is in edit mode, three icons display in the bottom left corner of the chart box:
 
 ![three_icons](images/three_icons.png)
 
@@ -147,11 +153,11 @@ While deleting and cloning a chart is available only when a dashboard is in edit
 To customize the placement of charts when a dashboard is in edit mode:
 
 1.  Hover over a chart, left-click your mouse, and hold.
-2.  Drag the chart to its new position on the dashboard. You can place up to four charts in a row. Keep in mind that the more charts in a row, the smaller each chart will be. Smaller charts in each row also affect the number of point buckets and amount of time represented by each point bucket. You can move a chart to a new row by dragging a chart over an <span class="fa-plus-circle fa"/>  Add New Chart box.
+2.  Drag the chart to its new position on the dashboard. You can place up to four charts in a row. Keep in mind that the more charts in a row, the smaller each chart will be. Smaller charts in each row also affect the number of point buckets and amount of time represented by each point bucket. You can move a chart to a new row by dragging a chart over an <span class="fa-plus-circle fa"/> Add New Chart box.
 3.  Save the dashboard.
 
 ## Creating and Managing Dashboard Variables
 
-You can apply dashboard variables to an existing dashboard. For information on dashboard variables, see [Dashboard Variables](dashboards_variables).
+You can apply dashboard variables to an existing dashboard. See [Dashboard Variables](dashboards_variables).
 
 {% include links.html %}

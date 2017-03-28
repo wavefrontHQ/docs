@@ -7,6 +7,16 @@ sidebar: doc_sidebar
 permalink: maintenance_windows_managing.html
 summary: This describes how to manage maintenance windows.
 ---
+
+## What is a Maintenance Window?
+
+A maintenance window is a time window when disruptive operations occur as a result of system maintenance or testing. These disruptive operations create a high likelihood of causing alerts to fire. A maintenance window
+allows you to identify when maintenance is scheduled and prevent affected alerts from firing.
+
+You must have [Alert Management permission](permissions) to manage maintenance windows. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+
+You can close (end) maintenance windows before they are due to end and you can extend the end time by various increments.
+
 ## Creating a Maintenance Window
 
 You create an alert by:

@@ -14,7 +14,7 @@ Every Wavefront instance contains a set of introductory dashboards to help new u
   - Intro: Dashboard Basics: Chart Types - introduces dashboard chart types and options: line, point, stacked area, scatter, etc.
   - Intro: Creating Alerts - describes how to create an alert and configure notification of the alert.
 - Use cases - **wavefront.tutorial**
-  - Intro: Use Case: Code Push Event - describes how to use Wavefront Query Language to develop queries to explore the effect 1. of a code push event on a collection of servers.
+  - Intro: Use Case: Code Push Event - describes how to use Wavefront Query Language to develop queries to explore the effect of a code push event on a collection of servers.
   - Intro: Use Case: Anomaly Detection Series - Part 1 - describes how to use Wavefront Query Language to investigate anomalous application behavior.
 - Examples - **wavefront.example**
   - Intro: Sample Cluster Metrics - displays metrics from a cluster containing several types of sources (application server, database, host, network, etc.).

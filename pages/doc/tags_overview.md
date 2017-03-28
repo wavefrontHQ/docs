@@ -75,7 +75,6 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 ## Tag Paths
 
 All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot '.'. For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **wavefront.**.
- 
 
 
 ### Selecting and Searching Tag Paths
@@ -84,11 +83,15 @@ In the UI you operate on tag paths by selecting a component at a specific node i
 
 In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
+<a name="entity_tags"></a>
+
 ## Entity Tags
+
+Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
 
 ### Adding Entity Tags
 
-To add entity tags you must have the appropriate [entity permission](https://community.wavefront.com/docs/DOC-1090). If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+To add entity tags you must have the appropriate [permission](permissions). If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
 
 To add tags to one or more entities:
 

@@ -65,8 +65,24 @@ entries:
     output: web
     folderitems:
 
+    - title: Getting Started with Wavefront Query Language
+      url: /query_language_getting_started.html
+      output: web
+
+    - title: Query Builder
+      url: /query_language_query_builder.html
+      output: web
+
+    - title: Using Point Tags in Queries
+      url: /query_language_using_point_tags.html
+      output: web
+
     - title: Wavefront Query Language Reference
       url: /query_language_reference.html
+      output: web
+      
+    - title: Series Matching
+      url: /query_language_series_matching.html
       output: web
 
   - title: Dashboards
@@ -79,6 +95,14 @@ entries:
 
     - title: Dashboard Variables
       url: /dashboards_variables.html
+      output: web
+
+    - title: Managing Metrics
+      url: /metrics_managing.html
+      output: web
+
+    - title: Managing Sources
+      url: /sources_managing.html
       output: web
 
   - title: Alerts
@@ -98,7 +122,7 @@ entries:
       output: web
 
     - title: Integrating Webhooks with Alerts
-      url: /alerts_integration_webhooks.html
+      url: /alerts_integrating_webhooks.html
       output: web
 
   - title: Events
@@ -109,16 +133,16 @@ entries:
       url: /events_managing.html
       output: web
 
-    - title: Using events() Queries
+    - title: Displaying Events in Charts
+      url: /charts_events_displaying.html
+      output: web
+
+    - title: Basic events() Queries
       url: /events_queries.html
       output: web
 
     - title: Advanced events() Queries
       url: /events_queries_advanced.html
-      output: web
-
-    - title: Managing Event Displays from a Dashboard
-      url: /events_displaying.html
       output: web
 
   - title: Integrations
@@ -133,8 +157,8 @@ entries:
       url: /integrations_cadvisor.html
       output: web
 
-    - title: External Links
-      url: /external_links.html
+    - title: Managing External Links
+      url: /external_links_managing.html
       output: web
 
     - title: Sending Log Data Metrics To Wavefront
@@ -144,6 +168,18 @@ entries:
     - title: Title
       url: /rendering_test.html
       output: web
+      
+  - title: Permissions
+    output: web
+    folderitems: 
+      
+      - title: Permissions Overview
+        url: /permissions.html
+        output: web
+        
+      - title: Managing Users
+        url: /users_managing.html
+        output: web
 
   - title: Tags
     output: web

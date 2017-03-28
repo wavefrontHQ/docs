@@ -79,6 +79,4 @@ If the alert is still currently firing in Wavefront and there is a change to the
 
 Following the incident being resolved in PagerDuty, if the only alert status change that occurs is all affected sources are resolved, and thus the alert being resolved in Wavefront, then nothing will occur. No new incident will be logged into PagerDuty.
 
-
-
 {% include links.html %}

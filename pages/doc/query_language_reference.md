@@ -574,6 +574,7 @@ Example:
 </table>
 
 ## Event Functions
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -639,6 +640,10 @@ Example:
 </tr>
 </tbody>
 </table>
+
+Example: events(type=alert, name=&quot;disk space is low&quot;, alertTag=MicroService.App1.\*) 
+
+See [Basic events() Queries](events_queries) and [Advanced events() Queries](events_queries_advanced).
 
 <a name="event_filters"></a>
 
@@ -715,7 +720,6 @@ Example:
 </tbody>
 </table>
 
-<span>Example: events(type=alert, name=&quot;disk space is low&quot;, alertTag=MicroService.App1.\*) For more information, see Using events() Queries and Advanced event() expressions.</span>
 
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">

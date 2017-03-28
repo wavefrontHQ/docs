@@ -1,11 +1,14 @@
 ---
-title: External Links
+title: Managing External Links
 keywords: external links
 tags: [integrations]
 sidebar: doc_sidebar
-permalink: external_links.html
-summary: This topic describes how to use external links.
+permalink: external_links_managing.html
+summary: This topic describes how to manage external links.
 ---
+
+## What is an External Link?
+
 External links provide integration between Wavefront and external systems. If you use logging systems such as ELK and
 Splunk, you can easily construct a meaningful URL to navigate from Wavefront to a log entry.
 
@@ -15,6 +18,16 @@ External links allow you to click through from a Wavefront series directly to a 
 logging system.
 
 External links are general purpose: you can link through to any type of system, not just logs.
+
+To view and manage external links, select **Browse > External Links**.
+ 
+You must have [External Links Management permission](permissions) to manage external links. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+
+## Navigating to an External Link
+
+1. Right-click a series. The series context menu displays.
+1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created. Only series that match all the filters specified when the link was created display \<linkname\> in the External Links context menu.
+
 
 ## Creating an External Link
 
