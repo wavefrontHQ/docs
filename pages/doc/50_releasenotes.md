@@ -29,12 +29,12 @@ Tags allow you to flexibly manage and organize your Wavefront content. With this
 
 ### Search
 
--   Faceted searching - The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Web Hooks, and External Links pages now include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. <span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. In addition there are type-specific facets. For example, Events and Maintenance Windows have the State facet.</span>
+-   Faceted searching - The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links pages now include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. <span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. In addition there are type-specific facets. For example, Events and Maintenance Windows have the State facet.</span>
 -   Saved searches - The faceted filter bar includes a set of commonly used saved searches. In addition, you can also save your own searches. Once you start searching, the following icons [<img src="images/searchicons.png" alt="searchicons.png" class="image-20 jive-image" width="117" height="27" />](images/searchicons.png) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, duplicating, and deleting the search.
 
 The following Alert Browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
-[<img src="images/MicroService.App4_firing.png" alt="MicroService.App4_firing.png" class="image-15 jive-image" width="119" height="549" />](images/MicroService.App4_firing.png)
+![Tag path](images/microService.app4_firing.png)
 
 ### Metrics
 
@@ -51,12 +51,10 @@ This release introduces several new patterns for performing actions on Wavefront
 ## Dashboards
 
 -   Supports sorting along many axes including number of charts and favorites, last updated, updated by, and views:
+  ![Dashboard filters](images/db_filter.png)
 
-[<img src="images/db_filter.png" alt="db_filter.png" class="image-19 jive-image" width="139" height="152" />](images/db_filter.png)
-
--   Supports defining a global event() expression in dashboard preferences and corresponding display options:
-
-[<img src="images/db_events.png" alt="db_events.png" class="image-18 jive-image" width="198" height="138" />](images/db_events.png)
+-   Supports defining a global **events()** expression in dashboard preferences and corresponding display options:
+  ![Dashboard events](images/db_events.png)
 
 -   The Landing page has been removed. The default landing page is now the **Intro: Home** dashboard. If the Default Dashboard property in user or customer preferences is empty, the landing page is **All Dashboards**.
 
@@ -84,7 +82,7 @@ Alerts have been enhanced in several aspects. Newly surfaced alert properties an
 
 Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront Proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the Proxy for parsing. Splunk's Universal Forwarder is also supported.
 
-See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](sending_log_data).
+See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](log_data_ingestion).
 
 <span id="external"></span>
 
@@ -98,7 +96,7 @@ External links employ a template language that allows you to pass information ab
 
 Once configured, to navigate to external link, right-click a time series and select **External Links &gt; &lt;linkName&gt;**. For example, to navigate to an ELK instance you would select
 
-[<img src="images/elk_external_link.png" alt="elk_external_link.png" class="image-17 jive-image" width="386" height="106" />](images/elk_external_link.png)
+![External links](images/elk_external_link.png)
 
 For more information, see <a href="https://community.wavefront.com/docs/DOC-1242">External Links</a>.
 
@@ -138,13 +136,15 @@ The API has been updated to support new UI features and make the method signatur
 
 For example, to return all alerts using the v2 API, invoke
 
-    curl 'https://<Wavefront_instance>/api/v2/alert' header 'Authorization:Bearer <API_token>'
+```shell
+  curl 'https://<Wavefront_instance>/api/v2/alert' header 'Authorization:Bearer <API_token>'
+```
 
 While Wavefront recommends that you move to the v2 API, the original API (`<Wavefront_instance>/api/`), though deprecated, is still supported. As before, the UI leverages only the public API.
 
 The API is now fully documented. When you open the <a href="https://community.wavefront.com/docs/DOC-1095">API documentation</a>, the Swagger specified API appears as:
 
-[<img src="images/Wavefront_API_v2.png" alt="Wavefront_API_v2.png" class="image-16 jive-image" width="1305" height="900" />](images/Wavefront_API_Bv2.png)
+![Wavefront API](images/wavefront_api_v2.png)
 
 ### API Categories
 

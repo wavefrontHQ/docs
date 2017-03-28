@@ -29,6 +29,9 @@ entries:
       url: /charts.html
       output: web
 
+    - title: Introductory Dashboards
+      url: /dashboards_introductory.html
+      output: web
 
   - title: Release Notes
     output: web
@@ -70,10 +73,6 @@ entries:
     output: web
     folderitems:
 
-    - title: Introductory Dashboards
-      url: /dashboards_introductory.html
-      output: web
-
     - title: Managing Dashboards
       url: /dashboards_managing.html
       output: web
@@ -95,19 +94,27 @@ entries:
       output: web
 
     - title: Managing Maintenance Windows
-      url: /maintenance_windows.html
+      url: /maintenance_windows_managing.html
       output: web
 
     - title: Integrating Webhooks with Alerts
-      url: /webhooks_alerts.html
+      url: /alerts_integration_webhooks.html
       output: web
 
   - title: Events
     output: web
     folderitems:
 
-    - title: Events
-      url: /events.html
+    - title: Managing Events
+      url: /events_managing.html
+      output: web
+
+    - title: Using events() Queries
+      url: /events_queries.html
+      output: web
+
+    - title: Advanced events() Queries
+      url: /events_queries_advanced.html
       output: web
 
     - title: Managing Event Displays from a Dashboard
@@ -131,7 +138,7 @@ entries:
       output: web
 
     - title: Sending Log Data Metrics To Wavefront
-      url: /log_data_ingestion.html
+      url: /integrations_log_data.html
       output: web
 
     - title: Title

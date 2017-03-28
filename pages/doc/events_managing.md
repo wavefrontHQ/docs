@@ -3,7 +3,7 @@ title: Events
 keywords: events
 tags: [events]
 sidebar: doc_sidebar
-permalink: events.html
+permalink: events_managing.html
 summary: This topic describes how to manage events.
 ---
 An event is a record that something of interest has occurred&mdash;an alert has changed state,
@@ -13,8 +13,7 @@ Events originate from several different sources. When you perform actions in Wav
 
 You can close (end) user events that are ongoing (whether they have no end time or a specific end time).
 
-Events display as icons on the X-axis and as lines and regions of a chart. You specify which events display using [events() expressions](https://community.wavefront.com/docs/DOC-1157) and control whether they display at the [chart](https://community.wavefront.com/docs/DOC-1158#jive_content_id_Display_Source_Events) or [dashboard](events_displaying) level. 
-
+Events display as icons on the X-axis and as lines and regions of a chart. You specify which events display using [events() queries](events_queries) and control whether they display at the [chart](charts#source_events) or [dashboard](events_displaying) level. 
 
 ## Creating an Event
 
@@ -71,3 +70,17 @@ If the start and end time for the desired event are included in the current time
 </tr>
 </tbody>
 </table>
+
+## Deleting User Events
+
+You can delete one or more user events by checking the checkboxes next to the events and clicking the Trash icon <i class="fa fa-trash"></i> at the top of the Events page. The Trash icon is grayed out if any of the selected events cannot be deleted. To delete a single user event, select ![action menu](images/action_menu.png#inline) **> Delete** to the right of the event.
+
+## Closing an Ongoing Event
+Ongoing events do not have an end time. To close ongoing events, check the checkboxes next to the events and click the **Close** button. The Close button is grayed out if any of the selected events cannot be closed.
+To close a single event, select ![action menu](images/action_menu.png#inline) **> Close** to the right of the event.
+
+## Managing Event Tags
+
+See [Tags Overview](tags_overview)
+
+{% include links.html %}

@@ -14,17 +14,19 @@ Describes options common to all chart types.
 
 ### General
 
+General options.
+
 #### Name
 
 The name of the chart. When a chart name is entered, it displays on the top right hand corner of the chart. There is no restriction on what you can enter as a chart name.
 
 #### Point Tag Display Options
 
-Choose which <a href="https://community.wavefront.com/docs/DOC-1029" class="jive-link-wiki-small">point tags</a> to display on the chart legend or table.
+Which <a href="https://community.wavefront.com/docs/DOC-1029" class="jive-link-wiki-small">point tags</a> to display on the chart legend or table.
 
--   **Show All** - Show all point tags
+-   **Show all** - Show all point tags
 -   **Top** - Show top N most frequent point tags
--   **Custom** - Show point tags of entered point tag keys
+-   **Custom** - Show point tags of specific point tag keys
 
 #### Summarize By
 
@@ -33,6 +35,8 @@ Point buckets represent summarized data across a certain amount of time. You can
 You can summarize the raw data values within each point bucket by **Average**, **Median**, **Min**, **Max**, **Count**, and **Sum**.  Suppose the horizontal scale for your chart is “240 point buckets across, 1 bucket – 30 sec (est)”. When you choose the **Median** summarization method, the raw data values reported in each 30 second boundary are aggregated and the median value displays as a point bucket.
 
 The **Count** summarization method counts the **number** of raw data values reported in each 30 second boundary, and displays that value as a point bucket. **First** assigns a value to each point bucket based on the **first** raw data value reported within the bucket. **Last** works in a similar manner, but the point bucket value is based on the **last** raw data value reported within the bucket.
+
+<a name="source_events"></a>
 
 #### Display Source Events
 
@@ -49,12 +53,11 @@ The color of the event overlays are determined by the alert severity:
 
 ![Event overlay](images/event_overlay.png)
 
-You can also use <a href="https://community.wavefront.com/docs/DOC-1157" class="jive-link-wiki-small">events() queries</a> to display events in charts. Dashboards provide you with many <a href="https://community.wavefront.com/docs/DOC-1063" class="jive-link-wiki-small">options</a> for when to display events in all charts contained in the dashboard.
+You can also use <a href="https://community.wavefront.com/docs/DOC-1157" class="jive-link-wiki-small">events() queries</a> to display events in charts. Dashboards provide many [options](events_displaying) for when to display events in all charts contained in the dashboard.
 
 #### Interpolate Points
 
 Whether to interpolate points that exist only in the past or future into the current time window.
-
 
 #### Include Obsolete Metrics
 
@@ -76,29 +79,28 @@ The minimum and maximum value on the Y-axis. If you are using a double Y-axis, y
 
 The unit of measurement to assign to the reported chart values label that appears along the Y-axis of the chart. For example, if the data for ts(“requests.latency”) is in milliseconds, you can either enter **ms** in the text field or click the **Units** down-arrow and select **Time &gt; ms**.
 
-The specified unit is merely a label and *does not* change the unit of measurement for the given expression. If you are using a double Y-axis, you can specify unit for each Y-axis. For information on unit prefixes and dynamic units, see <a href="https://community.wavefront.com/docs/DOC-1168" class="jive-link-wiki-small">Units in Chart Axes and Legends</a>.
+The specified unit is merely a label and *does not* change the unit of measurement for the given expression. If you are using a double Y-axis, you can specify a unit for each Y-axis. For information on unit prefixes and dynamic units, see <a href="https://community.wavefront.com/docs/DOC-1168" class="jive-link-wiki-small">Units in Chart Axes and Legends</a>.
 
 ### Style
 
-Options that control the style of your charts.
+Options that control the style of the chart.
 
 #### Gap Threshold
 
-Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is entered in seconds. Dashed lines on a chart represent missing data. Gap thresholds do not fill in values for missing data, but instead just give a visual representation that the data is still there. If you hover over the chart, you won't see values where the gap threshold has been applied.
+Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds. Dashed lines on a chart represent missing data. Gap thresholds do not fill in values for missing data, but instead just give a visual representation that the data is still there. If you hover over the chart, you won't see values where the gap threshold has been applied.
 
 #### Interpolation
 
-The type of interpolation between each point bucket:
+The function used to join points between each point bucket:
 
--   **Linear** - points are joined by a straight line.
--   **Step Before** - points are joined by a step value at the beginning of the bucket.
--   **Step After** -  points are joined by a step value at the end of the bucket.
--   **Basis** - points are joined by a B-spline.
--   **Cardinal** - points are joined by a Cardinal spline.
--   **Monotone** - points are joined by a cubic interpolation that preserves monotonicity.
+-   **Linear** - a straight line.
+-   **Step Before** - a step value at the beginning of the bucket.
+-   **Step After** -  a step value at the end of the bucket.
+-   **Basis** - a B-spline.
+-   **Cardinal** - a Cardinal spline.
+-   **Monotone** - a cubic interpolation that preserves monotonicity.
 
 ### Description
-
 
 A description of the chart. This is typically created by users with Dashboard Management permission, since most of the time you want the chart description to be saved for other users to view.
 
@@ -106,7 +108,7 @@ A description of the chart. This is typically created by users with Dashboard Ma
 
 Options that control the legend display.
 
-#### Non-Summarized Stats
+#### Non-summarized Stats
 
 Whether to report summarized or raw values for all metric values and statistics in the legend. When this setting is disabled, the legend reports summarized values according to the **Summarize By** setting.
 
@@ -132,10 +134,9 @@ Filter which metrics are displayed on the legend. You can choose the top or bott
 
 A **line plot** chart represents interpolated point buckets. The X-axis represents the amount of time in your time window and the Y-axis represents the value associated with the data based on that time.
 
-By default, if there are no reported data values within a 60 second span, Wavefront displays that as gaps of missing data. A line plot chart displays gaps of missing data as dashed lines. Gaps of missing data are tied to each stream displayed on the chart. For example, if a displayed stream has two minutes where no data values are reported, then that two minute gap displays as a dashed line. The **Gap Threshold** property allows you to adjust the amount of time before gaps of missing data display as dashed lines.
+By default, if there are no reported data values within a 60 second span, Wavefront displays gaps of missing data. A line plot chart displays gaps of missing data as dashed lines. Gaps of missing data are tied to each stream displayed on the chart. For example, if a displayed stream has two minutes where no data values are reported, then that two minute gap displays as a dashed line. The **Gap Threshold** property allows you to adjust the amount of time before gaps of missing data display as dashed lines.
 
 ## Point Plot
-
 
 ![point plot](images/point_plot.png)
 
@@ -154,6 +155,8 @@ The stacked area chart is a great way to visualize data when you want to be able
 
 ### Style
 
+Options that control the style of the chart.
+
 #### Stack Type
 
 Determines how the data is visualized:
@@ -161,7 +164,7 @@ Determines how the data is visualized:
 -   **Zero** - This is the default and displays the chart as from 0 up to the sum of all points at that time interval.
 -   **Normalize to 0-1** - Results in a similar shape to **Zero** except that the values are normalized such that they fill the range between 0 and 1 with the peak of the chart always a solid line drawn at magnitude 1.
 -   **Minimize Weighted Change** - Plots the area while attempting to minimize the weighted change in slope of the lines. Both this and **Center the Stream** options tend to result in similar shapes in which the chart does not show a solid area beginning at 0.
--   **Center the Stream** - More clearly represents the collective magnitude of the queries displayed on the chart with the band narrowing or widening as the metrics fluctuate over time. For example:
+-   **Center the Stream** - Represents the collective magnitude of the queries displayed on the chart with the band narrowing or widening as the metrics fluctuate over time. For example:
 
 ![center stream](images/center_stream.png)
 
@@ -169,16 +172,17 @@ Determines how the data is visualized:
 
 ![scatter plot](images/scatter_plot.png)
 
-A **scatter plot** differs from all other Wavefront charts in that it compares time series expressions against one another. All other Wavefront charts compare time series against time. The scatter plot is useful to see whether or not two (or more) data sets are positively, negatively, or not correlated. Each point on a scatter plot represents a summary of points over a specified amount of time. In Wavefront terminology, these summarized points are called buckets. The extent of the summarization applied can be viewed at the bottom left hand side of each chart.
+A **scatter plot** differs from all other Wavefront charts in that it compares time series expressions against one another. All other Wavefront charts compare time series against time. The scatter plot is useful to see whether two (or more) data sets are positively, negatively, or not correlated. Each point on a scatter plot represents a summary of points over a specified amount of time. In Wavefront terminology, these summarized points are called buckets. You can view the extent of the summarization applied at the bottom left hand side of each chart.
 
-When creating a scatter plot in Wavefront, you specify which expressions are mapped to which axes. The image below shows how the X and Y-axes are defined for a scatter plot. Based on the upwards slope of the points, we can see that the request rate and CPU load are positively correlated – as one increases, the other follows.
+When creating a scatter plot in Wavefront, you specify which expressions are mapped to which axes. The image below shows how the X and Y-axes are defined for a scatter plot. Based on the upwards slope of the points, we can see that the request rate and CPU load are positively correlated&mdash;as one increases, the other follows.
 
 ![dual axes](images/dual_axes.png)
 
-When using scatter plots in Wavefront, it is important to note that series matching ensures that reporting sources are actively reporting metrics for all specified time series expressions. If a unique series (source + metric + point tags) is actively reporting for only one time series expression, it is not displayed. If there are no sources that are reporting for all time series expressions, then no data displays on the chart. If multiple X and Y-axes are defined, then you must ensure that each time series expression associated to an axes has at least one common source reporting, otherwise no data is shown on the chart. Only unique series that are reporting for every defined time series expression display.
+When using scatter plots in Wavefront, it is important to note that series matching ensures that reporting sources are actively reporting metrics for all specified time series expressions. If a unique series (metric + source + point tags) is actively reporting for only one time series expression, it is not displayed. If there are no sources that are reporting for all time series expressions, then no data displays on the chart. If multiple X and Y-axes are defined, you must ensure that each time series expression associated to an axes has at least one common source reporting, otherwise no data is shown on the chart. Only unique series that are reporting for every defined time series expression display.
 
 ### Style
 
+Options that control the style of the chart.
 
 #### Use Time-based Coloring
 
@@ -190,31 +194,19 @@ Modify the color of the data points so that darker colors represent more recent 
 
 A **tabular view** chart displays data per stream in a table format. In tabular view, only one data point value is displayed per source. The value is a summary of all of the data points available as set in the Summarized By field based on the configured time window.
 
-## Markdown
-
-![markdown](images/markdown.png)
-
-A **Markdown** chart allows you to provide in-depth descriptions of a dashboard and individual charts using the [dashboard variables](dashboards_variables), links, and images.
-
-### General
-
-#### Markdown
-
-Markdown markup.
-
 ## Single Stat View
 
 ![single stat](images/single_stat.png)
 
-A **single stat** chart plots a single series on a chart and have a summarized value for that series displayed in large font on the chart. The font size and placement of the displayed value can be unique for each chart. A common use case is displaying instantaneous values of critical metrics on an overhead display.
+A **single stat** chart plots a single series on a chart and has a summarized value for that series displayed in large font on the chart. The font size and placement of the displayed value can be unique for each chart. A common use case is displaying instantaneous values of critical metrics on an overhead display.
 
 ### Sparkline
 
-A graph summarizing the series.
+Options controlling how the graph summarizing the series displays.
 
 #### Sparkline
 
-The sparkline position. The options are **Bottom** which means below the single stat, **Background** which places the sparkline in the background of the single stat, or **None** for no sparkline on the chart.
+The position of the sparkline. The options are **Bottom** which means below the single stat, **Background** which places the sparkline in the background of the single stat, or **None** for no sparkline on the chart.
 
 #### Line Color
 
@@ -240,7 +232,6 @@ The fill color for the chart area below the sparkline.
 
 ### Single Stat
 
-
 #### Display Value
 
 Whether to show the metric value or the metric label as the single stat.
@@ -259,7 +250,7 @@ The color of the single stat.
 
 #### Prefix
 
-A string to prefix the single stat with.
+A string to prefix the single stat.
 
 #### Value/Text Mapping
 
@@ -273,8 +264,24 @@ the string **lower** displays when the metrics value is below 150, **middle** di
 
 #### Decimal Precision
 
-The number of digits to display after the decimal point.
+The number of digits to display after the decimal point in the summarized value.
 
 #### Postfix
 
-A string to postfix the single stat with.
+A string to postfix the single stat.
+
+## Markdown
+
+![markdown](images/markdown.png)
+
+A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts. In addition to Markdown formatted text, you can use [dashboard variables](dashboards_variables), links, and images hosted outside Wavefront. The [introductory dashboards](dashboards_introductory) contain many examples of Markdown charts.
+
+### General
+
+General options.
+
+#### Markdown
+
+Text styled with Markdown markup.
+
+{% include links.html %}

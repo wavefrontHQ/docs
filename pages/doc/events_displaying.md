@@ -10,10 +10,12 @@ When an event such as a firing alert or the start of a maintenance window occurs
  
 As your use of alerts, events, and maintenance windows grows, so too will the number of event icons that are displayed. While Wavefront provides you with the ability to control these displays at the individual chart level (local), we also provide the ability to control the displays at the dashboard level (global). The dashboard **Show Events** dropdown allows you to control when event icons are displayed on every chart in a dashboard:
 
-<dl>
-<dt>From Chart</dt><dd markdown="span">Display events based on the selection of the **Display Source Events** checkbox. Default setting.</dd>
-<dt>From Dashboard Prefs</dt><dd>Display events by the global events() expression set in dashboard preferences and forces the Display Source Events checkbox off.</dd>
-<dt>From Chart & Dashboard</dt><dd>Display events based on the selection of the Display Source Events checkbox and the global events() expression.</dd>
-<dt>Related Source Alerts</dt><dd>Forces the Display Source Events checkbox on.</dd>
-<dt>All</dt><dd>Display all events that have occurred within the time window associated with the chart windows.</dd>
-<dt>None</dt><dd>Hide all events from every chart in the dashboard.</dd></dl>
+<ul>
+<li markdown="span"><strong>From Chart</strong> - Display events based on the selection of the **Display Source Events** checkbox. Default setting.</li>
+<li><strong>From Dashboard Prefs</strong> - Display events by the global events() expression set in dashboard preferences and forces the Display Source Events checkbox off.</li>
+<li><strong>From Chart & Dashboard</strong> - Display events based on the selection of the Display Source Events checkbox and the global events() expression.</li>
+<li><strong>Related Source Alerts</strong> - Forces the Display Source Events checkbox on.</li>
+<li><strong>All</strong> - Display all events that have occurred within the time window associated with the chart windows.</li>
+<li><strong>None</strong> - Hide all events from every chart in the dashboard.</li></ul>
+
+{% include links.html %}
