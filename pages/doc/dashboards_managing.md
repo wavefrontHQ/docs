@@ -32,9 +32,14 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 
 2.  Click **Create**. The dashboard displays in edit mode. You can either edit your dashboard at this time or save it and edit at a later time.
 
-## Deploying a Dashboard
+## Uploading a Dashboard
 
+Dashboards are stored in JSON format. You can upload a dashboard JSON file with the [Wavefront API](wavefront_api) using the following command:
 
+```shell
+curl -v POST https://<your_instance>.wavefront.com/api/v2/dashboard -d @<dashboard>.json \
+  -H "Content-Type: application/json" -H 'X-AUTH-TOKEN: <your_token>'
+```
 
 <span id="prefs"/>
 
@@ -54,14 +59,14 @@ To open the dashboard preferences dialog, click the wrench icon <span class="fa-
 
 The process for editing an existing dashboard can be started from the All Dashboards page or directly from the existing dashboard page:
 
--   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **&gt; Edit**.
+-   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Edit**.
 -   From a dashboard, click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Edit**.
 
 When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
 
 ### Dashboard Description and Name
 
-When your dashboard is in edit mode, a clickable link labeled **&lt;&lt;Edit Dashboard Description&gt;&gt;** displays below the time bar. When you click this link, the <a href="https://community.wavefront.com/docs/DOC-1068#prefs" class="jive-link-anchor-small">Dashboard Display Preferences</a> dialog displays.
+When your dashboard is in edit mode, a clickable link labeled **&lt;&lt;Edit Dashboard Description&gt;&gt;** displays below the time bar. When you click this link, the [Dashboard Display Preferences](#prefs) dialog displays.
 
 From here you can rename your dashboard and enter a description. If you enter a description and want it to be displayed on your dashboard, click **Show Description**. Click **Accept**. If you are viewing your dashboard (not in edit mode) and want to change your dashboard preferences, click the <span class="fa-wrench fa"/> icon.
 
@@ -91,7 +96,7 @@ Resizing a chart row affects every chart located in that chart row.
 
 ### Editing the Dashboard JSON
 
-All of the changes described above can also be done by editing the dashboard's JSON format. In order to access the JSON editor, click **Edit JSON** next to the **Save** button on the task bar. This link is only displayed when your dashboard is in edit mode. Only use this option if you have a good understanding of JSON.
+You can directly modify any dashboard properties by editing the dashboard's JSON format. To access the JSON editor, click **Edit JSON** next to the **Save** button on the task bar. This link is only displayed when your dashboard is in edit mode. Only use this option if you have a good understanding of JSON.
 
 When editing a dashboard, you may make several changes at a time. If you wish to remove a single change, but not the changes made before it, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
 
@@ -103,8 +108,8 @@ You can delete dashboards, revert a dashboard to a previous version, and manage 
 
 You can delete a dashboard from the All Dashboards page or the specific dashboard you want to remove.
 
--   From the All Dashboards page, locate the dashboard that you'd like to remove from the dashboards list and select  ![action_menu.png](images/action_menu.png#inline) **> Delete**.
--   If you are viewing a dashboard and want to delete it, click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Delete**.
+-  From the All Dashboards page, locate the dashboard that to remove from the dashboards list and select  ![action_menu.png](images/action_menu.png#inline) **> Delete**.
+-  If you are viewing a dashboard and want to delete it, click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Delete**.
 
 You are prompted with a secondary message to confirm you want to delete the dashboard. Once confirmed, the dashboard is moved to the Trash bin.  You can view the Trash bin by clicking the trash toggle: Off -![trash_off.png](images/trash_off.png#inline#inline)  On - ![trash_on.png](images/trash_on.png#inline).
 
@@ -132,11 +137,11 @@ See [Tags Overview](tags_overview#entity_tags).
 To add a new chart to a dashboard:
 
 1.  Navigate to the dashboard and put it in edit mode.
-1.  Find the section you want to place the chart in. Click <span class="fa-plus-circle fa"/> Add New Chart. An Add Chart box displays.
-1.  Enter a Wavefront Query Language expression into the New Query field. See [Getting Started with Wavefront Query Language](query_language_getting_started) and [Wavefront Query Language Quick Reference](query_language_reference).
+1.  Find the section you want to place the chart in. Click <span class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
+1.  In the New Query field, type a Wavefront Query Language expression. See [Getting Started with Wavefront Query Language](query_language_getting_started) and [Wavefront Query Language Quick Reference](query_language_reference).
 1.  In the Chart section, customize your chart. See [Wavefront Charts](charts) to learn more about customization options.
 1.  Click **Accept**. The new chart displays in the section you selected.
-1.  Save the dashboard.
+1.  Click **Save**.
 
 ### Deleting, Cloning, and Making Permanent Changes to a Chart
 

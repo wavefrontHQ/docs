@@ -762,9 +762,7 @@ table code {background-color: transparent;}
     background-color: transparent !important;
 }
 
-.highlighter-rouge pre code * {
-  white-space: nowrap;    // this sets all children inside to nowrap
-}
+.highlight  { background: #F5F5F5; }
 
 .highlighter-rouge pre {
   overflow-x: auto;       // this sets the scrolling in x

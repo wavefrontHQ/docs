@@ -19,6 +19,11 @@ entries:
       url: /introduction.html
       output: web
       type: homepage
+      
+    - title: Using the Wavefront API
+      url: /wavefront_api.html
+      output: web
+      type: homepage
 
     - title: Tags Overview
       url: /tags_overview.html
@@ -59,6 +64,10 @@ entries:
 
     - title: Configuring Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
+      output: web
+      
+    - title: Managing Wavefront Proxies
+      url: /proxies_managing.html
       output: web
 
   - title: Query Language
@@ -149,12 +158,24 @@ entries:
     output: web
     folderitems:
 
+    - title: Wavefront Integrations
+      url: /integrations_wavefront.html
+      output: web
+
     - title: AWS Metrics Integration
       url: /integrations_aws_metrics.html
       output: web
 
     - title: cAdvisor Integration
       url: /integrations_cadvisor.html
+      output: web
+      
+    - title: Go Metrics Integration
+      url: /integrations_go_metrics.html
+      output: web
+      
+    - title: Dropwizard Metrics Integration
+      url: /integrations_dropwizard_metrics.html
       output: web
 
     - title: Managing External Links
