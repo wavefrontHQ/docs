@@ -10,3 +10,6 @@
 [submodule "_includes/java"]
 	path = _includes/java
 	url = https://github.com/wavefrontHQ/java
+[submodule "_includes/wavefront-cli"]
+	path = _includes/wavefront-cli
+	url = https://github.com/wavefrontHQ/wavefront-cli
