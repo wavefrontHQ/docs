@@ -105,5 +105,5 @@ description: "Wavefront documentation."
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
-url: wavefrontHQ.github.io
-baseurl: /docs
+url: docs.wavefront.com
+baseurl: ""
