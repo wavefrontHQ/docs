@@ -2,10 +2,10 @@
 title: "Dashboard Pages"
 tagName: dashboards
 search: exclude
-permalink: tag_dashboards.html
+permalink: label_dashboards.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

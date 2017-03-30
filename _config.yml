@@ -31,6 +31,9 @@ exclude:
 
 feedback_subject_line: Wavefront Documentation
 
+gems:
+  - jekyll-sitemap
+
 google_analytics: UA-91867056-1
 
 feedback_email: stephanie@wavefront.com

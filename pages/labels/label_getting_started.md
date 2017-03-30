@@ -2,10 +2,10 @@
 title: "Getting Started Pages"
 tagName: getting_started
 search: exclude
-permalink: tag_getting_started.html
+permalink: label_getting_started.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

@@ -2,10 +2,10 @@
 title: "Proxies Pages"
 tagName: proxies
 search: exclude
-permalink: tag_proxies.html
+permalink: label_proxies.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

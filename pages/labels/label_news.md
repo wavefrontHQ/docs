@@ -2,10 +2,10 @@
 title: "News"
 tagName: news
 search: exclude
-permalink: tag_news.html
+permalink: label_news.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

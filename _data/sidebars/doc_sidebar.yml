@@ -170,21 +170,40 @@ entries:
       url: /integrations_wavefront.html
       output: web
 
-    - title: AWS Metrics Integration
-      url: /integrations_aws_metrics.html
-      output: web
+      subfolders:
+      - title: AWS Integrations
+        output: web
+        subfolderitems:
+        
+          - title: AWS Metrics Integration
+            url: /integrations_aws_metrics.html
+            output: web
 
-    - title: cAdvisor Integration
-      url: /integrations_cadvisor.html
-      output: web
-      
-    - title: Go Metrics Integration
-      url: /integrations_go_metrics.html
-      output: web
-      
-    - title: Dropwizard Metrics Integration
-      url: /integrations_dropwizard_metrics.html
-      output: web
+          - title: AWS ECS Integration
+            url: /integrations_aws_ecs.html
+            output: web
+
+      subfolders:
+      - title: Data Integrations
+        output: web
+        subfolderitems:
+
+        - title: Docker Integration
+          url: /integrations_cadvisor.html
+          output: web
+
+      subfolders:
+      - title: Code Instrumentation
+        output: web
+        subfolderitems:
+          
+          - title: Go Metrics Integration
+            url: /integrations_go_metrics.html
+            output: web
+          
+          - title: Dropwizard Metrics Integration
+            url: /integrations_dropwizard_metrics.html
+            output: web
 
     - title: Managing External Links
       url: /external_links_managing.html
@@ -214,55 +233,55 @@ entries:
         url: /users_prefs_configuring.html
         output: web
 
-  - title: Tags
+  - title: Labels
     output: web
     folderitems:
 
-    - title: Tag Overview
-      url: /tag_overview.html
+    - title: Label Overview
+      url: /label_overview.html
       output: web
 
       subfolders:
-      - title: Tag Pages
+      - title: Label Pages
         output: web
         subfolderitems:
 
         - title: Getting Started Pages
-          url: /tag_getting_started.html
+          url: /label_getting_started.html
           output: web
 
         - title: Administration Pages
-          url: /tag_administration.html
+          url: /label_administration.html
           output: web
 
         - title: Alert Pages
-          url: /tag_alerts.html
+          url: /label_alerts.html
           output: web
 
         - title: API Pages
-          url: /tag_alerts.html
+          url: /label_alerts.html
           output: web
 
         - title: Chart Pages
-          url: /tag_charts.html
+          url: /label_charts.html
           output: web
 
         - title: Dashboard Pages
-          url: /tag_dashboards.html
+          url: /label_dashboards.html
           output: web
 
         - title: Event Pages
-          url: /tag_events.html
+          url: /label_events.html
           output: web
 
         - title: Integrations Pages
-          url: /tag_integrations.html
+          url: /label_integrations.html
           output: web
 
         - title: Proxies Pages
-          url: /tag_proxies.html
+          url: /label_proxies.html
           output: web
 
         - title: Query Language Pages
-          url: /tag_query_language.html
+          url: /label_query_language.html
           output: web

@@ -2,10 +2,10 @@
 title: "Query Language Pages"
 tagName: query_language
 search: exclude
-permalink: tag_query_language.html
+permalink: label_query_language.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

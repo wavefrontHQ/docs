@@ -192,6 +192,21 @@ table tr td {
     hyphens: auto;
 }
 
+table.layout {
+    border: 0px
+}
+
+table.layout > tbody > tr > td {
+    border-top: 0px;
+    text-align: center;
+    vertical-align: bottom; 
+    font-weight:bold
+}
+
+table.layout > tbody > tr:nth-of-type(odd) {
+    background-color: #FFFFFF;
+}
+
 
 p.external a {
     text-align:right;

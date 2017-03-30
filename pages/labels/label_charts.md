@@ -2,10 +2,10 @@
 title: "Chart Pages"
 tagName: charts
 search: exclude
-permalink: tag_charts.html
+permalink: label_charts.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

@@ -2,10 +2,10 @@
 title: "Event Pages"
 tagName: events
 search: exclude
-permalink: tag_events.html
+permalink: label_events.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

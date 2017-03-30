@@ -2,10 +2,10 @@
 title: "Alert Pages"
 tagName: alerts
 search: exclude
-permalink: tag_alerts.html
+permalink: label_alerts.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}

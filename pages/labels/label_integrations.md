@@ -4,8 +4,8 @@ tagName: integrations
 search: exclude
 permalink: tag_integrations.html
 sidebar: doc_sidebar
-folder: tags
+folder: labels
 ---
-{% include taglogic.html %}
+{% include labellogic.html %}
 
 {% include links.html %}
