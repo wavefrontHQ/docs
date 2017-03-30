@@ -4,6 +4,7 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_dropwizard_metrics.html
+summary: This topic describes how to use Dropwizard to collect metrics from Java applications.
 ---
 
 {% include java/dropwizard-metrics/4.0/README.md %}

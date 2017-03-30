@@ -52,7 +52,7 @@ layout: default
     <div class="tags">
         {% if page.tags != null %}
         <b>Labels: </b>
-        {% assign projectTags = site.data.tags.allowed-tags %}
+        {% assign projectTags = site.data.tags.allowed-labels %}
         {% for tag in page.tags %}
         {% if projectTags contains tag %}
         <a href="{{ "tag_" | append: tag | append: ".html" }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{page.tagName}}{{tag}}</a>

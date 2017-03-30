@@ -2,7 +2,7 @@
 title: "Integrations Pages"
 tagName: integrations
 search: exclude
-permalink: tag_integrations.html
+permalink: label_integrations.html
 sidebar: doc_sidebar
 folder: labels
 ---

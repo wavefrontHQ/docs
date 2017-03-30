@@ -5,16 +5,16 @@ entries:
   product: Wavefront
   version:
   folders:
-
+    
   - title: Overview
     output: web
     folderitems:
-
+      
     - title: About Wavefront Documentation
       url: /index.html
       output: web
       type: homepage
-
+      
     - title: Introduction to Wavefront
       url: /introduction.html
       output: web
@@ -24,7 +24,7 @@ entries:
       url: /wavefront_api.html
       output: web
       type: homepage
-
+      
     - title: Tags Overview
       url: /tags_overview.html
       output: web
@@ -33,43 +33,43 @@ entries:
     - title: Wavefront Charts
       url: /charts.html
       output: web
-
+      
     - title: Introductory Dashboards
       url: /dashboards_introductory.html
       output: web
-
+      
   - title: Release Notes
     output: web
     folderitems:
-
+      
     - title: 5.0 Release Notes
       url: /50_release_notes.html
       output: web
-
+      
   - title: Proxies
     output: web
     folderitems:
-
+      
     - title: Wavefront Data Format
       url: /wavefront_data_format.html
       output: web
-
+      
     - title: Wavefront CLI
       url: /wavefront_cli.html
       output: web
-
+      
     - title: Installing Wavefront Proxies
       url: /proxies_installing.html
       output: web
-
+      
     - title: Running a Proxy in a Docker Container
       url: /proxies_running_docker.html
       output: web
-
+      
     - title: Wavefront Proxy Configuration
       url: /proxies_configuration.html
       output: web
-
+      
     - title: Configuring Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
       output: web
@@ -77,23 +77,23 @@ entries:
     - title: Managing Wavefront Proxies
       url: /proxies_managing.html
       output: web
-
+      
   - title: Query Language
     output: web
     folderitems:
-
+      
     - title: Getting Started with Wavefront Query Language
       url: /query_language_getting_started.html
       output: web
-
+      
     - title: Query Builder
       url: /query_language_query_builder.html
       output: web
-
+      
     - title: Using Point Tags in Queries
       url: /query_language_using_point_tags.html
       output: web
-
+      
     - title: Wavefront Query Language Reference
       url: /query_language_reference.html
       output: web
@@ -101,93 +101,80 @@ entries:
     - title: Series Matching
       url: /query_language_series_matching.html
       output: web
-
+      
   - title: Dashboards
     output: web
     folderitems:
-
+      
     - title: Managing Dashboards
       url: /dashboards_managing.html
       output: web
-
+      
     - title: Dashboard Variables
       url: /dashboards_variables.html
       output: web
-
+      
     - title: Managing Metrics
       url: /metrics_managing.html
       output: web
-
+      
     - title: Managing Sources
       url: /sources_managing.html
       output: web
-
+      
   - title: Alerts
     output: web
     folderitems:
-
+      
     - title: Managing Alerts
       url: /alerts_managing.html
       output: web
-
+      
     - title: Alert States and Lifecycle
       url: /alerts_states_lifecycle.html
       output: web
-
+      
     - title: Managing Maintenance Windows
       url: /maintenance_windows_managing.html
       output: web
-
+      
     - title: Integrating Webhooks with Alerts
       url: /alerts_integrating_webhooks.html
       output: web
-
+      
   - title: Events
     output: web
     folderitems:
-
+      
     - title: Managing Events
       url: /events_managing.html
       output: web
-
+      
     - title: Displaying Events in Charts
       url: /charts_events_displaying.html
       output: web
-
+      
     - title: Basic events() Queries
       url: /events_queries.html
       output: web
-
+      
     - title: Advanced events() Queries
       url: /events_queries_advanced.html
       output: web
-
+      
   - title: Integrations
     output: web
     folderitems:
-
+      
     - title: Wavefront Integrations
       url: /integrations_wavefront.html
       output: web
-
-      subfolders:
-      - title: AWS Integrations
-        output: web
-        subfolderitems:
-        
-          - title: AWS Metrics Integration
-            url: /integrations_aws_metrics.html
-            output: web
-
-          - title: AWS ECS Integration
-            url: /integrations_aws_ecs.html
-            output: web
-
+      
       subfolders:
       - title: Data Integrations
         output: web
         subfolderitems:
-
+          
         - title: Docker Integration
           url: /integrations_cadvisor.html
           output: web
@@ -200,26 +187,38 @@ entries:
           - title: Go Metrics Integration
             url: /integrations_go_metrics.html
             output: web
-          
+            
           - title: Dropwizard Metrics Integration
             url: /integrations_dropwizard_metrics.html
+            output: web
+
+      subfolders:
+      - title: AWS Integrations
+        output: web
+        subfolderitems:
+          
+          - title: AWS Metrics Integration
+            url: /integrations_aws_metrics.html
+            output: web
+          - title: AWS ECS Integration
+            url: /integrations_aws_ecs.html
             output: web
 
     - title: Managing External Links
       url: /external_links_managing.html
       output: web
-
+      
     - title: Sending Log Data Metrics To Wavefront
       url: /integrations_log_data.html
       output: web
-
+      
     - title: Title
       url: /rendering_test.html
       output: web
       
   - title: Administration
     output: web
-    folderitems: 
+    folderitems:
       
       - title: Permissions Overview
         url: /permissions.html
@@ -228,60 +227,60 @@ entries:
       - title: Managing Users
         url: /users_managing.html
         output: web
-
+        
       - title: Configuring User Preferences
         url: /users_prefs_configuring.html
         output: web
-
+        
   - title: Labels
     output: web
     folderitems:
-
+      
     - title: Label Overview
       url: /label_overview.html
       output: web
-
+      
       subfolders:
       - title: Label Pages
         output: web
         subfolderitems:
-
+          
         - title: Getting Started Pages
           url: /label_getting_started.html
           output: web
-
+          
         - title: Administration Pages
           url: /label_administration.html
           output: web
-
+          
         - title: Alert Pages
           url: /label_alerts.html
           output: web
-
+          
         - title: API Pages
           url: /label_alerts.html
           output: web
-
+          
         - title: Chart Pages
           url: /label_charts.html
           output: web
-
+          
         - title: Dashboard Pages
           url: /label_dashboards.html
           output: web
-
+          
         - title: Event Pages
           url: /label_events.html
           output: web
-
+          
         - title: Integrations Pages
           url: /label_integrations.html
           output: web
-
+          
         - title: Proxies Pages
           url: /label_proxies.html
           output: web
-
+          
         - title: Query Language Pages
           url: /label_query_language.html
           output: web
