@@ -4,7 +4,7 @@ allowed-tags:
   - dashboards
   - query_language
   - proxies
-  - permissions
+  - administration
   - alerts
   - events
   - integrations

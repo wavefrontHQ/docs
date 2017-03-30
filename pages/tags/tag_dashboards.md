@@ -1,5 +1,5 @@
 ---
-title: "Dashboards Pages"
+title: "Dashboard Pages"
 tagName: dashboards
 search: exclude
 permalink: tag_dashboards.html

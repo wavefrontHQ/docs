@@ -1,7 +1,7 @@
 ---
 title: Wavefront Charts
 keywords: getting started
-tags: [getting_started]
+tags: [getting_started, charts]
 sidebar: doc_sidebar
 permalink: charts.html
 summary: This topic describes the types and properties of Wavefront charts.

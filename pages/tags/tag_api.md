@@ -1,8 +1,8 @@
 ---
-title: "Event Pages"
-tagName: events
+title: "API Pages"
+tagName: api
 search: exclude
-permalink: tag_events.html
+permalink: tag_api.html
 sidebar: doc_sidebar
 folder: tags
 ---

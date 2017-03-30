@@ -1,5 +1,5 @@
 ---
-title: "Alerts Pages"
+title: "Alert Pages"
 tagName: alerts
 search: exclude
 permalink: tag_alerts.html

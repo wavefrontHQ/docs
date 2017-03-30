@@ -1,7 +1,7 @@
 ---
 title: Managing Users
-keywords: users
-tags: [users]
+keywords: administration
+tags: [administration]
 sidebar: doc_sidebar
 permalink: users_managing.html
 summary: This describes how to manage users.
@@ -51,6 +51,8 @@ To manage permissions for a user, locate the email address assigned to that acco
  
 You will see a list of all permissions broken into two parts: permissions granted to the user and permissions not granted to the user. You can remove an existing permission by clicking the <span class="fa-times fa" style="color: red;"></span> icon next to  the permission. If you remove Browse Data permission for a user, that user will no longer be able to access Wavefront. You can provide that user access again by adding Browse Data permission back to that user. You add new permissions clicking the <span class="fa-plus-circle fa" style="color: green;"></span> icon next to the permission.
  
+<a name="customer_prefs"></a>
+
 ## Customer-Wide Preferences
 You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder) by default and the default dashboard.
 

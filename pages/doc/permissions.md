@@ -1,7 +1,7 @@
 ---
 title: Wavefront Permissions Overview
-keywords: permissions
-tags: [permissions]
+keywords: administration
+tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions.html
 summary: This topic describes Wavefront permissions.

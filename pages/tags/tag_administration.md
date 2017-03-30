@@ -1,8 +1,8 @@
 ---
-title: "Event Pages"
-tagName: events
+title: "Proxies Pages"
+tagName: proxies
 search: exclude
-permalink: tag_events.html
+permalink: tag_proxies.html
 sidebar: doc_sidebar
 folder: tags
 ---

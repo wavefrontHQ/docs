@@ -61,7 +61,7 @@ First grant Wavefront read-only access to your Amazon account. Run the Amazon Cr
 
 ## CloudWatch Integration
 
-The Wavefront CloudWatch integration retrieves AWS metric and dimension data from AWS services using the AWS CloudWatch API. The complete list of metrics and dimensions that can be retrieved from AWS CloudWatch is available at <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon CloudWatch Metrics and Dimensions Reference</a>. In addition, you can publish <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">custom AWS metrics</a> that are also ingested by the Wavefront CloudWatch integration.
+The Wavefront CloudWatch integration retrieves AWS metric and dimension data from AWS services using the AWS CloudWatch API. The complete list of metrics and dimensions that can be retrieved from AWS CloudWatch is available at [Amazon CloudWatch Metrics and Dimensions Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html). In addition, you can publish [custom AWS metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) that are also ingested by the Wavefront CloudWatch integration.
 
 <a name="whitelist"></a>
 
@@ -69,7 +69,7 @@ The Wavefront CloudWatch integration retrieves AWS metric and dimension data fro
 
 To configure which AWS metrics to ingest into Wavefront you can whitelist instances, volumes, and metrics:
 
--   **Instance and Volume Whitelist** fields - Whitelist instances and volumes by specifying <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">EC2 tags</a> (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume whitelisting you must also add an EC2 integration as the AWS tags are imported from EC2. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
+-   **Instance and Volume Whitelist** fields - Whitelist instances and volumes by specifying [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) (as **&lt;key&gt;=&lt;value&gt;** pairs) defined on the instances and volumes. For example, **organization=&lt;yourcompany&gt;**. When specified as a comma-separated list, the tags are OR'd. To use instance and volume whitelisting you must also add an EC2 integration as the AWS tags are imported from EC2. If you don't specify any tags, Wavefront imports metrics from *all* instances and volumes.
 -   **RegExp Whitelist** field - Whitelist metrics by specifying a regular expression. The regular expression must be a complete match of the entire metric name. For example, if you only want CloudWatch data for **elb** and **rds** (which come under **aws\.rds**), then use a regular expression such as: **^aws\.\(elb\|rds\)\.\*\$**. If you do not specify a regular expression, *all* CloudWatch metrics are retrieved.
 
 <a name="aws_sources"></a>
@@ -100,7 +100,7 @@ As an alternative to using the CloudWatch API for EC2 metrics, you can collect t
 
 The AWS Billing and Cost Management service sends [billing metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/billing-metricscollected.html) to CloudWatch. You configure AWS to produce **aws.billing.\*** metrics by checking the **Receive Billing Alerts** checkbox on the **Preferences** tab in the [AWS Billing and Cost Management console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/monitor-charges.html):
 
-[<img src="images/aws_billing.png" alt="images/aws_billing.png"/>](images/aws_billing.png)
+![aws billing](images/aws_billing.png)
 
 In addition to CloudWatch dimensions, Wavefront adds a **Source** point tag to billing metrics.
 
@@ -110,7 +110,7 @@ The Wavefront CloudTrail integration retrieves EC2 event information stored in J
 
 You can search for these events in the **Browse &gt; Events** page. Such events are prefaced with **AWS Action:** and include actions such as RunInstances, StartInstances, StopInstances, TerminateInstances, MonitorInstances, UnmonitorInstances, DeleteNetworkInterface, AuthorizeSecurityGroupIngress, CreateSecurityGroup, RequestSpotInstances, CancelSpotInstanceRequests, ModifyInstanceAttribute, CreateTags,CreateKeyPair, DeleteKeyPair, and DeregisterImage. For example:
 
-[<img src="images/aws_runinstances.png" alt="aws_runinstances.png"/>](images/aws_runinstances.png)
+![aws instances](images/aws_runinstances.png)
 
 Click the **View System Event** link to view details about the event.
 
@@ -129,11 +129,11 @@ Wavefront sets the value of the EC2 metric **source** field to the AWS instance 
 
 You can view AWS metrics by selecting **Browse &gt; Metrics** and searching for metrics beginning with **aws.**:
 
-[<img src="images/aws_metrics.png" alt="aws_metrics.png"/>](images/aws_metrics.png)
+![aws metrics](images/aws_metrics.png)
 
 You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder **aws.ec2.**, then the metric **aws.ec2.cpuutilization**, and then refining the query by the **Region** point tag and the **topk** function yields the following chart:
 
-[<img src="images/aws_cpu_utilization.png" alt="aws_cpu_utilization.png"/>](images/aws_cpu_utilization.png)
+![aws cpu utilization](images/aws_cpu_utilization.png)
 
 ### AWS Aggregate Metrics
 
@@ -141,10 +141,10 @@ All AWS metrics return the following aggregate metrics: average, maximum, minimu
 
 1.  Search for a specific metric, for example **aws.ec2.cpuutilization**:
 
-    [<img src="images/aws_cpu_utilization_metric.png" alt="aws_cpu_utilization_metric.png"/>](images/aws_cpu_utilization_metric.png)
+    ![aws cpu utilization folder](images/aws_cpu_utilization_metric.png)
 
 2.  Click the metric folder, for example **aws.ec2.cpuutilization.,** to display the aggregate metrics:
 
-    [<img src="images/aws_cpu_utilization_aggregate_metrics.png" alt="aws_cpu_utilization_aggregate_metrics.png"/>](images/aws_cpu_utilization_aggregate_metrics.png)
+    ![aws cpu utilization aggregate metrics](images/aws_cpu_utilization_aggregate_metrics.png)
 
 {% include links.html %}

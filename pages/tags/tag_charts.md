@@ -1,8 +1,8 @@
 ---
-title: "Event Pages"
-tagName: events
+title: "Chart Pages"
+tagName: charts
 search: exclude
-permalink: tag_events.html
+permalink: tag_charts.html
 sidebar: doc_sidebar
 folder: tags
 ---
