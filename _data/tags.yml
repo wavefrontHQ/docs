@@ -1,0 +1,13 @@
+allowed-labels:
+  - getting_started
+  - news
+  - dashboards
+  - query_language
+  - proxies
+  - administration
+  - alerts
+  - events
+  - integrations
+  - api
+  - charts
+  - release_notes

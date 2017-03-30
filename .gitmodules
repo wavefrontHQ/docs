@@ -1,0 +1,15 @@
+[submodule "_includes/integrations"]
+	path = _includes/integrations
+	url = https://github.com/wavefrontHQ/integrations
+[submodule "_includes/help"]
+	path = _includes/help
+	url = https://github.com/wavefrontHQ/help
+[submodule "_includes/go-metrics-wavefront"]
+	path = _includes/go-metrics-wavefront
+	url = https://github.com/wavefrontHQ/go-metrics-wavefront
+[submodule "_includes/java"]
+	path = _includes/java
+	url = https://github.com/wavefrontHQ/java
+[submodule "_includes/wavefront-cli"]
+	path = _includes/wavefront-cli
+	url = https://github.com/wavefrontHQ/wavefront-cli
