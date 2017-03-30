@@ -171,15 +171,14 @@ entries:
       output: web
       
       subfolders:
-      - title: Data Integrations
+      - title: Container Integrations
         output: web
         subfolderitems:
           
-        - title: Docker Integration
-          url: /integrations_cadvisor.html
-          output: web
-
-      subfolders:
+          - title: Docker Integration
+            url: /integrations_cadvisor.html
+            output: web
+        
       - title: Code Instrumentation
         output: web
         subfolderitems:
@@ -191,8 +190,7 @@ entries:
           - title: Dropwizard Metrics Integration
             url: /integrations_dropwizard_metrics.html
             output: web
-
-      subfolders:
+            
       - title: AWS Integrations
         output: web
         subfolderitems:
