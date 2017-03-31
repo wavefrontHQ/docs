@@ -5,6 +5,16 @@ sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: This is an overview of Wavefront tags.
 ---
+## What is a Tag?
+
+A tag is custom metadata that provides application-specific meaning to metrics and Wavefront entities such as alerts,
+dashboards, events, and sources. Tags group together metrics and entities according to categories you define.
+
+The primary use of tags is to limit the number metrics and entities you are querying or working with at once. Limiting
+the number of metrics reduces the time to run a query and the time to display the results. Limiting the number of entities reduces information overload.
+
+This topic gives an overview of tags, decribes how to filter entities with tags, and add tags to entities. To add entity tags you must have the appropriate [permission](permissions). If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+
 ## Filtering in Queries
 
 In queries, you can filter:
@@ -34,40 +44,33 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 <tbody>
 <tr>
 <td>alert</td>
-<td>events()
-<p><a href="https://community.wavefront.com/docs/DOC-1157">Using events() Queries</a></p></td>
-<td>Wavefront UI and API
-<p><a href="https://community.wavefront.com/docs/DOC-1014">Managing Alerts</a>and <a href="https://community.wavefront.com/docs/DOC-1053">Managing Maintenance Windows</a></p></td>
+<td markdown="span">events()<br />
+[Basic events() Queries](events_queries)</td>
+<td markdown="span">Wavefront UI and API<br />
+[Managing Alerts](alerts_managing) and [Managing Maintenance Windows](maintenance_windows_managing)</td>
 </tr>
 <tr>
 <td>dashboard</td>
 <td></td>
-<td>Wavefront UI and API
-<p><a href="https://community.wavefront.com/docs/DOC-1068">Managing Dashboards</a></p></td>
+<td markdown="span">Wavefront UI and API<br />[Managing Dashboards](dashboards_managing)</td>
 </tr>
 <tr>
 <td>event</td>
-<td>events()
-<p><a href="https://community.wavefront.com/docs/DOC-1157">Using events() Queries</a></p></td>
-<td>alerts - system tags
-<p>Wavefront UI and API - entity tags</p>
-<p><a href="https://community.wavefront.com/docs/DOC-1082">Managing Events</a></p></td>
+<td markdown="span">events()<br />[Basic events() Queries](events_queries)</td>
+<td markdown="span">alerts - system tags<br />Wavefront UI and API - entity tags<br />[Managing Events](events_managing)</td>
 </tr>
 <tr>
 <td>point</td>
-<td>ts()
-<p><a href="https://community.wavefront.com/docs/DOC-1031">Wavefront Data Format</a> and <a href="https://community.wavefront.com/docs/DOC-1029">Using Point Tags</a></p></td>
-<td>Wavefront proxy
-<p><a href="https://community.wavefront.com/docs/DOC-1205">Configuring Wavefront Proxy Preprocessor Rules</a></p>
-<p>Telegraf agent</p>
-<p><a href="https://community.wavefront.com/docs/DOC-1246">Wavefront CLI</a></p></td>
+<td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format) and [Using Point Tags](query_language_using_point_tags)</td>
+<td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules)<br />
+Telegraf agent<br />
+[Wavefront CLI](wavefront_cli)</td>
 </tr>
 <tr>
 <td>source</td>
-<td>ts()
-<p><a href="https://community.wavefront.com/docs/DOC-1019">Getting Started with Wavefront Query Language</a></p></td>
-<td>Wavefront UI and API
-<p><a href="https://community.wavefront.com/docs/DOC-1070">Managing Sources</a> and <a href="https://community.wavefront.com/docs/DOC-1053">Managing Maintenance Windows</a></p></td>
+<td markdown="span">ts()<br />
+[Getting Started with Wavefront Query Language](query_language_getting_started)</td>
+<td markdown="span">Wavefront UI and API<br />[Managing Sources](sources_managing) and [Managing Maintenance Windows](maintenance_windows_managing)</td>
 </tr>
 </tbody>
 </table>
@@ -83,15 +86,15 @@ In the UI you operate on tag paths by selecting a component at a specific node i
 
 In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
+For a video overview, see [Tag Paths](https://wavefront-1.wistia.com/medias/ex41ab32mx).
+
 <a name="entity_tags"></a>
 
 ## Entity Tags
 
-Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
+Entity tags are tags that apply to Wavefront entities: **alerts**, **dashboards**, **events**, and **sources**.
 
 ### Adding Entity Tags
-
-To add entity tags you must have the appropriate [permission](permissions). If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
 
 To add tags to one or more entities:
 
@@ -112,7 +115,7 @@ To add tags to one or more entities:
 
 ### Searching for Entity Tags
 
-You search for tags in the Search box below the Tags heading in the filter bar at the left of an entity browser:
+When there are many tags you can search for tags by typing tag names in the Search box below the Tags heading in the filter bar:
 
 ![](images/search_tags.png)
 
@@ -120,14 +123,14 @@ As you type in the Search box, the list of tags below is filtered by the search 
 
 ### Filtering by Entity Tags
 
-To filter by a tag, click a tag icon, for example ![](images/mytag_icon.png#inline):
+To filter by a tag, click a tag icon, for example ![mytag icon](images/mytag_icon.png#inline):
 
 -   In the filter bar
 
-    ![](images/mytag2.png)
+    ![mytag2](images/mytag2.png)
 
 -   Below an entity in the entity browser
 
-    ![](images/mytag.png)
+    ![mytag](images/mytag.png)
     
 {% include links.html %}

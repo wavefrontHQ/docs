@@ -5,9 +5,9 @@ tags: [query_language]
 datatable: true
 sidebar: doc_sidebar
 permalink: query_language_series_matching.html
-summary: This topic gets you started with Wavefront Query Language.
+summary: This topic describes how operators and functions affect the evaulation of Wavefront Query Language expressions.
 ---
-Series matching is a process that occurs when two or more unique ts() expressions, each representing two or more unique source\|metric\|\[pointTagValues\] pairs, are evaluated together through the use of advanced functions:
+Series matching is a process that occurs when when you apply operators and functions to two or more unique ts() expressions, each representing two or more unique source\|metric\|\[pointTagValues\] pairs, are evaluated:
  
 - Arithmetic operators (+, -, /, *)
 - Comparison operators (>, <, =, >=, <=, !=)

@@ -424,22 +424,15 @@ ul#mysidebar {
     background-color: whitesmoke !important;
 }
 
-
-.nav ul li a {
-    background-color: #FAFAFA;
-}
-
-.nav li a {
+.nav li a:hover {
+    background-color: #8D8D8D;
     padding-right:10px;
 }
 
-.nav li a:hover {
-    background-color: #8D8D8D;
-}
-
 .nav ul li a {
+    background-color: #FAFAFA;
     border-top:1px solid whitesmoke;
-    padding-left:10px;
+    padding-left:20px;
 }
 /* end sidebar */
 

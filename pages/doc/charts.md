@@ -22,7 +22,7 @@ The name of the chart. When a chart name is entered, it displays on the top righ
 
 #### Point Tag Display Options
 
-Which <a href="https://community.wavefront.com/docs/DOC-1029" class="jive-link-wiki-small">point tags</a> to display on the chart legend or table.
+Which [point tags](query_language_using_point_tags) to display on the chart legend or table.
 
 -   **Show all** - Show all point tags
 -   **Top** - Show top N most frequent point tags

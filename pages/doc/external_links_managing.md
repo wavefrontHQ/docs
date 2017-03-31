@@ -23,6 +23,9 @@ To view and manage external links, select **Browse > External Links**.
  
 You must have [External Links Management permission](permissions) to manage external links. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
 
+For a video overview, see [External Links](https://wavefront-1.wistia.com/medias/9vdlf3kf3j).
+
+
 ## Navigating to an External Link
 
 1. Right-click a series. The series context menu displays.

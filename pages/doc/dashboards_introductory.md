@@ -26,6 +26,6 @@ The best dashboard to start with is the **Intro: Home** dashboard. This dashboar
 
 ![intro_home.png](images/intro_home.png)
 
-The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for all new users in the <a href="https://community.wavefront.com/docs/DOC-1084#jive_content_id_CustomerWide_Preferences">customer-wide preferences</a> and a specific user in the <a href="https://community.wavefront.com/docs/DOC-1247">user preferences</a>.
+The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for all new users in the [customer-wide preferences](dashboards_managing#prefs) and a specific user in the [user preferences](users_prefs_configuring).
 
 {% include links.html %}

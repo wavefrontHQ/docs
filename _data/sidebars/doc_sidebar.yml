@@ -18,17 +18,18 @@ entries:
     - title: Introduction to Wavefront
       url: /introduction.html
       output: web
-      type: homepage
       
     - title: Using the Wavefront API
       url: /wavefront_api.html
       output: web
-      type: homepage
+      
+    - title: Wavefront Data Naming Best Practices
+      url: /wavefront_data_naming.html
+      output: web
       
     - title: Tags Overview
       url: /tags_overview.html
       output: web
-      type: homepage
       
     - title: Wavefront Charts
       url: /charts.html
@@ -105,6 +106,14 @@ entries:
   - title: Dashboards
     output: web
     folderitems:
+      
+    - title: Searching Dashboards
+      url: /dashboards_searching.html
+      output: web
+      
+    - title: Interacting with Dashboards and Charts
+      url: /dashboards_interacting.html
+      output: web
       
     - title: Managing Dashboards
       url: /dashboards_managing.html
@@ -271,7 +280,7 @@ entries:
           url: /label_events.html
           output: web
           
-        - title: Integrations Pages
+        - title: Integration Pages
           url: /label_integrations.html
           output: web
           

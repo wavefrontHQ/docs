@@ -20,7 +20,7 @@ Increasingly, Wavefront customers have added more and more content such as dashb
 
 ### Tags and Tag Paths
 
-Tags allow you to flexibly manage and organize your Wavefront content. With this release, tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular sub-groups of users. <span style="font-size: 12pt;">Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events. </span>
+Tags allow you to flexibly manage and organize your Wavefront content. With this release, tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular sub-groups of users. Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events.
 
 -   Tag paths organize tags by separating tag components with periods ".". For example, **Eastern.DBs.MySQL**.
 -   To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
@@ -29,8 +29,8 @@ Tags allow you to flexibly manage and organize your Wavefront content. With this
 
 ### Search
 
--   Faceted searching - The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links pages now include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. <span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. In addition there are type-specific facets. For example, Events and Maintenance Windows have the State facet.</span>
--   Saved searches - The faceted filter bar includes a set of commonly used saved searches. In addition, you can also save your own searches. Once you start searching, the following icons [<img src="images/searchicons.png" alt="searchicons.png" class="image-20 jive-image" width="117" height="27" />](images/searchicons.png) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, duplicating, and deleting the search.
+-   Faceted searching - The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links pages now include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. In addition there are type-specific facets. For example, Events and Maintenance Windows have the State facet.
+-   Saved searches - The faceted filter bar includes a set of commonly used saved searches. In addition, you can also save your own searches. Once you start searching, the following icons [search icons](images/searchicons.png) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, duplicating, and deleting the search.
 
 The following Alert Browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
@@ -44,9 +44,9 @@ Search fields now supports multi-word searches. For example, if you type **cpu u
 
 This release introduces several new patterns for performing actions on Wavefront entities:
 
--   Tagging - After selecting entities, click the tag buttons [<img src="images/tag_toggle.png" alt="tag_toggle.png" class="image-10 jive-image" width="118" height="30" />](images/tag_toggle.png) to create, add, and remove tags.
--   Actions - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the menu icon:  [<img src="images/action_menu.png" alt="action_menu.png" class="image-7 jive-image" width="33" height="24" />](images/action_menu.png)  and selecting an action.
--   Trash - View deleted entities by clicking the trash toggle: Off - [<img src="images/trash_off.png" alt="trash_off.png" class="image-8 jive-image" width="76" height="30" />](images/trash_off.png)  <span style="font-size: 12pt;">On - [<img src="images/trash_on.png" alt="trash_on.png" class="image-9 jive-image" width="76" height="30" />](images/trash_on.png)</span>
+-   Tagging - After selecting entities, click the tag buttons [tag toggle](images/tag_toggle.png) to create, add, and remove tags.
+-   Actions - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the menu icon:  [action menu](images/action_menu.png)  and selecting an action.
+-   Trash - View deleted entities by clicking the trash toggle: Off - [trash off](images/trash_off.png) On - [trash on](images/trash_on.png)
 
 ## Dashboards
 
@@ -76,13 +76,13 @@ Alerts have been enhanced in several aspects. Newly surfaced alert properties an
 -   User events can now be edited.
 -   event() supports filtering events by alert tag paths including trailing wildcards ("\*"). For example, to view all events associated with alerts tagged with **MicroService.App1**, specify **alertTag=MicroService.App1.\***.
 -   Adding a user event to a chart automatically adds the event() expression to the chart.
--   Improved documentation of the event() language, including information on previously undocumented features. See <a href="https://community.wavefront.com/docs/DOC-1159">Advanced event() Expressions</a>.
+-   Improved documentation of the event() language, including information on previously undocumented features. See [Advanced event() Expressions](events_queries_advanced).
 
 ## Sending Metrics from Logs
 
 Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront Proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the Proxy for parsing. Splunk's Universal Forwarder is also supported.
 
-See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](log_data_ingestion).
+See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](integrations_log_data).
 
 <span id="external"></span>
 
@@ -90,7 +90,7 @@ See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront]
 
 When viewing metric information in a chart, anomalies or other interesting information is often noticed that requires further investigation. When this investigation requires moving to another system or tool, this release makes the process easier by providing links between Wavefront and external systems using the new external links feature.
 
-For example, if you use logging systems such as ELK and Splunk, you can easily construct a meaningful URL to navigate from a Wavefront chart  to a log entry in one of these systems. While this example focuses on a log scenario, the feature is general <span style="font-size: 12pt;">purpose: you can link through to any type of system.</span>
+For example, if you use logging systems such as ELK and Splunk, you can easily construct a meaningful URL to navigate from a Wavefront chart  to a log entry in one of these systems. While this example focuses on a log scenario, the feature is general purpose: you can link through to any type of system.
 
 External links employ a template language that allows you to pass information about metric names, source names, point tag values, and time window of the originating series to the target URL and support filtering based on metric, source, and point tag value regular expressions.
 
@@ -98,7 +98,7 @@ Once configured, to navigate to external link, right-click a time series and sel
 
 ![External links](images/elk_external_link.png)
 
-For more information, see <a href="https://community.wavefront.com/docs/DOC-1242">External Links</a>.
+For more information, see [External Links](external_links_managing).
 
 ## Wavefront Installer
 
@@ -142,7 +142,7 @@ For example, to return all alerts using the v2 API, invoke
 
 While Wavefront recommends that you move to the v2 API, the original API (`<Wavefront_instance>/api/`), though deprecated, is still supported. As before, the UI leverages only the public API.
 
-The API is now fully documented. When you open the <a href="https://community.wavefront.com/docs/DOC-1095">API documentation</a>, the Swagger specified API appears as:
+The API is now fully documented. When you open the [API documentation](wavefront_api) the Swagger specified API appears as:
 
 ![Wavefront API](images/wavefront_api_v2.png)
 

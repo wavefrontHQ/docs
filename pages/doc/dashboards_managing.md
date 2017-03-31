@@ -51,7 +51,7 @@ Dashboard preferences include:
 -   Whether to display the description, [section TOC](#sections), and [dashboard variables](dashboards_variables)
 -   A global [events() query](events_queries)
 -   Chart title display properties
--   Default time window
+-   Default [time window](dashboards_interacting#time_window)
 
 To open the dashboard preferences dialog, click the wrench icon <span class="fa-wrench fa"/> at the top right of the dashboard.
 
@@ -100,11 +100,7 @@ You can directly modify any dashboard properties by editing the dashboard's JSON
 
 When editing a dashboard, you may make several changes at a time. If you wish to remove a single change, but not the changes made before it, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
 
-## Managing Dashboards
-
-You can delete dashboards, revert a dashboard to a previous version, and manage and apply tags.
-
-### Deleting Dashboards
+## Deleting Dashboards
 
 You can delete a dashboard from the All Dashboards page or the specific dashboard you want to remove.
 
@@ -115,7 +111,7 @@ You are prompted with a secondary message to confirm you want to delete the dash
 
 If you delete a dashboard by mistake, it can be recovered within 30 days of deletion from the Trash bin. After 30 days, the deleted dashboard is removed from the Trash bin and is no longer be recoverable. If you'd like the deleted dashboard to be permanently removed from the system prior to the 30 day deadline, then you can manually do so from the Trash bin.
 
-### Reverting a Dashboard to a Previous Version
+## Managing Dashboard Versions
 
 Wavefront keeps track of changes made to a dashboard, and displays those changes in the Dashboard History page. You can access a dashboard's history from the All Dashboards page or directly from a dashboard.
 
@@ -126,11 +122,11 @@ From the Past Versions page, each revision is listed along with the user who mad
 
 If you want to revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list. You can also choose to view a previous dashboard version before reverting by clicking the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
 
-### Managing Dashboard Tags
+## Managing Dashboard Tags
 
 See [Tags Overview](tags_overview#entity_tags).
 
-## Managing Charts
+## Managing Charts in Dashboards
 
 ### Adding a Chart to a Dashboard
 
@@ -138,9 +134,9 @@ To add a new chart to a dashboard:
 
 1.  Navigate to the dashboard and put it in edit mode.
 1.  Find the section you want to place the chart in. Click <span class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
-1.  In the New Query field, type a Wavefront Query Language expression. See [Getting Started with Wavefront Query Language](query_language_getting_started) and [Wavefront Query Language Quick Reference](query_language_reference).
-1.  In the Chart section, customize your chart. See [Wavefront Charts](charts) to learn more about customization options.
-1.  Click **Accept**. The new chart displays in the section you selected.
+    1.  In the New Query field, type a [Wavefront Query Language](query_language_getting_started) expression.
+    1.  In the Chart section, [customize your chart](charts).
+    1.  Click **Accept**. The new chart displays in the section you selected.
 1.  Click **Save**.
 
 ### Deleting, Cloning, and Making Permanent Changes to a Chart
@@ -160,9 +156,5 @@ To customize the placement of charts when a dashboard is in edit mode:
 1.  Hover over a chart, left-click your mouse, and hold.
 2.  Drag the chart to its new position on the dashboard. You can place up to four charts in a row. Keep in mind that the more charts in a row, the smaller each chart will be. Smaller charts in each row also affect the number of point buckets and amount of time represented by each point bucket. You can move a chart to a new row by dragging a chart over an <span class="fa-plus-circle fa"/> Add New Chart box.
 3.  Save the dashboard.
-
-## Creating and Managing Dashboard Variables
-
-You can apply dashboard variables to an existing dashboard. See [Dashboard Variables](dashboards_variables).
 
 {% include links.html %}

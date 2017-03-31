@@ -1,5 +1,5 @@
 ---
-title: "Integrations Pages"
+title: "Integration Pages"
 tagName: integrations
 search: exclude
 permalink: label_integrations.html
