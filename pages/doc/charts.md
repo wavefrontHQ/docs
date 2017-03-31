@@ -4,9 +4,11 @@ keywords: getting started
 tags: [getting_started, charts]
 sidebar: doc_sidebar
 permalink: charts.html
-summary: This topic describes the types and properties of Wavefront charts.
+summary: This topic describes all Wavefront chart options. 
 ---
 
+[Charts](charts_creating) are the primary way you view the status of your metrics. You add
+[Wavefront Query Language](query_language_getting_started) queries to view and perform operations on metrics and configure chart options for the most helpful presentation.
 
 ## Common Options
 
@@ -68,7 +70,7 @@ The minimum and maximum value on the Y-axis. If you are using a double Y-axis, y
 
 The unit of measurement to assign to the reported chart values label that appears along the Y-axis of the chart. For example, if the data for ts(“requests.latency”) is in milliseconds, you can either enter **ms** in the text field or click the **Units** down-arrow and select **Time &gt; ms**.
 
-The specified unit is merely a label and *does not* change the unit of measurement for the given expression. If you are using a double Y-axis, you can specify a unit for each Y-axis. For information on unit prefixes and dynamic units, see <a href="https://community.wavefront.com/docs/DOC-1168" class="jive-link-wiki-small">Units in Chart Axes and Legends</a>.
+The specified unit is merely a label and *does not* change the unit of measurement for the given expression. If you are using a double Y-axis, you can specify a unit for each Y-axis. For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](charts_units).
 
 ### Style
 

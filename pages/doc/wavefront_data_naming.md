@@ -1,7 +1,7 @@
 ---
 title: Wavefront Data Naming
-keywords: getting_started
-tags: [getting_started]
+keywords: data
+tags: [data]
 sidebar: doc_sidebar
 permalink: wavefront_data_naming.html
 summary: This topic describes best practices for naming data sent to Wavefront.

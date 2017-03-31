@@ -1,7 +1,7 @@
 ---
 title: Wavefront Data Format
-keywords: proxies
-tags: [proxies]
+keywords: data
+tags: [data]
 sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: This topic describes the Wavefront data format.
@@ -54,7 +54,7 @@ Metric naming hierarchy recommendations:
 <td>The value of the metric.</td>
 <td><ul>
 <li>A number that can be parsed into a double-precision floating point number or a long integer. Can be positive, negative, 0, Infinity, NaN and -Infinity.</li>
-<li>In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends]().</li>
+<li markdown="span">In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_units).</li>
 </ul></td>
 </tr>
 <tr>

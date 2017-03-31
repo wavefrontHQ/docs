@@ -1,8 +1,8 @@
 ---
-title: "Proxy Pages"
-tagName: proxies
+title: "Release Notes Pages"
+tagName: release_notes
 search: exclude
-permalink: label_proxies.html
+permalink: label_release_notes.html
 sidebar: doc_sidebar
 folder: labels
 ---

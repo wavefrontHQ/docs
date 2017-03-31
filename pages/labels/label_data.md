@@ -1,8 +1,8 @@
 ---
-title: "Proxy Pages"
-tagName: proxies
+title: "Data Pages"
+tagName: data
 search: exclude
-permalink: label_proxies.html
+permalink: label_data.html
 sidebar: doc_sidebar
 folder: labels
 ---

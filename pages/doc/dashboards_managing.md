@@ -7,15 +7,6 @@ permalink: dashboards_managing.html
 summary: This topic describes how to manage dashboards.
 ---
 
-## What is a Dashboard?
-
-Dashboards group a set of related [charts](charts). All charts in a dashboard share [display
-preferences](#prefs), [variables](dashboards_variables), and [events](events_charts#dashboards_events). Within
-dashboards you use [sections](#sections) to further organize charts.
-
-To view and manage dashboards, select **Dashboards > All Dashboards**.
-
-You must have [Dashboard Management permission](permissions) to manage dashboards. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
 
 ## Creating a Dashboard
 

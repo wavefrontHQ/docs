@@ -60,6 +60,6 @@ When the interactive configuration is complete, the Wavefront proxy configuratio
 To install proxies on multiple hosts you can use Ansible. For details, see [Installing Proxies and Agents with Ansible]().
 
 ## Running a Proxy in a Docker Container
-You can alternatively run a proxy in a Docker container. For details, see [Running a Wavefront Proxy in Docker]().
+You can alternatively run a proxy in a Docker container. For details, see [Running a Wavefront Proxy in Docker](proxies_running_docker).
 
 {% include links.html %}
