@@ -163,6 +163,10 @@ entries:
     output: web
     folderitems:
       
+    - title: Creating an Alert
+      url: /alerts_creating.html
+      output: web
+      
     - title: Managing Alerts
       url: /alerts_managing.html
       output: web
