@@ -4,7 +4,7 @@ keywords: dashboards
 tags: [dashboards, getting_started]
 sidebar: doc_sidebar
 permalink: dashboards_searching.html
-summary: This topic describes how to search for dashboards.
+summary: Learn how to search for and filter dashboards.
 ---
 Wavefront offers new insights for your network of systems through the use of charts. While charts provide a window into your company's data, dashboards offer you a way to prioritize and group those windows in a meaningful way. By creating dashboards, you can quickly compare different data sets, alter time windows for all data sets, and save those windows for future use.
  

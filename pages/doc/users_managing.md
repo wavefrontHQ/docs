@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_managing.html
-summary: This describes how to manage users.
+summary: Learn how to manage users.
 ---
 
 You must have [User Management permission](permissions) to do the following tasks. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.

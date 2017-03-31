@@ -5,9 +5,8 @@ tags: [sources]
 datatable: true
 sidebar: doc_sidebar
 permalink: sources_managing.html
-summary: This describes how to manage sources.
+summary: Learn how to manage sources.
 ---
-
 ## What is a Source?
 
 A source is a unique application, host, container, or instance that emits metrics. The source is explicitly set

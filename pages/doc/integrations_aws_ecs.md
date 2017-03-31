@@ -4,9 +4,8 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: This topic describes how to send AWS ECS data to Wavefront.
+summary: Learn how to send AWS ECS data to Wavefront.
 ---
-
 Amazon EC2 Container Service (ECS) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
 ```quote

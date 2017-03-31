@@ -3,7 +3,7 @@ title: Tags Overview
 tags: [getting_started]
 sidebar: doc_sidebar
 permalink: tags_overview.html
-summary: This is an overview of Wavefront tags.
+summary: Learn how to create and use Wavefront tags to speed up query display and work with Wavefront entities.
 ---
 ## What is a Tag?
 

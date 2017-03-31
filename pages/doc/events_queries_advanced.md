@@ -4,10 +4,9 @@ keywords: events
 tags: [events]
 sidebar: doc_sidebar
 permalink: events_queries_advanced.html
-summary: This topic describes how to use advanced events() queries in charts.
+summary: Learn how to use advanced events() operators and functions.
 ---
-
-Event sets support several types of operators and functions. You can combine, compare, and filter events sets. You can generate synthetic events sets, convert events sets to time series, and isolate or create individual events.
+Event sets returned from [events() queries](events_queries) support several types of operators and functions. You can combine, compare, and filter events sets. You can generate synthetic events sets, convert events sets to time series, and isolate or create individual events.
 
 ## Event Set Combination Operators
 
@@ -21,7 +20,6 @@ The <span style="color: #bf5700;">union</span> operator returns all events that 
 is equivalent to
 
 <strong>events(<span style="color: #2873ee;">type=maintenanceWindow</span> <span style="color: #bf5700;">or</span> <span style="color: #2873ee;">name="*test*"</span>)
-
 
 ### Intersect
 The <span style="color: #bf5700;">intersect</span> operator returns all events that exist in both of the event sets. Similar to the above example,

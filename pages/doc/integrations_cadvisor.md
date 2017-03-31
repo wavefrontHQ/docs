@@ -4,7 +4,7 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_cadvisor.html
-summary: This topic describes how to use cAdvisor to send container metrics to Wavefront.
+summary: Learn how to use cAdvisor to send container metrics to Wavefront.
 ---
 
 {% include integrations/cadvisor/README.md %}

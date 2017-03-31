@@ -4,10 +4,8 @@ keywords: charts
 tags: [charts]
 sidebar: doc_sidebar
 permalink: charts_units.html
-summary: This topic describes how to configure units in charts.
+summary: Learn how to configure the units displayed in chart axes and legends.
 ---
-
-
 Wavefront supports several options to control how units display in chart axes and legends.  All of these option affect only the display of data and do not change the underlying stored data values, or the results of queries made directly against the API.  This also means that any constants used in queries, including thresholds, continue to use the raw underlying data without any unit scaling.
 
 ## Unit Prefixes

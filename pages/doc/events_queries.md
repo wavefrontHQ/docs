@@ -4,7 +4,7 @@ keywords: events
 tags: [events]
 sidebar: doc_sidebar
 permalink: events_queries.html
-summary: This topic describes how to formulate events() queries.
+summary: Learn how to formulate events() queries.
 ---
 You use events() queries to [display events in charts](charts_events_displaying).
 

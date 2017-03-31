@@ -5,7 +5,7 @@ tags: [query_language]
 datatable: true
 sidebar: doc_sidebar
 permalink: query_language_reference.html
-summary: This is a quick reference for Wavefront Query Language.
+summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.
 ---
 ## Query Elements
 <table style="width: 100%;">

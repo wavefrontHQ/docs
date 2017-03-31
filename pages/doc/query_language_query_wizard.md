@@ -5,7 +5,7 @@ tags: [query_language, getting_started]
 datatable: true
 sidebar: doc_sidebar
 permalink: query_language_query_wizard.html
-summary: This topic gets you started with creating Wavefront Query Language expressions with Query Wizard.
+summary: Learn how to get started with creating Wavefront Query Language expressions using Query Wizard.
 ---
 The Wavefront Query Wizard is a collection of recipes that have been curated by the Wavefront team to help you take advantage of Wavefront's powerful time series language. This article covers several topics about the Query Wizard.
 

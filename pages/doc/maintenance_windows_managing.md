@@ -5,7 +5,7 @@ tags: [alerts]
 datatable: true
 sidebar: doc_sidebar
 permalink: maintenance_windows_managing.html
-summary: This describes how to manage maintenance windows.
+summary: Learn how to manage maintenance windows.
 ---
 
 ## What is a Maintenance Window?

@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions.html
-summary: This topic describes Wavefront permissions.
+summary: Learn about Wavefront permissions.
 ---
 
 Permissions, which are assigned at the user level, allow your company's administrator(s) to control access to Wavefront feature sets. If you do not have a specific permission, UI menu selections and buttons required to perform the tasks for that feature set are not visible.

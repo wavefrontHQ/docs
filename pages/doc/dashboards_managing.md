@@ -4,9 +4,9 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_managing.html
-summary: This topic describes how to manage dashboards.
+summary: Learn how to manage dashboards.
 ---
-
+You must have [Dashboard Management permission](permissions) to manage dashboards. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
 
 ## Creating a Dashboard
 

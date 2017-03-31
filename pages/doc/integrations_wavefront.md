@@ -4,7 +4,7 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_wavefront.html
-summary: This topic shows supported Wavefront integrations.
+summary: Learn about the various types of integrations supported by Wavefront.
 ---
 
 <h2>Data Integrations</h2>

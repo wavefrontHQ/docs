@@ -1,13 +1,12 @@
 ---
 title: Wavefront Data Format
 keywords: data
-tags: [data]
+tags: [data, proxies]
 sidebar: doc_sidebar
 permalink: wavefront_data_format.html
-summary: This topic describes the Wavefront data format.
+summary: Learn about the Wavefront native data format.
 ---
-
-The Wavefront proxy supports several data formats. This article documents the native Wavefront data format.
+The Wavefront proxy supports several [data formats](proxies_managing). This article documents the native Wavefront data format.
 
 ## Wavefront Data Format Syntax
 

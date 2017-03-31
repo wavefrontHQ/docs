@@ -4,10 +4,9 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_running_docker.html
-summary: This topic describes how to run a Wavefront proxy in a Docker container.
+summary: Learn how to run a Wavefront proxy in a Docker container.
 ---
-
-Wavefront proxy can be run in a Docker container. The Docker image is available in [Wavefront Docker repo](https://hub.docker.com/r/wavefronthq/proxy/). To run the container you must provide:
+You can run a Wavefront proxy in a Docker container. The Docker image is available in [Wavefront Docker repo](https://hub.docker.com/r/wavefronthq/proxy/). To run the container you must provide:
 
 - WAVEFRONT_URL - The URL to your Wavefront API instance.
 - WAVEFRONT_TOKEN - Your Wavefront API token.

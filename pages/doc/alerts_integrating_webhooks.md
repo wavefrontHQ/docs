@@ -4,7 +4,7 @@ keywords: webhooks
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_integration_webhooks.html
-summary: This describes how to create webhooks and integrate them with alerts.
+summary: Learn how to create webhooks and integrate them with alerts.
 ---
 
 ## What is a Webhook?

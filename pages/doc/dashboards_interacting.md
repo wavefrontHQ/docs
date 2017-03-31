@@ -4,7 +4,7 @@ keywords: dashboards
 tags: [dashboards, charts, getting_started]
 sidebar: doc_sidebar
 permalink: dashboards_interacting.html
-summary: Altering time windows, isolating time series, sharing URLs, and applying global queries are just a few of the ways you can interact with dashboards and charts in Wavefront.
+summary: Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and charts.
 
 ---
 

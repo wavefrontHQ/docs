@@ -4,9 +4,8 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
-summary: This topic describes how to send AWS data to Wavefront.
+summary: Learn how to send AWS data to Wavefront.
 ---
-
 Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. Wavefront supports cloud integrations, which allow you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.
  
 You must have [Proxy Management permission](permissions) to set up an AWS cloud integration. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.

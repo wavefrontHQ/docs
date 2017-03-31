@@ -5,7 +5,7 @@ tags: [query_language, getting_started]
 datatable: true
 sidebar: doc_sidebar
 permalink: query_language_getting_started.html
-summary: This topic gets you started with Wavefront Query Language.
+summary: Learn how to get started with Wavefront Query Language.
 ---
 One of the key advantages of Wavefront is our query language which has been designed especially for time series data.  Time series data is unique in several ways, and requires a query language that can accommodate the periodicity, potential irregularity, and streaming nature of the data.
  

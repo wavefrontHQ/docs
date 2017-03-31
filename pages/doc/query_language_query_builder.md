@@ -5,7 +5,7 @@ tags: [query_language, getting_started]
 datatable: true
 sidebar: doc_sidebar
 permalink: query_language_query_builder.html
-summary: This topic gets you started with creating Wavefront Query Language expressions with Query Builder.
+summary: Learn how to get started with creating Wavefront Query Language expressions using Query Builder.
 ---
 The Wavefront Query Builder makes Wavefront even more accessible to all users in your organization. The Query Builder is a layer on top of, not a replacement for, Wavefront Query Language. Almost all of the full power of the Wavefront Query Language is maintained for expert users though a few of the more advanced functions are only available in the full Wavefront Query Language (i.e non-Query Builder developed queries). These include functions such as aliasMetrics(), if(), retainSeries(), etc. For further information on these functions, see [Wavefront Query Language Quick Reference](query_language_reference).  If you subsequently manually edit a query built by the Query Builder, that query can no longer be edited using the Query Builder.
  

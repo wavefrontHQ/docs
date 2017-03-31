@@ -5,7 +5,7 @@ tags: [alerts]
 datatable: true
 sidebar: doc_sidebar
 permalink: alerts_managing.html
-summary: This describes how to manage alerts.
+summary: Learn how to manage alerts.
 ---
 
 ## What is an Alert?

@@ -4,13 +4,13 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_variables.html
-summary: This topic describes how to use dashboard variables.
+summary: Learn how to use dashboard variables.
 ---
-Dashboard variables enable you to dynamically choose the value of components of ts() queries across multiple charts on a dashboard. All Wavefront users can select and temporarily alter the value of a dashboard variable. Only users with Dashboard Management permission can permanently save changes.
-
 ## What is a Dashboard Variable?
 
-A dashboard variable is a placeholder that allows you to dynamically change the components of a ts() expression. Dashboard variables simply enable text replacement; dashboard variables can contain metric names, filters, advanced functions, or even a string such as ")))", which could be inserted at the end of an expression. There are three types of dashboard variables: simple, list, and dynamic.
+A dashboard variable is a placeholder that allows you to dynamically change the components of a query. Dashboard variables simply enable text replacement; dashboard variables can contain metric names, filters, advanced functions, or even a string such as ")))", which could be inserted at the end of an query. There are three types of dashboard variables: simple, list, and dynamic.
+
+All Wavefront users can select and temporarily alter the value of a dashboard variable. You must have [Dashboard Management permission](permissions) to manage dashboards. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
 
 ## Accessing Dashboard Variables
 

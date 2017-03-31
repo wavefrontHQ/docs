@@ -4,7 +4,7 @@ keywords: getting started
 tags: [getting_started, dashboards]
 sidebar: doc_sidebar
 permalink: dashboards.html
-summary: This topic introduces Wavefront dashboards.
+summary: Learn about Wavefront dashboards.
 ---
 
 Dashboards group a set of related [charts](charts). All charts in a dashboard share [display

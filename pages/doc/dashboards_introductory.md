@@ -4,7 +4,7 @@ keywords: dashboards
 tags: [dashboards, getting_started]
 sidebar: doc_sidebar
 permalink: dashboards_introductory.html
-summary: This is an overview of the introductory dashboards.
+summary: Learn about the tutorial, example, and use case introductory dashboards available in your Wavefront instance.
 ---
 Every Wavefront instance contains a set of introductory dashboards to help new users learn about Wavefront components, illustrative use cases, and example dashboards for specific domains.  You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview).
 

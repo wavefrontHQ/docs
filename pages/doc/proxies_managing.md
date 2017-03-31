@@ -4,7 +4,7 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_managing.html
-summary: This topic describes how to manage Wavefront proxies.
+summary: Learn how to manage Wavefront proxies.
 ---
 Wavefront proxies are deployed on a machine within your network and act as the intermediary between collector agents and Wavefront. Proxies are the preferred method for sending your data to Wavefront. The proxy accepts:
 

@@ -5,7 +5,7 @@ tags: [metrics]
 datatable: true
 sidebar: doc_sidebar
 permalink: metrics_managing.html
-summary: This describes how to manage metrics.
+summary: Learn how to manage metrics.
 ---
 
 ## What is a Metric?

@@ -4,7 +4,7 @@ keywords: getting started
 tags: [getting_started, charts]
 sidebar: doc_sidebar
 permalink: charts.html
-summary: This topic describes all Wavefront chart options. 
+summary: Learn about Wavefront chart types and chart configuration options. 
 ---
 
 [Charts](charts_creating) are the primary way you view the status of your metrics. You add

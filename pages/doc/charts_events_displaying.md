@@ -4,7 +4,7 @@ keywords: events
 tags: [events, charts]
 sidebar: doc_sidebar
 permalink: charts_events_displaying.html
-summary: This topic describes how to display events in charts.
+summary: Learn how to display events in charts.
 ---
 
 When events occur it can be helpful to view them in charts so that you can correlate metric anomalies with the events. Such events include the firing of an alert or the start of a maintenance window. There are also user events, such as deployment activities, that occur outside Wavefront, but can affect the values of metrics. To help you understand the effect of the event on your metrics you can choose whether to display an *overlay* associated with the event on a chart. 

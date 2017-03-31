@@ -4,7 +4,7 @@ keywords: dashboards
 tags: [getting_started]
 sidebar: doc_sidebar
 permalink: documentation_introductory.html
-summary: This is an overview of the introductory documentation.
+summary: Learn about the documentation that can help get you up to speed on Wavefront.
 ---
 The following list of documents are great for getting started with Wavefront. If you want an even more condensed set of documentation, then focus on the documents/videos with a <span class="fa-check-circle fa" style="color: green;"></span> icon.
 

@@ -4,7 +4,7 @@ keywords: events
 tags: [events]
 sidebar: doc_sidebar
 permalink: events_managing.html
-summary: This topic describes how to manage events.
+summary: Learn how to manage events.
 ---
 
 ## What is an Event?

@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_prefs_configuring.html
-summary: This describes how to configure user preferences.
+summary: Learn how to configure user preferences.
 ---
 
 You configure can configure several preferences in your user profile. To configure preferences:

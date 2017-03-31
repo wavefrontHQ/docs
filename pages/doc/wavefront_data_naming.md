@@ -4,7 +4,7 @@ keywords: data
 tags: [data]
 sidebar: doc_sidebar
 permalink: wavefront_data_naming.html
-summary: This topic describes best practices for naming data sent to Wavefront.
+summary: Learn about best practices for naming data sent to Wavefront and naming Wavefront entities.
 ---
 There are different places where you can express your data schema&mdash;metric names, source names, and point, alert, event, and source tags. How should you be using these fields? While Wavefront doesn't place any restrictions on usage (there are restrictions on what characters can be used in metrics and tags), here are some common best practices when naming these entities:
 
