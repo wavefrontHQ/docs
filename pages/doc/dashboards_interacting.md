@@ -7,7 +7,6 @@ permalink: dashboards_interacting.html
 summary: Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and charts.
 
 ---
-
 ## Common Interactions
 There are a few interactions that are common to dashboards and charts. You can share shortened URLs and isolate sources.
  
