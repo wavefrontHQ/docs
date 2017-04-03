@@ -13,6 +13,6 @@ dashboards you use [sections](#sections) to further organize charts.
 
 To view and manage dashboards, select **Dashboards > All Dashboards**.
 
-All users can [search](dashboards_searching) and [interact](dashboards_interacting) with dashboards. You must have [Dashboard Management permission](permissions) to [manage dashboards](dashboards_managing). If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+All users can [search](dashboards_searching) and [interact](dashboards_interacting) with dashboards. {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
 {% include links.html %}

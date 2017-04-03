@@ -16,7 +16,8 @@ Events originate from several different sources. When you perform actions in Wav
 
 To view and manage events, select **Browse > Events**.
 
-You must have [Event Management permission](permissions) to manage events. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/permissions.html entity="events" entitymgmt="Event" %}
+
 
 You can close (end) user events that are ongoing (whether they have no end time or a specific end time).
 

@@ -13,7 +13,7 @@ Amazon EC2 Container Service (ECS) is a highly scalable, high performance contai
 that supports Docker containers and allows you to easily run applications on a managed cluster of Amazon 
 EC2 instances.
 ```
-This guide provides detailed steps on how to install and configure Wavefront's ECS Integration. The integration provides the following:
+This guide provides detailed steps on how to install and configure Wavefront's ECS integration. The integration provides the following:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
 - Monitoring of detailed metrics about individual containers, services, and clusters running in your AWS ECS environment.

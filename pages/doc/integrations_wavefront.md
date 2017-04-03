@@ -74,20 +74,20 @@ summary: Learn about the various types of integrations supported by Wavefront.
 <tbody>
 <tr>
 <td>
-<a href="https://community.wavefront.com/docs/DOC-1056"><img src="images/pagerduty.png"/></a><br/><br/>
-<a href="https://community.wavefront.com/docs/DOC-1056">Pager Duty</a>
+<a href="alerts_integrating_pagerduty.html"><img src="images/pagerduty.png"/></a><br/><br/>
+<a href="alerts_integrating_pagerduty.html">Pager Duty</a>
 </td>
 <td>
-<a href="https://community.wavefront.com/docs/DOC-1183"><img src="images/slack.png"/></a><br/><br/>
-<a href="https://community.wavefront.com/docs/DOC-1183">Slack</a>
+<a href="alerts_integrating_slack.html"><img src="images/slack.png"/></a><br/><br/>
+<a href="alerts_integrating_slack.html">Slack</a>
 </td>
 <td>
-<a href="https://community.wavefront.com/docs/DOC-1251"><img src="images/victorops.png"/></a><br/><br/>
-<a href="https://community.wavefront.com/docs/DOC-1251">VictorOps</a>
+<a href="alerts_integrating_victorops.html"><img src="images/victorops.png"/></a><br/><br/>
+<a href="alerts_integrating_victorops.html">VictorOps</a>
 </td>
 <td>
-<a href="https://community.wavefront.com/docs/DOC-1055"><img src="images/hipchat.png"/></a><br/><br/>
-<a href="https://community.wavefront.com/docs/DOC-1055">HipChat</a>
+<a href="alerts_integrating_hipchat.html"><img src="images/hipchat.png"/></a><br/><br/>
+<a href="alerts_integrating_hipchat.html">HipChat</a>
 </td>
 </tr>
 </tbody>

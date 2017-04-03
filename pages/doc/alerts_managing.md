@@ -9,7 +9,7 @@ summary: Learn how to manage alerts.
 ---
 To view and manage alerts, click the **Alerts** button or select **Browse > Alerts**.
  
-While every Wavefront user can view alerts and maintenance windows, you must have [Alert Management permission](permissions) to perform the following tasks. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+{% include shared/permissions.html entity="alerts and maintenance windows" entitymgmt="Alert" %}
 
 ## Creating Alerts
  

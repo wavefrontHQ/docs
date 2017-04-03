@@ -1,9 +1,9 @@
 ---
 title: Integrating Webhooks with Alerts
 keywords: webhooks
-tags: [alerts]
+tags: [alerts, integrations]
 sidebar: doc_sidebar
-permalink: alerts_integration_webhooks.html
+permalink: alerts_integrating_webhooks.html
 summary: Learn how to create webhooks and integrate them with alerts.
 ---
 
@@ -15,7 +15,8 @@ contains data either passed as simple POST keys and values or in some other form
 
 To view and manage webhooks, select **Browse > Webhooks**.
 
-You must have [Alert Management permission](permissions) to manage webhooks. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
+
 
 
 ## Creating a Webhook
@@ -70,7 +71,135 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tbody>
 </table>
 
-## Payload Variables
+## Customizing a Webhook Payload
+ 
+Wavefront webhook templates support Mustache syntax and a set of variables that parameterize the payload.
+ 
+### Payload Template
+Below is the default POST body template that the webhook sends via HTTP POST:
+
+{% raw %}
+```handlebars
+{
+  "alertId": "{{{alertId}}}",
+  "notificationId": "{{{notificationId}}}",
+  "reason": "{{{reason}}}",
+  "name": "{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",
+  "severity": "{{{severity}}}",
+  "severitySmoke": {{severitySmoke}},
+  "severityInfo": {{severityInfo}},
+  "severityWarn": {{severityWarn}},
+  "severitySevere": {{severitySevere}},
+  "condition": "{{#jsonEscape}}{{{condition}}}{{/jsonEscape}}",
+  "url": "{{{url}}}",
+  "createdTime": "{{{createdTime}}}",
+  "startedTime": "{{{startedTime}}}",
+  "sinceTime": "{{{sinceTime}}}",
+  "endedTime": "{{{endedTime}}}",
+  "snoozedUntilTime": "{{{snoozedUntilTime}}}",
+  "subject": "{{#jsonEscape}}{{{subject}}}{{/jsonEscape}}",
+  "hostsFailingMessage": "{{#jsonEscape}}{{{hostsFailingMessage}}}{{/jsonEscape}}",
+  "errorMessage": "{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",
+  "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
+  "failingSources": [
+    {{#trimTrailingComma}}
+      {{#failingHosts}}
+        "{{{.}}}",
+      {{/failingHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "inMaintenanceSources": [
+    {{#trimTrailingComma}}
+      {{#inMaintenanceHosts}}
+        "{{{.}}}",
+      {{/inMaintenanceHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "newlyFailingSources": [
+    {{#trimTrailingComma}}
+      {{#newlyFailingHosts}}
+        "{{{.}}}",
+      {{/newlyFailingHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "recoveredSources": [
+    {{#trimTrailingComma}}
+      {{#recoveredHosts}}
+        "{{{.}}}",
+      {{/recoveredHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "failingSeries": [
+    {{#trimTrailingComma}}
+      {{#failingSeries}}
+        {{{.}}},
+      {{/failingSeries}}
+    {{/trimTrailingComma}}
+  ],
+  "inMaintenanceSeries": [
+    {{#trimTrailingComma}}
+      {{#inMaintenanceSeries}}
+        {{{.}}},
+      {{/inMaintenanceSeries}}
+    {{/trimTrailingComma}}
+  ],
+  "newlyFailingSeries": [
+    {{#trimTrailingComma}}
+      {{#newlyFailingSeries}}
+        {{{.}}},
+      {{/newlyFailingSeries}}
+    {{/trimTrailingComma}}
+  ],
+  "recoveredSeries": [
+    {{#trimTrailingComma}}
+      {{#recoveredSeries}}
+        {{{.}}},
+      {{/recoveredSeries}}
+    {{/trimTrailingComma}}
+  ]
+}
+```
+{% endraw %}
+
+### Example Payload
+
+{% raw %}
+```handlebars
+{
+  "alertId": "1460761882996",
+  "notificationId": "66dc2064-6bc1-437e-abe0-7c41afcd4aab",
+  "reason": "ALERT_OPENED",
+  "name": "Alert on Data rate ( Test)",
+  "severity": "SMOKE",
+  "severitySmoke": true,
+  "severityInfo": false,
+  "severityWarn": false,
+  "severitySevere": false,
+  "condition": "rate(ts(~agent.points.2878.received)) > 4",
+  "url": "https://metrics.wavefront.com/u/LPc1zR8k9X",
+  "createdTime": "04/15/2016 23:11:22 0000",
+  "startedTime": "09/12/2016 21:47:39 0000",
+  "sinceTime": "09/12/2016 21:45:39 0000",
+  "endedTime": "",
+  "snoozedUntilTime": "",
+  "subject": "[SMOKE] OPENED: Alert on Data rate ( Test)",
+  "hostsFailingMessage": "localhost (~agent.points.2878.received)",
+  "errorMessage": "",
+  "additionalInformation": "An alert to test a webhook integration with Hipchat",
+  "failingSources": ["localhost"],
+  "inMaintenanceSources": [],
+  "newlyFailingSources": ["localhost"],
+  "recoveredSources": [],
+  "failingSeries": [["localhost", "~agent.points.2878.received", []]],
+  "inMaintenanceSeries": [],
+  "newlyFailingSeries": [["localhost", "~agent.points.2878.received", []]],
+  "recoveredSeries": []
+  }
+```
+{% endraw %}
+
+## Template Variables
+The variables that you can reference in a template to customize the message are:
 
 <table>
 <tbody>
@@ -186,5 +315,20 @@ After creating a webhook, fill in the properties. Required fields have an asteri
 </tr>
 </tbody>
 </table>
+
+## Finding a Webhook ID
+Each webhook has a unique system generated ID. To find the ID:
+
+1. Click **Browse > Webhooks**.
+1. Search for the webhook you want to add to the alert. Note the ID of the webhook in the Name column under the webhook description.
+ 
+## Adding a Webhook to a Wavefront Alert
+To apply a webhook integration to an existing alert, locate that alert in the Alerts page and click the alert. If you don't have an alert that to update with the webhook integration, then create a new alert.
+
+1. Scroll down to the **Targets** field. 
+1. Add the keyword **webhook** to the targets list. A dropdown list displays containing all the available webhooks present in Wavefront that can be integrated to your alert. The ID and the webhook URL for each webhook is listed.
+1. Locate and select the ID of the webhook noted in Finding a Webhook ID.
+1. Click **Save**.
+
 
 {% include links.html %}

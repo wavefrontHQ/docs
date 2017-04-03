@@ -47,9 +47,18 @@ entries:
       url: /50_release_notes.html
       output: web
       
+    - title: Wavefront Obsolescence Policy
+      url: /wavefront_obsolescence_policy.html
+      output: web
+      
+      
   - title: Wavefront Data
     output: web
     folderitems:
+      
+    - title: Getting Data into Wavefront
+      url: /wavefront_data_ingestion.html
+      output: web
       
     - title: Wavefront Data Format
       url: /wavefront_data_format.html
@@ -79,8 +88,8 @@ entries:
       url: /wavefront_cli.html
       output: web
       
-    - title: Wavefront Proxy Configuration
-      url: /proxies_configuration.html
+    - title: Configuring Wavefront Proxies
+      url: /proxies_configuring.html
       output: web
       
     - title: Configuring Wavefront Proxy Preprocessor Rules
@@ -177,6 +186,22 @@ entries:
       
     - title: Managing Maintenance Windows
       url: /maintenance_windows_managing.html
+      output: web
+      
+    - title: Integrating HipChat with Alerts
+      url: /alerts_integrating_hipchat.html
+      output: web
+      
+    - title: Integrating PagerDuty with Alerts
+      url: /alerts_integrating_pagerduty.html
+      output: web
+      
+    - title: Integrating Slack with Alerts
+      url: /alerts_integrating_slack.html
+      output: web
+      
+    - title: Integrating VictorOps with Alerts
+      url: /alerts_integrating_victorops.html
       output: web
       
     - title: Integrating Webhooks with Alerts

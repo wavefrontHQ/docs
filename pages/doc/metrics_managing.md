@@ -22,7 +22,7 @@ If a metric is no longer reporting data, it is automatically removed from the Me
   
 To view and manage metrics, select **Browse > Metrics**.
  
-You must have [Metrics Management permission](permissions) to do the following tasks. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
 
 ## Hiding Multiple Metrics Using Metrics Dialog
  

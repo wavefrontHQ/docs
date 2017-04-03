@@ -7,11 +7,12 @@ permalink: permissions.html
 summary: Learn about Wavefront permissions.
 ---
 
-Permissions, which are assigned at the user level, allow your company's administrator(s) to control access to Wavefront feature sets. If you do not have a specific permission, UI menu selections and buttons required to perform the tasks for that feature set are not visible.
- 
+Permissions, which are assigned at the user level, allow your company's administrator(s) to control access to Wavefront feature sets. {% include shared/permissions.html entity="Wavefront entities" entitymgmt="the appropriate" %}
+
 You can learn more about each set of permissions by clicking the permission headers below:
  
 - [Alert Management](alerts_managing) - create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, create, edit, and delete webhooks.
+- [Browse Data]() - view all of Wavefront, except for the Proxies and user administration pages. Every user must have Browse Data permission in order to access Wavefront.
 - [Dashboard Management](dashboards_managing) - create, manage, and delete all dashboards and charts and manage dashboard tags.
 - [Direct Data Ingestion]() - ingest metrics using API endpoints, bypassing proxies.
 - [Embed Charts]() - generate HTML snippets of Wavefront charts and embed them outside of the platform.

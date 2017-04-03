@@ -1,0 +1,180 @@
+---
+title: Integrating Slack with Alerts
+keywords: webhooks
+tags: [alerts, integrations]
+sidebar: doc_sidebar
+permalink: alerts_integrating_slack.html
+summary: Learn how to integrate Slack channels with alerts.
+---
+
+Wavefront and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your Slack channels.
+
+{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
+
+## Building a Custom Integration for Your Slack Channel
+1. Click the **team** dropdown menu in the top left hand of the Slack application and select the **Customize Slack** link.
+  ![customize_slack.png](images/customize_slack.png)
+  
+    The Customize Your Team page opens in your browser.
+
+1. Click the **Configure Apps** link under the menu list.
+
+    ![configure_apps.png](images/configure_apps.png)
+
+1. On the App Directory page, click the **Custom Integrations** and then **Incoming WebHooks** links:
+
+    ![incoming_webhooks.png](images/incoming_webhooks.png)
+
+1. Click the **Add Configuration** button.
+
+    ![add_configuration.png](images/add_configuration.png)
+1. Select the Slack channel from the dropdown list where your incoming webhook will post messages to and then click the **Add Incoming WebHooks** integration button.
+
+    ![webhook_testing.png](images/webhook_testing.png)
+
+1. Customize the incoming webhook.
+
+    ![add_customize_incoming_webhook.png](images/customize_incoming_webhook.png)
+1. Give a meaningful name to your integration. This is the name that will appear in your Slack channel as a sender of the message.  You can also add additional details as description, icon, etc. Refer to Incoming Webhooks for detailed instructions.
+1. Copy the Webhook URL field.
+1. Click **Save Settings**.
+
+
+## Configuring Slack Webhooks in Wavefront
+ 1. Select **Browse > Webhooks**.
+ 1. Click the **Create Webhook button**.
+ 1. Paste the webhook URL you copied when creating the Slack incoming webhook into the URL field.
+ 1. Select the content type.
+ 1. Select **Webhook POST Body Template > Templates > Slack**.  This loads a default Slack message template:
+
+    {% raw %}
+    ```handlebars
+    {
+      "attachments": [
+        {
+          "fallback": "{{#jsonEscape}}{{{subject}}} {{{reason}}} [{{{severity}}}] {{{name}}}{{/jsonEscape}}",
+          "pretext": "{{#jsonEscape}}{{{subject}}} {{{reason}}} [{{{severity}}}] {{{name}}}{{/jsonEscape}}",
+          "text": "{{#jsonEscape}}{{{subject}}} {{{reason}}} [{{{severity}}}] {{{name}}}{{/jsonEscape}}\nFailed Sources: \n{{#jsonEscape}}{{{hostsFailingMessage}}}{{/jsonEscape}}\nMessage: \n{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",
+          "mrkdwn_in": [
+            "text",
+            "pretext",
+            "fields"
+          ],
+          "fields": [
+            {
+              "title": "Notification ID",
+              "value": "{{#jsonEscape}}{{{notificationId}}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Reason",
+              "value": "{{#jsonEscape}}{{{reason}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Alert ID",
+              "value": "{{#jsonEscape}}{{{alertId}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Severity",
+              "value": "{{#jsonEscape}}{{{severity}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Condition",
+              "value": "{{#jsonEscape}}{{{condition}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "URL",
+              "value": "<{{{url}}}>",
+              "short": true
+            },
+            {
+              "title": "Created Time",
+              "value": "{{#jsonEscape}}{{{createdTime}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Started Time",
+              "value": "{{#jsonEscape}}{{{startedTime}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Since Time",
+              "value": "{{#jsonEscape}}{{{sinceTime}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Ended Time",
+              "value": "{{#jsonEscape}}{{{endedTime}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Snoozed Until Time",
+              "value": "{{#jsonEscape}}{{{snoozedUntilTime}}}{{/jsonEscape}}",
+              "short": true
+            },
+            {
+              "title": "Additional Information",
+              "value": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Failing Sources",
+              "value": "{{#jsonEscape}}{{#failingHosts}}{{{.}}},{{/failingHosts}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "In Maintenance Sources",
+              "value": "{{#jsonEscape}}{{#inMaintenanceHosts}}{{{.}}},{{/inMaintenanceHosts}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Newly Failing Sources",
+              "value": "{{#jsonEscape}}{{#newlyFailingHosts}}{{{.}}},{{/newlyFailingHosts}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Recovered Sources",
+              "value": "{{#jsonEscape}}{{#recoveredHosts}}{{{.}}},{{/recoveredHosts}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Failing Series",
+              "value": "{{#jsonEscape}}{{#failingSeries}}{{{.}}},{{/failingSeries}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "In Maintenance Series",
+              "value": "{{#jsonEscape}}{{#inMaintenanceSeries}}{{{.}}},{{/inMaintenanceSeries}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Newly Failing Series",
+              "value": "{{#jsonEscape}}{{#newlyFailingSeries}}{{{.}}},{{/newlyFailingSeries}}{{/jsonEscape}}",
+              "short": false
+            },
+            {
+              "title": "Recovered Series",
+              "value": "{{#jsonEscape}}{{#recoveredSeries}}{{{.}}},{{/recoveredSeries}}{{/jsonEscape}}",
+              "short": false
+            }
+          ]
+        }
+      ]
+    }
+    ```
+    {% endraw %}
+
+ 1. Customize the payload as described in [Customizing a Webhook Payload](alerts_integrating_webhooks.html#customizing-a-webhook-payload). 
+ 1. Click **Save**. The webhook is added to the Webhooks page.
+ 1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks.html#finding-a-webhook-id).
+ 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks.html#adding-a-webhook-to-a-wavefront-alert).
+
+
+
+
+
+{% include links.html %}

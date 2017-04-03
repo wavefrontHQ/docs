@@ -6,7 +6,9 @@ sidebar: doc_sidebar
 permalink: dashboards_managing.html
 summary: Learn how to manage dashboards.
 ---
-You must have [Dashboard Management permission](permissions) to manage dashboards. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+
+{% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
+
 
 ## Creating a Dashboard
 

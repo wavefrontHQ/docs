@@ -19,7 +19,7 @@ Sources are automatically hidden after 4 weeks of inactivity, but you can also m
 
 To view and manage sources, select **Browse > Sources**.
  
-You must have [Source Tag Management permission](permissions) to manage sources. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/permissions.html entity="sources" entitymgmt="Source Tag" %}
 
 ## Adding and Editing Source Descriptions
 

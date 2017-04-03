@@ -14,7 +14,7 @@ Wavefront proxies are deployed on a machine within your network and act as the i
  
 Before streaming data, we recommend that you understand [best practices for naming your data](wavefront_data_naming).
  
-You must have [Proxy Management permission](permissions) to perform the following tasks. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/permissions.html entity="proxies" entitymgmt="Proxy" %}
 
 ## Viewing Deployed Proxies
 
@@ -42,7 +42,7 @@ To update which Wavefront instance the proxy sends data to:
 1. Change the `server` and `token` properties to point to the Wavefront instance you want to send data to. 
 1. [Restart the Wavefront proxy](#restart). The proxy is added to the Wavefront instance and displays on the Proxies page.
  
-For other configuration options, see [Wavefront Proxy Configuration](proxies_configuration). 
+For other configuration options, see [Configuring Wavefront Proxies](proxies_configuring). 
 
 ## Editing and Deleting Proxies
 To edit a proxy name, select  ![action_menu.png](images/action_menu.png#inline) **> Edit** to the right of the proxy, modify the name, and click Save.

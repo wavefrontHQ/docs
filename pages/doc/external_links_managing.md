@@ -18,7 +18,8 @@ External links are general purpose: you can link through to any type of system, 
 
 To view and manage external links, select **Browse > External Links**.
  
-You must have [External Links Management permission](permissions) to manage external links. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/permissions.html entity="external links" entitymgmt="External Links" %}
+
 
 For a video overview, see [External Links](https://wavefront-1.wistia.com/medias/9vdlf3kf3j).
 

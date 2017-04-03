@@ -10,7 +10,7 @@ summary: Learn how to use dashboard variables.
 
 A dashboard variable is a placeholder that allows you to dynamically change the components of a query. Dashboard variables simply enable text replacement; dashboard variables can contain metric names, filters, advanced functions, or even a string such as ")))", which could be inserted at the end of an query. There are three types of dashboard variables: simple, list, and dynamic.
 
-All Wavefront users can select and temporarily alter the value of a dashboard variable. You must have [Dashboard Management permission](permissions) to save dashboard variables. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+All Wavefront users can select and temporarily alter the value of a dashboard variable. {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
 ## Accessing Dashboard Variables
 
