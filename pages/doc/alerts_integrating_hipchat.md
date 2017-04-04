@@ -16,7 +16,7 @@ Wavefront and HipChat both support webhooks so you can easily configure an incom
 
 1. Click the Room actions button on the top right hand of your room window and click **Integrations...** link.
   ![hc_room_actions](images/hc_room_actions.png)
-1. Click the **Build your own integration** tile.
+1. Click the **Build your own integration tile.
   ![hc_integration](images/hc_integration.png)
 1. Give a meaningful name to your integration. This is the name that will appear in your HipChat room as a sender of the message.
 1. Click **Create**.
