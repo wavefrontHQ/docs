@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn about new and updated features in Wavefront 5.0.">
+<meta name="keywords" content="release_notes,  ">
+<title>Release Notes 5.0 | Wavefront</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-91867056-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/wavefront_favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-lg navbar-brand" href="index.html">
+                <img src="images/wavefront_logo_white.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="index.html">Documentation</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:stephanie@wavefront.com?subject=Wavefront Documentation feedback&body=I have some feedback about the Release Notes 5.0 page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Release Notes 5.0">{title}</a></li>',
+                                noResultsText: 'No results found.', limit: 10, fuzzy: true, })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Wavefront </li>
+    
+    
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">About Wavefront Documentation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_introduction.html">Introduction to Wavefront</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Getting Started</a>
+        <ul>
+            
+            
+            
+            <li><a href="documentation_introductory.html">Introductory Documentation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_introductory.html">Introductory Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tags_overview.html">Tags Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_api.html">Using the Wavefront API</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Release Notes</a>
+        <ul>
+            
+            
+            
+            <li class="active"><a href="50_release_notes.html">5.0 Release Notes</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_obsolescence_policy.html">Wavefront Obsolescence Policy</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Wavefront Data</a>
+        <ul>
+            
+            
+            
+            <li><a href="wavefront_data_ingestion.html">Getting Data into Wavefront</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_data_format.html">Wavefront Data Format</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_data_naming.html">Wavefront Data Naming Best Practices</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Proxies</a>
+        <ul>
+            
+            
+            
+            <li><a href="proxies_installing.html">Installing Wavefront Proxies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_installing_ansible.html">Installing Wavefront Proxies with Ansible</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_running_docker.html">Running a Proxy in a Docker Container</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_managing.html">Managing Wavefront Proxies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_cli.html">Wavefront CLI</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_configuring.html">Configuring Wavefront Proxies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_preprocessor_rules.html">Configuring Wavefront Proxy Preprocessor Rules</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_version_history.html">Wavefront Proxy Version History</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Query Language</a>
+        <ul>
+            
+            
+            
+            <li><a href="query_language_getting_started.html">Getting Started with Wavefront Query Language</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_query_builder.html">Query Builder</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_query_wizard.html">Query Wizard</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_reference.html">Wavefront Query Language Reference</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_using_point_tags.html">Using Point Tags in Queries</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_series_matching.html">Series Matching</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Dashboards and Charts</a>
+        <ul>
+            
+            
+            
+            <li><a href="dashboards.html">Wavefront Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts.html">Wavefront Charts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_searching.html">Searching Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_interacting.html">Interacting with Dashboards and Charts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts_creating.html">Creating a Chart</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts_units.html">Units in Chart Axes and Legends</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_managing.html">Managing Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_variables.html">Dashboard Variables</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="metrics_managing.html">Managing Metrics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="sources_managing.html">Managing Sources</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Alerts</a>
+        <ul>
+            
+            
+            
+            <li><a href="alerts_creating.html">Creating an Alert</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_managing.html">Managing Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="maintenance_windows_managing.html">Managing Maintenance Windows</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_hipchat.html">Integrating HipChat with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_pagerduty.html">Integrating PagerDuty with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_slack.html">Integrating Slack with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_victorops.html">Integrating VictorOps with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_webhooks.html">Integrating Webhooks with Alerts</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Events</a>
+        <ul>
+            
+            
+            
+            <li><a href="events_managing.html">Managing Events</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts_events_displaying.html">Displaying Events in Charts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="events_queries.html">Basic events() Queries</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="events_queries_advanced.html">Advanced events() Queries</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Integrations</a>
+        <ul>
+            
+            
+            
+            <li><a href="integrations_wavefront.html">Wavefront Integrations</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Data Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_graphite.html">Graphite Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_jmxtrans.html">JMXTrans Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_opentsdb.html">OpenTSDB Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_statsd.html">StatsD Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_telegraf.html">Telegraf Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_puppet_server.html">Puppet Server Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Container Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_cadvisor.html">Docker Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_kubernetes.html">Kubernetes Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Code Instrumentation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_go_metrics.html">Go Metrics Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_dropwizard_metrics.html">Dropwizard Metrics Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">AWS Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_aws_metrics.html">AWS Metrics Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_aws_ecs.html">AWS ECS Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Authentication Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_sso_adfs.html">ADFS SSO Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_sso_google.html">Google SSO Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_sso_okta.html">Okta SSO Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_sso_onelogin.html">OneLogin SSO Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+            
+            
+            <li><a href="external_links_managing.html">Managing External Links</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="integrations_log_data.html">Sending Log Data Metrics To Wavefront</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="rendering_test.html">Title</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Administration</a>
+        <ul>
+            
+            
+            
+            <li><a href="permissions.html">Permissions Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="users_managing.html">Managing Users</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="users_prefs_configuring.html">Configuring User Preferences</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_monitoring.html">Wavefront Monitoring</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Labels</a>
+        <ul>
+            
+            
+            
+            <li><a href="label_overview.html">Label Overview</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Label Pages</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="label_getting_started.html">Getting Started Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_administration.html">Administration Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_alerts.html">Alert Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_api.html">API Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_charts.html">Chart Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_dashboards.html">Dashboard Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_data.html">Data Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_events.html">Event Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_integrations.html">Integration Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_proxies.html">Proxy Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_query_language.html">Query Language Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_release_notes.html">Release Notes Pages</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Release Notes 5.0</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">Learn about new and updated features in Wavefront 5.0.</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+<!--
+    <a target="_blank" href="https://github.com/WavefrontHQ/docs/gh-pagespages//50_release_notes.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+-->
+    
+
+  <p>Wavefront 5.0 introduces many new capabilities focused on improving the usability of the UI, new alert and event behaviors, enhanced integration with logs, a new installer with an improved agent as the default, new integrations, and an updated API:</p>
+
+<h2 id="new-user-interface-design">New User Interface Design</h2>
+
+<p>This release introduces a new user interface design as well as many new capabilities for organizing and managing your Wavefront content.</p>
+
+<p>In addition to a new design, the UI adds important and useful information up front in many list views. List views have also been designed to be much clearer to read and enable faster scanning for information you are most interested in.</p>
+
+<h2 id="organizing-searching-and-performing-actions">Organizing, Searching, and Performing Actions</h2>
+
+<p>Increasingly, Wavefront customers have added more and more content such as dashboards and alerts to their systems. To make it easier for you to manage this content, this release provides many new mechanisms for organizing, searching, and performing actions on Wavefront entities.</p>
+
+<h3 id="tags-and-tag-paths">Tags and Tag Paths</h3>
+
+<p>Tags allow you to flexibly manage and organize your Wavefront content. With this release, tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular sub-groups of users. Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events.</p>
+
+<ul>
+  <li>Tag paths organize tags by separating tag components with periods “.”. For example, <strong>Eastern.DBs.MySQL</strong>.</li>
+  <li>To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.</li>
+  <li>Tags now support search and autocomplete.</li>
+  <li>All tags are now shared. Private tags are deprecated and are no longer supported in the Wavefront UI.</li>
+</ul>
+
+<h3 id="search">Search</h3>
+
+<ul>
+  <li>Faceted searching - The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links pages now include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. In addition there are type-specific facets. For example, Events and Maintenance Windows have the State facet.</li>
+  <li>Saved searches - The faceted filter bar includes a set of commonly used saved searches. In addition, you can also save your own searches. Once you start searching, the following icons <img src="images/searchicons.png" alt="search icons" /> display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, duplicating, and deleting the search.</li>
+</ul>
+
+<p>The following Alert Browser filter demonstrates filtering alerts by the tag path <strong>Microservice.App4</strong>. This filters the view to show all alerts with the tag path <strong>MicroService.App4</strong> and all its children (for example, <strong>MicroService.App4.Auth</strong>). Of the matching alerts, 1 is firing.</p>
+
+<p><img src="images/microService.app4_firing.png" alt="Tag path" /></p>
+
+<h3 id="metrics">Metrics</h3>
+
+<p>Search fields now supports multi-word searches. For example, if you type <strong>cpu usage</strong> in the Query Builder or Metrics Browser, the drop-down list of matching metrics includes all metrics containing one or more instances of both words in any order.</p>
+
+<h3 id="ui-patterns">UI Patterns</h3>
+
+<p>This release introduces several new patterns for performing actions on Wavefront entities:</p>
+
+<ul>
+  <li>Tagging - After selecting entities, click the tag buttons <img src="images/tag_toggle.png#inline" alt="tag toggle" /> to create, add, and remove tags.</li>
+  <li>Actions - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the menu icon:  <img src="images/action_menu.png#inline" alt="action menu" />  and selecting an action.</li>
+  <li>Trash - View deleted entities by clicking the trash toggle: Off - <img src="images/trash_off.png#inline" alt="trash off" /> On - <img src="images/trash_on.png#inline" alt="trash on" /></li>
+</ul>
+
+<h2 id="dashboards">Dashboards</h2>
+
+<ul>
+  <li>
+    <p>Supports sorting along many axes including number of charts and favorites, last updated, updated by, and views:
+  <img src="images/db_filter.png" alt="Dashboard filters" /></p>
+  </li>
+  <li>
+    <p>Supports defining a global <strong>events()</strong> expression in dashboard preferences and corresponding display options:
+  <img src="images/db_events.png" alt="Dashboard events" /></p>
+  </li>
+  <li>
+    <p>The Landing page has been removed. The default landing page is now the <strong>Intro: Home</strong> dashboard. If the Default Dashboard property in user or customer preferences is empty, the landing page is <strong>All Dashboards</strong>.</p>
+  </li>
+</ul>
+
+<h2 id="alerts">Alerts</h2>
+
+<p>Alerts have been enhanced in several aspects. Newly surfaced alert properties and filtering based on those properties streamline browsing existing alerts.  New alert behaviors reduce the cost of checking alerts and allow resending alert notifications.</p>
+
+<ul>
+  <li>Adds filtering by status, severity, and last updated by.</li>
+  <li>Shows points scanned last time alert was run, which helps with understanding and optimizing alert performance.</li>
+  <li>Supports setting how often an alert condition is checked. The minimum and default is 1 minute.</li>
+  <li>
+    <p>Adds the ability to resend an alert notification and set the number of minutes between notifications. The default is to not resend.</p>
+  </li>
+  <li>Maintenance windows support alert tag paths including trailing wildcards (“*”). For example, to put all alerts in the alert hierarchy with parent alert <strong>MicroService.App1</strong> into maintenance, specify <strong>MicroService.App1.*</strong> in the window’s Alert Tags field.</li>
+</ul>
+
+<h2 id="events">Events</h2>
+
+<ul>
+  <li>Adds filtering by severity and source.</li>
+  <li>Events now support tags and tag paths. These can be used when filtering events in the UI and with the event() language.</li>
+  <li>User events can now be edited.</li>
+  <li>event() supports filtering events by alert tag paths including trailing wildcards (“*”). For example, to view all events associated with alerts tagged with <strong>MicroService.App1</strong>, specify <strong>alertTag=MicroService.App1.*</strong>.</li>
+  <li>Adding a user event to a chart automatically adds the event() expression to the chart.</li>
+  <li>Improved documentation of the event() language, including information on previously undocumented features. See <a href="events_queries_advanced">Advanced event() Expressions</a>.</li>
+</ul>
+
+<h2 id="sending-metrics-from-logs">Sending Metrics from Logs</h2>
+
+<p>Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront Proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the Proxy for parsing. Splunk’s Universal Forwarder is also supported.</p>
+
+<p>See <a href="http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront">Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront</a> and <a href="integrations_log_data">Sending Log Data to Wavefront</a>.</p>
+
+<p><span id="external"></span></p>
+
+<h2 id="external-links">External Links</h2>
+
+<p>When viewing metric information in a chart, anomalies or other interesting information is often noticed that requires further investigation. When this investigation requires moving to another system or tool, this release makes the process easier by providing links between Wavefront and external systems using the new external links feature.</p>
+
+<p>For example, if you use logging systems such as ELK and Splunk, you can easily construct a meaningful URL to navigate from a Wavefront chart  to a log entry in one of these systems. While this example focuses on a log scenario, the feature is general purpose: you can link through to any type of system.</p>
+
+<p>External links employ a template language that allows you to pass information about metric names, source names, point tag values, and time window of the originating series to the target URL and support filtering based on metric, source, and point tag value regular expressions.</p>
+
+<p>Once configured, to navigate to external link, right-click a time series and select <strong>External Links &gt; &lt;linkName&gt;</strong>. For example, to navigate to an ELK instance you would select</p>
+
+<p><img src="images/elk_external_link.png" alt="External links" /></p>
+
+<p>For more information, see <a href="external_links_managing">External Links</a>.</p>
+
+<h2 id="wavefront-installer">Wavefront Installer</h2>
+
+<p>This release introduces a new Wavefront Proxy and agent installer named Wavefront CLI. Wavefront CLI is implemented in Python and supports Python 2.6+. In addition to installing and configuring the Wavefront Proxy and collector agent, the installer now supports integrations. For detailed information on how to install and run Wavefront CLI, see <a href="wavefront_cli.html">Wavefront CLI</a>.</p>
+
+<h3 id="telegraf-agent">Telegraf Agent</h3>
+
+<p>Wavefront CLI installs <a href="http://docs.influxdata.com/telegraf/v1.1/">Telegraf</a> as the collector agent instead of <a href="http://collectd.org/documentation.shtml">collectd</a>. Telegraf has a number of advantages including:</p>
+
+<ul>
+  <li>More complete and easier to use support for tags</li>
+  <li>Inclusion of plugins in the Telegraf binary</li>
+  <li>Simplified plugin development</li>
+</ul>
+
+<p>Wavefront continues to support installing the collectd collector agent using the old Wavefront installer.</p>
+
+<p>When you install Telegraf on an EC2 instance, the Wavefront Proxy supports tagging metrics with EC2 tags, AWS region, the VPC ID, and Image ID of the instance.</p>
+
+<p>For more information on Telegraf, see <a href="http://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents">Collectd vs. Telegraf: Comparing Metric Collection Agents</a>.</p>
+
+<h2 id="new-integrations">New Integrations</h2>
+
+<p>Wavefront has added many new integrations and example dashboards. For information on each integration, see the related documentation:</p>
+
+<ul>
+  <li>Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See <a href="https://community.wavefront.com/docs/DOC-1186">Monitoring Docker with Wavefront</a>.</li>
+  <li>AWS - <a href="integrations_aws_metrics">AWS Metrics Integration</a></li>
+  <li>Cassandra - <a href="https://community.wavefront.com/docs/DOC-1210">Apache Cassandra 3 Integration</a></li>
+  <li>Java metrics - <a href="integrations_dropwizard">DropWizard Metrics Integration</a></li>
+  <li>Puppet - <a href="https://community.wavefront.com/docs/DOC-1231">Puppet Server Integration</a></li>
+  <li>StatsD - <a href="https://community.wavefront.com/docs/DOC-1036">Using StatsD with Wavefront</a></li>
+  <li>VictorOps - <a href="alerts_integrating_victorops">Integrating Wavefront Alerts with VictorOps</a></li>
+</ul>
+
+<h2 id="wavefront-api">Wavefront API</h2>
+
+<p>The API has been updated to support new UI features and make the method signatures consistent across all API categories. Consequently the version has been bumped up to v2. In addition, the X-AUTH-TOKEN HTTP header for authentication is deprecated. Instead, use the Authorization:Bearer HTTP header.</p>
+
+<p>For example, to return all alerts using the v2 API, invoke</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>  curl <span class="s1">'https://&lt;Wavefront_instance&gt;/api/v2/alert'</span> header <span class="s1">'Authorization:Bearer &lt;API_token&gt;'</span>
+</code></pre>
+</div>
+
+<p>While Wavefront recommends that you move to the v2 API, the original API (<code class="highlighter-rouge">&lt;Wavefront_instance&gt;/api/</code>), though deprecated, is still supported. As before, the UI leverages only the public API.</p>
+
+<p>The API is now fully documented. When you open the <a href="wavefront_api">API documentation</a> the Swagger specified API appears as:</p>
+
+<p><img src="images/wavefront_api_v2.png" alt="Wavefront API" /></p>
+
+<h3 id="api-categories">API Categories</h3>
+
+<p>Wavefront has added <strong>eight</strong> new categories of APIs and renamed the Management category to Source. The full list of categories is:</p>
+
+<ul>
+  <li><strong>Agent</strong> - Retrieve information about Wavefront proxies. Users with Agent Management permission can add and remove Wavefront proxies.</li>
+  <li><strong>Alert</strong> - Retrieve all active, snoozed, in-maintenance, and invalid alerts. Users with Alert Management permission can create and update alerts.</li>
+  <li><strong>Cloud Integration</strong> - Retrieve integrations. Users with Agent Management permission can add and remove integrations with cloud services.</li>
+  <li><strong>Dashboard</strong> - Retrieve data about dashboards, list dashboards, and return version history. Users with Dashboard Management permission can save, create, delete, clone, undelete dashboards.</li>
+  <li><strong>Event</strong> - Retrieve events and tags associated with a specific event. Users with Event Management permission can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.</li>
+  <li><strong>External Link</strong> - Navigate external links. Users with External Link Management permission can create, update, and delete external links.</li>
+  <li><strong>Maintenance Window</strong> - Retrieve a complete or filtered list of existing maintenance windows. Users with Alert Management permission can create, close, update, and delete maintenance windows.</li>
+  <li><strong>Message</strong> - Retrieve messages and mark messages read.</li>
+  <li><strong>Metric</strong> - Retrieve details on a metric. Users with Metric Management permission can hide and unhide metrics.</li>
+  <li><strong>Query</strong> - Perform queries.</li>
+  <li><strong>Saved Search</strong> - Retrieve, add, and remove saved searches.</li>
+  <li><strong>Search</strong> - Search agents, alerts, cloud integrations, dashboards, external links, maintenance windows, sources, and webhooks.</li>
+  <li><strong>Source</strong> - Retrieve sources and tags associated with a source. Users with Source Tag Management permission can add and remove source tags and set descriptions.</li>
+  <li><strong>User</strong> - Users with User Management permission can retrieve a list of all users, create, update, and delete users, and manage permissions.</li>
+  <li><strong>Webhook</strong> - Retrieve webhooks. Users with Alert Management permission can create, update, and delete webhooks.</li>
+</ul>
+
+
+
+    <div class="tags">
+        
+        <b>Labels: </b>
+        
+        
+        
+        <a href="label_release_notes.html" class="btn btn-default navbar-btn cursorNorm label-btn" role="button">release_notes</a>
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 Wavefront. All rights reserved. <br />
+ Site last generated: 2017-04-03 18:42:41 -0700 <br />
+<p></p>
+<p><img src="images/wavefront_logo.png" alt="Wavefront logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-91867056-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+</html>

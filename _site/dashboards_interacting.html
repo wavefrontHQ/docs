@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and charts.">
+<meta name="keywords" content="dashboardschartsgetting_started,  dashboards">
+<title>Interacting with Dashboards and Charts | Wavefront</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-91867056-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/wavefront_favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-lg navbar-brand" href="index.html">
+                <img src="images/wavefront_logo_white.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="index.html">Documentation</a></li>
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:stephanie@wavefront.com?subject=Wavefront Documentation feedback&body=I have some feedback about the Interacting with Dashboards and Charts page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Interacting with Dashboards and Charts">{title}</a></li>',
+                                noResultsText: 'No results found.', limit: 10, fuzzy: true, })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Wavefront </li>
+    
+    
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">About Wavefront Documentation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_introduction.html">Introduction to Wavefront</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Getting Started</a>
+        <ul>
+            
+            
+            
+            <li><a href="documentation_introductory.html">Introductory Documentation</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_introductory.html">Introductory Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tags_overview.html">Tags Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_api.html">Using the Wavefront API</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Release Notes</a>
+        <ul>
+            
+            
+            
+            <li><a href="50_release_notes.html">5.0 Release Notes</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_obsolescence_policy.html">Wavefront Obsolescence Policy</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Wavefront Data</a>
+        <ul>
+            
+            
+            
+            <li><a href="wavefront_data_ingestion.html">Getting Data into Wavefront</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_data_format.html">Wavefront Data Format</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_data_naming.html">Wavefront Data Naming Best Practices</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Proxies</a>
+        <ul>
+            
+            
+            
+            <li><a href="proxies_installing.html">Installing Wavefront Proxies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_installing_ansible.html">Installing Wavefront Proxies with Ansible</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_running_docker.html">Running a Proxy in a Docker Container</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_managing.html">Managing Wavefront Proxies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_cli.html">Wavefront CLI</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_configuring.html">Configuring Wavefront Proxies</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_preprocessor_rules.html">Configuring Wavefront Proxy Preprocessor Rules</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="proxies_version_history.html">Wavefront Proxy Version History</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Query Language</a>
+        <ul>
+            
+            
+            
+            <li><a href="query_language_getting_started.html">Getting Started with Wavefront Query Language</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_query_builder.html">Query Builder</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_query_wizard.html">Query Wizard</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_reference.html">Wavefront Query Language Reference</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_using_point_tags.html">Using Point Tags in Queries</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="query_language_series_matching.html">Series Matching</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Dashboards and Charts</a>
+        <ul>
+            
+            
+            
+            <li><a href="dashboards.html">Wavefront Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts.html">Wavefront Charts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_searching.html">Searching Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="dashboards_interacting.html">Interacting with Dashboards and Charts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts_creating.html">Creating a Chart</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts_units.html">Units in Chart Axes and Legends</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_managing.html">Managing Dashboards</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="dashboards_variables.html">Dashboard Variables</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="metrics_managing.html">Managing Metrics</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="sources_managing.html">Managing Sources</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Alerts</a>
+        <ul>
+            
+            
+            
+            <li><a href="alerts_creating.html">Creating an Alert</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_managing.html">Managing Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="maintenance_windows_managing.html">Managing Maintenance Windows</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_hipchat.html">Integrating HipChat with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_pagerduty.html">Integrating PagerDuty with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_slack.html">Integrating Slack with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_victorops.html">Integrating VictorOps with Alerts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="alerts_integrating_webhooks.html">Integrating Webhooks with Alerts</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Events</a>
+        <ul>
+            
+            
+            
+            <li><a href="events_managing.html">Managing Events</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="charts_events_displaying.html">Displaying Events in Charts</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="events_queries.html">Basic events() Queries</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="events_queries_advanced.html">Advanced events() Queries</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Integrations</a>
+        <ul>
+            
+            
+            
+            <li><a href="integrations_wavefront.html">Wavefront Integrations</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Data Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_graphite.html">Graphite Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_jmxtrans.html">JMXTrans Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_opentsdb.html">OpenTSDB Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_statsd.html">StatsD Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_telegraf.html">Telegraf Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_puppet_server.html">Puppet Server Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Container Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_cadvisor.html">Docker Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_kubernetes.html">Kubernetes Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Code Instrumentation</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_go_metrics.html">Go Metrics Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_dropwizard_metrics.html">Dropwizard Metrics Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">AWS Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_aws_metrics.html">AWS Metrics Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_aws_ecs.html">AWS ECS Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Authentication Integrations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="integrations_sso_adfs.html">ADFS SSO Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_sso_google.html">Google SSO Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_sso_okta.html">Okta SSO Integration</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="integrations_sso_onelogin.html">OneLogin SSO Integration</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+            
+            
+            <li><a href="external_links_managing.html">Managing External Links</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="integrations_log_data.html">Sending Log Data Metrics To Wavefront</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="rendering_test.html">Title</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Administration</a>
+        <ul>
+            
+            
+            
+            <li><a href="permissions.html">Permissions Overview</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="users_managing.html">Managing Users</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="users_prefs_configuring.html">Configuring User Preferences</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="wavefront_monitoring.html">Wavefront Monitoring</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Labels</a>
+        <ul>
+            
+            
+            
+            <li><a href="label_overview.html">Label Overview</a></li>
+            
+            
+            
+            <li class="subfolders">
+                <a href="#">Label Pages</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="label_getting_started.html">Getting Started Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_administration.html">Administration Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_alerts.html">Alert Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_api.html">API Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_charts.html">Chart Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_dashboards.html">Dashboard Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_data.html">Data Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_events.html">Event Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_integrations.html">Integration Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_proxies.html">Proxy Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_query_language.html">Query Language Pages</a></li>
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="label_release_notes.html">Release Notes Pages</a></li>
+                    
+                    
+                    
+                </ul>
+            </li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Interacting with Dashboards and Charts</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and charts.</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+<!--
+    <a target="_blank" href="https://github.com/WavefrontHQ/docs/gh-pagespages//dashboards_interacting.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+-->
+    
+
+  <h2 id="common-interactions">Common Interactions</h2>
+<p>There are a few interactions that are common to dashboards and charts. You can share shortened URLs and isolate sources.</p>
+
+<h3 id="sharing-dashboards-and-charts">Sharing Dashboards and Charts</h3>
+<p>When you make a change to a dashboard or chart the URL updates to reflect that change. The URL encodes information about the dashboard or chart name and any settings you have applied. With this functionality, you can quickly and easily share your current view with other users. In contrast most monitoring solutions allow you to only share a static image of a chart. When you share a URL from Wavefront with other users, they can see the exact view you see and can also interact with the dashboard or chart. However, the URL link from the address bar can be a very long string. The URL shortener link creates a condensed URL for the purpose of sharing. When you click the link icon, it automatically copies a shortened URL to your clipboard.</p>
+
+<p><img src="images/url_shortener_icon.png" alt="url shortener" /></p>
+
+<p>You can also manually copy the shortened URL link.</p>
+
+<h3 id="isolating-sources">Isolating Sources</h3>
+<p>The Highlight Sources fly-out allows you to isolate one or more source data streams for every chart on a dashboard or an individual chart. When you hover over the magnifying lens icon,</p>
+
+<p><img src="images/highlight_sources_icon.png" alt="highlight sources icon" /></p>
+
+<p>the fly-out appears so you can type in the name of the sources you’d like to isolate.</p>
+
+<p><img src="images/highlight_sources.png" alt="highlight sources" /></p>
+
+<p>You can use wildcards in this fly-out. For example, you can search for app-1, app-1*, or *-1*. When you isolate a source across all charts on a dashboard, the desired source displays as colored on each chart while all other sources lose color saturation. When a source is isolated, an isolation bar appears at the bottom of the page.</p>
+
+<p><img src="images/isolation_bar.png" alt="isolation bar" /></p>
+
+<p>You can remove a single isolation by clicking <i class="fa fa-times"></i> next to the source name, or remove all isolations by clicking <i class="fa fa-times"></i> next to the <strong>Sources:</strong> header.</p>
+
+<h2 id="dashboard-interactions">Dashboard Interactions</h2>
+
+<p>The following portion of this article will showcase all of the ways you can interact with an entire dashboard in Wavefront. Features like sections and favorites are tied to the dashboard, while features like global queries, event overlays, and time windows will affect every chart that’s saved to the dashboard.</p>
+
+<p><a name="time_window"></a></p>
+
+<h3 id="time-windows">Time Windows</h3>
+
+<p><img src="images/time_window.png" alt="time window" /></p>
+
+<p>When you log in to Wavefront, the first dashboard you visit displays two-hour time window charts with real-time data flowing in. If you need to see a larger or smaller time window or need to view past data instead of real-time data, use the Time bar to display different time windows. You can configure the default time window in <a href="dashboards_managing#prefs">dashboard preferences</a>.</p>
+
+<p>The following 25 second <a href="https://wavefront-1.wistia.com/medias/5rboi5gh0z">video</a> shows how adjusting time windows via the Time bar affects charts.</p>
+
+<p>The first components you see on the Time bar are the Live Data and Custom Date options. You should choose Live Data when you want to see up-to-date data on the charts. If you want to look at past data, then choose Custom Date. When you select Custom Date, fields for a start and end time display. You can set your time parameters in these fields.</p>
+
+<p>A set of time window options (10m, 2h, 6h, 12h, 1d, 1w)  display to the right of the Live Data/Custom Date options. When Live Data is selected, the time window options will quickly increase or decrease the amount of live data displayed within each chart. Choosing a time window while Custom Date is selected adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, then the start time is adjusted to 3:00 AM.</p>
+
+<h3 id="event-overlays">Event Overlays</h3>
+<p>The Events overlay option allows you to display events on the x-axis of charts. See <a href="charts_events_displaying">Displaying Events in Charts</a>.</p>
+
+<h3 id="dashboard-variables">Dashboard Variables</h3>
+<p><a href="dashboards_variables">Dashboard variables</a> are used within ts() expressions, and can represent any string of text such as a source name, ts() call, or set of advanced functions. If the existing dashboard you’re viewing has dashboard variables attached to it, then you will typically see a Variables section below the Time bar.</p>
+
+<h3 id="sections">Sections</h3>
+<p>The Sections bar is located directly below the Time bar and allows you to jump to any section on a dashboard. By default, every dashboard has at least one section. Dashboard sections allow you to group saved charts in a meaningful way. As with the Time bar, the Sections bar always appears at the top of the dashboard screen. Rather than scrolling, you can jump to a desired section by clicking the section name on the Sections bar.</p>
+
+<p><img src="images/section_toc.png" alt="section toc" /></p>
+
+<p>You also have the option of collapsing sections on a dashboard. To do so, locate the section you’d like to collapse on the dashboard and click the section header. Collapsed sections have a <i class="fa fa-arrow-right"></i> and expanded sections have a <i class="fa fa-arrow-down"></i>. You can expand a collapsed section by clicking the section header again.</p>
+
+<p><img src="images/sections.png" alt="sections" /></p>
+
+<h3 id="global-queries">Global Queries</h3>
+<p>Imagine a dashboard where you want to apply a temporary ts() expression to every chart. For example, let’s say your company has a dashboard that tracks errors per second across several applications. Seeing a temporary value of 5 drawn across every chart to see which applications currently have the highest number of errors could be beneficial. Instead of permanently applying a constant value of 5 to every chart, you can use the Global Query fly-out to accomplish this. Global queries allow you to temporarily apply any ts() expression to every chart on a dashboard. For example:</p>
+
+<ul>
+  <li>A constant value such as 5…</li>
+  <li>A simple ts() expression such as ts(~metrics.counter)…</li>
+  <li>An advanced ts() expression such as (ts(mem.total) - ts(mem.free)) * 100</li>
+</ul>
+
+<p>The Global Query fly-out is represented by a <i class="fa fa-plus-square"></i> icon and can be found in the bottom corner of any dashboard. You can access the Global Query fly-out by hovering over the icon. When you do this, a field appears where you can apply any ts() expression.</p>
+
+<p>Suppose you want to apply a constant value of 5 as a time series on each of the three charts. You can do that by applying a constant value of 5 to the global query fly-out:</p>
+
+<p><img src="images/global_query_flyout.png" alt="global query flyout" /></p>
+
+<p>Once you type in the global query you’d like to apply to every chart, press enter. Every chart now shows a temporary time series of 5:</p>
+
+<p><img src="images/global_query.png" alt="global query" /></p>
+
+<p>The Global Query fly-out stays out until you remove the temporary query from the field.</p>
+
+<h3 id="opening-a-chart">Opening a Chart</h3>
+<p>To open a chart, click the chart name in the upper right corner.</p>
+
+<p><img src="images/chart_title.png" alt="chart title" /></p>
+
+<p>The chart editor displays, where you can modify the chart queries and display properties.</p>
+
+<h2 id="chart-interactions">Chart Interactions</h2>
+
+<p>This section describes all  the ways you can interact directly with charts. These interactions can be made for a single chart on a dashboard or an individual chart page. Each of the following features can be accessed by hovering over the chart.</p>
+
+<h3 id="time-windows-1">Time Windows</h3>
+<p>You can adjust time windows for individual charts in a few different ways.</p>
+
+<h4 id="time-bar">Time Bar</h4>
+<p>The first option for adjusting time windows for a single chart is through the chart Time bar. The chart Time bar displays in the upper-right corner of a chart when you hover over the chart.</p>
+
+<p><img src="images/chart_time_bar.png" alt="chart time bar" /></p>
+
+<p>The magnifying lenses allow you to quickly increase or decrease the time window. You can also adjust the amount of time in your window by clicking 2h, 6h, 12h, 1d, or 1w.</p>
+
+<h4 id="drag-and-zoom">Drag and Zoom</h4>
+<p>The second option for adjusting time windows for a single chart is referred to as the ‘Drag and Zoom’ method. At times, you may notice points in time on a chart that you would like to examine in more detail. Rather than determining the smaller time window you’d like to view and entering it into the Time bar, you can use the ‘Drag and Zoom’ option. To use this feature, hover over a chart and place your cursor at the beginning of the desired time window. In the chart below, this would be approximately 10:26 AM. Once you are at the desired start point, left click and hold down while dragging over the desired time window. A blue box appears over the desired time window. Once you have reached the desired end point, around 10:33 AM in the chart below, release the mouse button. The highlighted time window expands to fit your chart. If you’d like to apply this method to all charts on a dashboard, hold <strong>Shift</strong> while performing the ‘Drag and Zoom’ method.</p>
+
+<p><img src="images/drag_zoom.png" alt="drag and zoom" /></p>
+
+<h4 id="drag-x-axis">Drag X-Axis</h4>
+<p>The final option for adjusting time windows for a single chart is by dragging the x-axis back and forth. Place your cursor over the x-axis until your cursor changes to a 4-way arrow <i class="fa fa-arrows"></i>. When this happens, click and hold down on the x-axis and drag your cursor left and right. By doing this, you can shift the chart time window into the past or future. Once you reach the present time you will no longer be able to drag the S-axis into the future. Just like the ‘Drag and Zoom’ method, you can hold down Shift to apply the ‘X-axis drag’ method to all charts on a dashboard.</p>
+
+<h4 id="propagating-time-windows">Propagating Time Windows</h4>
+<p>Any time you adjust the time window of a single chart, you have the option of adjusting every other chart on the dashboard to match that individual chart time window, or reset the individual chart to match all of the other charts time windows. To propagate the individual chart time window to all other charts on the dashboard, click the share icon  that appears directly under the chart name in the top right corner of the chart box. To reset the individual chart window to match all other charts, click <strong>RESET</strong>.</p>
+
+<p><img src="images/reset_time_window.png" alt="reset time window" /></p>
+
+<h3 id="isolating-a-time-series">Isolating a Time Series</h3>
+<p>When looking at a chart on a dashboard, you may notice an anomaly for a single stream that you want to investigate further. Wavefront allows you to isolate that stream for all charts on a dashboard. To do this, hover over the stream you want to isolate. When you do this, you should see the other streams lose color saturation while the stream you hover over stays saturated. If you hover over multiple streams then each of them will stay saturated. Once you have only the single stream highlighted, click it. When you do this, each chart on the dashboard updates to display that single stream on every chart. If you wish to isolate multiple streams on all charts, hold down the <strong>Ctrl</strong> key and repeat the process.</p>
+
+<p>When a data stream is isolated, an isolation bar appears at the bottom of the page. If the stream is related to a single source, then it appears in the <strong>Sources:</strong> list on the bar. If the data stream represents an aggregation of sources, then it appears in the Series: list on the bar.</p>
+
+<p><img src="images/isolated_series.png" alt="isolated series" /></p>
+
+<p>You can remove a single isolation by clicking the <i class="fa fa-times"></i> next to the isolated stream. You can remove all isolated streams by clicking the <i class="fa fa-times"></i> next to the list title on the isolation bar.</p>
+
+<p>Just like isolating sources from the source fly-out on a dashboard, you can isolate aggregated data streams by query field names. Query fields can be an aggregation of sources, such as <strong>sum(ts(“requests.latency”))</strong>. When you isolate a query field instead of a source, the query field name for the individual chart displays on the isolation bar.</p>
+
+<h3 id="chart-display-options">Chart Display Options</h3>
+<p>Charts support a few options for controlling how data displays. You can display data in full precision mode, hide the hover legend, and display a fish-eye view. These features are enabled using hot keys: Shift, Ctrl, and Alt (option on Mac).</p>
+
+<h4 id="full-precision-mode">Full-Precision Mode</h4>
+<p>To display data in full-precision mode in the hover legend, hold down the <strong>Shift</strong> key and hover over any chart:</p>
+
+<p><img src="images/full_precision.png" alt="full precision" /></p>
+
+<h4 id="hide-hover-legend">Hide Hover Legend</h4>
+<p>To hide the hover legend when hovering over a chart, hold down the <strong>Ctrl</strong> key. For charts that include a hover legend by default, you can permanently disable the hover legend under the Legend tab in the individual chart view.</p>
+
+<h4 id="fish-eye-view">Fish-Eye View</h4>
+<p>When data streams are populated very densely, it can be hard to tell the exact value of each stream. The fish-eye view expands the chart in the neighborhood of the cursor. To enable fish-eye view, hold down the Alt (option on Mac) key while you hover over a chart.</p>
+
+<p><img src="images/fish_eye.png" alt="fish eye" /></p>
+
+<p>When using this feature, the vertical and horizontal lines are preserved.</p>
+
+
+
+    <div class="tags">
+        
+        <b>Labels: </b>
+        
+        
+        
+        <a href="label_dashboards.html" class="btn btn-default navbar-btn cursorNorm label-btn" role="button">dashboards</a>
+        
+        
+        
+        <a href="label_charts.html" class="btn btn-default navbar-btn cursorNorm label-btn" role="button">charts</a>
+        
+        
+        
+        <a href="label_getting_started.html" class="btn btn-default navbar-btn cursorNorm label-btn" role="button">getting_started</a>
+        
+        
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 Wavefront. All rights reserved. <br />
+ Site last generated: 2017-04-03 18:42:41 -0700 <br />
+<p></p>
+<p><img src="images/wavefront_logo.png" alt="Wavefront logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-91867056-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+</html>

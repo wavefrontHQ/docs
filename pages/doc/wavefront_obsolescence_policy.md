@@ -36,7 +36,7 @@ Wavefront identifies deprecated features in the release notes for the release in
 <p></p>
 <table class="width: 100%;">
 <tbody>
-<tr><th width="33%"><Version</th><th width="33%">Current Stage</th><th width="34%">End-of-Life Date</th></tr>
+<tr><th width="33%">Version</th><th width="33%">Current Stage</th><th width="34%">End-of-Life Date</th></tr>
 <tr>
 <td>4.6</td>
 <td>Active</td>

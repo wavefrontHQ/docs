@@ -1,0 +1,890 @@
+[
+
+
+
+
+{
+"title": "Release Notes 5.0",
+"tags": "release_notes",
+"keywords": "",
+"url": "50_release_notes.html",
+"summary": "Learn about new and updated features in Wavefront 5.0."
+}
+,
+
+
+
+{
+"title": "Creating an Alert",
+"tags": "alerts",
+"keywords": "alerts",
+"url": "alerts_creating.html",
+"summary": "Learn how to create an alert."
+}
+,
+
+
+
+{
+"title": "Integrating HipChat with Alerts",
+"tags": "alertsintegrations",
+"keywords": "webhooks",
+"url": "alerts_integrating_hipchat.html",
+"summary": "Learn how to integrate HipChat rooms with alerts."
+}
+,
+
+
+
+{
+"title": "Integrating PagerDuty with Alerts",
+"tags": "alertsintegrations",
+"keywords": "alerts",
+"url": "alerts_integrating_pagerduty.html",
+"summary": "Learn how to integrate PagerDuty keys and emails with alerts."
+}
+,
+
+
+
+{
+"title": "Integrating Slack with Alerts",
+"tags": "alertsintegrations",
+"keywords": "webhooks",
+"url": "alerts_integrating_slack.html",
+"summary": "Learn how to integrate Slack channels with alerts."
+}
+,
+
+
+
+{
+"title": "Integrating VictorOps with Alerts",
+"tags": "alertsintegrations",
+"keywords": "webhooks",
+"url": "alerts_integrating_victorops.html",
+"summary": "Learn how to integrate VictorOps keys and emails with alerts."
+}
+,
+
+
+
+{
+"title": "Integrating Webhooks with Alerts",
+"tags": "alertsintegrations",
+"keywords": "webhooks",
+"url": "alerts_integrating_webhooks.html",
+"summary": "Learn how to create webhooks and integrate them with alerts."
+}
+,
+
+
+
+{
+"title": "Managing Alerts",
+"tags": "alerts",
+"keywords": "alerts",
+"url": "alerts_managing.html",
+"summary": "Learn how to manage alerts."
+}
+,
+
+
+
+{
+"title": "Alert States and Lifecycle",
+"tags": "alerts",
+"keywords": "",
+"url": "alerts_states_lifecycle.html",
+"summary": "Learn about alert states and the alert lifecycle."
+}
+,
+
+
+
+{
+"title": "Wavefront Charts",
+"tags": "getting_startedcharts",
+"keywords": "getting started",
+"url": "charts.html",
+"summary": "Learn about Wavefront chart types and chart configuration options."
+}
+,
+
+
+
+{
+"title": "Creating a Chart",
+"tags": "getting_startedcharts",
+"keywords": "getting started",
+"url": "charts_creating.html",
+"summary": "Learn how to create a Wavefront chart and save it to a dashboard."
+}
+,
+
+
+
+{
+"title": "Displaying Events in Charts",
+"tags": "eventscharts",
+"keywords": "events",
+"url": "charts_events_displaying.html",
+"summary": "Learn how to display events in charts."
+}
+,
+
+
+
+{
+"title": "Units in Chart Axes and Legends",
+"tags": "charts",
+"keywords": "charts",
+"url": "charts_units.html",
+"summary": "Learn how to configure the units displayed in chart axes and legends."
+}
+,
+
+
+
+{
+"title": "Wavefront Dashboards",
+"tags": "getting_starteddashboards",
+"keywords": "getting started",
+"url": "dashboards.html",
+"summary": "Learn about Wavefront dashboards."
+}
+,
+
+
+
+{
+"title": "Interacting with Dashboards and Charts",
+"tags": "dashboardschartsgetting_started",
+"keywords": "dashboards",
+"url": "dashboards_interacting.html",
+"summary": "Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and charts."
+}
+,
+
+
+
+{
+"title": "Introductory Dashboards",
+"tags": "dashboardsgetting_started",
+"keywords": "dashboards",
+"url": "dashboards_introductory.html",
+"summary": "Learn about the tutorial, example, and use case introductory dashboards available in your Wavefront instance."
+}
+,
+
+
+
+{
+"title": "Managing Dashboards",
+"tags": "dashboards",
+"keywords": "dashboards",
+"url": "dashboards_managing.html",
+"summary": "Learn how to manage dashboards."
+}
+,
+
+
+
+{
+"title": "Searching for Dashboards",
+"tags": "dashboardsgetting_started",
+"keywords": "dashboards",
+"url": "dashboards_searching.html",
+"summary": "Learn how to search for and filter dashboards."
+}
+,
+
+
+
+{
+"title": "Dashboard Variables",
+"tags": "dashboards",
+"keywords": "dashboards",
+"url": "dashboards_variables.html",
+"summary": "Learn how to use dashboard variables."
+}
+,
+
+
+
+{
+"title": "Introductory Documentation",
+"tags": "getting_started",
+"keywords": "dashboards",
+"url": "documentation_introductory.html",
+"summary": "Learn about the documentation that can help get you up to speed on Wavefront."
+}
+,
+
+
+
+{
+"title": "Managing Events",
+"tags": "events",
+"keywords": "events",
+"url": "events_managing.html",
+"summary": "Learn how to manage events."
+}
+,
+
+
+
+{
+"title": "Basic events() Queries",
+"tags": "events",
+"keywords": "events",
+"url": "events_queries.html",
+"summary": "Learn how to formulate events() queries."
+}
+,
+
+
+
+{
+"title": "Advanced events() Queries",
+"tags": "events",
+"keywords": "events",
+"url": "events_queries_advanced.html",
+"summary": "Learn how to use advanced events() operators and functions."
+}
+,
+
+
+
+{
+"title": "Managing External Links",
+"tags": "integrations",
+"keywords": "external links",
+"url": "external_links_managing.html",
+"summary": "Learn how to manage external links."
+}
+,
+
+
+
+
+
+{
+"title": "About Wavefront Documentation",
+"tags": "",
+"keywords": "homepage",
+"url": "index.html",
+"summary": "This is an introduction to Wavefront documentation."
+}
+,
+
+
+
+{
+"title": "AWS ECS Integration",
+"tags": "integrations",
+"keywords": "",
+"url": "integrations_aws_ecs.html",
+"summary": "Learn how to send AWS ECS data to Wavefront."
+}
+,
+
+
+
+{
+"title": "AWS Metrics Integration",
+"tags": "integrations",
+"keywords": "",
+"url": "integrations_aws_metrics.html",
+"summary": "Learn how to send AWS data to Wavefront."
+}
+,
+
+
+
+{
+"title": "Docker Integration (cAdvisor)",
+"tags": "integrations",
+"keywords": "integrations",
+"url": "integrations_cadvisor.html",
+"summary": "Learn how to use cAdvisor to send container metrics to Wavefront."
+}
+,
+
+
+
+{
+"title": "Dropwizard Metrics Integration",
+"tags": "integrations",
+"keywords": "integrations",
+"url": "integrations_dropwizard_metrics.html",
+"summary": "Learn how to use Dropwizard to collect metrics from Java applications."
+}
+,
+
+
+
+{
+"title": "Go Metrics Integration",
+"tags": "integrations",
+"keywords": "integrations",
+"url": "integrations_go_metrics.html",
+"summary": "Learn how to collect metrics from Go applications."
+}
+,
+
+
+
+{
+"title": "Graphite Integration",
+"tags": "integrationsproxies",
+"keywords": "integrations",
+"url": "integrations_graphite.html",
+"summary": "Learn how to send Graphite metrics to Wavefront."
+}
+,
+
+
+
+{
+"title": "JMXTrans Integration",
+"tags": "integrationsproxies",
+"keywords": "",
+"url": "integrations_jmxtrans.html",
+"summary": "Learn how to send data collected by JMXTrans to Wavefront."
+}
+,
+
+
+
+{
+"title": "Kubernetes Integration",
+"tags": "integrations",
+"keywords": "integrations",
+"url": "integrations_kubernetes.html",
+"summary": "Learn how to set up Kubernetes to send container metrics to Wavefront."
+}
+,
+
+
+
+{
+"title": "Sending Log Data to Wavefront",
+"tags": "integrations",
+"keywords": "",
+"url": "integrations_log_data.html",
+"summary": "Learn how to send log data to Wavefront."
+}
+,
+
+
+
+{
+"title": "OpenTSDB Integration",
+"tags": "integrationsproxies",
+"keywords": "",
+"url": "integrations_opentsdb.html",
+"summary": "Learn how to send OpenTSDB data to Wavefront."
+}
+,
+
+
+
+{
+"title": "Puppet Server Integration",
+"tags": "integrations",
+"keywords": "",
+"url": "integrations_puppet_server.html",
+"summary": "Learn how to send data emitted by Puppet Server to Wavefront."
+}
+,
+
+
+
+{
+"title": "ADFS SSO Integration",
+"tags": "integrationsadministration",
+"keywords": "",
+"url": "integrations_sso_adfs.html",
+"summary": "Learn how to integrate SSO using ADFS with Wavefront."
+}
+,
+
+
+
+{
+"title": "Google SSO Integration",
+"tags": "integrationsadministration",
+"keywords": "",
+"url": "integrations_sso_google.html",
+"summary": "Learn how to integrate SSO using Google with Wavefront."
+}
+,
+
+
+
+{
+"title": "Okta SSO Integration",
+"tags": "integrationsadministration",
+"keywords": "",
+"url": "integrations_sso_okta.html",
+"summary": "Learn how to integrate SSO using Okta with Wavefront."
+}
+,
+
+
+
+{
+"title": "OneLogin SSO Integration",
+"tags": "integrationsadministration",
+"keywords": "",
+"url": "integrations_sso_onelogin.html",
+"summary": "Learn how to integrate SSO using OneLogin with Wavefront."
+}
+,
+
+
+
+{
+"title": "StatsD Integration",
+"tags": "integrations",
+"keywords": "",
+"url": "integrations_statsd.html",
+"summary": "Learn how to send data collected by StatsD to Wavefront."
+}
+,
+
+
+
+{
+"title": "Telegraf Integration",
+"tags": "integrations",
+"keywords": "",
+"url": "integrations_telegraf.html",
+"summary": "Learn how to send data collected by Telegraf to Wavefront."
+}
+,
+
+
+
+{
+"title": "Wavefront Integrations",
+"tags": "integrations",
+"keywords": "integrations",
+"url": "integrations_wavefront",
+"summary": "Learn about the various types of integrations supported by Wavefront."
+}
+,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+"title": "Label Overview",
+"tags": "",
+"keywords": "labelling",
+"url": "label_overview.html",
+"summary": "This is an overview to the labels section."
+}
+,
+
+
+
+
+
+
+
+
+
+{
+"title": "Managing Maintenance Windows",
+"tags": "alerts",
+"keywords": "alerts",
+"url": "maintenance_windows_managing.html",
+"summary": "Learn how to manage maintenance windows."
+}
+,
+
+
+
+{
+"title": "Managing Metrics",
+"tags": "metrics",
+"keywords": "metrics",
+"url": "metrics_managing.html",
+"summary": "Learn how to manage metrics."
+}
+,
+
+
+
+{
+"title": "Scroll layout",
+"tags": "special_layouts",
+"keywords": "json, scrolling, scrollto, jquery plugin",
+"url": "jsmydoc_scroll.html",
+"summary": "This page demonstrates how you the integration of a script called ScrollTo, which is used here to link definitions of a JSON code sample to a list of definitions for that particular term. The scenario here is that the JSON blocks are really long, with extensive nesting and subnesting, which makes it difficult for tables below the JSON to adequately explain the term in a usable way."
+}
+,
+
+
+
+{
+"title": "News",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "News",
+"tags": "",
+"keywords": "news, blog, updates, release notes, announcements",
+"url": "news_archive.html",
+"summary": ""
+}
+,
+
+
+
+{
+"title": "Wavefront Permissions Overview",
+"tags": "administration",
+"keywords": "administration",
+"url": "permissions.html",
+"summary": "Learn about Wavefront permissions."
+}
+,
+
+
+
+{
+"title": "Configuring Wavefront Proxies",
+"tags": "proxies",
+"keywords": "",
+"url": "proxies_configuring.html",
+"summary": "Learn how to configure a Wavefront proxy."
+}
+,
+
+
+
+{
+"title": "Installing Wavefront Proxies",
+"tags": "proxies",
+"keywords": "",
+"url": "proxies_installing.html",
+"summary": "Learn how to install Wavefront proxies."
+}
+,
+
+
+
+{
+"title": "Installing Wavefront Proxies with Ansible",
+"tags": "proxies",
+"keywords": "",
+"url": "proxies_installing_ansible.html",
+"summary": "Learn how to install Wavefront proxies using Ansible."
+}
+,
+
+
+
+{
+"title": "Managing Wavefront Proxies",
+"tags": "proxies",
+"keywords": "",
+"url": "proxies_managing.html",
+"summary": "Learn how to manage Wavefront proxies."
+}
+,
+
+
+
+{
+"title": "Configuring Wavefront Proxy Preprocessor Rules",
+"tags": "proxies",
+"keywords": "",
+"url": "proxies_preprocessor_rules.html",
+"summary": "Learn how to configure Wavefront proxy preprocessor rules."
+}
+,
+
+
+
+{
+"title": "Running a Proxy in a Docker Container",
+"tags": "proxies",
+"keywords": "",
+"url": "proxies_running_docker.html",
+"summary": "Learn how to run a Wavefront proxy in a Docker container."
+}
+,
+
+
+
+{
+"title": "Wavefront Proxy Version History",
+"tags": "proxiesrelease_notes",
+"keywords": "",
+"url": "proxies_version_history.html",
+"summary": "Learn about Wavefront proxy updates."
+}
+,
+
+
+
+{
+"title": "Getting Started with Wavefront Query Language",
+"tags": "query_languagegetting_started",
+"keywords": "query language",
+"url": "query_language_getting_started.html",
+"summary": "Learn how to get started with Wavefront Query Language."
+}
+,
+
+
+
+{
+"title": "Query Builder",
+"tags": "query_languagegetting_started",
+"keywords": "query language",
+"url": "query_language_query_builder.html",
+"summary": "Learn how to get started with creating Wavefront Query Language expressions using Query Builder."
+}
+,
+
+
+
+{
+"title": "Query Wizard",
+"tags": "query_languagegetting_started",
+"keywords": "query language",
+"url": "query_language_query_wizard.html",
+"summary": "Learn how to get started with creating Wavefront Query Language expressions using Query Wizard."
+}
+,
+
+
+
+{
+"title": "Wavefront Query Language Quick Reference",
+"tags": "query_language",
+"keywords": "query language",
+"url": "query_language_reference.html",
+"summary": "Learn about the query syntax, operators, and functions supported by Wavefront Query Language."
+}
+,
+
+
+
+{
+"title": "Series Matching",
+"tags": "query_language",
+"keywords": "query language",
+"url": "query_language_series_matching.html",
+"summary": "Learn how operators and functions affect the evaulation of Wavefront Query Language expressions."
+}
+,
+
+
+
+{
+"title": "Using Point Tags in Queries",
+"tags": "query_language",
+"keywords": "query language",
+"url": "query_language_using_point_tags.html",
+"summary": "Learn how to use point tags in Wavefront Query Language queries."
+}
+,
+
+
+
+{
+"title": "Title",
+"tags": "",
+"keywords": "dashboards",
+"url": "rendering_test.html",
+"summary": "This topic shows how different elements are rendered."
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Managing Sources",
+"tags": "sources",
+"keywords": "sources",
+"url": "sources_managing.html",
+"summary": "Learn how to manage sources."
+}
+,
+
+
+
+{
+"title": "Tags Overview",
+"tags": "getting_started",
+"keywords": "",
+"url": "tags_overview.html",
+"summary": "Learn how to create and use Wavefront tags to speed up query display and work with Wavefront entities."
+}
+,
+
+
+
+
+
+
+
+{
+"title": "Managing Users",
+"tags": "administration",
+"keywords": "administration",
+"url": "users_managing.html",
+"summary": "Learn how to manage users."
+}
+,
+
+
+
+{
+"title": "Configuring User Preferences",
+"tags": "administration",
+"keywords": "administration",
+"url": "users_prefs_configuring.html",
+"summary": "Learn how to configure user preferences."
+}
+,
+
+
+
+{
+"title": "Using the Wavefront API",
+"tags": "api",
+"keywords": "api",
+"url": "wavefront_api.html",
+"summary": "Learn how to use Wavefront API."
+}
+,
+
+
+
+{
+"title": "Wavefront CLI",
+"tags": "proxiesintegrations",
+"keywords": "proxies",
+"url": "wavefront_cli.html",
+"summary": "Learn how to use the Wavefront CLI to install proxies and collector agents and configure integrations."
+}
+,
+
+
+
+{
+"title": "Wavefront Data Format",
+"tags": "dataproxies",
+"keywords": "data",
+"url": "wavefront_data_format.html",
+"summary": "Learn about the Wavefront native data format."
+}
+,
+
+
+
+{
+"title": "Getting Data into Wavefront",
+"tags": "dataproxies",
+"keywords": "data",
+"url": "wavefront_data_ingestion.html",
+"summary": "Learn how to get data into Wavefront."
+}
+,
+
+
+
+{
+"title": "Wavefront Data Naming",
+"tags": "data",
+"keywords": "data",
+"url": "wavefront_data_naming.html",
+"summary": "Learn about best practices for naming data sent to Wavefront and naming Wavefront entities."
+}
+,
+
+
+
+{
+"title": "Introduction to Wavefront",
+"tags": "getting_started",
+"keywords": "",
+"url": "wavefront_introduction.html",
+"summary": "Learn about the Wavefront platform."
+}
+,
+
+
+
+{
+"title": "Wavefront Monitoring",
+"tags": "administration",
+"keywords": "",
+"url": "wavefront_monitoring.html",
+"summary": "Learn how to monitor the health of the Wavefront platform."
+}
+,
+
+
+
+{
+"title": "Wavefront Obsolescence Policy",
+"tags": "release_notes",
+"keywords": "release_notes",
+"url": "wavefront_obsolescence_policy.html",
+"summary": "Learn about the Wavefront policy for retiring features."
+}
+,
+
+
+
+
+
+{
+"title": "Welcome to the new Wavefront documentation site!",
+"tags": "newsgetting_started",
+"keywords": "",
+"url": "first.html",
+"summary": ""
+}
+
+
+
+]

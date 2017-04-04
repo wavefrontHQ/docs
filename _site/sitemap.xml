@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+  <url>
+    <loc>http://localhost:4000/first.html</loc>
+  </url>
+  
+  
+
+
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/50_release_notes.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_creating.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_integrating_hipchat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_integrating_pagerduty.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_integrating_slack.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_integrating_victorops.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_integrating_webhooks.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/alerts_states_lifecycle.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/charts.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/charts_creating.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/charts_events_displaying.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/charts_units.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/dashboards.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/dashboards_interacting.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/dashboards_introductory.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/dashboards_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/dashboards_searching.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/dashboards_variables.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/documentation_introductory.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/events_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/events_queries.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/events_queries_advanced.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/external_links_managing.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_aws_ecs.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_aws_metrics.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_cadvisor.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_dropwizard_metrics.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_go_metrics.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_graphite.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_jmxtrans.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_kubernetes.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_log_data.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_opentsdb.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_puppet_server.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_sso_adfs.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_sso_google.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_sso_okta.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_sso_onelogin.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_statsd.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_telegraf.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/integrations_wavefront</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/label_overview.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/maintenance_windows_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/metrics_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/js/mydoc_scroll.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/news.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/news_archive.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/permissions.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_configuring.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_installing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_installing_ansible.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_preprocessor_rules.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_running_docker.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/proxies_version_history.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/query_language_getting_started.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/query_language_query_builder.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/query_language_query_wizard.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/query_language_reference.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/query_language_series_matching.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/query_language_using_point_tags.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/rendering_test.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/sources_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/tags_overview.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/users_managing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/users_prefs_configuring.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_api.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_cli.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_data_format.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_data_ingestion.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_data_naming.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_introduction.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_monitoring.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/wavefront_obsolescence_policy.html</loc>
+  </url>
+  
+  
+</urlset>
