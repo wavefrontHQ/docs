@@ -13,7 +13,8 @@ An alert is triggered when a monitored metric reaches a value that indicates a p
 
 To disable alert checking for a set of sources during a specific time window you can put them in a [maintenance window](maintenance_windows_managing). Snoozing alerts disables alert checking for a fixed time window.
 
-While every Wavefront user can view alerts and maintenance windows, you must have [Alert Management permission](permissions) to create and [manage](alerts_managing) alerts. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+{% include shared/permissions.html entity="alerts and maintenance windows" entitymgmt="Alert" %}
+
 
 ## Creating an Alert
 
@@ -59,14 +60,7 @@ or the [Query Builder](query_language_query_builder) to create the expression. I
 </tr>
 <tr>
 <td>Targets</td>
-<td>The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email atdresses, [PagerDuty keys​](), [VictorOps keys](), and [webhooks]() separated by commas. An alert can be in 5 states:
-<ul><li><strong>FIRING</strong> - The alert is meeting the condition and timing properties.</li>
-<li><strong>CHECKING</strong> - The alert is being checked to see if the condition and timing properties are being met.</li>
-<li><strong>SNOOZED</strong> - The alert is not being checked to determine if the condition and timing properties are being met.</li>
-<li><strong>IN MAINTENANCE</strong> - The alert has an alert tag or a source or set of sources included in a source tag associated
-with an ongoing maintenance window. If an alert has a subset of reporting sources associated with in an ongoing maintenance window,
-the state displays as CHECKING/IN MAINTENANCE.</li>
-<li><strong>INVALID</strong> - A ts() query in the alert condition is timing out (> 5 min execution) or includes inactive metrics or sources.</li></ul>
+<td>The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email atdresses, [PagerDuty keys​](alerts_integrating_pagerduty), [VictorOps keys](alerts_integrating_victorops), and [webhooks](alerts_integrating_webhooks) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle).
 </td>
 </tr>
 <tr>

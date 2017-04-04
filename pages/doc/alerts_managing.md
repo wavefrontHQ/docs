@@ -9,7 +9,7 @@ summary: Learn how to manage alerts.
 ---
 To view and manage alerts, click the **Alerts** button or select **Browse > Alerts**.
  
-{% include shared/permissions.html entity="alerts and maintenance windows" entitymgmt="Alert" %}
+{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
 ## Creating Alerts
  

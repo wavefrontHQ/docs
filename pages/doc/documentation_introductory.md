@@ -13,8 +13,8 @@ If you prefer a more hands on approach, then check out the [Introductory Dashboa
 ## Overview Documents
 The following articles are great for learning about what Wavefront is, how to get data into Wavefront, Wavefront chart types, and what you can do based on your assigned permissions.
 
-- [Introduction to Wavefront]() <span class="fa-check-circle fa" style="color: green;"></span>
-- [Getting Data into Wavefront]() <span class="fa-check-circle fa" style="color: green;"></span>
+- [Introduction to Wavefront](wavefront_introduction) <span class="fa-check-circle fa" style="color: green;"></span>
+- [Getting Data into Wavefront](wavefront_data_ingestion) <span class="fa-check-circle fa" style="color: green;"></span>
 - [Wavefront Charts](charts) <span class="fa-check-circle fa" style="color: green;"></span>
 - [Permissions Overview](permissions) <span class="fa-check-circle fa" style="color: green;"></span>
 - [Tags Overview](tags_overview) <span class="fa-check-circle fa" style="color: green;"></span>

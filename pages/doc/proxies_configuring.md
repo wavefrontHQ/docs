@@ -6,15 +6,15 @@ sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
-This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Version History](https://community.wavefront.com/docs/DOC-1131).
+This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Version History](proxies_version_history).
 
 ## Installing a Proxy
 
-To install a proxy, follow the directions in [Installing Wavefront Proxies](https://community.wavefront.com/docs/DOC-1271). The installation procedures perform basic configuration. For advanced configuration, see the options in the next section.
+To install a proxy, follow the directions in [Installing Wavefront Proxies](proxies_installing). The installation procedures perform basic configuration. For advanced configuration, see the options in the next section.
 
 ## Configuration Options
 
-The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-proxy/wavefront.conf`. Besides the server and hostname properties, the configuration file offers a variety of other options for changing how the proxy processes your data. None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, <a href="https://community.wavefront.com/docs/DOC-1083#jive_content_id_Starting_and_Stopping_a_Proxy">restart the proxy service</a>.
+The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-proxy/wavefront.conf`. Besides the server and hostname properties, the configuration file offers a variety of other options for changing how the proxy processes your data. None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, [restart the proxy service](proxies_managing#starting-and-stopping-a-proxy).
 
 <table width="100%" id="configTable" class="display">
 <colgroup>
@@ -90,7 +90,8 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td>A positive integer.</td>
 <td>16.</td>
 <td>3.14</td>
-</tr><tr>
+</tr>
+<tr>
 <td>graphitePorts</td>
 <td>Ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
@@ -173,7 +174,7 @@ Default: 4242.</td>
 </tr>
 <tr>
 <td>picklePorts</td>
-<td>Ports to listen on for incoming data in Graphite Pickle format (from carbon-relay). Default: none.</td>
+<td>Ports to listen on for incoming data in Graphite pickle format (from carbon-relay). Default: None.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
 <td>5878</td>
 <td>3.20</td>

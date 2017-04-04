@@ -75,7 +75,7 @@ To configure which AWS metrics to ingest into Wavefront you can whitelist instan
 
 ### Wavefront Source Field
 
-Wavefront sets the value of the CloudWatch metric <a href="https://community.wavefront.com/docs/DOC-1031">source field</a> by service:
+Wavefront sets the value of the CloudWatch metric [source field](wavefront_data_format) by service:
 
 -   **EC2** - the value of the **hostname**, **host**, or **name** [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), if the tags exist and you have an EC2 integration. Otherwise, the source is set to the Amazon instance ID.
 -   **EBS** - the Amazon instance ID of the EC2 instance the volume is attached to.
@@ -93,7 +93,7 @@ Wavefront adds the following point tags to CloudWatch metrics:
 
 Standard AWS CloudWatch pricing applies each time Wavefront requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region in the middle of the page, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, Wavefront queries the API only every 5 minutes.
 
-As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using <a href="https://community.wavefront.com/docs/DOC-1246#jive_content_id_The_Install_Command">a Telegraf collector</a> on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should use the metrics RegExp whitelist to allow all metrics except EC2. For example: **^aws\.\(billing\|instance\|sqs\|sns\|reservedInstance\|ebs\|route53\.health\|ec2.status\|elb\|s3\)\.\*\$**.
+As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](integrations_telegraf) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should use the metrics RegExp whitelist to allow all metrics except EC2. For example: **^aws\.\(billing\|instance\|sqs\|sns\|reservedInstance\|ebs\|route53\.health\|ec2.status\|elb\|s3\)\.\*\$**.
 
 ### Configuring Billing Metrics
 

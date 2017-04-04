@@ -123,12 +123,12 @@ For more information on Telegraf, see [Collectd vs. Telegraf: Comparing Metric C
 Wavefront has added many new integrations and example dashboards. For information on each integration, see the related documentation:
 
 -   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See <a href="https://community.wavefront.com/docs/DOC-1186">Monitoring Docker with Wavefront</a>.
--   AWS - <a href="https://community.wavefront.com/docs/DOC-1032">AWS Metrics Integration</a>
+-   AWS - [AWS Metrics Integration](integrations_aws_metrics)
 -   Cassandra - <a href="https://community.wavefront.com/docs/DOC-1210">Apache Cassandra 3 Integration</a>
--   Java metrics - <a href="https://community.wavefront.com/docs/DOC-1187">DropWizard Metrics Integration</a>
+-   Java metrics - [DropWizard Metrics Integration](integrations_dropwizard)
 -   Puppet - <a href="https://community.wavefront.com/docs/DOC-1231">Puppet Server Integration</a>
 -   StatsD - <a href="https://community.wavefront.com/docs/DOC-1036">Using StatsD with Wavefront</a>
--   VictorOps - <a href="https://community.wavefront.com/docs/DOC-1251">Integrating Wavefront Alerts with VictorOps</a>
+-   VictorOps - [Integrating Wavefront Alerts with VictorOps](alerts_integrating_victorops)
 
 ## Wavefront API
 

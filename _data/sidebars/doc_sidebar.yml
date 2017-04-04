@@ -16,7 +16,7 @@ entries:
       type: homepage
       
     - title: Introduction to Wavefront
-      url: /introduction.html
+      url: /wavefront_introduction.html
       output: web
 
   - title: Getting Started
@@ -76,6 +76,10 @@ entries:
       url: /proxies_installing.html
       output: web
       
+    - title: Installing Wavefront Proxies with Ansible
+      url: /proxies_installing_ansible.html
+      output: web
+      
     - title: Running a Proxy in a Docker Container
       url: /proxies_running_docker.html
       output: web
@@ -94,6 +98,10 @@ entries:
       
     - title: Configuring Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
+      output: web
+      
+    - title: Wavefront Proxy Version History
+      url: /proxies_version_history.html
       output: web
       
   - title: Query Language
@@ -237,12 +245,44 @@ entries:
       output: web
       
       subfolders:
+      - title: Data Integrations
+        output: web
+        subfolderitems:
+          
+          - title: Graphite Integration
+            url: /integrations_graphite.html
+            output: web
+        
+          - title: JMXTrans Integration
+            url: /integrations_jmxtrans.html
+            output: web
+        
+          - title: OpenTSDB Integration
+            url: /integrations_opentsdb.html
+            output: web
+        
+          - title: StatsD Integration
+            url: /integrations_statsd.html
+            output: web
+        
+          - title: Telegraf Integration
+            url: /integrations_telegraf.html
+            output: web
+        
+          - title: Puppet Server Integration
+            url: /integrations_puppet_server.html
+            output: web
+        
       - title: Container Integrations
         output: web
         subfolderitems:
           
           - title: Docker Integration
             url: /integrations_cadvisor.html
+            output: web
+        
+          - title: Kubernetes Integration
+            url: /integrations_kubernetes.html
             output: web
         
       - title: Code Instrumentation
@@ -268,6 +308,26 @@ entries:
             url: /integrations_aws_ecs.html
             output: web
 
+      - title: Authentication Integrations
+        output: web
+        subfolderitems:
+          
+          - title: ADFS SSO Integration
+            url: /integrations_sso_adfs.html
+            output: web
+        
+          - title: Google SSO Integration
+            url: /integrations_sso_google.html
+            output: web
+        
+          - title: Okta SSO Integration
+            url: /integrations_sso_okta.html
+            output: web
+        
+          - title: OneLogin SSO Integration
+            url: /integrations_sso_onelogin.html
+            output: web
+        
     - title: Managing External Links
       url: /external_links_managing.html
       output: web
@@ -294,6 +354,10 @@ entries:
         
       - title: Configuring User Preferences
         url: /users_prefs_configuring.html
+        output: web
+        
+      - title: Wavefront Monitoring
+        url: /wavefront_monitoring.html
         output: web
         
   - title: Labels

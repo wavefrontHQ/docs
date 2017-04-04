@@ -32,7 +32,7 @@ Wavefront and HipChat both support webhooks so you can easily configure an incom
   - **text/plain** - The payload is treated as a plain text message with a default background color of yellow and the notify flag set to false.
   - **text/html** - The payload is treated as an HTML message with a default background color of yellow and the notify flag set to false.
  1. Select **Webhook POST Body Template > Template > Default**.  This loads a default message template.
- 1. Customize the payload as described in [Customizing a Webhook Payload](alerts_integrating_webhooks.html#customizing-a-webhook-payload). Here are sample message templates:
+ 1. Customize the payload as described in [Customizing a Webhook Payload](alerts_integrating_webhooks#customizing-a-webhook-payload). Here are sample message templates:
 
     - **application/json**
       {% raw %}
@@ -57,7 +57,7 @@ Wavefront and HipChat both support webhooks so you can easily configure an incom
     You can pass any other HipChat request body parameters to format the messages in the HipChat room.
 
  1. Click **Save**. The webhook is added to the Webhooks page.
- 1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks.html#finding-a-webhook-id).
- 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks.html#adding-a-webhook-to-a-wavefront-alert).
+ 1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks#finding-a-webhook-id).
+ 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks#adding-a-webhook-to-a-wavefront-alert).
 
 {% include links.html %}

@@ -25,9 +25,9 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 
 2.  Click **Create**. The dashboard displays in edit mode. You can either edit your dashboard at this time or save it and edit at a later time.
 
-## Uploading a Dashboard
+## Deploying a Dashboard
 
-Dashboards are stored in JSON format. You can upload a dashboard JSON file with the [Wavefront API](wavefront_api) using the following command:
+Dashboards are stored in JSON format. You can deploy a dashboard JSON file with the [Wavefront API](wavefront_api) using the following command:
 
 ```shell
 curl -v POST https://<your_instance>.wavefront.com/api/v2/dashboard -d @<dashboard>.json \

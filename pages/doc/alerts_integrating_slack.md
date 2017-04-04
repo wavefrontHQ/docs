@@ -168,10 +168,10 @@ Wavefront and Slack both support webhooks so you can easily configure an incomin
     ```
     {% endraw %}
 
- 1. Customize the payload as described in [Customizing a Webhook Payload](alerts_integrating_webhooks.html#customizing-a-webhook-payload). 
+ 1. Customize the payload as described in [Customizing a Webhook Payload](alerts_integrating_webhooks#customizing-a-webhook-payload). 
  1. Click **Save**. The webhook is added to the Webhooks page.
- 1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks.html#finding-a-webhook-id).
- 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks.html#adding-a-webhook-to-a-wavefront-alert).
+ 1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks#finding-a-webhook-id).
+ 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks#adding-a-webhook-to-a-wavefront-alert).
 
 
 

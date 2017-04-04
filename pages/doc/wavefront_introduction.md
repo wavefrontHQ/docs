@@ -2,7 +2,7 @@
 title: Introduction to Wavefront
 tags: [getting_started]
 sidebar: doc_sidebar
-permalink: introduction.html
+permalink: wavefront_introduction.html
 summary: Learn about the Wavefront platform.
 ---
 Wavefront is a high performance streaming analytics platform designed for monitoring and optimization.  The service is
