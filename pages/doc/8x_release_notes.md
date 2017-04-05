@@ -17,11 +17,11 @@ The Wavefront 8.x release provides a number of dashboard, documentation, and UI 
 - Various improvements to the "Populate your Data" flow
   - Simplified to 2 options (AWS integration and Wavefront proxy). See [AWS Metrics Integration](integrations_aws_metrics) and [Installing Wavefront Proxies](proxies_installing).
 - Amazon Web Services improvements
-  - AWS dashboards - After adding an AWS integration, newly updated AWS dashboards are added to your instance.
-  The updated and new dashboards include: Overall, Billing, EBS Storage, Instance Storage, and Network. These dashboards provide insight into AWS usage enabling you to control your costs and maximize utilization of AWS services.
-  - AWS metrics - Avg, Count, Min, Max, and Sum aggregations are now available and enabled by default.
-- A new Help panel at the right side bar on every page streamlines the on-boarding process for new Wavefront users. 
-- In the UI, the term "Proxy" is now used instead of “Agent”
+  - **Dashboards** - After adding an AWS integration, newly updated AWS dashboards—Overall, Billing, EBS Storage, Instance Storage, and Network—are added to your instance. These dashboards provide insight into AWS usage, enabling you to control your costs and maximize utilization of AWS services.
+  - **Metrics** - The [aggregations](integrations_aws_metrics#aws-aggregate-metrics) average, minimum, maximum, samplecount, and sum are now available for all metrics and are enabled by default. The aws.instance.price metric now has a point tag, operatingSystem, to indicate whether the AWS instance is running Windows or Linux.
+- A new Help panel at the right side bar on every page streamlines the on-boarding process for new Wavefront users.
+- The dashboard documentation now covers how to clone and deploy dashboards. 
+- In the UI, the term "Proxy" is now used instead of "Agent"
 
 
 {% include links.html %}

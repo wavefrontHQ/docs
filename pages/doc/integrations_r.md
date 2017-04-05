@@ -22,39 +22,54 @@ To use R and Wavefront together, you need:
 - A valid Wavefront token
 
 ## Installation
-If you have your R environment and Wavefront account set up, first install the R packages that we'll be using in our demo, as well as the two (RCurl and rjson) used by the Wavefront library. Within R, from the R prompt, run the following commands:
+If you have your R environment and Wavefront account set up, first install the R packages that we'll be using in our demo, as well as the two (RCurl and rjson) used by the Wavefront library. 
 
-```
-install.packages("dplyr") install.packages("ggplot2")install.packages("reshape2")install.packages("scales")install.packages("TSA")install.packages("RCurl")install.packages("rjson")
-You may be asked to restart R during the installation; feel free to do so. Once the libraries above have been installed, let's load them into our R workspace:
-library(ggplot2)
-library(reshape2)
-library(scales)
-library(TSA)
-library(dplyr)
-library(RCurl)
-library(rjson)
-```
+1.  Within R, from the R prompt, run the following commands:
 
-Now pull in the Wavefront R library:
+    ```r
+    install.packages("dplyr") 
+    install.packages("ggplot2")
+    install.packages("reshape2")
+    install.packages("scales")
+    install.packages("TSA")
+    install.packages("RCurl")
+    install.packages("rjson")
+    ```
 
-```
-source("http://wavefront-customer.s3.amazonaws.com/wavefront-2.4.R")
-```
+ 1. You may be asked to restart R during the installation; feel free to do so. Once the libraries above have been installed, load them into your R workspace:
 
-This is an older version of this library:
+    ```r
+    library(ggplot2)
+    library(reshape2)
+    library(scales)
+    library(TSA)
+    library(dplyr)
+    library(RCurl)
+    library(rjson)
+    ```
 
-```
-source("http://wavefront-customer.s3.amazonaws.com/wavefront-1.7.R")
-```
+ 1. Pull in the Wavefront R library:
 
-You will see a set of new functions appear in your IDE, all starting with 'wf'. These are the functions that you will use to get data from Wavefront into R. Finally, you'll need to enter the Wavefront server URL that you use, as well as your API token:
+    ```r
+    source("http://wavefront-customer.s3.amazonaws.com/wavefront-2.4.R")
+    ```
 
-```
-base <- "https://metrics.wavefront.com"token <- "[your API token]"
-```
+    This is an older version of this library:
 
-Your base server URL may be different if you access a Wavefront VPC, and your token will certainly be different from our example above. If you don't have a token yet, see [wavefront_api](wavefront_api#generating-an-api-token).
+    ```r
+    source("http://wavefront-customer.s3.amazonaws.com/wavefront-1.7.R")
+    ```
+
+    You will see a set of new functions appear in your IDE, all starting with 'wf'. These are the functions that you will use to get data from Wavefront into R. 
+
+ 1. Enter the Wavefront server URL and your API token:
+
+    ```r
+    base <- "<your_wavefront_instance>"
+    token <- "<your API token>"
+    ```
+
+    If you don't have a token yet, see [Generating an API Token](wavefront_api#generating-an-api-token).
 
 ## Other Resources
 If you're just getting started with R, there are a few free resources to help you out. You don't need to read any of these to follow along with this document, but they will help you understand what's going on under the hood.
@@ -72,12 +87,12 @@ The wavefront.R library allows you to perform the exact same queries through R t
 
 In wavefront.R, you enter that query expression verbatim to retrieve the same data in numerical format, as an R data frame:
 
-```
+```r
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
 ```
 Let's look at this R query in more detail. The base and token variables were set in the prerequisites, and allow wavefront.R to know where to query and how to authenticate that query. The third and fourth fields are the start and end times for the query, in epoch second format. The fifth field is the actual ts() query, and the final field is an option that tells the query to set the column labels ("clab" for short) of the resulting data frame to the h(ost) for that time series. Schematically, the function is:
 
-```
+```r
 <dataFrame> <- wfquery(serverURL, wavefrontAccountToken, startTime, endTime, query)
 ```
  
@@ -89,7 +104,7 @@ Let's look at the result now. The data frame returned has one column per returne
 This data frame can be manipulated like any other within R.
 If you wanted to see the request latencies divided by 100, or an average across all of the hosts, or the data from a month ago, you would do so in exactly the same way as you do from the Wavefront web site:
 
-```
+```r
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency) / 100', clab='h')
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'avg(ts(requests.latency))', clab='h')
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one month ago", avg(ts(requests.latency)))', clab='h')
@@ -97,13 +112,13 @@ d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("on
 
 Note the single quotes around the query field, while internal strings (such as the first argument to lag) are expressed with double quotes. You can even divide metrics by each other and then perform functions (like lag) on the result:
 
-```
+```r
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one month ago", ts(requests.failures.num) / ts(requests.total.num))', clab='h')
 ```
 
 All of the above queries have looked at the most recent 2 hour period of data, taken at the minute granularity. However, you can look at longer periods of data with coarser granularity. For example, here is the most recent week of data, taken at the hour granularity (granularity='h'):
 
-```
+```r
 d <- wfquery(base, token, wfnow() - wfdays(7), wfnow(), 'ts(requests.latency)', clab='h', granularity='h')
 ```
 
@@ -117,7 +132,7 @@ Note: If you pick a long time range and a short granularity, the request will ev
 ## Visualizing Data in R
 Now that you've gotten your Wavefront data into R, you can do some interesting visualizations on it. First run a query against Wavefront to pull some data into a data frame:
 
-```
+```r
 # Grab requests.latency over the last 2 hours
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
 # Remove any missing data
@@ -126,7 +141,7 @@ d <- na.omit(d)
 
 ### Histograms
 
-```
+```r
 # Show a histogram
 ggplot(d, aes(d$"app-1")) + geom_histogram(aes(y = ..density.., fill = ..count..), binwidth=5) + geom_density()
 ```
@@ -134,7 +149,7 @@ ggplot(d, aes(d$"app-1")) + geom_histogram(aes(y = ..density.., fill = ..count..
 
 ### Heat Maps: Correlation Matrix
  
-```
+```r
 # Show a heat map of cross-correlations of all the app servers over the full 2h window
 qplot(d$"app-1", d$"app-2") + geom_point(color="red", size=3)
 cord <- cor(d)

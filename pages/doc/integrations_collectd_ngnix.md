@@ -13,7 +13,7 @@ summary: Learn how to send NGiNX data collected by collectd to Wavefront.
 
 Enable the `stub_status` module in your NGiNX configuration, for example:
 
-```
+```nginx
 location /nginx_status {  
  stub_status on;  
  access_log off;  

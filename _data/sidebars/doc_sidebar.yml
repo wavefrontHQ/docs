@@ -265,6 +265,18 @@ entries:
       output: web
       
       subfolders:
+      - title: AWS Integrations
+        output: web
+        subfolderitems:
+          
+          - title: AWS Metrics Integration
+            url: /integrations_aws_metrics.html
+            output: web
+            
+          - title: AWS ECS Integration
+            url: /integrations_aws_ecs.html
+            output: web
+        
       - title: Data Integrations
         output: web
         subfolderitems:
@@ -337,18 +349,6 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
         
-      - title: Container Integrations
-        output: web
-        subfolderitems:
-          
-          - title: Docker Integration
-            url: /integrations_cadvisor.html
-            output: web
-        
-          - title: Kubernetes Integration
-            url: /integrations_kubernetes.html
-            output: web
-        
       - title: Code Instrumentation
         output: web
         subfolderitems:
@@ -361,15 +361,16 @@ entries:
             url: /integrations_dropwizard_metrics.html
             output: web
             
-      - title: AWS Integrations
+      - title: Container Integrations
         output: web
         subfolderitems:
           
-          - title: AWS Metrics Integration
-            url: /integrations_aws_metrics.html
+          - title: Docker Integration
+            url: /integrations_cadvisor.html
             output: web
-          - title: AWS ECS Integration
-            url: /integrations_aws_ecs.html
+        
+          - title: Kubernetes Integration
+            url: /integrations_kubernetes.html
             output: web
         
     - title: Managing External Links
