@@ -25,7 +25,7 @@ To add the ADFS integration to Wavefront, follow these steps:
 
 ## Setting up Claim Rules
  
-The End GOAL here is to produce a SAML claim of:
+This task produces a SAML claim in the format:
 
 ```xml
 urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified
@@ -39,9 +39,9 @@ The above rule will send an email address claim in the SAML response. The new ru
 
 ![sso adfs 11](images/sso_adfs_11.png)
 
-Here it is for copy-paste:
+Here is the resulting rule:
 
-```xml
+```
 c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = c.Value, ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties /format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified");
 ```
 

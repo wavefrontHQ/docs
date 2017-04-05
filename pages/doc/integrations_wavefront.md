@@ -30,8 +30,8 @@ summary: Learn about the various types of integrations supported by Wavefront.
 </tr>
 <tr>
 <td>
-<a href="https://community.wavefront.com/docs/DOC-1210"><img src="images/cassandra.png"/></a><br/><br/>
-<a href="https://community.wavefront.com/docs/DOC-1210">Cassandra</a>
+<a href="integrations_cassandra"><img src="images/cassandra.png"/></a><br/><br/>
+<a href="integrations_cassandra">Cassandra</a>
 </td>
 <td>
 <a href="integrations_graphite"><img src="images/graphite.png"/></a><br/><br/>

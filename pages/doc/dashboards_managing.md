@@ -17,11 +17,11 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 1.  Do one of the following:
 
     -   In the All Dashboards page, click the **Create Dashboard** button on the filter bar.
-    -   From an existing dashboard, click the pencil icon on the right side of the browser window below the task bar, and select New. You can also click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
+    -   From an existing dashboard, click the pencil icon <span class="fa-pencil fa"/> on the right side of the browser window below the task bar, and select **New**. You can also click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
     -   From a chart, scroll down to the **Save to** section and click **New Dashboard**.
     -   From the Metrics Browser, locate **Create Dashboard** in the top left corner of the page and click it to begin the process of creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser also allows you to apply additional parameters such as sources and source tags.
 
-    A Create New Dashboard dialog displays. Enter a URL and Name for your dashboard. The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving. The Name field supports letters, numbers, characters, and spaces.
+    A Create New Dashboard dialog displays. Enter a URL and name for your dashboard. The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving. The Name field supports letters, numbers, characters, and spaces.
 
 2.  Click **Create**. The dashboard displays in edit mode. You can either edit your dashboard at this time or save it and edit at a later time.
 
@@ -48,6 +48,17 @@ Dashboard preferences include:
 
 To open the dashboard preferences dialog, click the wrench icon <span class="fa-wrench fa"/> at the top right of the dashboard.
 
+## Cloning a Dashboard
+
+The process for cloning an existing dashboard can be started from the All Dashboards page or directly from the existing dashboard page.
+
+1. Open the clone dialog:
+  -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Clone**.
+  -   From a dashboard, click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Clone**.
+1. Specify a new URL.
+1. Optionally edit the dashboard name.
+1. Click **Clone**.
+
 ## Editing a Dashboard
 
 The process for editing an existing dashboard can be started from the All Dashboards page or directly from the existing dashboard page:
@@ -56,6 +67,8 @@ The process for editing an existing dashboard can be started from the All Dashbo
 -   From a dashboard, click the pencil icon <span class="fa-pencil fa"/> on the right side below the task bar, and select **Edit**.
 
 When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
+
+{% include note.html content="Wavefront [system dashboards](dashboards_introductory) are read-only and cannot be edited. If you want to make changes to one of them you must first clone it." %}
 
 ### Dashboard Description and Name
 

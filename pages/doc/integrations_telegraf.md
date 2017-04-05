@@ -43,7 +43,7 @@ You can also install Telegraf manually from our [package cloud repository](https
     ```
 
 ## Dashboard
-Once you've installed Telegraf, you can [deploy](dashboards_managing#deploying-a-dashboard) [the Telegraf dashboard](https://github.com/wavefrontHQ/integrations/tree/master/telegraf/dashboards) to begin monitoring your server metrics from Telegraf in Wavefront.
+Once you've installed Telegraf, you can [deploy](dashboards_managing#deploying-a-dashboard) the [Telegraf dashboard](https://github.com/wavefrontHQ/integrations/tree/master/telegraf/dashboards) to begin monitoring your server metrics from Telegraf in Wavefront.
 
 ![db_telegraf](images/db_telegraf.png)
  

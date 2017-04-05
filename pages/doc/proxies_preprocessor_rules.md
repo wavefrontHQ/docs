@@ -58,7 +58,7 @@ The Wavefront proxy reports a counter metric for every rule that represents the 
 
 ## Enabling the Preprocessor
 
-To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxy_configuration) and set to a valid path to the rules configuration file. The rules file is validated when the proxy starts and the start-up process is aborted if any of the rules are not valid. A detailed error message is provided for every rule that fails validation.
+To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring) and set to a valid path to the rules configuration file. The rules file is validated when the proxy starts and the start-up process is aborted if any of the rules are not valid. A detailed error message is provided for every rule that fails validation.
 
 ## Point Filtering Rules
 

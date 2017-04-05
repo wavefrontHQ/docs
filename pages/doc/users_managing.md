@@ -7,7 +7,7 @@ permalink: users_managing.html
 summary: Learn how to manage users.
 ---
 
-You must have [User Management permission](permissions) to do the following tasks. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+{% include shared/permissions.html entity="users" entitymgmt="User" %}
 
 ## Accessing the Users and Permissions Pages
 You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"></i> on the task bar and selecting your username. Your user profile displays. The panel to the left of your profile contains the links **Users(\<CompanyName\>)** and **Permissions(\<CompanyName\>)**.

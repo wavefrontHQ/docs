@@ -9,6 +9,7 @@ summary: Learn how to install Wavefront proxies.
 Before metrics can begin streaming to Wavefront from a host or application you must add a Wavefront proxy to your installation. This article describes several methods for installing a Wavefront proxy: scripted installation and manual installation. Both methods set up a basic configuration. The scripted installation optionally allows you to install and configure a [Telegraf collector agent](integrations_telegraf).
  
 ## Requirements
+
 Before installing a proxy, ensure that you have:
 
 - A Wavefront server API URL. For example: https://\<your_instance\>.wavefront.com/api/.
@@ -26,17 +27,20 @@ Before installing a proxy, ensure that you have:
   If you do not see your operating system, contact [support@wavefront.com](mailto:support.wavefront.com).
 
 ## Scripted Installation on a Single Host
+
+{% include shared/permissions_proxies.html %}
+
 The Wavefront application has a wizard that guides you through installing a Wavefront proxy and optionally a Telegraf collector agent and setting up a basic configuration using scripts. To access the wizard you must have Proxy Management permission. To run the wizard:
 
 1. Open the Wavefront application UI.
 1. Select **Browse > Proxies**.
 1. Select **Add > New Proxy** at the top of the filter bar. The Populate Your Data screen displays.
 1. Under **WAVEFRONT PROXY**, click Add Now <i class="fa fa-arrow-right"></i> - Add a Wavefront proxy and optionally a Telegraf collector agent. A script displays that runs a Wavefront CLI command to install a Wavefront proxy on your host and register with Wavefront.
-1. Copy the script and run on your host.
-1. When the installation completes, click **Next**. The screen reports `Found and registered <hostname>`.
-1. Click **Next**. Instructions for running a script to install the Telegraf collector agent display.
-1. Optionally copy the script and run on your host.
-1. Click **Next**, then **Done** twice. The Proxies page displays. Verify that your proxy is listed.
+    1. Copy the script and run on your host.
+    1. When the installation completes, click **Next**. The screen reports `Found and registered <hostname>`.
+    1. Click **Next**. Instructions for running a script to install the Telegraf collector agent display.
+    1. Optionally copy the script and run on your host.
+    1. Click **Next**, then **Done** twice. The Proxies page displays. Verify that your proxy is listed.
 
 You can also install and run the Wavefront CLI directly. For more information, see [Wavefront CLI](wavefront_cli).
 

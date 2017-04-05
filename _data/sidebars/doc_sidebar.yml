@@ -43,6 +43,18 @@ entries:
     output: web
     folderitems:
       
+    - title: Wavefront Release Notes
+      url: /wavefront_release_notes.html
+      output: web
+      
+    - title: 8.x Release Notes
+      url: /8x_release_notes.html
+      output: web
+      
+    - title: 6.x Release Notes
+      url: /6x_release_notes.html
+      output: web
+      
     - title: 5.0 Release Notes
       url: /50_release_notes.html
       output: web
@@ -132,6 +144,10 @@ entries:
       url: /query_language_series_matching.html
       output: web
       
+    - title: Using Tumbling Windows
+      url: /query_language_tumbling_windows.html
+      output: web
+      
   - title: Dashboards and Charts
     output: web
     folderitems:
@@ -174,6 +190,10 @@ entries:
       
     - title: Managing Sources
       url: /sources_managing.html
+      output: web
+      
+    - title: R Integration
+      url: /integrations_r.html
       output: web
       
   - title: Alerts
@@ -249,6 +269,14 @@ entries:
         output: web
         subfolderitems:
           
+          - title: AppDynamics Integration
+            url: /integrations_appdynamics.html
+            output: web
+        
+          - title: Cassandra 3 Integration
+            url: /integrations_cassandra.html
+            output: web
+        
           - title: Graphite Integration
             url: /integrations_graphite.html
             output: web
@@ -257,8 +285,16 @@ entries:
             url: /integrations_jmxtrans.html
             output: web
         
+          - title: Log Data Metrics Integration
+            url: /integrations_log_data.html
+            output: web
+        
           - title: OpenTSDB Integration
             url: /integrations_opentsdb.html
+            output: web
+        
+          - title: Puppet Server Integration
+            url: /integrations_puppet_server.html
             output: web
         
           - title: StatsD Integration
@@ -269,8 +305,36 @@ entries:
             url: /integrations_telegraf.html
             output: web
         
-          - title: Puppet Server Integration
-            url: /integrations_puppet_server.html
+      - title: Collectd Integrations
+        output: web
+        subfolderitems:
+          
+          - title: Collectd Integration
+            url: /integrations_collectd.html
+            output: web
+
+          - title: Apache Collectd Integration
+            url: /integrations_collectd_apache.html
+            output: web
+        
+          - title: Cassandra Collectd Integration
+            url: /integrations_collectd_cassandra.html
+            output: web
+        
+          - title: MySQL Collectd Integration
+            url: /integrations_collectd_mysql.html
+            output: web
+        
+          - title: NGiNX Collectd Integration
+            url: /integrations_collectd_nginx.html
+            output: web
+        
+          - title: Redis Collectd Integration
+            url: /integrations_collectd_redis.html
+            output: web
+        
+          - title: ZooKeeper Collectd Integration
+            url: /integrations_collectd_zookeeper.html
             output: web
         
       - title: Container Integrations
@@ -307,33 +371,9 @@ entries:
           - title: AWS ECS Integration
             url: /integrations_aws_ecs.html
             output: web
-
-      - title: Authentication Integrations
-        output: web
-        subfolderitems:
-          
-          - title: ADFS SSO Integration
-            url: /integrations_sso_adfs.html
-            output: web
-        
-          - title: Google SSO Integration
-            url: /integrations_sso_google.html
-            output: web
-        
-          - title: Okta SSO Integration
-            url: /integrations_sso_okta.html
-            output: web
-        
-          - title: OneLogin SSO Integration
-            url: /integrations_sso_onelogin.html
-            output: web
         
     - title: Managing External Links
       url: /external_links_managing.html
-      output: web
-      
-    - title: Sending Log Data Metrics To Wavefront
-      url: /integrations_log_data.html
       output: web
       
     - title: Title
@@ -356,6 +396,31 @@ entries:
         url: /users_prefs_configuring.html
         output: web
         
+      - title: Managing Passwords
+        url: /passwords_managing.html
+        output: web
+        
+        subfolders:
+        - title: Authentication Integrations
+          output: web
+          subfolderitems:
+            
+            - title: ADFS SSO Integration
+              url: /integrations_sso_adfs.html
+              output: web
+          
+            - title: Google SSO Integration
+              url: /integrations_sso_google.html
+              output: web
+          
+            - title: Okta SSO Integration
+              url: /integrations_sso_okta.html
+              output: web
+          
+            - title: OneLogin SSO Integration
+              url: /integrations_sso_onelogin.html
+              output: web
+              
       - title: Wavefront Monitoring
         url: /wavefront_monitoring.html
         output: web

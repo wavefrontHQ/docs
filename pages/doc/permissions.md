@@ -7,7 +7,9 @@ permalink: permissions.html
 summary: Learn about Wavefront permissions.
 ---
 
-Permissions, which are assigned at the user level, allow your company's administrator(s) to control access to Wavefront feature sets. {% include shared/permissions.html entity="Wavefront entities" entitymgmt="the appropriate" %}
+Permissions, which are assigned at the user level, allow your company's administrator(s) to control access to Wavefront feature sets. 
+
+{% include shared/permissions.html entity="Wavefront entities" entitymgmt="the appropriate" %}
 
 You can learn more about each set of permissions by clicking the permission headers below:
  
