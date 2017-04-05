@@ -2,10 +2,9 @@
 title: Using Tumbling Windows
 keywords: query language
 tags: [query_language]
-datatable: true
 sidebar: doc_sidebar
 permalink: query_language_tumbling_windows.html
-summary: Learn how operators and functions affect the evaulation of Wavefront Query Language expressions.
+summary: Learn how to use moving window functions in Wavefront Query Language expressions.
 ---
 
 ## Moving Windows

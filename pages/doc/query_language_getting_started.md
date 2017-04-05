@@ -2,7 +2,6 @@
 title: Getting Started with Wavefront Query Language
 keywords: query language
 tags: [query_language, getting_started]
-datatable: true
 sidebar: doc_sidebar
 permalink: query_language_getting_started.html
 summary: Learn how to get started with Wavefront Query Language.

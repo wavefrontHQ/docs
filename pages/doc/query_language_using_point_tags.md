@@ -2,7 +2,6 @@
 title: Using Point Tags in Queries
 keywords: query language
 tags: [query_language]
-datatable: true
 sidebar: doc_sidebar
 permalink: query_language_using_point_tags.html
 summary: Learn how to use point tags in Wavefront Query Language queries.

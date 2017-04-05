@@ -6,8 +6,15 @@ sidebar: doc_sidebar
 permalink: dashboards_introductory.html
 summary: Learn about the tutorial, example, and use case introductory dashboards available in your Wavefront instance.
 ---
-Every Wavefront instance contains a set of introductory dashboards to help new users learn about Wavefront components, illustrative use cases, and example dashboards for specific domains.  You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview).
+Every Wavefront instance contains a set of introductory dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.  You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview).
 
+- Demo - **wavefront.tour**
+  - Demo: Welcome to Wavefront - overview of Wavefront benefits and capabilities.
+  - Demo: Anomaly Detection: Finding a Needle in a Haystack - demonstration of how to find an anomalous event.
+  - Demo: Intelligent Alerting: Creating the Perfect Alert - demonstration of how to create an alert that does not fire spuriously.
+  - Demo: Data Exploration: Analyzing an Event's Impact - demonstration of how to discover the affect of a code push on metrics.
+  - Data Exploration: Metric Correlation and Capacity Planning - demonstration of how to correlate metrics with each other.
+  - Demo: Anomaly Detection: Using Weekly Patterns - demonstration of how to use historical data to establish a pattern and then create a visualization that captures when a service issue occurred.
 - Tutorial - **wavefront.tutorial**
   - Intro: Home - contains links to getting started dashboards and documentation.
   - Intro: Getting Started with Wavefront Query Language - contains charts that illustrate different elements of Wavefront Query Language.
