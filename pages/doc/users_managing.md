@@ -10,7 +10,7 @@ summary: Learn how to manage users.
 {% include shared/permissions.html entity="users" entitymgmt="User" %}
 
 ## Accessing the Users and Permissions Pages
-You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"></i> on the task bar and selecting your username. Your user profile displays. The panel to the left of your profile contains the links **Users(\<CompanyName\>)** and **Permissions(\<CompanyName\>)**.
+You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"/> on the task bar and selecting your username. Your user profile displays. The panel to the left of your profile contains the links **Users(\<CompanyName\>)** and **Permissions(\<CompanyName\>)**.
 
 ![user profile](images/user_profile.png)
 

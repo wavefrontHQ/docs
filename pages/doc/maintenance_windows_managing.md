@@ -42,11 +42,11 @@ You create an alert by:
 <td>Start Time</td>
 <td>The start time of the maintenance window:
 <ul><li><strong>Now</strong> - The maintenance window starts immediately.</li>
-<li><i class="fa fa-calendar"></i> - The maintenance window starts on the specified date and time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
+<li><i class="fa fa-calendar"/> - The maintenance window starts on the specified date and time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
 </tr>
 <tr>
 <td>End Time</td>
-<td><i class="fa fa-calendar"></i> The end time of the maintenance window. The end time must be after the start time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</td>
+<td><i class="fa fa-calendar"/> The end time of the maintenance window. The end time must be after the start time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</td>
 </tr>
 <tr>
 <td>Affected Alerts and Sources</td>

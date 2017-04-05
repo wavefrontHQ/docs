@@ -30,7 +30,7 @@ The Wavefront Query Wizard currently has 5 categories of recipes:
 You can access the Wavefront Query Wizard from any individual chart in Wavefront.
 
 1. Navigate to a blank chart from the task bar (**Dashboards > Create Chart**) or open an existing chart on a dashboard.
-1. Click the <i class="fa fa-magic"></i> icon located to the left of a query line:
+1. Click the <i class="fa fa-magic"/> icon located to the left of a query line:
   ![wizard_button](images/wizard_button.png)
   
     The Query Wizard dialog displays and you can begin selecting an available recipe. If the associated query line already has a ts() expression populated, then this query is applied as a base query within the Query Wizard.

@@ -29,7 +29,7 @@ You view deployed proxies by selecting **Browse > Proxies**.  The Proxies page d
 - **Queued Items** - The number of points queued in the Wavefront proxy.
 - **Version** - The version of the Wavefront proxy.
 
-You can click a bar chart icon <i class="fa-bar-chart fa" style="color: #337ab7;"></i> in the Hostname, Space Available, and Queued Items columns to view a chart of relevant metrics.
+You can click a bar chart icon <i class="fa-bar-chart fa" style="color: #337ab7;"/> in the Hostname, Space Available, and Queued Items columns to view a chart of relevant metrics.
  
 ## Adding Proxies
 See [Installing Wavefront Proxies](proxies_installing).

@@ -16,7 +16,7 @@ The following articles are great for learning about what Wavefront is, how to ge
 - [Introduction to Wavefront](wavefront_introduction) <span class="fa-check-circle fa" style="color: green;"></span>
 - [Getting Data into Wavefront](wavefront_data_ingestion) <span class="fa-check-circle fa" style="color: green;"></span>
 - [Wavefront Charts](charts) <span class="fa-check-circle fa" style="color: green;"></span>
-- [Permissions Overview](permissions) <span class="fa-check-circle fa" style="color: green;"></span>
+- [Permissions Overview](permissions_overview) <span class="fa-check-circle fa" style="color: green;"></span>
 - [Tags Overview](tags_overview) <span class="fa-check-circle fa" style="color: green;"></span>
  
 ## Charts and Dashboards

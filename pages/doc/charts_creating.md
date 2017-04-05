@@ -8,7 +8,7 @@ summary: Learn how to create a Wavefront chart and save it to a dashboard.
 ---
 One of the first tasks a new Wavefront user wants to perform is data visualization.  Wavefront makes chart creation an easy process. You can access the chart creation feature from several parts of the application. This topic focuses on most straightforward method.
 
-You must have [Dashboard Management permission](permissions) to [save a charts to a dashboard](#save). If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+You must have [Dashboard Management permission](permissions_overview) to [save a charts to a dashboard](#save). If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
 
 ## Creating a Chart
 
@@ -35,11 +35,11 @@ If you are familiar with [Wavefront Query Language](query_language_getting_start
 ![query_field_free_form](images/query_field_free_form.png)
 
 ## Adding Queries to a Chart
-To associate more than one query with a chart, add a new query field by clicking the add icon <i class="fa fa-plus"></i> to the right of a query field.
+To associate more than one query with a chart, add a new query field by clicking the add icon <i class="fa fa-plus"/> to the right of a query field.
 
 ![add_query](images/add_query.png)
 
-The remove icon <i class="fa fa-minus"></i> removes a query field, and the clone icon <i class="fa fa-files-o"></i> clones a query into a new query field.
+The remove icon <i class="fa fa-minus"/> removes a query field, and the clone icon <i class="fa fa-files-o"/> clones a query into a new query field.
  
 You also have the option of naming each query field which is recommended when you are using a [legend](charts#legend) for a chart with several query fields. To rename a query field, click the name to the left of the query field and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
 

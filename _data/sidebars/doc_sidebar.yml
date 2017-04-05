@@ -144,9 +144,18 @@ entries:
       url: /query_language_series_matching.html
       output: web
       
+    - title: Using Statistical Functions to Detect Anomalies
+      url: /query_language_anomaly_detection.html
+      output: web
+
     - title: Using Tumbling Windows
       url: /query_language_tumbling_windows.html
       output: web
+
+    - title: Understanding Slow Queries
+      url: /dashboards_slow_queries.html
+      output: web
+      
       
   - title: Dashboards and Charts
     output: web
@@ -172,6 +181,10 @@ entries:
       url: /charts_creating.html
       output: web
       
+    - title: Adding a Chart to a Dashboard
+      url: /dashboards_charts_adding.html
+      output: web
+      
     - title: Units in Chart Axes and Legends
       url: /charts_units.html
       output: web
@@ -192,10 +205,6 @@ entries:
       url: /sources_managing.html
       output: web
       
-    - title: R Integration
-      url: /integrations_r.html
-      output: web
-      
   - title: Alerts
     output: web
     folderitems:
@@ -210,6 +219,10 @@ entries:
       
     - title: Alert States and Lifecycle
       url: /alerts_states_lifecycle.html
+      output: web
+      
+    - title: Increasing Alert Robustness
+      url: /alerts_robustness_increasing.html
       output: web
       
     - title: Managing Maintenance Windows
@@ -289,6 +302,10 @@ entries:
             url: /integrations_cassandra.html
             output: web
         
+          - title: Cernan Integration
+            url: /integrations_cernan.html
+            output: web
+        
           - title: Graphite Integration
             url: /integrations_graphite.html
             output: web
@@ -315,6 +332,10 @@ entries:
         
           - title: Telegraf Integration
             url: /integrations_telegraf.html
+            output: web
+        
+          - title: Zabbix Integration
+            url: /integrations_zabbix.html
             output: web
         
       - title: Collectd Integrations
@@ -372,6 +393,14 @@ entries:
           - title: Kubernetes Integration
             url: /integrations_kubernetes.html
             output: web
+            
+      - title: Visualization Integrations
+        output: web
+        subfolderitems:
+          
+          - title: R Integration
+            url: /integrations_r.html
+            output: web
         
     - title: Managing External Links
       url: /external_links_managing.html
@@ -386,19 +415,19 @@ entries:
     folderitems:
       
       - title: Permissions Overview
-        url: /permissions.html
+        url: /permissions_overview.html
+        output: web
+        
+      - title: Miscellaneous Permissions
+        url: /permissions_misc.html
         output: web
         
       - title: Managing Users
         url: /users_managing.html
         output: web
         
-      - title: Configuring User Preferences
-        url: /users_prefs_configuring.html
-        output: web
-        
-      - title: Managing Passwords
-        url: /passwords_managing.html
+      - title: Managing Your Wavefront Account
+        url: /users_account_managing.html
         output: web
         
         subfolders:
@@ -408,6 +437,10 @@ entries:
             
             - title: ADFS SSO Integration
               url: /integrations_sso_adfs.html
+              output: web
+          
+            - title: Azure AD SSO Integration
+              url: /integrations_sso_azure_ad.html
               output: web
           
             - title: Google SSO Integration

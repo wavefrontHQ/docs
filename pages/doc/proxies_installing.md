@@ -35,7 +35,7 @@ The Wavefront application has a wizard that guides you through installing a Wave
 1. Open the Wavefront application UI.
 1. Select **Browse > Proxies**.
 1. Select **Add > New Proxy** at the top of the filter bar. The Populate Your Data screen displays.
-1. Under **WAVEFRONT PROXY**, click Add Now <i class="fa fa-arrow-right"></i> - Add a Wavefront proxy and optionally a Telegraf collector agent. A script displays that runs a Wavefront CLI command to install a Wavefront proxy on your host and register with Wavefront.
+1. Under **WAVEFRONT PROXY**, click Add Now <i class="fa fa-arrow-right"/> - Add a Wavefront proxy and optionally a Telegraf collector agent. A script displays that runs a Wavefront CLI command to install a Wavefront proxy on your host and register with Wavefront.
     1. Copy the script and run on your host.
     1. When the installation completes, click **Next**. The screen reports `Found and registered <hostname>`.
     1. Click **Next**. Instructions for running a script to install the Telegraf collector agent display.
