@@ -39,6 +39,14 @@ entries:
       url: /wavefront_api.html
       output: web
       
+    - title: Tutorial Getting Started
+      url: /tutorial_getting_started.html
+      output: web
+      
+    - title: Tutorial Getting Data into Wavefront
+      url: /tutorial_data_ingestion.html
+      output: web
+      
   - title: Release Notes
     output: web
     folderitems:
@@ -100,6 +108,10 @@ entries:
       url: /proxies_managing.html
       output: web
       
+    - title: Histograms
+      url: /proxies_histograms.html
+      output: web
+      
     - title: Wavefront CLI
       url: /wavefront_cli.html
       output: web
@@ -146,6 +158,18 @@ entries:
       
     - title: Using Statistical Functions to Detect Anomalies
       url: /query_language_anomaly_detection.html
+      output: web
+
+    - title: Standard vs. Raw Aggregate Functions
+      url: /query_language_aggregate_functions.html
+      output: web
+
+    - title: Metadata Functions
+      url: /query_language_metadata_functions.html
+      output: web
+
+    - title: Summarize By and the align() Function
+      url: /query_language_align_function.html
       output: web
 
     - title: Using Tumbling Windows
