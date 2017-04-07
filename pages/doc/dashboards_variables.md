@@ -10,11 +10,13 @@ summary: Learn how to use dashboard variables.
 
 A dashboard variable is a placeholder that allows you to dynamically change the components of a query. Dashboard variables simply enable text replacement; dashboard variables can contain metric names, filters, advanced functions, or even a string such as ")))", which could be inserted at the end of an query. There are three types of dashboard variables: simple, list, and dynamic.
 
-All Wavefront users can select and temporarily alter the value of a dashboard variable. {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
+All Wavefront users can select and temporarily alter the value of a dashboard variable. 
+
+{% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
 ## Accessing Dashboard Variables
 
-To access the set of dashboard variables associated with a dashboard, click the <span color="#777777" class="fa-superscript fa"></span> icon in the dashboard icon group at the far right of the task bar ![db_actions.png](images/db_actions.png#inline).
+To access the set of dashboard variables associated with a dashboard, click the <i style="color:#777777" class="fa-superscript fa"/> icon in the dashboard icon group at the far right of the task bar ![db_actions.png](images/db_actions.png#inline).
 
 The following shows a simple variable, which consists of a label (**Zones**), name (**az**), and value (**tag=az-3 or source=app-3**). The label should ideally provide some indication about what values the variable represents. You view the variable name by hovering over the label.
 
@@ -28,9 +30,9 @@ The following shows a simple variable, which consists of a label (**Zones**), na
 
         ![db_var_create](images/db_var_create.png)
 
-    -   If there is at least one variable associated with the dashboard, click <span class="fa-plus fa"></span> in the icon group at the far right of the existing variable field ![db variable icons ](images/db_var_icons.png#inline).
+    -   If there is at least one variable associated with the dashboard, click <i class="fa-plus fa"/> in the icon group at the far right of the existing variable field ![db variable icons ](images/db_var_icons.png#inline).
 
-2.  Click the <span class="fa-edit fa"/> icon. The Query Parameters dialog displays:
+2.  Click the <i class="fa-edit fa"/> icon. The Query Parameters dialog displays:
 
     ![simple var with non-editor hide.png](images/db_var_simple_with_non-editor_hide.png)
 

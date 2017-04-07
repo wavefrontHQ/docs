@@ -12,7 +12,7 @@ Before metrics can begin streaming to Wavefront from a host or application you m
 
 Before installing a proxy, ensure that you have:
 
-- A Wavefront server API URL. For example: https://\<wavefront_instance\>.wavefront.com/api/.
+- A Wavefront server API URL in the format `https://<wavefront_instance>.wavefront.com/api/`.
 - An account on the Wavefront system.
 - A host machine that:
   - Has Internet access (specifically, the Wavefront server URL at port 443). Make sure that `curl <wavefront_instance>` from this host results in some response (rather than timing out).
@@ -51,11 +51,7 @@ You can manually install a Wavefront proxy .rpm or .deb package available at [Wa
 1. Go to the Wavefront proxy directory created during the package installation: `cd /opt/wavefront/wavefront-proxy`
 1. Run the interactive configuration script: `bin/autoconf-wavefront-proxy.sh`. The script prompts you for the following properties:
   - **server** - The Wavefront server API URL.
-  - **token** - An API token. The token is a hexadecimal string of randomly generated alpha-numeric characters and dashes. For example: **f411c16b-3cf7-4e03-bf1a-8ca05aab899d**.  To get a token:
-    1. Log into your Wavefront account.
-    1. Click the gear icon  at the top right of the task bar and click your username.
-    1. In the API Access box, click **Generate** to generate an API token.
-    1. Copy the token.
+  - **token** - An API token. To get a token, see [Generating an API Token](wavefront_api#generating-an-api-token).
   - **hostname** - A name (alphanumeric plus periods) unique across your entire account representing the machine that the proxy is running on. The hostname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
   - **enable graphite** - Indicate whether to enable the Graphite format. See [Sending Graphite Data to Wavefront]() for details on Graphite configuration.
 When the interactive configuration is complete, the Wavefront proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf` is updated with the input that you provided and the wavefront-proxy service is started.

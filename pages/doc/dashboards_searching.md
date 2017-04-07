@@ -9,6 +9,8 @@ summary: Learn how to search for and filter dashboards.
 Wavefront offers new insights for your network of systems through the use of charts. While charts provide a window into your company's data, dashboards offer you a way to prioritize and group those windows in a meaningful way. By creating dashboards, you can quickly compare different data sets, alter time windows for all data sets, and save those windows for future use.
  
 While some customers can have hundreds of existing dashboards in their environment, typical Wavefront users use a smaller subset of dashboards each day. This makes the ability to quickly search for relevant dashboards even more important. The following information describes how to search for dashboards in the All Dashboards page and from an existing dashboard.
+
+For a video overview, see [Search Capabilities](https://wavefront-1.wistia.com/medias/mvcjw51w6d).
  
 ## Searching in the All Dashboards Page
  

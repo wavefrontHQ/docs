@@ -9,7 +9,7 @@ summary: Learn about Wavefront permissions.
 
 Permissions, which are assigned at the user level, allow your company's administrator(s) to control access to Wavefront feature sets. 
 
-{% include shared/permissions.html entity="Wavefront entities" entitymgmt="the appropriate" %}
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user with Browse Data permission can view Wavefront entities, you must have the appropriate entity management permission to manage those entities. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible.</div>
 
 You can learn more about each set of permissions by clicking the permission headers below:
  

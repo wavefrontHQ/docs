@@ -325,6 +325,12 @@ footer {
     font-size: smaller;
 }
 
+footer#container {
+  padding: 10px;
+  margin: 0;
+}
+
+
 /* FAQ page */
 #accordion .panel-heading {
     font-size: 12px;
@@ -448,6 +454,14 @@ span.projectTitle {
 
 .footer {
     text-align: right;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-left {
+    text-align: left;
 }
 
 .footerMeta {

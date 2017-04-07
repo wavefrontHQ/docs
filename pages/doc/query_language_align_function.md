@@ -22,11 +22,13 @@ Supported resolution is based on two key factors: chart window and dedicated scr
 
 In the 1w chart window + 27" screen example, **Summarize By** groups points reported within the given ~30 minute bucket and summarizes them based on your selection. In contrast `align()` gives you the option of grouping the points in 45 minute buckets, 2-hour buckets, 1-day buckets, etc.. The supported resolution is the most granular view you can get. So with the previous example, specifying `align(15m,)` does not result in 15-minute buckets being displayed on the screen due to the ~30 minute buckets already associated with the chart. In this case, Wavefront aligns the values into the desired 15-minute buckets first and takes the two aligned values and summarizes those based on the Summarize By selection in order to determine the proper value to display.
 
+For a video overview, see [Resolution in Wavefront](https://wavefront-1.wistia.com/medias/r8frqgquvb).
+
 The speed at which a query gets executed and displayed is partially based on the quantity of data that need to be displayed on the chart. Consider a 60-minute chart with data values reported every 60 seconds (assume resolution is ~30s). The amount of time it takes to render and display 60 values should be longer than it would take to display 6 values that were aligned at 10-minute buckets. Displaying 60 data values vs. 6 data values probably does not have any noticeable difference in load time, but there would be a noticeable delay for 1-week or 1-month windows.
 
 ## Pre-Align Warning
 
-Sometimes you will see the warning indicator <span class="fa-exclamation-triangle fa" style="color: red;"></span> in a chart. One possible warning is something like the following:
+Sometimes you will see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"> in a chart. One possible warning is something like the following:
 
 ```
 The expression: ts(<metric>, source=<source>) has been pre-aligned, making it equivalent to 

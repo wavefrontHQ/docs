@@ -33,13 +33,15 @@ See [Tags Overview](tags_overview).
 
 With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down. When applying source filters to the Metrics Browser or a ts() expression, this can lead to several sources being included in the autocomplete dropdown even when they are no longer reporting data. Those sources will be automatically removed from the autocomplete dropdown after 4 weeks of inactivity, but you can also manually remove them in the UI or API by moving them from an active to hidden state. While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present.
  
-To view hidden sources, click the ACTIVE-HIDDEN toggle at the top right of the Sources page: ![Active source](images/active.png#inline), ![Hidden source](images/hidden.png#inline)
+To view hidden sources, click the ACTIVE-HIDDEN toggle at the top right of the Sources page: 
+
+![Active source](images/active.png#inline)   ![Hidden source](images/hidden.png#inline)
  
 When a source is hidden, a hidden tag is added and the source is filtered out of the active sources list.
  
 To hide sources, select the source(s) to be hidden. Click the **Hide** button located on the tag bar above the Source list.
  
-To unhide sources, view the hidden sources list and select the source(s) to be unhidden. Click the Unhide button to return the source to the active list.
+To unhide sources, view the hidden sources list and select the source(s) to be unhidden. Click the **Unhide** button to return the source to the active list.
  
 To hide and unhide a single source, use the ![action_menu.png](images/action_menu.png#inline) **> \[Hide\|Unhide\]** menu at the far right.
 

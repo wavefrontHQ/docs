@@ -18,9 +18,7 @@ If you try to access these pages more than one hour since your last successful l
  
 The Users page displays every user in your Wavefront environment. You can click any username to see which permissions are assigned to that user. The Permissions page link displays all permissions as well as every user that has that permission assigned to them.
  
-## Adding and Removing Users
- 
-### Adding Users
+## Adding Users
 You can add users directly either in the Users or Permissions pages. By default, Wavefront automatically applies Browse Data permission to a new user so they can access the system.
 Do one of the following:
 
@@ -34,8 +32,8 @@ Do one of the following:
   1. Add the email address associated with the new user. You can enter up to 25 unique email addresses separated by commas or whitespace.
 Click **Add**. New users receive an email with a link to activate their account and set their password.
  
-### Removing Users
-You remove a user from the Users page. Locate the email address of the user to remove and click the <span class="fa-times-circle fa" style="color: red;"></span> icon to the left of the name. When you click the icon, a prompt displays requiring you to confirm permanently removing that user from Wavefront. You cannot delete your own account from Wavefront.
+## Removing Users
+You remove a user from the Users page. Locate the email address of the user to remove and click the <i class="fa-times fa" style="color: red;"/> icon to the left of the name. When you click the icon, a prompt displays requiring you to confirm permanently removing that user from Wavefront. You cannot delete your own account from Wavefront.
  
 ## Setting Default Permissions for New Users
 
@@ -43,13 +41,17 @@ You can create a set of default permissions that are assigned to every new user 
 
 1. Select **Users** or **Permissions > Change New User Default Permissions**. The permissions dialog displays.
 ![default permissions](images/default_permissions.png)
-1. Check the set of permissions that a new user should receive. If this is your first time to set default permissions, then you'll see Browse Data selected by default. You must have at least 1 permission selected in order to save the selection(s). If a user doesn't have Browse Data permission, then they will be unable to access  Wavefront.
+1. Check the set of permissions that a new user should receive. If this is your first time to set default permissions, then you'll see Browse Data selected by default. You must have at least 1 permission selected in order to save the selection(s). 
+   {% include note.html content="If a user doesn't have Browse Data permission, the user will be unable to access  Wavefront." %}
 1. Click **Save**. The default permissions affects only new user accounts created after the changes were made. If you'd like to retroactively apply a particular permission to all existing users, then contact us for assistance.
  
 ## Managing Permissions for a User
 To manage permissions for a user, locate the email address assigned to that account in the Users or Permissions page, and click it. When you do this, you are directed to that user's profile page.
  
-You will see a list of all permissions broken into two parts: permissions granted to the user and permissions not granted to the user. You can remove an existing permission by clicking the <span class="fa-times fa" style="color: red;"></span> icon next to  the permission. If you remove Browse Data permission for a user, that user will no longer be able to access Wavefront. You can provide that user access again by adding Browse Data permission back to that user. You add new permissions clicking the <span class="fa-plus-circle fa" style="color: green;"></span> icon next to the permission.
+You will see a list of all permissions broken into two parts: permissions granted to the user and permissions not granted to the user. You add new permissions by entering email addresses in the text box and clicking the <i class="fa-plus-circle fa" style="color: green;"/> <span style="color: green;">Add</span> button. You remove an existing permission by clicking the <i class="fa-times fa" style="color: red;"/> icon at the far right of an email address. 
+
+{% include note.html content="If you remove Browse Data permission for a user, the user will be able to access Wavefront." %}
+
  
 <a name="customer_prefs"></a>
 

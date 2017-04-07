@@ -1,5 +1,5 @@
 ---
-title: R Integration
+title: Visualizing Metrics with R
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar

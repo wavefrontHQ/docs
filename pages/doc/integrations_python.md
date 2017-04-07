@@ -1,5 +1,5 @@
 ---
-title: Python Integration
+title: Visualizing Metrics with Python
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar

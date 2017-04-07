@@ -55,7 +55,7 @@ To delete a proxy, select  ![action_menu.png](images/action_menu.png#inline) **>
 To start, stop, or restart a proxy, run the following commands on the host on which the proxy is running:
 
 ```shell
-service wavefront-proxy [start|stop|restart]
+$ service wavefront-proxy [start | stop | restart]
 ```
 
 ## Checking Proxy Status
@@ -63,7 +63,7 @@ service wavefront-proxy [start|stop|restart]
 To check if the proxy is running, run the following command:
 
 ```shell
-service wavefront-proxy status
+$ service wavefront-proxy status
 ```
 
 In your Wavefront instance, select **Browse > Proxies** and verify that the proxy is listed there using the hostname set in the proxy configuration file.

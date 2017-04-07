@@ -1,7 +1,7 @@
 ---
 title: Creating a Chart
 keywords: getting started
-tags: [getting_started, charts]
+tags: [charts]
 sidebar: doc_sidebar
 permalink: charts_creating.html
 summary: Learn how to create a Wavefront chart and save it to a dashboard. 

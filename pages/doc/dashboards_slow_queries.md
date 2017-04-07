@@ -1,7 +1,7 @@
 ---
 title: Understanding Slow Queries
 keywords: getting started
-tags: [getting_started, dashboards]
+tags: [query_language, dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_slow_queries.html
 summary: Learn how to display the Slow Query Dashboard page and use the information available in the dashboard to help you understand which and why queries take a long time to complete.
@@ -32,8 +32,8 @@ The Top Slow Queries section lists details about the top slow queries:
 ![db_slow_query_queriess](images/db_slow_query_queries.png)
 
 - **Time Stamp** - Date and time that the query was executed.
-- **Query Type** - Icon denoting whether the query was Alert/API <span class="fa-exclamation-triangle fa" style="color: orange;"/> or streaming <span class="fa-desktop fa" style="color: aqua;"/>.
-- **Link to Query** - Clicking <span class="fa-share-square-o fa" style="color: gray;"/> opens a chart that runs the query.
+- **Query Type** - Icon denoting whether the query was Alert/API <i class="fa-exclamation-triangle fa" style="color: orange;"/> or streaming <i class="fa-desktop fa" style="color: aqua;"/>.
+- **Link to Query** - Clicking <i class="fa-share-square-o fa" style="color: gray;"/> opens a chart that runs the query.
 - **Query** - The query that was executed. Under the query are details such as: the user running the query (if streaming), context type, and the query window. It also tells you the number of points and time series included in the query.
 - **Time Taken** - How long it took for the query to execute. 
 - **Points Scanned** - The total number of points scanned in the query.

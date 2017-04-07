@@ -25,9 +25,10 @@ You can display events as [overlays on a chart](charts_events).
 ## Creating a User Event
 
 You create a user event by:
+
 <ul>
-<li><strong>Events browser</strong> - Clicking the <strong>Create Event</strong> button located at the top of the filter bar.</span></li>
-<li><strong>Chart</strong> - Clicking the flag icon <i class="fa fa-flag"/> located on the far right side of the time
+<li><strong>Events browser</strong> - Clicking the <strong>Create Event</strong> button located at the top of the filter bar.</li>
+<li><strong>Chart</strong> - Clicking the flag icon <i class="fa-flag fa"></i> located on the far right side of the time
 bar. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
 If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.</li>
 </ul>
@@ -49,7 +50,7 @@ If the start and end time for the desired event are included in the current time
 <td>Start Time</td>
 <td>The start time of the event:
 <ul><li><strong>Now</strong> - The maintenance window starts immediately.</li>
-<li><i class="fa fa-calendar"/> - The maintenance window starts on the specified date and time.Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
+<li><i class="fa fa-calendar"></i> - The maintenance window starts on the specified date and time.Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
 </tr>
 <tr>
 <td>End Time</td>
@@ -57,7 +58,7 @@ If the start and end time for the desired event are included in the current time
 <ul>
 <li><strong>Instantaneous</strong> - End the event instantaneously with the start time. The exact interval is indeterminate. The Events page can report that the event starts and ends at exactly the same time or that it lasts a few seconds.</li>
 <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page.</li>
-<li><i class="fa fa-calendar"/> - End the event at the specified day and time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
+<li><i class="fa fa-calendar"></i> - End the event at the specified day and time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
 </tr>
 <tr>
 <td>Classification</td>

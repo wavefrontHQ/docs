@@ -59,7 +59,7 @@ In addition, because histograms do not store data point values, quantiles calcul
 Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
  
 ## Wavefront Proxy Configuration
-Histograms are supported by Wavefront proxy 4.9 and higher.
+Histograms are supported by Wavefront proxy 4.8 and higher.
  
 To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy port according to the aggregation window. For example:
 

@@ -35,7 +35,7 @@ entries:
       url: /tags_overview.html
       output: web
       
-    - title: Using the Wavefront API
+    - title: Wavefront API
       url: /wavefront_api.html
       output: web
       
@@ -71,7 +71,7 @@ entries:
       url: /wavefront_obsolescence_policy.html
       output: web
       
-  - title: Wavefront Data
+  - title: Data
     output: web
     folderitems:
       
@@ -107,7 +107,7 @@ entries:
       url: /proxies_managing.html
       output: web
       
-    - title: Histograms
+    - title: Wavefront Histograms
       url: /proxies_histograms.html
       output: web
       
@@ -156,7 +156,7 @@ entries:
       output: web
       
     - title: Using Statistical Functions to Detect Anomalies
-      url: /query_language_anomaly_detection.html
+      url: /query_language_statistical_functions_anomalies.html
       output: web
 
     - title: Standard Versus Raw Aggregate Functions
@@ -172,7 +172,7 @@ entries:
       output: web
 
     - title: Using Tumbling Windows to Highlight Trends
-      url: /query_language_tumbling_windows.html
+      url: /query_language_tumbling_windows_trends.html
       output: web
 
     - title: Understanding Slow Queries
@@ -183,11 +183,11 @@ entries:
     output: web
     folderitems:
       
-    - title: Wavefront Dashboards
+    - title: Dashboards
       url: /dashboards.html
       output: web
 
-    - title: Wavefront Charts
+    - title: Charts
       url: /charts.html
       output: web
 
@@ -217,14 +217,6 @@ entries:
       
     - title: Dashboard Variables
       url: /dashboards_variables.html
-      output: web
-      
-    - title: Managing Metrics
-      url: /metrics_managing.html
-      output: web
-      
-    - title: Managing Sources
-      url: /sources_managing.html
       output: web
       
   - title: Alerts
@@ -432,11 +424,11 @@ entries:
             url: /external_links_managing.html
             output: web
             
-          - title: Python Integration
+          - title: Visualizing Metrics with Python
             url: /integrations_python.html
             output: web
         
-          - title: R Integration
+          - title: Visualizing Metrics with R
             url: /integrations_r.html
             output: web
         
@@ -458,6 +450,14 @@ entries:
         
       - title: Managing Users
         url: /users_managing.html
+        output: web
+        
+      - title: Managing Metrics
+        url: /metrics_managing.html
+        output: web
+        
+      - title: Managing Sources
+        url: /sources_managing.html
         output: web
         
       - title: Managing Your Wavefront Account
@@ -496,60 +496,51 @@ entries:
   - title: Labels
     output: web
     folderitems:
-      
-    - title: Label Overview
-      url: /label_overview.html
-      output: web
-      
-      subfolders:
-      - title: Label Pages
+                
+      - title: Getting Started Pages
+        url: /label_getting_started.html
         output: web
-        subfolderitems:
-          
-        - title: Getting Started Pages
-          url: /label_getting_started.html
-          output: web
-          
-        - title: Administration Pages
-          url: /label_administration.html
-          output: web
-          
-        - title: Alert Pages
-          url: /label_alerts.html
-          output: web
-          
-        - title: API Pages
-          url: /label_api.html
-          output: web
-          
-        - title: Chart Pages
-          url: /label_charts.html
-          output: web
-          
-        - title: Dashboard Pages
-          url: /label_dashboards.html
-          output: web
-          
-        - title: Data Pages
-          url: /label_data.html
-          output: web
-          
-        - title: Event Pages
-          url: /label_events.html
-          output: web
-          
-        - title: Integration Pages
-          url: /label_integrations.html
-          output: web
-          
-        - title: Proxy Pages
-          url: /label_proxies.html
-          output: web
-          
-        - title: Query Language Pages
-          url: /label_query_language.html
-          output: web
-          
-        - title: Release Notes Pages
-          url: /label_release_notes.html
-          output: web
+        
+      - title: Administration Pages
+        url: /label_administration.html
+        output: web
+        
+      - title: Alert Pages
+        url: /label_alerts.html
+        output: web
+        
+      - title: API Pages
+        url: /label_api.html
+        output: web
+        
+      - title: Chart Pages
+        url: /label_charts.html
+        output: web
+        
+      - title: Dashboard Pages
+        url: /label_dashboards.html
+        output: web
+        
+      - title: Data Pages
+        url: /label_data.html
+        output: web
+        
+      - title: Event Pages
+        url: /label_events.html
+        output: web
+        
+      - title: Integration Pages
+        url: /label_integrations.html
+        output: web
+        
+      - title: Proxy Pages
+        url: /label_proxies.html
+        output: web
+        
+      - title: Query Language Pages
+        url: /label_query_language.html
+        output: web
+        
+      - title: Release Notes Pages
+        url: /label_release_notes.html
+        output: web

@@ -1,5 +1,5 @@
 ---
-title: Wavefront Dashboards
+title: Dashboards
 keywords: getting started
 tags: [getting_started, dashboards]
 sidebar: doc_sidebar
