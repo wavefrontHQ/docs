@@ -12,10 +12,10 @@ Before metrics can begin streaming to Wavefront from a host or application you m
 
 Before installing a proxy, ensure that you have:
 
-- A Wavefront server API URL. For example: https://\<your_instance\>.wavefront.com/api/.
+- A Wavefront server API URL. For example: https://\<wavefront_instance\>.wavefront.com/api/.
 - An account on the Wavefront system.
 - A host machine that:
-  - Has Internet access (specifically, the Wavefront server URL at port 443). Make sure that `curl <your_instance>` from this host results in some response (rather than timing out).
+  - Has Internet access (specifically, the Wavefront server URL at port 443). Make sure that `curl <wavefront_instance>` from this host results in some response (rather than timing out).
   - Has sufficient memory.  The host machine does not need to be dedicated to running the Wavefront proxy; the proxy does not use a large amount of CPU, memory, or storage. However, we  recommend running the proxy on a machine with at least 4GB of free memory.
   - Runs one of the following operating systems:
     - Ubuntu 12.04, 14.04, 16.04

@@ -34,7 +34,7 @@ Which [point tags](query_language_using_point_tags) to display on the chart lege
 
 Point buckets represent summarized data across a certain amount of time. You can choose what type of summarization method to apply to the raw data values within each point bucket. The selected summarization method displays in the top right corner of the chart near the chart name.
 
-You can summarize the raw data values within each point bucket by **Average**, **Median**, **Min**, **Max**, **Count**, and **Sum**.  Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". When you choose the **Median** summarization method, the raw data values reported in each 30 second boundary are aggregated and the median value displays as a point bucket.
+You can summarize the raw data values within each point bucket by **Average**, **Median**, **Min**, **Max**, **Count**, and **Sum**. Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". When you choose the **Median** summarization method, the raw data values reported in each 30 second boundary are aggregated and the median value displays as a point bucket.
 
 The **Count** summarization method counts the **number** of raw data values reported in each 30 second boundary, and displays that value as a point bucket. **First** assigns a value to each point bucket based on the **first** raw data value reported within the bucket. **Last** works in a similar manner, but the point bucket value is based on the **last** raw data value reported within the bucket.
 

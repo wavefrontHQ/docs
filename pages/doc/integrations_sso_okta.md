@@ -26,9 +26,9 @@ Wavefront supports Single Sign-On (SSO) via Okta. To set up SSO:
  
 4. Enter the application settings:
 
-    - **Single sign on URL** - https://\<YOUR_INSTANCE\>.wavefront.com/api/saml/login
+    - **Single sign on URL** - https://\<wavefront_instance\>.wavefront.com/api/saml/login
     - **Use this for Recipient URL and Destination UR**L - Checked
-    - **Audience URI (SP Entity ID)** - https://\<YOUR_INSTANCE\>.wavefront.com
+    - **Audience URI (SP Entity ID)** - https://\<wavefront_instance\>.wavefront.com
     - **Default RelayState** - \<LEAVE BLANK\>
     - **Name ID Format** - EmailAddress
     - **Application username** - Email

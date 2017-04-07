@@ -58,7 +58,7 @@ The first components you see on the Time bar are the Live Data and Custom Date o
 A set of time window options (10m, 2h, 6h, 12h, 1d, 1w)  display to the right of the Live Data/Custom Date options. When Live Data is selected, the time window options will quickly increase or decrease the amount of live data displayed within each chart. Choosing a time window while Custom Date is selected adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, then the start time is adjusted to 3:00 AM.
  
 ### Event Overlays
-The Events overlay option allows you to display events on the x-axis of charts. See [Displaying Events in Charts](charts_events_displaying).
+The Events overlay option allows you to display events on the X-axis of charts. See [Displaying Events in Charts](charts_events_displaying).
  
 ### Dashboard Variables
 [Dashboard variables](dashboards_variables) are used within ts() expressions, and can represent any string of text such as a source name, ts() call, or set of advanced functions. If the existing dashboard you’re viewing has dashboard variables attached to it, then you will typically see a Variables section below the Time bar.
@@ -118,7 +118,7 @@ The second option for adjusting time windows for a single chart is referred to a
 ![drag and zoom](images/drag_zoom.png)
 
 #### Drag X-Axis
-The final option for adjusting time windows for a single chart is by dragging the x-axis back and forth. Place your cursor over the x-axis until your cursor changes to a 4-way arrow <i class="fa fa-arrows"/>. When this happens, click and hold down on the x-axis and drag your cursor left and right. By doing this, you can shift the chart time window into the past or future. Once you reach the present time you will no longer be able to drag the S-axis into the future. Just like the 'Drag and Zoom' method, you can hold down Shift to apply the 'X-axis drag' method to all charts on a dashboard.
+The final option for adjusting time windows for a single chart is by dragging the X-axis back and forth. Place your cursor over the X-axis until your cursor changes to a 4-way arrow <i class="fa fa-arrows"/>. When this happens, click and hold down on the X-axis and drag your cursor left and right. By doing this, you can shift the chart time window into the past or future. Once you reach the present time you will no longer be able to drag the X-axis into the future. Just like the 'Drag and Zoom' method, you can hold down Shift to apply the 'X-axis drag' method to all charts on a dashboard.
  
 #### Propagating Time Windows
 Any time you adjust the time window of a single chart, you have the option of adjusting every other chart on the dashboard to match that individual chart time window, or reset the individual chart to match all of the other charts time windows. To propagate the individual chart time window to all other charts on the dashboard, click the share icon  that appears directly under the chart name in the top right corner of the chart box. To reset the individual chart window to match all other charts, click **RESET**.

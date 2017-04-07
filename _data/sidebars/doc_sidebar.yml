@@ -71,7 +71,6 @@ entries:
       url: /wavefront_obsolescence_policy.html
       output: web
       
-      
   - title: Wavefront Data
     output: web
     folderitems:
@@ -148,7 +147,7 @@ entries:
       url: /query_language_reference.html
       output: web
       
-    - title: Using Point Tags in Queries
+    - title: Point Tags in Queries
       url: /query_language_using_point_tags.html
       output: web
       
@@ -160,7 +159,7 @@ entries:
       url: /query_language_anomaly_detection.html
       output: web
 
-    - title: Standard vs. Raw Aggregate Functions
+    - title: Standard Versus Raw Aggregate Functions
       url: /query_language_aggregate_functions.html
       output: web
 
@@ -172,14 +171,13 @@ entries:
       url: /query_language_align_function.html
       output: web
 
-    - title: Using Tumbling Windows
+    - title: Using Tumbling Windows to Highlight Trends
       url: /query_language_tumbling_windows.html
       output: web
 
     - title: Understanding Slow Queries
       url: /dashboards_slow_queries.html
       output: web
-      
       
   - title: Dashboards and Charts
     output: web
@@ -342,6 +340,10 @@ entries:
             url: /integrations_log_data.html
             output: web
         
+          - title: NewRelic Integration
+            url: /integrations_newrelic.html
+            output: web
+        
           - title: OpenTSDB Integration
             url: /integrations_opentsdb.html
             output: web
@@ -362,38 +364,6 @@ entries:
             url: /integrations_zabbix.html
             output: web
         
-      - title: Collectd Integrations
-        output: web
-        subfolderitems:
-          
-          - title: Collectd Integration
-            url: /integrations_collectd.html
-            output: web
-
-          - title: Apache Collectd Integration
-            url: /integrations_collectd_apache.html
-            output: web
-        
-          - title: Cassandra Collectd Integration
-            url: /integrations_collectd_cassandra.html
-            output: web
-        
-          - title: MySQL Collectd Integration
-            url: /integrations_collectd_mysql.html
-            output: web
-        
-          - title: NGiNX Collectd Integration
-            url: /integrations_collectd_nginx.html
-            output: web
-        
-          - title: Redis Collectd Integration
-            url: /integrations_collectd_redis.html
-            output: web
-        
-          - title: ZooKeeper Collectd Integration
-            url: /integrations_collectd_zookeeper.html
-            output: web
-        
       - title: Code Instrumentation
         output: web
         subfolderitems:
@@ -406,30 +376,70 @@ entries:
             url: /integrations_dropwizard_metrics.html
             output: web
             
+      - title: Collectd Integrations
+        output: web
+        subfolderitems:
+          
+          - title: Collectd Integration
+            url: /integrations_collectd.html
+            output: web
+            
+          - title: Apache Collectd Integration
+            url: /integrations_collectd_apache.html
+            output: web
+            
+          - title: Cassandra Collectd Integration
+            url: /integrations_collectd_cassandra.html
+            output: web
+            
+          - title: MySQL Collectd Integration
+            url: /integrations_collectd_mysql.html
+            output: web
+            
+          - title: NGiNX Collectd Integration
+            url: /integrations_collectd_nginx.html
+            output: web
+            
+          - title: Redis Collectd Integration
+            url: /integrations_collectd_redis.html
+            output: web
+            
+          - title: ZooKeeper Collectd Integration
+            url: /integrations_collectd_zookeeper.html
+            output: web
+        
       - title: Container Integrations
         output: web
         subfolderitems:
           
-          - title: Docker Integration
+          - title: Docker Integrations
+            url: /integrations_docker.html
+            output: web
+            
+          - title: Docker Integration (cAdvisor)
             url: /integrations_cadvisor.html
             output: web
-        
+            
           - title: Kubernetes Integration
             url: /integrations_kubernetes.html
             output: web
             
-      - title: Visualization Integrations
+      - title: External System Integrations
         output: web
         subfolderitems:
           
+          - title: Managing External Links
+            url: /external_links_managing.html
+            output: web
+            
+          - title: Python Integration
+            url: /integrations_python.html
+            output: web
+        
           - title: R Integration
             url: /integrations_r.html
             output: web
         
-    - title: Managing External Links
-      url: /external_links_managing.html
-      output: web
-      
     - title: Title
       url: /rendering_test.html
       output: web

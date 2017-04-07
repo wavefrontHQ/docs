@@ -13,3 +13,6 @@
 [submodule "_includes/wavefront-cli"]
 	path = _includes/wavefront-cli
 	url = https://github.com/wavefrontHQ/wavefront-cli
+[submodule "_includes/wavefront-collector"]
+	path = _includes/wavefront-collector
+	url = https://github.com/wavefrontHQ/wavefront-collector

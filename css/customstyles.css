@@ -198,9 +198,6 @@ table.layout {
 
 table.layout > tbody > tr > td {
     border-top: 0px;
-    text-align: center;
-    vertical-align: bottom; 
-    font-weight:bold
 }
 
 table.layout > tbody > tr:nth-of-type(odd) {
@@ -948,7 +945,7 @@ img[src*='#inline']{
 
 @media only screen and (min-width: 900px), only screen and (min-device-width: 900px) {
     .col-md-9 img {
-        max-width: 850px;
+        max-width: 800px;
         max-height: 700px;
     }
 }

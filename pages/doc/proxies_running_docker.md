@@ -18,7 +18,7 @@ For detailed Wavefront proxy requirements and other installation procedures, see
 ### Docker Run
 
 ```shell
-docker run -d -e WAVEFRONT_URL=https://<YOUR_INSTANCE>.wavefront.com/api/ -e WAVEFRONT_TOKEN=<YOUR_API_TOKEN> -p 2878:2878 -p 4242:4242 wavefronthq/proxy:latest  
+docker run -d -e WAVEFRONT_URL=https://<wavefront_instance>.wavefront.com/api/ -e WAVEFRONT_TOKEN=<wavefront_api_token> -p 2878:2878 -p 4242:4242 wavefronthq/proxy:latest  
 ```
 
 ### Docker Compose
@@ -32,8 +32,8 @@ wavefront:
       - "2878:2878"  
       - "4242:4242"  
     environment:  
-      WAVEFRONT_URL: https://<YOUR_INSTANCE>.wavefront.com/api/  
-      WAVEFRONT_TOKEN: <YOUR_API_TOKEN>  
+      WAVEFRONT_URL: https://<wavefront_instance>.wavefront.com/api/  
+      WAVEFRONT_TOKEN: <wavefront_api_token>  
     image: wavefronthq/proxy:latest  
     restart: always
 ```
@@ -64,9 +64,9 @@ spec:
         imagePullPolicy: Always  
         env:  
         - name: WAVEFRONT_URL  
-          value: https://<YOUR_INSTANCE>.wavefront.com/api/  
+          value: https://<wavefront_instance>.wavefront.com/api/  
         - name: WAVEFRONT_TOKEN  
-          value: <YOUR_API_TOKEN>
+          value: <wavefront_api_token>
         ports:  
         - containerPort: 2878  
           protocol: TCP  

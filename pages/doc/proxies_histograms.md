@@ -20,7 +20,7 @@ A [histogram](https://en.wikipedia.org/wiki/Histogram) creates a distribution by
 
 ![histogram](images/histogram.png)
 
-The following table enumerates the distribution of the same metric at successive minutes.
+The following table enumerates the distribution of the same metric at successive minutes. The first row of the table contains the distribution illustrated in the chart. The following rows show how the distribution evolves over successive minutes.
 
 <table width="50%">
 <colgroup>
@@ -28,7 +28,7 @@ The following table enumerates the distribution of the same metric at successive
 <col width="70%" />
 </colgroup>
 <thead>
-<tr><th>Time (minutes)</th><th>Distribution</th></tr>
+<tr><th>Time (minute)</th><th>Distribution (number of points)</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -50,15 +50,16 @@ The following table enumerates the distribution of the same metric at successive
 </tbody>
 </table>
 
+
 The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. A consequence of using this algorithm is that unlike the histogram illustrated above, the bin size is not uniform.
  
 In addition, because histograms do not store data point values, quantiles calculated from histograms are estimates within a certain margin of error.
  
 ## Histogram Metric Aggregation Intervals
-Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval [13:58:00;13:59:00]. If no metrics are sent during an interval, no histogram points are recorded.
+Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
  
 ## Wavefront Proxy Configuration
-Histograms are supported by Wavefront proxy 4.6 and higher.
+Histograms are supported by Wavefront proxy 4.9 and higher.
  
 To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy port according to the aggregation window. For example:
 

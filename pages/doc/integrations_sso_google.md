@@ -19,8 +19,8 @@ We support authentication via SAML including Google SSO. To set up Google SSO:
     
     - **Application name**: Wavefront
     - **Description**: Can be blank
-    - **ACS URL\*** : https://\<YOUR_INSTANCE\>.wavefront.com:443/api/saml/login
-    - **Entity Id\***:  https://\<YOUR_INSTANC\E>.wavefront.com:443
+    - **ACS URL\*** : https://\<wavefront_instance\>.wavefront.com:443/api/saml/login
+    - **Entity Id\***:  https://\<wavefront_instance\>.wavefront.com:443
     - **Start URL**: leave blank
     - **Signed Response**: Unchecked
     - **Name ID**: Basic Information, Primary Email

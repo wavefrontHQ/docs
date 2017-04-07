@@ -32,7 +32,7 @@ Here we provide step-by-step instructions to configure Azure AD SSO integration 
 
     ![azure_ad_configure_ad_sso](images/azure_ad_configure_ad_sso.png)
 
-1. In the Identifier and Reply URL fields respectively, enter **https://\<YOUR_INSTANCE\>.wavefront.com** and **https://\<YOUR_INSTANCE\>.wavefront.com/api/saml/login**, substituting the correct subdomain name: 
+1. In the Identifier and Reply URL fields respectively, enter **https://\<wavefront_instance\>.wavefront.com** and **https://\<wavefront_instance\>.wavefront.com/api/saml/login**, substituting the correct subdomain name: 
 
     ![azure_ad_id_url](images/azure_ad_id_url.png)
 

@@ -15,7 +15,7 @@ Wavefront supports Single Sign-On (SSO) via OneLogin. Below are the steps to set
 
     ![onelogin_1](images/onelogin_1.png)
  
-2. Configure the **Application settings** like the following. The URLs for you will be: https://\<YOUR_INSTANCE\>.wavefront.com/api/saml/login. We do not currently have a logout URL but it's safe to fill it in the form if it's a required field.
+2. Configure the **Application settings** like the following. The URLs for you will be: https://\<wavefront_instance\>.wavefront.com/api/saml/login. We do not currently have a logout URL but it's safe to fill it in the form if it's a required field.
  
     ![onelogin_2](images/onelogin_2.png)
 

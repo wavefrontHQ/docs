@@ -1,5 +1,5 @@
 ---
-title: Using Point Tags in Queries
+title: Point Tags in Queries
 keywords: query language
 tags: [query_language]
 sidebar: doc_sidebar

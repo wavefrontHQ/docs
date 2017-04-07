@@ -122,12 +122,12 @@ For more information on Telegraf, see [Collectd vs. Telegraf: Comparing Metric C
 
 Wavefront has added many new integrations and example dashboards. For information on each integration, see the related documentation:
 
--   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See <a href="https://community.wavefront.com/docs/DOC-1186">Monitoring Docker with Wavefront</a>.
+-   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See [Monitoring Docker with Wavefront](integrations_docker).
 -   AWS - [AWS Metrics Integration](integrations_aws_metrics)
--   Cassandra - <a href="https://community.wavefront.com/docs/DOC-1210">Apache Cassandra 3 Integration</a>
+-   Cassandra - [Apache Cassandra 3 Integration](integrations_cassandra)
 -   Java metrics - [DropWizard Metrics Integration](integrations_dropwizard)
--   Puppet - <a href="https://community.wavefront.com/docs/DOC-1231">Puppet Server Integration</a>
--   StatsD - <a href="https://community.wavefront.com/docs/DOC-1036">Using StatsD with Wavefront</a>
+-   Puppet - [Puppet Server Integration](integrations_puppet_server)
+-   StatsD - [Using StatsD with Wavefront](integrations_statsd)
 -   VictorOps - [Integrating Wavefront Alerts with VictorOps](alerts_integrating_victorops)
 
 ## Wavefront API
@@ -137,10 +137,10 @@ The API has been updated to support new UI features and make the method signatur
 For example, to return all alerts using the v2 API, invoke
 
 ```shell
-  curl 'https://<Wavefront_instance>/api/v2/alert' header 'Authorization:Bearer <API_token>'
+  curl 'https://<wavefront_instance>/api/v2/alert' header 'Authorization:Bearer <wavefront_api_token>'
 ```
 
-While Wavefront recommends that you move to the v2 API, the original API (`<Wavefront_instance>/api/`), though deprecated, is still supported. As before, the UI leverages only the public API.
+While Wavefront recommends that you move to the v2 API, the original API (`<wavefront_instance>/api/`), though deprecated, is still supported. As before, the UI leverages only the public API.
 
 The API is now fully documented. When you open the [API documentation](wavefront_api) the Swagger specified API appears as:
 

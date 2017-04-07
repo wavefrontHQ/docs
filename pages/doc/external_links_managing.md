@@ -27,7 +27,9 @@ For a video overview, see [External Links](https://wavefront-1.wistia.com/medias
 ## Navigating to an External Link
 
 1. Right-click a series. The series context menu displays.
-1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created. Only series that match all the filters specified when the link was created display \<linkname\> in the External Links context menu.
+1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created. Only series that match all the filters specified when the link was created display \<linkname\> in the External Links context menu. For example:
+
+   ![External links](images/elk_external_link.png)
 
 
 ## Creating an External Link
@@ -37,12 +39,19 @@ For a video overview, see [External Links](https://wavefront-1.wistia.com/medias
 1. Specify a link name and description.
 1. Optionally specify metric name, source name, and point tag value filters as Javascript regular expressions that the series must match.
     <table>
-    <tbody>
+    <colgroup>
+    <col width="20%" />
+    <col width="50%" />
+    <col width="30%" />
+    </colgroup>
+    <thead>
     <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+    </thead>
+    <tbody>
     <tr>
     <td>Metric Filter Regex</td>
     <td>A regular expression that metric names must match.</td>
-    <td>jvm\.memory\.heap\w+</td>
+    <td>jvm.memory.heap\w+</td>
     </tr>
     <tr>
     <td>Source Filter Regex</td>
@@ -55,8 +64,10 @@ For a video overview, see [External Links](https://wavefront-1.wistia.com/medias
     <td><strong>Tag Key</strong>=env<br/><strong>Filter Regex</strong>=prod\w+</td></tr></tbody></table>
     Specify the external link URL template. The template employs [Mustache syntax](https://mustache.github.io/). The properties supported by the template are:
     <table>
-    <tbody>
+    <thead>
     <tr><th width="40%">Property</th><th width="60%">Description</th></tr>
+    </thead>
+    <tbody>
     <tr>
     <td>source</td>
     <td>The source of the series.</td>
@@ -77,8 +88,10 @@ For a video overview, see [External Links](https://wavefront-1.wistia.com/medias
     </table>
     You can apply functions to transform their enclosed sections. All functions begin with the namespace `functions`.
     <table>
-    <tbody>
+    <thead>
     <tr><th width="60%">Function</th><th width="40%">Description</th></tr>
+    </thead>
+    <tbody>
     <tr>
     <td>urlEncode</td>
     <td>URL Encoder</td>

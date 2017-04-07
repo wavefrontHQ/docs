@@ -9,7 +9,7 @@ summary: Learn how to use Wavefront API.
 
 Wavefront is fully API driven. This means that all interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront API. 
 
-The current version of the API is v2 and is accessed at `<Wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<Wavefront_instance>/api/`), though deprecated, is still supported. For a video overview, see [API v2](https://wavefront-1.wistia.com/medias/0ja5gpkufa).
+The current version of the API is v2 and is accessed at `<wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<wavefront_instance>/api/`), though deprecated, is still supported. For a video overview, see [API v2](https://wavefront-1.wistia.com/medias/0ja5gpkufa).
 
 The API is publicly documented in the Swagger generated API documentation. To access the API documentation from the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select API Documentation.
 
@@ -37,7 +37,7 @@ Wavefront supports the following API categories:
 When using APIs outside of the Wavefront UI, you must pass a token in the Authorization: Bearer header. For example, to return all alerts, invoke the following:
 
 ```shell
-curl 'https://<Wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <API_token>'
+curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <wavefront_api_token>'
 ```
 
 ### Generating an API Token

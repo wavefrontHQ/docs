@@ -35,10 +35,11 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. Click the **Intro: Sample Cluster Metrics** dashboard link.
 
         ![sample_cluster](images/sample_cluster.png)
+
         The dashboard defines two variables—Availability Zone (az) and Environment (env)—that can be used in queries to filter metrics for specific classes of sources.
 
 1.  Open a chart in the Intro: Sample Cluster Metrics dashboard:
-    1. Click the **App Server** button to jump to the App Servers section:
+    1. Click the **App Servers** button to jump to the App Servers section:
 
        ![app_servers](images/app_servers.png)
 

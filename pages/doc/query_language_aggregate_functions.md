@@ -1,5 +1,5 @@
 ---
-title: Standard vs. Raw Aggregate Functions
+title: Standard Versus Raw Aggregate Functions
 keywords: query language
 tags: [query_language]
 sidebar: doc_sidebar

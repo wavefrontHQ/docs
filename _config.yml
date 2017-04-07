@@ -34,7 +34,7 @@ feedback_subject_line: Wavefront Documentation
 gems:
   - jekyll-sitemap
 
-google_analytics: UA-91867056-1
+google_analytics: UA-45491516-30
 
 feedback_email: stephanie@wavefront.com
 # used as a contact email for the Feedback link in the top navigation bar
