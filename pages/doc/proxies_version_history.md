@@ -4,14 +4,14 @@ keywords:
 tags: [proxies, release_notes]
 sidebar: doc_sidebar
 permalink: proxies_version_history.html
-summary: Learn about Wavefront proxy updates.
+summary: Learn about Wavefront proxy versions.
 ---
 ## Version 4.6
 - Adds the ability to test log data grok patterns (see [Sending Log Data Metrics To Wavefront](integrations_log_data))
-- Supports native socket transport which improves ingestion performance on Linux
+- Supports native socket transport, which improves ingestion performance on Linux
  
 ## Version 4.4
-- Ability to ingest logs on a TCP port, in addition to the previously supported Filebeat logs (see [Sending Log Data Metrics To Wavefront](integrations_log_data))
+- Adds ability to ingest logs on a TCP port, in addition to the previously supported Filebeat logs (see [Sending Log Data Metrics To Wavefront](integrations_log_data))
 - Fix rare bug where an old proxy would not be stopped during the upgrading process, causing the old proxy to run until `service wavefront-proxy restart`
 - Miscellaneous stability and reliability improvements
  
@@ -20,7 +20,7 @@ summary: Learn about Wavefront proxy updates.
 - Configurable point filtering and preprocessing (see [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules))
 - Configurable client-side rate limiting
 - Improved performance and reduced CPU and memory footprint
-- Automatic logs rotation and management in `/var/log/wavefront/*`
+- Automatic log rotation and management in `/var/log/wavefront`
 - Ability to log raw blocked points to a separate file  
 - Log remote hostname or IP address for blocked points to assist in troubleshooting  
 - Timestamp cut-off for backfilling historic data is now configurable
@@ -28,13 +28,14 @@ summary: Learn about Wavefront proxy updates.
 - Multiple stability improvements when operating under heavy load and/or with limited resources 
 - Bug fix: escaping double quotes in point tag values
  
-Notes on upgrading from an earlier version:
-- In version 4.1 the default config file location is `/etc/wavefront/wavefront-proxy`, and the `wavefront.log file` is now located in `/var/wavefront` instead of `/var`. We recommend moving `wavefront.conf` from `/opt/wavefront/wavefront-proxy/conf` to `/etc/wavefront/wavefront-proxy` to avoid the confusion of having config files in multiple locations. The proxy is fully backwards compatible with the old config file location and will use `/opt/wavefront/wavefront-proxy/conf/wavefront.conf` first, if it's present.
-- Log file location and rotation rules are configured in `/etc/wavefront/wavefront-proxy/log4j2.xml` (more details on log4j configuration: https://logging.apache.org/log4j/2.x/manual/configuration.html#XML)
+Notes on upgrading:
+
+- The default config file location is `/etc/wavefront/wavefront-proxy` and the `wavefront.log` is now located in `/var/wavefront` instead of `/var`. We recommend moving `wavefront.conf` from `/opt/wavefront/wavefront-proxy/conf` to `/etc/wavefront/wavefront-proxy` to avoid the confusion of having config files in multiple locations. The proxy is fully backwards compatible with the old config file location and will use `/opt/wavefront/wavefront-proxy/conf/wavefront.conf` first, if it's present.
+- Log file location and rotation rules are configured in `/etc/wavefront/wavefront-proxy/log4j2.xml` (more [details on log4j configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html#XML))
  
 ## Version 3.24
 - Support adding custom point tags to proxy's internal metrics
-- Optimize handling of queued points (reduce time-at-the agent)
+- Optimize handling of queued points (reduce time-at-the proxy)
 - Miscellaneous bugfixes
  
 ## Version 3.23
@@ -44,7 +45,7 @@ Notes on upgrading from an earlier version:
 - Miscellaneous stability improvements
  
 ## Version 3.21
-- Track point lag (the difference between the current time and the point's timestamp when it arrives at the agent)
+- Track point lag (the difference between the current time and the point's timestamp when it arrives at the proxy)
 - Reduced memory footprint
 - Improved performance with very large requests
 - Improved stability of the internal metrics reporting thread
@@ -58,10 +59,10 @@ Notes on upgrading from an earlier version:
 - Miscellaneous bug-fixes and improvements
  
 ## Version 3.14
-- Support routing the traffic through a HTTP proxy
+- Support routing the traffic through an HTTP proxy
 - Number of worker threads per port is now configurable
 - Configurable custom source tags
-- Support for "ephemeral" agents (auto-removed after 24 hours of inactivity)
+- Support for "ephemeral" proxies (auto-removed after 24 hours of inactivity)
  
 ## Version 3.11
 - The proxy now runs as daemon, so it can auto-restart on unclean exits
@@ -76,7 +77,7 @@ Notes on upgrading from an earlier version:
  
 ## Version 3.5
 - Batch size and exponential back-off can be dynamically configured
-- Point tag keys validation
+- Point tag key validation
 - Metric name validation performance improved
 - Whitelist/blacklist filtering performance improved
 - Support E+ and e+ annotation for floating data point values

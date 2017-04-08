@@ -46,10 +46,10 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 
 ## Expressions
 <ul>
-<li><span style="font-weight:bold">ts() expression</span> - Returns all time series that match a metric name, filtered by sources, source tags, and point tags.</li>
+<li>ts() expression - Returns all time series that match a metric name, filtered by sources, source tags, and point tags.</li>
 <ul>
-<li markdown="span">Syntax: ts(<span style="color:#08838c;font-weight:bold">&lt;metricName&gt;</span>, [[<span style="color:#d63a36;font-weight:bold">source=&lt;sourceName&gt;</span>] [and|or] [<span style="color:#2770e8;font-weight:bold">tag=&lt;sourceTagName&gt;</span>] [and|or] [<span style="color:#3a0699;font-weight:bold">&lt;<span>pointTagKey&gt;</span>=&lt;pointTagValue&gt;]...])</li>
-<li>For metric, source, source tag, and point tag naming conventions, see Wavefront Data Format.</li>
+<li markdown="span">Syntax: ts(<span style="color:#08838c;font-weight:bold">&lt;metricName&gt;</span>, [[<span style="color:#d63a36;font-weight:bold">source=&lt;sourceName&gt;</span>] [and|or] [<span style="color:#2770e8;font-weight:bold">tag=&lt;sourceTagName&gt;</span>] [and|or] [<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span>]...])</li>
+<li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format).</li>
 <li>Sources, source tags, and point tags are optional. For example, to return all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
 </ul>
 <li>constant - A number such as 5.01, 10000, or 40. Constants can be plotted by themselves and composed in <span style="color:#3a0699;font-weight:bold">expressions</span> using arithmetic operators.</li>
@@ -72,7 +72,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`[and]`, `[or]`: Performs strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator while leaving out the non-matched ones in the result.</li></ul>
 <li>Arithmetic operators</li>
-<ul><li markdown="span">`+`, `-`, `\*`, `/`: Matches metric, source, and point tag combinations on both sides of an <span style="color:#3a0699;font-weight:bold">expression</span>. If either side of the <span style="color:#3a0699;font-weight:bold">expression</span>is a 'singleton' -- that is, a single metric, source, or point tag combination--it automatically matches up with every element on the other side of the <span style="color:#3a0699;font-weight:bold">expression</span>.</li>
+<ul><li markdown="span">`+`, `-`, `\*`, `/`: Matches metric, source, and point tag combinations on both sides of an <span style="color:#3a0699;font-weight:bold">expression</span>. If either side of the <span style="color:#3a0699;font-weight:bold">expression</span> is a 'singleton' -- that is, a single metric, source, or point tag combination--it automatically matches up with every element on the other side of the <span style="color:#3a0699;font-weight:bold">expression</span>.</li>
 <li markdown="span">`[+]`, `[-]`, `[\*]`, `[/]`: Performs strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric|source|point tag combinations on both sides of the operator while leaving out the non-matched ones in the result.</li></ul>
 <li>Comparison operators</li>
 <ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported Wavefront operator.</li>
@@ -82,7 +82,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <li>ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt; 10) and (ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &lt; 20) returns 1 if <span style="color:#08838c;font-weight:bold">my.metric</span> is between 10 and 20. Otherwise, returns 0.</li>
 <li>ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>, <span style="color:#2770e8;font-weight:bold">tag=prod</span> and <span style="color:#2770e8;font-weight:bold">tag=db</span>) returns <span style="color:#08838c;font-weight:bold">cpu.load.1m</span> for all sources tagged with both <span style="color:#2770e8;font-weight:bold">prod</span> and <span style="color:#2770e8;font-weight:bold">db</span>.</li>
 <li>ts(<span style="color:#08838c;font-weight:bold">db.query.rate</span>, <span style="color:#2770e8;font-weight:bold">tag=db</span> and not <span style="color:#d63a36;font-weight:bold">source=db5.wavefront.com</span>) returns <span style="color:#08838c;font-weight:bold">db.query.rate</span> for all sources tagged with <span style="color:#2770e8;font-weight:bold">db</span>, except for the <span style="color:#d63a36;font-weight:bold">db5.wavefront.com</span> source.</li></ul>
-<li>For further information on operator behavior in series matching, see Series Matching​.</li>
+<li markdown="span">For further information on operator behavior in series matching, see [Series Matching](query_language_series_matching)​.</li>
 </ul>
 
 ## Tags in Queries
@@ -175,6 +175,8 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 </tbody>
 </table>
 
+See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions).
+
 ### Grouping
 
 <span  markdown="span">When aggregating, to group by metrics, sources, source tags, point tags, or point tag key, use the [, metrics|sources|sourceTags|tags|pointTags|<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>]</span> group by clause. The clause is applied after the ts() expression, separated by a comma. Examples:
@@ -184,6 +186,7 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 -   Group by source tags: sum(ts(cpu.loadavg.1m), sourceTags)
 -   Group by all available point tag keys: sum(ts(cpu.loadavg.1m), tags) or sum(ts(cpu.loadavg.1m), pointTags)
 -   Group by the region point tag key:sum(ts(cpu.loadavg.1m), region)
+
 
 <span id="filter"></span>
 
@@ -411,6 +414,8 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 </tbody>
 </table>
 
+See [Using Tumbling Windows to Highlight Trends](query_language_tumbling_windows_trends).
+
 ## Conditional Functions
 <table style="width: 100%;">
 <colgroup>
@@ -527,6 +532,8 @@ Example:
 </tr>
 </tbody>
 </table>
+
+See [Metadata Functions](query_language_metadata_functions).
 
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">

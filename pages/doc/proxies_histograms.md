@@ -16,11 +16,11 @@ A Wavefront histogram is a distribution of metrics collected and computed by the
 
 ## Wavefront Histogram Computation
  
-A [histogram](https://en.wikipedia.org/wiki/Histogram) creates a distribution by aggregating data into bins. For example, the following figure illustrates a distribution of 205 points of a metric that ranges in value from 0 to 120 into bins of size 10 at t = 1 minute.
+A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) creates a distribution by aggregating data into bins. For example, the following figure illustrates a distribution of 205 metric points, that range in value from 0 to 120  at t = 1 minute, into bins of size 10.
 
 ![histogram](images/histogram.png)
 
-The following table enumerates the distribution of the same metric at successive minutes. The first row of the table contains the distribution illustrated in the chart. The following rows show how the distribution evolves over successive minutes.
+The following table enumerates the distribution of the same metric at successive minutes. The first row of the table contains the distribution illustrated in the figure. The following rows show how the distribution evolves over successive minutes.
 
 <table width="50%">
 <colgroup>
@@ -136,7 +136,7 @@ You configure the ports in the proxy configuration file `/etc/wavefront/wavefron
 </tr>
 <tr>
 <td>histogramDayFlushSecs</td>
-<td>Time-to-live in seconds for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000.
+<td>Time-to-live in seconds for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
 </td>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ You configure the ports in the proxy configuration file `/etc/wavefront/wavefron
 <tr>
 <td>histogramStateDirectory</td>
 <td markdown="span">Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: `/var/spool/wavefront-proxy`.<br /><br />
-<strong>Note: </strong>A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 3K IOPS for 10k PPS on the directory that the proxy writes histogram data to.
+<strong>Note: </strong>A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge.
 </td>
 </tr>
 <tr>
@@ -192,11 +192,12 @@ For example, `request.latency 20 1484877771 source=<source>`. The Wavefront prox
  
 ## Querying Histogram Metrics
 
-To query histogram metrics, use the `hs()` function. For example:
+To query histogram metrics, use the `hs()` function to return points and apply statistical functions. The supported functions are:
 
-- `percentile(90, hs(histogram.<metricName>.m))` returns `<metricName>` for the 90th percentile aggregated over a minute.
-- `min(hs(histogram.<metricName>.h))` returns the smallest `<metricName>` aggregated over an hour.
+- `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
 - `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.
+- `median(hs(histogram.<metricName>.h))` returns the median `<metricName>` aggregated over an hour.
+- `min(hs(histogram.<metricName>.h))` returns the smallest `<metricName>` aggregated over an hour.
 - `count(hs(histogram.<metricName>.d))` returns the number of `<metricName>` points aggregated over a day.
 
 {% include links.html %}

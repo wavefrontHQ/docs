@@ -29,7 +29,8 @@ location /nginx_status {
 1. Restart collectd.
 
 ## Example collectd Configuration
-```
+
+```conf
 LoadPlugin nginx"  
 <Plugin "nginx">  
   URL "http://localhost:80/nginx_status"  

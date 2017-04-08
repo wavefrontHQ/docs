@@ -53,16 +53,16 @@ disk = 0
 space-total_environment = 1
 ```
 
-If the data you'd like to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `[,"delimiterDefinition"]` parameter for `aliasSource()` in order to identify those as delimiters as well. The proper syntax for `aliasSource()` using the zeroBasedNodeIndex approach is as follows (parameters in brackets and italicized are optional parameters):
+If the data you want to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `[,"delimiterDefinition"]` parameter for `aliasSource()` in order to identify those as delimiters as well. The proper syntax for `aliasSource()` using the zeroBasedNodeIndex approach is as follows (parameters in brackets and italicized are optional parameters):
 
 ```
 aliasSource(expression, [metric|source|{tagk, <pointTagKey>},] zeroBasedNodeIndex [,"delimiterDefinition"])`
 ```
 
-- `expression` - This parameter represents the underlying ts() expression that you'd like to extract a piece of information from.
-- `[metric|source|{tagk, <pointTagKey>},]` - This parameter enables the user to specify which set of data to extract a node from for the purpose of renaming one or more sources. {tagk, pointTagKey} is used if you'd like to extract a node from an existing point tag value. To use this approach, enter tagk followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag Region=us-west-2b, and you'd like to replace the existing source name with the entire point tag value, then you would enter tagk, Region and set the zeroBasedNodeIndex to 0. If an option (metric, source, tagk) is not explicitly entered, then the option is set to source by default.
-zeroBasedNodeIndex - This parameter refers to which particular node you'd like to extract from the source option and use to rename one or more source(s). Regardless of whether metric, source, or tagk, `<pointTagKey>` is selected, that option must exist.
-- `[,"delimiterDefinition"]` - This parameter should be used if the node you'd like to extract is separated by a delimiter other than period ("."). For example, if I wanted to extract 'total_environment' from 'disk.space-total_environment', then I would set my zeroBasedNodeIndex to 2 and my `[,"delimiterDefinition"]` to ".-". If no `[,"delimiterDefinition"]` is specified, then only periods (".") are considered delimiters.
+- `expression` - The ts() expression to extract a piece of information from.
+- `[metric|source|{tagk, <pointTagKey>},]` - Which set of data to extract a node from for the purpose of renaming one or more sources. {tagk, pointTagKey} is used if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag `Region=us-west-2b`, and you want to replace the existing source name with the entire point tag value, then you would enter `tagk, Region` and set the `zeroBasedNodeIndex` to 0. If an option (metric, source, tagk) is not explicitly entered, then the option is set to `source` by default.
+zeroBasedNodeIndex - Which particular node you want to extract from the source option and use to rename one or more source(s). Regardless of whether metric, source, or tagk, `<pointTagKey>` is selected, that option must exist.
+- `[,"delimiterDefinition"]` - Use if the node you want to extract is separated by a delimiter other than period ("."). For example, if you want to extract `total_environment` from `disk.space-total_environment`, then set zeroBasedNodeIndex to 2 and `[,"delimiterDefinition"]` to ".-". If no `[,"delimiterDefinition"]` is specified, then only periods (".") are considered delimiters.
  
 ### zeroBasedNodeIndex Examples
  
@@ -102,7 +102,7 @@ Since we are extracting the string from a metric name, the source option paramet
 
 #### Example 3 - Renaming source(s) with a point tag value node
  
-Assume that you have 5 unique servers (server1, server2, server3, etc.) running multiple applications at any given moment. There are a set of general metrics that apply to all applications, such as "application.latency". An application point tag is applied to the data format in order to determine which application each source on the chart is associated with. The format of the application point tag key is as follows:
+Assume that you have 5 unique servers (server1, server2, server3, etc.) running multiple applications at any given moment. There are a set of general metrics that apply to all applications, such as `application.latency`. An application point tag is applied to the data format in order to determine which application each source on the chart is associated with. The format of the application point tag key is as follows:
 
 ```
 application=<company>.id-<value>_<appName>
@@ -114,7 +114,7 @@ For this use case, we'd like to replace the existing source names (server1, serv
 aliasSource(ts("application.latency"), tagk, application, 2, ".-")
 ```
 
-In the example above, we must specify that we want to extract a new source name from an existing point tag value associated with the application point tag key, so we enter tagk, application as the source option parameter. Based on the use case, we want the new source name to be `<value>_<appName>`, so we need to specify the `[,"delimiterDefinition"]`. Notice that we do not specify underscore ("\_") as a delimiter. If we were to do that, then the zeroBasedNodeIndex approach would no longer enable us to extract both the `<value>` and `<appName>` from the existing point tag value(s). Since only periods (".") and hyphens ("-") are specified, we can enter 2 as the zeroBasedNodeIndex. This approach sets `<company>` as 0, id as 1, and `<value>_<appName>` as 2.
+In the example above, we must specify that we want to extract a new source name from an existing point tag value associated with the application point tag key, so we enter tagk, application as the source option parameter. Based on the use case, we want the new source name to be `<value>_<appName>`, so we need to specify the `[,"delimiterDefinition"]`. Notice that we do not specify underscore ("\_") as a delimiter. If we were to do that, then the zeroBasedNodeIndex approach would no longer enable us to extract both the `<value>` and `<appName>` from the existing point tag value(s). Since only periods (".") and hyphens ("-") are specified, we can enter 2 as the zeroBasedNodeIndex. This approach sets `<company>` as 0, `id` as 1, and `<value>_<appName>` as 2.
  
 ### Regex Approach
  
@@ -123,10 +123,10 @@ You can also use a regular expression for `aliasSource()` to transform an existi
 ```
 aliasSource(expression, [metric|source|{tagk, <pointTagKey>},] "regexSearchPattern","replacementPattern")
 ```
-- `expression` - This parameter represents the underlying ts() expression that you'd like to extract a piece of information from.
-- `[metric|source|{tagk, <pointTagKey>},]` - This parameter enables the user to specify which set of data to extract a node from for the purpose of renaming one or more sources. {tagk, `<pointTagKey>`} is used if you'd like to extract a node from an existing point tag value. To use this approach, enter tagk followed by a specific `<pointTagKey>` name. For example, if you have point tag Region=us-west-2b, and you'd like to use its value to replace the source name, then you would enter tagk, Region followed by regEx patterns. If an option (metric, source, tagk) is not explicitly entered, then the option is set to source by default.
-- `"regexSearchPattern"` - This parameter refers to a regular expression pattern to match against the extraction node specified above (source is the default). 
-- `"replacementPattern"` - This parameter contains the replacement string. If capturing groups were used in the regexSearchPattern, they can be referred to as "$1", "$2", etc.
+- `expression` - The ts() expression to extract a piece of information from.
+- `[metric|source|{tagk, <pointTagKey>},]` - Which set of data to extract a node from for the purpose of renaming one or more sources. {tagk, `<pointTagKey>`} is used if you want to extract a node from an existing point tag value. To use this approach, enter tagk followed by a specific `<pointTagKey>` name. For example, if you have point tag `Region=us-west-2b`, and you want to use its value to replace the source name, then you would enter `tagk, Region` followed by regEx patterns. If an option (metric, source, tagk) is not explicitly entered, then the option is set to `source` by default.
+- `"regexSearchPattern"` - A regular expression pattern to match against the extraction node specified above (source is the default). 
+- `"replacementPattern"` - The replacement string. If capturing groups were used in the regexSearchPattern, they can be referred to as "$1", "$2", etc.
  
 ### Regex Examples
 We repeat the same examples from the zeroBasedNodeIndex approach.
@@ -167,12 +167,11 @@ and you want to set the source to `<company_name>.<group name>` (i.e., leave off
  
 For example, this simple table shows the current source and desired source names:
 
-```
-Current Source
-Desired Source
-accounts.foo.bar1 foo.bar
-accounts.baz.bar7 baz.bar
-```
+
+| Current Source | Desired Source 
+| -
+| accounts.foo.bar1 | foo.bar |
+| accounts.baz.bar7 | baz.bar |
 
 We can easily do this with `aliasSource()`:
 
@@ -188,7 +187,7 @@ aliasSource(ts(requests.failures.num), "accounts.([a-zA-Z.]*)[0-9]*$", "$1")
 ts("customer.user.total")
 ```
 
-Imagine that the series associated with this metric include a customer point tag key that you'd like to group by when applying an aggregate function.
+Imagine that the series associated with this metric include a customer point tag key that you want to group by when applying an aggregate function.
 
 ```
 sum(ts("customer.user.total"),customer)
@@ -218,16 +217,16 @@ i49f21a72 = 2
 
 The numbers listed above would be associated with the zeroBasedNodeIndex parameter. By default, Wavefront identifies each node separated by a dot delimiter. This is why `customerA_latency` is considered a single node.
  
-If the data you'd like to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `[,"delimiterDefinition"]` parameter for `aliasMetric()` in order to identify those as delimiters as well. The proper syntax for `aliasMetric()` using the zeroBasedNodeIndex approach is as follows (parameters in brackets and italicized are optional parameters):
+If the data you want to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `[,"delimiterDefinition"]` parameter for `aliasMetric()` in order to identify those as delimiters as well. The proper syntax for `aliasMetric()` using the zeroBasedNodeIndex approach is as follows (parameters in brackets and italicized are optional parameters):
 
 ``` 
 aliasMetric(expression, [metric|source|{tagk, <pointTagKey>},] zeroBasedNodeIndex [,"delimiterDefinition"])
 ```
 
-- `expression` - This parameter represents the underlying ts() expression that you'd like to extract a piece of information from.
-- `[metric|source|{tagk, <pointTagKey>},]` - This parameter enables the user to specify which set of data to extract a node from for the purpose of renaming one or more metrics. {tagk, pointTagKey} is used if you'd like to extract a node from an existing point tag value. To use this approach, enter tagk followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag Region=us-west-2b, and you'd like to replace the existing metric name with the entire point tag value, then you would enter tagk, Region and set the zeroBasedNodeIndex to 0. If an option (metric, source, tagk) is not explicitly entered, then the option is set to metric by default.
-- `zeroBasedNodeIndex` - This parameter refers to which particular node you'd like to extract from the selected source name(s), metric name(s), or point tag value(s), and use to rename one or more metric(s). Regardless of whether metric, source, or tagk, `<pointTagKey>` is selected, this option must be included.
-- `[,"delimiterDefinition"]` - This parameter should be used if the node you'd like to extract is separated by a delimiter other than period ("."). For example, if I wanted to extract 'total_environment' from 'disk.space-total_environment', then I would set my zeroBasedNodeIndex to 2 and my [,"delimiterDefinition"] to ".-". If no [,"delimiterDefinition"] is specified, then only periods (".") are considered delimiters.
+- `expression` - The ts() expression to extract a piece of information from.
+- `[metric|source|{tagk, <pointTagKey>},]` - Which set of data to extract a node from for the purpose of renaming one or more metrics. `{tagk, pointTagKey}` is used if you want to extract a node from an existing point tag value. To use this approach, enter tagk followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag `Region=us-west-2b`, and you want to replace the existing metric name with the entire point tag value, then you would enter `tagk, Region` and set the zeroBasedNodeIndex to 0. If an option (metric, source, tagk) is not explicitly entered, then the option is set to `metric` by default.
+- `zeroBasedNodeIndex` - Which particular node you want to extract from the selected source name(s), metric name(s), or point tag value(s), and use to rename one or more metric(s). Regardless of whether metric, source, or tagk, `<pointTagKey>` is selected, this option must be included.
+- `[,"delimiterDefinition"]` - Use if the node you want to extract is separated by a delimiter other than period ("."). For example, if you wante to extract `total_environment` from `disk.space-total_environment`, then set zeroBasedNodeIndex to 2 and [,"delimiterDefinition"] to ".-". If no [,"delimiterDefinition"] is specified, then only periods (".") are considered delimiters.
  
 ### zeroBasedNodeIndex Example
  
@@ -255,17 +254,11 @@ You can also use a regular expression for `aliasMetric()` to transform an existi
 aliasMetric(expression, [metric|source|{tagk, <pointTagKey>},] "regexSearchPattern","replacementPattern")
 ``` 
 
-- `expression` - This parameter represents the underlying ts() expression that you'd like to extract a piece of information from.
-- `[metric|source|{tagk, <pointTagKey>},]` - This parameter enables the user to specify which set of data to extract a node from for the purpose of renaming a metric name. `{tagk, <pointTagKey>}` is used if you'd like to extract a node from an existing point tag value. To use this approach, enter tagk followed by a specific `<pointTagKey>` name. For example, if you have point tag Region=us-west-2b, and you'd like to use its value to replace the metric name, then you would enter tagk, Region followed by regEx patterns. If an option (metric, source, tagk) is not explicitly entered, then the option is set to source by default.
-- `"regexSearchPattern"` - This parameter refers to a regular expression pattern to match against the extraction node specified above (source is the default). 
-- `"replacementPattern"` - This parameter contains the replacement string. If capturing groups are used in the regexSearchPattern, they can be referred to as "$1", "$2", etc.
- 
- 
-### Regex Examples
- 
-TBD
- 
- 
+- `expression` - The ts() expression to extract a piece of information from.
+- `[metric|source|{tagk, <pointTagKey>},]` - Which set of data to extract a node from for the purpose of renaming a metric name. `{tagk, <pointTagKey>}` is used if you want to extract a node from an existing point tag value. To use this approach, enter tagk followed by a specific `<pointTagKey>` name. For example, if you have point tag `Region=us-west-2b`, and you want to use its value to replace the metric name, then you would enter `tagk, Region` followed by regEx patterns. If an option (metric, source, tagk) is not explicitly entered, then the option is set to `source` by default.
+- `"regexSearchPattern"` - A regular expression pattern to match against the extraction node specified above (source is the default). 
+- `"replacementPattern"` - The replacement string. If capturing groups are used in the regexSearchPattern, they can be referred to as "$1", "$2", etc.
+  
 ## taggify
  
 `taggify()` makes it possible to extract a text string from an existing source name, metric name, or point tag value and create a synthetic point tag key/value for that particular query. For example, if you have a set of metrics that include a customer name in the actual metric name. Each customer has 3 unique metrics associated with it and they are all being reported by a single source:
@@ -310,17 +303,17 @@ i49f21a72 = 2
 ```
 The numbers listed above would be associated with the zeroBasedNodeIndex parameter. By default, Wavefront identifies each node separated by a dot delimiter. This is why `customerA_latency` is considered a single node.
  
-If the data you'd like to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `[,"delimiterDefinition"]` parameter for `taggify()` in order to identify those as delimiters as well. The proper syntax for `taggify()` using the zeroBasedNodeIndex approach is as follows (parameters in brackets and not italicized require at least one of the listed options to be selected):
+If the data you want to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `[,"delimiterDefinition"]` parameter for `taggify()` in order to identify those as delimiters as well. The proper syntax for `taggify()` using the zeroBasedNodeIndex approach is as follows (parameters in brackets and not italicized require at least one of the listed options to be selected):
 
 ```
 taggify(expression, [metric|source|{tagk, <pointTagKey>},], newPointTagKey, zeroBasedNodeIndex [,"delimiterDefinition"])
 ```
 
-- `expression` - This parameter represents the underlying ts() expression that you'd like to extract a piece of information from.
-- `[metric|source|{tagk, <pointTagKey>},]` - This parameter enables the user to specify which set of data to extract a node from for the purpose of creating a synthetic point tag. {tagk, pointTagKey} is used if you'd like to extract a node from an existing point tag value. To use this approach, enter tagk followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag Region=us-west-2b, and you'd like to create a synthetic point tag based on the 1st zeroBasedNodeIndex (e.g. west), then you would enter tagk, Region and set the zeroBasedNodeIndex to 1. This would also require that you use  `[,"delimiterDefinition"]` to specify a hyphen ("-") as a delimiter.  Unlike `aliasSource()` and `aliasMetric()`, one of these options must be selected in order for the query to execute properly.
-- `newPointTagKey` - Point tags in Wavefront require both a point tag key and point tag value. This parameter allows you to specify what the new point tag key should be.
-- `zeroBasedNodeIndex` - This parameter refers to which particular node you'd like to extract from the selected source name(s), metric name(s), or point tag value(s), and use to create a new synthetic point tag key/value. Regardless of whether metric, source, or tagk, `<pointTagKey>` is selected, this option must be included.
-- `[,"delimiterDefinition"]` - This parameter should be used if the node you'd like to extract is separated by a delimiter other than period ("."). For example, if I wanted to extract 'total_environment' from 'disk.space-total_environment', then I would set my zeroBasedNodeIndex to 2 and my `[,"delimiterDefinition"]` to ".-". If no `[,"delimiterDefinition"]` is specified, then only periods (".") are considered delimiters.
+- `expression` - The ts() expression to extract a piece of information from.
+- `[metric|source|{tagk, <pointTagKey>},]` - Which set of data to extract a node from for the purpose of creating a synthetic point tag. {tagk, pointTagKey} is used if you want to extract a node from an existing point tag value. To use this approach, enter tagk followed by the particular `<pointTagKey>` associated with the point tag value. For example, if you have point tag `Region=us-west-2b`, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex (e.g. west), then you would enter `tagk, Region` and set the zeroBasedNodeIndex to 1. This would also require that you use  `[,"delimiterDefinition"]` to specify a hyphen ("-") as a delimiter.  Unlike `aliasSource()` and `aliasMetric()`, one of these options must be selected in order for the query to execute properly.
+- `newPointTagKey` - The new point tag key.
+- `zeroBasedNodeIndex` - Which node to extract from the selected source name(s), metric name(s), or point tag value(s), and use to create a new synthetic point tag key/value. Regardless of whether metric, source, or tagk, `<pointTagKey>` is selected, this option must be included.
+- `[,"delimiterDefinition"]` - Use if the node you want to extract is separated by a delimiter other than period ("."). For example, if I wanted to extract 'total_environment' from 'disk.space-total_environment', then I would set my zeroBasedNodeIndex to 2 and my `[,"delimiterDefinition"]` to ".-". If no `[,"delimiterDefinition"]` is specified, then only periods (".") are considered delimiters.
  
 ### ZeroBasedNodeIndex Example
  
@@ -330,13 +323,13 @@ Imagine you're a SaaS company that provides multiple versions of your platform. 
 source="<app-x>-<machine_type>.<versionKey>"
 ```
 
-This approach means that each customer will have several versionKeys over time due to upgrades, and at the current moment all customers are broken into 3 categories: `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.  With the dataset you're collecting, you'd like to understand the difference in performance between each `<versionKey>`. Creating a synthetic point tag based on the `<versionKey>` allows you to aggregate and group by `<versionKey>` to see the performance differences between each.
+This approach means that each customer will have several versionKeys over time due to upgrades, and at the current moment all customers are broken into 3 categories: `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.  With the dataset you're collecting, you want to understand the difference in performance between each `<versionKey>`. Creating a synthetic point tag based on the `<versionKey>` allows you to aggregate and group by `<versionKey>` to see the performance differences between each.
 
 ```
 taggify(ts("performance.*.tracker"), source, version, 1)
 ```
 
-The query above identifies 'source' as the set of data to extract the `<versionKey>` from. It names 'version' as the new point tag key, and identifies the `<versionKey>` as the 1st node in the zeroBasedNodeIndex approach. Since hyphens ("-") and underscores ("_") are used in the source name, then query could also be written like the following:
+The query above identifies `source` as the set of data to extract the `<versionKey>` from. It names `version` as the new point tag key, and identifies the `<versionKey>` as the 1st node in the zeroBasedNodeIndex approach. Since hyphens ("-") and underscores ("_") are used in the source name, then query could also be written like the following:
 
 ```
 taggify(ts("performance.*.tracker"), source, version, 4, "-_.")
@@ -350,15 +343,11 @@ taggify(ts("performance.*.tracker"), source, version, 3, "-.")
 
 By taking this approach, your hover legend will now show a new column labeled `[version]` with values of `<versionKey1>`, `<versionKey2>`, or `<versionKey3>` as the values.
  
-### Regex Approach
- 
-### Regex Examples
- 
 ## Important Notes
  
 When using metadata functions, keep the following in mind:
  
-- When specifying the text string (zeroBasedNodeIndex or Regex) that you'd like to extract, the query must be able to work with all underlying series in order for data to be returned. For example, if you are extracting a text string from a source name and specify a value of 2 for the zeroBasedNodeIndex, then all sources reporting data for your query must have at least 2 zeroBasedNodes. If one source is named app.25 (1 zeroBasedNodes only), then the entire query will fail since that source does not have a 2 zeroBasedNode.
+- When specifying the text string (zeroBasedNodeIndex or Regex) that you want to extract, the query must be able to work with all underlying series in order for data to be returned. For example, if you are extracting a text string from a source name and specify a value of 2 for the zeroBasedNodeIndex, then all sources reporting data for your query must have at least 2 zeroBasedNodes. If one source is named app.25 (1 zeroBasedNodes only), then the entire query will fail since that source does not have a 2 zeroBasedNode.
 - The series resulting from `aliasSource()` and `aliasMetric()` must all be unique, otherwise an error will occur and no data is returned. Series are defined as metric + source + pointTags. Take the following query for example: `aliasSource(ts("requests.latency"),metric,1)`. If no point tags exist for this data and there are 20 sources reporting data for "requests.latency", then this query would result in an error. This would occur because each source would attempt to be renamed as 'latency', which would mean that each resulting series would be metric="requests.latency" + source="latency". If each series included a unique point tag value, however, then the query would work properly.
 
 

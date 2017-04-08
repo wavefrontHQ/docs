@@ -17,7 +17,8 @@ summary: Learn how to send MySQL data collected by collectd to Wavefront.
 1. Restart collectd.
 
 ## Example collectd Configuration
-```
+
+```conf
 LoadPlugin mysql  
 <Plugin mysql>  
   <Database test>  
@@ -29,8 +30,10 @@ LoadPlugin mysql
   </Database>  
 </Plugin>  
 ```
+
 ## Example Configuration for Connecting to Remote MySQL Hosts
-```
+
+```conf
 LoadPlugin "mysql"  
 <Plugin "mysql">  
   <Database "foo">  

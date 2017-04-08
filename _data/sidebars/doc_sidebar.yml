@@ -39,11 +39,11 @@ entries:
       url: /wavefront_api.html
       output: web
       
-    - title: Tutorial Getting Started
+    - title: Tutorial - Getting Started
       url: /tutorial_getting_started.html
       output: web
       
-    - title: Tutorial Getting Data into Wavefront
+    - title: Tutorial - Getting Data into Wavefront
       url: /tutorial_data_ingestion.html
       output: web
       
@@ -501,36 +501,12 @@ entries:
         url: /label_getting_started.html
         output: web
         
-      - title: Administration Pages
-        url: /label_administration.html
+      - title: Release Notes Pages
+        url: /label_release_notes.html
         output: web
-        
-      - title: Alert Pages
-        url: /label_alerts.html
-        output: web
-        
-      - title: API Pages
-        url: /label_api.html
-        output: web
-        
-      - title: Chart Pages
-        url: /label_charts.html
-        output: web
-        
-      - title: Dashboard Pages
-        url: /label_dashboards.html
-        output: web
-        
+
       - title: Data Pages
         url: /label_data.html
-        output: web
-        
-      - title: Event Pages
-        url: /label_events.html
-        output: web
-        
-      - title: Integration Pages
-        url: /label_integrations.html
         output: web
         
       - title: Proxy Pages
@@ -541,6 +517,27 @@ entries:
         url: /label_query_language.html
         output: web
         
-      - title: Release Notes Pages
-        url: /label_release_notes.html
+      - title: Dashboard Pages
+        url: /label_dashboards.html
         output: web
+        
+      - title: Chart Pages
+        url: /label_charts.html
+        output: web
+        
+      - title: Alert Pages
+        url: /label_alerts.html
+        output: web
+        
+      - title: Event Pages
+        url: /label_events.html
+        output: web
+        
+      - title: Integration Pages
+        url: /label_integrations.html
+        output: web
+        
+      - title: Administration Pages
+        url: /label_administration.html
+        output: web
+        

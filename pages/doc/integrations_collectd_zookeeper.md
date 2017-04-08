@@ -17,7 +17,8 @@ summary: Learn how to send ZooKeeper data collected by collectd to Wavefront.
 1. Restart collectd.
 
 ## Example collectd Configuration
-```
+
+```conf
 LoadPlugin "zookeeper"
  <Plugin "zookeeper">  
   Host "127.0.0.1"  

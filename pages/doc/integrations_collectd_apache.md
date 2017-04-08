@@ -11,8 +11,9 @@ summary: Learn how to send Apache data collected by collectd to Wavefront.
 
 ## Apache Setup
 
-Enable the `mod_status` module in your Apache configuration, for example:
-```
+Enable the `mod_status` module in your Apache configuration:
+
+```apache
 ExtendedStatus on  
 <Location /mod_status>  
   SetHandler server-status  
@@ -26,7 +27,8 @@ ExtendedStatus on
 1. Restart collectd.
 
 ## Example collectd Configuration
-```
+
+```conf
 LoadPlugin "apache"
 <Plugin "apache">
   <Instance "apache80">

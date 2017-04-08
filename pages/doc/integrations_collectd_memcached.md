@@ -17,7 +17,8 @@ summary: Learn how to send memcached data collected by collectd to Wavefront.
 1. Restart collectd.
 
 ## Example collectd Configuration
-```
+
+```conf
 <Plugin "memcached">
   Host "127.0.0.1"
   Port "11211"

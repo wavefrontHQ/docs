@@ -18,11 +18,12 @@ Make sure your Cassandra nodes are configured to allow [JMX connections](http://
 ## Installation
 
 1. On your collectd host, copy the [example config](https://collectd.org/wiki/index.php/Plugin:GenericJMX) into `/etc/collectd/managed_config/`. Alternatively, if you're using Cassandra 2.2 or higher, you can try the example configuration below which is pre-populated for JMX information.
-1. Edit the settngs in the file for your Cassandra server and version.
+1. Edit the settings in the file for your Cassandra server and version.
 1. Restart collectd.
 
 ## Example collectd Configuration
-```
+
+```conf
 # A sample GenericJMX configuration for cassandra 2.2  
 # Credit to blog.raintank.io/collectd-and-cassandra-2-2/  
 

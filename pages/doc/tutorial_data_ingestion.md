@@ -1,5 +1,5 @@
 ---
-title: Tutorial Getting Data into Wavefront
+title: Tutorial - Getting Data into Wavefront
 tags: [getting_started, data, proxies, integrations]
 sidebar: doc_sidebar
 permalink: tutorial_data_ingestion.html
