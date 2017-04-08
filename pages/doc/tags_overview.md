@@ -62,7 +62,7 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 </tr>
 <tr>
 <td>point</td>
-<td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format) and [Using Point Tags](query_language_using_point_tags)</td>
+<td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format) and [Point Tags in Queries](query_language_point_tags)</td>
 <td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules)<br />
 Telegraf agent<br />
 [Wavefront CLI](wavefront_cli)</td>

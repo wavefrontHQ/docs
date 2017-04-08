@@ -3,7 +3,7 @@ title: Point Tags in Queries
 keywords: query language
 tags: [query_language]
 sidebar: doc_sidebar
-permalink: query_language_using_point_tags.html
+permalink: query_language_point_tags.html
 summary: Learn how to use point tags in Wavefront Query Language queries.
 ---
 Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data. They can be used, for example, to label a point's datacenter, version, etc. You can add point tags when sending points in through the Wavefront proxy and later query them in Wavefront Query Language expressions. Query fan-out is based on metric and source combinations; Wavefront recommends that point tag cardinality stays below 1000 unique pairs per metric and source.
