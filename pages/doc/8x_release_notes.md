@@ -13,7 +13,8 @@ The Wavefront 8.x release provides a number of dashboard, documentation, and UI 
   - Intro: \<Name\> - wavefront.tutorial
   - Demo: \<Name\> - wavefront.tour
   - Wavefront Internal Metrics - wavefront.system
-    Note: All dashboards provided by Wavefront are now read-only. If you want to make changes to a Wavefront-provided dashboard you can clone it providing a new dashboard URL and then make changes to the clone. If  you already had these dashboards and you have edited them, we save a copy of your edited dashboards and add "-clone" to the URL and "(Cloned)" to the name.
+
+   {% include note.html content="All dashboards provided by Wavefront are now read-only. If you want to make changes to a Wavefront-provided dashboard you can clone it providing a new dashboard URL and then make changes to the clone. If  you already had these dashboards and you have edited them, we save a copy of your edited dashboards and add \"-clone\" to the URL and \"(Cloned)\" to the name." %}
 - Various improvements to the "Populate your Data" flow
   - Simplified to 2 options (AWS integration and Wavefront proxy). See [AWS Metrics Integration](integrations_aws_metrics) and [Installing Wavefront Proxies](proxies_installing).
 - Amazon Web Services improvements
