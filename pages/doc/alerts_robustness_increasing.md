@@ -2,7 +2,6 @@
 title: Three Simple Tips for Increasing Alert Robustness
 keywords: alerts
 tags: [alerts]
-datatable: true
 sidebar: doc_sidebar
 permalink: alerts_robustness_increasing.html
 summary: Learn how to manage alerts.

@@ -2,7 +2,6 @@
 title: Managing Sources
 keywords: sources
 tags: [sources]
-datatable: true
 sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn how to manage sources.

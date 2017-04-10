@@ -2,7 +2,6 @@
 title: Managing Alerts
 keywords: alerts
 tags: [alerts]
-datatable: true
 sidebar: doc_sidebar
 permalink: alerts_managing.html
 summary: Learn how to manage alerts.

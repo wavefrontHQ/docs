@@ -2,7 +2,6 @@
 title: Creating an Alert
 keywords: alerts
 tags: [alerts]
-datatable: true
 sidebar: doc_sidebar
 permalink: alerts_creating.html
 summary: Learn how to create an alert.

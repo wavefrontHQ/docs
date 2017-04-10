@@ -32,6 +32,7 @@ Notes on upgrading:
 
 - The default config file location is `/etc/wavefront/wavefront-proxy` and the `wavefront.log` is now located in `/var/wavefront` instead of `/var`. We recommend moving `wavefront.conf` from `/opt/wavefront/wavefront-proxy/conf` to `/etc/wavefront/wavefront-proxy` to avoid the confusion of having config files in multiple locations. The proxy is fully backwards compatible with the old config file location and will use `/opt/wavefront/wavefront-proxy/conf/wavefront.conf` first, if it's present.
 - Log file location and rotation rules are configured in `/etc/wavefront/wavefront-proxy/log4j2.xml` (more [details on log4j configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html#XML))
+- Java 8 is now required (if you are using your own JRE)
  
 ## Version 3.24
 - Support adding custom point tags to proxy's internal metrics

@@ -2,7 +2,6 @@
 title: Managing Metrics
 keywords: metrics
 tags: [metrics]
-datatable: true
 sidebar: doc_sidebar
 permalink: metrics_managing.html
 summary: Learn how to manage metrics.

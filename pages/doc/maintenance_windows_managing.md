@@ -2,7 +2,6 @@
 title: Managing Maintenance Windows
 keywords: alerts
 tags: [alerts]
-datatable: true
 sidebar: doc_sidebar
 permalink: maintenance_windows_managing.html
 summary: Learn how to manage maintenance windows.

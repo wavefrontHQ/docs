@@ -3,12 +3,13 @@ title: Wavefront Integrations
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
+toc: false
 permalink: integrations_wavefront
 summary: Learn about the various types of integrations supported by Wavefront.
 ---
 
 <h2>Data Integrations</h2>
-<table class="layout">
+<table class="layout" style="width:100%">
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
@@ -48,9 +49,14 @@ summary: Learn about the various types of integrations supported by Wavefront.
 </tr>
 </tbody>
 </table>
-
+<br/>
 <h2>Code Instrumentation</h2>
-<table  class="layout">
+<table  class="layout" style="width:100%">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" />
+</colgroup>
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
@@ -68,9 +74,9 @@ summary: Learn about the various types of integrations supported by Wavefront.
 </tr>
 </tbody>
 </table>
-
+<br/>
 <h2>Alert Notifications</h2>
-<table class="layout">
+<table class="layout"  style="width:100%">
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
@@ -92,9 +98,9 @@ summary: Learn about the various types of integrations supported by Wavefront.
 </tr>
 </tbody>
 </table>
-
+<br/>
 <h2>Authentication Integrations</h2>
-<table class="layout">
+<table class="layout"  style="width:100%">
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
