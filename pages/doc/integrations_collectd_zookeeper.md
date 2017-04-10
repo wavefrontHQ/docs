@@ -1,5 +1,5 @@
 ---
-title: ZooKeeper Collectd Integration
+title: ZooKeeper collectd Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar

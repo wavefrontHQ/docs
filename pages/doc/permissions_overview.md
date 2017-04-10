@@ -19,7 +19,7 @@ You can learn more about each set of permissions by clicking the permission head
 - [Direct Data Ingestion](permissions_misc#direct-data-ingestion-permission) - ingest metrics using API endpoints, bypassing proxies.
 - [Embed Charts](permissions_misc#embed-charts-permission) - generate HTML snippets of Wavefront charts and embed them outside of the platform.
 - [Event Management](events_managing) - create, manage, and close events and manage event tags.
-- [External Links Managment](external_links_managing) - create, update, and delete external links.
+- [External Links Management](external_links_managing) - create, update, and delete external links.
 - [Metrics Management](metrics_managing) - manually hide and unhide metrics and metric prefixes from being displayed in the Metrics browser and autocomplete dropdown while creating a ts() query.
 - [Proxy Management](proxies_managing) - view, create, and manage proxies and set up external integrations with AWS.
 - [Source Tag Management](sources_managing) - manage sources and source tags.

@@ -14,7 +14,7 @@ Charts support two unit prefixes: **SI** and **IEC/Binary**. SI unit prefixes (k
 ## Dynamic Units
 Dynamic units automatically adjusts the scaling prefixes and units assigned to displayed data to favor clearer display.  When enabled, dynamic units causes two types of transformations:
  
-When an axis is labeled with a unit that starts with one of the SI or IEC/Binary prefixes, the display logic first normalizes the data value with the labeled prefix before assigning a new prefix and adjusting the unit as appropriate.  For example, if an axis is labeled "Mpps" (Mega pps, or 1 Million pps), and the underlying data has a value of 2000, the displayed value with "Dynamic units" enabled would be "2.000B pps", rather than "2.000k Mpps" without "Dynamic units" checked.  Again, options to show raw underlying data are not affected, so the above example displays "2000 Mpps" if, e.g., the shift key is held down while a legend is rendered.
+When an axis is labeled with a unit that starts with one of the SI or IEC/Binary prefixes, the display logic first normalizes the data value with the labeled prefix before assigning a new prefix and adjusting the unit as appropriate.  For example, if an axis is labeled "MPPS" (Mega PPS, or 1 Million PPS), and the underlying data has a value of 2000, the displayed value with "Dynamic units" enabled would be "2.000B PPS", rather than "2.000k MPPS" without "Dynamic units" checked.  Again, options to show raw underlying data are not affected, so the above example displays "2000 MPPS" if, e.g., the shift key is held down while a legend is rendered.
 
 When an axis is labeled with a unit that exactly matches one of the time units, (ys, zs, as, fs, ps, ns, us, ms, s, min, hr, day, wk, mo, yr), the display logic for axes and legends automatically first normalizes the underlying data to seconds.  Then it displays the data using units ys through s if the normalized data magnitude is < 60, or else it automatically scales the data using larger time unit if the magnitude is > 60, with the goal of keeping the magnitude as small as possible.  So, if the underlying data is 60,000 and the axis is labeled with ms (milliseconds), this results in a display of "1.000 min".  If data is still 60,000 and the axis is labeled with "s", then the display is "16.67 hr".  If the underlying data is again 60,000 and the axis is instead labeled with us (microseconds), this displays "60.00m s". Again, options to show raw underlying data are not affected, so the above example displays "60000" with whatever unit label is specified when raw data display is requested.
  
@@ -22,13 +22,13 @@ When an axis is labeled with a unit that exactly matches one of the time units, 
   
 The following chart represents request latency data for a single source. The values associated with the displayed series are in milliseconds. If the data values stay in this range, then dynamic units may not be needed.
  
-**ts("requests.latency, source="app-5")**
+`ts("requests.latency, source="app-5")`
 
 ![example_without_units](images/example_without_units.png)
 
 However, what if the values tend to exceed thousands of milliseconds? This can be emulated by multiplying the original ts() expression by 10,000:
  
-**ts("requests.latency", source="app-5") * 10000**
+`ts("requests.latency", source="app-5") * 10000`
 
 ![example_with_high_values](images/example_with_high_values.png)
 
@@ -49,7 +49,7 @@ To turn on dynamic units:
 
 Now looking back at the same chart with the millisecond values in the thousands displays as seconds on the Y-axis:
  
-**ts("requests.latency", source="app-5") * 10000**
+`ts("requests.latency", source="app-5") * 10000`
 
   ![minute_view](images/minute_view.png)
 

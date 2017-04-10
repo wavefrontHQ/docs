@@ -11,8 +11,10 @@ Product versions and features move to end-of-life as part of the normal software
 ## Lifecycle Stages
 
 <table class=" width: 100%;">
-<tbody>
+<thead>
 <tr><th>Stage</th><th>Description</th></tr>
+</thead>
+<tbody>
 <tr>
 <td>Active</td>
 <td>Recommended current release.</td>
@@ -34,10 +36,11 @@ Wavefront identifies deprecated features in the release notes for the release in
 <p></p>
 
 <h2>Wavefront Proxy</h2>
-<p></p>
 <table class="width: 100%;">
-<tbody>
+<thead>
 <tr><th width="33%">Version</th><th width="33%">Current Stage</th><th width="34%">End-of-Life Date</th></tr>
+</thead>
+<tbody>
 <tr>
 <td>4.6</td>
 <td>Active</td>
@@ -57,10 +60,11 @@ Wavefront identifies deprecated features in the release notes for the release in
 </table>
 <p></p>
 <h2>Wavefront API</h2>
-<p></p>
 <table class="width: 100%;">
-<tbody>
+<thead>
 <tr><th width="33%">Version</th><th width="33%">Current Stage</th><th width="34%">End-of-Life Date</th></tr>
+</thead>
+<tbody>
 <tr>
 <td>2</td>
 <td>Active</td>

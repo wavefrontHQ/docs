@@ -1,5 +1,5 @@
 ---
-title: Collectd Integration
+title: collectd Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar

@@ -9,7 +9,7 @@ summary: Learn how to manage sources.
 ## What is a Source?
 
 A source is a unique application, host, container, or instance that emits metrics. The source is explicitly set
-in the **source** field of a [Wavefront data format](wavefront_data_format) metric. For
+in the `source` field of a [Wavefront data format](wavefront_data_format) metric. For
 cloud integrations, the source is extracted from [AWS service properties or dimensions](integrations_aws_metrics#aws_sources).
 
 Sources are automatically hidden after 4 weeks of inactivity, but you can also manually hide sources. While hidden sources are removed from autocomplete, they can still be used in a query when data values are present.

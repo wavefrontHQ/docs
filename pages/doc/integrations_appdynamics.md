@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_appdynamics.html
 summary: Learn how to send data emitted by AppDynamics to Wavefront.
 ---
-[AppDynamics](https://www.appdynamics.com/) is a popular APM solution for monitoring applications. It runs as a cloud service or on-premise. The Appdynamics integration captures minute level data and stores it in Wavefront without any loss of precision. This allows you to now create meaningful alerts using the powerful time series query language.
+[AppDynamics](https://www.appdynamics.com/) is a popular APM solution for monitoring applications. It runs as a cloud service or on-premise. The AppDynamics integration captures minute level data and stores it in Wavefront without any loss of precision. This allows you to now create meaningful alerts using the powerful time series query language.
  
  
 ## Metric Collection

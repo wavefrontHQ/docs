@@ -30,7 +30,7 @@ To preview the result of each evaluation step in real-time, click the bar chart 
 
 ## Applying Filters and Functions
 
-You can AND or OR multiple filters together ![fitler and](images/filter_and.png#inline) and follow with chained functions. Unlike manually constructed ts() queries, which allow [mixed ANDs and ORs](query_language_reference#operators), the Query Builder applies either AND or OR to all filters.
+You can AND or OR multiple filters together ![filter and](images/filter_and.png#inline) and follow with chained functions. Unlike manually constructed ts() queries, which allow [mixed ANDs and ORs](query_language_reference#operators), the Query Builder applies either AND or OR to all filters.
 
 Functions are organized in a two-level hierarchy (e.g. Aggregation->Sum). A preview of the result of applying any function displays when you mouse over the function name. The full ts() expression is also shown in each preview window for reference.
 

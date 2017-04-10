@@ -33,7 +33,7 @@ Cassandra is a Java application and uses JMX to report metrics about its health.
 2. Restart Telegraf. 
 
 ## Validate Your Metrics
-1. Select **Browse > Metrics** in Wavefront. You should see an entry for cassandra. If you do not see Cassandra metrics after a minute or two, check your Telegraf logs in `/var/log/telegraf/telegraf.log`.
+1. Select **Browse > Metrics**. You should see an entry for `cassandra`. If you do not see Cassandra metrics after a minute or two, check your Telegraf logs in `/var/log/telegraf/telegraf.log`.
  
 ## Dashboard
 Once you have started collecting Cassandra metrics, you can [deploy](dashboards_managing#deploying-a-dashboard) this [example dashboard](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/cassandra3/dashboards/cassandra-telegraf.json) as a starting point for monitoring your Cassandra cluster. The dashboard has detailed sections on Read Latency, Write Latency, Disk, Garbage Collection, and Errors and Overruns.

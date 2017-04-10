@@ -59,7 +59,7 @@ or the [Query Builder](query_language_query_builder) to create the expression. I
 </tr>
 <tr>
 <td>Targets</td>
-<td>The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email atdresses, [PagerDuty keys​](alerts_integrating_pagerduty), [VictorOps keys](alerts_integrating_victorops), and [webhooks](alerts_integrating_webhooks) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle).
+<td>The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty), [VictorOps keys](alerts_integrating_victorops), and [webhooks](alerts_integrating_webhooks) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle).
 </td>
 </tr>
 <tr>

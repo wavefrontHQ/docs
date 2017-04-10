@@ -76,8 +76,8 @@ You also have the option of collapsing sections on a dashboard. To do so, locate
 Imagine a dashboard where you want to apply a temporary ts() expression to every chart. For example, let's say your company has a dashboard that tracks errors per second across several applications. Seeing a temporary value of 5 drawn across every chart to see which applications currently have the highest number of errors could be beneficial. Instead of permanently applying a constant value of 5 to every chart, you can use the Global Query fly-out to accomplish this. Global queries allow you to temporarily apply any ts() expression to every chart on a dashboard. For example:
  
 - A constant value such as 5...
-- A simple ts() expression such as ts(~metrics.counter)...
-- An advanced ts() expression such as (ts(mem.total) - ts(mem.free)) * 100
+- A simple ts() expression such as `ts(~metrics.counter)`...
+- An advanced ts() expression such as `(ts(mem.total) - ts(mem.free)) * 100`
  
 The Global Query fly-out is represented by a <i class="fa fa-plus-square"/> icon and can be found in the bottom corner of any dashboard. You can access the Global Query fly-out by hovering over the icon. When you do this, a field appears where you can apply any ts() expression.
  

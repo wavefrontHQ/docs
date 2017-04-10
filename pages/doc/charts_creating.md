@@ -23,14 +23,14 @@ Wavefront provides two methods for constructing query language queries: Query Bu
 ### Using Query Builder to Construct a Query
 Wavefront Query Builder is a great starting option for users new to Wavefront because it doesn't require any knowledge of the query language syntax. Query Builder constructs a query based on a set of components (metric name, source|sourceTag|pointTag filters, advanced functions) that you specify. 
 
-In the image below, we specified the metric name "~sample.requests.total.num", point tag "az=us-west-1", and a 10-minute moving average function in order to create the following query and chart: **mavg(10m, ts(~sample.requests.total.num, az="us-west-1"))**.
+In the image below, we specified the metric name `~sample.requests.total.num`, point tag `az=us-west-1`, and a 10-minute moving average function in order to create the following query and chart: `mavg(10m, ts(~sample.requests.total.num, az="us-west-1"))`.
 
 ![query_builder_2](images/query_builder_2.png)
 
 For details on using Query Builder, see [Query Builder](query_language_query_builder).
 
 ### Manually Constructing a Query
-If you are familiar with [Wavefront Query Language](query_language_getting_started), you can enter the complete expression into the query field. For example: **if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)**.
+If you are familiar with [Wavefront Query Language](query_language_getting_started), you can enter the complete expression into the query field. For example: `if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)`.
 
 ![query_field_free_form](images/query_field_free_form.png)
 
@@ -45,7 +45,7 @@ You also have the option of naming each query field which is recommended when yo
 
 ![rename_query_field](images/rename_query_field.png)
 
-You can experiment with functions such as sum(), highpass(), mavg(), etc. See [Wavefront Query Language Quick Reference](query_language_reference) for a complete list of functions.
+You can experiment with functions such as `sum()`, `highpass()`, `mavg()`, etc. See [Wavefront Query Language Quick Reference](query_language_reference) for a complete list of functions.
  
 ## Configuring the Chart
 You also have the option to configure charts in several different ways. The chart configuration options are in the Chart section:

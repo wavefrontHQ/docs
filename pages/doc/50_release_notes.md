@@ -116,7 +116,7 @@ Wavefront continues to support installing the collectd collector agent using the
 
 When you install Telegraf on an EC2 instance, the Wavefront Proxy supports tagging metrics with EC2 tags, AWS region, the VPC ID, and Image ID of the instance.
 
-For more information on Telegraf, see [Collectd vs. Telegraf: Comparing Metric Collection Agents](http://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents).
+For more information on Telegraf, see [collectd vs. Telegraf: Comparing Metric Collection Agents](http://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents).
 
 ## New Integrations
 

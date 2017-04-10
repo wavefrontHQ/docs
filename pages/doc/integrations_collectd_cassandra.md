@@ -1,5 +1,5 @@
 ---
-title: Cassandra Collectd Integration
+title: Cassandra collectd Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -8,7 +8,7 @@ summary: Learn how to send Cassandra data collected by collectd to Wavefront.
 ---
 
 [Apache Cassandra](http://cassandra.apache.org/) is a popular, distributed, NoSQL database system. 
-Since Cassandra uses JMX to export metrics, Collectd depends on the [Java](https://collectd.org/wiki/index.php/Plugin:Java) and [GenericJMX](https://collectd.org/wiki/index.php/Plugin:GenericJMX) plugins in order to collect metrics from Cassandra. 
+Since Cassandra uses JMX to export metrics, collectd depends on the [Java](https://collectd.org/wiki/index.php/Plugin:Java) and [GenericJMX](https://collectd.org/wiki/index.php/Plugin:GenericJMX) plugins in order to collect metrics from Cassandra. 
 
 
 ## Cassandra Set Up

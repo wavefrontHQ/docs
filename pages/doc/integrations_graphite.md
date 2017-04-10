@@ -44,7 +44,7 @@ To send Graphite data to Wavefront:
     </tr>
     <tr>
     <td>graphiteFormat</td>
-    <td>Indexes of fields within your Graphite/collectd metric names that correspond to a hostname. For example, if your metrics have the format: collectd.prod.www04.cpu.loadavg.1m specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder (collectd.cpu.loadavg.1m) is treated as the metric name.</td>
+    <td markdown="span">Indexes of fields within your Graphite/collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m` specify the 3rd and 2nd indexes `www04.prod` to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
     <td>A comma-separated list of indexes.</td>
     <td>3,2<br/>
     4,2,5<br/>
@@ -53,14 +53,14 @@ To send Graphite data to Wavefront:
     </tr>
     <tr>
     <td>graphiteDelimiters</td>
-    <td>Characters that should be replaced by dots, in case they were escaped within Graphite/collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value 'web04_www', it is changed to 'web04.www'.</td>
+    <td markdown="span">Characters that should be replaced by dots, in case they were escaped within Graphite/collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value `web04_www`, it is changed to `web04.www`.</td>
     <td>A concatenation of delimiter characters, without any separators.</td>
     <td>-</td>
     <td></td>
     </tr>
     <tr>
     <td>picklePorts</td>
-    <td>Ports to listen on for incoming data in Graphite pickle format (from carbon-relay). This is expecting streaming data formatted as: [Length of pickled data to follow in a 4 byte unsigned int][pickled data of the given length]. Default: None.</td>
+    <td markdown="span">Ports to listen on for incoming data in Graphite pickle format (from carbon-relay). This is expecting streaming data formatted as: \[Length of pickled data to follow in a 4 byte unsigned int\]\[pickled data of the given length\]. Default: None.</td>
     <td>A comma-separated list of available port numbers. Can be a single port.</td>
     <td>picklePorts=5878</td>
     <td>3.20</td>

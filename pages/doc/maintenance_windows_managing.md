@@ -27,8 +27,10 @@ You create an alert by:
 ### Maintenance Window Properties
 
 <table>
-<tbody>
+<thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tbody>
 <tr>
 <td>Name</td>
 <td>The name of the maintenance window.</td>

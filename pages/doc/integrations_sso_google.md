@@ -29,6 +29,6 @@ We support authentication via SAML including Google SSO. To set up Google SSO:
       You do not need the optional Attribute Mapping.
 
 1. Grant the users access to the app. Wavefront does not charge per user so it’s OK to just grant to "all" if that works for you.
-1. Send us the IDP metadata to  support@wavefront.com with a request to set up Google SSO integration for wavefront and we’ll activate the integration on our end. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through Google instead of using a password. Any new user that comes along that did not yet exist in Wavefront would just get auto-created on the Wavefront side on first authentication.
+1. Send us the IDP metadata to [support](mailto:support@wavefront.com) with a request to set up Google SSO integration for wavefront and we'll activate the integration on our end. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through Google instead of using a password. Any new user that comes along that did not yet exist in Wavefront would just get auto-created on the Wavefront side on first authentication.
 
 {% include links.html %}

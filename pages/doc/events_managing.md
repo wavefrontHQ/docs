@@ -36,8 +36,10 @@ If the start and end time for the desired event are included in the current time
 ### Event Properties
 
 <table>
-<tbody>
+<thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tbody>
 <tr>
 <td>Name</td>
 <td>The name displayed on the Events page and when you hover over an event icon on the X-axis of a chart.</td>

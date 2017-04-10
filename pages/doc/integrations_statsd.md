@@ -45,7 +45,7 @@ There are 2 ways to configure the StatsD service plugin: Wavefront CLI and manua
  
 ### Sending Test Metrics
  
-The easiest and quickest way to send test metrics to StatsD is to use netcat:
+The easiest and quickest way to send test metrics to StatsD is to use `netcat`:
 
 ```shell
 $ echo "foo.bar.test1:+1|g" | nc -u localhost 8125

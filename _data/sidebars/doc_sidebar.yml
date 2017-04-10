@@ -19,6 +19,10 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
+    - title: Wavefront API
+      url: /wavefront_api.html
+      output: web
+      
   - title: Getting Started
     output: web
     folderitems:
@@ -33,10 +37,6 @@ entries:
       
     - title: Tags Overview
       url: /tags_overview.html
-      output: web
-      
-    - title: Wavefront API
-      url: /wavefront_api.html
       output: web
       
     - title: Tutorial - Getting Started
@@ -288,7 +288,7 @@ entries:
     folderitems:
       
     - title: Wavefront Integrations
-      url: /integrations_wavefront.html
+      url: /wavefront_integrations.html
       output: web
       
       subfolders:
@@ -332,7 +332,7 @@ entries:
             url: /integrations_log_data.html
             output: web
         
-          - title: NewRelic Integration
+          - title: New Relic Integration
             url: /integrations_newrelic.html
             output: web
         
@@ -368,35 +368,35 @@ entries:
             url: /integrations_dropwizard_metrics.html
             output: web
             
-      - title: Collectd Integrations
+      - title: collectd Integrations
         output: web
         subfolderitems:
           
-          - title: Collectd Integration
+          - title: collectd Integration
             url: /integrations_collectd.html
             output: web
             
-          - title: Apache Collectd Integration
+          - title: Apache collectd Integration
             url: /integrations_collectd_apache.html
             output: web
             
-          - title: Cassandra Collectd Integration
+          - title: Cassandra collectd Integration
             url: /integrations_collectd_cassandra.html
             output: web
             
-          - title: MySQL Collectd Integration
+          - title: MySQL collectd Integration
             url: /integrations_collectd_mysql.html
             output: web
             
-          - title: NGiNX Collectd Integration
+          - title: NGiNX collectd Integration
             url: /integrations_collectd_nginx.html
             output: web
             
-          - title: Redis Collectd Integration
+          - title: Redis collectd Integration
             url: /integrations_collectd_redis.html
             output: web
             
-          - title: ZooKeeper Collectd Integration
+          - title: ZooKeeper collectd Integration
             url: /integrations_collectd_zookeeper.html
             output: web
         

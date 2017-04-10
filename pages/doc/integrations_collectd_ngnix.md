@@ -1,5 +1,5 @@
 ---
-title: NGiNX Collectd Integration
+title: NGiNX collectd Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar

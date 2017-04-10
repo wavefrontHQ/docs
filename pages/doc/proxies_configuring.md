@@ -51,9 +51,9 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>buffer</td>
-<td>Location of buffer files for saving failed transmissions for retry. Default: <code>/var/spool/wavefront-proxy/buffer</code>.</td>
+<td markdown="span">Location of buffer files for saving failed transmissions for retry. Default: `/var/spool/wavefront-proxy/buffer`.</td>
 <td>A valid path on the local file system.</td>
-<td><code>/var/spool/wavefront-proxy/buffer</code></td>
+<td markdown="span">`/var/spool/wavefront-proxy/buffer`</td>
 <td>3.20</td>
 </tr>
 <tr>
@@ -101,7 +101,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>graphiteFormat</td>
-<td>Indexes of fields within your Graphite/collectd metric names that correspond to a hostname. For example, if your metrics have the format: collectd.prod.www04.cpu.loadavg.1m specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder (collectd.cpu.loadavg.1m) is treated as the metric name.</td>
+<td markdown="span">Indexes of fields within your Graphite/collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m` specify the 3rd and 2nd indexes `www04.prod` to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
 <td>A comma-separated list of indexes.</td>
 <td>3,2<br/>
 4,2,5<br/>
@@ -110,11 +110,12 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>graphiteDelimiters</td>
-<td>Characters that should be replaced by dots, in case they were escaped within Graphite/collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value 'web04_www', it is changed to 'web04.www'.</td>
+<td markdown="span">Characters that should be replaced by dots, in case they were escaped within Graphite/collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value `web04_www`, it is changed to `web04.www`.</td>
 <td>A concatenation of delimiter characters, without any separators.</td>
 <td>-</td>
 <td></td>
 </tr>
+<tr>
 <tr>
 <td>hostname</td>
 <td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-Proxy point rates, and so on.</td>
@@ -145,9 +146,9 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>idFile</td>
-<td>Location of the PID file for the wavefront-proxy process. Default: <code>~/.dshell/id</code>.</td>
+<td markdown="span">Location of the PID file for the wavefront-proxy process. Default: `~/.dshell/id`.</td>
 <td>A valid path on the local file system.</td>
-<td><code>/etc/wavefront/wavefront-proxy/.wavefront_id</code></td>
+<td markdown="span">`/etc/wavefront/wavefront-proxy/.wavefront_id`</td>
 <td></td>
 </tr>
 <tr>
@@ -158,8 +159,8 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td></td>
 </tr><tr>
 <td>logsIngestionConfigFile</td>
-<td>The file containing instructions for parsing log data into metrics.  See <a href="sending_log_data.html">Sending Log Data Metrics To Wavefront</a>.
-Default: <code>/etc/wavefront/wavefront-proxy/logsIngestion.yaml</code>.</td>
+<td markdown="span">The file containing instructions for parsing log data into metrics.  See <a href="sending_log_data.html">Sending Log Data Metrics To Wavefront</a>.
+Default: `/wavefront/wavefront-proxy/logsIngestion.yaml`.</td>
 <td>A valid path on the local file system.</td>
 <td></td>
 <td>4.1</td>
@@ -181,7 +182,7 @@ Default: 4242.</td>
 </tr>
 <tr>
 <td>prefix</td>
-<td>String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as 'cpu.loadavg.1m' is sent from the proxy to Wavefront as 'production.cpu.loadavg.1m'. You can include longer prefixes such as 'production.nyc.dc1', and so on. Default: none.</td>
+<td markdown="span">String to prepend before every metric name. For example, if you set prefix to `production`, a metric that is sent to the proxy as `cpu.loadavg.1m` is sent from the proxy to Wavefront as `production.cpu.loadavg.1m`. You can include longer prefixes such as `production.nyc.dc1`, and so on. Default: none.</td>
 <td>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.</td>
 <td>production
 production.nyc.dc1</td>
@@ -191,7 +192,7 @@ production.nyc.dc1</td>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: none.</td>
 <td>A valid path on the local file system.</td>
-<td><code>/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml</code></td>
+<td markdown="span">`/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml`</td>
 <td>4.1</td>
 </tr>
 <tr>

@@ -21,7 +21,7 @@ Wavefront documentation is organized into categories as follows:
 <tbody>
 <tr>
 <td>Overview</td>
-<td>Includes this documentation overview and an introduction to Wavefront.</td>
+<td>Includes this documentation overview, an introduction to Wavefront, and an overview of the Wavefront API.</td>
 </tr>
 <tr>
 <td>Getting Started</td>

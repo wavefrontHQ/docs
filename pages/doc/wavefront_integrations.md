@@ -4,8 +4,8 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 toc: false
-permalink: integrations_wavefront
-summary: Learn about the various types of integrations supported by Wavefront.
+permalink: wavefront_integrations
+summary: Learn about the integrations supported by Wavefront and jump to instructions for implementing an integration.
 ---
 
 <h2>Data Integrations</h2>

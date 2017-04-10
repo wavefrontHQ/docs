@@ -67,7 +67,7 @@ To temporarily change the text for a simple dashboard variable, access the Dashb
 
 ## List Dashboard Variables
 
-A *list dashboard variable* maps a variable label to a list of labels and values. They allow expert users to set a predefined list of a list of meaningful labels and values for other users to choose from. For example, let's assume that sources located in Availability Zone 1 are production and Availability Zone 2 are development. Instead of requiring a user to change the text from "tag=az-1" to "tag=az-2", you can set the labels to "Production" and "Development". This allows users to view the data they are interested in without necessarily needing to know the underlying information, such as source or metric names.
+A *list dashboard variable* maps a variable label to a list of labels and values. They allow expert users to set a predefined list of a list of meaningful labels and values for other users to choose from. For example, let's assume that sources located in Availability Zone 1 are production and Availability Zone 2 are development. Instead of requiring a user to change the text from `tag=az-1` to `tag=az-2`, you can set the labels to **Production** and **Development**. This allows users to view the data they are interested in without necessarily needing to know the underlying information, such as source or metric names.
 
 To create a list dashboard variable, select **Variable Type &gt; List**:
 

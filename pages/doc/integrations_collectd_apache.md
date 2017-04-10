@@ -1,5 +1,5 @@
 ---
-title: Apache Collectd Integration
+title: Apache collectd Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar

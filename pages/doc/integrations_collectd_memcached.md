@@ -1,5 +1,5 @@
 ---
-title: memcached Collectd Integration
+title: memcached collectd Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -7,7 +7,7 @@ permalink: integrations_collectd_memcached.html
 summary: Learn how to send memcached data collected by collectd to Wavefront.
 ---
 
-[memcached](https://memcached.org/) is a popular memory object cache system. See [Collectd memcached plugin documentation] (https://collectd.org/wiki/index.php/Plugin:memcached).
+[memcached](https://memcached.org/) is a popular memory object cache system. See [collectd memcached plugin documentation] (https://collectd.org/wiki/index.php/Plugin:memcached).
 
 
 ## Installation

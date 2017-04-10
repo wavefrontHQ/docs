@@ -22,6 +22,6 @@ This article gives an overview of how to install the proxy and introduces the in
 To send data to Wavefront, first set up the Wavefront proxy as described in [Installing Wavefront Proxies](proxies_installing).
  
 ## Add Integrations
-There are numerous pre-built integrations available for various data collection and monitoring tools. Some are Wavefront specific, and others rely on an existing integration between that tool and Graphite, which is straightforward since the Wavefront proxy natively accepts the Graphite and OpenTSDB data formats. To add an integration follow the instructions provided by [Wavefront Integrations](integrations_wavefront).
+There are numerous pre-built integrations available for various data collection and monitoring tools. Some are Wavefront specific, and others rely on an existing integration between that tool and Graphite, which is straightforward since the Wavefront proxy natively accepts the Graphite and OpenTSDB data formats. To add an integration, follow the instructions in [Wavefront Integrations](wavefront_integrations).
 
 {% include links.html %}
