@@ -1,8 +1,8 @@
 ---
-title: "Release Notes Pages"
-tagName: release_notes
+title: "Getting Started Pages"
+tagName: getting started
 search: exclude
-permalink: label_release_notes.html
+permalink: label_getting%20started.html
 sidebar: doc_sidebar
 folder: labels
 ---

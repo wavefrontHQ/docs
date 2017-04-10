@@ -498,11 +498,11 @@ entries:
     folderitems:
                 
       - title: Getting Started Pages
-        url: /label_getting_started.html
+        url: /label_getting%20started.html
         output: web
         
       - title: Release Notes Pages
-        url: /label_release_notes.html
+        url: /label_release%20notes.html
         output: web
 
       - title: Data Pages
@@ -514,7 +514,7 @@ entries:
         output: web
         
       - title: Query Language Pages
-        url: /label_query_language.html
+        url: /label_query%20language.html
         output: web
         
       - title: Dashboard Pages

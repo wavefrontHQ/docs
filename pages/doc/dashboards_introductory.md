@@ -1,7 +1,7 @@
 ---
 title: Introductory Dashboards
 keywords: dashboards
-tags: [dashboards, getting_started]
+tags: [dashboards, getting started]
 sidebar: doc_sidebar
 permalink: dashboards_introductory.html
 summary: Learn about the tutorial, example, and use case introductory dashboards available in your Wavefront instance.

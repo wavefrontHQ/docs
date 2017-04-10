@@ -1,7 +1,7 @@
 ---
 title: Query Wizard
 keywords: query language
-tags: [query_language, getting_started]
+tags: [query language, getting started]
 sidebar: doc_sidebar
 permalink: query_language_query_wizard.html
 summary: Learn how to get started with creating Wavefront Query Language expressions using Query Wizard.

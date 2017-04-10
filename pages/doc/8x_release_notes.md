@@ -1,7 +1,7 @@
 ---
 title: 8.x Release Notes
 keywords:
-tags: [release_notes]
+tags: [release notes]
 sidebar: doc_sidebar
 permalink: 8x_release_notes.html
 summary: Learn about new and updated features in Wavefront 8.x.

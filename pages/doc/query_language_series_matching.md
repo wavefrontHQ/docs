@@ -1,7 +1,7 @@
 ---
 title: Series Matching
 keywords: query language
-tags: [query_language]
+tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_series_matching.html
 summary: Learn how operators and functions affect the evaluation of Wavefront Query Language expressions.

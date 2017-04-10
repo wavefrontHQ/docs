@@ -1,13 +1,13 @@
 ---
 title: Tags Overview
-tags: [getting_started]
+tags: [getting started]
 sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to create and use Wavefront tags to speed up query display and work with Wavefront entities.
 ---
 ## What is a Tag?
 
-A tag is custom metadata that provides application-specific meaning to metrics and Wavefront entities: **alerts**, **dashboards**, **events**, and **sources**. Tags group together metrics and entities according to categories you define.
+A tag is custom metadata that provides application-specific meaning to metrics and Wavefront entities: alerts, dashboards, events, and sources. Tags group together metrics and entities according to categories you define.
 
 The primary use of tags is to limit the number metrics and entities you are querying or working with at once. Limiting
 the number of metrics reduces the time to run a query and the time to display the results. Limiting the number of entities reduces information overload.
@@ -20,12 +20,12 @@ This topic gives an overview of tags, decribes how to filter entities with tags,
 
 In queries, you can filter:
 
--   Metrics with **source** and **point** tags
--   Events with **alert** and **event** tags. In addition you can filter events with the **system** tags added by alerts: **severity**, **subtype,** and **type**.
+-   Metrics with source and point tags.
+-   Events with user-defined alert and event tags and system tags&mdash;severity, subtype, and type&mdash;added by alerts.
 
 ## Filtering Entities
 
-In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
+In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
 
 ## Tag Summary
 
@@ -58,12 +58,12 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 <tr>
 <td>event</td>
 <td markdown="span">events()<br />[Basic events() Queries](events_queries)</td>
-<td markdown="span">alerts - system tags<br />Wavefront UI and API - entity tags<br />[Managing Events](events_managing)</td>
+<td markdown="span">system tags - alerts<br /><br />entity tags - Wavefront UI and API<br />[Managing Events](events_managing)</td>
 </tr>
 <tr>
 <td>point</td>
 <td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format) and [Point Tags in Queries](query_language_point_tags)</td>
-<td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules)<br />
+<td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules)<br /><br />
 Telegraf agent<br />
 [Wavefront CLI](wavefront_cli)</td>
 </tr>
@@ -93,7 +93,7 @@ For a video overview, see [Tag Paths](https://wavefront-1.wistia.com/medias/ex41
 
 ## Entity Tags
 
-Entity tags are tags that apply to Wavefront entities: **alerts**, **dashboards**, **events**, and **sources**.
+Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
 
 ### Adding Entity Tags
 

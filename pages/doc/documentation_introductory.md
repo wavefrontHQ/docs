@@ -1,7 +1,7 @@
 ---
 title: Introductory Documentation
 keywords: dashboards
-tags: [getting_started]
+tags: [getting started]
 sidebar: doc_sidebar
 permalink: documentation_introductory.html
 summary: Learn about the documentation that can help get you up to speed on Wavefront.

@@ -1,7 +1,7 @@
 ---
 title: Charts
 keywords: getting started
-tags: [getting_started, charts]
+tags: [getting started, charts]
 sidebar: doc_sidebar
 permalink: charts.html
 summary: Learn about Wavefront chart types and chart configuration options. 

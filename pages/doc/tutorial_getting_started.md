@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Getting Started
-tags: [getting_started, dashboards, charts, alerts]
+tags: [getting started, dashboards, charts, alerts]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
 summary: Get started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. The tutorial is based on the sample metrics preloaded in your Wavefront account.

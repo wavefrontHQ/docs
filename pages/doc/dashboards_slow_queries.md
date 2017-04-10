@@ -1,7 +1,7 @@
 ---
 title: Understanding Slow Queries
 keywords: getting started
-tags: [query_language, dashboards]
+tags: [query language, dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_slow_queries.html
 summary: Learn how to display the Slow Query Dashboard page and use the information available in the dashboard to help you understand which and why queries take a long time to complete.

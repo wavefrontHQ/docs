@@ -1,7 +1,7 @@
 ---
 title: Using Statistical Functions to Detect Anomalies
 keywords: query language
-tags: [query_language]
+tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Learn how to use statistical functions in Wavefront Query Language expressions to detect anomalies.

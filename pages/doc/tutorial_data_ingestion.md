@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Getting Data into Wavefront
-tags: [getting_started, data, proxies, integrations]
+tags: [getting started, data, proxies, integrations]
 sidebar: doc_sidebar
 permalink: tutorial_data_ingestion.html
 summary: Learn about the Wavefront native data format.

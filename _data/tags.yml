@@ -1,5 +1,5 @@
 allowed-labels:
-  - getting_started
+  - getting started
   - administration
   - alerts
   - api
@@ -9,6 +9,6 @@ allowed-labels:
   - events
   - integrations
   - proxies
-  - query_language
+  - query language
   - news
-  - release_notes
+  - release notes

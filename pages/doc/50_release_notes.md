@@ -1,7 +1,7 @@
 ---
 title: Release Notes 5.0
 keywords:
-tags: [release_notes]
+tags: [release notes]
 sidebar: doc_sidebar
 permalink: 50_release_notes.html
 summary: Learn about new and updated features in Wavefront 5.0.

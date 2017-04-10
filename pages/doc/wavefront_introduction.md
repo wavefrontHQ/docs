@@ -1,6 +1,6 @@
 ---
 title: Introduction to Wavefront
-tags: [getting_started]
+tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about the Wavefront platform.

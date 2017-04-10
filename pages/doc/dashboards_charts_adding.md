@@ -1,7 +1,7 @@
 ---
 title: Adding a Chart to a Dashboard
 keywords: dashboards
-tags: [dashboards, getting_started]
+tags: [dashboards, getting started]
 sidebar: doc_sidebar
 permalink: dashboards_charts_adding.html
 summary: Learn how to add charts to dashboards.

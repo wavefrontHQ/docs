@@ -1,7 +1,7 @@
 ---
 title: Metadata Functions
 keywords: query language
-tags: [query_language]
+tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_metadata_functions.html
 summary: Learn how to use metadata functions in Wavefront Query Language expressions.

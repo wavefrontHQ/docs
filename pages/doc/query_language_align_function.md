@@ -1,7 +1,7 @@
 ---
 title: Summarize By and the align() Function
 keywords: query language
-tags: [query_language]
+tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_align_function.html
 summary: Learn the role of the align() function in Wavefront Query Language expressions.

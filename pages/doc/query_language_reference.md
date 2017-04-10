@@ -1,7 +1,7 @@
 ---
 title: Wavefront Query Language Quick Reference
 keywords: query language
-tags: [query_language]
+tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.

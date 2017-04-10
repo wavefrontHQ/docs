@@ -1,7 +1,7 @@
 ---
 title: Searching for Dashboards
 keywords: dashboards
-tags: [dashboards, getting_started]
+tags: [dashboards, getting started]
 sidebar: doc_sidebar
 permalink: dashboards_searching.html
 summary: Learn how to search for and filter dashboards.

@@ -1,7 +1,7 @@
 ---
 title: Wavefront API
 keywords: getting started
-tags: [getting_started]
+tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
 summary: Learn how to use Wavefront API.

@@ -1,8 +1,8 @@
 ---
 title: "Query Language Pages"
-tagName: query_language
+tagName: query language
 search: exclude
-permalink: label_query_language.html
+permalink: label_query%20language.html
 sidebar: doc_sidebar
 folder: labels
 ---

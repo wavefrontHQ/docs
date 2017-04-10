@@ -1,7 +1,7 @@
 ---
 title: Interacting with Dashboards and Charts
 keywords: dashboards
-tags: [dashboards, charts, getting_started]
+tags: [dashboards, charts, getting started]
 sidebar: doc_sidebar
 permalink: dashboards_interacting.html
 summary: Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and charts.

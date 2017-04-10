@@ -1,7 +1,7 @@
 ---
 title: Dashboards
 keywords: getting started
-tags: [getting_started, dashboards]
+tags: [getting started, dashboards]
 sidebar: doc_sidebar
 permalink: dashboards.html
 summary: Learn about Wavefront dashboards.
