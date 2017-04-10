@@ -4,7 +4,7 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn how to use Wavefront API.
+summary: Learn how to use the Wavefront API.
 ---
 
 Wavefront is fully API driven. This means that all interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront API. 
