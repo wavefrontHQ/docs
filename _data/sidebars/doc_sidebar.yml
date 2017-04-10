@@ -432,10 +432,6 @@ entries:
             url: /integrations_r.html
             output: web
         
-    - title: Title
-      url: /rendering_test.html
-      output: web
-      
   - title: Administration
     output: web
     folderitems:

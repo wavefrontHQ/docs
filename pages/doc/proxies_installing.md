@@ -57,7 +57,7 @@ You can manually install a Wavefront proxy .rpm or .deb package available at [Wa
 When the interactive configuration is complete, the Wavefront proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf` is updated with the input that you provided and the wavefront-proxy service is started.
 
 ## Installing Proxies on Multiple Hosts
-To install proxies on multiple hosts you can use Ansible. For details, see [Installing Proxies and Agents with Ansible]().
+To install proxies on multiple hosts you can use Ansible. For details, see [Installing Proxies and Agents with Ansible](proxies_installing_ansible).
 
 ## Running a Proxy in a Docker Container
 You can alternatively run a proxy in a Docker container. For details, see [Running a Wavefront Proxy in Docker](proxies_running_docker).

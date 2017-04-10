@@ -2,6 +2,7 @@
 title: Installing Wavefront Proxies with Ansible
 keywords:
 tags: [proxies]
+toc: false
 sidebar: doc_sidebar
 permalink: proxies_installing_ansible.html
 summary: Learn how to install Wavefront proxies using Ansible.

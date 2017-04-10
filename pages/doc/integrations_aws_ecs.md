@@ -6,13 +6,14 @@ sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
 summary: Learn how to send AWS ECS data to Wavefront.
 ---
-Amazon EC2 Container Service (ECS) is Amazon's Docker container orchestration system. From the Amazon ECS website:
+[Amazon EC2 Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
 ```quote
 Amazon EC2 Container Service (ECS) is a highly scalable, high performance container management service 
-that supports Docker containers and allows you to easily run applications on a managed cluster of Amazon 
-EC2 instances.
+that supports Docker containers and allows you to easily run applications on a managed cluster of 
+Amazon EC2 instances.
 ```
+
 This guide provides detailed steps on how to install and configure Wavefront's ECS integration. The integration provides the following:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
@@ -20,13 +21,13 @@ This guide provides detailed steps on how to install and configure Wavefront's E
  
 ## Requirements
 
-- Access to Amazon Web Services
+- Access to Amazon Web Services.
 - Access to a [Wavefront proxy](proxies_installing) - Preferably running in AWS or a place accessible to your ECS instances.
-- Wavefront AWS Integration - Parts of the ECS integration use CloudWatch metrics, which can be acquired by configuring the Wavefront AWS integration.
+- Wavefront AWS integration - Parts of the ECS integration use CloudWatch metrics, which can be acquired by configuring the Wavefront AWS integration.
  
 ## Configure AWS Integration
  
-If you have not already done so already, set up [Wavefront's AWS Integration](integrations_aws_metrics). This allows Wavefront to collect useful high-level metrics about ECS using the Amazon CloudWatch API.
+Set up [Wavefront's AWS Integration](integrations_aws_metrics). This allows Wavefront to collect useful high-level metrics about ECS using the Amazon CloudWatch API.
  
 ## Create Wavefront cAdvisor Task Definition
  
@@ -52,5 +53,9 @@ Wavefront maintains an image of [cAdvisor](integrations_cadvisor) that includes 
 1. In the **Placement Templates** drop-down under the Task Placement section, select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
   ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.
+
+After this, you should start seeing container metrics on the ECS dashboard within 1 to 2 minutes. You can browse for the metrics by looking for metrics prefixed with "cadvisor".
+
+![db aws ecs](images/db_aws_ecs.png)
 
 {% include links.html %}
