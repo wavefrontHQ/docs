@@ -7,7 +7,7 @@ permalink: users_managing.html
 summary: Learn how to add and remove users, set permissions, and set defaults for all new users.
 ---
 
-<div markdown="span" class="alert alert-info" role="alert">You must have [{{ include.entitymgmt }} Management permission](permissions_overview) to manage {{ include.entity }}. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">You must have [User Management permission](permissions_overview) to manage users. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible.</div>
 
 ## Accessing the Users and Permissions Pages
 You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"/> on the task bar and selecting your username. Your user profile displays. 
