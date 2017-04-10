@@ -9,8 +9,8 @@ Wavefront documentation is organized into categories as follows:
 
 <table style="width: 100%;">
 <colgroup>
-<col width="20%" />
-<col width="80%" />
+<col width="25%" />
+<col width="75%" />
 </colgroup>
 <thead>
 <tr>
