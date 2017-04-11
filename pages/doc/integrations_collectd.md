@@ -7,6 +7,8 @@ permalink: integrations_collectd.html
 summary: Learn how to send data collected by collectd to Wavefront.
 ---
 
+[collectd](https://collectd.org/) is a daemon that periodically collects system and application performance metrics. This topic describes how to send collected data to Wavefront using the Graphite plugin.
+
 ## Configure Wavefront Proxy to Listen for Graphite Data
 
 Follow the process described in [Graphite Integration](integrations_graphite) to enable the Wavefront proxy to listen for Graphite data.
@@ -44,5 +46,7 @@ The `Prefix` setting causes all the metrics that end up Wavefront to begin with 
  
 ## Running collectd
 Run collectd: `service collectd start`.
+
+You can alternatively use a Wavefront plugin that allows you to add point tags to metrics. For more information, see [Wavefront collectd plugin](https://github.com/wavefrontHQ/collectd-python-write-wavefront).
 
 {% include links.html %}

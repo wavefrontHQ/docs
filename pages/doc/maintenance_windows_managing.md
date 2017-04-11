@@ -55,3 +55,5 @@ You create an alert by:
 </tr>
 </tbody>
 </table>
+
+{% include links.html %}

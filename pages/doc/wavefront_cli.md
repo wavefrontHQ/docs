@@ -9,3 +9,5 @@ summary: Learn how to use the Wavefront CLI to install proxies and collector age
 
 {% include wavefront-cli/README.md %}
 
+{% include links.html %}
+
