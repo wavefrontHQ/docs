@@ -88,21 +88,22 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 ## Tags in Queries
 <ul>
 <li>Source tags are a way to group sources together. For example, if you have two sources, <span style="color:#d63a36;font-weight:bold">appServer15</span> and <span style="color:#d63a36;font-weight:bold">appServer16</span>, you could add the source tag <span style="color:#2770e8;font-weight:bold">app</span> to both of them to specify that they are both app servers. Source tags aid in querying by grouping sources together. You can query ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#2770e8;font-weight:bold">tag=app</span>) instead of ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#d63a36;font-weight:bold">source=appServer15</span> or <span style="color:#d63a36;font-weight:bold">source=appServer16</span>). Both queries yield the same result as long as the <span style="color:#d63a36;font-weight:bold">app</span> tag is added to <span style="color:#d63a36;font-weight:bold">source=appServer15</span> and <span style="color:#d63a36;font-weight:bold">source=appServer16</span>. You add source tags to sources in the Browse &gt; Sources page and through the API.</li>
-<li><span style="color:#3a0699;font-weight:bold">Point tags</span> are an additional way to describe metrics. An example of a point tag is <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>. Point tags are added to a point when points are ingested through the Wavefront proxy.</li>
+<li><span style="color:#3a0699;font-weight:bold">Point tags</span> are an additional way to describe metrics. An example of a point tag is <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>. Point tags are added to a point when points are ingested through the Wavefront proxy or a cloud integration.</li>
 <li>Example: To query a point <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, source <span style="color:#d63a36;font-weight:bold">app2</span>, and point tag <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>, specify ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#3a0699;font-weight:bold">region=us-west-2b </span>and <span style="color:#d63a36;font-weight:bold">source=app2</span>).</li></ul>
 
 ## Variables in Queries
 <ul>
-<li>Query line variables allow you to refer to a query line as a variable in a different query line within a chart. The query line variable name is based on the query line name. The query line name, which can be found directly to the left of the query field, is referenced in a separate query line as <span style="color:#008a09;font-weight:bold">${queryLineName}</span>. For example, if you have a query line named queryLine1 with ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) as the <span style="color:#3a0699;font-weight:bold">expression</span>, you can enter <span style="color:#008a09;font-weight:bold">${queryLine1}</span> in a separate query field in that single chart to reference ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>). If a query line and dashboard variable share the same name, then the query line variable overrides the dashboard variable for that chart. The query line being referenced must be a complete expression.</li>
+<li>A query line variable allows you to refer to a query line as a variable in a different query line within a chart. The query line variable name is based on the query line name. The query line name, which can be found directly to the left of the query field, is referenced in a separate query line as <span style="color:#008a09;font-weight:bold">${queryLineName}</span>. For example, if you have a query line named queryLine1 with ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) as the <span style="color:#3a0699;font-weight:bold">expression</span>, you can enter <span style="color:#008a09;font-weight:bold">${queryLine1}</span> in a separate query field in that single chart to reference ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>). If a query line and dashboard variable share the same name, then the query line variable overrides the dashboard variable for that chart. The query line being referenced must be a complete expression.</li>
 
-<li>Aliases define any ts() expression as an alias within that single query line using a SQL-style as alias. The syntax of an alias is: (<span style="color:#3a0699;font-weight:bold">expression</span> as <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>). Assuming you use (<span style="color:#3a0699;font-weight:bold">expression</span> as <span style="color:#008a09;font-weight:bold">myAlias</span>) when defining the alias, you reference this alias as $myAlias. You can use $myAlias multiple times in that query line, and define multiple aliases within a query line. We recommend using alias names that are three letters or longer; specifically, you can't use the SI prefixes (such as k, G, or T) as alias names, and numeric characters are allowed only at the end of the alias name ($test123 is ok, but not $1test or $test4test). Example: (ts(requests.latency) as test - mavg(120m, $test)) / sqrt(mvar(120m, $test)).</li>
+<li>An alias defines any ts() expression as an alias within that single query line using a SQL-style "as" alias. The syntax of an alias is: <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>. If you define <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">myAlias</span>, you reference the alias as <span style="color:#008a09;font-weight:bold">$myAlias</span>. You can use <span style="color:#008a09;font-weight:bold">$myAlias</span> multiple times in that query line, and define multiple aliases within a query line. Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">test</span>, used as follows: mavg(120m, <span style="color:#008a09;font-weight:bold">$test</span>)) / sqrt(mvar(120m, <span style="color:#008a09;font-weight:bold">$test</span>)). We recommend using alias names that are three letters or longer; specifically, you can't use the SI prefixes (such as k, G, or T) as alias names, and numeric characters are allowed only at the end of the alias name ($test123 is ok, but not $1test or $test4test). </li>
 
-<li>Dashboard variables are defined for a dashboard and then used within any query line in every chart associated with that dashboard. Dashboard variables can replace any string of text rather than a complete expression like query line variables and aliases. If you define dashvar at the dashboard level, you can then refer to <span style="color:#008a09;font-weight:bold">${dashvar}</span> within any query line of any chart of that dashboard. You can use both aliases, query line variables, and dashboard variables in the same line; indeed, you can even use the same variable name for a dashboard and an alias (though we don't recommend it). See <a href="dashboard_variables.html">Dashboard Variables</a> for additional information about all 3 types of dashboard variables (simple, list, dynamic).</li></ul>
+<li>A dashboard variable is defined for a dashboard and then can be used within any query line in every chart associated with that dashboard. A dashboard variable can replace any string of text, as opposed to a query line variable and alias which must be a complete expression. If you define <span style="color:#008a09;font-weight:bold">dashvar</span> in a dashboard, you can then refer to <span style="color:#008a09;font-weight:bold">${dashvar}</span> within any query line of any chart in that dashboard. You can use aliases, query line variables, and dashboard variables in the same query line; indeed, you can even use the same variable name for a dashboard and an alias (though we don't recommend it). See <a href="dashboards_variables.html">Dashboard Variables</a> for additional information.</li></ul>
 
 <span id="aggregate"></span>
 
 ## Aggregate and Raw Aggregate Functions
-Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. Standard aggregate functions first interpolate the points of the underlying set of series, and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets.
+Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. Standard aggregate functions first interpolate the points of the underlying set of series, and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions).
+
 
 <table style="width: 100%;">
 <colgroup>
@@ -117,76 +118,76 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 </thead>
 <tbody>
 <tr>
-<td markdown="span">sum(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">sum(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the sum of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated.</td>
 </tr>
 <tr>
-<td markdown="span">rawsum(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawsum(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the sum of all series.</td>
 </tr>
 <tr>
-<td markdown="span">avg(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">avg(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the average of all series.</td>
 </tr>
 <tr>
-<td markdown="span">rawavg(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawavg(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the average of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated.</td>
 </tr>
 <tr>
-<td markdown="span">min(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">min(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the lowest value of all series. </td>
 </tr>
 <tr>
-<td markdown="span">rawmin(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawmin(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the lowest value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated.</td>
 </tr>
 <tr>
-<td markdown="span">max(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">max(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the highest value of all series. </td>
 </tr>
 <tr>
-<td markdown="span">rawmax(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawmax(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the highest value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated.</td>
 </tr>
 <tr>
-<td markdown="span">count(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">count(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
 <td>Returns the number of series that are reporting. </td>
 </tr>
 <tr>
-<td markdown="span">rawcount(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawcount(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the number of series that are reporting. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated.</td>
 </tr>
 <tr>
-<td markdown="span">variance(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">variance(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the variance of all series. </td>
 </tr>
 <tr>
-<td markdown="span">rawvariance(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawvariance(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the variance of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated.</td>
 </tr>
 <tr>
-<td markdown="span">percentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">percentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the <span style="color:#d63a36;font-weight:bold">percentileValue</span> value of all series. Example: If <span style="color:#d63a36;font-weight:bold">percentileValue is</span> 99, returns the 99th percentile value of all series.</td>
 </tr>
 <tr>
-<td markdown="span">rawpercentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
+<td markdown="span">rawpercentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the <span style="color:#d63a36;font-weight:bold">percentileValue</span> value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, it will be interpolated. Example: If <span style="color:#d63a36;font-weight:bold">percentileValue</span> is 99, returns the 99th percentile value of all series.</td>
 </tr>
 </tbody>
 </table>
 
-See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions).
 
 ### Grouping
 
-<span  markdown="span">When aggregating, to group by metrics, sources, source tags, point tags, or point tag key, use the [, metrics|sources|sourceTags|tags|pointTags|<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>]</span> group by clause. The clause is applied after the ts() expression, separated by a comma. Examples:
+When aggregating, to group by metrics, sources, source tags, all point tags keys, or a specific point tag key, use the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>\] group by clause. The clause is applied after the ts() expression, separated by a comma. 
 
--   Group by metrics: sum(ts(cpu.loadavg.1m), metrics)
--   Group by sources: sum(ts(cpu.loadavg.1m), sources)
--   Group by source tags: sum(ts(cpu.loadavg.1m), sourceTags)
--   Group by all available point tag keys: sum(ts(cpu.loadavg.1m), tags) or sum(ts(cpu.loadavg.1m), pointTags)
--   Group by the region point tag key:sum(ts(cpu.loadavg.1m), region)
+### Examples
 
+-   Group by metrics: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **metrics**)
+-   Group by sources: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **sources**)
+-   Group by source tags: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **sourceTags**)
+-   Group by all available point tag keys: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **tags**) or sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **pointTags**)
+-   Group by the <span style="color:#3a0699;font-weight:bold">region</span> point tag key: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), <span style="color:#3a0699;font-weight:bold">region</span>)
 
 <span id="filter"></span>
 
@@ -342,6 +343,10 @@ See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions
 <span id="moving"></span>
 
 ## Moving Window Time Functions
+
+Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends).
+
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -414,7 +419,6 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 </tbody>
 </table>
 
-See [Using Tumbling Windows to Highlight Trends](query_language_tumbling_windows_trends).
 
 ## Conditional Functions
 <table style="width: 100%;">
@@ -468,6 +472,8 @@ Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts
 
 ## Missing Data Functions
 
+Missing data functions allow you to interpolate missing data with points based on other points in a series.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -481,8 +487,8 @@ Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts
 </tr>
 </thead>
 <tr>
-<td markdown="span">default([<span style="color:#757575;font-weight:bold">timeWindow,</span>][<span style="color:#bf5700;font-weight:bold">delayTime,</span>]defaultValue,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with defaultValue (whether that's a constant or an expression). The optional argument (<span style="color:#757575;font-weight:bold">timeWindow</span>) fills in that period of time after each existing point (for example, <span style="color:#757575;font-weight:bold">5m</span> for 5 minutes); without this argument, all gaps are filled in. The optional argument (<span style="color:#bf5700;font-weight:bold">delayTime</span>) refers to the amount of time that must pass without a reported value in order for the default value to be applied.</td>
+<td markdown="span">default([<span style="color:#757575;font-weight:bold">timeWindow,</span>][<span style="color:#bf5700;font-weight:bold">delayTime,</span>]<span style="font-weight:bold">defaultValue</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with <span style="font-weight:bold">defaultValue</span> (whether that's a constant or an expression). The optional argument (<span style="color:#757575;font-weight:bold">timeWindow</span>) fills in that period of time after each existing point (for example, <span style="color:#757575;font-weight:bold">5m</span> for 5 minutes); without this argument, all gaps are filled in. The optional argument (<span style="color:#bf5700;font-weight:bold">delayTime</span>) refers to the amount of time that must pass without a reported value in order for the default value to be applied.</td>
 </tr>
 <tr>
 <td markdown="span">last([<span style="color:#757575;font-weight:bold">timeWindow,</span>]<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -500,10 +506,19 @@ Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts
 </table>
 
 ## Metadata Functions
+
+Metadata functions extract information from an existing set of data to rename a metric or source, or create a new synthetic point tag. There are three ways to formulate the alias:
+
+- Node index - Extract a string component based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. Components are identified by the default delimiter "." or a delimiter specified in <span style="color:#757575;font-weight:bold">delimiterDefinition</span>.
+- Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
+- String substitution - 
+
+For further information, see [Metadata Functions](query_language_metadata_functions).
+
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr>
@@ -513,33 +528,33 @@ Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts
 </thead>
 <tbody>
 <tr>
-<td markdown="span">aliasMetric(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>])</td>
-<td>Extracts a string from a <span style="color:#bf5700;font-weight:bold">metric</span>, <span style="color:#bf5700;font-weight:bold">source</span>, or <span style="color:#bf5700;font-weight:bold">point tag value</span> from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the metric in <span style="color:#3a0699;font-weight:bold">expression</span>. In the example below, the extracted string is based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. For example, using the metric cpu.loadavg.1m, to get loadavg, you would use the argument <span style="color:#238567;font-weight:bold">1</span> for <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. To get cpu, you would use the argument <span style="color:#238567;font-weight:bold">0</span>. By default, the <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> assumes dot (.) delimiters in the metric name. If the delimiter is a character other than a dot, use the optional <span style="color:#757575;font-weight:bold">delimiterDefinition</span>. For example, if the metric name is cpu-loadavg-1m, then use the <span style="color:#757575;font-weight:bold">delimiterDefinition</span> <span style="color:#757575;font-weight:bold">,&quot;-&quot;</span>. Additionally, you can replace <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>/<span style="color:#757575;font-weight:bold">delimiterDefinition</span> with a regular expression.
-Example:
-<ul>
-<li>aliasMetric(ts(<span style="color:#3a0699;font-weight:bold">cpu.load.1m, source,</span> <span style="color:#238567;font-weight:bold">1</span>).</li>
-<li>aliasMetric(ts(<span style="color:#3a0699;font-weight:bold">database-storage-disk1, source,</span> <span style="color:#238567;font-weight:bold">2</span>,-).</li>
-</ul>
-</td>
+<td markdown="span">aliasMetric(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
+<td>Extracts a string from a <span style="color:#bf5700;font-weight:bold">metric</span>, <span style="color:#bf5700;font-weight:bold">source</span>, or <span style="color:#bf5700;font-weight:bold">point tag value</span> from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the metric in <span style="color:#3a0699;font-weight:bold">expression</span>. If <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span> is not explicitly entered, then the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
 </tr>
 <tr>
-<td markdown="span">aliasSource(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>])</td>
-<td markdown="span">Extracts a string from a <span style="color:#bf5700;font-weight:bold">metric</span>, <span style="color:#bf5700;font-weight:bold">source</span>, or <span style="color:#bf5700;font-weight:bold">point tag value</span> from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the source in <span style="color:#3a0699;font-weight:bold">expression</span>. In the example above, the extracted string is based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. For example, using the source host1.app.az, to get app, you would use the argument <span style="color:#238567;font-weight:bold">1</span> for <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. To get host1, you would use the argument <span style="color:#238567;font-weight:bold">0</span>. By default, <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> assumes dot (.) delimiters in the source name. If the delimiter is a character other than a dot, use the optional <span style="color:#757575;font-weight:bold">delimiterDefinition</span>. For example, if the source is host1-app-az, then use the <span style="color:#757575;font-weight:bold">delimiterDefinition</span> <span style="color:#757575;font-weight:bold">,&quot;-&quot;</span>. <span>Additionally, you can replace <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>/<span style="color:#757575;font-weight:bold">delimiterDefinition</span> with a regular expression.</td>
+<td markdown="span">aliasSource(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
+<td markdown="span">Extracts a string from a <span style="color:#bf5700;font-weight:bold">metric</span>, <span style="color:#bf5700;font-weight:bold">source</span>, or <span style="color:#bf5700;font-weight:bold">point tag value</span> from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the source in <span style="color:#3a0699;font-weight:bold">expression</span>. If <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span> is not explicitly entered, then the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
 </tr>
 <tr>
-<td markdown="span">taggify(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, <span style="color:#08838c;font-weight:bold">&lt;newPointTagKey&gt;</span>, <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [ <span style="color:#757575;font-weight:bold">,delimiterDefinition</span>])</td>
-<td markdown="span">Extracts a string from a <span style=" color:#bf5700;font-weight:bold">metric</span>, <span style=" color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;font-weight:bold">point tag value</span> <span>from the result of <span style=" color:#3a0699;font-weight:bold">expression</span>, and uses that extracted <span>string</span> to create a synthetic point tag. In the example above, the extracted string is based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. For example, using the point tag microservice.app, to get app, you would use the argument <span style="color:#238567;font-weight:bold">1</span> for <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. To get microservice, you would use the argument <span style="color:#238567;font-weight:bold">0</span>. By default, <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> assumes dot (.) delimiters in the point tag name. If the delimiter is a character other than a dot, use the optional <span style="color:#757575;font-weight:bold">delimiterDefinition</span>. For example, if the tag name is microservice-app, then use the <span style="color:#757575;font-weight:bold">delimiterDefinition</span> <span style="color:#757575;font-weight:bold">,&quot;-&quot;</span>. <span>Additionally, you can replace <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>/<span style="color:#757575;font-weight:bold">delimiterDefinition</span> with a regular expression.</td>
+<td markdown="span">taggify(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, <span style="color:#08838c;font-weight:bold">&lt;newPointTagKey&gt;</span>, [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
+<td markdown="span">Extracts a string from a <span style=" color:#bf5700;font-weight:bold">metric</span>, <span style="
+color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;font-weight:bold">point tag value</span>
+<span>from the result of <span style=" color:#3a0699;font-weight:bold">expression</span>, and uses that extracted
+<span>string</span> to create a synthetic point tag.</td>
 </tr>
 </tbody>
 </table>
 
-See [Metadata Functions](query_language_metadata_functions).
+### Example
+
+In aliasMetric(ts(<span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span>, <span style="color:#bf5700;font-weight:bold">source</span>, <span style="color:#238567;font-weight:bold">1</span>)), the extracted string is selected by <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. The metric has 3 components; setting <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> to <span style="color:#238567;font-weight:bold">1</span> extracts the second component&mdash;<span style="font-weight:bold">loadavg</span>&mdash;from the metric <span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span>. If the metric name uses the "-" delimiter: <span style="color:#3a0699;font-weight:bold">cpu-loadavg-1m</span>, set <span style="color:#757575;font-weight:bold">delimiterDefinition</span> to <span style="color:#757575;font-weight:bold">&quot;-&quot;</span>.
+
 
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr>
@@ -553,7 +568,7 @@ See [Metadata Functions](query_language_metadata_functions).
 <td>Returns the square root of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
 </tr>
 <tr>
-<td markdown="span">pow(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">expression</span><span style="font-weight:bold">[, inner]</span>)</td>
+<td markdown="span">pow(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">expression</span>[, inner])</td>
 <td>Raises <span style="color:#3a0699;font-weight:bold">expression</span> to the power of <span style=" color:#bf4b89;font-weight:bold">expression</span>. Wavefront does not support imaginary numbers, so pow(-1, 0.5) returns no data.</td>
 </tr>
 <tr>
@@ -573,13 +588,17 @@ See [Metadata Functions](query_language_metadata_functions).
 <td>Convert radians to degrees, and vice versa.</td>
 </tr>
 <tr>
-<td>sin(<span style="color:#3a0699;font-weight:bold">expression</span>),cos(<span style="color:#3a0699;font-weight:bold">expression</span>),tan(<span style="color:#3a0699;font-weight:bold">expression</span>), asin(<span style="color:#3a0699;font-weight:bold">expression</span>),acos(<span style="color:#3a0699;font-weight:bold">expression</span>),atan(<span style="color:#3a0699;font-weight:bold">expression</span>),atan2(<span style="color:#3a0699;font-weight:bold">expression</span>), sinh(<span style="color:#3a0699;font-weight:bold">expression</span>), cosh(<span style="color:#3a0699;font-weight:bold">expression</span>), tanh(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>sin(<span style="color:#3a0699;font-weight:bold">expression</span>),cos(<span style="color:#3a0699;font-weight:bold">expression</span>),tan(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>asin(<span style="color:#3a0699;font-weight:bold">expression</span>),acos(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>atan(<span style="color:#3a0699;font-weight:bold">expression</span>),atan2(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>sinh(<span style="color:#3a0699;font-weight:bold">expression</span>),cosh(<span style="color:#3a0699;font-weight:bold">expression</span>),tanh(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Performs the specified trigonometric function on <span style="color:#3a0699;font-weight:bold">expression</span> interpreted in radians.</td>
 </tr>
 </tbody>
 </table>
 
 ## Event Functions
+
+Event functions are used to [display events in charts](charts_events_displaying) and perform conversions on events sets.
+For further information, see [Basic events() Queries](events_queries) and [Advanced events() Queries](events_queries_advanced).
+
 
 <table style="width: 100%;">
 <colgroup>
@@ -647,9 +666,11 @@ See [Metadata Functions](query_language_metadata_functions).
 </tbody>
 </table>
 
-Example: events(type=alert, name=&quot;disk space is low&quot;, alertTag=MicroService.App1.\*) 
+### Example 
 
-See [Basic events() Queries](events_queries) and [Advanced events() Queries](events_queries_advanced).
+```
+events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
+```
 
 <a name="event_filters"></a>
 
@@ -673,7 +694,7 @@ See [Basic events() Queries](events_queries) and [Advanced events() Queries](eve
 <tbody>
 <tr>
 <td>collect(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>, <span style="color:#3a0699;font-weight:bold">expression3</span>, ...)</td>
-<td>Returns two or more ts() expressions combined into a single ts() expression. Each expression includes an synthetic collect_&lt;number&gt; point tag, where &lt;number&gt; is the number of expressions.</td>
+<td>Returns a ts() expression that is the combination of two or more ts() expressions. The returned expression includes a synthetic collect_&lt;number&gt; point tag, where &lt;number&gt; is the number of input expressions.</td>
 </tr>
 <tr>
 <td>exists(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -701,8 +722,10 @@ See [Basic events() Queries](events_queries) and [Advanced events() Queries](eve
 ## Troubleshooting
 
 <table style="width: 100%;">
-<tbody>
+<thead>
 <tr><th width="33%">Error</th><th width="34%">Resolution</th><th width="33%">Resolution</th></tr>
+</thead>
+<tbody>
 <tr>
 <td>After entering a query expression the following error displays: <em>Query syntax error: Missing expression argument.</em></td>
 <td>An <span style="color:#3a0699;font-weight:bold">expression</span> argument to a function is not well-formed.</td>

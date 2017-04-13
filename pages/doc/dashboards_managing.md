@@ -159,8 +159,8 @@ While deleting and cloning a chart is available only when a dashboard is in edit
 
 To customize the placement of charts when a dashboard is in edit mode:
 
-1.  Hover over a chart, left-click your mouse, and hold.
-2.  Drag the chart to its new position on the dashboard. You can place up to four charts in a row. Keep in mind that the more charts in a row, the smaller each chart will be. Smaller charts in each row also affect the number of point buckets and amount of time represented by each point bucket. You can move a chart to a new row by dragging a chart over an <i class="fa-plus-circle fa"/> Add New Chart box.
+1.  Hover over a chart, left-click your mouse, and hold. 
+1.  When the cursor changes to <i class="fa-arrows fa"/>, drag the chart to its new position on the dashboard. You can place up to four charts in a row. Keep in mind that the more charts in a row, the smaller each chart will be. Smaller charts in each row also affect the number of point buckets and amount of time represented by each point bucket. You can move a chart to a new row by dragging a chart over an <i class="fa-plus-circle fa"/> Add New Chart box.
 3.  Save the dashboard.
 
 {% include links.html %}

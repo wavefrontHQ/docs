@@ -16,7 +16,7 @@ All Wavefront users can select and temporarily alter the value of a dashboard va
 
 ## Accessing Dashboard Variables
 
-To access the set of dashboard variables associated with a dashboard, click the <i style="color:#777777" class="fa-superscript fa"/> icon in the dashboard icon group at the far right of the task bar ![db_actions.png](images/db_actions.png#inline).
+To access the set of dashboard variables associated with a dashboard, click the <i class="fa-superscript fa" style="color:#777777" /> icon in the dashboard icon group at the far right of the task bar ![db_actions.png](images/db_actions.png#inline).
 
 The following shows a simple variable, which consists of a label (**Zones**), name (**az**), and value (**tag=az-3 or source=app-3**). The label should ideally provide some indication about what values the variable represents. You view the variable name by hovering over the label.
 

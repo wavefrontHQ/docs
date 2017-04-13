@@ -1,9 +1,9 @@
 ---
-title: Using Tumbling Windows to Highlight Trends
+title: Using Moving and Tumbling Windows to Highlight Trends
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
-permalink: query_language_tumbling_windows_trends.html
+permalink: query_language_windows_trends.html
 summary: Learn how to use moving window functions in Wavefront Query Language expressions to highlight trends.
 ---
 

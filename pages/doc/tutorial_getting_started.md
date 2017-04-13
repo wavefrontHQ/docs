@@ -8,22 +8,23 @@ summary: Get started with navigating Wavefront, building Wavefront dashboards an
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes a set of introductory dashboards built using the sample metrics. We'll start by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes a set of introductory dashboards built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
-1. Log into Wavefront. The Intro:Home dashboard displays. Review the dashboard contents.
-1. Select **Dashboards > All Dashboards**.
+1. Log into Wavefront. For many users the Intro:Home dashboard displays by default. If so, review the dashboard contents now.
+1. To get further acquainted with Wavefront basics, we'll look at a few other Wavefront dashboards. Select **Dashboards > All Dashboards**.
 1. In the Tag Paths section of the filter bar on the left, expand the **wavefront** node and click the **wavefront.tutorial** tag.
 1. Click each dashboard and review:
-  - Intro: Getting Started with Wavefront Query Language
-  - Intro: Dashboard Basics: Chart Types
+  - Intro: Home - (if you didn't already review it in step 1.)
+  - Intro: Getting Started with Wavefront Query Language - gives an overview of how to construct metrics queries.
+  - Intro: Dashboard Basics: Chart Types - describes the different ways of displaying metrics.
 
-1. The introductory dashboards all use sample metrics. View the sample metrics:
+1. The introductory dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using t:
     1. Select **Browse > Metrics**.
-    1. In the Metrics field type **sample**. Click the **~sample.** folder. The sample metrics categories display:
+    1. In the Metrics field, type **sample**. Click the **~sample.** folder. The sample metrics categories display:
 
        ![sample_metrics](images/sample_metrics.png)
 
-    1. Optionally click into a folder and keep clicking until you see a bar chart icon <i class="fa fa-bar-chart"/> representing a metric.
+    1. Optionally click into a folder and keep clicking until you see a bar chart icon <i class="fa fa-bar-chart"/> representing a metric. This is a quick default view of that metric. In the next section we will see how to create your own charts for metrics.
     1. Click the icon to display a chart of the metric.
  
 ## Create Dashboards and Charts
@@ -36,10 +37,10 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
 
         ![sample_cluster](images/sample_cluster.png)
 
-        The dashboard defines two variables—Availability Zone (az) and Environment (env)—that can be used in queries to filter metrics for specific classes of sources.
+        The dashboard defines two variables, which you can see at the top of the dashboard&mdash;Availability Zone (az) and Environment (env)&mdash;. These variables can be used in queries to filter metrics for specific classes of sources.
 
-1.  Open a chart in the Intro: Sample Cluster Metrics dashboard:
-    1. Click the **App Servers** button to jump to the App Servers section:
+1.  Open a chart in the Intro: Sample Cluster Metrics dashboard. 
+    1. The Intro: Sample Cluster Metrics dashboard is organized into sections. Click the **App Servers** button to jump to the App Servers section:
 
        ![app_servers](images/app_servers.png)
 
@@ -54,7 +55,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. Click **Create Dashboard**.
     1. In the URL field, type **app-server-dashboard**.
     1. In the Name field, type **App Server Dashboard**.
-    1. Click **Create**.
+    1. Click **Create**. You have now created your first dashboard and are placed in edit mode. The variables have also been included in your new dashboard because they are used in the chart. Now let's make some edits.
 1.  Edit App Server Dashboard:
     1. Click the <i class="fa fa-superscript" /> icon at the top right to close the dashboard variables editor.
     1. Click **Incoming Chart** at the top left and type **Request Metrics**.
@@ -62,12 +63,12 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. Click the **Requests** title at the top right of the chart.
     1. In the Requests query field delete **az=${az}, env=${env}** and type **env**. Select **env=** and then **production** from the autocomplete dropdown. Press **Enter** or **Return**. The chart displays production application servers in all availability zones.
     1. Click **Accept**.
-1.  Add another chart.
+1.  Now let's create our first chart from scratch:
     1. Click <i class="fa fa-plus-circle"/> Add New Chart.
     1. In the New Query field, type **~sample.requests.**. 
     1. Choose **latency** from the autocomplete drop-down and press **Enter** or **Return**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency (request latency)** metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
     1. Type **", env=production"** after latency. This filter selects sources in the production environment.
-    1. Type **"mmax(10m,"** before ts and **")"** at the end. This function sets the value to the maximum of the metric over a 10 minute window, reducing noise in the signal and focusing attention on the more interesting metric maximum latency.
+    1. Type **"mmax(10m,"** before ts and **")"** at the end. This function sets the value to the maximum of the metric over a 10 minute window, reducing noise in the signal and focusing attention on the more interesting metric maximum latency. This is an example of the one of the many functions available in Wavefront to analyze your metrics.
     1. In the Name field, replace New Chart with **Request Latencies**.
     1. Click **Accept**.
 1. Hover over the chart and press and hold the left mouse button. When the cursor changes to <i class="fa fa-arrows"/>,  drag the chart to the right of the Requests chart and release the mouse button. The two charts now share the same row.
@@ -76,6 +77,9 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
    ![request_metrics](images/request_metrics.png)
  
 ## Create an Alert
+
+In this section we create an alert that fires when request latency reaches a certain threshold. In Wavefront, one way to create alerts is directly from a chart. We will use that approach here.
+
 1. In App Server Dashboard, click the Request Latencies chart title to open the chart.
 1. Hover over the New Query field. The Create Alert link displays.
 
@@ -95,12 +99,12 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
   
     ![alert_email](images/alert_email.png)
    
-    In addition, as alerts fire and resolve, icons that identify these events are added to the chart's X-axis:
+    In addition, as alerts fire and resolve, events are created in Wavefront. You can also add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying) that are added to the Request Latencies chart's X-axis:
   
     ![event icons](images/event_icons.png)
 
-## Explore Your Data in Wavefront
-Now that you are acquainted with the basics of Wavefront features and the UI, you are ready to start investigating your data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial: Getting Data into Wavefront](tutorial_data_ingestion) to get started.
+## Next Steps
+Now that you are acquainted with the basics of Wavefront features and the UI, you are ready to start investigating your data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial - Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion) or [Tutorial - Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion) to get started.
 
 
 {% include links.html %}

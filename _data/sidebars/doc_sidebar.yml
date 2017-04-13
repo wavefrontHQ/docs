@@ -43,8 +43,12 @@ entries:
       url: /tutorial_getting_started.html
       output: web
       
-    - title: Tutorial - Getting Data into Wavefront
-      url: /tutorial_data_ingestion.html
+    - title: Tutorial - Getting Amazon Web Services Data into Wavefront
+      url: /tutorial_aws_data_ingestion.html
+      output: web
+      
+    - title: Tutorial - Getting Host, Application, and Custom Data into Wavefront
+      url: /tutorial_proxy_data_ingestion.html
       output: web
       
   - title: Release Notes
@@ -171,8 +175,8 @@ entries:
       url: /query_language_align_function.html
       output: web
 
-    - title: Using Tumbling Windows to Highlight Trends
-      url: /query_language_tumbling_windows_trends.html
+    - title: Using Moving and Tumbling Windows to Highlight Trends
+      url: /query_language_windows_trends.html
       output: web
 
     - title: Understanding Slow Queries
