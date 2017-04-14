@@ -33,12 +33,12 @@ Before metrics can begin streaming to Wavefront from a host, application, or ser
     1. Click **Create**. A dashboard containing charts of each of the CPU metrics displays.
  1. In the time bar, click 10m: ![10m](images/10m.png#inline). The Telegraf CPU dashboard displays CPU metrics. If you hover over the bottom chart, the legend displays the `cpu.usage.user` metric for each core, in this case cpu0 and cpu1, and cpu.total.
 
-## Next Steps
 
-After you have data flowing into Wavefront, see [Tutorial: Getting Started](tutorial_getting_started) to learn how to develop charts and dashboards to visualize your data and alerts that notify you when anomalous values occur.
+ ## Next Steps
 
-Within the Wavefront application, you can view the [Introductory Dashboards​](dashboards_introductory) to learn more about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains. 
-
-The [Introductory Documentation](documentation_introductory) is a list of documents for delving further into Wavefront.
+ After you have data flowing into Wavefront, see [Tutorial: Getting Started](tutorial_getting_started) to learn how to
+ develop charts and dashboards to visualize your data and alerts that notify you when anomalous values occur.
+ 
+{% include shared/tutorial_next_steps.html %}
 
 {% include links.html %}

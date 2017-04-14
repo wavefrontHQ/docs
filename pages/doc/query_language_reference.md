@@ -1,6 +1,6 @@
 ---
 title: Wavefront Query Language Quick Reference
-keywords: query language
+keywords: query language, queries, functions, expressions, operators, variables, aggregations, conditional, rounding, missing data, metadata, mathematical, event
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_reference.html
@@ -511,7 +511,7 @@ Metadata functions extract information from an existing set of data to rename a 
 
 - Node index - Extract a string component based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. Components are identified by the default delimiter "." or a delimiter specified in <span style="color:#757575;font-weight:bold">delimiterDefinition</span>.
 - Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
-- String substitution - 
+- String substitution - Replace a metric or source in an expression with a replacement string.
 
 For further information, see [Metadata Functions](query_language_metadata_functions).
 
@@ -545,10 +545,11 @@ color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;fo
 </tbody>
 </table>
 
-### Example
+### Examples
 
-In aliasMetric(ts(<span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span>, <span style="color:#bf5700;font-weight:bold">source</span>, <span style="color:#238567;font-weight:bold">1</span>)), the extracted string is selected by <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. The metric has 3 components; setting <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> to <span style="color:#238567;font-weight:bold">1</span> extracts the second component&mdash;<span style="font-weight:bold">loadavg</span>&mdash;from the metric <span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span>. If the metric name uses the "-" delimiter: <span style="color:#3a0699;font-weight:bold">cpu-loadavg-1m</span>, set <span style="color:#757575;font-weight:bold">delimiterDefinition</span> to <span style="color:#757575;font-weight:bold">&quot;-&quot;</span>.
-
+- Node index - aliasMetric(ts(<span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span>, <span style="color:#bf5700;font-weight:bold">source</span>, <span style="color:#238567;font-weight:bold">1</span>)), the extracted string is selected by node index. The metric <span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span> has 3 components; setting <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> to <span style="color:#238567;font-weight:bold">1</span> extracts the second component&mdash;<span style="font-weight:bold">loadavg</span>. 
+- Node index with delimiter - <span style="color:#3a0699;font-weight:bold">cpu-loadavg-1m</span>, set <span style="color:#757575;font-weight:bold">delimiterDefinition</span> to <span style="color:#757575;font-weight:bold">&quot;-&quot;</span>.
+- String substitution - <span style="color:#008a09;font-weight:bold">original</span> = max(ts(<span style="color:#3a0699;font-weight:bold">customer.alerts.active</span>), metrics), aliasMetric(<span style="color:#008a09;font-weight:bold">${original}</span>, "Total Number Of Alerts"). This replaces the metric <span style="color:#3a0699;font-weight:bold">customer.alerts.active</span> with "Total Number Of Alerts".
 
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">

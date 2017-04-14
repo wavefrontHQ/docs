@@ -10,7 +10,7 @@ entries:
     output: web
     folderitems:
       
-    - title: About Wavefront Documentation
+    - title: Wavefront Documentation
       url: /index.html
       output: web
       type: homepage

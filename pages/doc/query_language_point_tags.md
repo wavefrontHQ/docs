@@ -1,6 +1,6 @@
 ---
 title: Point Tags in Queries
-keywords: query language
+keywords: query language, point tags
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_point_tags.html

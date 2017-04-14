@@ -9,13 +9,14 @@ The major components of Wavefront include the Wavefront SaaS application, which 
 
 ![Wavefront architecture](images/wavefront_architecture.png)
 
-To get data into Wavefront you either install a Wavefront proxy and collector agent or set up an Amazon Web Services cloud integration. For both methods you need [Proxy Management permission](permissions_overview) which your Wavefront administrator can grant.
-
-To get data into Wavefront, you either install a Wavefront proxy and collector agent or set up an Amazon Web Services cloud integration.  Here we focus on AWS data ingestion. For the proxy and collector agent version, see [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion). Once you have data flowing, we visit the Metrics Browser to view the metrics and finally view an AWS dashboard provided by Wavefront.
+To get data into Wavefront, you either install a Wavefront proxy and collector agent or set up an Amazon Web Services cloud integration.  Here we focus on AWS data ingestion. For the proxy and collector agent version, see [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion). Once you have data flowing, you visit the Metrics Browser to view the metrics and finally view an AWS dashboard provided by Wavefront.
 
 
 ## Set up an Amazon Web Services Cloud Integration
-An AWS cloud integration allows you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.  Adding an AWS cloud integration requires establishing a trust relationship between Amazon and Wavefront by sharing account IDs and an external ID. To set up an AWS integration:
+An AWS cloud integration allows you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.  Adding an AWS cloud integration requires establishing a trust relationship between Amazon and Wavefront by sharing account IDs and an external ID. To complete this task you need [Proxy Management permission](permissions_overview) which your Wavefront administrator can grant.
+
+
+To set up an AWS integration:
  
  1. Open the Wavefront application UI.
  1. Select **Browse > Cloud Integrations**.
@@ -26,13 +27,11 @@ An AWS cloud integration allows you to ingest metrics directly from AWS and send
   1. Open the AWS summary dashboard installed by Wavefront: `https://<wavefront_instance>/dashboard/wavefront-aws-summary`. From there, you can easily navigate to the other AWS dashboards.
   ![db_aws_summary](images/db_aws_summary.png)
 
-## Next Steps
+  ## Next Steps
 
-After you have data flowing into Wavefront, see [Tutorial: Getting Started](tutorial_getting_started) to learn how to develop charts and dashboards to visualize your data and alerts that notify you when anomalous values occur.
+  After you have data flowing into Wavefront, see [Tutorial: Getting Started](tutorial_getting_started) to learn how to
+  develop charts and dashboards to visualize your data and alerts that notify you when anomalous values occur.
 
-Within the Wavefront application, you can view the [Introductory Dashboards​](dashboards_introductory) to learn more about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains. 
-
-The [Introductory Documentation](documentation_introductory) is a list of documents for delving further into Wavefront.
-
+{% include shared/tutorial_next_steps.html %}
 
 {% include links.html %}
