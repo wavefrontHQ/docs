@@ -39,15 +39,15 @@ entries:
       url: /tags_overview.html
       output: web
       
-    - title: Tutorial - Getting Started
+    - title: "Tutorial: Getting Started"
       url: /tutorial_getting_started.html
       output: web
       
-    - title: Tutorial - Getting Amazon Web Services Data into Wavefront
+    - title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
       url: /tutorial_aws_data_ingestion.html
       output: web
       
-    - title: Tutorial - Getting Host, Application, and Custom Data into Wavefront
+    - title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
       url: /tutorial_proxy_data_ingestion.html
       output: web
       
@@ -103,7 +103,7 @@ entries:
       url: /proxies_installing_ansible.html
       output: web
       
-    - title: Running a Proxy in a Docker Container
+    - title: Running a Wavefront Proxy in a Docker Container
       url: /proxies_running_docker.html
       output: web
       

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Getting Host, Application, and Custom Data into Wavefront
+title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
 tags: [getting started, data, proxies, integrations]
 sidebar: doc_sidebar
 permalink: tutorial_proxy_data_ingestion.html

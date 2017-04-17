@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Getting Started
+title: "Tutorial: Getting Started"
 tags: [getting started, dashboards, charts, alerts]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
@@ -42,7 +42,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
 
         ![sample_cluster](images/sample_cluster.png)
 
-        The dashboard defines two variables, which you can see at the top of the dashboard&mdash;Availability Zone (az) and Environment (env)&mdash;. These variables can be used in queries to filter metrics for specific classes of sources.
+        The dashboard defines two [variables](dashboards_variables), which you can see at the top of the dashboard&mdash;Availability Zone (az) and Environment (env)&mdash;. These variables can be used in queries to filter metrics for specific classes of sources.
 
 1.  Open a chart in the Intro: Sample Cluster Metrics dashboard. 
     1. The Intro: Sample Cluster Metrics dashboard is organized into sections. Click the **App Servers** button to jump to the App Servers section:
@@ -54,7 +54,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. In the App Servers section, click the **Requests** chart title:
        ![requests](images/requests.png)
 
-       The chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. **The last()** function fills in any gaps in data with the last known value of the metric.
+       The [stacked area](charts#stacked-area) chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. **The last()** function fills in any gaps in data with the last known value of the metric.
 1.  Add the chart to a new dashboard:
     1. Scroll to the bottom of the chart page.
     1. Click **Create Dashboard**.
@@ -69,7 +69,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. In the Requests query field delete **az=${az}, env=${env}** and type **env**. Select **env=** and then **production** from the autocomplete dropdown. Press **Enter** or **Return**. The chart now displays only _production_ application servers in all availability zones.
     1. Click **Accept**.
 1.  Now let's create our first chart from scratch:
-    1. Click <i class="fa fa-plus-circle"/> Add New Chart.
+    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts#line-plot) chart is created.
     1. In the New Query field, type **~sample.requests.**. 
     1. Choose **latency** from the autocomplete drop-down and press **Enter** or **Return**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
     1. Type **", env=production"** after latency. This filter selects sources in the _production_ environment.
@@ -83,7 +83,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
  
 ## Create an Alert
 
-In this section we create an alert that fires when the request latency metric reaches a certain threshold. In Wavefront, one way to create an alert is directly from a chart. We will use that approach here.
+In this section we create an alert that fires when the request latency metric reaches a certain threshold. In Wavefront, one way to create an alert is directly from a chart. We use that approach here.
 
 1. In App Server Dashboard, click the **Request Latencies** chart title to open the chart.
 1. Hover over the New Query field. The Create Alert link displays.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Getting Amazon Web Services Data into Wavefront
+title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
 tags: [getting started, data, proxies, integrations]
 sidebar: doc_sidebar
 permalink: tutorial_data_ingestion.html

@@ -1,5 +1,5 @@
 ---
-title: Running a Proxy in a Docker Container
+title: Running a Wavefront Proxy in a Docker Container
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
