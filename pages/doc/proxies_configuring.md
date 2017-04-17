@@ -16,7 +16,7 @@ To install a proxy, follow the directions in [Installing Wavefront Proxies](prox
 
 The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-proxy/wavefront.conf`. Besides the `server` and `hostname` properties, the configuration file offers a variety of other options for changing how the proxy processes your data. None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, [restart the proxy service](proxies_managing#starting-and-stopping-a-proxy).
 
-<table width="100%" id="configTable" class="display">
+<table width="100%">
 <colgroup>
 <col width="40%"/>
 <col width="20%"/>
@@ -51,7 +51,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>buffer</td>
-<td markdown="span">Location of buffer files for saving failed transmissions for retry. Default: `/var/spool/wavefront-proxy/buffer`.</td>
+<td>Location of buffer files for saving failed transmissions for retry. Default: <code>/var/spool/wavefront-proxy/buffer</code>.</td>
 <td>A valid path on the local file system.</td>
 <td markdown="span">`/var/spool/wavefront-proxy/buffer`</td>
 <td>3.20</td>
@@ -101,7 +101,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>graphiteFormat</td>
-<td markdown="span">Indexes of fields within your Graphite/collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m` specify the 3rd and 2nd indexes `www04.prod` to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
+<td markdown="span">Indexes of fields within your Graphite/collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m` specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
 <td>A comma-separated list of indexes.</td>
 <td>3,2<br/>
 4,2,5<br/>
@@ -115,7 +115,6 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td>-</td>
 <td></td>
 </tr>
-<tr>
 <tr>
 <td>hostname</td>
 <td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-Proxy point rates, and so on.</td>
@@ -159,8 +158,8 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td></td>
 </tr><tr>
 <td>logsIngestionConfigFile</td>
-<td markdown="span">The file containing instructions for parsing log data into metrics.  See <a href="sending_log_data.html">Sending Log Data Metrics To Wavefront</a>.
-Default: `/wavefront/wavefront-proxy/logsIngestion.yaml`.</td>
+<td markdown="span">The file containing instructions for parsing log data into metrics.  See [Log Data Metrics Integration](integrations_log_data).
+Default: `/etc/wavefront/wavefront-proxy/logsIngestion.yaml`.</td>
 <td>A valid path on the local file system.</td>
 <td></td>
 <td>4.1</td>
@@ -182,9 +181,9 @@ Default: 4242.</td>
 </tr>
 <tr>
 <td>prefix</td>
-<td markdown="span">String to prepend before every metric name. For example, if you set prefix to `production`, a metric that is sent to the proxy as `cpu.loadavg.1m` is sent from the proxy to Wavefront as `production.cpu.loadavg.1m`. You can include longer prefixes such as `production.nyc.dc1`, and so on. Default: none.</td>
+<td markdown="span">String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as `cpu.loadavg.1m` is sent from the proxy to Wavefront as `production.cpu.loadavg.1m`. You can include longer prefixes such as `production.nyc.dc1`, and so on. Default: none.</td>
 <td>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.</td>
-<td>production
+<td>production<br/>
 production.nyc.dc1</td>
 <td></td>
 </tr>
@@ -345,11 +344,11 @@ production.nyc.dc1</td>
 
 If the Wavefront proxy is unable to post received data to the Wavefront servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Wavefront servers is available again. If this buffering occurs, you'll see lines like this in wavefront.log:
 
-    2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
+    2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
 
 By default, there are 4 threads (and 4 buffer files) waiting to retry points once the connections are up; this line shows how many blocks of points have been stored by each thread (in this case, the first thread has 1 block of queued points, while the second, third, and fourth threads all have 0 blocks). These lines are only printed when there are points in the queue; you'll never see a line with all 0's in the queue sizes. Once the connection to the Wavefront servers has been established, and all the threads have sent the past data to us, you'll see a single line like this in wavefront.log:
 
-    2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
+    2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
 
 ## Log Configuration
 
@@ -357,14 +356,14 @@ The Wavefront proxy supports two log files: proxy log and blocked point log. To 
 
 ### Proxy Log
 
-By default, proxy log entries are logged to `/var/log/wavefront/wavefront.log`. The log file is rolled over every day and when its size reaches 100MB. When there are 30 log files, older files are deleted. 
+By default, proxy log entries are logged to `/var/log/wavefront/wavefront.log`. The log file is rolled over every day and when its size reaches 100MB. When there are 30 log files, older files are deleted. 
 
 ### Blocked Point Log
 
 You can log raw blocked points in a separate log from the proxy log. Logging of blocked points is disabled by default. To enable logging block points, edit the log4j2 configuration file and uncomment the blocked points file appender:
 
     <!--
-        <AppenderRef ref="BlockedPointsFile"/>
+        <AppenderRef ref="BlockedPointsFile"/>
     -->
 
 By default, blocked point entries are logged to `/var/log/wavefront/wavefront-blocked-points.log` and the block point log file is rolled over every day and when its size reaches 100MB. When there are 31 log files, older files are deleted.
@@ -404,7 +403,7 @@ If you have any other issues not listed below, or are having trouble resolving a
 </tr>
 <tr>
 <td>You see "Exception in thread "main" java.lang.UnsupportedClassVersionError:
-com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code>wavefront.log</code>.</span>
+com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code>wavefront.log</code>.
 </td>
 <td>You are using Java 1.6 or lower instead of Java 1.7.</td>
 <td>Upgrade Java to 1.7 through your local package manager.</td>
@@ -412,7 +411,7 @@ com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code
 <tr>
 <td>You see "Exception in thread "Thread-2" java.net.BindException: Address already in use" in <code>wavefront.log</code>.</td>
 <td>You already have another process listening on port 2878, or may have started two proxies accidentally.</td>
-<td>Use the "ps" command to find and kill any existing proxies, and then start the proxy again.</td>
+<td>Use the <code>ps</code> command to find and kill any existing proxies, and then start the proxy again.</td>
 </tr>
 <tr>
 <td>You can't "telnet localhost 2878"; the connection is refused.</td>

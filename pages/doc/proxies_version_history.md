@@ -7,7 +7,7 @@ permalink: proxies_version_history.html
 summary: Learn about Wavefront proxy versions.
 ---
 ## Version 4.6
-- Adds the ability to test log data grok patterns (see [Sending Log Data Metrics To Wavefront](integrations_log_data))
+- Adds the ability to test log data grok patterns (see [Log Data Metrics Integration](integrations_log_data))
 - Supports native socket transport, which improves ingestion performance on Linux
  
 ## Version 4.4
@@ -16,7 +16,7 @@ summary: Learn about Wavefront proxy versions.
 - Miscellaneous stability and reliability improvements
  
 ## Version 4.1
-- Direct log ingestion support (see [Sending Log Data Metrics To Wavefront](integrations_log_data))
+- Direct log ingestion support (see [Log Data Metrics Integration](integrations_log_data))
 - Configurable point filtering and preprocessing (see [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules))
 - Configurable client-side rate limiting
 - Improved performance and reduced CPU and memory footprint
