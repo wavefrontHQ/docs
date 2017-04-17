@@ -1,7 +1,7 @@
 ---
 title: Wavefront Proxy Version History
 keywords:
-tags: [proxies, release_notes]
+tags: [proxies, release notes]
 sidebar: doc_sidebar
 permalink: proxies_version_history.html
 summary: Learn about Wavefront proxy versions.
