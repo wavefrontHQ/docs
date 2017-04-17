@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
-tags: [getting started, data, proxies, integrations]
+tags: [getting started, data, proxies, integrations, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_aws_data_ingestion.html
 summary: Learn about how to get data into Wavefront with the AWS cloud integration.

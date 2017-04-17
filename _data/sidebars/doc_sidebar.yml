@@ -10,8 +10,13 @@ entries:
     output: web
     folderitems:
       
-    - title: Wavefront Documentation
+    - title: Welcome to Wavefront
       url: /index.html
+      output: web
+      type: homepage
+      
+    - title: Wavefront Documentation
+      url: /wavefront_documentation.html
       output: web
       type: homepage
       
@@ -506,6 +511,10 @@ entries:
         url: /label_release%20notes.html
         output: web
 
+      - title: Tutorial Pages
+        url: /label_tutorials.html
+        output: web
+        
       - title: Data Pages
         url: /label_data.html
         output: web

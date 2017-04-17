@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
-tags: [getting started, data, proxies, integrations]
+tags: [getting started, data, proxies, integrations, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_proxy_data_ingestion.html
 summary: Learn about how to get data into Wavefront with the Wavefront proxy and Telegraf collector agent.

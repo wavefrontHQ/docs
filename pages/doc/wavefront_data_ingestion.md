@@ -20,7 +20,14 @@ This article gives an overview of how to install the proxy and introduces the in
  
 ## Set up the Wavefront Proxy
 To send data to Wavefront, first set up the Wavefront proxy as described in [Installing Wavefront Proxies](proxies_installing).
- 
+
+Once the proxy is installed, you can send data in the following formats:
+
+- [Wavefront data format](wavefront_data_format)
+- [Graphite data format (plaintext)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol) and [Graphite data format (pickle)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-pickle-protocol)
+- [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing.html)
+
+
 ## Add Integrations
 There are numerous pre-built integrations available for various data collection and monitoring tools. Some are Wavefront specific, and others rely on an existing integration between that tool and Graphite, which is straightforward since the Wavefront proxy natively accepts the Graphite and OpenTSDB data formats. To add an integration, follow the instructions in [Wavefront Integrations](wavefront_integrations).
 

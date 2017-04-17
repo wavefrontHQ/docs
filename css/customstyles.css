@@ -321,6 +321,10 @@ li.dropdownActive a {
     color: #248EC2;
 }
 
+.landing-text-primary {
+  color: #777777;
+}
+
 footer {
     font-size: smaller;
 }
