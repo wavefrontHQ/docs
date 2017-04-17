@@ -21,7 +21,10 @@ Supported resolution is based on two key factors: chart window and dedicated scr
 1-week chart window + 13" screen = third best resolution (e.g. ~60-minute buckets)
 ```
 
-For a video overview of resolution, see [Resolution in Wavefront](https://wavefront-1.wistia.com/medias/r8frqgquvb).
+For a video overview of resolution, see
+
+{% include video.html file="r8frqgquvb" %}
+
 
 In the 1-week chart window + 27" screen example, **Summarize By** groups points within ~30 minute buckets and summarizes them based on your selection. In contrast, `align()` gives you the option of grouping the points in 45 minute buckets, 2-hour buckets, 1-day buckets, etc.. The supported resolution is the most granular view you can get. So with the previous example, specifying `align(15m,)` does not result in 15-minute buckets being displayed on the screen due to the ~30-minute buckets already associated with the chart. In this case, Wavefront aligns the values into 15-minute buckets first and then takes two aligned values and summarizes those based on the Summarize By selection.
 
