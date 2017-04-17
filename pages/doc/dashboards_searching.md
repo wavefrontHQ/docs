@@ -10,7 +10,10 @@ Wavefront offers new insights for your network of systems through the use of cha
  
 While some customers can have hundreds of existing dashboards in their environment, typical Wavefront users use a smaller subset of dashboards each day. This makes the ability to quickly search for relevant dashboards even more important. The following information describes how to search for dashboards in the All Dashboards page and from an existing dashboard.
 
-For a video overview, see [Search Capabilities](https://wavefront-1.wistia.com/medias/mvcjw51w6d).
+For a video overview, see 
+
+{% include video.html file="mvcjw51w6d" %}
+
  
 ## Searching in the All Dashboards Page
  

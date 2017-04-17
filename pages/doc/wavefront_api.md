@@ -4,12 +4,14 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn how the Wavefront API is organized, how to view API documentation, and how to invoke the API.
+summary: Learn how to view API documentation, how the Wavefront API is organized, and how to invoke the API.
 ---
 
 Wavefront is fully API driven. This means that all interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront API.
 
-The current version of the API is v2 and is accessed at `<wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<wavefront_instance>/api/`), though [deprecated](wavefront_obsolescence_policy), is still supported. For a video overview, see [API v2](https://wavefront-1.wistia.com/medias/0ja5gpkufa).
+The current version of the API is v2 and is accessed at `<wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<wavefront_instance>/api/`), though [deprecated](wavefront_obsolescence_policy), is still supported. For a video overview, see 
+
+{% include video.html file="0ja5gpkufa" %}
 
 ## API Documentation
 
@@ -35,8 +37,9 @@ Wavefront supports the following API categories:
 - **Webhook** - Allows all users to retrieve webhooks. Users with [Alert Management permission](permissions_overview) can create, update, and delete webhooks.
 
  
-## API Tokens
-When using the API outside of the Wavefront UI, you must pass a Wavefront API token in the `Authorization: Bearer` header. For example, to return all alerts, invoke the following:
+## Invoking the API
+
+When invoking the API outside of the Wavefront UI, you must pass a Wavefront API token in the `Authorization: Bearer` header. For example, to return all alerts, invoke the following:
 
 ```shell
 curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <wavefront_api_token>'

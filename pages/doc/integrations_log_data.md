@@ -10,7 +10,9 @@ Usually the best way to send metrics to a monitoring system is to us a metrics l
 
 Both methods set up metrics harvesting with aggregation, in that time series are held in memory and periodically flushed to Wavefront. This allows you to control your points-per-second, and it also allows you to aggregate the same metric across multiple nodes. However, this has the limitation that each individual metric must always arrive at the *same* Wavefront proxy. If you only use one proxy you don't have to worry about this, but if you have a multi-proxy deployment, the easiest way is to send all of your logs to the same proxy. That way each metric only has one possible pool for aggregation.
 
-For a video overview, see [Logs to Metrics](https://wavefront-1.wistia.com/medias/uljyt5morx).
+Here's a video overview: 
+
+{% include video.html file="uljyt5morx" %}
 
 ## Configuring the Wavefront Proxy to Ingest Log Data
 

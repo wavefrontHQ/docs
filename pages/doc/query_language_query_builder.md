@@ -8,7 +8,10 @@ summary: Learn how to get started with creating Wavefront Query Language express
 ---
 The Wavefront Query Builder makes Wavefront even more accessible to all users in your organization. The Query Builder is a layer on top of, not a replacement for, Wavefront Query Language. Almost all of the full power of the Wavefront Query Language is maintained for expert users though a few of the more advanced functions are only available in the full Wavefront Query Language (i.e non-Query Builder developed queries). These include functions such as aliasMetrics(), if(), retainSeries(), etc. For further information on these functions, see [Wavefront Query Language Quick Reference](query_language_reference).  If you subsequently manually edit a query built by the Query Builder, that query can no longer be edited using the Query Builder.
  
-This topic describes how to enable and use the Query Builder. For a video overview, see [Introduction to the Query Builder](https://wavefront-1.wistia.com/medias/nbsabve6yg).
+This topic describes how to enable and use the Query Builder. For a video overview, see 
+
+{% include video.html file="nbsabve6yg" %}
+
 
 ## Enabling Query Builder
 

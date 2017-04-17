@@ -21,7 +21,9 @@ To view and manage external links, select **Browse > External Links**.
 {% include shared/permissions.html entity="external links" entitymgmt="External Links" %}
 
 
-For a video overview, see [External Links](https://wavefront-1.wistia.com/medias/9vdlf3kf3j).
+Here's a video overview: 
+
+{% include video.html file="9vdlf3kf3j" %}
 
 
 ## Navigating to an External Link

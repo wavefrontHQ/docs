@@ -51,7 +51,11 @@ The following portion of this article will showcase all of the ways you can inte
 
 When you log in to Wavefront, the first dashboard you visit displays two-hour time window charts with real-time data flowing in. If you need to see a larger or smaller time window or need to view past data instead of real-time data, use the Time bar to display different time windows. You can configure the default time window in [dashboard preferences](dashboards_managing#prefs).
 
-The following 25 second [video](https://wavefront-1.wistia.com/medias/5rboi5gh0z) shows how adjusting time windows via the Time bar affects charts.
+The following 25 second video
+
+{% include video.html file="5rboi5gh0z" %}
+
+shows how adjusting time windows via the Time bar affects charts.
 
 The first components you see on the Time bar are the Live Data and Custom Date options. You should choose Live Data when you want to see up-to-date data on the charts. If you want to look at past data, then choose Custom Date. When you select Custom Date, fields for a start and end time display. You can set your time parameters in these fields.
  

@@ -30,7 +30,7 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 Dashboards are stored in JSON format. You can deploy a dashboard JSON file with the [Wavefront API](wavefront_api) using the following command:
 
 ```shell
-curl -v POST https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<dashboard>.json \
+curl -v POST https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<dashboard_file>.json \
   -H "Content-Type: application/json" -H 'X-AUTH-TOKEN: <wavefront_api_token>'
 ```
 
