@@ -13,7 +13,7 @@ An alert can be in 5 states:
 - **CHECKING**: The alert is being checked to see if the query and Alert fires conditions are being met. While firing alerts are still being checked to determine if the query and Alert resolves condition associated with the alert are still being met, they are not included in this filter.  An alert resolves (transitions back to checking) when there are either no true values present within the time window, or the time window contains no data.
 - **FIRING**: The alert is meeting the query and Alert fires conditions. An alert transitions to firing when a condition on a time series evaluates to at least one true value and no false values during a fixed time window.
 - **IN MAINTENANCE**: The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window. If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE. If an alert has a subset of reporting sources associated with an ongoing maintenance window but whose other sources are firing, the state displays as FIRING/IN MAINTENANCE.
-- **INVALID**: The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources.
+- **INVALID**: The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert goes into the INVALID state, it is checked at a much lower frequency&mdash;15 minutes, instead of the specified checking frequency (see next section).
 - **SNOOZED**: The alert is not checked to determine if the query and Alert fires conditions associated with the alert are being met.
 
 ## How do alerting checks work?
