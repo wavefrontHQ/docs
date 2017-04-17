@@ -1,6 +1,6 @@
 ---
 title: Release Notes 5.0
-keywords:
+keywords: release notes
 tags: [release notes]
 sidebar: doc_sidebar
 permalink: 50_release_notes.html

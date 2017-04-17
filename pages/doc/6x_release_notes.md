@@ -1,6 +1,6 @@
 ---
 title: 6.x Release Notes
-keywords:
+keywords: release notes
 tags: [release notes]
 sidebar: doc_sidebar
 permalink: 6x_release_notes.html

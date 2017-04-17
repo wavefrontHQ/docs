@@ -1,8 +1,9 @@
 ---
 title: Wavefront Obsolescence Policy
-keywords: release_notes
-tags: [release_notes]
+keywords: release notes
+tags: [release notes]
 sidebar: doc_sidebar
+toc: false
 permalink: wavefront_obsolescence_policy.html
 summary: Learn about the Wavefront policy for retiring features.
 ---
