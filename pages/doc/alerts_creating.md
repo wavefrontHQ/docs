@@ -30,7 +30,7 @@ You create an alert by:
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 <tr>
 <td>Events Display</td>
-<td>Whether to display actual or hypothetical alert firing [event icons](charts_events_displaying) on the preview chart.
+<td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying">event icons</a> on the preview chart.
 <ul><li><strong>Actual Firings (existing alerts only)</strong> - Display past alert-generated event icons on the chart. This tells you how often the given alert has actually fired within the given chart time window.</li>
 <li><strong>Backtesting</strong> - Display hypothetical alert-generated events icons on the chart. This tells you how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. Backtesting enables you to fine tune new or existing alert conditions before saving.</li></ul>
 </td>
@@ -42,16 +42,14 @@ You create an alert by:
 <tr>
 <td>Condition</td>
 <td>A conditional ts() expression that defines the threshold for the alert. You can use any valid ts() language constructs in the expression.
-You can use free form query mode or the [Query Builder](query_language_query_builder) to create the expression. The expression coupled with the <strong>Alert fires</strong>
-setting determines when the alert fires.
+You can use free form query mode or the <a href="query_language_query_builder.html">Query Builder</a> to create the expression. The expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - The length of time during which the Condition expression must be true before the alert fires. The minimum number of minutes is 2.  If you enter 5 the alerting engine reviews the value of the Condition during the last 5 minute window to see if the alert should fire or not.</li>
 <li><strong>Alert resolves</strong> - The length of time during which the Condition expression must be false before the alert switches to resolved. The minimum number of minutes is 2.  If you don't enable this field and specify a time, it defaults to the <strong>Alert fires</strong> setting.</li></ul>
 </td>
 </tr>
 <tr>
 <td>Display Expression</td>
-<td>Optional. The query sent to targets when notified of alert state changes by email. You can use free form query mode
-or the [Query Builder](query_language_query_builder) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
+<td markdown="span">Optional. The query sent to targets when notified of alert state changes by email. You can use free form query mode or the [Query Builder](query_language_query_builder) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
 </tr>
 <tr>
 <td>Severity</td>
@@ -59,7 +57,7 @@ or the [Query Builder](query_language_query_builder) to create the expression. I
 </tr>
 <tr>
 <td>Targets</td>
-<td>The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty), [VictorOps keys](alerts_integrating_victorops), and [webhooks](alerts_integrating_webhooks) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle).
+<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty), [VictorOps keys](alerts_integrating_victorops), and [webhooks](alerts_integrating_webhooks) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle).
 </td>
 </tr>
 <tr>
@@ -80,7 +78,7 @@ Click the **Advanced** link to configure the properties:
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 <tr>
 <td>Checking Frequency</td>
-<td>The number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1.</td>
+<td markdown="span">The number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
 </tr><tr>
 <td>Resend Notifications</td>
 <td>Whether to resend notification of a firing alert and if enabled, the number of minutes to wait before resending the notification.</td>
@@ -89,4 +87,3 @@ Click the **Advanced** link to configure the properties:
 </table>
 
 
-{% include links.html %}

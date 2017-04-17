@@ -13,12 +13,12 @@ An alert can be in 5 states:
 - **CHECKING**: The alert is being checked to see if the query and Alert fires conditions are being met. While firing alerts are still being checked to determine if the query and Alert resolves condition associated with the alert are still being met, they are not included in this filter.  An alert resolves (transitions back to checking) when there are either no true values present within the time window, or the time window contains no data.
 - **FIRING**: The alert is meeting the query and Alert fires conditions. An alert transitions to firing when a condition on a time series evaluates to at least one true value and no false values during a fixed time window.
 - **IN MAINTENANCE**: The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window. If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE. If an alert has a subset of reporting sources associated with an ongoing maintenance window but whose other sources are firing, the state displays as FIRING/IN MAINTENANCE.
-- **INVALID**: The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert goes into the INVALID state, it is checked at a much lower frequency&mdash;15 minutes, instead of the specified checking frequency (see next section).
+- **INVALID**: The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).
 - **SNOOZED**: The alert is not checked to determine if the query and Alert fires conditions associated with the alert are being met.
 
 ## How do alerting checks work?
 
-The data values associated with that alert are checked according to the alert checking frequency property (default 1 minute) to determine whether the alert should fire or not based on the alert condition. If there is an alert condition such as `ts("requests.latency") > 195` specified in the query, then all reported values that satisfy the condition are marked as true (1's) and all reported values that do not satisfy the condition are marked as false (0's). If no alert condition such as `ts("cpu.loadavg.1m")`` is specified in the query, then all non-zero reported values are considered true and all zero reported values are considered false. If there is no reported data, then it is evaluated as neither true nor false. During the alerting check, if there is at least one true value present in the time window and no false values present, then the alert fires. Additionally:
+The data values associated with that alert are checked according to the alert checking frequency property (default 1 minute) to determine whether the alert should fire or not based on the alert condition. If there is an alert condition such as `ts("requests.latency") > 195` specified in the query, then all reported values that satisfy the condition are marked as true (1's) and all reported values that do not satisfy the condition are marked as false (0's). If no alert condition such as `ts("cpu.loadavg.1m")` is specified in the query, then all non-zero reported values are considered true and all zero reported values are considered false. If there is no reported data, then it is evaluated as neither true nor false. During the alerting check, if there is at least one true value present in the time window and no false values present, then the alert fires. Additionally:
 
 - When an alert is currently not firing, the time window evaluated according to the checking frequency is controlled by the Alert fires property. For example, if the Alert fires property is set to 3 minutes, the time window being evaluated at the checking frequency is 3 minutes.
 - When an alert is currently firing, the time window evaluated according to the checking frequency is controlled by the Alert resolves property.
@@ -50,7 +50,7 @@ When an alert fires, the alert info is sent to targets listed in the Targets pro
 
 ## What are some examples of when an alert would or would not fire?
 
-### Alert condition: ts(cpu.loadavg.1m) > 4
+### Alert condition: `ts(cpu.loadavg.1m) > 4`
 - If the chart has one reported data value of 5 in the last X Alert fires, and no other points (no data), the alert will fire.
 - If the chart has two reported data values of 5 and 3, both anywhere in the last X Alert fires, the alert will not fire.
 - If the chart only has points <= 4 in the last X Alert fires, the alert will not fire.
