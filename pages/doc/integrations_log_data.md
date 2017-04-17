@@ -220,4 +220,4 @@ After configuring the Wavefront proxy to send log data using the configuration y
 - **rate(ts(combined_apache_log_lines))**
 - **ts(responseBytes.p99)**
 
-{% include links.html %}
+

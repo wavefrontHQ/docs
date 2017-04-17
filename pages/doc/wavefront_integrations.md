@@ -4,7 +4,7 @@ keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
 toc: false
-permalink: wavefront_integrations
+permalink: wavefront_integrations.html
 summary: Learn about the integrations supported by Wavefront and jump to instructions for implementing an integration.
 ---
 
@@ -124,4 +124,4 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 </table>
 
 
-{% include links.html %}
+

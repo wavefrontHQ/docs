@@ -28,4 +28,4 @@ List with strong items:
 
 Text with <strong>strong</strong> element.
 
-{% include links.html %}
+

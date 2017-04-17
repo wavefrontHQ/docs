@@ -27,4 +27,4 @@ Sometimes you will find an existing chart that you want to add to your own dashb
       1. Click **Save** at the top of the dashboard.
 
 
-{% include links.html %}
+

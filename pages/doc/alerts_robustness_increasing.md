@@ -36,4 +36,4 @@ The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront 
  
 This query uses the `~agent.check-in` metric to verify that the agents are reporting in.  By applying a second argument to the alert query, you capture series that not only have stopped reporting a value in the last 5 minutes, but also if that series has had at least 1 value reported in the last hour.
 
-{% include links.html %}
+

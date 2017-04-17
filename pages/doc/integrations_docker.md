@@ -33,4 +33,4 @@ Wavefront has a native storage driver for cAdvisor. As it collects resource metr
 If you're looking for information on how to run the Wavefront proxy as a container, see [Running a Wavefront Proxy in Docker](proxies_running_docker).
 
 
-{% include links.html %}
+

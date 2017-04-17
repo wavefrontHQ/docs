@@ -43,4 +43,3 @@ Functions are organized in a two-level hierarchy (e.g. Aggregation->Sum). A prev
 
 The order of evaluation is left to right (i.e. metrics, then filters, then functions). As with the query language, wildcard matching is supported for metrics, sources, and tags. You can remove any link of the expression chain by clicking the <i class="fa fa-times-circle"/> icon of that link. The rest of your expression remains intact.
 
-{% include links.html %}

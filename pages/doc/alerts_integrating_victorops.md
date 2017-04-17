@@ -60,4 +60,4 @@ The URL will end with **$routing_key**.  You can change this to the appropriate 
  
 To add the VictorOps webhook to an alert, follow the procedure in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks#adding-a-webhook-to-a-wavefront-alert), selecting the VictorOps webhook you created in the previous section.
 
-{% include links.html %}
+

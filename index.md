@@ -1,7 +1,9 @@
 ---
 title: Wavefront Documentation
 keywords: homepage
+labels: getting started
 sidebar: doc_sidebar
+toc: false
 permalink: index.html
 summary: Learn how Wavefront documentation is organized.
 ---
@@ -24,7 +26,7 @@ summary: Learn how Wavefront documentation is organized.
 </tr>
 <tr>
 <td>Getting Started</td>
-<td>Includes a guide to introductory documentation and dashboards. Get an overview of using tags and work through tutorials for getting started with dashboards and charts and getting data into Wavefront.</td>
+<td>Includes a guide to introductory documentation and dashboards. Get an overview of using labels and work through tutorials for getting started with dashboards and charts and getting data into Wavefront.</td>
 </tr>
 <tr>
 <td>Release Notes</td>
@@ -69,4 +71,4 @@ summary: Learn how Wavefront documentation is organized.
 </tbody>
 </table>
 
-{% include links.html %}
+

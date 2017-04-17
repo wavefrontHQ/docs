@@ -66,4 +66,4 @@ You can unhide manually hidden metrics and metric prefixes at any time. To unhid
 Click **Save**. The selected metric and metric prefixes will display in the list of metrics in the Metrics Browser, as well as the autocomplete dropdown associated with metric names when creating ts() queries. The selected metric/metric prefixes only appear again in these cases if they have had at least 1 reported data value in the last 4 weeks. If this is not the case, then these metric/metric prefixes are considered obsolete metrics and Wavefront automatically hides them by default.
 
 
-{% include links.html %}
+

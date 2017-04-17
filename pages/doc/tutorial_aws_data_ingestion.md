@@ -2,7 +2,7 @@
 title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
 tags: [getting started, data, proxies, integrations]
 sidebar: doc_sidebar
-permalink: tutorial_data_ingestion.html
+permalink: tutorial_aws_data_ingestion.html
 summary: Learn about how to get data into Wavefront with the AWS cloud integration.
 ---
 The major components of Wavefront include the Wavefront SaaS application, which facilitates economies of scale for deployment, flexibility, and time to value and the Wavefront proxy. The Wavefront proxy is the interface to collector agents, which instrument hardware and software applications. The Wavefront application can also collect metrics directly from external metrics services such as those provided by Amazon Web Services. The diagram below depicts each of these components.
@@ -27,11 +27,10 @@ To set up an AWS integration:
   1. Open the AWS summary dashboard installed by Wavefront: `https://<wavefront_instance>/dashboard/wavefront-aws-summary`. From there, you can easily navigate to the other AWS dashboards.
   ![db_aws_summary](images/db_aws_summary.png)
 
-  ## Next Steps
+## Next Steps
 
   After you have data flowing into Wavefront, see [Tutorial: Getting Started](tutorial_getting_started) to learn how to
   develop charts and dashboards to visualize your data and alerts that notify you when anomalous values occur.
 
 {% include shared/tutorial_next_steps.html %}
 
-{% include links.html %}

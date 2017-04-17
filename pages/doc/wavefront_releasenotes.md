@@ -11,4 +11,4 @@ summary: Learn about new and updated features in Wavefront.
 - [6.x Release Notes](6x_release_notes)
 - [5.0 Release Notes](50_release_notes)
 
-{% include links.html %}
+

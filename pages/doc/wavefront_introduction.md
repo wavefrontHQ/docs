@@ -92,4 +92,4 @@ production environments more typically employ a load balancer sending data to mu
 
 Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard collector agents, including [Telegraf](integrations_telegraf), [Docker cAdvisor​](integrations_cadvisor), and others.
 
-{% include links.html %}
+

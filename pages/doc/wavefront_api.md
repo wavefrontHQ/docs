@@ -100,4 +100,3 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API. Wa
 </tbody>
 </table>
 
-{% include links.html %}

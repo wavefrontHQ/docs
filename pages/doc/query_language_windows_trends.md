@@ -73,4 +73,3 @@ This expression is plotting the raw data overlaid with the 5-minute tumble windo
  
 Thus any of the moving functions can be converted into fixed or tumbling windows by correct sampling of the moving window for which you should use the time functions and/or `align()`.
 
-{% include links.html %}

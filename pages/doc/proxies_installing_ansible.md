@@ -23,4 +23,4 @@ For detailed instructions, see the [documentation for wavefront-ansible on Ansib
 For detailed Wavefront proxy requirements and other installation procedures, see [Installing Wavefront Proxies](proxies_installing).
 
 
-{% include links.html %}
+

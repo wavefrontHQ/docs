@@ -735,4 +735,3 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 </tbody>
 </table>
 
-{% include links.html %}

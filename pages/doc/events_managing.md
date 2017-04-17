@@ -93,4 +93,4 @@ To close a single event, select ![action menu](images/action_menu.png#inline) **
 
 See [Tags Overview](tags_overview#entity_tags).
 
-{% include links.html %}
+

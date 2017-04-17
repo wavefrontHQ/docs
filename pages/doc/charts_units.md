@@ -53,4 +53,4 @@ Now looking back at the same chart with the millisecond values in the thousands 
 
   ![minute_view](images/minute_view.png)
 
-{% include links.html %}
+

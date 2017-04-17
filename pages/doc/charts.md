@@ -278,4 +278,4 @@ General options.
 
 Text styled with Markdown markup.
 
-{% include links.html %}
+

@@ -20,4 +20,4 @@ You can either create charts from the Metrics Browser or deploy this dashboard.
 
 A dropdown at the top allows you to filter on any Docker host that is collecting with cAdvisor. The dashboard filters out spurious processes with the source filter `source="${chost}" and not container="/user/*" and not container="/" and not container="/docker" and not container="/user" and not container="/init.*"`.
 
-{% include links.html %}
+

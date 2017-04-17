@@ -25,4 +25,4 @@ summary: Learn how to send memcached data collected by collectd to Wavefront.
 </Plugin>  
 ```
 
-{% include links.html %}
+

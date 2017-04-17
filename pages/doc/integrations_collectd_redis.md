@@ -19,4 +19,4 @@ summary: Learn how to send Redis data collected by collectd to Wavefront.
 1. Restart collectd.
 
 
-{% include links.html %}
+

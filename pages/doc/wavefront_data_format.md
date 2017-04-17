@@ -102,4 +102,3 @@ The expected number of possible values (cardinality) for a given key should be <
 
   -   **Reason:** No **source** field
 
-{% include links.html %}

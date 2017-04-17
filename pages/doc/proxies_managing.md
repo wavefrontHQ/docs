@@ -70,4 +70,4 @@ In your Wavefront instance, select **Browse > Proxies** and verify that the prox
  
 You can view `/var/log/wavefront/wavefront.log` to see how many points it has sent and whether there are any connection issues. You can also view proxy metrics within Wavefront.
 
-{% include links.html %}
+

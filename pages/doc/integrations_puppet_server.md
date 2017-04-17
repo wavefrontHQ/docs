@@ -34,4 +34,4 @@ Once you have started collecting metrics from your Puppet Master server, you can
 
 ![db puppet](images/db_puppet.png)
 
-{% include links.html %}
+

@@ -64,4 +64,3 @@ only a single a series that matches both point tags displays; all of the other s
  
 Point tags offer you a powerful way of labeling your data so that you can slice and dice it in almost any way you can imagine.
 
-{% include links.html %}

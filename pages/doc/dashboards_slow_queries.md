@@ -45,4 +45,4 @@ The Resource Consumption by User section displays the users that ran slow querie
 
 ![db_slow_query_user](images/db_slow_query_user.png)
 
-{% include links.html %}
+

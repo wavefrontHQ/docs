@@ -40,4 +40,4 @@ Once you have started collecting Cassandra metrics, you can [deploy](dashboards_
 
 ![cassandra db](images/db_cassandra.png)
 
-{% include links.html %}
+

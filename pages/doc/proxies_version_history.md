@@ -11,7 +11,7 @@ summary: Learn about Wavefront proxy versions.
 - Supports native socket transport, which improves ingestion performance on Linux
  
 ## Version 4.4
-- Adds ability to ingest logs on a TCP port, in addition to the previously supported Filebeat logs (see [Sending Log Data Metrics To Wavefront](integrations_log_data))
+- Adds ability to ingest logs on a TCP port, in addition to the previously supported Filebeat logs (see [Log Data Metrics Integration](integrations_log_data))
 - Fix rare bug where an old proxy would not be stopped during the upgrading process, causing the old proxy to run until `service wavefront-proxy restart`
 - Miscellaneous stability and reliability improvements
  
@@ -93,4 +93,4 @@ Notes on upgrading:
 ## Version 3.0
 - Initial open-source release
 
-{% include links.html %}
+

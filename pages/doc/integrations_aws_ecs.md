@@ -58,4 +58,4 @@ After this, you should start seeing container metrics on the ECS dashboard withi
 
 ![db aws ecs](images/db_aws_ecs.png)
 
-{% include links.html %}
+

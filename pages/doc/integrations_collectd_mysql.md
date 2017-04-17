@@ -45,4 +45,4 @@ LoadPlugin "mysql"
   </Database>  
 </Plugin>  
 ```
-{% include links.html %}
+

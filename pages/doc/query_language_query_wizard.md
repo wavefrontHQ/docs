@@ -43,4 +43,3 @@ Each recipe in the Query Wizard requires you to enter a base ts() expression. Th
  
 We provide a description of each recipe found in the Query Wizard. If you don't know which recipe to use for your use case, then take some time to review the description of each recipe. Hopefully this will give you a better idea as to which recipe is right for you. If you are still unable to determine which recipe you should use, then contact [support](mailto:support@wavefront.com).
 
-{% include links.html %}

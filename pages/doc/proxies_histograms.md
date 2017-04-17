@@ -204,4 +204,4 @@ To query histogram metrics, use the `hs()` function to return points and apply s
 - `min(hs(histogram.<metricName>.h))` returns the smallest `<metricName>` aggregated over an hour.
 - `count(hs(histogram.<metricName>.d))` returns the number of `<metricName>` points aggregated over a day.
 
-{% include links.html %}
+

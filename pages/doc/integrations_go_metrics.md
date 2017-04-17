@@ -9,4 +9,4 @@ summary: Learn how to collect metrics from Go applications.
 
 {% include go-metrics-wavefront/README.md %}
 
-{% include links.html %}
+

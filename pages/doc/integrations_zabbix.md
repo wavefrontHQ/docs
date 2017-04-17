@@ -20,4 +20,4 @@ To get started:
 1. Start working with your data in Wavefront.
 1. [Contact us](mailto:support@wavefront.com) for detailed installation instructions and the adapter source code.
 
-{% include links.html %}
+

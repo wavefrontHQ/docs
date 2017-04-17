@@ -1,5 +1,5 @@
 ---
-title: Release Notes 5.0
+title: 5.0 Release Notes
 keywords: release notes
 tags: [release notes]
 sidebar: doc_sidebar
@@ -80,7 +80,7 @@ Alerts have been enhanced in several aspects. Newly surfaced alert properties an
 
 ## Sending Metrics from Logs
 
-Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront Proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the Proxy for parsing. Splunk's Universal Forwarder is also supported.
+Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the proxy for parsing. Splunk's Universal Forwarder is also supported.
 
 See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](integrations_log_data).
 
@@ -102,7 +102,7 @@ For more information, see [External Links](external_links_managing).
 
 ## Wavefront Installer
 
-This release introduces a new Wavefront Proxy and agent installer named Wavefront CLI. Wavefront CLI is implemented in Python and supports Python 2.6+. In addition to installing and configuring the Wavefront Proxy and collector agent, the installer now supports integrations. For detailed information on how to install and run Wavefront CLI, see [Wavefront CLI](wavefront_cli.html).
+This release introduces a new Wavefront proxy and agent installer named Wavefront CLI. Wavefront CLI is implemented in Python and supports Python 2.6+. In addition to installing and configuring the Wavefront proxy and collector agent, the installer now supports integrations. For detailed information on how to install and run Wavefront CLI, see [Wavefront CLI](wavefront_cli.html).
 
 ### Telegraf Agent
 
@@ -114,7 +114,7 @@ Wavefront CLI installs [Telegraf](http://docs.influxdata.com/telegraf/v1.1/) as 
 
 Wavefront continues to support installing the collectd collector agent using the old Wavefront installer.
 
-When you install Telegraf on an EC2 instance, the Wavefront Proxy supports tagging metrics with EC2 tags, AWS region, the VPC ID, and Image ID of the instance.
+When you install Telegraf on an EC2 instance, the Wavefront proxy supports tagging metrics with EC2 tags, AWS region, the VPC ID, and Image ID of the instance.
 
 For more information on Telegraf, see [collectd vs. Telegraf: Comparing Metric Collection Agents](http://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents).
 
@@ -166,4 +166,4 @@ Wavefront has added **eight** new categories of APIs and renamed the Management 
 -   **User** - Users with User Management permission can retrieve a list of all users, create, update, and delete users, and manage permissions.
 -   **Webhook** - Retrieve webhooks. Users with Alert Management permission can create, update, and delete webhooks.
 
-{% include links.html %}
+

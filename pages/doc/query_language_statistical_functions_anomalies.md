@@ -88,4 +88,3 @@ The chart below shows the normalized values all these three series to plot them 
 
 ![normalized_std_dev_iqr](images/normalized_std_dev_iqr.png)
 
-{% include links.html %}

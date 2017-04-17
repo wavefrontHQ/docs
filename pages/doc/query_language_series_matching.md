@@ -53,4 +53,3 @@ If point tags are present in your data, then series matching takes them into acc
  
 In this example, the `env` point tag key includes point tag values `production` and `development`. If source `app-1` includes the `env` value `development` in the first ts() call, but includes the `env` value `production` in the second ts() call, they will not match up; they must be exact matches in order for series matching to occur. This also means that if two series have the same source\|metric\|point tag but one of the series includes an additional point tag that the other series does not have, then series matching does not include these series in the results.
 
-{% include links.html %}

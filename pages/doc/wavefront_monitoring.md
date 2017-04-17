@@ -103,4 +103,4 @@ The metrics used in this section are:
   - `~metric.counter`: Count of the total number of metrics being collected. It can be broken down by the sources sending the metrics. 
 
  
-{% include links.html %}
+

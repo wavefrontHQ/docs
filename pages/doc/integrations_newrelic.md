@@ -300,4 +300,4 @@ This section describes how to contact the Wavefront proxy.
 - `details.conf`
   - Gets the application (host) details and delays 5m between each run.
 
-{% include links.html %}
+

@@ -75,4 +75,4 @@ Once the chart is in a dashboard, you can open the chart by clicking the chart n
 
 ![open_chart](images/open_chart.png)
 
-{% include links.html %}
+

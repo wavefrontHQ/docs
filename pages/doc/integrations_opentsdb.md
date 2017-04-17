@@ -12,4 +12,4 @@ The Wavefront proxy supports OpenTSDB's data format out of the box.  No extra co
 
 As of version 3.14, the Wavefront proxy also supports OpenTSDB's HTTP API. This means that if you have existing collectors such as Tcollector or Diamond sending data to an OpenTSDB server today, the only step required is to change the target address from your OpenTSDB service to the Wavefront proxy instead.
 
-{% include links.html %}
+

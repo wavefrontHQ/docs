@@ -150,4 +150,4 @@ All AWS metrics return the following aggregate metrics: average, maximum, minimu
 
     ![aws cpu utilization aggregate metrics](images/aws_cpu_utilization_aggregate_metrics.png)
 
-{% include links.html %}
+

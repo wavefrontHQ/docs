@@ -60,4 +60,4 @@ Wavefront and HipChat both support webhooks so you can easily configure an incom
  1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks#finding-a-webhook-id).
  1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks#adding-a-webhook-to-a-wavefront-alert).
 
-{% include links.html %}
+

@@ -18,11 +18,11 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 
 <table width="100%">
 <colgroup>
-<col width="40%"/>
-<col width="20%"/>
+<col width="55%"/>
+<col width="10%"/>
 <col width="20%"/>
 <col width="10%"/>
-<col width="10%"/>
+<col width="5%"/>
 </colgroup>
 <thead>
 <tr>
@@ -45,7 +45,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td>blacklistRegex</td>
 <td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
 <td>A valid regex pattern.</td>
-<td>Filter out points that begin with qa., development., or test.<br/>
+<td>Filter out points that begin with qa., development., or test.:<br/>
 ^(qa|development|test).</td>
 <td>3.1</td>
 </tr>
@@ -325,7 +325,7 @@ production.nyc.dc1</td>
 <td>whitelistRegex</td>
 <td>Regex pattern (java.util.regex) that input lines must match to be accepted. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
 <td>A valid regex pattern.</td>
-<td>Allow points that begin with production. and stage..<br/>
+<td>Allow points that begin with production. and stage.:<br/>
 ^(production|stage).
 </td>
 <td>3.1</td>
@@ -342,7 +342,7 @@ production.nyc.dc1</td>
 
 ## Data Buffering
 
-If the Wavefront proxy is unable to post received data to the Wavefront servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Wavefront servers is available again. If this buffering occurs, you'll see lines like this in wavefront.log:
+If the Wavefront proxy is unable to post received data to the Wavefront servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Wavefront servers is available again. If this buffering occurs, you'll see lines like this in `wavefront.log`:
 
     2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
 
@@ -370,7 +370,7 @@ By default, blocked point entries are logged to `/var/log/wavefront/wavefront-bl
 
 ## Troubleshooting
 
-If you have any other issues not listed below, or are having trouble resolving an issue, contact us at <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
+If you have any other issues not listed below, or are having trouble resolving an issue, contact us at [support](mailto:support@wavefront.com).
 
 <table>
 <colgroup>
@@ -420,5 +420,3 @@ com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code
 </tr>
 </tbody>
 </table>
-
-{% include links.html %}

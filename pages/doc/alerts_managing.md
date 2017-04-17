@@ -43,4 +43,4 @@ See [Tags Overview](tags_overview#entity_tags).
 
 For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle).
 
-{% include links.html %}
+

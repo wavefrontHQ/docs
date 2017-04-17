@@ -152,7 +152,7 @@ entries:
       output: web
       
     - title: Point Tags in Queries
-      url: /query_language_using_point_tags.html
+      url: /query_language_point_tags.html
       output: web
       
     - title: Series Matching
@@ -307,7 +307,7 @@ entries:
           - title: AWS ECS Integration
             url: /integrations_aws_ecs.html
             output: web
-        
+            
       - title: Data Integrations
         output: web
         subfolderitems:
@@ -315,51 +315,51 @@ entries:
           - title: AppDynamics Integration
             url: /integrations_appdynamics.html
             output: web
-        
+            
           - title: Cassandra 3 Integration
             url: /integrations_cassandra.html
             output: web
-        
+            
           - title: Cernan Integration
             url: /integrations_cernan.html
             output: web
-        
+            
           - title: Graphite Integration
             url: /integrations_graphite.html
             output: web
-        
+            
           - title: JMXTrans Integration
             url: /integrations_jmxtrans.html
             output: web
-        
+            
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
             output: web
-        
+            
           - title: New Relic Integration
             url: /integrations_newrelic.html
             output: web
-        
+            
           - title: OpenTSDB Integration
             url: /integrations_opentsdb.html
             output: web
-        
+            
           - title: Puppet Server Integration
             url: /integrations_puppet_server.html
             output: web
-        
+            
           - title: StatsD Integration
             url: /integrations_statsd.html
             output: web
-        
+            
           - title: Telegraf Integration
             url: /integrations_telegraf.html
             output: web
-        
+            
           - title: Zabbix Integration
             url: /integrations_zabbix.html
             output: web
-        
+            
       - title: Code Instrumentation
         output: web
         subfolderitems:
@@ -403,7 +403,7 @@ entries:
           - title: ZooKeeper collectd Integration
             url: /integrations_collectd_zookeeper.html
             output: web
-        
+            
       - title: Container Integrations
         output: web
         subfolderitems:
@@ -431,11 +431,12 @@ entries:
           - title: Visualizing Metrics with Python
             url: /integrations_python.html
             output: web
-        
+            
           - title: Visualizing Metrics with R
             url: /integrations_r.html
             output: web
-        
+            
+      
   - title: Administration
     output: web
     folderitems:

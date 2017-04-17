@@ -62,4 +62,4 @@ The following use case videos illustrate how to address typical scenarios using 
 - [Correlation Across Data Sets](https://wavefront-1.wistia.com/medias/yh3k8jzvgm)
 - [Preventing False Alarms with mmedian()](https://wavefront-1.wistia.com/medias/gf0rmdl19s)
 
-{% include links.html %}
+

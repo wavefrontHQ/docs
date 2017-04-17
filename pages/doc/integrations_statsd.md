@@ -72,4 +72,4 @@ $ echo "foo.bar.test3,hostname=mycustomsource:+1|g" | nc -u localhost 8125
 ```
 This command creates and increment a new gauge, but it will have a different source (`mycustomsource`) from the previous examples.
 
-{% include links.html %}
+

@@ -61,4 +61,4 @@ You will see a list of all permissions broken into two parts: permissions grante
 ## Customer-Wide Preferences
 You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder) by default and the default dashboard.
 
-{% include links.html %}
+

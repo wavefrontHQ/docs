@@ -79,4 +79,3 @@ Wavefront identifies deprecated features in the release notes for the release in
 </tbody>
 </table>
 
-{% include links.html %}

@@ -365,4 +365,3 @@ When using metadata functions, keep the following in mind:
 - The series resulting from `aliasSource()` and `aliasMetric()` must all be unique, otherwise an error will occur and no data is returned. Series are defined as metric + source + point tags. Take the following query for example: `aliasSource(ts("requests.latency"),metric,1)`. If no point tags exist for this data and there are 20 sources reporting data for `requests.latency`, then this query would return an error because you are renaming each source as `latency`. The resulting series would collide because each point would have metric="requests.latency" and source="latency". However, if each series had a unique point tag value, the query would work.
 
 
-{% include links.html %}

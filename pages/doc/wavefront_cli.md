@@ -9,5 +9,5 @@ summary: Learn how to use the Wavefront CLI to install Wavefront proxies and col
 
 {% include wavefront-cli/README.md %}
 
-{% include links.html %}
+
 

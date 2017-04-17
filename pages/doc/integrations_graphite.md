@@ -95,4 +95,4 @@ To send Graphite data to Wavefront:
 1. Start carbon-relay then carbon-agent. Metrics should now be duplicated in Wavefront.
 
 
-{% include links.html %}
+

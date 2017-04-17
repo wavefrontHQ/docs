@@ -46,14 +46,14 @@ For greater flexibility, you can define rules separately for each listening port
 
 Every rule must have a `rule` parameter that contains the rule ID and an `action` parameter that contains the action to perform.
 
-Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the **drop-az-tag** rule is defined with the same identifier for both ports, 2878 and 4242.
+Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the `drop-az-tag` rule is defined with the same identifier for both ports, 2878 and 4242.
 
-The Wavefront proxy reports a counter metric for every rule that represents the number of times a rule has been successfully applied, and the rule ID becomes part of the proxy metric **~agent.preprocessor.&lt;rule&gt;.count**. For example, **~agent.preprocessor.replace-badchars.count**. For information on proxy metrics, see Monitoring the Health of a Wavefront Instance.
+The Wavefront proxy reports a counter metric for every rule that represents the number of times a rule has been successfully applied, and the rule ID becomes part of the proxy metric `~agent.preprocessor.<ruleID>.count`. For example, `~agent.preprocessor.replace-badchars.count`. For information on proxy metrics, see [Monitoring the Health of a Wavefront Instance](wavefront_monitoring).
 
 ## Regex Notes
 
--   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use "\\\\."
--   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains "stage" substring is ".\*stage.\*".
+-   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
+-   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains `stage` substring is `.*stage.*`.
 -   Regex patterns in the `replaceRegex` rule `search` parameter are a substring match. If `search` is "A" and `replace` is "B", all A's are replaced with B's.
 
 ## Enabling the Preprocessor
@@ -62,7 +62,7 @@ To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` prop
 
 ## Point Filtering Rules
 
-Point filtering rules support a more flexible version of the Proxy's `whitelistRegex` and `blacklistRegex` properties, and is fully backwards compatible.
+Point filtering rules support a more flexible version of the proxy's `whitelistRegex` and `blacklistRegex` properties, and is fully backwards compatible.
 
 ### blacklistRegex
 
@@ -75,10 +75,10 @@ Defines a regex that points must match to be filtered out.
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Description</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -141,10 +141,10 @@ Defines a regex that points must match to be accepted. Multiple `whitelistRegex`
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Description</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -213,10 +213,10 @@ Replaces arbitrary text in the point line or any of its components:
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Description</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -283,7 +283,6 @@ Examples:
 
 ### addTag
 
-
 Add a point tag with the specified value to all points. If the point tag already exists, its existing value is replaced with the new value.
 
 <table width="100%">
@@ -293,10 +292,10 @@ Add a point tag with the specified value to all points. If the point tag already
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Description</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -340,10 +339,10 @@ Add a point tag with the specified value to all points. If the point tag already
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Description</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -388,10 +387,10 @@ Remove a point tag.
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value</strong></th>
-<th><strong>Description</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -442,12 +441,12 @@ Create a new point tag based on a metric name, source name, or another point tag
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th><strong>Parameter</strong></th>
-<th><strong>Value<br />
-</strong></th>
-<th><strong>Description<br />
-</strong></th>
+<tr>
+<th>Parameter</th>
+<th>Value<br />
+</th>
+<th>Description<br />
+</th>
 </tr>
 </thead>
 <tbody>
@@ -515,8 +514,8 @@ Rename a point tag, preserving its value.
 <col width="33%" />
 </colgroup>
 <thead>
-<tr class="header">
-<th>Parameter</strong></th>
+<tr>
+<th>Parameter</th>
 <th>Value</th>
 <th>Description</th>
 </tr>
@@ -564,4 +563,4 @@ Examples:
     newtag  : numericTag
 ```
 
-{% include links.html %}
+

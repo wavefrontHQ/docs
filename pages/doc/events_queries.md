@@ -32,4 +32,4 @@ You can specify multiple <span style="color: #2873ee;">event filters</span> sepa
 ## Further Information
 There are many functions available for operating on the result of an events() query. For examples, see [Advanced events() Expressions](events_queries_advanced) and for a general reference, see [Wavefront Query Language Quick Reference](query_language_reference#event-functions).
 
-{% include links.html %}
+

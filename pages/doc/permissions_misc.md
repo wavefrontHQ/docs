@@ -45,5 +45,5 @@ While every Wavefront user can access charts and make temporary changes to chart
 1. Copy the snippet and paste it into the desired location. You can adjust the `width` and `height` parameters.
 
 
-{% include links.html %}
+
 

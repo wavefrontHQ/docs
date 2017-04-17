@@ -73,4 +73,4 @@ spec:
         - containerPort: 4242  
           protocol: TCP  
 ```
-{% include links.html %}
+

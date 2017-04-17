@@ -36,4 +36,4 @@ LoadPlugin nginx"
   URL "http://localhost:80/nginx_status"  
 </Plugin>  
 ```
-{% include links.html %}
+

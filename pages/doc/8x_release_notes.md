@@ -26,4 +26,4 @@ The Wavefront 8.x release provides a number of dashboard, documentation, and UI 
 - In the UI, the term "Proxy" is now used instead of "Agent"
 
 
-{% include links.html %}
+

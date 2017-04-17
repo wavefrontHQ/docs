@@ -71,4 +71,4 @@ But what if your data does not follow the standard distribution or you want to d
 
 ![edit_alert_appdynamics](images/edit_alert_appdynamics.png)
 
-{% include links.html %}
+

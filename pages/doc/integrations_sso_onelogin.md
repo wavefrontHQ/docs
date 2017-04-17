@@ -25,4 +25,4 @@ Wavefront supports Single Sign-On (SSO) via OneLogin. Below are the steps to set
  
 4. Once we receive that link Wavefront will add your account as a provider. We'll notify you as soon as we've done this and you should then be able to create Users within OneLogin in the usual way. Once a user has been successfully authenticated, authorization for that user is controlled within Wavefront.
 
-{% include links.html %}
+

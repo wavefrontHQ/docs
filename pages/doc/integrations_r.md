@@ -176,4 +176,4 @@ If you're just getting started with R, there are a few free resources to help yo
 - [The R Book](https://archive.org/download/TheRBook/The_R_Book-Crawley.pdf), Michael Cawley: The best overall view of R as a mathematical/statistical tool, though at 1000+ pages, more of a reference than a tutorial.
 
 
-{% include links.html %}
+

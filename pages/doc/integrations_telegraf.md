@@ -48,4 +48,4 @@ Once you've installed Telegraf, you can [deploy](dashboards_managing#deploying-a
 ![db_telegraf](images/db_telegraf.png)
  
 
-{% include links.html %}
+

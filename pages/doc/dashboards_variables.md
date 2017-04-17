@@ -121,4 +121,4 @@ To use a dynamic dashboard variable **var2** that refers to a source, source tag
 -   **Source Tag** - **ts(&lt;metricName&gt;, tag=${var2})**
 -   **Point Tag** - **ts(&lt;metricName&gt;, \<pointTagKey\>=${var2})**. **pointTagKey** must match the key you set up when you created the dynamic dashboard variable.
 
-{% include links.html %}
+

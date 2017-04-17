@@ -22,4 +22,3 @@ There are different places where you can express your data schema&mdash;metric n
   Wavefront does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with the `build-25`, queries filtered by `build-24` will no longer match web004.pax.wavefront.com. In other words, only current alert, event, and source tags affect queries because these tags are tied only to those entities, not to data.
 
 
-{% include links.html %}

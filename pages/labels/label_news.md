@@ -8,4 +8,4 @@ folder: labels
 ---
 {% include labellogic.html %}
 
-{% include links.html %}
+

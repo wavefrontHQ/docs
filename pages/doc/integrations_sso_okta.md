@@ -46,4 +46,4 @@ Wavefront supports Single Sign-On (SSO) via Okta. To set up SSO:
 
 9. Once we receive that link Wavefront will add you as a provider. We'll notify you as soon as we've done this and you will then be able to create users within Okta in the usual way.
 
-{% include links.html %}
+

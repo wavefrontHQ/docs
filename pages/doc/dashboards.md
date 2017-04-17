@@ -16,4 +16,4 @@ All users can [search](dashboards_searching) and [interact](dashboards_interacti
 
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
-{% include links.html %}
+

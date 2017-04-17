@@ -47,4 +47,4 @@ PagerDuty API keys and email addresses are used within Wavefront alerts, so you 
 Once your alert state changes, you will be notified via PagerDuty based on the escalation policy tied to your PagerDuty service.
 
 
-{% include links.html %}
+

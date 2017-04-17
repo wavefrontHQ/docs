@@ -27,5 +27,5 @@ You can learn more about each set of permissions by clicking the permission head
 
 To see which permissions you currently have assigned to your account, access your user profile by clicking the gear icon <i class="fa fa-cog"/> located on the task bar and select your username. Your profile lists the permissions assigned to your account. To request additional permissions, contact a user with User Management permission.
 
-{% include links.html %}
+
 

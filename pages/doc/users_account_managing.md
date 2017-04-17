@@ -51,4 +51,4 @@ You configure can configure several preferences in your user profile.
 {% include note.html content="Some Query Builder and default dashboard preferences are set for [all users in an account](users_managing#customer_prefs) by a user with [User Management permission](permissions_overview)." %}
 
 
-{% include links.html %}
+

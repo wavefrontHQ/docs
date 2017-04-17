@@ -136,4 +136,3 @@ To filter by a tag, click a tag icon, for example ![mytag icon](images/mytag_ico
 
     ![mytag](images/mytag.png)
     
-{% include links.html %}

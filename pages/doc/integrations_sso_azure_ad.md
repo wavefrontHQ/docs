@@ -65,4 +65,4 @@ Here we provide step-by-step instructions to configure Azure AD SSO integration 
 1. Send the Metadata XML file (that you saved earlier) to support@wavefront.com with a request to set up Azure AD integration for Wavefront. Once we receive that file, Wavefront will add you as a provider and we'll notify you as soon as it's done.
 
 
-{% include links.html %}
+

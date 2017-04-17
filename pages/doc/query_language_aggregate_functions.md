@@ -23,4 +23,3 @@ Raw aggregate functions on the other hand calculate aggregates based on actual r
  
 However, the gap between 9:27a and 9:30a are exactly the same regardless of which aggregate function type we use. This is due to the fact that none of the underlying series included in the aggregation reported a data value during this gap of time. Therefore standard aggregate functions do not apply interpolated values during this gap, and look exactly the same as a raw aggregate function. The behavioral differences between standard and raw apply to all aggregate functions (sum, avg, min, max, count, variance, percentile).
 
-{% include links.html %}

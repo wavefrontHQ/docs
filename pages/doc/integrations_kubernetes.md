@@ -30,4 +30,4 @@ Once you have started collecting metrics from your Kubernetes cluster, you can d
   
   ![k8_pod_containers](images/k8_pod_containers.png)
 
-{% include links.html %}
+

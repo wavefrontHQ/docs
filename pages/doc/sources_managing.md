@@ -44,4 +44,4 @@ To unhide sources, view the hidden sources list and select the source(s) to be u
  
 To hide and unhide a single source, use the ![action_menu.png](images/action_menu.png#inline) **> \[Hide\|Unhide\]** menu at the far right.
 
-{% include links.html %}
+

@@ -51,4 +51,4 @@ Note how the `obj` setting is an empty string. This causes JMXTrans to retrieve 
 JMXTrans is highly configurable. Take a look at the [documentation](https://github.com/jmxtrans/jmxtrans/wiki/Queries) if you want to tweak your configuration to retrieve only certain ManagedBeans or have things named differently within Wavefront.
 
 
-{% include links.html %}
+

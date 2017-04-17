@@ -114,4 +114,3 @@ Now that you are acquainted with the basics of Wavefront features and the UI, yo
 
 {% include shared/tutorial_next_steps.html %}
 
-{% include links.html %}
