@@ -87,7 +87,7 @@ To indicate that metrics should be treated as histogram data, you send the metri
 </tbody>
 </table>
 
-You configure the ports in the proxy configuration file `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+For information on how to configure proxies, see [Configuring Proxies](proxies_configuring).
 
 ### Histogram Configuration Properties
 
@@ -101,7 +101,56 @@ You configure the ports in the proxy configuration file `/etc/wavefront/wavefron
 </thead>
 <tbody>
 <tr>
-<td>histogramMinsListenerPorts
+<td>avgHistogramDigestBytes</td>
+<td>Average number of bytes in an encoded distribution/accumulation. Default: 500.</td>
+</tr>
+<tr>
+<td>avgHistogramKeyBytes</td>
+<td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 50.</td>
+</tr>
+<tr>
+<td>histogramAccumulatorResolveInterval</td>
+<td>Interval in milliseconds to write back accumulation changes to disk. Default: 100.</td>
+</tr>
+<tr>
+<td>histogramAccumulatorSize</td>
+<td>Expected upper bound of concurrent accumulations: ~ #time series * #parallel reporting bins. Default: 100000.</td>
+</tr>
+<tr>
+<td>histogramCompression</td>
+<td markdown="span">Bounds the number of centroids per histogram. Must be in [20;1000]. Default: 100.</td>
+</tr>
+<tr>
+<td>histogramDayListenerPorts</td>
+<td>Comma-separated list of ports to listen on for histograms to be aggregated by day. Default: 40003.</td>
+</tr>
+<tr>
+<td>histogramDayAccumulators</td>
+<td>Number of accumulators per day port. Default: 2.</td>
+</tr>
+<tr>
+<td>histogramDayFlushSecs</td>
+<td>Time-to-live in seconds for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
+</td>
+</tr>
+<tr>
+<td>histogramDistListenerPort</td>
+<td>Port to listen on for ingesting histogram distributions. Default: 40000.</td>
+</tr>
+<tr>
+<td>histogramHourListenerPorts</td>
+<td>Comma-separated list of ports to listen on for histograms to be aggregated by hour. Default: 40002.</td>
+</tr>
+<tr>
+<td>histogramHourAccumulators</td>
+<td>Number of accumulators per hour port. Default: 2.</td>
+</tr>
+<tr>
+<td>histogramHourFlushSecs</td>
+<td>Time-to-live in seconds for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
+</tr>
+<tr>
+<td>histogramMinuteListenerPorts
 </td>
 <td>Comma-separated list of ports to listen on for histograms to be aggregated by minute. Default: 40001.</td>
 </tr>
@@ -115,65 +164,20 @@ You configure the ports in the proxy configuration file `/etc/wavefront/wavefron
 <td>Time-to-live in seconds for a minute granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 70.</td>
 </tr>
 <tr>
-<td>histogramHoursListenerPorts</td>
-<td>Comma-separated list of ports to listen on for histograms to be aggregated by hour. Default: 40002.</td>
-</tr>
-<tr>
-<td>histogramHourAccumulators</td>
-<td>Number of accumulators per hour port. Default: 2.</td>
-</tr>
-<tr>
-<td>histogramHourFlushSecs</td>
-<td>Time-to-live in seconds for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
-</tr>
-<tr>
-<td>histogramDaysListenerPorts</td>
-<td>Comma-separated list of ports to listen on for histograms to be aggregated by day. Default: 40003.</td>
-</tr>
-<tr>
-<td>histogramDayAccumulators</td>
-<td>Number of accumulators per day port. Default: 2.</td>
-</tr>
-<tr>
-<td>histogramDayFlushSecs</td>
-<td>Time-to-live in seconds for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
-</td>
-</tr>
-<tr>
-<td>histogramCompression</td>
-<td markdown="span">Bounds the number of centroids per histogram. Must be in [20;1000]. Default: 100.</td>
-</tr>
-<tr>
 <td>histogramStateDirectory</td>
 <td markdown="span">Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: `/var/spool/wavefront-proxy`.<br /><br />
 <strong>Note: </strong>A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge.
 </td>
 </tr>
 <tr>
-<td>histogramAccumulatorResolveInterval</td>
-<td>Interval in milliseconds to write back accumulation changes to disk. Default: 100.</td>
-</tr>
-<tr>
-<td>histogramAccumulatorSize</td>
-<td>Expected upper bound of concurrent accumulations: ~ #timeseries * #parallel reporting bins. Default: 100000.</td>
-</tr>
-<tr>
-<td>avgHistogramKeyBytes</td>
-<td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of ~metric, source, and point tags. Default: 50.</td>
-</tr>
-<tr>
-<td>avgHistogramDigestBytes</td>
-<td>Average number of bytes in an encoded distribution/accumulation. Default: 500.</td>
-</tr>
-<tr>
-<td>persistMessages</td>
-<td>Whether to persist received metrics to disk. Default: true.<br /><br />
+<td>persistAccumulator</td>
+<td>Whether to persist accumulation state. Default: true.<br /><br />
 <strong>Warning: </strong>If set to false unprocessed metrics are lost on proxy shutdown.
 </td>
 </tr>
 <tr>
-<td>persistAccumulator</td>
-<td>Whether to persist accumulation state. Default: true.<br /><br />
+<td>persistMessages</td>
+<td>Whether to persist received metrics to disk. Default: true.<br /><br />
 <strong>Warning: </strong>If set to false unprocessed metrics are lost on proxy shutdown.
 </td>
 </tr>
