@@ -1,5 +1,5 @@
 ---
-title: Welcome to Wavefront
+title: Welcome to Wavefront Docs
 keywords: homepage
 labels: getting started
 sidebar: doc_sidebar
@@ -11,7 +11,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-hourglass-start fa-stack-1x fa-inverse"></i>
                </span>
@@ -24,7 +24,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-question fa-stack-1x fa-inverse"></i>
                </span>
@@ -37,7 +37,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-table fa-stack-1x fa-inverse"></i>
                </span>
@@ -50,7 +50,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
                </span>
@@ -65,7 +65,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
                </span>
@@ -78,7 +78,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-leanpub fa-stack-1x fa-inverse"></i>
                </span>
@@ -91,7 +91,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
                </span>
@@ -104,7 +104,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-tachometer fa-stack-1x fa-inverse"></i>
                </span>
@@ -119,7 +119,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
                </span>
@@ -132,7 +132,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
                </span>
@@ -145,7 +145,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-plug fa-stack-1x fa-inverse"></i>
                </span>
@@ -158,7 +158,7 @@ permalink: index.html
    <div class="col-md-3 col-sm-6">
        <div class="panel panel-default text-center">
            <div class="panel-heading">
-               <span class="fa-stack fa-5x">
+               <span class="fa-stack fa-4x">
                      <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                      <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
                </span>
