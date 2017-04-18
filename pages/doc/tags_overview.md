@@ -1,6 +1,6 @@
 ---
 title: Tags Overview
-tags: [getting started]
+tags: [getting started, alerts, dashboards, events, sources]
 sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to create and use Wavefront tags to speed up query display and work with Wavefront entities.

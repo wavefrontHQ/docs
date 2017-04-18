@@ -551,3 +551,6 @@ entries:
         url: /label_administration.html
         output: web
         
+      - title: Source Pages
+        url: /label_sources.html
+        output: web

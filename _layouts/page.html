@@ -49,7 +49,7 @@ layout: default
 
     <div class="tags">
         {% if page.tags != null %}
-        <b>Labels: </b>
+        <i class="fa fa-tags"></i>
         {% assign projectTags = site.data.tags.allowed-labels %}
         {% for tag in page.tags %}
         {% if projectTags contains tag %}

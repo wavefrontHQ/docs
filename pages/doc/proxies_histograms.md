@@ -165,20 +165,20 @@ For information on how to configure proxies, see [Configuring Proxies](proxies_c
 </tr>
 <tr>
 <td>histogramStateDirectory</td>
-<td markdown="span">Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: `/var/spool/wavefront-proxy`.<br /><br />
-<strong>Note: </strong>A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge.
+<td>Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: <code>/var/spool/wavefront-proxy</code>.
+{% include note.html content="A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge." %}
 </td>
 </tr>
 <tr>
 <td>persistAccumulator</td>
-<td>Whether to persist accumulation state. Default: true.<br /><br />
-<strong>Warning: </strong>If set to false unprocessed metrics are lost on proxy shutdown.
+<td>Whether to persist accumulation state. Default: true.
+{% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 <tr>
 <td>persistMessages</td>
-<td>Whether to persist received metrics to disk. Default: true.<br /><br />
-<strong>Warning: </strong>If set to false unprocessed metrics are lost on proxy shutdown.
+<td>Whether to persist received metrics to disk. Default: true.
+{% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 </tbody>
@@ -196,7 +196,7 @@ For example, `request.latency 20 1484877771 source=<source>`. The Wavefront prox
  
 ## Querying Histogram Metrics
 
-To query histogram metrics, use the `hs()` function to return points and apply statistical functions. The supported functions are:
+To query histogram metrics, use the `hs()` function to return points. Then you can apply a limited set of statistical functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
 
 - `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
 - `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.

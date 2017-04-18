@@ -1,10 +1,9 @@
-<p>The following pages are labeled with <button type="button" style="cursor: default" class="btn btn-default navbar-btn label-btn">{{page.tagName}}</button>.</p>
 <table style="width: 100%;">
 <colgroup>
 <col width="30%" />
 <col width="70%" />
 </colgroup>
-<thead><tr><th>Title</th><th>Excerpt</th></tr></thead>
+<thead><tr><th>Title</th><th>Summary</th></tr></thead>
     <tbody>
     {% assign thisTag = page.tagName %}
   {% for page in site.pages %}

@@ -1,7 +1,7 @@
 ---
 title: Managing Sources
 keywords: sources
-tags: [sources]
+tags: [sources, administration]
 sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn how to manage sources.

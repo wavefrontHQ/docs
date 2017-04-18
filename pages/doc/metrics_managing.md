@@ -1,7 +1,7 @@
 ---
 title: Managing Metrics
 keywords: metrics
-tags: [metrics]
+tags: [administration]
 sidebar: doc_sidebar
 permalink: metrics_managing.html
 summary: Learn how to manage metrics.
@@ -29,7 +29,7 @@ From the Metrics Browser, locate the **Hide Metrics** button found in the top ri
 
 ![hide metrics](images/hide_metrics.png)
 
-In the blank field, type a complete metrics name (e.g. requests.latency) or a metric prefix (e.g. requests., cpu.loadavg.).
+In the blank field, type a complete metrics name (e.g. `requests.latency`) or a metric prefix (e.g. `requests.`, `cpu.loadavg.`).
 
 - There is currently no autocomplete associated with this field, so you will need to know the entire metric name or metric prefix before entering it into this field.
 - The entered text is case sensitive.

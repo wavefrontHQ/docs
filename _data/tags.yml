@@ -1,5 +1,4 @@
 allowed-labels:
-  - getting started
   - administration
   - alerts
   - api
@@ -7,9 +6,11 @@ allowed-labels:
   - dashboards
   - data
   - events
+  - getting started
   - integrations
+  - news
   - proxies
   - query language
-  - tutorials
-  - news
   - release notes
+  - sources
+  - tutorials
