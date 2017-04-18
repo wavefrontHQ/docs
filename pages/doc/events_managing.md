@@ -12,7 +12,7 @@ summary: Learn how to manage events.
 An event is a record that something of interest has occurred&mdash;an alert has changed state,
 a maintenance window has been created, AWS instances have started or stopped, and so on.
 
-Events originate from several different sources. When you perform actions in Wavefront, such as when you edit or snooze an alert, the event source is **System**. When an alert fires or resolves, the source is **System/Alert**. You can manually add **User** events to identify user actions, such as code pushes, that occur outside Wavefront but that affect metrics within Wavefront.
+Events originate from several different sources. When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing), the event source is **System**. When an alert fires or resolves, the source is **System/Alert**. You can manually add **User** events to identify user actions, such as code pushes, that occur outside Wavefront but that affect metrics within Wavefront.
 
 To view and manage events, select **Browse > Events**.
 
