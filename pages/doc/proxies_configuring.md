@@ -35,8 +35,8 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </thead>
 <tbody>
 <tr>
-<td>MetricsPointTags</td>
-<td>Point tags and their values (as key-value pairs) to be passed along with ~agent.* metrics. Default: none.</td>
+<td>agentMetricsPointTags</td>
+<td>Point tags and their values to be passed along with ~agent.* metrics. Default: none.</td>
 <td>A comma-separated list of key-value pairs.</td>
 <td>dc=west,env=prod</td>
 <td>3.24</td>
@@ -58,28 +58,28 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>customSourceTags</td>
-<td>A comma-separated list of point tags to use as 'source' if no 'source' or 'host' field is present. Default: fqdn, hostname.</td>
-<td>A comma-separated list of point tags.</td>
+<td>Point tag keys to use as 'source' if no 'source' or 'host' field is present. Default: fqdn, hostname.</td>
+<td>A comma-separated list of point tag keys.</td>
 <td>fqdn, hostname</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>dataBackfillCutoffHours</td>
-<td>Sets the cut-off point for what is considered a valid timestamp for back-dated points. We do not recommend setting this value higher than 1 year unless backfilling or migrating historic data. Default: 8760 (1 year), so all the data points older than 1 year are rejected.</td>
+<td>The cut-off point for what is considered a valid timestamp for back-dated points. We do not recommend setting this value larger than 1 year unless backfilling or migrating historic data. Default: 8760 (1 year), so all points older than 1 year are rejected.</td>
 <td>A positive integer.</td>
 <td>8760</td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>ephemeral</td>
-<td>Indicates whether to automatically clean up old and orphaned proxy instances from the Wavefront Agents page. We recommend enabling ephemeral mode if you’re running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
-<td>true or false</td>
+<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Agents page. We recommend enabling ephemeral mode if you’re running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
+<td>Boolean</td>
 <td>true</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>fileBeatPort</td>
-<td>Port to listen for Filebeat data. Default: 5044.</td>
+<td>TCP port to listen on for Filebeat data. Default: 5044.</td>
 <td>A port number.</td>
 <td>5044</td>
 <td>4.1</td>
@@ -93,7 +93,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>graphitePorts</td>
-<td>Ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
+<td>TCP ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
 <td>2003<br/>
 2003,2004</td>
@@ -117,8 +117,8 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>hostname</td>
-<td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-Proxy point rates, and so on.</td>
-<td>An string containing alphanumeric characters and periods.</td>
+<td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
+<td>A string containing alphanumeric characters and periods.</td>
 <td></td>
 <td></td>
 </tr>
@@ -152,7 +152,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>jsonListenerPorts</td>
-<td>Ports to listen on for incoming JSON-formatted metrics. Default: none.</td>
+<td>TCP ports to listen on for incoming JSON-formatted metrics. Default: none.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
 <td></td>
 <td></td>
@@ -166,7 +166,7 @@ Default: `/etc/wavefront/wavefront-proxy/logsIngestion.yaml`.</td>
 </tr>
 <tr>
 <td>opentsdbPorts</td>
-<td>Ports to listen on for incoming OpenTSDB-formatted data. Default: none.
+<td>TCP ports to listen on for incoming OpenTSDB-formatted data. Default: none.
 Default: 4242.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
 <td>4242</td>
@@ -174,7 +174,7 @@ Default: 4242.</td>
 </tr>
 <tr>
 <td>picklePorts</td>
-<td>Ports to listen on for incoming data in Graphite pickle format (from carbon-relay). Default: None.</td>
+<td>TCP ports to listen on for incoming data in Graphite pickle format (from carbon-relay). Default: None.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
 <td>5878</td>
 <td>3.20</td>
@@ -245,7 +245,7 @@ production.nyc.dc1</td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
-<td>Ports to listen on for incoming data. Default: 2878.</td>
+<td>TCP ports to listen on for incoming data. Default: 2878.</td>
 <td>A comma-separated list of available port numbers. Can be a single port.</td>
 <td>2878<br/>
 2878,2879,2880</td>
@@ -281,7 +281,7 @@ production.nyc.dc1</td>
 </tr>
 <tr>
 <td>rawLogsPort</td>
-<td>TCP port to listen for log data. Default: 5045.</td>
+<td>TCP port to listen on for log data. Default: 5045.</td>
 <td>A port number.</td>
 <td>5045</td>
 <td>4.4</td>

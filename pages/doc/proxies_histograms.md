@@ -8,15 +8,15 @@ summary: Learn how to use Wavefront histograms.
 ---
 Even though Wavefront can receive and store highly granular metrics, it cannot receive data at greater than 1 point per second per unique source. In cases where finer data granularity is available to measure performance, Wavefront supports histograms, a mechanism to compute, store, and use distributions of metrics rather than single metrics.
  
-For example, suppose you are measuring the latency of each web request. If you have sufficient traffic at multiple servers, you could have multiple distinct measurements for a given metric, host, and timestamp. This will result in "collisions" using [Wavefront data format](wavefront_data_format). In other words, the frequency of this data is actually higher than the Wavefront format; rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
+For example, suppose you are measuring the latency of each web request. If you have sufficient traffic at multiple servers, you could have multiple distinct measurements for a given metric, host, and timestamp. This will result in "collisions" using the [Wavefront data format](wavefront_data_format). In other words, the frequency of this data is actually higher than the Wavefront format; rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
  
-One approach to dealing with high frequency data is to calculate a statistic, such as a percentile, at each source and send only that data. The problem with this approach is that an aggregate of a percentile (such as P95s from a variety of sources) does not yield a valid percentile.
+One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as P95s from a variety of sources) does not yield a valid percentile.
  
-A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy. In addition to storing histogram data, Wavefront provides language features that can be used to query histogram data from multiple sources and calculate quantiles and percentiles. These calculated quantiles are then available as new time series that can be used in Wavefront Query Language queries.
+A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy. In addition to storing histogram data, Wavefront provides language features that can be used to query histogram data from multiple sources and calculate percentiles. These calculated percentiles are then available as new time series that can be used in Wavefront Query Language queries.
 
-## Wavefront Histogram Computation
+## Wavefront Histogram Distributions
  
-A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) creates a distribution by aggregating data into bins. For example, the following figure illustrates a distribution of 205 metric points, that range in value from 0 to 120  at t = 1 minute, into bins of size 10.
+Wavefront creates distributions by aggregating metrics into bins. For example, the following figure illustrates a distribution of 205 metrics that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
 
 ![histogram](images/histogram.png)
 
@@ -61,7 +61,7 @@ Wavefront supports aggregating metrics by the minute, hour, or day. Intervals st
 ## Wavefront Proxy Configuration
 Histograms are supported by Wavefront proxy 4.8 and higher.
  
-To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy port according to the aggregation window. For example:
+To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port according to the aggregation window. For example:
 
 <table width="50%">
 <colgroup>
@@ -93,92 +93,109 @@ For information on how to configure proxies, see [Configuring Proxies](proxies_c
 
 <table class="width:100%;">
 <colgroup>
-<col width="35%" />
-<col width="65%" />
-</colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" /></colgroup>
 <thead>
-<tr><th>Property</th><th>Description</th></tr>
+<tr><th>Property</th><th>Description</th><th>Format</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>avgHistogramDigestBytes</td>
 <td>Average number of bytes in an encoded distribution/accumulation. Default: 500.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>avgHistogramKeyBytes</td>
 <td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 50.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramAccumulatorResolveInterval</td>
 <td>Interval in milliseconds to write back accumulation changes to disk. Default: 100.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramAccumulatorSize</td>
 <td>Expected upper bound of concurrent accumulations: ~ #time series * #parallel reporting bins. Default: 100000.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramCompression</td>
-<td markdown="span">Bounds the number of centroids per histogram. Must be in [20;1000]. Default: 100.</td>
+<td>A bound on the number of centroids per histogram. Default: 100.</td>
+<td markdown="span">Positive integer in the interval [20;1000].</td>
 </tr>
 <tr>
 <td>histogramDayListenerPorts</td>
-<td>Comma-separated list of ports to listen on for histograms to be aggregated by day. Default: 40003.</td>
+<td>TCP ports to listen on for histograms to be aggregated by day. Default: 40003.</td>
+<td>Comma-separated list of ports.</td>
 </tr>
 <tr>
 <td>histogramDayAccumulators</td>
 <td>Number of accumulators per day port. Default: 2.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramDayFlushSecs</td>
 <td>Time-to-live in seconds for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
 </td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramDistListenerPort</td>
-<td>Port to listen on for ingesting histogram distributions. Default: 40000.</td>
+<td>TCP port to listen on for ingesting histogram distributions. Default: 40000.</td>
+<td>A port number.</td>
 </tr>
 <tr>
 <td>histogramHourListenerPorts</td>
-<td>Comma-separated list of ports to listen on for histograms to be aggregated by hour. Default: 40002.</td>
+<td>TCP ports to listen on for histograms to be aggregated by hour. Default: 40002.</td>
+<td>Comma-separated list of ports.</td>
 </tr>
 <tr>
 <td>histogramHourAccumulators</td>
 <td>Number of accumulators per hour port. Default: 2.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramHourFlushSecs</td>
 <td>Time-to-live in seconds for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramMinuteListenerPorts
 </td>
-<td>Comma-separated list of ports to listen on for histograms to be aggregated by minute. Default: 40001.</td>
+<td>TCP ports to listen on for histograms to be aggregated by minute. Default: 40001.</td>
+<td>Comma-separated list of ports.</td>
 </tr>
 <tr>
 <td>histogramMinuteAccumulators</td>
 <td>Number of accumulators per minute port. Default: 2.
 </td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramMinuteFlushSecs</td>
 <td>Time-to-live in seconds for a minute granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 70.</td>
+<td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramStateDirectory</td>
 <td>Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: <code>/var/spool/wavefront-proxy</code>.
-{% include note.html content="A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge." %}
 </td>
+<td>A valid path on the local file system. {% include note.html content="A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge." %}</td>
 </tr>
 <tr>
 <td>persistAccumulator</td>
 <td>Whether to persist accumulation state. Default: true.
-{% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
+</td>
+<td>Boolean. {% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 <tr>
 <td>persistMessages</td>
 <td>Whether to persist received metrics to disk. Default: true.
-{% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
+</td>
+<td>Boolean. {% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 </tbody>
