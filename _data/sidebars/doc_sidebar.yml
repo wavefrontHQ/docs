@@ -6,7 +6,7 @@ entries:
   version:
   folders:
     
-  - title: Overview
+  - title: Getting Started
     output: web
     folderitems:
       
@@ -14,12 +14,7 @@ entries:
       url: /index.html
       output: web
       type: homepage
-      
-    - title: Wavefront Documentation
-      url: /wavefront_documentation.html
-      output: web
-      type: homepage
-      
+            
     - title: Introduction to Wavefront
       url: /wavefront_introduction.html
       output: web
@@ -27,10 +22,6 @@ entries:
     - title: Wavefront API
       url: /wavefront_api.html
       output: web
-      
-  - title: Getting Started
-    output: web
-    folderitems:
       
     - title: Introductory Documentation
       url: /documentation_introductory.html
@@ -44,18 +35,23 @@ entries:
       url: /tags_overview.html
       output: web
       
-    - title: "Tutorial: Getting Started"
-      url: /tutorial_getting_started.html
-      output: web
-      
-    - title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
-      url: /tutorial_aws_data_ingestion.html
-      output: web
-      
-    - title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
-      url: /tutorial_proxy_data_ingestion.html
-      output: web
-      
+      subfolders:
+      - title: Tutorials
+        output: web
+        subfolderitems:
+          
+        - title: "Tutorial: Getting Started"
+          url: /tutorial_getting_started.html
+          output: web
+          
+        - title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
+          url: /tutorial_aws_data_ingestion.html
+          output: web
+          
+        - title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
+          url: /tutorial_proxy_data_ingestion.html
+          output: web
+          
   - title: Release Notes
     output: web
     folderitems:
@@ -164,30 +160,35 @@ entries:
       url: /query_language_series_matching.html
       output: web
       
-    - title: Using Statistical Functions to Detect Anomalies
-      url: /query_language_statistical_functions_anomalies.html
-      output: web
-
-    - title: Standard Versus Raw Aggregate Functions
-      url: /query_language_aggregate_functions.html
-      output: web
-
-    - title: Metadata Functions
-      url: /query_language_metadata_functions.html
-      output: web
-
-    - title: Summarize By and the align() Function
-      url: /query_language_align_function.html
-      output: web
-
-    - title: Using Moving and Tumbling Windows to Highlight Trends
-      url: /query_language_windows_trends.html
-      output: web
-
     - title: Understanding Slow Queries
       url: /dashboards_slow_queries.html
       output: web
       
+      subfolders:
+      - title: Advanced Functions
+        output: web
+        subfolderitems:
+          
+        - title: Using Statistical Functions to Detect Anomalies
+          url: /query_language_statistical_functions_anomalies.html
+          output: web
+
+        - title: Standard Versus Raw Aggregate Functions
+          url: /query_language_aggregate_functions.html
+          output: web
+
+        - title: Metadata Functions
+          url: /query_language_metadata_functions.html
+          output: web
+
+        - title: Summarize By and the align() Function
+          url: /query_language_align_function.html
+          output: web
+
+        - title: Using Moving and Tumbling Windows to Highlight Trends
+          url: /query_language_windows_trends.html
+          output: web
+
   - title: Dashboards and Charts
     output: web
     folderitems:
@@ -252,26 +253,31 @@ entries:
       url: /maintenance_windows_managing.html
       output: web
       
-    - title: Integrating HipChat with Alerts
-      url: /alerts_integrating_hipchat.html
-      output: web
-      
-    - title: Integrating PagerDuty with Alerts
-      url: /alerts_integrating_pagerduty.html
-      output: web
-      
-    - title: Integrating Slack with Alerts
-      url: /alerts_integrating_slack.html
-      output: web
-      
-    - title: Integrating VictorOps with Alerts
-      url: /alerts_integrating_victorops.html
-      output: web
-      
-    - title: Integrating Webhooks with Alerts
-      url: /alerts_integrating_webhooks.html
-      output: web
-      
+      subfolders:
+      - title: Integrating with Notification Channels
+        output: web
+        subfolderitems:
+          
+        - title: Integrating HipChat with Alerts
+          url: /alerts_integrating_hipchat.html
+          output: web
+          
+        - title: Integrating PagerDuty with Alerts
+          url: /alerts_integrating_pagerduty.html
+          output: web
+          
+        - title: Integrating Slack with Alerts
+          url: /alerts_integrating_slack.html
+          output: web
+          
+        - title: Integrating VictorOps with Alerts
+          url: /alerts_integrating_victorops.html
+          output: web
+          
+        - title: Integrating Webhooks with Alerts
+          url: /alerts_integrating_webhooks.html
+          output: web
+          
   - title: Events
     output: web
     folderitems:
@@ -454,7 +460,11 @@ entries:
         url: /permissions_misc.html
         output: web
         
-      - title: Managing Users
+      - title: Managing Your Wavefront Account
+        url: /users_account_managing.html
+        output: web
+        
+      - title: Managing Users and Permissions
         url: /users_managing.html
         output: web
         
@@ -464,10 +474,6 @@ entries:
         
       - title: Managing Sources
         url: /sources_managing.html
-        output: web
-        
-      - title: Managing Your Wavefront Account
-        url: /users_account_managing.html
         output: web
         
         subfolders:
@@ -499,58 +505,3 @@ entries:
         url: /wavefront_monitoring.html
         output: web
         
-  - title: Labels
-    output: web
-    folderitems:
-                
-      - title: Getting Started Pages
-        url: /label_getting%20started.html
-        output: web
-        
-      - title: Release Notes Pages
-        url: /label_release%20notes.html
-        output: web
-
-      - title: Tutorial Pages
-        url: /label_tutorials.html
-        output: web
-        
-      - title: Data Pages
-        url: /label_data.html
-        output: web
-        
-      - title: Proxy Pages
-        url: /label_proxies.html
-        output: web
-        
-      - title: Query Language Pages
-        url: /label_query%20language.html
-        output: web
-        
-      - title: Dashboard Pages
-        url: /label_dashboards.html
-        output: web
-        
-      - title: Chart Pages
-        url: /label_charts.html
-        output: web
-        
-      - title: Alert Pages
-        url: /label_alerts.html
-        output: web
-        
-      - title: Event Pages
-        url: /label_events.html
-        output: web
-        
-      - title: Integration Pages
-        url: /label_integrations.html
-        output: web
-        
-      - title: Administration Pages
-        url: /label_administration.html
-        output: web
-        
-      - title: Source Pages
-        url: /label_sources.html
-        output: web

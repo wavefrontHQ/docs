@@ -3,7 +3,3 @@
 topnav:
 - title: Topnav
   items:
-    - title: Documentation
-      url: /index.html
-    - title: News
-      url: /news.html

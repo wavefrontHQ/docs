@@ -1,33 +1,34 @@
 .summary {
-    color: #808080;
+    color: #52606d;
     border-left: 5px solid #333333;
     font-size:16px;
 }
 
-h2 {color: #333333; }
-h3 {color: #333333; }
-h4 {color: #333333; }
+h1 {font-size:34px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
+h2 {font-size:28px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
+h3 {font-size:22px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
+h4 {font-size:16px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    background-color: #248ec2;
+    background-color: #DFF0D8;
     color: white;
 }
 
 .nav > li.active > a {
-    background-color: #03a6e5;
+    background-color: #DFF0D8;
 }
 
 .nav > li > a:hover {
-    background-color: #248ec2;
+    background-color: #DFF0D8;
 }
 
 div.navbar-collapse .dropdown-menu > li > a:hover {
-    background-color: #03a6e5;
+    background-color: #DFF0D8;
 }
 
 .nav li.thirdlevel > a {
     background-color: #FAFAFA !important;
-    color: #248EC2;
+    color: #DFF0D8;
     font-weight: bold;
 }
 
@@ -53,17 +54,17 @@ a[data-toggle="tooltip"] {
 
 /* not sure if using this ...*/
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: #248ec2 !important;
+    border-color: #DFF0D8 !important;
 }
 
 .btn-primary {
     color: #ffffff;
-    background-color: #03a6e5;
-    border-color: #03a6e5;
+    background-color: #86C042;
+    border-color: #86C042;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: #03a6e5;
+    background-color: #DFF0D8;
 }
 
 .btn-primary:hover,
@@ -71,8 +72,8 @@ a[data-toggle="tooltip"] {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    background-color: #248ec2;
-    border-color: #03a6e5;
+    background-color: #86C042;
+    border-color: #86C042;
 }
 
 .printTitle {
