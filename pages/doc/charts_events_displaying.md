@@ -32,7 +32,7 @@ You have several ways to control when event overlays display in charts:
 
 - Select the **Display Source Events** checkbox in the [chart configuration](charts#source_events) to display events related to alerts fired for sources displaying in the chart. 
 
-- Add an [events() query](events_queries) to the chart. An events() query cannot be the only query on the chart; at least one time series must be enabled on the chart in addition to the events() query to display the events.
+- Add an [events() query](events_queries) to the chart. An events() query cannot be the only query on the chart; to display the events at least one ts() query must be enabled on the chart in addition to the events() query.
 
 - For all charts in a **dashboard**:
   - Set an [events() query](events_queries) in [dashboard preferences](dashboards_managing#prefs).

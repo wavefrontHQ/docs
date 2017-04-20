@@ -1,16 +1,13 @@
 allowed-labels:
   - administration
   - alerts
-  - api
   - charts
   - dashboards
   - data
   - events
   - getting started
   - integrations
-  - news
   - proxies
   - query language
   - release notes
-  - sources
   - tutorials

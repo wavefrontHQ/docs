@@ -507,7 +507,7 @@ Missing data functions allow you to interpolate missing data with points based o
 
 ## Metadata Functions
 
-Metadata functions extract information from an existing set of data to rename a metric or source, or create a new synthetic point tag. There are three ways to formulate the alias:
+Metadata functions extract information from an existing set of data to rename a metric or source or create a new synthetic point tag. There are three ways to formulate the alias:
 
 - Node index - Extract a string component based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. Components are identified by the default delimiter "." or a delimiter specified in <span style="color:#757575;font-weight:bold">delimiterDefinition</span>.
 - Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
@@ -554,8 +554,8 @@ color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;fo
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>

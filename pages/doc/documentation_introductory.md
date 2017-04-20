@@ -10,8 +10,18 @@ The following list of documents are great for getting started with Wavefront. If
 
 If you prefer a more hands on approach, then check out the [Introductory Dashboards](dashboards_introductory). These dashboards help you get acquainted with topics such as the query language, alerting, and chart types.
 
+## Tutorials
+
+Tutorials help you quickly learn the basics of getting, displaying, and working with data.
+
+- [Tutorial: Getting Started](tutorial_getting_started) <i class="fa-check-circle fa" style="color: green;"/>
+- [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion) <i class="fa-check-circle fa" style="color: green;"/>
+- [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion) <i class="fa-check-circle fa" style="color: green;"/>
+
+
 ## Overview Documents
-The following articles are great for learning about what Wavefront is, how to get data into Wavefront, Wavefront chart types, and what you can do based on your assigned permissions.
+
+The following topics are great for learning about what Wavefront is, how to get data into Wavefront, Wavefront chart types, and what you can do based on your assigned permissions.
 
 - [Introduction to Wavefront](wavefront_introduction) <i class="fa-check-circle fa" style="color: green;"/>
 - [Getting Data into Wavefront](wavefront_data_ingestion) <i class="fa-check-circle fa" style="color: green;"/>
@@ -20,7 +30,7 @@ The following articles are great for learning about what Wavefront is, how to ge
 - [Tags Overview](tags_overview) <i class="fa-check-circle fa" style="color: green;"/>
  
 ## Charts and Dashboards
-Dashboards make it possible to save multiple charts in a single location for future use. The following articles and video will help you to learn how to create, maintain, and use charts and dashboards in Wavefront.
+Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video will help you to learn how to create, maintain, and use charts and dashboards in Wavefront.
 
 - [Creating a Chart](charts_creating) <i class="fa-check-circle fa" style="color: green;"/>
 - [Searching for Dashboards](dashboards_searching) <i class="fa-check-circle fa" style="color: green;"/>

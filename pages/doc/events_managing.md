@@ -91,6 +91,6 @@ To close a single event, select ![action menu](images/action_menu.png#inline) **
 
 ## Managing Event Tags
 
-See [Tags Overview](tags_overview#entity_tags).
+See [Tags Overview](tags_overview).
 
 

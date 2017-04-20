@@ -48,8 +48,12 @@
                 {% endfor %}
                 {% endfor %}
                 {% if site.feedback_disable == null or site.feedback_disable == false %}
-			{% include feedback.html %}
-		{% endif %}
+                {% include feedback.html %}
+                {% endif %}
+                {% if site.support_disable == null or site.support_disable == false %}
+                {% include support.html %}
+                {% endif %}
+                {% include community.html %}
                 <!--comment out this block if you want to hide search-->
                 <li>
                     <!--start search-->

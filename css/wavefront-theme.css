@@ -1,12 +1,11 @@
 .summary {
-    color: #52606d;
-    border-left: 5px solid #333333;
+    border-left: 4px solid #2B425B;
     font-size:16px;
 }
 
-h1 {font-size:34px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
-h2 {font-size:28px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
-h3 {font-size:22px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
+h1 {font-size:28px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
+h2 {font-size:22px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
+h3 {font-size:18px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
 h4 {font-size:16px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -14,11 +13,37 @@ h4 {font-size:16px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,A
     color: white;
 }
 
-.nav > li.active > a {
+#mysidebar .nav ul {
+    background-color: #ECF0F5;
+}
+
+#mysidebar.nav ul li a {
+  background-color: #f9f9f9;
+}
+
+#mysidebar.nav li a {
+  background-color: #f9f9f9;
+}
+
+#mysidebar {
+  background-color: #f9f9f9;
+}
+
+#mysidebar.nav > li.active > a {
     background-color: #DFF0D8;
 }
 
-.nav > li > a:hover {
+#mysidebar.nav > li > a:hover {
+    background-color: #DFF0D8;
+}
+
+#mysidebar.nav a:hover, .nav li.active > a {
+    font-weight: bold;
+    background-color: #DFF0D8;
+}
+
+#mysidebar.nav a:hover, .nav ul li.active > a {
+    font-weight: bold;
     background-color: #DFF0D8;
 }
 
@@ -100,5 +125,5 @@ li.sidebarTitle {
     color: #333333;
     margin-bottom:10px;
     margin-left: 5px;
-
+    display: none;
 }

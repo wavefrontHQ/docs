@@ -31,9 +31,7 @@ Event filters limit which events are returned from events() queries.
 <td><strong>events(<span style="color: #2873ee;">name="Request Latency too high"</span>)</strong></td>
 </tr>
 <tr>
-<td>
-<p><strong>severity</strong></p>
-</td>
+<td><strong>severity</strong></td>
 <td>
 The classification of the user event or the severity of alert that generated the event. User event classification levels are <strong>severe</strong>, <strong>warn</strong>, <strong>info</strong>, and <strong>unclassified</strong>. Although an event can be left as unclassified, the <strong>severity</strong> filter does not accept <strong>unclassified</strong> as a valid value.  Alert severity levels are <strong>severe</strong>, <strong>warn</strong>, <strong>smoke</strong>, <strong>info</strong>.
 </td>
@@ -45,8 +43,14 @@ The classification of the user event or the severity of alert that generated the
 <td><strong>events(<span style="color: #2873ee;">source="app-*"</span> <span style="color: #eb7a3d;"> or </span><span style="color: #2873ee;">tag="dc2"</span>)</strong></td>
 </tr>
 <tr>
+<td><strong>subtype</strong></td>
 <td>
-<p><strong>target</strong></p>
+The subtype of event of type <strong>alert-detail</strong>: <strong>failing</strong>, <strong>recovered</strong>.
+</td>
+<td><strong>events(<span style="color: #2873ee;">subtype="failing"</span>)</strong></td>
+</tr>
+<tr>
+<td><strong>target</strong>
 </td>
 <td markdown="span">The target of the alert that generated the event. The list of targets associated with an alert are considered a single string. If you want to identify a single target within that string, then you must use wildcards. For example, if the notification field contains: john.doe@example.com, jane.doe@example.com, pd:fbw21c9ee0219473w2179r4t23f8c34, to use jane.doe@example.com as the target filter, specify the email as <strong>\*jane.doe@example.com\*</strong>.</td>
 <td><strong>events(<span style="color: #2873ee;">target="*jane.doe@example.com*</span>")</strong>
@@ -54,13 +58,9 @@ The classification of the user event or the severity of alert that generated the
 </tr>
 <tr>
 <td><strong>type</strong></td>
-<td>
-The type of an event. There are system-generated event types: <strong>alert</strong>, <strong>maintenanceWindow</strong>, <strong>alert-detail</strong>, <strong>credentials-error</strong>, <strong>alert-created</strong>, <strong>alert-updated</strong>, <strong>alert-deleted</strong>, <strong>dashboard-deleted</strong>, <strong>maintenancewindow-created</strong>, <strong>maintenancewindow-updated</strong>, <strong>maintenancewindow-deleted </strong>and you can optionally assign a type. The value requires quotes if it contains spaces or starts with a wildcard.
+<td>The type of an event. There are system-generated event types: <strong>alert</strong>, <strong>maintenanceWindow</strong>, <strong>alert-detail</strong>, <strong>credentials-error</strong>, <strong>alert-created</strong>, <strong>alert-updated</strong>, <strong>alert-deleted</strong>, <strong>dashboard-deleted</strong>, <strong>maintenancewindow-created</strong>, <strong>maintenancewindow-updated</strong>, <strong>maintenancewindow-deleted </strong>and you can optionally assign a type to a user event. The value requires quotes if it contains spaces or starts with a wildcard.
 </td>
-<td>
-<p><strong>events(<span style="color: #2873ee;">type="Code push"</span>)</strong></p>
-<p><strong>events(<span style="color: #2873ee;">type="*-created"</span>)</strong></p>
-</td>
+<td><strong>events(<span style="color: #2873ee;">type="Code push"</span>)</strong><br/><strong>events(<span style="color: #2873ee;">type="*-created"</span>)</strong></td>
 </tr>
 </tbody>
 </table>

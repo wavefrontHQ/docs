@@ -1,6 +1,6 @@
 ---
 title: Tags Overview
-tags: [getting started, alerts, dashboards, events, sources]
+tags: [getting started, alerts, dashboards, events]
 sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to create and use Wavefront tags to speed up query display and work with Wavefront entities.
@@ -12,18 +12,14 @@ A tag is custom metadata that adds application-specific meaning to *metrics* and
 The primary use of tags is to limit the number metrics and entities you are querying or working with at once. Limiting
 the number of metrics reduces the time to display results. Limiting the number of entities reduces information overload.
 
-This topic gives an overview of tags, describes how to filter entities with tags, and add tags to entities. 
-
-{% include shared/permissions.html entity="entity tags" entitymgmt="Alert, Dashboard, Event, or Source Tag" %}
-
-## Filtering in Queries
-
 In queries, you can filter:
 
--   Metrics with source and point tags.
--   Events with user-defined alert and event tags and system tags&mdash;severity, subtype, and type&mdash;added by alerts.
+-   Metrics with _source_ and _point_ tags
+-   Events with:
+    - _alert_ and _event_ entity tags
+    - _system_ severity, subtype, and type tags added by alerts
 
-## Filtering Entities
+For details, see the links in the **Used in Queries** column of the Tag Summary table.
 
 In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
 
@@ -58,7 +54,7 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 <tr>
 <td>event</td>
 <td markdown="span">events()<br />[Basic events() Queries](events_queries)</td>
-<td markdown="span">system tags - alerts<br /><br />entity tags - Wavefront UI and API<br />[Managing Events](events_managing)</td>
+<td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API<br />[Managing Events](events_managing)</td>
 </tr>
 <tr>
 <td>point</td>
@@ -85,17 +81,20 @@ All tag types support the ability to organize tags in a hierarchy. The hierarchy
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example, you can select all Wavefront dashboards by clicking **wavefront**, or only tutorial dashboards by expanding the **wavefront** node and selecting **wavefront.tutorial**.
 
-In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
-
 Here's a video overview: 
 
 {% include video.html file="ex41ab32mx" %}
+
+
+In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
 <a name="entity_tags"></a>
 
 ## Entity Tags
 
 Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
+
+{% include shared/permissions.html entity="entity tags" entitymgmt="Alert, Dashboard, Event, or Source Tag" %}
 
 ### Adding Entity Tags
 
@@ -106,11 +105,11 @@ To add tags to one or more entities:
     -   Check the checkboxes next to the entities and click the **+ Tag** button.
     -   Click **+tag** below an entity.
 
-        ![](images/source_tags.png)
+        ![source tags](images/source_tags.png)
 
 3.  In the **Add Tag** dialog:
 
-    ![](images/add_tag.png)
+    ![add tag](images/add_tag.png)
 
     -   Click the **Create Tag** button at the bottom:
         1.  Type a tag name. Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (\_), and colon (:) characters. Tag names are *case sensitive*. For example, the tags **MyApp** and **myapp** are stored as distinct tags. However, mixed case tag paths are collapsed into one path; **MyService.myapp** and **myservice.myapp** are collapsed into **Myservice.myapp**.
@@ -120,7 +119,7 @@ To add tags to one or more entities:
 
 When there are many tags you can search for tags by typing tag names in the Search box below the Tags heading in the filter bar:
 
-![](images/search_tags.png)
+![search tags](images/search_tags.png)
 
 As you type in the Search box, the list of tags below is filtered by the search string. When you search for tags, the search process is *case insensitive*. For example, searching for the tag **myapp** returns **MyApp** and **myapp.** Similarly, searching for the tag **MyApp** returns **MyApp** and **myapp**.
 

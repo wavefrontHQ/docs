@@ -370,7 +370,7 @@ By default, blocked point entries are logged to `/var/log/wavefront/wavefront-bl
 
 ## Troubleshooting
 
-If you have any other issues not listed below, or are having trouble resolving an issue, contact us at [support](mailto:support@wavefront.com).
+If you have any other issues not listed below, or are having trouble resolving an issue, contact us at [support@wavefront.com](mailto:support@wavefront.com).
 
 <table>
 <colgroup>

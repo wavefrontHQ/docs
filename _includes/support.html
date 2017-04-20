@@ -1,0 +1,9 @@
+<li>
+{% if site.support_text %}
+  {% assign support_text = site.support_text %}
+{% else %}
+  {% assign support_text = "Support" %}
+{% endif %}
+
+  <a class="email" title="Support request" href="#" onclick="javascript:window.location='mailto:{{site.support_email}}?subject={{site.support_subject_line}}'"><i class="fa fa-envelope-o"></i> {{support_text}}</a>
+</li>

@@ -1,6 +1,7 @@
 body {
-    font-size:15px;
+    font-size: 14px;
     font-weight: 400;
+    line-height: 1.44;
     color: #52606d;
 }
 
@@ -134,7 +135,8 @@ th {
 table {
     max-width: 100%;
     margin-bottom: 20px;
-    border: 1px solid #dedede;
+    margin-top: 10px;
+    border: 0px solid #dedede;
 }
 
 table > thead > tr > th,
@@ -146,11 +148,11 @@ table > tfoot > tr > td {
     padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;
-    border-top: 1px solid #ddd;
+    border-top: 0px solid #ddd;
 }
 table > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 0px solid #ddd;
     text-transform: none;
     background-color: #E5EBF1;
     color: #2B425B;
@@ -277,14 +279,14 @@ div#toc ul li {
 div#toc ul {
     background-color: #ECF0F5;
     padding: 5px;
-    border-radius: 5px;
+    padding-top: 15px;
+    border-radius: 1px;
     max-width: 300px;
-    color: gray;
 }
 
 div#toc ul li ul {
     padding-left:8px;
-
+    padding-top:0px;
 }
 
 div#toc ul li ul li::before {
@@ -397,10 +399,6 @@ a.accordion-toggle, a.accordion-collapsed {
     content: '\25b4';
 }
 
-.nav a:hover, .nav li.active > a {
-    font-weight: bold;
-}
-
 .nav > li.active > a  {
     background-color: #DFF0D8;
 }
@@ -419,6 +417,7 @@ a.accordion-toggle, a.accordion-collapsed {
 }
 
 ul#mysidebar {
+    margin-top: 43px;
     border-radius:0px;
 }
 
@@ -759,9 +758,7 @@ ol.series li {
     border-color: #248ec2 !important;
 }
 
-#mysidebar .nav ul {
-    background-color: #ECF0F5;
-}
+
 .nav ul.series li {
     list-style: decimal;
     font-size:12px;
@@ -984,7 +981,7 @@ img[src*='#inline']{
 
 @media only screen and (min-width: 900px), only screen and (min-device-width: 900px) {
     .col-md-9 img {
-        max-width: 800px;
+        max-width: 825px;
         max-height: 700px;
     }
 }
@@ -1009,6 +1006,12 @@ a[href^="http://"]:after, a[href^="https://"]:after {
     display: inline-block;
     text-decoration: none;
     padding-left: 3px;
+}
+
+.topnavlinks a[href^="http://"]:after, 
+.topnavlinks a[href^="https://"]:after {
+    content: "";
+    padding-left: 0;
 }
 
 /* Strip the outbound icon when this class is present */

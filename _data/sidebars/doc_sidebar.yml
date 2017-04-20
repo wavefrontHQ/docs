@@ -15,6 +15,10 @@ entries:
       output: web
       type: homepage
             
+    - title: Welcome to Wavefront Docs
+      url: /wavefront_documentation.html
+      output: web
+      
     - title: Introduction to Wavefront
       url: /wavefront_introduction.html
       output: web

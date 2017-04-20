@@ -30,6 +30,7 @@ exclude:
 # these are the files and directories that jekyll will exclude from the build
 
 feedback_subject_line: Wavefront Documentation
+support_subject_line: Support Request
 
 gems:
   - jekyll-sitemap
@@ -38,6 +39,12 @@ google_analytics: UA-45491516-30
 
 feedback_email: stephanie@wavefront.com
 # used as a contact email for the Feedback link in the top navigation bar
+
+support_email: support@wavefront.com
+# used as a contact email for the Support link in the top navigation bar
+
+community_link: https://community.wavefront.com/welcome
+# used as a link for the Community link in the top navigation bar
 
 # feedback_disable: true
 # if you uncomment the previous line, the Feedback link gets removed

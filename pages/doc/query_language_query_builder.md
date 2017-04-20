@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_query_builder.html
 summary: Learn how to get started with creating Wavefront Query Language expressions using Query Builder.
 ---
-The Wavefront Query Builder makes Wavefront even more accessible to all users in your organization. The Query Builder is a layer on top of, not a replacement for, Wavefront Query Language. Almost all of the full power of the Wavefront Query Language is maintained for expert users though a few of the more advanced functions are only available in the full Wavefront Query Language (i.e non-Query Builder developed queries). These include functions such as aliasMetrics(), if(), retainSeries(), etc. For further information on these functions, see [Wavefront Query Language Quick Reference](query_language_reference).  If you subsequently manually edit a query built by the Query Builder, that query can no longer be edited using the Query Builder.
+The Wavefront Query Builder makes Wavefront even more accessible to all users in your organization. The Query Builder is a layer on top of, not a replacement for, Wavefront Query Language. Almost all of the full power of the Wavefront Query Language is maintained for expert users though a few of the more advanced functions are only available in the full Wavefront Query Language. These include functions such as aliasMetrics(), if(), retainSeries(), etc. For further information on these functions, see [Wavefront Query Language Quick Reference](query_language_reference).  Once you manually edit a query built by the Query Builder, that query can no longer be edited using the Query Builder.
  
 This topic describes how to enable and use the Query Builder. For a video overview, see 
 
@@ -33,7 +33,7 @@ To preview the result of each evaluation step in real-time, click the bar chart 
 
 ## Applying Filters and Functions
 
-You can AND or OR multiple filters together ![filter and](images/filter_and.png#inline) and follow with chained functions. Unlike manually constructed ts() queries, which allow [mixed ANDs and ORs](query_language_reference#operators), the Query Builder applies either AND or OR to all filters.
+You can AND and OR multiple filters together ![filter and](images/filter_and.png#inline) and follow with chained functions. Unlike manually constructed ts() queries, which allow [mixed ANDs and ORs](query_language_reference#operators), the Query Builder applies either AND or OR to all filters.
 
 Functions are organized in a two-level hierarchy (e.g. Aggregation->Sum). A preview of the result of applying any function displays when you mouse over the function name. The full ts() expression is also shown in each preview window for reference.
 
