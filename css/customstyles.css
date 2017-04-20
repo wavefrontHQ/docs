@@ -234,46 +234,6 @@ p.post-meta {font-size: 80%; color: #777;}
 
 .entry-date{font-size:14px;font-size:0.875rem;line-height:1.71429;margin-bottom:0;text-transform:uppercase;}
 
-/* search area */
-#search-demo-container ul#results-container {
-    list-style: none;
-    font-size: 12px;
-    background-color: white;
-    position: absolute;
-    top: 40px; /* if you change anything about the nav, you'll prob. need to reset the top and left values here.*/
-    left: 20px;
-    z-index: -1;
-    width:223px;
-    border-left: 1px solid #dedede;
-    box-shadow: 2px 3px 2px #dedede;
-}
-
-
-ul#results-container a {
-    background-color: transparent;
-}
-
-ul#results-container a:hover {
-    color: black;
-}
-
-
-#search-demo-container a:hover {
-    color: black;
-}
-#search-input {
-    padding: .5em;
-    margin-left:20px;
-    width:20em;
-    font-size: 0.8em;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    float: right;
-    margin-top:10px;
-}
-/* end search */
-
 .filter-options {
     margin-bottom: 20px;
 }
@@ -474,12 +434,28 @@ span.projectTitle {
     font-weight: bold;
 }
 
+.wf-footer ul {
+    display: inline-block;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.wf-footer li {
+    display: inline-block;
+    padding: 0;
+}
+
+.text-muted {
+    color: #68798a;
+}
+
 .footer {
     text-align: right;
 }
 
 .footer-right {
     text-align: right;
+    max-width: 100px;
 }
 
 .footer-left {
@@ -1032,6 +1008,21 @@ a[href^="http://"]:after, a[href^="https://"]:after {
     padding-left: 0;
 }
 
+.navbar-fixed-top.navbar {
+    min-height: 38px;
+    height: 38px;
+}
+
+.topnavlinks .navbar-brand {
+    padding: 8px 15px;
+}
+
+.topnavlinks .nav > li > a {
+    font-size: 15px;
+    line-height: 18px;
+    padding: 0px 10px;
+}
+
 .faw a[href^="http://"]:after, 
 .faw a[href^="https://"]:after {
     content: "";
@@ -1269,4 +1260,73 @@ div.box.box1 {
 h4.panel-title {
     padding-top: 0px;
     margin-top: 0px;
+}
+
+/* search area */
+#search-demo-container ul#results-container {
+    list-style: none;
+    font-size: 12px;
+    background-color: white;
+    position: absolute;
+    top: 40px; /* if you change anything about the nav, you'll prob. need to reset the top and left values here.*/
+    left: 20px;
+    z-index: -1;
+    width:223px;
+    border-left: 1px solid #dedede;
+    box-shadow: 2px 3px 2px #dedede;
+}
+
+
+ul#results-container a {
+    background-color: transparent;
+}
+
+ul#results-container a:hover {
+    color: black;
+}
+
+#search-demo-container a:hover {
+    color: black;
+}
+
+.search-input {
+    padding: 0em;
+    margin-left:20px;
+    background-color: black;
+    width:20em;
+    font-size: 0.8em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top:2px;
+    background-color: #f9f9f9;
+    float: right;
+    margin-top:0px;
+    max-width: 400px; 
+    height: 30px;
+}
+
+/* end search */
+
+/* Google Custom Search override */
+.gsc-branding-user-defined, .gsc-branding-img, .gsc-branding-text, table.gsc-branding { display: none !important; }
+
+.cse .gsc-control-cse, .gsc-control-cse {
+  padding: 0 !important;
+  border-style: none !important;
+}
+
+table.gsc-search-box, form.gsc-search-box, div.gsc-control-wrapper-cse, div.gsc-control-cse.gsc-control-cse-en, #___gcse_0 {
+  border-style: none !important;
+}
+
+table.gsc-search-box, table.gsc-search-box td.gsc-input {
+  padding-left: 10px;
+  padding-right: 0;
+  border: 0;
+}
+
+td.gsc-input, td.gsc-search-button, td.gsc-clear-button {
+  background-color: black;
+  border-style: none !important;
 }

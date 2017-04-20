@@ -24,7 +24,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_getting%20started.html" class="btn btn-primary btn-block">Getting Started</a></p>
-             <p>Learn about the Wavefront platform and introductory resources.</p>
+             <p>Learn about the Wavefront platform and first-step resources.</p>
          </div>
      </div>
  </div>
@@ -96,7 +96,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
-             <p>Learn how to integrate data collectors and view data in external systems.</p>
+             <p>Learn the details of getting data in and out of Wavefront.</p>
          </div>
      </div>
  </div>
@@ -110,7 +110,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
            <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
-             <p>Learn how to display your data and correlated events in charts.</p>
+             <p>Learn how to display your data and events in charts.</p>
          </div>
      </div>
  </div>
@@ -168,7 +168,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_administration.html" class="btn btn-primary btn-block">Administration</a></p>
-             <p>Learn how to administer Wavefront and set up SSO integrations.</p>
+             <p>Learn how to administer Wavefront and set up SSO.</p>
          </div>
      </div>
   </div>
