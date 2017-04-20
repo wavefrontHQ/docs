@@ -96,7 +96,7 @@ padding-top: 60px;
 margin-top: -40px
 }
 
-body h1 {margin-top:40px;}
+body h1 {margin-top:20px;}
 
 .post-content img {
     margin: 12px 0px 3px 0px;
@@ -399,6 +399,7 @@ a.accordion-toggle, a.accordion-collapsed {
     float: right;
     font-size: 19px;
     font-weight: bolder;
+    color: #ccc
 }
 
 
@@ -410,25 +411,33 @@ a.accordion-toggle, a.accordion-collapsed {
 }
 
 .nav > li.active > a  {
-    background-color: #DFF0D8;
 }
 
 .nav li a {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     padding: 2px 10px;
     background-color: #FFFFFF;
 }
 
 .nav > li > a {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px;
     padding: 4px 10px;
 }
 
 ul#mysidebar {
-    margin-top: 43px;
     border-radius:0px;
+}
+
+ul#mysidebar > li {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    border: 1px solid #e7ecf3;
+    border-bottom: 1px solid rgba(0,0,0,0.17);
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fff;
 }
 
 .nav ul li ul li a {
@@ -443,7 +452,6 @@ ul#mysidebar {
 }
 
 .nav li a:hover {
-    background-color: #DFF0D8;
     padding-right:10px;
 }
 
@@ -991,7 +999,7 @@ img[src*='#inline']{
 
 @media only screen and (min-width: 900px), only screen and (min-device-width: 900px) {
     .col-md-9 img {
-        max-width: 825px;
+        max-width: 100%;
         max-height: 700px;
     }
 }
@@ -1022,6 +1030,11 @@ a[href^="http://"]:after, a[href^="https://"]:after {
 .topnavlinks a[href^="https://"]:after {
     content: "";
     padding-left: 0;
+}
+
+.faw a[href^="http://"]:after, 
+.faw a[href^="https://"]:after {
+    content: "";
 }
 
 /* Strip the outbound icon when this class is present */

@@ -9,7 +9,7 @@ summary: Learn how to create and use Wavefront tags to speed up query display an
 
 A tag is custom metadata that adds application-specific meaning to *metrics* and Wavefront *entities*: alerts, dashboards, events, and sources. Tags group together metrics and entities according to categories you define.
 
-The primary use of tags is to limit the number metrics and entities you are querying or working with at once. Limiting
+You use tags to limit the number metrics and entities you are querying or working with at once. Limiting
 the number of metrics reduces the time to display results. Limiting the number of entities reduces information overload.
 
 In queries, you can filter:

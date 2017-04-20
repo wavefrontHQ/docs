@@ -1,3 +1,27 @@
+body > .container {
+    min-height: calc(100vh - 110px);
+    padding-top: 30px;
+}
+
+footer#container {
+  position: relative;
+  margin-top: 0px;
+  height: 60px;
+  max-height: 60px;
+  min-height: 60px;
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 0;
+  background-color: #dbe3ec;
+  box-shadow: 0 -3px 7px rgba(0,0,0,0.2);
+  padding-left: 40px;
+  padding-right: 40px;
+  min-height: 20px;
+  padding: 20px;
+  border: 1px solid #ced9e5;
+  border-radius: 2px;
+}
+
 .summary {
     border-left: 4px solid #2B425B;
     font-size:16px;
@@ -20,7 +44,6 @@ h2:before {
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    background-color: #DFF0D8;
     color: white;
 }
 
@@ -28,45 +51,28 @@ h2:before {
     background-color: #ECF0F5;
 }
 
-#mysidebar.nav ul li a {
-  background-color: #f9f9f9;
-}
-
-#mysidebar.nav li a {
-  background-color: #f9f9f9;
-}
-
-#mysidebar {
-  background-color: #f9f9f9;
-}
-
 #mysidebar.nav > li.active > a {
-    background-color: #DFF0D8;
+
+}
+
+ul#mysidebar > li.active {
+    border-left: 2px solid #dbe3ec;
 }
 
 #mysidebar.nav > li > a:hover {
-    background-color: #DFF0D8;
 }
 
 #mysidebar.nav a:hover, .nav li.active > a {
     font-weight: bold;
-    background-color: #DFF0D8;
 }
 
 #mysidebar.nav a:hover, .nav ul li.active > a {
     font-weight: bold;
-    background-color: #DFF0D8;
 }
 
 div.navbar-collapse .dropdown-menu > li > a:hover {
-    background-color: #DFF0D8;
 }
 
-.nav li.thirdlevel > a {
-    background-color: #FAFAFA !important;
-    color: #DFF0D8;
-    font-weight: bold;
-}
 
 a[data-toggle="tooltip"] {
     color: #649345;

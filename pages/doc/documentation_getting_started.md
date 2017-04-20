@@ -18,6 +18,8 @@ Tutorials help you quickly learn the basics of getting, displaying, and working 
 - [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion) <i class="fa-check-circle fa" style="color: green;"/>
 - [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion) <i class="fa-check-circle fa" style="color: green;"/>
 
+Also see the [Introductory Dashboards](dashboards_introductory) labeled with the tag **wavefront.tutorial**.
+
 
 ## Overview Documents
 

@@ -3300,7 +3300,6 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #bac9c2;
 }
 .nav > li.disabled > a {
   color: #f9faf9;
@@ -3470,7 +3469,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   z-index: 1000;
-  min-height: 50px;
+  min-height: 40px;
+  height: 40px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }

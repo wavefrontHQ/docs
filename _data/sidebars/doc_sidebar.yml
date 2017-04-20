@@ -31,10 +31,6 @@ entries:
       url: /dashboards_introductory.html
       output: web
       
-    - title: Tags Overview
-      url: /tags_overview.html
-      output: web
-      
   - title: Tutorials
     output: web
     folderitems:
@@ -446,6 +442,14 @@ entries:
             url: /integrations_r.html
             output: web
             
+  - title: Tags
+    output: web
+    folderitems:
+      
+    - title: Tags Overview
+      url: /tags_overview.html
+      output: web
+      
   - title: API
     output: web
     folderitems:
