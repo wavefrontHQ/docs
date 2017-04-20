@@ -8,6 +8,17 @@ h2 {font-size:22px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,A
 h3 {font-size:18px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
 h4 {font-size:16px;font-family:"Open Sans","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;color: #2b425b;}
 
+h2:before {
+  background-color: #ECF0F5;
+  display: block;
+  height: 40px;
+  margin-right: -16px;
+  margin-left: -16px;
+  content: "";
+  border-top: 1px solid rgba(0,0,0,0.17);
+  border-bottom: 18px solid #fff;
+}
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background-color: #DFF0D8;
     color: white;

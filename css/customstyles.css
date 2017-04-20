@@ -1,8 +1,18 @@
 body {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.44;
     color: #52606d;
+    background-color: #ECF0F5;
+}
+
+div#tg-sb-content {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  border: 1px solid #e7ecf3;
+  border-bottom: 1px solid rgba(0,0,0,0.17);
+  margin-bottom: 18px;
+  background-color: #fff;
+  border-radius: 2px;
 }
 
 .bs-callout {

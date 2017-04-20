@@ -6,29 +6,25 @@ entries:
   version:
   folders:
     
-  - title: Getting Started
+  - title: Welcome
     output: web
     folderitems:
       
-    - title: Welcome to Wavefront
+    - title: Welcome to Wavefront Docs
       url: /index.html
       output: web
       type: homepage
-            
-    - title: Welcome to Wavefront Docs
-      url: /wavefront_documentation.html
-      output: web
       
+  - title: Getting Started
+    output: web
+    folderitems:
+
     - title: Introduction to Wavefront
       url: /wavefront_introduction.html
       output: web
 
-    - title: Wavefront API
-      url: /wavefront_api.html
-      output: web
-      
-    - title: Introductory Documentation
-      url: /documentation_introductory.html
+    - title: Getting Started Documentation
+      url: /documentation_getting_started.html
       output: web
       
     - title: Introductory Dashboards
@@ -39,23 +35,22 @@ entries:
       url: /tags_overview.html
       output: web
       
-      subfolders:
-      - title: Tutorials
-        output: web
-        subfolderitems:
-          
-        - title: "Tutorial: Getting Started"
-          url: /tutorial_getting_started.html
-          output: web
-          
-        - title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
-          url: /tutorial_aws_data_ingestion.html
-          output: web
-          
-        - title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
-          url: /tutorial_proxy_data_ingestion.html
-          output: web
-          
+  - title: Tutorials
+    output: web
+    folderitems:
+      
+    - title: "Tutorial: Getting Started"
+      url: /tutorial_getting_started.html
+      output: web
+      
+    - title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
+      url: /tutorial_aws_data_ingestion.html
+      output: web
+      
+    - title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
+      url: /tutorial_proxy_data_ingestion.html
+      output: web
+      
   - title: Release Notes
     output: web
     folderitems:
@@ -451,7 +446,14 @@ entries:
             url: /integrations_r.html
             output: web
             
+  - title: API
+    output: web
+    folderitems:
       
+      - title: Wavefront API
+        url: /wavefront_api.html
+        output: web
+        
   - title: Administration
     output: web
     folderitems:
@@ -508,4 +510,14 @@ entries:
       - title: Wavefront Monitoring
         url: /wavefront_monitoring.html
         output: web
+        
+  - title: Support
+    output: web
+    folderitems:
+      
+      - title: Getting Help
+        url: /wavefront_support.html
+        output: web
+        
+      
         
