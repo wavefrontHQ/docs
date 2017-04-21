@@ -22,7 +22,7 @@ premise solutions which can only provide a view of one location at a time.  At a
 consists of configuring collectors to send data to one or more Wavefront proxies and then configuring the Wavefront
 proxies to forward this data to the Wavefront application.
 
-The following sections describe these components in more detail.
+Let's delve into these Wavefront components.
 
 ## Wavefront Application
 
@@ -74,7 +74,7 @@ Wavefront proxy to your installation.
 
 ## Wavefront Proxy
 
-The Wavefront proxy allows you to send your data to Wavefront in a secure, fast, and reliable manner.The proxy works
+The Wavefront proxy allows you to send your data to Wavefront in a secure, fast, and reliable manner. The proxy works
 with the Wavefront server to ensure end-to-end flow control. When it detects network connectivity issues, the proxy
 queues metrics in memory and to disk. Once connectivity is restored the proxy replays queued metrics but prioritizes
 real-time traffic. There are many ways to [configure](proxies_configuring) the proxy to tune this behavior.
@@ -90,6 +90,6 @@ production environments more typically employ a load balancer sending data to mu
 
 ## Collector Agent
 
-Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard collector agents, including [Telegraf](integrations_telegraf), [Docker cAdvisor​](integrations_cadvisor), and others.
+Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard [collector agents](wavefront_integrations), including [Telegraf](integrations_telegraf), [Docker cAdvisor​](integrations_cadvisor), and others.
 
 

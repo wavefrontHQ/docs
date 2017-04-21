@@ -8,7 +8,7 @@ summary: Learn how to create a Wavefront chart and save it to a dashboard.
 ---
 One of the first tasks a new Wavefront user wants to perform is data visualization.  Wavefront makes chart creation an easy process. You can access the chart creation feature from several parts of the application. This topic focuses on most straightforward method.
 
-You must have [Dashboard Management permission](permissions_overview) to [save a charts to a dashboard](#save). If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible.
+{% include shared/badge.html content="You must have [Dashboard Management permission](permissions_overview) to [save a chart to a dashboard](#save). If you do not have permission, UI menu selections and buttons required to perform the task are not visible." %}
 
 ## Creating a Chart
 
@@ -21,15 +21,15 @@ To display metrics you add Wavefront Query Language queries to query fields in t
 Wavefront provides two methods for constructing query language queries: Query Builder and manual construction.
 
 ### Using Query Builder to Construct a Query
-Wavefront Query Builder is a great starting option for users new to Wavefront because it doesn't require any knowledge of the query language syntax. Query Builder constructs a query based on a set of components (metric name, source|sourceTag|pointTag filters, advanced functions) that you specify. 
+
+[Wavefront Query Builder](query_language_query_builder) is a great starting option for users new to Wavefront because it doesn't require any knowledge of the query language syntax. Query Builder constructs a query based on a set of components (metric name, source, source tag, and point tag filters, advanced functions) that you specify. 
 
 In the image below, we specified the metric name `~sample.requests.total.num`, point tag `az=us-west-1`, and a 10-minute moving average function in order to create the following query and chart: `mavg(10m, ts(~sample.requests.total.num, az="us-west-1"))`.
 
 ![query_builder_2](images/query_builder_2.png)
 
-For details on using Query Builder, see [Query Builder](query_language_query_builder).
-
 ### Manually Constructing a Query
+
 If you are familiar with [Wavefront Query Language](query_language_getting_started), you can enter the complete expression into the query field. For example: `if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)`.
 
 ![query_field_free_form](images/query_field_free_form.png)
@@ -41,7 +41,7 @@ To associate more than one query with a chart, add a new query field by clicking
 
 The remove icon <i class="fa fa-minus"/> removes a query field, and the clone icon <i class="fa fa-files-o"/> clones a query into a new query field.
  
-You also have the option of naming each query field which is recommended when you are using a [legend](charts#legend) for a chart with several query fields. To rename a query field, click the name to the left of the query field and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
+You also have the option of naming each query field, which is recommended when you are using a [legend](charts#legend) for a chart with several query fields. To rename a query field, click the name to the left of the query field and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
 
 ![rename_query_field](images/rename_query_field.png)
 

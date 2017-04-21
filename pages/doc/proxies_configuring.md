@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
-This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Version History](proxies_version_history).
+This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Versions](proxies_versions).
 
 ## Installing a Proxy
 

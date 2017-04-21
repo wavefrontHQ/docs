@@ -52,7 +52,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_data.html" class="btn btn-primary btn-block">Data</a></p>
-             <p>Learn how to get data into Wavefront and data formats and naming.</p>
+             <p>Learn how to get data into Wavefront and about data formats and naming.</p>
          </div>
      </div>
  </div>
@@ -72,64 +72,34 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
  </div>
  </div>
 <div class="row">
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_proxies.html" class="btn btn-primary btn-block">Proxies</a></p>
-             <p>Learn how to annotate and rewrite data with Wavefront proxies.</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-plug fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
-             <p>Learn the details of getting data in and out of Wavefront.</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-           <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
-             <p>Learn how to display your data and events in charts.</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-tachometer fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
-             <p>Learn how to organize your charts in dashboards.</p>
-         </div>
-     </div>
- </div>
+<div class="col-md-3 col-sm-6">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <span class="fa-stack fa-1x">
+                  <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                  <i class="fa fa-bar-chart fa-stack-1x fa-inverse"></i>
+            </span>
+        </div>
+        <div class="panel-body">
+          <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
+            <p>Learn how to display your data and events in charts.</p>
+        </div>
+    </div>
 </div>
-<div class="row">
+<div class="col-md-3 col-sm-6">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <span class="fa-stack fa-1x">
+                  <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                  <i class="fa fa-tachometer fa-stack-1x fa-inverse"></i>
+            </span>
+        </div>
+        <div class="panel-body">
+            <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
+            <p>Learn how to organize your charts in dashboards.</p>
+        </div>
+    </div>
+</div>
 <div class="col-md-3 col-sm-6">
    <div class="panel panel-default text-center">
        <div class="panel-heading">
@@ -157,6 +127,36 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
            <p>Learn about events and how to display events in charts.</p>
        </div>
    </div>
+ </div>
+</div>
+<div class="row">
+<div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_proxies.html" class="btn btn-primary btn-block">Proxies</a></p>
+             <p>Learn how to annotate and rewrite data with Wavefront proxies.</p>
+         </div>
+     </div>
+</div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-plug fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
+             <p>Learn the details of getting data in and out of Wavefront.</p>
+         </div>
+     </div>
  </div>
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">

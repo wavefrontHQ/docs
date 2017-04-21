@@ -1,6 +1,6 @@
 ---
 title: Managing Wavefront Proxies
-keywords:
+keywords: Docker, containers, proxies
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_managing.html
@@ -48,9 +48,10 @@ For other configuration options, see [Configuring Wavefront Proxies](proxies_con
 To edit a proxy name, select  ![action_menu.png](images/action_menu.png#inline) **> Edit** to the right of the proxy, modify the name, and click Save.
 To delete a proxy, select  ![action_menu.png](images/action_menu.png#inline) **> Delete** to the right of the proxy.
 
+## Managing Proxy Services
 <a name="restart"></a>
 
-## Starting and Stopping a Proxy
+### Starting and Stopping a Proxy
  
 To start, stop, or restart a proxy, run the following commands on the host on which the proxy is running:
 
@@ -58,7 +59,7 @@ To start, stop, or restart a proxy, run the following commands on the host on wh
 $ service wavefront-proxy [start | stop | restart]
 ```
 
-## Checking Proxy Status
+### Checking Proxy Service Status
  
 To check if the proxy is running, run the following command:
 
@@ -68,6 +69,75 @@ $ service wavefront-proxy status
 
 In your Wavefront instance, select **Browse > Proxies** and verify that the proxy is listed there using the hostname set in the proxy configuration file.
  
-You can view `/var/log/wavefront/wavefront.log` to see how many points it has sent and whether there are any connection issues. You can also view proxy metrics within Wavefront.
+You can view `/var/log/wavefront/wavefront.log` to see how many points the proxy has sent and whether there are any connection issues. You can also [view proxy metrics](wavefront_monitoring) within Wavefront.
+
+<a name="docker"></a>
+
+## Running a Proxy in a Docker Container
+
+In lieu of [installing proxy packages](proxies_installing), you can alternatively run a proxy in a Docker container. The Docker image is available in [Wavefront Docker repo](https://hub.docker.com/r/wavefronthq/proxy/). To run the container you must set the following properties:
+
+- `WAVEFRONT_URL` - The URL to your Wavefront API instance.
+- `WAVEFRONT_TOKEN` - Your [Wavefront API token](wavefront_api#generating-an-api-token).
+
+
+### Docker Run
+
+```shell
+docker run -d -e WAVEFRONT_URL=https://<wavefront_instance>.wavefront.com/api/ -e WAVEFRONT_TOKEN=<wavefront_api_token> -p 2878:2878 -p 4242:4242 wavefronthq/proxy:latest  
+```
+
+### Docker Compose
+
+```yaml
+wavefront:  
+    hostname: wavefront-proxy  
+    container_name: wavefront-proxy  
+    ports:  
+      - "3878:3878"  
+      - "2878:2878"  
+      - "4242:4242"  
+    environment:  
+      WAVEFRONT_URL: https://<wavefront_instance>.wavefront.com/api/  
+      WAVEFRONT_TOKEN: <wavefront_api_token>  
+    image: wavefronthq/proxy:latest  
+    restart: always
+```
+
+### Kubernetes
+
+```yaml
+apiVersion: v1  
+kind: ReplicationController  
+metadata:  
+  labels:  
+    app: wavefront-proxy  
+    name: wavefront-proxy  
+  name: wavefront-proxy  
+  namespace: default  
+spec:  
+  replicas: 1  
+  selector:  
+    app: wavefront-proxy  
+  template:  
+    metadata:  
+      labels:  
+        app: wavefront-proxy  
+    spec:  
+      containers:  
+      - name: wavefront-proxy  
+        image: wavefronthq/proxy:latest  
+        imagePullPolicy: Always  
+        env:  
+        - name: WAVEFRONT_URL  
+          value: https://<wavefront_instance>.wavefront.com/api/  
+        - name: WAVEFRONT_TOKEN  
+          value: <wavefront_api_token>
+        ports:  
+        - containerPort: 2878  
+          protocol: TCP  
+        - containerPort: 4242  
+          protocol: TCP  
+```
 
 

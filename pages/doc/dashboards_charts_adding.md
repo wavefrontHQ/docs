@@ -1,12 +1,12 @@
 ---
 title: Adding a Chart to a Dashboard
 keywords: dashboards
-tags: [dashboards, getting started]
+tags: [dashboards, charts, getting started]
 sidebar: doc_sidebar
 permalink: dashboards_charts_adding.html
 summary: Learn how to add charts to dashboards.
 ---
-While every Wavefront user can view dashboards, you must have Dashboard Management permission to perform the following tasks. If you do not have permission, UI menu selections and buttons required to perform the tasks will not be visible.
+{% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
  
 Sometimes you will find an existing chart that you want to add to your own dashboard. For example, you might want to start building your own dashboards by reusing charts from an introductory dashboard. This document explains how to clone a chart and add it to a new or existing dashboard. The following process does not remove the selected chart from its current dashboard, but clones the chart and adds the clone to the new or existing dashboard:
 

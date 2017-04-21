@@ -1,9 +1,9 @@
 ---
-title: Wavefront Proxy Version History
+title: Wavefront Proxy Versions
 keywords:
 tags: [proxies, release notes]
 sidebar: doc_sidebar
-permalink: proxies_version_history.html
+permalink: proxies_versions.html
 summary: Learn about Wavefront proxy versions.
 ---
 ## Version 4.6
