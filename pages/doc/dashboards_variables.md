@@ -26,11 +26,11 @@ The following shows a simple variable, which consists of a label (**Zones**), na
 
 1.  Put your dashboard into edit mode by clicking the pencil icon at the far right of the task bar. ![db_actions.png](images/db_actions.png#inline).
 
-    -   If there are no dashboard variables already defined, click **Create**.
+    - If there are no dashboard variables already defined, click **Create**.
 
-        ![db_var_create](images/db_var_create.png)
+      ![db_var_create](images/db_var_create.png)
 
-    -   If there is at least one variable associated with the dashboard, click <i class="fa-plus fa"/> in the icon group at the far right of the existing variable field ![db variable icons ](images/db_var_icons.png#inline).
+    - If there is at least one variable associated with the dashboard, click <i class="fa-plus fa"/> in the icon group at the far right of the existing variable field ![db variable icons ](images/db_var_icons.png#inline).
 
 2.  Click the <i class="fa-edit fa"/> icon. The Query Parameters dialog displays:
 
@@ -41,7 +41,7 @@ The following shows a simple variable, which consists of a label (**Zones**), na
 
 ## Using Dashboard Variables
 
-You use a dashboard variable by referencing its name in a ts() expression using the syntax **${variableName}**. For example, to use the variable **az**, you specify the following query: **ts(cpu.loadavg.1m, ${az})**. When this query is executed, Wavefront replaces **${az}** with the associated variable value: **ts(cpu.loadavg.1m, tag=az-3 or source=app-3)**.
+You use a dashboard variable by referencing its name in a ts() expression using the syntax `${variableName}`. For example, to use the variable **az**, you specify the following query: `ts(cpu.loadavg.1m, ${az})`. When this query is executed, Wavefront replaces **${az}** with the associated variable value: `ts(cpu.loadavg.1m, tag=az-3 or source=app-3)`.
 
 <span id="simple"></span>
 
@@ -113,12 +113,12 @@ Click **Save** to save your dashboard and the dashboard variable.
 
 ![Variable dynamic](images/db_var_dynamic.png)
 
-After you save the dynamic dashboard variable, you can enter that variable name into a ts() query. For example, **ts(${var2})**. Selecting **cpu.usage.percentage** from the list of options replaces **ts(${var2})** with **ts("cpu.usage.percentage")**.
+After you save the dynamic dashboard variable, you can enter that variable name into a ts() query. For example, `ts(${var2})`. Selecting **cpu.usage.percentage** from the list of options replaces `ts(${var2})` with `ts("cpu.usage.percentage")`.
 
 To use a dynamic dashboard variable **var2** that refers to a source, source tag, or point tag, specify the following queries:
 
--   **Source** - **ts(&lt;metricName&gt;, source=${var2})**
--   **Source Tag** - **ts(&lt;metricName&gt;, tag=${var2})**
--   **Point Tag** - **ts(&lt;metricName&gt;, \<pointTagKey\>=${var2})**. **pointTagKey** must match the key you set up when you created the dynamic dashboard variable.
+-   **Source** - `ts(&lt;metricName&gt;, source=${var2})`
+-   **Source Tag** - `ts(&lt;metricName&gt;, tag=${var2})`
+-   **Point Tag** - `ts(&lt;metricName&gt;, \<pointTagKey\>=${var2})`. **pointTagKey** must match the key you set up when you created the dynamic dashboard variable.
 
 

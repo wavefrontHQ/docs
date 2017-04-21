@@ -10,7 +10,7 @@ Wavefront makes it easy to stream your telemetry data to the service.
  
 For data from most systems we use a push model and provide a proxy that runs within your infrastructure. You push data to the proxy and the proxy forwards the data to Wavefront.  Before streaming data, we recommend that you review [best practices for naming your data](wavefront_data_naming).
  
-For data from Amazon Web Services (AWS), Wavefront supports cloud integrations. These allow you to pull data directly into Wavefront. Cloud integrations currently support AWS CloudWatch, CloudTrail, and AWS API data. For more details, see [AWS Metrics Integration](integrations_aws_metrics).
+For data from Amazon Web Services (AWS), Wavefront supports cloud integrations. These allow you to pull data directly into Wavefront. Cloud integrations currently support AWS CloudWatch, CloudTrail, and AWS Metrics Plus data. For more details, see [AWS Metrics Integration](integrations_aws_metrics).
  
 This diagram illustrates the concepts:
  

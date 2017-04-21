@@ -41,9 +41,9 @@ Wavefront maintains an image of [cAdvisor](integrations_cadvisor) that includes 
 1. Paste the JSON example into the JSON form field:
   ![paste json](images/paste_json.png)
 1. In the JSON example, update the following:
-    - **-storage_driver_wf_proxy_host** - Replace YOUR_WAVEFRONT_PROXY_ADDRESS.
-    - **-storage_driver_wf_interval** - The interval is preset and defaults to 60 seconds. This controls how often metrics are flushed into Wavefront.
-    - **-storage_driver_wf_add_tags** - This allows you to set one or more point tags on the metrics collected by cAdvisor. The format is: **tag1Name=tag1Value** **tag2Name=tag2Value**
+    - `-storage_driver_wf_proxy_host` - Replace YOUR_WAVEFRONT_PROXY_ADDRESS.
+    - `-storage_driver_wf_interval` - The interval is preset and defaults to 60 seconds. This controls how often metrics are flushed into Wavefront.
+    - `-storage_driver_wf_add_tags` - This allows you to set one or more point tags on the metrics collected by cAdvisor. The format is: `<tag1Name>=<tag1Value>` `<tag2Name>=<tag2Value>`
 
    Optional: See the guide on our [Wavefront cAdvisor container](integrations_cadvisor) for a full explanation of the options available.
 1. Click the **Create** button at the bottom of the form:
@@ -54,7 +54,7 @@ Wavefront maintains an image of [cAdvisor](integrations_cadvisor) that includes 
   ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.
 
-After this, you should start seeing container metrics on the ECS dashboard within 1 to 2 minutes. You can browse for the metrics by looking for metrics prefixed with "cadvisor".
+After this, you should start seeing container metrics on the ECS dashboard within 1 to 2 minutes. You can browse for the metrics by looking for metrics prefixed with `cadvisor`.
 
 ![db aws ecs](images/db_aws_ecs.png)
 

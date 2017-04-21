@@ -22,7 +22,7 @@ To clone or delete an alert, select ![action_menu](images/action_menu.png#inline
  
 ## Alert History
 
-Alert history provides you with changes that have been made to an alert over time. You can access the alert history by selecting action_menu.png > Versions from the menu located to the right of an alert on the Alerts page. When you select Versions, a page displays contain a list of versions of the alert. Alert history tells you which user made the changes, the date and time the changes were made, and a description of the changes. You can revert back to or clone a past alert version. Alert History was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
+Alert history provides you with changes that have been made to an alert over time. You can access the alert history by selecting ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. When you select Versions, a page displays contain a list of versions of the alert. Alert history tells you which user made the changes, the date and time the changes were made, and a description of the changes. You can revert back to or clone a past alert version. Alert History was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
  
 ## Snoozing and Unsnoozing Alerts
  

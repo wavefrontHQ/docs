@@ -76,13 +76,13 @@ For example, this row from that section shows latency metrics using `~agent.push
 
 These charts track the number of Wavefront users during various time windows, number of dashboards and alerts, and information about the types of alerts.
 
-  - `~wavefront.\`* : A set of gauges tracking many stats about your use of Wavefront.
+  - `~wavefront.*` : A set of gauges tracking many stats about your use of Wavefront.
 
   ![wavefront metrics](images/wavefront_metrics.png)
  
 ## AWS Integration
 
-If you have AWS cloud integrations enabled and are ingesting AWS CloudWatch, CloudTrail, and EC2 metrics into Wavefront, this section monitors the cost of CloudWatch requests, API requests, the point rate, and events coming in from your integrations. 
+If you have AWS cloud integrations enabled and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the cost of CloudWatch requests, API requests, the point rate, and events coming in from your integrations. 
  
   ![aws_metric_sections](images/aws_metric_sections.png)
  
