@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: events_queries.html
 summary: Learn how to formulate events() queries.
 ---
-You use `events()` queries to [display events in charts](charts_events_displaying). An `events()` query cannot be the only query on the chart; at least one time series must be enabled on the chart in addition to the `events()` query to display the events. 
+You use `events()` queries to [display events in charts](charts_events_displaying.html). An `events()` query cannot be the only query on the chart; at least one time series must be enabled on the chart in addition to the `events()` query to display the events. 
 
 ## Event Query Syntax
  
@@ -14,7 +14,7 @@ events(\[<span style="color: #00BCD4;">\<filterName\>="\<filterValue\>"</span>\]
 
 where <span style="color: #00BCD4;">\<filterName\></span> is one of the supported [event filters](#filters). 
 
-You can specify multiple <span style="color: #00BCD4;">event filters</span> separated by boolean operators (<span style="color: #eb7a3d;">and</span>, <span style="color: #eb7a3d;">or</span>, <span style="color: #eb7a3d;">not</span>). You can use a comma instead of the boolean operator <span style="color: #eb7a3d;">or</span>. You cannot create `events()` queries in the [Query Builder](query_language_query_builder).
+You can specify multiple <span style="color: #00BCD4;">event filters</span> separated by boolean operators (<span style="color: #eb7a3d;">and</span>, <span style="color: #eb7a3d;">or</span>, <span style="color: #eb7a3d;">not</span>). You can use a comma instead of the boolean operator <span style="color: #eb7a3d;">or</span>. You cannot create `events()` queries in the [Query Builder](query_language_query_builder.html).
  
 ## Example Queries
  
@@ -30,6 +30,6 @@ You can specify multiple <span style="color: #00BCD4;">event filters</span> sepa
 {% include shared/event_filters.html %}
  
 ## Further Information
-There are many functions available for operating on the result of an events() query. For examples, see [Advanced events() Expressions](events_queries_advanced) and for a general reference, see [Event Functions](query_language_reference#event-functions).
+There are many functions available for operating on the result of an events() query. For examples, see [Advanced events() Expressions](events_queries_advanced.html) and for a general reference, see [Event Functions](query_language_reference#event-functions).
 
 

@@ -10,7 +10,7 @@ summary: Learn how to create an alert.
 
 An alert is triggered when a monitored metric reaches a value that indicates a problem. When an alert triggers, notifications are sent to targets such as email addresses, pager services, and real-time communication channels.
 
-To disable alert checking for a set of sources during a specific time window you can put them in a [maintenance window](maintenance_windows_managing). Snoozing alerts disables alert checking for a fixed time window.
+To disable alert checking for a set of sources during a specific time window you can put them in a [maintenance window](maintenance_windows_managing.html). Snoozing alerts disables alert checking for a fixed time window.
 
 {% include shared/permissions.html entity="alerts and maintenance windows" entitymgmt="Alert" %}
 
@@ -49,7 +49,7 @@ You can use free form query mode or the <a href="query_language_query_builder.ht
 </tr>
 <tr>
 <td>Display Expression</td>
-<td markdown="span">Optional. The query sent to targets when notified of alert state changes by email. You can use free form query mode or the [Query Builder](query_language_query_builder) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
+<td markdown="span">Optional. The query sent to targets when notified of alert state changes by email. You can use free form query mode or the [Query Builder](query_language_query_builder.html) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
 </tr>
 <tr>
 <td>Severity</td>
@@ -57,7 +57,7 @@ You can use free form query mode or the <a href="query_language_query_builder.ht
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty), [VictorOps keys](alerts_integrating_victorops), and [webhooks](alerts_integrating_webhooks) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle).
+<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty.html), [VictorOps keys](alerts_integrating_victorops.html), and [webhooks](alerts_integrating_webhooks.html) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle.html).
 </td>
 </tr>
 <tr>
@@ -78,7 +78,7 @@ Click the **Advanced** link to configure the properties:
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 <tr>
 <td>Checking Frequency</td>
-<td markdown="span">The number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
+<td markdown="span">The number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
 </tr><tr>
 <td>Resend Notifications</td>
 <td>Whether to resend notification of a firing alert and if enabled, the number of minutes to wait before resending the notification.</td>

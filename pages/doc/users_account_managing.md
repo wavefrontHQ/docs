@@ -9,7 +9,7 @@ summary: Learn how to manage your passwords and preferences.
 
 ## Managing Your Password
 
-{% include note.html content="If your company has an SSO integration enabled ([ADFS](integrations_sso_adfs), [Azure AD](integrations_sso_azure_ad) [Google](integrations_sso_google), [Okta](integrations_sso_okta), [OneLogin](integrations_sso_onelogin)), you cannot update your password following these instructions. To update your password, contact your account administrator." %}
+{% include note.html content="If your company has an SSO integration enabled ([ADFS](integrations_sso_adfs.html), [Azure AD](integrations_sso_azure_ad.html) [Google](integrations_sso_google.html), [Okta](integrations_sso_okta.html), [OneLogin](integrations_sso_onelogin.html)), you cannot update your password following these instructions. To update your password, contact your account administrator." %}
 
 ### Changing Your Password
 
@@ -33,7 +33,7 @@ To reset a forgotten password:
  
 ## Determining Assigned Permissions
 
-Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username. Your user profile displays. The Permissions section lists the permissions assigned to your account. To request additional permissions, contact a user with [User Management permission](permissions_overview).
+Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username. Your user profile displays. The Permissions section lists the permissions assigned to your account. To request additional permissions, contact a user with [User Management permission](permissions_overview.html).
 
 
 ## Configuring Your Preferences
@@ -45,10 +45,10 @@ You configure can configure several preferences in your user profile.
 - Preferred time zone and time display.
 - Whether to use the dark theme in dashboards. The default theme displays charts with a white background. The dark theme displays charts with a dark background.
 - The default chart title size.
-- Whether to enable the [Query Builder](query_language_query_builder) and whether to always open it.
-- The dashboard that displays after you log in or when you click the Wavefront logo. The default setting is the [Intro: Home dashboard](dashboards_introductory).
+- Whether to enable the [Query Builder](query_language_query_builder.html) and whether to always open it.
+- The dashboard that displays after you log in or when you click the Wavefront logo. The default setting is the [Intro: Home dashboard](dashboards_introductory.html).
  
-{% include note.html content="Some Query Builder and default dashboard preferences are set for [all users in an account](users_managing#customer_prefs) by a user with [User Management permission](permissions_overview)." %}
+{% include note.html content="Some Query Builder and default dashboard preferences are set for [all users in an account](users_managing#customer_prefs) by a user with [User Management permission](permissions_overview.html)." %}
 
 
 

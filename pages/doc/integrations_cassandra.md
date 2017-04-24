@@ -9,7 +9,7 @@ summary: Learn how to send data collected by Cassandra to Wavefront.
 
 [Apache Cassandra](http://cassandra.apache.org/) is a popular, distributed, NoSQL database system. 
  
-Cassandra is a Java application and uses JMX to report metrics about its health. There are several JMX collectors&mdash;such as [Telegraf](integrations_telegraf), [collectd](https://github.com/collectd/collectd), and [JMXTrans](integrations_jmxtrans)&mdash;that work with Wavefront. There are also JMX reporters for Cassandra that will push JMX metrics in [Graphite data format](integrations_graphite) to the Wavefront proxy. This guide covers how to configure Jolokia and Telegraf to collect metrics.
+Cassandra is a Java application and uses JMX to report metrics about its health. There are several JMX collectors&mdash;such as [Telegraf](integrations_telegraf.html), [collectd](https://github.com/collectd/collectd), and [JMXTrans](integrations_jmxtrans.html)&mdash;that work with Wavefront. There are also JMX reporters for Cassandra that will push JMX metrics in [Graphite data format](integrations_graphite.html) to the Wavefront proxy. This guide covers how to configure Jolokia and Telegraf to collect metrics.
  
 ## Download and Set up Jolokia
 

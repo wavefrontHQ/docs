@@ -8,11 +8,11 @@ summary: Learn how to manage Wavefront proxies.
 ---
 Wavefront proxies are deployed on a machine within your network and act as the intermediary between collector agents and Wavefront. Proxies are the preferred method for sending your data to Wavefront. A proxy accepts the following data formats:
 
-- [Wavefront data format](wavefront_data_format)
+- [Wavefront data format](wavefront_data_format.html)
 - [Graphite data format (plaintext)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol) and [Graphite data format (pickle)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-pickle-protocol)
 - [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing.html)
  
-Before streaming data, we recommend that you understand [best practices for naming your data](wavefront_data_naming).
+Before streaming data, we recommend that you understand [best practices for naming your data](wavefront_data_naming.html).
  
 {% include shared/permissions_proxies.html %}
 
@@ -31,10 +31,10 @@ You view registered proxies by selecting **Browse > Proxies**.  The Proxies page
 
 You can click a bar chart icon <i class="fa-bar-chart fa" style="color: #337ab7;"/> in the Hostname, Space Available, and Queued Items columns to view a chart of the metrics.
 
-On the proxy host machine can view `/var/log/wavefront/wavefront.log` to see how many points the proxy has sent and whether there are any connection issues. You can also [view proxy metrics](wavefront_monitoring) within Wavefront.
+On the proxy host machine can view `/var/log/wavefront/wavefront.log` to see how many points the proxy has sent and whether there are any connection issues. You can also [view proxy metrics](wavefront_monitoring.html) within Wavefront.
  
 ## Adding Proxies
-See [Installing Wavefront Proxies](proxies_installing).
+See [Installing Wavefront Proxies](proxies_installing.html).
  
 ## Updating the Wavefront Instance
 
@@ -44,7 +44,7 @@ To update which Wavefront instance the proxy sends data to:
 1. Change the `server` and `token` properties to point to the Wavefront instance you want to send data to. 
 1. [Restart the Wavefront proxy](proxies_installing#restart). The proxy is added to the Wavefront instance and displays on the Proxies page.
  
-For other configuration options, see [Configuring Wavefront Proxies](proxies_configuring). 
+For other configuration options, see [Configuring Wavefront Proxies](proxies_configuring.html). 
 
 ## Editing and Deleting Proxies
 To edit a proxy name, select  ![action_menu.png](images/action_menu.png#inline) **> Edit** to the right of the proxy, modify the name, and click **Save**.
@@ -54,7 +54,7 @@ To delete a proxy, select  ![action_menu.png](images/action_menu.png#inline) **>
 
 ## Running a Proxy in a Docker Container
 
-In lieu of [installing proxy packages](proxies_installing), you can alternatively run a proxy in a Docker container. The Docker image is available in [Wavefront Docker repo](https://hub.docker.com/r/wavefronthq/proxy/). 
+In lieu of [installing proxy packages](proxies_installing.html), you can alternatively run a proxy in a Docker container. The Docker image is available in [Wavefront Docker repo](https://hub.docker.com/r/wavefronthq/proxy/). 
 
 ### Requirements
 

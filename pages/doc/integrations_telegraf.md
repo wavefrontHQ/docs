@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_telegraf.html
 summary: Learn how to send data collected by Telegraf to Wavefront.
 ---
-Telegraf is a popular, plugin-driven, collector agent. It is very similar to [collectd](integrations_collectd) but has a [few advantages](https://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents/):
+Telegraf is a popular, plugin-driven, collector agent. It is very similar to [collectd](integrations_collectd.html) but has a [few advantages](https://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents/):
 
 - It supports point tags out-of-the-box which can make for cleaner metric namespaces in many cases.
 - All plugins ship as part of a single binary, meaning you don't have to worry about installing dependencies in most cases.
@@ -14,7 +14,7 @@ Telegraf is a popular, plugin-driven, collector agent. It is very similar to [co
 
 ## Automated Installation and Configuration
 
-Wavefront provides an [automated installation](proxies_installing) for Telegraf and the Wavefront proxy. If you do an automated installation of Telegraf, the Wavefront output plugin is configured for you in `/etc/telegraf/telegraf.d/10-wavefront.conf`. Here is the script to install the Telegraf agent:
+Wavefront provides an [automated installation](proxies_installing.html) for Telegraf and the Wavefront proxy. If you do an automated installation of Telegraf, the Wavefront output plugin is configured for you in `/etc/telegraf/telegraf.d/10-wavefront.conf`. Here is the script to install the Telegraf agent:
 
 ```shell
 $ sudo bash -c "$(curl -sL https://wavefront.com/install)" -- install \

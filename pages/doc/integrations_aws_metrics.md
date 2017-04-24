@@ -8,7 +8,7 @@ summary: Learn how to send AWS data to Wavefront.
 ---
 Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. Wavefront supports cloud integrations, which allow you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.
 
-{% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview) to set up an AWS cloud integration. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible." %}
+{% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS cloud integration. If you do not have permission, UI menu selections and buttons required to perform the tasks are not visible." %}
 
 Wavefront offers [Amazon Web Services](http://aws.amazon.com) (AWS) [CloudWatch](http://aws.amazon.com/cloudwatch), [CloudTrail](http://aws.amazon.com/cloudtrail), and AWS Metrics Plus integrations.
 
@@ -75,7 +75,7 @@ To configure which AWS metrics to ingest into Wavefront you can whitelist instan
 
 ### Wavefront Source Field
 
-Wavefront sets the value of the CloudWatch metric [source field](wavefront_data_format) by service:
+Wavefront sets the value of the CloudWatch metric [source field](wavefront_data_format.html) by service:
 
 - **EC2** - the value of the **hostname**, **host**, or **name** [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), if the tags exist and you have an EC2 integration. Otherwise, the source is set to the Amazon instance ID.
 - **EBS** - the Amazon instance ID of the EC2 instance the volume is attached to.
@@ -93,7 +93,7 @@ Wavefront adds the following point tags to CloudWatch metrics:
 
 Standard AWS CloudWatch pricing applies each time Wavefront requests metrics using the CloudWatch API. For pricing information, see [AWS \| Amazon CloudWatch \| Pricing](http://aws.amazon.com/cloudwatch/pricing). After selecting a region in the middle of the page, you can find the current expected price under **Amazon CloudWatch API Requests**. In addition, custom metrics have a premium price; see the **Amazon CloudWatch Custom Metrics** section of the pricing page. To limit cost, Wavefront queries the API only every 5 minutes.
 
-As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](integrations_telegraf) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should set the RegExp Whitelist property to allow all metrics except EC2. For example:
+As an alternative to using the CloudWatch API for EC2 metrics, you can collect these metrics using [a Telegraf collector](integrations_telegraf.html) on each AWS instance. In this case, to prevent CloudWatch from requesting those metrics, you should set the RegExp Whitelist property to allow all metrics except EC2. For example:
 
 ``` 
 ^aws.(billing|instance|sqs|sns|reservedInstance|ebs|route53.health|ec2.status|elb|s3).*$

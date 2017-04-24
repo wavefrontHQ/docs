@@ -76,13 +76,13 @@ Alerts have been enhanced in several aspects. Newly surfaced alert properties an
 -   User events can now be edited.
 -   event() supports filtering events by alert tag paths including trailing wildcards ("\*"). For example, to view all events associated with alerts tagged with **MicroService.App1**, specify **alertTag=MicroService.App1.\***.
 -   Adding a user event to a chart automatically adds the event() expression to the chart.
--   Improved documentation of the event() language, including information on previously undocumented features. See [Advanced event() Expressions](events_queries_advanced).
+-   Improved documentation of the event() language, including information on previously undocumented features. See [Advanced event() Expressions](events_queries_advanced.html).
 
 ## Sending Metrics from Logs
 
 Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the proxy for parsing. Splunk's Universal Forwarder is also supported.
 
-See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](integrations_log_data).
+See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](integrations_log_data.html).
 
 <span id="external"></span>
 
@@ -98,7 +98,7 @@ Once configured, to navigate to external link, right-click a time series and sel
 
 ![External links](images/elk_external_link.png)
 
-For more information, see [External Links](external_links_managing).
+For more information, see [External Links](external_links_managing.html).
 
 ## Wavefront Installer
 
@@ -122,13 +122,13 @@ For more information on Telegraf, see [collectd vs. Telegraf: Comparing Metric C
 
 Wavefront has added many new integrations and example dashboards. For information on each integration, see the related documentation:
 
--   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See [Monitoring Docker with Wavefront](integrations_docker).
--   AWS - [AWS Metrics Integration](integrations_aws_metrics)
--   Cassandra - [Apache Cassandra 3 Integration](integrations_cassandra)
--   Java metrics - [DropWizard Metrics Integration](integrations_dropwizard)
--   Puppet - [Puppet Server Integration](integrations_puppet_server)
--   StatsD - [Using StatsD with Wavefront](integrations_statsd)
--   VictorOps - [Integrating Wavefront Alerts with VictorOps](alerts_integrating_victorops)
+-   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See [Monitoring Docker with Wavefront](integrations_docker.html).
+-   AWS - [AWS Metrics Integration](integrations_aws_metrics.html)
+-   Cassandra - [Apache Cassandra 3 Integration](integrations_cassandra.html)
+-   Java metrics - [DropWizard Metrics Integration](integrations_dropwizard.html)
+-   Puppet - [Puppet Server Integration](integrations_puppet_server.html)
+-   StatsD - [Using StatsD with Wavefront](integrations_statsd.html)
+-   VictorOps - [Integrating Wavefront Alerts with VictorOps](alerts_integrating_victorops.html)
 
 ## Wavefront API
 
@@ -142,7 +142,7 @@ For example, to return all alerts using the v2 API, invoke
 
 While Wavefront recommends that you move to the v2 API, the original API (`<wavefront_instance>/api/`), though deprecated, is still supported. As before, the UI leverages only the public API.
 
-The API is now fully documented. When you open the [API documentation](wavefront_api) the Swagger specified API appears as:
+The API is now fully documented. When you open the [API documentation](wavefront_api.html) the Swagger specified API appears as:
 
 ![Wavefront API](images/wavefront_api_v2.png)
 

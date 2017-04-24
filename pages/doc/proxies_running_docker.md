@@ -11,7 +11,7 @@ You can run a Wavefront proxy in a Docker container. The Docker image is availab
 - WAVEFRONT_URL - The URL to your Wavefront API instance.
 - WAVEFRONT_TOKEN - Your Wavefront API token.
 
-For detailed Wavefront proxy requirements and other installation procedures, see [Installing Wavefront Proxies](proxies_installing).
+For detailed Wavefront proxy requirements and other installation procedures, see [Installing Wavefront Proxies](proxies_installing.html).
 
 ## Examples
 

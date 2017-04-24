@@ -48,7 +48,7 @@ Every rule must have a `rule` parameter that contains the rule ID and an `action
 
 Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the `drop-az-tag` rule is defined with the same identifier for both ports, 2878 and 4242.
 
-The Wavefront proxy reports a counter metric for every rule that represents the number of times a rule has been successfully applied, and the rule ID becomes part of the proxy metric `~agent.preprocessor.<ruleID>.count`. For example, `~agent.preprocessor.replace-badchars.count`. For information on proxy metrics, see [Monitoring the Health of a Wavefront Instance](wavefront_monitoring).
+The Wavefront proxy reports a counter metric for every rule that represents the number of times a rule has been successfully applied, and the rule ID becomes part of the proxy metric `~agent.preprocessor.<ruleID>.count`. For example, `~agent.preprocessor.replace-badchars.count`. For information on proxy metrics, see [Monitoring the Health of a Wavefront Instance](wavefront_monitoring.html).
 
 ## Regex Notes
 
@@ -58,7 +58,7 @@ The Wavefront proxy reports a counter metric for every rule that represents the 
 
 ## Enabling the Preprocessor
 
-To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring) and set to a valid path to the rules configuration file. The rules file is validated when the proxy starts and the start-up process is aborted if any of the rules are not valid. A detailed error message is provided for every rule that fails validation.
+To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring.html) and set to a valid path to the rules configuration file. The rules file is validated when the proxy starts and the start-up process is aborted if any of the rules are not valid. A detailed error message is provided for every rule that fails validation.
 
 ## Point Filtering Rules
 

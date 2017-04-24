@@ -12,10 +12,10 @@ To view and manage alerts, click the **Alerts** button or select **Browse > Aler
 
 ## Creating Alerts
  
-See [Creating an Alert](alerts_creating).
+See [Creating an Alert](alerts_creating.html).
  
 ## Editing Alerts
-To edit an alert, click the alert name in the Alerts browser or select ![action_menu](images/action_menu.png#inline) **> Edit** at the far right of the alert. For information on alert properties, see [Creating an Alert](alerts_creating).
+To edit an alert, click the alert name in the Alerts browser or select ![action_menu](images/action_menu.png#inline) **> Edit** at the far right of the alert. For information on alert properties, see [Creating an Alert](alerts_creating.html).
  
 ## Cloning and Deleting Alerts
 To clone or delete an alert, select ![action_menu](images/action_menu.png#inline) **> \[Clone \| Delete\]** at the far right of the alert.
@@ -39,8 +39,8 @@ To unsnooze alerts, check the checkboxes next to the alerts and select **Snooze 
 
 ## Managing Alert Tags
 
-See [Tags Overview](tags_overview).
+See [Tags Overview](tags_overview.html).
 
-For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle).
+For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
 
 

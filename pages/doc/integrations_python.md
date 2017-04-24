@@ -7,7 +7,7 @@ permalink: integrations_python.html
 summary: Learn how to use Python to visualize metrics in Wavefront.
 ---
 
-The Wavefront system offers a variety of layers that can handle your real-time, high-frequency data&mdash;fast ingestion, fast querying, fast analytics, visualization, and alerting. [Wavefront Query Language](query_language_reference) is capable of performing most of the transformations you'll need for daily monitoring. However, there are cases when you may want to perform computations that the query language doesn't currently offer, or leverage a set of libraries you've already written in Python to do analytics. In these cases, you may want to run Python as a separate analytics layer on top of your Wavefront account.
+The Wavefront system offers a variety of layers that can handle your real-time, high-frequency data&mdash;fast ingestion, fast querying, fast analytics, visualization, and alerting. [Wavefront Query Language](query_language_reference.html) is capable of performing most of the transformations you'll need for daily monitoring. However, there are cases when you may want to perform computations that the query language doesn't currently offer, or leverage a set of libraries you've already written in Python to do analytics. In these cases, you may want to run Python as a separate analytics layer on top of your Wavefront account.
 
 With Python+Wavefront, you should be able to do just about any sort of analysis or visualization you can imagine. Want to see a histogram of your metric at an arbitrary bin width? Or a heat map of the correlations between your metrics? Model your metrics for trends, seasonality, noise, and make a forecast about future behavior? We'll show you how in this document.
 

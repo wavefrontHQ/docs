@@ -20,7 +20,7 @@ This is useful when you want to automatically deploy multiple proxies and/or age
  
 For detailed instructions, see the [documentation for wavefront-ansible on Ansible Galaxy](https://galaxy.ansible.com/wavefrontHQ/wavefront-ansible/#readme).
  
-For detailed Wavefront proxy requirements and other installation procedures, see [Installing Wavefront Proxies](proxies_installing).
+For detailed Wavefront proxy requirements and other installation procedures, see [Installing Wavefront Proxies](proxies_installing.html).
 
 
 

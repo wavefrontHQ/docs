@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: Learn about the Wavefront native data format.
 ---
-The Wavefront proxy supports several [data formats](proxies_managing). This topic describes the Wavefront native data format.
+The Wavefront proxy supports several [data formats](proxies_managing.html). This topic describes the Wavefront native data format.
 
 ## Wavefront Data Format Syntax
 
@@ -38,7 +38,7 @@ Fields are space separated and each line is terminated with the newline characte
 <td>The name of the metric.</td>
 <td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). Forward slash ("/") and comma (",") are allowed if metricName is enclosed in double quotes.
 <ul>
-<li markdown="span">Points with invalid characters in the metricName are rejected and [logged by the Wavefront proxy](proxies_configuration#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules).</li>
+<li markdown="span">Points with invalid characters in the metricName are rejected and [logged by the Wavefront proxy](proxies_configuration#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
 <li>Metric searches are case-sensitive; i.e., ts("my.metric") will not find a metric "my.Metric".</li>
 </ul>
 Metric naming hierarchy recommendations:
@@ -51,7 +51,7 @@ Metric naming hierarchy recommendations:
 <td>metricValue</td>
 <td>Yes</td>
 <td>The value of the metric.</td>
-<td markdown="span">A number that can be parsed into a double-precision floating point number or a long integer. Can be positive, negative, 0, Infinity, NaN and -Infinity. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_units).</td>
+<td markdown="span">A number that can be parsed into a double-precision floating point number or a long integer. Can be positive, negative, 0, Infinity, NaN and -Infinity. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_units.html).</td>
 </tr>
 <tr>
 <td>timestamp</td>

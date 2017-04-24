@@ -20,5 +20,5 @@ Notice how we can see that cpu.idle is slowly increasing over time.  To increase
 
 ![summed rate query](images/summed_rate.png)
 
-Once you have experimented with simple use cases, the best way to get acquainted with the query language is to review [Wavefront Query Language Quick Reference](query_language_reference). The language reference gives an overview of all the different types of functions which can be used in a query. Also, visit the [Talk to the Community](https://community.wavefront.com/community/answers) section and search [recipe](https://community.wavefront.com/community/answers/content?filterID=contentstatus%5Bpublished%5D~tag%5Brecipe%5D) in order to find more advanced use cases with the query language.
+Once you have experimented with simple use cases, the best way to get acquainted with the query language is to review [Wavefront Query Language Quick Reference](query_language_reference.html). The language reference gives an overview of all the different types of functions which can be used in a query. Also, visit the [Talk to the Community](https://community.wavefront.com/community/answers) section and search [recipe](https://community.wavefront.com/community/answers/content?filterID=contentstatus%5Bpublished%5D~tag%5Brecipe%5D) in order to find more advanced use cases with the query language.
 

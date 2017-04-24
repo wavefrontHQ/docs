@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: events_queries_advanced.html
 summary: Learn how to use advanced events() operators and functions.
 ---
-Event sets returned from [events() queries](events_queries) support several types of operators and functions. You can combine, compare, and filter events sets. You can generate synthetic events sets, convert events sets to time series, and isolate or create individual events.
+Event sets returned from [events() queries](events_queries.html) support several types of operators and functions. You can combine, compare, and filter events sets. You can generate synthetic events sets, convert events sets to time series, and isolate or create individual events.
 
 ## Event Set Combination Operators
 

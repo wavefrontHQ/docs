@@ -8,7 +8,7 @@ summary: Learn how to use Wavefront histograms.
 ---
 Even though Wavefront can receive and store highly granular metrics, it cannot receive data at greater than 1 point per second per unique source. In cases where finer data granularity is available to measure performance, Wavefront supports histograms, a mechanism to compute, store, and use distributions of metrics rather than single metrics.
  
-For example, suppose you are measuring the latency of each web request. If you have sufficient traffic at multiple servers, you could have multiple distinct measurements for a given metric, host, and timestamp. This will result in "collisions" using the [Wavefront data format](wavefront_data_format). In other words, the frequency of this data is actually higher than the Wavefront format; rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
+For example, suppose you are measuring the latency of each web request. If you have sufficient traffic at multiple servers, you could have multiple distinct measurements for a given metric, host, and timestamp. This will result in "collisions" using the [Wavefront data format](wavefront_data_format.html). In other words, the frequency of this data is actually higher than the Wavefront format; rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
  
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as P95s from a variety of sources) does not yield a valid percentile.
  
@@ -87,7 +87,7 @@ To indicate that metrics should be treated as histogram data, you send the metri
 </tbody>
 </table>
 
-For information on how to configure proxies, see [Configuring Proxies](proxies_configuring).
+For information on how to configure proxies, see [Configuring Proxies](proxies_configuring.html).
 
 ### Histogram Configuration Properties
 
@@ -203,7 +203,7 @@ For information on how to configure proxies, see [Configuring Proxies](proxies_c
 
 ## Histogram Metric Naming
  
-You send metrics using the standard [Wavefront data format](wavefront_data_format):
+You send metrics using the standard [Wavefront data format](wavefront_data_format.html):
 
 ```
 <metricName> <metricValue> [<timestamp>] source=<source> [pointTags]

@@ -42,32 +42,32 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 <tr>
 <td>alert</td>
 <td markdown="span">events()<br />
-[Basic events() Queries](events_queries)</td>
+[Basic events() Queries](events_queries.html)</td>
 <td markdown="span">Wavefront UI and API<br />
-[Managing Alerts](alerts_managing) and [Managing Maintenance Windows](maintenance_windows_managing)</td>
+[Managing Alerts](alerts_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
 </tr>
 <tr>
 <td>dashboard</td>
 <td></td>
-<td markdown="span">Wavefront UI and API<br />[Managing Dashboards](dashboards_managing)</td>
+<td markdown="span">Wavefront UI and API<br />[Managing Dashboards](dashboards_managing.html)</td>
 </tr>
 <tr>
 <td>event</td>
-<td markdown="span">events()<br />[Basic events() Queries](events_queries)</td>
-<td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API<br />[Managing Events](events_managing)</td>
+<td markdown="span">events()<br />[Basic events() Queries](events_queries.html)</td>
+<td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API<br />[Managing Events](events_managing.html)</td>
 </tr>
 <tr>
 <td>point</td>
-<td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format) and [Point Tags in Queries](query_language_point_tags)</td>
-<td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules)<br /><br />
+<td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format.html) and [Point Tags in Queries](query_language_point_tags.html)</td>
+<td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html)<br /><br />
 Telegraf agent<br />
-[Wavefront CLI](wavefront_cli)</td>
+[Wavefront CLI](wavefront_cli.html)</td>
 </tr>
 <tr>
 <td>source</td>
 <td markdown="span">ts()<br />
-[Getting Started with Wavefront Query Language](query_language_getting_started)</td>
-<td markdown="span">Wavefront UI and API<br />[Managing Sources](sources_managing) and [Managing Maintenance Windows](maintenance_windows_managing)</td>
+[Getting Started with Wavefront Query Language](query_language_getting_started.html)</td>
+<td markdown="span">Wavefront UI and API<br />[Managing Sources](sources_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
 </tr>
 </tbody>
 </table>

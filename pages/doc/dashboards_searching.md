@@ -27,7 +27,7 @@ Once you finish a search you can save the search by clicking the **Save** button
  
 ## Filtering Dashboards Using Tags
  
-[Tags](tags_overview) enable you to group together dashboards that may be related in some way. Common groupings include teams (ops, developers, IT), users (Bob, Jane), or applications. Dashboard tags can be viewed by every user within your company. When you look at the list of existing dashboards on the All Dashboards page, a tag appears as a gray labeled icon ![tag](images/tag.png#inline) underneath the name of the dashboard.
+[Tags](tags_overview.html) enable you to group together dashboards that may be related in some way. Common groupings include teams (ops, developers, IT), users (Bob, Jane), or applications. Dashboard tags can be viewed by every user within your company. When you look at the list of existing dashboards on the All Dashboards page, a tag appears as a gray labeled icon ![tag](images/tag.png#inline) underneath the name of the dashboard.
 
 You can use the tags in the filter bar to filter the list of existing dashboards. To filter the displayed list of dashboards, click a dashboard tag. You can apply multiple tag filters to the list of dashboards by holding down the Ctrl or command key while clicking multiple tags.
 

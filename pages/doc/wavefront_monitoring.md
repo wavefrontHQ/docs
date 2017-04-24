@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
 summary: Learn how to monitor the health of the Wavefront platform.
 ---
-[Wavefront proxies](proxies_managing) emit Wavefront-specific metrics that you can use to check if your Wavefront instance is behaving as expected. Wavefront internal metrics have the following prefixes:
+[Wavefront proxies](proxies_managing.html) emit Wavefront-specific metrics that you can use to check if your Wavefront instance is behaving as expected. Wavefront internal metrics have the following prefixes:
 
   - `~proxy`: Metric rate received and sent from the proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor.
     {% include note.html content="Proxy metrics historically had the prefix `~agent` and queries support both `~proxy` and `~agent`. Query errors still refer to the `~agent` prefix. For example: `No metrics matching: [~agent.points.*.received]`." %}
@@ -47,7 +47,7 @@ This section is the most used section of the dashboard. The most commonly used i
       number of cores * pushFlushMaxPoints
       ``` 
       
-      The default [setting](proxies_configuring) for `pushFlushMaxPoints` is 40,000. If you are running the proxy on a 4 core machine, the maximum points the proxy can send is 160k per second.
+      The default [setting](proxies_configuring.html) for `pushFlushMaxPoints` is 40,000. If you are running the proxy on a 4 core machine, the maximum points the proxy can send is 160k per second.
       
   - `~proxy.buffer.task-count`: a gauge showing the amount of data that the proxy currently has queued.
   - `~proxy.buffer.points-count`: a gauge showing the number of points currently in the queue. This metric was introduced in version 4.6 of the proxy.

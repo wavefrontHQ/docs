@@ -6,11 +6,11 @@ sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
-This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Versions](proxies_versions).
+This document describes Wavefront proxy 4.6 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Versions](proxies_versions.html).
 
 ## Installing a Proxy
 
-To install a proxy, follow the directions in [Installing Wavefront Proxies](proxies_installing). The installation procedures perform basic configuration. For advanced configuration, see the options in the next section.
+To install a proxy, follow the directions in [Installing Wavefront Proxies](proxies_installing.html). The installation procedures perform basic configuration. For advanced configuration, see the options in the next section.
 
 ## Configuration Options
 
@@ -158,7 +158,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td></td>
 </tr><tr>
 <td>logsIngestionConfigFile</td>
-<td markdown="span">The file containing instructions for parsing log data into metrics.  See [Log Data Metrics Integration](integrations_log_data).
+<td markdown="span">The file containing instructions for parsing log data into metrics.  See [Log Data Metrics Integration](integrations_log_data.html).
 Default: `/etc/wavefront/wavefront-proxy/logsIngestion.yaml`.</td>
 <td>A valid path on the local file system.</td>
 <td></td>

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: users_managing.html
 summary: Learn how to add and remove users, set permissions, and set defaults for all new users.
 ---
-{% include shared/badge.html content="You must have [User Management permission](permissions_overview) to manage users. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
+{% include shared/badge.html content="You must have [User Management permission](permissions_overview.html) to manage users. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
 ## Accessing the Users and Permissions Pages
 You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"/> on the task bar and selecting your username. Your user profile displays. 
@@ -58,6 +58,6 @@ You will see a list of all permissions broken into two parts: permissions grante
 <a name="customer_prefs"></a>
 
 ## Customer-Wide Preferences
-You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder) by default and the default dashboard.
+You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder.html) by default and the default dashboard.
 
 

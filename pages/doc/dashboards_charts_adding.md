@@ -17,7 +17,7 @@ Sometimes you will find an existing chart that you want to add to your own dashb
 
 1. Scroll down to the bottom of the chart page to the Save To section. There are two options available under the Save To section.
   - If you haven't yet created the dashboard you want to assign the selected chart to, click **Create Dashboard**. The Create New Dashboard dialog displays.
-      1. Specify a dashboard URL and name as described in [Managing Dashboards](dashboards_managing).
+      1. Specify a dashboard URL and name as described in [Managing Dashboards](dashboards_managing.html).
       1. Click **Create**.
   - If the dashboard you want to apply the selected chart to already exist, click **Choose Dashboard...**.
       1. Start entering in the name of the dashboard that you'd like the selected chart to be applied to. As you do, a drop down list matching all existing dashboard will appear.

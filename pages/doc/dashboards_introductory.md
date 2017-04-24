@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: dashboards_introductory.html
 summary: Learn about the tutorial, example, and use case introductory dashboards available in your Wavefront instance.
 ---
-Every Wavefront instance contains a set of introductory dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.  You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview).
+Every Wavefront instance contains a set of introductory dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.  You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview.html).
 
 - Demo - **wavefront.tour**
   - Demo: Welcome to Wavefront - overview of Wavefront benefits and capabilities.
@@ -33,6 +33,6 @@ The best dashboard to start with is the **Intro: Home** dashboard. This dashboar
 
 ![intro_home.png](images/intro_home.png)
 
-The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for new users in the [customer-wide preferences](dashboards_managing#prefs) and yourself in the [user preferences](users_prefs_configuring).
+The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for new users in the [customer-wide preferences](dashboards_managing#prefs) and yourself in the [user preferences](users_prefs_configuring.html).
 
 

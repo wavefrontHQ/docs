@@ -11,7 +11,7 @@ Kubernetes is a popular open-source system for deploying and scaling containeriz
 {% include note.html content="If you installed a Wavefront Kubernetes integration before February 14th, 2017, we recommend upgrading your Heapster container image to **wavefronthq/heapster-amd64:latest** and getting the latest Kubernetes dashboard. These changes improve dashboard performance for large Kubernetes deployments." %}
 
 ## Metric Collection
-Heapster is a service that runs on Kubernetes. It collects and aggregates resource metrics (CPU, memory, storage, network) about the Kubernetes cluster, containers, pods, and nodes. Wavefront maintains an image of Heapster that will send metrics to your [Wavefront proxy](proxies_installing).
+Heapster is a service that runs on Kubernetes. It collects and aggregates resource metrics (CPU, memory, storage, network) about the Kubernetes cluster, containers, pods, and nodes. Wavefront maintains an image of Heapster that will send metrics to your [Wavefront proxy](proxies_installing.html).
  
 ## Instructions
 To set up the Kubernetes integration:

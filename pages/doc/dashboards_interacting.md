@@ -62,10 +62,10 @@ The first components you see on the Time bar are the Live Data and Custom Date o
 A set of time window options (10m, 2h, 6h, 12h, 1d, 1w)  display to the right of the Live Data/Custom Date options. When Live Data is selected, the time window options will quickly increase or decrease the amount of live data displayed within each chart. Choosing a time window while Custom Date is selected adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, then the start time is adjusted to 3:00 AM.
  
 ### Event Overlays
-The Events overlay option allows you to display events on the X-axis of charts. See [Displaying Events in Charts](charts_events_displaying).
+The Events overlay option allows you to display events on the X-axis of charts. See [Displaying Events in Charts](charts_events_displaying.html).
  
 ### Dashboard Variables
-[Dashboard variables](dashboards_variables) are used within ts() expressions, and can represent any string of text such as a source name, ts() call, or set of advanced functions. If the existing dashboard you’re viewing has dashboard variables attached to it, then you will typically see a Variables section below the Time bar.
+[Dashboard variables](dashboards_variables.html) are used within ts() expressions, and can represent any string of text such as a source name, ts() call, or set of advanced functions. If the existing dashboard you’re viewing has dashboard variables attached to it, then you will typically see a Variables section below the Time bar.
  
 ### Sections
 The Sections bar is located directly below the Time bar and allows you to jump to any section on a dashboard. By default, every dashboard has at least one section. Dashboard sections allow you to group saved charts in a meaningful way. As with the Time bar, the Sections bar always appears at the top of the dashboard screen. Rather than scrolling, you can jump to a desired section by clicking the section name on the Sections bar.

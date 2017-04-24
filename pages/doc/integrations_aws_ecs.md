@@ -22,16 +22,16 @@ This guide provides detailed steps on how to install and configure Wavefront's E
 ## Requirements
 
 - Access to Amazon Web Services.
-- Access to a [Wavefront proxy](proxies_installing) - Preferably running in AWS or a place accessible to your ECS instances.
+- Access to a [Wavefront proxy](proxies_installing.html) - Preferably running in AWS or a place accessible to your ECS instances.
 - Wavefront AWS integration - Parts of the ECS integration use CloudWatch metrics, which can be acquired by configuring the Wavefront AWS integration.
  
 ## Configure AWS Integration
  
-Set up [Wavefront's AWS Integration](integrations_aws_metrics). This allows Wavefront to collect useful high-level metrics about ECS using the Amazon CloudWatch API.
+Set up [Wavefront's AWS Integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the Amazon CloudWatch API.
  
 ## Create Wavefront cAdvisor Task Definition
  
-Wavefront maintains an image of [cAdvisor](integrations_cadvisor) that includes a Wavefront storage driver. The goal of these steps is to create an ECS task definition that ensures the Wavefront cAdvisor container runs on each EC2 instance within your ECS cluster automatically.
+Wavefront maintains an image of [cAdvisor](integrations_cadvisor.html) that includes a Wavefront storage driver. The goal of these steps is to create an ECS task definition that ensures the Wavefront cAdvisor container runs on each EC2 instance within your ECS cluster automatically.
 
 1. Within AWS Services, navigate to **EC2 Container Service**. It appears below EC2. 
 1. Click **Task Definitions**, then **Create new Task Definition**:
@@ -45,7 +45,7 @@ Wavefront maintains an image of [cAdvisor](integrations_cadvisor) that includes 
     - `-storage_driver_wf_interval` - The interval is preset and defaults to 60 seconds. This controls how often metrics are flushed into Wavefront.
     - `-storage_driver_wf_add_tags` - This allows you to set one or more point tags on the metrics collected by cAdvisor. The format is: `<tag1Name>=<tag1Value>` `<tag2Name>=<tag2Value>`
 
-   Optional: See the guide on our [Wavefront cAdvisor container](integrations_cadvisor) for a full explanation of the options available.
+   Optional: See the guide on our [Wavefront cAdvisor container](integrations_cadvisor.html) for a full explanation of the options available.
 1. Click the **Create** button at the bottom of the form:
   ![create menu](images/create.png)
 1. Select **Actions > Run Task**.

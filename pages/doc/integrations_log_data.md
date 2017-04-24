@@ -20,7 +20,7 @@ In this example, we configure Wavefront to parse [Combined Apache Logs](http://h
 
 ### Configuring the Wavefront Proxy to Listen for Log Data
 
-In your Wavefront proxy [configuration file](proxies_configuring), add these new entries:
+In your Wavefront proxy [configuration file](proxies_configuring.html), add these new entries:
 
 ```conf
 filebeatPort=5044

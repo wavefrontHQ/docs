@@ -49,7 +49,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <li>ts() expression - Returns all time series that match a metric name, filtered by sources, source tags, and point tags.</li>
 <ul>
 <li markdown="span">Syntax: ts(<span style="color:#08838c;font-weight:bold">&lt;metricName&gt;</span>, [[<span style="color:#d63a36;font-weight:bold">source=&lt;sourceName&gt;</span>] [and|or] [<span style="color:#2770e8;font-weight:bold">tag=&lt;sourceTagName&gt;</span>] [and|or] [<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span>]...])</li>
-<li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format).</li>
+<li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format.html).</li>
 <li>Sources, source tags, and point tags are optional. For example, to return all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
 </ul>
 <li>constant - A number such as 5.01, 10000, or 40. Constants can be plotted by themselves and composed in <span style="color:#3a0699;font-weight:bold">expressions</span> using arithmetic operators.</li>
@@ -82,7 +82,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <li>ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt; 10) and (ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &lt; 20) returns 1 if <span style="color:#08838c;font-weight:bold">my.metric</span> is between 10 and 20. Otherwise, returns 0.</li>
 <li>ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>, <span style="color:#2770e8;font-weight:bold">tag=prod</span> and <span style="color:#2770e8;font-weight:bold">tag=db</span>) returns <span style="color:#08838c;font-weight:bold">cpu.load.1m</span> for all sources tagged with both <span style="color:#2770e8;font-weight:bold">prod</span> and <span style="color:#2770e8;font-weight:bold">db</span>.</li>
 <li>ts(<span style="color:#08838c;font-weight:bold">db.query.rate</span>, <span style="color:#2770e8;font-weight:bold">tag=db</span> and not <span style="color:#d63a36;font-weight:bold">source=db5.wavefront.com</span>) returns <span style="color:#08838c;font-weight:bold">db.query.rate</span> for all sources tagged with <span style="color:#2770e8;font-weight:bold">db</span>, except for the <span style="color:#d63a36;font-weight:bold">db5.wavefront.com</span> source.</li></ul>
-<li markdown="span">For further information on operator behavior in series matching, see [Series Matching](query_language_series_matching)​.</li>
+<li markdown="span">For further information on operator behavior in series matching, see [Series Matching](query_language_series_matching.html)​.</li>
 </ul>
 
 ## Tags in Queries
@@ -102,7 +102,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <span id="aggregate"></span>
 
 ## Aggregate and Raw Aggregate Functions
-Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. Standard aggregate functions first interpolate the points of the underlying set of series, and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions).
+Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. Standard aggregate functions first interpolate the points of the underlying set of series, and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
 
 
 <table style="width: 100%;">
@@ -344,7 +344,7 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 
 ## Moving Window Time Functions
 
-Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends).
+Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
 
 
 <table style="width: 100%;">
@@ -513,7 +513,7 @@ Metadata functions extract information from an existing set of data to rename a 
 - Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
 - String substitution - Replace a metric or source in an expression with a replacement string.
 
-For further information, see [Metadata Functions](query_language_metadata_functions).
+For further information, see [Metadata Functions](query_language_metadata_functions.html).
 
 <table style="width: 100%;">
 <colgroup>
@@ -597,8 +597,8 @@ color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;fo
 
 ## Event Functions
 
-Event functions are used to [display events in charts](charts_events_displaying) and perform conversions on events sets.
-For further information, see [Basic events() Queries](events_queries) and [Advanced events() Queries](events_queries_advanced).
+Event functions are used to [display events in charts](charts_events_displaying.html) and perform conversions on events sets.
+For further information, see [Basic events() Queries](events_queries.html) and [Advanced events() Queries](events_queries_advanced.html).
 
 
 <table style="width: 100%;">

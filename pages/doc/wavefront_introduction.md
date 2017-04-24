@@ -44,7 +44,7 @@ to access Wavefront using the Wavefront **REST API**.  All actions within the UI
 Each of the layers can be scaled out horizontally to accommodate different use cases, data quantities, and ingestion
 rates.
 
-One of Wavefront's differentiators is the [Wavefront Query Language](query_language_reference), which allows you to
+One of Wavefront's differentiators is the [Wavefront Query Language](query_language_reference.html), which allows you to
 harness the power of the platform to design your own key performance indicators from all of your metric data. The query
 language has support for sophisticated statistical functions and can be used to construct simple and complex queries
 across multiple metrics/sources leveraging any combination of functions (which include arithmetic operators, aggregate
@@ -77,12 +77,12 @@ Wavefront proxy to your installation.
 The Wavefront proxy allows you to send your data to Wavefront in a secure, fast, and reliable manner. The proxy works
 with the Wavefront server to ensure end-to-end flow control. When it detects network connectivity issues, the proxy
 queues metrics in memory and to disk. Once connectivity is restored the proxy replays queued metrics but prioritizes
-real-time traffic. There are many ways to [configure](proxies_configuring) the proxy to tune this behavior.
+real-time traffic. There are many ways to [configure](proxies_configuring.html) the proxy to tune this behavior.
 
-The [proxy preprocessor](proxies_preprocessor_rules) allows you to correct errors in metric definition, reducing the
+The [proxy preprocessor](proxies_preprocessor_rules.html) allows you to correct errors in metric definition, reducing the
 number of invalid metrics which would otherwise be rejected by the proxy.
 
-A proxy generates its own [internal metrics](wavefront_monitoring) for easy monitoring of the pipeline within Wavefront.
+A proxy generates its own [internal metrics](wavefront_monitoring.html) for easy monitoring of the pipeline within Wavefront.
 In initial deployments you can start with one Wavefront proxy. However, to enable fault tolerance and higher data rates,
 production environments more typically employ a load balancer sending data to multiple proxies:
 
@@ -90,6 +90,6 @@ production environments more typically employ a load balancer sending data to mu
 
 ## Collector Agent
 
-Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard [collector agents](wavefront_integrations), including [Telegraf](integrations_telegraf), [Docker cAdvisor​](integrations_cadvisor), and others.
+Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard [collector agents](wavefront_integrations.html), including [Telegraf](integrations_telegraf.html), [Docker cAdvisor​](integrations_cadvisor.html), and others.
 
 

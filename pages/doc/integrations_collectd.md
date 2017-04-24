@@ -11,7 +11,7 @@ summary: Learn how to send data collected by collectd to Wavefront.
 
 ## Configure Wavefront Proxy to Listen for Graphite Data
 
-Follow the process described in [Graphite Integration](integrations_graphite) to enable the Wavefront proxy to listen for Graphite data.
+Follow the process described in [Graphite Integration](integrations_graphite.html) to enable the Wavefront proxy to listen for Graphite data.
 
 ## Installing collectd
 collectd is typically available in standard Linux distribution repositories but we primarily recommend using these [packages](https://github.com/collectd/collectd-ci/blob/master/README.md). These instructions assume that you are using collectd V5.1 or higher. Wavefront can also work with collectd 4.10. [Contact us](mailto:support@wavefront.com) if you are using an earlier version of collectd and need help.
@@ -41,7 +41,7 @@ There are many plugins available with collectd, including SNMP and various datab
 
 See the [write_graphite documentation](https://collectd.org/documentation/manpages/collectd.conf.5.shtml#plugin_write_graphite) for an explanation of the various options. We believe these settings provide the optimal behavior when using Wavefront. If you are running collectd on a different machine from the one where the Wavefront proxy is running, replace `localhost` in the `write_graphite` configuration block. 
 
-The `Prefix` setting causes all the metrics that end up Wavefront to begin with collectd, for example `collectd.cpu.0.cpu.idle`. This can be helpful to allow your collectd metrics to be kept totally separate from those from different sources (for instance [StatsD](integrations_statsd) or [JMXTrans](integrations_jmxtrans)). However, if you prefer not to have that prefix you can delete or comment out that line in your configuration. If you do that you must also edit `wavefront.conf`, change `graphiteFormat=2` to `graphiteFormat=1`, and restart the [Wavefront proxy](proxies_managing).
+The `Prefix` setting causes all the metrics that end up Wavefront to begin with collectd, for example `collectd.cpu.0.cpu.idle`. This can be helpful to allow your collectd metrics to be kept totally separate from those from different sources (for instance [StatsD](integrations_statsd.html) or [JMXTrans](integrations_jmxtrans.html)). However, if you prefer not to have that prefix you can delete or comment out that line in your configuration. If you do that you must also edit `wavefront.conf`, change `graphiteFormat=2` to `graphiteFormat=1`, and restart the [Wavefront proxy](proxies_managing.html).
  
  
 ## Running collectd

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and run Wavefront proxies.
 ---
-Before metrics can begin streaming to Wavefront from a host or application you must add a Wavefront proxy to your installation. This article describes several methods for installing a Wavefront proxy: scripted installation and manual installation. Both methods set up a basic configuration. The scripted installation optionally allows you to install and configure a [Telegraf collector agent](integrations_telegraf).
+Before metrics can begin streaming to Wavefront from a host or application you must add a Wavefront proxy to your installation. This article describes several methods for installing a Wavefront proxy: scripted installation and manual installation. Both methods set up a basic configuration. The scripted installation optionally allows you to install and configure a [Telegraf collector agent](integrations_telegraf.html).
  
 ## Requirements
 
@@ -42,7 +42,7 @@ The Wavefront application has a wizard that guides you through installing a Wave
     1. Optionally copy the script and run on your host.
     1. Click **Next**, then **Done** twice. The Proxies page displays. Verify that your proxy is listed.
 
-You can also install and run the Wavefront CLI directly. For more information, see [Wavefront CLI](wavefront_cli).
+You can also install and run the Wavefront CLI directly. For more information, see [Wavefront CLI](wavefront_cli.html).
 
 ## Manual Package Installation on a Single Host
 You can manually install a Wavefront proxy .rpm or .deb package available at [Wavefront proxy packages](https://packagecloud.io/wavefront/proxy). The installation packages include an interactive script for configuring the proxy. To install a proxy package and set up a basic configuration:

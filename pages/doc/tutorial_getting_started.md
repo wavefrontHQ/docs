@@ -6,13 +6,13 @@ permalink: tutorial_getting_started.html
 summary: Get started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. The tutorial is based on the sample metrics preloaded in your Wavefront account.
 ---
 
-This tutorial gets you started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. To complete these tasks you need [Dashboard Management and Alert Management permissions](permissions_overview), which your Wavefront administrator can grant.
+This tutorial gets you started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. To complete these tasks you need [Dashboard Management and Alert Management permissions](permissions_overview.html), which your Wavefront administrator can grant.
  
 The tutorial is based on the sample metrics preloaded in your Wavefront account.
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes a set of [introductory dashboards](dashboards_introductory) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes a set of [introductory dashboards](dashboards_introductory.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
 1. Log into Wavefront. For many users the Intro:Home dashboard displays by default. If so, review the dashboard contents now.
 1. To get further acquainted with Wavefront basics, we'll look at a few other Wavefront introductory dashboards. Select **Dashboards > All Dashboards**.
@@ -42,7 +42,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
 
         ![sample_cluster](images/sample_cluster.png)
 
-        The dashboard defines two [variables](dashboards_variables), which you can see at the top of the dashboard&mdash;Availability Zone (az) and Environment (env)&mdash;. These variables can be used in queries to filter metrics for specific classes of sources.
+        The dashboard defines two [variables](dashboards_variables.html), which you can see at the top of the dashboard&mdash;Availability Zone (az) and Environment (env)&mdash;. These variables can be used in queries to filter metrics for specific classes of sources.
 
 1.  Open a chart in the Intro: Sample Cluster Metrics dashboard. 
     1. The Intro: Sample Cluster Metrics dashboard is organized into sections. Click the **App Servers** button to jump to the App Servers section:
@@ -104,13 +104,13 @@ In this section we create an alert that fires when the request latency metric re
   
     ![alert_email](images/alert_email.png)
    
-    In addition, as alerts fire and resolve, events are created in Wavefront. You can also add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying) that are added to the Request Latencies chart's X-axis:
+    In addition, as alerts fire and resolve, events are created in Wavefront. You can also add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying.html) that are added to the Request Latencies chart's X-axis:
   
     ![event icons](images/event_icons.png)
 
 ## Next Steps
 
-Now that you are acquainted with the basics of Wavefront features and the UI, you are ready to start investigating your own data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial - Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion) or [Tutorial - Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion) to get started.
+Now that you are acquainted with the basics of Wavefront features and the UI, you are ready to start investigating your own data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial - Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html) or [Tutorial - Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html) to get started.
 
 {% include shared/tutorial_next_steps.html %}
 

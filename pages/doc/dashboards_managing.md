@@ -27,7 +27,7 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 
 ## Deploying a Dashboard
 
-Dashboards are stored in JSON format. You can deploy a dashboard JSON file with the [Wavefront API](wavefront_api) using the following command:
+Dashboards are stored in JSON format. You can deploy a dashboard JSON file with the [Wavefront API](wavefront_api.html) using the following command:
 
 ```shell
 curl -v POST https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<dashboard_file>.json \
@@ -41,8 +41,8 @@ curl -v POST https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<da
 Dashboard preferences include:
 
 -   Dashboard name and description
--   Whether to display the description, [section TOC](#sections), and [dashboard variables](dashboards_variables)
--   A global [events() query](events_queries)
+-   Whether to display the description, [section TOC](#sections), and [dashboard variables](dashboards_variables.html)
+-   A global [events() query](events_queries.html)
 -   Chart title display properties
 -   Default [time window](dashboards_interacting#time_window)
 
@@ -68,7 +68,7 @@ The process for editing an existing dashboard can be started from the All Dashbo
 
 When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
 
-{% include note.html content="Wavefront [system dashboards](dashboards_introductory) are read-only and cannot be edited. If you want to make changes to one of them you must first clone it." %}
+{% include note.html content="Wavefront [system dashboards](dashboards_introductory.html) are read-only and cannot be edited. If you want to make changes to one of them you must first clone it." %}
 
 ### Dashboard Description and Name
 
@@ -130,7 +130,7 @@ If you want to revert a change,  select ![action_menu.png](images/action_menu.pn
 
 ## Managing Dashboard Tags
 
-See [Tags Overview](tags_overview).
+See [Tags Overview](tags_overview.html).
 
 ## Managing Charts in Dashboards
 
@@ -140,7 +140,7 @@ To add a new chart to a dashboard:
 
 1.  Navigate to the dashboard and put it in edit mode.
 1.  Find the section you want to place the chart in. Click <i class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
-    1.  In the New Query field, type a [Wavefront Query Language](query_language_getting_started) expression.
+    1.  In the New Query field, type a [Wavefront Query Language](query_language_getting_started.html) expression.
     1.  In the Chart section, [customize your chart](charts).
     1.  Click **Accept**. The new chart displays in the section you selected.
 1.  Click **Save**.

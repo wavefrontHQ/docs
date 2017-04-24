@@ -8,7 +8,7 @@ summary: Learn how to send data emitted by Puppet Server to Wavefront.
 ---
 [Puppet](https://puppet.com/) is an open-source configuration management tool. It runs on many Unix-like systems as well as on Microsoft Windows, and includes its own declarative language to describe system configuration.
  
-You can configure Puppet Server to emit Graphite formatted metrics using the Telegraf tcp_listener input plugin. Wavefront maintains a [Telegraf](integrations_telegraf) output plugin that will send metrics to your [Wavefront proxy](proxies_managing).
+You can configure Puppet Server to emit Graphite formatted metrics using the Telegraf tcp_listener input plugin. Wavefront maintains a [Telegraf](integrations_telegraf.html) output plugin that will send metrics to your [Wavefront proxy](proxies_managing.html).
  
 ## Metric Collection
 
@@ -25,7 +25,7 @@ You can configure Puppet Server to emit Graphite formatted metrics using the Tel
       - **profiler_enabled** – Set to true (default value).
 
       ![puppet_profile](images/puppet_profile.png)
-1. [Install Telegraf](integrations_telegraf) with the Wavefront output plugin, configured to communicate with your Wavefront proxy.
+1. [Install Telegraf](integrations_telegraf.html) with the Wavefront output plugin, configured to communicate with your Wavefront proxy.
 1. Configure the Telegraf tcp_listener input plugin to receive the Puppet Server metrics. You can use this [10-puppet-server.conf](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/puppet/telegraf/10-puppet-server.conf) file deployed to your Telegraf configuration directory (`/etc/telegraf/telegraf.d` by default).
 1. Restart the Telegraf service.
  

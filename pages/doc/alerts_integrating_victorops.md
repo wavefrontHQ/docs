@@ -54,7 +54,7 @@ The URL will end with **$routing_key**.  You can change this to the appropriate 
 
     ![VictorOps rest](images/victorops_webhook.png)
  1. Click **Save**.
- For further information, see [Integrating Wavefront Alerts with Webhooks](alerts_integrating_webhooks).
+ For further information, see [Integrating Wavefront Alerts with Webhooks](alerts_integrating_webhooks.html).
  
 ## Add the VictorOps Webhook to a Wavefront Alert
  

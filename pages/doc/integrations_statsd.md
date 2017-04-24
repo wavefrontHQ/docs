@@ -10,7 +10,7 @@ StatsD is a very popular statistical aggregator for application metrics. We reco
 
 ## Installing and Configuring StatsD
  
-1. Install Telegraf. Follow the instructions in [Telegraf Integration](integrations_telegraf)  to install Telegraf on your host machine.
+1. Install Telegraf. Follow the instructions in [Telegraf Integration](integrations_telegraf.html)  to install Telegraf on your host machine.
  
 1. Configure the StatsD Service plugin
  

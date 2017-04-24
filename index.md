@@ -9,7 +9,7 @@ permalink: index.html
 
 Welcome to the Wavefront documentation site!
 
-To get started with Wavefront, go to [Introduction to Wavefront](wavefront_introduction) or [Getting Started Documentation](documentation_introductory).
+To get started with Wavefront, go to [Introduction to Wavefront](wavefront_introduction.html) or [Getting Started Documentation](documentation_introductory.html).
 
 Wavefront documentation is organized into a standard hierarchy. Also, all topics can have one or more labels that offer a non-hierarchical way to access topics. Click the buttons below to view all topics with that label.
 
@@ -191,7 +191,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
 <!--
 Welcome to the Wavefront documentation site!
 
-To get started with Wavefront, go to [Introduction to Wavefront](wavefront_introduction) or [Welcome to Wavefront Docs](wavefront_documentation).
+To get started with Wavefront, go to [Introduction to Wavefront](wavefront_introduction.html) or [Welcome to Wavefront Docs](wavefront_documentation.html).
 
 To send feedback on the documentation, click the <i class="fa fa-envelope-o"/> **Feedback** button or file in issue in our [GitHub repo](https://github.com/wavefrontHQ/docs/issues).
 
