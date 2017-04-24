@@ -62,7 +62,7 @@ To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` prop
 
 ## Point Filtering Rules
 
-Point filtering rules support a more flexible version of the proxy's `whitelistRegex` and `blacklistRegex` properties, and is fully backwards compatible.
+Point filtering rules support a more flexible version of the proxy [`whitelistRegex` and `blacklistRegex`](proxies_configuring#configuration-options) properties, and is fully backwards compatible.
 
 ### blacklistRegex
 
@@ -306,7 +306,7 @@ Add a point tag with the specified value to all points. If the point tag already
 </tr>
 <tr>
 <td>tag</td>
-<td>&lt;new tag key&gt;</td>
+<td>&lt;new point tag key&gt;</td>
 <td>New point tag name.</td>
 </tr>
 <tr>
@@ -353,7 +353,7 @@ Add a point tag with the specified value to all points. If the point tag already
 </tr>
 <tr>
 <td>tag</td>
-<td>&lt;new tag key&gt;</td>
+<td>&lt;new point tag key&gt;</td>
 <td>New point tag name.</td>
 </tr>
 <tr>
@@ -376,7 +376,6 @@ Example:
 ```
 
 ### dropTag
--
 
 Remove a point tag.
 
@@ -401,7 +400,7 @@ Remove a point tag.
 </tr>
 <tr>
 <td>tag</td>
-<td>&lt;tag name&gt; or &lt;tag name regex&gt;</td>
+<td>&lt;point tag name&gt; or &lt;tag name regex&gt;</td>
 <td>Point tag key (or a regex matching the tag key).</td>
 </tr>
 <tr>
@@ -430,7 +429,6 @@ Examples:
 ```
 
 ### extractTag
--
 
 Create a new point tag based on a metric name, source name, or another point tag value.
 
@@ -467,7 +465,7 @@ Create a new point tag based on a metric name, source name, or another point tag
 </tr>
 <tr>
 <td>tag</td>
-<td>&lt;new tag name&gt;</td>
+<td>&lt;new point tag name&gt;</td>
 <td>New name for the point tag.</td>
 </tr>
 <tr>

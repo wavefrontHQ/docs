@@ -4,7 +4,7 @@ keywords: release notes
 tags: [release notes]
 sidebar: doc_sidebar
 permalink: 6x_release_notes.html
-summary: Learn about new and updated features in Wavefront 6.x.
+summary: Learn about new and updated features in the Wavefront 6.x release.
 ---
 The Wavefront 6.x release provides a number of UI and documentation improvements:
  

@@ -55,6 +55,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
       
+    - title: 2017-16 Release Notes
+      url: /2017_16_release_notes.html
+      output: web
+      
     - title: 8.x Release Notes
       url: /8x_release_notes.html
       output: web
@@ -95,6 +99,14 @@ entries:
       url: /query_language_getting_started.html
       output: web
       
+    - title: Point Tags in Queries
+      url: /query_language_point_tags.html
+      output: web
+      
+    - title: Series Matching
+      url: /query_language_series_matching.html
+      output: web
+      
     - title: Query Builder
       url: /query_language_query_builder.html
       output: web
@@ -107,27 +119,15 @@ entries:
       url: /query_language_reference.html
       output: web
       
-    - title: Point Tags in Queries
-      url: /query_language_point_tags.html
-      output: web
-      
-    - title: Series Matching
-      url: /query_language_series_matching.html
-      output: web
-      
     - title: Understanding Slow Queries
       url: /dashboards_slow_queries.html
       output: web
       
       subfolders:
-      - title: Advanced Functions
+      - title: Function Guides
         output: web
         subfolderitems:
           
-        - title: Using Statistical Functions to Detect Anomalies
-          url: /query_language_statistical_functions_anomalies.html
-          output: web
-
         - title: Standard Versus Raw Aggregate Functions
           url: /query_language_aggregate_functions.html
           output: web
@@ -138,6 +138,10 @@ entries:
 
         - title: Summarize By and the align() Function
           url: /query_language_align_function.html
+          output: web
+
+        - title: Using Statistical Functions to Detect Anomalies
+          url: /query_language_statistical_functions_anomalies.html
           output: web
 
         - title: Using Moving and Tumbling Windows to Highlight Trends

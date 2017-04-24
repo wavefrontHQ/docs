@@ -249,16 +249,16 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 <td>Returns the bottom <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's.</td>
 </tr>
 <tr>
-<td markdown="span">filter(<span style="color:#3a0699;font-weight:bold">expression [metric|source=|tagK=]</span>)</td>
-<td>Retains the specified metric|source|<span style="color:#3d3d3d;">point tag</span> in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to filter a metric. To <span>filter</span> a particular source or point tag, specify a key of source= or tagK= respectively. Replace tagK with the point tag key to filter. You can specify only one parameter (metric|source|point tag) per function call. To specify multiple parameters, use a filter() call for each parameter. filter is similar to retainSeries, but does not support expanding a source tag.</td>
+<td markdown="span">filter(<span style="color:#3a0699;font-weight:bold">expression [metric|source=|tagk=]</span>)</td>
+<td>Retains the specified metric|source|<span style="color:#3d3d3d;">point tag</span> in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to filter a metric. To <span>filter</span> a particular source or point tag, specify a key of source= or tagk= respectively. Replace tagk with the point tag key to filter. You can specify only one parameter (metric|source|point tag) per function call. To specify multiple parameters, use a filter() call for each parameter. filter is similar to retainSeries, but does not support expanding a source tag.</td>
 </tr>
 <tr>
-<td markdown="span">retainSeries(<span style="color:#3a0699;font-weight:bold">expression [ metric|source=|tag=|tagK=]</span>)</td>
-<td>Retains the specified metric|source|source tag|<span style="color:#3d3d3d;">point tag</span> in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify a key of source=, tag=, or tagK= respectively. Replace tagK with the point tag key to retain. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a retainSeries() call for each parameter.</td>
+<td markdown="span">retainSeries(<span style="color:#3a0699;font-weight:bold">expression [ metric|source=|tag=|tagk=]</span>)</td>
+<td>Retains the specified metric|source|source tag|<span style="color:#3d3d3d;">point tag</span> in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify a key of source=, tag=, or tagk= respectively. Replace tagk with the point tag key to retain. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a retainSeries() call for each parameter.</td>
 </tr>
 <tr>
-<td markdown="span">removeSeries(<span style="color:#3a0699;font-weight:bold">expression [ metric|source=|tag=|tagK=]</span>)</td>
-<td>Removes the specified metric|source|source tag|point tag from <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify a key of source=, tag=, or tagK= respectively. Replace tagK with the unique point tag key to remove. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a removeSeries() call for each parameter.</td>
+<td markdown="span">removeSeries(<span style="color:#3a0699;font-weight:bold">expression [ metric|source=|tag=|tagk=]</span>)</td>
+<td>Removes the specified metric|source|source tag|point tag from <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify a key of source=, tag=, or tagk= respectively. Replace tagk with the unique point tag key to remove. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a removeSeries() call for each parameter.</td>
 </tr>
 <tr>
 <td>sample(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression)</span></td>

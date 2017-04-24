@@ -14,6 +14,10 @@ a maintenance window has been created, AWS instances have started or stopped, an
 
 Events originate from several different sources. When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing), the event source is **System**. When an alert fires or resolves, the source is **System/Alert**. You can manually add **User** events to identify user actions, such as code pushes, that occur outside Wavefront but that affect metrics within Wavefront.
 
+For a video overview, see
+
+{% include video.html file="kjtkpyw1tz" %}
+
 To view and manage events, select **Browse > Events**.
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
@@ -32,6 +36,7 @@ You create a user event by:
 bar. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
 If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.</li>
 </ul>
+
 
 ### Event Properties
 
