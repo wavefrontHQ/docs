@@ -10,7 +10,7 @@ Starting with version 4.1, the Wavefront proxy includes a preprocessor that appl
 
 ## Rule Configuration File
 
-You define the proxy preprocessor rules in a separate file, usually `/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml`, using YAML syntax. You can specify the file in your [proxy configuration](proxies_configuration.html#configuration-options). An example rule file could look like:
+You define the proxy preprocessor rules in a separate file, usually `/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml`, using YAML syntax. You can specify the file in your [proxy configuration](proxies_configuring.html#configuration-options). An example rule file could look like:
 
 ```yaml
 # rules for port 2878

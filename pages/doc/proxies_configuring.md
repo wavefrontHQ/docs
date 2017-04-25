@@ -14,7 +14,7 @@ To install a proxy, follow the directions in [Installing Wavefront Proxies](prox
 
 ## Configuration Options
 
-The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-proxy/wavefront.conf`. Besides the `server` and `hostname` properties, the configuration file offers a variety of other options for changing how the proxy processes your data. None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, [restart the proxy service](proxies_managing.html#starting-and-stopping-a-proxy).
+The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-proxy/wavefront.conf`. Besides the `server` and `hostname` properties, the configuration file offers a variety of other options for changing how the proxy processes your data. None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, [restart the proxy service](proxies_installing.html#starting-and-stopping-a-proxy).
 
 <table width="100%">
 <colgroup>

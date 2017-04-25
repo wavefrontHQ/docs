@@ -36,7 +36,7 @@ The faceted filter bar includes a set of commonly used saved searches. You can a
 
 The following Alert Browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
-![Tag path](images/microService.app4_firing.png)
+![Tag path](images/MicroService.App4_firing.png)
 
 ### Metrics
 
