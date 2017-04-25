@@ -49,7 +49,7 @@ The following portion of this article will showcase all of the ways you can inte
 
 ![time window](images/time_window.png)
 
-When you log in to Wavefront, the first dashboard you visit displays two-hour time window charts with real-time data flowing in. If you need to see a larger or smaller time window or need to view past data instead of real-time data, use the Time bar to display different time windows. You can configure the default time window in [dashboard preferences](dashboards_managing#prefs).
+When you log in to Wavefront, the first dashboard you visit displays two-hour time window charts with real-time data flowing in. If you need to see a larger or smaller time window or need to view past data instead of real-time data, use the Time bar to display different time windows. You can configure the default time window in [dashboard preferences](dashboards_managing.html#prefs).
 
 The following 25 second video
 

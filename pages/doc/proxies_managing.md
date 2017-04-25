@@ -42,7 +42,7 @@ To update which Wavefront instance the proxy sends data to:
 
 1. On the host running the proxy, edit the `/etc/wavefront/wavefront-proxy/wavefront.conf` file.
 1. Change the `server` and `token` properties to point to the Wavefront instance you want to send data to. 
-1. [Restart the Wavefront proxy](proxies_installing#restart). The proxy is added to the Wavefront instance and displays on the Proxies page.
+1. [Restart the Wavefront proxy](proxies_installing.html#restart). The proxy is added to the Wavefront instance and displays on the Proxies page.
  
 For other configuration options, see [Configuring Wavefront Proxies](proxies_configuring.html). 
 
@@ -61,7 +61,7 @@ In lieu of [installing proxy packages](proxies_installing.html), you can alterna
 To run the container you must set the following properties:
 
 - `WAVEFRONT_URL` - Wavefront server API URL in the format `https://<wavefront_instance>.wavefront.com/api/`.
-- `WAVEFRONT_TOKEN` - Wavefront [API token](wavefront_api#generating-an-api-token).
+- `WAVEFRONT_TOKEN` - Wavefront [API token](wavefront_api.html#generating-an-api-token).
 
 
 ### Docker Run

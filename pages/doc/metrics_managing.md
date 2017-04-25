@@ -14,7 +14,7 @@ in [Wavefront data format](wavefront_data_format.html) as well as other standard
 such as [AWS](integrations_aws_metrics.html).
 
 Once metrics are ingested into Wavefront you can [query](query_language_getting_started.html) and
-[chart](charts) the data to help understand underlying patterns. You can create
+[chart](charts.html) the data to help understand underlying patterns. You can create
 [alerts](alerts_managing.html) to notify operators when anomalous values indicate a system malfunction.
 
 If a metric is no longer reporting data, it is automatically removed from the Metrics Browser and autocomplete dropdown after 4 weeks of inactivity. You can manually hide metrics from the Metrics Browser and in the autocomplete dropdown associated with queries. Manually hiding metrics does not permanently delete a particular metric or metric namespace from Wavefront.

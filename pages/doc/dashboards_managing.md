@@ -44,7 +44,7 @@ Dashboard preferences include:
 -   Whether to display the description, [section TOC](#sections), and [dashboard variables](dashboards_variables.html)
 -   A global [events() query](events_queries.html)
 -   Chart title display properties
--   Default [time window](dashboards_interacting#time_window)
+-   Default [time window](dashboards_interacting.html#time_window)
 
 To open the dashboard preferences dialog, click the wrench icon <i class="fa-wrench fa"/> at the top right of the dashboard.
 
@@ -141,7 +141,7 @@ To add a new chart to a dashboard:
 1.  Navigate to the dashboard and put it in edit mode.
 1.  Find the section you want to place the chart in. Click <i class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
     1.  In the New Query field, type a [Wavefront Query Language](query_language_getting_started.html) expression.
-    1.  In the Chart section, [customize your chart](charts).
+    1.  In the Chart section, [customize your chart](charts.html).
     1.  Click **Accept**. The new chart displays in the section you selected.
 1.  Click **Save**.
 

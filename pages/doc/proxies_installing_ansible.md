@@ -14,7 +14,7 @@ This is useful when you want to automatically deploy multiple proxies and/or age
 
 ## Requirements
 
-- Your Wavefront [API token](wavefront_api#api-tokens)
+- Your Wavefront [API token](wavefront_api.html#api-tokens)
 - Working knowledge of Ansible
 - [The Wavefront Ansible Galaxy Role](https://galaxy.ansible.com/wavefrontHQ/wavefront-ansible/)
  

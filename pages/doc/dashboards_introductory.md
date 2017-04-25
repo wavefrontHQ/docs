@@ -33,6 +33,6 @@ The best dashboard to start with is the **Intro: Home** dashboard. This dashboar
 
 ![intro_home.png](images/intro_home.png)
 
-The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for new users in the [customer-wide preferences](dashboards_managing#prefs) and yourself in the [user preferences](users_prefs_configuring.html).
+The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for new users in the [customer-wide preferences](dashboards_managing.html#prefs) and yourself in the [user preferences](users_prefs_configuring.html).
 
 

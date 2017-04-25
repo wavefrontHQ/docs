@@ -14,10 +14,10 @@ Permissions, which are assigned at the user level, allow your company's administ
 You can learn more about each set of permissions by clicking the permission headers below:
  
 - [Alert Management](alerts_managing.html) - create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, create, edit, and delete webhooks.
-- [Browse Data](permissions_misc#browse-data-permission) - view all of Wavefront, except for the Proxies and user administration pages. Every user must have Browse Data permission in order to access Wavefront.
+- [Browse Data](permissions_misc.html#browse-data-permission) - view all of Wavefront, except for the Proxies and user administration pages. Every user must have Browse Data permission in order to access Wavefront.
 - [Dashboard Management](dashboards_managing.html) - create, manage, and delete all dashboards and charts and manage dashboard tags.
-- [Direct Data Ingestion](permissions_misc#direct-data-ingestion-permission) - ingest metrics using API endpoints, bypassing proxies.
-- [Embed Charts](permissions_misc#embed-charts-permission) - generate HTML snippets of Wavefront charts and embed them outside of the platform.
+- [Direct Data Ingestion](permissions_misc.html#direct-data-ingestion-permission) - ingest metrics using API endpoints, bypassing proxies.
+- [Embed Charts](permissions_misc.html#embed-charts-permission) - generate HTML snippets of Wavefront charts and embed them outside of the platform.
 - [Event Management](events_managing.html) - create, manage, and close events and manage event tags.
 - [External Links Management](external_links_managing.html) - create, update, and delete external links.
 - [Metrics Management](metrics_managing.html) - manually hide and unhide metrics and metric prefixes from being displayed in the Metrics browser and autocomplete dropdown while creating a ts() query.

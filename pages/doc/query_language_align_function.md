@@ -9,7 +9,7 @@ summary: Learn the role of the align() function in Wavefront Query Language expr
 
 In Wavefront charts, point buckets represent summarized data across a certain length of time.
 
-Both the [**Summarize By** chart option](charts#summarize-by) and the [`align()` function](query_language_reference#filtering-and-comparison-functions) group points into buckets and allow you to specify how those points are grouped together (e.g. averaged, counted, summed, etc.).  The `align()` function additionally allows you to specify the desired bucket size whereas **Summarize By** is completely based on the *supported resolution*. 
+Both the [**Summarize By** chart option](charts.html#summarize-by) and the [`align()` function](query_language_reference.html#filtering-and-comparison-functions) group points into buckets and allow you to specify how those points are grouped together (e.g. averaged, counted, summed, etc.).  The `align()` function additionally allows you to specify the desired bucket size whereas **Summarize By** is completely based on the *supported resolution*. 
 
 ## Supported Resolution 
 

@@ -40,7 +40,7 @@ use_regex = false
 ```
 
 ## Dashboard
-Once you've installed Telegraf, you can [deploy](dashboards_managing#deploying-a-dashboard) the [Telegraf host dashboard](https://github.com/wavefrontHQ/integrations/tree/master/telegraf/dashboards) to begin monitoring your server metrics from Telegraf.
+Once you've installed Telegraf, you can [deploy](dashboards_managing.html#deploying-a-dashboard) the [Telegraf host dashboard](https://github.com/wavefrontHQ/integrations/tree/master/telegraf/dashboards) to begin monitoring your server metrics from Telegraf.
 
 ![db_telegraf](images/db_telegraf.png)
  

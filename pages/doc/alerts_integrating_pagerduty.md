@@ -35,7 +35,7 @@ Navigate to your PagerDuty account to retrieve either your PagerDuty API key or 
 ## Adding the PagerDuty Integration into a Wavefront Alert
 PagerDuty API keys and email addresses are used within Wavefront alerts, so you must first have an alert that the PagerDuty integration can be applied to. To apply the PagerDuty integration to an existing alert, locate that alert from the Alerts page in Wavefront. 
 
-1. Navigate to the Alerts page. 
+1. Click **Alerts**. 
 1. Locate the existing alert from the list of alerts or use the search bar on the Alerts page to search for the existing alert. 
 1. Click the alert name. If you don't have an alert that to update with the webhook integration, create a new alert.
 1. Scroll down to the **Notifications** field.

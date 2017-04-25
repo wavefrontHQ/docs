@@ -38,18 +38,8 @@ The URL will end with **$routing_key**.  You can change this to the appropriate 
  1. In the Triggers field, select **Alert Opened**, **Alert Status Updated**, and **Alert Resolved**.
  1. Set the URL field to the one generated within VictorOps (including your routing key).
  1. In the Content Type field, select **application/json**.
- 1. Use the following template for the Webhook POST Body Template:
-    {% raw %}
-    ```handlebars
-    {
-      "message_type":"{{#endedTime}}recovery{{/endedTime}}{{^endedTime}}{{#severitySmoke}}info{{/severitySmoke}}{{#severityInfo}}info{{/severityInfo}}{{#severityWarning}}warning{{/severityWarning}}{{#severitySevere}}critical{{/severitySevere}}{{/endedTime}}",
-      "entity_id":"{{#trimTrailingComma}}{{^endedTime}}{{#failingHosts}}{{{.}}},{{/failingHosts}}{{/endedTime}}{{#endedTime}}{{#recoveredHosts}}{{{.}}},{{/recoveredHosts}}{{/endedTime}}{{/trimTrailingComma}}",
-      "state_message": "{{{name}}}\n{{{url}}}\n{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
-      "monitoring_tool": "Wavefront",
-      "entity_display_name": "{{#jsonEscape}}{{{hostsFailingMessage}}}{{/jsonEscape}}"
-    }
-    ```
-    {% endraw %}
+ 1. Select **Webhook POST Body Template > Template > VictorOps**.
+ 1. Customize the [template](alerts_integrating_webhooks.html#customizing-a-webhook-template).
  1. Give a meaningful description to your new webhook:
 
     ![VictorOps rest](images/victorops_webhook.png)
@@ -58,6 +48,6 @@ The URL will end with **$routing_key**.  You can change this to the appropriate 
  
 ## Add the VictorOps Webhook to a Wavefront Alert
  
-To add the VictorOps webhook to an alert, follow the procedure in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks#adding-a-webhook-to-a-wavefront-alert), selecting the VictorOps webhook you created in the previous section.
+To add the VictorOps webhook to an alert, follow the procedure in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks.html#adding-a-webhook-to-a-wavefront-alert), selecting the VictorOps webhook you created in the previous section.
 
 

@@ -39,7 +39,7 @@ If you have your Python environment and Wavefront account set up, first install 
     api_key = '<wavefront_api_token'
     ```
 
-    If you don't have a token yet, see [Generating an API Token](wavefront_api#generating-an-api-token).
+    If you don't have a token yet, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
 
 1.  Create the client:
 

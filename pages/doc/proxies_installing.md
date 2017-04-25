@@ -51,11 +51,11 @@ You can manually install a Wavefront proxy .rpm or .deb package available at [Wa
 1. Go to the Wavefront proxy directory created during the package installation: `cd /opt/wavefront/wavefront-proxy`.
 1. Run the interactive configuration script: `bin/autoconf-wavefront-proxy.sh`. The script prompts you for the following properties:
   - **server** - The Wavefront server API URL.
-  - **token** - An API token. To get a token, see [Generating an API Token](wavefront_api#generating-an-api-token).
+  - **token** - An API token. To get a token, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
   - **hostname** - A name (alphanumeric plus periods) unique across your entire account representing the machine that the proxy is running on. The hostname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
-  - **enable graphite** - Indicate whether to enable the Graphite format. See [Sending Graphite Data to Wavefront]() for details on Graphite configuration.
+  - **enable graphite** - Indicate whether to enable the Graphite format. See [Sending Graphite Data to Wavefront](integrations_graphite.html#sending-graphite-data-to-wavefront) for details on Graphite configuration.
 When the interactive configuration is complete, the Wavefront proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf` is updated with the input that you provided and the wavefront-proxy service is started.
-1. [Verify that the proxy has registered](proxies_managing#viewing-registered-proxies) with the Wavefront server.
+1. [Verify that the proxy has registered](proxies_managing.html#viewing-registered-proxies) with the Wavefront server.
 
 <a name="ansible"></a>
 
@@ -67,7 +67,7 @@ This is useful when you want to automatically deploy multiple proxies and/or age
 
 ### Requirements
 
-- Wavefront [API token](wavefront_api#api-tokens)
+- Wavefront [API token](wavefront_api.html#api-tokens)
 - Working knowledge of Ansible
 - [The Wavefront Ansible Galaxy Role](https://galaxy.ansible.com/wavefrontHQ/wavefront-ansible/)
  

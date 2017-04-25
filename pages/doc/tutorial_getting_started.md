@@ -54,7 +54,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. In the App Servers section, click the **Requests** chart title:
        ![requests](images/requests.png)
 
-       The [stacked area](charts#stacked-area) chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. **The last()** function fills in any gaps in data with the last known value of the metric.
+       The [stacked area](charts.html#stacked-area) chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. **The last()** function fills in any gaps in data with the last known value of the metric.
 1.  Add the chart to a new dashboard:
     1. Scroll to the bottom of the chart page.
     1. Click **Create Dashboard**.
@@ -69,7 +69,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
     1. In the Requests query field delete **az=${az}, env=${env}** and type **env**. Select **env=** and then **production** from the autocomplete dropdown. Press **Enter** or **Return**. The chart now displays only _production_ application servers in all availability zones.
     1. Click **Accept**.
 1.  Now let's create our first chart from scratch:
-    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts#line-plot) chart is created.
+    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts.html#line-plot) chart is created.
     1. In the New Query field, type **~sample.requests.**. 
     1. Choose **latency** from the autocomplete drop-down and press **Enter** or **Return**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
     1. Type **", env=production"** after latency. This filter selects sources in the _production_ environment.

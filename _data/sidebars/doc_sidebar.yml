@@ -31,6 +31,10 @@ entries:
       url: /dashboards_introductory.html
       output: web
       
+    - title: Wavefront UI Patterns
+      url: /wavefront_ui_patterns.html
+      output: web
+      
   - title: Tutorials
     output: web
     folderitems:

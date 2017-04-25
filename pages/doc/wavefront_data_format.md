@@ -38,7 +38,7 @@ Fields are space separated and each line is terminated with the newline characte
 <td>The name of the metric.</td>
 <td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). Forward slash ("/") and comma (",") are allowed if metricName is enclosed in double quotes.
 <ul>
-<li markdown="span">Points with invalid characters in the metricName are rejected and [logged by the Wavefront proxy](proxies_configuration#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
+<li markdown="span">Points with invalid characters in the metricName are rejected and [logged by the Wavefront proxy](proxies_configuration.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
 <li>Metric searches are case-sensitive; i.e., ts("my.metric") will not find a metric "my.Metric".</li>
 </ul>
 Metric naming hierarchy recommendations:

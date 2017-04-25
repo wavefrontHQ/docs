@@ -69,7 +69,7 @@ If you have your R environment and Wavefront account set up, first install the R
     token <- "<wavefront_api_token>"
     ```
 
-    If you don't have a token yet, see [Generating an API Token](wavefront_api#generating-an-api-token).
+    If you don't have a token yet, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
 
 ## Getting Data Into R
 

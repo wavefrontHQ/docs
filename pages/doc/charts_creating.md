@@ -41,7 +41,7 @@ To associate more than one query with a chart, add a new query field by clicking
 
 The remove icon <i class="fa fa-minus"/> removes a query field, and the clone icon <i class="fa fa-files-o"/> clones a query into a new query field.
  
-You also have the option of naming each query field, which is recommended when you are using a [legend](charts#legend) for a chart with several query fields. To rename a query field, click the name to the left of the query field and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
+You also have the option of naming each query field, which is recommended when you are using a [legend](charts.html#legend) for a chart with several query fields. To rename a query field, click the name to the left of the query field and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
 
 ![rename_query_field](images/rename_query_field.png)
 
@@ -52,7 +52,7 @@ You also have the option to configure charts in several different ways. The char
 
 ![chart_section](images/chart_section.png)
 
-The configuration tabs (General, Axis, Style, etc.) and options depend on the [chart type](charts) you choose. One configuration option available for every chart is the Name:
+The configuration tabs (General, Axis, Style, etc.) and options depend on the [chart type](charts.html) you choose. One configuration option available for every chart is the Name:
 
 ![chart_name_field](images/chart_name_field.png)
 

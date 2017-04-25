@@ -30,6 +30,6 @@ You can specify multiple <span style="color: #00BCD4;">event filters</span> sepa
 {% include shared/event_filters.html %}
  
 ## Further Information
-There are many functions available for operating on the result of an events() query. For examples, see [Advanced events() Expressions](events_queries_advanced.html) and for a general reference, see [Event Functions](query_language_reference#event-functions).
+There are many functions available for operating on the result of an events() query. For examples, see [Advanced events() Expressions](events_queries_advanced.html) and for a general reference, see [Event Functions](query_language_reference.html#event-functions).
 
 
