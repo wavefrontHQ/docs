@@ -3,6 +3,7 @@ title: Running a Wavefront Proxy in a Docker Container
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
+published: false
 permalink: proxies_running_docker.html
 summary: Learn how to run a Wavefront proxy in a Docker container.
 ---

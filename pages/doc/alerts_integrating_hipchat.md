@@ -1,5 +1,5 @@
 ---
-title: Integrating HipChat with Alerts
+title: Integrating Alerts with HipChat
 keywords: webhooks
 tags: [alerts, integrations]
 sidebar: doc_sidebar

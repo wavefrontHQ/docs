@@ -1,5 +1,5 @@
 ---
-title: Integrating PagerDuty with Alerts
+title: Integrating Alerts with PagerDuty
 keywords: alerts
 tags: [alerts, integrations]
 sidebar: doc_sidebar

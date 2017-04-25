@@ -20,8 +20,8 @@ To set up an AWS integration:
  
  1. Open the Wavefront application UI.
  1. Select **Browse > Cloud Integrations**.
- 1. Select **Add Integration > Set up Amazon Account**.  A page displays with instructions for configuring the integration. Follow the instructions in the product page. After you save, CloudWatch, AWS Metrics Plus, and optionally CloudTrail integrations are added to the Cloud Integrations list and AWS dashboards are installed.
-  1. Click **Save**. CloudWatch, AWS Metrics Plus, and optionally CloudTrail integrations are added to the Cloud Integrations list and AWS dashboards are installed.
+ 1. Select **Add Integration > Set up Amazon Account**.  A page displays with instructions for configuring the integration. Follow the instructions in the product page. After you save, CloudWatch, AWS Metrics+, and optionally CloudTrail integrations are added to the Cloud Integrations list and AWS dashboards are installed.
+  1. Click **Save**. CloudWatch, AWS Metrics+, and optionally CloudTrail integrations are added to the Cloud Integrations list and AWS dashboards are installed.
   1. Let's look at the data that we are ingesting from the AWS services. Select **Browse > Metrics** to open the Metrics Browser.
     1. In the Metrics field, type **aws.** AWS metrics and metrics folders display. For information on AWS metrics collected by Wavefront, see [AWS Metrics Integration](integrations_aws_metrics.html).
   1. Open the AWS summary dashboard installed by Wavefront: `https://<wavefront_instance>/dashboard/wavefront-aws-summary`. From there, you can easily navigate to the other AWS dashboards.

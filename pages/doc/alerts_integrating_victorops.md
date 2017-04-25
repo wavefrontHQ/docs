@@ -1,5 +1,5 @@
 ---
-title: Integrating VictorOps with Alerts
+title: Integrating Alert with VictorOps
 keywords: webhooks
 tags: [alerts, integrations]
 sidebar: doc_sidebar

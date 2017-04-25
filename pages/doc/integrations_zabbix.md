@@ -13,11 +13,11 @@ To get started:
 
 1. Install and run the Wavefront proxy.
 1. Install and run a Zabbix adapter. We provide two versions of the adapter:
-    - Zabbix Database Adapter polls your Zabbix database at a configurable interval (defaulted to 30 seconds) and send any new metrics to Wavefront. Contact us for detailed installation instructions and the adapter source code.
+    - Zabbix Database Adapter polls your Zabbix database at a configurable interval (defaulted to 30 seconds) and send any new metrics to Wavefront.
     - Zabbix Interceptor intercepts data that is being transmitted over the network from the Zabbix adapter. It has the advantage of not putting any additional load onto your Zabbix database but requires the use of the Zabbix Proxy. The architecture in this case looks like the following:
 
       ![zabbix](images/zabbix.png)
 1. Start working with your data in Wavefront.
-1. [Contact us](mailto:support@wavefront.com) for detailed installation instructions and the adapter source code.
+1. Send email to [support@wavefront.com](mailto:support@wavefront.com) for detailed installation instructions and the adapter source code.
 
 

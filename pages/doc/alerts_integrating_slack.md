@@ -1,5 +1,5 @@
 ---
-title: Integrating Slack with Alerts
+title: Integrating Alerts with Slack
 keywords: webhooks
 tags: [alerts, integrations]
 sidebar: doc_sidebar

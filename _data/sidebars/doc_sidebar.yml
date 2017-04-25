@@ -168,6 +168,10 @@ entries:
       url: /charts_units.html
       output: web
       
+    - title: Embedding a Chart
+      url: /charts_embedding.html
+      output: web
+      
   - title: Dashboards
     output: web
     folderitems:
@@ -221,28 +225,28 @@ entries:
       output: web
       
       subfolders:
-      - title: Integrating with Notification Channels
+      - title: Integrating Alerts and Notifications
         output: web
         subfolderitems:
           
-        - title: Integrating HipChat with Alerts
+        - title: Managing Webhooks
+          url: /webhooks_managing.html
+          output: web
+          
+        - title: Integrating Alerts with HipChat
           url: /alerts_integrating_hipchat.html
           output: web
           
-        - title: Integrating PagerDuty with Alerts
+        - title: Integrating Alerts with PagerDuty
           url: /alerts_integrating_pagerduty.html
           output: web
           
-        - title: Integrating Slack with Alerts
+        - title: Integrating Alerts with Slack
           url: /alerts_integrating_slack.html
           output: web
           
-        - title: Integrating VictorOps with Alerts
+        - title: Integrating Alerts with VictorOps
           url: /alerts_integrating_victorops.html
-          output: web
-          
-        - title: Integrating Webhooks with Alerts
-          url: /alerts_integrating_webhooks.html
           output: web
           
   - title: Events

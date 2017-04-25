@@ -74,7 +74,7 @@ This section covers the second level metrics that give you insight into question
   - `~proxy.point.badtime`: Count of points blocked due to the timestamp (ex: older than 1 year).
   - `~proxy.validationRegex.*.points-rejected`: The points rejected based on the whitelist/blacklist validation applied (using regex) at the Wavefront proxy.
   - `~proxy.jvm.fd_usage`: % of file descriptors in use per proxy. If this reaches close to 100% the proxy may have you should increase the uLimit on your system.
-  - `~proxy.jvm.garbage-collectors.*.time`: GC activity on the proxy JVM. Anything larger than 200ms here is probably a GC issue, anything near 1k ms indicates continuous full GCs in the proxy.
+  - `~proxy.jvm.garbage-collectors.*.time`: garbage collection (GC) activity on the proxy JVM. Anything larger than 200ms is a GC issue, anything near 1s indicates continuous full GCs in the proxy.
   - `~proxy.jvm.memory.heapMax/heapUsed`: Memory usage by the proxy process.
   - `~proxy.push.*.duration.duration.median`: Duration taken by points pushed from the proxy to reach to Wavefront. Can help identify network latency issues. You can also graph other percentiles.
   - `~proxy.points.*.received.lag.p99`: p99 difference between the timestamp on a point and the time that the proxy received it. High numbers may indicate back-filling old data, or clock drift in sending systems.
@@ -94,16 +94,17 @@ These charts track the number of Wavefront users during various time windows, nu
  
 ## AWS Integration
 
-If you have AWS cloud integrations enabled and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the cost of CloudWatch requests, API requests, the point rate, and events coming in from your integrations. 
+If you have AWS cloud integrations enabled and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the count of CloudWatch requests, API requests, the point rate, and events coming in from your integrations. 
  
   ![aws_metric_sections](images/aws_metric_sections.png)
- 
-These are all counter metrics:
 
-  - `~externalservices.cloudwatch.api-requests`
-  - `~externalservices.cloudwatch.points`
-  - `~externalservices.ec2.points`
-  - `~externalservices.cloudtrail.events`
+The available metrics are:
+
+  - `~externalservices.cloudwatch.api-requests` - number of CloudWatch API requests
+  - `~externalservices.cloudwatch.points`- number of CloudWatch metrics returned
+  - `~externalservices.ec2.points` - number of AWS Metrics+ metrics returned
+  - `~externalservices.cloudtrail.events` - number of CloudTrail events returned
+  - `~externalservices.cloudwatch-cycle-timer` - time in milliseconds CloudWatch requests take to complete
  
 ## Ingest Rate by Source
 This section gives you insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by each source.

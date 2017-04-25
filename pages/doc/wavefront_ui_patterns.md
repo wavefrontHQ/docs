@@ -11,9 +11,9 @@ summary: Learn how about the interaction patterns that span the Wavefront UI.
 
 Tags allow you to flexibly manage and organize your Wavefront content. Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular subgroups of users. Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events.
 
--   Tag paths organize tags by separating tag components with periods ".". For example, **Eastern.DBs.MySQL**.
--   To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
-  -   Tags support both autocomplete and search. For example, suppose you have dashboards whose tags contain the string `billing`. When you type `billing` Wavefront displays all the tags containing that string (for example `billing.dev` and `billing.ops`), which you can then select individually and a link that searches for _all_ entities whose tags contain `billing`. 
+-  Tag paths organize tags by separating tag components with periods ".". For example, **Eastern.DBs.MySQL**.
+-  To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
+-  Tags support both autocomplete and search. For example, suppose you have dashboards whose tags contain the string `billing`. When you type `billing` Wavefront displays all the tags containing that string (for example `billing.dev` and `billing.ops`), which you can then select individually and a link that searches for _all_ entities whose tags contain `billing`. 
 
 For more information on tags, see [Tags Overview](tags_overview.html).
 
