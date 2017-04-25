@@ -57,7 +57,7 @@ You can use free form query mode or the <a href="query_language_query_builder.ht
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty.html), [VictorOps keys](alerts_integrating_victorops.html), and [webhooks](alerts_integrating_webhooks.html) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle.html).
+<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty.html), [VictorOps keys](alerts_integrating_victorops.html), and [webhooks](webhooks_managing.html) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle.html).
 </td>
 </tr>
 <tr>

@@ -39,15 +39,15 @@ The URL will end with **$routing_key**.  You can change this to the appropriate 
  1. Set the URL field to the one generated within VictorOps (including your routing key).
  1. In the Content Type field, select **application/json**.
  1. Select **Webhook POST Body Template > Template > VictorOps**.
- 1. Customize the [template](alerts_integrating_webhooks.html#customizing-a-webhook-template).
+ 1. Customize the [template](webhooks_managing.html#customizing-a-webhook-template).
  1. Give a meaningful description to your new webhook:
 
     ![VictorOps rest](images/victorops_webhook.png)
  1. Click **Save**.
- For further information, see [Integrating Wavefront Alerts with Webhooks](alerts_integrating_webhooks.html).
+ For further information, see [Integrating Wavefront Alerts with Webhooks](webhooks_managing.html).
  
 ## Add the VictorOps Webhook to a Wavefront Alert
  
-To add the VictorOps webhook to an alert, follow the procedure in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks.html#adding-a-webhook-to-a-wavefront-alert), selecting the VictorOps webhook you created in the previous section.
+To add the VictorOps webhook to an alert, follow the procedure in [Adding a Webhook to a Wavefront Alert](webhooks_managing.html#adding-a-webhook-to-a-wavefront-alert), selecting the VictorOps webhook you created in the previous section.
 
 

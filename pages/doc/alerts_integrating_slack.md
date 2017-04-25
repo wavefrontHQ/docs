@@ -46,10 +46,10 @@ Wavefront and Slack both support webhooks so you can easily configure an incomin
  1. Paste the webhook URL you copied when creating the Slack incoming webhook into the URL field.
  1. Select the content type.
  1. Select **Webhook POST Body Template > Template > Slack**.
- 1. Customize the [template](alerts_integrating_webhooks.html#customizing-a-webhook-template).
+ 1. Customize the [template](webhooks_managing.html#customizing-a-webhook-template).
  1. Click **Save**. The webhook is added to the Webhooks page.
- 1. Find the URL of the webhook as described in [Finding a Webhook ID](alerts_integrating_webhooks.html#finding-a-webhook-id).
- 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](alerts_integrating_webhooks.html#adding-a-webhook-to-a-wavefront-alert).
+ 1. Find the URL of the webhook as described in [Finding a Webhook ID](webhooks_managing.html#finding-a-webhook-id).
+ 1. Add the webhook to the Wavefront alert as described in [Adding a Webhook to a Wavefront Alert](webhooks_managing.html#adding-a-webhook-to-a-wavefront-alert).
 
 
 
