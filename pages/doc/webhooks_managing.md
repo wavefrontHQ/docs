@@ -86,7 +86,9 @@ Wavefront webhook templates support [Mustache syntax](https://mustache.github.io
  
 Payload functions allow you to set limits on the number of items returned in lists available to webhook payloads. The default value for each limit is 500. For a limit to take effect, the limit must be set before iteration. 
 
-The order of the limit settings determines limit precedence. For example, setting `setDefaultIterationLimit` after setting `setFailingLimit` overwrites the `setFailingLimit` setting. See [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits).
+The order of the limit settings determines limit precedence. For example, setting `setDefaultIterationLimit` after setting `setFailingLimit` overwrites the `setFailingLimit` setting. 
+
+For an example of how the payload functions work, see [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits).
 
 {% include note.html content="If the application that is being integrated needs to get the full list of items (e.g. `failingSources`) then the `alertId` can be retrieved from the notification and a call performed using the Wavefront API to get the full list of items." %}
 

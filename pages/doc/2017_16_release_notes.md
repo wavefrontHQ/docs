@@ -7,7 +7,7 @@ permalink: 2017_16_release_notes.html
 summary: Learn about new and updated features in the Wavefront 2017-16 release.
 ---
 
-The Wavefront 2017-16 release provides a number of UI enhancements to improve searchability of metrics and sources in dashboards. All AWS cloud integration types have been significantly expanded, with many new metrics, new source, event, and point tags, and a metric fetch rate configuration option. Webhooks have been enhanced to better handle large notification payloads and added alert tags.
+The Wavefront 2017-16 release provides a number of UI enhancements to improve searchability of metrics and sources in dashboards. All AWS cloud integration types have been significantly expanded, with many new metrics, new source, event, and point tags, and a metric fetch rate configuration option. Webhooks have been enhanced to better handle large notification payloads and added alert tags. Finally, we've added 3 tutorials to help new users get started.
 
 - **Release numbering** - The release numbering scheme has changed from **X.Y** to **YYYY-WW** and reflects a shift to a continuous delivery release model. The **WW** component of the release number is the week when development on the set of features delivered in the release was completed.
 - **Dashboards**
@@ -38,4 +38,8 @@ The Wavefront 2017-16 release provides a number of UI enhancements to improve se
 - **Webhooks**
   - Added support for handling large notifications in webhooks. When a large number of sources is associated with an alert, a webhook call can potentially have a very large payload (since all the sources are listed in the payload). For some webhook integrations this large payload can result in failure of the webhook call and the resulting notification being lost. The same problem could happen with other lists of items associated with an alert and available as list variables in the Wavefront mustache template. Each webhook implementation may have different limits in payload size. Payload functions allow you to configure the number of items returned in any list and query whether the limit is reached. See [Payload Functions](webhooks_managing.html#payload-functions) and [Setting and Testing Iteration Limits](webhooks_managing.html#setting-and-testing-iteration-limits).
   - Alert tags are now available to webhooks.
+- **Tutorials** - the new getting started tutorials are:
+  - [Tutorial: Getting Started](tutorial_getting_started.html)
+  - [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html)
+  - [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html)
 - **Mobile platforms** - to conform to typical naming conventions, input fields no longer automatically capitalize the the first letter of metrics, tags, etc.
