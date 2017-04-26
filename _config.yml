@@ -107,7 +107,6 @@ defaults:
 # these are defaults used for the frontmatter for these file types
 
 sidebars:
-- home_sidebar
 - doc_sidebar
 
 description: "Wavefront documentation."

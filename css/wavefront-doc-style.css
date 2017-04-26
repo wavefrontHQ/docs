@@ -1483,7 +1483,7 @@ td.gsc-input, td.gsc-search-button, td.gsc-clear-button {
 
 body > .container {
     min-height: calc(100vh - 110px);
-    padding-top: 30px;
+    padding-top: 5px;
 }
 
 footer#container {
