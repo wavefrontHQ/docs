@@ -50,7 +50,7 @@ Wavefront maintains an image of [cAdvisor](integrations_cadvisor.html) that incl
   ![create menu](images/create.png)
 1. Select **Actions > Run Task**.
   ![actions menu](images/actions_run_task.png)
-1. In the **Placement Templates** drop-down under the Task Placement section, select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
+1. In the **Placement Templates** dropdown under the Task Placement section, select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
   ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.
 

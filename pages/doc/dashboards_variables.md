@@ -73,7 +73,7 @@ To create a list dashboard variable, select **Variable Type &gt; List**:
 
 ![list var with non-editor hide.png](images/db_var_list_with_non-editor_hide.png)
 
-Label and value fields display for you to enter in the dashboard variable parameters. Enter the Label you'd like to be displayed in the drop-down list of options for the dashboard variable to the left, and enter the text you'd like replace the variable name with to the right. You can add, remove, or clone fields by using the icons to the right of the source fields.
+Label and value fields display for you to enter in the dashboard variable parameters. Enter the Label you'd like to be displayed in the dropdown list of options for the dashboard variable to the left, and enter the text you'd like replace the variable name with to the right. You can add, remove, or clone fields by using the icons to the right of the source fields.
 
 ![list var with non-editor hide and parameters.png](images/db_var_list_with_non-editor_hide_and_parameters.png)
 
@@ -91,7 +91,7 @@ In the dashboard, selecting **Production** replaces **${var1}** in a ts() query 
 
 A *dynamic dashboard variable* defines a variable whose set of values are dynamically determined by a query. Dynamic dashboard variables allow you to specify only a single metric name, source, source tag, or point tag at a time. You should use simple or list dashboard variables if you want to use wildcards to return more than 1 metric name, source, source tag, or point tag.
 
-To create a dynamic variable, select **Variable Type &gt; Dynamic**. A Field drop-down list and Query field displays.
+To create a dynamic variable, select **Variable Type &gt; Dynamic**. A Field dropdown list and Query field displays.
 
 ![dynamic with field options.png](images/db_var_dynamic_with_field_options.png)
 

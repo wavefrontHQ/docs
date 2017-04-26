@@ -30,7 +30,7 @@ Tags allow you to flexibly manage and organize your Wavefront content. With this
 ### Search
 
 -   Faceted searching - The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links pages now include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. In addition there are type-specific facets. For example, Events and Maintenance Windows have the State facet.
--   Saved searches - The faceted filter bar includes a set of commonly used saved searches. In addition, you can also save your own searches. Once you start searching, the following icons ![search icons](images/searchicons.png) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a drop-down menu for renaming, duplicating, and deleting the search.
+-   Saved searches - The faceted filter bar includes a set of commonly used saved searches. In addition, you can also save your own searches. Once you start searching, the following icons ![search icons](images/searchicons.png) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a dropdown menu for renaming, duplicating, and deleting the search.
 
 The following Alert Browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
@@ -38,7 +38,7 @@ The following Alert Browser filter demonstrates filtering alerts by the tag path
 
 ### Metrics
 
-Search fields now supports multi-word searches. For example, if you type **cpu usage** in the Query Builder or Metrics Browser, the drop-down list of matching metrics includes all metrics containing one or more instances of both words in any order.
+Search fields now supports multi-word searches. For example, if you type **cpu usage** in the Query Builder or Metrics Browser, the dropdown list of matching metrics includes all metrics containing one or more instances of both words in any order.
 
 ### UI Patterns
 

@@ -71,7 +71,7 @@ One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range 
 1.  Now let's create our first chart from scratch:
     1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts.html#line-plot) chart is created.
     1. In the New Query field, type **~sample.requests.**. 
-    1. Choose **latency** from the autocomplete drop-down and press **Enter** or **Return**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
+    1. Choose **latency** from the autocomplete dropdown and press **Enter** or **Return**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
     1. Type **", env=production"** after latency. This filter selects sources in the _production_ environment.
     1. Type **"mmax(10m,"** before ts and **")"** at the end. This function sets the value to the maximum of the metric over a 10 minute window, reducing noise in the signal and focusing attention on the more interesting metric _maximum latency_. This is an example of the one of the many functions available in Wavefront to analyze your metrics.
     1. In the Name field, replace New Chart with **Request Latencies**.
