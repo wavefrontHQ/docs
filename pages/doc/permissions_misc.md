@@ -24,7 +24,7 @@ By default, Browse Data permission is given to all users when an account is firs
 
 ## Direct Data Ingestion Permission
 
-Users with Direct Data Ingestion permission have the ability to directly ingest metrics using the Wavefront API. Direct Data Ingestion permission should only be granted to users who have a deep understanding of APIs and the Wavefront ingestion path. Send email to [support@wavefront.com](mailto:support@wavefront.com) for additional information.
+Users with Direct Data Ingestion permission have the ability to directly ingest metrics using the Wavefront API. Direct Data Ingestion permission should only be granted to users who have a deep understanding of APIs and the Wavefront ingestion path. Send email to [{{site.support_email}}](mailto:{{site.support_email}}) for additional information.
 
 ## Embed Charts Permission
 

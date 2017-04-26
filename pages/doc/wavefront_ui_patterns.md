@@ -13,22 +13,24 @@ Tags allow you to flexibly manage and organize your Wavefront content. Tag paths
 
 -  Tag paths organize tags by separating tag components with periods ".". For example, **Eastern.DBs.MySQL**.
 -  To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
--  Tags support both autocomplete and search. For example, suppose you have dashboards whose tags contain the string `billing`. When you type `billing` Wavefront displays all the tags containing that string (for example `billing.dev` and `billing.ops`), which you can then select individually and a link that searches for _all_ entities whose tags contain `billing`. 
 
 For more information on tags, see [Tags Overview](tags_overview.html).
 
 ## Searching
 
-Many pages support a variety of search methods.
+Many pages support a variety of search methods. 
 
 For a video overview, see 
 
 {% include video.html file="mvcjw51w6d" %}
 
 
+The Search field at the top of every browser supports both autocomplete and search. For example, suppose you have search All Dashboards for the string `bill`. When you type `bill`, a dropdown displays autocompleted tags containing that string (for example `billing.dev` and `billing.ops`) and autocompleted dashboard names containing that string, both of which you can select individually, and a link that searches for _all_ dashboard contents containing the string `bill`. Similarly, if you type the string `cpu` in the Alerts browser, a dropdown displays autocompleted names and tags containing that string and links to search for tags and alert conditions containing that string.
+
+
 ### Faceted Searching
 
-The Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links pages include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. There are also type-specific facets. For example, the Events and Maintenance Windows pages have the State facet.
+All browser pages (Dashboards, Alerts, Events, Maintenance Windows, Agents, Cloud Integrations, Webhooks, and External Links) include a faceted filter bar on the left. You can search by selecting facets and typing in Search fields. In addition to the Search field at the top of each page, many facets have their own Search fields to limit the displayed facets. Most pages support the standard facets Saved Searches, Tag Paths, Tags, Last Updated By. There are also type-specific facets. For example, the Events and Maintenance Windows pages have the State facet.
 
 ### Saved Searches
 
@@ -38,9 +40,9 @@ The following Alert Browser filter demonstrates filtering alerts by the tag path
 
 ![Tag path](images/MicroService.App4_firing.png)
 
-### Metrics
+### Multiword Searches
 
-Search fields now supports multi-word searches. If you type **cpu usage** in the Query Builder or Metrics Browser, the drop-down list of matching metrics includes all metrics containing one or more instances of both words in any order.
+Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the drop-down list of matching metrics includes all metrics containing one or more instances of both words in any order.
 
 ## Other UI Patterns
 

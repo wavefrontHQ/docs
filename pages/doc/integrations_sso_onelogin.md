@@ -19,7 +19,7 @@ Wavefront supports Single Sign-On (SSO) via OneLogin. Below are the steps to set
  
     ![onelogin_2](images/onelogin_2.png)
 
-3. Complete SAML configuration and send the issuer URL to [support@wavefront.com](mailto:support@wavefront.com):
+3. Complete SAML configuration and send the issuer URL to [{{site.support_email}}](mailto:{{site.support_email}}):
  
     ![onelogin_3](images/onelogin_3.png)
  

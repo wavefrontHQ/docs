@@ -15,6 +15,8 @@ company_name: Wavefront
 github_editme_path:
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
+github_issues_path: https://github.com/wavefrontHQ/docs/issues
+
 disqus_shortname:
 # if you're using disqus for comments, add the shortname here. if not, leave this value blank.
 
@@ -37,11 +39,11 @@ gems:
 
 google_analytics: UA-45491516-30
 
-feedback_email: stephanie@wavefront.com
-# used as a contact email for the Feedback link in the top navigation bar
+feedback_email: docs@wavefront.com
+# used as a contact email for the Feedback link in the footer
 
 support_email: support@wavefront.com
-# used as a contact email for the Support link in the top navigation bar
+# used as a contact email for the support links throughout the docs
 
 community_link: https://community.wavefront.com/welcome
 # used as a link for the Community link in the top navigation bar

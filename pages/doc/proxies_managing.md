@@ -21,7 +21,7 @@ Before streaming data, we recommend that you understand [best practices for nami
 You view registered proxies by selecting **Browse > Proxies**.  The Proxies page displays a filter bar and the list of deployed proxies. The list changes depending on what filters have been applied.  The list allows you to view the following information about registered proxies:
 
 - **Hostname** - The hostname associated with the registered proxy. The hostname is configured during the deployment of a Wavefront proxy and resides in the `wavefront.conf` file located on the machine hosting the Wavefront proxy. Under the name is an ID that you supply to Wavefront API operations on the proxy.
-- **Name** - Set by Wavefront to "Proxy on \<hostname\>".  You can edit the name to provide additional information to differentiate one proxy from another.
+- **Name** - Set by Wavefront to `Proxy on <hostname>`.  You can edit the name to provide additional information to differentiate one proxy from another.
 - **Last Check-in** - The last time the proxy has checked in with Wavefront.
 - **Status** - The status of the proxy: Active or Orphaned. An Active proxy has regularly checked in with Wavefront. An Orphaned proxy is one that has not checked in for up to 3 minutes.
 - **Space Available** - The amount of disk space on the local machine that the Wavefront proxy is deployed on available to store metrics. Metrics are stored locally if the Wavefront proxy loses connectivity with Wavefront. If the proxy loses connectivity, as soon as the proxy reconnects to Wavefront the Queued Items count reflects the number of queued points.

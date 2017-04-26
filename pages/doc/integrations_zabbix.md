@@ -18,6 +18,6 @@ To get started:
 
       ![zabbix](images/zabbix.png)
 1. Start working with your data in Wavefront.
-1. Send email to [support@wavefront.com](mailto:support@wavefront.com) for detailed installation instructions and the adapter source code.
+1. Send email to [{{site.support_email}}](mailto:{{site.support_email}}) for detailed installation instructions and the adapter source code.
 
 

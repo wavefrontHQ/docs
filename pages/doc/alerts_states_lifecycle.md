@@ -71,7 +71,7 @@ In the majority of cases, an alert fires even though it looks like it shouldn't 
 
     Using the example above, assume that the end of the alerting check time window is 1:02:00p. In order to apply accurate interpolated values, there must be a reported value before and after the interpolated time slice. Since app-1 and app-3 don't report a value until 1:03:00p, it's impossible to interpolate a value for them at 1:02:00p. At 1:03:00p, the data values for app-1 and app-3 are reported and therefore interpolated values are retroactively applied to 1:02:00p for these sources. If the alerting check evaluates the data before the interpolated values are applied, then the chart you view 5 or 10 minutes later may not show the true value the alerting check originally saw.
 
-If you still believe your alert shouldn't have fired, then contact [support@wavefront.com](mailto:support@wavefront.com) for help.
+If you still believe your alert shouldn't have fired, then contact [{{site.support_email}}](mailto:{{site.support_email}}) for help.
 
 ## What happens if I resolve an incident in PagerDuty before the alert was resolved in Wavefront?
 

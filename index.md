@@ -187,14 +187,3 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
       </div>
   </div>
 </div>
-
-<!--
-Welcome to the Wavefront documentation site!
-
-To get started with Wavefront, go to [Introduction to Wavefront](wavefront_introduction.html) or [Welcome to Wavefront Docs](wavefront_documentation.html).
-
-To send feedback on the documentation, click the <i class="fa fa-envelope-o"/> **Feedback** button or file in issue in our [GitHub repo](https://github.com/wavefrontHQ/docs/issues).
-
-To contact support, click the <i class="fa fa-envelope-o"/> **Support** button to send email to [support@wavefront.com](mailto:support@wavefront.com) or visit the [Wavefront Community](https://community.wavefront.com/welcome).
-
--->

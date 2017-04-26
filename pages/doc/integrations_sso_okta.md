@@ -40,7 +40,7 @@ Wavefront supports Single Sign-On (SSO) via Okta. To set up SSO:
     ![5_okta_Final](images/okta_final.png)
 6. Add users or groups to the application. It's best to do this before we turn on the Okta integration on our end so that users can continue to login. You should use the following settings for your template.
  
-7. Send us the Identity Provider Metadata URL. Copy the link location for Identity Provider Metadata (see below screenshot) and send it to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up Okta integration for wavefront. Before you turn on Okta for Wavefront, make sure you grant existing Wavefront users access to the Wavefront application within Okta so that they don't lose access to Wavefront.
+7. Send us the Identity Provider Metadata URL. Copy the link location for Identity Provider Metadata (see below screenshot) and send it to [{{site.support_email}}](mailto:{{site.support_email}}) with a request to set up Okta integration for wavefront. Before you turn on Okta for Wavefront, make sure you grant existing Wavefront users access to the Wavefront application within Okta so that they don't lose access to Wavefront.
 
     ![okta_metadata_url](images/okta_metadata_url.png)
 

@@ -24,7 +24,7 @@ Before installing a proxy, ensure that you have:
     - Debian 7, 8, 9, 10
     - Amazon Linux
 
-    If you do not see your operating system, contact [support@wavefront.com](mailto:support.wavefront.com).
+    If you do not see your operating system, contact [{{site.support_email}}](mailto:support.wavefront.com).
 
 ## Scripted Installation on a Single Host
 

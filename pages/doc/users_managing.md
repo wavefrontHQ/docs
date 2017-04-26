@@ -45,7 +45,7 @@ You can create a set of default permissions that are assigned to every new user 
 ![default permissions](images/default_permissions.png)
 1. Check the set of permissions that a new user should receive. If this is your first time to set default permissions, then you'll see Browse Data selected by default. You must have at least 1 permission selected in order to save the selection(s). 
    {% include note.html content="If a user doesn't have Browse Data permission, the user will be unable to access  Wavefront." %}
-1. Click **Save**. The default permissions affects only new user accounts created after the changes were made. If you'd like to retroactively apply a particular permission to all existing users, then send email to [support@wavefront.com](mailto:support@wavefront.com) for assistance.
+1. Click **Save**. The default permissions affects only new user accounts created after the changes were made. If you'd like to retroactively apply a particular permission to all existing users, then send email to [{{site.support_email}}](mailto:{{site.support_email}}) for assistance.
  
 ## Managing Permissions for a User
 To manage permissions for a user, locate the email address assigned to that account in the Users or Permissions page, and click it. When you do this, you are directed to that user's profile page.
