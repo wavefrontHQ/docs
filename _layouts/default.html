@@ -64,9 +64,25 @@
                     stateSave: true
                 }
             );
-        };
+        });
     </script>
     {% endif %}
+
+    <script>
+        /** Panel Height Fix **/
+        $(document).ready(function() {
+            $('.post-content').find('.row').each(function() {
+                var maxHeight = 0;
+                $(this).find('.panel-body').each(function() {
+                    maxHeight = Math.max(maxHeight, $(this).outerHeight());
+                });
+
+                $(this).find('.panel-body').each(function() {
+                   $(this).css('min-height', maxHeight + 'px');
+                });
+            });
+        });
+    </script>
 
 </head>
 <body>
