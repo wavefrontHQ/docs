@@ -11,7 +11,7 @@ The Wavefront 2017-16 release provides a number of UI enhancements to improve se
 
 - **Release numbering** - The release numbering scheme has changed from **X.Y** to **YYYY-WW** and reflects a shift to a continuous delivery release model. The **WW** component of the release number is the week when development on the set of features delivered in the release was completed.
 - **Dashboards**
-  - The All Dashboards page now supports searching for metrics and sources, including expanding wildcard references to the full set (e.g. `cpu.*`). When you type a string, matching metrics and sources display in a Metrics and Sources groups respectively. For example:
+  - The All Dashboards page now supports searching for metrics and sources, including expanding wildcard references to the full set (e.g. `cpu.*`). When you type a string, matching metrics and sources display in Metrics and Sources groups respectively. For example:
 
     ![db search](images/db_search_metrics.png)
 

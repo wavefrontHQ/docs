@@ -62,7 +62,7 @@ First grant Wavefront read-only access to your Amazon account. Run the Amazon Cr
 
 ## Automatic Source Tagging
 
-All sources reporting metrics are tagged with `wavefront.aws.<service>`. For example: `wavefront.aws.ec2`, `wavefront.aws.ebs`, etc.)
+All sources reporting AWS metrics have the source tag `wavefront.aws.<service>`. For example: `wavefront.aws.ec2`, `wavefront.aws.ebs`, etc.)
 
 
 ## CloudWatch Integration
