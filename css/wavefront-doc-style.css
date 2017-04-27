@@ -1547,10 +1547,6 @@ h2:before {
     background-color: #ECF0F5;
 }
 
-#mysidebar.nav > li.active > a {
-
-}
-
 ul#mysidebar > li.active {
     border-left: 2px solid #dbe3ec;
 }
@@ -1559,12 +1555,19 @@ ul#mysidebar > li.active {
   background-color: #FFFFFF;
 }
 
-#mysidebar.nav a:hover, .nav li.active > a {
-    font-weight: bold;
+#mysidebar.nav ul li > a,
+#mysidebar.nav li > a {
+    border-left: 3px solid transparent;
 }
 
-#mysidebar.nav a:hover, .nav ul li.active > a {
-    font-weight: bold;
+#mysidebar.nav li.active > a,
+#mysidebar.nav ul li.active > a {
+    border-left: 3px solid #86C042;
+}
+
+#mysidebar.nav li > a:hover,
+#mysidebar.nav ul li > a:hover {
+    border-left: 3px solid #337AB7;
 }
 
 div.navbar-collapse .dropdown-menu > li > a:hover {
