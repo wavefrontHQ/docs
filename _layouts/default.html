@@ -30,6 +30,8 @@
                 $("#mysidebar").navgoco('toggle', true);
             });
 
+            $("#mysidebar").fadeIn();
+
         });
 
     </script>
@@ -47,19 +49,22 @@
                 $("#tg-sb-icon").toggleClass('fa-bars');
                 $("#tg-sb-icon").toggleClass('fa-bars');
             });
+
+            $("#tg-sb-content").fadeIn();
         });
     </script>
     {% if page.datatable == true %}
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
 
-            $('table.datatable').DataTable( {
-                        paging: false,
-                        stateSave: true
-                    }
+            $('table.datatable').DataTable({
+                    paging: false,
+                    stateSave: true
+                }
             );
+        };
     </script>
     {% endif %}
 
@@ -76,7 +81,7 @@
 
           {% include sidebar.html %}
     <!-- Content Column -->
-    <div class="col-md-9" id="tg-sb-content">
+    <div class="col-md-9" id="tg-sb-content" style="display: none;">
         {{content}}
     </div>
     <!-- /.row -->
