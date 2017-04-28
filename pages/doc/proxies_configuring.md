@@ -370,8 +370,6 @@ By default, blocked point entries are logged to `/var/log/wavefront/wavefront-bl
 
 ## Troubleshooting
 
-If you have any other issues not listed below, or are having trouble resolving an issue, send email to [{{site.support_email}}](mailto:{{site.support_email}}).
-
 <table>
 <colgroup>
 <col width="33%"/>
@@ -394,12 +392,12 @@ If you have any other issues not listed below, or are having trouble resolving a
 <tr>
 <td>You see "Cannot fetch daemon configuration from remote server: org.jboss.resteasy.client.exception.ResteasyIOException: IOException" in <code>wavefront.log</code>.</td>
 <td>You may have an incorrect server URL in your wavefront.conf file; you may have blocked the outgoing connection to that server URL (port 443); or the Wavefront servers may be down.</td>
-<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://) provided to you by Wavefront and in your <code>wavefront.conf</code> file. If this fails, and you are certain that there are no firewall issues, contact <a href="mailto:{{site.support_email}}">{{site.support_email}}</a>.</td>
+<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://) provided to you by Wavefront and in your <code>wavefront.conf</code> file.</td>
 </tr>
 <tr>
 <td>You see "Cannot post work unit result to Wavefront servers. Will enqueue and retry later." in <code>wavefront.log</code>.</td>
 <td>You may have an incorrect server URL in your wavefront.conf file; you may have blocked the outgoing connection to that server URL (port 443); or the Wavefront servers may be down.</td>
-<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://") provided to you by Wavefront and in your <code>wavefront.conf</code> file. If this fails, and you are certain that there are no firewall issues, contact <a href="mailto:{{site.support_email}}">{{site.support_email}}</a>.</td>
+<td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the Proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://") provided to you by Wavefront and in your <code>wavefront.conf</code> file.</td>
 </tr>
 <tr>
 <td>You see "Exception in thread "main" java.lang.UnsupportedClassVersionError:
