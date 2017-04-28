@@ -6,9 +6,6 @@ sidebar: doc_sidebar
 permalink: events_managing.html
 summary: Learn how to manage events.
 ---
-
-## What is an Event?
-
 An event is a record that something of interest has occurred&mdash;an alert has changed state,
 a maintenance window has been created, AWS instances have started or stopped, and so on.
 

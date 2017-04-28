@@ -6,8 +6,6 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-## What is an External Link?
-
 External links provide integration between Wavefront and external systems. If you use logging systems such as ELK and Splunk, you can easily construct a meaningful URL to navigate from Wavefront to a log entry.
 
 Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate

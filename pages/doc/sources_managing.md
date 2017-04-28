@@ -6,8 +6,6 @@ sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn how to manage sources.
 ---
-## What is a Source?
-
 A source is a unique application, host, container, or instance that emits metrics. The source is explicitly set
 in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For
 cloud integrations, the source is extracted from [AWS service properties or dimensions](integrations_aws_metrics.html#aws_sources).

@@ -6,9 +6,6 @@ sidebar: doc_sidebar
 permalink: webhooks_managing.html
 summary: Learn how to create webhooks and integrate them with alerts.
 ---
-
-## What is a Webhook?
-
 A webhook is a user-defined HTTP callback. A webhook is usually triggered when a particular event occurs at the source
 site. When the event occurs, the source site makes an HTTP POST request to the URL configured for the webhook that
 contains data either passed as simple POST keys and values or in some other format such as JSON.

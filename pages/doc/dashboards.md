@@ -6,7 +6,6 @@ sidebar: doc_sidebar
 permalink: dashboards.html
 summary: Learn about Wavefront dashboards.
 ---
-
 Dashboards group a set of related [charts](charts.html). All charts in a dashboard share [display
 preferences](dashboards_managing.html#prefs), [variables](dashboards_variables.html), and can share [events](charts_events_displaying.html#controlling-events-overlays). Within dashboards you use [sections](dashboards_interacting.html#sections) to further organize charts.
 

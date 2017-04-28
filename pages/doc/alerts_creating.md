@@ -6,8 +6,6 @@ sidebar: doc_sidebar
 permalink: alerts_creating.html
 summary: Learn how to create an alert.
 ---
-## What is an Alert?
-
 An alert is triggered when a monitored metric reaches a value that indicates a problem. When an alert triggers, notifications are sent to targets such as email addresses, pager services, and real-time communication channels.
 
 To disable alert checking for a set of sources during a specific time window you can put them in a [maintenance window](maintenance_windows_managing.html). Snoozing alerts disables alert checking for a fixed time window.
@@ -44,7 +42,7 @@ You create an alert by:
 <td>A conditional ts() expression that defines the threshold for the alert. You can use any valid ts() language constructs in the expression.
 You can use free form query mode or the <a href="query_language_query_builder.html">Query Builder</a> to create the expression. The expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - The length of time during which the Condition expression must be true before the alert fires. The minimum number of minutes is 2.  If you enter 5 the alerting engine reviews the value of the Condition during the last 5 minute window to see if the alert should fire or not.</li>
-<li><strong>Alert resolves</strong> - The length of time during which the Condition expression must be false before the alert switches to resolved. The minimum number of minutes is 2.  If you don't enable this field and specify a time, it defaults to the <strong>Alert fires</strong> setting.</li></ul>
+<li><strong>Alert resolves</strong> - The length of time during which the Condition expression must be false before the alert switches to resolved. The minimum number of minutes is 2.  If you don't enable this field and specify a time, it defaults to the <strong>Alert fires</strong> setting.</li></ul>For details on theses settings and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
 </td>
 </tr>
 <tr>
@@ -57,7 +55,7 @@ You can use free form query mode or the <a href="query_language_query_builder.ht
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty.html), [VictorOps keys](alerts_integrating_victorops.html), and [webhooks](webhooks_managing.html) separated by commas. See [Alert States and Lifecycle](alerts_states_lifecycle.html).
+<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of ten different email addresses, [PagerDuty keys​](alerts_integrating_pagerduty.html), [VictorOps keys](alerts_integrating_victorops.html), and [webhooks](webhooks_managing.html) separated by commas.
 </td>
 </tr>
 <tr>
