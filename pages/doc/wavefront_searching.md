@@ -1,28 +1,15 @@
 ---
-title: Wavefront UI Patterns
+title: Searching Wavefront
 keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
-permalink: wavefront_ui_patterns.html
-summary: Learn how about the interaction patterns that span the Wavefront UI.
+permalink: wavefront_searching.html
+summary: Learn how to search for entities in the Wavefront UI.
 ---
 
-## Tags and Tag Paths
+## Organizing with Tags
 
-Tags allow you to flexibly manage and organize your Wavefront content. Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular subgroups of users. Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events.
-
--  Tag paths organize tags by separating tag components with periods ".". For example, **Eastern.DBs.MySQL**.
--  To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
-
-For more information on tags, see [Tags Overview](tags_overview.html).
-
-## UI Patterns
-
-The Wavefront UI supports several universal patterns for performing actions on Wavefront entities:
-
--   **Tagging** - After selecting entities, click the tag buttons ![tag toggle](images/tag_toggle.png#inline) to create, add, and remove tags.
--   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the menu icon at the far right of an entity ![action menu](images/action_menu.png#inline) and selecting an action.
--   **Trash** - View deleted entities by clicking the trash toggle: Off - ![trash off](images/trash_off.png#inline) On - ![trash on](images/trash_on.png#inline)
+Tags allow you to flexibly manage and organize your Wavefront content. Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular subgroups of users. Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events. For an overview using tags, see [Organizing with Tags](tags_overview.html).
 
 ## Searching
 
@@ -103,3 +90,12 @@ The following Alert Browser filter demonstrates filtering alerts by the tag path
 For a demo of searching in the Wavefront UI, see
 
 {% include video.html file="mvcjw51w6d" %}
+
+
+## Other Actions
+
+The Wavefront UI supports several universal patterns for performing other types of actions on Wavefront entities beyond searching:
+
+-   **Tagging** - After selecting entities, click the tag buttons ![tag toggle](images/tag_toggle.png#inline) to create, add, and remove tags.
+-   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the menu icon at the far right of an entity ![action menu](images/action_menu.png#inline) and selecting an action.
+-   **Trash** - View deleted entities by clicking the trash toggle: Off - ![trash off](images/trash_off.png#inline) On - ![trash on](images/trash_on.png#inline)

@@ -31,10 +31,6 @@ entries:
       url: /dashboards_introductory.html
       output: web
       
-    - title: Wavefront UI Patterns
-      url: /wavefront_ui_patterns.html
-      output: web
-      
   - title: Tutorials
     output: web
     folderitems:
@@ -59,8 +55,8 @@ entries:
       url: /wavefront_release_notes.html
       output: web
       
-    - title: 2017-16 Release Notes
-      url: /2017_16_release_notes.html
+    - title: 2017-16.x Release Notes
+      url: /2017_16.x_release_notes.html
       output: web
       
     - title: 8.x Release Notes
@@ -450,12 +446,16 @@ entries:
             url: /integrations_r.html
             output: web
             
-  - title: Tags
+  - title: Organizing and Searching
     output: web
     folderitems:
       
-    - title: Tags Overview
+    - title: Organizing with Tags
       url: /tags_overview.html
+      output: web
+      
+    - title: Searching
+      url: /wavefront_searching.html
       output: web
       
   - title: API

@@ -1,39 +1,36 @@
 ---
-title: Tags Overview
+title: Organizing with Tags
 tags: [getting started, alerts, dashboards, events]
 sidebar: doc_sidebar
 permalink: tags_overview.html
-summary: Learn how to create and use Wavefront tags to speed up query display and work with Wavefront entities.
+summary: Learn how to create and use Wavefront tags to organize Wavefront entities and speed up searching and query display.
 ---
-## What is a Tag?
+A tag is custom metadata that adds application-specific meaning to Wavefront *entities*: alerts, dashboards, events, and sources and *metrics*. Tags group together entities and metrics according to categories you define.
 
-A tag is custom metadata that adds application-specific meaning to *metrics* and Wavefront *entities*: alerts, dashboards, events, and sources. Tags group together metrics and entities according to categories you define.
+You use tags to limit the number entities and metrics you are querying or working with at once. Limiting the number of entities reduces information overload. Limiting the number of metrics reduces the time to display results.
 
-You use tags to limit the number metrics and entities you are querying or working with at once. Limiting
-the number of metrics reduces the time to display results. Limiting the number of entities reduces information overload.
+In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
 
-In queries, you can filter:
+In ts() and events() queries, you can filter:
 
 -   Metrics with _source_ and _point_ tags
 -   Events with:
     - _alert_ and _event_ entity tags
     - _system_ severity, subtype, and type tags added by alerts
 
-For details, see the links in the **Used in Queries** column of the Tag Summary table.
-
-In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
-
-## Tag Summary
+The table summarizes where the two types of tags are used and where they are added and updated.
 
 <table>
 <colgroup>
-<col width="20%"/>
-<col width="40%"/>
-<col width="40%"/>
+<col width="10%"/>
+<col width="30%"/>
+<col width="30%"/>
+<col width="30%"/>
 </colgroup>
 <thead>
 <tr>
 <th>Tag Type</th>
+<th>Used in UI and API</th>
 <th>Used in Queries</th>
 <th>Where Added and Updated</th>
 </tr>
@@ -41,41 +38,42 @@ In the Wavefront UI and API you can use entity tags to filter alert, dashboard, 
 <tbody>
 <tr>
 <td>alert</td>
-<td markdown="span">events()<br />
-[Basic events() Queries](events_queries.html)</td>
-<td markdown="span">Wavefront UI and API<br />
-[Managing Alerts](alerts_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
+<td markdown="span">[Managing Alerts](alerts_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
+<td markdown="span">[Basic events() Queries](events_queries.html)</td>
+<td markdown="span">Wavefront UI and API</td>
 </tr>
 <tr>
 <td>dashboard</td>
+<td markdown="span">[Managing Dashboards](dashboards_managing.html)</td>
 <td></td>
-<td markdown="span">Wavefront UI and API<br />[Managing Dashboards](dashboards_managing.html)</td>
+<td markdown="span">Wavefront UI and API</td>
 </tr>
 <tr>
 <td>event</td>
-<td markdown="span">events()<br />[Basic events() Queries](events_queries.html)</td>
-<td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API<br />[Managing Events](events_managing.html)</td>
+<td markdown="span">[Managing Events](events_managing.html)</td>
+<td markdown="span">[Basic events() Queries](events_queries.html)</td>
+<td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API</td>
 </tr>
 <tr>
 <td>point</td>
-<td markdown="span">ts()<br />[Wavefront Data Format](wavefront_data_format.html) and [Point Tags in Queries](query_language_point_tags.html)</td>
+<td></td>
+<td markdown="span">[Wavefront Data Format](wavefront_data_format.html) and [Point Tags in Queries](query_language_point_tags.html)</td>
 <td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html)<br /><br />
 Telegraf agent<br />
 [Wavefront CLI](wavefront_cli.html)</td>
 </tr>
 <tr>
 <td>source</td>
-<td markdown="span">ts()<br />
-[Getting Started with Wavefront Query Language](query_language_getting_started.html)</td>
-<td markdown="span">Wavefront UI and API<br />[Managing Sources](sources_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
+<td markdown="span">[Managing Sources](sources_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
+<td markdown="span">[Getting Started with Wavefront Query Language](query_language_getting_started.html)</td>
+<td markdown="span">Wavefront UI and API</td>
 </tr>
 </tbody>
 </table>
 
 ## Tag Paths
 
-All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot '.'. For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **wavefront.**.
-
+All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot '.'. For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **wavefront.**. To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
 
 ### Selecting and Searching Tag Paths
 
@@ -84,7 +82,6 @@ In the UI you operate on tag paths by selecting a component at a specific node i
 Here's a video overview: 
 
 {% include video.html file="ex41ab32mx" %}
-
 
 In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
