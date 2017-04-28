@@ -21,35 +21,35 @@ To use Python and Wavefront together, you need:
 - A version of [Python](https://www.python.org/download/releases/2.7/) at least 2.7 or higher.
 - Optionally an Python IDE, such as [PyCharm](https://www.jetbrains.com/pycharm/) or [Jupyter](http://jupyter.org/). Screenshots in this document were taken with PyCharm running Python 2.7.
 
-## Installation
-If you have your Python environment and Wavefront account set up, first install the Python packages that we'll be using in our demo. 
+## Install Python Packages
 
- 1. Install the [Python packages](https://github.com/wavefrontHQ/python-client).
+If you have your Python environment and Wavefront account set up, first install the [Python packages](wavefront_api_python.html) that we'll be using in our demo. 
 
- 1. Import the packages into your Python workspace:
+## Import the Packages and Create the Client
 
-    ```python
-    import wavefront_api_client as wave_api
-    ```
+1. Import the packages into your Python workspace:
 
- 1. Enter the Wavefront server URL and your API token:
+   ```python
+   import wavefront_api_client as wave_api
+   ```
 
-    ```python
-    base_url = 'https://<wavefront_instance>.wavefront.com'
-    api_key = '<wavefront_api_token'
-    ```
+1. Enter the Wavefront server URL and your API token:
 
-    If you don't have a token yet, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
+   ```python
+   base_url = 'https://<wavefront_instance>.wavefront.com'
+   api_key = '<wavefront_api_token'
+   ```
+
+   If you don't have a token yet, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
 
 1.  Create the client:
 
-    ```
+    ```python
     client = wave_api.ApiClient(host=base_url, header_name='Authorization', header_value='Bearer ' + api_key)
 
     # instantiate query API
     query_api = wave_api.QueryApi(client)
     ```
-
 
 ## Getting Data Into Python
 
@@ -148,10 +148,11 @@ ggplot(scatterdata,aes(x=Mem,y=Cpu)) + geom_point(shape=19) +geom_smooth(method=
 
 ![scatterplot.jpeg](images/scatterplot.jpeg)
 
-## Other Resources
-If you're just getting started with Python, there are a few free resources to help you out. You don't need to read any of these to follow along with this document, but they will help you understand what's going on under the hood.
+## Resources
+If you're just getting started with Python, there are a few resources to help you out.
 
-- [].
+- [Pandas](http://pandas.pydata.org/)
+- [Python for Data Analysis](http://shop.oreilly.com/product/0636920023784.do)
 
 
 

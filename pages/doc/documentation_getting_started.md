@@ -29,7 +29,7 @@ The following topics are great for learning about what Wavefront is, how to get 
 - [Getting Data into Wavefront](wavefront_data_ingestion.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Wavefront Charts](charts.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Permissions Overview](permissions_overview.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Tags Overview](tags_overview.html) <i class="fa-check-circle fa" style="color: green;"/>
+- [Organizing with Tags](tags_overview.html) <i class="fa-check-circle fa" style="color: green;"/>
  
 ## Charts and Dashboards
 Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video will help you to learn how to create, maintain, and use charts and dashboards in Wavefront.

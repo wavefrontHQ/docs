@@ -168,8 +168,8 @@ ggplot(scatterdata,aes(x=Mem,y=Cpu)) + geom_point(shape=19) +geom_smooth(method=
 
 ![scatterplot.jpeg](images/scatterplot.jpeg)
 
-## Other Resources
-If you're just getting started with R, there are a few free resources to help you out. You don't need to read any of these to follow along with this document, but they will help you understand what's going on under the hood.
+## Resources
+If you're just getting started with R, there are a few resources to help you out. You don't need to read any of these to follow along with this document, but they will help you understand what's going on under the hood.
 
 - [Introducting R](http://data.princeton.edu/R/default.html), Princeton: Very gentle introduction to the basic workspace, broken into a few easy-to-digest sections 
 - [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.html), CRAN: A longer tutorial for R in terms of syntax and basic analysis/visualization

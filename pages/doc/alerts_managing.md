@@ -39,7 +39,7 @@ To unsnooze alerts, check the checkboxes next to the alerts and select **Snooze 
 
 ## Managing Alert Tags
 
-See [Tags Overview](tags_overview.html).
+See [Organizing with Tags](tags_overview.html).
 
 For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
 

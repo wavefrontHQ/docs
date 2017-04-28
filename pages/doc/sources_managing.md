@@ -24,7 +24,7 @@ Source descriptions are a great way to assign additional details to a specific s
 
 ## Managing Source Tags
 
-See [Tags Overview](tags_overview.html).
+See [Organizing with Tags](tags_overview.html).
 
 ## Moving Sources Between Active and Hidden States
 

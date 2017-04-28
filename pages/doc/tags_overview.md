@@ -22,10 +22,10 @@ The table summarizes where the two types of tags are used and where they are add
 
 <table>
 <colgroup>
-<col width="10%"/>
-<col width="30%"/>
-<col width="30%"/>
-<col width="30%"/>
+<col width="16%"/>
+<col width="28%"/>
+<col width="28%"/>
+<col width="28%"/>
 </colgroup>
 <thead>
 <tr>
@@ -73,7 +73,7 @@ Telegraf agent<br />
 
 ## Tag Paths
 
-All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot '.'. For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **wavefront.**. To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting etc.
+All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot ".". For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **wavefront.**. To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting, etc.
 
 ### Selecting and Searching Tag Paths
 
@@ -124,11 +124,11 @@ As you type in the Search box, the list of tags below is filtered by the search 
 
 To filter by a tag, click a tag icon, for example ![mytag icon](images/mytag_icon.png#inline):
 
--   In the filter bar
+-   In the filter bar:
 
     ![mytag2](images/mytag2.png)
 
--   Below an entity in the entity browser
+-   Below an entity in an entity browser:
 
     ![mytag](images/mytag.png)
     

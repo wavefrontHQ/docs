@@ -9,7 +9,8 @@ body {
 }
 
 b,
-strong {
+strong,
+dt {
   font-weight: 600;
 }
 
@@ -22,10 +23,6 @@ dl {
   margin-left: 20px;
 }
 
-dt {
-  font-weight: 500;
-}
-
 dl dt p {
     margin-left:20px;
 }
@@ -33,6 +30,10 @@ dl dt p {
 dl dd {
     margin-top:0px;
     margin-bottom:10px;
+}
+
+dt, dd {
+  line-height: 1.44
 }
 
 dd {margin-left:20px;}
@@ -248,7 +249,7 @@ table > thead:first-child > tr:first-child > td {
     border-top: 0;
 }
 
-table > tbody > tr:nth-of-type(odd) {
+table > tbody > tr:nth-of-type(even) {
     background-color: #f9f9f9;
 }
 

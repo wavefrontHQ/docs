@@ -47,7 +47,7 @@ layout: default
 
     <div class="tags">
         {% if page.tags != null %}
-        <i class="fa fa-tags"></i>
+        <a href="index.html"><i class="fa fa-tags"></i></a>
         {% assign projectTags = site.data.tags.allowed-labels %}
         {% for tag in page.tags %}
         {% if projectTags contains tag %}

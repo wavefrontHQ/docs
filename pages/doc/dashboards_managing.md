@@ -130,7 +130,7 @@ If you want to revert a change,  select ![action_menu.png](images/action_menu.pn
 
 ## Managing Dashboard Tags
 
-See [Tags Overview](tags_overview.html).
+See [Organizing with Tags](tags_overview.html).
 
 ## Managing Charts in Dashboards
 

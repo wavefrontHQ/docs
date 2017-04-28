@@ -19,7 +19,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
                    <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-hourglass-start fa-stack-1x fa-inverse"></i>
+                   <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
              </span>
          </div>
          <div class="panel-body">
@@ -186,6 +186,8 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
           </div>
       </div>
   </div>
+</div>
+<div class="row">
   <div class="col-md-3 col-sm-6">
       <div class="panel panel-default text-center">
           <div class="panel-heading">

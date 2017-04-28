@@ -462,7 +462,7 @@ entries:
       url: /tags_overview.html
       output: web
       
-    - title: Searching
+    - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
       
@@ -542,6 +542,3 @@ entries:
       - title: Getting Help and Giving Feedback
         url: /wavefront_support_feedback.html
         output: web
-        
-      
-        

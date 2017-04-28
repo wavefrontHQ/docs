@@ -93,6 +93,6 @@ To close a single event, select ![action menu](images/action_menu.png#inline) **
 
 ## Managing Event Tags
 
-See [Tags Overview](tags_overview.html).
+See [Organizing with Tags](tags_overview.html).
 
 

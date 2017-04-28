@@ -88,7 +88,7 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API. Wa
 <tr>
 <td>Python</td>
 <td markdown="span">[Wavefront Python client](https://github.com/wavefrontHQ/python-client/tree/api-v1)</td>
-<td markdown="span">[Wavefront Python client](https://github.com/wavefrontHQ/python-client)</td>
+<td markdown="span">[Wavefront Python client](wavefront_api_python.html)</td>
 <td>NA</td>
 </tr>
 <tr>

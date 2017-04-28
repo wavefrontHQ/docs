@@ -49,15 +49,15 @@ The following portion of this article will showcase all of the ways you can inte
 
 ![time window](images/time_window.png)
 
-When you log in to Wavefront, the first dashboard you visit displays two-hour time window charts with real-time data flowing in. If you need to see a larger or smaller time window or need to view past data instead of real-time data, use the Time bar to display different time windows. You can configure the default time window in [dashboard preferences](dashboards_managing.html#prefs).
+When you log in to Wavefront, the first dashboard you visit displays two-hour time window charts with real-time data flowing in. If you need to see a larger or smaller time window or need to view past data instead of real-time data, use the time bar to display different time windows. You can configure the default time window in [dashboard preferences](dashboards_managing.html#prefs).
 
 The following 25 second video
 
 {% include video.html file="5rboi5gh0z" %}
 
-shows how adjusting time windows via the Time bar affects charts.
+shows how adjusting time windows via the time bar affects charts.
 
-The first components you see on the Time bar are the Live Data and Custom Date options. You should choose Live Data when you want to see up-to-date data on the charts. If you want to look at past data, then choose Custom Date. When you select Custom Date, fields for a start and end time display. You can set your time parameters in these fields.
+The first components you see on the time bar are the Live Data and Custom Date options. You should choose Live Data when you want to see up-to-date data on the charts. If you want to look at past data, then choose Custom Date. When you select Custom Date, fields for a start and end time display. You can set your time parameters in these fields.
  
 A set of time window options (10m, 2h, 6h, 12h, 1d, 1w)  display to the right of the Live Data/Custom Date options. When Live Data is selected, the time window options will quickly increase or decrease the amount of live data displayed within each chart. Choosing a time window while Custom Date is selected adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, then the start time is adjusted to 3:00 AM.
  
@@ -65,10 +65,10 @@ A set of time window options (10m, 2h, 6h, 12h, 1d, 1w)  display to the right of
 The Events overlay option allows you to display events on the X-axis of charts. See [Displaying Events in Charts](charts_events_displaying.html).
  
 ### Dashboard Variables
-[Dashboard variables](dashboards_variables.html) are used within ts() expressions, and can represent any string of text such as a source name, ts() call, or set of advanced functions. If the existing dashboard you’re viewing has dashboard variables attached to it, then you will typically see a Variables section below the Time bar.
+[Dashboard variables](dashboards_variables.html) are used within ts() expressions, and can represent any string of text such as a source name, ts() call, or set of advanced functions. If the existing dashboard you’re viewing has dashboard variables attached to it, then you will typically see a Variables section below the time bar.
  
 ### Sections
-The Sections bar is located directly below the Time bar and allows you to jump to any section on a dashboard. By default, every dashboard has at least one section. Dashboard sections allow you to group saved charts in a meaningful way. As with the Time bar, the Sections bar always appears at the top of the dashboard screen. Rather than scrolling, you can jump to a desired section by clicking the section name on the Sections bar.
+The Sections bar is located directly below the time bar and allows you to jump to any section on a dashboard. By default, every dashboard has at least one section. Dashboard sections allow you to group saved charts in a meaningful way. As with the time bar, the Sections bar always appears at the top of the dashboard screen. Rather than scrolling, you can jump to a desired section by clicking the section name on the Sections bar.
 
 ![section toc](images/section_toc.png)
  
@@ -110,14 +110,14 @@ This section describes all  the ways you can interact directly with charts. Thes
 You can adjust time windows for individual charts in a few different ways.
  
 #### Time Bar
-The first option for adjusting time windows for a single chart is through the chart Time bar. The chart Time bar displays in the upper-right corner of a chart when you hover over the chart.
+The first option for adjusting time windows for a single chart is through the chart time bar. The chart time bar displays in the upper-right corner of a chart when you hover over the chart.
 
 ![chart time bar](images/chart_time_bar.png)
 
 The magnifying lenses allow you to quickly increase or decrease the time window. You can also adjust the amount of time in your window by clicking 2h, 6h, 12h, 1d, or 1w.
  
 #### Drag and Zoom
-The second option for adjusting time windows for a single chart is referred to as the 'Drag and Zoom' method. At times, you may notice points in time on a chart that you would like to examine in more detail. Rather than determining the smaller time window you’d like to view and entering it into the Time bar, you can use the 'Drag and Zoom' option. To use this feature, hover over a chart and place your cursor at the beginning of the desired time window. In the chart below, this would be approximately 10:26 AM. Once you are at the desired start point, left click and hold down while dragging over the desired time window. A blue box appears over the desired time window. Once you have reached the desired end point, around 10:33 AM in the chart below, release the mouse button. The highlighted time window expands to fit your chart. If you'd like to apply this method to all charts on a dashboard, hold **Shift** while performing the 'Drag and Zoom' method.
+The second option for adjusting time windows for a single chart is referred to as the 'Drag and Zoom' method. At times, you may notice points in time on a chart that you would like to examine in more detail. Rather than determining the smaller time window you’d like to view and entering it into the time bar, you can use the 'Drag and Zoom' option. To use this feature, hover over a chart and place your cursor at the beginning of the desired time window. In the chart below, this would be approximately 10:26 AM. Once you are at the desired start point, left click and hold down while dragging over the desired time window. A blue box appears over the desired time window. Once you have reached the desired end point, around 10:33 AM in the chart below, release the mouse button. The highlighted time window expands to fit your chart. If you'd like to apply this method to all charts on a dashboard, hold **Shift** while performing the 'Drag and Zoom' method.
  
 ![drag and zoom](images/drag_zoom.png)
 
