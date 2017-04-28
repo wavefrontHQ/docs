@@ -35,6 +35,8 @@ The Wavefront application has the following components:
 -   storage layer
 -   data ingestion layer
 
+### User Interface
+
 The **user interface** (UI) is displayed to a browser, and all queries and computations are processed within the query
 and compute layers in the Wavefront application.  You log into the Wavefront UI via a standard web browser in many cases
 using an SSO solution.  One unique feature of the UI is the ability to display charts with data over any range of time
@@ -57,13 +59,19 @@ particular condition that has been met.  For instance, you may want to alert ope
 alerting functionality integrates with services such as PagerDuty to notify the appropriate person or group in such a
 situation.
 
+### Compute Layer
+
 The **compute layer** combines points of data to display within a single pixel (depending on screen resolution)
 according to the summarization method that is most appropriate for your use case. For example, you may want to compare
 your data center's performance between two different years during the holiday period. All calculations are done on the
 raw data set to ensure you get the most accurate representation of your query.
 
+### Storage Layer
+
 The **storage layer** is designed to be elastic to accommodate an ever-changing number of metrics and sources.  There is
 no fixed limit on the amount of data that can be stored in the storage layer.
+
+### Data Ingestion
 
 The **data ingestion layer** has been designed to accommodate extremely high data rates (in excess of 1 million points
 per second).  It can be scaled appropriately depending on your expected data rates and growth plans.  Like the storage
