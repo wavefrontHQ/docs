@@ -2,12 +2,13 @@
 title: Docker Integration (cAdvisor)
 keywords: integrations
 tags: [integrations]
+layout: readme
+source: integrations/cadvisor
 sidebar: doc_sidebar
 permalink: integrations_cadvisor.html
 summary: Learn how to use cAdvisor to send container metrics to Wavefront.
 ---
 
-{% include integrations/cadvisor/README.md %}
 
 ## cAdvisor Metrics and Dashboard
 Once cAdvisor is running, metrics prefixed with **cadvisor.** appear in Wavefront:

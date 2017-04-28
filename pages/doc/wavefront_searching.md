@@ -1,7 +1,7 @@
 ---
 title: Searching Wavefront
 keywords: getting started
-tags: [getting started]
+tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: wavefront_searching.html
 summary: Learn how to search for entities in the Wavefront UI.

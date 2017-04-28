@@ -1,7 +1,7 @@
 ---
 title: Managing Events
 keywords: events
-tags: [events]
+tags: [events, videos]
 sidebar: doc_sidebar
 permalink: events_managing.html
 summary: Learn how to manage events.

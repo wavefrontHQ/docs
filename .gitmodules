@@ -16,3 +16,6 @@
 [submodule "_includes/wavefront-collector"]
 	path = _includes/wavefront-collector
 	url = https://github.com/wavefrontHQ/wavefront-collector
+[submodule "_includes/python-client"]
+	path = _includes/python-client
+	url = https://github.com/wavefrontHQ/python-client

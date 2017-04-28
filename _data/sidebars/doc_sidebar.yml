@@ -27,6 +27,10 @@ entries:
       url: /documentation_getting_started.html
       output: web
       
+    - title: Wavefront Use Cases
+      url: /wavefront_use_cases.html
+      output: web
+      
     - title: Introductory Dashboards
       url: /dashboards_introductory.html
       output: web
@@ -378,8 +382,12 @@ entries:
             url: /integrations_go_metrics.html
             output: web
             
-          - title: Dropwizard Metrics Integration
-            url: /integrations_dropwizard_metrics.html
+          - title: Dropwizard 4.0 Java Metrics Integration
+            url: /integrations_dropwizard40_metrics.html
+            output: web
+            
+          - title: Dropwizard 3.1 Java Metrics Integration
+            url: /integrations_dropwizard31_metrics.html
             output: web
             
       - title: collectd Integrations
@@ -464,6 +472,10 @@ entries:
       
       - title: Wavefront API
         url: /wavefront_api.html
+        output: web
+        
+      - title: Wavefront API Python Client
+        url: /wavefront_api_python.html
         output: web
         
   - title: Administration

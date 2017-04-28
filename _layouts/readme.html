@@ -1,0 +1,24 @@
+---
+layout: page
+---
+<style>
+h1:not(.post-title-main) { display: none; }
+</style>
+{% if page.source %}
+  {% if page.branch %}
+    {% assign repo-branch = page.source | append: '/tree/' | append: page.branch %}
+    {% assign readme-file = page.source | append: '-' | append: page.branch %}
+  {% else %}
+    {% assign repo-branch = page.source  %}
+    {% assign readme-file = page.source  %}
+  {% endif %}
+
+  {% assign org = page.org | default: "wavefront" %}
+
+  {% capture included-readme %}{% include {{page.source}}/README.md %}{% endcapture %}
+  {{ included-readme | markdownify }}
+{% else %}
+  <h3>ERROR: No source specified for README</h3>
+{% endif %}
+
+{{content}}

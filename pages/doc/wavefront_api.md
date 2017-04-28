@@ -1,7 +1,7 @@
 ---
 title: Wavefront API
 keywords: getting started
-tags: [getting started]
+tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
 summary: Learn how to view API documentation, how the Wavefront API is organized, and how to invoke the API.
@@ -83,7 +83,7 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API. Wa
 <td>Java</td>
 <td markdown="span">[Wavefront Java client](https://github.com/wavefrontHQ/java)</td>
 <td>NA</td>
-<td markdown="span">[DropWizard Metrics Integration](integrations_dropwizard_metrics.html)</td>
+<td markdown="span">[DropWizard 4.0 Java Metrics Integration](integrations_dropwizard40_metrics.html)<br/>[DropWizard 3.1 Java Metrics Integration](integrations_dropwizard31_metrics.html)</td>
 </tr>
 <tr>
 <td>Python</td>

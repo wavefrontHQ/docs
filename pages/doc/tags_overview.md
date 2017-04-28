@@ -1,6 +1,6 @@
 ---
 title: Organizing with Tags
-tags: [getting started, alerts, dashboards, events]
+tags: [getting started, alerts, dashboards, events, videos]
 sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to create and use Wavefront tags to organize Wavefront entities and speed up searching and query display.

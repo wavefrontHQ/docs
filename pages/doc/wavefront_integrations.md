@@ -13,38 +13,38 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_telegraf"><img src="images/linux.png"/></a><br/><br/>
-<a href="integrations_telegraf">System Monitoring (Telegraf Agent)</a>
+<a href="integrations_telegraf.html"><img src="images/linux.png"/></a><br/><br/>
+<a href="integrations_telegraf.html">System Monitoring (Telegraf Agent)</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_cadvisor"><img src="images/docker.png"/></a><br/><br/>
-<a href="integrations_cadvisor">Docker</a>
+<a href="integrations_cadvisor.html"><img src="images/docker.png"/></a><br/><br/>
+<a href="integrations_cadvisor.html">Docker</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_kubernetes"><img src="images/kubernetes.png"/></a><br/><br/>
-<a href="integrations_kubernetes">Kubernetes</a>
+<a href="integrations_kubernetes.html"><img src="images/kubernetes.png"/></a><br/><br/>
+<a href="integrations_kubernetes.html">Kubernetes</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_aws_ecs"><img src="images/amazon_ecs.png"/></a><br/><br/>
-<a href="integrations_aws_ecs">Amazon ECS</a>
+<a href="integrations_aws_ecs.html"><img src="images/amazon_ecs.png"/></a><br/><br/>
+<a href="integrations_aws_ecs.html">Amazon ECS</a>
 </td>
 </tr>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_cassandra"><img src="images/cassandra.png"/></a><br/><br/>
-<a href="integrations_cassandra">Cassandra</a>
+<a href="integrations_cassandra.html"><img src="images/cassandra.png"/></a><br/><br/>
+<a href="integrations_cassandra.html">Cassandra</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_graphite"><img src="images/graphite.png"/></a><br/><br/>
-<a href="integrations_graphite">Graphite</a>
+<a href="integrations_graphite.html"><img src="images/graphite.png"/></a><br/><br/>
+<a href="integrations_graphite.html">Graphite</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_opentsdb"><img src="images/opentsdb.png"/></a><br/><br/>
-<a href="integrations_opentsdb">OpenTSDB</a>
+<a href="integrations_opentsdb.html"><img src="images/opentsdb.png"/></a><br/><br/>
+<a href="integrations_opentsdb.html">OpenTSDB</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_puppet_server"><img src="images/puppet.png"/></a><br/><br/>
-<a href="integrations_puppet_server">Puppet Server</a>
+<a href="integrations_puppet_server.html"><img src="images/puppet.png"/></a><br/><br/>
+<a href="integrations_puppet_server.html">Puppet Server</a>
 </td>
 </tr>
 </tbody>
@@ -60,16 +60,16 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_statsd"><img src="images/statsd.png"/></a><br/><br/>
-<a href="integrations_statsd">StatsD</a>
+<a href="integrations_statsd.html"><img src="images/statsd.png"/></a><br/><br/>
+<a href="integrations_statsd.html">StatsD</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_dropwizard_metrics"><img src="images/dropwizard.png"/></a><br/><br/>
-<a href="integrations_dropwizard_metrics">DropWizard Metrics (Java)</a>
+<a href="integrations_dropwizard40_metrics.html"><img src="images/dropwizard.png"/></a><br/><br/>
+<a href="integrations_dropwizard40_metrics.html">DropWizard Java Metrics</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_go_metrics"><img src="images/go.png"/></a><br/><br/>
-<a href="integrations_go_metrics">Go Metrics</a>
+<a href="integrations_go_metrics.html"><img src="images/go.png"/></a><br/><br/>
+<a href="integrations_go_metrics.html">Go Metrics</a>
 </td>
 </tr>
 </tbody>
@@ -80,20 +80,20 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="alerts_integrating_pagerduty"><img src="images/pagerduty.png"/></a><br/><br/>
-<a href="alerts_integrating_pagerduty">Pager Duty</a>
+<a href="alerts_integrating_pagerduty.html"><img src="images/pagerduty.png"/></a><br/><br/>
+<a href="alerts_integrating_pagerduty.html">Pager Duty</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="alerts_integrating_slack"><img src="images/slack.png"/></a><br/><br/>
-<a href="alerts_integrating_slack">Slack</a>
+<a href="alerts_integrating_slack.html"><img src="images/slack.png"/></a><br/><br/>
+<a href="alerts_integrating_slack.html">Slack</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="alerts_integrating_victorops"><img src="images/victorops.png"/></a><br/><br/>
-<a href="alerts_integrating_victorops">VictorOps</a>
+<a href="alerts_integrating_victorops.html"><img src="images/victorops.png"/></a><br/><br/>
+<a href="alerts_integrating_victorops.html">VictorOps</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="alerts_integrating_hipchat"><img src="images/hipchat.png"/></a><br/><br/>
-<a href="alerts_integrating_hipchat">HipChat</a>
+<a href="alerts_integrating_hipchat.html"><img src="images/hipchat.png"/></a><br/><br/>
+<a href="alerts_integrating_hipchat.html">HipChat</a>
 </td>
 </tr>
 </tbody>
@@ -104,20 +104,20 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 <tbody>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_sso_adfs"><img src="images/microsoft_adfs.png"/></a><br/><br/>
-<a href="integrations_sso_adfs">ADFS Single Sign-on</a>
+<a href="integrations_sso_adfs.html"><img src="images/microsoft_adfs.png"/></a><br/><br/>
+<a href="integrations_sso_adfs.html">ADFS Single Sign-on</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_sso_google"><img src="images/google.png"/></a><br/><br/>
+<a href="integrations_sso_google.html"><img src="images/google.png"/></a><br/><br/>
 <a href="integrations_sso_google">Google Single Sign-on</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_sso_okta"><img src="images/okta.png"/></a><br/><br/>
-<a href="integrations_sso_okta">Okta Single Sign-on</a>
+<a href="integrations_sso_okta.html"><img src="images/okta.png"/></a><br/><br/>
+<a href="integrations_sso_okta.html">Okta Single Sign-on</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
-<a href="integrations_sso_onelogin"><img src="images/onelogin.png"/></a><br/><br/>
-<a href="integrations_sso_onelogin">OneLogin Single Sign-on</a>
+<a href="integrations_sso_onelogin.html"><img src="images/onelogin.png"/></a><br/><br/>
+<a href="integrations_sso_onelogin.html">OneLogin Single Sign-on</a>
 </td>
 </tr>
 </tbody>

@@ -895,6 +895,7 @@ table code {background-color: transparent;}
 .highlight .s { color: #B94A48 }  /* Literal.String */
 .highlight .ne { color: #B94A48; font-weight: bold } /* Name.Exception */
 .highlight .nf { color: #B94A48; font-weight: bold } /* Name.Function */
+.highlight .kn { color: #B94A48; font-weight: bold } /* Name.Function */
 
 .highlighter-rouge pre {
   overflow-x: auto;       // this sets the scrolling in x

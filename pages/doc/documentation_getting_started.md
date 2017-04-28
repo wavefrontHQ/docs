@@ -65,13 +65,8 @@ Release notes summarize the features added to each release and changes to existi
 - [Wavefront Release Notes](wavefront_release_notes.html)
  
 ## Use Case Videos
-The following use case videos illustrate how to address typical scenarios using Wavefront:
 
-- [Anomaly Detection](https://wavefront-1.wistia.com/medias/lytshn66rj)
-- [Saving Time During Negative Customer Impacts](https://wavefront-1.wistia.com/medias/ynybdqv83o)
-- [Searching by Behavior](https://wavefront-1.wistia.com/medias/55t5b7kfdu)
-- [Finding Value in the Noise](https://wavefront-1.wistia.com/medias/hou5e8x0o9)
-- [Correlation Across Data Sets](https://wavefront-1.wistia.com/medias/yh3k8jzvgm)
-- [Preventing False Alarms with mmedian()](https://wavefront-1.wistia.com/medias/gf0rmdl19s)
+[Use case videos](wavefront_use_cases.html) illustrate how to address typical scenarios using Wavefront.
+
 
 
