@@ -14,7 +14,7 @@ summary: Learn how to send data collected by collectd to Wavefront.
 Follow the process described in [Graphite Integration](integrations_graphite.html) to enable the Wavefront proxy to listen for Graphite data.
 
 ## Installing collectd
-collectd is typically available in standard Linux distribution repositories but we primarily recommend using these [packages](https://github.com/collectd/collectd-ci/blob/master/README.md). These instructions assume that you are using collectd V5.1 or higher. Wavefront can also work with collectd 4.10. Send email to [{{site.support_email}}](mailto:{{site.support_email}}) if you are using an earlier version of collectd and need help.
+collectd is typically available in standard Linux distribution repositories but we primarily recommend using these [packages](https://github.com/collectd/collectd-ci/blob/master/README.md). These instructions assume that you are using collectd V5.1 or higher. Wavefront can also work with collectd 4.10.
 
 ## Configuring collectd
 There are many plugins available with collectd, including SNMP and various databases. In this procedure we leave the plugins at whatever defaults your distribution sets. Typically this means you'll see some information about the local machine such as its CPU load, local network interfaces, and memory and disk usage. Configure the `write_graphite` plugin which will send the data to the Wavefront proxy.
