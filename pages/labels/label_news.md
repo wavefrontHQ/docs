@@ -6,6 +6,6 @@ permalink: label_news.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html %}
+{% include labellogic.html content=""%}
 
 

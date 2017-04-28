@@ -6,6 +6,9 @@ permalink: label_events.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html %}
+
+{% capture c %}{{site.data.labels.events}}{% endcapture %}
+
+{% include labellogic.html content=c %}
 
 

@@ -6,6 +6,9 @@ permalink: label_release%20notes.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html %}
+
+{% capture c %}{{site.data.labels.release_notes}}{% endcapture %}
+
+{% include labellogic.html content=c %}
 
 

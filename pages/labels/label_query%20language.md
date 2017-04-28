@@ -6,6 +6,10 @@ permalink: label_query%20language.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html %}
+
+{% capture c %}{{site.data.labels.query_language}}{% endcapture %}
+
+{% include labellogic.html content=c %}
+
 
 

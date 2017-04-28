@@ -24,7 +24,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_getting%20started.html" class="btn btn-primary btn-block">Getting Started</a></p>
-             <p>Learn about the Wavefront platform and first-step resources.</p>
+             <p>{{site.data.labels.getting_started}}</p>
          </div>
      </div>
  </div>
@@ -38,7 +38,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_tutorials.html" class="btn btn-primary btn-block">Tutorials</a></p>
-             <p>Quickly learn the basics of getting, displaying, and working with data.</p>
+             <p>{{site.data.labels.tutorials}}</p>
          </div>
      </div>
  </div>
@@ -52,7 +52,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_data.html" class="btn btn-primary btn-block">Data</a></p>
-             <p>Learn how to get data into Wavefront and about data formats and naming.</p>
+             <p>{{site.data.labels.data}}</p>
          </div>
      </div>
  </div>
@@ -66,7 +66,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_query%20language.html" class="btn btn-primary btn-block">Query Language</a></p>
-             <p>Learn how to query your data through tutorials, reference, and guides.</p>
+             <p>{{site.data.labels.query_language}}</p>
          </div>
      </div>
  </div>
@@ -82,7 +82,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
         </div>
         <div class="panel-body">
           <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
-            <p>Learn how to display your data and events in charts.</p>
+            <p>{{site.data.labels.charts}}</p>
         </div>
     </div>
 </div>
@@ -96,7 +96,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
         </div>
         <div class="panel-body">
             <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
-            <p>Learn how to organize your charts in dashboards.</p>
+            <p>{{site.data.labels.dashboards}}</p>
         </div>
     </div>
 </div>
@@ -110,7 +110,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
        </div>
        <div class="panel-body">
            <p><a href="label_alerts.html" class="btn btn-primary btn-block">Alerts</a></p>
-           <p>Learn about alerts and how to integrate alerts and notifications.</p>
+           <p>{{site.data.labels.alerts}}</p>
        </div>
    </div>
 </div>
@@ -124,7 +124,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
        </div>
        <div class="panel-body">
            <p><a href="label_events.html" class="btn btn-primary btn-block">Events</a></p>
-           <p>Learn about events and how to display events in charts.</p>
+           <p>{{site.data.labels.events}}</p>
        </div>
    </div>
  </div>
@@ -140,7 +140,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_proxies.html" class="btn btn-primary btn-block">Proxies</a></p>
-             <p>Learn how to annotate and rewrite data with Wavefront proxies.</p>
+             <p>{{site.data.labels.proxies}}</p>
          </div>
      </div>
 </div>
@@ -154,7 +154,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
-             <p>Learn the details of getting data in and out of Wavefront.</p>
+             <p>{{site.data.labels.integrations}}</p>
          </div>
      </div>
  </div>
@@ -168,7 +168,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
          <div class="panel-body">
              <p><a href="label_administration.html" class="btn btn-primary btn-block">Administration</a></p>
-             <p>Learn how to administer Wavefront and set up SSO.</p>
+             <p>{{site.data.labels.administration}}</p>
          </div>
      </div>
   </div>
@@ -182,7 +182,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
           </div>
           <div class="panel-body">
               <p><a href="label_release%20notes.html" class="btn btn-primary btn-block">Release Notes</a></p>
-              <p>Learn about the features added in each Wavefront release.</p>
+              <p>{{site.data.labels.release_notes}}</p>
           </div>
       </div>
   </div>

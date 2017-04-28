@@ -1614,7 +1614,8 @@ a[data-toggle="tooltip"] {
   color: #52606d;
   border: 0px;
   border-radius: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
+  margin-top: 2px;
 }
 
 

@@ -6,6 +6,9 @@ permalink: label_integrations.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html %}
+
+{% capture c %}{{site.data.labels.integrations}}{% endcapture %}
+
+{% include labellogic.html content=c %}
 
 

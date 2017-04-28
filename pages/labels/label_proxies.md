@@ -6,6 +6,9 @@ permalink: label_proxies.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html %}
+
+{% capture c %}{{site.data.labels.proxies}}{% endcapture %}
+
+{% include labellogic.html content=c %}
 
 
