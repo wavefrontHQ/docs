@@ -69,18 +69,38 @@
     {% endif %}
 
     <script>
-        /** Panel Height Fix **/
-        $(document).ready(function() {
+        var handlePanelHeights = function() {
+            var didUpdate = false;
             $('.post-content').find('.row').each(function() {
                 var maxHeight = 0;
+                $(this).find('.panel-body').each(function() {
+                    $(this).css('min-height', '0px');
+                });
+
                 $(this).find('.panel-body').each(function() {
                     maxHeight = Math.max(maxHeight, $(this).outerHeight());
                 });
 
                 $(this).find('.panel-body').each(function() {
-                   $(this).css('min-height', maxHeight + 'px');
+                    $(this).css('min-height', maxHeight + 'px');
                 });
+
+                if (maxHeight > 0) {
+                    didUpdate = true;
+                }
             });
+
+            return didUpdate;
+        };
+
+        /** Panel Height Fix **/
+        $(document).ready(function() {
+           var updated = handlePanelHeights();
+           if (updated) {
+               $(window).on('resize', function() {
+                   handlePanelHeights();
+               });
+           }
         });
     </script>
 
