@@ -334,7 +334,12 @@ div#toc ul li ul {
 
 div#toc ul li ul li::before {
     content: "–  ";
-    margin-left: -10px;
+    margin-left: -6px;
+}
+
+div#toc ul li ul li ul li::before {
+    content: "+  ";
+    margin-left: -6px;
 }
 
 div#toc >ul::before {
