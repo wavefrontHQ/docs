@@ -18,7 +18,7 @@ lag(30m, sum(ts("aws.elb.requestcount"))) < 0.3 * lag(1w, sum(ts("aws.elb.reques
  
 The above example analyzes a single value reported 30 minutes ago of the `aws.elb.requestcount` metric. It then compares it with the value measured one week ago and determines if the request count had dropped below 30%. With this alert query, we have not only insured that delayed metric data points do not falsely trigger the alert as we are looking at a value reported 30-minutes ago   which allows delayed data points to catch up but also look at the overall trend of the data.
  
-As an alternative approach, it’s possible to set the **Alert fires** threshold higher than the default two minutes. This setting depends on the frequency of the arrival of data points, and it accounts for all possible delays in the application metrics delivery pipeline. This compensates for external delays of metrics to the Wavefront Collector service.
+As an alternative approach, it's possible to set the **Alert fires** threshold higher than the default two minutes. This setting depends on the frequency of the arrival of data points, and it accounts for all possible delays in the application metrics delivery pipeline. This compensates for external delays of metrics to the Wavefront Collector service.
  
 ## Account for Missing Data Points
  

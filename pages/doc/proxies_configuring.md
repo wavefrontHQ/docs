@@ -72,7 +72,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 </tr>
 <tr>
 <td>ephemeral</td>
-<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Agents page. We recommend enabling ephemeral mode if you’re running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
+<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Agents page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
 <td>Boolean</td>
 <td>true</td>
 <td>3.14</td>

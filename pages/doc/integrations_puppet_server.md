@@ -17,7 +17,7 @@ You can configure Puppet Server to emit Graphite formatted metrics using the Tel
   1. On the Classes tab, in the puppet_enterprise::profile::master class, add/set these parameters:
       - **metrics_enabled** – Set to true (default value).
       - **metrics_graphite_enabled** – Set to true (false is the default value).
-      - **metrics_graphite_host** – Enter the hostname for the agent node on which you’re running the telegraf metrics collector.  This should be "localhost".
+      - **metrics_graphite_host** – Enter the hostname for the agent node on which you're running the telegraf metrics collector.  This should be "localhost".
       - **metrics_graphite_port** – Set to 2003 (default value) or the port the Telegraf collector will be listening on.
       - **metrics_graphite_update_interval_seconds** – Enter a value to set update frequency in seconds. This setting is - optional, and the default value is 60.
       - **metrics_jmx_enabled** – Set to true (default value).

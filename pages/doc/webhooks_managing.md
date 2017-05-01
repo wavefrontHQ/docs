@@ -87,7 +87,7 @@ The order of the limit settings determines limit precedence. For example, settin
 
 For an example of how the payload functions work, see [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits).
 
-{% include note.html content="If the application that is being integrated needs to get the full list of items (e.g. `failingSources`) then the `alertId` can be retrieved from the notification and a call performed using the Wavefront API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated needs the full list of items (e.g. `failingSources`) then you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
 
 <table>
 <thead>

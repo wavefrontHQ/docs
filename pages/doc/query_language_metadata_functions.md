@@ -239,7 +239,7 @@ Imagine that you have a set of metric names that are very long and tend to clutt
 <datacenter>.<version>.<customer>_latency.<id>
 ```
 
-The main information you wish to gather from the metric name is `<customer>_latency` since `<datacenter>` and `<version>` are also sent as optional point tag key-values. `aliasMetric()` lets you rename each metric to declutter your hover legend:
+The main information you want gather from the metric name is `<customer>_latency` since `<datacenter>` and `<version>` are also sent as optional point tag key-values. `aliasMetric()` lets you rename each metric to declutter your hover legend:
 
 ```
 aliasMetric(ts("<datacenter>.<version>.<customer>_latency.<id>"), 2)

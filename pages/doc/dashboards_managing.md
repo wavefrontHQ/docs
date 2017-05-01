@@ -23,7 +23,8 @@ The process for creating a dashboard can begin from the All Dashboards page, an 
 
     A Create New Dashboard dialog displays. Enter a URL and name for your dashboard. The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving. The Name field supports letters, numbers, characters, and spaces.
 
-2.  Click **Create**. The dashboard displays in edit mode. You can either edit your dashboard at this time or save it and edit at a later time.
+2.  Click **Create**. The dashboard is created and displays in edit mode. 
+3.  Click **Cancel** or edit the dashboard and click **Save**.
 
 ## Deploying a Dashboard
 
@@ -38,15 +39,19 @@ curl -v POST https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<da
 
 ## Setting Dashboard Preferences
 
-Dashboard preferences include:
+To set the dashboard preferences:
 
--   Dashboard name and description
--   Whether to display the description, [section TOC](#sections), and [dashboard variables](dashboards_variables.html)
--   A global [events() query](events_queries.html)
--   Chart title display properties
--   Default [time window](dashboards_interacting.html#time_window)
-
-To open the dashboard preferences dialog, click the wrench icon <i class="fa-wrench fa"/> at the top right of the dashboard.
+1. Click the wrench icon <i class="fa-wrench fa"/> at the top right of the dashboard.
+1. Edit the preferences.
+   -   Dashboard name and description
+   -   Whether to display the: 
+       - Description
+       - [Section link bar](#sections)
+       - [Dashboard variables](dashboards_variables.html)
+   -   A global [events() query](events_queries.html) controlled by the [Show Events](charts_events_displaying.html#controlling-events-overlays) dropdown.
+   -   Chart title display properties
+   -   Default [time window](dashboards_interacting.html#time_window)
+1. Click **Save**.
 
 ## Cloning a Dashboard
 
@@ -61,14 +66,14 @@ The process for cloning an existing dashboard can be started from the All Dashbo
 
 ## Editing a Dashboard
 
+When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
+
 The process for editing an existing dashboard can be started from the All Dashboards page or directly from the existing dashboard page:
 
 -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Edit**.
 -   From a dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Edit**.
 
-When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
-
-{% include note.html content="Wavefront [system dashboards](dashboards_introductory.html) are read-only and cannot be edited. If you want to make changes to one of them you must first clone it." %}
+{% include note.html content="Wavefront [system dashboards](dashboards_introductory.html) are read-only and edits cannot be saved. If you want to make changes to a system dashboard you must first clone it." %}
 
 ### Dashboard Description and Name
 
@@ -80,11 +85,11 @@ From here you can rename your dashboard and enter a description. If you enter a 
 
 ### Configuring Dashboard Sections
 
-In a dashboard charts are contained in sections. By default, every dashboard has at least one section. A section table of contents displays directly below the time bar at the top of the dashboard. 
+In a dashboard charts are contained in sections. By default, every dashboard has at least one section. A section link bar displays directly below the time bar at the top of the dashboard. 
 
-![Section_Table_of_Contents](images/section_table_of_contents.png)
+![Section_Table_of_Contents](images/section_links.png)
 
-You can quickly jump to a desired section by clicking it in the table of contents. If the table of contents is not displayed, then turn it on in the [Dashboard Display Preferences](#prefs).
+You can quickly jump to a desired section by clicking the link in the section bar. If the section link bar is not displayed, turn it on in the [Dashboard Display Preferences](#prefs).
 
 While editing a dashboard, you have the option of renaming a section, adding or removing a section, and moving a section up or down on the dashboard.
 
@@ -102,9 +107,27 @@ Resizing a chart row affects every chart located in that chart row.
 
 ### Editing the Dashboard JSON
 
-You can directly modify any dashboard properties by editing the dashboard's JSON format. To access the JSON editor, click **Edit JSON** next to the **Save** button on the task bar. This link is only displayed when your dashboard is in edit mode. Only use this option if you have a good understanding of JSON.
+You can directly modify any dashboard properties by editing the dashboard's JSON format. Use this option only if you have a good understanding of JSON. To access the JSON editor:
 
-When editing a dashboard, you may make several changes at a time. If you wish to remove a single change, but not the changes made before it, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
+1. Put the dashboard in edit mode. 
+1. Click **Edit JSON** next to the **Save** button on the task bar. The JSON format displays in the Tree editor. You can use the tree controls to expand, collapse, and reorder nodes.
+
+   ![json tree.png](images/json_tree.png)
+
+   You can also edit the JSON code directly by selecting **Tree > Code**. For example, to change a chart row height, edit the row's `heightFactor` property:
+  
+   ```
+   ...
+   ],
+     "heightFactor": 100
+   },
+   ...
+   ```
+
+1. Click **Accept**.
+1. Click **Save**.
+
+When editing a dashboard, you may make several changes at a time. To remove a single change, but not the changes made before it, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
 
 ## Deleting Dashboards
 
