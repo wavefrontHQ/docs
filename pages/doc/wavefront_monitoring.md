@@ -16,7 +16,10 @@ In addition, if you have an AWS cloud integration, metrics with the following pr
 
   - `~externalservices`: Metric rates, API requests, and events from AWS CloudWatch, AWS CloudTrail, and AWS Metrics+ integrations.
  
-Wavefront has a Wavefront Internal Metrics dashboard that displays many of these internal metrics and gives you a quick health check of your Wavefront server. 
+Wavefront has a Wavefront Internal Metrics system dashboard that displays many of these internal metrics and gives you a quick health check of your Wavefront server.
+
+{% include shared/system_dashboard.html %}
+
 
 ## Overall Data Rate
 This section shows the overall point rate being processed by the Wavefront servers.

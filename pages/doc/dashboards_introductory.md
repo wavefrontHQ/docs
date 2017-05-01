@@ -6,7 +6,11 @@ sidebar: doc_sidebar
 permalink: dashboards_introductory.html
 summary: Learn about the tutorial, example, and use case introductory dashboards available in your Wavefront instance.
 ---
-Every Wavefront instance contains a set of introductory dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.  You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview.html).
+Every Wavefront instance contains a set of introductory system dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.
+
+{% include shared/system_dashboard.html %}
+
+You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview.html).
 
 - Demo - **wavefront.tour**
   - Demo: Welcome to Wavefront - overview of Wavefront benefits and capabilities.
