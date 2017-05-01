@@ -22,7 +22,7 @@ Your Wavefront instance includes a set of [introductory dashboards](dashboards_i
   - Intro: Getting Started with Wavefront Query Language - gives an overview of how to construct metrics queries.
   - Intro: Dashboard Basics: Chart Types - describes the different ways of displaying metrics.
 
-1. The introductory dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using the Metrics Browser:
+1. The introductory dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using the Metrics browser:
     1. Select **Browse > Metrics**.
     1. In the Metrics field, type **sample**. Click the **~sample.** folder. The sample metrics categories display:
 

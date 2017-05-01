@@ -14,39 +14,44 @@ Once metrics are ingested into Wavefront you can [query](query_language_getting_
 [chart](charts.html) the data to help understand underlying patterns. You can create
 [alerts](alerts_managing.html) to notify operators when anomalous values indicate a system malfunction.
 
-If a metric is no longer reporting data, it is automatically removed from the Metrics Browser and autocomplete dropdown after 4 weeks of inactivity. You can manually hide metrics from the Metrics Browser and in the autocomplete dropdown associated with queries. Manually hiding metrics does not permanently delete a particular metric or metric namespace from Wavefront.
+If a metric is no longer reporting data, it is automatically removed from the Metrics browser and autocomplete dropdown after 4 weeks of inactivity. 
+
+You can _manually_ hide metrics from the Metrics browser and in the autocomplete dropdown associated with queries. Manually hiding metrics does not permanently delete a particular metric or metric namespace from Wavefront.
   
 To view and manage metrics, select **Browse > Metrics**.
  
 {% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
 
-## Hiding Multiple Metrics Using Metrics Dialog
+## Hiding Multiple Metrics
  
-From the Metrics Browser, locate the **Hide Metrics** button found in the top right corner of the page. If you do not see the Hide Metrics button, then you do not have the permission to complete these actions. Click the **Hide Metrics** button. A dialog displays with a blank field.
+1. From the Metrics browser, locate the **Hide Metrics** button found in the top right corner of the page. 
+1. Click the **Hide Metrics** button. A dialog displays with a blank field.
 
-![hide metrics](images/hide_metrics.png)
+   ![hide metrics](images/hide_metrics.png)
 
-In the blank field, type a complete metrics name (e.g. `requests.latency`) or a metric prefix (e.g. `requests.`, `cpu.loadavg.`).
+1. In the blank field, type a complete metrics name (e.g. `requests.latency`) or a metric prefix (e.g. `requests.`, `cpu.loadavg.`).
 
-- There is currently no autocomplete associated with this field, so you will need to know the entire metric name or metric prefix before entering it into this field.
-- The entered text is case sensitive.
-- Wildcards are not supported and are considered as part of the literal text string. This means that typing in **requests.\*** hides a metric named **requests.\***, not metrics beginning with **requests.**.
+   - There is currently no autocomplete associated with this field, so you will need to know the entire metric name or metric prefix before entering it into this field.
+   - The entered text is case sensitive.
+   - Wildcards are not supported and are considered as part of the literal text string. This means that typing in **requests.\*** hides a metric named **requests.\***, not metrics beginning with **requests.**.
 
-![hidden metrics](images/hidden_metrics.png)
  
-Once you have entered in the desired text, press enter to add the metric or metric prefix to the temporary list.
-
-The entered text displays below the blank field and is considered a temporary list until you click the **Save** button.  If there are any metrics or metric prefixes that were manually hidden previously, then they will appear in this list as well but will be considered part of the permanent list of manually hidden metrics and metric prefixes.
+1. Press **Enter** or **Return** to add the metric or metric prefix to the temporary list.
+   
+   ![hidden metrics](images/hidden_metrics.png)
+   
+   If there are any metrics or metric prefixes that were manually hidden previously, then they will appear in this list as well but are part of the permanent list of manually hidden metrics and metric prefixes.
  
-Continue this process until you enter all desired metrics and metric prefixes. Click **Save**.
+1. Repeat the preceding two steps adding metrics and metric prefixes. 
+1. Click **Save**.
  
-## Hiding Single Metrics in the List of Metrics
+## Hiding Single Metrics
  
-When you hover over a particular metric folder or metric name in the list of metrics on the Metrics Browser, a Hide Metrics button displays at the far right of that row on the list.
+1. In the Metrics browser, hover over a metric folder or metric name. A Hide Metrics button displays at the far right of that row on the list. If you are hovering over a metric name, the Hide Metrics button appears directly to the left of the Info button. 
 
-![metrics list hide](images/metrics_list_hide.png)
+   ![metrics list hide](images/metrics_list_hide.png)
 
-If you are hovering over a complete metric name, then the Hide Metrics button appears directly to the left of the Info button. Clicking **Hide Metrics** immediately applies that metric or metric prefix to the manually hidden metrics list.
+1. Click the **Hide Metrics** button. The metric or metric prefix is added to the hidden metrics list.
  
 ## Viewing Manually Hidden Metrics
  
@@ -58,9 +63,12 @@ This list displays only metrics and metric prefixes that were manually hidden. I
  
 ## Unhiding Metrics
  
-You can unhide manually hidden metrics and metric prefixes at any time. To unhide a particular metric/metric prefix, click the **Hide Metrics** button in the top right corner of the Metrics Browser to view the list of manually hidden metrics and metric prefixes. From the list, locate the metrics and metric prefixes to unhide, and click the **Unhide** button to the right of that selection.
+To unhide a metric or metric prefix:
 
-Click **Save**. The selected metric and metric prefixes will display in the list of metrics in the Metrics Browser, as well as the autocomplete dropdown associated with metric names when creating ts() queries. The selected metric/metric prefixes only appear again in these cases if they have had at least 1 reported data value in the last 4 weeks. If this is not the case, then these metric/metric prefixes are considered obsolete metrics and Wavefront automatically hides them by default.
+1. Click the **Hide Metrics** button in the top right corner of the Metrics browser to view the list of manually hidden metrics and metric prefixes. 
+1. Click the **Unhide** button to the right of the metric or metric prefix to unhide.
+1. Click **Save**. 
+   The selected metric and metric prefixes will display in the list of metrics in the Metrics browser, as well as the autocomplete dropdown associated with metric names when creating ts() queries. The selected metrics and metric prefixes only appear again in these cases if they have had at least 1 reported data value in the last 4 weeks. If this is not the case, then these metric/metric prefixes are considered obsolete metrics and Wavefront automatically hides them by default.
 
 
 

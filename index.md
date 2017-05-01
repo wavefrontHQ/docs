@@ -135,7 +135,7 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
                    <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
              </span>
          </div>
          <div class="panel-body">

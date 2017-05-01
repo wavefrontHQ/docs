@@ -15,7 +15,7 @@ Once cAdvisor is running, metrics prefixed with **cadvisor.** appear in Wavefron
 
 ![cadvisor metrics](images/cadvisor_metrics.png)
 
-You can either create charts from the Metrics Browser or deploy this dashboard. 
+You can either create charts from the Metrics browser or deploy this dashboard. 
 
 ![cadvisor dashboard](images/cadvisor_dashboard.png)
 

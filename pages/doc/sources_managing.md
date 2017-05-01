@@ -28,7 +28,7 @@ See [Organizing with Tags](tags_overview.html).
 
 ## Moving Sources Between Active and Hidden States
 
-With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down. When applying source filters to the Metrics Browser or a ts() expression, this can lead to several sources being included in the autocomplete dropdown even when they are no longer reporting data. Those sources will be automatically removed from the autocomplete dropdown after 4 weeks of inactivity, but you can also manually remove them in the UI or API by moving them from an active to hidden state. While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present.
+With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down. When applying source filters to the Metrics browser or a ts() expression, this can lead to several sources being included in the autocomplete dropdown even when they are no longer reporting data. Those sources will be automatically removed from the autocomplete dropdown after 4 weeks of inactivity, but you can also manually remove them in the UI or API by moving them from an active to hidden state. While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present.
  
 To view hidden sources, click the ACTIVE-HIDDEN toggle at the top right of the Sources page: 
 

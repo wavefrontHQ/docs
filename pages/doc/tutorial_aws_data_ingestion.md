@@ -9,7 +9,7 @@ The major components of Wavefront include the Wavefront SaaS application, which 
 
 ![Wavefront architecture](images/wavefront_architecture.png)
 
-To get data into Wavefront, you either install a Wavefront proxy and collector agent or set up an Amazon Web Services cloud integration.  Here we focus on AWS data ingestion. For the proxy and collector agent version, see [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html). Once you have data flowing, you visit the Metrics Browser to view the metrics and finally view an AWS dashboard provided by Wavefront.
+To get data into Wavefront, you either install a Wavefront proxy and collector agent or set up an Amazon Web Services cloud integration.  Here we focus on AWS data ingestion. For the proxy and collector agent version, see [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html). Once you have data flowing, you visit the Metrics browser to view the metrics and finally view an AWS dashboard provided by Wavefront.
 
 
 ## Set up an Amazon Web Services Cloud Integration
@@ -22,7 +22,7 @@ To set up an AWS integration:
  1. Select **Browse > Cloud Integrations**.
  1. Select **Add Integration > Set up Amazon Account**.  A page displays with instructions for configuring the integration. Follow the instructions in the product page. After you save, CloudWatch, AWS Metrics+, and optionally CloudTrail integrations are added to the Cloud Integrations list and AWS dashboards are installed.
   1. Click **Save**. CloudWatch, AWS Metrics+, and optionally CloudTrail integrations are added to the Cloud Integrations list and AWS dashboards are installed.
-  1. Let's look at the data that we are ingesting from the AWS services. Select **Browse > Metrics** to open the Metrics Browser.
+  1. Let's look at the data that we are ingesting from the AWS services. Select **Browse > Metrics** to open the Metrics browser.
     1. In the Metrics field, type **aws.** AWS metrics and metrics folders display. For information on AWS metrics collected by Wavefront, see [AWS Metrics Integration](integrations_aws_metrics.html).
   1. Open the AWS summary dashboard installed by Wavefront: `https://<wavefront_instance>/dashboard/wavefront-aws-summary`. From there, you can easily navigate to the other AWS dashboards.
   ![db_aws_summary](images/db_aws_summary.png)

@@ -11,7 +11,7 @@ The major components of Wavefront include the Wavefront SaaS application, which 
 
 To get data into Wavefront you either install a Wavefront proxy and collector agent or set up an Amazon Web Services cloud integration. For both methods you need [Proxy Management permission](permissions_overview.html) which your Wavefront administrator can grant.
 
-To get data into Wavefront, you either install a Wavefront proxy and collector agent or set up an Amazon Web Services (AWS) cloud integration.  Here we focus on using a Wavefront proxy and Telegraf agent for data ingestion. For the AWS version, see [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html). Once you have data flowing, we visit the Metrics Browser to view the metrics and create a dashboard of the Telegraf metrics. 
+To get data into Wavefront, you either install a Wavefront proxy and collector agent or set up an Amazon Web Services (AWS) cloud integration.  Here we focus on using a Wavefront proxy and Telegraf agent for data ingestion. For the AWS version, see [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html). Once you have data flowing, we visit the Metrics browser to view the metrics and create a dashboard of the Telegraf metrics. 
  
 ## Install a Wavefront Proxy and Telegraf Collector Agent
 Before metrics can begin streaming to Wavefront from a host, application, or service you must add a Wavefront proxy to your machine. The Wavefront application has a wizard that guides you through installing a Wavefront proxy and a Telegraf collector agent. To run the wizard:
@@ -25,7 +25,7 @@ Before metrics can begin streaming to Wavefront from a host, application, or ser
     1. Click **Next**. Instructions for running a script to install the Telegraf collector agent display.
     1. Copy the script and run on your host.
     1. Click **Next**, then **Done** twice. The Proxies page displays. Verify that your proxy is listed.
- 1. Let's look at the data that Telegraf is collecting. Select **Browse > Metrics** to open the Metrics Browser.
+ 1. Let's look at the data that Telegraf is collecting. Select **Browse > Metrics** to open the Metrics browser.
     1. In the Metrics field, type **cpu.usage**. The `cpu.usage` folder displays.
     1. Click the folder to display Telegraf CPU metrics.
    1. Click **Create Dashboard** to quickly create a dashboard of charts for the metrics.  (To complete this task you need [Dashboard Management permission​](permissions_overview.html).

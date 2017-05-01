@@ -12,14 +12,14 @@ summary: Learn how to manage dashboards.
 
 ## Creating a Dashboard
 
-The process for creating a dashboard can begin from the All Dashboards page, an existing dashboard, a chart, or the Metrics Browser.
+The process for creating a dashboard can begin from the All Dashboards page, an existing dashboard, a chart, or the Metrics browser.
 
 1.  Do one of the following:
 
     -   In the All Dashboards page, click the **Create Dashboard** button on the filter bar.
     -   From an existing dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side of the browser window below the task bar, and select **New**. You can also click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
     -   From a chart, scroll down to the **Save to** section and click **New Dashboard**.
-    -   From the Metrics Browser, locate **Create Dashboard** in the top left corner of the page and click it to begin the process of creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser also allows you to apply additional parameters such as sources and source tags.
+    -   From the Metrics browser, locate **Create Dashboard** in the top left corner of the page and click it to begin the process of creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser also allows you to apply additional parameters such as sources and source tags.
 
     A Create New Dashboard dialog displays. Enter a URL and name for your dashboard. The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving. The Name field supports letters, numbers, characters, and spaces.
 
