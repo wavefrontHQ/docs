@@ -22,7 +22,7 @@ cpu.loadavg-customerB.5m
  
 However, the data for this set of metrics is being reported by 1 source (e.g. `source1`). The data is present, but what if you wanted to aggregate the data and "group by" customer? You could create two separate ts() expressions to accomplish this, or you could use `aliasSource()` to update the `<source1>` name to `customerA` or `customerB`. At that point you could "group by" source and get the answer you needed from a single expression.
  
-There are two sets of applicable syntax for this function: zeroBasedNodeIndex and Regex. The option you should select should be based on whether a simple zeroBasedNodeIndex approach solves your use case or whether a more detailed Regex approach is needed. 
+There are three sets of applicable syntax for this function: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
  
 ### zeroBasedNodeIndex Approach 
  
@@ -196,7 +196,7 @@ sum(ts("customer.user.total"),customer)
 
 If you wanted to display this information as a column on a Tabular View Chart, the current aggregate metric would not display properly. However, by using `aliasMetric()` to rename the aggregate metric, we can apply a column header of 'Total Users'.
  
-There are two sets of syntax for this function: zeroBasedNodeIndex and Regex. The option you should select should be based on whether a simple zeroBasedNodeIndex approach solves your use case or whether a more detailed Regex approach is needed.
+There are three sets of applicable syntax for this function: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
  
 ### zeroBasedNodeIndex Approach
  

@@ -43,11 +43,11 @@ entries:
       url: /tutorial_getting_started.html
       output: web
       
-    - title: "Tutorial: Getting Amazon Web Services Data into Wavefront"
+    - title: "Tutorial: Getting Started with Amazon Web Services Data"
       url: /tutorial_aws_data_ingestion.html
       output: web
       
-    - title: "Tutorial: Getting Host, Application, and Custom Data into Wavefront"
+    - title: "Tutorial: Getting Started with Host, Application, and Custom Data"
       url: /tutorial_proxy_data_ingestion.html
       output: web
       
@@ -83,7 +83,7 @@ entries:
     output: web
     folderitems:
       
-    - title: Getting Data into Wavefront
+    - title: Getting Data into Wavefront Overview
       url: /wavefront_data_ingestion.html
       output: web
       
