@@ -54,24 +54,52 @@ The following table enumerates the distribution of the same metric at successive
 The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. A consequence of using this algorithm is that unlike the histogram illustrated above, the bin size is not uniform.
  
 In addition, because histograms do not store data point values, quantiles calculated from histograms are estimates within a certain margin of error.
- 
+
+
 ## Histogram Metric Aggregation Intervals
-Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
+
+Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  
+
+The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
  
+## Sending Histogram Distributions
+
+You can also compute a histogram distribution yourself and send it to the Wavefront proxy. To indicate that data is a histogram distribution, send it in the following format:
+
+```html
+{!M | !H | !D} [<timestamp>] #<points> <metricValue> <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
+```
+
+where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution and `points` is the number of points.
+
+{% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, the histogram distribution format inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
+
+### Example
+
+```
+!M 1493773499 #20 30 request.latency source=appServer1 region=us-west
+```
+
+This distribution sends 20 histogram points of the metric `request.latency` with value 30 that have been aggregated into minute intervals.
+
 ## Wavefront Proxy Configuration
 Histograms are supported by Wavefront proxy 4.8 and higher.
  
-To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port according to the aggregation window. For example:
+To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port according to whether you are sending a distribution or by aggregation interval. For example:
 
-<table width="50%">
+<table width="75%">
 <colgroup>
-<col width="40%" />
-<col width="60%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
-<tr><th>Aggregation Window</th><th>Default Proxy Port</th></tr>
+<tr><th>Distribution or Aggregation Interval</th><th>Default Proxy Port</th></tr>
 </thead>
 <tbody>
+<tr>
+<td>distribution</td>
+<td>40000</td>
+</tr>
 <tr>
 <td>minute</td>
 <td>40001</td>
@@ -201,19 +229,27 @@ For information on how to configure proxies, see [Configuring Proxies](proxies_c
 </tbody>
 </table>
 
-## Histogram Metric Naming
+## Querying Histogram Metrics
+
+Wavefront follows specific naming conventions for histogram metrics and defines functions to query and summarize histogram metrics.
+
+### Histogram Metric Naming
  
 You send metrics using the standard [Wavefront data format](wavefront_data_format.html):
 
-```
-<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]
+```html
+<metricName> <metricValue> [<timestamp>] source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
 ```
 
-For example, `request.latency 20 1484877771 source=<source>`. The Wavefront proxy automatically adds the prefix histogram and suffixes .m, .h, or .d according to the bin granularity to histogram metrics. For example, if the preceding metric `request.latency` is aggregated over an hour, it would be named `histogram.request.latency.h`.
- 
-## Querying Histogram Metrics
+For example, `request.latency 20 1484877771 source=<source>`. 
 
-To query histogram metrics, use the `hs()` function to return points. Then you can apply a limited set of statistical functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
+The Wavefront proxy adds the prefix `histogram` and suffixes `.m`, `.h`, or `.d` according to the aggregation interval. For example, if the preceding metric `request.latency` is aggregated over an hour, it would be named `histogram.request.latency.h`.
+
+### Histogram Functions
+
+To query histogram metrics, use the `hs()` function to return points. 
+
+You can apply a limited set of statistical functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
 
 - `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
 - `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.

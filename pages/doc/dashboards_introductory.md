@@ -8,8 +8,6 @@ summary: Learn about the tutorial, example, and use case introductory dashboards
 ---
 Every Wavefront instance contains a set of introductory system dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.
 
-{% include shared/system_dashboard.html %}
-
 You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview.html).
 
 - Demo - **wavefront.tour**
@@ -30,6 +28,9 @@ You can quickly access any of these dashboards by selecting **Dashboards > All D
 - Examples - **wavefront.example**
   - Intro: Sample Cluster Metrics - displays metrics from a cluster containing several types of sources (application server, database, host, network, etc.).
   - Intro: Telegraf Example - displays metrics from hosts where the Telegraf collector agent is being used for system metric collection.
+
+{% include shared/system_dashboard.html %}
+
 
 ## Intro: Home Dashboard
 
