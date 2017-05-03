@@ -74,6 +74,8 @@ where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day
 
 {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, the histogram distribution format inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
 
+Send histogram distribution data to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
+
 ### Example
 
 ```
@@ -82,8 +84,12 @@ where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day
 
 This distribution sends 20 histogram points of the metric `request.latency` with value 30 that have been aggregated into minute intervals.
 
-## Wavefront Proxy Configuration
-Histograms are supported by Wavefront proxy 4.8 and higher.
+## Histogram Configuration
+
+Histograms are supported by Wavefront proxy 4.8 and higher. Using histograms require that you configure various options in the Wavefront proxy. For information on how to configure proxies, see [Configuring Proxies](proxies_configuring.html).
+
+
+### Histogram Proxy Ports
  
 To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port according to whether you are sending a distribution or by aggregation interval. For example:
 
@@ -115,9 +121,10 @@ To indicate that metrics should be treated as histogram data, you send the metri
 </tbody>
 </table>
 
-For information on how to configure proxies, see [Configuring Proxies](proxies_configuring.html).
 
 ### Histogram Configuration Properties
+
+This table lists other histogram configuration properties in addition to the histogram proxy ports. In particular, note the requirements on the state directory and the affect of the two `persist` properties listed at the bottom of the table.
 
 <table class="width:100%;">
 <colgroup>
