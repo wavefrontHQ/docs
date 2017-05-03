@@ -180,14 +180,14 @@ This table lists other histogram configuration properties in addition to the his
 <td>Positive integer.</td>
 </tr>
 <tr>
-<td>histogramDistListenerPort</td>
-<td>TCP port to listen on for ingesting histogram distributions. Default: 40000.</td>
-<td>A port number.</td>
+<td>histogramDistListenerPorts</td>
+<td>TCP ports to listen on for ingesting histogram distributions. Default: 40000.</td>
+<td>Comma-separated list of ports. Can be a single port.</td>
 </tr>
 <tr>
 <td>histogramHourListenerPorts</td>
 <td>TCP ports to listen on for histograms to be aggregated by hour. Default: 40002.</td>
-<td>Comma-separated list of ports.</td>
+<td>Comma-separated list of ports. Can be a single port.</td>
 </tr>
 <tr>
 <td>histogramHourAccumulators</td>
@@ -203,7 +203,7 @@ This table lists other histogram configuration properties in addition to the his
 <td>histogramMinuteListenerPorts
 </td>
 <td>TCP ports to listen on for histograms to be aggregated by minute. Default: 40001.</td>
-<td>Comma-separated list of ports.</td>
+<td>Comma-separated list of ports. Can be a single port.</td>
 </tr>
 <tr>
 <td>histogramMinuteAccumulators</td>

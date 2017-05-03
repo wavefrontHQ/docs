@@ -81,7 +81,7 @@ In the UI you operate on tag paths by selecting a component at a specific node i
 
 Here's a video overview: 
 
-{% include video.html file="ex41ab32mx" %}
+{% include video.html file="u1vzsuttf6" %}
 
 In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
