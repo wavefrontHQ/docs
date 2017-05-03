@@ -64,25 +64,28 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
  
 ## Sending Histogram Distributions
 
-You can also compute a histogram distribution yourself and send it to the Wavefront proxy. To indicate that data is a histogram distribution, send it in the following format:
+You can also compute a histogram distribution yourself and send it to the Wavefront proxy. A distribution allows you to send a group of points with a single value. 
 
-```html
-{!M | !H | !D} [<timestamp>] #<points> <metricValue> <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
-```
+To indicate that data is a histogram distribution, you send histogram data:
 
-where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution and `points` is the number of points.
+- To the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
 
-{% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, the histogram distribution format inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
+- Using the following format:
 
-Send histogram distribution data to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
+  ```html
+  {!M | !H | !D} [<timestamp>] #<points> <metricValue> <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
+  ```
 
-### Example
+  where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution and `points` is the number of points. For example:
 
-```
-!M 1493773499 #20 30 request.latency source=appServer1 region=us-west
-```
+  ```
+  !M 1493773499 #20 30 request.latency source=appServer1 region=us-west
+  ```
 
-This distribution sends 20 histogram points of the metric `request.latency` with value 30 that have been aggregated into minute intervals.
+  is a distribution that sends 20 points of the metric `request.latency` with value 30 that have been aggregated into minute intervals.
+
+  {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, histogram data inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
+
 
 ## Histogram Configuration
 
