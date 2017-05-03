@@ -34,9 +34,13 @@ You have several ways to control when event overlays display in charts:
 
 - Add an [events() query](events_queries.html) to the chart. An events() query cannot be the only query on the chart; to display the events at least one ts() query must be enabled on the chart in addition to the events() query.
 
-- For all charts in a **dashboard**:
+- For all charts in a dashboard:
   - Set an [events() query](events_queries.html) in [dashboard preferences](dashboards_managing.html#prefs).
-  - Select an option in the dashboard **Show Events** menu:
+  - Select an option in the dashboard **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar:
+
+    ![time window](images/time_bar.png)
+    
+    The options are:
 
     <ul>
     <li markdown="span"><strong>From Chart</strong> - Display events based on the selection of the **Display Source Events** checkbox. Default setting.</li>

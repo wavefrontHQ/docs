@@ -9,7 +9,6 @@ summary: Learn how to manage dashboards.
 
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
-
 ## Creating a Dashboard
 
 The process for creating a dashboard can begin from the All Dashboards page, an existing dashboard, a chart, or the Metrics browser.
@@ -68,12 +67,11 @@ The process for cloning an existing dashboard can be started from the All Dashbo
 
 When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
 
-The process for editing an existing dashboard can be started from the All Dashboards page or directly from the existing dashboard page:
-
+1. To edit a dashboard, start from the All Dashboards page or directly from the existing dashboard page:
 -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Edit**.
 -   From a dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Edit**.
-
-{% include note.html content="Wavefront [system dashboards](dashboards_introductory.html) are read-only and edits cannot be saved. If you want to make changes to a system dashboard you must first clone it." %}
+1. Edit the dashboard.
+2. Click **Save**.
 
 ### Dashboard Description and Name
 

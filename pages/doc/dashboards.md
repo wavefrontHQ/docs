@@ -15,4 +15,12 @@ All users can [search](dashboards_searching.html) and [interact](dashboards_inte
 
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
+## Dashboard Types
 
+Wavefront has two types of dashboards: system and user. System dashboards include:
+
+- [Introductory dashboards](dashboards_introductory.html)
+- [AWS dashboards](integrations_aws_metrics.html#aws-dashboards)
+- [Internal Metrics dashboard](wavefront_monitoring.html)
+
+{% include shared/system_dashboard.html %}

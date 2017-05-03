@@ -4,19 +4,54 @@ keywords: dashboards
 tags: [dashboards, charts, getting started, videos]
 sidebar: doc_sidebar
 permalink: dashboards_interacting.html
-summary: Learn how to alter time windows, isolate time series, share URLs, and apply global queries when interacting with dashboards and activate chart modes.
+summary: Learn how to isolate sources and series, share URLs, alter time windows, and apply global queries when interacting with dashboards and charts and activate chart display modes.
 
 ---
 ## Common Interactions
-There are a few interactions that are common to dashboards and charts. You can share shortened URLs and isolate sources. These are available in the action buttons at the bottom right of a dashboard or chart:
+There are a few interactions that are common to dashboards and charts. You can isolate sources and share shortened URLs. These are available in the action buttons at the bottom right of a dashboard or chart:
 
 ![action buttons](images/action_buttons.png)
  
+### Isolating Sources and Series
+
+When looking at charts, you may want to investigate a particular source or series further. Charts and dashboards have a couple of ways to do this.
+ 
+#### Isolating Sources
+
+To isolate one or more sources use the Highlight Sources fly-out. To use the fly-out:
+
+1. Hover over the magnifying lens icon <i class="fa fa-search"/>. The fly-out displays. 
+
+   ![highlight sources](images/highlight_sources.png)
+  
+1. Type the name of the sources to isolate. The fly-out supports wildcards. For example, you can search for **app-1**, **app-1\***, or **\*-1\***. When you isolate a source, series with those sources display as saturated and all other series lose color saturation.
+
+   ![isolated line](images/isolated_line.png)
+
+   An isolation bar appears at the bottom of the page.
+
+   ![isolation bar](images/isolation_bar.png)
+
+You can remove a single isolation by clicking <i class="fa fa-times"/> next to the source name, or remove all isolations by clicking <i class="fa fa-times"/> next to the **Sources:** label.
+
+#### Isolating Sources and Series
+
+To isolate sources and aggregated series by clicking series in a chart:
+
+1. Hover over the series you want to isolate. The series you hover over display as saturated and all other series lose color saturation. 
+1. Click the series.  An isolation bar appears at the bottom of the page. To isolate multiple series on all charts, hold down the **Windows** or **Command** key and repeat.
+   - If a series is related to a single source, it appears in the **Sources:** list. When you isolate a source, every series in the dashboard containing that source is isolated. 
+   - If a series represents an aggregation of sources, it appears in the **Series:** list.  When you isolate a series, the query field name displays in the isolation bar and every series in the dashboard with that query field name is isolated.
+
+     ![isolated series](images/isolated_series.png)
+
+To remove a single isolation, click the <i class="fa fa-times"/> next to the series. To remove all isolated sources or series, click the <i class="fa fa-times"/> next to the list label.
+
 ### Sharing Dashboards and Charts
 
 The URLs in the Wavefront address bar encode information about the dashboard or chart name and any settings you have applied. When you make a change to a dashboard or chart, for example, change the time window, the URL updates to reflect that change. With this functionality, you can quickly and easily share your current view with other users. When you share a URL with other users, they can see the exact view you see and can also interact with the dashboard or chart. 
 
-The URL can be a very long string. The URL shortener link creates a condensed URL for the purpose of sharing. When you click the link icon <i class="fa fa-link"/> in the action buttons, a shortened URL is copied to your clipboard. You can also manually copy the shortened URL link.
+The URL can be a very long string. The URL shortener link creates a condensed URL to facilitate sharing. When you click the link icon <i class="fa fa-link"/> in the action buttons, a shortened URL is copied to your clipboard. You can also manually copy the shortened URL link.
 
 #### Sharing a Dashboard or Chart in Live View Mode
 
@@ -27,19 +62,7 @@ A shortened URL link allows you to share a fully interactive dashboard or chart,
 1. Right-click the link icon and select **Copy link address**.
  
 Share the link as a live view with other users. Keep in mind that the time window associated with your live view URL link is based on your previous selection on the time bar. For example, selecting 10m results in a live view URL link with a 10 minute view.
- 
-### Isolating Sources
 
-The Highlight Sources fly-out allows you to isolate one or more source data streams for every chart on a dashboard or an individual chart. When you hover over the magnifying lens icon <i class="fa fa-search"/>, the fly-out displays so you can type in the name of the sources you want to isolate.
-
-![highlight sources](images/highlight_sources.png)
-
-The fly-out supports wildcards, for example, you can search for **app-1**, **app-1\***, or **\*-1\***. When you isolate a source across all charts on a dashboard, the source displays as colored on each chart and all other sources lose color saturation. When a source is isolated, an isolation bar appears at the bottom of the page.
-
-![isolation bar](images/isolation_bar.png)
-
-You can remove a single isolation by clicking <i class="fa fa-times"/> next to the source name, or remove all isolations by clicking <i class="fa fa-times"/> next to the **Sources:** label.
- 
 ## Dashboard Interactions
  
 This section showcases all of the ways you can interact with a dashboard in Wavefront. Features like sections apply only to the dashboard, while features like time windows, event overlays, and global queries affect every chart in the dashboard.
@@ -64,11 +87,9 @@ To select a larger or smaller time window or to view past data instead of realti
   - When Live Data is selected, click an interval to quickly increase or decrease the amount of live data displayed within each chart. 
   - When Custom Date is selected, clicking an interval adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, the start time is adjusted to 3:00 AM.
 
-The following 25 second video
+The following 25 second video shows how adjusting time windows using the time bar affects charts:
 
 {% include video.html file="5rboi5gh0z" %}
-
-shows how adjusting time windows using the time bar affects charts.
 
 ### Working with Sections
 
@@ -90,7 +111,11 @@ To toggle whether a section is expanded or collapsed, click the section name.
 
 ### Displaying Events on Charts
 
-The **Show Events** dropdown at in the middle of the time bar allows you to overlay [events](events_managing.html) on the X-axis of charts. See [Controlling Event Overlays](charts_events_displaying.html#controlling-events-overlays).
+The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar allows you to overlay [events](events_managing.html) on the X-axis of charts.
+
+![time window](images/time_bar.png)
+
+See [Controlling Event Overlays](charts_events_displaying.html#controlling-events-overlays).
  
 ### Performing Temporary Global Queries
 
@@ -99,21 +124,19 @@ Suppose you would like to apply a temporary ts() expression to every chart to he
 - A constant value such as 5
 - A simple ts() expression such as `ts(~metrics.counter)`
 - An advanced ts() expression such as `(ts(mem.total) - ts(mem.free)) * 100`
- 
-The Global Query fly-out is represented by a <i class="fa fa-plus-square"/> icon and can be found in the bottom right corner of a dashboard. You access the Global Query fly-out by hovering over the icon. When you do this, a field appears where you can specify a ts() expression.
- 
-For example, to apply a constant value of 5 on each of three charts:
+  
+To apply a global query:
 
-1. Hover over the fly-out icon. 
-1. Specify 5 in the global query fly-out field:
+1. Hover over the Global Query fly-out icon <i class="fa fa-plus-square"/> icon in the action buttons at the bottom right corner of a dashboard.
+1. Specify a ts() expression, for example, 5:
 
    ![global query flyout](images/global_query_flyout.png)
  
-1. Press **Enter** or **Return**. Every chart displays a temporary constant time series 5:
+1. Press **Enter** or **Return**. For the query 5, every chart displays a temporary constant time series 5:
 
    ![global query](images/global_query.png)
 
-The Global Query fly-out stays out until you remove the query from the field.
+The Global Query fly-out stays out until you delete the query expression.
  
 ### Opening a Chart
 
@@ -173,17 +196,6 @@ To reset the individual chart window to match all other charts, click **RESET**.
 
 ![reset time window](images/reset_time_window.png)
  
-### Isolating a Time Series
-
-When looking at a chart on a dashboard, you may notice an anomaly for a single series that you want to investigate further. Wavefront allows you to isolate that series for all charts on a dashboard. To do this, hover over the series you want to isolate. When you do this, you should see the other series lose color saturation while the series you hover over stays saturated. If you hover over multiple series then each of them will stay saturated. Once you have only the single series highlighted, click it. When you do this, each chart on the dashboard updates to display that single series on every chart. To isolate multiple series on all charts, hold down the **Ctrl** key and repeat the process.
- 
-When a series is isolated, an isolation bar appears at the bottom of the page. If the series is related to a single source, then it appears in the **Sources:** list on the bar. If the series represents an aggregation of sources, then it appears in the **Series:** list on the bar.
-
-![isolated series](images/isolated_series.png)
-
-To remove a single isolation, click the <i class="fa fa-times"/> next to the isolated series. To remove all isolated series, click the <i class="fa fa-times"/> next to the list label on the isolation bar.
- 
-Just like isolating sources from the source fly-out on a dashboard, you can isolate aggregated  series by query field names. Query fields can be an aggregation of sources, such as `sum(ts("requests.latency"))`. When you isolate a query field instead of a source, the query field name for the individual chart displays on the isolation bar.
  
 ### Activating Chart Display Modes
 Charts support a few modes for controlling how data displays. You can display data in full precision mode, hide the hover legend, and display a fish-eye view. These features are enabled using hot keys: Shift, Ctrl, and Alt or Option.
