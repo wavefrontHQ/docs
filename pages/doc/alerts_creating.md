@@ -10,7 +10,7 @@ An alert is triggered when a monitored metric reaches a value that indicates a p
 
 To disable alert checking for a set of sources during a specific time window you can put them in a [maintenance window](maintenance_windows_managing.html). Snoozing alerts disables alert checking for a fixed time window.
 
-{% include shared/permissions.html entity="alerts and maintenance windows" entitymgmt="Alert" %}
+{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
 
 ## Creating an Alert

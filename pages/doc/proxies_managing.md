@@ -14,7 +14,7 @@ Wavefront proxies are deployed on a machine within your network and act as the i
  
 Before streaming data, we recommend that you understand [best practices for naming your data](wavefront_data_naming.html).
  
-{% include shared/permissions_proxies.html %}
+{% include shared/permissions.html entity="proxies" entitymgmt="Proxy" %}
 
 ## Viewing Registered Proxies
 
