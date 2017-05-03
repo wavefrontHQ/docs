@@ -12,7 +12,7 @@ For example, suppose you are measuring the latency of each web request. If you h
  
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as P95s from a variety of sources) does not yield a valid percentile.
  
-A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy. In addition to storing histogram data, Wavefront provides language features that can be used to query histogram data from multiple sources and calculate percentiles. These calculated percentiles are then available as new time series that can be used in Wavefront Query Language queries.
+A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy or sent by to you to the proxy. In addition to storing histogram data, Wavefront provides language features that can be used to query histogram data from multiple sources and calculate statistics. These calculated statistics are then available as new time series that can be used in Wavefront Query Language queries.
 
 ## Wavefront Histogram Distributions
  
