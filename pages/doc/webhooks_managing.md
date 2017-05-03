@@ -12,7 +12,7 @@ contains data either passed as simple POST keys and values or in some other form
 
 To view and manage webhooks, select **Browse > Webhooks**.
 
-{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
+{% include shared/permissions.html entity="webhooks" entitymgmt="Alert" %}
 
 ## Creating a Webhook
 
