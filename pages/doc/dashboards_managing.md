@@ -11,7 +11,7 @@ summary: Learn how to manage dashboards.
 
 ## Creating a Dashboard
 
-The process for creating a dashboard can begin from the All Dashboards page, an existing dashboard, a chart, or the Metrics browser.
+You can create a dashboard from the All Dashboards page, an existing dashboard, a chart, or the Metrics browser.
 
 1.  Do one of the following:
 
@@ -31,7 +31,7 @@ Dashboards are stored in JSON format. You can deploy a dashboard JSON file with 
 
 ```shell
 curl -v https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<dashboard_file>.json \
-  -H "Content-Type: application/json" -H 'X-AUTH-TOKEN: <wavefront_api_token>'
+  -H "Content-Type: application/json" -H 'Authorization: Bearer <wavefront_api_token>'
 ```
 
 <span id="prefs"/>
@@ -43,7 +43,7 @@ To set the dashboard preferences:
 1. Click the wrench icon <i class="fa-wrench fa"/> at the top right of the dashboard.
 1. Edit the preferences.
    -   Dashboard name and description
-   -   Whether to display the: 
+   -   Whether to display: 
        - Description
        - [Section link bar](#sections)
        - [Dashboard variables](dashboards_variables.html)
@@ -54,9 +54,7 @@ To set the dashboard preferences:
 
 ## Cloning a Dashboard
 
-The process for cloning an existing dashboard can be started from the All Dashboards page or directly from the existing dashboard page.
-
-1. Open the clone dialog:
+1. To clone a dashboard:
   -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Clone**.
   -   From a dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Clone**.
 1. Specify a new URL.
@@ -65,43 +63,50 @@ The process for cloning an existing dashboard can be started from the All Dashbo
 
 ## Editing a Dashboard
 
-When editing a dashboard, you can make changes to the dashboard description, name, dashboard variables, sections, and charts.
+{% include shared/system_dashboard.html %}
 
-1. To edit a dashboard, start from the All Dashboards page or directly from the existing dashboard page:
+When editing a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboard_variables.html), sections, and charts.
+
+1. To edit a dashboard:
 -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Edit**.
 -   From a dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Edit**.
+
+   The dashboard displays in edit mode.
 1. Edit the dashboard.
-2. Click **Save**.
 
-### Dashboard Description and Name
+   When editing a dashboard, you may make several changes at a time. To remove a change, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can only remove changes made in the current edit mode session.
+2. After any configuration action described in this section, click **Save**.
 
-When your dashboard is in edit mode, a clickable link labeled **&lt;&lt;Edit Dashboard Description&gt;&gt;** displays below the time bar. When you click this link, the [Dashboard Display Preferences](#prefs) dialog displays.
+### Setting the Dashboard Name and Description
 
-From here you can rename your dashboard and enter a description. If you enter a description and want it to be displayed on your dashboard, click **Show Description**. Click **Accept**. If you are viewing your dashboard (not in edit mode) and want to change your dashboard preferences, click the <i class="fa-wrench fa"/> icon.
+1. Click the **&lt;&lt;Edit Dashboard Description&gt;&gt;** link. The [Dashboard Display Preferences](#prefs) dialog displays.
+1. Rename your dashboard and enter a description. 
+1. If you enter a description and want it to be displayed on your dashboard, click **Show Description**. 
+1. Click **Accept**.
 
 <span id="sections"/>
 
 ### Configuring Dashboard Sections
 
-In a dashboard charts are contained in sections. By default, every dashboard has at least one section. A section link bar displays directly below the time bar at the top of the dashboard. 
+Charts are contained in sections. By default, every dashboard has at least one section. A section link bar displays directly below the time bar at the top of the dashboard. 
 
 ![Section_Table_of_Contents](images/section_links.png)
 
-You can quickly jump to a desired section by clicking the link in the section bar. If the section link bar is not displayed, turn it on in the [Dashboard Display Preferences](#prefs).
+Jump to a section by clicking the link in the section bar. If the section link bar is not displayed, turn it on in the [Dashboard Display Preferences](#prefs).
 
-While editing a dashboard, you have the option of renaming a section, adding or removing a section, and moving a section up or down on the dashboard.
+![Section_Editing](images/section_actions.png)
 
-![Section_Editing](images/section_editing.png)
+While editing a dashboard, available sections actions are: 
 
-To change the name of a section, click the name. When you do this, the section name becomes editable. Hit enter or click anywhere away from the section name after the desired change is made. The icons on the right side of the section allow you to move the selected section, add a new section, and delete the selected section. You must save the dashboard for these changes to be permanent.
+- Change the name: 
+  1. Click the name at the far left.
+  1. Type a new name.
+  1. Press **Enter** or **Return** or click anywhere away from the section name. 
+- Move, add, or delete. Click icons on the far right. 
 
-### Resizing Chart Rows
+### Resizing Rows
 
-When your dashboard is in edit mode, you can resize individual chart rows on your dashboard by clicking the resize icons on the left side of each chart row:
-
-![resize.png](images/resize.png)
-
-Resizing a chart row affects every chart located in that chart row.
+Resize a row within a section by clicking the resize icons ![resize.png](images/row_resize.png#inline) on the left side of each row. Resizing a row resizes every chart in that row.
 
 ### Editing the Dashboard JSON
 
@@ -112,7 +117,7 @@ You can directly modify any dashboard properties by editing the dashboard's JSON
 
    ![json tree.png](images/json_tree.png)
 
-   You can also edit the JSON code directly by selecting **Tree > Code**. For example, to change a chart row height, edit the row's `heightFactor` property:
+   You can also edit the JSON code directly by selecting **Tree > Code**. For example, to change a row height, edit the row's `heightFactor` property:
   
    ```
    ...
@@ -123,31 +128,33 @@ You can directly modify any dashboard properties by editing the dashboard's JSON
    ```
 
 1. Click **Accept**.
-1. Click **Save**.
-
-When editing a dashboard, you may make several changes at a time. To remove a single change, but not the changes made before it, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and working its way backwards. You can only remove changes this way in the current edit mode session.
 
 ## Deleting Dashboards
 
-You can delete a dashboard from the All Dashboards page or the specific dashboard you want to remove.
+To delete one or more dashboards:
 
--  From the All Dashboards page, locate the dashboard that to remove from the dashboards list and select  ![action_menu.png](images/action_menu.png#inline) **> Delete**.
--  If you are viewing a dashboard and want to delete it, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Delete**.
+  -  In the All Dashboards page:
 
-You are prompted with a secondary message to confirm you want to delete the dashboard. Once confirmed, the dashboard is moved to the Trash bin.  You can view the Trash bin by clicking the trash toggle: Off - ![trash_off.png](images/trash_off.png#inline#inline)  On - ![trash_on.png](images/trash_on.png#inline).
+     - Select the checkboxes next to one or more dashboards and click <i class="fa-trash fa"/>.
+     - Locate a dashboard and select  ![action_menu.png](images/action_menu.png#inline) **> Delete**. Click **Delete Dashboard** to confirm the delete action.
+  -  From a dashboard, click the pencil icon <i class="fa-pencil fa"/> and select **Delete**. Click **OK**  to confirm the delete action.
 
-If you delete a dashboard by mistake, it can be recovered within 30 days of deletion from the Trash bin. After 30 days, the deleted dashboard is removed from the Trash bin and is no longer be recoverable. If you'd like the deleted dashboard to be permanently removed from the system prior to the 30 day deadline, then you can manually do so from the Trash bin.
+The dashboard(s) are moved to the Trash. You can view the Trash by clicking the trash toggle: Off - ![trash_off.png](images/trash_off.png#inline#inline)  On - ![trash_on.png](images/trash_on.png#inline).
+
+You can recover a dashboard within 30 days of being moved to the Trash. After 30 days, the deleted dashboard is removed from the Trash and is no longer recoverable. To permanently remove a dashboard before the 30 day deadline, toggle the Trash icon and manually delete it.
 
 ## Managing Dashboard Versions
 
-Wavefront keeps track of changes made to a dashboard, and displays those changes in the Dashboard History page. You can access a dashboard's history from the All Dashboards page or directly from a dashboard.
+Wavefront keeps track of changes made to a dashboard and displays those changes in the Dashboard History page. You can access a dashboard's history from the All Dashboards page or directly from the dashboard:
 
 -   From the All Dashboards page, find the desired dashboard in the list and select ![action_menu.png](images/action_menu.png#inline) **> Versions**.
--   From a dashboard,  click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Versions**.
+-   From a dashboard,  click the pencil icon <i class="fa-pencil fa"/>, and select **Versions**.
 
 From the Past Versions page, each revision is listed along with the user who made the change, the day and time it was updated, and the change description.
 
-If you want to revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list. You can also choose to view a previous dashboard version before reverting by clicking the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
+To revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list. 
+
+You can also choose to view a previous dashboard version before reverting by clicking the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
 
 ## Managing Dashboard Tags
 
@@ -155,33 +162,31 @@ See [Organizing with Tags](tags_overview.html).
 
 ## Managing Charts in Dashboards
 
+To make changes to a chart in a dashboard, first put the dashboard in [edit mode](#editing-a-dashboard). After making a change, click **Save**.
+
 ### Adding a Chart to a Dashboard
 
-To add a new chart to a dashboard:
-
-1.  Navigate to the dashboard and put it in edit mode.
-1.  Find the section you want to place the chart in. Click <i class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
+1.  Go to a section. Click <i class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
     1.  In the New Query field, type a [Wavefront Query Language](query_language_getting_started.html) expression.
     1.  In the Chart section, [customize your chart](charts.html).
     1.  Click **Accept**. The new chart displays in the section you selected.
-1.  Click **Save**.
 
-### Deleting, Cloning, and Making Permanent Changes to a Chart
+### Deleting, Cloning, and Editing a Chart
 
-If you hover over an existing chart while a dashboard is in edit mode, three icons display in the bottom left corner of the chart box:
+1. Hover over a chart. Three icons display in the bottom left corner of the chart box ![three_icons](images/chart_actions.png#inline).
+1. Delete, clone, or edit the selected chart. When you clone a chart, it is created in a separate row below the selected chart.
 
-![three_icons](images/three_icons.png)
+You can also edit a chart by clicking the chart name in the top right corner. Save your changes by clicking **Save** in the chart.
 
-that allow you to delete, clone, or edit the selected chart. When you clone a chart, it is created in a separate row below the selected chart.
+### Moving a Chart
 
-While deleting and cloning a chart is available only when a dashboard is in edit mode, editing a chart is always available. To edit a chart when the dashboard is not in edit mode, locate the chart you want to edit and click the chart name in the top right corner. When the dashboard is in edit mode, any changes made are permanent only if you save the dashboard. If you begin editing a chart when a dashboard is not in edit mode, you save your changes by clicking **Save** from the individual chart.
+To move a chart:
 
-### Reorganizing Charts on a Dashboard
+1. Hover over a chart. 
+1. Left-click your mouse and hold. The cursor changes to <i class="fa-arrows fa"/>.
+1. Drag the chart to a new position on the dashboard. You can move the chart to an existing row or to a new row by dragging a chart over an <i class="fa-plus-circle fa"/> Add New Chart box.
 
-To customize the placement of charts when a dashboard is in edit mode:
+   You can place up to four charts in a row. The more charts in a row, the smaller each chart will be. The smaller the chart, the fewer the number of point buckets and larger the amount of time represented by each point bucket. See [Chart Resolution](charts_resolution.html).
 
-1.  Hover over a chart, left-click your mouse, and hold. 
-1.  When the cursor changes to <i class="fa-arrows fa"/>, drag the chart to its new position on the dashboard. You can place up to four charts in a row. Keep in mind that the more charts in a row, the smaller each chart will be. Smaller charts in each row also affect the number of point buckets and amount of time represented by each point bucket. You can move a chart to a new row by dragging a chart over an <i class="fa-plus-circle fa"/> Add New Chart box.
-3.  Save the dashboard.
-
+1. Release the mouse button. The chart is relocated.
 

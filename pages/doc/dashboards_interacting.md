@@ -155,15 +155,15 @@ You can select time windows for individual charts in a few different ways.
 
 #### Time Bar
 
-The chart time bar displays in the upper-right corner of a chart when you hover over the chart.
-
-![chart time bar](images/chart_time_bar.png)
-
-The magnifying lenses allow you to quickly increase or decrease the time window. You can also adjust the time window by clicking 2h, 6h, 12h, 1d, or 8d.
+The chart time bar ![chart time bar](images/chart_time_bar.png#inline) displays in the upper-right corner of a chart when you hover over the chart. The magnifying lenses allow you to quickly increase or decrease the time window. You can also adjust the time window by clicking 2h, 6h, 12h, 1d, or 8d.
 
 #### Displaying Live Data
 
-If the chart is not displaying live data, a <span style="color:#8B0000">GO LIVE</span> <i class="fa fa-play-circle" style="color:#8B0000"/> link displays to the left of the time bar. Click the link to display live data.
+If the chart is not displaying live data, a <span style="color:#8B0000">GO LIVE</span> <i class="fa fa-play-circle" style="color:#8B0000"/> link displays to the left of the time bar. 
+
+![chart_name_corner](images/chart_name_corner.png)
+
+Click the link to display live data.
  
 #### Zooming In
 
@@ -192,9 +192,7 @@ Whenever you adjust the time window of a single chart, you can easily propagate 
 
 To propagate a chart time window to all other charts on the dashboard, click the share icon <i class="fa fa-share-square-o" /> that appears directly under the chart name in the top right corner of the chart box. 
 
-To reset the individual chart window to match all other charts, click **RESET**.
-
-![reset time window](images/reset_time_window.png)
+To reset the individual chart window to match all other charts, click **RESET**: ![reset time window](images/reset_time_window.png#inline)
  
  
 ### Activating Chart Display Modes

@@ -53,20 +53,20 @@ If you have your Python environment and Wavefront account set up, first install 
 
 ## Getting Data Into Python
 
-The wavefront Python library allows you to perform the exact same queries through Python that you would normally perform in the source field of the Wavefront chart, along with the same control over the time range. For example, you might normally enter `ts(requests.latency)` to grab the metric `requests.latency` over your 20 hosts:
+The Wavefront Python library allows you to perform the exact same queries through Python that you would normally perform in the source field of the Wavefront chart, along with the same control over the time range. For example, you might normally enter `ts(requests.latency)` to grab the metric `requests.latency` over your 20 hosts:
 
 ![query.jpeg](images/query.jpeg)
 
-In wavefront Python you enter that query expression verbatim to retrieve the same data in numerical format, as a Python Pandas dataframe:
+In Wavefront Python you enter that query expression verbatim to retrieve the same data in numerical format, as a Python Pandas dataframe:
 
 ```python
-d = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
+df = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
 ```
 
-Let's look at this query in more detail. The base and token variables were set in the prerequisites, and allow Wavefront to know where to query and how to authenticate that query. The third and fourth fields are the start and end times for the query, in epoch second format. The fifth field is the actual ts() query, and the final field is an option that tells the query to set the column labels ("clab" for short) of the resulting dataframe to the h(ost) for that time series. Schematically, the function is:
+Let's look at this query in more detail. The `base` and `token` variables were set in the prerequisites, and allow Wavefront to know where to query and how to authenticate that query. The third and fourth fields are the start and end times for the query, in epoch second format. The fifth field is the actual ts() query, and the final field is an option that tells the query to set the column labels ("clab" for short) of the resulting dataframe to the h(ost) for that time series. Schematically, the function is:
 
 ```python
-<dataFrame> = wfquery(serverURL, wavefrontAccountToken, startTime, endTime, query)
+df = wfquery(serverURL, wavefrontAccountToken, startTime, endTime, query)
 ```
  
 The wfnow() function is a convenience function for the most recent time, so the range that we're requesting is from `wfnow() - wfhours(2)`, or two hours ago, to `wfnow() - wfminutes(1)`, or one minute ago. This should give us exactly 120 observations (one per minute) over however many hosts were emitting the `requests.latency` metric.
@@ -86,13 +86,13 @@ d = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one
 Note the single quotes ('') around the query field, while internal strings (such as the first argument to `lag`) are expressed with double quotes (""). You can even divide metrics by each other and then perform functions (such as `lag`) on the result:
 
 ```python
-d = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one month ago", ts(requests.failures.num) / ts(requests.total.num))', clab='h')
+df = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one month ago", ts(requests.failures.num) / ts(requests.total.num))', clab='h')
 ```
 
 All of the above queries have looked at the most recent 2 hour period of data, taken at the minute granularity. However, you can look at longer periods of data with coarser granularity. For example, here is the most recent week of data, taken at the hour granularity `(granularity='h'`):
 
 ```python
-d = wfquery(base, token, wfnow() - wfdays(7), wfnow(), 'ts(requests.latency)', clab='h', granularity='h')
+df = wfquery(base, token, wfnow() - wfdays(7), wfnow(), 'ts(requests.latency)', clab='h', granularity='h')
 ```
 
 The resulting dataframe has 169 observations (1 for each hour over the last week) over the 21 variables (1 time column, and 20 host columns):
@@ -106,7 +106,7 @@ Now that you've gotten your Wavefront data into Python, you can do some interest
 
 ```python
 # Grab requests.latency over the last 2 hours
-d = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
+df = wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
 # Remove any missing data
 d = na.omit(d)
 ```
@@ -139,7 +139,7 @@ Beyond visualizing data, you may want to perform more complicated analysis on th
 
 ### Example
 
-```
+```python
 queries = c('ts(mem.used.percentage,source=app-1)','ts(cpu.loadavg.1m,source=app-1)')
 dataset = wfqueryvl(base,token, wfnow() - wfhours(2), wfnow() - wfminutes(1),queries) # dataframe containing data from both queries along with timestamp
 scatterdata = data.frame(Mem = dataset[[2]],Cpu = dataset[[4]]) # only metric values from both queries mapped based on timestamp

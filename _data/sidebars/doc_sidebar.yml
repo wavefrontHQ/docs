@@ -164,6 +164,10 @@ entries:
       url: /charts_creating.html
       output: web
       
+    - title: Chart Resolution
+      url: /charts_resolution.html
+      output: web
+      
     - title: Units in Chart Axes and Legends
       url: /charts_units.html
       output: web

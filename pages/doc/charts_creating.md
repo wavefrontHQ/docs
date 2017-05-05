@@ -32,8 +32,6 @@ In the image below, we specified the metric name `~sample.requests.total.num`, p
 
 If you are familiar with [Wavefront Query Language](query_language_getting_started.html), you can enter the complete expression into the query field. For example: `if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)`.
 
-![query_field_free_form](images/query_field_free_form.png)
-
 ## Adding Queries to a Chart
 To associate more than one query with a chart, add a new query field by clicking the add icon <i class="fa fa-plus"/> to the right of a query field.
 
@@ -48,15 +46,13 @@ You also have the option of naming each query field, which is recommended when y
 You can experiment with functions such as `sum()`, `highpass()`, `mavg()`, etc. See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete list of functions.
  
 ## Configuring the Chart
-You also have the option to configure charts in several different ways. The chart configuration options are in the Chart section:
+You also have the option to configure charts in several different ways. The chart [configuration options](charts.html) are in the Chart section:
 
 ![chart_section](images/chart_section.png)
 
-The configuration tabs (General, Axis, Style, etc.) and options depend on the [chart type](charts.html) you choose. One configuration option available for every chart is the Name:
+The configuration tabs (General, Axis, Style, etc.) and options depend on the chart type you choose.
 
-![chart_name_field](images/chart_name_field.png)
-
-The name you enter into this field appears in the top right corner of the chart:
+The chart name appears in the top right corner of the chart:
 
 ![chart_name_corner](images/chart_name_corner.png)
 

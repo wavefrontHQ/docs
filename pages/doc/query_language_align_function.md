@@ -9,24 +9,7 @@ summary: Learn the role of the align() function in Wavefront Query Language expr
 
 In Wavefront charts, point buckets represent summarized data across a certain length of time.
 
-Both the [**Summarize By** chart option](charts.html#summarize-by) and the [`align()` function](query_language_reference.html#filtering-and-comparison-functions) group points into buckets and allow you to specify how those points are grouped together (e.g. averaged, counted, summed, etc.).  The `align()` function additionally allows you to specify the desired bucket size whereas **Summarize By** is completely based on the *supported resolution*. 
-
-## Supported Resolution 
-
-Supported resolution is based on two key factors: chart window and dedicated screen pixels for the displayed chart. For example (assuming the browser is full-screen), a 10-minute chart window on a 13" screen versus a 1-week chart window on a 13" screen versus a 1-week chart window on a 27" screen will all have different resolutions. A smaller chart window and larger number of dedicated pixels result in higher resolution:
-
-```
-10-minute chart window + 13" screen = best resolution (e.g. ~1-second buckets)
-1-week chart window + 27" screen = second best resolution (e.g. ~30-minute buckets)
-1-week chart window + 13" screen = third best resolution (e.g. ~60-minute buckets)
-```
-
-For a video overview of resolution, see
-
-{% include video.html file="r8frqgquvb" %}
-
-
-In the 1-week chart window + 27" screen example, **Summarize By** groups points within ~30 minute buckets and summarizes them based on your selection. In contrast, `align()` gives you the option of grouping the points in 45 minute buckets, 2-hour buckets, 1-day buckets, etc.. The supported resolution is the most granular view you can get. So with the previous example, specifying `align(15m,)` does not result in 15-minute buckets being displayed on the screen due to the ~30-minute buckets already associated with the chart. In this case, Wavefront aligns the values into 15-minute buckets first and then takes two aligned values and summarizes those based on the Summarize By selection.
+Both the [**Summarize By** chart option](charts.html#summarize-by) and the [`align()` function](query_language_reference.html#filtering-and-comparison-functions) group points into buckets and allow you to specify how those points are grouped together (e.g. averaged, counted, summed, etc.).  The `align()` function additionally allows you to specify the desired bucket size whereas **Summarize By** is completely based on the [chart resolution](charts_resolution.html). 
 
 ## Pre-Align Warning
 
