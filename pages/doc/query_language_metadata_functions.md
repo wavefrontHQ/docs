@@ -339,6 +339,14 @@ Since hyphens ("-") and underscores ("_") are used in the source name, the query
 
 For any of these queries, your hover legend will show a new column labeled `version` with values `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.
 
+You can next `taggify` calls. For example, 
+
+```
+taggify(taggify(default(0, ts(production.infra.aws.ec2.instance.pulldeploy.failed.count.sum, asg="buildslave*")),source,temp_asg,2,'.'),tagk,temp_asg,my_asg,0,'-')
+```
+
+extracts `asg` from the source.
+
 ### Regex Approach
  
 You can also use a regular expression in `taggify()` to transform an existing metric name, source name, or point tag value for the purpose of creating a synthetic point tag.  This approach works as a "search-replace" functionality&mdash;everything matching `regexSearchPattern` is replaced with `replacementPattern`. The syntax for this approach is:
@@ -355,7 +363,6 @@ To do the same transform applied in the zeroBasedNodeIndex Example using regular
 taggify(ts("performance.*.tracker"), source, "regexSearchPattern", "replacementPattern")
 
 ```
-
 
 ## Important Notes
  

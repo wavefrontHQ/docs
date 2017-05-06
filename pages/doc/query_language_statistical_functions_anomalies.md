@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Learn how to use statistical functions in Wavefront Query Language expressions to detect anomalies.
 ---
-Anything that is different than "normal" can be an anomaly. Say you have a set of data points that span across a certain range, there are multiple ways to define which points of these set can be treated as normal and which should be identified as abnormal. These abnormal points if cross a certain threshold would in turn create an "anomaly" in the behavior of a certain time-series or a signal. If you are interested and want to learn more about anomaly and its detection see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/) and the video 
+Anything that is different than "normal" can be an anomaly. Say you have a set of data points that span across a certain range, there are multiple ways to define which points of these set can be treated as normal and which should be identified as abnormal. These abnormal points if cross a certain threshold would in turn create an "anomaly" in the behavior of a certain time-series or a signal. If you are interested and want to learn more about anomaly and its detection see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/) and the following video:
 
 {% include video.html file="lytshn66rj" %}
 
@@ -36,7 +36,6 @@ Here are some examples for both Std Dev and IQR that should hopefully give you a
 ## Example 1
 
 In this example, using standard deviation we can identify what series are deviating greatly compared to their usual behavior(2 hour moving window). And when the std dev crosses a certain value (e.g. 10 in this case) it can identified as a anomaly. Also you can here that same function is applied to different / widely scaled time series and it identifies the spread of each series independently to stop the anomalies.
-
 
 ### Data
 

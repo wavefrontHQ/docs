@@ -132,16 +132,16 @@ entries:
         output: web
         subfolderitems:
           
+        - title: The align() Function
+          url: /query_language_align_function.html
+          output: web
+
         - title: Standard Versus Raw Aggregate Functions
           url: /query_language_aggregate_functions.html
           output: web
 
         - title: Metadata Functions
           url: /query_language_metadata_functions.html
-          output: web
-
-        - title: Summarize By and the align() Function
-          url: /query_language_align_function.html
           output: web
 
         - title: Using Statistical Functions to Detect Anomalies
@@ -448,10 +448,6 @@ entries:
           
           - title: Managing External Links
             url: /external_links_managing.html
-            output: web
-            
-          - title: Visualizing Metrics with Python
-            url: /integrations_python.html
             output: web
             
           - title: Visualizing Metrics with R

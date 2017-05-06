@@ -21,8 +21,7 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 <tbody>
 <tr>
 <td><span style="color:#08838c;font-weight:bold">metric</span></td>
-<td>The name of a metric.
-Example: <span style="color:#08838c;font-weight:bold">cpu.load.metric.</span></td>
+<td>The name of a metric. Example: <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>.</td>
 </tr>
 <tr>
 <td><span style="color:#d63a36;font-weight:bold">source</span></td>
@@ -46,11 +45,11 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 
 ## Expressions
 <ul>
-<li>ts() expression - Returns all time series that match a metric name, filtered by sources, source tags, and point tags.</li>
+<li>ts() expression - Returns all points that match a metric name, filtered by sources, source tags, and point tags.</li>
 <ul>
-<li markdown="span">Syntax: ts(<span style="color:#08838c;font-weight:bold">&lt;metricName&gt;</span>, [[<span style="color:#d63a36;font-weight:bold">source=&lt;sourceName&gt;</span>] [and|or] [<span style="color:#2770e8;font-weight:bold">tag=&lt;sourceTagName&gt;</span>] [and|or] [<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span>]...])</li>
+<li markdown="span">Syntax: ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;, [[<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or] [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue</span>&gt;]...])</li>
 <li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format.html).</li>
-<li>Sources, source tags, and point tags are optional. For example, to return all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
+<li>Sources, source tags, and point tags are optional. For example, to return points from all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
 </ul>
 <li>constant - A number such as 5.01, 10000, or 40. Constants can be plotted by themselves and composed in <span style="color:#3a0699;font-weight:bold">expressions</span> using arithmetic operators.</li>
 <ul>
@@ -59,7 +58,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 </ul>
 <li>wildcard - Matches strings in metric names, sources, source tags, and point tags. A wildcard is represented with a <strong>"&#42;"</strong> character.  Using a catch-all wildcard (example: <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>) when filtering by point tags yields only time series that have this point tag present (with any value), and time series that don't have this point tag ("null") are filtered out. To find time series without a specific point tag, use the construct <strong>not</strong> <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>.</li>
 <ul>
-<li>Example: <span style="color:#d63a36;font-weight:bold">source = app-1&#42;</span> matches all sources starting with <span style="color:#d63a36;font-weight:bold">app-1</span>: <span style="color:#d63a36;font-weight:bold">app-10</span>, <span style="color:#d63a36;font-weight:bold">app-11</span>, <span style="color:#d63a36;font-weight:bold">app-12</span>, etc.</li>
+<li>Example: <span style="color:#d63a36;font-weight:bold">source=app-1&#42;</span> matches all sources starting with <span style="color:#d63a36;font-weight:bold">app-1</span>: <span style="color:#d63a36;font-weight:bold">app-10</span>, <span style="color:#d63a36;font-weight:bold">app-11</span>, <span style="color:#d63a36;font-weight:bold">app-12</span>, etc.</li>
 </ul>
 <li><span style="color:#3a0699;font-weight:bold">expression</span> - A ts() expression, constant, or arithmetic or Boolean combination of a ts() expressions and constants.</li>
 </ul>
@@ -70,34 +69,40 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.</li>
-<li markdown="span">`[and]`, `[or]`: Performs strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator while leaving out the non-matched ones in the result.</li></ul>
+<li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Arithmetic operators</li>
-<ul><li markdown="span">`+`, `-`, `\*`, `/`: Matches metric, source, and point tag combinations on both sides of an <span style="color:#3a0699;font-weight:bold">expression</span>. If either side of the <span style="color:#3a0699;font-weight:bold">expression</span> is a 'singleton' -- that is, a single metric, source, or point tag combination--it automatically matches up with every element on the other side of the <span style="color:#3a0699;font-weight:bold">expression</span>.</li>
-<li markdown="span">`[+]`, `[-]`, `[\*]`, `[/]`: Performs strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric|source|point tag combinations on both sides of the operator while leaving out the non-matched ones in the result.</li></ul>
+<ul><li markdown="span">`+`, `-`, `\*`, `/`: Match metric, source, and point tag combinations on both sides of an <span style="color:#3a0699;font-weight:bold">expression</span>. If either side of the <span style="color:#3a0699;font-weight:bold">expression</span> is a 'singleton' -- that is, a single metric, source, or point tag combination--it automatically matches up with every element on the other side of the <span style="color:#3a0699;font-weight:bold">expression</span>.</li>
+<li markdown="span">`[+]`, `[-]`, `[\*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Comparison operators</li>
 <ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported Wavefront operator.</li>
-<li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Performs strict 'inner join' versions of the comparison operators. Strict operators match metric|source|point tag combinations on both sides of the operator while leaving out the non-matched ones in the result.</li></ul>
+<li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Examples</li>
 <ul>
 <li>ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt; 10) and (ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &lt; 20) returns 1 if <span style="color:#08838c;font-weight:bold">my.metric</span> is between 10 and 20. Otherwise, returns 0.</li>
 <li>ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>, <span style="color:#2770e8;font-weight:bold">tag=prod</span> and <span style="color:#2770e8;font-weight:bold">tag=db</span>) returns <span style="color:#08838c;font-weight:bold">cpu.load.1m</span> for all sources tagged with both <span style="color:#2770e8;font-weight:bold">prod</span> and <span style="color:#2770e8;font-weight:bold">db</span>.</li>
 <li>ts(<span style="color:#08838c;font-weight:bold">db.query.rate</span>, <span style="color:#2770e8;font-weight:bold">tag=db</span> and not <span style="color:#d63a36;font-weight:bold">source=db5.wavefront.com</span>) returns <span style="color:#08838c;font-weight:bold">db.query.rate</span> for all sources tagged with <span style="color:#2770e8;font-weight:bold">db</span>, except for the <span style="color:#d63a36;font-weight:bold">db5.wavefront.com</span> source.</li></ul>
-<li markdown="span">For further information on operator behavior in series matching, see [Series Matching](query_language_series_matching.html)​.</li>
 </ul>
+
+For further information on operator behavior in series matching, see [Series Matching](query_language_series_matching.html)​.
 
 ## Tags in Queries
 <ul>
-<li>Source tags are a way to group sources together. For example, if you have two sources, <span style="color:#d63a36;font-weight:bold">appServer15</span> and <span style="color:#d63a36;font-weight:bold">appServer16</span>, you could add the source tag <span style="color:#2770e8;font-weight:bold">app</span> to both of them to specify that they are both app servers. Source tags aid in querying by grouping sources together. You can query ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#2770e8;font-weight:bold">tag=app</span>) instead of ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#d63a36;font-weight:bold">source=appServer15</span> or <span style="color:#d63a36;font-weight:bold">source=appServer16</span>). Both queries yield the same result as long as the <span style="color:#d63a36;font-weight:bold">app</span> tag is added to <span style="color:#d63a36;font-weight:bold">source=appServer15</span> and <span style="color:#d63a36;font-weight:bold">source=appServer16</span>. You add source tags to sources in the Browse &gt; Sources page and through the API.</li>
-<li><span style="color:#3a0699;font-weight:bold">Point tags</span> are an additional way to describe metrics. An example of a point tag is <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>. Point tags are added to a point when points are ingested through the Wavefront proxy or a cloud integration.</li>
+<li>Source tags are a way to group sources together. For example, if you have two sources, <span style="color:#d63a36;font-weight:bold">appServer15</span> and <span style="color:#d63a36;font-weight:bold">appServer16</span>, you could add the source tag <span style="color:#2770e8;font-weight:bold">app</span> to both of them to specify that they are both app servers. Source tags aid in querying by grouping sources together. You can query ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#2770e8;font-weight:bold">tag=app</span>) instead of ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#d63a36;font-weight:bold">source=appServer15</span> or <span style="color:#d63a36;font-weight:bold">source=appServer16</span>). Both queries yield the same result as long as the <span style="color:#d63a36;font-weight:bold">app</span> tag is added to <span style="color:#d63a36;font-weight:bold">source=appServer15</span> and <span style="color:#d63a36;font-weight:bold">source=appServer16</span>.</li>
+<li><span style="color:#3a0699;font-weight:bold">Point tags</span> are an additional way to describe metrics. An example of a point tag is <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>.</li>
 <li>Example: To query a point <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, source <span style="color:#d63a36;font-weight:bold">app2</span>, and point tag <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>, specify ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#3a0699;font-weight:bold">region=us-west-2b </span>and <span style="color:#d63a36;font-weight:bold">source=app2</span>).</li></ul>
+
+For an overview of tags, see [Organizing with Tags](tags_overview.html).
 
 ## Variables in Queries
 <ul>
-<li>A query line variable allows you to refer to a query line as a variable in a different query line within a chart. The query line variable name is based on the query line name. The query line name, which can be found directly to the left of the query field, is referenced in a separate query line as <span style="color:#008a09;font-weight:bold">${queryLineName}</span>. For example, if you have a query line named queryLine1 with ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) as the <span style="color:#3a0699;font-weight:bold">expression</span>, you can enter <span style="color:#008a09;font-weight:bold">${queryLine1}</span> in a separate query field in that single chart to reference ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>). If a query line and dashboard variable share the same name, then the query line variable overrides the dashboard variable for that chart. The query line being referenced must be a complete expression.</li>
+<li>A <em>query line variable</em> allows you to refer to a query line as a variable in another query field within the same chart. The query line variable name is the same as the query line name and is referenced in another query field with the syntax <span style="color:#008a09;font-weight:bold">${queryLineName}</span>. For example, if you have a query line named <span style="font-weight:bold">queryLine1</span> with ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) as the <span style="color:#3a0699;font-weight:bold">expression</span>, you can enter <span style="color:#008a09;font-weight:bold">${queryLine1}</span> in a another query field to reference ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>). The query line being referenced must be a complete expression. If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable. </li>
 
-<li>An alias defines any ts() expression as an alias within that single query line using a SQL-style "as" alias. The syntax of an alias is: <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>. If you define <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">myAlias</span>, you reference the alias as <span style="color:#008a09;font-weight:bold">$myAlias</span>. You can use <span style="color:#008a09;font-weight:bold">$myAlias</span> multiple times in that query line, and define multiple aliases within a query line. Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">test</span>, used as follows: mavg(120m, <span style="color:#008a09;font-weight:bold">$test</span>)) / sqrt(mvar(120m, <span style="color:#008a09;font-weight:bold">$test</span>)). We recommend using alias names that are three letters or longer; specifically, you can't use the SI prefixes (such as k, G, or T) as alias names, and numeric characters are allowed only at the end of the alias name ($test123 is ok, but not $1test or $test4test). </li>
+<li>An <em>alias</em> defines any ts() expression as an alias within that single query line using a SQL-style "as" expression. The syntax of an alias is: <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>. If you specify <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">myAlias</span>, you reference the alias as 
+<span style="color:#008a09;font-weight:bold">$myAlias</span>. You can use <span style="color:#008a09;font-weight:bold">$myAlias</span> multiple times in that query line, and define multiple aliases within a query line. We recommend using alias names that are three letters or longer; specifically, you can't use the SI prefixes (such as k, G, or T) as alias names, and numeric characters are allowed only at the end of the alias name ($test123 is ok, but not $1test or $test4test).<br /><br />
 
-<li>A dashboard variable is defined for a dashboard and then can be used within any query line in every chart associated with that dashboard. A dashboard variable can replace any string of text, as opposed to a query line variable and alias which must be a complete expression. If you define <span style="color:#008a09;font-weight:bold">dashvar</span> in a dashboard, you can then refer to <span style="color:#008a09;font-weight:bold">${dashvar}</span> within any query line of any chart in that dashboard. You can use aliases, query line variables, and dashboard variables in the same query line; indeed, you can even use the same variable name for a dashboard and an alias (though we don't recommend it). See <a href="dashboards_variables.html">Dashboard Variables</a> for additional information.</li></ul>
+Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">test</span>, used as follows: mavg(120m, <span style="color:#008a09;font-weight:bold">$test</span>)) / sqrt(mvar(120m, <span style="color:#008a09;font-weight:bold">$test</span>)).</li>
+
+<li>A <em>dashboard variable</em> is a variable that can be used within any query line in every chart contained in the dashboard. A dashboard variable can replace any string of text, as opposed to a query line variable and alias which must be a complete expression. If you define <span style="color:#008a09;font-weight:bold">dashvar</span> in a dashboard, you refer to <span style="color:#008a09;font-weight:bold">${dashvar}</span> within any query line. You can use aliases, query line variables, and dashboard variables in the same query line; indeed, you can use the same variable name for a dashboard and an alias (though we don't recommend it). See <a href="dashboards_variables.html">Dashboard Variables</a>.</li></ul>
 
 <span id="aggregate"></span>
 
@@ -205,11 +210,11 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </thead>
 <tbody>
 <tr>
-<td markdown="span">highpass(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[, inner]</span>)</td>
+<td markdown="span">highpass(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[, inner])</td>
 <td>Returns only the points in <span style="color:#3a0699;font-weight:bold">expression</span> above <span style="color:#bf5700;font-weight:bold">expression</span>. <span style="color:#bf5700;font-weight:bold">expression</span> can be a constant.</td>
 </tr>
 <tr>
-<td markdown="span">lowpass(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[, inner]</span>)</td>
+<td markdown="span">lowpass(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[, inner])</td>
 <td>Returns only the points in <span style="color:#3a0699;font-weight:bold">expression</span> below <span style="color:#bf5700;font-weight:bold">expression</span>. <span style="color:#bf5700;font-weight:bold">expression</span> can be a constant.</td>
 </tr>
 <tr>
@@ -229,8 +234,8 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 <td>Returns the values in <span style="color:#3a0699;font-weight:bold">expression</span> occurring in each <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: downsample(<span><span style="color:#757575;font-weight:bold">30m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)</span> returns the values every half hour of <span style="color:#08838c;font-weight:bold">my.metric</span>.</td>
 </tr>
 <tr>
-<td markdown="span">align(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#008a09;font-weight:bold">[mean|median|min|max|first|last|sum|count,]</span><span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 value in <span style="color:#3a0699;font-weight:bold">expression</span> for each <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: If you were collecting data once a minute, but wanted data points to be displayed every 30 minutes (summarized by median every 30 minutes), use align(<span style="color:#757575;font-weight:bold">30m</span>, <span style="color:#008a09;font-weight:bold">median</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)).</td>
+<td markdown="span">align(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#008a09;font-weight:bold">[mean|median|min|max|first|last|sum|count,]</span> <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>Returns 1 value in <span style="color:#3a0699;font-weight:bold">expression</span> for each <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: If you were collecting data once a minute, but wanted data points to be displayed every 30 minutes (summarized by median every 30 minutes), use align(<span style="color:#757575;font-weight:bold">30m</span>, <span style="color:#008a09;font-weight:bold">median</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)). See <a href="query_language_align_function.html">The <code>align()</code> Function</a>.</td>
 </tr>
 <tr>
 <td>topk(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -249,16 +254,16 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 <td>Returns the bottom <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's.</td>
 </tr>
 <tr>
-<td markdown="span">filter(<span style="color:#3a0699;font-weight:bold">expression [metric|source=|tagk=]</span>)</td>
-<td>Retains the specified metric|source|<span style="color:#3d3d3d;">point tag</span> in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to filter a metric. To <span>filter</span> a particular source or point tag, specify a key of source= or tagk= respectively. Replace tagk with the point tag key to filter. You can specify only one parameter (metric|source|point tag) per function call. To specify multiple parameters, use a filter() call for each parameter. filter is similar to retainSeries, but does not support expanding a source tag.</td>
+<td markdown="span">filter(<span style="color:#3a0699;font-weight:bold">expression</span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tagk=</span>])</td>
+<td>Retains the specified metric, source, or point tag in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to filter a metric. To <span>filter</span> a particular source or point tag, specify either source= or tagk= respectively. Set <span style="color:#3a0699;font-weight:bold">tagk</span> to the point tag key to filter. You can specify only one parameter (metric|source|point tag) per function call. To specify multiple parameters, use a filter() call for each parameter. filter is similar to retainSeries(), but does not support expanding a source tag.</td>
 </tr>
 <tr>
-<td markdown="span">retainSeries(<span style="color:#3a0699;font-weight:bold">expression [ metric|source=|tag=|tagk=]</span>)</td>
-<td>Retains the specified metric|source|source tag|<span style="color:#3d3d3d;">point tag</span> in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify a key of source=, tag=, or tagk= respectively. Replace tagk with the point tag key to retain. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a retainSeries() call for each parameter.</td>
+<td markdown="span">retainSeries(<span style="color:#3a0699;font-weight:bold">expression</span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tag=|tagk=</span>])</td>
+<td>Retains the specified metric, source, source tag, or point tag in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set <span style="color:#3a0699;font-weight:bold">tagk</span> to the point tag key to retain. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a retainSeries() call for each parameter.</td>
 </tr>
 <tr>
-<td markdown="span">removeSeries(<span style="color:#3a0699;font-weight:bold">expression [ metric|source=|tag=|tagk=]</span>)</td>
-<td>Removes the specified metric|source|source tag|point tag from <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify a key of source=, tag=, or tagk= respectively. Replace tagk with the unique point tag key to remove. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a removeSeries() call for each parameter.</td>
+<td markdown="span">removeSeries(<span style="color:#3a0699;font-weight:bold">expression </span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tag=|tagk=</span>])</td>
+<td>Removes the specified metric, source, source tag, or point tag from <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set <span style="color:#3a0699;font-weight:bold">tagk</span> to the unique point tag key to remove. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a removeSeries() call for each parameter.</td>
 </tr>
 <tr>
 <td>sample(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression)</span></td>
@@ -269,7 +274,7 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 <td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> random time series based on <span style="color:#3a0699;font-weight:bold">expression</span>. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
 </tr>
 <tr>
-<td markdown="span">limit(<span style=" color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span><span style="font-weight:bold">[, offsetNumber]</span>, <span style="color:#3a0699;font-weight:bold"> expression</span>)</td>
+<td markdown="span">limit(<span style=" color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>[, offsetNumber], <span style="color:#3a0699;font-weight:bold"> expression</span>)</td>
 <td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span>time series. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
 </tr>
 </tbody>
@@ -346,7 +351,6 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 
 Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
 
-
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -393,11 +397,11 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 <td>Returns the <span>percentile</span> of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. <span style="color:#d63a36;font-weight:bold">percentileValue</span> must be &gt;= <span style="color:#d63a36;font-weight:bold">0</span> and &lt;= <span style="color:#d63a36;font-weight:bold">100</span>.</td>
 </tr>
 <tr>
-<td markdown="span">mcorr(<span style="color:#757575;font-weight:bold"><span>timeWindow</span>, <span style="color:#3a0699;font-weight:bold"><span>expression1</span>, <span style="color:#3a0699;font-weight:bold">expression2[, inner]</span>)</td>
+<td markdown="span">mcorr(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression1</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>[, inner])</td>
 <td>Returns the moving correlation between two time series <span style="color:#3a0699;font-weight:bold">expressions</span> over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
 </tr>
 <tr>
-<td>integrate(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>integrate(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Returns the moving integration on a given time series <span style="color:#3a0699;font-weight:bold">expression</span> over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
 </tr>
 <tr>
@@ -405,7 +409,7 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 <td>Returns the moving sum over time for the given time series <span style="color:#3a0699;font-weight:bold">expression</span> over the time interval of the current chart window. Always starts at 0 on the left side of the chart showing the total accumulation over the time duration of the current chart window.</td>
 </tr>
 <tr>
-<td>flapping(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>flapping(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Returns the number of times a counter has reset within <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
 </tr>
 <tr>
@@ -435,8 +439,8 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 <tbody>
 <tr>
 <td>if(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">ThenExpression</span>, <span style="color:#08838c;font-weight:bold">ElseExpression</span>)</td>
-<td>Returns <span><span style="color:#bf4b89;font-weight:bold">ThenExpression</span> if <span style="color:#3a0699;font-weight:bold">expression</span> &gt;=1. Otherwise, returns <span style="color:#08838c;font-weight:bold">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported.
-Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt;= 10</span>, if (<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">ts(my.metric)</span>, <span style="color:#08838c;font-weight:bold">ts(another.metric)</span>) returns <span style="color:#bf4b89;font-weight:bold">ts(my.metric)</span> only when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &gt;= 10; when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &lt; 10, it returns <span style="color:#08838c;font-weight:bold">ts(another.metric)</span>.</td>
+<td>Returns <span><span style="color:#bf4b89;font-weight:bold">ThenExpression</span> if <span style="color:#3a0699;font-weight:bold">expression</span> &gt;=1. Otherwise, returns <span style="color:#08838c;font-weight:bold">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported. When both <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> and <span style="color:#08838c;font-weight:bold">ElseExpression</span> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <span style="color:#3a0699;font-weight:bold">expression</span>.<br /><br />
+Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt;= 10</span>, if (<span style="color:#3a0699;font-weight:bold">expression</span>, ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>), ts(<span style="color:#08838c;font-weight:bold">another.metric</span>)) returns ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>) only when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &gt;= 10; when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &lt; 10, it returns ts(<span style="color:#08838c;font-weight:bold">another.metric</span>).</td>
 </tr>
 </tbody>
 </table>
@@ -487,15 +491,15 @@ Missing data functions allow you to interpolate missing data with points based o
 </tr>
 </thead>
 <tr>
-<td markdown="span">default([<span style="color:#757575;font-weight:bold">timeWindow,</span>][<span style="color:#bf5700;font-weight:bold">delayTime,</span>]<span style="font-weight:bold">defaultValue</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td markdown="span">default([<span style="color:#757575;font-weight:bold">timeWindow,</span>] [<span style="color:#bf5700;font-weight:bold">delayTime,</span>] <span style="font-weight:bold">defaultValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with <span style="font-weight:bold">defaultValue</span> (whether that's a constant or an expression). The optional argument (<span style="color:#757575;font-weight:bold">timeWindow</span>) fills in that period of time after each existing point (for example, <span style="color:#757575;font-weight:bold">5m</span> for 5 minutes); without this argument, all gaps are filled in. The optional argument (<span style="color:#bf5700;font-weight:bold">delayTime</span>) refers to the amount of time that must pass without a reported value in order for the default value to be applied.</td>
 </tr>
 <tr>
-<td markdown="span">last([<span style="color:#757575;font-weight:bold">timeWindow,</span>]<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td markdown="span">last([<span style="color:#757575;font-weight:bold">timeWindow,</span>] <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with the last known value of <span style="color:#3a0699;font-weight:bold">expression</span>. <span style="color:#757575;font-weight:bold">timeWindow </span> fills in a specified time period after each existing point.</td>
 </tr>
 <tr>
-<td markdown="span">next([<span style="color:#757575;font-weight:bold">timeWindow,</span>]<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td markdown="span">next([<span style="color:#757575;font-weight:bold">timeWindow,</span>] <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with the next known value of <span style="color:#3a0699;font-weight:bold">expression</span>. <span style="color:#757575;font-weight:bold">timeWindow</span> fills in a specified time period before each existing point.</td>
 </tr>
 <tr>
@@ -529,18 +533,16 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 <tbody>
 <tr>
 <td markdown="span">aliasMetric(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
-<td>Extracts a string from a <span style="color:#bf5700;font-weight:bold">metric</span>, <span style="color:#bf5700;font-weight:bold">source</span>, or <span style="color:#bf5700;font-weight:bold">point tag value</span> from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the metric in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
+<td>Extracts a string from a metric, source, or point tag value from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the metric in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
 </tr>
 <tr>
 <td markdown="span">aliasSource(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
-<td markdown="span">Extracts a string from a <span style="color:#bf5700;font-weight:bold">metric</span>, <span style="color:#bf5700;font-weight:bold">source</span>, or <span style="color:#bf5700;font-weight:bold">point tag value</span> from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the source in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
+<td markdown="span">Extracts a string from a metric, source, or point tag value from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to rename the source in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
 </tr>
 <tr>
 <td markdown="span">taggify(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, <span style="color:#08838c;font-weight:bold">&lt;newPointTagKey&gt;</span>, [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span>])</td>
-<td markdown="span">Extracts a string from a <span style=" color:#bf5700;font-weight:bold">metric</span>, <span style="
-color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;font-weight:bold">point tag value</span>
-<span>from the result of <span style=" color:#3a0699;font-weight:bold">expression</span>, and uses that extracted
-<span>string</span> to create a synthetic point tag.</td>
+<td markdown="span">Extracts a string from a metric, source, or point tag value
+<span>from the result of <span style=" color:#3a0699;font-weight:bold">expression</span>, and uses that extracted string to create a synthetic point tag.</td>
 </tr>
 </tbody>
 </table>
@@ -591,7 +593,7 @@ color:#bf5700;font-weight:bold">source</span>, or <span style=" color:#bf5700;fo
 <td>Convert radians to degrees, and vice versa.</td>
 </tr>
 <tr>
-<td>sin(<span style="color:#3a0699;font-weight:bold">expression</span>),cos(<span style="color:#3a0699;font-weight:bold">expression</span>),tan(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>asin(<span style="color:#3a0699;font-weight:bold">expression</span>),acos(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>atan(<span style="color:#3a0699;font-weight:bold">expression</span>),atan2(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>sinh(<span style="color:#3a0699;font-weight:bold">expression</span>),cosh(<span style="color:#3a0699;font-weight:bold">expression</span>),tanh(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>sin(<span style="color:#3a0699;font-weight:bold">expression</span>), cos(<span style="color:#3a0699;font-weight:bold">expression</span>), tan(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>asin(<span style="color:#3a0699;font-weight:bold">expression</span>), acos(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>atan(<span style="color:#3a0699;font-weight:bold">expression</span>), atan2(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>sinh(<span style="color:#3a0699;font-weight:bold">expression</span>), cosh(<span style="color:#3a0699;font-weight:bold">expression</span>), tanh(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Performs the specified trigonometric function on <span style="color:#3a0699;font-weight:bold">expression</span> interpreted in radians.</td>
 </tr>
 </tbody>
@@ -647,7 +649,7 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 <td>Creates a single synthetic event that started <span style="color:#757575;font-weight:bold">timeWindow</span> ago and ended &quot;now&quot;. <span style="color:#757575;font-weight:bold">timeWindow</span> can be specified in seconds, minutes, hours, days or weeks (e.g., <span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes.</td>
 </tr>
 <tr>
-<td>timespan(<span style="color:#bf5700;font-weight:bold">startTimestamp, endTimestamp</span>)</td>
+<td>timespan(<span style="color:#bf5700;font-weight:bold">startTimestamp</span>, <span style="color:#bf5700;font-weight:bold">endTimestamp</span>)</td>
 <td>Creates a single synthetic event with the specified start and end timestamps. A timestamp can be expressed in epoch seconds or using a time expression such as "5 minutes ago". Example: timespan("5 minutes ago", "2 minutes ago").</td>
 </tr>
 <tr>
@@ -725,6 +727,11 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ## Troubleshooting
 
 <table style="width: 100%;">
+<colgroup>
+<col width="40%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
 <thead>
 <tr><th width="33%">Error</th><th width="34%">Resolution</th><th width="33%">Resolution</th></tr>
 </thead>
@@ -733,6 +740,18 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 <td>After entering a query expression the following error displays: <em>Query syntax error: Missing expression argument.</em></td>
 <td>An <span style="color:#3a0699;font-weight:bold">expression</span> argument to a function is not well-formed.</td>
 <td>Build up the <span style="color:#3a0699;font-weight:bold">expression</span> by small steps ensuring that the expression is valid at each step.</td>
+</tr>
+<tr>
+<td>You see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"></i> in a chart and a warning something like the following:<br /><br />
+<em>The expression: ts(&lt;metric&gt;, source=&lt;source&gt;) has been pre-aligned, making it equivalent to align(120s, mean, ts(&lt;metric&gt;, source=&lt;source&gt;)) in order to improve the performance of the sum() 
+aggregation operation. You can wrap the expression with align() to explicitly state the periodicity 
+and desired summarization strategy.</em><br /><br />
+where sum(ts(&lt;metric&gt;, source=&lt;source&gt;)) is the original query.
+</td>
+<td>Wavefront has pre-aligned the series to improve performance.
+</td>
+<td>Depends on the use case. For details, see <a href="query_language_align_function.html">The <code>align()</code> Function</a>.
+</td>
 </tr>
 </tbody>
 </table>
