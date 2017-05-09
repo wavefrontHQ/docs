@@ -454,6 +454,10 @@ entries:
             url: /integrations_r.html
             output: web
             
+#          - title: Visualizing Metrics with Python
+#            url: /integrations_python.html
+#            output: web
+            
   - title: Organizing and Searching
     output: web
     folderitems:

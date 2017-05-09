@@ -105,19 +105,19 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
 <a href="integrations_sso_adfs.html"><img src="images/microsoft_adfs.png"/></a><br/><br/>
-<a href="integrations_sso_adfs.html">ADFS Single Sign-on</a>
+<a href="integrations_sso_adfs.html">ADFS SSO</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
 <a href="integrations_sso_google.html"><img src="images/google.png"/></a><br/><br/>
-<a href="integrations_sso_google">Google Single Sign-on</a>
+<a href="integrations_sso_google">Google SSO</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
 <a href="integrations_sso_okta.html"><img src="images/okta.png"/></a><br/><br/>
-<a href="integrations_sso_okta.html">Okta Single Sign-on</a>
+<a href="integrations_sso_okta.html">Okta SSO</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
 <a href="integrations_sso_onelogin.html"><img src="images/onelogin.png"/></a><br/><br/>
-<a href="integrations_sso_onelogin.html">OneLogin Single Sign-on</a>
+<a href="integrations_sso_onelogin.html">OneLogin SSO</a>
 </td>
 </tr>
 </tbody>

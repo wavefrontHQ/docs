@@ -253,6 +253,11 @@ table > tbody > tr:nth-of-type(even) {
     background-color: #f9f9f9;
 }
 
+table.layout > tbody > tr:nth-of-type(even) {
+    background-color: #ffffff;
+}
+
+
 table col[class*="col-"] {
     position: static;
     display: table-column;

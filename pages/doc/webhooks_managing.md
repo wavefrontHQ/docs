@@ -19,12 +19,14 @@ To view and manage webhooks, select **Browse > Webhooks**.
 To create a webhook:
 
 1.  Select **Browse > Webhooks**.
-1.  Click the **Create Webhook** button:
+1.  Click the **Create Webhook** button.
 1.  Fill in the webhook properties.
 
     <table>
     <tbody>
+    <thead>
     <tr><th>Property</th><th>Description</th></tr>
+    </thead>
     <tr>
     <td>Name</td>
     <td>The name of the webhook. The name should be simple while still making it easy to identify its purpose.</td>

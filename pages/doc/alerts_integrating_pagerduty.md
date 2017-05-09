@@ -30,7 +30,7 @@ If want to use a PagerDuty email target, then make sure to consider the **Open a
 ## Retrieving Your PagerDuty API Integration Key or Email Address
 Navigate to your PagerDuty account to retrieve either your PagerDuty API key or email address. If you want to use a PagerDuty API integration key and have not generated it yet, then generate a [key](https://support.pagerduty.com/hc/en-us/articles/202830340-Creating-a-Generic-API-Service). This information is tied to the unique PagerDuty service you want to use for your Wavefront alert. Copy the API integration key or PagerDuty email address.
 
-![PagerDuty](images/pager_duty.png)
+![PagerDuty](images/pagerduty_keys.png)
 
 ## Adding the PagerDuty Integration into a Wavefront Alert
 PagerDuty API keys and email addresses are used within Wavefront alerts, so you must first have an alert that the PagerDuty integration can be applied to. To apply the PagerDuty integration to an existing alert, locate that alert from the Alerts page in Wavefront. 

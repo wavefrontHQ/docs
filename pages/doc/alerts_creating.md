@@ -15,27 +15,32 @@ To disable alert checking for a set of sources during a specific time window you
 
 ## Creating an Alert
 
-You create an alert by:
+
+
+To create an alert:
+
+<ol>
+<li>Do one of the following:
 <ul>
 <li markdown="span"><strong>Alerts browser</strong> - Select **Alerts** and click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
 <li markdown="span"><strong>Chart</strong> - Hover over a query field and click the <strong>Create Alert</strong> link below the query field. ![create_alert_chart](images/create_alert_chart.png)<br />The ts() expression in the selected query field populates the alert's Condition field.</li>
-</ul>
-
-### Alert Properties
-
+</ul></li>
+<li>Fill in the alert properties.
 <table>
 <tbody>
+<thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
 <tr>
 <td>Events Display</td>
-<td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying">event icons</a> on the preview chart.
+<td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying.html">event icons</a> on the preview chart.
 <ul><li><strong>Actual Firings (existing alerts only)</strong> - Display past alert-generated event icons on the chart. This tells you how often the given alert has actually fired within the given chart time window.</li>
 <li><strong>Backtesting</strong> - Display hypothetical alert-generated events icons on the chart. This tells you how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. Backtesting enables you to fine tune new or existing alert conditions before saving.</li></ul>
 </td>
 </tr>
 <tr>
 <td>Name</td>
-<td>The name of the alert. The name must contain 1-100 characters. The name should be simple while still making it easy to identify its purpose.</td>
+<td>The name of the alert. The name must contain 1-255 characters. The name should be simple while still making it easy to identify its purpose.</td>
 </tr>
 <tr>
 <td>Condition</td>
@@ -69,7 +74,7 @@ You can use free form query mode or the <a href="query_language_query_builder.ht
 </tbody>
 </table>
 
-Click the **Advanced** link to configure the properties:
+Click the <strong>Advanced</strong> link to configure the properties:
 
 <table>
 <tbody>
@@ -83,5 +88,8 @@ Click the **Advanced** link to configure the properties:
 </tr>
 </tbody>
 </table>
+</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
 
 
