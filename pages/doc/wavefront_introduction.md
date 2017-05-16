@@ -87,12 +87,9 @@ with the Wavefront server to ensure end-to-end flow control. When it detects net
 queues metrics in memory and to disk. Once connectivity is restored the proxy replays queued metrics but prioritizes
 real-time traffic. There are many ways to [configure](proxies_configuring.html) the proxy to tune this behavior.
 
-The [proxy preprocessor](proxies_preprocessor_rules.html) allows you to correct errors in metric definition, reducing the
-number of invalid metrics which would otherwise be rejected by the proxy.
+The [proxy preprocessor](proxies_preprocessor_rules.html) allows you to correct errors in metric definition, reducing the number of invalid metrics which would otherwise be rejected by the proxy.
 
-A proxy generates its own [internal metrics](wavefront_monitoring.html) for easy monitoring of the pipeline within Wavefront.
-In initial deployments you can start with one Wavefront proxy. However, to enable fault tolerance and higher data rates,
-production environments more typically employ a load balancer sending data to multiple proxies:
+A proxy generates its own [internal metrics](wavefront_monitoring.html) for easy monitoring of the pipeline within Wavefront. In initial deployments you can start with one Wavefront proxy. However, to enable fault tolerance and higher data rates, production environments more typically employ a load balancer sending data to multiple proxies:
 
 ![Wavefront architecture load balanced](images/wavefront_architecture_lb.png)
 

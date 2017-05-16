@@ -6,7 +6,7 @@ permalink: tutorial_proxy_data_ingestion.html
 summary: Learn how to get Telegraf host metrics into Wavefront.
 ---
 
-Getting your host, application, and custom data into Wavefront is quick and easy. Wavefront's SaaS platform lets you build your monitoring solution without installing and configuring complex software. You ingest metrics data using the Wavefront proxy and one or more collector agents. You can also ingest data from AWS using Wavefront's AWS cloud integration. The diagram below depicts each of these components.
+Getting your host, application, and custom data into Wavefront is quick and easy. Wavefront's SaaS platform lets you build your monitoring solution without installing and configuring complex software. You ingest metrics data using one or more collector agents and the Wavefront proxy. A collector agent, such as [Telegraf](integrations_telegraf.html) or [Docker cAdvisor](integrations_cadvisor.html), collects metrics such as capacity and usage from your systems, and outputs them to storage, in this case the Wavefront proxy. The Wavefront proxy works with the Wavefront server to ensure security and end-to-end flow control. You can also ingest data from AWS using Wavefront's AWS cloud integration. The diagram below depicts each of these components.
 
 ![Wavefront architecture](images/wavefront_architecture.png)
 
