@@ -47,11 +47,14 @@ In the following example, the threshold for the alert is set to 50%. The event w
 
 When an alert fires, a notification containing the alert info is sent to targets listed in the [Targets](alerts_creating.html#alert-properties) property. Targets can be email addresses, PagerDuty and VictorOps API keys, HipChat rooms, Slack channels, and webhooks.
 
-If your target is PagerDuty and you resolve the incident while the alert is still currently firing in Wavefront two scenarios can occur:
+If one of the targets is PagerDuty and you resolve the incident while the alert is still currently firing in Wavefront two scenarios can occur:
 
-- There is a change to the set of sources being affected, then those changes will trigger a new incident in PagerDuty. Changes to the set of sources being affected refers to newly affected sources being added to the list of existing sources that are being affected and/or a subset of the existing sources being affected are no longer affected.
+If there is a change to the set of sources being affected, those changes will trigger a new incident in PagerDuty. Changes to the set of sources being affected includes:
 
-Following the incident being resolved in PagerDuty, if the only alert status change that occurs is all affected sources are resolved, and thus the alert being resolved in Wavefront, then nothing will occur. No new incident will be logged into PagerDuty.
+- Newly affected sources are added to the list of existing affected sources 
+- A subset of the existing sources being affected are no longer affected
+
+If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident will be logged into PagerDuty.
 
 ## Viewing Firing Alerts
 
@@ -62,10 +65,10 @@ The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) sh
 
 Sometimes an alert fires even though it looks like it shouldn't have. This can occur in the following scenarios:
 
-- Late data values are reported after the alert fired. When this occurs, the alert check initially sees one true value and no false values within the given alert fires field at the time of firing, but the late data values that are reported essentially change the true value to a false value. In these cases, the alert fires correctly but the chart associated with the alert that you view 5 or 10 minutes later may not show the true value the alerting check originally saw.
-- An aggregate function is used in the alert query and missing data was present for one or more underlying series at the time the alert fired. This tends to make up the majority of these cases. If there is at least one truly reported data value present at a given time slice for one of the underlying series, then Wavefront attempts to apply an interpolated value for all underlying series that did not report a value at that given time slice. For example, assume you are aggregating data for app-1, app-2, and app-3 using the sum() aggregate function. app-1 and app-3 reported values at 1:00:00p and 1:03:00p, while app-2 reported values at 1:00:00p, 1:01:00p, and 1:03:00p. In this case, an interpolated value would be applied for app-1 and app-3 at 1:01:00p since app-2 reported a value at that time slice.
+- Late data values are reported after the alert fired. When this occurs, the alert check initially sees one true value and no false values within the Alert fires window at the time of firing, but the late data values that are reported essentially change a true value to a false value. In these cases, the alert fires correctly but the chart associated with the alert that you view 5 or 10 minutes later may not show the value the alerting check originally saw.
+- An aggregate function is used in the alert query and missing data was present for one or more underlying series at the time the alert fired. This tends to make up the majority of these cases. If there is at least one truly reported data value present at a given time window for one of the underlying series, then Wavefront attempts to apply an interpolated value for all underlying series that did not report a value at that given time slice. For example, suppose you are aggregating data for app-1, app-2, and app-3 using the sum() aggregate function. app-1 and app-3 reported values at 1:00:00p and 1:03:00p, while app-2 reported values at 1:00:00p, 1:01:00p, and 1:03:00p. In this case, an interpolated value would be applied for app-1 and app-3 at 1:01:00p since app-2 reported a value at that time slice.
 
-  Using the example above, assume that the end of the alerting check time window is 1:02:00p. In order to apply accurate interpolated values, there must be a reported value before and after the interpolated time slice. Since app-1 and app-3 don't report a value until 1:03:00p, it's impossible to interpolate a value for them at 1:02:00p. At 1:03:00p, the data values for app-1 and app-3 are reported and therefore interpolated values are retroactively applied to 1:02:00p for these sources. If the alerting check evaluates the data before the interpolated values are applied, then the chart you view 5 or 10 minutes later may not show the true value the alerting check originally saw.
+  In the example above, assume that the end of the alerting check time window is 1:02:00p. In order to apply accurate interpolated values, there must be a reported value before and after the interpolated time slice. Since app-1 and app-3 don't report a value until 1:03:00p, it's impossible to interpolate a value for them at 1:02:00p. At 1:03:00p, the data values for app-1 and app-3 are reported and therefore interpolated values are retroactively applied to 1:02:00p for these sources. If the alerting check evaluates the data before the interpolated values are applied, then the chart you view 5 or 10 minutes later may not show the value the alerting check originally saw.
 
 ## When Alerts Resolve
 
