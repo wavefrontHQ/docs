@@ -8,8 +8,9 @@ permalink: charts.html
 summary: Learn about Wavefront chart types and chart configuration options. 
 ---
 
-[Charts](charts_creating.html) are the primary way you view the status of your metrics. You add
-[Wavefront Query Language](query_language_getting_started.html) queries to view and perform operations on metrics and configure chart options for the most helpful presentation.
+Charts are the primary way you view the status of your metrics. One of the features that sets Wavefront apart from other monitoring solutions is the ability for you to interact directly with charts. Rather than receiving a static image of your data, you can work with their charts in real time, asking questions and receiving answers. This interaction is possible on both the [dashboard](dashboards.html) and individual chart levels.
+
+You add [Wavefront Query Language](query_language_getting_started.html) queries to view and perform operations on metrics and configure chart options for the most helpful presentation. This document describes Wavefront chart types and chart configuration options.
 
 ## Common Options
 
@@ -29,7 +30,7 @@ There is no restriction on what you can enter as a chart name.
 
 #### Point Tag Display Options
 
-Which [point tags](query_language_point_tags.html) to display on the chart legend or table.
+The [point tags](query_language_point_tags.html) to display in the chart legend or a Tabular View chart.
 
 -   **Show all** - Show all point tags
 -   **Top** - Show top N most frequent point tags
@@ -71,7 +72,7 @@ Options that control the chart axis or axes.
 
 #### Axis
 
-The scale of the Y-axis: linear or logarithmic. In most cases, linear is sufficient as long as there is not a large difference in measurement between the reported data points. If a large difference in measurement scale is present, use the logarithmic scale. By default, set to linear. By default, the logarithmic scale is set to the power of 10, which can be adjusted.
+The scale of the Y-axis: linear or logarithmic. In most cases, linear is sufficient as long as there is not a large difference in measurement between the reported data points. If a large difference in measurement scale is present, use the logarithmic scale. By default, set to linear. By default, the logarithmic scale is set to the power of 10, which you can configure in adjacent the text field.
 
 #### Min/Max
 
@@ -79,9 +80,19 @@ The minimum and maximum value on the Y-axis. If you are using a double Y-axis, y
 
 ### Unit
 
-The unit of measurement to assign to the reported chart values label that appears along the Y-axis of the chart. For example, if the data for ts("requests.latency") is in milliseconds, you can either enter **ms** in the text field or click the **Units** down-arrow and select **Time &gt; ms**.
+The unit of measurement to assign to the reported chart values label that appears along the Y-axis of the chart. The supported units are:
 
-The specified unit is merely a label and *does not* change the unit of measurement for the given expression. If you are using a double Y-axis, you can specify a unit for each Y-axis. For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](charts_units.html).
+- Time - time. Ranges from yoctoseconds (ys) to years (yr)
+- IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB
+- SI - data rate in SI units. Ranges from bps (bits/s) to Ybps
+
+For example, if the data for ts("requests.latency") is in milliseconds, you can either enter **ms** in the text field or click the **Unit** down-arrow and select **Time &gt; ms**.
+
+The specified unit is merely a label and *does not* change the unit of measurement for the given expression. If you are using a double Y-axis, you can specify a unit for each Y-axis.
+
+#### IEC/Binary Unit Prefixes
+
+For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](charts_units.html).
 
 ### Style
 
@@ -89,7 +100,8 @@ Options that control the style of the chart.
 
 #### Gap Threshold
 
-Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds. Dashed lines on a chart represent missing data. Gap thresholds do not fill in values for missing data, but instead just give a visual representation that the data is still there. If you hover over the chart, you won't see values where the gap threshold has been applied.
+Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. 
+
 
 #### Interpolation
 
@@ -104,15 +116,19 @@ The function used to join points between each point bucket:
 
 ### Description
 
-A description of the chart. This is typically created by users with Dashboard Management permission, since most of the time you want the chart description to be saved for other users to view.
+A description of the chart.
 
 ### Legend
 
 Options that control the legend display.
 
+#### Fixed Legend
+
+Whether to display a fixed legend.
+
 #### Non-summarized Stats
 
-Whether to report summarized or raw values for all metric values and statistics in the legend. When this setting is disabled, the legend reports summarized values according to the **Summarize By** setting.
+Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the **Summarize By** setting.
 
 #### Disable Legend on Hover
 
@@ -124,11 +140,14 @@ The position of the fixed legend on the screen.
 
 #### Display
 
-Which values and statistics to display in the legend: current, mean, median, sum, min, max, and count.
+The values and statistics to display in the legend: current, mean, median, sum, min, max, and count.
 
 #### Filter
 
-Filter which metrics are displayed on the legend. You can choose the top or bottom N metrics based on the selected value or statistic.
+The value and number of metrics displayed in the legend. Specify:
+- Top or Bottom
+- Number of metrics
+- Value or statistic
 
 ## Line Plot
 
@@ -136,7 +155,7 @@ Filter which metrics are displayed on the legend. You can choose the top or bott
 
 A **line plot** chart represents interpolated point buckets. The X-axis represents the amount of time in your time window and the Y-axis represents the value associated with the data based on that time.
 
-By default, if there are no reported data values within a 60 second span, Wavefront displays gaps of missing data. A line plot chart displays gaps of missing data as dashed lines. Gaps of missing data are tied to each stream displayed on the chart. For example, if a displayed stream has two minutes where no data values are reported, then that two minute gap displays as a dashed line. The **Gap Threshold** property allows you to adjust the amount of time before gaps of missing data display as dashed lines.
+In a line chart, missing data is represented by a dashed line. The dashed line only gives a visual representation of the data stream; it _does not_ represent values of the missing data. If you hover over the chart, you won't see values where the gap threshold has been applied. The [Gap Threshold](#gap-threshold) property allows you to set the amount of time before gaps of missing data display as dashed lines.
 
 ## Point Plot
 
@@ -195,6 +214,26 @@ Modify the color of the data points so that darker colors represent more recent 
 ![tabular view](images/tabular_view.png)
 
 A **tabular view** chart displays data per stream in a table format. In tabular view, only one data point value is displayed per source. The value is a summary of all of the data points available as set in the Summarized By field based on the configured time window.
+
+### Columns
+
+Configure options for table columns.
+
+### Show Sources/Labels
+
+Controls the sources and labels displayed in the chart. Labels refers to the metric name associated with the data.
+
+### Show Raw Values
+
+Whether to display the raw metric values or values using scientific notation (SI).
+
+### Group by Sources
+
+Whether to group the column results by source.  If you select **Group by Source** the table lists the grouped sources in the first column and the values for each metric in separate columns.
+
+### Sort Values Descending
+
+Whether to sort the value column by descending value.
 
 ## Single Stat View
 
