@@ -49,12 +49,12 @@ When an alert fires, a notification containing the alert info is sent to targets
 
 If one of the targets is PagerDuty and you resolve the incident while the alert is still currently firing in Wavefront two scenarios can occur:
 
-If there is a change to the set of sources being affected, those changes will trigger a new incident in PagerDuty. Changes to the set of sources being affected includes:
+- If there is a change to the set of sources being affected, those changes will trigger a new incident in PagerDuty. Changes to the set of sources being affected includes:
 
-- Newly affected sources are added to the list of existing affected sources 
-- A subset of the existing sources being affected are no longer affected
+  - Newly affected sources are added to the list of existing affected sources 
+  - A subset of the existing sources being affected are no longer affected
 
-If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident will be logged into PagerDuty.
+- If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident will be logged into PagerDuty.
 
 ## Viewing Firing Alerts
 
