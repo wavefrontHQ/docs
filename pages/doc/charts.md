@@ -221,7 +221,7 @@ Configure options for table columns.
 
 ### Show Sources/Labels
 
-Controls the sources and labels displayed in the chart. Labels refers to the metric name associated with the data.
+Whether to display the sources and labels in the chart. A label is the metric name associated with the data or the query expression resulting from an aggregation.
 
 ### Show Raw Values
 
