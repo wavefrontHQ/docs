@@ -6,6 +6,10 @@ permalink: alerts_states_lifecycle.html
 summary: Learn about alert states, when they fire and what happens, and how they resolve.
 ---
 
+## Alert Condition
+
+If an alert's [Condition](alerts_creating.html) field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as **true** (1's) and all reported values that do not satisfy the condition are marked as **false** (0's). If the Condition field has a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as **true** and all zero reported values are marked as **false**. If there is _no reported data_, then it is evaluated as neither true nor false.
+
 ## Alert States
 
 An alert can be in 5 states:
@@ -27,7 +31,7 @@ The series associated with that alert are checked according to the Checking Freq
 
 ## When Alerts Fire
 
-An alert fires when its condition evaluates to at least one true value and zero false values present within the given Alert fires time window. If there is a condition, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as true (1's) and all reported values that do not satisfy the condition are marked as false (0's). If there is no condition, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are considered true and all zero reported values are considered false. If there is no reported data, then it is evaluated as neither true nor false.
+An alert fires when its condition evaluates to at least one true value and zero false values present within the given Alert fires time window.
 
 ### Example: ts(cpu.loadavg.1m) > 4 fires
 - If the series has one reported data value of 5 in the last X minutes, and no other points (no data), the alert will fire.
