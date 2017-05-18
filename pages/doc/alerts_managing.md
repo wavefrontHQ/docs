@@ -10,6 +10,11 @@ To view and manage alerts, click the **Alerts** button or select **Browse > Aler
  
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
+This topic describes how to manage alert objects, view alert history, and snooze and unsnooze alerts. 
+
+For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
+
+
 ## Creating Alerts
  
 See [Creating an Alert](alerts_creating.html).
@@ -22,7 +27,17 @@ To clone or delete an alert, select ![action_menu](images/action_menu.png#inline
  
 ## Alert History
 
-Alert history provides you with changes that have been made to an alert over time. You can access the alert history by selecting ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. When you select Versions, a page displays contain a list of versions of the alert. Alert history tells you which user made the changes, the date and time the changes were made, and a description of the changes. You can revert back to or clone a past alert version. Alert History was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
+Alert history provides you with changes that have been made to an alert over time. You can access the alert history by selecting ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. When you select Versions, a page displays contain a list of versions of the alert. Alert history tells you which user made the changes, the date and time the changes were made, and a description of the changes. You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
+
+To help you Alert history as well as run analysis and refine the alert firing criteria. You view the count of all firing alerts for a period of time in the Alerts browser, similar to how the All Dashboards page shows the frequency of dashboard views over time. In addition, you can run ts() expressions on the alert counter metrics to analyze further.
+
+The following are examples of types of questions you can answer by looking at these metrics:
+
+- What are the noisiest alerts? What alerts fire the most out of all my alerts? I would them focus in on those alerts to determine if I can reduce the firing (maybe by fixing root cause, maybe by tuning alert conditions, etc.)
+- What are the noisiest sources? What source have the most firing alerts associated with them?
+- What is the firing history of a particular alert? I am trying to find out why a particular alert is particularly noisy.
+- What is the firing history of a particular source?
+
  
 ## Snoozing and Unsnoozing Alerts
  
@@ -40,7 +55,5 @@ To unsnooze alerts, check the checkboxes next to the alerts and select **Snooze 
 ## Managing Alert Tags
 
 See [Organizing with Tags](tags_overview.html).
-
-For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
 
 

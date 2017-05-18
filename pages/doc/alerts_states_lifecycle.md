@@ -3,12 +3,12 @@ title: Alert States and Lifecycle
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_states_lifecycle.html
-summary: Learn about alert states, when they fire and what happens, and how they resolve.
+summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
 
 ## Alert Condition
 
-If an alert's [Condition](alerts_creating.html) field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as **true** (1's) and all reported values that do not satisfy the condition are marked as **false** (0's). If the Condition field has a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as **true** and all zero reported values are marked as **false**. If there is _no reported data_, then it is evaluated as neither true nor false.
+An alert condition is a conditional ts() expression that defines the threshold for the alert. If an alert's [Condition](alerts_creating.html) field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as **true** (1's) and all reported values that do not satisfy the condition are marked as **false** (0's). If the Condition field has a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as **true** and all zero reported values are marked as **false**. If there is _no reported data_, then it is evaluated as neither true nor false.
 
 ## Alert States
 
