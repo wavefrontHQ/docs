@@ -6,11 +6,11 @@ sidebar: doc_sidebar
 permalink: integrations_appdynamics.html
 summary: Learn how to send data emitted by AppDynamics to Wavefront.
 ---
-[AppDynamics](https://www.appdynamics.com/) is a popular APM solution for monitoring applications. It runs as a cloud service or on-premise. The AppDynamics integration captures minute level data and stores it in Wavefront without any loss of precision. This allows you to now create meaningful alerts using the powerful time series query language.
+[AppDynamics](https://www.appdynamics.com/) is a popular APM solution for monitoring applications. The AppDynamics integration captures minute level data and stores it in Wavefront without any loss of precision.
  
  
 ## Metric Collection
-The [Wavefront collector](https://github.com/wavefrontHQ/wavefront-collector) collects AppDynamics metrics using the AppDynamics REST SDK. The Wavefront collector is a python script that runs periodically to collect metrics about the application, tiers and nodes. The Wavefront collector sends the metrics to the wavefront proxy which in turn forwards the metrics to the Wavefront backend.
+The [Wavefront collector](https://github.com/wavefrontHQ/wavefront-collector) collects AppDynamics metrics using the [AppDynamics REST SDK](http://appdynamicsrest.readthedocs.io/en/latest/). The Wavefront collector is a Python script that runs periodically to collect metrics about the application, tiers, and nodes. The Wavefront collector sends the metrics to the Wavefront proxy which in turn forwards the metrics to the Wavefront server.
  
 ## Instructions
  
@@ -24,7 +24,6 @@ The [Wavefront collector](https://github.com/wavefrontHQ/wavefront-collector) co
 
 ```conf
 [api]
-; See https://docs.appdynamics.com/display/PRO41/Use+the+AppDynamics+REST+APIs
 account = <todo>
 username = <todo>
 password = <todo>
@@ -33,7 +32,7 @@ debug = True
  
 [filter]
 ; Get the application IDs from your controller user interface
-; blacklist_regex should be in the form: A\|.*,B\|C\|.*,etc ...
+; blacklist_regex should be in the form: A|.*,B|C|.*,etc ...
 application_ids = APP_ID_1,APP_ID_2,...
 whitelist_regex =
 blacklist_regex =
@@ -56,18 +55,18 @@ The `options` field allows you to get granular metrics from node level data. How
 
 ## Dashboard
 
-Once you've installed AppDynamics, you can [deploy](dashboards_managing.html#deploying-a-dashboard) the [AppDynamics dashboard](https://github.com/wavefrontHQ/integrations/tree/master/telegraf/dashboards) to begin monitoring your server metrics from AppDynamics in Wavefront:
+You can [deploy](dashboards_managing.html#deploying-a-dashboard) the [AppDynamics dashboard](https://github.com/wavefrontHQ/integrations/blob/master/kubernetes/dashboards/K8s.json) to begin monitoring your server metrics from AppDynamics in Wavefront:
 
 ![db_appdynamics application](images/db_appdynamics_application.png)
 ![db_appdynamics backend](images/db_appdynamics_backend.png)
 
 ## Alerting
 
-The biggest advantage of this integration is the flexible and dynamic alerting using the simple but powerful time series query language. AppDynamics alerting is based on standard deviation or a value exceeding a threshold.
+The biggest advantage of this integration is the flexible and dynamic alerting. AppDynamics alerting is based on standard deviation or a value exceeding a threshold.
 
 ![alert_appdynamics](images/alert_appdynamics.png)
 
-But what if your data does not follow the standard distribution or you want to do math on the incoming data such as take a ratio of two metrics? With Wavefront you can use the query language to model the shape of your data or do a ratio and then alert on the derived metrics.
+If your data does not follow the standard distribution or you want to do computations, such as take a ratio of two metrics, on the incoming data, you can use Wavefront Query Language expressions to model the shape of your data or do a ratio and then alert on the derived metrics.
 
 ![edit_alert_appdynamics](images/edit_alert_appdynamics.png)
 
