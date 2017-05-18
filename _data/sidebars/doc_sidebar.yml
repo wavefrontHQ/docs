@@ -220,6 +220,10 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
       
+    - title: Alert Hierarchies
+      url: /alerts_hierarchies.html
+      output: web
+      
     - title: Increasing Alert Robustness
       url: /alerts_robustness_increasing.html
       output: web
