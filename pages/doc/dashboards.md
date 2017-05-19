@@ -20,7 +20,7 @@ All users can [search](dashboards_searching.html) and [interact](dashboards_inte
 
 Wavefront has two types of dashboards: system and user. System dashboards include:
 
-- [Introductory dashboards](dashboards_getting_started.html)
+- [Getting Started Dashboards](dashboards_getting_started.html)
 - [AWS dashboards](integrations_aws_metrics.html#aws-dashboards)
 - [Internal Metrics dashboard](wavefront_monitoring.html)
 

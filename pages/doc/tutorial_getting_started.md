@@ -12,17 +12,17 @@ The tutorial is based on the sample metrics preloaded in your Wavefront account.
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes a set of [introductory dashboards](dashboards_getting_started.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes a set of [Getting Started Dashboards](dashboards_getting_started.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
 1. Log into Wavefront. For many users the Intro:Home dashboard displays by default. If so, review the dashboard contents now.
-1. To get further acquainted with Wavefront basics, we'll look at a few other Wavefront introductory dashboards. Select **Dashboards > All Dashboards**.
+1. To get further acquainted with Wavefront basics, we'll look at a few other Wavefront Getting Started Dashboards. Select **Dashboards > All Dashboards**.
 1. In the Tag Paths section of the filter bar on the left, expand the **wavefront** node and click the **wavefront.tutorial** tag.
 1. Click each dashboard and review:
   - Intro: Home - (if you haven't already reviewed it in step 1.)
   - Intro: Getting Started with Wavefront Query Language - gives an overview of how to construct metrics queries.
   - Intro: Dashboard Basics: Chart Types - describes the different ways of displaying metrics.
 
-1. The introductory dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using the Metrics browser:
+1. The Getting Started Dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using the Metrics browser:
     1. Select **Browse > Metrics**.
     1. In the Metrics field, type **sample**. Click the **~sample.** folder. The sample metrics categories display:
 

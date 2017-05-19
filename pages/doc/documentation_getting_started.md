@@ -8,7 +8,7 @@ summary: Learn about the documentation that can help get you up to speed on Wave
 ---
 The following list of documents are great for getting started with Wavefront. If you want an even more condensed set of documentation, then focus on the categories and topics with a <i class="fa-check-circle fa" style="color: green;"/> icon.
 
-If you prefer a more hands on approach, then check out the [Introductory Dashboards](dashboards_getting_started.html). These dashboards help you get acquainted with topics such as the query language, alerting, and chart types.
+If you prefer a more hands on approach, then check out the [Getting Started Dashboards](dashboards_getting_started.html). These dashboards help you get acquainted with topics such as the query language, alerting, and chart types.
 
 ## Tutorials <i class="fa-check-circle fa" style="color: green;"/>
 
@@ -18,7 +18,7 @@ Tutorials help you quickly learn the basics of getting, displaying, and working 
 - [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html)
 - [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html)
 
-Also see the [Introductory Dashboards](dashboards_getting_started.html) labeled with the tag **wavefront.tutorial**.
+Also see the [Getting Started Dashboards](dashboards_getting_started.html) labeled with the tag **wavefront.tutorial**.
 
 
 ## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
