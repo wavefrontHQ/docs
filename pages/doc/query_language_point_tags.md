@@ -10,7 +10,7 @@ Point tags are key-value pairs (strings) that are associated with a point. Point
  
 Suppose you send the following points, all from a single source cache1, over a 5 minute period:
 
-```
+```r
 test.request.latency 30 1394740020 source=cache1 clientService="API" 
 test.request.latency 25 1394740080 source=cache1 clientService="API" 
 test.request.latency 34 1394740140 source=cache1 clientService="API" 
@@ -34,15 +34,19 @@ If you have multiple point tags on a given point, you'll see all of the point ta
 
 ### Filtering Queries Using Point Tags
 
-To see the request latencies that have the `clientService="API"` point tag use the query: `ts(test.request.latency, clientService="API")`:
+To see the request latencies that have the `clientService="API"` point tag use the query:
+
+```r
+ts(test.request.latency, clientService="API")
+```
 
 ![One point tag](images/one_point_tag.png)
 
 One line is returned because all points share the same point tag key-value pairs. 
  
-Suppose 5 points have the `clientService="batch"` point tag, but also various other point tags:
+Suppose 5 points have the `clientService="batch"` point tag and other point tags:
 
-```
+```r
 test.request.latency 45 1394740020 source=cache1 clientService="batch" clientApp="dailyReport" hw="vm045.wavefront.com" 
 test.request.latency 47 1394740080 source=cache1 clientService="batch" clientApp="dailyReport" hw="vm045.wavefront.com" 
 test.request.latency 44 1394740140 source=cache1 clientService="batch" clientApp="dailyReport"  
@@ -56,7 +60,11 @@ You can query for all 5 points using `ts(test.request.latency, clientService="ba
 
 The query retrieves all of the points, but they aren't charted as a single line because they don't represent the same exact set of point tag key-value pairs.
  
-Finally, if you add another point tag to the query to further filter: `ts(test.request.latency, clientService="batch" and clientApp="hourlyReport")`
+Finally, if you add another point tag to the query to further filter: 
+
+```r
+ts(test.request.latency, clientService="batch" and clientApp="hourlyReport")
+```
 
 ![Both point tags](images/both_point_tags.png)
  

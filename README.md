@@ -1,6 +1,6 @@
 # Wavefront Documentation
 
-## Preview the site
+## Preview the Site
 
 To preview the website locally:
 
@@ -8,19 +8,19 @@ To preview the website locally:
 
 1. `cd` to the repository directory and run the following command:
 
-```
+```shell
 $ cd docs
 $ bundle install
 ```
 
 Bundler will look in the Gemfile for which gems to install.
 
-## Run and view site locally
+## Run and View Site Locally
 
-Run Jekyll using the following command:
+1. Run Jekyll using the following command:
 
-```
-$ bundle exec jekyll serve
-```
+   ```shell
+   $ bundle exec jekyll serve
+   ```
 
-Then, load [http://localhost:4000/](http://localhost:4000/) in your browser.
+1. Go to [http://localhost:4000/](http://localhost:4000/) in your browser.

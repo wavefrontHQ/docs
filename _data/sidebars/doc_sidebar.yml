@@ -220,7 +220,7 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
       
-    - title: Alert Hierarchies
+    - title: Alert Dependency Hierarchies
       url: /alerts_hierarchies.html
       output: web
       

@@ -31,6 +31,7 @@ The zeroBasedNodeIndex approach for `aliasSource()` refers to extracting a singl
 ```
 disk.space.total.environment
 ```
+
 In the metric name above, each node is assigned a number:
 
 ```
