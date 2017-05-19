@@ -9,7 +9,7 @@ summary: Learn about new and updated features in the Wavefront 8.x release.
 The Wavefront 8.x release provides a number of dashboard, documentation, and UI improvements:
 
 - Wavefront dashboards
-  - The introductory and system dashboards have been updated and new demo dashboards have been added to your instance. For further info on these dashboards, see [Introductory Dashboards](dashboards_introductory.html) and [Monitoring the Health of a Wavefront Instance](wavefront_monitoring.html).
+  - The introductory and system dashboards have been updated and new demo dashboards have been added to your instance. For further info on these dashboards, see [Introductory Dashboards](dashboards_getting_started.html) and [Monitoring the Health of a Wavefront Instance](wavefront_monitoring.html).
   - All Wavefront dashboards now have tags in the **wavefront.*** hierarchy.  The dashboards have the following name and tagging conventions:
     - Demo: \<Name\> - **wavefront.tour**
     - Intro: \<Name\> - **wavefront.tutorial**

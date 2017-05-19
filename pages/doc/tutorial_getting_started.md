@@ -12,7 +12,7 @@ The tutorial is based on the sample metrics preloaded in your Wavefront account.
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes a set of [introductory dashboards](dashboards_introductory.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes a set of [introductory dashboards](dashboards_getting_started.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
 1. Log into Wavefront. For many users the Intro:Home dashboard displays by default. If so, review the dashboard contents now.
 1. To get further acquainted with Wavefront basics, we'll look at a few other Wavefront introductory dashboards. Select **Dashboards > All Dashboards**.

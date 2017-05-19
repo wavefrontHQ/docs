@@ -31,8 +31,8 @@ entries:
       url: /wavefront_use_cases.html
       output: web
       
-    - title: Introductory Dashboards
-      url: /dashboards_introductory.html
+    - title: Getting Started Dashboards
+      url: /dashboards_getting_started.html
       output: web
       
   - title: Tutorials

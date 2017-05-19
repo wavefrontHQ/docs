@@ -7,8 +7,9 @@ permalink: query_language_windows_trends.html
 summary: Learn how to use moving window functions in Wavefront Query Language expressions to highlight trends.
 ---
 
-## Moving Windows
-The moving functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation like `msum()`,` mavg()`, `mmedian()`, `count()` etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
+## Moving Window Functions
+
+The moving window functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `count()`, etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
  
 The chart below for instance shows the 24 hour moving average of the points received. As you can see it is a continuous moving average of the past 24 hours.
  
@@ -16,9 +17,10 @@ The chart below for instance shows the 24 hour moving average of the points rece
 
 But what if you wanted to only look at the daily average for each day and display only that average across the day. Essentially what you want to create is fixed size time windows and record your metrics in these windows.
  
-These windows are more commonly referred as tumbling windows. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals. 
+These windows are more commonly referred as _tumbling windows_. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals. 
  
 ## Moving Windows Versus Tumbling Windows
+
 Before we look at how to create and use these tumbling windows for different use cases, let's take a look at an example to understand thoroughly the concepts of moving and tumbling windows.
  
 The following diagrams illustrate a stream with a series of points being reported and how they are mapped into  5-second moving windows versus 5-second tumbling windows.
@@ -65,7 +67,7 @@ A 5-minute moving percentile will give you the 50th percentile point in the last
 
 {% include image.html file="5min_50th_moving.png" alt="5min_50th_moving" caption="Fig 9: 5 Minute 50th Moving Percentile" %}
 
-But what if you wanted to find a 50th percentile of points in fixed 5-minute window. You could use the similar logic as we saw in the earlier examples. Here we are using `align(5m,)` to sample instead of the time functions followed by `next()` to display the 50th percentile for the entire 5-minute window.
+But what if you wanted to find a 50th percentile of points in fixed 5-minute window. You could use the similar logic as we saw in the earlier examples. Here we are using `align(5m,...)` to sample, instead of the time functions followed by `next()`, to display the 50th percentile for the entire 5-minute window.
 
 {% include image.html file="5min_50th_tumbling.png" alt="5min_50th_tumbling" caption="Fig 10: 50th Percentile for Every 5 Minute Tumbling Window" %}
 
