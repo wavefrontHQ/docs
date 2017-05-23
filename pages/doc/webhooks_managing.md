@@ -374,7 +374,8 @@ To edit a webhook, click the webhook name in the Webhooks browser or select ![ac
 You can delete one or more webhooks by checking the checkboxes next to the webhooks and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Webhooks page. The Trash icon is grayed out if any of the selected webhooks cannot be deleted. To delete a single webhook, select ![action menu](images/action_menu.png#inline) **> Delete** at the far right of the webhook.
 
 ## Finding a Webhook ID
-Each webhook has a unique system generated ID. Such IDs are used when adding a webhook as an [alert target](alerts_creating.html#alert-properties). To find the ID:
+
+Each webhook has a unique system generated ID. Such IDs are used when adding a webhook as an [alert target](alerts_managing.html#creating-an-alert#alert-properties). To find the ID:
 
 1. Click **Browse > Webhooks**.
 1. Search for the webhook. In the Name column, note the ID of the webhook under the webhook description. 
@@ -382,12 +383,13 @@ Each webhook has a unique system generated ID. Such IDs are used when adding a w
    ![webhook ID](images/webhook_id.png)
 
 ## Adding a Webhook to a Wavefront Alert
+
 To add a webhook as the target of an alert:
 
 1. Click **Alerts** or select **Browse > Alerts**.
 1. Locate the alert in the Alerts page and click the alert name.
 1. Scroll down to the **Targets** field. 
 1. Add the keyword **webhook** to the targets list. A dropdown list displays containing all the available webhooks present in Wavefront that can be integrated to your alert. The ID and the webhook URL for each webhook is listed.
-1. Locate and select the ID of the webhook noted in [Finding a Webhook ID](#finding-a-webhook-id).
+1. Locate and select the ID of the webhook noted in Finding a Webhook ID.
 1. Click **Save**.
 

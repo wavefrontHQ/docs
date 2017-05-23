@@ -8,17 +8,17 @@ summary: Learn about alert conditions and states, when alerts fire, and how aler
 
 ## Alert Condition
 
-An alert condition is a conditional ts() expression that defines the threshold for the alert. If an alert's [Condition](alerts_creating.html) field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as **true** (1's) and all reported values that do not satisfy the condition are marked as **false** (0's). If the Condition field has a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as **true** and all zero reported values are marked as **false**. If there is _no reported data_, then it is evaluated as neither true nor false.
+An alert condition is a conditional ts() expression that defines the threshold for the alert. If an alert's [Condition](alerts_managing.html#condition) field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as `true` (1's) and all reported values that do not satisfy the condition are marked as `false` (0's). If the Condition field has a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as `true` and all zero reported values are marked as `false`. If there is _no reported data_, then it is evaluated as neither true nor false.
 
 ## Alert States
 
 An alert can be in 5 states:
 
-- **CHECKING**: The alert is being checked to see if the Condition and Alert fires properties are being met. While firing alerts are still being checked to determine if the Condition and Alert resolves properties are still being met, they are not included when you filter for this state in the Alerts browser.  An alert resolves (transitions back to CHECKING) when there are either no true values present within the time window, or the time window contains no data.
-- **FIRING**: The alert is meeting the Condition and Alert fires property. An alert transitions to firing when the condition evaluates to at least one true value and no false values during a fixed time window.
-- **IN MAINTENANCE**: The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window. If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE. If an alert has a subset of reporting sources associated with an ongoing maintenance window but whose other sources are firing, the state displays as FIRING/IN MAINTENANCE.
-- **INVALID**: The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).
-- **SNOOZED**: The alert is not checked to determine if the Condition and Alert fires properties are being met.
+- **CHECKING** - The alert is being checked to see if the Condition and Alert fires properties are being met. While firing alerts are still being checked to determine if the Condition and Alert resolves properties are still being met, they are not included when you filter for this state in the Alerts browser.  An alert resolves (transitions back to CHECKING) when there are either no true values present within the time window, or the time window contains no data.
+- **FIRING** - The alert is meeting the Condition and Alert fires property. An alert transitions to firing when the condition evaluates to at least one true value and no false values during a fixed time window.
+- **IN MAINTENANCE** - The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window. If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE. If an alert has a subset of reporting sources associated with an ongoing maintenance window but whose other sources are firing, the state displays as FIRING/IN MAINTENANCE.
+- **INVALID** - The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).
+- **SNOOZED** - The alert is not checked to determine if the Condition and Alert fires properties are being met.
 
 ## When Alerts are Checked
 
@@ -28,6 +28,7 @@ The series associated with that alert are checked according to the Checking Freq
 - When an alert is currently firing, the time window evaluated according to the Checking Frequency is controlled by the Alert resolves property. The point in time where the Checking Frequency approximate check occurs is unique to each alert. For example, one alert could be checked at 1:01:04p while another alert could be checked at 1:01:17p.
 - The end time for the time window being evaluated according to the Checking Frequency is determined by: "alert check time (rounded down to nearest minute) - 1 minute". Suppose the Alert fires property is set to 5 minutes. If the alert check time is 1:09:32p, then the end time for the time window being evaluated would be 1:08:00p (("1:09:32" - "0:00:32") - "0:01:00"). Therefore the 5 minute time window would be 1:03:00p to 1:08:00p.
 - Alert checks evaluate minutely summarized (mean) data values. For example, if 5 data values are reported between 12:11:00p and 12:11:59p, then the average value of those 5 data values would be displayed at 12:11:00p. If you want a different summarization strategy, then you can use a 1 minute `align()` function in your query and specify the summarization method.
+
 
 ## When Alerts Fire
 
@@ -47,11 +48,9 @@ In the following example, the threshold for the alert is set to 50%. The event w
 
 ![Alert fires](images/alert_fire.png)
 
-## Alert Notifications
+## PagerDuty Notifications
 
-When an alert fires, a notification containing the alert info is sent to targets listed in the [Targets](alerts_creating.html#alert-properties) property. Targets can be email addresses, PagerDuty and VictorOps API keys, HipChat rooms, Slack channels, and webhooks.
-
-If one of the targets is PagerDuty and you resolve the incident while the alert is still currently firing in Wavefront two scenarios can occur:
+If one of the alert [targets](alerts_managing.html#target) is PagerDuty and you resolve the incident while the alert is still currently firing in Wavefront, two scenarios can occur:
 
 - If there is a change to the set of sources being affected, those changes will trigger a new incident in PagerDuty. Changes to the set of sources being affected includes:
 
@@ -66,6 +65,7 @@ The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) sh
 
 ![Tag path](images/alerts_filter.png)
 
+## Misfiring Alerts
 
 Sometimes an alert fires even though it looks like it shouldn't have. This can occur in the following scenarios:
 

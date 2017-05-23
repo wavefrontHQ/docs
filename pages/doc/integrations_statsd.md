@@ -12,18 +12,17 @@ StatsD is a very popular statistical aggregator for application metrics. We reco
  
 1. Install Telegraf. Follow the instructions in [Telegraf Integration](integrations_telegraf.html)  to install Telegraf on your host machine.
  
-1. Configure the StatsD Service plugin
+1. Configure the StatsD Service plugin. There are 2 ways to configure the StatsD service plugin: Wavefront CLI and manually.
  
-There are 2 ways to configure the StatsD service plugin: Wavefront CLI and manually.
- 
-  - **Configure Using the Wavefront CLI** - If you install Telegraf using the Wavefront CLI you can install the StatsD service plugin by running the command:
+   - **Configure Using the Wavefront CLI** - If you install Telegraf using the Wavefront CLI you can install the StatsD service plugin by running the command:
 
-    ```shell  
-    $ sudo wave integration StatsD install statsd_port=8125
-    ```
-  This command installs the StatsD service plugin and restarts Telegraf. You can confirm by checking the Telegraf log for the string `inputs.statsd` and by checking for the file `/etc/telegraf/telegraf.d/10-statsd.conf`.
- 
- - **Configure Manually** - To manually configure StatsD, add the StatsD plugin information to your Telegraf config file.
+     ```shell  
+     $ sudo wave integration StatsD install statsd_port=8125
+     ```
+
+     This command installs the StatsD service plugin and restarts Telegraf. You can confirm by checking the Telegraf log for the string `inputs.statsd` and by checking for the file `/etc/telegraf/telegraf.d/10-statsd.conf`.
+
+   - **Configure Manually** - To manually configure StatsD, add the StatsD plugin information to your Telegraf config file.
      1. Edit the Telegraf config file `/etc/telegraf/telegraf.conf` and add the following:
 
         ```properties
@@ -39,8 +38,9 @@ There are 2 ways to configure the StatsD service plugin: Wavefront CLI and manua
           allowed_pending_messages = 10000
           percentile_limit = 1000
         ```
+
      1. Restart Telegraf: `$ sudo service telegraf restart`
- 
+
 ## Using StatsD
  
 ### Sending Test Metrics

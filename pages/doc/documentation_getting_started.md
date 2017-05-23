@@ -14,26 +14,26 @@ If you prefer a more hands on approach, then check out the [Getting Started Dash
 
 Tutorials help you quickly learn the basics of getting, displaying, and working with data.
 
-- [Tutorial: Getting Started](tutorial_getting_started.html) 
+- [Tutorial: Getting Started](tutorial_getting_started.html)
 - [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html)
 - [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html)
 
 Also see the [Getting Started Dashboards](dashboards_getting_started.html) labeled with the tag **wavefront.tutorial**.
 
-
 ## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
 
-The following topics are great for learning about what Wavefront is, how to get data into Wavefront, Wavefront chart types, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront.
+The following topics are great for learning about what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront, and to get an introduction to the four main entities in Wavefront: charts, dashboards, alerts, and events.
 
 - [Introduction to Wavefront](wavefront_introduction.html) 
 - [Getting Data into Wavefront Overview](wavefront_data_ingestion.html)
-- [Wavefront Charts](charts.html)
-- [Wavefront Dashboards](dashboards.html)
 - [Permissions Overview](permissions_overview.html)
 - [Organizing with Tags](tags_overview.html)
 - [Searching Wavefront](wavefront_searching.html)
+- [Charts](charts.html)
+- [Dashboards](dashboards.html)
+- [Alerts](alerts.html)
+- [Events](events.html)
 
- 
 ## Charts and Dashboards
 
 Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video will help you to learn how to create and use charts and dashboards in Wavefront.
@@ -41,7 +41,7 @@ Dashboards make it possible to save multiple charts in a single location for fut
 - [Creating a Chart](charts_creating.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Searching for Dashboards](dashboards_searching.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Interacting with Dashboards and Charts](dashboards_interacting.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Resolution and Summarization in Wavefront](https://wavefront-1.wistia.com/medias/r8frqgquvb)
+- [Chart Resolution](charts_resolution.html)
  
 ## Query Language
 
@@ -58,8 +58,8 @@ Wavefront Query Language is the foundation of charts and alerts in Wavefront. Th
 
 Alerts and events make it possible to track critical changes in your environment. The following topics will help you learn about alerts and events in Wavefront.
 
-- [Creating an Alert](alerts_creating.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Alerting States and Lifecycle](alerts_states_lifecycle.html) <i class="fa-check-circle fa" style="color: green;"/>
+- [Creating an Alert](alerts_creating.html)
 - [Displaying Events in Charts](charts_events_displaying.html)
  
 ## Release Notes

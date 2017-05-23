@@ -125,7 +125,7 @@ Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source`
 
 ## CloudTrail Integration
 
-The Wavefront CloudTrail integration retrieves EC2 event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events_managing.html). You can query these events with an [events() query](events_queries.html). 
+The Wavefront CloudTrail integration retrieves EC2 event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html). You can query these events with an [events() query](events_queries.html). 
 
 In the Events these events are prefaced with **AWS Action:** and include actions such as RunInstances, StartInstances, StopInstances, TerminateInstances, MonitorInstances, UnmonitorInstances, AttachVolume, DetachVolume, DeleteNetworkInterface, AuthorizeSecurityGroupIngress, CreateSecurityGroup, RequestSpotInstances, CancelSpotInstanceRequests, ModifyInstanceAttribute, CreateTags, CreateKeyPair, DeleteKeyPair, and DeregisterImage. The events also have the [event tag](tags_overview.html) `aws.cloudtrail.ec2`. For example:
 

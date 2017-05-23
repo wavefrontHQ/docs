@@ -208,16 +208,16 @@ entries:
     output: web
     folderitems:
       
-    - title: Creating an Alert
-      url: /alerts_creating.html
-      output: web
-      
-    - title: Managing Alerts
-      url: /alerts_managing.html
+    - title: Alerts
+      url: /alerts.html
       output: web
       
     - title: Alert States and Lifecycle
       url: /alerts_states_lifecycle.html
+      output: web
+      
+    - title: Managing Alerts
+      url: /alerts_managing.html
       output: web
       
     - title: Alert Dependency Hierarchies
@@ -260,6 +260,10 @@ entries:
   - title: Events
     output: web
     folderitems:
+      
+    - title: Events
+      url: /events.html
+      output: web
       
     - title: Managing Events
       url: /events_managing.html

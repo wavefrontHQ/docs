@@ -111,7 +111,7 @@ To toggle whether a section is expanded or collapsed, click the section name.
 
 ### Displaying Events on Charts
 
-The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar allows you to overlay [events](events_managing.html) on the X-axis of charts.
+The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
 
 ![time window](images/time_bar.png)
 

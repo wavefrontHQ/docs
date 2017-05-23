@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_log_data.html
 summary: Learn how to send log data to Wavefront.
 ---
-Usually the best way to send metrics to a monitoring system is to us a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from log data. This article describes two methods for sending log data metrics directly to your Wavefront proxy: Filebeat and TCP. These methods are supported in **Wavefront proxy 4.4 and higher**.
+Usually the best way to send metrics to a monitoring system is to use a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from log data. This article describes two methods for sending log data metrics directly to your Wavefront proxy: Filebeat and TCP. These methods are supported in Wavefront proxy 4.4 and higher.
 
 Both methods set up metrics harvesting with aggregation, in that time series are held in memory and periodically flushed to Wavefront. This allows you to control your points-per-second, and it also allows you to aggregate the same metric across multiple nodes. However, this has the limitation that each individual metric must always arrive at the *same* Wavefront proxy. If you only use one proxy you don't have to worry about this, but if you have a multi-proxy deployment, the easiest way is to send all of your logs to the same proxy. That way each metric only has one possible pool for aggregation.
 

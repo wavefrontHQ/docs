@@ -1,27 +1,16 @@
 ---
 title: Managing Events
 keywords: events
-tags: [events, videos]
+tags: [events]
 sidebar: doc_sidebar
 permalink: events_managing.html
 summary: Learn how to manage events.
 ---
-An event is a record that something of interest has occurred&mdash;an alert has changed state,
-a maintenance window has been created, AWS instances have started or stopped, and so on.
-
-Events originate from several different sources. When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing.html), the event source is **System**. When an alert fires or resolves, the source is **System/Alert**. You can manually add **User** events to identify user actions, such as code pushes, that occur outside Wavefront but that affect metrics within Wavefront.
-
-For a video overview, see
-
-{% include video.html file="kjtkpyw1tz" %}
-
 To view and manage events, select **Browse > Events**.
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
 You can close (end) user events that are ongoing (whether they have no end time or a specific end time).
-
-You can display events as [overlays on a chart](charts_events.html).
 
 ## Creating a User Event
 
