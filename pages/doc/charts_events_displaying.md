@@ -19,10 +19,10 @@ If a single event occurs in a given time interval, the event icon displays as a 
 
 The color of the overlays are determined by the event severity:
 
--   **severe** - red
--   **warn** - orange
--   **smoke** - gray
--   **info** - blue
+-   **SEVERE** - red
+-   **WARN** - orange
+-   **SMOKE** - gray
+-   **INFO** - blue
 
 <a name="dashboards_events"></a>
 
@@ -36,18 +36,17 @@ You have several ways to control when event overlays display in charts:
 
 - For all charts in a dashboard:
   - Set an [events() query](events_queries.html) in [dashboard preferences](dashboards_managing.html#prefs).
-  - Select an option in the dashboard **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar:
+  - Select an option in the dashboard **Show Events** dropdown in the middle of the time bar:
 
     ![time window](images/time_bar.png)
     
     The options are:
 
-    <ul>
-    <li markdown="span"><strong>From Chart</strong> - Display events based on the selection of the **Display Source Events** checkbox. Default setting.</li>
-    <li><strong>From Dashboard Prefs</strong> - Display events by the global events() expression set in dashboard preferences and forces the Display Source Events checkbox off.</li>
-    <li><strong>From Chart & Dashboard</strong> - Display events based on the selection of the Display Source Events checkbox and the global events() expression.</li>
-    <li><strong>Related Source Alerts</strong> - Forces the Display Source Events checkbox on.</li>
-    <li><strong>All</strong> - Display all events that have occurred within the time window associated with the chart windows.</li>
-    <li><strong>None</strong> - Hide all events from every chart in the dashboard.</li></ul>
+    - **From Chart** - Display events based on the selection of the **Display Source Events** checkbox. Default setting.
+    - **From Dashboard Prefs** - Display events by the global events() expression set in dashboard preferences and forces the Display Source Events checkbox off.
+    - **From Chart & Dashboard**- Display events based on the selection of the Display Source Events checkbox and the global events() expression.
+    - **Related Source Alerts** - Forces the Display Source Events checkbox on.
+    - **All** - Display all events that have occurred within the time window associated with the chart windows.
+    - **None** - Hide all events from every chart in the dashboard.
 
 

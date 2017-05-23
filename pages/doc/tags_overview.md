@@ -3,11 +3,11 @@ title: Organizing with Tags
 tags: [getting started, alerts, dashboards, events, videos]
 sidebar: doc_sidebar
 permalink: tags_overview.html
-summary: Learn how to create and use Wavefront tags to organize Wavefront entities and speed up searching and query display.
+summary: Learn use tags to speed up searching and query display and how to manage entity tags.
 ---
-A tag is custom metadata that adds application-specific meaning to Wavefront *entities*: alerts, dashboards, events, and sources and *metrics*. Tags group together entities and metrics according to categories you define.
+A tag is custom metadata that adds application-specific meaning to Wavefront _entities_: alerts, dashboards, events, and sources and _metrics_. Tags group together entities and metrics according to categories you define.
 
-You use tags to limit the number entities and metrics you are querying or working with at once. Limiting the number of entities reduces information overload. Limiting the number of metrics reduces the time to display results.
+You use tags to limit the number entities and metrics you are working with or querying at once. Limiting the number of entities reduces information overload. Limiting the number of metrics reduces the time to display results.
 
 In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
 
@@ -87,7 +87,7 @@ In queries you achieve the same effect by using trailing wildcards "**.\***" whe
 
 <a name="entity_tags"></a>
 
-## Entity Tags
+## Managing Entity Tags
 
 Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
 

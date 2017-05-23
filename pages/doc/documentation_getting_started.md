@@ -39,7 +39,6 @@ The following topics are great for learning about what Wavefront is, how to get 
 Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video will help you to learn how to create and use charts and dashboards in Wavefront.
 
 - [Creating a Chart](charts_creating.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Searching for Dashboards](dashboards_searching.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Interacting with Dashboards and Charts](dashboards_interacting.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Chart Resolution](charts_resolution.html)
  

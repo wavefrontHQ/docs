@@ -184,10 +184,6 @@ entries:
       url: /dashboards.html
       output: web
 
-    - title: Searching Dashboards
-      url: /dashboards_searching.html
-      output: web
-      
     - title: Interacting with Dashboards and Charts
       url: /dashboards_interacting.html
       output: web
@@ -220,9 +216,9 @@ entries:
       url: /alerts_managing.html
       output: web
       
-    - title: Alert Dependency Hierarchies
-      url: /alerts_hierarchies.html
-      output: web
+#    - title: Alert Dependency Hierarchies
+#      url: /alerts_hierarchies.html
+#      output: web
       
     - title: Increasing Alert Robustness
       url: /alerts_robustness_increasing.html
@@ -297,9 +293,9 @@ entries:
       url: /proxies_configuring.html
       output: web
       
-    - title: Wavefront Histograms
-      url: /proxies_histograms.html
-      output: web
+#    - title: Wavefront Histograms
+#      url: /proxies_histograms.html
+#      output: web
       
     - title: Configuring Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html

@@ -375,7 +375,7 @@ You can delete one or more webhooks by checking the checkboxes next to the webho
 
 ## Finding a Webhook ID
 
-Each webhook has a unique system generated ID. Such IDs are used when adding a webhook as an [alert target](alerts_managing.html#creating-an-alert#alert-properties). To find the ID:
+Each webhook has a unique system generated ID. Such IDs are used when adding a webhook as an [alert target](alerts_managing.html#alert-properties). To find the ID:
 
 1. Click **Browse > Webhooks**.
 1. Search for the webhook. In the Name column, note the ID of the webhook under the webhook description. 

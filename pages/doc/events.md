@@ -1,7 +1,7 @@
 ---
 title: Events
 keywords: events
-tags: [events, videos, alerts]
+tags: [events, alerts]
 sidebar: doc_sidebar
 permalink: events.html
 summary: Learn how to view events and about event types.
@@ -17,7 +17,7 @@ To view events, select **Browse > Events**. The Events list displays.
 
 ## Event Properties
 
-Events have three types of source. When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing.html), the source is System. When an alert fires or resolves, the source is System/Alert. When newly affected sources fail or recover from an alert condition, the source is System. For example:
+Events have three types of sources. When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing.html), the source is System. When an alert fires or resolves, the source is System/Alert. When newly affected sources fail or recover from an alert condition, the source is System. For example:
 
 ![Events system](images/events_system.png)
 
@@ -33,19 +33,17 @@ To view details about an alert associated with a System/Alert event, click the *
 
 ![Alert notification](images/alert_notification.png)
 
+
+{% include shared/searching.html entity="Events" entities="dashboards" %}
+
+
 ## Event States
 
 An System event can be in the Ongoing or Ended state. System/Alert events are Ongoing until all affected alert sources are recovered and the alert is resolved, after which the state is Ended. 
 
-A User event can be in the Pending, Ongoing, or Ended state. A user event whose start time is in the future has the state Pending.
+A User event can be in the Pending, Ongoing, or Ended state. A User event whose start time is in the future has the state Pending.
 
 ## AWS Events
 
 The Wavefront CloudTrail integration retrieves EC2 event information and creates Wavefront System events that represent the EC2 events. For details, see [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-integration).
-
-## Events Video
-
-For a video overview, see
-
-{% include video.html file="kjtkpyw1tz" %}
 

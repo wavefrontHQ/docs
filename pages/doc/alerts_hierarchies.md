@@ -2,6 +2,7 @@
 title: Alert Dependency Hierarchies
 keywords: webhooks
 tags: [alerts, integrations]
+published: false
 sidebar: doc_sidebar
 permalink: alerts_hierarchies.html
 summary: Learn how to manage alert hierarchies.
@@ -34,7 +35,7 @@ where the fields and their values are:
     - `subtype`- `<metricName>` of the first metric in the alert condition causing the alert to fire. 1 for the first metric present in the alert.
   - `isfiring` - 1 if alert is firing, 0 otherwise.
 - `alert ID` - The alert ID. The field accepts the wildcard `*`.
-- `severity` - The [severity](alerts_managing.html#severity) of the alert.
+- `severity` - The [severity](alerts_managing.html#alert-properties) of the alert.
 
 
 ### Notes
@@ -45,7 +46,7 @@ where the fields and their values are:
 
 ## Referencing Alert Metrics
 
-To create an alert based on underlying conditions, you reference one or more alert metrics in the alert's [Condition](alerts_managing.html#creating-an-alert#creating-an-alert) field. For example, the alert for a metric that depends on 2 underlying sources can reference the corresponding alert metrics for those sources in its condition and fire on the combination of those alert metrics.
+To create an alert based on underlying conditions, you reference one or more alert metrics in the alert's [Condition](alerts_managing.html#alert-properties) field. For example, the alert for a metric that depends on 2 underlying sources can reference the corresponding alert metrics for those sources in its condition and fire on the combination of those alert metrics.
 
 There are three ways to reference an alert metric: alert name, alert tags, and alert ID.
 

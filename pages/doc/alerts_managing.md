@@ -25,7 +25,7 @@ To create an alert:
 <li markdown="span"><strong>Chart</strong> - Hover over a query field and click the <strong>Create Alert</strong> link below the query field. ![create_alert_chart](images/create_alert_chart.png)<br />The ts() expression in the selected query field populates the alert's Condition field.</li>
 </ul></li>
 <li>Fill in the alert properties.
-<table>
+<table id="alert-properties">
 <tbody>
 <thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
@@ -42,7 +42,7 @@ To create an alert:
 <td>The name of the alert. The name must contain 1-255 characters. The name should be simple while still making it easy to identify its purpose.</td>
 </tr>
 <tr>
-<td id="condition">Condition</td>
+<td>Condition</td>
 <td>A conditional ts() expression that defines the threshold for the alert. You can use any valid <a href=
 "query_language_getting_started.html">Wavefront Query Language</a> constructs in the expression. You can use free form query mode or the <a href="query_language_query_builder.html">Query Builder</a> to create the expression. The expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - The length of time during which the Condition expression must be true before the alert fires. The minimum number of minutes is 2.  If you enter 5 the alerting engine reviews the value of the Condition during the last 5 minute window to see if the alert should fire or not.</li>
@@ -50,15 +50,15 @@ To create an alert:
 </td>
 </tr>
 <tr>
-<td id="display-expression">Display Expression</td>
-<td markdown="span">Optional. The query sent to targets when notified of alert state changes by email. You can use free form query mode or the [Query Builder](query_language_query_builder.html) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
+<td>Display Expression</td>
+<td markdown="span">Optional. The query sent to targets when notified of alert state changes. You can use free form query mode or the [Query Builder](query_language_query_builder.html) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
 </tr>
 <tr>
-<td id="severity">Severity</td>
+<td>Severity</td>
 <td>How important the alert is. In decreasing importance:  SEVERE, WARN, SMOKE, and INFO.</td>
 </tr>
 <tr>
-<td id="targets">Targets</td>
+<td>Targets</td>
 <td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](alerts_integrating_pagerduty.html) and [VictorOps](alerts_integrating_victorops.html), communication channels such as [Slack](alerts_integrating_slack.html) and [HipChat](alerts_integrating_hipchat), and [webhooks](webhooks_managing.html) separated by commas.
 </td>
 </tr>
@@ -93,7 +93,7 @@ Click the <strong>Advanced</strong> link to configure the properties:
  
 ## Editing an Alert
 
-To edit an alert, click the alert name in the Alerts browser or select ![action_menu](images/action_menu.png#inline) **> Edit** at the far right of the alert. For information on alert properties, see [Creating an Alert](alerts_managing.html#creating-an-alert).
+To edit an alert, click the alert name in the Alerts browser or select ![action_menu](images/action_menu.png#inline) **> Edit** at the far right of the alert.
  
 ## Cloning and Deleting Alerts
 

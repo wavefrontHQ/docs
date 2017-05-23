@@ -131,8 +131,6 @@ In the Events these events are prefaced with **AWS Action:** and include actions
 
 ![aws start instance](images/aws_start_instances.png)
 
-Click the <span style="color: #337ab7;">View System Event</span> link to view details about the event.
-
 ## AWS Metrics+ Integration
 
 The AWS Metrics+ integration retrieves additional metrics using AWS metrics API calls other than CloudWatch. 
