@@ -1,5 +1,5 @@
 ---
-title: Welcome to Wavefront Docs (Beta)
+title: Welcome to Wavefront Docs
 keywords: homepage
 labels: getting started
 sidebar: doc_sidebar
