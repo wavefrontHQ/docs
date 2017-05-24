@@ -88,7 +88,7 @@ You can configure which instances and volumes to ingest metrics from, which metr
 
 ### Wavefront Source Field
 
-Wavefront sets the value of the CloudWatch metric `[source](wavefront_data_format.html)` field by service:
+Wavefront sets the value of the CloudWatch metric [`source`](wavefront_data_format.html) field by service:
 
 - **EC2** - the value of the **hostname**, **host**, or **name** [EC2 tags](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html), if the tags exist and you have an EC2 integration. Otherwise, the source is set to the Amazon instance ID.
 - **EBS** - the Amazon instance ID of the EC2 instance the volume is attached to.

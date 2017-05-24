@@ -36,6 +36,10 @@ support_subject_line: Support Request
 
 gems:
   - jekyll-sitemap
+  - jekyll-extlinks
+  
+extlinks:
+  attributes: {rel: nofollow, target: _blank}
 
 google_analytics: UA-45491516-30
 
