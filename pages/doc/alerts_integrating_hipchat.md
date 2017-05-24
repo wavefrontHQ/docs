@@ -7,8 +7,8 @@ permalink: alerts_integrating_hipchat.html
 summary: Learn how to integrate HipChat rooms with alerts.
 ---
 
-Wavefront and HipChat both support webhooks so you can easily configure an incoming webhook in HipChat and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your HipChat rooms. This article describes how to set up this integration.
- 
+Wavefront and HipChat both support webhooks so you can easily configure an incoming webhook in HipChat and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your HipChat rooms. 
+
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
 
@@ -23,7 +23,7 @@ Wavefront and HipChat both support webhooks so you can easily configure an incom
 1. Copy the notification URL.
 1. Click **Save** to save the custom integration.
  
-## Add the Webhook to a Wavefront Alert
+## Adding a HipChat Webhook to a Wavefront Alert
  1. Select **Browse > Webhooks**.
  1. Click the **Create Webhook** button.
  1. Select the content type. The HipChat send notification resource accepts the following content types:

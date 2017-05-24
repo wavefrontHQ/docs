@@ -28,7 +28,7 @@ This section shows the overall point rate being processed by the Wavefront serve
   
 These charts use the following metrics:
 
-  - **Data Ingestion Rate**: reports `~collector.points.reported`, `~externalservices.cloudwatch.points`, and `~externalservices.ec2.points`, counter metrics the per second rate at which new data points are being ingested into Wavefront. The AWS metrics are broken out in [AWS Integration](#aws-integration).
+  - **Data Ingestion Rate**: reports `~collector.points.reported`, `~externalservices.cloudwatch.points`, and `~externalservices.ec2.points`, counter metrics the per second rate at which new data points are being ingested into Wavefront. The AWS metrics are broken out in [AWS Integration](#aws-integration-metrics).
   - **Data Scan Rate**: reports `~query.summaries_scanned`, the per second rate at which data points are being queried out of Wavefront through dashboards, alerts, custom charts, or API calls.
 
 ## Proxy Health
@@ -95,7 +95,7 @@ These charts track the number of Wavefront users during various time windows, nu
 
   ![wavefront metrics](images/wavefront_metrics.png)
  
-## AWS Integration
+## AWS Integration Metrics
 
 If you have AWS cloud integrations enabled and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the count of CloudWatch requests, API requests, the point rate, and events coming in from your integrations. 
  

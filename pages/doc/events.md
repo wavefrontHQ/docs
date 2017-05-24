@@ -15,7 +15,7 @@ To view events, select **Browse > Events**. The Events list displays.
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
-## Event Properties
+## Event Sources and Properties
 
 Events have three types of sources. When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing.html), the source is System. When an alert fires or resolves, the source is System/Alert. When newly affected sources fail or recover from an alert condition, the source is System. For example:
 

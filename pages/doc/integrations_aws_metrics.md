@@ -125,9 +125,9 @@ Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source`
 
 ## CloudTrail Integration
 
-The Wavefront CloudTrail integration retrieves EC2 event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html). You can query these events with an [events() query](events_queries.html). 
+The Wavefront CloudTrail integration retrieves EC2 event information stored in JSON-formatted log files in an S3 bucket. The integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html). The operations include: **\[Run\|Start\|Stop\|Terminate\|Monitor\|Unmonitor\]Instances**, **\[Attach\|Detach\]Volume**, **DeleteNetworkInterface**, **AuthorizeSecurityGroupIngress**, **CreateSecurityGroup**, **RequestSpotInstances**, **CancelSpotInstanceRequests**, **ModifyInstanceAttribute**, **CreateTags**, **\[Create\|Delete\]KeyPair**, and **DeregisterImage**.
 
-In the Events these events are prefaced with **AWS Action:** and include actions such as RunInstances, StartInstances, StopInstances, TerminateInstances, MonitorInstances, UnmonitorInstances, AttachVolume, DetachVolume, DeleteNetworkInterface, AuthorizeSecurityGroupIngress, CreateSecurityGroup, RequestSpotInstances, CancelSpotInstanceRequests, ModifyInstanceAttribute, CreateTags, CreateKeyPair, DeleteKeyPair, and DeregisterImage. The events also have the [event tag](tags_overview.html) `aws.cloudtrail.ec2`. For example:
+In the Events browser the events are named **AWS Action: \<Operation\>** and have the [event tag](tags_overview.html) `aws.cloudtrail.ec2`. For example:
 
 ![aws start instance](images/aws_start_instances.png)
 

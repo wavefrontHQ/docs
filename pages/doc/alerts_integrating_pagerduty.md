@@ -7,7 +7,7 @@ permalink: alerts_integrating_pagerduty.html
 summary: Learn how to integrate PagerDuty keys and emails with alerts.
 ---
 
-If your company uses PagerDuty, this article will show you how to integrate PagerDuty API keys or emails with Wavefront alerts. 
+If your company uses PagerDuty, this shows you how to integrate PagerDuty API keys or emails with Wavefront alerts. 
 
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
@@ -32,16 +32,15 @@ Navigate to your PagerDuty account to retrieve either your PagerDuty API key or 
 
 ![PagerDuty](images/pagerduty_keys.png)
 
-## Adding the PagerDuty Integration into a Wavefront Alert
-PagerDuty API keys and email addresses are used within Wavefront alerts, so you must first have an alert that the PagerDuty integration can be applied to. To apply the PagerDuty integration to an existing alert, locate that alert from the Alerts page in Wavefront. 
+## Adding the PagerDuty Integration to a Wavefront Alert
 
 1. Click **Alerts**. 
-1. Locate the existing alert from the list of alerts or use the search bar on the Alerts page to search for the existing alert. 
-1. Click the alert name. If you don't have an alert that to update with the webhook integration, create a new alert.
-1. Scroll down to the **Notifications** field.
+1. Locate the existing alert from the list of alerts. 
+1. Click the alert name.
+1. Scroll down to the **Targets** field.
 1. Do one of the following:
-  - If you are using a PagerDuty API integration key, enter **pd:** into the Targets field and paste your PagerDuty API integration key after **pd:**. You will be unable to save your alert if **pd:** is not entered before the API integration key or your key is incomplete.
-  - If you are using a PagerDuty email address, paste the address into the **Targets** field.
+  - If you are using a PagerDuty API integration key, enter **pd:** into the Targets field and paste your PagerDuty API integration key after **pd:**. You will be unable to save the alert if **pd:** is not entered before the API integration key or your key is incomplete.
+  - If you are using a PagerDuty email address, paste the address into the Targets field.
 1. Click **Save**.
  
 Once your alert state changes, you will be notified via PagerDuty based on the escalation policy tied to your PagerDuty service.
