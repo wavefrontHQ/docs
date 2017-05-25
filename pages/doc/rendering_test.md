@@ -2,6 +2,7 @@
 title: Title
 keywords: dashboards
 sidebar: doc_sidebar
+published: false
 permalink: rendering_test.html
 summary: This topic shows how different elements are rendered.
 ---

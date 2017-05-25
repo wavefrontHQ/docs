@@ -105,6 +105,7 @@ To delete one or more alerts, select the checkboxes next to one or more alerts a
 
 Alert history provides you with changes that have been made to an alert over time. You can access the alert history by selecting ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. When you select Versions, a page displays contain a list of versions of the alert. Alert history tells you which user made the changes, the date and time the changes were made, and a description of the changes. You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
 
+<!--
 [Alert metrics](alerts_hierarchies.html) allow you to view alert history in addition to refining the alert firing criteria. You view the count of all firing alerts for a period of time in the Alerts browser, similar to how the All Dashboards page shows the frequency of dashboard views over time. In addition, you can use ts() expressions on the alert counter metrics to analyze further. The following are examples of types of questions you can answer by looking at these metrics:
 
 - What are the noisiest alerts? 
@@ -112,6 +113,7 @@ Alert history provides you with changes that have been made to an alert over tim
 - What are the noisiest sources? What source have the most firing alerts associated with them?
 - What is the firing history of a particular alert?
 - What is the firing history of a particular source?
+-->
 
 ## Snoozing and Unsnoozing Alerts
 

@@ -125,7 +125,7 @@ Wavefront has added many new integrations and example dashboards. For informatio
 -   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See [Monitoring Docker with Wavefront](integrations_docker.html).
 -   AWS - [AWS Metrics Integration](integrations_aws_metrics.html)
 -   Cassandra - [Apache Cassandra 3 Integration](integrations_cassandra.html)
--   Java metrics - [DropWizard Metrics Integration](integrations_dropwizard.html)
+-   Java metrics - [DropWizard Metrics Integration](integrations_dropwizard40_metrics.html)
 -   Puppet - [Puppet Server Integration](integrations_puppet_server.html)
 -   StatsD - [Using StatsD with Wavefront](integrations_statsd.html)
 -   VictorOps - [Integrating Wavefront Alerts with VictorOps](alerts_integrating_victorops.html)

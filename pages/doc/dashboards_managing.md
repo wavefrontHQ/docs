@@ -65,7 +65,7 @@ To set the dashboard preferences:
 
 {% include shared/system_dashboard.html %}
 
-When editing a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboard_variables.html), sections, and charts.
+When editing a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboards_variables.html), sections, and charts.
 
 1. To edit a dashboard:
 -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Edit**.
