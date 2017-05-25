@@ -7,6 +7,8 @@ permalink: wavefront_use_cases.html
 summary: Learn about Wavefront use cases.
 ---
 
+Wavefront use case videos demonstrate how to use the power of the Wavefront platform to solve specific use cases.
+
 ## Anomaly Detection
 
 {% include video.html file="lytshn66rj" %}
