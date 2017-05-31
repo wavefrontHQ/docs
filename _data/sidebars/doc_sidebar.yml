@@ -216,9 +216,9 @@ entries:
       url: /alerts_managing.html
       output: web
       
-#    - title: Alert Dependency Hierarchies
-#      url: /alerts_hierarchies.html
-#      output: web
+    - title: Alert Dependency Hierarchies
+      url: /alerts_hierarchies.html
+      output: web
       
     - title: Increasing Alert Robustness
       url: /alerts_robustness_increasing.html
@@ -281,9 +281,9 @@ entries:
     output: web
     folderitems:
       
-#    - title: Wavefront Proxies
-#      url: /proxies.html
-#      output: web
+    - title: Wavefront Proxies
+      url: /proxies.html
+      output: web
       
     - title: Installing Wavefront Proxies
       url: /proxies_installing.html
@@ -297,9 +297,9 @@ entries:
       url: /proxies_configuring.html
       output: web
       
-#    - title: Wavefront Histograms
-#      url: /proxies_histograms.html
-#      output: web
+    - title: Wavefront Histograms
+      url: /proxies_histograms.html
+      output: web
       
     - title: Configuring Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
