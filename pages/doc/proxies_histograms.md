@@ -3,7 +3,6 @@ title: Wavefront Histograms
 keywords:
 tags: [proxies, query language]
 sidebar: doc_sidebar
-published: false
 permalink: proxies_histograms.html
 summary: Learn how to use Wavefront histograms.
 ---

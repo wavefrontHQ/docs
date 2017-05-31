@@ -2,7 +2,6 @@
 title: Alert Dependency Hierarchies
 keywords: webhooks
 tags: [alerts, integrations]
-published: false
 sidebar: doc_sidebar
 permalink: alerts_hierarchies.html
 summary: Learn how to manage alert hierarchies.
