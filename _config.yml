@@ -37,9 +37,14 @@ support_subject_line: Support Request
 gems:
   - jekyll-sitemap
   - jekyll-extlinks
+  - algoliasearch-jekyll
   
 extlinks:
   attributes: {rel: nofollow, target: _blank}
+
+algolia:
+  application_id: 'ROVMBOFG8A'
+  index_name:     'wavefrontdocs'
 
 google_analytics: UA-45491516-30
 
