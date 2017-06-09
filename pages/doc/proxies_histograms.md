@@ -12,11 +12,11 @@ For example, suppose you are measuring the latency of each web request. If you h
  
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as P95s from a variety of sources) does not yield a valid percentile.
  
-A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy or sent by to you to the proxy. In addition to storing histogram data, Wavefront provides language features that can be used to query histogram data from multiple sources and calculate statistics. These calculated statistics are then available as new time series that can be used in Wavefront Query Language queries.
+A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy or sent by to you to the proxy. Wavefront Query Language has language features and functions for querying histogram data and computing statistics. These statistics are available as new time series that can be used in other queries.
 
-## Wavefront Histogram Distributions
- 
-Wavefront creates distributions by aggregating metrics into bins. For example, the following figure illustrates a distribution of 205 metrics that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
+## Histogram Distributions
+
+A histogram distribution aggregates metrics into bins. For example, the following figure illustrates a distribution of 205 metrics that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
 
 ![histogram](images/histogram.png)
 
@@ -50,51 +50,77 @@ The following table enumerates the distribution of the same metric at successive
 </tbody>
 </table>
 
+When Wavefront computes histograms, the histogram bin size is determined using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. A consequence of using this algorithm is that unlike the histogram illustrated above, the bin size is not uniform.
 
-The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. A consequence of using this algorithm is that unlike the histogram illustrated above, the bin size is not uniform.
- 
-In addition, because histograms do not store data point values, quantiles calculated from histograms are estimates within a certain margin of error.
+Because histograms do not store individual data point values, quantiles calculated from histograms are estimates within a certain margin of error.
 
+## Metric Aggregation Intervals
 
-## Histogram Metric Aggregation Intervals
+Wavefront supports metrics aggregated by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.
 
-Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  
+When Wavefront computes the histogram distribution, the aggregation intervals do not overlap.  If you choose minute aggregation, a value reported at 13:58:37 is assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
 
-The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
- 
-## Sending Histogram Distributions
+## Histogram Data Format
 
-You can also compute a histogram distribution yourself and send it to the Wavefront proxy. A distribution allows you to send a group of points with a single value. 
+Wavefront supports two histogram data formats depending on whether Wavefront computes the histogram distribution or you provide the histogram distribution: Wavefront data format and distribution data format.
 
-To indicate that data is a histogram distribution, you send histogram data:
+### Wavefront Data Format
 
-- To the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
+If you want Wavefront to compute the histogram distribution, you send metrics using the [Wavefront data format](wavefront_data_format.html), whose syntax is:
 
-- Using the following format:
+```html
+<metricName> <metricValue> [<timestamp>] source=<source> <pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>
+```
+#### Example
 
-  ```html
-  {!M | !H | !D} [<timestamp>] #<points> <metricValue> <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
-  ```
+```
+request.latency 20 1484877771 source=<source>
+```
 
-  where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution and `points` is the number of points. For example:
+#### Sending Wavefront Data Format Histograms
 
-  ```
-  !M 1493773499 #20 30 request.latency source=appServer1 region=us-west
-  ```
+To indicate to the Wavefront proxy that Wavefront should compute the distribution of incoming data, you send the data to the **minute**, **day**, **hour** port listed in [Histogram Proxy Ports](#histogram-proxy-ports) according to your desired aggregation interval. 
 
-  is a distribution that sends 20 points of the metric `request.latency` with value 30 that have been aggregated into minute intervals.
+### Distribution Data Format
 
-  {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, histogram data inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
+Wavefront allows you to compute the histogram distribution yourself and send it to the Wavefront. The distribution data format is:
+
+```html
+{!M | !H | !D} [<timestamp>] {#<points1> <metricValue1> ... #<pointsN> <metricValueN>} <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>
+```
+
+where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) you used when computing the distribution and `points` is the number of points for the metric value.
+
+{% include note.html content="Distribution data format inverts the ordering of components `<timestamp> #<points> <metricValue> <metricName>` compared with Wavefront data format `<metricName> <metricValue> <timestamp>`." %}
+
+#### Example 1
+
+```
+!M 1493773499 #20 30 request.latency source=appServer1 region=us-west
+```
+
+is a distribution aggregated into minute intervals that sends 20 points of the metric `request.latency` with value 30 for the source `appServer1` and point tag `region=us-west`.
+
+#### Example 2
+
+```
+!M 1471988653 #10 3.141 #10 2.7183 TestMetric source=Test
+```
+
+is a distribution aggregated into minute intervals that sends 10 points of the metric `TestMetric` with value 3.141 and 10 points with value 2.7183 for the source `Test`.
+
+#### Sending Distribution Data Format Histograms
+
+To indicate to the Wavefront proxy that incoming data is a _distribution_, you send the data to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
 
 
 ## Histogram Configuration
 
-Histograms are supported by Wavefront proxy 4.8 and higher. Using histograms require that you configure various options in the Wavefront proxy. For information on how to configure proxies, see [Configuring Proxies](proxies_configuring.html).
-
+Histograms are supported by Wavefront proxy 4.8 and higher. Using histograms require that you [configure various options](proxies_configuring.html) in the Wavefront proxy.
 
 ### Histogram Proxy Ports
  
-To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port according to whether you are sending a distribution or by aggregation interval. For example:
+To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port depending on whether you are sending a distribution or by aggregation interval. For example:
 
 <table width="75%">
 <colgroup>
@@ -127,7 +153,7 @@ To indicate that metrics should be treated as histogram data, you send the metri
 
 ### Histogram Configuration Properties
 
-This table lists other histogram configuration properties in addition to the histogram proxy ports. In particular, note the requirements on the state directory and the affect of the two `persist` properties listed at the bottom of the table.
+In addition to the proxy ports mentioned above, this table lists the complete set of histogram configuration properties you can configure. In particular, note the requirements on the `histogramStateDirectory` property and the behavior of the two `persist` properties listed at the bottom of the table.
 
 <table class="width:100%;">
 <colgroup>
@@ -241,25 +267,17 @@ This table lists other histogram configuration properties in addition to the his
 
 ## Querying Histogram Metrics
 
-Wavefront follows specific naming conventions for histogram metrics and defines functions to query and summarize histogram metrics.
+Wavefront follows specific naming conventions for histogram data and defines functions to query and summarize histogram distributions.
 
 ### Histogram Metric Naming
- 
-You send metrics using the standard [Wavefront data format](wavefront_data_format.html):
 
-```html
-<metricName> <metricValue> [<timestamp>] source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
-```
-
-For example, `request.latency 20 1484877771 source=<source>`. 
-
-The Wavefront proxy adds the prefix `histogram` and suffixes `.m`, `.h`, or `.d` according to the aggregation interval. For example, if the preceding metric `request.latency` is aggregated over an hour, it would be named `histogram.request.latency.h`.
+The Wavefront proxy adds the prefix `histogram` and suffixes `.m`, `.h`, or `.d` according to the aggregation interval. For example, if the metric `request.latency` has been aggregated over an hour, it would be named `histogram.request.latency.h`.
 
 ### Histogram Functions
 
-To query histogram metrics, use the `hs()` function to return points. 
+To query histograms, use the `hs()` function to return points. 
 
-You can apply a limited set of statistical functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
+You can apply a limited set of statistical functions to the data returned from `hs()`: `percentile`, `max`, `median`, `min`, and `count`. For example:
 
 - `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
 - `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.
