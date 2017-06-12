@@ -45,7 +45,7 @@ extlinks:
 algolia:
   application_id: 'ROVMBOFG8A'
   index_name: 'wavefrontdocs'
-  record_css_selector: 'p,ul,ol,table'
+  record_css_selector: 'p,ul,ol,table,pre'
   settings:
     attributesToIndex:
       - title
