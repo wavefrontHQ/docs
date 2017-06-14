@@ -71,3 +71,52 @@ $(document).ready(function() {
         return false;
     });
 });
+
+
+/** Algolia Search Functionality **/
+$(document).ready(function() {
+    var client = algoliasearch("ROVMBOFG8A", "61177f95de7f17beea8a75f8c32d8b09");
+    var index = client.initIndex('wavefrontdocs');
+    //initialize autocomplete on search input (ID selector must match)
+
+    var $body = $('body');
+
+    var inputContainerId = '#aa-input-container';
+    if (window.innerWidth < 991) {
+        inputContainerId = '#aa-input-container-mobile'
+    }
+
+    $(inputContainerId).append('<input type="text" class="aa-search-input" id="aa-search-input" placeholder="Search..." />');
+
+    var $searchInput = $('#aa-search-input');
+    var autoComplete = autocomplete('#aa-search-input',
+        {
+            hint: false,
+            debug: true,
+            autoselect: true,
+            openOnFocus: true
+        }, {
+            source: autocomplete.sources.hits(index, {hitsPerPage: 10}),
+            //value to be displayed in input control after user's suggestion selection
+            displayKey: 'title',
+            //hash of templates used when rendering dataset
+            templates: {
+                //'suggestion' templating function used to render a single suggestion
+                empty: function () {
+                    return '<p class="wf-docs-no-results">No results</p>';
+                },
+                suggestion: function (suggestion) {
+                    return '<div class="wf-docs-search-autocomplete-suggestion">' +
+                        '<a class="wf-suggestion-link" href="' + suggestion.url + '">' + suggestion._highlightResult.title.value + '</a>' +
+                        '<p>' + (suggestion.summary || '') + '</p>' +
+                        '</div>';
+                }
+            }
+        }).on('autocomplete:selected', function (event, suggestion, dataset) {
+            window.location.href = suggestion.url;
+        }).on('autocomplete:opened', function () {
+            $body.addClass('wf-search-opened');
+        }).on('autocomplete:closed', function () {
+            $body.removeClass('wf-search-opened');
+        });
+});
