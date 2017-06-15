@@ -14,13 +14,13 @@ The tutorial is based on the sample metrics preloaded in your Wavefront account.
 
 Your Wavefront instance includes a set of [Getting Started Dashboards](dashboards_getting_started.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
-1. Log into Wavefront. For many users the Intro:Home dashboard displays by default. If so, review the dashboard contents now.
+1. Log into Wavefront. For many users the Tutorial: Home dashboard displays by default. If so, review the dashboard contents now.
 1. To get further acquainted with Wavefront basics, we'll look at a few other Wavefront Getting Started Dashboards. Select **Dashboards > All Dashboards**.
 1. In the Tag Paths section of the filter bar on the left, expand the **wavefront** node and click the **wavefront.tutorial** tag.
 1. Click each dashboard and review:
-  - Intro: Home - (if you haven't already reviewed it in step 1.)
-  - Intro: Getting Started with Wavefront Query Language - gives an overview of how to construct metrics queries.
-  - Intro: Dashboard Basics: Chart Types - describes the different ways of displaying metrics.
+  - Tutorial: Introduction - (if you haven't already reviewed it in step 1.)
+  - Tutorial: Getting Started with Wavefront Query Language - gives an overview of how to construct metrics queries.
+  - Tutorial: Dashboard Basics: Chart Types - describes the different ways of displaying metrics.
 
 1. The Getting Started Dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using the Metrics browser:
     1. Select **Browse > Metrics**.
@@ -33,19 +33,19 @@ Your Wavefront instance includes a set of [Getting Started Dashboards](dashboard
  
 ## Create Dashboards and Charts
 
-One of the intro dashboards, Intro: Sample Cluster Metrics, illustrates a range of metrics spanning an entire cluster. We'll develop a dashboard starting with one of the charts in this dashboard and then add a new chart.
+One of the intro dashboards, Tour: Sample Cluster Metrics, illustrates a range of metrics spanning an entire cluster. We'll develop a dashboard starting with one of the charts in this dashboard and then add a new chart.
 
-1.  Open the Intro: Sample Cluster Metrics dashboard:
+1.  Open the Tour: Sample Cluster Metrics dashboard:
     1. Select **Dashboards > All Dashboards**.
     1. In the Search field at the top, type **Sample Cluster** and press **Enter** or **Return**.
-    1. Click the **Intro: Sample Cluster Metrics** dashboard link.
+    1. Click the **Tutorial: Sample Cluster Metrics** dashboard link.
 
         ![sample_cluster](images/sample_cluster.png)
 
         The dashboard defines two [variables](dashboards_variables.html), which you can see at the top of the dashboard&mdash;Availability Zone (az) and Environment (env)&mdash;. These variables can be used in queries to filter metrics for specific classes of sources.
 
-1.  Open a chart in the Intro: Sample Cluster Metrics dashboard. 
-    1. The Intro: Sample Cluster Metrics dashboard is organized into sections. Click the **App Servers** button to jump to the App Servers section:
+1.  Open a chart in the Tutorial: Sample Cluster Metrics dashboard. 
+    1. The Tutorial: Sample Cluster Metrics dashboard is organized into sections. Click the **App Servers** button to jump to the App Servers section:
 
        ![app_servers](images/app_servers.png)
 
