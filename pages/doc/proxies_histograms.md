@@ -98,7 +98,7 @@ To indicate to the Wavefront proxy that Wavefront should compute the distributio
 Wavefront allows you to compute the histogram distribution yourself and send it to the Wavefront. The distribution data format is:
 
 ```html
-{!M | !H | !D} [<timestamp>] {#<points1> <metricValue1> ... #<pointsN> <metricValueN>} <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>]
+{!M | !H | !D} <timestamp> {#<points1> <metricValue1> ... #<pointsN> <metricValueN>} <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>]
 ```
 
 where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) you used when computing the distribution and `points` is the number of points for the metric value.
