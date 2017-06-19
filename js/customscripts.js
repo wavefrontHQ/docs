@@ -75,8 +75,8 @@ $(document).ready(function() {
 
 /** Algolia Search Functionality **/
 $(document).ready(function() {
-    var client = algoliasearch("ROVMBOFG8A", "61177f95de7f17beea8a75f8c32d8b09");
-    var index = client.initIndex('wavefrontdocs');
+    var client = algoliasearch("4QDP4KHWX9", "88e1c036abbb5c4e6c4f225a6e1ea61f");
+    var index = client.initIndex('documentation');
     //initialize autocomplete on search input (ID selector must match)
 
     var $body = $('body');
