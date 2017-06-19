@@ -43,7 +43,7 @@ extlinks:
   attributes: {rel: nofollow, target: _blank}
 
 algolia:
-  application_id: '4QDP4KHWX9'
+  application_id: 'YJNSO3ALDH'
   index_name: 'documentation'
   record_css_selector: 'p,li,td,pre'
   settings:
