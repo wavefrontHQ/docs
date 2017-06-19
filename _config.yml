@@ -43,8 +43,8 @@ extlinks:
   attributes: {rel: nofollow, target: _blank}
 
 algolia:
-  application_id: 'ROVMBOFG8A'
-  index_name: 'wavefrontdocs'
+  application_id: '4QDP4KHWX9'
+  index_name: 'documentation'
   record_css_selector: 'p,li,td,pre'
   settings:
     attributesToIndex:
