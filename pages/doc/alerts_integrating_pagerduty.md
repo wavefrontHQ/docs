@@ -3,7 +3,6 @@ title: Integrating Alerts with PagerDuty
 keywords: alerts
 tags: [alerts, integrations]
 sidebar: doc_sidebar
-published: false
 permalink: alerts_integrating_pagerduty.html
 summary: Learn how to integrate PagerDuty keys and emails with alerts.
 ---
