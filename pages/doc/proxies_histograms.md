@@ -21,7 +21,7 @@ P95s from a variety of sources) does not yield a valid percentile.
 To address cases where high frequency data is available, Wavefront supports histograms, a mechanism to compute, store,
 and use distributions of metrics rather than single metrics. A Wavefront
 [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the
-Wavefront proxy or sent by to you to the proxy. Histograms are supported by Wavefront proxy 4.8 and higher. To indicate that metrics should be treated as histogram data, you send
+Wavefront proxy or sent by you to the proxy. Histograms are supported by Wavefront proxy 4.8 and higher. To indicate that metrics should be treated as histogram data, you send
 the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the usual port 2878. 
 
 Once the proxy sends the histogram data to the Wavefront server, Wavefront [rewrites the names of histogram metrics](#histogram-metric-names) which you can query with a limited set of [functions](#histogram-functions). 
