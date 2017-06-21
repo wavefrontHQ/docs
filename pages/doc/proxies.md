@@ -7,9 +7,7 @@ permalink: proxies.html
 summary: Learn about Wavefront proxies.
 ---
 [Introduction to Wavefront](wavefront_introduction.html) introduced the Wavefront proxy. The proxy is a Java program
-that sends data collected from hosts, applications, and services to Wavefront in a secure, fast, and reliable manner.
-The proxy handles hundreds to thousands of simultaneous clients. It consolidates points into configurable batches
-(usually 1 second), adding minimal latency (0.5 second, on average, due to the 1 second batches).
+that sends data collected from hosts, applications, logs, containers, and services to Wavefront in a secure, fast, and reliable manner. The proxy handles hundreds to thousands of simultaneous clients. It consolidates points into configurable batches (usually 1 second), adding minimal latency (0.5 second, on average, due to the 1 second batches).
 
 The proxy works with the Wavefront server to ensure end-to-end flow control. When it detects network connectivity
 issues, the proxy queues metrics in memory and to disk. Once connectivity is restored the proxy replays queued metrics
@@ -25,3 +23,13 @@ Wavefront. In initial deployments you can start with one Wavefront proxy. Howeve
 data rates, production environments more typically employ a load balancer sending data to multiple proxies:
 
 ![Wavefront architecture load balanced](images/wavefront_architecture_lb.png)
+
+### Supported Data Formats
+
+ Wavefront proxies support the following data formats:
+
+- [Wavefront data format](wavefront_data_format.html)
+- [Graphite data format (plaintext)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol) and [Graphite data format (pickle)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-pickle-protocol)
+- [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing.html)
+ 
+Before streaming data, we recommend that you understand [best practices for naming your data](wavefront_data_naming.html).
