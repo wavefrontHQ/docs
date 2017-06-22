@@ -75,7 +75,7 @@ $(document).ready(function() {
 
 /** Algolia Search Functionality **/
 $(document).ready(function() {
-    var client = algoliasearch("YJNSO3ALDH", "60754248530461d4b2589e0076132c31");
+    var client = algoliasearch("4QDP4KHWX9", "88e1c036abbb5c4e6c4f225a6e1ea61f");
     var index = client.initIndex('documentation');
     //initialize autocomplete on search input (ID selector must match)
 
