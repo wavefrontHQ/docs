@@ -45,7 +45,7 @@ extlinks:
 algolia:
   application_id: 'YJNSO3ALDH'
   excluded_files:
-    404.html
+    - 404.html
   index_name: 'documentation'
   record_css_selector: 'p,li,td,pre'
   settings:
