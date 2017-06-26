@@ -2,13 +2,16 @@
   <div class="wf-footer">
     <ul>
       <li class="text-muted">
-      &copy;{{ site.time | date: "%Y"  }} {{site.company_name}}. All rights reserved.
-      </li>
-      <li class="text-muted">
-        <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:{{site.feedback_email}}?subject={{site.feedback_subject_line}} feedback&body=I have some feedback about the {{page.title}} page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Send Feedback</a>
+      &copy;{{ site.time | date: "%Y"  }} VMware, Inc. All rights reserved.
       </li>
       <li class="text-muted">
         {% if page.last_updated %}<p>Page last updated:</span> {{page.last_updated}}<br/>{% endif %} Site last generated {{ site.time | date: "%b %-d, %Y" }}.
+      </li>
+      <li class="text-muted">
+        <a href="privacy.html">Privacy</a>
+      </li>
+      <li class="text-muted">
+        <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:{{site.feedback_email}}?subject={{site.feedback_subject_line}} feedback&body=I have some feedback about the {{page.title}} page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Send Feedback</a>
       </li>
     </ul>
   </div>
