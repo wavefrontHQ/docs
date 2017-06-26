@@ -509,8 +509,14 @@ span.projectTitle {
     padding: 0;
 }
 
+.wf-footer a[href^="http://"]:after, 
+.wf-footer a[href^="https://"]:after {
+    content: "";
+    padding-left: 0;
+}
+
 .wf-footer li:after {
-    content: '·';
+    content: '-';
     padding-left: 5px;
     padding-right: 5px;
 }
