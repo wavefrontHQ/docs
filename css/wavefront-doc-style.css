@@ -1154,7 +1154,7 @@ a[href^="http://"]:after, a[href^="https://"]:after {
 }
 
 .topnavlinks .navbar-brand {
-    padding: 8px 15px;
+    padding: 2px 15px;
 }
 
 .topnavlinks .nav > li > a {
