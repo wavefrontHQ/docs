@@ -1,12 +1,12 @@
 ---
-title: Managing Users
+title: Managing Users and Permissions
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_managing.html
-summary: Learn how to add and remove users, set permissions, and set defaults for all new users.
+summary: Learn how to add and remove users, grant and revoke permissions, and set default permissions for new users.
 ---
-{% include shared/badge.html content="You must have [User Management permission](permissions_overview.html) to manage users. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
+{% include shared/permissions_view.html entity="users and permissions" entitymgmt="User" %}
 
 ## Accessing the Users and Permissions Pages
 You access the Users and Permissions pages by clicking the gear icon <i class="fa fa-cog"/> on the task bar and selecting your username. Your user profile displays. 
@@ -18,8 +18,10 @@ The panel to the left of your profile contains the links **Users(\<CompanyName\>
 If you click the links more than one hour since your last successful login you are asked to re-enter your login credentials.
  
 The Users page displays every user in your Wavefront environment. You can click any username to see which permissions are assigned to that user. The Permissions page displays all permissions as well as every user that has that permission assigned to them.
+
+## Managing Users
  
-## Adding Users
+### Adding Users
 You can add users directly either in the Users or Permissions pages. Do one of the following:
 
 - From the Users page:
@@ -34,10 +36,24 @@ You can add users directly either in the Users or Permissions pages. Do one of t
 
  The user(s) are added with Browse Data permission and receive an email with a link to activate their account.
  
-## Removing Users
+### Removing Users
 You remove a user from the Users page. Locate the email address of the user to remove and click the <i class="fa-times fa" style="color: red;"/> icon to the left of the name. When you click the icon, a prompt displays requiring you to confirm permanently removing that user from Wavefront. You cannot delete your own account from Wavefront.
+
+## Managing Permissions
  
-## Setting Default Permissions for New Users
+### Granting and Revoking Permissions
+
+To manage permissions, locate the email address assigned to that account in the Users or Permissions page, and click it. When you do this, you are directed to that user's profile page.
+ 
+You will see a list of all permissions broken into two parts: permissions granted to the user and permissions not granted to the user. 
+
+You grant permissions by entering email addresses in the text box and clicking the <i class="fa-plus-circle fa" style="color: green;"/> <span style="color: green;">Add</span> button. 
+
+You revoke a permission by clicking the <i class="fa-times fa" style="color: red;"/> icon at the far right of an email address. 
+
+{% include note.html content="If you remove Browse Data permission for a user, the user will not be able to access Wavefront." %}
+
+### Setting Default Permissions for New Users
 
 You can create a set of default permissions that are assigned to every new user added to the system from that point on:
 
@@ -47,17 +63,10 @@ You can create a set of default permissions that are assigned to every new user 
    {% include note.html content="If a user doesn't have Browse Data permission, the user will be unable to access  Wavefront." %}
 1. Click **Save**. The default permissions affects only new user accounts created after the changes were made. If you'd like to retroactively apply a particular permission to all existing users, then send email to [{{site.support_email}}](mailto:{{site.support_email}}) for assistance.
  
-## Managing Permissions for a User
-To manage permissions for a user, locate the email address assigned to that account in the Users or Permissions page, and click it. When you do this, you are directed to that user's profile page.
- 
-You will see a list of all permissions broken into two parts: permissions granted to the user and permissions not granted to the user. You add new permissions by entering email addresses in the text box and clicking the <i class="fa-plus-circle fa" style="color: green;"/> <span style="color: green;">Add</span> button. You remove an existing permission by clicking the <i class="fa-times fa" style="color: red;"/> icon at the far right of an email address. 
-
-{% include note.html content="If you remove Browse Data permission for a user, the user will not be able to access Wavefront." %}
-
- 
 <a name="customer_prefs"></a>
 
-## Customer-Wide Preferences
+## Setting Customer-Wide Preferences
+
 You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder.html) by default and the default dashboard.
 
 
