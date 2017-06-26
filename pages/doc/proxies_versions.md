@@ -6,6 +6,12 @@ sidebar: doc_sidebar
 permalink: proxies_versions.html
 summary: Learn about Wavefront proxy versions.
 ---
+## Version 4.12
+- Compatible with latest Linux kernels patched to address Stack Clash vulnerability
+- Tracks proxy configuration settings as metrics
+- Detects duplicate proxy instances
+- Miscellaneous bug fixes and performance/stability improvements
+
 ## Version 4.6
 - Adds the ability to test log data grok patterns (see [Log Data Metrics Integration](integrations_log_data.html))
 - Supports native socket transport, which improves ingestion performance on Linux
