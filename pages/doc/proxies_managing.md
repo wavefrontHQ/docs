@@ -7,7 +7,7 @@ permalink: proxies_managing.html
 summary: Learn how to manage Wavefront proxies.
 ---
 
-{% include shared/permissions_proxies.html %}
+{% include shared/permissions_view.html entity="proxies" entitymgmt="Proxy" %}
 
 ## Viewing Registered Proxies
 
