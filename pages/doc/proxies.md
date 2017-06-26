@@ -1,7 +1,7 @@
 ---
 title: Wavefront Proxies
 keywords:
-tags: [proxies]
+tags: [proxies, data]
 sidebar: doc_sidebar
 permalink: proxies.html
 summary: Learn about Wavefront proxies.
