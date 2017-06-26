@@ -93,7 +93,7 @@ The following 25 second video shows how adjusting time windows using the time ba
 
 ### Working with Sections
 
-Dashboard [sections](dashboards_managing#configuring-dashboard-sections) allow you to group saved charts in a meaningful way. By default, every dashboard has at least one section. The section link bar is located directly below the time bar.
+Dashboard [sections](dashboards_managing.html#configuring-dashboard-sections) allow you to group saved charts in a meaningful way. By default, every dashboard has at least one section. The section link bar is located directly below the time bar.
 
 ![section toc](images/section_links.png)
 

@@ -16,7 +16,8 @@ External links are general purpose: you can link through to any type of system, 
 
 To view and manage external links, select **Browse > External Links**.
  
-{% include shared/permissions.html entity="external links" entitymgmt="External Links" %}
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage](external_links_managing.html) external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+
 
 
 Here's a video overview: 

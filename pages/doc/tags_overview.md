@@ -91,7 +91,8 @@ In queries you achieve the same effect by using trailing wildcards "**.\***" whe
 
 Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
 
-{% include shared/permissions.html entity="entity tags" entitymgmt="Alert, Dashboard, Event, or Source Tag" %}
+
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view Wavefront entities, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those entities. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 ### Adding Entity Tags
 

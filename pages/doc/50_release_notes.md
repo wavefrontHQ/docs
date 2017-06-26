@@ -34,7 +34,7 @@ Tags allow you to flexibly manage and organize your Wavefront content. With this
 
 The following Alert browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
-![Tag path](images/microService.app4_firing.png)
+![Tag path](images/MicroService.App4_firing.png)
 
 ### Metrics
 
@@ -82,7 +82,7 @@ Alerts have been enhanced in several aspects. Newly surfaced alert properties an
 
 Metric information is frequently contained within logs. Previously, third-party solutions would be used to extract this information from logs and send it to Wavefront.  In addition to third-party solutions, the Wavefront proxy 4.1 now makes this much easier by providing built-in capabilities to parse logs and extract metric information. Various approaches are supported, including using Filebeat to monitor log files and transmit log data to the proxy for parsing. Splunk's Universal Forwarder is also supported.
 
-See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](http://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](integrations_log_data.html).
+See [Monitoring Metamorphosis: How To Create Metrics from Log Data in Wavefront](https://www.wavefront.com/monitoring-metamorphosis-create-metrics-log-data-wavefront) and [Sending Log Data to Wavefront](integrations_log_data.html).
 
 <span id="external"></span>
 
@@ -116,7 +116,7 @@ Wavefront continues to support installing the collectd collector agent using the
 
 When you install Telegraf on an EC2 instance, the Wavefront proxy supports tagging metrics with EC2 tags, AWS region, the VPC ID, and Image ID of the instance.
 
-For more information on Telegraf, see [collectd vs. Telegraf: Comparing Metric Collection Agents](http://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents).
+For more information on Telegraf, see [collectd vs. Telegraf: Comparing Metric Collection Agents](https://www.wavefront.com/collectd-vs-telegraf-comparing-metric-collection-agents).
 
 ## New Integrations
 
@@ -144,7 +144,7 @@ While Wavefront recommends that you move to the v2 API, the original API (`<wave
 
 The API is now fully documented. When you open the [API documentation](wavefront_api.html) the Swagger specified API appears as:
 
-![Wavefront API](images/wavefront_api_v2.png)
+![Wavefront API](images/Wavefront_API_v2.png)
 
 ### API Categories
 

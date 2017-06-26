@@ -59,7 +59,7 @@ To create an alert:
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](alerts_integrating_pagerduty.html) and [VictorOps](alerts_integrating_victorops.html), communication channels such as [Slack](alerts_integrating_slack.html) and [HipChat](alerts_integrating_hipchat), and [webhooks](webhooks_managing.html) separated by commas.
+<td markdown="span">The targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](alerts_integrating_pagerduty.html) and [VictorOps](alerts_integrating_victorops.html), communication channels such as [Slack](alerts_integrating_slack.html) and [HipChat](alerts_integrating_hipchat.html), and [webhooks](webhooks_managing.html) separated by commas.
 </td>
 </tr>
 <tr>
