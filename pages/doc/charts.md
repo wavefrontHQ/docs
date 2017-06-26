@@ -44,7 +44,7 @@ When displaying metrics, Wavefront determines the [chart resolution](charts_reso
 
 ![chart_name_corner](images/chart_name_corner.png)
 
-You can summarize the raw data values within each point bucket by **Average**, **Median**, **Min**, **Max**, **Count**, and **Sum**. Suppose the [horizontal scale](charts_resolution.html#summarization-and-resolution) for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". When you choose the **Median** summarization method, the raw data values reported in each 30 second interval are aggregated and the median value displays as a point.
+You can summarize the raw data values within each point bucket by **Average**, **Median**, **Min**, **Max**, **Count**, and **Sum**. Suppose the [horizontal scale](charts_resolution.html) for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". When you choose the **Median** summarization method, the raw data values reported in each 30 second interval are aggregated and the median value displays as a point.
 
 The **Count** summarization method counts the **number** of data values reported in each 30 second interval, and displays that value to represent the point bucket. **First** assigns a value to each point bucket based on the **first** data value reported within the interval. **Last** works in a similar manner, but the point bucket value is based on the **last** data value reported within the interval.
 

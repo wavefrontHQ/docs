@@ -15,7 +15,7 @@ This topic describes how to enable and use the Query Builder. For a video overvi
 
 ## Enabling Query Builder
 
-You can enable or disable the Query Builder in your [user preferences](users_prefs_configuring.html). If **Enable Query Builder** and **Always Open the Query Builder** are both checked, then the Query Builder always displays when you navigate to a blank chart or new alert. If **Always Open the Query Builder** is not checked, then the Query Builder displays only if you manually choose to display it by clicking the gears icon <i class="fa fa-cogs"/> to the left of the query field.
+You can enable or disable the Query Builder in your [user preferences](users_account_managing.html#configuring-your-preferences). If **Enable Query Builder** and **Always Open the Query Builder** are both checked, then the Query Builder always displays when you navigate to a blank chart or new alert. If **Always Open the Query Builder** is not checked, then the Query Builder displays only if you manually choose to display it by clicking the gears icon <i class="fa fa-cogs"/> to the left of the query field.
  
 ## Constructing Queries
 

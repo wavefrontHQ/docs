@@ -71,7 +71,7 @@ aliasSource(expression, [metric|source|{tagk, <pointTagKey>},] zeroBasedNodeInde
  
 Base expression `ts("requests.failures.num")` has 40 unique sources sending data. Those 40 unique sources are named `app-1`, `app-2`, `app-3`...`app-40`.
  
-![aliasSource_zeroBased_example1](images/aliassource_zerobased_example1.png)
+![aliasSource_zeroBased_example1](images/aliasSource_zeroBased_example1.png)
  
 In this scenario, we'd like to ignore the `app` reference in the existing source name, and simply have the associated number displayed as the source name. This can be done with the following expression:
 
@@ -79,7 +79,7 @@ In this scenario, we'd like to ignore the `app` reference in the existing source
 aliasSource(ts("requests.failures.num"),1,"-")
 ``` 
 
-![aliasSource_zeroBased_example1](images/aliassource_zerobased_example1.png)
+![aliasSource_zeroBased_example1](images/aliasSource_zeroBased_example2.png)
  
 Since we are extracting a node from an existing source name, we don't need to specify a source option parameter as the default is source. With the original source name using hyphens ("-") as delimiters instead of periods ("."), we use the `"delimiterDefinition"` parameter to identify hyphens as delimiters. Once hyphens are defined as delimiters, then we need to specify which zeroBasedNodeIndex we'd like to extract. In this case, app = 0 and `<number> = 1`, so specifying 1 gives us the results we desire.
 

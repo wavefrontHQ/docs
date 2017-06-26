@@ -109,7 +109,7 @@ summary: Learn about the integrations supported by Wavefront and jump to instruc
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
 <a href="integrations_sso_google.html"><img src="images/google.png"/></a><br/><br/>
-<a href="integrations_sso_google">Google SSO</a>
+<a href="integrations_sso_google.html">Google SSO</a>
 </td>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold">
 <a href="integrations_sso_okta.html"><img src="images/okta.png"/></a><br/><br/>

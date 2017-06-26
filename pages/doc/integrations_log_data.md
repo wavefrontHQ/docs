@@ -73,7 +73,7 @@ The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java
 
 -   Bugs in grok patterns can be frustrating to debug. Try your grok pattern with a sample log line in one of the grok parsing debugger tools (e.g. [grok debugger](http://grokdebug.herokuapp.com/)).
 -   As in the examples above, use single quotes unless you need double quotes. YAML parsers escape sequences inside double quotes, which is usually not what you want (e.g. "\\n" will be the newline character).
--   Remember grok patterns expand to regex patterns. This means if you wanted to capture a number inside brackets, you would need `'\[NUMBER:myNum\]'` or `"\\[NUMBER:myNum\\]"` (for the above bullet). A [regex debugger](http://regex101.com/) may be helpful.
+-   Remember grok patterns expand to regex patterns. This means if you wanted to capture a number inside brackets, you would need `'\[NUMBER:myNum\]'` or `"\\[NUMBER:myNum\\]"` (for the above bullet). A [regex debugger](https://regex101.com/) may be helpful.
 -   The Wavefront proxy [javadoc](http://static.javadoc.io/com.wavefront/proxy/4.1/com/wavefront/agent/config/LogsIngestionConfig.html) contains advanced grok examples.
 
 #### Testing Grok Patterns in Interactive Mode
@@ -101,11 +101,11 @@ Wavefront proxy hot loads the log ingestion configuration file while the proxy i
 1. Edit the log ingestion configuration file and save.
 1. To verify that the updated file loaded successfully, open the Wavefront proxy log file and look for a log message like:
 
-        INFO: Loaded new config: <config_json>
+      `  INFO: Loaded new config: <config_json>`
 
     If there is a problem with the updated configuration, you'll see a log line like this:
 
-        WARNING: Could not load a new logs ingestion config file, check above for a stack trace.
+        `WARNING: Could not load a new logs ingestion config file, check above for a stack trace.`
 
 ## Sending Log Data to a Wavefront Proxy With Filebeat
 

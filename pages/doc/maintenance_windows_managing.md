@@ -8,7 +8,7 @@ summary: Learn how to manage maintenance windows.
 ---
 A maintenance window is a time window when disruptive operations occur as a result of system maintenance or testing. These disruptive operations create a high likelihood of causing [alerts](alerts_managing.html#creating-an-alert) to fire. A maintenance window allows you to identify when maintenance is scheduled and prevent affected alerts from firing.
 
-{% include shared/permissions.html entity="maintenance windows" entitymgmt="Alert" %}
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 You can close (end) maintenance windows before they are due to end and you can extend the end time by various increments.
 
