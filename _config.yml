@@ -1,5 +1,7 @@
 repository: WavefrontHQ/docs
 
+timezone: America/Los_Angeles
+
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
