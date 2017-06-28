@@ -1164,8 +1164,8 @@ a[href^="http://"]:after, a[href^="https://"]:after {
 }
 
 .topnavlinks .nav > li > a {
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 16px;
     padding: 0px 10px;
 }
 
