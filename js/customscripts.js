@@ -89,10 +89,10 @@ $(document).ready(function() {
     $(inputContainerId).append('<input type="text" class="aa-search-input" id="aa-search-input" placeholder="Search..." />');
 
     var $searchInput = $('#aa-search-input');
-    var autoComplete = autocomplete('#aa-search-input',
+    var search = autocomplete('#aa-search-input',
         {
             hint: false,
-            debug: true,
+            debug: false,
             autoselect: true,
             openOnFocus: true
         }, {
@@ -119,4 +119,27 @@ $(document).ready(function() {
         }).on('autocomplete:closed', function () {
             $body.removeClass('wf-search-opened');
         });
+
+    var searchQuery = Wavefront.getUrlParameter('q');
+    if (searchQuery) {
+        search.autocomplete.setVal(searchQuery);
+        search.autocomplete.open();
+        $searchInput.focus();
+    }
 });
+
+var Wavefront = Wavefront || {};
+Wavefront.getUrlParameter = function (sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
