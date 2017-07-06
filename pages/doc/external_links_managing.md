@@ -18,20 +18,12 @@ To view and manage external links, select **Browse > External Links**.
  
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage](external_links_managing.html) external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-
-
-Here's a video overview: 
-
-{% include video.html file="9vdlf3kf3j" %}
-
-
 ## Navigating to an External Link
 
 1. Right-click a series. The series context menu displays.
 1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created. Only series that match all the filters specified when the link was created display \<linkname\> in the External Links context menu. For example:
 
    ![External links](images/elk_external_link.png)
-
 
 ## Creating an External Link
 
@@ -158,5 +150,13 @@ The string inside the function delimiters is URL encoded as:
 host%3Atest%20AND%20source%3A%22%2Fmnt%2Flogs%2Falerting.log%22
 ```
 {% endraw %}
+
+## Video Overview
+
+Here's a video overview of external links: 
+
+{% include video.html file="9vdlf3kf3j" %}
+
+
 
 

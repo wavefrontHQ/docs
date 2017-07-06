@@ -6,17 +6,16 @@ sidebar: doc_sidebar
 permalink: dashboards_getting_started.html
 summary: Learn about the tutorial, example, and use case dashboards available in your Wavefront instance.
 ---
-Every Wavefront instance contains a set of getting started system dashboards to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.
-
-You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [tags](tags_overview.html).
+Every Wavefront instance contains [system dashboards](dashboards.html#dashboard-types) to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.
+You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [dashboard tags](tags_overview.html).
 
 {% include shared/system_dashboard.html %}
 
-## Tour
+## Tour Dashboards
 
-Identified by the tag **wavefront.tour**.
+Tour dashboards give you an overview of Wavefront features and illustrate how these features can be deployed to address various operational challenges. These dashboards are identified by the dashboard tag **~welcome.tour**.
 
-- Tour: Welcome - overview of benefits and capabilities.
+- Tour: Welcome - gives an overview of benefits and capabilities.
 - Tour: Anomaly Detection: Finding a Needle in a Haystack - demonstration of how to find an anomalous event.
 - Tour: Intelligent Alerting: Creating the Perfect Alert - demonstration of how to create an alert that does not fire spuriously.
 - Tour: Data Exploration: Analyzing an Event's Impact - demonstration of how to discover the affect of a code push on metrics.
@@ -25,9 +24,9 @@ Identified by the tag **wavefront.tour**.
 - Tour: Sample Cluster Metrics - displays metrics from a cluster containing several types of sources (application server, database, host, network, etc.).
 - Tour: Sample Telegraf Metrics - displays metrics from hosts where the Telegraf collector agent is being used for system metric collection.
 
-## Tutorials and Use Cases
+## Tutorial Dashboards
 
-Identified by the tag **wavefront.tutorial**.
+Tutorial dashboards illustrate how to use Wavefront features to formulate queries, display data returned from queries, and construct queries to solve salient use cases. These dashboards are identified by the dashboard tag **~welcome.tutorial**.
 
 - [Tutorial: Introduction](#tutorial-introduction-dashboard) - contains links to getting started dashboards and documentation.
 - Tutorial: Getting Started with Wavefront Query Language - contains charts that illustrate different elements of Wavefront Query Language.

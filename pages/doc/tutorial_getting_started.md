@@ -96,9 +96,9 @@ In this section we create an alert that fires when the request latency metric re
     1. In the **Alert fires** field, change the value to **2** and press **Return** or **Enter**. You can see when alerts would have been generated in the **Backtesting** option of the Events Display chart. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes.
     1. In the Targets field, type your email address.
     1. Click **Save**.
-1.  Click **Alerts** in the navigation bar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
+1.  Click **Alerts** in the task bar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
 
-    ![firing alert](images/firing_alert.png)
+    ![firing alert](images/alert_firing.png)
  
      and you receive an email like the following:
   
@@ -110,7 +110,5 @@ In this section we create an alert that fires when the request latency metric re
 
 ## Next Steps
 
-Now that you are acquainted with the basics of Wavefront features and the UI, you are ready to start investigating your own data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial - Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html) or [Tutorial - Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html) to get started.
-
-{% include shared/tutorial_next_steps.html %}
+Now that you are acquainted with the basics of Wavefront features and the UI, you are ready to start investigating your own data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial - Getting Data into Wavefront](tutorial_data_ingestion.html) to get started.
 

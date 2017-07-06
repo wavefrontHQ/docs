@@ -23,22 +23,26 @@ To view alerts, click the **Alerts** button or select **Browse > Alerts**. A lis
 
 ![Alert firing](images/alert_firing.png)
 
-
 ### Viewing Alert Details
 
-To view alert details, click the <i class="fa-bar-chart fa" style="color: #337ab7;"/> icon in the State column. A chart displays with up to three queries:
+To view alert details, click the <i class="fa-bar-chart fa" style="color: #337ab7;"/> icon in the State column. A chart displays with two queries:
 
-- **&lt;Alert name&gt;** - contains the alert's [display expression](alerts_managing.html#alert-properties) if specified in the alert definition.
-- **Alert Condition** - contains the alert condition.
+- **&lt;Alert name&gt;** - the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
 
 For example, for the preceding alert, the chart displays:
 
 ![Alert queries](images/alert_queries.png)
 
+### Viewing Alert Firing
+
+The Firings column shows how many times an alert fired in the last day, week, and month. If you click a number link in the column, it displays a query of the [~alert.isfiring.\<alert ID\> metric](alerts_dependencies.html#alert-metrics). For example:
+
+```
+flapping(30d, -1*ts(~alert.isfiring.1499288817347))
+```
 
 {% include shared/searching.html entity="Alerts" entities="alerts" %}
-
 
 ## Alert Events
 
@@ -60,7 +64,7 @@ When you click the link in the notification, you see the following queries:
 
 {% include shared/alert_details.html %}
 
-![Alert notification](images/alert_notification.png)
+![Alert notification](images/alert_notification_queries.png)
 
 
 

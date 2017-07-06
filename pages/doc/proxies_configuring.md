@@ -158,7 +158,7 @@ The Wavefront proxy configuration is maintained in `/etc/wavefront/wavefront-pro
 <td></td>
 </tr><tr>
 <td>logsIngestionConfigFile</td>
-<td markdown="span">The file containing instructions for parsing log data into metrics.  See [Log Data Metrics Integration](integrations_log_data.html).
+<td markdown="span">The file containing instructions for parsing log data into metrics.  See [Integrations](integrations.html).
 Default: `/etc/wavefront/wavefront-proxy/logsIngestion.yaml`.</td>
 <td>A valid path on the local file system.</td>
 <td></td>

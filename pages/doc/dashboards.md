@@ -19,11 +19,13 @@ All users can search and [interact](dashboards_interacting.html) with dashboards
 
 ## Dashboard Types
 
-Wavefront has two types of dashboards: system and user. System dashboards include:
+Wavefront has two types of dashboards: system and user. 
 
-- [Getting Started Dashboards](dashboards_getting_started.html)
-- [AWS dashboards](integrations_aws_metrics.html#aws-dashboards)
-- [Internal Metrics dashboard](wavefront_monitoring.html)
+System dashboards are installed by [Integrations](integrations.html) and include:
+
+- [Tour dashboards](dashboards_getting_started.html#tour-dashboards)
+- [Tutorial dashboards](dashboards_getting_started.html#tutorial-dashboards)
+- [Wavefront System dashboard](wavefront_monitoring.html)
 
 {% include shared/system_dashboard.html %}
 

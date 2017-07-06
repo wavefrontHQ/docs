@@ -15,14 +15,13 @@ If you prefer a more hands on approach, then check out the [Getting Started Dash
 Tutorials help you quickly learn the basics of getting, displaying, and working with data.
 
 - [Tutorial: Getting Started](tutorial_getting_started.html)
-- [Tutorial: Getting Amazon Web Services Data into Wavefront](tutorial_aws_data_ingestion.html)
-- [Tutorial: Getting Host, Application, and Custom Data into Wavefront](tutorial_proxy_data_ingestion.html)
+- [Tutorial: Getting Data into Wavefront](tutorial_data_ingestion.html)
 
 Also see the [Getting Started Dashboards](dashboards_getting_started.html) labeled with the tag **wavefront.tutorial**.
 
 ## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
 
-The following topics are great for learning about what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront, and to get an introduction to the four main entities in Wavefront: charts, dashboards, alerts, and events.
+The following topics are great for learning about what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront, and to get an introduction to the main entities in Wavefront: charts, dashboards, alerts, events, and integrations.
 
 - [Introduction to Wavefront](wavefront_introduction.html) 
 - [Getting Data into Wavefront Overview](wavefront_data_ingestion.html)
@@ -33,6 +32,7 @@ The following topics are great for learning about what Wavefront is, how to get 
 - [Dashboards](dashboards.html)
 - [Alerts](alerts.html)
 - [Events](events.html)
+- [Integrations](integrations.html)
 
 ## Charts and Dashboards
 

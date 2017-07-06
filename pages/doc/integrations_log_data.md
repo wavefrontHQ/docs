@@ -6,13 +6,17 @@ sidebar: doc_sidebar
 permalink: integrations_log_data.html
 summary: Learn how to send log data to Wavefront.
 ---
-Usually the best way to send metrics to a monitoring system is to use a metrics library. However, sometimes you have a legacy system, or a system that is difficult to modify, and you want to garner metrics from log data. This article describes two methods for sending log data metrics directly to your Wavefront proxy: Filebeat and TCP. These methods are supported in Wavefront proxy 4.4 and higher.
 
-Both methods set up metrics harvesting with aggregation, in that time series are held in memory and periodically flushed to Wavefront. This allows you to control your points-per-second, and it also allows you to aggregate the same metric across multiple nodes. However, this has the limitation that each individual metric must always arrive at the *same* Wavefront proxy. If you only use one proxy you don't have to worry about this, but if you have a multi-proxy deployment, the easiest way is to send all of your logs to the same proxy. That way each metric only has one possible pool for aggregation.
+Wavefront supports two methods for sending log data metrics to Wavefront proxy: Filebeat and TCP. These methods are supported in Wavefront proxy 4.4 and higher.
 
-Here's a video overview: 
+## Installing and Configuring a Wavefront Proxy
 
-{% include video.html file="uljyt5morx" %}
+The Log Data in-product [integration instructions](integrations.html#in-product-integrations) guides you through installing a Wavefront proxy. To access this integration:
+
+1. Open the Wavefront application UI.
+1. Click **Integrations**.
+1. In the Custom Collector section, click the **Log Data** tile.
+1. Click the **Setup** tab and follow the instructions.
 
 ## Configuring the Wavefront Proxy to Ingest Log Data
 
@@ -209,15 +213,24 @@ These instructions are tailored for Splunk integration, but you can send any new
 [tcpout]
 
 [tcpout:fastlane]
-server = <my_wavefront_proxy_ip>:5055
+server = <wavefront_proxy_ip_address>:5055
 sendCookedData = false
 ```
 
+where `<wavefront_proxy_ip_address>` is the IP address of your Wavefront proxy.
+
 ## Querying Log Data
 
-After configuring the Wavefront proxy to send log data using the configuration you specified in [Configuring the Wavefront Proxy to Add Structure to Log Data](#configuring-the-wavefront-proxy-to-add-structure-to-log-data), you could issue queries such as:
+After configuring the Wavefront proxy to send log data, you can issue queries such as:
 
 - **rate(ts(combined_apache_log_lines))**
 - **ts(responseBytes.p99)**
+
+## Video Overview
+
+Here's a video overview of integrating log data: 
+
+{% include video.html file="uljyt5morx" %}
+
 
 

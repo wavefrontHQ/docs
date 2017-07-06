@@ -4,9 +4,9 @@ keywords: alerts
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_robustness_increasing.html
-summary: Learn how to manage alerts.
+summary: Learn how to develop alert conditions and properties that limit spurious alerts.
 ---
-Monitoring a production environment is a challenging task and having the right alert strategy in place prevents alert fatigue within the monitoring team and ensures that teams are responding and taking corrective actions before an alert event escalates into full blown outages. Having said that, each environment is different and the data we monitor has different shape and distribution which we need to account for in our monitoring strategy. To get an understanding of how to do alerting in Wavefront, take a look at the following documentation. Based on our experience monitoring large SaaS infrastructures here are some tips below which can help you in getting started.
+Monitoring a production environment is a challenging task and having the right alert strategy in place prevents alert fatigue within the monitoring team and ensures that teams are responding and taking corrective actions before an alert event escalates into full blown outages. Having said that, each environment is different and the data we monitor has different shape and distribution which we need to account for in our monitoring strategy. To get an understanding of how to do alerting in Wavefront here are some tips to help you to get started.
  
 ## Account for Delayed Data Points
  
@@ -37,6 +37,6 @@ The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront 
 mcount(5m,sum(rate(ts(~agent.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~agent.check-in)), sources)) !=0
 ```
  
-This query uses the `~agent.check-in` metric to verify that the agents are reporting in.  By applying a second argument to the alert query, you capture series that not only have stopped reporting a value in the last 5 minutes, but also if that series has had at least 1 value reported in the last hour.
+This query uses the `~agent.check-in` metric to verify that the agents are reporting in. By applying a second argument to the alert query, you capture series that have stopped reporting a value in the last 5 minutes and have had at least 1 value reported in the last hour.
 
 
