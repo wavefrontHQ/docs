@@ -10,7 +10,7 @@ entries:
     output: web
     folderitems:
       
-    - title: Welcome to Wavefront Docs
+    - title: Wavefront Documentation
       url: /index.html
       output: web
       type: homepage
@@ -27,10 +27,6 @@ entries:
       url: /documentation_getting_started.html
       output: web
       
-    - title: Wavefront Use Cases
-      url: /wavefront_use_cases.html
-      output: web
-      
     - title: Getting Started Dashboards
       url: /dashboards_getting_started.html
       output: web
@@ -43,12 +39,8 @@ entries:
       url: /tutorial_getting_started.html
       output: web
       
-    - title: "Tutorial: Getting Started with Amazon Web Services Data"
-      url: /tutorial_aws_data_ingestion.html
-      output: web
-      
-    - title: "Tutorial: Getting Started with Host, Application, and Custom Data"
-      url: /tutorial_proxy_data_ingestion.html
+    - title: "Tutorial: Getting Data into Wavefront"
+      url: /tutorial_data_ingestion.html
       output: web
       
   - title: Release Notes
@@ -57,6 +49,10 @@ entries:
       
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
+      output: web
+      
+    - title: 2017-24.x Release Notes
+      url: /2017_24.x_release_notes.html
       output: web
       
     - title: 2017-16.x Release Notes
@@ -128,7 +124,7 @@ entries:
       output: web
       
       subfolders:
-      - title: Function Guides
+      - title: Function Guides and Use Cases
         output: web
         subfolderitems:
           
@@ -152,6 +148,10 @@ entries:
           url: /query_language_windows_trends.html
           output: web
 
+        - title: Wavefront Use Cases
+          url: /wavefront_use_cases.html
+          output: web
+      
   - title: Charts
     output: web
     folderitems:
@@ -216,9 +216,9 @@ entries:
       url: /alerts_managing.html
       output: web
       
-#    - title: Alert Dependency Hierarchies
-#      url: /alerts_hierarchies.html
-#      output: web
+    - title: Alert Dependencies
+      url: /alerts_dependencies.html
+      output: web
       
     - title: Increasing Alert Robustness
       url: /alerts_robustness_increasing.html
@@ -228,30 +228,9 @@ entries:
       url: /maintenance_windows_managing.html
       output: web
       
-      subfolders:
-      - title: Integrating Alerts and Notifications
-        output: web
-        subfolderitems:
-          
-        - title: Managing Webhooks
-          url: /webhooks_managing.html
-          output: web
-          
-        - title: Integrating Alerts with HipChat
-          url: /alerts_integrating_hipchat.html
-          output: web
-          
-        - title: Integrating Alerts with PagerDuty
-          url: /alerts_integrating_pagerduty.html
-          output: web
-          
-        - title: Integrating Alerts with Slack
-          url: /alerts_integrating_slack.html
-          output: web
-          
-        - title: Integrating Alerts with VictorOps
-          url: /alerts_integrating_victorops.html
-          output: web
+    - title: Using Webhooks to Integrate Alerts with Notification Systems
+      url: /webhooks_alert_notification.html
+      output: web
           
   - title: Events
     output: web
@@ -275,6 +254,120 @@ entries:
       
     - title: Advanced events() Queries
       url: /events_queries_advanced.html
+      output: web
+      
+  - title: Integrations
+    output: web
+    folderitems:
+      
+    - title: Integrations
+      url: /integrations.html
+      output: web
+      
+      subfolders:
+      - title: AWS Integrations
+        output: web
+        subfolderitems:
+          
+          - title: AWS Metrics Integration
+            url: /integrations_aws_metrics.html
+            output: web
+            
+          - title: AWS ECS Integration
+            url: /integrations_aws_ecs.html
+            output: web
+            
+    - title: Container Integrations
+      url: /integrations_containers.html
+      output: web
+      
+    - title: Log Data Metrics Integration
+      url: /integrations_log_data.html
+      output: web
+      
+      subfolders:
+      - title: Data Collector Integrations
+        output: web
+        subfolderitems:
+          
+          - title: Telegraf Integration
+            url: /integrations_telegraf.html
+            output: web
+            
+          - title: AppDynamics Integration
+            url: /integrations_appdynamics.html
+            output: web
+            
+          - title: Cassandra 3 Integration
+            url: /integrations_cassandra.html
+            output: web
+                        
+          - title: JMX Integration
+            url: /integrations_jmx.html
+            output: web
+            
+          - title: New Relic Integration
+            url: /integrations_newrelic.html
+            output: web
+
+      - title: collectd Integrations
+        output: web
+        subfolderitems:
+          
+          - title: collectd Integration
+            url: /integrations_collectd.html
+            output: web
+            
+          - title: Apache collectd Integration
+            url: /integrations_collectd_apache.html
+            output: web
+            
+          - title: Cassandra collectd Integration
+            url: /integrations_collectd_cassandra.html
+            output: web
+            
+          - title: MySQL collectd Integration
+            url: /integrations_collectd_mysql.html
+            output: web
+            
+          - title: NGiNX collectd Integration
+            url: /integrations_collectd_nginx.html
+            output: web
+            
+          - title: Redis collectd Integration
+            url: /integrations_collectd_redis.html
+            output: web
+            
+          - title: ZooKeeper collectd Integration
+            url: /integrations_collectd_zookeeper.html
+            output: web
+            
+      - title: External System Integrations
+        output: web
+        subfolderitems:
+          
+          - title: Managing External Links
+            url: /external_links_managing.html
+            output: web
+            
+          - title: Visualizing Metrics with R
+            url: /integrations_r.html
+            output: web
+            
+#          - title: Visualizing Metrics with Python
+#            url: /integrations_python.html
+#            output: web
+            
+  - title: Organizing and Searching
+    output: web
+    folderitems:
+      
+    - title: Organizing with Tags
+      url: /tags_overview.html
+      output: web
+      
+    - title: Searching Wavefront
+      url: /wavefront_searching.html
       output: web
       
   - title: Proxies
@@ -313,171 +406,6 @@ entries:
       url: /proxies_versions.html
       output: web
       
-  - title: Integrations
-    output: web
-    folderitems:
-      
-    - title: Wavefront Integrations
-      url: /wavefront_integrations.html
-      output: web
-      
-      subfolders:
-      - title: AWS Integrations
-        output: web
-        subfolderitems:
-          
-          - title: AWS Metrics Integration
-            url: /integrations_aws_metrics.html
-            output: web
-            
-          - title: AWS ECS Integration
-            url: /integrations_aws_ecs.html
-            output: web
-            
-      - title: Data Integrations
-        output: web
-        subfolderitems:
-          
-          - title: AppDynamics Integration
-            url: /integrations_appdynamics.html
-            output: web
-            
-          - title: Cassandra 3 Integration
-            url: /integrations_cassandra.html
-            output: web
-            
-          - title: Cernan Integration
-            url: /integrations_cernan.html
-            output: web
-            
-          - title: Graphite Integration
-            url: /integrations_graphite.html
-            output: web
-            
-          - title: JMXTrans Integration
-            url: /integrations_jmxtrans.html
-            output: web
-            
-          - title: Log Data Metrics Integration
-            url: /integrations_log_data.html
-            output: web
-            
-          - title: New Relic Integration
-            url: /integrations_newrelic.html
-            output: web
-            
-          - title: OpenTSDB Integration
-            url: /integrations_opentsdb.html
-            output: web
-            
-          - title: Puppet Server Integration
-            url: /integrations_puppet_server.html
-            output: web
-            
-          - title: StatsD Integration
-            url: /integrations_statsd.html
-            output: web
-            
-          - title: Telegraf Integration
-            url: /integrations_telegraf.html
-            output: web
-            
-          - title: Zabbix Integration
-            url: /integrations_zabbix.html
-            output: web
-            
-      - title: Code Instrumentation
-        output: web
-        subfolderitems:
-          
-          - title: Go Metrics Integration
-            url: /integrations_go_metrics.html
-            output: web
-            
-          - title: Dropwizard 4.0 Java Metrics Integration
-            url: /integrations_dropwizard40_metrics.html
-            output: web
-            
-          - title: Dropwizard 3.1 Java Metrics Integration
-            url: /integrations_dropwizard31_metrics.html
-            output: web
-            
-      - title: collectd Integrations
-        output: web
-        subfolderitems:
-          
-          - title: collectd Integration
-            url: /integrations_collectd.html
-            output: web
-            
-          - title: Apache collectd Integration
-            url: /integrations_collectd_apache.html
-            output: web
-            
-          - title: Cassandra collectd Integration
-            url: /integrations_collectd_cassandra.html
-            output: web
-            
-          - title: MySQL collectd Integration
-            url: /integrations_collectd_mysql.html
-            output: web
-            
-          - title: NGiNX collectd Integration
-            url: /integrations_collectd_nginx.html
-            output: web
-            
-          - title: Redis collectd Integration
-            url: /integrations_collectd_redis.html
-            output: web
-            
-          - title: ZooKeeper collectd Integration
-            url: /integrations_collectd_zookeeper.html
-            output: web
-            
-      - title: Container Integrations
-        output: web
-        subfolderitems:
-          
-          - title: Docker Integrations
-            url: /integrations_docker.html
-            output: web
-            
-          - title: Docker Integration (cAdvisor)
-            url: /integrations_cadvisor.html
-            output: web
-            
-          - title: Kubernetes Integration
-            url: /integrations_kubernetes.html
-            output: web
-            
-      - title: External System Integrations
-        output: web
-        subfolderitems:
-          
-          - title: Managing External Links
-            url: /external_links_managing.html
-            output: web
-            
-          - title: Visualizing Metrics with R
-            url: /integrations_r.html
-            output: web
-            
-#          - title: Visualizing Metrics with Python
-#            url: /integrations_python.html
-#            output: web
-            
-  - title: Organizing and Searching
-    output: web
-    folderitems:
-      
-    - title: Organizing with Tags
-      url: /tags_overview.html
-      output: web
-      
-    - title: Searching Wavefront
-      url: /wavefront_searching.html
-      output: web
-      
   - title: API
     output: web
     folderitems:
@@ -506,6 +434,10 @@ entries:
         url: /users_account_managing.html
         output: web
         
+      - title: Enabling SSO with Authentication Providers
+        url: /integrations_authentication.html
+        output: web
+        
       - title: Managing Users and Permissions
         url: /users_managing.html
         output: web
@@ -518,32 +450,7 @@ entries:
         url: /sources_managing.html
         output: web
         
-        subfolders:
-        - title: Authentication Integrations
-          output: web
-          subfolderitems:
-            
-            - title: ADFS SSO Integration
-              url: /integrations_sso_adfs.html
-              output: web
-          
-            - title: Azure AD SSO Integration
-              url: /integrations_sso_azure_ad.html
-              output: web
-          
-            - title: Google SSO Integration
-              url: /integrations_sso_google.html
-              output: web
-          
-            - title: Okta SSO Integration
-              url: /integrations_sso_okta.html
-              output: web
-          
-            - title: OneLogin SSO Integration
-              url: /integrations_sso_onelogin.html
-              output: web
-              
-      - title: Wavefront Monitoring
+      - title: Monitoring Wavefront
         url: /wavefront_monitoring.html
         output: web
         

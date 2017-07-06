@@ -40,7 +40,7 @@ Here is a series of charts with increasing time window for the _same_ display re
 
   ![6h resolution](images/chart_resolution_6h.png)
   
-## Video
+## Video Overview
 
 Here's video that demonstrates resolution and summarization options and use cases:
 

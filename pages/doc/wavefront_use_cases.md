@@ -1,13 +1,13 @@
 ---
 title: Wavefront Use Cases
 keywords:
-tags: [videos]
+tags: [query language, videos]
 sidebar: doc_sidebar
 permalink: wavefront_use_cases.html
-summary: Learn about Wavefront use cases.
+summary: Learn how to use sophisticated queries to solve important use cases.
 ---
 
-Wavefront use case videos demonstrate how to use the power of the Wavefront platform to solve specific use cases.
+Wavefront use case videos demonstrate how to use the power of the query language to solve use cases.
 
 ## Anomaly Detection
 

@@ -1,5 +1,5 @@
 ---
-title: Welcome to Wavefront Docs
+title: Wavefront Documentation
 keywords: homepage
 labels: getting started
 sidebar: doc_sidebar
@@ -11,7 +11,7 @@ Welcome to the Wavefront documentation site!
 
 To get started with Wavefront, go to [Introduction to Wavefront](wavefront_introduction.html) or [Getting Started Documentation](documentation_getting_started.html).
 
-Wavefront documentation is organized into a standard hierarchy. Also, all topics can have one or more labels that offer a non-hierarchical way to access topics. Click the buttons below to view all topics with that label.
+You can explore the documentation in the three-level hierarchy in the nav bar on the left. Topics also have one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
 
 <div class="row">
  <div class="col-md-3 col-sm-6">
@@ -131,6 +131,20 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
 </div>
 <div class="row">
 <div class="col-md-3 col-sm-6">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <span class="fa-stack fa-1x">
+                  <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                  <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+            </span>
+        </div>
+        <div class="panel-body">
+            <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
+            <p>{{site.data.labels.integrations}}</p>
+        </div>
+    </div>
+</div>
+<div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
@@ -144,48 +158,34 @@ Wavefront documentation is organized into a standard hierarchy. Also, all topics
          </div>
      </div>
 </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
-             <p>{{site.data.labels.integrations}}</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_administration.html" class="btn btn-primary btn-block">Administration</a></p>
-             <p>{{site.data.labels.administration}}</p>
-         </div>
-     </div>
-  </div>
-  <div class="col-md-3 col-sm-6">
-      <div class="panel panel-default text-center">
-          <div class="panel-heading">
-              <span class="fa-stack fa-1x">
-                    <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                    <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
-              </span>
-          </div>
-          <div class="panel-body">
-              <p><a href="label_release%20notes.html" class="btn btn-primary btn-block">Release Notes</a></p>
-              <p>{{site.data.labels.release_notes}}</p>
-          </div>
-      </div>
-  </div>
+<div class="col-md-3 col-sm-6">
+   <div class="panel panel-default text-center">
+       <div class="panel-heading">
+           <span class="fa-stack fa-1x">
+                 <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                 <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+           </span>
+       </div>
+       <div class="panel-body">
+           <p><a href="label_administration.html" class="btn btn-primary btn-block">Administration</a></p>
+           <p>{{site.data.labels.administration}}</p>
+       </div>
+   </div>
+</div>
+<div class="col-md-3 col-sm-6">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <span class="fa-stack fa-1x">
+                  <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                  <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
+            </span>
+        </div>
+        <div class="panel-body">
+            <p><a href="label_release%20notes.html" class="btn btn-primary btn-block">Release Notes</a></p>
+            <p>{{site.data.labels.release_notes}}</p>
+        </div>
+    </div>
+</div>
 </div>
 <div class="row">
   <div class="col-md-3 col-sm-6">

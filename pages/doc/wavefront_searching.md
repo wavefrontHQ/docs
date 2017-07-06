@@ -13,7 +13,7 @@ Tags allow you to flexibly manage and organize your Wavefront content. Tag paths
 
 ## Searching
 
-All Wavefront browsers (All Dashboards, Alerts, Events, Maintenance Windows, Proxies, Cloud Integrations, Webhooks, and External Links) support a variety of search methods. You can search in the Search field at the top or in the faceted filter bar at the left. Both methods support facets:
+All Wavefront browsers (All Dashboards, Alerts, Integrations, Events, Maintenance Windows, Proxies, Webhooks, and External Links) support a variety of search methods. You can search in the Search field at the top or in the faceted filter bar at the left. Both methods support facets:
 
 <table width="75%">
 <colgroup>
@@ -49,8 +49,8 @@ All Wavefront browsers (All Dashboards, Alerts, Events, Maintenance Windows, Pro
 <td>Hostname, Status</td>
 </tr>
 <tr>
-<td>Cloud Integrations</td>
-<td>Integration Type</td>
+<td>Integrations</td>
+<td>Type, State</td>
 </tr>
 <tr>
 <td>Webhooks</td>

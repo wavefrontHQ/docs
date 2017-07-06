@@ -20,6 +20,7 @@ You can learn more about each set of permissions by clicking the permission head
 - [Embed Charts](permissions_misc.html#embed-charts-permission) - generate HTML snippets of Wavefront charts and embed them outside of the platform.
 - [Event Management](events_managing.html) - create, manage, and close events and manage event tags.
 - [External Links Management](external_links_managing.html) - create, update, and delete external links.
+- [Integration Management](integrations.html) - install and uninstall integration dashboards.
 - [Metrics Management](metrics_managing.html) - manually hide and unhide metrics and metric prefixes from being displayed in the Metrics browser and autocomplete dropdown while creating a ts() query.
 - [Proxy Management](proxies_managing.html) - view, create, and manage proxies and set up external integrations with AWS.
 - [Source Tag Management](sources_managing.html) - manage sources and source tags.

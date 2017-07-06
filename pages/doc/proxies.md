@@ -26,10 +26,4 @@ data rates, production environments more typically employ a load balancer sendin
 
 ### Supported Data Formats
 
- Wavefront proxies support the following data formats:
-
-- [Wavefront data format](wavefront_data_format.html)
-- [Graphite data format (plaintext)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-plaintext-protocol) and [Graphite data format (pickle)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html#the-pickle-protocol)
-- [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing.html)
- 
-Before streaming data, we recommend that you understand [best practices for naming your data](wavefront_data_naming.html).
+{% include shared/data_formats.html %}

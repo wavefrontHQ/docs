@@ -7,13 +7,26 @@ published: false
 permalink: proxies_histograms.html
 summary: Learn how to use Wavefront histograms.
 ---
-Even though Wavefront can receive and store highly granular metrics, it cannot receive data at greater than 1 point per second per unique source. In cases where finer data granularity is available to measure performance, Wavefront supports histograms, a mechanism to compute, store, and use distributions of metrics rather than single metrics.
- 
-For example, suppose you are measuring the latency of each web request. If you have sufficient traffic at multiple servers, you could have multiple distinct measurements for a given metric, host, and timestamp. This will result in "collisions" using the [Wavefront data format](wavefront_data_format.html). In other words, the frequency of this data is actually higher than the Wavefront format; rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
- 
-One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as P95s from a variety of sources) does not yield a valid percentile.
- 
-A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy or sent by to you to the proxy. In addition to storing histogram data, Wavefront provides language features that can be used to query histogram data from multiple sources and calculate statistics. These calculated statistics are then available as new time series that can be used in Wavefront Query Language queries.
+
+Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However some
+environments generate higher frequency data. For example, suppose you are measuring the latency of web requests. If you
+have sufficient traffic at multiple servers, you could have multiple distinct measurements for a given metric,
+timestamp, and source. Such a data flow would result in "collisions" using the [Wavefront data
+format](wavefront_data_format.html). In other words, the frequency of this data is actually higher than the Wavefront
+format; rather than metric-timestamp-source mapping to a single value, the composite key maps to a
+[multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
+
+One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each
+source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
+P95s from a variety of sources) does not yield a valid percentile.
+
+To address cases where high frequency data is available, Wavefront supports histograms, a mechanism to compute, store,
+and use distributions of metrics rather than single metrics. A Wavefront
+[histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the
+Wavefront proxy or sent by you to the proxy. Histograms are supported by Wavefront proxy 4.12 and higher. To indicate that metrics should be treated as histogram data, you send
+the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the usual port 2878. 
+
+Once the proxy sends the histogram data to the Wavefront server, Wavefront [rewrites the names of histogram metrics](#histogram-metric-names) which you can query with a limited set of [functions](#histogram-functions). 
 
 ## Wavefront Histogram Distributions
  

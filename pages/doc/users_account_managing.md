@@ -9,7 +9,7 @@ summary: Learn how to manage your passwords and preferences.
 
 ## Managing Your Password
 
-{% include note.html content="If your company has an SSO integration enabled ([ADFS](integrations_sso_adfs.html), [Azure AD](integrations_sso_azure_ad.html) [Google](integrations_sso_google.html), [Okta](integrations_sso_okta.html), [OneLogin](integrations_sso_onelogin.html)), you cannot update your password following these instructions. To update your password, contact your account administrator." %}
+{% include note.html content="If your company has an [SSO integration](integrations_authentication.html) enabled, you cannot update your password following these instructions. To update your password, contact your account administrator." %}
 
 ### Changing Your Password
 

@@ -25,13 +25,14 @@ Wavefront supports the following API categories:
 - **Dashboard** - Allows all users to retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard Management permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Event** - Allows all users to retrieve events and tags associated with a specific event. Users with [Event Management permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
 - **External Link** - Allows all users to navigate external links. Users with [External Links Management permission](permissions_overview.html) can create, update, and delete external links.
+- **Integration** - Allow all users to retrieve a list of integrations or a specific integration. Users with [Integration Management permission](permissions_overview.html) can install and uninstall integrations.
 - **Maintenance Window** - Allows all users to retrieve a complete or filtered list of existing maintenance windows. Users with [Alert Management permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Allows all users to retrieve messages and mark messages read.
 - **Metric** - Allows all users to retrieve details on a metric.
 - **Proxy** - Allows all users to retrieve information about Wavefront proxies. Users with [Proxy Management permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Allows all users to perform queries.
 - **Saved Search** - Allows all users to retrieve, add, and remove saved searches.
-- **Search** - Allows all users to search agents, alerts, cloud integrations, dashboards, external links, maintenance windows, sources, and web hooks.
+- **Search** - Allows all users to search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and web hooks.
 - **Source** - Allows all users to retrieve sources and tags associated with a source. Users with [Source Tag Management permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **User** - Allows users with [User Management permission](permissions_overview.html) to retrieve a list of all users, create, update, and delete users, and manage permissions.
 - **Webhook** - Allows all users to retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.
@@ -77,13 +78,13 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API. Wa
 <td>Go</td>
 <td>NA</td>
 <td>NA</td>
-<td markdown="span">[Go Metrics Integration](integrations_go_metrics.html)</td>
+<td markdown="span">[Go Metrics Integration](integrations.html#in-product-integrations)</td>
 </tr>
 <tr>
 <td>Java</td>
 <td markdown="span">[Wavefront Java client](https://github.com/wavefrontHQ/java)</td>
 <td>NA</td>
-<td markdown="span">[DropWizard 4.0 Java Metrics Integration](integrations_dropwizard40_metrics.html)<br/>[DropWizard 3.1 Java Metrics Integration](integrations_dropwizard31_metrics.html)</td>
+<td markdown="span">[DropWizard 4.0 Java Metrics Integration](integrations.html#in-product-integrations)<br/>[DropWizard 3.1 Java Metrics Integration](integrations.html#in-product-integrations)</td>
 </tr>
 <tr>
 <td>Python</td>

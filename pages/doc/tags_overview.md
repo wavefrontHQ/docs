@@ -3,7 +3,7 @@ title: Organizing with Tags
 tags: [getting started, alerts, dashboards, events, videos]
 sidebar: doc_sidebar
 permalink: tags_overview.html
-summary: Learn use tags to speed up searching and query display and how to manage entity tags.
+summary: Learn how to use tags to speed up searching and query display and how to manage entity tags.
 ---
 A tag is custom metadata that adds application-specific meaning to Wavefront _entities_: alerts, dashboards, events, and sources and _metrics_. Tags group together entities and metrics according to categories you define.
 
@@ -73,7 +73,7 @@ Telegraf agent<br />
 
 ## Tag Paths
 
-All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot ".". For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **wavefront.**. To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting, etc.
+All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot ".". For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **~welcome.**, **~integration.**, and **~system.** To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting, etc.
 
 ### Selecting and Searching Tag Paths
 

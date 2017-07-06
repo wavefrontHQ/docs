@@ -12,7 +12,7 @@ collected for all time.
 
 The major components of Wavefront include the **Wavefront SaaS application**, which facilitates economies of scale for
 deployment, flexibility, and time to value and the **Wavefront proxy**.  The Wavefront proxy is the interface to
-**collector agents**, which instrument hardware and software applications. The Wavefront application can also ingest
+**collector agents**, which instrument hardware and software applications and standalone applications. The Wavefront application can also ingest
 metrics directly from external services such as Amazon Web Services. The diagram below depicts each of these components.
 
 ![Wavefront architecture](images/wavefront_architecture.png)
@@ -95,6 +95,6 @@ A proxy generates its own [internal metrics](wavefront_monitoring.html) for easy
 
 ## Collector Agent
 
-Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard [collector agents](wavefront_integrations.html), including [Telegraf](integrations_telegraf.html), [Docker cAdvisor​](integrations_cadvisor.html), and others.
+Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard [collector agents](integrations.html), including Telegraf, Docker cAdvisor​, and others.
 
 

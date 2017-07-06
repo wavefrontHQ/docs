@@ -37,7 +37,7 @@ To view details about an alert associated with a System/Alert event, click the *
 
 {% include shared/alert_details.html %}
 
-![Alert notification](images/alert_notification.png)
+![Alert notification](images/alert_notification_queries.png)
 
 {% include shared/searching.html entity="Events" entities="dashboards" %}
 
