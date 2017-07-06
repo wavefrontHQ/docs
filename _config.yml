@@ -9,9 +9,6 @@ topnav_title: Wavefront
 site_title: Wavefront
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
-company_name: Wavefront
-# this appears in the footer
-
 github_editme_path:
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
 
@@ -69,8 +66,8 @@ feedback_email: docs@wavefront.com
 support_email: support@wavefront.com
 # used as a contact email for the support links throughout the docs
 
-community_link: https://community.wavefront.com/welcome
-# used as a link for the Community link in the top navigation bar
+support_link:  https://www.vmware.com/support
+# used as a link for the Support link in the top navigation bar
 
 # feedback_disable: true
 # if you uncomment the previous line, the Feedback link gets removed
