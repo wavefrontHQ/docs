@@ -27,7 +27,7 @@ This guide provides detailed steps on how to install and configure Wavefront's E
  
 ## Configure AWS Integration
  
-Set up [Wavefront's AWS cloud integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the Amazon CloudWatch API.
+Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API.
  
 ## Create Wavefront cAdvisor Task Definition
  
@@ -54,10 +54,7 @@ Wavefront maintains an image of [cAdvisor](integrations_containers.html) that in
 
 ## View ECS Container Metrics
 
-1. Select **Browse > Metrics**. 
-1. In the Metrics field, enter `cadvisor.*`.
-
-Alternatively, deploy the [AWS ECS dashboard](integrations_aws_metrics.html#aws-dashboards):
+View the [AWS ECS dashboard](integrations_aws_metrics.html#aws-dashboards)
 
 ![db aws ecs](images/db_aws_ecs.png)
 

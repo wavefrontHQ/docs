@@ -1,7 +1,7 @@
 ---
 title: Wavefront API
 keywords: getting started
-tags: [getting started, videos]
+tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
 summary: Learn how to view API documentation, how the Wavefront API is organized, and how to invoke the API.
@@ -9,9 +9,7 @@ summary: Learn how to view API documentation, how the Wavefront API is organized
 
 Wavefront is fully API driven. This means that all interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront API.
 
-The current version of the API is v2 and is accessed at `<wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<wavefront_instance>/api/`), though [deprecated](wavefront_obsolescence_policy.html), is still supported. For a video overview, see 
-
-{% include video.html file="0ja5gpkufa" %}
+The current version of the API is v2 and is accessed at `<wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<wavefront_instance>/api/`), though [deprecated](wavefront_obsolescence_policy.html), is still supported.
 
 ## API Documentation
 
@@ -21,11 +19,11 @@ The API is publicly documented in the Swagger generated API documentation. To ac
 Wavefront supports the following API categories:
 
 - **Alert** - Allows all users to retrieve all active, snoozed, in-maintenance, and invalid alerts. Users with [Alert Management permission](permissions_overview.html) can create and update alerts.
-- **Cloud Integration** - Allows all users to retrieve integrations. Users with [Proxy Management permission](permissions_overview.html) can add and remove integrations with cloud services.
+- **Cloud Integration** - Allows all users to retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxy Management permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Allows all users to retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard Management permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Event** - Allows all users to retrieve events and tags associated with a specific event. Users with [Event Management permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
 - **External Link** - Allows all users to navigate external links. Users with [External Links Management permission](permissions_overview.html) can create, update, and delete external links.
-- **Integration** - Allow all users to retrieve a list of integrations or a specific integration. Users with [Integration Management permission](permissions_overview.html) can install and uninstall integrations.
+- **Integration** - Allow all users to retrieve integrations. Users with [Integration Management permission](permissions_overview.html) can install and uninstall integration dashboards.
 - **Maintenance Window** - Allows all users to retrieve a complete or filtered list of existing maintenance windows. Users with [Alert Management permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Allows all users to retrieve messages and mark messages read.
 - **Metric** - Allows all users to retrieve details on a metric.
