@@ -29,6 +29,8 @@ Installation procedures require an Wavefront API URL `<wavefront_api_url>` in th
 
 ## Installing a Proxy on a Single Host
 
+To install and run a proxy on a Linux or Mac host, or in a Docker container on a host:
+
 1. Open the Wavefront application UI.
 1. Select **Browse > Proxies**.
 1. Select **Add > New Proxy** at the top of the filter bar. The Add a Wavefront Proxy screen displays.
@@ -41,7 +43,7 @@ Installation procedures require an Wavefront API URL `<wavefront_api_url>` in th
 
 ## Installing Proxies on Multiple Linux Hosts
 
-Ansible is an open-source automation engine that automates software provisioning, configuration management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple hosts. For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) instructions.
+Ansible is an open-source automation engine that automates software provisioning, configuration management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple Linux hosts. For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) instructions.
 
 <a name="restart"></a>
 
@@ -58,10 +60,15 @@ If a proxy won't start or register with Wavefront and you need help, contact [Su
   ```shell
   $ service wavefront-proxy [start | stop | restart]
   ```
-- MacOS
+- Mac
 
   ```shell
   $ brew services [start | stop | restart] wfproxy
+  ```
+- Docker
+
+  ```shell
+  $ docker [start | stop ] <proxy_container_id>
   ```
 
 ### Checking Proxy Service Status
@@ -74,14 +81,19 @@ To check if the proxy is running, run the following commands on the proxy host:
   $ service wavefront-proxy status
   ```
   You can view the proxy log at `/var/log/wavefront/wavefront.log`. 
-- MacOS
+- Mac
 
   ```shell
   $ brew services list
   ```
-  
   You can view the proxy log at `/usr/local/var/log/wfproxy.log`.
+- Docker
 
+  ```
+  $ docker ps
+  ```
+  To view the proxy log, run `docker logs <proxy_container_id>`.
+  
 <a name="docker"></a>
 
 ## Running a Proxy in a Docker Container
