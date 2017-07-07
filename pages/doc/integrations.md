@@ -71,7 +71,7 @@ To view in-product integrations, click **Integrations** in the Wavefront UI task
 <td>StatsD, DropWizard, Go</td>
 </tr>
 <tr>
-<td markdown="span">[Alert Notification](integrations_alert_notification.html)</td>
+<td markdown="span">[Alert Notification](webhooks_alert_notification.html)</td>
 <td>No</td>
 <td>Slack, PagerDuty, HipChat, VictorOps</td>
 </tr>
@@ -125,22 +125,22 @@ For example, here is the Docker with cAdvisor integration:
 
 ### In-Product Integration States
 
-The Integrations page reports integration state for **Featured** and **Data Collector** integrations depending on two factors:
+The Integrations page reports integration state for integrations depending on two factors:
 
 - Whether metrics ever reported and whether they reported in the last 2 hours or in the last 7 days.
 - The state of content installation: never installed, installed, uninstalled.
 
 The supported states are:
 
-- **Active** - metrics are reporting and installed or uninstalled content
-- **Available** - metrics never reported and never installed content
-- **Warning** - metrics never reported and installed content
-- **Error** - metrics reported within the last 7 days but have stop reporting for 2 hours and installed content
+- **Active** - integrations whose metrics are reporting and installed or uninstalled content.
+- **Available** - integrations whose metrics never reported and never installed content or that don't have metrics.
+- **Warning** - integrations whose metrics never reported and installed content.
+- **Error** - integrations whose metrics reported within the last 7 days but have stop reporting for 2 hours and installed content.
 
-You can use the filter bar on the left to filter integrations by state. In addition you can filter integrations by saved searches:
+You can use the filter bar on the left to filter integrations by state. You can also filter integrations with the following saved searches:
 
-- New Integrations - shows integrations with metrics reporting for at most 2 hours and installed content.
-- Installed Integrations -
+- **New Integrations** - integrations with metrics reporting for at most 2 hours and installed content.
+- **Installed Integrations** - integrations in the Active, Warning, or Error state. An integration is in one of these states even if content has been uninstalled.
 
 #### State Indicators
 
@@ -177,7 +177,7 @@ To add an in-product integration, click **Integrations** in the task bar.
 
 ### Adding a Featured or Data Collector Integration
 
-1. Click a Featured or Data Collector integration tile.
+1. Click a tile in the Featured or Data Collector sections.
 1. Click the **Setup** tab. 
 1. Follow the instructions for installing and configuring required software.
 1. Click the **Metrics** tab to verify that metrics are flowing.
@@ -188,23 +188,23 @@ To add an in-product integration, click **Integrations** in the task bar.
 
 ### Adding a Custom Collector or Code Instrumentation Integration
 
-1. Click a Custom Collector or Code Instrumentation integration tile.
+1. Click a tile in the Custom Collector or Code Instrumentations sections.
 1. Click the **Setup** tab. 
 1. Follow the instructions for installing and configuring required software.
 1. Select **Browse > Metrics** tab to verify that metrics are flowing. 
 
 ### Adding an Alert Notification Integration
 
-1. Click an Alert Notification integration tile.
+1. Click a tile in the Alert Notification section.
 1. Click the **Setup** tab. 
 1. Follow the instructions for configuring the notification service.
-1. Create an alert.
-1. Configure the Target field to use the notification system.
+1. [Create an alert](alerts_managing.html#creating-an-alert).
+1. Configure the Targets field to use the notification service.
 1. Verify that the notification occurs when the alert changes state.
 
 ### Adding an Authentication Integration
 
-1. Click an Authentication integration tile.
+1. Click a tile in the Authentication section.
 1. Click the **Setup** tab. 
 1. Follow the instructions for installing and configuring required software.
 
@@ -212,7 +212,7 @@ To add an in-product integration, click **Integrations** in the task bar.
 
 You can install and uninstall dashboards from Featured and Data Collector integrations.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall dashboards. If you do not have permission, buttons to perform these tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have permission, buttons to perform these tasks are not visible.</div>
 
 1. Click **Integrations**.
 1. Click the integration tile.

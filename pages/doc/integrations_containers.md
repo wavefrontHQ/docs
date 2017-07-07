@@ -7,7 +7,7 @@ permalink: integrations_containers.html
 summary: Learn how to monitor containers in Wavefront.
 ---
 
-Wavefront provides several options for monitoring containers. Which is best depends on which Docker orchestration system you are using (if any).
+Wavefront provides several options for monitoring containers. Which is best depends on whether or not you are using a Docker orchestration system.
  
 <table class="layout">
 <tbody>

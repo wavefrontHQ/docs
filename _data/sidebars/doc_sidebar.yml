@@ -378,7 +378,7 @@ entries:
       url: /proxies.html
       output: web
       
-    - title: Installing Wavefront Proxies
+    - title: Installing and Running Wavefront Proxies
       url: /proxies_installing.html
       output: web
       
