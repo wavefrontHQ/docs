@@ -30,7 +30,7 @@ where the fields and their values are:
     - `type` - The subtype of the metric. One of:
       - `sourcesFiring` - Count of unique sources causing the alert to fire.
       - `seriesFiring` - Count of all series present in the alert.
-      - `labelsFiring` - Count of unique labels present in the alert.
+      - `labelsFiring` - Count of unique metrics present in the alert.
       - `pointTagsFiring` - Count of point tag key-value pairs present in the alert.
   - `firing`
     - `subtype`- `<metricName>` of the first metric in the alert condition causing the alert to fire. 1 for the first metric present in the alert.
@@ -43,7 +43,6 @@ where the fields and their values are:
 
 - The source of the `~alert.summary.*` metrics is set to `wavefront`. The `source` of the `~alert.*firing.*` metrics is the source involved in the alert. If the host field is empty or the HLP is empty, the `source` is set to `unknown`. You can filter the `~alert.*firing.*` metrics by specifying `source=<source>`. 
 - When the alert is either snoozed or not firing, the `~alert.summary.*` and `~alert.firing.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
-
 
 ## Referencing Alert Metrics
 

@@ -29,7 +29,7 @@ In your Wavefront proxy [configuration file](proxies_configuring.html), add thes
 ```conf
 filebeatPort=5044
 rawLogsPort=5055
-logsIngestionConfigFile=/etc/wavefront/wavefront-proxy/logsIngestion.yaml
+logsIngestionConfigFile=<wavefront_config_path>/logsIngestion.yaml
 ```
 
 These entries instruct the Wavefront proxy to listen for log data in various formats: on port 5044 it listens using the [Lumberjack protocol](http://github.com/elastic/logstash-forwarder/blob/master/PROTOCOL.md), which works with [Filebeat](http://www.elastic.co/products/beats/filebeat), and on port 5055 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others).

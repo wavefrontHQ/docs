@@ -27,7 +27,7 @@ $ mkdir -p /opt/wavefront/etc/
   1. Set the `key` in the `api` section.
   1. Set the `application_ids` in the `filter` section.
   1. Set the `host` and `dry_run` values in the `writer` section when ready to test.  Leave `dry_run = True` to test what would be sent to the proxy.  While `dry_run = True` run the script in the foreground so you can see the output and press **Ctrl-C** to stop execution.
-1. Update other [configuration options](#configuration-options) as desired.
+1. Update other [configuration options](#proxy-configuration) as desired.
 1. Save the files.
 
 ## Running the Script
