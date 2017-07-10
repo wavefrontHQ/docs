@@ -59,7 +59,7 @@ To generate an API token:
  
 ## API SDKs
 
-Wavefront provides SDKs in several languages for accessing the Wavefront API. Wavefront also provides integrations for supplying language-specific metrics:
+Wavefront provides SDKs in several languages for accessing the Wavefront API and integrations for sending metrics from applications written in Go and Java:
 
 <table style="width: 100%;">
 <colgroup>
@@ -82,7 +82,7 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API. Wa
 <td>Java</td>
 <td markdown="span">[Wavefront Java client](https://github.com/wavefrontHQ/java)</td>
 <td>NA</td>
-<td markdown="span">[DropWizard 4.0 Java Metrics Integration](integrations.html#in-product-integrations)<br/>[DropWizard 3.1 Java Metrics Integration](integrations.html#in-product-integrations)</td>
+<td markdown="span">[DropWizard Java Metrics Integration](integrations.html#in-product-integrations)</td>
 </tr>
 <tr>
 <td>Python</td>

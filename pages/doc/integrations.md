@@ -125,7 +125,7 @@ For example, here is the Docker with cAdvisor integration:
 
 ### In-Product Integration States
 
-The Integrations page reports integration state for integrations depending on two factors:
+The Integrations page reports integration state depending on two factors:
 
 - Whether metrics ever reported and whether they reported in the last 2 hours or in the last 7 days.
 - The state of content installation: never installed, installed, uninstalled.
@@ -133,14 +133,14 @@ The Integrations page reports integration state for integrations depending on tw
 The supported states are:
 
 - **Active** - integrations whose metrics are reporting and installed or uninstalled content.
-- **Available** - integrations whose metrics never reported and never installed content or that don't have metrics.
+- **Available** - integrations whose metrics never reported and never installed content or integrations that don't have metrics.
 - **Warning** - integrations whose metrics never reported and installed content.
 - **Error** - integrations whose metrics reported within the last 7 days but have stop reporting for 2 hours and installed content.
 
 You can use the filter bar on the left to filter integrations by state. You can also filter integrations with the following saved searches:
 
-- **New Integrations** - integrations with metrics reporting for at most 2 hours and installed content.
-- **Installed Integrations** - integrations in the Active, Warning, or Error state. An integration is in one of these states even if content has been uninstalled.
+- **New Integrations** - integrations that have metrics reporting for at most two hours and have installed content
+- **Installed Integrations** - integrations in the Active, Warning, or Error state. An integration can be in one of these states even if content has been uninstalled.
 
 #### State Indicators
 

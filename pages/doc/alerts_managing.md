@@ -107,7 +107,7 @@ Alert history provides you with changes that have been made to an alert over tim
 
 ## Snoozing and Unsnoozing Alerts
 
-There are certain times when you want to silence an alert, whether the conditional is met or not. You can do this by snoozing an alert. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, then the alert is snoozed until a user unsnoozes it.
+There are certain times when you want to silence an alert, whether the conditional is met or not. You can do this by snoozing an alert. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
  
 To snooze one or more alerts:
 

@@ -8,7 +8,7 @@ summary: Learn about Wavefront proxy versions.
 ---
 ## Version 4.12
 - Compatible with latest Linux kernels patched to address Stack Clash vulnerability
-- Tracks proxy configuration settings as metrics
+- Tracks proxy configuration settings as metrics with the prefix `~agent.config`
 - Detects duplicate proxy instances
 - Miscellaneous bug fixes and performance/stability improvements
 
@@ -43,7 +43,7 @@ Notes on upgrading:
 ## Version 3.24
 - Support adding custom point tags to proxy's internal metrics
 - Optimize handling of queued points (reduce time-at-the proxy)
-- Miscellaneous bugfixes
+- Miscellaneous bug fixes
  
 ## Version 3.23
 - Reduced CPU usage in high-volume environments

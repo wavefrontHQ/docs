@@ -10,7 +10,7 @@ Starting with version 4.1, the Wavefront proxy includes a preprocessor that appl
 
 ## Rule Configuration File
 
-You define the proxy preprocessor rules in a separate file, usually `/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml`, using YAML syntax. You can specify the file in your [proxy configuration](proxies_configuring.html#configuration-options). An example rule file could look like:
+You define the proxy preprocessor rules in a separate file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify the file in your [proxy configuration](proxies_configuring.html#proxy-configuration). An example rule file could look like:
 
 ```yaml
 # rules for port 2878
@@ -62,7 +62,7 @@ To enable the preprocessor, add (or uncomment) the `preprocessorConfigFile` prop
 
 ## Point Filtering Rules
 
-Point filtering rules support a more flexible version of the proxy [`whitelistRegex` and `blacklistRegex`](proxies_configuring.html#configuration-options) properties, and is fully backwards compatible.
+Point filtering rules support a more flexible version of the proxy [`whitelistRegex` and `blacklistRegex`](proxies_configuring.html#proxy-configuration) properties, and is fully backwards compatible.
 
 ### blacklistRegex
 

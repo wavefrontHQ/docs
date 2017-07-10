@@ -12,10 +12,11 @@ An alert condition is a conditional ts() expression that defines the threshold f
 
 ## Alert States
 
-An alert can be in 5 states:
+An alert can be in the following states:
 
 - **CHECKING** - The alert is being checked to see if the Condition and Alert fires properties are being met. While firing alerts are still being checked to determine if the Condition and Alert resolves properties are still being met, they are not included when you filter for this state in the Alerts browser.  An alert resolves (transitions back to CHECKING) when there are either no true values present within the time window, or the time window contains no data.
 - **FIRING** - The alert is meeting the Condition and Alert fires property. An alert transitions to firing when the condition evaluates to at least one true value and no false values during a fixed time window.
+- **NO DATA** - The series for which an alert is defined is not reporting data.
 - **IN MAINTENANCE** - The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window. If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE. If an alert has a subset of reporting sources associated with an ongoing maintenance window but whose other sources are firing, the state displays as FIRING/IN MAINTENANCE.
 - **INVALID** - The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).
 - **SNOOZED** - The alert is not checked to determine if the Condition and Alert fires properties are being met.
