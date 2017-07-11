@@ -14,7 +14,6 @@ To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-
 ## Creating a Maintenance Window
 
 To create a maintenance window:
