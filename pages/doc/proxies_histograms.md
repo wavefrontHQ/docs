@@ -72,6 +72,7 @@ In addition, because histograms do not store data point values, quantiles calcul
 
 ## Histogram Metric Aggregation Intervals
 
+
 Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.  
 
 The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 would be assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
@@ -110,34 +111,42 @@ Histograms are supported by Wavefront proxy 4.8 and higher. Using histograms req
  
 To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port according to whether you are sending a distribution or by aggregation interval. For example:
 
-<table width="75%">
+<table width="80%">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="40%" />
+<col width="40%" />
+<col width="20%" />
 </colgroup>
 <thead>
-<tr><th>Distribution or Aggregation Interval</th><th>Default Proxy Port</th></tr>
+<tr><th>Distribution or Aggregation Interval</th><th>Proxy Property</th><th>Default Value</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>distribution</td>
+<td>histogramDistListenerPorts</td>
 <td>40000</td>
 </tr>
 <tr>
 <td>minute</td>
+<td>histogramMinuteListenerPorts</td>
 <td>40001</td>
 </tr>
 <tr>
 <td>hour</td>
+<td>histogramHourListenerPorts</td>
 <td>40002</td>
 </tr>
 <tr>
 <td>day</td>
+<td>histogramDayListenerPorts</td>
 <td>40003</td>
 </tr>
 </tbody>
 </table>
 
+You can send [Wavefront data format](#wavefront-data-format) histogram data only to a minute, hour, or day port. If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged. If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics. If you send more than one regular metric with same timestamp, the metric value is overwritten with the value received last.
+
+You can send [distribution data format](#distribution-data-format) histogram data only to the distribution port. If you send Wavefront distribution data format to min, hour, or day ports the points are rejected as invalid input format and logged.
 
 ### Histogram Configuration Properties
 
