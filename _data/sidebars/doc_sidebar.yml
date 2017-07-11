@@ -390,9 +390,9 @@ entries:
       url: /proxies_configuring.html
       output: web
       
-#    - title: Wavefront Histograms
-#      url: /proxies_histograms.html
-#      output: web
+    - title: Wavefront Histograms
+      url: /proxies_histograms.html
+      output: web
       
     - title: Configuring Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html

@@ -3,7 +3,6 @@ title: Wavefront Histograms
 keywords:
 tags: [proxies, query language]
 sidebar: doc_sidebar
-published: false
 permalink: proxies_histograms.html
 summary: Learn how to send and query histogram data.
 ---
@@ -163,6 +162,8 @@ To indicate that metrics should be treated as histogram data, you send the metri
 </tbody>
 </table>
 
+
+{% include note.html content="If you send _multiple_ metrics with _same_ timestamp to the default Wavefront proxy port 2878, only the last metric value is stored."%}
 
 ### Histogram Configuration Properties
 
