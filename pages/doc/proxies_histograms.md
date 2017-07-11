@@ -98,7 +98,7 @@ To indicate to the Wavefront proxy that Wavefront should compute the distributio
 Wavefront allows you to compute the histogram distribution yourself and send it to the Wavefront. The distribution data format is:
 
 ```html
-{!M | !H | !D} <timestamp> {#<points1> <metricValue1> ... #<pointsN> <metricValueN>} <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>]
+{!M | !H | !D} [<timestamp>] {#<points1> <metricValue1> ... #<pointsN> <metricValueN>} <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>]
 ```
 
 where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) you used when computing the distribution and `points` is the number of points for the metric value.
@@ -134,36 +134,42 @@ The Wavefront proxy supports numerous histogram configuration options. For gener
  
 To indicate that metrics should be treated as histogram data, you send the metrics to configurable Wavefront proxy TCP ports depending on whether you are sending a distribution or by aggregation interval.
 
-<table width="75%">
+<table width="80%">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="40%" />
+<col width="40%" />
+<col width="20%" />
 </colgroup>
 <thead>
-<tr><th>Distribution or Aggregation Interval</th><th>Default Port</th></tr>
+<tr><th>Distribution or Aggregation Interval</th><th>Proxy Property</th><th>Default Value</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>distribution</td>
+<td>histogramDistListenerPorts</td>
 <td>40000</td>
 </tr>
 <tr>
 <td>minute</td>
+<td>histogramMinuteListenerPorts</td>
 <td>40001</td>
 </tr>
 <tr>
 <td>hour</td>
+<td>histogramHourListenerPorts</td>
 <td>40002</td>
 </tr>
 <tr>
 <td>day</td>
+<td>histogramDayListenerPorts</td>
 <td>40003</td>
 </tr>
 </tbody>
 </table>
 
+You can send [Wavefront data format](#wavefront-data-format) histogram data only to a minute, hour, or day port. If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged. If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics. If you send more than one regular metric with same timestamp, the metric value is overwritten with the value received last.
 
-{% include note.html content="If you send _multiple_ metrics with _same_ timestamp to the default Wavefront proxy port 2878, only the last metric value is stored."%}
+You can send [distribution data format](#distribution-data-format) histogram data only to the distribution port. If you send Wavefront distribution data format to min, hour, or day ports the points are rejected as invalid input format and logged.
 
 ### Histogram Configuration Properties
 
