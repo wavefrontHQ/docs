@@ -1,12 +1,12 @@
 ---
 title: AWS Metrics Integration
 keywords:
-tags: [integrations]
+tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
 summary: Learn how to send AWS data to Wavefront.
 ---
-Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. Wavefront's Amazon Web Services integration allows you to ingest metrics directly from AWS and send them to Wavefront without needing to set up a Wavefront proxy.
+Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. Wavefront's Amazon Web Services integration allows you to ingest metrics directly from AWS.
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
@@ -17,7 +17,7 @@ The AWS integration ingests three types of data:
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** - retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data.
 - **[CloudTrail](http://aws.amazon.com/cloudtrail)** - retrieves EC2 event information and creates Wavefront System events that represent the AWS events.
-- **AWS Metrics+** - retrieves additional metrics using AWS APIs other than CloudWatch. You should always enable AWS+ metrics because it allows Wavefront optimize its use of Cloudwatch, thus saving money on Cloudwatch calls.
+- **AWS Metrics+** - retrieves [additional metrics](#aws-metrics-data) using AWS APIs other than CloudWatch. You should always enable AWS+ metrics because it allows Wavefront optimize its use of Cloudwatch, thus saving money on Cloudwatch calls.
 
 For information how to monitor AWS data ingestion, see [AWS Integration](wavefront_monitoring.html#aws-integration).
 
@@ -138,7 +138,7 @@ Wavefront sets the value of the AWS metric [`source`](wavefront_data_format.html
 
 #### Source Tags
 
-AWS sources are assigned source tags that identify their originating service: `integration.aws.<service>`. For example: `integration.aws.ec2`, `integration.aws.ebs`, etc.)
+AWS sources are assigned source tags that identify their originating service: `wavefront.aws.<service>`. For example: `wavefront.aws.ec2`, `wavefront.aws.ebs`, etc.)
 
 ### Point Tags
 
