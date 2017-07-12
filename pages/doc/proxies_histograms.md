@@ -302,5 +302,8 @@ To query histograms, use the `hs()` function to return points. You can apply a l
 - `deriv(max(hs("histogram.<metricName>.m")))` - returns the derivative of the largest `<metricName>` aggregated over a minute.
 - `median(hs(histogram.<metricName>.h))` returns the median `<metricName>` aggregated over an hour.
 
+{% include note.html content="Direct histogram visualization in charts is not supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with another supported function, for example, `max(hs(...))`." %}
+
+
 
 
