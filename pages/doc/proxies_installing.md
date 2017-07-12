@@ -6,7 +6,9 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and run Wavefront proxies.
 ---
-In most cases before metrics can begin streaming to Wavefront from a host or application you must run a Wavefront proxy in your installation. This topic describes various methods for installing and running Wavefront proxies: on a single host, on multiple Linux hosts, and in a Docker container.
+In most cases before metrics can begin streaming to Wavefront from a host or application you must run a Wavefront proxy in your installation. 
+
+You can install a proxy as part of an [in-product integration](integrations.html#in-product-integrations) or standalone. This topic describes various methods for installing standalone Wavefront proxies: on a single host, on multiple Linux hosts, and in a Docker container, and for managing proxy services.
 
 Installation procedures require an Wavefront API URL `<wavefront_api_url>` in the format `https://<wavefront_instance>.wavefront.com/api/` and an API token. Some procedures configure these properties for you automatically. To get an API token, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
 

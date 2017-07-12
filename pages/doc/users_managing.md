@@ -67,6 +67,6 @@ You can create a set of default permissions that are assigned to every new user 
 
 ## Setting Customer-Wide Preferences
 
-You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder.html) by default and the default dashboard.
+You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder.html) by default, the default dashboard, and whether to display the [Getting Started tutorial](documentation_getting_started.html#getting-started-tutorial).
 
 

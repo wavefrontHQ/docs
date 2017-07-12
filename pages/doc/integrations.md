@@ -1,7 +1,7 @@
 ---
 title: Integrations
 keywords: integrations
-tags: [integrations]
+tags: [integrations, data, dashboards, alerts, administration]
 sidebar: doc_sidebar
 permalink: integrations.html
 summary: Learn about the integrations supported by Wavefront, how to install an integration, and how to work with integration content.

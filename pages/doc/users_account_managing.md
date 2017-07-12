@@ -47,8 +47,9 @@ You configure can configure several preferences in your user profile.
 - The default chart title size.
 - Whether to enable the [Query Builder](query_language_query_builder.html) and whether to always open it.
 - The dashboard that displays after you log in or when you click the Wavefront logo. The default setting is the [Tutorial: Introduction dashboard](dashboards_getting_started.html).
+- Whether to display the [Getting Started tutorial](documentation_getting_started.html#getting-started-tutorial).
  
-{% include note.html content="Some Query Builder and default dashboard preferences are set for [all users in an account](users_managing.html#customer_prefs) by a user with [User Management permission](permissions_overview.html)." %}
+{% include note.html content="Some preferences are set for [all users in an account](users_managing.html#customer_prefs) by a user with [User Management permission](permissions_overview.html)." %}
 
 
 

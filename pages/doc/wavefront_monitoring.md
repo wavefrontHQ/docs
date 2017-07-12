@@ -1,6 +1,6 @@
 ---
 title: Monitoring Wavefront
-tags: [administration]
+tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
 summary: Learn how to monitor the health of the Wavefront platform.

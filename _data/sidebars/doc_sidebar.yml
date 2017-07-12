@@ -51,8 +51,8 @@ entries:
       url: /wavefront_release_notes.html
       output: web
       
-    - title: 2017-24.x Release Notes
-      url: /2017_24.x_release_notes.html
+    - title: 2017-28.x Release Notes
+      url: /2017_28.x_release_notes.html
       output: web
       
     - title: 2017-16.x Release Notes

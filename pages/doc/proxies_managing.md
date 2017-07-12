@@ -35,7 +35,8 @@ See [Installing and Running Wavefront Proxies](proxies_installing.html).
 To update which Wavefront instance the proxy sends data to:
 
 1. On the host on which the proxy is running, edit the [proxy configuration](proxies_configuring.html) file.
-1. Change the `server` and `token` properties to point to the Wavefront instance you want to send data to. 
+1. Change the `server` and `token` properties to point to the Wavefront instance you want to send data to.
+1. If present, delete `<wavefront_config_path>/.wavefront_id`. 
 1. [Restart the Wavefront proxy](proxies_installing.html#restart). The proxy is added to the Wavefront instance and displays on the Proxies page.
  
 ## Editing and Deleting Proxies
