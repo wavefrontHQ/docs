@@ -7,7 +7,7 @@ permalink: dashboards_getting_started.html
 summary: Learn about the tutorial, example, and use case dashboards available in your Wavefront instance.
 ---
 Every Wavefront instance contains [system dashboards](dashboards.html#dashboard-types) to help new users learn about Wavefront benefits, capabilities, components, illustrative use cases, and example dashboards for specific domains.
-You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [dashboard tags](tags_overview.html).
+You can quickly access any of these dashboards by selecting **Dashboards > All Dashboards** and clicking the indicated [dashboard tags](tags_overview.html) or by selecting **Integrations** and clicking the **Tour** or **Tutorial** tiles.
 
 {% include shared/system_dashboard.html %}
 

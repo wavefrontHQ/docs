@@ -7,7 +7,7 @@ permalink: integrations_jmx.html
 summary: Learn how to send JMX data to Wavefront.
 ---
 
-You can monitor applications that use JMX by either by setting up Jolokia and Telegraf or by using JMXTrans.  
+You can monitor Java based applications that use JMX by either by setting up Jolokia and Telegraf or by using JMXTrans.  
 
 ## Telegraf-based Integration
 

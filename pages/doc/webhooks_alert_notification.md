@@ -15,12 +15,9 @@ This section describes how to create and configure webhooks and webhook payloads
 
 To integrate alerts with Slack, PagerDuty, HipChat, or VictorOps, follow the instructions in the [in-product integrations](integrations.html). Wavefront provides webhook templates for each of these systems.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view webhooks, you must have [Alert Management permission](permissions_overview.html) to manage webhooks. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
-
-
-## Viewing Webhooks
-
 To view and manage webhooks, select **Browse > Webhooks**.
+
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view webhooks, you must have [Alert Management permission](permissions_overview.html) to manage webhooks. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 ## Creating a Webhook
 
@@ -40,16 +37,16 @@ To create a webhook:
     </tr>
     <tr>
     <td>Triggers</td>
-    <td>The set of alert state changes that should trigger the webhook:
+    <td>A set of one or more <a href="alerts_states_lifecycle.html">alert state changes</a> that trigger the webhook. The options are:
     <ul>
     <li>Alert Opened - When the alert is opened (fired).</li>
-    <li>Alert Status Updated - When the status of an already open/firing alert changes, e.g. a new application/source meets the alert condition and joins the set.</li>
+    <li>Alert Status Updated - When the status of an open alert changes. For example, a new source satisfies the alert condition and joins the set of affected sources.</li>
     <li>Alert Resolved - When the alert is resolved.</li>
     <li>Alert Affected by Maintenance Window - When the alert is affected by a maintenance window.</li>
     <li>Alert Snoozed - When the alert is snoozed.</li>
-    <li>Alert Has No Data - When the series is not reporting data.</li>
-    <li>Alert Has No Data Resolved - When the series has started reporting data after having no data.</li>
-    <li>Alert Entered Maintenance From No Data - When the series is not reporting data and is affected by a  maintenance window.</li>
+    <li>Alert Has No Data - When the series referenced in the alert condition is not reporting data.</li>
+    <li>Alert Has No Data Resolved - When the series referenced in the alert condition has started reporting data after having no data.</li>
+    <li>Alert Entered Maintenance From No Data - When the series referenced in the alert condition is not reporting data and is affected by a  maintenance window.</li>
     </ul>
     </td>
     </tr>
@@ -92,25 +89,29 @@ Wavefront webhook templates support [Mustache syntax](https://mustache.github.io
 
 ### Payload Variables
 
-You can customize the payload using properties that characterize the alert triggering the webhook and and iterators that return objects subject to the alert condition. 
+You can customize the payload using properties and iterators that characterize the alert triggering the webhook. 
 
 The categories of iterators are: `failing`, `inMaintenance`, `newlyFailing`, and `recovered`. The iterators return three types of objects:
 
-- `host` - the affected source (host).
-- `series` = `host` + 
+- `host` - the affected source (host). Returned by `XXXSources` iterators.
+- series - Returned by `XXXSeries` iterators.
+  - `host` - the affected source (host).
   - `label` - the metric or aggregation.
   - `tags` - the point tags on the series.
-- Series identifier = `series` + 
+- alert series - Returned by `XXXAlertSeries` iterators.
+  - `host` - the affected source (host).
+  - `label` - the metric or aggregation.
+  - `tags` - the point tags on the series.
   - `observed` - the number of points returned by the alert condition.
   - `firing` - the number of points that satisfy the alert condition.
   - `stats` - series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the [Display Expression](alerts_managing.html#properties) associated with the alert. If the Display Expression is not configured, the values are not set.
 
-Only the `failing` and `failingSeries` iterators iterate through an empty source (host).
+Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
 
 <table>
 <colgroup>
-<col width="20%"/>
-<col width="80%"/>
+<col width="25%"/>
+<col width="75%"/>
 </colgroup>
 <thead>
 <tr><th>Variable</th><th>Definition</th></tr>
@@ -138,52 +139,52 @@ Only the `failing` and `failingSeries` iterators iterate through an empty source
 </tr>
 <tr>
 <td markdown="span">`errorMessage`</td>
-<td>The message if there is an error while processing the condition query. This usually occurs when the alert goes in an invalid state.</td>
+<td>The message if there is an error while processing the condition query. This usually occurs when the alert is in an invalid state.</td>
 </tr>
 <tr>
-<td markdown="span">`failing`</td>
-<td>An iterator for series identifiers of series that are failing.
+<td markdown="span">`failingAlertSeries`</td>
+<td>An iterator for alert series that are failing.
 </td>
 </tr>
 <tr>
-<td markdown="span">`failingHosts`</td>
-<td>An iterator for sources (hosts) that are failing.</td>
+<td markdown="span">`failingSources`</td>
+<td>An iterator for sources that are failing.</td>
 </tr>
 <tr>
-<td markdown="span">failingSeries</td>
+<td markdown="span">`failingSeries`</td>
 <td>An iterator for series that are failing.</td>
 </tr>
 <tr>
-<td markdown="span">`hostsFailingMessage`</td>
+<td markdown="span">`hostFailingMessage`</td>
 <td>The list of sources (hosts) that are failing displayed as a message.</td>
 </tr>
 <tr>
-<td markdown="span">`inMaintenance`</td>
-<td>An iterator for series identifiers of series whose sources are in a maintenance window.</td>
-</tr>
-<tr>
-<td markdown="span">`inMaintenanceHosts`</td>
-<td>An iterator for sources (hosts) that are in a maintenance window.</td>
+<td markdown="span">`inMaintenanceAlertSeries`</td>
+<td>An iterator for alert series whose sources are in a maintenance window.</td>
 </tr>
 <tr>
 <td markdown="span">`inMaintenanceSeries`</td>
-<td>An iterator for series whose sources (hosts) are in a maintenance window. </td>
+<td>An iterator for series whose sources are in a maintenance window. </td>
+</tr>
+<tr>
+<td markdown="span">`inMaintenanceSources`</td>
+<td>An iterator for sources that are in a maintenance window.</td>
 </tr>
 <tr>
 <td markdown="span">`name`</td>
 <td>The name of the alert.</td>
 </tr>
 <tr>
-<td markdown="span">`newlyFailing`</td>
-<td markdown="span">An iterator for series identifiers of series that are newly affected and are added to the `failing` list.</td>
-</tr>
-<tr>
-<td markdown="span">`newlyFailingHosts`</td>
-<td markdown="span">An iterator for sources (hosts) that are newly affected and are added to the `failingHosts` list.</td>
+<td markdown="span">`newlyFailingAlertSeries`</td>
+<td markdown="span">An iterator for alert series that are newly affected and added to the `failingAlertSeries` list.</td>
 </tr>
 <tr>
 <td markdown="span">`newlyFailingSeries`</td>
-<td markdown="span">An iterator for series that are newly affected and are added to the `failingSeries` list.</td>
+<td markdown="span">An iterator for series that are newly affected and added to the `failingSeries` list.</td>
+</tr>
+<tr>
+<td markdown="span">`newlyFailingSources`</td>
+<td markdown="span">An iterator for sources that are newly affected and added to the `failingSources` list.</td>
 </tr>
 <tr>
 <td markdown="span">`notificationId`</td>
@@ -191,18 +192,19 @@ Only the `failing` and `failingSeries` iterators iterate through an empty source
 </tr>
 <tr>
 <td markdown="span">`reason`</td>
-<td>Trigger that caused the webhook to send the notification: e.g. Alert Opened or Alert Snoozed, etc.</td>
+<td>Trigger that caused the webhook to send the notification: e.g. Alert Opened or Alert Snoozed.</td>
 </tr>
 <tr>
-<td markdown="span">`recovered`</td>
-<td>An iterator for series identifiers of series that recovered from the alert.</td>
+<td markdown="span">`recoveredAlertSeries`</td>
+<td>An iterator for alert series identifiers that recovered from the alert.</td>
 </tr>
 <tr>
-<td markdown="span">`recoveredHosts`</td>
-<td>An iterator for sources (hosts) that recovered from the alert.</td>
-</tr><tr>
 <td markdown="span">`recoveredSeries`</td>
 <td>An iterator for series that recovered from the alert.</td>
+</tr>
+<tr>
+<td markdown="span">`recoveredSources`</td>
+<td>An iterator for sources that recovered from the alert.</td>
 </tr>
 <tr>
 <td markdown="span">`severity`</td>
@@ -271,35 +273,35 @@ Here is a sample template:
   "endedTime": "{{{endedTime}}}",  
   "snoozedUntilTime": "{{{snoozedUntilTime}}}",  
   "subject": "{{#jsonEscape}}{{{subject}}}{{/jsonEscape}}",  
-  "hostsFailingMessage": "{{#jsonEscape}}{{{hostsFailingMessage}}}{{/jsonEscape}}",  
+  "sourcesFailingMessage": "{{#jsonEscape}}{{{sourcesFailingMessage}}}{{/jsonEscape}}",  
   "errorMessage": "{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",  
   "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",  
   "failingSources": [  
     {{#trimTrailingComma}}  
-      {{#failingHosts}}  
+      {{#failingSources}}  
         "{{{.}}}",  
-      {{/failingHosts}}  
+      {{/failingSources}}  
     {{/trimTrailingComma}}  
   ],  
   "inMaintenanceSources": [  
     {{#trimTrailingComma}}  
-      {{#inMaintenanceHosts}}  
+      {{#inMaintenanceSources}}  
         "{{{.}}}",  
-      {{/inMaintenanceHosts}}  
+      {{/inMaintenanceSources}}  
     {{/trimTrailingComma}}  
   ],  
   "newlyFailingSources": [  
     {{#trimTrailingComma}}  
-      {{#newlyFailingHosts}}  
+      {{#newlyFailingSources}}  
         "{{{.}}}",  
-      {{/newlyFailingHosts}}  
+      {{/newlyFailingSources}}  
     {{/trimTrailingComma}}  
   ],  
   "recoveredSources": [  
     {{#trimTrailingComma}}  
-      {{#recoveredHosts}}  
+      {{#recoveredSources}}  
         "{{{.}}}",  
-      {{/recoveredHosts}}  
+      {{/recoveredSources}}  
     {{/trimTrailingComma}}  
   ],  
   "failingSeries": [  
@@ -356,7 +358,7 @@ Here is a sample payload for the template:
   "endedTime": "",
   "snoozedUntilTime": "",
   "subject": "[SMOKE] OPENED: Alert on Data rate ( Test)",
-  "hostsFailingMessage": "localhost (~agent.points.2878.received)",
+  "sourcesFailingMessage": "localhost (~agent.points.2878.received)",
   "errorMessage": "",
   "additionalInformation": "An alert to test a webhook integration with HipChat",
   "failingSources": ["localhost"],
@@ -396,7 +398,7 @@ This template could yield the following message:
 {% raw %}
 ```handlebars
 "failing": [
-{"host": "raspberrypi", "label": "humidity", "tags": {}, "observed": 5, "firing": 2, "stats": {"min": 46.0, "max": 46.6, "first": 46.6, "last": 46.0, "mean": 46.279999999999994}}]
+{"source": "raspberrypi", "label": "humidity", "tags": {}, "observed": 5, "firing": 2, "stats": {"min": 46.0, "max": 46.6, "first": 46.6, "last": 46.0, "mean": 46.279999999999994}}]
 ```
 {% endraw %}
 
@@ -406,11 +408,11 @@ Payload functions let you set limits on the number of items returned by iterator
 
 The order of the limit settings determines limit precedence. For example, setting `setDefaultIterationLimit` after setting `setFailingLimit` overwrites the `setFailingLimit` setting. 
 
-The `failingLimit` property applies to all `failing` iterators: `failing`, `failingHosts`, and `failingSeries`.
+The `failingLimit` property applies to all `failing` iterators: `failing`, `failingSources`, and `failingSeries`.
 
 For a payload function example, see [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits).
 
-{% include note.html content="If the application that is being integrated needs the full list of items (e.g. `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated needs the full list of items (e.g. `failingSources`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
 
 <table>
 <colgroup>
@@ -428,22 +430,22 @@ For a payload function example, see [Setting and Testing Iteration Limits](#sett
 </tr>
 <tr>
 <td markdown="span">`setFailingLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `failing`, `failingHosts`, and `failingSeries`.
+<td markdown="span">Set the limit for the number of items returned by `failing`, `failingSources`, and `failingSeries`.
 </td>
 </tr>
 <tr>
 <td markdown="span">`setInMaintenanceLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `inMaintenance`, `inMaintenanceHosts`, and `inMaintenanceSeries`.
+<td markdown="span">Set the limit for the number of items returned by `inMaintenance`, `inMaintenanceSources`, and `inMaintenanceSeries`.
 </td>
 </tr>
 <tr>
 <td markdown="span">`setNewlyFailingLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `newlyFailing`, `newlyFailingHosts`, and `newlyFailingSeries`.
+<td markdown="span">Set the limit for the number of items returned by `newlyFailing`, `newlyFailingSources`, and `newlyFailingSeries`.
 </td>
 </tr>
 <tr>
 <td markdown="span">`setRecoveredLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `recovered`, `recoveredHosts`, and `recoveredSeries`.
+<td markdown="span">Set the limit for the number of items returned by `recovered`, `recoveredSources`, and `recoveredSeries`.
 </td>
 </tr>
 <tr>
@@ -491,9 +493,9 @@ Suppose you have 8 failing sources: "source1", "source2", "source3", "source4", 
   ...
   "failingSources": [  
     {{#trimTrailingComma}}  
-      {{#failingHosts}}  
+      {{#failingSources}}  
         "{{{.}}}",  
-      {{/failingHosts}}  
+      {{/failingSources}}  
     {{/trimTrailingComma}}  
   ], 
   "failingSeries": [  
@@ -534,7 +536,7 @@ Results in the following payload:
 ```
 {% endraw %}
 
-`failingHosts` iterates only up to `failingLimit`, which in this case is 5. `failingLimitExceed` is `true` because the number the failing sources exceeds the limit set. In the case in which the limit is 10, the payload is:
+`failingSources` iterates only up to `failingLimit`, which in this case is 5. `failingLimitExceed` is `true` because the number the failing sources exceeds the limit set. In the case in which the limit is 10, the payload is:
 
 {% raw %}
 ```handlebars

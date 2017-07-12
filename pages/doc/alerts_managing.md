@@ -6,13 +6,15 @@ sidebar: doc_sidebar
 permalink: alerts_managing.html
 summary: Learn how to manage alerts.
 ---
-To view and manage alerts, click the **Alerts** button or select **Browse > Alerts**.
- 
-{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
-This topic describes how to manage alert objects, view alert history, and snooze and unsnooze alerts. 
+You can view alert history and and snooze and unsnooze alerts. 
 
 For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
+
+To view and manage alerts, click the **Alerts** button or select **Browse > Alerts**.
+
+ 
+{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
 ## Creating an Alert
  

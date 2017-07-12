@@ -36,11 +36,7 @@ For example, for the preceding alert, the chart displays:
 
 ### Viewing Alert Firing
 
-The Firings column shows how many times an alert fired in the last day, week, and month. If you click a number link in the column, it displays a query of the [~alert.isfiring.\<alert ID\> metric](alerts_dependencies.html#alert-metrics). For example:
-
-```
-flapping(30d, -1*ts(~alert.isfiring.1499288817347))
-```
+The Firings column shows how many times an alert fired in the last day, week, and month.
 
 {% include shared/searching.html entity="Alerts" entities="alerts" %}
 

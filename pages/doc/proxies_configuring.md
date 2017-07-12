@@ -31,6 +31,8 @@ In this section, file paths use the following conventions and values:
   - Mac - `/usr/local/var/spool/wavefront-proxy`
   - Windows - `C:\Program Files (x86)\Wavefront\bin`
 
+{% include important.html content="On Windows, _do not_ use **notepad** to edit any configuration files. Use an editor that supports Unix style line endings, such as **Notepad++** or **EditPlus**."%}
+
 ### Configuration Properties
 
 The main Wavefront proxy configuration file is maintained in `<wavefront_config_path>/wavefront.conf`.  Besides the `server` and `hostname` properties, the configuration file offers many options for changing how the proxy processes your data. There are optional configuration files for [rewriting metrics](proxies_preprocessor_rules.html) and parsing [log data](integrations_log_data.html#configuring-the-wavefront-proxy-to-ingest-log-data). None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, [restart the proxy service](proxies_installing.html#starting-and-stopping-a-proxy).

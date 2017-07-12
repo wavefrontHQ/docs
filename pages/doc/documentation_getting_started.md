@@ -6,18 +6,31 @@ sidebar: doc_sidebar
 permalink: documentation_getting_started.html
 summary: Learn about the documentation that can help get you up to speed on Wavefront.
 ---
-The following list of documents are great for getting started with Wavefront. If you want an even more condensed set of documentation, then focus on the categories and topics with a <i class="fa-check-circle fa" style="color: green;"/> icon.
 
-If you prefer a more hands on approach, then check out the [Getting Started Dashboards](dashboards_getting_started.html). These dashboards help you get acquainted with topics such as the query language, alerting, and chart types.
+Wavefront offers a wealth of resources for getting up  to speed.
+
+The in-product Getting Started tutorial gives a overview of Wavefront architecture, a preview of dashboards and alerts, and next steps. If you prefer a hands-on approach, check out the [Getting Started Dashboards](dashboards_getting_started.html). These dashboards help you get acquainted with topics such as the query language, alerting, and chart types.
+
+Otherwise, the following list of documents are great for getting started with Wavefront. If you want a condensed set of documentation, focus on the categories and topics with a <i class="fa-check-circle fa" style="color: green;"/> icon.
+
+<a name="getting-started-tutorial"></a>
+
+## Getting Started Tutorial
+
+The in-product Getting Started tutorial is for new Wavefront instances and new users within existing instances. The Getting Started tutorial gives a overview of Wavefront architecture, a preview of dashboards and alerts, and next steps and if you are a trial user, leads you through the process of setting up your first [integration](integrations.html). The first time you log in the Getting Started tutorial displays automatically. To access the Getting Started tutorial otherwise, click **Getting Started** in the Wavefront task bar. You can control whether the Getting Started tutorial is visible in the [customer-wide](users_managing.html#setting-customer-wide-preferences) and [ user](users_account_managing.html#configuring-your-preferences) preferences. 
+
+<a name="tutorials"></a>
 
 ## Tutorials <i class="fa-check-circle fa" style="color: green;"/>
 
-Tutorials help you quickly learn the basics of getting, displaying, and working with data.
+Standalone tutorials help you quickly learn the basics of getting, displaying, and working with data.
 
 - [Tutorial: Getting Started](tutorial_getting_started.html)
 - [Tutorial: Getting Data into Wavefront](tutorial_data_ingestion.html)
 
 Also see the [Getting Started Dashboards](dashboards_getting_started.html) labeled with the tag **wavefront.tutorial**.
+
+<a name="overview-documents"></a>
 
 ## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
 
