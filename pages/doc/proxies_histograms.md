@@ -287,7 +287,6 @@ You can apply a limited set of statistical functions to the returned data&mdash;
 - `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
 - `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.
 - `median(hs(histogram.<metricName>.h))` returns the median `<metricName>` aggregated over an hour.
-- `min(hs(histogram.<metricName>.h))` returns the smallest `<metricName>` aggregated over an hour.
-- `count(hs(histogram.<metricName>.d))` returns the number of `<metricName>` points aggregated over a day.
 
+{% include note.html content="Direct histogram visualization in charts is not supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with another supported function, for example, `max(hs(...))`." %}
 
