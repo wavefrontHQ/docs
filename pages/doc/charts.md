@@ -16,6 +16,17 @@ You add [Wavefront Query Language](query_language_getting_started.html) queries 
 
 Describes options common to all chart types.
 
+### Query
+
+You can set options for each query displayed in a chart:
+
+- Axis - whether the axis displays on the left or right
+- Color - the color of the query points
+
+To display the options, hover over the query line.
+
+![chart query](images/chart_query.png)
+
 ### General
 
 General options.
