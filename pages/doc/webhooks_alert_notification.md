@@ -377,19 +377,21 @@ Here is a sample payload for the template:
 
 Sometimes you want to know the value of a series when an alert is triggered. For example, if the alert threshold is 80, you want to know on crossing the threshold if the value was 81 or 91. Furthermore you would like access to the value in the alert notification. Since an alert has a time window, a series does not have a single value when the threshold is crossed. For example, the alert may specify that the alert should fire when a condition is true for 10 minutes. During that 10 minute period, the series will likely have multiple values. 
 
-You can use the `failing` iterator to access series statistics&mdash;`first`, `last`, `min`, `max`, and `mean`&mdash;of the series values. The `last` statistic is automatically appended to email and PagerDuty messages.
+You can use the `failingAlertSeries` iterator to access series statistics&mdash;`first`, `last`, `min`, `max`, and `mean`&mdash;of the series values. The `last` statistic is automatically appended to email and PagerDuty messages.
 
 
-The following template illustrates how to use the `failing` iterator to retrieve series statistics:
+The following template illustrates how to use the `failingAlertSeries` iterator to retrieve series statistics:
 
 {% raw %}
 ```handlebars
-{{#trimTrailingComma}}
-{{#failing}}
-"Source: {{source}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}} Firing: {{firing}},
-First: {{stats.first}}, Last: {{stats.last}}, Min: {{stats.min}}, Max: {{stats.max}}, Mean: {{stats.mean}}",
-{{/failing}}
-{{/trimTrailingComma}}
+"failingAlertSeries": [
+  {{#trimTrailingComma}}
+    {{#failingAlertSeries}}
+      "Source: {{host}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}} Firing: {{firing}},
+      First: {{stats.first}}, Last: {{stats.last}}, Min: {{stats.min}}, Max: {{stats.max}}, Mean: {{stats.mean}}",
+    {{/failingAlertSeries}}
+  {{/trimTrailingComma}}
+]
 ```
 {% endraw %}
 
@@ -397,7 +399,7 @@ This template could yield the following message:
 
 {% raw %}
 ```handlebars
-"failing": [
+"failingAlertSeries": [
 {"source": "raspberrypi", "label": "humidity", "tags": {}, "observed": 5, "firing": 2, "stats": {"min": 46.0, "max": 46.6, "first": 46.6, "last": 46.0, "mean": 46.279999999999994}}]
 ```
 {% endraw %}
