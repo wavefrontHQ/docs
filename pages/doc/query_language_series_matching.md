@@ -9,6 +9,7 @@ summary: Learn how operators and functions affect the evaluation of Wavefront Qu
 Series matching is a process that occurs when you apply the following operators and functions:
  
 - Arithmetic operators (+, -, /, *)
+- Boolean operators (and, or)
 - Comparison operators (>, <, =, >=, <=, !=)
 - Filter functions (highpass, lowpass, min, max)
 - Exponential and trigonometric functions

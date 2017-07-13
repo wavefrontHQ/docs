@@ -64,6 +64,9 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 </ul>
 
 ## Operators
+
+All operations between series are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​.
+
 <ul>
 <li>Boolean operators - combine ts() expressions and constants and the filtering performed by sources, source tags, and point tags.</li>
 <ul>
@@ -84,8 +87,6 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 <li>ts("<span style="color:#08838c;font-weight:bold">smp-fax*.count</span>" and not "<span style="color:#08838c;font-weight:bold">smp-fax*.metrics.wavefront.</span>", <span style="color:#d63a36;font-weight:bold">source="-eq*"</span>) returns all metrics that match "<span style="color:#08838c;font-weight:bold">smp-fax*.count</span>" except for those matching "<span style="color:#08838c;font-weight:bold">smp-fax*.metrics.wavefront.*</span>".</li>
 </ul>
 </ul>
-
-For further information on operator behavior in series matching, see [Series Matching](query_language_series_matching.html)​.
 
 ## Tags in Queries
 <ul>
