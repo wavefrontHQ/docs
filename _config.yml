@@ -61,13 +61,10 @@ algolia:
 google_analytics: UA-45491516-30
 
 feedback_email: docs@wavefront.com
-# used as a contact email for the Feedback link in the footer
+# Email address for the Send Feedback link in the footer
 
-support_email: support@wavefront.com
-# used as a contact email for the support links throughout the docs
-
-support_link:  https://www.vmware.com/support
-# used as a link for the Support link in the top navigation bar
+support_link:  https://community.wavefront.com/welcome
+# The Support link in the top navigation bar
 
 # feedback_disable: true
 # if you uncomment the previous line, the Feedback link gets removed
