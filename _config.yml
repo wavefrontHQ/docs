@@ -23,7 +23,8 @@ host: 127.0.0.1
 # the preview server used. Leave as is.
 
 port: 4000
-# the port where the preview is rendered. You can leave this as is unless you have other Jekyll builds using this same port that might cause conflicts. in that case, use another port such as 4006.
+# the port where the preview is rendered. You can leave this as is unless you have other Jekyll builds using this same 
+# port that might cause conflicts. in that case, use another port such as 4006.
 
 exclude:
   - .idea/
@@ -31,9 +32,8 @@ exclude:
 # these are the files and directories that jekyll will exclude from the build
 
 feedback_subject_line: Wavefront Documentation
-support_subject_line: Support Request
 
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-extlinks
   - algoliasearch-jekyll
@@ -61,12 +61,10 @@ algolia:
       - unordered(text)
 
 google_analytics: UA-45491516-30
+# Google_analytics ID
 
 feedback_email: docs@wavefront.com
 # used as a contact email for the Feedback link in the footer
-
-support_email: support@wavefront.com
-# used as a contact email for the support links throughout the docs
 
 support_link:  https://www.vmware.com/support
 # used as a link for the Support link in the top navigation bar
