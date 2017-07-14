@@ -93,7 +93,7 @@ You can customize the payload using properties and iterators that characterize t
 
 The categories of iterators are: `failing`, `inMaintenance`, `newlyFailing`, and `recovered`. The iterators return three types of objects:
 
-- `host` - the affected source (host). Returned by `XXXSources` iterators.
+- `host` - the affected source (host). Returned by `XXXHosts` iterators.
 - series - Returned by `XXXSeries` iterators.
   - `host` - the affected source (host).
   - `label` - the metric or aggregation.
@@ -147,7 +147,7 @@ Only the `failingAlertSeries` and `failingSeries` iterators iterate through an e
 </td>
 </tr>
 <tr>
-<td markdown="span">`failingSources`</td>
+<td markdown="span">`failingHosts`</td>
 <td>An iterator for sources that are failing.</td>
 </tr>
 <tr>
@@ -167,7 +167,7 @@ Only the `failingAlertSeries` and `failingSeries` iterators iterate through an e
 <td>An iterator for series whose sources are in a maintenance window. </td>
 </tr>
 <tr>
-<td markdown="span">`inMaintenanceSources`</td>
+<td markdown="span">`inMaintenanceHosts`</td>
 <td>An iterator for sources that are in a maintenance window.</td>
 </tr>
 <tr>
@@ -183,8 +183,8 @@ Only the `failingAlertSeries` and `failingSeries` iterators iterate through an e
 <td markdown="span">An iterator for series that are newly affected and added to the `failingSeries` list.</td>
 </tr>
 <tr>
-<td markdown="span">`newlyFailingSources`</td>
-<td markdown="span">An iterator for sources that are newly affected and added to the `failingSources` list.</td>
+<td markdown="span">`newlyFailingHosts`</td>
+<td markdown="span">An iterator for sources that are newly affected and added to the `failingHosts` list.</td>
 </tr>
 <tr>
 <td markdown="span">`notificationId`</td>
@@ -203,7 +203,7 @@ Only the `failingAlertSeries` and `failingSeries` iterators iterate through an e
 <td>An iterator for series that recovered from the alert.</td>
 </tr>
 <tr>
-<td markdown="span">`recoveredSources`</td>
+<td markdown="span">`recoveredHosts`</td>
 <td>An iterator for sources that recovered from the alert.</td>
 </tr>
 <tr>
@@ -278,30 +278,30 @@ Here is a sample template:
   "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",  
   "failingSources": [  
     {{#trimTrailingComma}}  
-      {{#failingSources}}  
+      {{#failingHosts}}  
         "{{{.}}}",  
-      {{/failingSources}}  
+      {{/failingHosts}}  
     {{/trimTrailingComma}}  
   ],  
   "inMaintenanceSources": [  
     {{#trimTrailingComma}}  
-      {{#inMaintenanceSources}}  
+      {{#inMaintenanceHosts}}  
         "{{{.}}}",  
-      {{/inMaintenanceSources}}  
+      {{/inMaintenanceHosts}}  
     {{/trimTrailingComma}}  
   ],  
   "newlyFailingSources": [  
     {{#trimTrailingComma}}  
-      {{#newlyFailingSources}}  
+      {{#newlyFailingHosts}}  
         "{{{.}}}",  
-      {{/newlyFailingSources}}  
+      {{/newlyFailingHosts}}  
     {{/trimTrailingComma}}  
   ],  
   "recoveredSources": [  
     {{#trimTrailingComma}}  
-      {{#recoveredSources}}  
+      {{#recoveredHosts}}  
         "{{{.}}}",  
-      {{/recoveredSources}}  
+      {{/recoveredHosts}}  
     {{/trimTrailingComma}}  
   ],  
   "failingSeries": [  
@@ -387,7 +387,7 @@ The following template illustrates how to use the `failingAlertSeries` iterator 
 "failingAlertSeries": [
   {{#trimTrailingComma}}
     {{#failingAlertSeries}}
-      "Source: {{host}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}} Firing: {{firing}},
+      "Source: {{host}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}}, Firing: {{firing}},
       First: {{stats.first}}, Last: {{stats.last}}, Min: {{stats.min}}, Max: {{stats.max}}, Mean: {{stats.mean}}",
     {{/failingAlertSeries}}
   {{/trimTrailingComma}}
@@ -400,7 +400,7 @@ This template could yield the following message:
 {% raw %}
 ```handlebars
 "failingAlertSeries": [
-{"source": "raspberrypi", "label": "humidity", "tags": {}, "observed": 5, "firing": 2, "stats": {"min": 46.0, "max": 46.6, "first": 46.6, "last": 46.0, "mean": 46.279999999999994}}]
+{"Source": "raspberrypi", "Label": "humidity", "Tags": {}, "Observed": 5, "Firing": 2, "First": 46.6, "Last": 46.0, "Min": 46.0, "Max": 46.6, "Mean": 46.279999999999994}}]
 ```
 {% endraw %}
 
@@ -410,11 +410,11 @@ Payload functions let you set limits on the number of items returned by iterator
 
 The order of the limit settings determines limit precedence. For example, setting `setDefaultIterationLimit` after setting `setFailingLimit` overwrites the `setFailingLimit` setting. 
 
-The `failingLimit` property applies to all `failing` iterators: `failing`, `failingSources`, and `failingSeries`.
+The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, and `failingHosts`.
 
 For a payload function example, see [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits).
 
-{% include note.html content="If the application that is being integrated needs the full list of items (e.g. `failingSources`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
+{% include note.html content="If the application that is being integrated needs the full list of items (e.g. `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
 
 <table>
 <colgroup>
@@ -432,22 +432,22 @@ For a payload function example, see [Setting and Testing Iteration Limits](#sett
 </tr>
 <tr>
 <td markdown="span">`setFailingLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `failing`, `failingSources`, and `failingSeries`.
+<td markdown="span">Set the limit for the number of items returned by `failingAlertSeries`, `failingHosts`, and `failingSeries`.
 </td>
 </tr>
 <tr>
 <td markdown="span">`setInMaintenanceLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `inMaintenance`, `inMaintenanceSources`, and `inMaintenanceSeries`.
+<td markdown="span">Set the limit for the number of items returned by `inMaintenanceAlertSeries`, `inMaintenanceHosts`, and `inMaintenanceSeries`.
 </td>
 </tr>
 <tr>
 <td markdown="span">`setNewlyFailingLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `newlyFailing`, `newlyFailingSources`, and `newlyFailingSeries`.
+<td markdown="span">Set the limit for the number of items returned by `newlyFailingAlertSeries`, `newlyFailingHosts`, and `newlyFailingSeries`.
 </td>
 </tr>
 <tr>
 <td markdown="span">`setRecoveredLimit`</td>
-<td markdown="span">Set the limit for the number of items returned by `recovered`, `recoveredSources`, and `recoveredSeries`.
+<td markdown="span">Set the limit for the number of items returned by `recoveredAlertSeries`, `recoveredHosts`, and `recoveredSeries`.
 </td>
 </tr>
 <tr>
@@ -495,9 +495,9 @@ Suppose you have 8 failing sources: "source1", "source2", "source3", "source4", 
   ...
   "failingSources": [  
     {{#trimTrailingComma}}  
-      {{#failingSources}}  
+      {{#failingHosts}}  
         "{{{.}}}",  
-      {{/failingSources}}  
+      {{/failingHosts}}  
     {{/trimTrailingComma}}  
   ], 
   "failingSeries": [  
@@ -538,7 +538,7 @@ Results in the following payload:
 ```
 {% endraw %}
 
-`failingSources` iterates only up to `failingLimit`, which in this case is 5. `failingLimitExceed` is `true` because the number the failing sources exceeds the limit set. In the case in which the limit is 10, the payload is:
+`failingHosts` iterates only up to `failingLimit`, which in this case is 5. `failingLimitExceed` is `true` because the number the failing sources exceeds the limit set. In the case in which the limit is 10, the payload is:
 
 {% raw %}
 ```handlebars
