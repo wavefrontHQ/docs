@@ -9,8 +9,8 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 ## Query Elements
 <table style="width: 100%;">
 <colgroup>
-<col width="20%" />
-<col width="80%" />
+<col width="15%" />
+<col width="85%" />
 </colgroup>
 <thead>
 <tr>
@@ -24,13 +24,21 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 <td>The name of a metric. Example: <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>.</td>
 </tr>
 <tr>
-<td><span style="color:#d63a36;font-weight:bold">source</span></td>
-<td>A string sent with a metric to identify the entity that sent the metric. Sources are identified with the keyword <span style="color:#d63a36;font-weight:bold">source</span>. Example: <span style="color:#d63a36;font-weight:bold">source=appServer15</span>.</td>
+<td><span style="color:#d63a36;font-weight:bold">source name</span></td>
+<td>The name of the entity that emitted the metric. Specify source names with the keyword <span style="color:#d63a36;font-weight:bold">source</span>. Example: <span style="color:#d63a36;font-weight:bold">source=appServer15</span>.</td>
 </tr>
 <tr>
 <td><span style="color:#2770e8;font-weight:bold">source tag</span></td>
-<td>A type of source metadata. Source tags group sources together allowing more concise queries. Source tags are identified by the keyword <span style="color:#2770e8;font-weight:bold">tag</span>.
-Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
+<td>A type of source metadata. Specify source tags with the keyword <span style="color:#2770e8;font-weight:bold">tag</span>.
+Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
+</tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">alert tag</span></td>
+<td>A type of alert metadata. Alert tags have keys and values and use the keys <span style="color:#3a0699;font-weight:bold">alertTag1...alertTagN</span>. Example: <span style="color:#3a0699;font-weight:bold">alertTag1=myapp.database.*</span>.</td>
+</tr>
+<tr>
+<td><span style="color:#d63a36;font-weight:bold">alert name</span></td>
+<td>The name of an alert. Specify alert names with the keyword <span style="color:#d63a36;font-weight:bold">alertName</span>. Example: <span style="color:#d63a36;font-weight:bold">alertName=diskspace</span>.</td>
 </tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">point tag</span></td>
@@ -43,20 +51,29 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 </tbody>
 </table>
 
+See [Organizing with Tags](tags_overview.html) for information on the different types of tags and how to use them.
+
 ## Expressions
 <ul>
-<li>ts() expression - Returns all points that match a metric name, filtered by sources, source tags, and point tags.</li>
+<li>ts() expression - Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.</li>
 <ul>
-<li markdown="span">Syntax: ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;, [[<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or] [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue</span>&gt;]...])</li>
+<li>Syntax: 
+<pre>ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;, 
+  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] [<span style="color:#d63a36;font-weight:bold">alertName=</span>&lt;<span style="color:#d63a36;font-weight:bold">alertName</span>&gt;] [and|or] 
+  [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or] 
+  [<span style="color:#3a0699;font-weight:bold">alertTag1</span>=&lt;<span style="color:#3a0699;font-weight:bold">alertTag1Value</span>&gt;...<span style="color:#3a0699;font-weight:bold">alertTagN</span>=&lt;<span style="color:#3a0699;font-weight:bold">alertTagNValue</span>&gt;] [and|or] 
+  [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey1</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue1</span>&gt;...&lt;<span style="color:#3a0699;font-weight:bold">pointTagKeyN</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValueN</span>&gt;])
+</pre>
+</li>
 <li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format.html).</li>
-<li>Sources, source tags, and point tags are optional. For example, to return points from all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
+<li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
 </ul>
 <li>constant - A number such as 5.01, 10000, or 40. Constants can be plotted by themselves and composed in <span style="color:#3a0699;font-weight:bold">expressions</span> using arithmetic operators.</li>
 <ul>
 <li markdown="span">[SI prefixes](https://en.wikipedia.org/wiki/Metric_prefix)(k, M, G, T, P, E, Z, Y) - Scales constants by multiples of 1000. For example, instead of typing 1000000, type 1M, and instead of typing 7200, type 7.2k. Other common prefixes are G and T (for a billion and a trillion, useful when working with network and I/O metrics).</li>
 <li>Examples: 100, ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>), ts(1)</li>
 </ul>
-<li>wildcard - Matches strings in metric names, sources, source tags, and point tags. A wildcard is represented with a <strong>"&#42;"</strong> character.  Using a catch-all wildcard (example: <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>) when filtering by point tags yields only time series that have this point tag present (with any value), and time series that don't have this point tag ("null") are filtered out. To find time series without a specific point tag, use the construct <strong>not</strong> <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>.</li>
+<li>wildcard - Matches strings in metric names, source names, alert name, source tags, alert tags, and point tags. A wildcard is represented with a <strong>"&#42;"</strong> character.  Using a catch-all wildcard (example: <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>) when filtering by point tags yields only time series that have this point tag present (with any value), and time series that don't have this point tag ("null") are filtered out. To find time series without a specific point tag, use the construct <strong>not</strong> <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>.</li>
 <ul>
 <li>Example: <span style="color:#d63a36;font-weight:bold">source=app-1&#42;</span> matches all sources starting with <span style="color:#d63a36;font-weight:bold">app-1</span>: <span style="color:#d63a36;font-weight:bold">app-10</span>, <span style="color:#d63a36;font-weight:bold">app-11</span>, <span style="color:#d63a36;font-weight:bold">app-12</span>, etc.</li>
 </ul>
@@ -65,10 +82,10 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app</span>.</td>
 
 ## Operators
 
-All operations between series are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​.
+All operations between expressions are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​.
 
 <ul>
-<li>Boolean operators - combine ts() expressions and constants and the filtering performed by sources, source tags, and point tags.</li>
+<li>Boolean operators - combine ts() expressions and constants and the filtering performed by source names, alert names, source tags, alert tags, and point tags.</li>
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.</li>
@@ -91,6 +108,7 @@ All operations between series are subject to the matching processes described in
 ## Tags in Queries
 <ul>
 <li>Source tags are a way to group sources together. For example, if you have two sources, <span style="color:#d63a36;font-weight:bold">appServer15</span> and <span style="color:#d63a36;font-weight:bold">appServer16</span>, you could add the source tag <span style="color:#2770e8;font-weight:bold">app</span> to both of them to specify that they are both app servers. Source tags aid in querying by grouping sources together. You can query ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#2770e8;font-weight:bold">tag=app</span>) instead of ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#d63a36;font-weight:bold">source=appServer15</span> or <span style="color:#d63a36;font-weight:bold">source=appServer16</span>). Both queries yield the same result as long as the <span style="color:#d63a36;font-weight:bold">app</span> tag is added to <span style="color:#d63a36;font-weight:bold">source=appServer15</span> and <span style="color:#d63a36;font-weight:bold">source=appServer16</span>.</li>
+<li>Alert tags are a way to group alerts together.</li>
 <li><span style="color:#3a0699;font-weight:bold">Point tags</span> are an additional way to describe metrics. An example of a point tag is <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>.</li>
 <li>Example: To query a point <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, source <span style="color:#d63a36;font-weight:bold">app2</span>, and point tag <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>, specify ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#3a0699;font-weight:bold">region=us-west-2b </span>and <span style="color:#d63a36;font-weight:bold">source=app2</span>).</li></ul>
 

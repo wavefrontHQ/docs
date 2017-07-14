@@ -4,81 +4,89 @@ keywords: webhooks
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_dependencies.html
-summary: Learn how to manage alert storms using alert metrics.
+summary: Learn how to manage alert dependencies2 using alert metrics.
 ---
 
-In any environment metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host. 
+In any environment metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host. If you have a series of different alerts that all depend, in part, on one common underlying metric, you would have to repeat the code for that common metric in every one of the "parent" alerts, which quickly becomes a maintenance burden.
 
-Alert storms can occur when a lower-level metric triggers an alert which affects other metrics that depend on that metric. In addition, if you have a series of different alerts that all depend, in part, on one common underlying metric, you would have to repeat the code for that common metric in every one of the "parent" alerts, which quickly becomes a maintenance burden.
-
-In order to stop alert storms when a lower-level metric triggers an alert, you can define a alert dependency hierarchy and specify how alerts are triggered within that hierarchy. The mechanism that Wavefront provides for expressing dependencies are _alert metrics_. To create an alert based on underlying conditions, you reference one or more alert metrics in the alert's [Condition](alerts_managing.html#alert-properties) field. For example, the alert for a metric that depends on 2 underlying sources can reference the corresponding alert metrics for those sources in its condition and fire on the combination of those alert metrics.
+The mechanism that Wavefront provides for expressing alert dependencies are _alert metrics_. To create an alert based on underlying conditions, you reference one or more alert metrics in the alert's [Condition](alerts_managing.html#alert-properties) field. For example, the alert for a metric that depends on 2 underlying sources can reference the corresponding alert metrics for those sources in its condition and fire on the combination of those alert metrics.
 
 ## Alert Metrics
 
-Wavefront generates various types of alert metrics that summarize the state of the alert object.
+The three types of alert metrics&mdash;**summary**, **firing**, **isfiring**&mdash;and their syntax are:
 
-Alert metrics are named according to the following syntax:
+- **summary** - `~alert.summary.<alertID>.<severity>.<type>`
+  - `type` - The type of the metric. One of:
+    - `sourcesFiring` - Count of unique sources causing the alert to fire.
+    - `seriesFiring` - Count of all series present in the alert.
+    - `labelsFiring` - Count of unique metrics or aggregations present in the alert.
+    - `pointTagsFiring` - Count of point tag key-value pairs present in the alert.
+- **firing** - `~alert.firing.<alert ID>.<severity>.<metricName>`, where `<metricName>`is the name of the _first_ metric in the alert condition causing the alert to fire. The value is 1 if the alert is firing, 0 otherwise.
+- **isfiring** - `~alert.isfiring.<alertID>`. The value is 1 if the alert is firing, 0 otherwise.
 
-```
-~alert.<type>.<alert ID>.<severity>.<subtype>
-```
-
-where the fields and their values are:
-
-- `category` - The alert metric category. One of: 
-  - `summary`
-    - `type` - The subtype of the metric. One of:
-      - `sourcesFiring` - Count of unique sources causing the alert to fire.
-      - `seriesFiring` - Count of all series present in the alert.
-      - `labelsFiring` - Count of unique metrics present in the alert.
-      - `pointTagsFiring` - Count of point tag key-value pairs present in the alert.
-  - `firing`
-    - `subtype`- `<metricName>` of the first metric in the alert condition causing the alert to fire. 1 for the first metric present in the alert.
-  - `isfiring` - 1 if alert is firing, 0 otherwise.
-- `alert ID` - The alert ID. The field accepts the wildcard `*`.
+where 
+- `alertID` - The alert ID. The field accepts the wildcard `*`.
 - `severity` - The [severity](alerts_managing.html#alert-properties) of the alert.
 
+When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
 
-### Notes
+### Example Metrics
 
-- The source of the `~alert.summary.*` metrics is set to `wavefront`. The `source` of the `~alert.*firing.*` metrics is the source involved in the alert. If the host field is empty or the HLP is empty, the `source` is set to `unknown`. You can filter the `~alert.*firing.*` metrics by specifying `source=<source>`. 
-- When the alert is either snoozed or not firing, the `~alert.summary.*` and `~alert.firing.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
+- `~alert.summary.1484772362710.WARN.sourcesFiring`
+- `~alert.summary.1484772362710.WARN.seriesFiring`
+- `~alert.firing.1484772362710.WARN.jvm.thread-states.blocked`
+- `~alert.isfiring.1484772362710`
+
+### Use Case Example
+
+Suppose you have an alert A that has conditions on 3 metrics. Alert B that has the same conditions on 2 of those metrics, and alert C that has the same condition on one of those metrics:
+
+- Alert A condition: `ts(processes.blocked) > 2 and ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
+- Alert B condition: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
+- Alert C condition: `ts(cpu.loadavg.1m) > 5`
+
+If you decide to change the thresholds on any of the conditions in alert B or C, you will have to manually propagate that change to alerts A and B.
+
+With alert metrics you can rewrite those conditions as follows:
+
+- Alert A condition: `ts(processes.blocked) > 2 and ~alert.summary.*.WARN.seriesFiring, alertName="B"`
+- Alert B condition: `ts(memory.metric) > 10 and ~alert.summary.*.WARN.seriesFiring, alertName="C"`
+- Alert C condition:` ts(cpu.loadavg.1m) > 5`
+
+If you decide to change the thresholds for any of the conditions in alert B or C, the change is automatically propagated to alerts A and B because A and B depend on the whether those alerts fire, not on the specific value of the thresholds for metrics in alerts B and C.
+
+### Alert Metric Source Field
+
+- The `source` field of the `~alert.summary.*` metrics is set to `wavefront`. 
+- The `source` field of the `~alert.*firing.*` metrics is the source involved in the alert. If the source is empty, the `source` is set to `unknown`. You can filter the `~alert.*firing.*` metrics by specifying `source=<source>`. 
 
 ## Referencing Alert Metrics
 
 There are three ways to reference an alert metric: alert name, alert tags, and alert ID.
 
-- **alert name** - Specify `*` in the alert ID field and the alert name in the `alertName` tag. The example below shows an alert condition that depends on 2 alerts generating the `sourcesFiring` metric with severity `WARN`.  It specifies alerts named `alert1` and `alert2`.
+- **alert name** - Specify `*` in the `alertID` field and the alert name in the `alertName` tag. The example below shows an alert condition that depends on an alert named `alert1` generating the `sourcesFiring` metric with severity `WARN`.
 
   ```
-  last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert1)) > 0 and last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert2)) > 0
+  last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert1)) > 0
   ```
 
-- **alert tag** - Specify  `*` in the alert ID field and one or more [alert tags](tags_overview.html) using the syntax `alertTag1=<tag1>...alertTag<N>=<tagN>`. The following condition selects alerts that have the tags in the alert tag hierarchy `myapp.database.*`: 
+- **alert tag** - Specify  `*` in the `alertID` field and one or more [alert tags](tags_overview.html) using the syntax `alertTag1=<tag1>...alertTag<N>=<tagN>`. The following condition selects alerts that have tags in the alert tag hierarchy `myapp.database.*`: 
 
   ```
   last(ts(~alert.summary.*.SEVERE.sourcesFiring, alertTag1=myapp.database.*)) > 0
   ```
 
-- **alert ID** - Specify the alert ID. An alert ID is the second to last component of the URL when you [edit an alert](alerts_managing.html#editing-an-alert). In the URL `https://<wavefront_instance>.wavefront.com/alerts/1493407920928/edit`, the ID is `1493407920928`. The example below is an alert condition that depends on 2 alerts generating the `sourcesFiring` metric with severity `SEVERE`. This example refers to the alerts using the alert IDs `1493407920928` and `1493407943926`. 
+- **alert ID** - Specify the alert ID in the `alertID` field. To find an alert ID, [edit an alert](alerts_managing.html#editing-an-alert). The alert ID is the second to last component of the page URL. In the URL `https://<wavefront_instance>.wavefront.com/alerts/1493407920928/edit`, the ID is `1493407920928`. The example below is an alert condition that depends on the alert with ID `1493407920928` generating the `sourcesFiring` metric with severity `SEVERE`.
 
   ```
-  last(ts(~alert.summary.1493407920928.SEVERE.sourcesFiring)) > 0 and last(ts(~alert.summary.1493407943926.SEVERE.sourcesFiring)) > 0
+  last(ts(~alert.summary.1493407920928.SEVERE.sourcesFiring)) > 0
   ```
+  
+## Sources Firing Use Case
 
-## Example Metrics
+An alert that depends on any `sourcesFiring` on 2 different alerts can refer to the corresponding internal metrics to take action when both the underlying alert metrics are generated. The example below is for an alert condition that depends on the `sourcesFiring` metric of 2 alerts identified by the `alertName` tag:
 
-- `~alert.summary.1484772362710.WARN.sourcesFiring`
-- `~alert.summary.1484772362710.WARN.seriesFiring`
-- `~alert.summary.1484772362710.WARN.labelsFiring`
-- `~alert.summary.1484772362710.WARN.pointTagsFiring`
-- `~alert.firing.1484772362710.WARN.jvm.thread-states.blocked`
-- `~alert.isfiring.1484772362710`
-
-
-
-
-
-
-
+```
+last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert1)) > 0 and last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert2)) > 0
+```
 
