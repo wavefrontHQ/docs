@@ -36,7 +36,7 @@ For example, for the preceding alert, the chart displays:
 
 ### Viewing Alert Firing
 
-The Firings column shows how many times an alert fired in the last day, week, and month.
+The Firings column shows how many times an alert changed into a firing state from non-firing in the last day, week, and month.
 
 {% include shared/searching.html entity="Alerts" entities="alerts" %}
 
