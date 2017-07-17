@@ -98,6 +98,28 @@ To check if the proxy is running, run the following commands on the proxy host:
   ```
   To view the proxy log, run `docker logs <proxy_container_id>`.
   
+
+### Testing a Proxy 
+
+You can test that a proxy is receiving and sending data by sending it a JSON payload as follows:
+
+1. In the [proxy configuration file](proxies_configuring.html), set the JSON listener port to 3878.
+
+   ```
+   jsonListenerPorts=3878
+   ```
+1. Run the command:
+
+   ```shell
+   curl --header "Content-type: application/json" \
+   'http://<wavefront_proxy_address>:3878/?h=test_host&d=now' \
+   -d '{"test.metric":{"value":1,"tags":{"key1":"v1","key2":"v2"}}}'
+   ```
+   where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
+1. In the Wavefront UI, select **Browse > Metrics**.
+1. In the Metrics field, type `test.metric`.
+1. Click `test.metric` to display a chart of the metric.
+
 <a name="docker"></a>
 
 ## Running a Proxy in a Docker Container
@@ -174,7 +196,7 @@ spec:
 </thead>
 <tbody>
 <tr>
-<td>You see "java: command not found" in wavefront.log.</td>
+<td>You see "java: command not found" in <code>wavefront.log</code>.</td>
 <td>Java is either not installed, or is not in your path.</td>
 <td>Install Java using your local package manager, and make sure that your path includes the Java binary.</td>
 </tr>
@@ -185,7 +207,7 @@ spec:
 </tr>
 <tr>
 <td>You see "Cannot post work unit result to Wavefront servers. Will enqueue and retry later." in <code>wavefront.log</code>.</td>
-<td>You may have an incorrect server URL in your wavefront.conf file; you may have blocked the outgoing connection to that server URL (port 443); or the Wavefront servers may be down.</td>
+<td>You may have an incorrect server URL in your <code>wavefront.conf</code> file; you may have blocked the outgoing connection to that server URL (port 443); or the Wavefront servers may be down.</td>
 <td>Run <code>curl &lt;wavefrontServerUrl&gt;</code> from the machine running the proxy, where <code>&lt;wavefrontServerUrl&gt;</code> is the full URL (including "https://") provided to you by Wavefront and in your <code>wavefront.conf</code> file.</td>
 </tr>
 <tr>
