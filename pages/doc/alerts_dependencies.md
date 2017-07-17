@@ -39,21 +39,21 @@ When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitt
 
 ### Use Case Example
 
-Suppose you have an alert A that has conditions on 3 metrics. Alert B that has the same conditions on 2 of those metrics, and alert C that has the same condition on one of those metrics:
+Suppose you have an alert A that has conditions on 3 metrics. Alert B has the same conditions on 2 of those metrics, and alert C has the same condition on one of those metrics:
 
 - Alert A condition: `ts(processes.blocked) > 2 and ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
 - Alert B condition: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
 - Alert C condition: `ts(cpu.loadavg.1m) > 5`
 
-If you decide to change the thresholds on any of the conditions in alert B or C, you will have to manually propagate that change to alerts A and B.
+If you decide to change the thresholds on any of the conditions in alert B or C, you will have to manually propagate those changes to alerts A and B.
 
 With alert metrics you can rewrite those conditions as follows:
 
-- Alert A condition: `ts(processes.blocked) > 2 and ~alert.summary.*.WARN.seriesFiring, alertName="B"`
-- Alert B condition: `ts(memory.metric) > 10 and ~alert.summary.*.WARN.seriesFiring, alertName="C"`
-- Alert C condition:` ts(cpu.loadavg.1m) > 5`
+- Alert A condition: `ts(processes.blocked) > 2 and ts(~alert.summary.*.WARN.seriesFiring, alertName="B")`
+- Alert B condition: `ts(mem.available) > 10 and ts(~alert.summary.*.WARN.seriesFiring, alertName="C")`
+- Alert C condition: `ts(cpu.loadavg.1m) > 5`
 
-If you decide to change the thresholds for any of the conditions in alert B or C, the change is automatically propagated to alerts A and B because A and B depend on the whether those alerts fire, not on the specific value of the thresholds for metrics in alerts B and C.
+If you decide to change the thresholds for any of the conditions in alerts B or C, the change is automatically propagated to alerts A and B because A and B depend on whether those alerts fire, not on the specific value of the thresholds for the metrics in alerts B and C.
 
 ### Alert Metric Source Field
 

@@ -104,7 +104,8 @@ The categories of iterators are: `failing`, `inMaintenance`, `newlyFailing`, and
   - `tags` - the point tags on the series.
   - `observed` - the number of points returned by the alert condition.
   - `firing` - the number of points that satisfy the alert condition.
-  - `stats` - series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the [Display Expression](alerts_managing.html#properties) associated with the alert. If the Display Expression is not configured, the values are not set.
+  - `stats` - series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the [Display Expression](alerts_managing.html#properties) associated with the alert. If Display Expression is not set, `stats` returns the value associated with the condition, which is sometimes not meaningful. For example:
+    `ts(something.metric) > 30`. The stats values will be either 1 or 0.
 
 Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
 
