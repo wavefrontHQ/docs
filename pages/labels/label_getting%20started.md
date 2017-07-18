@@ -6,6 +6,7 @@ permalink: label_getting%20started.html
 sidebar: doc_sidebar
 folder: labels
 ---
-{% include labellogic.html content="Learn about the Wavefront platform and first-step resources."%}
+{% capture c %}{{site.data.labels.getting_started}}{% endcapture %}
 
+{% include labellogic.html content=c %}
 
