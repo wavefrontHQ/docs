@@ -10,7 +10,7 @@ A source is a unique application, host, container, or instance that emits metric
 in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For
 AWS integrations, the source is extracted from [AWS service properties or dimensions](integrations_aws_metrics.html#aws_sources).
 
-Sources are automatically hidden after 4 weeks of inactivity, but you can also manually hide sources. While hidden sources are removed from autocomplete, they can still be used in a query when data values are present.
+It is possible to hide sources. While hidden sources are removed from autocomplete, they can still be used in a query when data values are present.
 
 [Wavefront Query Language](query_language_reference.html) supports filtering by sources and source tags.
 
