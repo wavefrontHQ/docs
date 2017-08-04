@@ -465,3 +465,7 @@ entries:
       - title: Wavefront Privacy Policy
         url: /privacy.html
         output: web
+        
+      - title: Wavefront Terms of Service
+        url: /terms_of_service.html
+        output: web
