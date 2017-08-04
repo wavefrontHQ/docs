@@ -462,10 +462,11 @@ entries:
         url: /wavefront_support_feedback.html
         output: web
 
+      - title: Terms of Service
+        url: /terms_of_service.html
+        output: web
+
       - title: Wavefront Privacy Policy
         url: /privacy.html
         output: web
         
-      - title: Terms of Service
-        url: /terms_of_service.html
-        output: web
