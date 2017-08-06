@@ -17,4 +17,4 @@ If you became customer on or after August 17, 2017:
 If you became customer before August 17, 2017:
 
 | Terms of Service: | See your Wavefront Master Service Agreement |
-| Privacy Policy: | [Wavefront Privacy Policy] (https://docs.wavefront.com/privacy.html) |
+| Privacy Policy: | [Wavefront Privacy Policy](https://docs.wavefront.com/privacy.html) |
