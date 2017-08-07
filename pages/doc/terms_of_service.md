@@ -11,7 +11,7 @@ Your Terms of Service will be different depending on when you became a Wavefront
  
 If you became customer on or after August 17, 2017:
 
-| Terms of Service: | [VMware Terms of Service](https://www.vmware.com/download/eula/wavefront.html) |
+| Terms of Service: | [VMware Terms of Service](http://www.vmware.com/download/eula/wavefront-terms-of-service.html) |
 | Privacy Policy: | See above Terms of Service | 
 
 If you became customer before August 17, 2017:
