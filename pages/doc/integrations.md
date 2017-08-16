@@ -53,7 +53,7 @@ To view in-product integrations, click **Integrations** in the Wavefront UI task
 <tr>
 <td>Featured</td>
 <td>Yes</td>
-<td>Amazon Web Services, Kubernetes (k8s), Docker, Mac host, Linux host, Windows host, Ansible, Tour<sup><strong>*</strong></sup>, Tutorial<sup><strong>*</strong></sup>, System<sup><strong>*</strong></sup></td>
+<td>Amazon Web Services, Kubernetes (k8s), Docker, Pivotal Cloud Foundry, Mac host, Linux host, Windows host, Ansible, Tour<sup><strong>*</strong></sup>, Tutorial<sup><strong>*</strong></sup>, System<sup><strong>*</strong></sup></td>
 </tr>
 <tr>
 <td>Data Collector</td>
