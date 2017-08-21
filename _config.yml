@@ -64,7 +64,7 @@ google_analytics: UA-45491516-30
 feedback_email: docs@wavefront.com
 # Email address for the Send Feedback link in the footer
 
-support_link:  https://community.wavefront.com/welcome
+support_link:  https://help.wavefront.com/hc/en-us/requests
 # The Support link in the top navigation bar
 
 # feedback_disable: true
