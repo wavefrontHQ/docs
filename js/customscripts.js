@@ -8,7 +8,7 @@ $( document ).ready(function() {
     // position as your scroll. if you have a lot of nav items, this height may not work for you.
     var h = $(window).height();
     //console.log (h);
-    
+
     /* if (h > 1200) {
         $( "#mysidebar" ).attr("class", "nav affix");
     }*/
@@ -75,7 +75,8 @@ $(document).ready(function() {
 
 /** Algolia Search Functionality **/
 $(document).ready(function() {
-    var client = algoliasearch("YJNSO3ALDH", "60754248530461d4b2589e0076132c31");
+    // API keys for algolia-docs-user@wavefront.com
+    var client = algoliasearch("YJNSO3ALDH", "c5d3bd7b8f39a7bbee43f36f5bb0abae");
     var index = client.initIndex('documentation');
     //initialize autocomplete on search input (ID selector must match)
 
