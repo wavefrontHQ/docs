@@ -51,7 +51,7 @@ Metric naming hierarchy recommendations:
 <td>metricValue</td>
 <td>Yes</td>
 <td>The value of the metric.</td>
-<td markdown="span">A number that can be parsed into a double-precision floating point number or a long integer. Can be positive, negative, 0, Infinity, NaN and -Infinity. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_units.html).</td>
+<td markdown="span">A number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_units.html).</td>
 </tr>
 <tr>
 <td>timestamp</td>
