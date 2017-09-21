@@ -8,7 +8,7 @@
     $ cd docs
     $ sudo gem install bundler
     $ sudo gem install jekyll
-    $ sudo gem install nokogiri -v '1.8.0'
+    $ sudo gem install nokogiri -v '1.7.1'
     $ bundle install
     ```
 
