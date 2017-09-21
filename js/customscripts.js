@@ -76,7 +76,7 @@ $(document).ready(function() {
 /** Algolia Search Functionality **/
 $(document).ready(function() {
     // API keys for algolia-docs-user@wavefront.com
-    var client = algoliasearch("YJNSO3ALDH", "c5d3bd7b8f39a7bbee43f36f5bb0abae");
+    var client = algoliasearch(Wavefront.algolia.application_id, Wavefront.algolia.public_key);
     var index = client.initIndex('documentation');
     //initialize autocomplete on search input (ID selector must match)
 

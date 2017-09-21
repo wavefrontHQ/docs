@@ -37,4 +37,11 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+<script>
+    var Wavefront = Wavefront || {};
+    Wavefront.algolia = {
+        application_id : "{{site.algolia.application_id}}",
+        public_key : "{{site.algolia.public_key}}"
+    };
+</script>
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "feed.xml" | prepend: site.url }}">
