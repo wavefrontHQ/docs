@@ -31,7 +31,7 @@ exclude:
 
 feedback_subject_line: Wavefront Documentation
 
-plugins:
+plugins_dir:
   - jekyll-sitemap
   - jekyll-extlinks
   - algoliasearch-jekyll
