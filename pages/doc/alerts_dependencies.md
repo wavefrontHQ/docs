@@ -21,8 +21,8 @@ The three types of alert metrics&mdash;**summary**, **firing**, **isfiring**&mda
     - `seriesFiring` - Count of all series present in the alert.
     - `labelsFiring` - Count of unique metrics or aggregations present in the alert.
     - `pointTagsFiring` - Count of point tag key-value pairs present in the alert.
-- **firing** - `~alert.firing.<alert ID>.<severity>.<metricName>`, where `<metricName>`is the name of the _first_ metric in the alert condition causing the alert to fire. The value is 1 if the alert is firing, 0 otherwise.
-- **isfiring** - `~alert.isfiring.<alertID>`. The value is 1 if the alert is firing, 0 otherwise.
+- **firing** - `~alert.firing.<alert ID>.<severity>.<metricName>`, where `<metricName>`is the name of the _first_ metric in the alert condition causing the alert to fire. The value is 1 if the alert is firing, 0 otherwise. firing will return a timeseries for each source/label associated with the alert. 
+- **isfiring** - `~alert.isfiring.<alertID>`. As opposed to firing, isfiring returns just one timeseries that indicates if the alert is firing or not. The value is 1 if the alert is firing, 0 otherwise.
 
 where 
 - `alertID` - The alert ID. The field accepts the wildcard `*`.
@@ -39,7 +39,7 @@ NOTE: It is recommended that you use last() with the ~alert metrics. Examples ar
 - `~alert.firing.1484772362710.WARN.jvm.thread-states.blocked`
 - `~alert.isfiring.1484772362710`
 
-### Use Case Example 1: Chain together alert dependencies
+### Use Case Example 1: Chain together alert dependencies with isFiring
 
 Without ~alert metrics, one would traditionally create dependencies across alert A, B, and C using the following method:
 
@@ -51,19 +51,27 @@ The problem is, if you decide to change the thresholds in alert B or C, you will
 
 With ~alert metrics you can rewrite the alerts as follows:
 
-- Alert A: `ts(processes.blocked) > 2 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="B"))`
-- Alert B: `ts(mem.available) > 10 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="C"))`
+- Alert A: `ts(processes.blocked) > 2 and last(ts(~alert.isFiring.*, alertName="B"))`
+- Alert B: `ts(mem.available) > 10 and last(ts(~alert.isFiring.*, alertName="C"))`
 - Alert C: `ts(cpu.loadavg.1m) > 5`
 
 If you decide to change the thresholds for any of the conditions in alerts B or C, the change is automatically propagated to alerts A and B because A and B depend on whether those alerts fire, not on the specific value of the thresholds for the metrics in alerts B and C.
 
-### Use Case Example 2: Alert if more than X sources are firing from another alert
+### Use Case Example 2: Alert if another alert is firing, but only for specific source(s)
 
-Suppose you want to write an alert, alert A, that only fires when alert B has more than 5 sources firing.
+Suppose you want to write an alert, Alert A, that only fires when specific sources from Alert B fires.
+
+- Alert A condition: `last(ts(~alert.Firing.*, source="app-10" and alertName="B")) > 5`
+
+In this case, Alert A would only fire if app-10 was firing from Alert B.
+
+### Use Case Example 3: Alert if more than X sources are firing from another alert
+
+Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing.
 
 - Alert A condition: `last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
-Suppose you want to write an alert, alert A, that only fires when alert B has more than 5 sources firing AND the metric, "mem.available" is less than 2.
+Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing AND the metric, "mem.available" is less than 2.
 
 - Alert A condition: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
