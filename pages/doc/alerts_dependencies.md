@@ -39,25 +39,25 @@ NOTE: It is recommended that you use last() with the ~alert metrics. Examples ar
 - `~alert.firing.1484772362710.WARN.jvm.thread-states.blocked`
 - `~alert.isfiring.1484772362710`
 
-### Use Case Example 1
+### Use Case Example 1: Chain together alert dependencies
 
-Suppose you have an alert A that has conditions on 3 metrics. Alert B has the same conditions on 2 of those metrics, and alert C has the same condition on one of those metrics:
+Without ~alert metrics, one would traditionally create dependencies across alert A, B, and C using the following method:
 
-- Alert A condition: `ts(processes.blocked) > 2 and ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
-- Alert B condition: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
-- Alert C condition: `ts(cpu.loadavg.1m) > 5`
+- Alert A: `ts(processes.blocked) > 2 and ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
+- Alert B: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
+- Alert C: `ts(cpu.loadavg.1m) > 5`
 
-If you decide to change the thresholds on any of the conditions in alert B or C, you will have to manually copy those changes to alerts A and B.
+The problem is, if you decide to change the thresholds in alert B or C, you will have to manually copy those changes to alerts A and B. 
 
-With alert metrics you can rewrite those conditions as follows:
+With ~alert metrics you can rewrite the alerts as follows:
 
-- Alert A condition: `ts(processes.blocked) > 2 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="B"))`
-- Alert B condition: `ts(mem.available) > 10 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="C"))`
-- Alert C condition: `ts(cpu.loadavg.1m) > 5`
+- Alert A: `ts(processes.blocked) > 2 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="B"))`
+- Alert B: `ts(mem.available) > 10 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="C"))`
+- Alert C: `ts(cpu.loadavg.1m) > 5`
 
 If you decide to change the thresholds for any of the conditions in alerts B or C, the change is automatically propagated to alerts A and B because A and B depend on whether those alerts fire, not on the specific value of the thresholds for the metrics in alerts B and C.
 
-### Use Case Example 2 
+### Use Case Example 2: Alert if more than X sources are firing 
 
 Suppose you want to write an alert, alert A, that only fires when alert B has more than 5 sources firing.
 
