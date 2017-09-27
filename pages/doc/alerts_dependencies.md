@@ -30,6 +30,8 @@ where
 
 When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
 
+NOTE: It is recommended that you use last() with the ~alert metrics. Examples are in the use cases below.
+
 ### Example Metrics
 
 - `~alert.summary.1484772362710.WARN.sourcesFiring`
