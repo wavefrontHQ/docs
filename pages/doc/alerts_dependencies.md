@@ -57,7 +57,7 @@ With ~alert metrics you can rewrite the alerts as follows:
 
 If you decide to change the thresholds for any of the conditions in alerts B or C, the change is automatically propagated to alerts A and B because A and B depend on whether those alerts fire, not on the specific value of the thresholds for the metrics in alerts B and C.
 
-### Use Case Example 2: Alert if more than X sources are firing 
+### Use Case Example 2: Alert if more than X sources are firing from another alert
 
 Suppose you want to write an alert, alert A, that only fires when alert B has more than 5 sources firing.
 
