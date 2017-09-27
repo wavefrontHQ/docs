@@ -20,7 +20,7 @@ The three types of alert metrics&mdash;**summary**, **firing**, **isfiring**&mda
   - `severity` - The [severity](alerts_managing.html#alert-properties) of the alert.
 
 When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
-  - `type` - The type of the metric. One of:
+   - `type` - The type of the metric. One of:
     - `sourcesFiring` - Count of unique sources causing the alert to fire.
     - `seriesFiring` - Count of all series present in the alert.
     - `labelsFiring` - Count of unique metrics or aggregations present in the alert.
