@@ -4,7 +4,7 @@ keywords: webhooks
 tags: [alerts]
 sidebar: doc_sidebar
 permalink: alerts_dependencies.html
-summary: Learn how to manage alert dependencies2 using alert metrics.
+summary: Learn how to manage alert dependencies using alert metrics.
 ---
 
 In any environment metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host. If you have a series of different alerts that all depend, in part, on one common underlying metric, you would have to repeat the code for that common metric in every one of the "parent" alerts, which quickly becomes a maintenance burden.
@@ -37,7 +37,7 @@ When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitt
 - `~alert.firing.1484772362710.WARN.jvm.thread-states.blocked`
 - `~alert.isfiring.1484772362710`
 
-### Use Case Example
+### Use Case Example 1
 
 Suppose you have an alert A that has conditions on 3 metrics. Alert B has the same conditions on 2 of those metrics, and alert C has the same condition on one of those metrics:
 
@@ -45,15 +45,25 @@ Suppose you have an alert A that has conditions on 3 metrics. Alert B has the sa
 - Alert B condition: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
 - Alert C condition: `ts(cpu.loadavg.1m) > 5`
 
-If you decide to change the thresholds on any of the conditions in alert B or C, you will have to manually propagate those changes to alerts A and B.
+If you decide to change the thresholds on any of the conditions in alert B or C, you will have to manually copy those changes to alerts A and B.
 
 With alert metrics you can rewrite those conditions as follows:
 
-- Alert A condition: `ts(processes.blocked) > 2 and ts(~alert.summary.*.WARN.seriesFiring, alertName="B")`
-- Alert B condition: `ts(mem.available) > 10 and ts(~alert.summary.*.WARN.seriesFiring, alertName="C")`
+- Alert A condition: `ts(processes.blocked) > 2 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="B"))`
+- Alert B condition: `ts(mem.available) > 10 and last(ts(~alert.summary.*.WARN.seriesFiring, alertName="C"))`
 - Alert C condition: `ts(cpu.loadavg.1m) > 5`
 
 If you decide to change the thresholds for any of the conditions in alerts B or C, the change is automatically propagated to alerts A and B because A and B depend on whether those alerts fire, not on the specific value of the thresholds for the metrics in alerts B and C.
+
+### Use Case Example 2 
+
+Suppose you want to write an alert, alert A, that only fires when alert B has more than 5 sources firing.
+
+- Alert A condition: `last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
+
+Suppose you want to write an alert, alert A, that only fires when alert B has more than 5 sources firing AND the metric, "mem.available" is less than 2.
+
+- Alert A condition: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
 ### Alert Metric Source Field
 
