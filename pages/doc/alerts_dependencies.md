@@ -47,7 +47,7 @@ Without ~alert metrics, one would traditionally create dependencies across alert
 - Alert B: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
 - Alert C: `ts(cpu.loadavg.1m) > 5`
 
-The problem is, if you decide to change the thresholds in alert B or C, you will have to manually copy those changes to alerts A and B. 
+The problem is, if you decide to change alert B or C, you will have to manually copy those changes to alerts A and B. 
 
 With ~alert metrics you can rewrite the alerts as follows:
 
