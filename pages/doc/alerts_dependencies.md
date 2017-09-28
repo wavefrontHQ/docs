@@ -62,7 +62,7 @@ If you decide to change the thresholds for any of the conditions in alerts B or 
 
 Suppose you want to write an alert, Alert A, that only fires when specific sources from Alert B fires.
 
-- Alert A condition: `last(ts(~alert.Firing.*, source="app-10" and alertName="B")) > 5`
+- Alert A: `last(ts(~alert.Firing.*, source="app-10" and alertName="B")) > 5`
 
 In this case, Alert A would only fire if app-10 was firing from Alert B.
 
@@ -70,11 +70,11 @@ In this case, Alert A would only fire if app-10 was firing from Alert B.
 
 Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing.
 
-- Alert A condition: `last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
+- Alert A: `last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
 Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing AND the metric, "mem.available" is less than 2.
 
-- Alert A condition: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
+- Alert A: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
 ### Alert Metric Source Field
 
