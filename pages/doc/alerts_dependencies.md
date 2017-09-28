@@ -78,7 +78,9 @@ Suppose you want to write an alert, Alert A, that only fires when Alert B has mo
 
 ### Methods of referring to alerts
 The example below is for an alert condition that depends on 2 separate alerts generating the sourcesFiring metrics.
+
 `last(ts(~alert.summary.1493407920928.WARN.sourcesFiring)) > 0 and last(ts(~alert.summary.1493407943926.WARN.sourcesFiring)) > 0`
+
 The above example refers to a specific alert via the alert ID parameter, which may not be user friendly. Users can also leverage the alertTag<N> and alertName tags to control the specific alert that needs to be referred in the current alert condition. The example below show an alert condition that depends on 2 separate alerts generating the sourcesFiring metrics. However, instead of using the alert id, it uses the alertName tag.
 
 `last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert1)) > 0 and last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert2)) > 0`
