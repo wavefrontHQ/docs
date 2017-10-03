@@ -51,6 +51,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
       
+    - title: 2017-36.x Release Notes
+      url: /2017_36.x_release_notes.html
+      output: web
+      
     - title: 2017-32.x Release Notes
       url: /2017_32.x_release_notes.html
       output: web
@@ -232,7 +236,7 @@ entries:
       url: /maintenance_windows_managing.html
       output: web
       
-    - title: Using Webhooks to Integrate Alerts with Notification Systems
+    - title: Using Alert Targets to Integrate Alerts with Notification Systems
       url: /webhooks_alert_notification.html
       output: web
           
