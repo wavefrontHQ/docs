@@ -77,7 +77,7 @@ Suppose you want to write an alert, Alert A, that only fires when Alert B has mo
 - Alert A: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
 ### Use Case Example 4: Alert that depends on 2 separate alerts and sourcesFiring
-The example below is an alert condition that depends on 2 separate alerts generating the sourcesFiring metrics.
+The example below is an alert condition that depends on 2 separate alerts generating the sourcesFiring metrics. In this case, both alerts that this alert depends on must have at least 1 source firing in order to make this alert fire.
 
 `last(ts(~alert.summary.1493407920928.WARN.sourcesFiring)) > 0 and last(ts(~alert.summary.1493407943926.WARN.sourcesFiring)) > 0`
 
