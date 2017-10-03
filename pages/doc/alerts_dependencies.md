@@ -62,7 +62,7 @@ If you decide to change the thresholds for any of the conditions in alerts B or 
 
 Suppose you want to write an alert, Alert A, that only fires when specific sources from Alert B fires.
 
-- Alert A: `last(ts(~alert.Firing.*, source="app-10" and alertName="B")) > 5`
+- Alert A: `last(ts(~alert.Firing.*, source="app-10" and alertName="B"))`
 
 In this case, Alert A would only fire if app-10 was firing from Alert B.
 
@@ -76,7 +76,7 @@ Suppose you want to write an alert, Alert A, that only fires when Alert B has mo
 
 - Alert A: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
-### Use Case Example 4: Alert that depends on 2 separate alerts
+### Use Case Example 4: Alert that depends on 2 separate alerts and sourcesFiring
 The example below is an alert condition that depends on 2 separate alerts generating the sourcesFiring metrics.
 
 `last(ts(~alert.summary.1493407920928.WARN.sourcesFiring)) > 0 and last(ts(~alert.summary.1493407943926.WARN.sourcesFiring)) > 0`
@@ -108,11 +108,5 @@ There are three ways to reference an alert metric: alert name, alert tags, and a
   last(ts(~alert.summary.1493407920928.SEVERE.sourcesFiring)) > 0
   ```
   
-## Sources Firing Use Case
 
-An alert that depends on any `sourcesFiring` on 2 different alerts can refer to the corresponding internal metrics to take action when both the underlying alert metrics are generated. The example below is for an alert condition that depends on the `sourcesFiring` metric of 2 alerts identified by the `alertName` tag:
-
-```
-last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert1)) > 0 and last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert2)) > 0
-```
 
