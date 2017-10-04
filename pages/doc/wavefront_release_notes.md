@@ -7,6 +7,7 @@ permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
+- [2017-36.x Release Notes](2017_36.x_release_notes.html)
 - [2017-32.x Release Notes](2017_32.x_release_notes.html)
 - [2017-28.x Release Notes](2017_28.x_release_notes.html)
 - [2017-16.x Release Notes](2017_16.x_release_notes.html)
