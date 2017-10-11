@@ -59,9 +59,8 @@ See [Organizing with Tags](tags_overview.html) for information on the different 
 <ul>
 <li>Syntax: 
 <pre>ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;, 
-  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] [<span style="color:#d63a36;font-weight:bold">alertName=</span>&lt;<span style="color:#d63a36;font-weight:bold">alertName</span>&gt;] [and|or] 
+  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] 
   [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or] 
-  [<span style="color:#3a0699;font-weight:bold">alertTag1</span>=&lt;<span style="color:#3a0699;font-weight:bold">alertTag1Value</span>&gt;[and|or] ... <span style="color:#3a0699;font-weight:bold">alertTagN</span>=&lt;<span style="color:#3a0699;font-weight:bold">alertTagNValue</span>&gt;] [and|or] 
   [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey1</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue1</span>&gt;[and|or] ... &lt;<span style="color:#3a0699;font-weight:bold">pointTagKeyN</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValueN</span>&gt;])
 </pre>
 </li>
