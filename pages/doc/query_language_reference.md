@@ -33,14 +33,6 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
 </tr>
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">alert tag</span></td>
-<td>A type of alert metadata. Alert tags have keys and values and use the keys <span style="color:#3a0699;font-weight:bold">alertTag1...alertTagN</span>. Example: <span style="color:#3a0699;font-weight:bold">alertTag1=myapp.database.*</span>.</td>
-</tr>
-<tr>
-<td><span style="color:#d63a36;font-weight:bold">alert name</span></td>
-<td>The name of an alert. Specify alert names with the keyword <span style="color:#d63a36;font-weight:bold">alertName</span>. Example: <span style="color:#d63a36;font-weight:bold">alertName=diskspace</span>.</td>
-</tr>
-<tr>
 <td><span style="color:#3a0699;font-weight:bold">point tag</span></td>
 <td>A type of custom metric metadata. Point tags have keys and values. Example: <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>.</td>
 </tr>
