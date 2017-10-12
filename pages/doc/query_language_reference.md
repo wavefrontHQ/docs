@@ -33,14 +33,6 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
 </tr>
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">alert tag</span></td>
-<td>A type of alert metadata. Alert tags have keys and values and use the keys <span style="color:#3a0699;font-weight:bold">alertTag1...alertTagN</span>. Example: <span style="color:#3a0699;font-weight:bold">alertTag1=myapp.database.*</span>.</td>
-</tr>
-<tr>
-<td><span style="color:#d63a36;font-weight:bold">alert name</span></td>
-<td>The name of an alert. Specify alert names with the keyword <span style="color:#d63a36;font-weight:bold">alertName</span>. Example: <span style="color:#d63a36;font-weight:bold">alertName=diskspace</span>.</td>
-</tr>
-<tr>
 <td><span style="color:#3a0699;font-weight:bold">point tag</span></td>
 <td>A type of custom metric metadata. Point tags have keys and values. Example: <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>.</td>
 </tr>
@@ -59,9 +51,8 @@ See [Organizing with Tags](tags_overview.html) for information on the different 
 <ul>
 <li>Syntax: 
 <pre>ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;, 
-  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] [<span style="color:#d63a36;font-weight:bold">alertName=</span>&lt;<span style="color:#d63a36;font-weight:bold">alertName</span>&gt;] [and|or] 
+  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] 
   [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or] 
-  [<span style="color:#3a0699;font-weight:bold">alertTag1</span>=&lt;<span style="color:#3a0699;font-weight:bold">alertTag1Value</span>&gt;[and|or] ... <span style="color:#3a0699;font-weight:bold">alertTagN</span>=&lt;<span style="color:#3a0699;font-weight:bold">alertTagNValue</span>&gt;] [and|or] 
   [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey1</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue1</span>&gt;[and|or] ... &lt;<span style="color:#3a0699;font-weight:bold">pointTagKeyN</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValueN</span>&gt;])
 </pre>
 </li>
