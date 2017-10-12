@@ -57,15 +57,15 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tbody>
 <tr>
 <td>agentMetricsPointTags</td>
-<td>Point tags and their values to be passed along with <code>~agent.*</code> metrics. Default: None.</td>
-<td>A comma-separated list of key-value pairs.</td>
+<td>Point tags and their values to be passed along with <code>~agent.&#42;</code> metrics. Default: None.</td>
+<td>Comma-separated list of key-value pairs.</td>
 <td>dc=west,env=prod</td>
 <td>3.24</td>
 </tr>
 <tr>
 <td>blacklistRegex</td>
 <td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
-<td>A valid regex pattern.</td>
+<td>Valid regex pattern.</td>
 <td>Filter out points that begin with qa., development., or test.:<br/>
 ^(qa|development|test).</td>
 <td>3.1</td>
@@ -73,21 +73,21 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>buffer</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
-<td>A valid path on the local file system.</td>
+<td>Valid path on the local file system.</td>
 <td markdown="span">`<wavefront_spool_path>/buffer`</td>
 <td>3.20</td>
 </tr>
 <tr>
 <td>customSourceTags</td>
 <td>Point tag keys to use as 'source' if no 'source' or 'host' field is present. Default: fqdn, hostname.</td>
-<td>A comma-separated list of point tag keys.</td>
+<td>Comma-separated list of point tag keys.</td>
 <td>fqdn, hostname</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>dataBackfillCutoffHours</td>
 <td>The cut-off point for what is considered a valid timestamp for back-dated points. We do not recommend setting this value larger than 1 year unless backfilling or migrating historic data. Default: 8760 (1 year), so all points older than 1 year are rejected.</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>8760</td>
 <td>4.1</td>
 </tr>
@@ -108,14 +108,14 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>flushThreads</td>
 <td>Number of threads that flush data to the server. Setting this value too high will result in sending batches that are too small to the Wavefront server and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. Default: The number of available processors (min 4).</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>16.</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>graphitePorts</td>
 <td>TCP ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
-<td>A comma-separated list of available port numbers. Can be a single port.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>2003<br/>
 2003,2004</td>
 <td></td>
@@ -123,7 +123,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>graphiteFormat</td>
 <td markdown="span">Indexes of fields within Graphite and collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m` specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
-<td>A comma-separated list of indexes.</td>
+<td>Comma-separated list of indexes.</td>
 <td>3,2<br/>
 4,2,5<br/>
 3</td>
@@ -146,14 +146,14 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>httpConnectTimeout</td>
 <td>HTTP connect timeout (in milliseconds). Default: 5000 (5s).</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>5000</td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>httpRequestTimeout</td>
-<td>HTTP request timeout (in milliseconds). We do not recommend setting this value to be higher than 20000. Recommended value for most configurations is 10000 (10 seconds). Default: 20000 (20s).</td>
-<td>A positive integer.</td>
+<td>HTTP request timeout (in milliseconds). We do not recommend setting this value to be higher than 20000. Recommended value for most configurations is 10000 (10 seconds). Default: 10000 (10s).</td>
+<td>Positive integer.</td>
 <td>10000</td>
 <td>4.1</td>
 </tr>
@@ -167,21 +167,21 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>idFile</td>
 <td markdown="span">Location of the PID file for the wavefront-proxy process. Default: `<wavefront_config_path>/.wavefront_id`.</td>
-<td>A valid path on the local file system.</td>
+<td>Valid path on the local file system.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>jsonListenerPorts</td>
 <td>TCP ports to listen on for incoming JSON-formatted metrics. Default: None.</td>
-<td>A comma-separated list of available port numbers. Can be a single port.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td></td>
 <td></td>
 </tr><tr>
 <td>logsIngestionConfigFile</td>
 <td markdown="span">The file containing instructions for parsing log data into metrics.  See [Log Data Metrics Integration](integrations_log_data.html).
 Default: `<wavefront_config_path>/logsIngestion.yaml`.</td>
-<td>A valid path on the local file system.</td>
+<td>Valid path on the local file system.</td>
 <td></td>
 <td>4.1</td>
 </tr>
@@ -189,14 +189,14 @@ Default: `<wavefront_config_path>/logsIngestion.yaml`.</td>
 <td>opentsdbPorts</td>
 <td>TCP ports to listen on for incoming OpenTSDB-formatted data. Default: None.
 Default: 4242.</td>
-<td>A comma-separated list of available port numbers. Can be a single port.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>4242</td>
 <td>3.1</td>
 </tr>
 <tr>
 <td>picklePorts</td>
 <td>TCP ports to listen on for incoming data in Graphite pickle format (from carbon-relay). Default: None.</td>
-<td>A comma-separated list of available port numbers. Can be a single port.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>5878</td>
 <td>3.20</td>
 </tr>
@@ -211,7 +211,7 @@ production.nyc.dc1</td>
 <tr>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: None.</td>
-<td>A valid path on the local file system.</td>
+<td>Valid path on the local file system.</td>
 <td markdown="span">`<wavefront_config_path>/preprocessor_rules.yaml`</td>
 <td>4.1</td>
 </tr>
@@ -260,14 +260,14 @@ production.nyc.dc1</td>
 <tr>
 <td>pushFlushMaxPoints</td>
 <td>Maximum number of points to send to Wavefront during each flush. Default: 40,000.</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>40000</td>
 <td></td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
 <td>TCP ports to listen on for incoming data. Default: 2878.</td>
-<td>A comma-separated list of available port numbers. Can be a single port.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>2878<br/>
 2878,2879,2880</td>
 <td></td>
@@ -282,14 +282,14 @@ production.nyc.dc1</td>
 <tr>
 <td>pushMemoryBufferLimit</td>
 <td>Maximum number of points that can stay in memory buffers before spooling to disk. Setting this value lower than default reduces memory usage but forces the proxy to queue points by spooling to disk more frequently, if you have points arriving at the proxy in short bursts. Default: 16 * pushFlushMaxPoints. Minimum: pushFlushMaxPoints.</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>640000</td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>pushRateLimit</td>
 <td>Maximum number of points to send to Wavefront per minute. Default: unlimited.</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>20000</td>
 <td>4.1</td>
 </tr>
@@ -310,14 +310,14 @@ production.nyc.dc1</td>
 <tr>
 <td>retryBackoffBaseSeconds</td>
 <td>For exponential back-off when retry threads are throttled, the base (a in a^b) in seconds. Default: 2.0.</td>
-<td>A positive number, integer or decimal.</td>
+<td>Positive number, integer or decimal.</td>
 <td>2.0</td>
 <td></td>
 </tr>
 <tr>
 <td>retryThreads</td>
 <td>Number of threads retrying failed transmissions. If no value is specified, it defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads effectively controls the maximum amount of space that the proxy can potentially use to buffer points locally.</td>
-<td>A positive integer.</td>
+<td>Positive integer.</td>
 <td>4</td>
 <td></td>
 </tr>
@@ -345,7 +345,7 @@ production.nyc.dc1</td>
 <tr>
 <td>whitelistRegex</td>
 <td>Regex pattern (java.util.regex) that input lines must match to be accepted. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
-<td>A valid regex pattern.</td>
+<td>Valid regex pattern.</td>
 <td>Allow points that begin with production. and stage.:<br/>
 ^(production|stage).
 </td>
@@ -354,7 +354,7 @@ production.nyc.dc1</td>
 <tr>
 <td>writeHttpJsonListenerPorts</td>
 <td>Ports to listen on for incoming data from collectd write_http plugin. Default: None.</td>
-<td>A comma-separated list of available port numbers. Can be a single port. </td>
+<td>Comma-separated list of available port numbers. Can be a single port. </td>
 <td>4878</td>
 <td>3.14</td>
 </tr>
