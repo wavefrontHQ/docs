@@ -305,10 +305,6 @@ entries:
           - title: AppDynamics Integration
             url: /integrations_appdynamics.html
             output: web
-            
-          - title: Cassandra 3 Integration
-            url: /integrations_cassandra.html
-            output: web
                         
           - title: JMX Integration
             url: /integrations_jmx.html
