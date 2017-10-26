@@ -91,7 +91,7 @@ entries:
     output: web
     folderitems:
       
-    - title: Getting Data into Wavefront Overview
+    - title: Getting Data into Wavefront
       url: /wavefront_data_ingestion.html
       output: web
       
