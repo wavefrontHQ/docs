@@ -66,7 +66,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>buffer</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
 <td>Valid path on the local file system.
-<div>Ex: `&lt;wavefront_spool_path&gt; &#47;buffer`</div></td>
+<div>Ex: `<wavefront_spool_path>/buffer`</div></td>
 <td>3.20</td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2003</div>
 <div>Ex: 2003, 2004 </div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>graphiteFormat</td>
@@ -118,19 +118,19 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td><p>Comma-separated list of indexes.
 <div>Ex: 4, 2, 5</div>
 <div>Ex: 3 </p> </div> </td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>graphiteDelimiters</td>
 <td markdown="span">Characters that should be replaced by dots, in case they were escaped within Graphite and collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value `web04_www`, it is changed to `web04.www`.</td>
 <td>A concatenation of delimiter characters, without any separators.</td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>hostname</td>
 <td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
 <td>A string containing alphanumeric characters and periods.</td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>httpConnectTimeout</td>
@@ -148,7 +148,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 </tr>
 <tr>
 <td>httpUserAgent</td>
-<td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: Wavefront-Proxy/&lt;version&gt;.</td>
+<td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: `Wavefront-Proxy/<version`.</td>
 <td>A string.
 <div>Ex: 'Mozilla/5.0' </div></td>
 <td>4.1</td>
@@ -157,7 +157,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>idFile</td>
 <td markdown="span">Location of the PID file for the wavefront-proxy process. Default: `<wavefront_config_path>/.wavefront_id`.</td>
 <td>Valid path on the local file system.</td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>jsonListenerPorts</td>
@@ -193,13 +193,13 @@ Default: 4242.</td>
 <div>Ex: production</div>
 <div>Ex: production.nyc.dc1</div>
 </p>  </td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: None.</td>
 <td>Valid path on the local file system.
-<div>Ex: `<wavefront_config_path>&#47;preprocessor_rules.yaml`</div></td>
+<div>Ex: `<wavefront_config_path>/preprocessor_rules.yaml`</div></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -235,21 +235,21 @@ Default: 4242.</td>
 <td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print None of them. If you are seeing a non-zero number of blocked points in the summary lines and want to debug what that data is, we recommend setting this to 5 or so. Default: 0.</td>
 <td>0 or a positive integer.
 <div>Ex: 5 </div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>pushFlushInterval</td>
 <td>Milliseconds to wait between each flush to Wavefront. Default: 1000.</td>
 <td>An integer equal to or greater than 1000.
 <div>Ex: 1000 </div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>pushFlushMaxPoints</td>
 <td>Maximum number of points to send to Wavefront during each flush. Default: 40,000.</td>
 <td>Positive integer.
 <div>Ex: 40000 </div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
@@ -257,14 +257,14 @@ Default: 4242.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878,2879,2880</div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>pushLogLevel</td>
 <td>Frequency to print status information on the data flow to the log. SUMMARY prints a line every 60 flushes, while DETAILED prints a line on each flush.</td>
 <td>None, SUMMARY, or DETAILED
 <div>Ex: SUMMARY </div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>pushMemoryBufferLimit</td>
@@ -283,9 +283,9 @@ Default: 4242.</td>
 <tr>
 <td>pushValidationLevel</td>
 <td>Level of validation on incoming data that should be performed before sending the data to Wavefront. If NO_VALIDATION, all data is sent forward. If NUMERIC_ONLY, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
-<td>NUMERIC_ONLY or NO_VALIDATION<br />
-Ex: NUMERIC_ONLY </td>
-<td>&nbsp;</td>
+<td>NUMERIC_ONLY or NO_VALIDATION
+<div>Ex: NUMERIC_ONLY </div></td>
+<td> </td>
 </tr>
 <tr>
 <td>rawLogsPort</td>
@@ -299,19 +299,19 @@ Ex: NUMERIC_ONLY </td>
 <td>For exponential back-off when retry threads are throttled, the base (a in a^b) in seconds. Default: 2.0.</td>
 <td>Positive number, integer or decimal.
 <div>Ex: 2.0 </div></td>
-<td>&nbsp;</td></tr>
+<td> </td></tr>
 <tr>
 <td>retryThreads</td>
 <td>Number of threads retrying failed transmissions. If no value is specified, it defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads effectively controls the maximum amount of space that the proxy can potentially use to buffer points locally.</td>
 <td>Positive integer.
 <div>Ex: 4 </div>  </td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>server</td>
 <td markdown="span">The API URL of the Wavefront server in the format `https://<wavefront_instance>.wavefront.com/api/`.</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td>soLingerTime</td>
@@ -325,7 +325,7 @@ Ex: 0 </td>
 <td>Whether to split the push batch size when the push is rejected by Wavefront due to rate limit. Default: false.</td>
 <td>true or false
 <div>Ex: false </div></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td>whitelistRegex</td>
