@@ -50,74 +50,74 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>agentMetricsPointTags</td>
 <td>Point tags and their values to be passed along with <code>~agent.&#42;</code> metrics. Default: None.</td>
-<td><p>Comma-separated list of key-value pairs.<br />
-Ex: dc=west,env=prod</p>  </td>
+<td><p>Comma-separated list of key-value pairs.
+<div>Ex: dc=west,env=prod</div></p>  </td>
 <td>3.24</td>
 </tr>
 <tr>
 <td>blacklistRegex </td>
 <td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
-<td>Valid regex pattern.<br />
-  Ex: Filter out points that begin with qa., development., or test.:<br/>
+<td>Valid regex pattern.
+<div>Ex: Filter out points that begin with qa., development., or test.:</div>
 ^(qa|development|test).</td>
 <td>3.1</td>
 </tr>
 <tr>
 <td>buffer</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
-<td>Valid path on the local file system.<br />
-Ex: `&lt;wavefront_spool_path&gt; &#47;buffer`</td>
+<td>Valid path on the local file system.
+<div>Ex: `&lt;wavefront_spool_path&gt; &#47;buffer`</div></td>
 <td>3.20</td>
 </tr>
 <tr>
 <td>customSourceTags</td>
 <td>Point tag keys to use as 'source' if no 'source' or 'host' field is present. Default: fqdn, hostname.</td>
-<td>Comma-separated list of point tag keys.<br />
-Ex: fqdn, hostname</td>
+<td>Comma-separated list of point tag keys.
+<div>Ex: fqdn, hostname</div></td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>dataBackfillCutoffHours</td>
 <td>The cut-off point for what is considered a valid timestamp for back-dated points. We do not recommend setting this value larger than 1 year unless backfilling or migrating historic data. Default: 8760 (1 year), so all points older than 1 year are rejected.</td>
-<td>Positive integer.<br />
-Ex: 8760</td>
+<td>Positive integer.
+<div>Ex: 8760</div>
 <td>4.1</td>
 </tr>
 <tr>
 <td>ephemeral</td>
 <td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Agents page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
-<td>Boolean<br />
-Ex: true </td>
+<td>Boolean
+<div>Ex: true </div></td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>fileBeatPort</td>
 <td>TCP port to listen on for Filebeat data. Default: 5044.</td>
-<td>A port number.<br />
-Ex: 5044 </td>
+<td>A port number.
+<div>Ex: 5044 </div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>flushThreads</td>
 <td>Number of threads that flush data to the server. Setting this value too high will result in sending batches that are too small to the Wavefront server and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. Default: The number of available processors (min 4).</td>
-<td>Positive integer.<br />
-Ex: 16 </td>
+<td>Positive integer.
+<div>Ex: 16 </div></td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>graphitePorts</td>
 <td>TCP ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.<br />
-Ex: 2003<br />
-Ex: 2003, 2004  <br /></td>
+<td>Comma-separated list of available port numbers. Can be a single port.
+<div>Ex: 2003</div>
+<div>Ex: 2003, 2004 </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>graphiteFormat</td>
 <td markdown="span">Indexes of fields within Graphite and collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m`, specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
-<td><p>Comma-separated list of indexes.<br />
-Ex: 4, 2, 5<br />
-Ex: 3 </p>  </td>
+<td><p>Comma-separated list of indexes.
+<div>Ex: 4, 2, 5</div>
+<div>Ex: 3 </p> </div> </td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -135,22 +135,22 @@ Ex: 3 </p>  </td>
 <tr>
 <td>httpConnectTimeout</td>
 <td>HTTP connect timeout (in milliseconds). Default: 5000 (5s).</td>
-<td>Positive integer.<br />
-Ex: 5000 </td>
+<td>Positive integer.
+<div>Ex: 5000 </div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>httpRequestTimeout</td>
 <td>HTTP request timeout (in milliseconds). We do not recommend setting this value to be higher than 20000. Recommended value for most configurations is 10000 (10 seconds). Default: 10000 (10s).</td>
-<td>Positive integer.<br />
-Ex: 10000 </td>
+<td>Positive integer.
+<div>Ex: 10000 </div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>httpUserAgent</td>
 <td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: Wavefront-Proxy/&lt;version&gt;.</td>
-<td>A string.<br />
-Ex: 'Mozilla/5.0' </td>
+<td>A string.
+<div>Ex: 'Mozilla/5.0' </div></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -175,109 +175,109 @@ Default: `<wavefront_config_path>/logsIngestion.yaml`.</td>
 <td>opentsdbPorts</td>
 <td>TCP ports to listen on for incoming OpenTSDB-formatted data. Default: None.
 Default: 4242.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.<br />
-Ex: 4242 </td>
+<td>Comma-separated list of available port numbers. Can be a single port.
+<div>Ex: 4242 </div></td>
 <td>3.1</td>
 </tr>
 <tr>
 <td>picklePorts</td>
 <td>TCP ports to listen on for incoming data in Graphite pickle format (from carbon-relay). Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.<br />
-Ex: 5878 </td>
+<td>Comma-separated list of available port numbers. Can be a single port.
+<div>Ex: 5878 </div></td>
 <td>3.20</td>
 </tr>
 <tr>
 <td>prefix</td>
 <td markdown="span">String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as `cpu.loadavg.1m` is sent from the proxy to Wavefront as `production.cpu.loadavg.1m`. You can include longer prefixes such as `production.nyc.dc1`, and so on. Default: None.</td>
-<td><p>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.<br />
-Ex: production<br />
-Ex: production.nyc.dc1
+<td><p>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.
+<div>Ex: production</div>
+<div>Ex: production.nyc.dc1</div>
 </p>  </td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: None.</td>
-<td>Valid path on the local file system.<br />
-Ex: `<wavefront_config_path>&#47;preprocessor_rules.yaml`</td>
+<td>Valid path on the local file system.
+<div>Ex: `<wavefront_config_path>&#47;preprocessor_rules.yaml`</div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>proxyHost</td>
 <td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront servers are not possible (must be used with proxyPort).</td>
-<td>A string.<br />
-Ex: proxy.local</td>
+<td>A string.
+<div>Ex: proxy.local</div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>proxyPassword</td>
 <td>When used with proxyUser, sets credentials to use with the HTTP proxy if it requires authentication.</td>
-<td>A string.<br />
-Ex: validPassword123 </td>
+<td>A string.
+<div>Ex: validPassword123 </div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>proxyPort</td>
 <td>HTTP proxy port to be used in configurations when direct HTTP connections to Wavefront servers are not possible (must be used with proxyHost).</td>
-<td>A port number.<br />
-Ex: 8080 </td>
+<td>A port number.
+<div>Ex: 8080 </div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>proxyUser</td>
 <td>When used with proxyPassword, sets credentials to use with the HTTP proxy if it requires authentication.</td>
-<td>A string.<br />
-Ex: validUser </td>
+<td>A string.
+<div>Ex: validUser </div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>pushBlockedSamples</td>
 <td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print None of them. If you are seeing a non-zero number of blocked points in the summary lines and want to debug what that data is, we recommend setting this to 5 or so. Default: 0.</td>
-<td>0 or a positive integer.<br />
-Ex: 5 </td>
+<td>0 or a positive integer.
+<div>Ex: 5 </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushInterval</td>
 <td>Milliseconds to wait between each flush to Wavefront. Default: 1000.</td>
-<td>An integer equal to or greater than 1000.<br />
-Ex: 1000 </td>
+<td>An integer equal to or greater than 1000.
+<div>Ex: 1000 </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushMaxPoints</td>
 <td>Maximum number of points to send to Wavefront during each flush. Default: 40,000.</td>
-<td>Positive integer.<br />
-Ex: 40000 </td>
+<td>Positive integer.
+<div>Ex: 40000 </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
 <td>TCP ports to listen on for incoming data. Default: 2878.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.<br />
-Ex: 2878<br />
-Ex: 2878,2879,2880</td>
+<td>Comma-separated list of available port numbers. Can be a single port.
+<div>Ex: 2878</div>
+<div>Ex: 2878,2879,2880</div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushLogLevel</td>
 <td>Frequency to print status information on the data flow to the log. SUMMARY prints a line every 60 flushes, while DETAILED prints a line on each flush.</td>
-<td>None, SUMMARY, or DETAILED<br />
-Ex: SUMMARY </td>
+<td>None, SUMMARY, or DETAILED
+<div>Ex: SUMMARY </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushMemoryBufferLimit</td>
 <td>Maximum number of points that can stay in memory buffers before spooling to disk. Setting this value lower than default reduces memory usage but forces the proxy to queue points by spooling to disk more frequently, if you have points arriving at the proxy in short bursts. Default: 16 * pushFlushMaxPoints. Minimum: pushFlushMaxPoints.</td>
-<td>Positive integer.<br />
-Ex: 640000</td>
+<td>Positive integer.
+<div>Ex: 640000</div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>pushRateLimit</td>
 <td>Maximum number of points to send to Wavefront per minute. Default: unlimited.</td>
-<td>Positive integer.<br />
-Ex: 20000</td>
+<td>Positive integer.
+<div>Ex: 20000</div></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -290,21 +290,21 @@ Ex: NUMERIC_ONLY </td>
 <tr>
 <td>rawLogsPort</td>
 <td>TCP port to listen on for log data. Default: 5045.</td>
-<td>A port number.<br />
-Ex: 5045 </td>
+<td>A port number.
+<div>Ex: 5045 </div></td>
 <td>4.4</td>
 </tr>
 <tr>
 <td>retryBackoffBaseSeconds</td>
 <td>For exponential back-off when retry threads are throttled, the base (a in a^b) in seconds. Default: 2.0.</td>
-<td>Positive number, integer or decimal.<br />
-Ex: 2.0 </td>
+<td>Positive number, integer or decimal.
+<div>Ex: 2.0 </div></td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>retryThreads</td>
 <td>Number of threads retrying failed transmissions. If no value is specified, it defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads effectively controls the maximum amount of space that the proxy can potentially use to buffer points locally.</td>
-<td><p>Positive integer.<br />
-Ex: 4 </p>  </td>
+<td>Positive integer.
+<div>Ex: 4 </div>  </td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -316,36 +316,36 @@ Ex: 4 </p>  </td>
 <tr>
 <td>soLingerTime</td>
 <td>Enable SO_LINGER with the specified linger time in seconds. We recommend setting this value to 0 when running in a high-availability configuration under a load balancer.Default: 0 (disabled). </td>
-<td>0 or a positive integer.<br />
+<td><div>0 or a positive integer.</div>
 Ex: 0 </td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>splitPushWhenRateLimited</td>
 <td>Whether to split the push batch size when the push is rejected by Wavefront due to rate limit. Default: false.</td>
-<td>true or false<br />
-Ex: false </td>
+<td>true or false
+<div>Ex: false </div></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
 <td>whitelistRegex</td>
 <td>Regex pattern (java.util.regex) that input lines must match to be accepted. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
-<td>Valid regex pattern.<br />
-Ex: ^(production|stage). <br />
-Allows points that begin with production. and stage.:</td>
+<td>Valid regex pattern.
+<div>Ex: ^(production|stage). </div>
+<div>Allows points that begin with production. and stage. </div></td>
 <td>3.1</td>
 </tr>
 <tr>
 <td>writeHttpJsonListenerPorts</td>
 <td>Ports to listen on for incoming data from collectd write_http plugin. Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port. <br />
-  Ex: 4878 </td>
+<td>Comma-separated list of available port numbers. Can be a single port.
+<div>Ex: 4878 </div></td>
 <td>3.14</td>
 </tr>
 </tbody>
 </table>
 
-### Sending Information to a Running Proxy
+## Sending Information to a Running Proxy
 
 The SourceTag and SourceDescription properties allow you to modify a running proxy.
 
@@ -354,7 +354,7 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 <tr>
 <th>Property</th>
 <th>Purpose</th>
-<th>Format /Example </th>
+<th>Example </th>
 <th>Since</th>
 </tr>
 </thead>
@@ -364,26 +364,25 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 <td><p>Save or delete a tag on the specified host. For example, you use this property to inject a tag into a database on the host.</p>
   <p>Use SourceTag with action= and source= arguments. </p>
   
-* action is either save or delete. <br />
+* action is either save or delete. 
 * source takes the target host as the first value, followed by one or more tags to save or delete. 
   </td>
-<td> <p>Ex: SourceTag action=save source=host_42 db1 sourceTag2 &quot;source tag 3&quot;<br />
-  
-  Ex: SourceTag action=delete source=host_42 sourceTag1<br />
-  </p></td>
+<td>Ex: SourceTag action=save source=host_42 db1 sourceTag2 &quot;source tag 3&quot;
+<div>Ex: SourceTag action=delete source=host_42 sourceTag1</div>
+  </td>
 <td>XXXX</td>
 </tr>
 <tr>
 <td>SourceDescription</td>
 <td><p>Save or delete a descriptor on the specified host. You can use this property to add a description or delete an existing description. </p>
   <p>Use SourceDescriptor with action=, source=, and description= arguments. </p> 
-  
+   
 * action is either save or delete. 
 * source takes the target host as the first value, followed by one or more descriptors.
 * description allows you to specify a description
   </td>
-<td><p>Ex: SourceDescription action=save source=&quot;sourceId&quot; description=&quot;A Description&quot;<br />
-Ex: SourceDescription action=delete source=&quot;sourceId&quot;</p>  </td>
+<td><p>Ex: SourceDescription action=save source=&quot;sourceId&quot; description=&quot;A Description&quot; 
+<div>Ex: SourceDescription action=delete source=&quot;sourceId&quot;</div></p>  </td>
 <td>XXXX</td>
 </tr>
 </tbody>
