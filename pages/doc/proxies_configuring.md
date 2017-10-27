@@ -49,7 +49,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tbody>
 <tr>
 <td>agentMetricsPointTags</td>
-<td>Point tags and their values to be passed along with <code>~agent.&#42;</code> metrics. Default: None.</td>
+<td>Point tags and their values to be passed along with `~agent./` metrics. Default: None.</td>
 <td><p>Comma-separated list of key-value pairs.
 <div>Ex: dc=west,env=prod</div></p>  </td>
 <td>3.24</td>
@@ -367,7 +367,7 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 * action is either save or delete. 
 * source takes the target host as the first value, followed by one or more tags to save or delete. 
   </td>
-<td>Ex: SourceTag action=save source=host_42 db1 sourceTag2 &quot;source tag 3&quot;
+<td>Ex: SourceTag action=save source=host_42 db1 sourceTag2 `"source tag 3"`
 <div>Ex: SourceTag action=delete source=host_42 sourceTag1</div>
   </td>
 <td>XXXX</td>
@@ -381,8 +381,8 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 * source takes the target host as the first value, followed by one or more descriptors.
 * description allows you to specify a description
   </td>
-<td><p>Ex: SourceDescription action=save source=&quot;sourceId&quot; description=&quot;A Description&quot; 
-<div>Ex: SourceDescription action=delete source=&quot;sourceId&quot;</div></p>  </td>
+<td><p>Ex: SourceDescription action=save `source="sourceId"` description=`A Description` 
+<div>Ex: SourceDescription action=delete `source="sourceId"`</div></p>  </td>
 <td>XXXX</td>
 </tr>
 </tbody>
