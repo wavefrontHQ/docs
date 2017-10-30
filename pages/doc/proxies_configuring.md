@@ -49,9 +49,9 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tbody>
 <tr>
 <td>agentMetricsPointTags</td>
-<td>Point tags and their values to be passed along with `~agent./` metrics. Default: None.</td>
-<td><p>Comma-separated list of key-value pairs.
-<div>Ex: dc=west,env=prod</div></p>  </td>
+<td>Point tags and their values to be passed along with <code>~agent./</code> metrics. Default: None.</td>
+<td>Comma-separated list of key-value pairs.
+<div>Ex: dc=west,env=prod</div></td>
 <td>3.24</td>
 </tr>
 <tr>
@@ -66,7 +66,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>buffer</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
 <td>Valid path on the local file system.
-<div>Ex: `<wavefront_spool_path>/buffer`</div></td>
+<div>Ex: <code>&lt;wavefront_spool_path&gt;/buffer</code></div></td>
 <td>3.20</td>
 </tr>
 <tr>
@@ -80,12 +80,12 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>dataBackfillCutoffHours</td>
 <td>The cut-off point for what is considered a valid timestamp for back-dated points. We do not recommend setting this value larger than 1 year unless backfilling or migrating historic data. Default: 8760 (1 year), so all points older than 1 year are rejected.</td>
 <td>Positive integer.
-<div>Ex: 8760</div>
+<div>Ex: 8760</div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>ephemeral</td>
-<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Agents page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
+<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Proxies page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
 <td>Boolean
 <div>Ex: true </div></td>
 <td>3.14</td>
@@ -105,25 +105,25 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>3.14</td>
 </tr>
 <tr>
+<td>graphiteDelimiters</td>
+<td>Characters that should be replaced by dots, in case they were escaped within Graphite and collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value <code>web04_www</code>, it is changed to <code>web04.www</code>.</td>
+<td>A concatenation of delimiter characters, without any separators.</td>
+<td> </td>
+</tr>
+<tr>
+<td>graphiteFormat</td>
+<td>Indexes of fields within Graphite and collectd metric names that correspond to a hostname. For example, if your metrics have the format: <code>collectd.prod.www04.cpu.loadavg.1m</code>, specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder <code>collectd.cpu.loadavg.1m</code> is treated as the metric name.</td>
+<td>Comma-separated list of indexes.
+<div>Ex: 4, 2, 5</div>
+<div>Ex: 3</div> </td>
+<td> </td>
+</tr>
+<tr>
 <td>graphitePorts</td>
 <td>TCP ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2003</div>
 <div>Ex: 2003, 2004 </div></td>
-<td> </td>
-</tr>
-<tr>
-<td>graphiteFormat</td>
-<td markdown="span">Indexes of fields within Graphite and collectd metric names that correspond to a hostname. For example, if your metrics have the format: `collectd.prod.www04.cpu.loadavg.1m`, specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder `collectd.cpu.loadavg.1m` is treated as the metric name.</td>
-<td><p>Comma-separated list of indexes.
-<div>Ex: 4, 2, 5</div>
-<div>Ex: 3 </p> </div> </td>
-<td> </td>
-</tr>
-<tr>
-<td>graphiteDelimiters</td>
-<td markdown="span">Characters that should be replaced by dots, in case they were escaped within Graphite and collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value `web04_www`, it is changed to `web04.www`.</td>
-<td>A concatenation of delimiter characters, without any separators.</td>
 <td> </td>
 </tr>
 <tr>
@@ -148,14 +148,14 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 </tr>
 <tr>
 <td>httpUserAgent</td>
-<td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: `Wavefront-Proxy/<version`.</td>
+<td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: <code>Wavefront-Proxy/&lt;version&gt;</code>.</td>
 <td>A string.
 <div>Ex: 'Mozilla/5.0' </div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>idFile</td>
-<td markdown="span">Location of the PID file for the wavefront-proxy process. Default: `<wavefront_config_path>/.wavefront_id`.</td>
+<td>Location of the PID file for the wavefront-proxy process. Default: <code>&lt;wavefront_config_path&gt;/.wavefront_id</code>.</td>
 <td>Valid path on the local file system.</td>
 <td> </td>
 </tr>
@@ -164,17 +164,17 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <td>TCP ports to listen on for incoming JSON-formatted metrics. Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td></td>
-</tr><tr>
+</tr>
+<tr>
 <td>logsIngestionConfigFile</td>
-<td markdown="span">The file containing instructions for parsing log data into metrics.  See [Log Data Metrics Integration](integrations_log_data.html).
-Default: `<wavefront_config_path>/logsIngestion.yaml`.</td>
+<td>The file containing instructions for parsing log data into metrics.  See <a href="integrations_log_data.html">Log Data Metrics Integration</a>.
+Default: <code>&lt;wavefront_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>Valid path on the local file system.</td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>opentsdbPorts</td>
-<td>TCP ports to listen on for incoming OpenTSDB-formatted data. Default: None.
-Default: 4242.</td>
+<td>TCP ports to listen on for incoming OpenTSDB-formatted data. Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 4242 </div></td>
 <td>3.1</td>
@@ -188,18 +188,18 @@ Default: 4242.</td>
 </tr>
 <tr>
 <td>prefix</td>
-<td markdown="span">String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as `cpu.loadavg.1m` is sent from the proxy to Wavefront as `production.cpu.loadavg.1m`. You can include longer prefixes such as `production.nyc.dc1`, and so on. Default: None.</td>
-<td><p>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.
+<td>String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to Wavefront as <code>production.cpu.loadavg.1m</code>. You can include longer prefixes such as <code>production.nyc.dc1</code>, and so on. Default: None.</td>
+<td>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.
 <div>Ex: production</div>
 <div>Ex: production.nyc.dc1</div>
-</p>  </td>
-<td> </td>
+</td>
+<td></td>
 </tr>
 <tr>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: None.</td>
 <td>Valid path on the local file system.
-<div>Ex: `<wavefront_config_path>/preprocessor_rules.yaml`</div></td>
+<div>Ex: <code>&lt;wavefront_config_path&gt;/preprocessor_rules.yaml</code></div></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -309,13 +309,13 @@ Default: 4242.</td>
 </tr>
 <tr>
 <td>server</td>
-<td markdown="span">The API URL of the Wavefront server in the format `https://<wavefront_instance>.wavefront.com/api/`.</td>
+<td>The API URL of the Wavefront server in the format https://&lt;wavefront_instance&gt;.wavefront.com/api/.</td>
 <td> </td>
 <td> </td>
 </tr>
 <tr>
 <td>soLingerTime</td>
-<td>Enable SO_LINGER with the specified linger time in seconds. We recommend setting this value to 0 when running in a high-availability configuration under a load balancer.Default: 0 (disabled). </td>
+<td>Enable SO_LINGER with the specified linger time in seconds. We recommend setting this value to 0 when running in a high-availability configuration under a load balancer. Default: 0 (disabled). </td>
 <td><div>0 or a positive integer.</div>
 Ex: 0 </td>
 <td>4.1</td>
@@ -361,32 +361,33 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 <tbody>
 <tr>
 <td>SourceTag</td>
-<td><p>Save or delete a tag on the specified host. For example, you use this property to inject a tag into a database on the host.</p>
-  <p>Use SourceTag with action= and source= arguments. </p>
-  
-* action is either save or delete. 
-* source takes the target host as the first value, followed by one or more tags to save or delete. 
-  </td>
-<td>Ex: SourceTag action=save source=host_42 db1 sourceTag2 `"source tag 3"`
+<td>Save or delete a tag on the specified host. For example, you use this property to inject a tag into a database on the host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.
+<ul>
+<li>action is either save or delete.</li>
+<li>source takes the target host as the first value, followed by one or more tags to save or delete.</li>
+</ul>
+</td>
+<td>Ex: SourceTag action=save source=host_42 db1 sourceTag2 <code>"source tag 3"</code>
 <div>Ex: SourceTag action=delete source=host_42 sourceTag1</div>
-  </td>
+</td>
 <td>XXXX</td>
 </tr>
 <tr>
 <td>SourceDescription</td>
-<td><p>Save or delete a descriptor on the specified host. You can use this property to add a description or delete an existing description. </p>
-  <p>Use SourceDescriptor with action=, source=, and description= arguments. </p> 
-   
-* action is either save or delete. 
-* source takes the target host as the first value, followed by one or more descriptors.
-* description allows you to specify a description
-  </td>
-<td><p>Ex: SourceDescription action=save `source="sourceId"` description=`A Description` 
-<div>Ex: SourceDescription action=delete `source="sourceId"`</div></p>  </td>
+<td>Save or delete a descriptor on the specified host. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments.
+<ul>
+<li>action is either save or delete.</li>
+<li>source takes the target host as the first value, followed by one or more descriptors.</li>
+<li>description allows you to specify a description.</li>
+</ul>
+</td>
+<td>Ex: SourceDescription action=save <code>source="sourceId"</code> description=<code>A Description</code>
+<div>Ex: SourceDescription action=delete <code>source="sourceId"</code></div></td>
 <td>XXXX</td>
 </tr>
 </tbody>
-</table> 
+</table>
+
 
 ## Data Buffering
 
