@@ -35,7 +35,7 @@ In this section, file paths use the following conventions and values:
 
 ### Configuration Properties
 
-The main Wavefront proxy configuration file is maintained in `<wavefront_config_path>/wavefront.conf`.  Besides the `server` and `hostname` properties, the configuration file offers many options for changing how the proxy processes your data. There are optional configuration files for [rewriting metrics](proxies_preprocessor_rules.html) and parsing [log data](integrations_log_data.html#configuring-the-wavefront-proxy-to-ingest-log-data). None of these need to be changed from their default values, but can be adjusted for your particular needs. After changing a configuration option, [restart the proxy service](proxies_installing.html#starting-and-stopping-a-proxy).
+The main Wavefront proxy configuration file is maintained in `<wavefront_config_path>/wavefront.conf` (`<wf_config_path>/wavefront.conf`) Besides the `server` and `hostname` properties, the configuration file offers many options for changing how the proxy processes your data. There are optional configuration files for [rewriting metrics](proxies_preprocessor_rules.html) and parsing [log data](integrations_log_data.html#configuring-the-wavefront-proxy-to-ingest-log-data). The default values work well in many cases, but you can adjust them as needed. After changing a configuration option, [restart the proxy service](proxies_installing.html#starting-and-stopping-a-proxy).
 
 <table>
 <thead>
@@ -155,7 +155,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 </tr>
 <tr>
 <td>idFile</td>
-<td>Location of the PID file for the wavefront-proxy process. Default: <code>&lt;wavefront_config_path&gt;/.wavefront_id</code>.</td>
+<td>Location of the PID file for the wavefront-proxy process. Default: <code>&lt;wf_config_path&gt;/.wavefront_id</code>.</td>
 <td>Valid path on the local file system.</td>
 <td> </td>
 </tr>
@@ -168,7 +168,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 <tr>
 <td>logsIngestionConfigFile</td>
 <td>The file containing instructions for parsing log data into metrics.  See <a href="integrations_log_data.html">Log Data Metrics Integration</a>.
-Default: <code>&lt;wavefront_config_path&gt;/logsIngestion.yaml</code>.</td>
+Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>Valid path on the local file system.</td>
 <td>4.1</td>
 </tr>
@@ -199,7 +199,7 @@ Default: <code>&lt;wavefront_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: None.</td>
 <td>Valid path on the local file system.
-<div>Ex: <code>&lt;wavefront_config_path&gt;/preprocessor_rules.yaml</code></div></td>
+<div>Ex: <code>&lt;wf_config_path&gt;/preprocessor_rules.yaml</code></div></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -309,7 +309,7 @@ Default: <code>&lt;wavefront_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>server</td>
-<td>The API URL of the Wavefront server in the format https://&lt;wavefront_instance&gt;.wavefront.com/api/.</td>
+<td>The API URL of the Wavefront server in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
 <td> </td>
 <td> </td>
 </tr>
@@ -347,7 +347,7 @@ Ex: 0 </td>
 
 ## Sending Information to a Running Proxy
 
-The SourceTag and SourceDescription properties allow you to modify a running proxy.
+In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before it reaches the proxy. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
 
 <table>
 <thead>
@@ -367,10 +367,10 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 <li>source takes the target host as the first value, followed by one or more tags to save or delete.</li>
 </ul>
 </td>
-<td>Ex: SourceTag action=save source=host_42 db1 sourceTag2 <code>"source tag 3"</code>
-<div>Ex: SourceTag action=delete source=host_42 sourceTag1</div>
+<td>Ex: &#64;SourceTag action=save source=host_42 db1 sourceTag2 <code>"source tag 3"</code>
+<div>Ex: &#64;SourceTag action=delete source=host_42 sourceTag1</div>
 </td>
-<td>XXXX</td>
+<td>13.x</td>
 </tr>
 <tr>
 <td>SourceDescription</td>
@@ -381,9 +381,9 @@ The SourceTag and SourceDescription properties allow you to modify a running pro
 <li>description allows you to specify a description.</li>
 </ul>
 </td>
-<td>Ex: SourceDescription action=save <code>source="sourceId"</code> description=<code>A Description</code>
-<div>Ex: SourceDescription action=delete <code>source="sourceId"</code></div></td>
-<td>XXXX</td>
+<td>Ex: &#64;SourceDescription action=save <code>source="sourceId"</code> description=<code>A Description</code>
+<div>Ex: &#64;SourceDescription action=delete <code>source="sourceId"</code></div></td>
+<td>13.x</td>
 </tr>
 </tbody>
 </table>

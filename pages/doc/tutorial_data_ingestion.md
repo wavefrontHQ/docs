@@ -14,6 +14,8 @@ summary: Learn how to get data into Wavefront.
 - Your application sends metrics directly to a Wavefront proxy.
 - Wavefront pulls data directly from a cloud-based service (e.g. Amazon Web Services, Google Cloud Platform, Tesla).
 
+**Note:** Typical production environments have a small number of proxies, with many agents sending metrics through the proxies to Wavefront. If you need advice for best practices in your environment, contact [Wavefront Technical Support](support@wavefront.com).
+
 The diagram below shows all three options. 
 
 ![Wavefront architecture](images/integrations_data_collector.png)
