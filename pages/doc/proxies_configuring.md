@@ -345,9 +345,9 @@ Ex: 0 </td>
 </tbody>
 </table>
 
-## Sending Information to a Running Proxy
+## Sending Source Tags and Source Descriptions Through the Wavefront Proxy 
 
-In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before it reaches the proxy. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
+In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, even if the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
 
 <table>
 <thead>
@@ -361,29 +361,29 @@ In environments with large datasets, you might want to have the proxy client, e.
 <tbody>
 <tr>
 <td>SourceTag</td>
-<td>Save or delete a tag on the specified host. For example, you use this property to inject a tag into a database on the host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.
+<td>Save or delete a tag on the specified source. For example, you use this property to inject a tag into a database on the host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.  <strong>Note:</strong> Use quotes if any of the values includes spaces or special characters.
 <ul>
-<li>action is either save or delete.</li>
-<li>source takes the target host as the first value, followed by one or more tags to save or delete.</li>
+<li><code>action</code> is either save or delete.</li>
+<li><code>source</code> takes the source as the first value, followed by a tag to save or delete.</li>
 </ul>
 </td>
-<td>Ex: &#64;SourceTag action=save source=host_42 db1 sourceTag2 <code>"source tag 3"</code>
-<div>Ex: &#64;SourceTag action=delete source=host_42 sourceTag1</div>
+<td>Ex:<code> &#64;SourceTag action=save source=host_42 db1</code>
+<div>Ex:<code> &#64;SourceTag action=delete source=host_42 sourceTag1</code></div>
 </td>
-<td>13.x</td>
+<td>36.x</td>
 </tr>
 <tr>
 <td>SourceDescription</td>
-<td>Save or delete a descriptor on the specified host. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments.
+<td>Save or delete a descriptor on the specified source. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments.
 <ul>
-<li>action is either save or delete.</li>
-<li>source takes the target host as the first value, followed by one or more descriptors.</li>
-<li>description allows you to specify a description.</li>
+<li><code>action</code> is either save or delete.</li>
+<li><code>source</code> takes the source as the first value, followed by a descriptors.</li>
+<li><code>description</code> allows you to specify a description.</li>
 </ul>
 </td>
-<td>Ex: &#64;SourceDescription action=save <code>source="sourceId"</code> description=<code>A Description</code>
-<div>Ex: &#64;SourceDescription action=delete <code>source="sourceId"</code></div></td>
-<td>13.x</td>
+<td>Ex:<code>&#64;SourceDescription action=save source="sourceId" description=A Description</code>
+<div>Ex:<code>&#64;SourceDescription action=delete source="sourceId"</code></div></td>
+<td>36.x</td>
 </tr>
 </tbody>
 </table>
