@@ -88,16 +88,16 @@ To indicate that data is a histogram distribution, you send histogram data:
 - Using the following format:
 
   ```html
-  {!M | !H | !D} [<timestamp>] #<points> <metricValue> <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
+  {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>] <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
   ```
 
   where `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution and `points` is the number of points. For example:
 
   ```
-  !M 1493773499 #20 30 request.latency source=appServer1 region=us-west
+  !M 1493773500 #20 30 #10 5 request.latency source=appServer1 region=us-west
   ```
 
-  is a distribution that sends 20 points of the metric `request.latency` with value 30 that have been aggregated into minute intervals.
+  is a distribution that sends 20 points of the metric `request.latency` with value 30 and 10 points with value 5, that have been aggregated into minute intervals.
 
   {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, histogram data inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
 
