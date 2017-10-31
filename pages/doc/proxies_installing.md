@@ -111,7 +111,7 @@ To check if the proxy is running, run the following commands on the proxy host:
   To view the proxy log, run `docker logs <proxy_container_id>`.
 - Windows
 
-  ```shell
+  ```
   $ cd C:\Program Files (x86)\Wavefront\bin
   $ ./nssm.exe status WavefrontProxy
   ```
