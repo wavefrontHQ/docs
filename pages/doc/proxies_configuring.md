@@ -361,7 +361,7 @@ In environments with large datasets, you might want to have the proxy client, e.
 <tbody>
 <tr>
 <td>SourceTag</td>
-<td>Save or delete a tag on the specified source. For example, you use this property to inject a tag into a database on the host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.  <strong>Note:</strong> Use quotes if any of the values includes spaces or special characters.
+<td>Save or delete a tag on the specified source. For example, you use this property to inject a tag into a database on the host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.  NOTE: Use quotes if any of the values includes spaces or special characters.
 <ul>
 <li><code>action</code> is either save or delete.</li>
 <li><code>source</code> takes the source as the first value, followed by a tag to save or delete.</li>
@@ -374,7 +374,7 @@ In environments with large datasets, you might want to have the proxy client, e.
 </tr>
 <tr>
 <td>SourceDescription</td>
-<td>Save or delete a descriptor on the specified source. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments.
+<td>Save or delete a descriptor on the specified source. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments. NOTE: Use quotes if any of the values includes spaces or special characters.
 <ul>
 <li><code>action</code> is either save or delete.</li>
 <li><code>source</code> takes the source as the first value, followed by a descriptors.</li>
