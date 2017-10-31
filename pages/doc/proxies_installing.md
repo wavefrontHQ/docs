@@ -19,7 +19,7 @@ Installation procedures might require a Wavefront API URL `<wavefront_api_url>` 
 ## Proxy Host Requirements
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response rather than a time-out.
-- Memory - you don't need a dedicated the host to running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
+- Memory - you don't need a dedicated the host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux
     - Ubuntu 12.04, 14.04, 16.04
