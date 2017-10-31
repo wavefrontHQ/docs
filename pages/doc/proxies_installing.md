@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and run Wavefront proxies.
 ---
-In most cases before metrics can begin streaming to Wavefront from a host or application you must run a Wavefront proxy in your installation. 
+In most cases before metrics can begin streaming to Wavefront from a host or application you must run a Wavefront proxy in your installation.
 
 You can install a proxy as part of an [in-product integration](integrations.html#in-product-integrations) or standalone. This topic describes various methods for installing Wavefront proxies and for managing proxy services.
 
@@ -26,17 +26,18 @@ Installation procedures require an Wavefront API URL `<wavefront_api_url>` in th
     - Debian 7, 8, 9, 10
     - Amazon Linux
   - Mac - MacOS Sierra (10.12)
+  - Windows - Windows 8 and up
 
 <a name="single"></a>
 
 ## Installing a Proxy on a Single Host
 
-To install and run a proxy on a Linux or Mac host, or in a Docker container on a host:
+To install and run a proxy on a Linux, Mac or Windows host, or in a Docker container on a host:
 
 1. Open the Wavefront application UI.
 1. Select **Browse > Proxies**.
 1. Select **Add > New Proxy** at the top of the filter bar. The Add a Wavefront Proxy screen displays.
-1. Click the **\[Linux \| MacOS \| Docker ]** tab.
+1. Click the **\[Linux \| Mac \| Windows \| Docker ]** tab.
 1. Copy the script and run on your host.
 1. After the proxy contacts the Wavefront server, the proxy name displays under "Checking for new proxies..." and the button label changes to Done.
 1. Click **Done**. The Proxies page displays. Verify that your proxy is listed. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to make sure the proxy is running.
@@ -74,9 +75,15 @@ Run the following commands on the proxy host:
   ```shell
   $ docker [start | stop ] <proxy_container_id>
   ```
+- Windows
+
+  ```shell
+  $ cd C:\Program Files (x86)\Wavefront\bin
+  $ ./nssm.exe [start | stop] WavefrontProxy
+  ```
 
 ### Checking Proxy Service Status
- 
+
 To check if the proxy is running, run the following commands on the proxy host:
 
 - Linux
@@ -84,7 +91,7 @@ To check if the proxy is running, run the following commands on the proxy host:
   ```shell
   $ service wavefront-proxy status
   ```
-  You can view the proxy log at `/var/log/wavefront/wavefront.log`. 
+  You can view the proxy log at `/var/log/wavefront/wavefront.log`.
 - Mac
 
   ```shell
@@ -97,9 +104,15 @@ To check if the proxy is running, run the following commands on the proxy host:
   $ docker ps
   ```
   To view the proxy log, run `docker logs <proxy_container_id>`.
-  
+- Windows
 
-### Testing a Proxy 
+  ```shell
+  $ cd C:\Program Files (x86)\Wavefront\bin
+  $ ./nssm.exe status WavefrontProxy
+  ```
+  You can view the proxy log at `Program Files (x86)\Wavefront\wavefront.log`.
+
+### Testing a Proxy
 
 You can test that a proxy is receiving and sending data by sending it a JSON payload as follows:
 
