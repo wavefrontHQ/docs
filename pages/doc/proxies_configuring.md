@@ -349,41 +349,42 @@ Ex: 0 </td>
 
 In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, even if the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
 
+**Note** The feature is available in version 4.17-9 and later of the proxy, but port usage depends on the version you are using. 
+*  Starting with `wavefront-proxy_4.17-9`, SourceTag is available on port 4878
+*  In `wavefront-proxy_4.24-1` and later, SourceTag is available on port 2878
+
 <table>
 <thead>
 <tr>
 <th>Property</th>
 <th>Purpose</th>
 <th>Example </th>
-<th>Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>SourceTag</td>
-<td>Save or delete a tag on the specified source. For example, you use this property to inject a tag into a database on the host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.  NOTE: Use quotes if any of the values includes spaces or special characters.
+<td>Save or delete a source tag. For example, you use this property to inject a source tag into a database on a host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.  NOTE: Use quotes if any of the values includes spaces or special characters.
 <ul>
 <li><code>action</code> is either save or delete.</li>
-<li><code>source</code> takes the source as the first value, followed by a tag to save or delete.</li>
+<li><code>source</code> takes the source as the first value, followed by a source tag to save or delete.</li>
 </ul>
 </td>
 <td>Ex:<code> &#64;SourceTag action=save source=host_42 db1</code>
 <div>Ex:<code> &#64;SourceTag action=delete source=host_42 sourceTag1</code></div>
 </td>
-<td>36.x</td>
 </tr>
 <tr>
 <td>SourceDescription</td>
-<td>Save or delete a descriptor on the specified source. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments. NOTE: Use quotes if any of the values includes spaces or special characters.
+<td>Save or delete a description on the specified source. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments. NOTE: Use quotes if any of the values includes spaces or special characters.
 <ul>
 <li><code>action</code> is either save or delete.</li>
-<li><code>source</code> takes the source as the first value, followed by a descriptors.</li>
-<li><code>description</code> allows you to specify a description.</li>
+<li><code>source</code> takes the source as the first value, followed by a descriptor.</li>
+<li><code>description</code> allows you to specify a description for the tag.</li>
 </ul>
 </td>
 <td>Ex:<code>&#64;SourceDescription action=save source="sourceId" description=A Description</code>
 <div>Ex:<code>&#64;SourceDescription action=delete source="sourceId"</code></div></td>
-<td>36.x</td>
 </tr>
 </tbody>
 </table>
