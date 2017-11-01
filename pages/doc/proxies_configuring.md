@@ -99,7 +99,7 @@ The main Wavefront proxy configuration file is maintained in `<wavefront_config_
 </tr>
 <tr>
 <td>flushThreads</td>
-<td>Number of threads that flush data to the server. Setting this value too high will result in sending batches that are too small to the Wavefront server and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. Default: The number of available processors (min 4).</td>
+<td>Number of threads that flush data to the server. Setting this value too high results in sending batches that are too small to the Wavefront server and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. Default: The number of available processors (min 4).</td>
 <td>Positive integer.
 <div>Ex: 16 </div></td>
 <td>3.14</td>
@@ -188,7 +188,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>prefix</td>
-<td>String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to Wavefront as <code>production.cpu.loadavg.1m</code>. You can include longer prefixes such as <code>production.nyc.dc1</code>, and so on. Default: None.</td>
+<td>String to prepend before every metric name. For example, if you set prefix to 'production', a metric that is sent to the proxy as <code>cpu.loadavg.1m</code> is sent from the proxy to Wavefront as <code>production.cpu.loadavg.1m</code>. You can include longer prefixes such as <code>production.nyc.dc1</code>. Default: None.</td>
 <td>A lowercase alphanumeric string, with periods separating segments. You do not need to include a trailing period.
 <div>Ex: production</div>
 <div>Ex: production.nyc.dc1</div>
@@ -204,35 +204,35 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>proxyHost</td>
-<td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront servers are not possible (must be used with proxyPort).</td>
+<td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront servers are not possible. Must be used with proxyPort.</td>
 <td>A string.
 <div>Ex: proxy.local</div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>proxyPassword</td>
-<td>When used with proxyUser, sets credentials to use with the HTTP proxy if it requires authentication.</td>
+<td>When used with proxyUser, sets credentials to use with the HTTP proxy if the proxy requires authentication.</td>
 <td>A string.
 <div>Ex: validPassword123 </div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>proxyPort</td>
-<td>HTTP proxy port to be used in configurations when direct HTTP connections to Wavefront servers are not possible (must be used with proxyHost).</td>
+<td>HTTP proxy port to be used in configurations when direct HTTP connections to Wavefront servers are not possible. Must be used with proxyHost.</td>
 <td>A port number.
 <div>Ex: 8080 </div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>proxyUser</td>
-<td>When used with proxyPassword, sets credentials to use with the HTTP proxy if it requires authentication.</td>
+<td>When used with proxyPassword, sets credentials to use with the HTTP proxy if the proxy requires authentication.</td>
 <td>A string.
 <div>Ex: validUser </div></td>
 <td>3.23</td>
 </tr>
 <tr>
 <td>pushBlockedSamples</td>
-<td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print None of them. If you are seeing a non-zero number of blocked points in the summary lines and want to debug what that data is, we recommend setting this to 5 or so. Default: 0.</td>
+<td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print none. If you see a non-zero number of blocked points in the summary lines and want to debug what that data is, set this property to 5. Default: 0.</td>
 <td>0 or a positive integer.
 <div>Ex: 5 </div></td>
 <td> </td>
@@ -275,14 +275,14 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>pushRateLimit</td>
-<td>Maximum number of points to send to Wavefront per minute. Default: unlimited.</td>
+<td>Maximum number of points per minute to send to Wavefront. Default: unlimited.</td>
 <td>Positive integer.
 <div>Ex: 20000</div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>pushValidationLevel</td>
-<td>Level of validation on incoming data that should be performed before sending the data to Wavefront. If NO_VALIDATION, all data is sent forward. If NUMERIC_ONLY, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
+<td>Level of validation to perform on incoming data before sending the data to Wavefront. If NO_VALIDATION, all data is sent forward. If NUMERIC_ONLY, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
 <td>NUMERIC_ONLY or NO_VALIDATION
 <div>Ex: NUMERIC_ONLY </div></td>
 <td> </td>
@@ -302,7 +302,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td> </td></tr>
 <tr>
 <td>retryThreads</td>
-<td>Number of threads retrying failed transmissions. If no value is specified, it defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads effectively controls the maximum amount of space that the proxy can potentially use to buffer points locally.</td>
+<td>Number of threads retrying failed transmissions. If no value is specified, defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads controls the maximum amount of space that the proxy can use to buffer points locally.</td>
 <td>Positive integer.
 <div>Ex: 4 </div>  </td>
 <td> </td>
@@ -315,7 +315,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>soLingerTime</td>
-<td>Enable SO_LINGER with the specified linger time in seconds. We recommend setting this value to 0 when running in a high-availability configuration under a load balancer. Default: 0 (disabled). </td>
+<td>Enable SO_LINGER with the specified linger time in seconds. Set this value to 0 when running in a high-availability configuration under a load balancer. Default: 0 (disabled). </td>
 <td><div>0 or a positive integer.</div>
 Ex: 0 </td>
 <td>4.1</td>
@@ -329,7 +329,7 @@ Ex: 0 </td>
 </tr>
 <tr>
 <td>whitelistRegex</td>
-<td>Regex pattern (java.util.regex) that input lines must match to be accepted. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
+<td>Regex pattern (java.util.regex). Input lines are checked against the pattern as they come in and before the prefix is prepended. Only input lines that match are accepted. </td>
 <td>Valid regex pattern.
 <div>Ex: ^(production|stage). </div>
 <div>Allows points that begin with production. and stage. </div></td>
@@ -337,7 +337,7 @@ Ex: 0 </td>
 </tr>
 <tr>
 <td>writeHttpJsonListenerPorts</td>
-<td>Ports to listen on for incoming data from collectd write_http plugin. Default: None.</td>
+<td>Ports to listen on for incoming data from the collectd write_http plugin. Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 4878 </div></td>
 <td>3.14</td>
@@ -350,8 +350,8 @@ Ex: 0 </td>
 In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, even if the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
 
 **Note** The feature is available in version 4.17-9 and later of the proxy, but port usage depends on the version you are using. 
-*  Starting with `wavefront-proxy_4.17-9`, SourceTag is available on port 4878
-*  In `wavefront-proxy_4.24-1` and later, SourceTag is available on port 2878
+*  Starting with wavefront-proxy_4.17-9, SourceTag is available on port 4878
+*  In wavefront-proxy_4.24-1 and later, SourceTag is available on port 2878
 
 <table>
 <thead>
