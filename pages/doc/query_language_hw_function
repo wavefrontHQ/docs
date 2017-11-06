@@ -1,0 +1,19 @@
+---
+title: The hw() (Holt Winters) Function
+keywords: query language
+tags: [query language]
+sidebar: doc_sidebar
+permalink: query_language_hw_function.html
+summary: Learn how to use the hw() function, and where it is useful.
+published: false
+---
+    
+Holt-Winters triple exponential smoothing is a form of time series analysis.  It is used primarily for periodic or seasonal data, and its main strength is catching the overall trend of data over time while maintaining the structure of the data's seasons.
+
+If you use the **~hw** function on a time series with a set periodicity, the function can predict the next event of interest, and, for example, send an alert. 
+
+For example, assume that at certain times of the day a set of virtual machines experiences peak load. You could set up an alert for that event, or assign additional CPU and memory to them. Even if the peak load time changes, for example, because daylight saving time ends, the **~hw** can catch up and adjust the warning. 
+
+
+
+    

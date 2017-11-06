@@ -19,7 +19,7 @@ To create a user event:
 
 1. Do one of the following:
    - Select **Browse > Events** and clicking the <strong>Create Event</strong> button located at the top of the filter bar.
-   - In a chart, click the flag icon <i class="fa-flag fa"></i> located on the far right side of the time
+   - In a chart, click the flag icon <i class="fa-flag fa"></i> located in the top right corner of the time
    bar. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
    If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.
 
