@@ -7,13 +7,16 @@ permalink: alerts.html
 summary: Learn how to view alerts and how alerts trigger notifications and interact with events.
 ---
 
-An alert defines the conditions under which metric values indicate a system problem and set of targets to be notified when the condition evaluates to true or false for a specified
-period of time. You express [conditions](alerts_managing.html#alert-properties) using [Wavefront Query Language
+An alert defines: 
+* The conditions under which metric values indicate a system problem and 
+* One or more targets to notify when the condition evaluates to true or false for a specified period of time. 
+
+You express [conditions](alerts_managing.html#alert-properties) using [Wavefront Query Language
 expressions](query_language_getting_started.html).
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric reaches a value that indicates a problem. 
 
-To disable alert checking for a set of sources or alerts during a custom time window you can put them in a [maintenance window](maintenance_windows_managing.html) or [snooze](alerts_managing.html#snoozing-and-unsnoozing-alerts) alerts for a fixed time window.
+To disable alert checking for a set of sources or alerts during a custom time window you can put them in a [maintenance window](maintenance_windows_managing.html), or you can [snooze](alerts_managing.html#snoozing-and-unsnoozing-alerts) alerts for a fixed time window.
 
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
@@ -36,7 +39,7 @@ For example, for the preceding alert, the chart displays:
 
 ### Viewing Alert Firing
 
-The Firings column shows how many times an alert changed into a firing state from non-firing in the last day, week, and month.
+The Firings column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
 {% include shared/searching.html entity="Alerts" entities="alerts" %}
 
@@ -50,7 +53,7 @@ As alerts fire, update, and resolve, [events](events.html) are created in Wavefr
 
 When an alert changes state, a notification containing alert information and a link to a chart is sent to targets listed in the alert's [Targets](alerts_managing.html#alert-properties) property.
 
-For example, if you have configured an email address as the alert target, you will receive an email like the following:
+For example, if you have configured an email address as the alert target, you receive an email like the following:
 
 ![alert_email](images/alert_email.png)
 
