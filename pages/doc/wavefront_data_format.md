@@ -75,11 +75,20 @@ Point tags must satisfy the following constraints:
 <li><strong>Key</strong> - Valid characters are: alphanumeric, hyphen ("-"), underscore ("_"), dot (".")</li>
 <li><strong>Value</strong> - We recommend enclosing tag values with double quotes (" "). If you surround the value with quotes any character is allowed, including spaces. To include a double quote, escape it with a backslash. The backslash cannot be the last character in the tag value.</li>
 </ul>
-The maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the length is longer the point is rejected and logged.
-The expected number of possible values (cardinality) for a given key should be <strong>&lt; 1000</strong> over the lifetime of that key. While Wavefront does not enforce a hard limit on the number of distinct values, using point tags to store high-cardinality data such as timestamps, login emails, or web session IDs will eventually cause performance issues when querying your data.</td>
+The maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the length is longer, the point is rejected and logged.
+
+Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. See Best Practices for Point Tags below. </td>
 </tr>
 </tbody>
 </table>
+
+### Best Practices for Point Tags
+
+Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values. 
+
+For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results. 
+
+Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
 
 ### Valid Metrics
 

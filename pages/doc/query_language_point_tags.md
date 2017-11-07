@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_point_tags.html
 summary: Learn how to use point tags in Wavefront Query Language queries.
 ---
-Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data. They can be used, for example, to label a point's datacenter, version, etc. You add point tags in the [Wavefront proxy](proxies_preprocessor_rules.html) and they are added automatically by the [AWS cloud integration](integrations_aws_metrics.html#wavefront-point-tags). You can query point tags in Wavefront Query Language expressions. Query fan-out is based on metric and source combinations; Wavefront recommends that point tag cardinality stays below 1000 unique pairs per metric and source.
+Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data. They can be used, for example, to label a point's datacenter, version, etc. You add point tags in the [Wavefront proxy](proxies_preprocessor_rules.html) and they are added automatically by the [AWS cloud integration](integrations_aws_metrics.html#wavefront-point-tags). You can query point tags in Wavefront Query Language expressions.  Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. See [Best Practices for Point Tags](wavefront_data_format.html#best-practices-for-point-tags).
  
 Suppose you send the following points, all from a single source cache1, over a 5 minute period:
 
