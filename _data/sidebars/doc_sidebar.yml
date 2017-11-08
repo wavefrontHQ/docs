@@ -52,7 +52,7 @@ entries:
       output: web
       
     - title: 2017-44.x Release Notes
-      url: /2017_44.x_release_notes_rev.html
+      url: /2017_44.x_release_notes.html
       output: web
       
     - title: 2017-40.x Release Notes
