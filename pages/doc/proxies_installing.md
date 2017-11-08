@@ -18,8 +18,8 @@ Installation procedures might require a Wavefront API URL `<wavefront_api_url>` 
 
 ## Proxy Host Requirements
 
-- Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response rather than a time-out.
-- Memory - you don't need a dedicated the host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
+- Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
+- Memory - you don't need a dedicated host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux
     - Ubuntu 12.04, 14.04, 16.04
@@ -34,7 +34,7 @@ Installation procedures might require a Wavefront API URL `<wavefront_api_url>` 
 
 ## Installing a Proxy on a Single Host
 
-To install and run a proxy on a Linux, Mac or Windows host, or in a Docker container on a host:
+To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker container on a host:
 
 1. Open the Wavefront application UI.
 1. Select **Browse > Proxies**.
@@ -51,7 +51,7 @@ To install and run a proxy on a Linux, Mac or Windows host, or in a Docker conta
 
 ## Installing Proxies on Multiple Linux Hosts
 
-Ansible is an open-source automation engine that automates software provisioning, configuration management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple Linux hosts. For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) setup instructions.
+Ansible is an open-source automation engine that automates software provisioning, configuration and management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple Linux hosts. For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) setup instructions.
 
 <a name="restart"></a>
 
@@ -67,17 +67,17 @@ Run the following commands on the proxy host:
 
 - Linux
 
-  ```shell
+  ```
   $ service wavefront-proxy [start | stop | restart]
   ```
 - Mac
 
-  ```shell
+  ```
   $ brew services [start | stop | restart] wfproxy
   ```
 - Docker
 
-  ```shell
+  ```
   $ docker [start | stop ] <proxy_container_id>
   ```
 - Windows
@@ -142,7 +142,7 @@ You can test that a proxy is receiving and sending data by sending it a JSON pay
 
 ## Running a Proxy in a Docker Container
 
-To run a Docker container using the Docker run command, follow the instructions in [Installing a Proxy on a Single Host](#single). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:.
+To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](#single). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:.
 
 ### Docker Compose
 
