@@ -17,7 +17,7 @@ The AWS integration ingests three types of data:
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** - retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data.
 - **[CloudTrail](http://aws.amazon.com/cloudtrail)** - retrieves EC2 event information and creates Wavefront System events that represent the AWS events.
-- **AWS Metrics+** - retrieves [additional metrics](#aws-metrics-data) using AWS APIs other than CloudWatch. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of Cloudwatch, and saves money on Cloudwatch calls as a result.
+- **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** - retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of Cloudwatch, and saves money on Cloudwatch calls as a result.
 
 For information how to monitor AWS data ingestion, see [AWS Integration](wavefront_monitoring.html#aws-integration).
 
