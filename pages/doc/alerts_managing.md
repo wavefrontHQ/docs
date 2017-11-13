@@ -36,7 +36,9 @@ To create an alert:
 <td>Events Display</td>
 <td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying.html">event icons</a> on the preview chart.
 <ul><li><strong>Actual Firings (existing alerts only)</strong> - Select this radio button to display past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.</li>
-<li><strong>Backtesting</strong> - Select this radio button to display hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. Backtesting enables you to fine tune new or existing alert conditions before you save them.</li></ul>
+<li><strong>Backtesting</strong> - Select this radio button to display hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. Backtesting enables you to fine tune new or existing alert conditions before you save them.
+
+Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing. </li></ul>
 </td>
 </tr>
 <tr>

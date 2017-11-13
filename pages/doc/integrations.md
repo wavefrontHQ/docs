@@ -7,11 +7,11 @@ permalink: integrations.html
 summary: Learn about the integrations supported by Wavefront, how to install an integration, and how to work with integration content.
 ---
 
-Integrations facilitate setting up links between the Wavefront application and external systems.
+Integrations facilitate getting data from external systems into the Wavefront application.
 
 ## Integration Categories
 
-Integrations are grouped into categories based on the type of link set up between Wavefront and the external system.
+Wavefront supports several categories of integrations. Each category sets up a different type link between Wavefront and the external system.
 
 - **Featured, Collector, and Code Instrumentation** - set up sending metrics data into Wavefront. These include:
   - Ingesting metrics into Wavefront using the Telegraf collector agent and the Wavefront proxy
