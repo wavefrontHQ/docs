@@ -7,7 +7,7 @@ permalink: integrations.html
 summary: Learn about the integrations supported by Wavefront, how to install an integration, and how to work with integration content.
 ---
 
-Integrations facilitate getting data from external systems into the Wavefront application.
+Integrations make it easy for you to get data from external systems into the Wavefront application. 
 
 ## Integration Categories
 
