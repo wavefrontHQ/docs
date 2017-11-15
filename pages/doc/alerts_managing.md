@@ -7,9 +7,9 @@ permalink: alerts_managing.html
 summary: Learn how to manage alerts.
 ---
 
-You can view alert history and snooze and unsnooze alerts. 
+You can create and edit alerts, view alert history, and snooze and unsnooze alerts. 
 
-For additional details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
+For details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
 
 To view and manage alerts, click the **Alerts** button or select **Browse > Alerts**.
 
@@ -50,12 +50,13 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 <td>A conditional ts() expression that defines the threshold for the alert. You can use any valid <a href=
 "query_language_getting_started.html">Wavefront Query Language</a> constructs in the expression. You can use free form query mode or the <a href="query_language_query_builder.html">Query Builder</a> to create the expression. The expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - Length of time during which the Condition expression must be true before the alert fires. The minimum number of minutes is 1.  For example, if you enter 5, the alerting engine reviews the value of the Condition during the last 5 minute window to determine if the alert should fire or not.</li>
-<li><strong>Alert resolves</strong> - Length of time during which the Condition expression must be false before the alert switches to resolved. The minimum number of minutes is 1.  If you don't enable this field and specify a time, it defaults to the <strong>Alert fires</strong> setting.</li></ul>For details on theses settings and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
+<li><strong>Alert resolves</strong> - Length of time during which the Condition expression must be false before the alert switches to resolved. The minimum number of minutes is 1.  If you don't specify a time, defaults to the <strong>Alert fires</strong> setting.</li></ul>For details on theses settings and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
+<div><strong> Setting Alert resolves to a value that is lower than Alert fires can result in  multiple resolve-fire cycles under certain circumstances. </strong></div>
 </td>
 </tr>
 <tr>
 <td>Display Expression</td>
-<td markdown="span">Optional. The query sent to targets when notified of alert state changes. You can use free form query mode or the [Query Builder](query_language_query_builder.html) to create the expression. If not set, the query sent is the expression in the Condition field.</td>
+<td markdown="span">Optional. The query that is sent to targets when notified of alert state changes. You can use free form query mode or the [Query Builder](query_language_query_builder.html) to create the expression. Use this field to show a more helpful query, for example, the underlying time series. If not set, the query sent is the expression in the Condition field.</td>
 </tr>
 <tr>
 <td>Severity</td>
@@ -63,7 +64,7 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">Targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html) separated by commas.
+<td markdown="span">Targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html) separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
 </td>
 </tr>
 <tr>
@@ -77,7 +78,7 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 </tbody>
 </table>
 
-Click the <strong>Advanced</strong> link to configure the properties:
+Click the <strong>Advanced</strong> link to configure the following alert properties:
 
 <table>
 <tbody>
@@ -87,7 +88,11 @@ Click the <strong>Advanced</strong> link to configure the properties:
 <td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
 </tr><tr>
 <td>Resend Notifications</td>
-<td>Whether to resend notification of a firing alert and if enabled, the number of minutes to wait before resending the notification.</td>
+<td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td>Click the <strong>Obsolete Metrics</strong> check box to include metrics that did not report for 4 weeks or more. Customers who use queries that aggregate data in longer timeframes sometimes want to include those obsolete metrics.</td>
 </tr>
 </tbody>
 </table>
@@ -107,7 +112,11 @@ To delete one or more alerts, select the checkboxes next to one or more alerts a
 
 ## Exploring Alert History
 
-Alert history provides you with changes that have been made to an alert over time. You can access the alert history by selecting ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. When you select Versions, a page displays contain a list of versions of the alert. Alert history tells you which user made the changes, the date and time the changes were made, and a description of the changes. You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
+Alert history shows the changes that have been made to an alert over time. To access the alert history, select ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. Alert history shows:
+* Which user made the changes
+* The date and time the changes were made, 
+* A description of the changes. 
+You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
 
 ## Snoozing and Unsnoozing Alerts
 
