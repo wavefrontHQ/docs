@@ -131,7 +131,7 @@ entries:
       url: /query_language_query_wizard.html
       output: web
       
-    - title: Wavefront Query Language Reference
+    - title: Wavefront Query Language Quick Reference
       url: /query_language_reference.html
       output: web
       
@@ -244,7 +244,7 @@ entries:
       url: /maintenance_windows_managing.html
       output: web
       
-    - title: Using Alert Targets to Integrate Alerts with Notification Systems
+    - title: Using Alert Targets
       url: /webhooks_alert_notification.html
       output: web
           
@@ -406,7 +406,7 @@ entries:
 #      url: /proxies_histograms.html
 #      output: web
       
-    - title: Configuring Wavefront Proxy Preprocessor Rules
+    - title: Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
       output: web
       
