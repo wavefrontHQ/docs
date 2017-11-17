@@ -6,47 +6,48 @@ sidebar: doc_sidebar
 permalink: alerts_robustness_increasing.html
 summary: Learn how to develop alert conditions and properties that limit spurious alerts.
 ---
-Monitoring a production environment can be a challenging task. But if you have the right alert strategy, you can prevent alert fatigue and ensure that teams respond and take corrective actions. As a result, the alert event doesn't escalates into a full-blown outage. 
+Monitoring a production environment can be a challenging task. But if you have the right alert strategy, you can prevent alert fatigue and ensure that teams respond and take corrective actions. As a result, the alert event doesn't escalate into a full-blown outage. 
 
-Each environment is different -- but Wavefront supports fine-grained customization.  Here are some tips to help you to improve alert robustness and prevent false positives.
+Each environment is different -- but Wavefront supports fine-grained customization.  Here are some tips to help you improve alert robustness and prevent false positives.
  
 ## Account for Delayed Data Points
  
-Network delays or slow processing of application metrics at the backend can have a negative impact on alert processing -- and that can lead to false triggers. If an alerting mechanism is too sensitive to delayed metric data, false positives result. When the delayed metric data points are processed, the backfill data arrive, and alerts resolve. Adjusting the alert query to account for delayed metric data points can prevent false positives. Use the `lag()` function, as follows:
+Network delays or slow processing of application metrics at the backend can have a negative impact on alert processing -- and that can lead to false triggers. If the alerting mechanism is too sensitive to delayed metric data, false positives result. When the delayed metric data points are processed, the backfill data arrive, and alerts resolve. Adjusting the alert query to account for delayed metric data points can prevent false positives. Use the `lag()` function, as follows:
  
 ```
 lag(30m, sum(ts("aws.elb.requestcount"))) < 0.3 * lag(1w, sum(ts("aws.elb.requestcount")))
 ```
  
-The example above analyzes a single value of the `aws.elb.requestcount` metric that was reported 30 minutes ago. The example compares the value with the value that was measured one week ago and determines if the request count dropped below 30%. With this alert query we look at a value reported 30-minutes ago -- which allows delayed data points to catch up -- and we also look at the overall trend of the data. As a result, delayed metric points do not falsely trigger the alert.
+The example above analyzes a single value of the `aws.elb.requestcount` metric that was reported 30 minutes ago. The example compares the value with the value that was measured one week ago, and determines whether the request count dropped below 30%. The example alert query looks at a value reported 30-minutes ago -- which allows delayed data points to catch up. The example also looks at the overall trend of the data. As a result, delayed metric points do not falsely trigger the alert.
  
-As an alternative, it's possible to set the **Alert fires** threshold higher than the default two minutes. This setting depends on the frequency of the arrival of data points, and it accounts for any possible delays in the application metrics delivery pipeline. This compensates for external delays of metrics.
+As an alternative, you can set the **Alert fires** threshold higher than the default 2 minutes. This setting depends on the frequency of the arrival of data points, and it accounts for any delays in the application metrics delivery pipeline. This compensates for external delays of metrics.
  
 ## Account for Missing Data Points
  
-The best approach we've found to account for missing data points is to use `mcount()`. A general query could be something like: mcount(5m, ts(my.metric)) = 0.
+The best approach we've found to account for missing data points is to use `mcount()`. A general query could be something like
+`mcount(5m, ts(my.metric)) = 0`.
 
 You can tweak a few things:
 
 - Ensure that the time interval associated with `mcount()` is appropriate for your set of data. If you expect that data will be reported once a minute, using `mcount(30s)` is not a good approach. And if you want to avoid false positives, `mcount(1m)` won't work either because it can be affected by a even slight delay. However, `mcount(5m)` works well -- it triggers after 5 minutes of NO DATA.
-- You can also tweak the = 0 clause in the example query for your use case. If you want to know when "NO DATA" at all was reported, then it's the right approach. However, if you expect data to be reported once a minute, and you'd like to know when it's not consistently reported, then `mcount(5m, ts(my.metric)) <= 3` works better. With that query, you trigger the alert if there are 2 or more missing data points in the last 5 minutes.
+- You can also tweak the = 0 clause in the example query for your use case. If you want to know when no data at all was reported, then using = 0 is the right approach. However, if you expect data to be reported once a minute, and you'd like to know when data is not consistently reported, then `mcount(5m, ts(my.metric)) <= 3` works better. With that query, you trigger the alert if there are 2 or more missing data points in the last 5 minutes.
 
 The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data.
 
 For example:
 *  `mcount(5m, ts(metric1))` reports a value for 10 minutes after metric1 stops reporting.
-*  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops - but it fills in 0 values for all previous gaps, even if the gaps were much larger than 10 minutes. That means if metric2 reports 1 value every hour, then  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes, but if a new value comes in after 50 more minutes, it will backfill the entire hour.
+*  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops - but it fills in 0 values for all previous gaps, even if the gaps were much larger than 10 minutes. That means if metric2 reports 1 value every hour, then  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes -- but if a new value comes in after 50 more minutes, `mcount` will backfill the entire hour.
 
-If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`
+If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`.
  
 ## Alert on Wavefront Proxy
  
-The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront proxy and then the proxy pushes the data to the Wavefront collector service. Make sure that the proxy checks in with Wavefront and ensure that data is being pushed to the collector. You can set up an alert for this alert by using the following query:
+The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront proxy and then the proxy pushes the data to the Wavefront collector service. Make sure that the proxy checks in with Wavefront and make sure that data is being pushed to the collector. You can set up an alert for this alert by using the following query:
  
 ```
 mcount(5m,sum(rate(ts(~agent.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~agent.check-in)), sources)) !=0
-```
- 
-This query uses the `~agent.check-in` metric to verify that the agents are reporting in. By applying a second argument to the alert query, you capture those time series that have stopped reporting a value in the last 5 minutes and that have had at least 1 value reported in the last hour.
+``` 
+
+This query uses the `~agent.check-in` metric to verify that the agents are reporting in. By applying a second argument to the alert query, you capture those time series that stopped reporting a value in the last 5 minutes and that had at least 1 value reported in the last hour.
 
 
