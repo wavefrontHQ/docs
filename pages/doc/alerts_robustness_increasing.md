@@ -35,7 +35,6 @@ You can tweak a few things:
 The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data.
 
 For example:
-*  `mcount(5m, ts(metric1))` reports a value for 10 minutes after metric1 stops reporting.
 *  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops - but it fills in 0 values for all previous gaps, even if the gaps were much larger than 10 minutes. That means if metric2 reports 1 value every hour, then  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes -- but if a new value comes in after 50 more minutes, `mcount` will backfill the entire hour.
 
 If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`.
