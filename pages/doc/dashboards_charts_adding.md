@@ -7,7 +7,8 @@ permalink: dashboards_charts_adding.html
 summary: Learn how to add charts to dashboards.
 ---
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
- 
+
+
 Sometimes you will find an existing chart that you want to add to your own dashboard. For example, you might want to start building your own dashboards by reusing charts from an introductory dashboard. This document explains how to clone a chart and add it to a new or existing dashboard. The following process does not remove the selected chart from its current dashboard, but clones the chart and adds the clone to the new or existing dashboard:
 
 1. Identify the chart to add to your new or existing dashboard.
@@ -25,6 +26,3 @@ Sometimes you will find an existing chart that you want to add to your own dashb
       1. Click **Insert**. The selected dashboard opens in edit mode. The chart you selected displays at the top of the dashboard under a section titled Incoming Chart.
       1. Click and drag the cloned chart to the section/row of your choice.
       1. Click **Save** at the top of the dashboard.
-
-
-
