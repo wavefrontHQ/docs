@@ -11,6 +11,12 @@
     $ sudo gem install nokogiri -v '1.7.1'
     $ bundle install
     ```
+1. Stay in the repository directory and clone the required submodules (which basically include the README.md of 
+Wavefront public repositories into the official documentation)
+    ```shell
+    $ git submodule init
+    $ git submodule fetch
+    ```
 
 ## Run and View Site Locally
 
