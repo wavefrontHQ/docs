@@ -20,11 +20,11 @@ Wavefront supports several categories of integrations. Each category sets up a d
   - Ingesting custom metrics sent from applications to the Wavefront proxy
   - Pulling metrics from [Amazon Web Services](integrations_aws_metrics.html)
 
-  ![collector integrations](images/integrations_data_collector.png)
+  ![Wavefront architecture](images/wavefront_architecture.svg)
 
 - **Alert Notification** - set up sending alerts from Wavefront to incident management systems and notification services.
 
-  ![alert notification integrations](images/IntegrationsAlertNotification.svg)
+  ![alert notification integrations](images/integrations_alert_notification.svg)
 
 - **Authentication** - set up authentication providers to enable SSO access to the Wavefront application.
 
