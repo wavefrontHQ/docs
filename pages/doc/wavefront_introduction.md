@@ -5,24 +5,20 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about the Wavefront platform.
 ---
-Wavefront is a high performance streaming analytics platform designed for monitoring and optimization.  The service is
-unique in its ability to scale to very high data ingestion rates and query loads. The result is a technology stack
-unique in its ability to scale horizontally while providing access to all of the granular (not aggregated) data
-collected for all time.
+Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. The service is
+unique because it can scale to very high data ingestion rates and query loads. That means you can collect data from more and more services, and can still look at details about earlier data collected by Wavefront.
 
-The major components of Wavefront include the **Wavefront SaaS application**, which facilitates economies of scale for
-deployment, flexibility, and time to value and the **Wavefront proxy**.  The Wavefront proxy is the interface to
-**collector agents**, which instrument hardware and software applications and standalone applications. The Wavefront application can also ingest
-metrics directly from external services such as Amazon Web Services. The diagram below depicts each of these components.
+Wavefront has these main components:
+* The **Wavefront service** runs the metrics collection engine. The Wavefront server can get metrics from a Wavefront proxy, or ingest metrics directly from certain external cloud services such as Amazon Web Services.
+* The **Wavefront proxy** forwards data to the Wavefront service in a secure, fast, and reliable way.
+  - A **collector agent** such as Telegraf can send data to the proxy or
+  - You can send your metrics directly to the proxy, as long as the data is in one of the [supported data formats](wavefront_data_format.html). For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
 
-![Wavefront architecture](images/wavefront_architecture.png)
+![Wavefront architecture](images/wavefront_architecture.svg)
 
-It's possible to have several data centers from different locations feeding data into Wavefront versus traditional on
-premise solutions which can only provide a view of one location at a time.  At a high level, the setup process typically
-consists of configuring collectors to send data to one or more Wavefront proxies and then configuring the Wavefront
-proxies to forward this data to the Wavefront application.
+You can view data from many sources in Wavefront. For example, you can view data from several data centers, on-prem or in the cloud - and because Wavefront keeps all the details, you can go back and look at data you collected much earlier.
 
-Let's delve into these Wavefront components.
+Let's have a look at these Wavefront components.
 
 ## Wavefront Application
 
@@ -96,5 +92,3 @@ A proxy generates its own [internal metrics](wavefront_monitoring.html) for easy
 ## Collector Agent
 
 Collector agents collect metrics from monitored systems and send them to the Wavefront proxy. Monitored systems can include hosts, containers, and many different types of applications. Wavefront supports many standard [collector agents](integrations.html), including Telegraf, Docker cAdvisor​, and others.
-
-

@@ -7,7 +7,7 @@ permalink: integrations.html
 summary: Learn about the integrations supported by Wavefront, how to install an integration, and how to work with integration content.
 ---
 
-Integrations make it easy for you to get data from external systems into the Wavefront application. 
+Integrations make it easy for you to get data from external systems into the Wavefront application.
 
 ## Integration Categories
 
@@ -24,17 +24,17 @@ Wavefront supports several categories of integrations. Each category sets up a d
 
 - **Alert Notification** - set up sending alerts from Wavefront to incident management systems and notification services.
 
-  ![alert notification integrations](images/integrations_alert_notification.png)
+  ![alert notification integrations](images/IntegrationsAlertNotification.svg)
 
 - **Authentication** - set up authentication providers to enable SSO access to the Wavefront application.
 
-  ![authentication integrations](images/integrations_authentication.png)
+  ![authentication integrations](images/integrations_authentication.svg)
 
 ## Integration Support
 
-Wavefront offers two levels of support for integrations: in-product and documentation. 
+Wavefront offers two levels of support for integrations: in-product and documentation.
 
-In-product integrations provide assisted installation and configuration. Featured and Data Collector integrations have advanced support such as dashboard installation. In-product integrations typically point to documentation for configuration reference information. 
+In-product integrations provide assisted installation and configuration. Featured and Data Collector integrations have advanced support such as dashboard installation. In-product integrations typically point to documentation for configuration reference information.
 
 Documentation integrations are available as documentation only and consist of installation and configuration instructions.
 
@@ -116,7 +116,7 @@ All in-product integrations have an overview of how the integration is implement
 
 Featured and Data Collector integrations also have:
 
-- **Metrics** - searchable list and charts of metrics sent by the integration and the rate that the integration is sending metrics. Each integration has a set of "canary" metrics that Wavefront uses to determine that the integration is functioning correctly. The Metrics tab automatically displays charts of the canary metrics. You can click any metric to display a chart of the metric. 
+- **Metrics** - searchable list and charts of metrics sent by the integration and the rate that the integration is sending metrics. Each integration has a set of "canary" metrics that Wavefront uses to determine that the integration is functioning correctly. The Metrics tab automatically displays charts of the canary metrics. You can click any metric to display a chart of the metric.
 - **Content** - pre-defined dashboards that highlight important metrics or illustrate techniques for querying metrics. Some dashboards contain pre-defined alert conditions embedded as queries in charts contained in the dashboards. You can install and uninstall the dashboards.
 
 For example, here is the Docker with cAdvisor integration:
@@ -178,7 +178,7 @@ To add an in-product integration, click **Integrations** in the task bar.
 ### Adding a Featured or Data Collector Integration
 
 1. Click a tile in the Featured or Data Collector sections.
-1. Click the **Setup** tab. 
+1. Click the **Setup** tab.
 1. Follow the instructions for installing and configuring required software.
 1. Click the **Metrics** tab to verify that metrics are flowing.
 1. Optionally click the **Content** tab and click **Install Dashboards**.
@@ -189,14 +189,14 @@ To add an in-product integration, click **Integrations** in the task bar.
 ### Adding a Custom Collector or Code Instrumentation Integration
 
 1. Click a tile in the Custom Collector or Code Instrumentations sections.
-1. Click the **Setup** tab. 
+1. Click the **Setup** tab.
 1. Follow the instructions for installing and configuring required software.
-1. Select **Browse > Metrics** tab to verify that metrics are flowing. 
+1. Select **Browse > Metrics** tab to verify that metrics are flowing.
 
 ### Adding an Alert Notification Integration
 
 1. Click a tile in the Alert Notification section.
-1. Click the **Setup** tab. 
+1. Click the **Setup** tab.
 1. Follow the instructions for configuring the notification service.
 1. [Create an alert](alerts_managing.html#creating-an-alert).
 1. Configure the Targets field to use the notification service.
@@ -205,7 +205,7 @@ To add an in-product integration, click **Integrations** in the task bar.
 ### Adding an Authentication Integration
 
 1. Click a tile in the Authentication section.
-1. Click the **Setup** tab. 
+1. Click the **Setup** tab.
 1. Follow the instructions for installing and configuring required software.
 
 ## Installing and Uninstalling Integration Dashboards
@@ -218,7 +218,3 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 1. Click the integration tile.
 1. Click the **Content** tab.
 1. Click **\[Install \| Uninstall\] Dashboards**.
-
-
-
-
