@@ -11,7 +11,7 @@ Integrations make it easy for you to get data from external systems into the Wav
 
 ## Integration Categories
 
-Wavefront supports several categories of integrations. Each category sets up a different type link between Wavefront and the external system.
+Wavefront supports several categories of integrations. Each category sets up a different type of link between Wavefront and the external system.
 
 - **Featured, Collector, and Code Instrumentation** - set up sending metrics data into Wavefront. These include:
   - Ingesting metrics into Wavefront using the Telegraf collector agent and the Wavefront proxy
