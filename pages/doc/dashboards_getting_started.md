@@ -33,14 +33,14 @@ Tutorial dashboards illustrate how to use Wavefront features to formulate querie
 - Intro: Dashboard Basics: Chart Types - introduces dashboard chart types and options: line, point, stacked area, scatter, etc.
 - Intro: Creating Alerts - describes how to create an alert and configure notification of the alert.
 
-## Use Cases 
+## Use Cases
 
 Identified by the tag **wavefront.tutorial**.
 
 - Intro: Use Case: Code Push Event - describes how to use Wavefront Query Language to develop queries to explore the effect of a code push event on a collection of servers.
 - Intro: Use Case: Anomaly Detection Series - Part 1 - describes how to use Wavefront Query Language to investigate anomalous application behavior.
 
-## Examples 
+## Examples
 
 Identified by the tag **wavefront.example**.
 
@@ -54,6 +54,4 @@ The best dashboard to start with is the **Intro: Home** dashboard. This dashboar
 
 ![intro_home.png](images/intro_home.png)
 
-The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for new users in the [customer-wide preferences](dashboards_managing.html#prefs) and yourself in the [user preferences](users_prefs_configuring.html).
-
-
+The **Intro: Home** dashboard is the default dashboard for new users. You can change the default dashboard for new users in the [customer-wide preferences](dashboards_managing.html#prefs) and yourself in the [user preferences](users_account_managing.html#configuring-your-preferences).

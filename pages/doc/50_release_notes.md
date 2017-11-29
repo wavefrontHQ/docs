@@ -124,7 +124,7 @@ Wavefront has added many new integrations and example dashboards. For informatio
 
 -   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See [Monitoring Docker with Wavefront](integrations_containers.html).
 -   AWS - [AWS Metrics Integration](integrations_aws_metrics.html)
--   Cassandra - [Apache Cassandra 3 Integration](integrations_cassandra.html)
+-   Cassandra - [Apache Cassandra 3 Integration](integrations_collectd_cassandra.html)
 -   Java metrics - [DropWizard Metrics Integration](integrations.html#in-product-integrations)
 -   Puppet - [Puppet Server Integration](integrations.html#in-product-integrations)
 -   StatsD - [Using StatsD with Wavefront](integrations.html#in-product-integrations)
@@ -165,5 +165,3 @@ Wavefront has added **eight** new categories of APIs and renamed the Management 
 -   **Source** - Retrieve sources and tags associated with a source. Users with Source Tag Management permission can add and remove source tags and set descriptions.
 -   **User** - Users with User Management permission can retrieve a list of all users, create, update, and delete users, and manage permissions.
 -   **Webhook** - Retrieve webhooks. Users with Alert Management permission can create, update, and delete webhooks.
-
-
