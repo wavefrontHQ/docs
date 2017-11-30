@@ -5,145 +5,133 @@ entries:
   product:
   version:
   folders:
-    
-  - title: Welcome
+
+  - title: Wavefront Quickstart
     output: web
     folderitems:
-      
+
     - title: Wavefront Documentation
       url: /index.html
       output: web
       type: homepage
-      
-  - title: Getting Started
-    output: web
-    folderitems:
 
-    - title: Introduction to Wavefront
+    - title: "What is Wavefront?"
       url: /wavefront_introduction.html
       output: web
 
-    - title: Getting Started Documentation
+    - title: "Docs & Dashboards Overview"
       url: /documentation_getting_started.html
       output: web
-      
-    - title: Getting Started Dashboards
-      url: /dashboards_getting_started.html
-      output: web
-      
-  - title: Tutorials
-    output: web
-    folderitems:
-      
+
     - title: "Tutorial: Getting Started"
       url: /tutorial_getting_started.html
       output: web
-      
+
     - title: "Tutorial: Getting Data into Wavefront"
       url: /tutorial_data_ingestion.html
       output: web
-      
+
   - title: Release Notes
     output: web
     folderitems:
-      
+
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
       output: web
-      
+
     - title: 2017-44.x Release Notes
       url: /2017_44.x_release_notes.html
       output: web
-      
+
     - title: 2017-40.x Release Notes
       url: /2017_40.x_release_notes.html
       output: web
-      
+
     - title: 2017-36.x Release Notes
       url: /2017_36.x_release_notes.html
       output: web
-      
+
     - title: 2017-32.x Release Notes
       url: /2017_32.x_release_notes.html
       output: web
-      
+
     - title: 2017-28.x Release Notes
       url: /2017_28.x_release_notes.html
       output: web
-      
+
     - title: 2017-16.x Release Notes
       url: /2017_16.x_release_notes.html
       output: web
-      
+
     - title: 8.x Release Notes
       url: /8x_release_notes.html
       output: web
-      
+
     - title: 6.x Release Notes
       url: /6x_release_notes.html
       output: web
-      
+
     - title: 5.0 Release Notes
       url: /50_release_notes.html
       output: web
-      
+
     - title: Wavefront Obsolescence Policy
       url: /wavefront_obsolescence_policy.html
       output: web
-      
+
   - title: Data
     output: web
     folderitems:
-      
+
     - title: Getting Data into Wavefront
       url: /wavefront_data_ingestion.html
       output: web
-      
+
     - title: Wavefront Data Format
       url: /wavefront_data_format.html
       output: web
-      
+
     - title: Wavefront Data Naming Best Practices
       url: /wavefront_data_naming.html
       output: web
-      
+
   - title: Query Language
     output: web
     folderitems:
-      
+
     - title: Getting Started with Wavefront Query Language
       url: /query_language_getting_started.html
       output: web
-      
+
     - title: Point Tags in Queries
       url: /query_language_point_tags.html
       output: web
-      
+
     - title: Series Matching
       url: /query_language_series_matching.html
       output: web
-      
+
     - title: Query Builder
       url: /query_language_query_builder.html
       output: web
-      
+
     - title: Query Wizard
       url: /query_language_query_wizard.html
       output: web
-      
+
     - title: Wavefront Query Language Quick Reference
       url: /query_language_reference.html
       output: web
-      
+
     - title: Understanding Slow Queries
       url: /dashboards_slow_queries.html
       output: web
-      
+
       subfolders:
       - title: Function Guides and Use Cases
         output: web
         subfolderitems:
-          
+
         - title: The align() Function
           url: /query_language_align_function.html
           output: web
@@ -167,11 +155,11 @@ entries:
         - title: Wavefront Use Cases
           url: /wavefront_use_cases.html
           output: web
-      
+
   - title: Charts
     output: web
     folderitems:
-      
+
     - title: Charts
       url: /charts.html
       output: web
@@ -179,23 +167,23 @@ entries:
     - title: Creating a Chart
       url: /charts_creating.html
       output: web
-      
+
     - title: Chart Resolution
       url: /charts_resolution.html
       output: web
-      
+
     - title: Units in Chart Axes and Legends
       url: /charts_units.html
       output: web
-      
+
     - title: Embedding a Chart
       url: /charts_embedding.html
       output: web
-      
+
   - title: Dashboards
     output: web
     folderitems:
-      
+
     - title: Dashboards
       url: /dashboards.html
       output: web
@@ -203,121 +191,121 @@ entries:
     - title: Interacting with Dashboards and Charts
       url: /dashboards_interacting.html
       output: web
-      
+
     - title: Adding a Chart to a Dashboard
       url: /dashboards_charts_adding.html
       output: web
-      
+
     - title: Managing Dashboards
       url: /dashboards_managing.html
       output: web
-      
+
     - title: Dashboard Variables
       url: /dashboards_variables.html
       output: web
-      
+
   - title: Alerts
     output: web
     folderitems:
-      
+
     - title: Alerts
       url: /alerts.html
       output: web
-      
+
     - title: Alert States and Lifecycle
       url: /alerts_states_lifecycle.html
       output: web
-      
+
     - title: Managing Alerts
       url: /alerts_managing.html
       output: web
-      
+
     - title: Alert Dependencies
       url: /alerts_dependencies.html
       output: web
-      
+
     - title: Increasing Alert Robustness
       url: /alerts_robustness_increasing.html
       output: web
-      
+
     - title: Managing Maintenance Windows
       url: /maintenance_windows_managing.html
       output: web
-      
+
     - title: Using Alert Targets
       url: /webhooks_alert_notification.html
       output: web
-          
+
   - title: Events
     output: web
     folderitems:
-      
+
     - title: Events
       url: /events.html
       output: web
-      
+
     - title: Managing Events
       url: /events_managing.html
       output: web
-      
+
     - title: Displaying Events in Charts
       url: /charts_events_displaying.html
       output: web
-      
+
     - title: Basic events() Queries
       url: /events_queries.html
       output: web
-      
+
     - title: Advanced events() Queries
       url: /events_queries_advanced.html
       output: web
-      
+
   - title: Integrations
     output: web
     folderitems:
-      
+
     - title: Integrations
       url: /integrations.html
       output: web
-      
+
       subfolders:
       - title: AWS Integrations
         output: web
         subfolderitems:
-          
+
           - title: AWS Metrics Integration
             url: /integrations_aws_metrics.html
             output: web
-            
+
           - title: AWS ECS Integration
             url: /integrations_aws_ecs.html
             output: web
-            
+
     - title: Container Integrations
       url: /integrations_containers.html
       output: web
-      
+
     - title: Log Data Metrics Integration
       url: /integrations_log_data.html
       output: web
-      
+
       subfolders:
       - title: Data Collector Integrations
         output: web
         subfolderitems:
-          
+
           - title: Telegraf Integration
             url: /integrations_telegraf.html
             output: web
-            
+
           - title: AppDynamics Integration
             url: /integrations_appdynamics.html
             output: web
-                        
+
           - title: JMX Integration
             url: /integrations_jmx.html
             output: web
-            
+
           - title: New Relic Integration
             url: /integrations_newrelic.html
             output: web
@@ -325,151 +313,151 @@ entries:
       - title: collectd Integrations
         output: web
         subfolderitems:
-          
+
           - title: collectd Integration
             url: /integrations_collectd.html
             output: web
-            
+
           - title: Apache collectd Integration
             url: /integrations_collectd_apache.html
             output: web
-            
+
           - title: Cassandra collectd Integration
             url: /integrations_collectd_cassandra.html
             output: web
-            
+
           - title: MySQL collectd Integration
             url: /integrations_collectd_mysql.html
             output: web
-            
+
           - title: NGiNX collectd Integration
             url: /integrations_collectd_nginx.html
             output: web
-            
+
           - title: Redis collectd Integration
             url: /integrations_collectd_redis.html
             output: web
-            
+
           - title: ZooKeeper collectd Integration
             url: /integrations_collectd_zookeeper.html
             output: web
-            
+
       - title: External System Integrations
         output: web
         subfolderitems:
-          
+
           - title: Managing External Links
             url: /external_links_managing.html
             output: web
-            
+
           - title: Visualizing Metrics with R
             url: /integrations_r.html
             output: web
-            
+
 #          - title: Visualizing Metrics with Python
 #            url: /integrations_python.html
 #            output: web
-            
+
   - title: Organizing and Searching
     output: web
     folderitems:
-      
+
     - title: Organizing with Tags
       url: /tags_overview.html
       output: web
-      
+
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
-      
+
   - title: Proxies
     output: web
     folderitems:
-      
+
     - title: Wavefront Proxies
       url: /proxies.html
       output: web
-      
+
     - title: Installing and Running Wavefront Proxies
       url: /proxies_installing.html
       output: web
-      
+
     - title: Managing Wavefront Proxies
       url: /proxies_managing.html
       output: web
-      
+
     - title: Configuring Wavefront Proxies
       url: /proxies_configuring.html
       output: web
-      
+
 #    - title: Wavefront Histograms
 #      url: /proxies_histograms.html
 #      output: web
-      
+
     - title: Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
       output: web
-      
+
     - title: Wavefront CLI
       url: /wavefront_cli.html
       output: web
-      
+
     - title: Wavefront Proxy Versions
       url: /proxies_versions.html
       output: web
-      
+
   - title: API
     output: web
     folderitems:
-      
+
       - title: Wavefront API
         url: /wavefront_api.html
         output: web
-        
+
       - title: Wavefront API Python Client
         url: /wavefront_api_python.html
         output: web
-        
+
   - title: Administration
     output: web
     folderitems:
-      
+
       - title: Permissions Overview
         url: /permissions_overview.html
         output: web
-        
+
       - title: Miscellaneous Permissions
         url: /permissions_misc.html
         output: web
-        
+
       - title: Managing Your Wavefront Account
         url: /users_account_managing.html
         output: web
-        
+
       - title: Enabling SSO with Authentication Providers
         url: /integrations_authentication.html
         output: web
-        
+
       - title: Managing Users and Permissions
         url: /users_managing.html
         output: web
-        
+
       - title: Managing Metrics
         url: /metrics_managing.html
         output: web
-        
+
       - title: Managing Sources
         url: /sources_managing.html
         output: web
-        
+
       - title: Monitoring Wavefront
         url: /wavefront_monitoring.html
         output: web
-        
+
   - title: Support
     output: web
     folderitems:
-      
+
       - title: Getting Help and Giving Feedback
         url: /wavefront_support_feedback.html
         output: web
@@ -481,4 +469,3 @@ entries:
       - title: Wavefront Privacy Policy
         url: /privacy.html
         output: web
-        
