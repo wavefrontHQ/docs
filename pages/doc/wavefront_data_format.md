@@ -12,7 +12,7 @@ The Wavefront proxy supports several [data formats](proxies_managing.html). This
 
 `<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]`
 
-Fields are space separated and each line is terminated with the newline character (\\n or ASCII hex 0A).
+Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A).
 
 ## Wavefront Data Format Fields
 
@@ -38,8 +38,8 @@ Fields are space separated and each line is terminated with the newline characte
 <td>The name of the metric.</td>
 <td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). Forward slash ("/") and comma (",") are allowed if metricName is enclosed in double quotes.
 <ul>
-<li markdown="span">Points with invalid characters in the metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
-<li>Metric searches are case-sensitive; i.e., ts("my.metric") will not find a metric "my.Metric".</li>
+<li markdown="span">Points with invalid characters in metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
+<li>Metric searches are case sensitive; ts("my.metric") does not find a metric "my.Metric".</li>
 </ul>
 Metric naming hierarchy recommendations:
 <ul>
@@ -51,7 +51,7 @@ Metric naming hierarchy recommendations:
 <td>metricValue</td>
 <td>Yes</td>
 <td>The value of the metric.</td>
-<td markdown="span">A number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_units.html).</td>
+<td markdown="span">A number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](charts_customizing.html#units_in_chart_axes_and_legends).</td>
 </tr>
 <tr>
 <td>timestamp</td>
@@ -75,18 +75,18 @@ Point tags must satisfy the following constraints:
 <li><strong>Key</strong> - Valid characters are: alphanumeric, hyphen ("-"), underscore ("_"), dot (".")</li>
 <li><strong>Value</strong> - We recommend enclosing tag values with double quotes (" "). If you surround the value with quotes any character is allowed, including spaces. To include a double quote, escape it with a backslash. The backslash cannot be the last character in the tag value.</li>
 </ul>
-The maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the length is longer, the point is rejected and logged.
+The maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the point is rejected and logged.
 
-Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. See Best Practices for Point Tags below. </td>
+Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. </td>
 </tr>
 </tbody>
 </table>
 
 ### Best Practices for Point Tags
 
-Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values. 
+Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
 
-For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results. 
+For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results.
 
 Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
 
@@ -110,4 +110,3 @@ Using point tags to store highly variable data such as timestamps, login emails,
 - `cpu0.loadavg.1m 0.03`
 
   -   **Reason:** No **source** field
-

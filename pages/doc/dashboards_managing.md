@@ -16,13 +16,16 @@ You can create a dashboard from the All Dashboards page, an existing dashboard, 
 1.  Do one of the following:
 
     -   In the All Dashboards page, click the **Create Dashboard** button on the filter bar.
-    -   From an existing dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side of the browser window below the task bar, and select **New**. You can also click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
+    -   From an existing dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side of the browser window below the task bar, and select **New**. Or click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
     -   From a chart, scroll down to the **Save to** section and click **New Dashboard**.
-    -   From the Metrics browser, locate **Create Dashboard** in the top left corner of the page and click it to begin the process of creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser also allows you to apply additional parameters such as sources and source tags.
+    -   From the Metrics browser, click **Create Dashboard** in the top left corner of the page to begin creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser allows you to apply additional parameters such as sources and source tags.
 
-    A Create New Dashboard dialog displays. Enter a URL and name for your dashboard. The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving. The Name field supports letters, numbers, characters, and spaces.
+    A Create New Dashboard dialog displays. Enter a URL and name for your dashboard.
 
-2.  Click **Create**. The dashboard is created and displays in edit mode. 
+    * The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving.
+    * The Name field supports letters, numbers, characters, and spaces.
+
+2.  Click **Create**. The dashboard is created and displays in edit mode.
 3.  Click **Cancel** or edit the dashboard and click **Save**.
 
 ## Deploying a Dashboard
@@ -43,7 +46,7 @@ To set the dashboard preferences:
 1. Click the wrench icon <i class="fa-wrench fa"/> at the top right of the dashboard.
 1. Edit the preferences.
    -   Dashboard name and description
-   -   Whether to display: 
+   -   Whether to display:
        - Description
        - [Section link bar](#sections)
        - [Dashboard variables](dashboards_variables.html)
@@ -80,15 +83,15 @@ When editing a dashboard, you can make changes to the dashboard description, nam
 ### Setting the Dashboard Name and Description
 
 1. Click the **&lt;&lt;Edit Dashboard Description&gt;&gt;** link. The [Dashboard Display Preferences](#prefs) dialog displays.
-1. Rename your dashboard and enter a description. 
-1. If you enter a description and want it to be displayed on your dashboard, click **Show Description**. 
+1. Rename your dashboard and enter a description.
+1. If you enter a description and want it to be displayed on your dashboard, click **Show Description**.
 1. Click **Accept**.
 
 <span id="sections"/>
 
 ### Configuring Dashboard Sections
 
-Charts are contained in sections. By default, every dashboard has at least one section. A section link bar displays directly below the time bar at the top of the dashboard. 
+Charts are contained in sections. By default, every dashboard has at least one section. A section link bar displays directly below the time bar at the top of the dashboard.
 
 ![Section_Table_of_Contents](images/section_links.png)
 
@@ -96,13 +99,13 @@ Jump to a section by clicking the link in the section bar. If the section link b
 
 ![Section_Editing](images/section_actions.png)
 
-While editing a dashboard, available sections actions are: 
+While editing a dashboard, available sections actions are:
 
-- Change the name: 
+- Change the name:
   1. Click the name at the far left.
   1. Type a new name.
-  1. Press **Enter** or **Return** or click anywhere away from the section name. 
-- Move, add, or delete. Click icons on the far right. 
+  1. Press **Enter** or **Return** or click anywhere away from the section name.
+- Move, add, or delete. Click icons on the far right.
 
 ### Resizing Rows
 
@@ -112,13 +115,13 @@ Resize a row within a section by clicking the resize icons ![resize.png](images/
 
 You can directly modify any dashboard properties by editing the dashboard's JSON format. Use this option only if you have a good understanding of JSON. To access the JSON editor:
 
-1. Put the dashboard in edit mode. 
+1. Put the dashboard in edit mode.
 1. Click **Edit JSON** next to the **Save** button on the task bar. The JSON format displays in the Tree editor. You can use the tree controls to expand, collapse, and reorder nodes.
 
    ![json tree.png](images/json_tree.png)
 
    You can also edit the JSON code directly by selecting **Tree > Code**. For example, to change a row height, edit the row's `heightFactor` property:
-  
+
    ```
    ...
    ],
@@ -141,7 +144,7 @@ To delete one or more dashboards:
 
 The dashboard(s) are moved to the Trash. You can view the Trash by clicking the trash toggle: Off - ![trash_off.png](images/trash_off.png#inline#inline)  On - ![trash_on.png](images/trash_on.png#inline).
 
-You can recover a dashboard within 30 days of being moved to the Trash. After 30 days, the deleted dashboard is removed from the Trash and is no longer recoverable. To permanently remove a dashboard before the 30 day deadline, toggle the Trash icon and manually delete it.
+You can recover a dashboard that was moved to the Trash less than 30 days ago. After 30 days, the deleted dashboard is removed from the Trash and you can no longer recover it. To permanently remove a dashboard before the 30 day deadline, toggle the Trash icon and manually delete it.
 
 ## Managing Dashboard Versions
 
@@ -152,9 +155,9 @@ Wavefront keeps track of changes made to a dashboard and displays those changes 
 
 From the Past Versions page, each revision is listed along with the user who made the change, the day and time it was updated, and the change description.
 
-To revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list. 
+To revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list.
 
-You can also choose to view a previous dashboard version before reverting by clicking the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
+If you want to view a previous dashboard version before reverting, click the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
 
 ## Managing Dashboard Tags
 
@@ -162,7 +165,7 @@ See [Organizing with Tags](tags_overview.html).
 
 ## Managing Charts in Dashboards
 
-To make changes to a chart in a dashboard, first put the dashboard in [edit mode](#editing-a-dashboard). After making a change, click **Save**.
+To make changes to a chart in a dashboard, put the dashboard in [edit mode](#editing-a-dashboard). After making a change, click **Save**.
 
 ### Adding a Chart to a Dashboard
 
@@ -182,11 +185,10 @@ You can also edit a chart by clicking the chart name in the top right corner. Sa
 
 To move a chart:
 
-1. Hover over a chart. 
+1. Hover over a chart.
 1. Left-click your mouse and hold. The cursor changes to <i class="fa-arrows fa"/>.
 1. Drag the chart to a new position on the dashboard. You can move the chart to an existing row or to a new row by dragging a chart over an <i class="fa-plus-circle fa"/> Add New Chart box.
 
-   You can place up to four charts in a row. The more charts in a row, the smaller each chart will be. The smaller the chart, the fewer the number of point buckets and larger the amount of time represented by each point bucket. See [Chart Resolution](charts_resolution.html).
+   You can place up to four charts in a row. More charts in a row means smaller charts. Smaller charts means fewer point buckets and a larger the amount of time represented by each point bucket. See [Chart Resolution](charts_customizing.html#units_in_chart_axes_and_legends).
 
-1. Release the mouse button. The chart is relocated.
-
+1. Release the mouse button to move the chart.

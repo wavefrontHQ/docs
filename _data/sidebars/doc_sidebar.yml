@@ -99,7 +99,7 @@ entries:
     output: web
     folderitems:
 
-    - title: Getting Started with Wavefront Query Language
+    - title: Wavefront Query Language Quickstart
       url: /query_language_getting_started.html
       output: web
 
@@ -156,11 +156,11 @@ entries:
           url: /wavefront_use_cases.html
           output: web
 
-  - title: Charts
+  - title: "Charts & Dashboards"
     output: web
     folderitems:
 
-    - title: Charts
+    - title: "Wavefront Charts"
       url: /charts.html
       output: web
 
@@ -168,23 +168,11 @@ entries:
       url: /charts_creating.html
       output: web
 
-    - title: Chart Resolution
-      url: /charts_resolution.html
+    - title: Chart Resolution and Units
+      url: /charts_customizing.html
       output: web
 
-    - title: Units in Chart Axes and Legends
-      url: /charts_units.html
-      output: web
-
-    - title: Embedding a Chart
-      url: /charts_embedding.html
-      output: web
-
-  - title: Dashboards
-    output: web
-    folderitems:
-
-    - title: Dashboards
+    - title: "Wavefront Dashboards"
       url: /dashboards.html
       output: web
 
@@ -204,7 +192,11 @@ entries:
       url: /dashboards_variables.html
       output: web
 
-  - title: Alerts
+    - title: Creating Embedded Charts
+      url: /charts_embedding.html
+      output: web
+
+  - title: "Alerts & Events"
     output: web
     folderitems:
 
@@ -216,10 +208,6 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
 
-    - title: Managing Alerts
-      url: /alerts_managing.html
-      output: web
-
     - title: Alert Dependencies
       url: /alerts_dependencies.html
       output: web
@@ -228,24 +216,16 @@ entries:
       url: /alerts_robustness_increasing.html
       output: web
 
-    - title: Managing Maintenance Windows
+    - title: Preventing Alerts from Firing
       url: /maintenance_windows_managing.html
       output: web
 
-    - title: Using Alert Targets
+    - title: Alert Targets
       url: /webhooks_alert_notification.html
       output: web
 
-  - title: Events
-    output: web
-    folderitems:
-
     - title: Events
       url: /events.html
-      output: web
-
-    - title: Managing Events
-      url: /events_managing.html
       output: web
 
     - title: Displaying Events in Charts
