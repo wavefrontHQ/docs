@@ -1,5 +1,6 @@
 ---
 title: Managing Alerts
+published: false
 keywords: alerts
 tags: [alerts]
 sidebar: doc_sidebar
@@ -7,7 +8,7 @@ permalink: alerts_managing.html
 summary: Learn how to manage alerts.
 ---
 
-You can create and edit alerts, view alert history, and snooze and unsnooze alerts. 
+You can create and edit alerts, view alert history, and snooze and unsnooze alerts.
 
 For details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
 
@@ -114,8 +115,8 @@ To delete one or more alerts, select the checkboxes next to one or more alerts a
 
 Alert history shows the changes that have been made to an alert over time. To access the alert history, select ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. Alert history shows:
 * Which user made the changes
-* The date and time the changes were made, 
-* A description of the changes. 
+* The date and time the changes were made,
+* A description of the changes.
 You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015, so you may not see any change history prior to that time if the alert was created before that time.
 
 ## Snoozing and Unsnoozing Alerts

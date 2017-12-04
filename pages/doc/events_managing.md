@@ -1,5 +1,6 @@
 ---
 title: Managing Events
+published: false
 keywords: events
 tags: [events]
 sidebar: doc_sidebar
@@ -82,5 +83,3 @@ To close a single event, select ![action menu](images/action_menu.png#inline) **
 ## Managing Event Tags
 
 See [Organizing with Tags](tags_overview.html).
-
-
