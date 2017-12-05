@@ -8,22 +8,22 @@ summary: Learn about alert conditions and states, when alerts fire, and how aler
 
 ## Alert Conditions
 
-An alert condition is a conditional ts() expression that defines the threshold for an alert. 
-* If an alert's [Condition](alerts_managing.html#alert-properties) field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as `true` (1) and all reported values that do not satisfy the condition are marked as `false` (0). 
+An alert condition is a conditional ts() expression that defines the threshold for an alert.
+* If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as `true` (1) and all reported values that do not satisfy the condition are marked as `false` (0).
 * If the Condition field is set to a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as `true` and all zero reported values are marked as `false`. If there is _no reported data_, then values are evaluated as neither true nor false.
 
 ## Alert States
 
 An alert can be in one of the following states:
 
-* **CHECKING** - The alert is being checked whether the Condition and Alert fires properties are being met. 
+* **CHECKING** - The alert is being checked whether the Condition and Alert fires properties are being met.
 
   Alerts can't be in the CHECKING and the FIRING state at the same time even though firing alerts are being checked to determine if firing conditions are still being met.  An alert resolves (transitions back to CHECKING) when no true values present within the time window, or when the time window contains no data.
 * **FIRING** - The alert is meeting the Condition and Alert fires properties. An alert transitions to FIRING when the condition evaluates to at least one true value and no false values during a fixed time window.
-* **NO DATA** - The series for which an alert is defined is not reporting data. 
+* **NO DATA** - The series for which an alert is defined is not reporting data.
 
-  You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select Alert Has No Data in the corresponding [Alert Target](https://docs.wavefront.com/webhooks_alert_notification.html#creating-an-alert-target). For those alert targets, select Alert Has No Data Resolved if you want to send a notification when the alert exits the NO DATA state.  
-* **IN MAINTENANCE** - The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window. 
+  You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select Alert Has No Data in the corresponding [Alert Target](/webhooks_alert_notification.html#creating-an-alert-target). For those alert targets, select Alert Has No Data Resolved if you want to send a notification when the alert exits the NO DATA state.
+* **IN MAINTENANCE** - The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window.
 
   If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE. If an alert has a subset of reporting sources associated with an ongoing maintenance window but the other sources are firing, the state displays as FIRING/IN MAINTENANCE.
 * **INVALID** - The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).
@@ -31,7 +31,7 @@ An alert can be in one of the following states:
 
 ## When Alerts Are Checked
 
-The time series associated with an alert are checked to determine whether the alert should fire or not. Default for checking frequency is 1 minute. You can change the [Checking Frequency](alerts_managing.html#alert-properties) from the UI.
+The time series associated with an alert are checked to determine whether the alert should fire or not. Default for checking frequency is 1 minute. You can change the alert checking frequency from the UI.
  
 The exact time of the check for the same alert is not fixed and can vary slightly within the minute. For example, for a specific alert it’s possible that a check occurs at 1:01:17p and the next check occurs at 1:02:13p.
 
@@ -46,8 +46,8 @@ The time window that we evaluate at the default checking frequency interval depe
 - The last data point evaluated by an alert is determined by the following equation:
 
   `alert check time (rounded down to nearest minute) - 1 minute`
-  
-  We use this equation to ensure that the alert has a full minute's worth of data to evaluate. 
+
+  We use this equation to ensure that the alert has a full minute's worth of data to evaluate.
   For example, suppose the Alert fires property is set to 5 minutes. If the alert check time is 1:09:32p, then the last data point evaluated is 1:08:00p (("1:09:32" - "0:00:32") - "0:01:00"). The 5 minute time window covers data points in the 1:04:00p to 1:08:59p interval.
 
 ## When Alerts Fire
@@ -74,12 +74,12 @@ If you use the out-of-the-box PagerDuty alert target, and you resolve the incide
 
 - If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
 
-  - Newly affected sources are added to the list of existing affected sources 
+  - Newly affected sources are added to the list of existing affected sources
   - A subset of the existing sources being affected is no longer affected
 
 - If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
 
-You can customize this behavior using the PagerDuty [alert target](webhooks_alert_notification.html). 
+You can customize this behavior using the PagerDuty [alert target](webhooks_alert_notification.html).
 
 ## Viewing Firing Alerts
 
@@ -100,14 +100,13 @@ Sometimes an alert fires even though it looks like it shouldn't have fired. This
 
 An alert resolves when there are either no true values present within the given Alert resolves time window, or when the Alert resolves time window contains no data. If the Alert resolves property is not set, the property defaults to the Alert fires value.
 
-**Note** Setting Alert resolves to a value that is lower than Alert fires can result in  multiple resolve-fire cycles under certain circumstances. 
+**Note** Setting Alert resolves to a value that is lower than Alert fires can result in  multiple resolve-fire cycles under certain circumstances.
 
-For example assume the following scenario: 
+For example assume the following scenario:
  1. The alert condition is `ts(metric.name) > 0”, alert fires = 10, alert resolves = 5`
- 1. metric.name normally reports 0, but starts reporting 1. 
+ 1. metric.name normally reports 0, but starts reporting 1.
  1. After 10 minutes, the alert fires (because metric.name has been 1)
- 1. At 10:30, metric.name returns to 0 and stops reporting new messages. 
+ 1. At 10:30, metric.name returns to 0 and stops reporting new messages.
  1. At 1:36, the alert resolves because the value was 0 for the last 5 minutes.
- 1. At 1:37, the alert fires again because there were 1 values in the last 10 minutes. 
- 1. Then the alert resolves again and fires again, until 1:41 when it finally resolves. 
-
+ 1. At 1:37, the alert fires again because there were 1 values in the last 10 minutes.
+ 1. Then the alert resolves again and fires again, until 1:41 when it finally resolves.

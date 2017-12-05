@@ -26,11 +26,11 @@ To view events, select **Browse > Events**. The Events list displays. Here is an
 Events have three types of sources.
 
 - **System/Alert** -- When an alert fires or resolves, the source is **System/Alert**.
-- **System** -- When you perform actions in Wavefront, such as when you [edit or snooze an alert](alerts_managing.html) or when newly affected sources fail or recover from an alert condition, the source is **System**.
+- **System** -- When you perform actions in Wavefront, such as when you [edit an alert](alerts.html) or [snooze an alert](maintenance_windows_managing.html#snoozing-and-unsnoozing-alerts), or when newly affected sources fail or recover from an alert condition, the source is **System**.
 
 ![Events system](images/event_system.png)
 
-- **User** You can [manually create events](events_managing.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an even for code pushes that occur outside Wavefront but that affect Wavefront metrics.
+- **User** You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an even for code pushes that occur outside Wavefront but that affect Wavefront metrics.
 
 ![Events system](images/event_user.png)
 

@@ -76,7 +76,7 @@ The Wavefront Query Language is the foundation of charts and alerts in Wavefront
 Alerts and events make it possible to track critical changes in your environment. The following topics help you learn about alerts and events in Wavefront.
 
 - [Alerting States and Lifecycle](alerts_states_lifecycle.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Creating an Alert](alerts_managing.html#creating-an-alert)
+- [Creating an Alert](alerts.html#creating-an-alert)
 -  [Displaying Events in Charts](charts_events_displaying.html)
 
 ### Release Notes

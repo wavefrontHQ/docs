@@ -10,25 +10,25 @@ summary: Learn how to use alert targets to integrate alerts and notification sys
 You can use Wavefront alert targets to integrate alerts with many types of notification systems. Use one of the following alert target types:
 
 * A webhook alert target is a user-defined HTTP
-callback that is triggered when an alert changes state. When the state change occurs, Wavefront makes an HTTP POST request to the URL that you configured for the webhook. 
+callback that is triggered when an alert changes state. When the state change occurs, Wavefront makes an HTTP POST request to the URL that you configured for the webhook.
 
-* An Email alert target allows you to specify the attributes of an email that is sent when an alert is triggered. The email can include a POST body with details about the alert. 
+* An Email alert target allows you to specify the attributes of an email that is sent when an alert is triggered. The email can include a POST body with details about the alert.
 
-* A PargerDuty alert target allows you to specify a PagerDuty key and a POST body to use when an alert is triggered. 
+* A PargerDuty alert target allows you to specify a PagerDuty key and a POST body to use when an alert is triggered.
 
-The POST data that you can include with each type of alert are passed as a JSON payload. 
+The POST data that you can include with each type of alert are passed as a JSON payload.
 
-For maximum flexibility and control, you can create alert targets from scratch. You can also use one of the predefined integrations that use alert notification. 
+For maximum flexibility and control, you can create alert targets from scratch. You can also use one of the predefined integrations that use alert notification.
 
-* This document explains how to create and configure different alert targets, including webhooks and webhook payloads. You can use webhook templates, variables, and functions to construct virtually any type of payload. 
+* This document explains how to create and configure different alert targets, including webhooks and webhook payloads. You can use webhook templates, variables, and functions to construct virtually any type of payload.
 
-* Wavefront provides predefined integrations for several systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the [in-product integrations](integrations.html). 
+* Wavefront provides predefined integrations for several systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the [in-product integrations](integrations.html).
 
 To view and manage alert targets, select **Browse > Alert Targets**.
 
 ## Prerequisites
 
-If you use a webhook alert target, the webhook url must be publicly accessible. 
+If you use a webhook alert target, the webhook url must be publicly accessible.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
@@ -38,7 +38,7 @@ The process for creating an alert target is fairly similar for the different tar
 
 1.  Select **Browse > Alert Targets**.
 1.  Click the **Create Alert Target** button.
-1.  From the **Type** pull-down menu, select the alert target type  and fill in the properties. Certain properties are available only for certain alert target types. 
+1.  From the **Type** pull-down menu, select the alert target type  and fill in the properties. Certain properties are available only for certain alert target types.
 <table>
     <tbody>
     <thead>
@@ -85,7 +85,7 @@ The process for creating an alert target is fairly similar for the different tar
       <td>Custom Headers </td>
       <td>Name and value of one or more HTTP headers to pass in the POST request.</td>
     </tr>
-    
+
     <tr>
       <td rowspan="2">Email Alert Target Type </td>
       <td markdown="span">Email Address List </td>
@@ -104,7 +104,7 @@ The process for creating an alert target is fairly similar for the different tar
     <td>Alert Target POST Body Template</td>
     <td colspan="2" markdown="span">Template for a payload that the alert target sends sends in the POST request. Click Template to select a template that is appropriate for the alert target type, and enter the information. </td>
     </tr>
-    
+
     </tbody>
     </table>
 1. Select **Webhook POST Body Template > Template > \<template_type\>**, where \<template_type\> is Default, Slack, VictorOps, or HipChat.
@@ -114,12 +114,12 @@ The process for creating an alert target is fairly similar for the different tar
 
 
 ## Customizing Alert Target Templates
- 
+
 Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/) and a set of payload [variables](#payload-variables) and [functions](#payload-functions).
 
 ### Payload Variables
 
-You can customize the payload using properties and iterators that characterize the alert that is triggering the alert target. 
+You can customize the payload using properties and iterators that characterize the alert that is triggering the alert target.
 
 The iterator categories are: `failing`, `inMaintenance`, `newlyFailing`, and `recovered`. The iterators return three types of objects:
 
@@ -134,7 +134,7 @@ The iterator categories are: `failing`, `inMaintenance`, `newlyFailing`, and `re
   - `tags` - Point tags on the series.
   - `observed` - Number of points returned by the alert condition.
   - `firing` - Number of points that satisfy the alert condition.
-  - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the [Display Expression](alerts_managing.html#properties) associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or 1, that information is usually not useful. 
+  - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or 1, that information is usually not useful. 
 
 
 Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
@@ -287,82 +287,82 @@ Here is a sample webhook alert target template:
 {% raw %}
 ```handlebars
 {
-  "alertId": "{{{alertId}}}",  
-  "notificationId": "{{{notificationId}}}",  
-  "reason": "{{{reason}}}",  
-  "name": "{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",  
-  "severity": "{{{severity}}}",  
-  "severitySmoke": {{severitySmoke}},  
-  "severityInfo": {{severityInfo}},  
-  "severityWarn": {{severityWarn}},  
-  "severitySevere": {{severitySevere}},  
-  "condition": "{{#jsonEscape}}{{{condition}}}{{/jsonEscape}}",  
-  "url": "{{{url}}}",  
-  "createdTime": "{{{createdTime}}}",  
-  "startedTime": "{{{startedTime}}}",  
-  "sinceTime": "{{{sinceTime}}}",  
-  "endedTime": "{{{endedTime}}}",  
-  "snoozedUntilTime": "{{{snoozedUntilTime}}}",  
-  "subject": "{{#jsonEscape}}{{{subject}}}{{/jsonEscape}}",  
-  "sourcesFailingMessage": "{{#jsonEscape}}{{{sourcesFailingMessage}}}{{/jsonEscape}}",  
-  "errorMessage": "{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",  
-  "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",  
-  "failingSources": [  
-    {{#trimTrailingComma}}  
-      {{#failingHosts}}  
-        "{{{.}}}",  
-      {{/failingHosts}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "inMaintenanceSources": [  
-    {{#trimTrailingComma}}  
-      {{#inMaintenanceHosts}}  
-        "{{{.}}}",  
-      {{/inMaintenanceHosts}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "newlyFailingSources": [  
-    {{#trimTrailingComma}}  
-      {{#newlyFailingHosts}}  
-        "{{{.}}}",  
-      {{/newlyFailingHosts}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "recoveredSources": [  
-    {{#trimTrailingComma}}  
-      {{#recoveredHosts}}  
-        "{{{.}}}",  
-      {{/recoveredHosts}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "failingSeries": [  
-    {{#trimTrailingComma}}  
-      {{#failingSeries}}  
-        {{{.}}},  
-      {{/failingSeries}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "inMaintenanceSeries": [  
-    {{#trimTrailingComma}}  
-      {{#inMaintenanceSeries}}  
-        {{{.}}},  
-      {{/inMaintenanceSeries}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "newlyFailingSeries": [  
-    {{#trimTrailingComma}}  
-      {{#newlyFailingSeries}}  
-        {{{.}}},  
-      {{/newlyFailingSeries}}  
-    {{/trimTrailingComma}}  
-  ],  
-  "recoveredSeries": [  
-    {{#trimTrailingComma}}  
-      {{#recoveredSeries}}  
-        {{{.}}},  
-      {{/recoveredSeries}}  
-    {{/trimTrailingComma}}  
-  ]  
+  "alertId": "{{{alertId}}}",
+  "notificationId": "{{{notificationId}}}",
+  "reason": "{{{reason}}}",
+  "name": "{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",
+  "severity": "{{{severity}}}",
+  "severitySmoke": {{severitySmoke}},
+  "severityInfo": {{severityInfo}},
+  "severityWarn": {{severityWarn}},
+  "severitySevere": {{severitySevere}},
+  "condition": "{{#jsonEscape}}{{{condition}}}{{/jsonEscape}}",
+  "url": "{{{url}}}",
+  "createdTime": "{{{createdTime}}}",
+  "startedTime": "{{{startedTime}}}",
+  "sinceTime": "{{{sinceTime}}}",
+  "endedTime": "{{{endedTime}}}",
+  "snoozedUntilTime": "{{{snoozedUntilTime}}}",
+  "subject": "{{#jsonEscape}}{{{subject}}}{{/jsonEscape}}",
+  "sourcesFailingMessage": "{{#jsonEscape}}{{{sourcesFailingMessage}}}{{/jsonEscape}}",
+  "errorMessage": "{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",
+  "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
+  "failingSources": [
+    {{#trimTrailingComma}}
+      {{#failingHosts}}
+        "{{{.}}}",
+      {{/failingHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "inMaintenanceSources": [
+    {{#trimTrailingComma}}
+      {{#inMaintenanceHosts}}
+        "{{{.}}}",
+      {{/inMaintenanceHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "newlyFailingSources": [
+    {{#trimTrailingComma}}
+      {{#newlyFailingHosts}}
+        "{{{.}}}",
+      {{/newlyFailingHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "recoveredSources": [
+    {{#trimTrailingComma}}
+      {{#recoveredHosts}}
+        "{{{.}}}",
+      {{/recoveredHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "failingSeries": [
+    {{#trimTrailingComma}}
+      {{#failingSeries}}
+        {{{.}}},
+      {{/failingSeries}}
+    {{/trimTrailingComma}}
+  ],
+  "inMaintenanceSeries": [
+    {{#trimTrailingComma}}
+      {{#inMaintenanceSeries}}
+        {{{.}}},
+      {{/inMaintenanceSeries}}
+    {{/trimTrailingComma}}
+  ],
+  "newlyFailingSeries": [
+    {{#trimTrailingComma}}
+      {{#newlyFailingSeries}}
+        {{{.}}},
+      {{/newlyFailingSeries}}
+    {{/trimTrailingComma}}
+  ],
+  "recoveredSeries": [
+    {{#trimTrailingComma}}
+      {{#recoveredSeries}}
+        {{{.}}},
+      {{/recoveredSeries}}
+    {{/trimTrailingComma}}
+  ]
 }
 ```
 {% endraw %}
@@ -406,7 +406,7 @@ Here is a sample payload for the template:
 
 #### Example: Accessing Series Values
 
-Because an alert has a time window, a series does not have a single value when the threshold is crossed. For example, the alert may specify that the alert should fire when a condition is true for 10 minutes. During that 10 minute period, the series will likely have multiple values. 
+Because an alert has a time window, a series does not have a single value when the threshold is crossed. For example, the alert may specify that the alert should fire when a condition is true for 10 minutes. During that 10 minute period, the series will likely have multiple values.
 
 Sometimes you want to know the value of a series when an alert is triggered. For example, if the alert threshold is 80, you might want to know if the value was 81 or 91 on crossing the threshold. You might also want access to the value in the alert notification.
 
@@ -438,10 +438,10 @@ This template might yield the following message:
 {% endraw %}
 
 ### Payload Functions
- 
-Payload functions let you set limits on the number of items returned by iterators. The default value for each limit is 500. A limit must be set before iteration or it does not take effect. 
 
-The order of the limit settings determines limit precedence. For example, if you set `setDefaultIterationLimit` and then you set `setFailingLimit`, then  `setFailingLimit` overwrites the `setDefaultIterationLimit` setting. 
+Payload functions let you set limits on the number of items returned by iterators. The default value for each limit is 500. A limit must be set before iteration or it does not take effect.
+
+The order of the limit settings determines limit precedence. For example, if you set `setDefaultIterationLimit` and then you set `setFailingLimit`, then  `setFailingLimit` overwrites the `setDefaultIterationLimit` setting.
 
 The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, and `failingHosts`.
 
@@ -526,19 +526,19 @@ Suppose you have 8 failing sources: "source1", "source2", "source3", "source4", 
     {{/trimTrailingComma}}
   ],
   ...
-  "failingSources": [  
-    {{#trimTrailingComma}}  
-      {{#failingHosts}}  
-        "{{{.}}}",  
-      {{/failingHosts}}  
-    {{/trimTrailingComma}}  
-  ], 
-  "failingSeries": [  
-    {{#trimTrailingComma}}  
-      {{#failingSeries}}  
-        {{{.}}},  
-      {{/failingSeries}}  
-    {{/trimTrailingComma}}  
+  "failingSources": [
+    {{#trimTrailingComma}}
+      {{#failingHosts}}
+        "{{{.}}}",
+      {{/failingHosts}}
+    {{/trimTrailingComma}}
+  ],
+  "failingSeries": [
+    {{#trimTrailingComma}}
+      {{#failingSeries}}
+        {{{.}}},
+      {{/failingSeries}}
+    {{/trimTrailingComma}}
   ]
 }
 ```
@@ -577,7 +577,7 @@ In contrast, if the `failingLimit` is 10, the payload is the following for 8 fai
 
 {% raw %}
 ```handlebars
-{ 
+{
   "getIterationLimit": {
     "defaultIterationLimit": "10",
     "failingLimit": "10",
@@ -608,7 +608,7 @@ Test your alert target to ensure that it works properly. To test an alert target
 
 ## Querying Responses of Webhook Alert Targets
 
-Wavefront exposes response codes from webooks alert target calls as metrics: 
+Wavefront exposes response codes from webooks alert target calls as metrics:
 
 ```
 ~alert.webhooks.<webhook_id>.1xx
@@ -631,11 +631,11 @@ If the response code of the webhook is anything other than 2xx, Wavefront create
 
 ## Editing an Alert Target
 
-To edit a alert, click the alert target name in the Alert Targets browser or select ![action_menu](images/action_menu.png#inline) **> Edit** from the pull-down at the far right of the alert target. 
-  
+To edit a alert, click the alert target name in the Alert Targets browser or select ![action_menu](images/action_menu.png#inline) **> Edit** from the pull-down at the far right of the alert target.
+
 ## Deleting  Alert Targets
 
-You can delete one or more alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if any of the selected alert targets cannot be deleted. 
+You can delete one or more alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if any of the selected alert targets cannot be deleted.
 
 To delete one alert target, use the trash icon or select ![action menu](images/action_menu.png#inline) **> Delete** at the far right of the alert target.
 
@@ -644,7 +644,7 @@ To delete one alert target, use the trash icon or select ![action menu](images/a
 Each alert target has a unique ID that the system generates when you first create the alert target. To find the ID:
 
 1. Click **Browse > Alert Targets**.
-1. In the Name column, note the ID of the alert target under the description. 
+1. In the Name column, note the ID of the alert target under the description.
 
    ![webhook ID](images/webhook_id.png)
 
@@ -653,14 +653,6 @@ Each alert target has a unique ID that the system generates when you first creat
 To add an alert target to an alert:
 
 1. Click **Alerts**, locate the alert on the Alerts page, and click the alert name.
-1. Scroll down to the **Targets** section. 
-1. In the **Alert Target** field, start typing. A dropdown list appears that contains all available Wavefront alert targets that can be integrated to your alert. 
+1. Scroll down to the **Targets** section.
+1. In the **Alert Target** field, start typing. A dropdown list appears that contains all available Wavefront alert targets that can be integrated to your alert.
 1. Select the alert target that you want to add, and click **Save**.
-
-
-
-
-
-
-
-

@@ -17,14 +17,11 @@ An alert defines:
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric reaches a value that indicates a problem.
 
-You express alert  [conditions](alerts_managing.html#alert-properties) using [Wavefront Query Language
-expressions](query_language_getting_started.html).
+You express alert [conditions](alerts_states_lifecycle.html#alert-conditions) using [Wavefront Query Language](query_language_getting_started.html) expressions.
 
 Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
 
-
-
-## Backtesting
+### Backtesting
 
 Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
 
@@ -142,7 +139,7 @@ When an alert changes state, a notification containing alert information and a l
 * You can add simple targets (email and PagerDuty) directly in the alert's Targets field.
 * You can explicitly create an [alert target](webhooks_alert_notification.html) and add that target to your alert.
 
-For example, if you have configured an email address as the alert target, you receive an email like the following whenever the alert fires, adds or removes an affected source, resolves, or is [updated](alerts_managing.html):
+For example, if you have configured an email address as the alert target, you receive an email like the following whenever the alert fires, adds or removes an affected source, resolves, or is updated:
 
 ![alert_email](images/alert_email.png)
 

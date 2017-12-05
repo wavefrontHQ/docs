@@ -38,7 +38,7 @@ The table summarizes where the two types of tags are used and where they are add
 <tbody>
 <tr>
 <td>alert</td>
-<td markdown="span">[Managing Alerts](alerts_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
+<td markdown="span">[Managing Alerts](alerts.html) and [Preventing Alerts from Firing](maintenance_windows_managing.html)</td>
 <td markdown="span">[Basic events() Queries](events_queries.html)</td>
 <td markdown="span">Wavefront UI and API</td>
 </tr>
@@ -50,7 +50,7 @@ The table summarizes where the two types of tags are used and where they are add
 </tr>
 <tr>
 <td>event</td>
-<td markdown="span">[Managing Events](events_managing.html)</td>
+<td markdown="span">[Managing Events](events.html)</td>
 <td markdown="span">[Basic events() Queries](events_queries.html)</td>
 <td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API</td>
 </tr>
@@ -79,7 +79,7 @@ All tag types support the ability to organize tags in a hierarchy. The hierarchy
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example, you can select all Wavefront dashboards by clicking **wavefront**, or only tutorial dashboards by expanding the **wavefront** node and selecting **wavefront.tutorial**.
 
-Here's a video overview: 
+Here's a video overview:
 
 {% include video.html file="u1vzsuttf6" %}
 
@@ -132,4 +132,3 @@ To filter by a tag, click a tag icon, for example ![mytag icon](images/mytag_ico
 -   Below an entity in an entity browser:
 
     ![mytag](images/mytag.png)
-    

@@ -198,7 +198,7 @@ To add an in-product integration, click **Integrations** in the task bar.
 1. Click a tile in the Alert Notification section.
 1. Click the **Setup** tab.
 1. Follow the instructions for configuring the notification service.
-1. [Create an alert](alerts_managing.html#creating-an-alert).
+1. [Create an alert](alerts.html#creating-an-alert).
 1. Configure the Targets field to use the notification service.
 1. Verify that the notification occurs when the alert changes state.
 
