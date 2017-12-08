@@ -97,7 +97,7 @@ To create a dynamic variable, select **Variable Type &gt; Dynamic**. A Field dro
 
 -   **Source** - Populates the variable with sources associated with the query in the Query field.
 -   **Source Tag** - Populates the dynamic variable list with source tags that match "tag=" part of your ts() expression. For example ts(cpu.load, tag=app*) will populate the dynamic variable list with "app-tag1", "app-tag2" and so forth.
--   **Matching Source Tag** - Populates the dynamic variable list with source tags associated with all of the sources returned by your query. If at least 1 source associated with a source tag is returned based from the query, the 'Matching Source Tag' will display souce tags.
+-   **Matching Source Tag** - This will get all of the sources from your ts() expression, then, find all the source tags associtaed with those sources and populate the dynamic variable list with those source tags. If at least 1 source associated with a source tag is returned based from the query, the 'Matching Source Tag' will display souce tags. 
 -   **Metric** - Populates the variable with metrics associated with the query in the Query field.
 -   **Point Tag** - Populates the variable with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.
 
