@@ -49,10 +49,10 @@ See [Organizing with Tags](tags_overview.html) for information on the different 
 <ul>
 <li>ts() expression - Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.</li>
 <ul>
-<li>Syntax: 
-<pre>ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;, 
-  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or] 
-  [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or] 
+<li>Syntax:
+<pre>ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;,
+  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or]
+  [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or]
   [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey1</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue1</span>&gt;[and|or] ... &lt;<span style="color:#3a0699;font-weight:bold">pointTagKeyN</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValueN</span>&gt;])
 </pre>
 </li>
@@ -109,7 +109,7 @@ For an overview of tags, see [Organizing with Tags](tags_overview.html).
 <ul>
 <li>A <em>query line variable</em> allows you to refer to a query line as a variable in another query field within the same chart. The query line variable name is the same as the query line name and is referenced in another query field with the syntax <span style="color:#008a09;font-weight:bold">${queryLineName}</span>. For example, if you have a query line named <span style="font-weight:bold">queryLine1</span> with ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) as the <span style="color:#3a0699;font-weight:bold">expression</span>, you can enter <span style="color:#008a09;font-weight:bold">${queryLine1}</span> in a another query field to reference ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>). The query line being referenced must be a complete expression. If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable. </li>
 
-<li>An <em>alias</em> defines any ts() expression as an alias within that single query line using a SQL-style "as" expression. The syntax of an alias is: <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>. If you specify <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">myAlias</span>, you reference the alias as 
+<li>An <em>alias</em> defines any ts() expression as an alias within that single query line using a SQL-style "as" expression. The syntax of an alias is: <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>. If you specify <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">myAlias</span>, you reference the alias as
 <span style="color:#008a09;font-weight:bold">$myAlias</span>. You can use <span style="color:#008a09;font-weight:bold">$myAlias</span> multiple times in that query line, and define multiple aliases within a query line. We recommend using alias names that are three letters or longer; specifically, you can't use the SI prefixes (such as k, G, or T) as alias names, and numeric characters are allowed only at the end of the alias name ($test123 is ok, but not $1test or $test4test).<br /><br />
 
 Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">test</span>, used as follows: mavg(120m, <span style="color:#008a09;font-weight:bold">$test</span>)) / sqrt(mvar(120m, <span style="color:#008a09;font-weight:bold">$test</span>)).</li>
@@ -196,7 +196,7 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 
 ### Grouping
 
-When aggregating, to group by metrics, sources, source tags, all point tags keys, or a specific point tag key, use the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>\] group by clause. The clause is applied after the ts() expression, separated by a comma. 
+When aggregating, to group by metrics, sources, source tags, all point tags keys, or a specific point tag key, use the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>\] group by clause. The clause is applied after the ts() expression, separated by a comma.
 
 ### Examples
 
@@ -395,7 +395,7 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 </tr>
 <tr>
 <td>mcount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the number of data points for 2x the duration of <timeWindow> after <expression> stops reporting data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with msum(), which returns the <em>sum of the data points</em>.</td>
+<td>Returns the number of data points for 2x the duration of <span style="color:#757575;font-weight:bold">timeWindow</span> after <span style="color:#3a0699;font-weight:bold">expression</span> stops reporting data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with msum(), which returns the <em>sum of the data points</em>.</td>
 </tr>
 <tr>
 <td>mmin(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -562,7 +562,7 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 
 ### Examples
 
-- Node index - aliasMetric(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>, <span style="color:#bf5700;font-weight:bold">source</span>, <span style="color:#238567;font-weight:bold">1</span>)), the extracted string is selected by node index. The metric <span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span> has 3 components; setting <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> to <span style="color:#238567;font-weight:bold">1</span> extracts the second component&mdash;<span style="font-weight:bold">loadavg</span>. 
+- Node index - aliasMetric(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>, <span style="color:#bf5700;font-weight:bold">source</span>, <span style="color:#238567;font-weight:bold">1</span>)), the extracted string is selected by node index. The metric <span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span> has 3 components; setting <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> to <span style="color:#238567;font-weight:bold">1</span> extracts the second component&mdash;<span style="font-weight:bold">loadavg</span>.
 - Node index with delimiter - <span style="color:#08838c;font-weight:bold">cpu-loadavg-1m</span>, set <span style="color:#757575;font-weight:bold">delimiterDefinition</span> to <span style="color:#757575;font-weight:bold">&quot;-&quot;</span>.
 - String substitution
   - <span style="color:#008a09;font-weight:bold">original</span> = max(ts(<span style="color:#08838c;font-weight:bold">customer.alerts.active</span>), metrics)
@@ -684,7 +684,7 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 </tbody>
 </table>
 
-### Example 
+### Example
 
 ```
 events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
@@ -756,8 +756,8 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 </tr>
 <tr>
 <td>You see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"></i> in a chart and a warning something like the following:<br /><br />
-<em>The expression: ts(&lt;metric&gt;, source=&lt;source&gt;) has been pre-aligned, making it equivalent to align(120s, mean, ts(&lt;metric&gt;, source=&lt;source&gt;)) in order to improve the performance of the sum() 
-aggregation operation. You can wrap the expression with align() to explicitly state the periodicity 
+<em>The expression: ts(&lt;metric&gt;, source=&lt;source&gt;) has been pre-aligned, making it equivalent to align(120s, mean, ts(&lt;metric&gt;, source=&lt;source&gt;)) in order to improve the performance of the sum()
+aggregation operation. You can wrap the expression with align() to explicitly state the periodicity
 and desired summarization strategy.</em><br /><br />
 where sum(ts(&lt;metric&gt;, source=&lt;source&gt;)) is the original query.
 </td>
@@ -768,4 +768,3 @@ where sum(ts(&lt;metric&gt;, source=&lt;source&gt;)) is the original query.
 </tr>
 </tbody>
 </table>
-
