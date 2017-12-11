@@ -100,9 +100,9 @@ ts(disk.space.total, tag=az-1 and env=*) - ts(disk.space.used, tag=az-1 and env=
 
 In this example, the `env` point tag key takes the values `production` and `development`. If source `app-1` includes the `env` value `development` in the first ts() call, but includes the `env` value `production` in the second ts() call, they will not match up; they must be exact matches in order for series matching to occur. This also means that if two series have the same source\|metric\|point tag but one of the series includes an additional point tag that the other series does not have, series matching does not include these series in the results.
 
-## Series Matching with the by Construct
+## Series Matching with the "by" Construct
 
-In some cases, serious matching with point tags results in no data because not all of the tags exist on both sides of the operator. Starting with Release 2017.48, you can use the `by` construct to perform matching using the element of your choice.
+In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. Starting with Release 2017.48, you can use the `by` construct to perform matching using the element of your choice to get results for those series.
 
 Consider the following example:
 
@@ -111,7 +111,7 @@ You’re interested in the set of hosts that have a `cpu.idle` of more than 50 a
 `ts(cpu.idle) > 50 and ts(build.version) = 1000`
 
 
-The following series match the first part of the query, `(cpu.idle)>50`:
+The following series are returned by the first part of the query, `(cpu.idle)>50`:
 <table>
 <tbody>
 <thead>
@@ -152,7 +152,7 @@ The following series match the first part of the query, `(cpu.idle)>50`:
 </table>
 
 
-The following series matches the second part of the query, `(build.version) = 1000`
+The following series are returned by the second part of the query, `(build.version) = 1000`
 <table>
 <tbody>
 <thead>
@@ -160,7 +160,7 @@ The following series matches the second part of the query, `(build.version) = 10
 </thead>
 <tr>
 <td>host-1</td>
-<td>&lbrack;state=prod&rbrack;</td>
+<td>&lbrack;stage=prod&rbrack;</td>
 </tr>
 <tr>
 <td>host-2</td>
@@ -186,21 +186,21 @@ The following series matches the second part of the query, `(build.version) = 10
 </tbody>
 </table>
 
-It seems like these might be the same series, but, the query with the AND operator above returns NO DATA because the dc tag cannot be matched on both sides of the expression.
+It seems like an operation on these two series should yield a result, but the query with the AND operator above returns NO DATA because the dc tag cannot be matched on both sides of the expression.
 
 In this example, while there is a host-1 on both sides of the operation, the first part of the query maps to two different hosts named host-1. There’s no guidance on which of these 2 hosts to pick, so the system doesn’t pick one.
 
-Starting with Release 2017.48.x, you can use the `by` query language element to specify the item to map by. For the example above, you can expand the query as follows:
+Starting with Release 2017.48.x, you can use the `by` query language keyword to specify the point tag(s) to map by. For the example above, you can expand the query as follows:
 
 `ts(cpu.idle) > 50 and ts(build.version) = 10000 and by stage, source`
 
-With this addition, the query returns 6 series with the key:
-* `cpu.idle host=”host-1” dc=Oregon stage=prod` (joining with `build.version host=”host-1” stage=prod`)
-* `cpu.idle host=”host-2” dc=Oregon stage=prod` (joining with `build.version host=”host-2” stage=prod`)
-* `cpu.idle host=”host-3” dc=Oregon stage=test` (joining with `build version host=”host-3” stage=test`)
-* `cpu.idle host=”host-1” dc=ny stage=prod` (joining with `build.version host=”host-1” stage=prod`)
-* `cpu.idle host=”host-2” dc= ny stage=prod` (joining with `build.version host=”host-2” stage=prod`)
-* `cpu.idle host=”host-3” dc= ny stage=test` (joining with `build version host=”host-3” stage=test`)
+With this addition, the query returns the following 6 series:
+* `cpu.idle host=”host-1” dc=Oregon stage=prod` (joined with `build.version host=”host-1” stage=prod`)
+* `cpu.idle host=”host-2” dc=Oregon stage=prod` (joined with `build.version host=”host-2” stage=prod`)
+* `cpu.idle host=”host-3” dc=Oregon stage=test` (joined with `build version host=”host-3” stage=test`)
+* `cpu.idle host=”host-1” dc=ny stage=prod` (joined with `build.version host=”host-1” stage=prod`)
+* `cpu.idle host=”host-2” dc= ny stage=prod` (joined with `build.version host=”host-2” stage=prod`)
+* `cpu.idle host=”host-3” dc= ny stage=test` (joined with `build version host=”host-3” stage=test`)
 
 ## Automatic Query Flip
 

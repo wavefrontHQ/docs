@@ -20,7 +20,7 @@ For a video overview, see:
 
 You can enable or disable Query Builder in your [user preferences](users_account_managing.html#configuring-your-preferences).
 * If **Enable Query Builder** and **Always Open the Query Builder** are both checked, then the Query Builder always displays when you navigate to a blank chart or new alert.
-* If **Always Open the Query Builder** is not checked, then the Query Editor displays byt default. Query Builder displays only if you click the query builder toggle.
+* If **Always Open the Query Builder** is not checked, then the Query Editor displays by default. Query Builder displays only if you click the query builder toggle.
 
 ![Query builder new](images/query_builder_new.png)
 
@@ -29,7 +29,7 @@ To switch from Query Builder to Query Editor, click the toggle.
 
 ## Constructing Queries
 
-In Query Builder, a query consists of a metric, zero or more filters (i.e. sources, source tags, and point tags), and zero more functions. You build the query from these elements, and the query displays below.
+In Query Builder, a query consists of a metric, zero or more filters (i.e. sources, source tags, and point tags), and zero or more functions. You build the query from these elements, and the query displays below.
 
 ![Query builder](images/query_builder_48x.png)
 
