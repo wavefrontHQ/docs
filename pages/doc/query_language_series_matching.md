@@ -75,7 +75,7 @@ In the examples below, the results listed to the right of = represents the set o
   - No series match up which results in no data
 
 - `(A,B,C) [>] (A) = (A)`
-  - With the second argument being A only there would be no series matching, but the inner join around > forces series matching.
+  - With the second argument being A only there would be no series matching, but the inner join around > forces series matching. As a result, we'll have a join on A only, resulting in 1 series instead of 3.
 
 ### Series Matching Does Not Occur
 
@@ -192,7 +192,7 @@ In this example, while there is a host-1 on both sides of the operation, the fir
 
 Starting with Release 2017.48.x, you can use the `by` query language keyword to specify the point tag(s) to map by. For the example above, you can expand the query as follows:
 
-`ts(cpu.idle) > 50 and ts(build.version) = 10000 and by stage, source`
+`ts(cpu.idle) > 50 and by stage, source ts(build.version) = 10000`
 
 With this addition, the query returns the following 6 series:
 * `cpu.idle host=”host-1” dc=Oregon stage=prod` (joined with `build.version host=”host-1” stage=prod`)
