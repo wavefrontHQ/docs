@@ -82,14 +82,6 @@ Wavefront recommends that you keep the number of distinct time series per metric
 </tbody>
 </table>
 
-### Best Practices for Point Tags
-
-Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
-
-For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results.
-
-Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
-
 ### Valid Metrics
 
 -   `request.count 1001 source=test.wavefront.com`
@@ -110,3 +102,16 @@ Using point tags to store highly variable data such as timestamps, login emails,
 - `cpu0.loadavg.1m 0.03`
 
   -   **Reason:** No **source** field
+
+## Best Practices for Point Tags
+
+Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
+
+For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results.
+
+Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
+
+See [Series Matching](query_language_series_matching.html) for more info on:
+
+* Series matching with point tags.
+* Series matching with point tags and the `by`construct.
