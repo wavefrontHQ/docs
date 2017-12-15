@@ -16,7 +16,7 @@ You can create a dashboard from the All Dashboards page, an existing dashboard, 
 1.  Do one of the following:
 
     -   In the All Dashboards page, click the **Create Dashboard** button on the filter bar.
-    -   From an existing dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side of the browser window below the task bar, and select **New**. Or click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
+    -   From an existing dashboard, click the pencil icon on the right side of the browser window below the task bar, and select **New**. Or click **Clone** to create a new dashboard based on the existing dashboard you are currently viewing.
     -   From a chart, scroll down to the **Save to** section and click **New Dashboard**.
     -   From the Metrics browser, click **Create Dashboard** in the top left corner of the page to begin creating a dashboard. Creating a dashboard this way automatically creates sections and charts based on the current set of metrics in the Metrics list. Sections are created by first-level nodes, individual charts by second-level nodes and finally all metrics on the third-level or below are rendered on a single chart. Creating a dashboard from the Metrics browser allows you to apply additional parameters such as sources and source tags.
 
@@ -43,7 +43,7 @@ curl -v https://<wavefront_instance>.wavefront.com/api/v2/dashboard -d @<dashboa
 
 To set the dashboard preferences:
 
-1. Click the wrench icon <i class="fa-wrench fa"/> at the top right of the dashboard.
+1. Click the wrench icon at the top right of the dashboard.
 1. Edit the preferences.
    -   Dashboard name and description
    -   Whether to display:
@@ -58,8 +58,9 @@ To set the dashboard preferences:
 ## Cloning a Dashboard
 
 1. To clone a dashboard:
-  -   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Clone**.
-  -   From a dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Clone**.
+  -   From the All Dashboards page, locate the dashboard, click the three dots, and select Clone.
+  ![clone dashboard](images/dashboard_clone.png)
+  -   From a dashboard, click the pencil icon on the right side below the task bar, and select **Clone**.
 1. Specify a new URL.
 1. Optionally edit the dashboard name.
 1. Click **Clone**.
@@ -71,18 +72,19 @@ To set the dashboard preferences:
 When editing a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboards_variables.html), sections, and charts.
 
 1. To edit a dashboard:
--   From the All Dashboards page, locate the dashboard and select ![action_menu.png](images/action_menu.png#inline) **> Edit**.
--   From a dashboard, click the pencil icon <i class="fa-pencil fa"/> on the right side below the task bar, and select **Edit**.
+-   From the All Dashboards page, locate the dashboard, click the three dots on the left and and select **Edit**.
+![edit dashboard](images/dashboard_edit.png)
+-   From a dashboard, click the pencil icon on the right side below the task bar, and select **Edit**.
 
    The dashboard displays in edit mode.
 1. Edit the dashboard.
 
-   When editing a dashboard, you may make several changes at a time. To remove a change, click the revert icon ![revert.png](images/revert.png#inline) near the **Save** button on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can only remove changes made in the current edit mode session.
-2. After any configuration action described in this section, click **Save**.
+   When editing a dashboard, you may make several changes at a time. To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current edit mode session.
+2. To save configuration changes, click **Save**.
 
 ### Setting the Dashboard Name and Description
 
-1. Click the **&lt;&lt;Edit Dashboard Description&gt;&gt;** link. The [Dashboard Display Preferences](#prefs) dialog displays.
+1. Click the name of the dashboard. The [Dashboard Display Preferences](#prefs) dialog displays.
 1. Rename your dashboard and enter a description.
 1. If you enter a description and want it to be displayed on your dashboard, click **Show Description**.
 1. Click **Accept**.
@@ -118,8 +120,6 @@ You can directly modify any dashboard properties by editing the dashboard's JSON
 1. Put the dashboard in edit mode.
 1. Click **Edit JSON** next to the **Save** button on the task bar. The JSON format displays in the Tree editor. You can use the tree controls to expand, collapse, and reorder nodes.
 
-   ![json tree.png](images/json_tree.png)
-
    You can also edit the JSON code directly by selecting **Tree > Code**. For example, to change a row height, edit the row's `heightFactor` property:
 
    ```
@@ -138,11 +138,11 @@ To delete one or more dashboards:
 
   -  In the All Dashboards page:
 
-     - Select the checkboxes next to one or more dashboards and click <i class="fa-trash fa"/>.
-     - Locate a dashboard and select  ![action_menu.png](images/action_menu.png#inline) **> Delete**. Click **Delete Dashboard** to confirm the delete action.
-  -  From a dashboard, click the pencil icon <i class="fa-pencil fa"/> and select **Delete**. Click **OK**  to confirm the delete action.
+     - Select the checkboxes next to one or more dashboards and click the trash can.
+     - Locate a dashboard, select the three dots to the left, click **Delete**, and confirm the delete action.
+  -  From a dashboard, click the pencil icon, select **Delete**, and confirm the delete action.
 
-The dashboard(s) are moved to the Trash. You can view the Trash by clicking the trash toggle: Off - ![trash_off.png](images/trash_off.png#inline#inline)  On - ![trash_on.png](images/trash_on.png#inline).
+The dashboard(s) are moved to the Trash. You can view the Trash on the All Dashboards page by clicking the trash toggle.
 
 You can recover a dashboard that was moved to the Trash less than 30 days ago. After 30 days, the deleted dashboard is removed from the Trash and you can no longer recover it. To permanently remove a dashboard before the 30 day deadline, toggle the Trash icon and manually delete it.
 
@@ -150,14 +150,14 @@ You can recover a dashboard that was moved to the Trash less than 30 days ago. A
 
 Wavefront keeps track of changes made to a dashboard and displays those changes in the Dashboard History page. You can access a dashboard's history from the All Dashboards page or directly from the dashboard:
 
--   From the All Dashboards page, find the desired dashboard in the list and select ![action_menu.png](images/action_menu.png#inline) **> Versions**.
--   From a dashboard,  click the pencil icon <i class="fa-pencil fa"/>, and select **Versions**.
+-   From the All Dashboards page, find the desired dashboard in the list, click the three dots on the left, and select **Versions**.
+-   From a dashboard,  click the pencil icon, and select **Versions**.
 
-From the Past Versions page, each revision is listed along with the user who made the change, the day and time it was updated, and the change description.
+On the Past Versions page, each revision is listed along with the user who made the change, the day and time it was updated, and the change description.
 
-To revert a change,  select ![action_menu.png](images/action_menu.png#inline) **> Revert**  next to the desired version to go back that version. When you do this, you are asked to confirm that you want to revert. After confirming, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list.
+To revert a change,  select  **Revert**  next to the desired version to go back that version. When you confirm, you are sent to the dashboard version you chose. If you go back to the Past Versions page, the change is reflected on the list.
 
-If you want to view a previous dashboard version before reverting, click the number associated with the dashboard change on the Past Versions page.  For a specific dashboard version, select  ![action_menu.png](images/action_menu.png#inline) **> Clone**  to create a new dashboard based on the revision you chose.
+If you want to view a previous dashboard version before reverting, click the number associated with the dashboard change on the Past Versions page.  You can clone a specific dashboard version by selecting a revision, and then performing a clone operation.
 
 ## Managing Dashboard Tags
 
@@ -167,16 +167,11 @@ See [Organizing with Tags](tags_overview.html).
 
 To make changes to a chart in a dashboard, put the dashboard in [edit mode](#editing-a-dashboard). After making a change, click **Save**.
 
-### Adding a Chart to a Dashboard
-
-1.  Go to a section. Click <i class="fa-plus-circle fa"/> Add New Chart. An Add Chart dialog displays.
-    1.  In the New Query field, type a [Wavefront Query Language](query_language_getting_started.html) expression.
-    1.  In the Chart section, [customize your chart](charts.html).
-    1.  Click **Accept**. The new chart displays in the section you selected.
 
 ### Deleting, Cloning, and Editing a Chart
 
-1. Hover over a chart. Three icons display in the bottom left corner of the chart box ![three_icons](images/chart_actions.png#inline).
+1.Edit the dashboard.
+1.Hover over a chart. Three icons display in the bottom left corner of the chart box ![three_icons](images/chart_actions.png#inline).
 1. Delete, clone, or edit the selected chart. When you clone a chart, it is created in a separate row below the selected chart.
 
 You can also edit a chart by clicking the chart name in the top right corner. Save your changes by clicking **Save** in the chart.

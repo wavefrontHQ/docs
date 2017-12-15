@@ -35,20 +35,22 @@ In the image below, we specified the metric name `~sample.requests.total.num`, p
 
 ### Manually Constructing a Query
 
-If you are familiar with [Wavefront Query Language](query_language_getting_started.html), you can enter the complete expression into the query field. For example: `if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)`.
+Instead of using Query Builder, you can click the Query Builder toggle and explicitly enter a [Wavefront Query Language](query_language_getting_started.html), expression into the query field. For example:
 
-## Adding Queries to a Chart
-To associate more than one query with a chart, add a new query field by clicking the add icon <i class="fa fa-plus"/> to the right of a query field.
+`if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)`.
 
-![add_query](images/add_query.png)
+## Managing a Chart's Queries
 
-The remove icon <i class="fa fa-minus"/> removes a query field, and the clone icon <i class="fa fa-files-o"/> clones a query into a new query field.
+You can use the icon's in the Query section to change which queries are associated with a chart.
 
-You can name each query field. Cloning is recommended when you are using a [legend](charts.html#legend) for a chart with several query fields. To rename a query field, click the name to the left of the query field and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
+* Click the add icon (+) to the right of the query field to add a new query field and an additional query with a chart.
+* Click the clone icon to clone an existing query into a new query field. Cloning is recommended when you are using a [legend](charts.html#legend) for a chart with several query fields.
+* Click the remove icon (-) to remove a query field.
+* To rename a query field, click the current name to the left of the query field (New Query is the initial default) and enter a name. The query field name can be up to 50 characters and there's no restriction on characters you can use.
 
 ![rename_query_field](images/rename_query_field.png)
 
-You can experiment with functions such as `sum()`, `highpass()`, `mavg()`, etc. See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete list of functions.
+As you construct your new query, can use functions such as `sum()`, `highpass()`, `mavg()`, etc. See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete list of functions.
 
 ## Configuring the Chart
 You can customize your charts to suit your needs precisely. The chart [configuration options](charts.html) are in the Chart section:

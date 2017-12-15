@@ -5,20 +5,33 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about the Wavefront platform.
 ---
-Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. The service is
-unique because it can scale to very high data ingestion rates and query loads. That means you can collect data from more and more services, and can still look at details about earlier data collected by Wavefront.
+Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. The service is unique because it can scale to very high data ingestion rates and query loads. That means you can collect data from many services and sources across your entire application stack, and can still look at details for earlier data collected by Wavefront.
+
+At a high level, the setup process usually consists of either:
+* Configuring Wavefront to access data in our cloud service, or
+* Configuring agents and the proxy to sent data to Wavefront, or
+* Setting up a custom integration that sends data to a Wavefront proxy.
+
+Here's an overview of the components, and of the Wavefront data ingestion pipeline
+
+## Components
 
 Wavefront has these main components:
-* The **Wavefront service** runs the metrics collection engine. The Wavefront service can get metrics from a Wavefront proxy, or ingest metrics directly from certain external cloud services such as Amazon Web Services.
+* The **Wavefront service** runs the metrics collection engine.
 * The **Wavefront proxy** forwards data to the Wavefront service in a secure, fast, and reliable way.
   - A **collector agent** such as Telegraf can send data to the proxy or
   - You can send your metrics directly to the proxy -- as long as the data is in one of the [supported data formats](wavefront_data_format.html). For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
 
 ![Wavefront architecture](images/wavefront_architecture.svg)
 
-You can view data from many sources in Wavefront. For example, you can view data from several data centers, on-prem or in the cloud -- and because Wavefront keeps all the details, you can go back and look at data you collected much earlier.
+Wavefront has many choices for ingesting data. You can combine them to monitor all data sources in your environment.
+* Configure Wavefront to access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
+* Set up a collector agent such as Telegraf to gather data from your applications and send that data to the Wavefront proxy. Wavefront supports many different agents. Collector agent integrations install the agent and proxy for you.
+* Instrument your applications using Wavefront metrics library and send the data to the Wavefront proxy.
+* Send data directly to Wavefront. If your environment already has a metrics infrastructure, you can do some pre-processing on the data and send them to the Wavefront proxy.
 
-Let's have a look at these Wavefront components.
+If you don't use data ingestion from cloud services, you send data to the Wavefront proxy, which sends them on to the Wavefront server. The Wavefront proxy provides robust data flow control and increased secrity and simplifies firewall and port configuration.
+
 
 ## Wavefront Application
 
@@ -77,7 +90,7 @@ The [proxy preprocessor](proxies_preprocessor_rules.html) allows you to correct 
 
 The proxy generates its own [internal metrics](wavefront_monitoring.html) for easy monitoring of the pipeline within Wavefront. In initial deployments, you can start with one Wavefront proxy. To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies:
 
-![Wavefront architecture load balanced](images/wavefront_architecture_lb.png)
+![Wavefront architecture load balanced](images/wavefront_architecture_lb.svg)
 
 ## Collector Agent
 

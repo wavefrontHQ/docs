@@ -16,13 +16,13 @@ A few interactions are common to dashboards and charts. You can isolate sources 
 
 When looking at charts, you can investigate a particular source or series further. Charts and dashboards have a couple of ways to do this.
 
-**To isolate one or more sources** use the Highlight Sources fly-out:
+**To isolate one or more sources**
 
-1. Hover over the magnifying lens icon <i class="fa fa-search"/>. The fly-out displays.
+Start typing the name of the sources to isolate. The fly-out supports wildcards. For example, you can search for **app-1**, **app-1\***, or **\*-1\***. When you isolate a source, series with those sources display as saturated and all other series lose color saturation.
 
    ![highlight sources](images/highlight_sources.png)
 
-1. Type the name of the sources to isolate. The fly-out supports wildcards. For example, you can search for **app-1**, **app-1\***, or **\*-1\***. When you isolate a source, series with those sources display as saturated and all other series lose color saturation.
+1. Type the name of the sources to isolate.
 
    ![isolated line](images/isolated_line.png)
 
@@ -48,20 +48,21 @@ When looking at charts, you can investigate a particular source or series furthe
 
 The URLs in the Wavefront address bar encode information about the dashboard or chart name and any settings you have applied. When you make a change to a dashboard or chart, for example, change the time window, the URL updates to reflect that change. With this functionality, you can quickly and easily share your current view with other users. Those users can see exactly what you see and can also interact with the dashboard or chart.
 
-The actual URL can be a long string. When you click the link icon <i class="fa fa-link"/> in the action buttons, a shortened URL is copied to your clipboard. The shortened URL allows you to share a fully interactive dashboard or chart, but the link is associated with a specific time frame instead of a live view.
+The actual URL can be a long string. When you click the link icon in the action buttons, a shortened URL is copied to your clipboard. The shortened URL allows you to share a fully interactive dashboard or chart, but the link is associated with a specific time frame instead of a live view.
 
 **To share the dashboard or chart** in live view mode:
 
 1. Navigate to the dashboard or chart.
 2. In the time bar, click **Live Data**.
-3. Select the desired time window (10m, 2h, 6h, 12h, 1d, 8d) from the time bar that you'd like to share. When a dashboard or chart is set to Live Data, a new link icon <i class="fa fa-link"/> appears below the gear icon <i class="fa fa-cog"/> on the taskbar.
+3. Select the desired time window (10m, 2h, 6h, 12h, 1d, 8d) from the time bar that you'd like to share. When a dashboard or chart is set to Live Data, a new link icon appears below the gear icon on the taskbar.
 1. Right-click the link icon and select **Copy link address**.
+2. Share the link with other users.
 
-Share the link with other users. The time window associated with your live view URL link is based on your selection on the time bar. For example, selecting 10m results in a live view URL link with a 10 minute view.
+The time window associated with your live view URL link is based on your selection on the time bar. For example, if you select 10m, the result is a live view URL link with a 10 minute view.
 
 ## Dashboard Interactions
 
-You can perform some tasks, such as working with sections, on the dashboard itself, while other tasks such as selecting the time window, applies to every chart in the dashboard.
+You can perform some tasks, such as working with sections, on the dashboard itself, while other tasks such as selecting the time window, apply to every chart in the dashboard.
 
 <a name="time_window"></a>
 
@@ -95,12 +96,7 @@ Dashboard [sections](dashboards_managing.html#configuring-dashboard-sections) al
 
 **To jump to any section** on a dashboard, click the section name in the section link bar.
 
-
-When you display a dashboard, all sections are expanded. Expanded sections have a <i class="fa fa-arrow-down"/> and collapsed sections have a <i class="fa fa-arrow-right"/>.
-
-![sections](images/sections.png)
-
-**To toggle whether a section is expanded or collapsed**, click the section name.
+**To toggle whether a section is expanded or collapsed**, click the section name. All sections are expanded when you first display a dashboard.
 
 ### Displaying Events on Charts
 
@@ -129,7 +125,7 @@ To apply a global query:
 
    ![global query](images/global_query.png)
 
-The Global Query fly-out stays out until you delete the query expression.
+The Global Query fly-out stays out until you remove the query expression.
 
 ### Opening a Chart
 
@@ -137,8 +133,7 @@ To open a chart, click the chart name in the upper right corner.
 
 ![chart title](images/chart_title.png)
 
-In the chart editor displays, you can modify the chart queries and display properties.
-
+In the chart editor, you can modify and add chart queries and display properties.
 
 ## Selecting Chart Time Windows
 

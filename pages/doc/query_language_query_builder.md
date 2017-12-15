@@ -37,16 +37,19 @@ To use a constant value or the value of another query instead of a metric, you c
 
 ![Metric selector](images/metric_selector.png)
 
-To preview the result of each evaluation step in real-time, click the bar chart icon <i class="fa fa-bar-chart"/> at the end of each field:
+To preview the result of each evaluation step in real-time, click the bar chart icon at the end of each field:
 
 ![Display query](images/display_query.png)
 
 ## Applying Filters and Functions
 
-You can AND and OR multiple filters together and follow with chained functions. Unlike manually constructed ts() queries, which allow [mixed ANDs and ORs](query_language_reference.html#operators), the Query Builder applies either AND or OR to all filters.
+Query Builder helps you construct your queries like this:
+* You can AND and OR multiple elemtns together.
+  Unlike manually constructed ts() queries, which allow mixed ANDs and ORs, the Query Builder applies either AND or OR.
+* The order of evaluation is left to right (i.e. metrics, then filters, then functions).
+* As with the query language, wildcard matching is supported for metrics, sources, and tags.
+* You can remove any element in the expression chain by clicking the X icon to the right of that element. The rest of your expression remains intact.
 
 ![filter and](images/filter_and.png)
 
-Functions are organized in a two-level hierarchy (e.g. Aggregation->Sum). A preview of the result of applying any function displays when you mouse over the function name. The full ts() expression is also shown in each preview window for reference.
-
-The order of evaluation is left to right (i.e. metrics, then filters, then functions). As with the query language, wildcard matching is supported for metrics, sources, and tags. You can remove any link of the expression chain by clicking the <i class="fa fa-times-circle"/> icon of that link. The rest of your expression remains intact.
+As you build the query, the full ts() expression is shown below for reference.

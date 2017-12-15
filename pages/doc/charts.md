@@ -30,6 +30,8 @@ To display the options, hover over the query line.
 
 ![chart query](images/chart_query.png)
 
+The image above shows the query line with Query Builder disabled. The options are the same with Query Builder enabled.
+
 ### General
 
 Options that support general customization.
@@ -254,18 +256,16 @@ A **scatter plot** differs from all other Wavefront charts in that it compares t
 
 The scatter plot is useful for examining whether two (or more) data sets are positively, negatively, or not correlated. Each point on a scatter plot represents a summary of points over a specified amount of time. In Wavefront terminology, these summarized points are called buckets. You can view the extent of the summarization applied in the bottom left of each chart.
 
-When creating a Wavefront scatter plot, you specify which expressions are mapped to which axes. The image below shows how the X and Y-axes are defined for a scatter plot. Based on the upwards slope of the points, you can see that the request rate and CPU load are positively correlated&mdash;as one increases, the other follows.
+When you create a Wavefront scatter plot, you use two queries. One specifies the expression that is mapped to the X axis, the other the expression that is mapped to the Y axis.
 
-![dual axes](images/dual_axes.png)
-
-When using scatter plots in Wavefront, series matching ensures that reporting sources are actively reporting metrics for all specified time series expressions.
+Series matching for the scatter plot ensures that reporting sources are actively reporting metrics for all specified time series expressions.
 * If a unique series (metric + source + point tags) is actively reporting for only one time series expression, it is not displayed.
-* If there are no sources that are reporting for all time series expressions, then no data displays on the chart.
-* If multiple X and Y-axes are defined, you must ensure that each time series expression associated to an axes has at least one common source reporting, otherwise no data is shown on the chart.
+* If no sources are reporting for all time series expressions, then NO DATA displays on the chart.
+* If multiple X and Y-axes are defined, ensure that each time series expression associated to an axes has at least one common source reporting. Otherwise NO DATA is shown on the chart.
 
 Only unique series that are reporting for every defined time series expression display.
 
-The following options control the style of a Scatter Plot chart.
+The following option controls the style of a Scatter Plot chart.
 
 <table>
 <tbody>
@@ -286,7 +286,7 @@ The following options control the style of a Scatter Plot chart.
 
 A **tabular view** chart displays data per stream in a table format. A tabular view displays only one data point value per source. The value is a summary of all of available data points, as set in the Summarized By field, based on the configured time window.
 
-The following groups of options control the style of a Tabular View chart.
+The following options control the style of a Tabular View chart.
 
 <table>
 <tbody>
