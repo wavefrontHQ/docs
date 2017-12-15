@@ -115,7 +115,7 @@ To view alerts, click the **Alerts** button or select **Browse > Alerts**. A lis
 
 ![Alert firing](images/alert_firing.png)
 
-To view alert details, click the <i class="fa-bar-chart fa" style="color: #337ab7;"/> icon in the State column. A chart displays with two queries:
+To view alert details, click the chart icon in the State column. A chart displays with two queries:
 
 - **&lt;Alert name&gt;** - the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
@@ -143,11 +143,9 @@ For example, if you have configured an email address as the alert target, you re
 
 ![alert_email](images/alert_email.png)
 
-When you click the link in the notification, you see the following queries:
+When you click the link in the notification, you see the queries and alert events:
 
 {% include shared/alert_details.html %}
-
-![Alert notification](images/alert_notification_queries.png)
 
 ## Alert Events
 

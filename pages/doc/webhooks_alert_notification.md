@@ -39,7 +39,7 @@ The process for creating an alert target is fairly similar for the different tar
 1.  Select **Browse > Alert Targets**.
 1.  Click the **Create Alert Target** button.
 1.  From the **Type** pull-down menu, select the alert target type  and fill in the properties. Certain properties are available only for certain alert target types.
-<table>
+    <table>
     <tbody>
     <thead>
     <tr><th>Property</th><th colspan="2">Description</th></tr>
@@ -104,7 +104,6 @@ The process for creating an alert target is fairly similar for the different tar
     <td>Alert Target POST Body Template</td>
     <td colspan="2" markdown="span">Template for a payload that the alert target sends sends in the POST request. Click Template to select a template that is appropriate for the alert target type, and enter the information. </td>
     </tr>
-
     </tbody>
     </table>
 1. Select **Webhook POST Body Template > Template > \<template_type\>**, where \<template_type\> is Default, Slack, VictorOps, or HipChat.
@@ -134,7 +133,7 @@ The iterator categories are: `failing`, `inMaintenance`, `newlyFailing`, and `re
   - `tags` - Point tags on the series.
   - `observed` - Number of points returned by the alert condition.
   - `firing` - Number of points that satisfy the alert condition.
-  - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or 1, that information is usually not useful. 
+  - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or 1, that information is usually not useful.
 
 
 Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
@@ -604,7 +603,9 @@ For this case (limit 10, failing sources 8) `failingLimitExceed` is `false` beca
 
 ## Testing an Alert Target
 
-Test your alert target to ensure that it works properly. To test an alert target, select the  ![action_menu](images/action_menu.png#inline) **> Test** pull-down at the far right of the alert target.
+Test your alert target to ensure that it works properly. To test an alert target, the three dots to the left of the alert target and click **Test**.
+
+  ![alert target test](images/alert_target_test.png)
 
 ## Querying Responses of Webhook Alert Targets
 
@@ -631,13 +632,13 @@ If the response code of the webhook is anything other than 2xx, Wavefront create
 
 ## Editing an Alert Target
 
-To edit a alert, click the alert target name in the Alert Targets browser or select ![action_menu](images/action_menu.png#inline) **> Edit** from the pull-down at the far right of the alert target.
+To edit a alert, click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
 
 ## Deleting  Alert Targets
 
-You can delete one or more alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if any of the selected alert targets cannot be deleted.
+You can delete one or more alert targets by checking the checkboxes next to the alert targets and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Alert Targets page. The trash icon is grayed out if you don't have permission to delete any of the selected alert targets.
 
-To delete one alert target, use the trash icon or select ![action menu](images/action_menu.png#inline) **> Delete** at the far right of the alert target.
+To delete one alert target, use the trash icon or click the three dots to the left of the alert target and select **Delete**.
 
 ## Finding an Alert Target ID
 

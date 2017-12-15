@@ -17,7 +17,7 @@ The Wavefront CloudTrail integration retrieves EC2 event information and creates
 
 ## Viewing Events
 
-To view events, select **Browse > Events**. The Events list displays. Here is an example event for the alert described in [Tutorial: Getting Started](tutorial_getting_started.html#create-an-alert) fires:
+To view events, select **Browse > Events**. The Events list displays. Here's an example event for an alert.
 
 ![Alert firing](images/event_alert_firing.png)
 
@@ -31,8 +31,6 @@ Events have three types of sources.
 ![Events system](images/event_system.png)
 
 - **User** You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an even for code pushes that occur outside Wavefront but that affect Wavefront metrics.
-
-![Events system](images/event_user.png)
 
 Events have types and subtypes, which are typically used in [events queries](events_queries.html).
 
@@ -58,7 +56,7 @@ To create a user event:
 
 1. Do one of the following:
    - Select **Browse > Events** and clicking the <strong>Create Event</strong> button located at the top of the filter bar.
-   - In a chart, click the flag icon <i class="fa-flag fa"></i> located in the top right corner of the time
+   - In a chart, click the flag icon located in the top right corner of the time
    bar. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
    If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.
 
@@ -112,11 +110,11 @@ To create a user event:
 
 ## Deleting User Events
 
-You can delete one or more user events by checking the checkboxes next to the events and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Events page. The Trash icon is grayed out if any of the selected events cannot be deleted. To delete a single user event, select ![action menu](images/action_menu.png#inline) **> Delete** to the right of the event.
+You can delete one or more user events by checking the checkboxes next to the events and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Events page. The Trash icon is grayed out if any of the selected events cannot be deleted. To delete a single user event, select the three dots to the left of the event and click **Delete**.
 
 ## Closing an Ongoing Event
 Ongoing events do not have an end time. To close ongoing events, check the checkboxes next to the events and click the **Close** button. The Close button is grayed out if any of the selected events cannot be closed.
-To close a single event, select ![action menu](images/action_menu.png#inline) **> Close** to the right of the event.
+To close a single event, select the three dots to the left of the event and click **Close**. 
 
 ## Managing Event Tags
 
