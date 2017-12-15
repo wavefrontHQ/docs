@@ -89,7 +89,7 @@ The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java
 To test grok patterns before sending data to Wavefront, you can run the proxy in a mode where it reads lines from stdin and prints the generated metric when there is a match with a pattern in `logsIngestionConfig.yaml`.  To run the proxy in test mode:
 
 ```shell
-java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar \
+/opt/wavefront/wavefront-proxy/proxy-jre/bin/java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar \
   -f /etc/wavefront/wavefront-proxy/wavefront.conf --testLogs < foo.txt
 ```
 
