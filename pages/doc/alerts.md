@@ -8,6 +8,8 @@ summary: Learn how alerts work, and how to create and examine them.
 ---
 Legacy monitoring systems are limited to simple, threshold-based alerts. With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. The end results is fewer false alarms and faster remediation when real issues occur.
 
+{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
+
 ## How Alerts Work
 
 An alert defines:
@@ -24,8 +26,6 @@ Wavefront can display actual firings or hypothetical alert-generated events usin
 ### Backtesting
 
 Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
-
-{% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
 ## Creating an Alert
 
@@ -126,7 +126,7 @@ For example, for the alert shown above, the chart displays:
 
 The Firings column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
-Alert history shows the changes that have been made to an alert over time. To access the alert history, select ![action menu](images/action_menu.png#inline) **> Versions** from the menu located to the right of an alert on the Alerts page. Alert history shows:
+Alert history shows the changes that have been made to an alert over time. To access the alert history, click he three dots to the left of the alert on the Alerts page and click **Versions**. Alert history shows:
 * Which user made the changes
 * The date and time the changes were made,
 * A description of the changes.

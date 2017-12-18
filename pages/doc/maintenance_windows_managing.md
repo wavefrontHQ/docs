@@ -86,6 +86,6 @@ You can extend the duration of a maintenance window or close the window before i
 1. Click the **Extend** dropdown and select the desired duration or click the **Close** button.
 1. Click the confirmation.
 
-To extend the duration of a single maintenance window, select **Extend > Duration** at the far right of the window.
+To extend the duration of a single maintenance window, select **Extend > Duration**.
 
-To close, edit, or delete a single maintenance window, select ![action menu](images/action_menu.png#inline) > **\[Close \| Edit \| Delete\]** at the far right of the window.
+To close, edit, or delete a single maintenance window, select the three dots on the left and click **Close**, **Edit**, or **Delete**.

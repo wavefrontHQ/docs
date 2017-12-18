@@ -121,14 +121,14 @@ Wavefront automatically disables integrations that are experiencing errors due t
 1. In the Featured section, click the **Amazon Web Services** tile.
 1. Click the **Setup** tab.
 1. Click the **Advanced** link.
-1. In the row that contains the integration that you want to enable or disable, select ![action_menu.png](images/action_menu.png#inline) **> \[Enable \| Disable\]**.
+1. In the row that contains the integration that you want to enable or disable, click the three dots and select **Enable** or **Disable**.
 
 ### Deleting AWS Integrations
 
 To delete one or more integrations:
 
 - Select the checkboxes next to one or more integrations and click <i class="fa-trash fa"/>.
-- In the row containing the integration you want to delete, select ![action_menu.png](images/action_menu.png#inline) **> Delete**. Click **Delete** to confirm the delete action.
+- In the row containing the integration you want to delete, click the three dots, select **Delete** and confirm.
 
 ## CloudWatch Data
 
