@@ -19,7 +19,7 @@ All Wavefront browsers (All Dashboards, Alerts, Integrations, Events, Maintenanc
 <colgroup>
 <col width="50%" />
 <col width="50%" />
-</colgroup> 
+</colgroup>
 <thead>
 <tr><th>Browser</th><th>Facets</th></tr>
 </thead>
@@ -65,7 +65,15 @@ All Wavefront browsers (All Dashboards, Alerts, Integrations, Events, Maintenanc
 
 ### Search Field
 
-The <i class="fa fa-search"/> field at the top of every browser page supports both autocomplete and search. The autocompleted entities include the browser object name, object properties, and other entities relevant to that object. For example, in the All Dashboards page, searching returns a dropdown list displaying autocompleted sources and metrics queried in dashboards, dashboard names, and tags containing the search string, all of which you can select individually. The dropdown list also contains links to searches for _all_ tags and dashboard content containing the string. For example:
+The search field at the top of every Wavefront browser page supports both autocomplete and search. The autocompleted entities include the browser object name, object properties, and other entities relevant to that object.
+
+For example, in the All Dashboards browser page, searching returns a dropdown list that displays:
+
+* autocompleted sources and metrics queried in dashboards
+* dashboard names
+* tags containing the search string
+
+You can select each item in the list individually. The dropdown list also contains links to searches for _all_ tags and dashboard content containing the string. For example:
 
 ![search auto](images/search_auto.png)
 
@@ -77,7 +85,7 @@ In the filter bar on the left you search by selecting facets and typing in Searc
 
 ### Saved Searches
 
-Most filter bars contain a set of commonly used saved searches (e.g. Favorites, Last Updated, Recently Updated, My <XXX>) and you can save your own searches. 
+Most filter bars contain a set of commonly used saved searches (e.g. Favorites, Last Updated, Recently Updated, My <XXX>) and you can save your own searches.
 
 Once you press **Return** or **Enter** after typing a search string, the icons ![search icons](images/searchicons.png#inline) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a dropdown menu for renaming, cloning, and deleting the search.
 
@@ -96,6 +104,9 @@ For a demo of searching in Wavefront, see
 
 The Wavefront UI supports several universal patterns for performing other types of actions on Wavefront entities beyond searching:
 
--   **Tagging** - After selecting entities, click the tag buttons ![tag toggle](images/tag_toggle.png#inline) to create, add, and remove tags.
--   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the menu icon at the far right of an entity ![action menu](images/action_menu.png#inline) and selecting an action.
--   **Trash** - View deleted entities by clicking the trash toggle: Off - ![trash off](images/trash_off.png#inline) On - ![trash on](images/trash_on.png#inline)
+-   **Tagging** - After selecting entities, click the tag buttons to create, add, and remove tags.
+-   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the three dots to the far left of the entity. Actions are different for different entities but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
+
+    ![dashboard clone](/images/dashboard_clone.png)
+    
+-   **Trash** - View deleted entities by clicking the trash toggle.

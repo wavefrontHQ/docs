@@ -98,37 +98,25 @@ Entity tags are tags that apply to Wavefront entities: alerts, dashboards, event
 
 To add tags to one or more entities:
 
-1.  Open an entity browser by selecting **Browse &gt; &lt;entity&gt;**, where **&lt;entity&gt;** is **Alerts**, **Dashboards**, **Events**, or **Sources**.
+1.  Open an entity browser.
+    - For some entities, you select **Browse &gt; &lt;entity&gt;**, where **&lt;entity&gt;** is **Sources** or **Events**.
+    - For other entities, such as Alerts, you click the entity.
 2.  Choose which entities to tag:
     -   Check the checkboxes next to the entities and click the **+ Tag** button.
-    -   Click **+tag** below an entity.
+    -   Click **+** at the bottom and select a tag or click **Create New Tag**.
 
         ![source tags](images/source_tags.png)
 
-3.  In the **Add Tag** dialog:
-
-    ![add tag](images/add_tag.png)
-
-    -   Click the **Create Tag** button at the bottom:
-        1.  Type a tag name. Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (\_), and colon (:) characters. Tag names are *case sensitive*. For example, the tags **MyApp** and **myapp** are stored as distinct tags. However, mixed case tag paths are collapsed into one path; **MyService.myapp** and **myservice.myapp** are collapsed into **Myservice.myapp**.
-        2.  Click **Add**.
+3.  In the **Add Tag** dialog, click the **Create Tag** button at the bottom.
+4. Type a tag name. Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (\_), and colon (:) characters. Tag names are *case sensitive*. For example, the tags **MyApp** and **myapp** are stored as distinct tags. However, mixed case tag paths are collapsed into one path; **MyService.myapp** and **myservice.myapp** are collapsed into **Myservice.myapp**.
+5. Click **Add**.
 
 ### Searching for Entity Tags
 
-When there are many tags you can search for tags by typing tag names in the Search box below the Tags heading in the filter bar:
+When you have many tags in your environment, you can search for tags by typing tag names in the Search box below the Tags heading in the filter bar on the left. As you type, the list of tags is filtered by the search string.
 
-![search tags](images/search_tags.png)
-
-As you type in the Search box, the list of tags below is filtered by the search string. When you search for tags, the search process is *case insensitive*. For example, searching for the tag **myapp** returns **MyApp** and **myapp.** Similarly, searching for the tag **MyApp** returns **MyApp** and **myapp**.
+**Note** When you search for tags, the search process is *case insensitive*. For example, searching for the tag **myapp** returns **MyApp** and **myapp.**.
 
 ### Filtering by Entity Tags
 
-To filter by a tag, click a tag icon, for example ![mytag icon](images/mytag_icon.png#inline):
-
--   In the filter bar:
-
-    ![mytag2](images/mytag2.png)
-
--   Below an entity in an entity browser:
-
-    ![mytag](images/mytag.png)
+To filter by a tag, click a tag icon. You can click the icon in the filter bar on the left or below an entity in an entity browser.
