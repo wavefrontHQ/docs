@@ -53,7 +53,7 @@ Some functions return a set of *synthetic events* as a function of input events.
   ![Events since](images/since_events.svg)
 - `until(<events>)` - returns a synthetic event that starts at the beginning of time (Jan 1, 1970) and ends where the input event starts.
 
-  ![Events until](images/until_events.png)
+  ![Events until](images/until_events.svg)
 - `after(<events>)` - returns a synthetic ongoing event that starts the moment the input event ends.
 
   ![Events after](images/after_events.svg)
@@ -66,7 +66,7 @@ Some functions convert event sets to time series.
 
   ![Events count](images/count_events.svg)
 - `ongoing(<events>)` - returns a continuous time series (values reported every second), representing the number of ongoing events at any given moment.
- 
+
 ## Single Event Functions
 
 Some functions return a single event as opposed to a set of events. These functions either create a single synthetic event or isolate a single event from a series. All functions and operations that accept a set of events also accept a single event.
