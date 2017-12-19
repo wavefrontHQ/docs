@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies.html
 summary: Learn about Wavefront proxies.
 ---
-A Wavefront proxy is a Java program that forwards data to the Wavefront service in a secure, fast, and reliable manner. After you install a proxy in your environment, it can handle thousands of simultaneous clients. Your data collection agents or custom code send data to the proxy, which consolidates points into configurable batches and sends the data to the Wavefront service.
+A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. After you install a proxy in your environment, it can handle thousands of simultaneous clients. Your data collection agents or custom code send data to the proxy, which consolidates points into configurable batches and sends the data to the Wavefront service.
 
 ## Proxy Benefits
 

@@ -9,10 +9,10 @@ permalink: index.html
 
 Welcome to the Wavefront documentation site!
 
-* New users usually start with [Introduction to Wavefront](wavefront_introduction.html) or [Getting Started Documentation](documentation_getting_started.html).
+* New users usually start with [What is Wavefront?](wavefront_introduction.html) or [Docs and Dashboards Overview](documentation_getting_started.html).
 * Even if you don't usually read docs, have a look at the [Wavefront Query Language Quick Reference](https://docs.wavefront.com/query_language_reference.html).
 
-You can explore the documentation in the three-level hierarchy in the nav bar on the left. Topics also have one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
+You can explore the documentation in the nav bar hierarchy on the left. Each topic also has one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
 
 <div class="row">
  <div class="col-md-3 col-sm-6">

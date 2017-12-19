@@ -37,7 +37,7 @@ Standalone tutorials in this doc set help you learn the basics.
 
 The following docs are great for learning what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront. These docs also explore the main entities in Wavefront: charts, dashboards, alerts, events, and integrations.
 
-- [Introduction to Wavefront](wavefront_introduction.html)
+- [What is Wavefront?](wavefront_introduction.html)
 - [Getting Data into Wavefront Overview](wavefront_data_ingestion.html)
 - [Permissions Overview](permissions_overview.html)
 - [Organizing with Tags](tags_overview.html)

@@ -16,14 +16,15 @@ Wavefront has these main components:
 * The **Wavefront proxy** forwards data to the Wavefront service in a secure, fast, and reliable way.
   - A **collector agent** such as Telegraf can send data to the proxy or
   - You can send your metrics directly to the proxy -- as long as the data is in one of the supported data formats. For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
+  - The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](http://docs-dev.wavefront.com/integrations_log_data.html)
 
 ![Wavefront architecture](images/wavefront_architecture.svg)
 
 ## Wavefront Service
 
-The Wavefront service runs in the cloud and is highly available to protect your data at any time.  You can access the service using one of the interface. The architecture includes several layers. 
+The Wavefront service runs in the cloud and is highly available to protect your data at any time.  You can access the service using one of the interfaces. The architecture includes several layers.
 
-## Wavefront Service Architecture
+### Wavefront Service Architecture
 
 The Wavefront service has the following components:
 
@@ -54,8 +55,7 @@ You can interact with Wavefront from your web browser or using the REST API:
 
 ## Wavefront Proxy
 
-The Wavefront proxy allows you to send your data to Wavefront in a secure, fast, and reliable manner. The proxy works
-with the Wavefront service to ensure end-to-end flow control. When it detects network connectivity issues, the proxy
+The [Wavefront proxy](https://docs.wavefront.com/proxies.html) allows you to send your data to Wavefront in a secure, fast, and reliable manner. The proxy works with the Wavefront service to ensure end-to-end flow control. When it detects network connectivity issues, the proxy
 queues metrics in memory and on disk. Once connectivity is restored, the proxy replays queued metrics but prioritizes
 real-time traffic. There are many ways to  [configure](proxies_configuring.html) the proxy to tune this behavior.
 
