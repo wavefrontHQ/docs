@@ -6,20 +6,15 @@ sidebar: doc_sidebar
 permalink: wavefront_data_ingestion.html
 summary: Learn how to get data into Wavefront.
 ---
-You have three options for getting data into Wavefront:
+You have several options for getting data into Wavefront:
 
-- You ingest metrics data using one or more collector agents and the Wavefront proxy. A collector agent, such as Telegraf or Docker cAdvisor, collects metrics such as capacity and usage from your systems, and outputs them to the Wavefront proxy. The Wavefront proxy works with the Wavefront server to ensure security and end-to-end flow control.
-- Your application sends metrics directly to a Wavefront proxy.
-- Wavefront pulls your data directly from Amazon Web Services.
+- You use one or more collector agents and the Wavefront proxy. A collector agent, such as Telegraf or Docker cAdvisor, collects metrics such as capacity and usage from your systems, and outputs them to the Wavefront proxy. The Wavefront proxy works with the Wavefront service to ensure security and end-to-end flow control. See [Wavefront Proxies](proxies.html)
+- If you have a metrics collection infrastructure, your application uses the metrics library to send log files or metrics directly to a Wavefront proxy.
+- Wavefront pulls data directly from the cloud, for example, from Amazon Web Services.
 
-The diagram below shows all three options.
+The diagram below shows all options.
 
 ![Wavefront architecture](images/wavefront_architecture.svg)
-
-
-## Tutorial
-
-To quickly get going with getting data into Wavefront, do the in-product tutorial. See [Tutorial: Getting Data into Wavefront](tutorial_data_ingestion.html) for an overview.
 
 ## Proxy-Based Integrations
 
@@ -33,3 +28,7 @@ The Amazon Web Services integration directly supports ingesting CloudWatch, Clou
 
 - [AWS Metrics Integration](integrations_aws_metrics.html)
 - [Amazon EC2 Container Service (AWS ECS) Integration](integrations_aws_ecs.html)
+
+## Tutorial
+
+To quickly get going with getting data into Wavefront, follow the steps in the in-product Getting Started workflow. This workflow explains how to get data flowing from your local machine or from an Amazon Web Service. 

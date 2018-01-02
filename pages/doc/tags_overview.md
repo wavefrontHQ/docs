@@ -38,7 +38,7 @@ The table summarizes where the two types of tags are used and where they are add
 <tbody>
 <tr>
 <td>alert</td>
-<td markdown="span">[Managing Alerts](alerts.html) and [Preventing Alerts from Firing](maintenance_windows_managing.html)</td>
+<td markdown="span">[Alert Management](alerts.html) and [Preventing Alerts from Firing](maintenance_windows_managing.html)</td>
 <td markdown="span">[Basic events() Queries](events_queries.html)</td>
 <td markdown="span">Wavefront UI and API</td>
 </tr>
@@ -64,7 +64,7 @@ Telegraf agent<br />
 </tr>
 <tr>
 <td>source</td>
-<td markdown="span">[Managing Sources](sources_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html)</td>
+<td markdown="span">[Managing Sources](sources_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html#using-maintenance-windows)</td>
 <td markdown="span">[Getting Started with Wavefront Query Language](query_language_getting_started.html)</td>
 <td markdown="span">Wavefront UI and API</td>
 </tr>
@@ -73,7 +73,7 @@ Telegraf agent<br />
 
 ## Tag Paths
 
-All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot ".". For example: **MyService.MyApp**. Dashboards provided by Wavefront start with the tag path component **~welcome.**, **~integration.**, and **~system.** To improve readability, tags retain case for display but are treated case-insensitive for searching, sorting, etc.
+All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot ".". For example: **MyService.MyApp**. Dashboards provided by Wavefront start with a tilde at the beginning of the tag, for example, **~welcome.**, **~integration.**, and **~system.**. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
 
 ### Selecting and Searching Tag Paths
 
@@ -90,7 +90,6 @@ In queries you achieve the same effect by using trailing wildcards "**.\***" whe
 ## Managing Entity Tags
 
 Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
-
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view Wavefront entities, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those entities. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
