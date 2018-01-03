@@ -13,7 +13,8 @@ The mechanism that Wavefront provides for expressing alert dependencies are _ale
 
 ## Alert Metrics
 
-The three types of alert metrics&mdash;**summary**, **firing**, **isfiring**&mdash;and their syntax are:
+The three types of alert metrics&mdash;**isfiring**, **summary**, **firing**&mdash;and their syntax are:
+- **isfiring** - `~alert.isfiring.<alertID>`. As opposed to firing, isfiring returns just one timeseries that indicates if the alert is firing or not. The value is 1 if the alert is firing, 0 otherwise.
 
 - **summary** - `~alert.summary.<alertID>.<severity>.<type>`where
   - `alertID` - The alert ID. The field accepts the wildcard `*`.
@@ -22,12 +23,12 @@ The three types of alert metrics&mdash;**summary**, **firing**, **isfiring**&mda
 When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
   - `type` - The type of the metric. One of:
     - `sourcesFiring` - Count of unique sources causing the alert to fire.
-    - `seriesFiring` - Count of all series present in the alert.
-    - `labelsFiring` - Count of unique metrics or aggregations present in the alert.
-    - `pointTagsFiring` - Count of point tag key-value pairs present in the alert.
+    - `seriesFiring` - Count of all series present in the alert causing the alert to fire.
+    - `labelsFiring` - Count of unique metrics or aggregations present in the alert causing the alert to fire.
+    - `pointTagsFiring` - Count of point tag key-value pairs present in the alert causing the alert to fire.
 
 - **firing** - `~alert.firing.<alert ID>.<severity>.<metricName>`, where `<metricName>`is the name of the _first_ metric in the alert condition causing the alert to fire. Firing will return a timeseries for each source/label associated with the alert. The value is 1 if the alert is firing, 0 otherwise.
-- **isfiring** - `~alert.isfiring.<alertID>`. As opposed to firing, isfiring returns just one timeseries that indicates if the alert is firing or not. The value is 1 if the alert is firing, 0 otherwise.
+
 
 
 
@@ -62,7 +63,7 @@ If you decide to change the thresholds for any of the conditions in alerts B or 
 
 Suppose you want to write an alert, Alert A, that only fires when specific sources from Alert B fires.
 
-- Alert A: `last(ts(~alert.Firing.*, source="app-10" and alertName="B"))`
+- Alert A: `last(ts(~alert.firing.*, source="app-10" and alertName="B"))`
 
 In this case, Alert A would only fire if app-10 was firing from Alert B.
 
