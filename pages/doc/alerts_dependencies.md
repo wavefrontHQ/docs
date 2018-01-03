@@ -62,7 +62,7 @@ If you decide to change the thresholds for any of the conditions in alerts B or 
 
 Suppose you want to write an alert, Alert A, that only fires when specific sources from Alert B fires.
 
-- Alert A: `last(ts(~alert.Firing.*, source="app-10" and alertName="B"))`
+- Alert A: `last(ts(~alert.firing.*, source="app-10" and alertName="B"))`
 
 In this case, Alert A would only fire if app-10 was firing from Alert B.
 
