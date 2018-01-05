@@ -1,7 +1,7 @@
 ---
 title: Wavefront Use Cases
 keywords:
-tags: [query language, videos]
+tags: [query language, videos, best practice]
 sidebar: doc_sidebar
 permalink: wavefront_use_cases.html
 summary: Learn how to use sophisticated queries to solve important use cases.
@@ -32,5 +32,3 @@ Wavefront use case videos demonstrate how to use the power of the query language
 ## Preventing False Alarms with mmedian()
 
 {% include video.html file="gf0rmdl19s" %}
-
-

@@ -1,7 +1,7 @@
 ---
 title: Using Moving and Tumbling Windows to Highlight Trends
 keywords: query language
-tags: [query language]
+tags: [query language, best practice]
 sidebar: doc_sidebar
 permalink: query_language_windows_trends.html
 summary: Learn how to use moving window functions in Wavefront Query Language expressions to highlight trends.
@@ -10,19 +10,19 @@ summary: Learn how to use moving window functions in Wavefront Query Language ex
 ## Moving Window Functions
 
 The moving window functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `count()`, etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
- 
+
 The chart below for instance shows the 24 hour moving average of the points received. As you can see it is a continuous moving average of the past 24 hours.
- 
+
 {% include image.html file="moving_avg.png" alt="moving_avg" caption="Fig 1: Moving Average Over a Day" %}
 
 But what if you wanted to only look at the daily average for each day and display only that average across the day. Essentially what you want to create is fixed size time windows and record your metrics in these windows.
- 
-These windows are more commonly referred as _tumbling windows_. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals. 
- 
+
+These windows are more commonly referred as _tumbling windows_. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals.
+
 ## Moving Windows Versus Tumbling Windows
 
 Before we look at how to create and use these tumbling windows for different use cases, let's take a look at an example to understand thoroughly the concepts of moving and tumbling windows.
- 
+
 The following diagrams illustrate a stream with a series of points being reported and how they are mapped into  5-second moving windows versus 5-second tumbling windows.
 
 {% include image.html file="5sec_moving_window.png" alt="5sec_moving_window" caption="Fig 2: 5 Second Moving Windows Illustrated" %}
@@ -46,19 +46,19 @@ In the chart above, the green circles show the sampled data and you can use `nex
 {% include image.html file="missing_data_fcn_tumbling_window.png" alt="missing_data_fcn_tumbling_window" caption="Fig 6: Use Missing Data Functions to Display the Result Across Tumbling Window" %}
 
 Below are more examples of tumbling windows.
- 
+
 ## Examples
- 
+
 ### Count the unique number of metrics per day starting at 0 every midnight at PDT
- 
+
 This chart shows all the how many metrics are reported into Wavefront from the Slack application.
 
 {% include image.html file="daily_count.png" alt="daily_count" caption="Fig 7: Daily Count of Reported Metrics" %}
 
 This example is very similar to the earlier example. However, instead of sampling the moving count exactly at midnight, this expression takes into account any missing or delayed data and picks the first value of the 30 minutes past midnight and then finally the `next()` function simply displays this value for the entire day.
- 
+
 ### Get a 50th percentile of every 5 minute bucket
- 
+
 Here is sample data being reported every 1 minute.
 
 {% include image.html file="sample_data.png" alt="sample_data" caption="Fig 8: Sample Data" %}
@@ -72,6 +72,5 @@ But what if you wanted to find a 50th percentile of points in fixed 5-minute win
 {% include image.html file="5min_50th_tumbling.png" alt="5min_50th_tumbling" caption="Fig 10: 50th Percentile for Every 5 Minute Tumbling Window" %}
 
 This expression is plotting the raw data overlaid with the 5-minute tumble window for the 50th percentile. The orange line is the 50th percentile of points in every 5-minute fixed window. And you see how it coincides with the middle-valued point in that time interval.
- 
-Thus any of the moving functions can be converted into fixed or tumbling windows by correct sampling of the moving window for which you should use the time functions and/or `align()`.
 
+Thus any of the moving functions can be converted into fixed or tumbling windows by correct sampling of the moving window for which you should use the time functions and/or `align()`.

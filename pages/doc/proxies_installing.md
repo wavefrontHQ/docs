@@ -1,7 +1,7 @@
 ---
 title: Installing and Running Wavefront Proxies
 keywords: Ansible
-tags: [proxies]
+tags: [proxies, best practice]
 sidebar: doc_sidebar
 permalink: proxies_installing.html
 summary: Learn how to install and run Wavefront proxies.

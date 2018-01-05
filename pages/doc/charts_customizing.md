@@ -1,7 +1,7 @@
 ---
 title: Customizing Chart Resolution and Units
 keywords: getting started
-tags: [getting started, charts, videos]
+tags: [getting started, charts, videos, best practice]
 sidebar: doc_sidebar
 permalink: charts_customizing.html
 summary: Learn about the Wavefront chart time window and display resolution, and how to configure the units displayed in chart axes and legends.

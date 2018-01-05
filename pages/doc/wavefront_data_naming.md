@@ -1,7 +1,7 @@
 ---
 title: Wavefront Data Naming
 keywords: data
-tags: [data]
+tags: [data, best practice]
 sidebar: doc_sidebar
 permalink: wavefront_data_naming.html
 summary: Learn about best practices for naming data sent to Wavefront and naming Wavefront entities.
