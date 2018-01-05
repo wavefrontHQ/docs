@@ -34,20 +34,6 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
                    <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-leanpub fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_tutorials.html" class="btn btn-primary btn-block">Tutorials</a></p>
-             <p>{{site.data.labels.tutorials}}</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                    <i class="fa fa-table fa-stack-1x fa-inverse"></i>
              </span>
          </div>
@@ -68,6 +54,20 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
          <div class="panel-body">
              <p><a href="label_query%20language.html" class="btn btn-primary btn-block">Query Language</a></p>
              <p>{{site.data.labels.query_language}}</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
+             <p>{{site.data.labels.integrations}}</p>
          </div>
      </div>
  </div>
@@ -131,20 +131,7 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
  </div>
 </div>
 <div class="row">
-<div class="col-md-3 col-sm-6">
-    <div class="panel panel-default text-center">
-        <div class="panel-heading">
-            <span class="fa-stack fa-1x">
-                  <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                  <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
-            </span>
-        </div>
-        <div class="panel-body">
-            <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
-            <p>{{site.data.labels.integrations}}</p>
-        </div>
-    </div>
-</div>
+
 <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-heading">
@@ -182,14 +169,12 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
             </span>
         </div>
         <div class="panel-body">
-            <p><a href="label_release%20notes.html" class="btn btn-primary btn-block">Release Notes</a></p>
-            <p>{{site.data.labels.release_notes}}</p>
+            <p><a href="label_best%20practice.html" class="btn btn-primary btn-block">Best Practice</a></p>
+            <p>{{site.data.labels.best_practice}}</p>
         </div>
     </div>
 </div>
-</div>
-<div class="row">
-  <div class="col-md-3 col-sm-6">
+<div class="col-md-3 col-sm-6">
       <div class="panel panel-default text-center">
           <div class="panel-heading">
               <span class="fa-stack fa-1x">
