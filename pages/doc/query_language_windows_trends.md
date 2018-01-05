@@ -51,7 +51,7 @@ Below are more examples of tumbling windows.
 
 ### Count the unique number of metrics per day starting at 0 every midnight at PDT
 
-This chart shows all the how many metrics are reported into Wavefront from the Slack application.
+This chart shows the metrics reported to Wavefront by the Slack application in both the moving and the tumbling windows. The chart shows the count per day starting at midnight PDT. If the count per day is missing at midnight, the chart looks at the first value in count per day up to 12:30pm, and uses that value as the value for the entire day.
 
 {% include image.html file="daily_count.png" alt="daily_count" caption="Fig 7: Daily Count of Reported Metrics" %}
 
