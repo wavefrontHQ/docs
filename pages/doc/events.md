@@ -30,7 +30,7 @@ Events have three types of sources.
 
 ![Events system](images/event_system.png)
 
-- **User** You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an even for code pushes that occur outside Wavefront but that affect Wavefront metrics.
+- **User** You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that occur outside Wavefront but that affect Wavefront metrics.
 
 Events have types and subtypes, which are typically used in [events queries](events_queries.html).
 
@@ -114,7 +114,7 @@ You can delete one or more user events by checking the checkboxes next to the ev
 
 ## Closing an Ongoing Event
 Ongoing events do not have an end time. To close ongoing events, check the checkboxes next to the events and click the **Close** button. The Close button is grayed out if any of the selected events cannot be closed.
-To close a single event, select the three dots to the left of the event and click **Close**. 
+To close a single event, select the three dots to the left of the event and click **Close**.
 
 ## Managing Event Tags
 
