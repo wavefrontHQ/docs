@@ -33,7 +33,7 @@ entries:
 
     - title: "Getting Started Videos"
       url: /videos.html
-      output: web  
+      output: web
 
   - title: Release Notes
     output: web
@@ -152,7 +152,7 @@ entries:
           url: /query_language_metadata_functions.html
           output: web
 
-        - title: Using Statistical Functions to Detect Anomalies
+        - title: Detecting Anomalies
           url: /query_language_statistical_functions_anomalies.html
           output: web
 

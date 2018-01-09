@@ -29,7 +29,7 @@ You can resolve this problem like this:
 
 ## Account for Missing Data Points
 
-Using `mcount()` can help you account for missing data points. Use `count()` to see the number of systems reporting, `mcount()` to see the number of points
+Using `mcount()` can help you account for missing data points. Use `count()` to see the number of systems reporting, use `mcount()` to see the number of points.
 
 A general query with `mcount()` might be:
 `mcount(5m, ts(my.metric)) = 0`.

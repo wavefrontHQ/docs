@@ -51,6 +51,8 @@ You can interact with Wavefront from your web browser or using the REST API:
 
 * The **user interface** (UI) is displayed in a browser. You log in to the Wavefront UI from a standard web browser, in many cases using an SSO solution.  One unique feature of the UI is that it can display charts with data over any range of time (e.g. over an entire year).
 
+  Wavefront supports Chrome, Firefox, and Safari. Wavefront does not support Internet Explorer because of technical limitations of that browser. 
+
 * The **REST API** allows custom applications to access all Wavefront UI actions.
 
 ## Wavefront Proxy
