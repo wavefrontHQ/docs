@@ -1,7 +1,7 @@
 ---
 title: Customizing Chart Resolution and Units
 keywords: getting started
-tags: [getting started, charts, videos, best practice]
+tags: [getting started, charts, best practice]
 sidebar: doc_sidebar
 permalink: charts_customizing.html
 summary: Learn about the Wavefront chart time window and display resolution, and how to configure the units displayed in chart axes and legends.
@@ -44,11 +44,11 @@ Here is a series of charts with increasing time window for the _same_ display re
 
   ![6h resolution](images/chart_resolution_6h.png)
 
-### Chart Resolution Overview Video
+### Chart Customization Video
 
-Here's a video that demonstrates resolution and summarization options and use cases:
+Here's a video  that demonstrates different customization options:
 
-{% include video.html file="r8frqgquvb" %}
+[Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### The align() Function and Resolution
 

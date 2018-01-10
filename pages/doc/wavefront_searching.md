@@ -97,7 +97,7 @@ The following Alert browser filter demonstrates filtering alerts by the tag path
 
 For a demo of searching in Wavefront, see
 
-{% include video.html file="mvcjw51w6d" %}
+[Searching Content in Wavefront](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 
 ## Other Actions
@@ -108,5 +108,5 @@ The Wavefront UI supports several universal patterns for performing other types 
 -   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the three dots to the far left of the entity. Actions are different for different entities but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
 
     ![dashboard clone](/images/dashboard_clone.png)
-    
+
 -   **Trash** - View deleted entities by clicking the trash toggle.

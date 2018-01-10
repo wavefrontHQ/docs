@@ -79,11 +79,11 @@ All tag types support the ability to organize tags in a hierarchy. The hierarchy
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example, you can select all Wavefront dashboards by clicking **wavefront**, or only tutorial dashboards by expanding the **wavefront** node and selecting **wavefront.tutorial**.
 
-Here's a video overview:
+Here's a video:
 
-{% include video.html file="u1vzsuttf6" %}
+[Tags Overview](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
-In queries you achieve the same effect by using trailing wildcards "**.\***" when specifying tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When creating maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
+In queries, you achieve the same effect by using trailing wildcards "**.\***" when you specify tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When you create maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
 <a name="entity_tags"></a>
 

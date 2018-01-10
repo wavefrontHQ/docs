@@ -1,5 +1,5 @@
 ---
-title: Detecting Anomalies With Functions and  Statistical Functions
+title: Detecting Anomalies With Functions and Statistical Functions
 keywords: query language
 tags: [query language, videos, best practice]
 sidebar: doc_sidebar
@@ -8,7 +8,7 @@ summary: Learn how to use simple functions and statistical functions in Wavefron
 ---
 Anything that is different than "normal" can be an anomaly. Say you have a set of data points that span across a certain range, there are multiple ways to define which points of these set can be treated as normal and which should be identified as abnormal. These abnormal points if cross a certain threshold would in turn create an "anomaly" in the behavior of a certain time-series or a signal. If you are interested and want to learn more about anomaly and its detection see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/) and the following video:
 
-{% include video.html file="lytshn66rj" %}
+[Wavefront Demo 6 - Anomaly Detection](https://youtu.be/I-Z9d94Zi7Y)
 
 You can examine trends using simple functions or statistical functions.
 * Simple functions can give insight into rate of change and trends.

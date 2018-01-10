@@ -44,11 +44,12 @@ Here is a series of charts with increasing time window for the _same_ display re
 
   ![6h resolution](images/chart_resolution_6h.png)
 
-### Chart Resolution Overview Video
 
-Here's a video that demonstrates resolution and summarization options and use cases:
+### Chart Customization Video
 
-{% include video.html file="r8frqgquvb" %}
+Here's a video that demonstrates different customization options:
+
+[Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5a810256-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### The align() Function and Resolution
 

@@ -9,9 +9,9 @@ summary: Learn how to send log data to Wavefront.
 
 Wavefront supports two methods for sending log data metrics to Wavefront proxy: Filebeat and TCP. These methods are supported in Wavefront proxy 4.4 and higher.
 
-**Warning** Log ingestion functionality does not work well if you use a load balancer in your environment. 
-* When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Wavefront. 
-* Information about the actual source (host) is lost.  
+**Warning** Log ingestion functionality does not work well if you use a load balancer in your environment.
+* When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Wavefront.
+* Information about the actual source (host) is lost.
 
 ## Installing and Configuring a Wavefront Proxy
 
@@ -232,9 +232,6 @@ After configuring the Wavefront proxy to send log data, you can issue queries su
 
 ## Video Overview
 
-Here's a video overview of integrating log data: 
+Here's a video overview of integrating log data:
 
-{% include video.html file="uljyt5morx" %}
-
-
-
+[Integrating Log Data With Filebeat](https://youtu.be/qll_7mwVmI0)

@@ -15,7 +15,7 @@ logging system.
 External links are general purpose: you can link through to any type of system, not just logs.
 
 To view and manage external links, select **Browse > External Links**.
- 
+
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage](external_links_managing.html) external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 ## Navigating to an External Link
@@ -153,10 +153,6 @@ host%3Atest%20AND%20source%3A%22%2Fmnt%2Flogs%2Falerting.log%22
 
 ## Video Overview
 
-Here's a video overview of external links: 
+Here's a video overview:
 
-{% include video.html file="9vdlf3kf3j" %}
-
-
-
-
+[Using External Links](https://youtu.be/oufjL7nM0LQ)

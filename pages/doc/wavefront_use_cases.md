@@ -4,31 +4,19 @@ keywords:
 tags: [query language, videos, best practice]
 sidebar: doc_sidebar
 permalink: wavefront_use_cases.html
-summary: Learn how to use sophisticated queries to solve important use cases.
+summary: Watch videos that explain how use sophisticated queries to solve problems.
 ---
 
 Wavefront use case videos demonstrate how to use the power of the query language to solve use cases.
 
-## Anomaly Detection
+* [Anomaly Detection](https://youtu.be/I-Z9d94Zi7Y)
 
-{% include video.html file="lytshn66rj" %}
+* [Using Correlation Functions](https://youtu.be/bV9mGSAbD8s)
 
-## Saving Time During Negative Customer Impacts
+* [Searching by Behavior](https://youtu.be/hn0ExW3Jxf4)
 
-{% include video.html file="ynybdqv83o" %}
+* [Finding Value in the Noise](https://youtu.be/EckXm0HZPHE)
 
-## Searching by Behavior
+* [Correlation Across Data Sets](https://youtu.be/6kbQ_1E_SE4)
 
-{% include video.html file="55t5b7kfdu" %}
-
-## Finding Value in the Noise
-
-{% include video.html file="hou5e8x0o9" %}
-
-## Correlation Across Data Sets
-
-{% include video.html file="yh3k8jzvgm" %}
-
-## Preventing False Alarms with mmedian()
-
-{% include video.html file="gf0rmdl19s" %}
+* [Preventing False Alarms with mmedian()](https://youtu.be/dkHmnH_Dchc)

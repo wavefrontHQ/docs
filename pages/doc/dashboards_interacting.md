@@ -84,9 +84,9 @@ To select a larger or smaller time window or to view past data instead of realti
   - When Live Data is selected, click an interval to quickly increase or decrease the amount of live data displayed within each chart.
   - When Custom Date is selected, clicking an interval adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, the start time is adjusted to 3:00 AM.
 
-The following 25 second video shows how adjusting time windows using the time bar affects charts:
+The following video gives an overview:
 
-{% include video.html file="5rboi5gh0z" %}
+[Interacting with Dashboards and Charts]([Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### Working with Sections
 
