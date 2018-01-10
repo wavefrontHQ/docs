@@ -123,7 +123,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
 
 ### Direct Log Ingestion Architecture (Filebeat)
 
-![Filebeat Log Harvesting Architecture](images/log_data_filebeat.png)
+![Filebeat Log Harvesting Architecture](images/log_data_filebeat.svg)
 
 ### Instructions
 
@@ -205,7 +205,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
 
 ### Direct Log Ingestion Architecture (Raw TCP / Splunk)
 
-![TCP Log Harvesting Architecture](images/log_data_tcp.png)
+![TCP Log Harvesting Architecture](images/log_data_tcp.svg)
 
 ### Instructions
 

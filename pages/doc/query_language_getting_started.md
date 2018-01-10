@@ -7,6 +7,9 @@ permalink: query_language_getting_started.html
 summary: Learn how to get started with Wavefront Query Language.
 ---
 The Wavefront Query Language has been designed especially for time series data. Time series data is unique and requires a query language that accommodates the periodicity, potential irregularity, and streaming nature of the data.
+Watch these videos to get you started: 
+* [Introduction to Wavefront Query Language](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=60b992dc-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+* [Query Language Basics](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=61f9391c-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ## Basic Query
 
