@@ -170,9 +170,10 @@ To make changes to a chart in a dashboard, put the dashboard in [edit mode](#edi
 
 ### Deleting, Cloning, and Editing a Chart
 
-1.Edit the dashboard.
-1.Hover over a chart. Three icons display in the bottom left corner of the chart box ![three_icons](images/chart_actions.png#inline).
+1. Click the pen icon to enter edit mode.
+1. Hover over a chart. Three icons display in the bottom left corner of the chart box ![three_icons](images/chart_actions.png#inline).
 1. Delete, clone, or edit the selected chart. When you clone a chart, it is created in a separate row below the selected chart.
+**Note** When you clone a chart, specify just the name, e.g.`myurl` in the URL field. Do not specify the full URL.
 
 You can also edit a chart by clicking the chart name in the top right corner. Save your changes by clicking **Save** in the chart.
 

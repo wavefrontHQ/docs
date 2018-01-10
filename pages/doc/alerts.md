@@ -21,9 +21,12 @@ An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric re
 
 You express alert [conditions](alerts_states_lifecycle.html#alert-conditions) using [Wavefront Query Language](query_language_getting_started.html) expressions.
 
-Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
+View this video for an overview:
+[Monitoring Your Data With Alerts](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### Backtesting
+
+Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
 
 Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
 
@@ -109,6 +112,9 @@ Click the <strong>Advanced</strong> link to configure the following alert proper
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
+Watch this video to see the process:
+[Creating an Alert](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+
 ## Viewing Alerts and Alert History
 
 To view alerts, click the **Alerts** button or select **Browse > Alerts**. A list of alerts displays. Here's an example that shows when the alert fires that is described in [Tutorial: Getting Started](tutorial_getting_started.html#create-an-alert):
@@ -127,8 +133,8 @@ For example, for the alert shown above, the chart displays:
 The Firings column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
 Alert history shows the changes that have been made to an alert over time. To access the alert history, click he three dots to the left of the alert on the Alerts page and click **Versions**. Alert history shows:
-* Which user made the changes
-* The date and time the changes were made,
+* Which user made the changes.
+* The date and time the changes were made.
 * A description of the changes.
 You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015. Even if the alert was created before that time, you won't see history before Q4 of 2015.
 

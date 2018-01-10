@@ -7,6 +7,10 @@ permalink: dashboards_interacting.html
 summary: Learn how to isolate sources and series, share URLs, alter time windows, apply global queries, and activate chart display modes.
 
 ---
+Watch this video for an introduction:
+
+[Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5a810256-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+
 ## Common Interactions
 A few interactions are common to dashboards and charts. You can isolate sources and share shortened URLs. These are available in the action buttons at the bottom right of a dashboard or chart:
 
@@ -40,9 +44,9 @@ Start typing the name of the sources to isolate. The fly-out supports wildcards.
 
      ![isolated series](images/isolated_series.png)
 
-**To remove a single isolation**, click the <i class="fa fa-times"/> icon next to the series.
+**To remove a single isolation**, click the **X** icon next to the series.
 
-**To remove all isolated sources or series** click the <i class="fa fa-times"/> icon next to the list label.
+**To remove all isolated sources or series** click the **X** icon next to the list label.
 
 ### Sharing Dashboards and Charts
 
@@ -116,7 +120,7 @@ Suppose you would like to apply a temporary ts() expression to every chart to he
 
 To apply a global query:
 
-1. Hover over the Global Query fly-out icon <i class="fa fa-plus-square"/> icon in the action buttons at the bottom right corner of a dashboard.
+1. Hover over the Global Query fly-out (**+**) icon in the action buttons at the bottom right corner of a dashboard.
 1. Specify a ts() expression, for example, 5:
 
    ![global query flyout](images/global_query_flyout.png)

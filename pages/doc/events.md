@@ -15,9 +15,13 @@ The Wavefront CloudTrail integration retrieves EC2 event information and creates
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
+For an overview of events, watch this video:
+
+[Introduction to Events](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+
 ## Viewing Events
 
-To view events, select **Browse > Events**. The Events list displays. Here's an example event for an alert.
+To view events, select **Browse > Events**. The Events list displays. Here's an example event that shows an alert was triggered.
 
 ![Alert firing](images/event_alert_firing.png)
 
@@ -30,7 +34,7 @@ Events have three types of sources.
 
 ![Events system](images/event_system.png)
 
-- **User** You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that occur outside Wavefront but that affect Wavefront metrics.
+- **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that occur outside Wavefront but that affect Wavefront metrics.
 
 Events have types and subtypes, which are typically used in [events queries](events_queries.html).
 
@@ -46,9 +50,9 @@ To view details about an alert associated with a System/Alert event, click the *
 
 ## Event States
 
-A System event can be in the Ongoing or Ended state. System/Alert events are Ongoing until all affected alert sources are recovered and the alert is resolved, after which the state is Ended.
+A System event can be in the Ongoing or Ended state. System and alert events are Ongoing until all affected alert sources are recovered and the alert is resolved. Then the state changes to Ended.
 
-A User event can be in the Pending, Ongoing, or Ended state. A User event whose start time is in the future has the state Pending.
+A User event can be in the Pending, Ongoing, or Ended state. A User event with a start time in the future has the state Pending.
 
 ## Creating a User Event
 
