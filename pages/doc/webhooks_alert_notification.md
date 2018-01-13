@@ -148,6 +148,10 @@ Only the `failingAlertSeries` and `failingSeries` iterators iterate through an e
 </thead>
 <tbody>
 <tr>
+<td markdown="span">`additionalInformation`</td>
+<td>Text in the Additional Information section of the alert.</td>
+</tr>
+<tr>
 <td markdown="span">`alertId`</td>
 <td>ID of the alert that triggered the alert target.</td>
 </tr>
