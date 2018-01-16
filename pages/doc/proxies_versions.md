@@ -7,14 +7,14 @@ permalink: proxies_versions.html
 summary: Learn about Wavefront proxy versions.
 ---
 ## Version 4.25
-- Java 9 compatibility issue fixed
-- Support Delta Metrics (coming soon)
-- Support [SourceTag and SourceDescription](http://docs-dev.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
-- Support tagged Graphite format (Graphite 1.1.x and newer)
-- Ability to log raw valid points to a separate file (please refer to log4j2.xml.default for more details)
-- Configurable max number of HTTP connections and automatic retries
-- Implement log retention policy in the default config file
-- Miscellaneous bugfixes and improvements + update dependencies
+- Fixes Java 9 compatibility issue
+- Supports Delta Metrics (coming soon)
+- Supports [SourceTag and SourceDescription](http://docs-dev.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
+- Supports tagged Graphite format (Graphite 1.1.x and newer)
+- Enables logging of raw valid points to a separate file (see `log4j2.xml.default` for more details)
+- Supports configurable max number of HTTP connections and automatic retries
+- Implements log retention policy in the default config file
+- Includes miscellaneous bug fixes, improvements, update dependencies
 
 ## Version 4.17
 - Miscellaneous reliability and stability improvements. 
