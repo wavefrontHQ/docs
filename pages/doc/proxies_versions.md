@@ -8,7 +8,6 @@ summary: Learn about Wavefront proxy versions.
 ---
 ## Version 4.25
 - Fixes Java 9 compatibility issue
-- Supports Delta Metrics (coming soon)
 - Supports [SourceTag and SourceDescription](http://docs-dev.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
 - Supports tagged Graphite format (Graphite 1.1.x and newer)
 - Enables logging of raw valid points to a separate file (see `log4j2.xml.default` for more details)
