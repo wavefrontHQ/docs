@@ -252,6 +252,10 @@ entries:
     output: web
     folderitems:
 
+    - title: New and Changed Integrations
+      url: /integrations_new_changed.html
+      output: web
+
     - title: Integrations
       url: /integrations.html
       output: web
@@ -362,6 +366,10 @@ entries:
     output: web
     folderitems:
 
+    - title: Wavefront Proxy Release Notes
+      url: /proxies_versions.html
+      output: web
+
     - title: Wavefront Proxies
       url: /proxies.html
       output: web
@@ -388,10 +396,6 @@ entries:
 
     - title: Wavefront CLI
       url: /wavefront_cli.html
-      output: web
-
-    - title: Wavefront Proxy Versions
-      url: /proxies_versions.html
       output: web
 
   - title: API
