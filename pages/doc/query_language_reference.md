@@ -562,11 +562,11 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 
 ### Examples
 
-- Node index - aliasMetric(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>, <span style="color:#bf5700;font-weight:bold">source</span>, <span style="color:#238567;font-weight:bold">1</span>)), the extracted string is selected by node index. The metric <span style="color:#3a0699;font-weight:bold">cpu.loadavg.1m</span> has 3 components; setting <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> to <span style="color:#238567;font-weight:bold">1</span> extracts the second component&mdash;<span style="font-weight:bold">loadavg</span>.
-- Node index with delimiter - <span style="color:#08838c;font-weight:bold">cpu-loadavg-1m</span>, set <span style="color:#757575;font-weight:bold">delimiterDefinition</span> to <span style="color:#757575;font-weight:bold">&quot;-&quot;</span>.
+- Node index: `aliasMetric(ts(cpu.loadavg.1m, source), 1)` the extracted string is selected by node index. The metric `cpu.loadavg.1m` has 3 components. Setting `zeroBasedNodeIndex` to `1` extracts the second component&mdash;`loadavg`.
+- Node index with delimiter - `cpu-loadavg-1m` sets `delimiterDefinition` to `-`.
 - String substitution
-  - <span style="color:#008a09;font-weight:bold">original</span> = max(ts(<span style="color:#08838c;font-weight:bold">customer.alerts.active</span>), metrics)
-  - <span style="color:#008a09;font-weight:bold">renamed</span> = aliasMetric(<span style="color:#008a09;font-weight:bold">${original}</span>, "Total Number Of Alerts"), which replaces the metric <span style="color:#08838c;font-weight:bold">customer.alerts.active</span> with "Total Number Of Alerts".
+  - `original = max(ts(customer.alerts.active), metrics)`
+  - `renamed = aliasMetric(${original}, "Total Number Of Alerts")`, which replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
