@@ -562,11 +562,11 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 
 ### Examples
 
-- Node index: `aliasMetric(ts(cpu.loadavg.1m, source), 1)` the extracted string is selected by node index. The metric `cpu.loadavg.1m` has 3 components. Setting `zeroBasedNodeIndex` to `1` extracts the second component&mdash;`loadavg`.
-- Node index with delimiter - `cpu-loadavg-1m` sets `delimiterDefinition` to `-`.
-- String substitution
-  - `original = max(ts(customer.alerts.active), metrics)`
-  - `renamed = aliasMetric(${original}, "Total Number Of Alerts")`, which replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
+- Node index: `aliasMetric(ts(cpu.loadavg.1m, source), 1)` the extracted string is selected by node index. The metric `cpu.loadavg.1m` has 3 components. Setting `zeroBasedNodeIndex` to `1` extracts the second component (`loadavg`).
+- Node index with delimiter: `cpu-loadavg-1m` sets `delimiterDefinition` to `-`.
+- String substitution:
+  - Original: `max(ts(customer.alerts.active), metrics)`
+  - Renamed: `aliasMetric(${original}, "Total Number Of Alerts")`, replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
