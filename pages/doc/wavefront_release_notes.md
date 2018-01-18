@@ -6,7 +6,11 @@ sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
+* See [New and Changed Integrations](integrations_new_changed.html) for info on integrations. We update that file frequently as new integrations become available.
+* See the [Wavefront Proxy Release Notes](proxies_versions.html) for info about proxy versions. The proxy is released separately from the Wavefront service.
 
+These pages list new and updated features in the Wavefront service.
+- [2017-52.x Release Notes](2017_52.x_release_notes.html)
 - [2017-48.x Release Notes](2017_48.x_release_notes.html)
 - [2017-44.x Release Notes](2017_44.x_release_notes.html)
 - [2017-40.x Release Notes](2017_40.x_release_notes.html)
