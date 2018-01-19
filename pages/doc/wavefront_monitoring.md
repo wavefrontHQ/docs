@@ -3,110 +3,65 @@ title: Monitoring Wavefront
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
-summary: Learn how to monitor the health of the Wavefront platform.
+summary: Learn how to monitor and troubleshoot the health of your Wavefront instance.
 ---
 
-Wavefront collects many internal metrics to help monitor the health of your Wavefront instance. The [System Usage integration](integrations.html#in-product-integrations) provides the System Usage dashboard that displays many of these internal metrics.
+If system performance seems to be deteriorating, you can examine your Wavefront instance and Wavefront proxy with the Wavefront system dashboard, and look at internal metrics to investigate the problem.
 
-## Wavefront Internal Metrics
+This page discusses monitoring your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy issues.
+
+## Wavefront Internal Metrics Overview
 
 Wavefront collects several categories of internal metrics. These categories have the following prefixes:
 
+- `~alert*` - set of 3 metrics that allows you to examin the effect of alerts on your Wavefront instance. See [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics)
 - `~collector` - metrics processed at the collector gateway to the Wavefront instance.
-- `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source.
+- `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source. [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics) discusses a set of `~metric.new*` metrics.
 - `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor.
   {% include note.html content="Proxy metrics historically had the prefix `~agent` and queries support both `~proxy` and `~agent`. Query errors still refer to the `~agent` prefix. For example - `No metrics matching - [~agent.points.*.received]`." %}
-- `~wavefront` - set of gauges tracking metrics about your use of Wavefront.
+  See [Monitoring Wavefront Proxies](monitoring_proxies.html).
+- `~wavefront` - set of gauges that track metrics about your use of Wavefront.
 
 If you have an [AWS integration](integrations_aws_metrics.html), metrics with the following prefix are available:
 
 - `~externalservices` - metric rates, API requests, and events from AWS CloudWatch, AWS CloudTrail, and AWS Metrics+.
 
+## Dashboard in the Wavefront Usage Integration
 
-## System Usage Dashboard
+The [Wavefront Usage integration](integrations.html#in-product-integrations) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown.
 
-The System Usage dashboard has several sections - Overall Data Rate, Proxy Health and Troubleshooting, Wavefront Stats, AWS Integration, and Ingest Rate by Source. 
+You can use the dashboard in the Wavefront Usage integration to examine many aspects or your Wavefront Instance. This topic looks at the following sections:
+* Overall Data Rate
+* Wavefront Stats
+* AWS Integration
+* Ingestion Rate by Source
+
+See [Monitoring Wavefront Proxies](wavefront_monitoring_proxies.html) for details on the following sections:
+* Proxy Health
+* Proxy Troubleshooting
 
 ### Overall Data Rate
-This section shows the overall point rate being processed by the Wavefront servers.
+
+The Overall Data Rate section shows the overall point rate being processed by the Wavefront servers.
 
 ![overall_section](images/overall_section.png)
-  
+
 These charts use the following metrics:
 
 - **Data Ingestion Rate** - `~collector.points.reported`, `~externalservices.cloudwatch.points`, and `~externalservices.ec2.points`, counter metrics the per second rate at which new data points are being ingested into Wavefront. The AWS metrics are broken out in [AWS Integration](#aws-integration-metrics).
 - **Data Scan Rate** - `~query.summaries_scanned`, the per second rate at which data points are being queried out of Wavefront through dashboards, alerts, custom charts, or API calls.
 
-### Proxy Health
-
-[Wavefront proxies](proxies_managing.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected. 
-
-The Proxy Health section is the most used section of the dashboard. The most commonly used internal metrics are the `~proxy.points` counter metrics that measure the data traffic on each port of the proxy. These metrics show the rate at which points are being received at each proxy, the rate at which points are being sent from the proxy to the Wavefront server as well as if there are any queued or blocked points.
-
-- `~proxy.points.*.received` - counter showing the total points being received at the proxy. We can look at this as a per second rate. If you want to look at the overall rate of points received across all the ports you can sum up these series and look at the aggregate rate for a proxy. You can also look at the over all rate across all proxies by summing this up further. 
-
-- `~proxy.points.*.queued` - counter showing the number of points being queued to be sent to Wavefront from the proxy. We can look at this as a per second rate. Queueing happens usually for two reasons:
-
-  - The total point rate being collected at Wavefront has reached the maximum allowed capacity. The Wavefront server is pushing back causing data to buffer at the proxy which in turn causes the proxy to queue points.
-
-  - The proxy has reached the threshold of number of points it can process every batch. The maximum points a proxy  can process and push to Wavefront is determined by two factors:
-    - number of cores on the machine on which the proxy is running
-    - pushFlushMaxPoints - batch size the proxy sends every second. This value is configurable.
-    
-    The maximum points a proxy can push (without queueing) each second is
-    
-    ```
-    number of cores * pushFlushMaxPoints
-    ``` 
-    
-    The default [setting](proxies_configuring.html) for `pushFlushMaxPoints` is 40,000. If you are running the proxy on a 4 core machine, the maximum points the proxy can send is 160k per second.
-    
-- `~proxy.buffer.task-count` - gauge of the amount of data that the proxy currently has queued.
-- `~proxy.buffer.points-count` - gauge of the number of points currently in the queue.
-- `~proxy.points.*.blocked` - counter of the points being blocked at the proxy. We can look at this as a per second rate. If it is above 0 you can look at the charts in the [Proxy Troubleshooting](#proxy-troubleshooting) section of this dashboard to determine if the metrics contain invalid characters, bad timestamps, or are failing configureable regular expressions. We recommend that you look in `/var/log/wavefront/wavefront-blocked-points.log` file to see a sample of the blocked points.
-
-![proxy_health](images/proxy_health.png)
-
-These `~proxy metrics` describe behavior at the Wavefront proxy:
-
-- `~proxy.buffer.fill-rate` - rate at which the proxy buffer is filling up in bytes/min.
-- `~proxy.points.*.received` - rate that points are being received at the proxy.
-- `~proxy.buffer.bytes-left` - available space (in bytes) on the proxy.
-- `~proxy.build.version` - current version number of the proxy.
-
-They are displayed in a tabular chart:
-
-![proxy_table_chart](images/proxy_table_chart.png)
-
-### Proxy Troubleshooting
-
-This section covers the second-level metrics that give you insight into questions such as - why some points are being blocked, file descriptor usage on the proxy JVM, and how long does it take for points to be pushed from the proxy to Wavefront. The metrics used in this section are:
-
-- `~proxy.limiter.permits-denied` - counter of how many points have been queued due to local proxy settings in wavefront.conf, i.e. the proxy rate limiting itself, not the Wavefront service pushing back.
-- `~proxy.point.badchars` - count of points blocked due to an illegal character. 
-- `~proxy.point.badtime` - count of points blocked due to the timestamp (ex - older than 1 year).
-- `~proxy.validationRegex.*.points-rejected` - The points rejected based on the whitelist/blacklist validation applied (using regex) at the Wavefront proxy.
-- `~proxy.jvm.fd_usage` - % of file descriptors in use per proxy. If this reaches close to 100% the proxy may have you should increase the uLimit on your system.
-- `~proxy.jvm.garbage-collectors.*.time` - garbage collection (GC) activity on the proxy JVM. Anything larger than 200ms is a GC issue, anything near 1s indicates continuous full GCs in the proxy.
-- `~proxy.jvm.memory.heapMax/heapUsed` - memory usage by the proxy process.
-- `~proxy.push.*.duration.duration.median` - duration taken by points pushed from the proxy to reach to Wavefront. Can help identify network latency issues. You can also graph other percentiles.
-- `~proxy.points.*.received.lag.p99` - p99 difference between the timestamp on a point and the time that the proxy received it. High numbers may indicate back-filling old data, or clock drift in sending systems.
-- `~proxy.buffer.queue-time.*` - latency introduced by queueing.
-
-For example, this row from that section shows latency metrics using `~proxy.push.*.duration.duration.median`:
-
-![proxy troubleshooting](images/proxy_troubleshooting.png)
 
 ### Wavefront Stats
 
-These charts track the number of Wavefront users during various time windows, number of dashboards and alerts, and information about the types of alerts.
+Charts that track the number of Wavefront users during various time windows, number of dashboards and alerts, and information about the types of alerts.
 
 ![wavefront metrics](images/wavefront_metrics.png)
- 
+
 ### AWS Integration
 
-If you have an [AWS integration](integrations_aws_metrics.html) and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the count of CloudWatch requests, API requests, the point rate, and events coming in from your integration. 
- 
+If you have an [AWS integration](integrations_aws_metrics.html) and are ingesting AWS CloudWatch, CloudTrail, and API Metrics+ metrics into Wavefront, this section monitors the count of CloudWatch requests, API requests, the point rate, and events coming in from your integration.
+
 ![aws_metric_sections](images/aws_metric_sections.png)
 
 The available metrics are:
@@ -116,16 +71,54 @@ The available metrics are:
 - `~externalservices.ec2.points` - number of AWS Metrics+ metrics returned
 - `~externalservices.cloudtrail.events` - number of CloudTrail events returned
 - `~externalservices.cloudwatch-cycle-timer` - time in milliseconds CloudWatch requests take to complete
- 
+
 ### Ingest Rate by Source
 
-This section gives you insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by each source.
- 
+This section gives insight into the shape of your data. It shows the total number of sources reporting. It also monitors the rate of metrics creation and breaks it down by source.
+
 ![point_rate breakdown](images/point_rate_breakdown.png)
 
 The metrics used in this section are:
 
-- `~metric.counter` - number of metrics being collected. It can be broken down by the sources sending the metrics. 
+- `~metric.counter` - number of metrics being collected. It can be broken down by the sources sending the metrics.
 
- 
+## Troubleshooting Your Wavefront Instance with Internal Metrics
 
+A small set of internal metrics can help you uncover some problems we encounter frequently.
+This section gives some guidance for troubleshooting - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release and are especially useful for finding potential problems.
+
+* `~query.requests`
+* `~metric.new_host_ids`
+* `~metric.new_metric_ids`
+* `~metric.new_string_ids`
+* `~alert.query_time.{alert_id}`
+* `~alert.query_points.{alert_id}`
+* `~alert.checking_frequency.{id}`
+
+One easy way to see this new information together with other relevant information is to:
+1. Select **Integrations** and click the Wavefront Usage integration.
+2. Select **Dashboard**.
+3. Click the pencil icon and select **Clone**.
+4. Add charts for the metrics that you're interested in.
+
+### Find Misbehaving Alerts
+
+The `~alert` metrics allow you to examine your alerts and understand which alerts impact performance. After you find out how much load a query is putting on the system, you can potentially refine the alert and improve performance.
+* `~alert.query_points` shows the details of the points scanned by each alert.
+* `~alert.query_time` shows details for the amount of time it takes to run the alert query.
+* `~alert.checking_frequency` helps you find alerts that are checking too frequently. For each alert, the alert checking frequency should be greater or equal to query time.
+
+For example, you can set up an alert that monitors existing alerts that have high points scanned rates. You can then catch badly written alerts and tune them to improve performance.
+
+### Discover Recent Changes that Lead to Performance Deterioration
+
+The three `~metric.new_*` internal metrics allow you to discover if a recent change to the system might have caused the problem. These metrics can show you if Wavefront recently received points that don't fit the usual pattern of the metrics that Wavefront received from you. For example, assume you just used the Kubernetics integration to add a cluster to your Wavefront instance. The integration will start sending data from all hosts in the cluster. If you create point tags, they will also be sent for each host, potentially creating a bottleneck.
+
+Each metric includes the metric name, customer, any tags, and the source or host. The three internal metrics allow you to find out information about 3 aspects of the metric.
+* `~metric.new_metric_ids` shows metrics that Wavefront hasn't seen before in the metric namespace.
+* `~metric.new_string_ids` shows point tags that Wavefront hasn't seen before, as strings.
+* `~metric.new_host_ids` shows hosts, that is, the sources for the metrics, that Wavefront hasn't seen before.
+
+### Finding Users Who Caused Bottlenecks
+
+ `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users aren't clear the number of queries that they send to Wavefront, especially if they use CLI or API for the queries.
