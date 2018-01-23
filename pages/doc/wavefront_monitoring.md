@@ -26,11 +26,9 @@ If you have an [AWS integration](integrations_aws_metrics.html), metrics with th
 
 - `~externalservices` - metric rates, API requests, and events from AWS CloudWatch, AWS CloudTrail, and AWS Metrics+.
 
-## Dashboard in the Wavefront Usage Integration
+## Charts in the Wavefront Usage Integration Dashboard
 
-The [Wavefront Usage integration](integrations.html#in-product-integrations) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown.
-
-You can use the dashboard in the Wavefront Usage integration to examine many aspects or your Wavefront Instance. This topic looks at the following sections:
+The [Wavefront Usage integration](integrations.html#in-product-integrations) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown. You can examine many aspects or your Wavefront Instance. We'll look at  the following sections here:
 * Overall Data Rate
 * Wavefront Stats
 * AWS Integration
@@ -84,8 +82,7 @@ The metrics used in this section are:
 
 ## Troubleshooting Your Wavefront Instance with Internal Metrics
 
-A small set of internal metrics can help you uncover some problems we encounter frequently.
-This section gives some guidance for troubleshooting - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release and are especially useful for finding potential problems.
+A small set of internal metrics can help you uncover problems that can lead to system slowdown. This section gives some guidance for troubleshooting - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release based on suggestions from our customer support engineers.
 
 * `~query.requests`
 * `~metric.new_host_ids`
@@ -95,7 +92,7 @@ This section gives some guidance for troubleshooting - the exact steps depend on
 * `~alert.query_points.{alert_id}`
 * `~alert.checking_frequency.{id}`
 
-One easy way to see this new information together with other relevant information is to:
+Here's one easy way to see this new information:
 1. Select **Integrations** and click the Wavefront Usage integration.
 2. Select **Dashboard**.
 3. Click the pencil icon and select **Clone**.

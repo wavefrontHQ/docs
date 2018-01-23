@@ -450,6 +450,10 @@ entries:
         url: /wavefront_monitoring.html
         output: web
 
+      - title: Monitoring Wavefront Proxies
+        url: /monitoring_proxies.html
+        output: web
+
   - title: Support
     output: web
     folderitems:
