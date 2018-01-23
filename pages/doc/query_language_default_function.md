@@ -4,7 +4,7 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_default_function.html
-summary: Learn the role of the align() function in Wavefront Query Language expressions.
+summary: Learn the role of the default() function in Wavefront Query Language expressions.
 ---
 Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language.
 
