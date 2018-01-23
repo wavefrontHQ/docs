@@ -7,6 +7,11 @@ summary: Learn how to use tags to speed up searching and query display and how t
 ---
 A tag is custom metadata that adds application-specific meaning to Wavefront _entities_: alerts, dashboards, events, and sources and _metrics_. Tags group together entities and metrics according to categories you define.
 
+For an overview of how tags can help you organize your data and improve searches, watch this video:
+[Using Tags](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+
+## Why Tags?
+
 You use tags to limit the number entities and metrics you are working with or querying at once. Limiting the number of entities reduces information overload. Limiting the number of metrics reduces the time to display results.
 
 In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
@@ -17,6 +22,8 @@ In ts() and events() queries, you can filter:
 -   Events with:
     - _alert_ and _event_ entity tags
     - _system_ severity, subtype, and type tags added by alerts
+
+## Tag Types
 
 The table summarizes where the two types of tags are used and where they are added and updated.
 
@@ -77,13 +84,13 @@ All tag types support the ability to organize tags in a hierarchy. The hierarchy
 
 ### Selecting and Searching Tag Paths
 
-In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example, you can select all Wavefront dashboards by clicking **wavefront**, or only tutorial dashboards by expanding the **wavefront** node and selecting **wavefront.tutorial**.
+In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example:
+* Select all Wavefront dashboards by clicking **wavefront**
+* Select only tutorial dashboards by expanding the **wavefront** node and selecting **wavefront.tutorial**.
 
-Here's a video:
+In queries, you achieve the same effect by using trailing wildcards "**.\***" when you specify tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc.
 
-[Tags Overview](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
-
-In queries, you achieve the same effect by using trailing wildcards "**.\***" when you specify tag paths. For example, to match all tags starting with **alertTagPath.**, enter **alertTagPath.\***. This string matches alerts named **alertTagPath.tpc1**, **alertTagPath.tpc1.tpc11**, etc. When you create maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
+When you create maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
 <a name="entity_tags"></a>
 

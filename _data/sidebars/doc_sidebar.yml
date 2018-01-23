@@ -148,6 +148,10 @@ entries:
           url: /query_language_align_function.html
           output: web
 
+        - title: The default() Function
+          url: /query_language_default_function.html
+          output: web
+
         - title: Standard Versus Raw Aggregate Functions
           url: /query_language_aggregate_functions.html
           output: web

@@ -107,6 +107,8 @@ The `~alert` metrics allow you to examine your alerts and understand which alert
 
 For example, you can set up an alert that monitors existing alerts that have high points scanned rates. You can then catch badly written alerts and tune them to improve performance.
 
+See [Alert Dependencies](/alerts_dependencies.html) for additional information on fine-tuning your alerts using internal metrics. 
+
 ### Discover Recent Changes that Lead to Performance Deterioration
 
 The three `~metric.new_*` internal metrics allow you to discover if a recent change to the system might have caused the problem. These metrics can show you if Wavefront recently received points that don't fit the usual pattern of the metrics that Wavefront received from you. For example, assume you just used the Kubernetics integration to add a cluster to your Wavefront instance. The integration will start sending data from all hosts in the cluster. If you create point tags, they will also be sent for each host, potentially creating a bottleneck.
@@ -115,6 +117,7 @@ Each metric includes the metric name, customer, any tags, and the source or host
 * `~metric.new_metric_ids` shows metrics that Wavefront hasn't seen before in the metric namespace.
 * `~metric.new_string_ids` shows point tags that Wavefront hasn't seen before, as strings.
 * `~metric.new_host_ids` shows hosts, that is, the sources for the metrics, that Wavefront hasn't seen before.
+
 
 ### Finding Users Who Caused Bottlenecks
 
