@@ -7,7 +7,7 @@ permalink: integrations_list.html
 summary: Explore the complete list of Wavefront integrations.
 ---
 
-One way of getting your data into Wavefront is taking advantage of a Wavefront integrations. This page lists all available integrations -- but Wavefront doesn't limit you to pre-packaged integrations. You can also get your data into Wavefront by:
+One way of getting your data into Wavefront is taking advantage of a Wavefront integration. This page lists all available integrations -- but Wavefront doesn't limit you to pre-packaged integrations. You can also get your data into Wavefront by:
 * Using an existing Telegraf plugin
 * Converting existing metrics to one of the [supported data formats](/proxies.html#supported-data-formats) and sending them to the Wavefront proxy.
 * Instrumenting your application using one of the Wavefront SDKs

@@ -264,7 +264,11 @@ entries:
       url: /integrations_new_changed.html
       output: web
 
-    - title: Integrations
+    - title: List of Wavefront Integrations
+      url: /integrations_list.html
+      output: web
+
+    - title: Integrations Overview
       url: /integrations.html
       output: web
 
