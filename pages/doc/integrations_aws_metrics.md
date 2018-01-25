@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
 summary: Learn how to send AWS data to Wavefront.
 ---
-Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefronts Amazon Web Services integration allows you to ingest metrics directly from AWS.
+Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefronts Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services in-product integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup. 
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 

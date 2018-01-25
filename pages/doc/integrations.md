@@ -4,20 +4,24 @@ keywords: integrations
 tags: [integrations, data, dashboards, alerts, administration]
 sidebar: doc_sidebar
 permalink: integrations.html
-summary: Learn how to install an integration, and how to work with integration content.
+summary: Learn how to customize an in-product integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into the Wavefront service.
+Integrations are one easy way to get data from external systems into the Wavefront service. This documentation includes a complete, up-to-date [list of Wavefront integrations](integrations_list.md) and a page of [new and updated integrations](integrations_new_changed) that we update monthly.
 Many integrations are accessible directly from the product; for others, you follow some simple steps in this document.
 
-## In-Product and Do-Your-Own-Setup Integrations
-Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions - or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
+**Note** If no integration exists for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
+
+## In-Product and Custom Integrations
+Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
 
 - **In-product integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the menu bar and click the **Setup** tab.
 
-- **Do-Your-Own-Setup** integrations provide installation and configuration instructions in this documentation. In many cases, we give you instructions to help you completely customize the process.
+  For some data sources, for example Amazon AWS, we offer an integration for the initial connection and give customization information in this documentation.
 
-To use a Do-Your-Own-Setup integration, click one of the links below, or pick the integration from the Table of Contents on the left.
+- **Custom** integrations provide installation and configuration instructions in this documentation.
+
+To customize an in-product integration or set up a custom integration, click one of the links below, or pick the integration from the Table of Contents on the left.
 
 <table width="100%">
 <colgroup>
@@ -29,8 +33,13 @@ To use a Do-Your-Own-Setup integration, click one of the links below, or pick th
 </thead>
 <tbody>
 <tr>
+<td>In-Product Integration Customization</td>
+<td markdown="span">[AWS Metrics Integration](integrations_aws_metrics.html),[Amazon Web Services ECS](integrations_aws_ecs.html), [Log Data -- FileBeat and TCP](integrations_log_data.html)
+</td>
+</tr>
+<tr>
 <td>Data Collector Integrations</td>
-<td markdown="span">[Amazon Web Services ECS](integrations_aws_ecs.html), [AppDynamics](integrations_appdynamics.html), [JMX](integrations_jmx.html), [NewRelic](integrations_newrelic.html)
+<td markdown="span">[AppDynamics](integrations_appdynamics.html), [JMX](integrations_jmx.html), [NewRelic](integrations_newrelic.html), [External links](external_links_managing.html), [R](integrations_r.html)
 </td>
 </tr>
 <tr>
@@ -38,22 +47,17 @@ To use a Do-Your-Own-Setup integration, click one of the links below, or pick th
 <td markdown="span"> [Apache collectd](integrations_collectd_apache.html), [Cassandra collectd](integrations_collectd_cassandra.html), [MySQL collectd](integrations_collectd_mysql.html), [NGINX collectd](integrations_collectd_nginx.html), [Redis collectd](integrations_collectd_redis.html), [ZooKeeper collected](integrations_collectd_zookeeper.html)
 </td>
 </tr>
-<tr>
-<td>Date Export Integrations</td>
-<td markdown="span">[External Links](external_links_managing.html), [R](integrations_r.html)</td>
-</tr>
 </tbody>
 </table>
 
-## In-Product Integrations
-This documentation includes a complete, up-to-date [list of Wavefront integrations](integrations_list.md) and a page of [new and updated integrations](integrations_new_changed) that we update monthly.
-
-### In-Product Integration States
+## Integration States
 
 The Integrations page reports integration state depending on two factors:
 
 - Whether metrics ever reported and whether they reported in the last 2 hours or in the last 7 days.
 - The state of content installation: never installed, installed, uninstalled.
+
+### Supported States
 
 The supported states are:
 

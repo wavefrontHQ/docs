@@ -7,9 +7,9 @@ permalink: integrations_r.html
 summary: Learn how to use R to visualize metrics in Wavefront.
 ---
 
-The Wavefront system offers a variety of layers that can handle your real-time, high-frequency data&mdash;fast ingestion, fast querying, fast analytics, visualization, and alerting. [Wavefront Query Language](query_language_reference.html) is capable of performing most of the transformations you'll need for daily monitoring. However, there are cases when you may want to perform computations that the query language doesn't currently offer, or leverage a set of libraries you've already written in R to do analytics. In these cases, you may want to run R as a separate analytics layer on top of your Wavefront account.
+The Wavefront service can handle your real-time, high-frequency data&mdash;fast ingestion, fast querying, fast analytics, visualization, and alerting. [Wavefront Query Language](query_language_reference.html) can perform most of the transformations you need for daily monitoring. However, in some cases when you might want to perform computations that the query language doesn't currently offer, or leverage a set of libraries you've already written in R to do analytics. In these cases, you can run R as a separate analytics layer on top of your Wavefront account.
 
-With R+Wavefront, you should be able to do just about any sort of analysis or visualization you can imagine. Want to see a histogram of your metric at an arbitrary bin width? Or a heat map of the correlations between your metrics? Model your metrics for trends, seasonality, noise, and make a forecast about future behavior? We'll show you how in this document.
+With R+Wavefront, you can do just about any analysis or visualization you can imagine. Want to see a histogram of your metric at an arbitrary bin width? Or a heat map of the correlations between your metrics? Model your metrics for trends, seasonality, noise, and make a forecast about future behavior? Here's how you learn how to do it.
 
 
 ## Prerequisites
@@ -22,12 +22,12 @@ To use R and Wavefront together, you need:
 - Optionally an R IDE, such as [R Studio](https://www.rstudio.com/). Screenshots in this document were taken with RStudio running R 3.0.
 
 ## Installation
-If you have your R environment and Wavefront account set up, first install the R packages that we'll be using in our demo, as well as the two (RCurl and rjson) used by the Wavefront library. 
+After setting up your Wavefront account and R environment, install the R packages that we'll use in our demo, as well as the two (RCurl and rjson) used by the Wavefront library.
 
 1.  Within R, from the R prompt, run the following commands:
 
     ```r
-    install.packages("dplyr") 
+    install.packages("dplyr")
     install.packages("ggplot2")
     install.packages("reshape2")
     install.packages("scales")
@@ -60,7 +60,7 @@ If you have your R environment and Wavefront account set up, first install the R
     source("http://wavefront-customer.s3.amazonaws.com/wavefront-1.7.R")
     ```
 
-    You will see a set of new functions appear in your IDE, all starting with `wf`. These are the functions that you will use to get data from Wavefront into R. 
+    A set of new functions appears in your IDE, all starting with `wf`. These are the functions that you will use to get data from Wavefront into R.
 
  1. Enter the Wavefront server URL and your API token:
 
@@ -83,13 +83,13 @@ In wavefront.R, you enter that query expression verbatim to retrieve the same da
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'ts(requests.latency)', clab='h')
 ```
 
-Let's look at this R query in more detail. The base and token variables were set in the prerequisites, and allow wavefront.R to know where to query and how to authenticate that query. The third and fourth fields are the start and end times for the query, in epoch second format. The fifth field is the actual ts() query, and the final field is an option that tells the query to set the column labels ("clab" for short) of the resulting data frame to the h(ost) for that time series. Schematically, the function is:
+Let's look at this R query in more detail. The base and token variables were set in the prerequisites, and allow `wavefront.R` to know where to query and how to authenticate that query. The third and fourth fields are the start and end times for the query, in epoch second format. The fifth field is the actual `ts()` query, and the final field is an option that tells the query to set the column labels ("clab" for short) of the resulting data frame to the h(ost) for that time series. Schematically, the function is:
 
 ```r
 <dataFrame> <- wfquery(serverURL, wavefrontAccountToken, startTime, endTime, query)
 ```
- 
-The wfnow() function is a convenience function for the most recent time, so the range that we're requesting is from `wfnow() - wfhours(2)`, or two hours ago, to `wfnow() - wfminutes(1)`, or one minute ago. This should give us exactly 120 observations (one per minute) over however many hosts were emitting the `requests.latency` metric.
+
+The `wfnow()` function is a convenience function for the most recent time, so the range that we're requesting is from `wfnow() - wfhours(2)`, or two hours ago, to `wfnow() - wfminutes(1)`, or one minute ago. This should give us exactly 120 observations (one per minute) over however many hosts were emitting the `requests.latency` metric.
 Let's look at the result now. The data frame returned has one column per returned time series, as well as an initial column named `time`, which contains the epoch seconds for that row. For example, in the call above, the data frame has 120 (time) observations of 21 (time+host) variables; here's the top of that data frame (viewed in RStudio):
 
 ![dframe.png](images/dframe.png)
@@ -103,13 +103,13 @@ d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'avg(ts(
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one month ago", avg(ts(requests.latency)))', clab='h')
 ```
 
-Note the single quotes ('') around the query field, while internal strings (such as the first argument to lag) are expressed with double quotes (""). You can even divide metrics by each other and then perform functions (like lag) on the result:
+Note that query fields are surrounded by single quotes ('') while internal strings (such as the first argument to `lag`) are surrounded by double quotes (""). You can even divide metrics by each other and then perform functions (like `lag`) on the result:
 
 ```r
 d <- wfquery(base, token, wfnow() - wfhours(2), wfnow() - wfminutes(1), 'lag("one month ago", ts(requests.failures.num) / ts(requests.total.num))', clab='h')
 ```
 
-All of the above queries have looked at the most recent 2 hour period of data, taken at the minute granularity. However, you can look at longer periods of data with coarser granularity. For example, here is the most recent week of data, taken at the hour granularity `(granularity='h'`):
+All queries above look at the most recent 2 hour period of data, taken at the minute granularity. You can look at longer periods of data with coarser granularity. For example, here's the most recent week of data, taken at the hour granularity `(granularity='h'`):
 
 ```r
 d <- wfquery(base, token, wfnow() - wfdays(7), wfnow(), 'ts(requests.latency)', clab='h', granularity='h')
@@ -119,7 +119,7 @@ The resulting data frame has 169 observations (1 for each hour over the last wee
 
 ![gran.png](images/gran.png)
 
-The time rows are now spaced apart by 3600 seconds, rather than 60 seconds. If you pick a long time range and a short granularity, the request will eventually time out with no data returned. For most use cases either using a coarser granularity or a `lag()` on top of a short window will fulfill your needs.
+The time rows are now spaced by 3600 seconds rather than 60 seconds. If you pick a long time range and a short granularity, the request eventually time out with no data returned. For most use cases either using a coarser granularity or using `lag()` on top of a short window fulfills your needs.
 
 ## Visualizing Data in R
 Now that you've gotten your Wavefront data into R, you can do some interesting visualizations on it. First run a query against Wavefront to pull some data into a data frame:
@@ -140,7 +140,7 @@ ggplot(d, aes(d$"app-1")) + geom_histogram(aes(y = ..density.., fill = ..count..
 ![histogram.jpeg](images/histogram.jpeg)
 
 ### Heat Maps: Correlation Matrix
- 
+
 ```r
 # Show a heat map of cross-correlations of all the app servers over the full 2h window
 qplot(d$"app-1", d$"app-2") + geom_point(color="red", size=3)
@@ -153,7 +153,7 @@ ggplot(d.m, aes(Var1, Var2)) + geom_tile(aes(fill=value), colour="white") + scal
 ![heatmap.png](images/heatmap.png)
 
 ## Analyzing Data in R
-Beyond visualizing data, you may want to perform more complicated analysis on the data than is possible within the Wavefront Query Language. Here is a linear regression example:
+Beyond visualizing data, you can perform more complicated analysis on the data than is possible within the Wavefront Query Language. Here is a linear regression example:
 
 ![linearregression.jpeg](images/linearregression.jpeg)
 
@@ -171,9 +171,6 @@ ggplot(scatterdata,aes(x=Mem,y=Cpu)) + geom_point(shape=19) +geom_smooth(method=
 ## Resources
 If you're just getting started with R, there are a few resources to help you out. You don't need to read any of these to follow along with this document, but they will help you understand what's going on under the hood.
 
-- [Introducting R](http://data.princeton.edu/R/default.html), Princeton: Very gentle introduction to the basic workspace, broken into a few easy-to-digest sections 
+- [Introducting R](http://data.princeton.edu/R/default.html), Princeton: Very gentle introduction to the basic workspace, broken into a few easy-to-digest sections
 - [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.html), CRAN: A longer tutorial for R in terms of syntax and basic analysis/visualization
 - [The R Book](https://archive.org/download/TheRBook/The_R_Book-Crawley.pdf), Michael Cawley: The best overall view of R as a mathematical/statistical tool, though at 1000+ pages, more of a reference than a tutorial.
-
-
-

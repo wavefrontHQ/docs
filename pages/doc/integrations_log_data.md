@@ -4,10 +4,10 @@ keywords:
 tags: [integrations, videos]
 sidebar: doc_sidebar
 permalink: integrations_log_data.html
-summary: Learn how to send log data to Wavefront.
+summary: Learn how to send log data to Wavefront by setting up a proxy and configuring Filebeat or TCP.
 ---
 
-Wavefront supports two methods for sending log data metrics to Wavefront proxy: Filebeat and TCP. These methods are supported in Wavefront proxy 4.4 and higher.
+Wavefront supports two methods for sending log data metrics to Wavefront proxy: Filebeat and TCP. Wavefront proxy 4.4 and higher supports these methods.
 
 **Warning** Log ingestion functionality does not work well if you use a load balancer in your environment.
 * When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Wavefront.
@@ -15,16 +15,15 @@ Wavefront supports two methods for sending log data metrics to Wavefront proxy: 
 
 ## Installing and Configuring a Wavefront Proxy
 
-The Log Data in-product [integration instructions](integrations.html#in-product-integrations) guides you through installing a Wavefront proxy. To access this integration:
+The Log Data in-product integration guides you through installing a Wavefront proxy. To access this integration:
 
 1. Open the Wavefront application UI.
-1. Click **Integrations**.
-1. In the Custom Collector section, click the **Log Data** tile.
+1. Click **Integrations** and find the **Log Data** tile.
 1. Click the **Setup** tab and follow the instructions.
 
 ## Configuring the Wavefront Proxy to Ingest Log Data
 
-In this example, we configure Wavefront to parse [Combined Apache Logs](http://httpd.apache.org/docs/1.3/logs.html#combined), which is a common logging format for many web services (for example, NGINX). The example is merely a starting point&mdash;by the end you will see how to ingest metrics from any log format.
+In this example, we configure Wavefront to parse [Combined Apache Logs](http://httpd.apache.org/docs/1.3/logs.html#combined), which is a common logging format for many web services (for example, NGiNX). The example is merely a starting point&mdash; so you understand how to ingest metrics from any log format.
 
 ### Configuring the Wavefront Proxy to Listen for Log Data
 
@@ -36,11 +35,16 @@ rawLogsPort=5055
 logsIngestionConfigFile=<wavefront_config_path>/logsIngestion.yaml
 ```
 
-These entries instruct the Wavefront proxy to listen for log data in various formats: on port 5044 it listens using the [Lumberjack protocol](http://github.com/elastic/logstash-forwarder/blob/master/PROTOCOL.md), which works with [Filebeat](http://www.elastic.co/products/beats/filebeat), and on port 5055 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others).
+These entries instruct the Wavefront proxy to listen for log data:
+
+* on port 5044 it listens using the [Lumberjack protocol](http://github.com/elastic/logstash-forwarder/blob/master/PROTOCOL.md), which works with [Filebeat](http://www.elastic.co/products/beats/filebeat)
+* on port 5055 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others).
 
 ### Configuring the Wavefront Proxy to Add Structure to Log Data
 
-You use grok patterns (similar to [Logstash](https://www.elastic.co/products/logstash)) to add structure to your log data. To do this, open the `logsIngestion.yaml` file (which may be empty) you specified in the proxy configuration file, and write this example config which specifies basic instructions for parsing log data:
+You use grok patterns (similar to [Logstash](https://www.elastic.co/products/logstash)) to add structure to your log data. To do this:
+1. Open the `logsIngestion.yaml` file you specified in the proxy configuration file. The file may be empty.
+2. Add the following snipped, which specifies basic instructions for parsing log data:
 
 ```yaml
 aggregationIntervalSeconds: 5  # Metrics are aggregated and sent at this interval
@@ -61,9 +65,11 @@ histograms:
     valueLabel: 'duration'
 ```
 
-This configuration file is parsed as a POJO; see the [javadoc](http://static.javadoc.io/com.wavefront/proxy/4.1/com/wavefront/agent/config/LogsIngestionConfig.html) for more details on each field. Log lines are given structure with [java-grok](http://github.com/thekrakken/java-grok), which is the syntax for the Logstash grok plugin. Then, through `valueLabel`, you can specify which part of the log line contains the metrics to send to Wavefront. There are three supported modes of aggregation: counters, gauges, and histograms. See [Dropwizard documentation](http://metrics.dropwizard.io/3.1.0/getting-started/) for more.
+This configuration file is parsed as a POJO; see the [javadoc](http://static.javadoc.io/com.wavefront/proxy/4.1/com/wavefront/agent/config/LogsIngestionConfig.html) for more details on each field. Log lines are given structure with [java-grok](http://github.com/thekrakken/java-grok), which is the syntax for the Logstash grok plugin.
 
-You can think of grok patterns as regexes with macros. Each macro can be made up of sub-macros, and each macro can bind a substring to a given label. For example:
+Through `valueLabel`, you can specify which part of the log line contains the metrics to send to Wavefront. There are three supported modes of aggregation: counters, gauges, and histograms. See [Dropwizard documentation](http://metrics.dropwizard.io/3.1.0/getting-started/) for details.
+
+You can think of a grok pattern as a regexe with macros. Each macro can consist of sub-macros, and each macro can bind a substring to a label. For example:
 
     LOGLEVEL (INFO|WARNING|ERROR)
     BASE_FORMAT %{LOGLEVEL:level} %{NUMBER:timestamp}
@@ -73,7 +79,7 @@ You can think of grok patterns as regexes with macros. Each macro can be made up
 
     INFO 1476925272 my operation took 42 seconds (and other info here)
 
-In the above example, the log message has a timestamp. You can use this timestamp to match the message for ingestion, but Wavefront always ingests the resulting metric at the time the Wavefront proxy sees the log, _not_ the time the message was logged in your system. Therefore, the resulting metric would be: **myOperationDuration 42 &lt;proxy time&gt; source=&lt;host&gt;**
+In the example above, the log message has a timestamp. You can use this timestamp to match the message for ingestion, but Wavefront always ingests the resulting metric at the time the Wavefront proxy sees the log, _not_ at the time the message was logged in your system. Therefore, the resulting metric would be: **myOperationDuration 42 &lt;proxy time&gt; source=&lt;host&gt;**
 
 The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java/blob/master/proxy/src/main/resources/patterns/patterns) and you can always add more.
 
@@ -81,12 +87,12 @@ The Wavefront proxy includes these [patterns](http://github.com/wavefrontHQ/java
 
 -   Bugs in grok patterns can be frustrating to debug. Try your grok pattern with a sample log line in one of the grok parsing debugger tools (e.g. [grok debugger](http://grokdebug.herokuapp.com/)).
 -   As in the examples above, use single quotes unless you need double quotes. YAML parsers escape sequences inside double quotes, which is usually not what you want (e.g. "\\n" will be the newline character).
--   Remember grok patterns expand to regex patterns. This means if you wanted to capture a number inside brackets, you would need `'\[NUMBER:myNum\]'` or `"\\[NUMBER:myNum\\]"` (for the above bullet). A [regex debugger](https://regex101.com/) may be helpful.
+-   Remember that grok patterns expand to regex patterns. If you want to capture a number inside brackets, you need `'\[NUMBER:myNum\]'` or `"\\[NUMBER:myNum\\]"` (for the above bullet). A [regex debugger](https://regex101.com/) may be helpful.
 -   The Wavefront proxy [javadoc](http://static.javadoc.io/com.wavefront/proxy/4.1/com/wavefront/agent/config/LogsIngestionConfig.html) contains advanced grok examples.
 
 #### Testing Grok Patterns in Interactive Mode
 
-To test grok patterns before sending data to Wavefront, you can run the proxy in a mode where it reads lines from stdin and prints the generated metric when there is a match with a pattern in `logsIngestionConfig.yaml`.  To run the proxy in test mode:
+To test grok patterns before sending data to Wavefront, you can run the proxy in test mode where it reads lines from stdin and prints the generated metric when there is a match with a pattern in `logsIngestionConfig.yaml`.  To run the proxy in test mode:
 
 ```shell
 /opt/wavefront/wavefront-proxy/proxy-jre/bin/java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar \
@@ -106,7 +112,7 @@ You can also omit `< foo.txt` to use interactive terminal mode.
 
 Wavefront proxy hot loads the log ingestion configuration file while the proxy is running. To update the log ingestion configuration:
 
-1. Edit the log ingestion configuration file and save.
+1. Edit the log ingestion configuration file and save it.
 1. To verify that the updated file loaded successfully, open the Wavefront proxy log file and look for a log message like:
 
       `  INFO: Loaded new config: <config_json>`
@@ -117,7 +123,7 @@ Wavefront proxy hot loads the log ingestion configuration file while the proxy i
 
 ## Sending Log Data to a Wavefront Proxy With Filebeat
 
-This section describes how to send log data to a Wavefront proxy using Filebeat.
+You can send log data to a Wavefront proxy using Filebeat.
 
 The Wavefront proxy automatically assigns metrics a **source** according to the machine that sent corresponding log data. This is done with Filebeat host metadata&mdash;so each host should be able to resolve its own hostname; otherwise the IP address is used.
 
@@ -138,7 +144,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
             $ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.1-x86_64.rpm
             $ sudo rpm -vi filebeat-5.0.1-x86_64.rpm
 
-1.  The default config file is very well commented and is in `/etc/filebeat/filebeat.yml`. Edit the configuration file as needed. This deployment sends NGINX logs to a Logstash worker:
+1.  The default config file is well commented and is in `/etc/filebeat/filebeat.yml`. Edit the configuration file as needed. This deployment sends NGiNX logs to a Logstash worker:
 
     ```yaml
     # Exhaustive example: https://raw.githubusercontent.com/elastic/filebeat/master/etc/filebeat.yml
@@ -191,7 +197,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
         2016-10-19T22:27:40Z INFO Registry file updated. 1 states written.
         2016-10-19T22:27:42Z INFO Events sent: 11647
 
-    In the Wavefront proxy log, there will be log entries indicating it is connected to Filebeat:
+    In the Wavefront proxy log, log entries will indicate that the proxy is connected to Filebeat:
 
         Nov 21, 2016 11:19:17 AM New filebeat connection
 

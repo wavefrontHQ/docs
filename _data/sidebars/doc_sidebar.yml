@@ -264,16 +264,17 @@ entries:
       url: /integrations_new_changed.html
       output: web
 
-    - title: List of Wavefront Integrations
-      url: /integrations_list.html
-      output: web
-
     - title: Integrations Overview
       url: /integrations.html
       output: web
 
+    - title: List of Wavefront Integrations
+      url: /integrations_list.html
+      output: web
+
+
       subfolders:
-      - title: AWS Integrations
+      - title: Customizing In-Product Integrations
         output: web
         subfolderitems:
 
@@ -285,22 +286,13 @@ entries:
             url: /integrations_aws_ecs.html
             output: web
 
-    - title: Container Integrations
-      url: /integrations_containers.html
-      output: web
+          - title: Log Data Metrics Integration
+            url: /integrations_log_data.html
+            output: web
 
-    - title: Log Data Metrics Integration
-      url: /integrations_log_data.html
-      output: web
-
-      subfolders:
-      - title: Data Collector Integrations
+      - title: Custom Integrations Setup
         output: web
         subfolderitems:
-
-          - title: Telegraf Integration
-            url: /integrations_telegraf.html
-            output: web
 
           - title: AppDynamics Integration
             url: /integrations_appdynamics.html
@@ -312,6 +304,14 @@ entries:
 
           - title: New Relic Integration
             url: /integrations_newrelic.html
+            output: web
+
+          - title: Managing External Links
+            url: /external_links_managing.html
+            output: web
+
+          - title: Visualizing Metrics with R
+            url: /integrations_r.html
             output: web
 
       - title: collectd Integrations
@@ -345,22 +345,6 @@ entries:
           - title: ZooKeeper collectd Integration
             url: /integrations_collectd_zookeeper.html
             output: web
-
-      - title: External System Integrations
-        output: web
-        subfolderitems:
-
-          - title: Managing External Links
-            url: /external_links_managing.html
-            output: web
-
-          - title: Visualizing Metrics with R
-            url: /integrations_r.html
-            output: web
-
-#          - title: Visualizing Metrics with Python
-#            url: /integrations_python.html
-#            output: web
 
   - title: Organizing and Searching
     output: web
