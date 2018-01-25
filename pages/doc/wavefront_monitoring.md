@@ -14,7 +14,7 @@ This page discusses monitoring your Wavefront instance. See [Monitoring Wavefron
 
 Wavefront collects several categories of internal metrics. These categories have the following prefixes:
 
-- `~alert*` - set of 3 metrics that allows you to examin the effect of alerts on your Wavefront instance. See [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics)
+- `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance. See [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics)
 - `~collector` - metrics processed at the collector gateway to the Wavefront instance.
 - `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source. [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics) discusses a set of `~metric.new*` metrics.
 - `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor.
@@ -80,9 +80,9 @@ The metrics used in this section are:
 
 - `~metric.counter` - number of metrics being collected. It can be broken down by the sources sending the metrics.
 
-## Troubleshooting Your Wavefront Instance with Internal Metrics
+## Using Internal Metrics to Optimize Performance
 
-A small set of internal metrics can help you uncover problems that can lead to system slowdown. This section gives some guidance for troubleshooting - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release based on suggestions from our customer support engineers.
+A small set of internal metrics can help you optimize performance. This section highlights some things to look for - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release based on suggestions from our customer support engineers.
 
 * `~query.requests`
 * `~metric.new_host_ids`
@@ -98,7 +98,7 @@ Here's one easy way to see this new information:
 3. Click the pencil icon and select **Clone**.
 4. Add charts for the metrics that you're interested in.
 
-### Find Misbehaving Alerts
+### Fine-Tuning Alerts
 
 The `~alert` metrics allow you to examine your alerts and understand which alerts impact performance. After you find out how much load a query is putting on the system, you can potentially refine the alert and improve performance.
 * `~alert.query_points` shows the details of the points scanned by each alert.
@@ -107,9 +107,9 @@ The `~alert` metrics allow you to examine your alerts and understand which alert
 
 For example, you can set up an alert that monitors existing alerts that have high points scanned rates. You can then catch badly written alerts and tune them to improve performance.
 
-See [Alert Dependencies](/alerts_dependencies.html) for additional information on fine-tuning your alerts using internal metrics. 
+See [Alert Dependencies](/alerts_dependencies.html) for additional information on fine-tuning your alerts using internal metrics.
 
-### Discover Recent Changes that Lead to Performance Deterioration
+### Understanding System Activity
 
 The three `~metric.new_*` internal metrics allow you to discover if a recent change to the system might have caused the problem. These metrics can show you if Wavefront recently received points that don't fit the usual pattern of the metrics that Wavefront received from you. For example, assume you just used the Kubernetics integration to add a cluster to your Wavefront instance. The integration will start sending data from all hosts in the cluster. If you create point tags, they will also be sent for each host, potentially creating a bottleneck.
 
@@ -119,6 +119,6 @@ Each metric includes the metric name, customer, any tags, and the source or host
 * `~metric.new_host_ids` shows hosts, that is, the sources for the metrics, that Wavefront hasn't seen before.
 
 
-### Finding Users Who Caused Bottlenecks
+### Find Users Who Caused Bottlenecks
 
- `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users aren't clear the number of queries that they send to Wavefront, especially if they use CLI or API for the queries.
+ `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users unintentionally send many queries to Wavefront, especially if they use the API for the queries. The results can become difficult to interpret, and system performance might suffer.
