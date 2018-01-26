@@ -10,42 +10,46 @@ Anomalies can indicate that something's about to go wrong in your environment. I
 
 [Wavefront Demo 6 - Anomaly Detection](https://youtu.be/I-Z9d94Zi7Y)
 
+**Note** Consider using [query wizard](query_language_query_wizard.html) if you want a recipe-based approach to queries that use mean and median.
+
 You can use simple functions or statistical functions to examine trends that might result in an anomaly.
 * Simple functions can give insight into rate of change and trends.
 * Statistical functions like mean, median, range, standard deviation, and inter-quartile range are great for understandstanding trends and variability in your dataset. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
 
 ## Simple Functions
 A great way to do dynamic anomaly detection is a query like the following:
-``${data} / lag(10m.${data})``
+
+`${data} / lag(10m,${data})`
+
 The result shows a 10 minute range of change as a ratio. You can change the time period to 1d or 30m to get the information you need.
 
-This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric now against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
+This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
 ## Mean and Median
-The `mean` and `median` functions can help you understand the tendency of the data.
+The `avg`/ `mavg` and `median` functions can help you understand the tendency of the data.
 
-Use `mean` to get the average, that is, the number found in the middle of a set of values. The mean value is affected and fluctuates easily even with single outlier. The `median` function is more robust in dealing with outliers than `mean` because outliers tend to move the mean towards the outlier value.
+Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier. The `median` function is more robust in dealing with outliers than `avg`/ `mavg` because outliers tend to move the mean towards the outlier value.
 
-Cosider the following queries that examinehow `mean` and `median` behave in case of sudden spikes in the http requests hitting a particular host:
+Cosider the following queries that examine how `mavg` and `median` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
 data:
-`ts(test.http.requests, host=web493.corp.wavefront.com)`
+`ts(test.http.requests, host=web493.corp.example.com)`
 
 mean:
-`mavg(10m, ${data})`
+`mavg(10m,${data})`
 
 median:
-`median(10m, ${data})`
+`median(10m,${data})`
 
 The screen shot below shows the corresponding Wavefront chart:
-* If you consider these spikes as anomalies, use `mean` as your function to catch all similar deviations or variability.
-* If you consider the spikes as noise and want to ignore one-off spikes, use `median`, which is less sensitive to outliers or variations like these, and shows only show sustained dips.
+* If you consider these spikes as anomalies, use `avg` or `mavg` to catch similar deviations or variability.
+* If you consider the spikes as noise and want to ignore one-off spikes, use `median`, which is less sensitive to outliers or variations, and shows only show sustained dips.
 
 ![mean_median](images/mean_median.png)
 
 ## Standard Deviation (Std Dev) and Inter-Quartile Range (IQR)
 
-While the `mean` and `median` functions can help you understand the tendency of the data, Std Dev and IQR measure the spread of the data. If you want to use a level of dispersion or spread of the data as a function to define normal, you can use these functions to catch anomalies.
+While the `avg`/ `mavg` and `median` functions can help you understand the tendency of the data, Std Dev and IQR measure the spread of the data. If you want to use a level of dispersion or spread of the data as a function to define normal, you can use these functions to catch anomalies.
 
 Standard deviation and IQR react to outliers (and to skewed data to some extent) in a similar way as  mean and median respectively. Both help you understand the spread of the data over a range, but Std Dev is more sensitive to outliers and skewed data, while IQR is less sensitive.
 
@@ -56,7 +60,7 @@ Standard deviation works well for detecting anomalies in data that is normally d
 * Tightly packed data -- data whose values don't vary over a wide range -- have a low standard deviation value (closer to 0).
 * A data set whose values are spread across a wide range has a high standard deviation.
 
-## Inter-Quartile Range
+### Inter-Quartile Range
 
 The inter-quartile range (IQR) indicates the extent to which the central 50% of values within the dataset are dispersed. IQR is based on, and related to, the median. In the same way that the median divides a dataset into two halves, it can be further divided into quarters by identifying the upper and lower quartiles. The lower quartile is found one quarter of the way along a dataset when the values have been arranged in order of magnitude; the upper quartile is found three quarters along the dataset. The inter-quartile range provides a clearer picture of the overall dataset by removing or ignoring the outlying values.
 
@@ -68,12 +72,12 @@ Here are some examples for both Std Dev and IQR that illustrate these functions.
 
 The following example first uses a query without standard deviation:
 
-`ts (network.rate.*)`
+`ts(network.rate.*)`
 
-And then we use a query that uses the standard deviation for the network rate:
+Then we add a query that gets the standard deviation for the network rate:
 
 `ts (network.rate.*)`
-`(${raw} - mavg(2h, ${raw})) /sqrt(nvar(2h, {raw}))`
+`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
 
 We use standard deviation to identify which series deviate greatly from their usual behavior, with a 2 hour moving window. When the standard deviation crosses a certain value (10 in this case), we have an anomaly. The same function is applied to different, widely scaled time series (each shown in a different color) and it identifies the spread of each series independently.
 
@@ -91,29 +95,29 @@ If the data is always distributed asymmetrically or is skewed, and you want to f
 
 The time series in this example has a lot of spikes and troughs and we want to find a sustained spike in this seemingly noisy signals.
 
-As you can see, standard deviation shows you the initial spike but starts decaying immediately. But if you use IQR, which has more resistance to the spikes and outliers it shows a sustained increase, making it easy to spot real outliers.
+As you can see, standard deviation shows you the initial spike but starts decaying immediately. But if you use IQR, which has more resistance to the spikes and outliers, we see a sustained increase, making it easy to spot real outliers.
 
 ### Data
 
 The first chart uses the following query:
 
 network rate:
-`align(1m, mean, rate(ts(host=mon* and not host=mon-*ha*, ifconfig.rxBytes)))`
+`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
 
 ![network_rate](images/network_rate_data.png)
 
 ### Std Dev
 
-In the second chart, we add a query for standard deviation:
+In the second chart, we add queries to see the standard deviation:
 
 network rate:
-`align(1m, mean, rate(ts(host=mon* and not host=mon-*ha*, ifconfig.rxBytes)))`
+`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
 
 top/bottom:
 `if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
 
 Std Dev:
-`($networkRate - mavg(480m, $networkRate}))/sqrt(mvar(480m, ${networkRate}))`
+`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
 
 ![network_rate_std_dev](images/network_rate_std_dev.png)
 
@@ -121,13 +125,13 @@ Std Dev:
 But we see the information we're after only when we add the IQR query:
 
 network rate:
-`align(1m, mean, rate(ts(host=mon* and not host=mon-*ha*, ifconfig.rxBytes)))`
+`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
 
 top/bottom:
 `if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
 
 Std Dev:
-`($networkRate - mavg(480m, $networkRate}))/sqrt(mvar(480m, ${networkRate}))`
+`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
 
 IQR:
 `({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) -` `mpercentile(480m, 25, ${networkRate}))`
@@ -136,7 +140,7 @@ IQR:
 
 ## Example 3
 
-In this example, the series deviates and continues oscillating over a day over range -- this is the normal behavior of the series). When you try to spot an anomaly in the oscillating data using std dev in a 1h or 2h window, standard deviation does not really capture the dip as well as IQR because the distribution of data in a moving 2h window is not normal. If you look at IQR, you see that it also fluctuates in the moving 2h window, but not as much as std dev, and it spikes in case of a immediate dip in the oscillating signal.
+In this example, a time series deviates and continues oscillating over a day over range -- this is the normal behavior of the series). When you try to spot an anomaly in the oscillating data using std dev in a 1h or 2h window, standard deviation does not really capture the dip as well as IQR because the distribution of data in a moving 2h window is not normal. If you look at IQR, you see that it also fluctuates in the moving 2h window, but not as much as std dev, and it spikes in case of a immediate dip in the oscillating signal.
 
 ### Data
 
@@ -146,7 +150,7 @@ initial query:
 ![webxactions_data](images/webxactions_data.png)
 
 ### Std Dev
-Adding a second query to see standard deviation:
+We can add a second query to see the standard deviation:
 
 initial query:
 `sum(ts(log.web.transactions))`
@@ -159,7 +163,7 @@ Std Dev:
 
 ### IQR
 
-IQR give a different view for case:
+IQR gives us more information about the time series:
 
 initial query:
 `sum(ts(log.web.transactions))`
@@ -171,6 +175,6 @@ IQR:
 ![webxactions_iqr](images/webxactions_iqr.png)
 
 
-The chart below shows the normalized values for all the three series. The chart plots the values against each other to give you a better understanding of standard deviation and IQR values.
+The chart below shows the normalized values for all three series. Looking at this chart, with values for the initial query, the standard deviation, and the IQR, illustrates how they differ.
 
 ![normalized_std_dev_iqr](images/normalized_std_dev_iqr.png)
