@@ -95,7 +95,7 @@ You have several choices for instrumenting your application.
 * Wavefront provides SDKs in Go, Java, Python, and Ruby that allow you to send metrics from applications written in Go and Java. See [Wavefront API SDKs](wavefront_api.html#api-sdks) for links to the different SDKs.If no integration exists for your use case,
 
 
-### Integrations for Infrastructure and Applications
+## Use Integrations for Infrastructure and Applications
 
 For many of the use cases you can take advantage of one of the Wavefront integrations. In most cases, the integration installs required components and gives detailed instructions on configuration file changes in the **Setup** tab. Many integrations use a Wavefront proxy and a Telegraf agent. For those agents, Setup usually goes like this:
 1. Checks whether a Wavefront proxy is installed in the environment.
@@ -107,19 +107,16 @@ For many of the use cases you can take advantage of one of the Wavefront integra
 
 Most integrations include one or more predefined dashboards with charts that show information that's usually of interest for the application. For example, users of a web service integration need different information than users who monitor a Linux host. You can clone and modify those dashboards, create additional dashboards, create alerts, and so on.
 
-### Cloud Integrations
+## Use a  Cloud Integrations
 
 Cloud integrations use a slightly different process than other integratinos. You log in to the cloud service and you can then specify the data that you're interested in.
 
-Wavefront currently supports integrations for the most popular cloud services.
+Wavefront supports integrations for the most popular cloud services.
 
-**Note:** If no Wavefront integration exists yet for your cloud provider, you can use your cloud provider's API to put the data into Wavefront Format and send them directly to the Wavefront service. Cloud integrations do not use the Wavefront proxy.
 
-### Other Integrations
+## Other Integrations
 
-Wavefront supports many additional integrations, for example container integrations. See [New and Changed Integrations](integrations_new_changed.html).
-
-### Custom Integrations
+Wavefront supports many additional integrations, for example container integrations. See [List of Wavefront Integrations](integrations_list.html) - or check out the integrations from within the product. 
 
 For some use cases, for example some integrations that use collectd instead of Telegraf as the collection agent, we give you the setup instructions in the documentation. See [Integrations Pages](label_integrations.html) for all topics related to integrations.
 
