@@ -11,13 +11,20 @@ summary: Learn how to use moving window functions in Wavefront Query Language ex
 
 The moving window functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `count()`, etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
 
-The chart below for instance shows the 24 hour moving average of the points received. As you can see it is a continuous moving average of the past 24 hours.
+The chart below for instance shows the 24 hour moving average of the points received from the following queries:
 
-{% include image.html file="moving_avg.png" alt="moving_avg" caption="Fig 1: Moving Average Over a Day" %}
+Rate: `sum(rate(ts(~agent.points.2878.received)))`
 
-But what if you wanted to only look at the daily average for each day and display only that average across the day. Essentially what you want to create is fixed size time windows and record your metrics in these windows.
+Moving avg: `mavg(24h, ${rate})`
 
-These windows are more commonly referred as _tumbling windows_. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals.
+As you can see it is a continuous moving average of the past 24 hours.
+
+![moving_average](images/moving_avg.png)
+
+
+But if you want to only look at the daily average for each day, and display only that average, you have to create fixed-size time windows and record your metrics in these windows.
+
+These windows are commonly referred as _tumbling windows_. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals.
 
 ## Moving Windows Versus Tumbling Windows
 
@@ -25,52 +32,76 @@ Before we look at how to create and use these tumbling windows for different use
 
 The following diagrams illustrate a stream with a series of points being reported and how they are mapped into  5-second moving windows versus 5-second tumbling windows.
 
-{% include image.html file="5sec_moving_window.png" alt="5sec_moving_window" caption="Fig 2: 5 Second Moving Windows Illustrated" %}
+![5sec_moving_window](images/5sec_moving_window.png)
 
-The moving window slides ahead one second at a time and you can see how new points get added at the front and the older points keep falling out as the window moves ahead. So these windows overlap each other, whereas tumbling windows are fixed windows that do not overlap one another and the set of points are exclusive for each window.
+The moving window slides ahead one second at a time. You can see how new points are added at the front and the older points become invisible as the window moves ahead.
 
-{% include image.html file="5sec_tumbling_window.png" alt="5sec_tumbling_window" caption="Fig 3: 5 Second Tumbling Windows" %}
+* Moving windows overlap.
+* Tumbling windows are fixed windows that do not overlap-- the set of points is exclusive for each window.
 
-If you look closely, these three tumbling windows are actually part of the moving windows and every 5th moving window forms this 5-second tumbling window. So in theory to create tumbling window of `n` duration (5 seconds in this example) all you need to do is sample every nth moving window (5th window) sliding ahead at in the same unit of window duration (seconds in this example).
+![5sec_tumbling_window](images/5sec_tumbling_window.png)
 
-{% include image.html file="moving_vs_tumbling_window.png" alt="moving_vs_tumbling_window" caption="Fig 4: Moving Windows Versus Tumbling Windows" %}
+These three tumbling windows are actually part of the moving windows, and every 5th moving window forms this 5-second tumbling window. To create tumbling window of `n` duration (5 seconds in this example) you can sample every nth moving window (5th window), sliding ahead in the same unit of  duration (seconds in this example).
 
-Going back to our example from top to look at the daily average rate, we can use the same concept and sample every `mavg(24h,$rate)` at the end of each day.
+![moving_vs_tumbling_window](images/moving_vs_tumbling_window.png)
 
-You can do that using the time functions. In this case, we will use the `hour()` function to sample the average at every midnight. This would give you the average of last 24 hours which is essentially the daily average and we display it across the day using the missing data function `next()`.
+We can use this approach for our example from the top (daily average rate) and sample every `mavg(24h,$rate)` at the end of each day using one of the time functions.
 
-{% include image.html file="sample_moving_window.png" alt="sample_moving_window" caption="Fig 5: Sample Moving Windows to Create Tumbling Windows" %}
+In this case, we use the `hour()` function to sample the average at every midnight. This results in the average for 24 hours, and we can display it across the day using the missing data function `next()`. In the chart below, the green circles show the sampled data. You can use `next()` to display the information for the entire day, as in the following queries. The corresponding chart is immediately below.
 
-In the chart above, the green circles show the sampled data and you can use `next()` to display it across the entire day.
+Rate: `sum(rate(ts(~agent.points.2878.received)))`
 
-{% include image.html file="missing_data_fcn_tumbling_window.png" alt="missing_data_fcn_tumbling_window" caption="Fig 6: Use Missing Data Functions to Display the Result Across Tumbling Window" %}
+Moving avg: `mavg(24h, ${rate})`
+
+Sampled at midnight: `if (hour("US/Pacific") = 0,${mavg})`
+
+Daily avg: `next(24h,if(hour("US/Pacific") = 0,${mavg})`
+
+![sample_moving_window](images/sample_moving_window.png)
+
+Using the same queries, you can use missing data functions to display the result across tumbling windows.
+
+![missing_data_fnc](images/missing_data_fcn_tumbling_window.png)
+
+
+## Tumbling Window Examples
 
 Below are more examples of tumbling windows.
-
-## Examples
 
 ### Count the unique number of metrics per day starting at 0 every midnight at PDT
 
 This chart shows the metrics reported to Wavefront by the Slack application in both the moving and the tumbling windows. The chart shows the count per day starting at midnight PDT. If the count per day is missing at midnight, the chart looks at the first value in count per day up to 12:30pm, and uses that value as the value for the entire day.
 
-{% include image.html file="daily_count.png" alt="daily_count" caption="Fig 7: Daily Count of Reported Metrics" %}
+We use the following queries:
 
-This example is very similar to the earlier example. However, instead of sampling the moving count exactly at midnight, this expression takes into account any missing or delayed data and picks the first value of the 30 minutes past midnight and then finally the `next()` function simply displays this value for the entire day.
+data: `ts("slack.*")`
+
+mcount: `sum(mcount(24h, ${data}))`
+
+windowed: `if (hour("US/Pacific") <= 0.5,${mcount})`
+
+window-aligned: `align(1h, firs, $windowed})`
+
+Readable across day: `next(24h, ${window-aligned})`
+
+![daily_count](images/daily_count.png)
+
+This example is similar to the earlier example. However, instead of sampling the moving count exactly at midnight, we take into account any missing or delayed data and pick the first value of the 30 minutes past midnight. The `next()` function displays this value for the entire day.
 
 ### Get a 50th percentile of every 5 minute bucket
 
-Here is sample data being reported every 1 minute.
+In the following chart, sample data is being reported every 1 minute.
 
-{% include image.html file="sample_data.png" alt="sample_data" caption="Fig 8: Sample Data" %}
+![sample_data](images/sample_data.png)
 
-A 5-minute moving percentile will give you the 50th percentile point in the last 5 minutes and display it at every minute interval.
+In the following chart, a 5-minute moving percentile gives you the 50th percentile point in the last 5 minutes and display it at every minute interval.
 
-{% include image.html file="5min_50th_moving.png" alt="5min_50th_moving" caption="Fig 9: 5 Minute 50th Moving Percentile" %}
+![moving_percentile](images/5min_50th_moving.png)
 
-But what if you wanted to find a 50th percentile of points in fixed 5-minute window. You could use the similar logic as we saw in the earlier examples. Here we are using `align(5m,...)` to sample, instead of the time functions followed by `next()`, to display the 50th percentile for the entire 5-minute window.
+If you wanted to find a 50th percentile of points in fixed 5-minute window, you could use the similar logic to the earlier examples. Here we use `align(5m,...)` to sample, instead of the time functions followed by `next()`, to display the 50th percentile for the entire 5-minute window.
 
-{% include image.html file="5min_50th_tumbling.png" alt="5min_50th_tumbling" caption="Fig 10: 50th Percentile for Every 5 Minute Tumbling Window" %}
+![tumbling_percentile](images/5min_50th_tumbling.png)
 
-This expression is plotting the raw data overlaid with the 5-minute tumble window for the 50th percentile. The orange line is the 50th percentile of points in every 5-minute fixed window. And you see how it coincides with the middle-valued point in that time interval.
+This example plots the raw data overlaid with the 5-minute tumble window for the 50th percentile. The orange line is the 50th percentile of points in every 5-minute fixed window. And you see how it coincides with the middle-valued point in that time interval.
 
-Thus any of the moving functions can be converted into fixed or tumbling windows by correct sampling of the moving window for which you should use the time functions and/or `align()`.
+The examples show how you can covert any moving function to a fixed or tumbling window by correctly sampling the moving window. You can use time functions or `align()`, or both.
