@@ -73,7 +73,7 @@ Metric naming hierarchy recommendations:
 Point tags must satisfy the following constraints:
 <ul>
 <li><strong>Key</strong> - Valid characters are: alphanumeric, hyphen ("-"), underscore ("_"), dot (".")</li>
-<li><strong>Value</strong> - We recommend enclosing tag values with double quotes (" "). If you surround the value with quotes any character is allowed, including spaces. To include a double quote, escape it with a backslash. The backslash cannot be the last character in the tag value.</li>
+<li><strong>Value</strong> - We recommend enclosing tag values with double quotes (" "). If you surround the value with quotes any character is allowed, including spaces. To include a double quote, escape it with a backslash, for example, `\"`. The backslash cannot be the last character in the tag value.</li>
 </ul>
 The maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the point is rejected and logged.
 

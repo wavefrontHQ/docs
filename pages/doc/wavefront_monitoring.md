@@ -84,13 +84,13 @@ The metrics used in this section are:
 
 A small set of internal metrics can help you optimize performance. This section highlights some things to look for - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release based on suggestions from our customer support engineers.
 
-* `~query.requests`
-* `~metric.new_host_ids`
-* `~metric.new_metric_ids`
-* `~metric.new_string_ids`
-* `~alert.query_time.{alert_id}`
-* `~alert.query_points.{alert_id}`
-* `~alert.checking_frequency.{id}`
+* `~query.requests`-- Counter tracking the number of queries a user made.
+* `~metric.new_host_ids` -- Counter that increments when a new `source=` or `host=` is sent to Wavefront.
+* `~metric.new_metric_ids` -- Counter that increments when a new metric name is sent to Wavefront.
+* `~metric.new_string_ids` -- Counter that increments when a new point tag value is sent to Wavefront.
+* `~alert.query_time.{alert_id}`-- Tracks the average time, in ms, that a specified alert took to run in the past hour.
+* `~alert.query_points.{alert_id}` -- tracks the average number of points that a specified alert scanned in the past hour.
+* `~alert.checking_frequency.{id}` -- Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details. 
 
 Here's one easy way to see this new information:
 1. Select **Integrations** and click the Wavefront Usage integration.
