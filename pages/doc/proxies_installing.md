@@ -168,7 +168,7 @@ Mac OS|`brew update && brew upgrade wfproxy`
 
 ## Running a Proxy in a Docker Container
 
-To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](#single). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:.
+To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](#single). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:
 
 ### Docker Compose
 
@@ -223,7 +223,8 @@ spec:
           protocol: TCP
 ```
 
-For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly. 
+### Proxy Versions for Containers
+For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
 The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
 
 ## Proxy Troubleshooting
