@@ -32,14 +32,9 @@ Use `avg` or `mavg` to get the mean (average), that is, the number found in the 
 
 Cosider the following queries that examine how `mavg` and `median` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
-data:
-`ts(test.http.requests, host=web493.corp.example.com)`
-
-mean:
-`mavg(10m,${data})`
-
-median:
-`median(10m,${data})`
+data:|`ts(test.http.requests, host=web493.corp.example.com)`
+mean:|`mavg(10m,${data})`
+median:|`median(10m,${data})`
 
 The screen shot below shows the corresponding Wavefront chart:
 * If you consider these spikes as anomalies, use `avg` or `mavg` to catch similar deviations or variability.
@@ -101,8 +96,7 @@ As you can see, standard deviation shows you the initial spike but starts decayi
 
 The first chart uses the following query:
 
-network rate:
-`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
+network rate:|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
 
 ![network_rate](images/network_rate_data.png)
 
@@ -110,31 +104,19 @@ network rate:
 
 In the second chart, we add queries to see the standard deviation:
 
-network rate:
-`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
-
-top/bottom:
-`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
-
-Std Dev:
-`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
+network rate:|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
+top/bottom:|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
+Std Dev:|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
 
 ![network_rate_std_dev](images/network_rate_std_dev.png)
 
 ### IQR
 But we see the information we're after only when we add the IQR query:
 
-network rate:
-`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
-
-top/bottom:
-`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
-
-Std Dev:
-`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
-
-IQR:
-`({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) -` `mpercentile(480m, 25, ${networkRate}))`
+network rate|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
+top/bottom|`if (top(3, ${networkRate}) or bottom(3, ${networkRate}), $networkRate})`
+Std Dev|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networkRate}))`
+IQR|`({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${networkRate}) - mpercentile(480m, 25, ${networkRate}))`
 
 ![network_rate_iqr](images/network_rate_iqr.png)
 
@@ -144,19 +126,15 @@ In this example, a time series deviates and continues oscillating over a day ove
 
 ### Data
 
-initial query:
-`sum(ts(log.web.transactions))`
+initial query|`sum(ts(log.web.transactions))`
 
 ![webxactions_data](images/webxactions_data.png)
 
 ### Std Dev
 We can add a second query to see the standard deviation:
 
-initial query:
-`sum(ts(log.web.transactions))`
-
-Std Dev:
-`(${data} - mavg(1h, ${data})) / sqrt(mvar(1h, ${data}))`
+initial query|`sum(ts(log.web.transactions))`
+Std Dev|`(${data} - mavg(1h, ${data})) / sqrt(mvar(1h, ${data}))`
 
 
 ![webxactions_std_dev](images/webxactions_std_dev.png)
@@ -165,12 +143,8 @@ Std Dev:
 
 IQR gives us more information about the time series:
 
-initial query:
-`sum(ts(log.web.transactions))`
-
-IQR:
-`mpercentile (50m, 75, ${data}) - mpercentile (50m, 25, ${data})`
-
+initial query|`sum(ts(log.web.transactions))`
+IQR|`mpercentile (50m, 75, ${data}) - mpercentile (50m, 25, ${data})`
 
 ![webxactions_iqr](images/webxactions_iqr.png)
 

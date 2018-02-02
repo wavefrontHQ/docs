@@ -1,16 +1,16 @@
 ---
-title: Installing and Running Wavefront Proxies
+title: Installing and Managing Wavefront Proxies
 keywords: Ansible
 tags: [proxies, best practice]
 sidebar: doc_sidebar
 permalink: proxies_installing.html
-summary: Learn how to install and run Wavefront proxies.
+summary: Learn how to install and manage Wavefront proxies.
 ---
 In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to Wavefront from a host or application.
 
-You can install a proxy as part of an [in-product integration](integrations.html#in-product-integrations) or standalone. This topic describes various methods for installing Wavefront proxies and for managing proxy services.
+You can install a proxy as part of an [in-product integration](integrations.html#in-product-integrations). Even collector agent integrations, such as the Telegraf integration, install a proxy. But for some custom integrations, you install the proxy yourself. This topic describes methods for installing Wavefront proxies and for managing proxy services.
 
-Installation procedures might require a Wavefront API URL `<wavefront_api_url>` in the format `https://<wavefront_instance>.wavefront.com/api/` and an API token. To get an API token, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
+If you don't use the Wavefront UI to install the proxy, the installation procedures might require a Wavefront API URL `<wavefront_api_url>` in the format `https://<wavefront_instance>.wavefront.com/api/` and an API token. To get an API token, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
 
 **Note** Some installation procedures automatically configure these properties for you.
 
@@ -32,8 +32,13 @@ Installation procedures might require a Wavefront API URL `<wavefront_api_url>` 
 
 <a name="single"></a>
 
-## Installing a Proxy on a Single Host
+## Installing a Proxy
 
+You can install a proxy on a single host or on multiple hosts. If you're using Linux, you can automate installation on multiple hosts.
+
+**Note**: You can use a single proxy to pass input from many collector agents to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
+
+### Installing a Proxy on a Single Host
 To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker container on a host:
 
 1. Open the Wavefront application UI.
@@ -43,15 +48,21 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
 1. (Windows Only) Download the proxy.
 1. Copy the script and run it on your host.
 
-   **Note** On Windows, do not run the installer .exe. Run the script instead.
-1. After the proxy contacts the Wavefront server, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
+   **Note** On Windows, do not run the installer `.exe` file. Run the script instead.
+1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
 1. Click **Done**. The Proxies page displays. Verify that your proxy is listed. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to make sure the proxy is running.
 
 <a name="ansible"></a>
 
-## Installing Proxies on Multiple Linux Hosts
+### Installing Proxies on Multiple Linux Hosts
 
 Ansible is an open-source automation engine that automates software provisioning, configuration and management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple Linux hosts. For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) setup instructions.
+
+### Scripted Proxy Installation
+
+In Linux hosts, you can use the [Wavefront CLI](wavefront_cli.html) to install the Wavefront proxy and to perform certain management tasks.
+
+In Mac and Linux hosts, you can select the integration for the host and run only the command that installs the proxy, not the command that installs the Telegraf agent.
 
 <a name="restart"></a>
 
@@ -61,7 +72,7 @@ After installing a proxy, you can start and stop the proxy service, check servic
 
 ### Starting and Stopping a Proxy
 
-Run the following commands on the proxy host:
+You can start and stop a proxy by run the following commands on the proxy host:
 
 - Linux
 
@@ -136,6 +147,23 @@ You can test that a proxy is receiving and sending data by sending it a JSON pay
 1. In the Metrics field, type `test.metric`.
 1. Click `test.metric` to display a chart of the metric.
 
+### Upgrading a Proxy
+
+Wavefront releases new proxy versions with new features periodically. See [Proxy Release Notes](proxies_versions.html)
+
+To upgrade the environment, you can install select **Browse > Proxies > Add New Proxy**. If an older version of the proxy exists, this process replaces it.
+
+**Note** On Windows systems, you might have to uninstall the existing proxy first. Use the uninstall process for **Wavefront Proxy** on the Windows system you're using.
+
+
+For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
+
+Linux| `sudo apt-get update && sudo apt-get install wavefront-proxy`
+Linux (RPM)|`brew update && brew upgrade wfproxy`
+Mac OS|`brew update && brew upgrade wfproxy`
+
+
+
 <a name="docker"></a>
 
 ## Running a Proxy in a Docker Container
@@ -194,6 +222,9 @@ spec:
         - containerPort: 4242
           protocol: TCP
 ```
+
+For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly. 
+The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
 
 ## Proxy Troubleshooting
 

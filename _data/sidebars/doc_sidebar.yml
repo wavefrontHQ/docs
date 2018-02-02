@@ -390,11 +390,8 @@ entries:
       url: /proxies_preprocessor_rules.html
       output: web
 
-    - title: Wavefront CLI
-      url: /wavefront_cli.html
-      output: web
 
-  - title: API
+  - title: API and CLI
     output: web
     folderitems:
 
@@ -404,6 +401,10 @@ entries:
 
       - title: Wavefront API Python Client
         url: /wavefront_api_python.html
+        output: web
+
+      - title: Wavefront CLI
+        url: /wavefront_cli.html
         output: web
 
   - title: Administration
