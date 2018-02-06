@@ -1,18 +1,20 @@
 ---
-title: Configuring Wavefront Proxies
+title: Advanced Proxy Configuration
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
+Advanced proxy configuration includes use of configuration properties, annotating your sources with SourceTag and SourceDescription properties, and performing advanced installation management.
+
 This document describes Wavefront proxy 4.12 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Versions](proxies_versions.html).
 
-## Installing a Proxy
 
-To install a proxy, follow the directions in [Installing Wavefront Proxies](proxies_installing.html). The installation procedures perform basic configuration. For advanced configuration, see the options in the next section.
 
-## Proxy Configuration
+## Proxy Configuration Properties
+
+The main Wavefront proxy configuration file is maintained in `<wavefront_config_path>/wavefront.conf` (`<wf_config_path>/wavefront.conf`). The configuration file offers many options for changing how the proxy processes your data. There are optional configuration files for [rewriting metrics](proxies_preprocessor_rules.html) and parsing [log data](integrations_log_data.html#configuring-the-wavefront-proxy-to-ingest-log-data). The default values work well in many cases, but you can adjust them as needed. After changing a configuration option, [restart the proxy service](proxies_installing.html#starting-and-stopping-a-proxy).
 
 ### Paths
 
@@ -33,9 +35,7 @@ In this section, file paths use the following conventions and values:
 
 {% include important.html content="On Windows, _do not_ use **notepad** to edit any configuration files. Use an editor that supports Unix style line endings, such as **Notepad++** or **EditPlus**."%}
 
-### Configuration Properties
-
-The main Wavefront proxy configuration file is maintained in `<wavefront_config_path>/wavefront.conf` (`<wf_config_path>/wavefront.conf`) Besides the `server` and `hostname` properties, the configuration file offers many options for changing how the proxy processes your data. There are optional configuration files for [rewriting metrics](proxies_preprocessor_rules.html) and parsing [log data](integrations_log_data.html#configuring-the-wavefront-proxy-to-ingest-log-data). The default values work well in many cases, but you can adjust them as needed. After changing a configuration option, [restart the proxy service](proxies_installing.html#starting-and-stopping-a-proxy).
+### Properties and Examples
 
 <table>
 <thead>
@@ -345,13 +345,13 @@ Ex: 0 </td>
 </tbody>
 </table>
 
-## Sending Source Tags and Source Descriptions Through the Wavefront Proxy 
+## Sending Source Tags and Source Descriptions Through the Wavefront Proxy
 
 In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, even if the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
 
-The feature is supported with version 2017-28.x and later of the Wavefront server. 
+The feature is supported with version 2017-28.x and later of the Wavefront server.
 
-**Note** The feature is available in version 4.17-9 and later of the proxy, but port usage depends on the version you are using. 
+**Note** The feature is available in version 4.17-9 and later of the proxy, but port usage depends on the version you are using.
 *  Starting with wavefront-proxy_4.17-9, SourceTag is available on port 4878
 *  In wavefront-proxy_4.24-1 and later, SourceTag is available on port 2878
 
@@ -408,7 +408,7 @@ The Wavefront proxy supports two log files: proxy log and blocked point log. To 
 
 ### Proxy Log
 
-By default, proxy log entries are logged to `<wavefront_log_path>/wavefront.log`. The log file is rolled over every day and when its size reaches 100MB. When there are 30 log files, older files are deleted. 
+By default, proxy log entries are logged to `<wavefront_log_path>/wavefront.log`. The log file is rolled over every day and when its size reaches 100MB. When there are 30 log files, older files are deleted.
 
 ### Blocked Point Log
 
@@ -419,3 +419,76 @@ You can log raw blocked points in a separate log from the proxy log. Logging of 
     -->
 
 By default, blocked point entries are logged to `<wavefront_log_path>/wavefront-blocked-points.log` and the block point log file is rolled over every day and when its size reaches 100MB. When there are 31 log files, older files are deleted.
+
+<a name="docker"></a>
+
+## Running a Proxy in a Docker Container
+
+To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](#single). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:
+
+### Docker Compose
+
+```yaml
+wavefront:
+    hostname: wavefront-proxy
+    container_name: wavefront-proxy
+    ports:
+      - "3878:3878"
+      - "2878:2878"
+      - "4242:4242"
+    environment:
+      WAVEFRONT_URL: <wavefront_api_url>
+      WAVEFRONT_TOKEN: <wavefront_api_token>
+    image: wavefronthq/proxy:latest
+    restart: always
+```
+
+### Kubernetes
+
+```yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    app: wavefront-proxy
+    name: wavefront-proxy
+  name: wavefront-proxy
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    app: wavefront-proxy
+  template:
+    metadata:
+      labels:
+        app: wavefront-proxy
+    spec:
+      containers:
+      - name: wavefront-proxy
+        image: wavefronthq/proxy:latest
+        imagePullPolicy: Always
+        env:
+        - name: WAVEFRONT_URL
+          value: <wavefront_api_url>
+        - name: WAVEFRONT_TOKEN
+          value: <wavefront_api_token>
+        ports:
+        - containerPort: 2878
+          protocol: TCP
+        - containerPort: 4242
+          protocol: TCP
+```
+
+### Proxy Versions for Containers
+For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
+The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
+
+<a name="ansible"></a>
+
+## Installing Proxies on Multiple Linux Hosts
+
+Ansible is an open-source automation engine that automates software provisioning, configuration and management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple Linux hosts.
+
+**Note**: In most cases, you install only one or two proxies in your environment. You don't need a proxy for each host you collect data from. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
+
+For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) Setup tab.

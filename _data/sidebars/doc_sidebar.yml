@@ -370,15 +370,11 @@ entries:
       url: /proxies.html
       output: web
 
-    - title: Installing and Running Wavefront Proxies
+    - title: Installing and Managing Wavefront Proxies
       url: /proxies_installing.html
       output: web
 
-    - title: Managing Wavefront Proxies
-      url: /proxies_managing.html
-      output: web
-
-    - title: Configuring Wavefront Proxies
+    - title: Advanced Proxy Configuration
       url: /proxies_configuring.html
       output: web
 
