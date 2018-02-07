@@ -20,9 +20,9 @@ The POST data that you can include with each type of alert are passed as a JSON 
 
 For maximum flexibility and control, you can create alert targets from scratch. You can also use one of the predefined integrations that use alert notification.
 
-* This document explains how to create and configure different alert targets, including webhooks and webhook payloads. You can use webhook templates, variables, and functions to construct virtually any type of payload.
+* This page explains how to create and configure different alert targets, including webhooks and webhook payloads. You can use webhook templates, variables, and functions to construct virtually any type of payload.
 
-* Wavefront provides predefined integrations for several systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the [in-product integrations](integrations.html).
+* Wavefront provides predefined integrations for several notification systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the in-product integration. Here's a list of all [in-product integrations](integrations_list.html).
 
 To view and manage alert targets, select **Browse > Alert Targets**.
 
@@ -38,7 +38,8 @@ The process for creating an alert target is fairly similar for the different tar
 
 1.  Select **Browse > Alert Targets**.
 1.  Click the **Create Alert Target** button.
-1.  From the **Type** pull-down menu, select the alert target type  and fill in the properties. Certain properties are available only for certain alert target types.
+1.  From the **Type** pull-down menu, select the alert target type
+1.  Fill in the properties. Certain properties are available only for certain alert target types.
     <table>
     <tbody>
     <thead>
@@ -56,7 +57,7 @@ The process for creating an alert target is fairly similar for the different tar
     <td>Triggers</td>
     <td colspan="2">One or more <a href="alerts_states_lifecycle.html">alert state changes</a> that trigger the alert target. The options are:
     <ul>
-    <li>Alert Opened - Trigger when the alert is opened (fired).</li>
+    <li>Alert Firing - Trigger when the alert is firing.</li>
     <li>Alert Status Updated - Trigger when the status of an open alert changes. For example, a new source satisfies the alert condition and joins the set of affected sources.</li>
     <li>Alert Resolved - Trigger when the alert is resolved.</li>
     <li>Alert Affected by Maintenance Window - Trigger when the alert is affected by a maintenance window.</li>
@@ -106,11 +107,9 @@ The process for creating an alert target is fairly similar for the different tar
     </tr>
     </tbody>
     </table>
-1. Select **Webhook POST Body Template > Template > \<template_type\>**, where \<template_type\> is Default, Slack, VictorOps, or HipChat.
+1. Select **Alert Target POST** click **Template**, and select a template type (Default, Slack, VictorOps, or HipChat).
 1. Customize the template as described in the next section.
-1. Click **Save** to add the alert target to the Alert Targets page.
-
-
+1. Click **Save** to add the alert target and make it visible on the Alert Targets page.
 
 ## Customizing Alert Target Templates
 
