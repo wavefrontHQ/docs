@@ -10,6 +10,7 @@ summary: Learn about new and updated features in Wavefront.
 * See the [Wavefront Proxy Release Notes](proxies_versions.html) for info about proxy versions. The proxy is released separately from the Wavefront service.
 
 These pages list new and updated features in the Wavefront service.
+- [2018-06.x Release Notes](2018.06.x_release_notes.html)
 - [2017-52.x Release Notes](2017_52.x_release_notes.html)
 - [2017-48.x Release Notes](2017_48.x_release_notes.html)
 - [2017-44.x Release Notes](2017_44.x_release_notes.html)

@@ -43,6 +43,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2018-06.x Release Notes
+      url: /2018.06.x_release_notes.html
+      output: web
+
     - title: 2017-52.x Release Notes
       url: /2017_52.x_release_notes.html
       output: web
@@ -73,18 +77,6 @@ entries:
 
     - title: 2017-16.x Release Notes
       url: /2017_16.x_release_notes.html
-      output: web
-
-    - title: 8.x Release Notes
-      url: /8x_release_notes.html
-      output: web
-
-    - title: 6.x Release Notes
-      url: /6x_release_notes.html
-      output: web
-
-    - title: 5.0 Release Notes
-      url: /50_release_notes.html
       output: web
 
     - title: Wavefront Obsolescence Policy
