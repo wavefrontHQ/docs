@@ -424,7 +424,7 @@ By default, blocked point entries are logged to `<wavefront_log_path>/wavefront-
 
 ## Running a Proxy in a Docker Container
 
-To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](#single). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:
+To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](proxies_installing.html#installing-a-proxy-on-a-single-host). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:
 
 ### Docker Compose
 
