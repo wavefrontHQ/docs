@@ -483,6 +483,15 @@ spec:
 For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
 The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
 
+## Customizing Proxy Settings for Docker
+
+When you run a Wavefront proxy inside a Docker container, you can tweak proxy configuration settings that are properties in the `wavefront.conf` file directly from the Docker `run` command. You use the WAVEFRONT_PROXY_ARGS environment variable and pass in the property name as a long form argument.
+
+For example, add `e WAVEFRONT_PROXY_ARGS="-pushRateLimit 1000"` to your docker `run` command to specify a rate limit of 1000 pps for the proxy.
+
+See the [Wavefront Proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) for a full list.   
+
+
 <a name="ansible"></a>
 
 ## Installing Proxies on Multiple Linux Hosts

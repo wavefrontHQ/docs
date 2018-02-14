@@ -7,7 +7,7 @@ permalink: integrations.html
 summary: Learn how to customize an in-product integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into the Wavefront service. This documentation includes a complete, up-to-date [list of Wavefront integrations](integrations_list.md) and a page of [new and updated integrations](integrations_new_changed) that we update monthly.
+Integrations are one easy way to get data from external systems into the Wavefront service. This documentation includes a complete, up-to-date [list of Wavefront integrations](integrations_list.html) and a page of [new and updated integrations](integrations_new_changed.html) that we update monthly.
 Many integrations are accessible directly from the product; for others, you follow some simple steps in this document.
 
 **Note** If no integration exists for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
