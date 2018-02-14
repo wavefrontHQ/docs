@@ -34,7 +34,7 @@ The [Wavefront Usage integration](integrations.html#in-product-integrations) pro
 * AWS Integration
 * Ingestion Rate by Source
 
-See [Monitoring Wavefront Proxies](wavefront_monitoring_proxies.html) for details on the following sections:
+See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the following sections:
 * Proxy Health
 * Proxy Troubleshooting
 
@@ -90,7 +90,7 @@ A small set of internal metrics can help you optimize performance. This section 
 * `~metric.new_string_ids` -- Counter that increments when a new point tag value is sent to Wavefront.
 * `~alert.query_time.{alert_id}`-- Tracks the average time, in ms, that a specified alert took to run in the past hour.
 * `~alert.query_points.{alert_id}` -- tracks the average number of points that a specified alert scanned in the past hour.
-* `~alert.checking_frequency.{id}` -- Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details. 
+* `~alert.checking_frequency.{id}` -- Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.
 
 Here's one easy way to see this new information:
 1. Select **Integrations** and click the Wavefront Usage integration.
