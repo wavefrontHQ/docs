@@ -166,6 +166,14 @@ taggify(ts("performance.*.tracker"), source, "regexSearchPattern", "replacementP
 
 ## Caveats
 
-When you use the `taggify()` function, it creates a synthetic point tag, not an actual one. You cannot call that synthetic point tag in a separate query.
+### Using a taggify() Result in a Separate Query
 
-You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define. 
+When you use the `taggify()` function, it creates a synthetic point tag, not an actual one. You cannot call that synthetic point tag in a separate query. You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define.
+
+### Getting Duplicate Return Values with taggify()
+When you use `taggify` with a regular expression, you might encounter a  behavior that exists in most regex engines - a "greedy" regular expression in the "." search pattern matches the entire string, but it also matches the empty string at the end of input, so it substitutes the value twice, as in the following example:
+
+``
+taggify(highpass(80, align(15m, mean, ts(metricname),tagk,tenant,grouping,".*","ProblematicTenant") ...
+``
+Use ".+", "^." or ".*$" as your search pattern to match the entire string only once.
