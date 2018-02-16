@@ -41,10 +41,19 @@ You can tweak a few things:
     - If you want to know when no data at all was reported, then using = 0 is the right approach.
     - However, if you expect data to be reported once a minute, and you'd like to know when data are not consistently reported, then `mcount(5m, ts(my.metric)) <= 3` works better. With that query, you trigger the alert if there are 2 or more missing data points in the last 5 minutes.
 
-The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data.
+The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data. The example below shows how `mcount(10 m...)` reports a decreasing value for 10 minutes, then a value of 0 for 10 more minutes, and then stops reporting.
 
-For example:
-*  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops -- but it fills in 0 values for all previous gaps, even if the gaps were much larger than 10 minutes. That means if metric2 reports 1 value every hour, then  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes -- but if a new value comes in after 50 more minutes, `mcount` will backfill the entire hour.
+![mcount_demo-2](images/mcount_demo-2.png)
+
+`mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops. In the example below, reporting stops after 9:30.
+
+![mcount_demo-1](images/mcount_demo-1.png)
+
+but it fills in 0 values for all previous gaps, even if the gaps were much larger than 10 minutes. That means if metric2 reports 1 value every hour, then  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes -- but if a new value comes in after 50 more minutes, `mcount` will backfill the entire hour.
+
+The example below shows how `mcount` fills in gaps and continues reporting values.
+
+![mcount_demo-4](images/mcount_demo-4.png)
 
 If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`.
 
