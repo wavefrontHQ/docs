@@ -9,6 +9,37 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis.
 
+## February 2018
+
+We added the following integrations in February 2018:
+
+* Microsoft Sharepoint
+* etcd KV store
+* Apache ActiveMQ
+* Microsoft SQL Server
+* IBM WebSphere Application Server
+* Apache Spark
+* Apache Mesos
+* Varnish Cache
+* .NET
+* Active Directory
+* NGINX Plus
+* Apache Solr
+* SNMP
+* CouchDB
+* Microsoft Hyper-V
+* MongoDB
+* Microsoft Exchange
+* Service Now
+* Chef Server
+* NodeJS
+* Pivotal Container Service (PKS)
+
+We changed the following integrations in February 2018:
+
+* Azure AD (Authentication)
+* ElasticSearch  
+
 ## January 2018
 
 We added the following integrations in January 2018:
@@ -25,7 +56,7 @@ We added the following integrations in January 2018:
 * Riak KV Store
 * Consul
 * Zookeeper
-* Tesla 
+* Tesla
 
 We also added the following Linux Host integrations:
 
