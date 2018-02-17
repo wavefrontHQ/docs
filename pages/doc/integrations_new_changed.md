@@ -35,10 +35,10 @@ We added the following integrations in February 2018:
 * NodeJS
 * Pivotal Container Service (PKS)
 
-We changed the following integrations in February 2018:
+We enhanced the following integrations in February 2018:
 
 * Azure AD (Authentication)
-* ElasticSearch  
+* ElasticSearch
 
 ## January 2018
 

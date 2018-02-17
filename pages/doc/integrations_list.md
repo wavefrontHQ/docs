@@ -20,6 +20,8 @@ The following list groups integrations by category.
 * PagerDuty
 * Slack
 * VictorOps
+* ServiceNow
+* Webhooks
 
 Instead of using an integration, you can create an email, PagerDuty, or Webhook notification using the [Alert Targets](webhooks_alert_notification.html) mechanism.
 
@@ -28,6 +30,7 @@ Instead of using an integration, you can create an email, PagerDuty, or Webhook 
 * Filebeat log data
 * Go
 * Java
+* NodeJS
 * StatsD
 
 Instead of using an integration, you can directly instrument your application with the Wavefront API.
@@ -45,8 +48,13 @@ Instead of using an integration, you can directly instrument your application wi
 * Google Cloud Platform
 * Kubernetes
 * Pivotal Cloud Foundry
+* Pivotal Container Service
 
 ## Datastore
+* CouchDB
+* etcd KV store
+* Microsoft SQL Server
+* MongoDB
 * MySQL
 * PostgresQL
 * Redis
@@ -55,6 +63,7 @@ Instead of using an integration, you can directly instrument your application wi
 ## DevOps Tools
 * Ansible
 * Apache Zookeeper
+* Chef
 * Consul
 * Puppet Server
 * Terraform Provider
@@ -72,33 +81,46 @@ Instead of using an integration, you can directly instrument your application wi
 * Windows Performance Counter
 
 ## Messaging
-* Cernan
+* Apache ActiveMQ
 * Kafka
 * RabbitMQ
 
 ## Monitoring
+* Cernan
 * collectd
 * Graphite
 * Log data
 * Logstack data
 * OpenTSB
 * Prometheus
+* SNMP
 * Splunk
 * Telegraf
 * Zabbix
 
 ## Other
+* Active Directory
 * Elasticsearch
 * Memcached
+* Microsoft Sharepoint
+* Microsoft Hyper-V
+* Microsoft Exchange
 * Tesla
 
 ## Web
 * Apache HTTP
+* Apache Mesos
+* Apache Solr
+* Apache Spark
 * Apache Tomcat
 * HAProxy
+* IBM WebSphere Application Server
 * JBoss AS
 * Microsoft IIS
+* .NET
 * NGINX
+* NGNIX Plus
 * Oracle Weblogic Server
 * tcServer
+* Varnish Cache
 * Wildfly

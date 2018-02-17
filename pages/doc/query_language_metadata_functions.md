@@ -215,7 +215,7 @@ You can use the `aliasMetric` function using the zeroBasedNodeIndex, regular exp
 
 ### zeroBasedNodeIndex Approach
 
-Of you use the zeroBasedNodeIndex approach for `aliasMetric()`, you extract a single node from an existing source name, metric name, or point tag value for the purpose of renaming a metric. Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. Suppose you have the following naming convention for a metric namespace:
+If you use the zeroBasedNodeIndex approach for `aliasMetric()`, you extract a single node from an existing source name, metric name, or point tag value for the purpose of renaming a metric. Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. Suppose you have the following naming convention for a metric namespace:
 
 ```
 <datacenter>.<customerName>_latency.<idNumber>

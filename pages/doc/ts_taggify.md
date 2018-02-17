@@ -31,8 +31,7 @@ Lets you extract a string from an existing metric name, source name, or point ta
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). If the unit is not specified, the default is minutes. Example: 1h.
-<div><strong>NOTE</strong>: `mcount()` returns the number of data points for 2x the duration of &lt;timeWindow&gt;.</div></td></tr>
+<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use &#123;tagk, pointTagKey&#125; if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by the particular point tag key associated with the point tag value. <div>For example, if you have point tag `Region=us-west-2b`, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, `west`, then you specify `tagk, Region` in the query and set the zeroBasedNodeIndex to 1. In this example, you also have to use the `delimiterDefinition` parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
 <tr>
 <td>&lt;newPointTagKey&gt;, zeroBasedNodeIndex, delimiterDefinition</td>
 <td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and rename the source.
