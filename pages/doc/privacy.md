@@ -8,7 +8,7 @@ summary:
 ---
 
 <p>Last modified: March 2, 2017</p>
-To understand if this Privacy Policy applies to you, see the <a href="/terms_of_service.html">Terms of Service</a>
+This privacy policy applies to you ONLY if you became a Wavefront customer befor If you became a customer before August 17, 2017. See the <a href="/terms_of_service.html">Terms of Service</a> for details.
 <h2><strong>Privacy Statement</strong></h2>
 <p style="font-weight: 400; text-align: justify;">Wavefront is committed to protecting your privacy on its website and in using our services. This policy gives details of what information we may collect from you and how we may store and use your information. By voluntarily using our website and services you are indicating your consent to this Privacy Policy and you hereby consent that we will collect, use and share your information as set forth in this Policy. We periodically update our Privacy Policy and it is your responsibility to review and remain informed about any changes we make to this Policy. Your continued use of our website after any changes, or revisions to this Privacy Policy have been published shall indicate your agreement with the terms of such revised Privacy Policy.</p>
 <h2><strong>Collection of Information</strong></h2>
@@ -52,9 +52,3 @@ To understand if this Privacy Policy applies to you, see the <a href="/terms_of_
 <p style="font-weight: 400; text-align: justify;">Our website is not intended for children under the age of 13. Wavefront does not knowingly collect Personal Information from children. Please do not send us your Personal Information if you are younger than 13 years of age.</p>
 <h2><strong>California Privacy Rights</strong></h2>
 <p style="font-weight: 400; text-align: justify;">In accordance with California Civil Code Section 1798.83, California residents may request information regarding the disclosure of your Personal Information by Wavefront to its affiliates and/or third parties for direct marketing purposes. If you would like to make a request please send an at email to <a class="email" href="#" onclick="javascript:window.location='mailto:info@wavefront.com'">info@wavefront.com</a></p>
-<h2><strong>Contact</strong></h2>
-<p style="font-weight: 400; text-align: justify;">If you have any questions about this Privacy Policy please e-mail us at <a href="info@wavefront.com">info@wavefront.com</a> or write to us at the following address:</p>
-<p><span style="font-weight: 400;">Wavefront, Inc.</span><br />
-<span style="font-weight: 400;">195 Page Mill Rd #109</span><br />
-<span style="font-weight: 400;">Palo Alto, CA 94306</span></p>
-<p>&nbsp;</p>
