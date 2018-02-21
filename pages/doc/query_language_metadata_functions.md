@@ -22,7 +22,7 @@ cpu.loadavg-customerB.5m
 
 The data for this set of metrics is being reported by 1 source (e.g. `source1`). The data is present, but what if you wanted to aggregate the data and group by customer? You could create two separate ts() expressions, or you could use `aliasSource()` to update the `<source1>` name to `customerA` or `customerB`. You could then group by source and get the answer you need from a single expression.
 
-The `aliasSource()` function supports 3 was of replacing source names in a ts() expression: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
+The `aliasSource()` function supports 3 ways of replacing source names in a ts() expression: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
 
 ### zeroBasedNodeIndex Approach
 

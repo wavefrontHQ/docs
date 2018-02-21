@@ -51,6 +51,7 @@ Instead of using an integration, you can directly instrument your application wi
 * Pivotal Container Service
 
 ## Datastore
+* Cassandra
 * CouchDB
 * etcd KV store
 * Microsoft SQL Server
@@ -62,9 +63,7 @@ Instead of using an integration, you can directly instrument your application wi
 
 ## DevOps Tools
 * Ansible
-* Apache Zookeeper
 * Chef
-* Consul
 * Puppet Server
 * Terraform Provider
 
@@ -89,8 +88,8 @@ Instead of using an integration, you can directly instrument your application wi
 * Cernan
 * collectd
 * Graphite
-* Log data
-* Logstack data
+* Log Data
+* Logstash data
 * OpenTSB
 * Prometheus
 * SNMP
@@ -100,8 +99,6 @@ Instead of using an integration, you can directly instrument your application wi
 
 ## Other
 * Active Directory
-* Elasticsearch
-* Memcached
 * Microsoft Sharepoint
 * Microsoft Hyper-V
 * Microsoft Exchange
@@ -113,14 +110,19 @@ Instead of using an integration, you can directly instrument your application wi
 * Apache Solr
 * Apache Spark
 * Apache Tomcat
+* Apache Zookeeper
+* Consul
+* Elasticsearch
 * HAProxy
 * IBM WebSphere Application Server
 * JBoss AS
+* Memcached
 * Microsoft IIS
 * .NET
 * NGINX
 * NGNIX Plus
 * Oracle Weblogic Server
+* Pivotal Container Service (PKS)
 * tcServer
 * Varnish Cache
 * Wildfly
