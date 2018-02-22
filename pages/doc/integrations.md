@@ -7,10 +7,21 @@ permalink: integrations.html
 summary: Learn how to customize an in-product integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into the Wavefront service. This documentation includes a complete, up-to-date [list of Wavefront integrations](integrations_list.html) and a page of [new and updated integrations](integrations_new_changed.html) that we update monthly.
-Many integrations are accessible directly from the product; for others, you follow some simple steps in this document.
+Integrations are one easy way to get data from external systems into Wavefront. This documentation includes:
+ * A complete, up-to-date [list of Wavefront integrations](integrations_list.html)
+ * A page of [new and updated integrations](integrations_new_changed.html) that we update monthly.
+ * Customization hints for in-product integrations and instructions for some custom integrations.
 
-**Note** If no integration exists for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
+Sign up for a Wavefront trial to use our integrations. Many integrations are accessible directly from the product; for others, you follow some simple steps in this document.
+
+Here's a sample of what you see when you select one of the Wavefront integrations:
+* The Overview tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
+* The Setup tab has instructions for configuring the integration.
+
+![sample_integration](images/integrations_example.png)
+
+
+**Note** Even if we don't have an integration for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
 
 ## In-Product and Custom Integrations
 Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
