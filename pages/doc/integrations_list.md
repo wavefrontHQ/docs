@@ -13,6 +13,8 @@ One way of getting your data into Wavefront is taking advantage of a Wavefront i
 * Instrumenting your application using one of the Wavefront SDKs
 * And more!
 
+For step-by-step instructions for integration setup, log in to Wavefront, find the integration you're interested in, and click the **Setup** tab. 
+
 The following list groups integrations by category.
 ## Alert Notification
 
