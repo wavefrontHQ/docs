@@ -422,74 +422,21 @@ By default, blocked point entries are logged to `<wavefront_log_path>/wavefront-
 
 <a name="docker"></a>
 
-## Running a Proxy in a Docker Container
+## Configuring a Proxy in a Container
 
-To run a Docker container using the Docker `run` command, follow the instructions in [Installing a Proxy on a Single Host](proxies_installing.html#installing-a-proxy-on-a-single-host). If you want to use Docker Compose or Kubernetes to run the proxy, set the `WAVEFRONT_URL` and `WAVEFRONT_TOKEN` properties, as follows:
-
-### Docker Compose
-
-```yaml
-wavefront:
-    hostname: wavefront-proxy
-    container_name: wavefront-proxy
-    ports:
-      - "3878:3878"
-      - "2878:2878"
-      - "4242:4242"
-    environment:
-      WAVEFRONT_URL: <wavefront_api_url>
-      WAVEFRONT_TOKEN: <wavefront_api_token>
-    image: wavefronthq/proxy:latest
-    restart: always
-```
-
-### Kubernetes
-
-```yaml
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  labels:
-    app: wavefront-proxy
-    name: wavefront-proxy
-  name: wavefront-proxy
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-    app: wavefront-proxy
-  template:
-    metadata:
-      labels:
-        app: wavefront-proxy
-    spec:
-      containers:
-      - name: wavefront-proxy
-        image: wavefronthq/proxy:latest
-        imagePullPolicy: Always
-        env:
-        - name: WAVEFRONT_URL
-          value: <wavefront_api_url>
-        - name: WAVEFRONT_TOKEN
-          value: <wavefront_api_token>
-        ports:
-        - containerPort: 2878
-          protocol: TCP
-        - containerPort: 4242
-          protocol: TCP
-```
+You can use the in-product Docker with cAdvisor or Kubernetes integration if you want to set up a proxy in a container. You can then customize that proxy. 
 
 ### Proxy Versions for Containers
 For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
 The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
 
-## Customizing Proxy Settings for Docker
+### Customizing Proxy Settings for Docker
 
 When you run a Wavefront proxy inside a Docker container, you can tweak proxy configuration settings that are properties in the `wavefront.conf` file directly from the Docker `run` command. You use the WAVEFRONT_PROXY_ARGS environment variable and pass in the property name as a long form argument.
 
 For example, add `e WAVEFRONT_PROXY_ARGS="-pushRateLimit 1000"` to your docker `run` command to specify a rate limit of 1000 pps for the proxy.
 
-See the [Wavefront Proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) for a full list.   
+See the [Wavefront Proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) for a full list.
 
 
 <a name="ansible"></a>

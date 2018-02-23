@@ -30,6 +30,8 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
   - Mac - MacOS Sierra (10.12)
   - Windows - Windows 8 and later
 
+You can also run a proxy in a Docker or Kubernetes container.
+
 <a name="single"></a>
 
 ## Proxy Installation
@@ -51,6 +53,8 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
    **Note** On Windows, do not run the installer `.exe` file. Run the script instead.
 1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
 1. Click **Done**. The Proxies page displays. Verify that your proxy is listed. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to make sure the proxy is running.
+
+If you want to run a proxy in a Kubernetes container, click **Integrations**, click Kubernetes, and click the **Setup** tab. Kubernetes is a Featured integration. 
 
 ### Scripted Proxy Installation
 
