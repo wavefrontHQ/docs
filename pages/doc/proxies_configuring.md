@@ -424,7 +424,7 @@ By default, blocked point entries are logged to `<wavefront_log_path>/wavefront-
 
 ## Configuring a Proxy in a Container
 
-You can use the in-product Docker with cAdvisor or Kubernetes integration if you want to set up a proxy in a container. You can then customize that proxy. 
+You can use the in-product Docker with cAdvisor or Kubernetes integration if you want to set up a proxy in a container. You can then customize that proxy.
 
 ### Proxy Versions for Containers
 For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
@@ -447,4 +447,4 @@ Ansible is an open-source automation engine that automates software provisioning
 
 **Note**: In most cases, you install only one or two proxies in your environment. You don't need a proxy for each host you collect data from. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
 
-For details, see the [Ansible in-product integration](integrations.html#in-product-integrations) Setup tab.
+For details, see the Ansible in-product integration Setup tab.

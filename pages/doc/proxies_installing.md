@@ -36,7 +36,7 @@ You can also run a proxy in a Docker or Kubernetes container.
 
 ## Proxy Installation
 
-If we don't install a proxy for you as part of integration setup, you can install a proxy explicitly. You can script installation on Linux and Mac OS. You can also run a proxy in a [Docker container](proxies_configuring.html#running-a-proxy-in-a-docker-container).
+If we don't install a proxy for you as part of integration setup, you can install a proxy explicitly. You can script installation on Linux and Mac OS. You can also run a proxy in a Docker container.
 
 **Note**: You can use a single proxy to pass input from many collector agents to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
 
@@ -52,9 +52,9 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
 
    **Note** On Windows, do not run the installer `.exe` file. Run the script instead.
 1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
-1. Click **Done**. The Proxies page displays. Verify that your proxy is listed. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to make sure the proxy is running.
+1. Click **Done** and verify that your proxy is listed on the Proxies page. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to start the proxy is running.
 
-If you want to run a proxy in a Kubernetes container, click **Integrations**, click Kubernetes, and click the **Setup** tab. Kubernetes is a Featured integration. 
+If you want to run a proxy in a Kubernetes container, log in to Wavefront, click **Integrations**, click Kubernetes, click the **Setup** tab, and follow the instructions to deploy a Wavefront proxy in Kubernetes, create a proxy service, and deploy Heapster.
 
 ### Scripted Proxy Installation
 
