@@ -13,11 +13,7 @@ With Python+Wavefront, you should be able to do just about any sort of analysis 
 
 ## Installation and Setup
 
-To set up the Python integration:
-
-1. Log in to your Wavefront instance.
-2. Click **Integrations** and find the Python tile.
-3. Click **Setup** and follow the instructions.
+To set up the Python integration, follow the [instructions on the github page](https://github.com/wavefrontHQ/docs/blob/master/pages/doc/integrations_python.md).
 
 ## Getting Data Into Python
 
