@@ -306,6 +306,10 @@ entries:
             url: /integrations_r.html
             output: web
 
+          - title:  Visualizing Metrics with Python
+            url: /integrations_python.html
+            output: web
+
       - title: collectd Integrations
         output: web
         subfolderitems:
@@ -320,6 +324,10 @@ entries:
 
           - title: Cassandra collectd Integration
             url: /integrations_collectd_cassandra.html
+            output: web
+
+          - title: Cassandra collectd Integration
+            url: /integrations_collectd_memcached.html
             output: web
 
           - title: MySQL collectd Integration

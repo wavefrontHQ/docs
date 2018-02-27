@@ -3,7 +3,6 @@ title: Visualizing Metrics with Python
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
-published: false
 permalink: integrations_python.html
 summary: Learn how to use Python to visualize metrics in Wavefront.
 ---
@@ -12,45 +11,13 @@ The Wavefront system offers a variety of layers that can handle your real-time, 
 
 With Python+Wavefront, you should be able to do just about any sort of analysis or visualization you can imagine. Want to see a histogram of your metric at an arbitrary bin width? Or a heat map of the correlations between your metrics? Model your metrics for trends, seasonality, noise, and make a forecast about future behavior? We'll show you how in this document.
 
+## Installation and Setup
 
-## Prerequisites
+To set up the Python integration:
 
-To use Python and Wavefront together, you need:
-
-- A Wavefront account.
-- A valid Wavefront token.
-- A version of [Python](https://www.python.org/download/releases/2.7/) at least 2.7 or higher.
-- Optionally an Python IDE, such as [PyCharm](https://www.jetbrains.com/pycharm/) or [Jupyter](http://jupyter.org/). Screenshots in this document were taken with PyCharm running Python 2.7.
-
-## Install Python Packages
-
-If you have your Python environment and Wavefront account set up, first install the [Python packages](wavefront_api_python.html) that we'll be using in our demo. 
-
-## Import the Packages and Create the Client
-
-1. Import the packages into your Python workspace:
-
-   ```python
-   import wavefront_api_client as wave_api
-   ```
-
-1. Enter the Wavefront server URL and your API token:
-
-   ```python
-   base_url = 'https://<wavefront_instance>.wavefront.com'
-   api_key = '<wavefront_api_token'
-   ```
-
-   If you don't have a token yet, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
-
-1.  Create the client:
-
-    ```python
-    client = wave_api.ApiClient(host=base_url, header_name='Authorization', header_value='Bearer ' + api_key)
-
-    # instantiate query API
-    query_api = wave_api.QueryApi(client)
-    ```
+1. Log in to your Wavefront instance.
+2. Click **Integrations** and find the Python tile.
+3. Click **Setup** and follow the instructions.
 
 ## Getting Data Into Python
 
@@ -69,7 +36,7 @@ Let's look at this query in more detail. The `base` and `token` variables were s
 ```python
 df = wfquery(serverURL, wavefrontAccountToken, startTime, endTime, query)
 ```
- 
+
 The wfnow() function is a convenience function for the most recent time, so the range that we're requesting is from `wfnow() - wfhours(2)`, or two hours ago, to `wfnow() - wfminutes(1)`, or one minute ago. This should give us exactly 120 observations (one per minute) over however many hosts were emitting the `requests.latency` metric.
 Let's look at the result now. The dataframe returned has one column per returned time series, as well as an initial column named `time`, which contains the epoch seconds for that row. For example, in the call above, the dataframe has 120 (time) observations of 21 (time+host) variables; here's the top of that dataframe:
 
@@ -121,7 +88,7 @@ ggplot(d, aes(d$"app-1")) + geom_histogram(aes(y = ..density.., fill = ..count..
 ![histogram.jpeg](images/histogram.jpeg)
 
 ### Heat Maps: Correlation Matrix
- 
+
 ```python
 # Show a heat map of cross-correlations of all the app servers over the full 2h window
 qplot(d$"app-1", d$"app-2") + geom_point(color="red", size=3)
@@ -154,6 +121,3 @@ If you're just getting started with Python, there are a few resources to help yo
 
 - [Pandas](http://pandas.pydata.org/)
 - [Python for Data Analysis](http://shop.oreilly.com/product/0636920023784.do)
-
-
-
