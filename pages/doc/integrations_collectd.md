@@ -1,5 +1,5 @@
 ---
-title: collectd Integration
+title: collectd Integration Overview
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -15,6 +15,6 @@ To use collectd as your collector agent together with certain other applications
 * [Cassandra collectd Integration](integrations_collectd_cassandra.html)
 * [Memcached collectd Integration](integrations_collectd_memcached.html)
 * [MySQL collectd Integration](integrations_collectd_mysql.html)
-* [NGiNX collectd Integration](integrations_collectd_ngnix.html)
+* [NGiNX collectd Integration](integrations_collectd_nginx.html)
 * [Redis collectd Integration](integrations_collectd_redis.html)
 * [Zookeeper collectd Integration](integrations_collectd_zookeeper.html)
