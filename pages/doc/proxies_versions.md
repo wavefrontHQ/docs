@@ -6,6 +6,13 @@ sidebar: doc_sidebar
 permalink: proxies_versions.html
 summary: Learn about new features and changes in different Wavefront proxy versions.
 ---
+## Version 4.26
+- Improve proxy throughput and reduce TCP congestion when queueing
+- Add support and binaries for OpenSUSE, SUSE Linux Enterprise Server, Oracle Linux and Fedora
+- Configurable timestamp cut-off limit for future-dated points
+- Preprocessor improvements: new "forceLowercase" rule type, track CPU time spent per rule to identify performance improvement opportunities, support placeholders for point tags/metric name/source name in replaceRegex rules
+- Logs ingestion: support placeholders for point tag values and improve histogram precision
+
 ## Version 4.25
 - Fixes Java 9 compatibility issue
 - Supports [SourceTag and SourceDescription](http://docs-dev.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)

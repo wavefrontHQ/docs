@@ -275,7 +275,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>pushRateLimit</td>
-<td>Maximum number of points per minute to send to Wavefront. Default: unlimited.</td>
+<td>Maximum number of points per second to send to Wavefront. Default: unlimited.</td>
 <td>Positive integer.
 <div>Ex: 20000</div></td>
 <td>4.1</td>
