@@ -4,7 +4,7 @@ tags: []
 sidebar: doc_sidebar
 toc: false
 permalink: privacy.html
-summary:
+summary: Wavefront privacy policy for pre-aquisition customers.
 ---
 
 <p>Last modified: March 2, 2017</p>

@@ -76,7 +76,7 @@ Metric naming hierarchy recommendations:
 <td>No</td>
 <td>Custom metadata associated with the metric.</td>
 <td>An arbitrary number of key-value pairs separated by spaces: &lt;k1&gt;="&lt;v1&gt;" ... &lt;kn&gt;="&lt;vn&gt;".
-Point tags must satisfy the following constraints:
+Point tags cannot be empty, i.e. <code>tagKey=""</code> and <code>tagKey=</code> are invalid. Point tags must also satisfy these constraints:
 <ul>
 <li><strong>Key</strong> - Valid characters are: alphanumeric, hyphen ("-"), underscore ("_"), dot (".")</li>
 <li><strong>Value</strong> - We recommend enclosing tag values with double quotes (" "). If you surround the value with quotes any character is allowed, including spaces. To include a double quote, escape it with a backslash, for example, `\"`. The backslash cannot be the last character in the tag value.</li>
