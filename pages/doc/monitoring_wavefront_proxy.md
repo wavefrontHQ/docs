@@ -32,7 +32,7 @@ The Proxy Health section of the System Usage dashboard is the most used section 
 
 - `~proxy.buffer.task-count` - gauge of the amount of data that the proxy currently has queued.
 - `~proxy.buffer.points-count` - gauge of the number of points currently in the queue.
-- `~proxy.points.*.blocked` - counter of the points being blocked at the proxy. We can look at this as a per second rate. If it is above 0 you can look at the charts in the [Proxy Troubleshooting](#proxy-troubleshooting) section of this dashboard to determine if the metrics contain invalid characters, bad timestamps, or are failing configureable regular expressions. We recommend that you look in `/var/log/wavefront/wavefront-blocked-points.log` file to see a sample of the blocked points.
+- `~proxy.points.*.blocked` - counter of the points being blocked at the proxy. We can look at this as a per second rate. If it is above 0 you can look at the charts in the [Proxy Troubleshooting](#proxy-troubleshooting) section of this dashboard to determine if the metrics contain invalid characters, bad timestamps, or are failing configureable regular expressions. A small sample (up to `pushBlockedSamples`) of blocked points is written to the proxy log file, and a complete list of points that were blocked please look in `/var/log/wavefront/wavefront-blocked-points.log` file (if enabled).
 
 ![proxy_health](images/proxy_health.png)
 
