@@ -1,7 +1,7 @@
 ---
 title: Customizing Alert Target Templates
 keywords: alert targets
-tags: [alerts, integrations]
+tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alert_target_customizing.html
 summary: Learn how to customize alert target templates.
@@ -11,18 +11,24 @@ You can use Wavefront alert targets to integrate alerts with many types of notif
 
 Alert target customization variables and customization functions support customizing alert target templates. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
 
-### Alert Target Customization Variables
+## Alert Target Customization Iterators and Properties
 
-You can customize the alert target using properties and iterators that characterize the alert that is triggering the alert target.
+You can customize the alert target using iterators and properties.
 
-The iterator categories are: `failing`, `inMaintenance`, `newlyFailing`, and `recovered`. The iterators return three types of objects:
+The iterator categories are:
+* `failing`
+* `inMaintenance`
+* `newlyFailing`
+* `recovered`
 
-- `host` - Affected source (host). Returned by `XXXHosts` iterators.
-- series - Returned by `XXXSeries` iterators.
+The iterators return three types of objects:
+
+- `host` - Affected source (host). The only value returned by `XXXHosts` iterators such as `failingHosts` or `newlyFailingHosts`.
+- series - Returned by `XXXSeries` iterators such as `failingSeries` or `newlyFailingSeries`.
   - `host` - Affected source (host).
   - `label` - Metric or aggregation.
   - `tags` - Point tags on the series.
-- alert series - Returned by `XXXAlertSeries` iterators.
+- alert series - Returned by `XXXAlertSeries` iterators such as `failingAlertSeries` or `newlyFailingAlertSeries`. You can further customize objects of type alert series, but not the other object types.
   - `host` - Affected source (host).
   - `label` - Metric or aggregation.
   - `tags` - Point tags on the series.
@@ -32,13 +38,14 @@ The iterator categories are: `failing`, `inMaintenance`, `newlyFailing`, and `re
 
 Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
 
+Alert targets support the following iterators:
 <table>
 <colgroup>
 <col width="25%"/>
 <col width="75%"/>
 </colgroup>
 <thead>
-<tr><th>Variable</th><th>Definition</th></tr>
+<tr><th>Iterator</th><th>Definition</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -177,7 +184,7 @@ Only the `failingAlertSeries` and `failingSeries` iterators iterate through an e
 </tbody>
 </table>
 
-#### Webhook Template Example
+### Webhook Template Example
 
 Here is a sample webhook alert target template:
 
@@ -264,7 +271,7 @@ Here is a sample webhook alert target template:
 ```
 {% endraw %}
 
-Here is a sample payload for the template:
+Here is a sample alert target output generated with the template:
 
 {% raw %}
 ```handlebars
@@ -301,7 +308,7 @@ Here is a sample payload for the template:
 ```
 {% endraw %}
 
-#### Example: Accessing Series Values
+### Example: Accessing Series Values
 
 Because an alert has a time window, a series does not have a single value when the threshold is crossed. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, the series likely have multiple values.
 
@@ -334,15 +341,17 @@ This template might yield the following message:
 ```
 {% endraw %}
 
-### Alert Target Customization Functions
+## Alert Target Customization Functions
 
-Customization functions let you set limits on the number of items returned by iterators. The default value for each limit is 500. A limit must be set before iteration or it does not take effect.
+Customization functions let you set limits on the number of items returned by iterators. The service you use for notification might have a limit on the number of characters, and using customization functions helps you not exceed the limit.
 
-The order of the limit settings determines limit precedence. For example, if you set `setDefaultIterationLimit` and then you set `setFailingLimit`, then  `setFailingLimit` overwrites the `setDefaultIterationLimit` setting.
+The default value for each limit you can set with a customization function is 500. You must set the limit before iteration or the limit does not take effect.
+
+The order of the limit settings determines limit precedence. For example, if you first set `setDefaultIterationLimit` and then you set `setFailingLimit`, then  `setFailingLimit` overwrites the `setDefaultIterationLimit` setting.
 
 The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, and `failingHosts`.
 
-For a payload function example, see [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits).
+See [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits) for an example.
 
 {% include note.html content="If the application that is being integrated requires the full list of items (e.g. `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
 
@@ -393,75 +402,8 @@ For a payload function example, see [Setting and Testing Iteration Limits](#sett
 </tr>
 </tbody>
 </table>
-The following functions are useful to modify other things.
-<table>
-<colgroup>
-<col width="18%"/>
-<col width="50%"/>
-<col width="32%"/>
-</colgroup>
-<thead>
-<tr><th>Function</th><th>Definition</th><th>Example</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span">`jsonEscape`</td>
-<td markdown="span">Escapes the characters in a string using Json string rules.
-Escapes any values it finds into their Json string form. Deals correctly with quotes and control-chars (tab, backslash, cr, ff, etc) so, for example, a tab becomes the characters `\\` and `t`.</td>
-<td markdown="span">Input: `He didn't say, "Stop!"`\\
-Output: `He didn't say, \"Stop!\"`</td>
-</tr>
-<tr>
-<td markdown="span">`xml11Escape`</td>
-<td>Escapes the characters in a String using XML entities.<div>
-XML 1.1 can represent certain control characters, but it cannot represent the null byte or unpaired Unicode surrogate codepoints, even after escaping. <code>escapeXml11</code> removes characters that do not fit in the following ranges:</div>
-<code>[#x1-#xD7FF]|[#xE000-#xFFFD]|[#x10000-#x10FFFF]
-</code>
-<div>
-`escapeXml11` escapes characters in the following ranges:
-</div>
-<code>[#x1-#x8]|[#xB-#xC]|[#xE-#x1F]|[#x7F-#x84]|[#x86-#x9F]
-</code></td>
-<td markdown="span"> Input: `"bread" & "chocolate"`\\
-Output: `&quot;bread&quot; &amp; &quot;chocolate&quot;`</td>
-</tr>
-<tr>
-<td markdown="span">`xml11Escape`</td>
-<td><div>Escapes the characters in a string using XML entities.
-XML 1.0 is a text-only format, it cannot represent control characters or unpaired Unicode surrogate codepoints, even after escaping.</div>
-<div>
-<code>escapeXml10</code> removes characters that do not fit in the following ranges:
-<code>
-#x9|#xA|#xD|[#x20-#xD7FF]|[#xE000-#xFFFD]|[#x10000-#x10FFFF]
 
-</code></div>
-<div>
-<code>escapeXml10</code> escapes characters in the following ranges:
-<code>
-[#x7F-#x84]|[#x86-#x9F]</code></div></td>
-<td markdown="span">Input: `"bread" & "chocolate"`\\
-Output: `&quot;bread&quot; &amp; &quot;chocolate&quot;`</td>
-</tr>
-<tr>
-<td markdown="span">`trimTrailingComma`
-</td>
-<td markdown="span">Retain the string content up to the last comma.
-Often used with webhook templates with iterators to remove the extra comma of the last item.
-</td>
-<td markdown="span">
-Input:\\
-`"(Host: , Label: 3.0, Tags: , Observed: 5 Firing: 5, First: , Last: , Min: , Max: , Mean: ),   "`\\
-Output:\\
-`"(Host: , Label: 3.0, Tags: , Observed: 5 Firing: 5, First: , Last: , Min: , Max: , Mean: )"`
-</td>
-</tr>
-</tbody>
-</table>
-
-
-
-
-#### Example: Setting and Testing Iteration Limits
+### Example: Setting and Testing Iteration Limits
 
 Suppose you have 8 failing sources: "source1", "source2", "source3", "source4", "source5", "source6", "source7", "source8". You set `setDefaultIterationLimit` to 5 in the first line of the following template:
 
@@ -566,3 +508,71 @@ In contrast, if the `failingLimit` is 10, the payload is the following for 8 fai
 {% endraw %}
 
 For this case (limit 10, failing sources 8) `failingLimitExceed` is `false` because the number the failing sources does not exceed the limit set.
+
+## Alert Target Utility Functions
+
+Alert target utility functions allow you to make the output of the alert target more readable. If you send the notification to a system that uses JSON, you can use `jsonEscape`. If the system uses XML, you can use `xml11Escape` or `xml10Escape`.
+
+<table>
+<colgroup>
+<col width="18%"/>
+<col width="50%"/>
+<col width="32%"/>
+</colgroup>
+<thead>
+<tr><th>Function</th><th>Definition</th><th>Example</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`jsonEscape`</td>
+<td markdown="span">Escapes the characters in a string using Json string rules.
+Escapes any values it finds into their Json string form. Deals correctly with quotes and control-chars (tab, backslash, cr, ff, etc) so, for example, a tab becomes the characters `\\` and `t`.</td>
+<td markdown="span">Input: `He didn't say, "Stop!"`\\
+Output: `He didn't say, \"Stop!\"`</td>
+</tr>
+<tr>
+<td markdown="span">`xml11Escape`</td>
+<td>Escapes the characters in a String using XML entities.<div>
+XML 1.1 can represent certain control characters, but it cannot represent the null byte or unpaired Unicode surrogate codepoints, even after escaping. <code>escapeXml11</code> removes characters that do not fit in the following ranges:</div>
+<code>[#x1-#xD7FF]|[#xE000-#xFFFD]|[#x10000-#x10FFFF]
+</code>
+<div>
+`escapeXml11` escapes characters in the following ranges:
+</div>
+<code>[#x1-#x8]|[#xB-#xC]|[#xE-#x1F]|[#x7F-#x84]|[#x86-#x9F]
+</code></td>
+<td markdown="span"> Input: `"bread" & "chocolate"`\\
+Output: `&quot;bread&quot; &amp; &quot;chocolate&quot;`</td>
+</tr>
+<tr>
+<td markdown="span">`xml10Escape`</td>
+<td><div>Escapes the characters in a string using XML entities.
+XML 1.0 is a text-only format, it cannot represent control characters or unpaired Unicode surrogate codepoints, even after escaping.</div>
+<div>
+<code>escapeXml10</code> removes characters that do not fit in the following ranges:
+<code>
+#x9|#xA|#xD|[#x20-#xD7FF]|[#xE000-#xFFFD]|[#x10000-#x10FFFF]
+
+</code></div>
+<div>
+<code>escapeXml10</code> escapes characters in the following ranges:
+<code>
+[#x7F-#x84]|[#x86-#x9F]</code></div></td>
+<td markdown="span">Input: `"bread" & "chocolate"`\\
+Output: `&quot;bread&quot; &amp; &quot;chocolate&quot;`</td>
+</tr>
+<tr>
+<td markdown="span">`trimTrailingComma`
+</td>
+<td markdown="span">Retain the string content up to the last comma.
+Often used with webhook templates with iterators to remove the extra comma of the last item.
+</td>
+<td markdown="span">
+Input:\\
+`"(Host: , Label: 3.0, Tags: , Observed: 5 Firing: 5, First: , Last: , Min: , Max: , Mean: ),   "`\\
+Output:\\
+`"(Host: , Label: 3.0, Tags: , Observed: 5 Firing: 5, First: , Last: , Min: , Max: , Mean: )"`
+</td>
+</tr>
+</tbody>
+</table>

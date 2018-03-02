@@ -232,6 +232,10 @@ entries:
       url: /webhooks_alert_notification.html
       output: web
 
+    - title: Customizing Alert Targets
+      url: /alert_target_customizing.html
+      output: web
+
     - title: Events
       url: /events.html
       output: web
