@@ -36,16 +36,16 @@ The iterators return three types of objects:
   - `firing` - Number of points that satisfy the alert condition.
   - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or 1, that information is usually not useful.
 
-Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
+Only the `XXXAlertSeries` and `XXXfailingSeries` iterators iterate through an empty source (host).
 
-Alert targets support the following iterators:
+Alert targets support the following customization variables:
 <table>
 <colgroup>
 <col width="25%"/>
 <col width="75%"/>
 </colgroup>
 <thead>
-<tr><th>Iterator</th><th>Definition</th></tr>
+<tr><th>Variable</th><th>Definition</th></tr>
 </thead>
 <tbody>
 <tr>

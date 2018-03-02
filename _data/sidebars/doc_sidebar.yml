@@ -232,7 +232,7 @@ entries:
       url: /webhooks_alert_notification.html
       output: web
 
-    - title: Customizing Alert Targets
+    - title: Customizing Alert Targets 
       url: /alert_target_customizing.html
       output: web
 
