@@ -9,7 +9,7 @@ summary: Learn how to customize alert target templates.
 
 You can use Wavefront alert targets to integrate alerts with many types of notification systems. [Using Alert Targets to Send Alerts to Notification Systems](alert_targets.html) explains how to create and manage alert targets.
 
-You can use alert target customization variables and customization functions to customize alert target templates. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
+Alert target customization variables and customization functions support customizing alert target templates. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
 
 ### Alert Target Customization Variables
 
@@ -29,7 +29,6 @@ The iterator categories are: `failing`, `inMaintenance`, `newlyFailing`, and `re
   - `observed` - Number of points returned by the alert condition.
   - `firing` - Number of points that satisfy the alert condition.
   - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or 1, that information is usually not useful.
-
 
 Only the `failingAlertSeries` and `failingSeries` iterators iterate through an empty source (host).
 
