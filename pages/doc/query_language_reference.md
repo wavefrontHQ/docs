@@ -79,7 +79,7 @@ All operations between expressions are subject to the matching processes describ
 <li>Boolean operators - combine ts() expressions and constants and the filtering performed by source names, alert names, source tags, alert tags, and point tags.</li>
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
-<li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.</li>
+<li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. You can use a comma instead of `or`, see the first example below. </li>
 <li markdown="span">`not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Arithmetic operators</li>
@@ -90,10 +90,11 @@ All operations between expressions are subject to the matching processes describ
 <li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Examples</li>
 <ul>
-<li>(ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt; 10) and (ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &lt; 20) returns 1 if <span style="color:#08838c;font-weight:bold">my.metric</span> is between 10 and 20. Otherwise, returns 0.</li>
-<li>ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>, <span style="color:#2770e8;font-weight:bold">tag=prod</span> and <span style="color:#2770e8;font-weight:bold">tag=db</span>) returns <span style="color:#08838c;font-weight:bold">cpu.load.1m</span> for all sources tagged with both <span style="color:#2770e8;font-weight:bold">prod</span> and <span style="color:#2770e8;font-weight:bold">db</span>.</li>
-<li>ts(<span style="color:#08838c;font-weight:bold">db.query.rate</span>, <span style="color:#2770e8;font-weight:bold">tag=db</span> and not <span style="color:#d63a36;font-weight:bold">source=db5.wavefront.com</span>) returns <span style="color:#08838c;font-weight:bold">db.query.rate</span> for all sources tagged with <span style="color:#2770e8;font-weight:bold">db</span>, except for the <span style="color:#d63a36;font-weight:bold">db5.wavefront.com</span> source.</li>
-<li>ts("<span style="color:#08838c;font-weight:bold">smp-fax*.count</span>" and not "<span style="color:#08838c;font-weight:bold">smp-fax*.metrics.wavefront.</span>", <span style="color:#d63a36;font-weight:bold">source="-eq*"</span>) returns all metrics that match "<span style="color:#08838c;font-weight:bold">smp-fax*.count</span>" except for those matching "<span style="color:#08838c;font-weight:bold">smp-fax*.metrics.wavefront.*</span>".</li>
+<li markdown="span">`ts(cpu.load.1m, tag=prod or tag=db)` is same as `ts(cpu.load.1m, tag=prod, tag=db)` and returns `cpu.load.1m` for all sources tagged with `prod` or `db` or both. </li>
+<li markdown="span">`(ts(my.metric) > 10) and (ts(my.metric) < 20)` returns 1 if `my.metric` is between 10 and 20. Otherwise, returns 0.</li>
+<li markdown="span">`ts(cpu.load.1m, tag=prod and tag=db)` returns `cpu.load.1m` for all sources tagged with both `prod` and `db`.</li>
+<li markdown="span">`ts(db.query.rate, tag=db and not source=db5.wavefront.com)` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
+<li markdown="span">`ts("smp-fax*.count" and not "smp-fax*.metrics.wavefront.", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"`.</li>
 </ul>
 </ul>
 
