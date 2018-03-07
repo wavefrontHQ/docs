@@ -14,6 +14,8 @@ In most cases, you send data to the [Wavefront proxy](proxies.html), and the pro
 
 However, some Wavefront customers want to send data directly to the Wavefront services, and the data ingestion API allows you to do it.
 
+**Note** You must have direct data ingestion permission to use this API.
+
 ## Data Ingestion API
 
 You use the following REST API:
@@ -32,7 +34,7 @@ You use the following REST API:
 <td>string
 </td>
 <td>
-Host name to list on the metric.
+Host/source to list on the metric.
 </td>
 </tr>
 <tr>
@@ -47,7 +49,7 @@ Host name to list on the metric.
 <td>integer
 </td>
 <td>
-Timestamp to assign to the sent metric. If null, uses the current time.
+Timestamp to assign to the sent metric. If null, uses the current time. The timestamp is 13 character, just like the proxy timestamp.
 </td>
 </tr>
 <tr>
@@ -89,19 +91,6 @@ Here's an example of a cURL command that uses the API:
 curl "https://{domain}.wavefront.com/report/metrics?t={token}&h={host}&p={prefix}&d={timestamp}"
  -X POST -H "content-type: application/json" -H "Accept: application/json"
  --data-binary "{\"example.metric\": 2000}"
-```
-
-## Example Report Header
-
-```
-{
-  "Status": "204 No Content",
-  "Date": "Thu, 19 Mar 2015 22:22:53 GMT",
-  "Server": "nginx",
-  "Strict-Transport-Security": "max-age=31536000; includeSubdomains",
-  "X-Upstream": "1.2.3.4:48275",
-  "Version": "HTTP/1.1"
-}
 ```
 
 ## Examples of Acceptable JSON Metric Formats
