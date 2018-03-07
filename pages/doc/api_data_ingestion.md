@@ -20,9 +20,9 @@ However, some Wavefront customers want to send data directly to the Wavefront se
 
 You use the following REST API:
 
-**Path** https://{service}.wavefront.com/report/metrics
+**Path:** `https://{service}.wavefront.com/report/metrics`
 
-**Request Type** POST
+**Request Type:** `POST`
 
 <table>
 <tbody>
@@ -41,7 +41,7 @@ Host/source to list on the metric.
 <td>p</td>
 <td>string
 </td>
-<td>Prefix to attach to the sent metric
+<td>Prefix to attach to the sent metric.
 </td>
 </tr>
 <tr>
@@ -49,7 +49,7 @@ Host/source to list on the metric.
 <td>integer
 </td>
 <td>
-Timestamp to assign to the sent metric. If null, uses the current time. The timestamp is 13 character, just like the proxy timestamp.
+Timestamp to assign to the sent metric. If null, uses the current time. The timestamp is 13 characters, just like the proxy timestamp.
 </td>
 </tr>
 <tr>
@@ -149,4 +149,4 @@ curl "https://{domain}.wavefront.com/report/metrics?t={token}&h={host}&p={prefix
 </tbody>
 </table>
 
-**Note** Special characters such as `!, @, #, $, %, ^, &, *, (, ), etc` inside a metric name are converted to an underscore `_` upon ingestion into the Wavefront system by default. However, if the Wavefront agent configuration file specifies the character as a delimiter, then that special character is converted to a dot (.).
+**Note** Special characters such as `!, @, #, $, %, ^, &, *, (, ), etc` inside a metric name are converted to an underscore `_` upon ingestion into the Wavefront system by default. However, if the Wavefront proxy configuration file specifies the character as a delimiter, then that special character is converted to a dot (.). See [Advanced Proxy Configuration](proxies_configuring.html)
