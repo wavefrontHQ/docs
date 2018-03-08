@@ -121,7 +121,7 @@ Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>
 <span id="aggregate"></span>
 
 ## Aggregate and Raw Aggregate Functions
-Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. Standard aggregate functions first interpolate the points of the underlying set of series, and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregate functions first interpolate the points of the underlying set of series (up to one day), and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
 
 
 <table style="width: 100%;">
