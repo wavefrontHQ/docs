@@ -38,7 +38,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
 </tr>
 <tr>
 <td><span style="color:#757575;font-weight:bold">timeWindow</span></td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (<span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes. Example: <span style="color:#757575;font-weight:bold">1h</span>.</td>
+<td>A window of time specified in seconds, minutes, hours, days or weeks (<span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes. Example: <span style="color:#757575;font-weight:bold">1h</span>. It is also possible to specify the window length that you are currently looking at. For example, <span style="color:#757575;font-weight:bold">1vw</span> would mean 1 view window length. If you were looking at a 30 minute window and you specified <span style="color:#757575;font-weight:bold">1vw</span>, it would be equivalent to <span style="color:#757575;font-weight:bold">30m</span></td> 
 </tr>
 </tbody>
 </table>
