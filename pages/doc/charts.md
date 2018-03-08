@@ -127,7 +127,7 @@ Options that control the style of the chart.
 </thead>
 <tr>
 <td>Gap Threshold</td>
-<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds.
+<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. Data considered missing based on the threshold are shown as dotted lines. 
 </td>
 </tr>
 <tr>
@@ -217,7 +217,7 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 
 A **stacked area** chart is based on the line chart and behaves similarly except that:
 
-The magnitude of each line is filled in as a solid block with blocks stacked one on top of each other. With the default Stack Type of zero, the peak of the chart at any time is the sum of the magnitudes of all  sources at that time.  
+The magnitude of each line is filled in as a solid block with blocks stacked one on top of each other. With the default Stack Type of zero, the peak of the chart at any time is the sum of the magnitudes of all  sources at that time.
 
 The stacked area chart is a great way to visualize data when you want to determine at a glance which queries have the largest magnitude at any point in time. It is most commonly used to visually compare two or more quantities.
 
