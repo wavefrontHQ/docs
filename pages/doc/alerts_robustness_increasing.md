@@ -45,7 +45,7 @@ The `mcount()` function returns the number of data points for 2x the duration of
 
 ![mcount_demo-2](images/mcount_demo-2.png)
 
-`mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops. In the example below, reporting stops after 9:30.
+`mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops. In the example below, reporting stops after 8:30.
 
 ![mcount_demo-1](images/mcount_demo-1.png)
 
