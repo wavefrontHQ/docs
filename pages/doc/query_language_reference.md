@@ -418,6 +418,11 @@ Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, t
 </td>
 </tr>
 <tr>
+<td>mdiff(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>Returns the difference between expression and expression's value at <span style="color:#757575;font-weight:bold">timeWindow</span> ago. This is a raw function, so it does not interpolate the points before doing the subtraction. An example would be expression - expression's value 5 minutes ago. 
+</td>
+</tr>
+<tr>
 <td markdown="span">mcorr(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression1</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>[, inner])</td>
 <td>Returns the moving correlation between two time series <span style="color:#3a0699;font-weight:bold">expressions</span> over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
 </tr>
