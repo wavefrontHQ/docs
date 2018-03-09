@@ -9,14 +9,19 @@ summary: Learn how to customize an in-product integration and how to set up a cu
 
 Integrations are one easy way to get data from external systems into Wavefront. This documentation includes:
  * A complete, up-to-date [list of Wavefront integrations](integrations_list.html)
- * A page of [new and updated integrations](integrations_new_changed.html) that we update monthly.
- * Customization hints for in-product integrations and instructions for some custom integrations.
+ * A list [new and updated integrations](integrations_new_changed.html) that we update monthly.
+ * Customization hints for in-product integrations and instructions for some [custom integrations](integrations.html#in-product-and-custom-integrations).
 
-Sign up for a Wavefront trial to use our integrations. Many integrations are accessible directly from the product; for others, you follow some simple steps in this document.
+## Try an Integration!
+
+Sign up for a Wavefront trial to try integrations.
 
 Here's a sample of what you see when you select one of the Wavefront integrations:
-* The Overview tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
-* The Setup tab has instructions for configuring the integration.
+* The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
+* The **Setup** tab has instructions for configuring the integration.
+* The **Metrics** and **Dashboard** tabs are preconfigured to show your metrics after you've set up the integration. You can [clone and customize our dashboards](integrations.html#cloning-and-customizing-dashboards)
+
+Here's a screen shot that shows the different tabs of the Apache Solr integration.
 
 ![sample_integration](images/integrations_example.png)
 
