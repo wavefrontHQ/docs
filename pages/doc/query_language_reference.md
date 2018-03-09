@@ -38,7 +38,7 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
 </tr>
 <tr>
 <td><span style="color:#757575;font-weight:bold">timeWindow</span></td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (<span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes. Example: <span style="color:#757575;font-weight:bold">1h</span>. It is also possible to specify the window length that you are currently looking at. For example, <span style="color:#757575;font-weight:bold">1vw</span> would mean 1 view window length. If you were looking at a 30 minute window and you specified <span style="color:#757575;font-weight:bold">1vw</span>, it would be equivalent to <span style="color:#757575;font-weight:bold">30m</span></td> 
+<td>A window of time specified in seconds, minutes, hours, days or weeks (<span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes. Example: <span style="color:#757575;font-weight:bold">1h</span>. It is also possible to specify the window length that you are currently looking at. For example, <span style="color:#757575;font-weight:bold">1vw</span> would mean 1 view window length. If you were looking at a 30 minute window and you specified <span style="color:#757575;font-weight:bold">1vw</span>, it would be equivalent to <span style="color:#757575;font-weight:bold">30m</span></td>
 </tr>
 </tbody>
 </table>
@@ -419,7 +419,7 @@ Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, t
 </tr>
 <tr>
 <td>mdiff(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the difference between expression and expression's value at <span style="color:#757575;font-weight:bold">timeWindow</span> ago. This is a raw function, so it does not interpolate the points before doing the subtraction. An example would be expression - expression's value 5 minutes ago. 
+<td>Returns the difference between expression and expression's value at <span style="color:#757575;font-weight:bold">timeWindow</span> ago. This is a raw function, so it does not interpolate the points before doing the subtraction. An example would be expression - expression's value 5 minutes ago.
 </td>
 </tr>
 <tr>
@@ -621,6 +621,38 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 <tr>
 <td>sin(<span style="color:#3a0699;font-weight:bold">expression</span>), cos(<span style="color:#3a0699;font-weight:bold">expression</span>), tan(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>asin(<span style="color:#3a0699;font-weight:bold">expression</span>), acos(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>atan(<span style="color:#3a0699;font-weight:bold">expression</span>), atan2(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>sinh(<span style="color:#3a0699;font-weight:bold">expression</span>), cosh(<span style="color:#3a0699;font-weight:bold">expression</span>), tanh(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
 <td>Performs the specified trigonometric function on <span style="color:#3a0699;font-weight:bold">expression</span> interpreted in radians.</td>
+</tr>
+</tbody>
+</table>
+
+## Predictive Functions
+
+<table style="width: 100%;">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arima(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">&lt;history_period&gt;</span>, <span style="color:#3a0699;font-weight:bold">&lt;align_seconds&gt;</span>, <span style="color:#3a0699;font-weight:bold">&lt;season_seconds&gt;</span> <strong>p, d, q, P, D, Q</strong>)</td>
+<td markdown="span">Returns the autoregressive integrated moving average for the specified expression. You can use the function with no arguments, or use the the **history_period**, **align_seconds** and **season_seconds** arguments. You can use the function with the additional argument **with_drift** to account for drift with seasonal values and **with_constant** to include a constant value. </td>
+</tr>
+<tr>
+<td markdown="span">hw(<span style="color:#757575;font-weight:bold">timeWindow1</span>, <span style="color:#757575;font-weight:bold">timeWindow2</span>, <span style="color:#757575;font-weight:bold">timeWindow3</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)[, value1, value2, value3])</td>
+<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.  The amount of historical data before the start of window that should be used to generate the forecast is given by <span style="color:#757575;font-weight:bold">timeWindow1</span>.  <span style="color:#757575;font-weight:bold">TimeWindow2</span>TimeWindow2 is the seasonal length of the data, and <span style="color:#757575;font-weight:bold">timeWindow3</span> is the rate at which the expression should be sampled.  The optional three values are coefficients for the Holt-Winters equations, and must be decimals between 0 and 1. If no values are given, Wavefront selects them manually.</td>
+</tr>
+<tr>
+<td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td markdown="span">Hides data before a specified time. For example, `hideBefore(10m)` hides data that’s older than 10 minutes.  </td>
+</tr>
+<tr><td>hideAfter(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td markdown="span">Hides data after a specified time. For example, `hideAfter(10m)` hides data that’s newer than 10 minutes ago. </td>
 </tr>
 </tbody>
 </table>
