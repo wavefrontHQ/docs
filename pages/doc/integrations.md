@@ -14,7 +14,7 @@ Integrations are one easy way to get data from external systems into Wavefront. 
 
 ## Try an Integration!
 
-Sign up for a Wavefront trial to try integrations.
+Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product. 
 
 Here's a sample of what you see when you select one of the Wavefront integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.

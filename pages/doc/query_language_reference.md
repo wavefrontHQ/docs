@@ -319,7 +319,11 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </tr>
 <tr>
 <td>lag(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns an <span style="color:#3a0699;font-weight:bold">expression</span> time shifted by <span style="color:#757575;font-weight:bold">timeWindow</span>, to enable comparison of an expression with its own past behavior. Example: lag(<span style="color:#757575;font-weight:bold">3h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns each point from <span style="color:#3a0699;font-weight:bold">expression</span> from 3 hours ago.</td>
+<td>Returns an <span style="color:#3a0699;font-weight:bold">expression</span> time shifted by <span style="color:#757575;font-weight:bold">timeWindow</span>, to enable comparison of an expression with its own past behavior. Starting with release 2018.10, you can shift by <span style="color:#757575;font-weight:bold">timeWindow</span> into the future. Example: lag(<span style="color:#757575;font-weight:bold">3h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns each point from <span style="color:#3a0699;font-weight:bold">expression</span> from 3 hours ago.</td>
+</tr>
+<tr>
+<td>lead(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>Returns an <span style="color:#3a0699;font-weight:bold">expression</span> time shifted by <span style="color:#757575;font-weight:bold">timeWindow</span> into the past  to enable comparison of an expression with its own future behavior. For example lead(<span style="color:#757575;font-weight:bold">3h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns each point from <span style="color:#3a0699;font-weight:bold">expression</span> 3 hours earlier than its actual timestamp.</td>
 </tr>
 <tr>
 <td>at(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
