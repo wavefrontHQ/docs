@@ -412,8 +412,8 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 <td>Returns the <span>percentile</span> of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. <span style="color:#d63a36;font-weight:bold">percentileValue</span> must be &gt;= <span style="color:#d63a36;font-weight:bold">0</span> and &lt;= <span style="color:#d63a36;font-weight:bold">100</span>.</td>
 </tr>
 <tr>
-<td>mseriescount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the number of series reporting over <span style="color:#757575;font-weight:bold">timeWindow</span>.
+<td>mseriescount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>,[<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
+<td>Returns the aggregated number of series reporting over <span style="color:#757575;font-weight:bold">timeWindow</span>.
 Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns, at each point, the number of series reporting over the last <span style="color:#757575;font-weight:bold">60 minutes</span>
 </td>
 </tr>
