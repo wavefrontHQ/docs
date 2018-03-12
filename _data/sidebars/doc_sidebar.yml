@@ -43,6 +43,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2018-10.x Release Notes
+      url: /2018.10.x_release_notes.html
+      output: web
+
     - title: 2018-06.x Release Notes
       url: /2018.06.x_release_notes.html
       output: web
@@ -232,7 +236,7 @@ entries:
       url: /webhooks_alert_notification.html
       output: web
 
-    - title: Customizing Alert Targets 
+    - title: Customizing Alert Targets
       url: /alert_target_customizing.html
       output: web
 
