@@ -103,6 +103,10 @@ entries:
       url: /wavefront_data_naming.html
       output: web
 
+    - title: Direct Data Ingestion
+      url: /direct_ingestion.html
+      output: web
+
   - title: Query Language
     output: web
     folderitems:
@@ -111,12 +115,8 @@ entries:
       url: /query_language_getting_started.html
       output: web
 
-    - title: Point Tags in Queries
-      url: /query_language_point_tags.html
-      output: web
-
-    - title: Series Matching
-      url: /query_language_series_matching.html
+    - title: Wavefront Query Language Quick Reference
+      url: /query_language_reference.html
       output: web
 
     - title: Query Builder
@@ -127,8 +127,16 @@ entries:
       url: /query_language_query_wizard.html
       output: web
 
-    - title: Wavefront Query Language Quick Reference
-      url: /query_language_reference.html
+    - title: Registered Queries
+      url: /registered_queries.html
+      output: web
+
+    - title: Point Tags in Queries
+      url: /query_language_point_tags.html
+      output: web
+
+    - title: Series Matching
+      url: /query_language_series_matching.html
       output: web
 
     - title: Understanding Slow Queries
@@ -146,6 +154,10 @@ entries:
 
         - title: The default() Function
           url: /query_language_default_function.html
+          output: web
+
+        - title: The hw() Predictive Function
+          url: /query_language_hw_function.html
           output: web
 
         - title: Standard Versus Raw Aggregate Functions

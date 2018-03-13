@@ -1,12 +1,12 @@
 ---
-title: The hw() (Holt Winters) Function
+title: The hw() Predictive Function
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_hw_function.html
 summary: Learn how to use the hw() function, and where it is useful.
 ---
-Wavefront includes an implementation of the Holt-Winters algorithm, which supports prediction based on existing data. It's especially useful if your data are highly seasonal. The implementation includes parameters to specify history length, season length, and sample rate. You can use the `alfa`, `beta`, and `gamma` parameters to fine-tune how aggressive the smoothing is. See [Exponential Smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing) and other internet resources for info about the algorithm.
+Wavefront includes an implementation of the Holt-Winters algorithm, which supports prediction based on existing data. It's especially useful if your data are highly seasonal. Our implementation includes parameters to specify history length, season length, and sample rate. The `alpha`, `beta`, and `gamma` parameters let you fine-tune how aggressive the smoothing is. See [Exponential Smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing) and other internet resources for info about the algorithm.
 
 See [Expanding Wavefront Predictive Analytics - See the Future with Holt-Winters Algorithm](https://www.wavefront.com/holtwinters-predictive-algorithm/) for in-depth discussion of an example.
 
@@ -33,7 +33,7 @@ The function has three required and three optional parameters:
 </thead>
 <tr>
 <td>history_length</td>
-<td>Amount of data that we use to smooth the underlying time series and to forecast.  History length is expressed as time before the left side of the widow, so that <code>hw(4w, ...)</code> looks at the last 4 weeks of data before the query starts.  If the chart window looks only at future data points, the history length is interpreted as the amount of time before the present instead of the amount of time before the left side of the window.
+<td>Amount of data that we use to smooth the underlying time series and to forecast.  History length is expressed as time before the left side of the widow, so that <code>hw(4w, ...)</code> looks at the last 4 weeks of data before the query starts. If the chart window looks only at future data points, the history length is interpreted as the amount of time before the present instead of the amount of time before the left side of the window.
 </td>
 </tr>
 <tr>
