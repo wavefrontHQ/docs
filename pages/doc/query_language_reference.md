@@ -647,9 +647,15 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 <td>arima(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">&lt;history_period&gt;</span>, <span style="color:#3a0699;font-weight:bold">&lt;align_seconds&gt;</span>, <span style="color:#3a0699;font-weight:bold">&lt;season_seconds&gt;</span> <strong>p, d, q, P, D, Q</strong>)</td>
 <td markdown="span">Returns the autoregressive integrated moving average for the specified expression. You can use the function with no arguments, or use the the **history_period**, **align_seconds** and **season_seconds** arguments. You can use the function with the additional argument **with_drift** to account for drift with seasonal values and **with_constant** to include a constant value. </td>
 </tr>
-<tr>
+<tr>`hw(<history_length>, <season_length>, <sampling_rate>, <expression>[, <alpha>, <beta>, <gamma>])`
 <td markdown="span">hw(<span style="color:#757575;font-weight:bold">timeWindow1</span>, <span style="color:#757575;font-weight:bold">timeWindow2</span>, <span style="color:#757575;font-weight:bold">timeWindow3</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)[, value1, value2, value3])</td>
-<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.  The amount of historical data before the start of window that should be used to generate the forecast is given by <span style="color:#757575;font-weight:bold">timeWindow1</span>.  <span style="color:#757575;font-weight:bold">TimeWindow2</span>TimeWindow2 is the seasonal length of the data, and <span style="color:#757575;font-weight:bold">timeWindow3</span> is the rate at which the expression should be sampled.  The optional three values are coefficients for the Holt-Winters equations, and must be decimals between 0 and 1. If no values are given, Wavefront selects them manually.</td>
+<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.
+<ul>
+<li><span style="color:#757575;font-weight:bold">timeWindow1</span> is the amount of data we use to smooth the series and to forecast.  </li>
+<li><span style="color:#757575;font-weight:bold">timeWindow2</span> is the seasonal length of the data. </li>
+<li><span style="color:#757575;font-weight:bold">timeWindow3</span> is the rate at which the expression should be sampled. </li>
+<li> The optional three values are coefficients for the Holt-Winters equations, and must be decimals between 0 and 1. If no values are given, Wavefront selects them manually. </li>
+</ul></td>
 </tr>
 <tr>
 <td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
