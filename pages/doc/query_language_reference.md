@@ -647,7 +647,7 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 <td>arima(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">&lt;history_period&gt;</span>, <span style="color:#3a0699;font-weight:bold">&lt;align_seconds&gt;</span>, <span style="color:#3a0699;font-weight:bold">&lt;season_seconds&gt;</span> <strong>p, d, q, P, D, Q</strong>)</td>
 <td markdown="span">Returns the autoregressive integrated moving average for the specified expression. You can use the function with no arguments, or use the the **history_period**, **align_seconds** and **season_seconds** arguments. You can use the function with the additional argument **with_drift** to account for drift with seasonal values and **with_constant** to include a constant value. </td>
 </tr>
-<tr>`hw(<history_length>, <season_length>, <sampling_rate>, <expression>[, <alpha>, <beta>, <gamma>])`
+<tr>
 <td markdown="span">hw(<span style="color:#757575;font-weight:bold">timeWindow1</span>, <span style="color:#757575;font-weight:bold">timeWindow2</span>, <span style="color:#757575;font-weight:bold">timeWindow3</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)[, value1, value2, value3])</td>
 <td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.
 <ul>
@@ -659,10 +659,10 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 </tr>
 <tr>
 <td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td markdown="span">Hides data before a specified time. For example, `hideBefore(10m)` hides data that’s older than 10 minutes.  </td>
+<td>Hides data before a specified time. For example, <code>hideBefore(10m)</code> hides data that’s older than 10 minutes.  </td>
 </tr>
 <tr><td>hideAfter(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td markdown="span">Hides data after a specified time. For example, `hideAfter(10m)` hides data that’s newer than 10 minutes ago. </td>
+<td>Hides data after a specified time. For example, <code>hideAfter(10m)</code> hides data that’s newer than 10 minutes ago. </td>
 </tr>
 </tbody>
 </table>
