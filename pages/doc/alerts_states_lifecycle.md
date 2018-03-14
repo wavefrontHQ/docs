@@ -32,7 +32,7 @@ An alert can be in one of the following states:
 ## When Alerts Are Checked
 
 The time series associated with an alert are checked to determine whether the alert should fire or not. Default for checking frequency is 1 minute. You can change the alert checking frequency from the UI.
- 
+
 The exact time of the check for the same alert is not fixed and can vary slightly within the minute. For example, for a specific alert it’s possible that a check occurs at 1:01:17p and the next check occurs at 1:02:13p.
 
 Alert checks evaluate minutely summarized (mean) data values. For example, if 5 data values are reported between 12:11:00p and 12:11:59p, then the average value of those 5 data values is displayed at 12:11:00p. If you want a different summarization strategy, then you can use a 1 minute `align()` function in your query and specify the summarization method.
@@ -107,6 +107,6 @@ For example assume the following scenario:
  1. metric.name normally reports 0, but starts reporting 1.
  1. After 10 minutes, the alert fires (because metric.name has been 1)
  1. At 10:30, metric.name returns to 0 and stops reporting new messages.
- 1. At 1:36, the alert resolves because the value was 0 for the last 5 minutes.
- 1. At 1:37, the alert fires again because there were 1 values in the last 10 minutes.
+ 1. At 10:36, the alert resolves because the value was 0 for the last 5 minutes.
+ 1. At 10:37, the alert fires again because there were 1 values in the last 10 minutes.
  1. Then the alert resolves again and fires again, until 1:41 when it finally resolves.
