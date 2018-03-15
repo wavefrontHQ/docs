@@ -156,7 +156,7 @@ entries:
           url: /query_language_default_function.html
           output: web
 
-        - title: The hw() Predictive Function
+        - title: Holt-Winters Predictive Analysis
           url: /query_language_hw_function.html
           output: web
 

@@ -1,10 +1,10 @@
 ---
-title: The hw() Predictive Function
+title: Holt-Winters Predictive Analysis
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_hw_function.html
-summary: Learn how to use the hw() function, and where it is useful.
+summary: Learn how to do Holt-Winters prediction using the hw() function.
 ---
 Wavefront includes an implementation of the Holt-Winters algorithm, which supports prediction based on existing data. It's especially useful if your data are highly seasonal. Our implementation includes parameters to specify history length, season length, and sample rate. The `alpha`, `beta`, and `gamma` parameters let you fine-tune how aggressive the smoothing is. See [Exponential Smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing) and other internet resources for info about the algorithm.
 
