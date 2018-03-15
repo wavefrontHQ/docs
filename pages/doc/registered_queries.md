@@ -17,23 +17,29 @@ If you don't have the permission, the UI menu selections, buttons, and links you
 
 Our customers have asked us to be able to register and ingest a query. Here are some use cases:
 
-### Complex Queries
+### Simplify User Experience
 
-Many queries are complex and intimidating for non-expert users. Registered queries allow you to simplify the query. When you register the query, other users only have to run the registered query.
+Many queries are complex and intimidating for non-expert users. Registered queries allow advanced users to use the results of a complex `ts()` expression to create new metrics. Other users can then use just that metric in other `ts()` expressions.
 
-The screenshot below shows how we created a registered query from a very complex query. We use `aliasMetric` so we can call the registered query by that name.  The next time we need the result of the query, we can just use `ts(test.billing.metric)`
+The screenshot below shows how you can create a registered query from a very complex query. You use `aliasMetric` and call the metric by that metric name in a new query. In this example, just use `ts(test.billing.metric)` the next time we need the result of the query.
 
 ![registered query](images/registered_query.png)
 
+Other examples might include:
+* Creating new metrics from `ts()` expressions that do transformations such as collapsing multiple series into one, retagging series using `taggify()`, or doing joins to create new synthetic series.
+* Creating new metrics from `ts()` expressions that do complex filtering of data using joins and other techniques.
+
 ### Performance Improvements
 
-Registered queries make it possible to run a complicated query once and save the results. All dashboards can then look at that result instead of computing the query live, which saves on resources.
+Improve performance by pre-processing expensive `ts()` queries and saving the results as a new metric. Expensive might mean a large volume of data is accessed, many calculations are done, many metrics are use, and so on. Registered queries are especially useful if the expensive operation has to be performed many times -- you can now do expensive piece once and use the new metric(s).
 
 For example, suppose you have the following query:
 
 `mavg(60d,sum(rate(dataingester.report-points)))`
 
 You create a registered query for that, which outputs `saved.dataingester.report-points`. The next time you need the report points information, you query `ts(saved.dataingester.report-points)` and you get instant results. The server does not have to compute the `rawsum`, `rate`, and 60-day moving average.
+
+You can reduce data scan rate in a similar way using registered queries.
 
 ## Some Basics
 
