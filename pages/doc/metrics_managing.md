@@ -25,7 +25,7 @@ To view and manage metrics, select **Browse > Metrics**.
 ## Hiding Multiple Metrics
 
 1. From the Metrics browser, locate the **Hide Metrics** button found in the top right corner of the page.
-1. Click the **Hide Metrics** button. A dialog displays with a blank field.
+1. Click the **Manage Hidden Metrics** button. A dialog displays with a blank field.
 
    ![hide metrics](images/hide_metrics.png)
 
@@ -65,7 +65,7 @@ This list displays only metrics and metric prefixes that were manually hidden. I
 
 To unhide a metric or metric prefix:
 
-1. Click the **Hide Metrics** button in the top right corner of the Metrics browser to view the list of manually hidden metrics and metric prefixes.
+1. Click the **Manage Hidden Metrics** button in the top right corner of the Metrics browser to view the list of manually hidden metrics and metric prefixes.
 1. Click the **Unhide** button to the right of the metric or metric prefix to unhide.
 1. Click **Save**.
    The selected metric and metric prefixes will display in the list of metrics in the Metrics browser, as well as the autocomplete dropdown associated with metric names when creating ts() queries. The selected metrics and metric prefixes only appear again in these cases if they have had at least 1 reported data value in the last 4 weeks. If this is not the case, then these metric/metric prefixes are considered obsolete metrics and Wavefront automatically hides them by default.
