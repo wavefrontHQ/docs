@@ -41,6 +41,12 @@ You create a registered query for that, which outputs `saved.dataingester.report
 
 You can reduce data scan rate in a similar way using registered queries.
 
+The following example shows how you can save a metric that sums all `telegraph.cpu.usage.idle` metircs with status `dev` as the metric `doctest.cpu_sum`.
+
+![registered query simple](images/registered_query_simple.png)
+
+The example uses `aliasSource` to change the name of the source and ensure that you don't mix up a synthetic metric with the original source.
+
 ## Some Basics
 
 Registered queries are saved like alerts. After you save a registered query, we execute it every 1 minute (by default), just as we check alerts every 1 minute by default.
