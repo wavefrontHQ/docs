@@ -172,7 +172,9 @@ To zoom into to all charts on a dashboard, hold down the **Shift** key while sel
 You can shift the time window of a single chart by shifting the X-axis.
 
 1. Place your cursor over the X-axis until your cursor changes to a 4-way arrow <i class="fa fa-arrows"/>.
-1. Click and hold while dragging your cursor to the left to shift the time window into the past, or to the right to shift the time window into the future. When you reach the present you cannot drag the X-axis further to the right.
+1. Click and hold while dragging your cursor to the left to shift the time window or the focus into the past, or to the right to shift the time window into the future. 
+
+  You can move the time window into the future, however, unless you are using one of the [predictive functions](query_language_reference.html#predictive-functions), the data you see won't be predictive.
 
 To shift the time windows of all charts on a dashboard, hold down the **Shift** key while dragging.
 
