@@ -1,7 +1,7 @@
 ---
 title: Alerts Best Practices
 keywords: alerts
-tags: [alerts]
+tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alerts_best_practices.html
 summary: Learn about best practices for alert creation, alert settings, and alert troubleshooting.
