@@ -45,6 +45,8 @@ Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
 
 See [Organizing with Tags](tags_overview.html) for information on the different types of tags and how to use them.
 
+**Note**: Do not use names of functions such as `default` or `sum` or other query language elements to name a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
+
 ## Expressions
 <ul>
 <li>ts() expression - Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.</li>
@@ -469,7 +471,7 @@ Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, t
 <tbody>
 <tr>
 <td>if(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">ThenExpression</span>, <span style="color:#08838c;font-weight:bold">ElseExpression</span>)</td>
-<td>Returns <span><span style="color:#bf4b89;font-weight:bold">ThenExpression</span> if <span style="color:#3a0699;font-weight:bold">expression</span> &gt;=1. Otherwise, returns <span style="color:#08838c;font-weight:bold">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported. When both <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> and <span style="color:#08838c;font-weight:bold">ElseExpression</span> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <span style="color:#3a0699;font-weight:bold">expression</span>.<br /><br />
+<td>Returns <span><span style="color:#bf4b89;font-weight:bold">ThenExpression</span> if <span style="color:#3a0699;font-weight:bold">expression</span> &gt;0. Otherwise, returns <span style="color:#08838c;font-weight:bold">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported. When both <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> and <span style="color:#08838c;font-weight:bold">ElseExpression</span> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <span style="color:#3a0699;font-weight:bold">expression</span>.<br /><br />
 Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt;= 10</span>, if (<span style="color:#3a0699;font-weight:bold">expression</span>, ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>), ts(<span style="color:#08838c;font-weight:bold">another.metric</span>)) returns ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>) only when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &gt;= 10; when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &lt; 10, it returns ts(<span style="color:#08838c;font-weight:bold">another.metric</span>).</td>
 </tr>
 </tbody>
