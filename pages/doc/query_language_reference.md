@@ -651,7 +651,7 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 </tr>
 <tr>
 <td markdown="span">hw(<span style="color:#757575;font-weight:bold">timeWindow1</span>, <span style="color:#757575;font-weight:bold">timeWindow2</span>, <span style="color:#757575;font-weight:bold">timeWindow3</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)[, value1, value2, value3])</td>
-<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. See [Holt-Winters Predictive Analysis](query_language_hw_function.html). 
+<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. See [Holt-Winters Predictive Analysis](query_language_hw_function.html).
 <ul>
 <li><span style="color:#757575;font-weight:bold">timeWindow1</span> is the amount of data we use to smooth the series and to forecast.  </li>
 <li><span style="color:#757575;font-weight:bold">timeWindow2</span> is the seasonal length of the data. </li>
@@ -798,27 +798,39 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 
 <table style="width: 100%;">
 <colgroup>
+<col width="30%" />
+<col width="30%" />
 <col width="40%" />
-<col width="30%" />
-<col width="30%" />
 </colgroup>
 <thead>
-<tr><th width="33%">Error</th><th width="34%">Resolution</th><th width="33%">Resolution</th></tr>
+<tr><th>Problem</th><th>Cause</th><th>Resolution/Details</th></tr>
 </thead>
 <tbody>
+<tr>
+<td>A time series you send to Wavefront is discrete, for example, you send data points every minute, but the data appear at every single time slice or second regardless of the interval of the underlying data. </td>
+<td>Constant time series are continuous. This includes <code>&lt;number&gt;</code>, <code>at()</code>, <code>top()</code>, <code>bottom()</code> and the following functions:
+</td>
+<td>The following functions report time series.
+<ul>
+<li>Moving time windows except <code>integral</code>.</li>
+<li>Missing data functions. </li>
+<li>The <code>if()</code> function when <span style="color:#3a0699;font-weight:bold">expression</span> and at least one of <code>ThenExpression</code> or <code>ElseExpression</code> is not a constant time series  </li>
+<li>The <code>ongoing()</code>, <code>exists()</code>, and <code>random()</code> functions.</li>
+<li>The <code>at()</code>, <code>year()</code>, <code>month()</code>, <code>dayOfYear()</code>, <code>day()</code>, <code>weekday()</code>, <code>hour()</code>, and <code>time()</code> functions.</li>
+<li>The <code>between()</code>, <code>top()</code>, and <code>bottom()</code> functions. </li></ul></td>
+</tr>
 <tr>
 <td>After entering a query expression the following error displays: <em>Query syntax error: Missing expression argument.</em></td>
 <td>An <span style="color:#3a0699;font-weight:bold">expression</span> argument to a function is not well-formed.</td>
 <td>Build up the <span style="color:#3a0699;font-weight:bold">expression</span> by small steps ensuring that the expression is valid at each step.</td>
 </tr>
 <tr>
-<td>You see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"></i> in a chart and a warning something like the following:<br /><br />
+<td>You see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"></i> in a chart and a warning like the following:<br /><br />
 <em>The expression: ts(&lt;metric&gt;, source=&lt;source&gt;) has been pre-aligned, making it equivalent to align(120s, mean, ts(&lt;metric&gt;, source=&lt;source&gt;)) in order to improve the performance of the sum()
 aggregation operation. You can wrap the expression with align() to explicitly state the periodicity
 and desired summarization strategy.</em><br /><br />
-where sum(ts(&lt;metric&gt;, source=&lt;source&gt;)) is the original query.
 </td>
-<td>Wavefront has pre-aligned the series to improve performance.
+<td>Assuming an original query of <code>sum(ts(&lt;metric&gt;, source=&lt;source&gt;))</code>, Wavefront has pre-aligned the series to improve performance.
 </td>
 <td>Depends on the use case. For details, see <a href="query_language_align_function.html">The <code>align()</code> Function</a>.
 </td>
