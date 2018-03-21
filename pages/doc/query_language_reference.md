@@ -243,7 +243,7 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </tr>
 <tr>
 <td>between(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf5700;font-weight:bold">lower</span>, <span style="color:#bf5700;font-weight:bold">upper</span>)</td>
-<td>Returns 1 if <span style="color:#3a0699;font-weight:bold">expression</span> is &gt;= <span style="color:#bf5700;font-weight:bold">lower</span> and &lt;= <span style="color:#bf5700;font-weight:bold">upper</span>. Otherwise, returns 0.</td>
+<td>Returns 1 if <span style="color:#3a0699;font-weight:bold">expression</span> is &gt;= <span style="color:#bf5700;font-weight:bold">lower</span> and &lt;= <span style="color:#bf5700;font-weight:bold">upper</span>. Otherwise, returns 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>downsample(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -263,11 +263,11 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </tr>
 <tr>
 <td>top(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the top <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's.</td>
+<td>Returns the top <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's. This function outputs continuous time series. </td>
 </tr>
 <tr>
 <td>bottom(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the bottom <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's.</td>
+<td>Returns the bottom <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td markdown="span">filter(<span style="color:#3a0699;font-weight:bold">expression</span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tagk=</span>])</td>
@@ -329,31 +329,31 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </tr>
 <tr>
 <td>at(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the value of the <span style="color:#3a0699;font-weight:bold">expression</span> from <span style="color:#757575;font-weight:bold">timeWindow</span> ago. at() only looks at a single point, and returns a flat line, across all time points. If you query at(<span style="color:#757575;font-weight:bold">2h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)), you'll see the value of ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) from 2 hours ago, even if you're looking at a chart from weeks or months ago. To associate at() with a time at the beginning or end of your current chart window, replace <span style="color:#757575;font-weight:bold">timeWindow</span> with <span style="color:#757575;font-weight:bold">start</span>, <span style="color:#757575;font-weight:bold">end</span>, or <span style="color:#757575;font-weight:bold">now</span>.</td>
+<td>Returns the value of the <span style="color:#3a0699;font-weight:bold">expression</span> from <span style="color:#757575;font-weight:bold">timeWindow</span> ago. at() only looks at a single point, and returns a flat line, across all time points. If you query at(<span style="color:#757575;font-weight:bold">2h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)), you'll see the value of ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) from 2 hours ago, even if you're looking at a chart from weeks or months ago. To associate at() with a time at the beginning or end of your current chart window, replace <span style="color:#757575;font-weight:bold">timeWindow</span> with <span style="color:#757575;font-weight:bold">start</span>, <span style="color:#757575;font-weight:bold">end</span>, or <span style="color:#757575;font-weight:bold">now</span>. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>year(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the 4-digit year for a <span style="color:#757575;font-weight:bold">timezone</span>. Sample timezones include <span style="color:#757575;font-weight:bold">"US/Pacific"</span> and <span style="color:#757575;font-weight:bold">"Europe/London"</span>. The list of valid <span style="color:#757575;font-weight:bold">timezones</span> is available at <a href="http://joda-time.sourceforge.net/timezones.html">http://joda-time.sourceforge.net/timezones.html</a>.</td>
+<td>Returns the 4-digit year for a <span style="color:#757575;font-weight:bold">timezone</span>. Sample timezones include <span style="color:#757575;font-weight:bold">"US/Pacific"</span> and <span style="color:#757575;font-weight:bold">"Europe/London"</span>. The list of valid <span style="color:#757575;font-weight:bold">timezones</span> is available at <a href="http://joda-time.sourceforge.net/timezones.html">http://joda-time.sourceforge.net/timezones.html</a>. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>month(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the numerical month for a <span style="color:#757575;font-weight:bold">timezone</span>.</td>
+<td>Returns the numerical month for a <span style="color:#757575;font-weight:bold">timezone</span>. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>dayOfYear(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the day (within the year) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a value from 1 to 366.</td>
+<td>Returns the day (within the year) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a value from 1 to 366. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>day(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the day (within the month) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 to 31.</td>
+<td>Returns the day (within the month) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 to 31. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>weekday(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the day (within the week) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 (Monday) to 5 (Friday) for weekdays, and 6 (Saturday) and 7 (Sunday) for weekends.</td>
+<td>Returns the day (within the week) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 (Monday) to 5 (Friday) for weekdays, and 6 (Saturday) and 7 (Sunday) for weekends. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>hour(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the hour (within the day) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a decimal value from 0.0 to 24.0.</td>
+<td>Returns the hour (within the day) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a decimal value from 0.0 to 24.0. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>timestamp(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -361,7 +361,7 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </tr>
 <tr>
 <td>time()</td>
-<td>Returns epoch seconds for each point in time.</td>
+<td>Returns epoch seconds for each point in time. This function outputs continuous time series.</td>
 </tr>
 </tbody>
 </table>
@@ -371,6 +371,8 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 ## Moving Window Time Functions
 
 Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
+
+These functions output continuous time series, with the exception of `integral()`.
 
 <table style="width: 100%;">
 <colgroup>
@@ -472,7 +474,10 @@ Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, t
 <tr>
 <td>if(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">ThenExpression</span>, <span style="color:#08838c;font-weight:bold">ElseExpression</span>)</td>
 <td>Returns <span><span style="color:#bf4b89;font-weight:bold">ThenExpression</span> if <span style="color:#3a0699;font-weight:bold">expression</span> &gt;0. Otherwise, returns <span style="color:#08838c;font-weight:bold">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported. When both <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> and <span style="color:#08838c;font-weight:bold">ElseExpression</span> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <span style="color:#3a0699;font-weight:bold">expression</span>.<br /><br />
-Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt;= 10</span>, if (<span style="color:#3a0699;font-weight:bold">expression</span>, ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>), ts(<span style="color:#08838c;font-weight:bold">another.metric</span>)) returns ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>) only when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &gt;= 10; when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &lt; 10, it returns ts(<span style="color:#08838c;font-weight:bold">another.metric</span>).</td>
+Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt;= 10</span>, if (<span style="color:#3a0699;font-weight:bold">expression</span>, ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>), ts(<span style="color:#08838c;font-weight:bold">another.metric</span>)) returns ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>) only when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &gt;= 10; when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &lt; 10, it returns ts(<span style="color:#08838c;font-weight:bold">another.metric</span>).<br /><br />
+When <span style="color:#3a0699;font-weight:bold">expression</span> and at least one of <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> or <span style="color:#08838c;font-weight:bold">ElseExpression</span> is not a constant time series, this function outputs continuous time series.
+
+</td>
 </tr>
 </tbody>
 </table>
@@ -696,7 +701,7 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 </tr>
 <tr>
 <td>ongoing(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns a continuous time series representing the number of ongoing <span style="color:#3a0699;font-weight:bold">events</span> at any given moment.</td>
+<td>Returns a continuous time series representing the number of ongoing <span style="color:#3a0699;font-weight:bold">events</span> at any given moment. This function returns constant time series</td>
 </tr>
 <tr>
 <td>closed(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
@@ -769,11 +774,11 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 <tbody>
 <tr>
 <td>collect(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>, <span style="color:#3a0699;font-weight:bold">expression3</span>, ...)</td>
-<td>Returns a ts() expression that is the combination of two or more ts() expressions. The returned expression includes a synthetic collect_&lt;number&gt; point tag, where &lt;number&gt; is the number of input expressions.</td>
+<td>Returns a ts() expression that is the combination of two or more ts() expressions. The returned expression includes a synthetic <code>collect_&lt;number&gt;</code> point tag, where <code>&lt;number&gt;</code> is the number of input expressions.</td>
 </tr>
 <tr>
 <td>exists(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 if at least one value in <span style=" color:#3a0699;font-weight:bold">expression</span> has been reported in the last 4 weeks. Otherwise, it returns 0.</td>
+<td>Returns 1 if at least one value in <span style=" color:#3a0699;font-weight:bold">expression</span> has been reported in the last 4 weeks. Otherwise, it returns 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>abs(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -781,7 +786,7 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 </tr>
 <tr>
 <td>random()</td>
-<td>Returns random values between 0.0 and 1.0. If you reload a chart that uses random(), the reloaded chart returns new random values.</td>
+<td>Returns random values between 0.0 and 1.0. If you reload a chart that uses random(), the reloaded chart returns new random values. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td>normalize(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -808,7 +813,7 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 <tbody>
 <tr>
 <td>A time series you send to Wavefront is discrete, for example, you send data points every minute, but the data appear at every single time slice or second regardless of the interval of the underlying data. </td>
-<td>Constant time series are continuous. This includes <code>&lt;number&gt;</code>, <code>at()</code>, <code>top()</code>, <code>bottom()</code> and the following functions:
+<td>Constant time series are continuous. This includes <code>&lt;number&gt;</code>, <code>at()</code>, <code>top()</code>, <code>bottom()</code> and the functions on the right.
 </td>
 <td>The following functions report time series.
 <ul>

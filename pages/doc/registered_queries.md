@@ -4,7 +4,7 @@ keywords: queries
 tags: [query language]
 sidebar: doc_sidebar
 permalink: registered_queries.html
-summary: Learn how to ingest queries by making them registered queries.
+summary: Learn how to save a query so it runs once a minute, and how to use the query result elsewhere.
 ---
 
 The registered query functionality allows you to run a query and ingest it back into Wavefront.
@@ -15,13 +15,13 @@ If you don't have the permission, the UI menu selections, buttons, and links you
 
 ## Use Cases
 
-Our customers have asked us to be able to register and ingest a query. Here are some use cases:
+Our customers have asked us to be able to register and ingest a query so they can have instantly available metrics. Here are some use cases:
 
 ### Simplify User Experience
 
-Many queries are complex and intimidating for non-expert users. Registered queries allow advanced users to use the results of a complex `ts()` expression to create new metrics. Other users can then use just that metric in other `ts()` expressions.
+Many queries are complex and intimidating for non-expert users. Registered queries allow advanced users to use the results of a complex `ts()` expression to create new metrics. Other users can then use that metric in other `ts()` expressions.
 
-The screenshot below shows how you can create a registered query from a very complex query. You use `aliasMetric` and call the metric by that metric name in a new query. In this example, just use `ts(test.billing.metric)` the next time we need the result of the query.
+The screenshot below shows how you can create a registered query from a very complex query. You use `aliasMetric` and call the metric by that metric name in a new query. In this example, we can use `ts(test.billing.metric)` the next time we need the result of the query.
 
 ![registered query](images/registered_query.png)
 
@@ -31,21 +31,25 @@ Other examples might include:
 
 ### Performance Improvements
 
-Improve performance by pre-processing expensive `ts()` queries and saving the results as a new metric. Expensive might mean a large volume of data is accessed, many calculations are done, many metrics are use, and so on. Registered queries are especially useful if the expensive operation has to be performed many times -- you can now do expensive piece once and use the new metric(s).
+Improve performance by pre-processing expensive `ts()` queries and saving the results as a new metric. Expensive might mean a large volume of data is accessed, many calculations are done, many metrics are use, and so on. Registered queries are especially useful if the query result is needed by several other queries or even other users. The expensive operation is performed once a minute (or less frequently) and the new metric is accessible.
 
-For example, suppose you have the following query:
+#### Example 1: Idle CPU
+
+The following example shows how you can save a metric that sums all `telegraph.cpu.usage.idle` metrics with status `dev` as the metric `doctest.cpu_sum`.
+
+![registered query simple](images/registered_query_simple.png)
+
+The example uses `aliasSource` to ensure that you don't mix up a synthetic metric with the original source.
+
+#### Example 1: Report Points
+
+Suppose you have the following query:
 
 `mavg(60d,sum(rate(dataingester.report-points)))`
 
 You create a registered query for that, which outputs `saved.dataingester.report-points`. The next time you need the report points information, you query `ts(saved.dataingester.report-points)` and you get instant results. The server does not have to compute the `rawsum`, `rate`, and 60-day moving average.
 
 You can reduce data scan rate in a similar way using registered queries.
-
-The following example shows how you can save a metric that sums all `telegraph.cpu.usage.idle` metircs with status `dev` as the metric `doctest.cpu_sum`.
-
-![registered query simple](images/registered_query_simple.png)
-
-The example uses `aliasSource` to change the name of the source and ensure that you don't mix up a synthetic metric with the original source.
 
 ## Some Basics
 
