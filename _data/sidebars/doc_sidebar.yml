@@ -244,6 +244,10 @@ entries:
       url: /maintenance_windows_managing.html
       output: web
 
+    - title: Alerts Best Practices
+      url: /alerts_best_practices.html
+      output: web
+
     - title: Alert Targets
       url: /webhooks_alert_notification.html
       output: web
