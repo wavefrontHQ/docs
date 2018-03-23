@@ -17,7 +17,7 @@ Watch this video for an introduction to maintenance windows:
 
 ## Snoozing and Unsnoozing Alerts
 
-You can silence an alert so it doesn't fire even if the condition is met. You can do this by snoozing an alert. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
+You can snooze an alert so it doesn't fire even if the condition is met. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
 
 To snooze one or more alerts:
 
