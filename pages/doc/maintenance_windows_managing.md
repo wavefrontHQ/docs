@@ -10,7 +10,7 @@ summary: Learn how snooze an alert, and how to use maintenance windows to preven
 You can disable alert checking:
 
 * To disable alert checking, you can snooze an alert.
-* To disable alert checking for a set of sources or alerts during a custom time window you can create a maintenance window.
+* To disable alerts from firing for a set of sources or alerts during a custom time window you can create a maintenance window.
 
 Watch this video for an introduction to maintenance windows:
 [Creating a Maintenance Window](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
