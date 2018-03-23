@@ -13,7 +13,7 @@ One way of getting your data into Wavefront is taking advantage of a Wavefront i
 * Instrumenting your application using one of the Wavefront SDKs
 * And more!
 
-For step-by-step instructions for integration setup, log in to Wavefront, find the integration you're interested in, and click the **Setup** tab. 
+For step-by-step instructions for integration setup, log in to Wavefront, find the integration you're interested in, and click the **Setup** tab.
 
 The following list groups integrations by category.
 ## Alert Notification
@@ -28,8 +28,6 @@ The following list groups integrations by category.
 Instead of using an integration, you can create an email, PagerDuty, or Webhook notification using the [Alert Targets](webhooks_alert_notification.html) mechanism.
 
 ## Application Instrumentation
-
-* Filebeat log data
 * Go
 * Java
 * NodeJS
@@ -89,6 +87,7 @@ Instead of using an integration, you can directly instrument your application wi
 ## Monitoring
 * Cernan
 * collectd
+* Filebeat log data
 * Graphite
 * Log Data
 * Logstash data
