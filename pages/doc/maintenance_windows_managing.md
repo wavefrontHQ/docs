@@ -32,9 +32,9 @@ To snooze or unsnooze a single alert:
 
 ## Using Maintenance Windows
 
-A maintenance window is a time window when disruptive operations occur as a result of system maintenance or testing. During operations like that, it's pretty likely that alerts fire. You can set up a maintenance window to prevent affected alerts from firing.
+A maintenance window defines a time window when disruptive operations occur as a result of system maintenance or testing. During such operations, it's likely that alerts will fire. You can create a maintenance window to prevent alerts from firing.
 
-You can close (end) maintenance windows before they are due to end and you can make them longer.
+You can close (end) maintenance windows early or you can make them longer.
 
 To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
