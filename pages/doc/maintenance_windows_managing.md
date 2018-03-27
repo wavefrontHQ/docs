@@ -10,14 +10,14 @@ summary: Learn how snooze an alert, and how to use maintenance windows to preven
 You can disable alert checking:
 
 * To disable alert checking, you can snooze an alert.
-* To disable alert checking for a set of sources or alerts during a custom time window you can create a maintenance window.
+* To disable alerts from firing for a set of sources or alerts during a custom time window you can create a maintenance window.
 
 Watch this video for an introduction to maintenance windows:
 [Creating a Maintenance Window](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ## Snoozing and Unsnoozing Alerts
 
-You can silence an alert so it doesn't fire even if the condition is met. You can do this by snoozing an alert. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
+You can snooze an alert so it doesn't fire even if the condition is met. Wavefront allows you to snooze one or more alerts for 30 minutes, 1 hour, 6 hours, 1 day, 1 week, or Forever. If you choose Forever, the alert is snoozed until it is unsnoozed.
 
 To snooze one or more alerts:
 
@@ -32,9 +32,9 @@ To snooze or unsnooze a single alert:
 
 ## Using Maintenance Windows
 
-A maintenance window is a time window when disruptive operations occur as a result of system maintenance or testing. During operations like that, it's pretty likely that alerts fire. You can set up a maintenance window to prevent affected alerts from firing.
+A maintenance window defines a time window when disruptive operations occur as a result of system maintenance or testing. During such operations, it's likely that alerts will fire. You can create a maintenance window to prevent alerts from firing.
 
-You can close (end) maintenance windows before they are due to end and you can make them longer.
+You can close (end) maintenance windows early or you can make them longer.
 
 To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
