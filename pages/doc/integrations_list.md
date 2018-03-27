@@ -30,8 +30,10 @@ Instead of using an integration, you can create an email, PagerDuty, or Webhook 
 ## Application Instrumentation
 * Go
 * Java
+* Micrometer
 * NodeJS
 * StatsD
+
 
 Instead of using an integration, you can directly instrument your application with the Wavefront API.
 

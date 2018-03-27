@@ -17,7 +17,7 @@ We added the following integrations in March 2018:
 * Apache Hadoop MapReduce
 * Apache Hadoop Yarn
 * Atlassian Bitbucket
-* AWS Web Services Integration: AWS Cloudfront dashboard
+* AWS Integration: AWS CloudFront dashboard
 * CoreOS
 * Couchbase
 * Ceph
@@ -26,6 +26,7 @@ We added the following integrations in March 2018:
 * FreeBSD Host
 * Github
 * Lighttpd
+* Micrometer
 * NetBSD Host
 * OpenBSD Host
 * Oracle Linux Host
@@ -36,8 +37,8 @@ We added the following integrations in March 2018:
 * VMware vRealize Operations
 
 We enhanced the following integrations in March 2018:
-* PCF (Summary tab)
-* Microsoft Exchange (dashboards)
+* PCF: Summary
+* Microsoft Exchange
 
 ## February 2018
 
