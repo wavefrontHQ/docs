@@ -15,9 +15,11 @@ The Wavefront CloudTrail integration retrieves EC2 event information and creates
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
-For an overview of events, watch this video:
+For an overview of events, watch the following videos:
 
-[Introduction to Events](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+* [Introduction to Events](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+* [Creating an Event](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+* [Controlling Event Displays](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=71ef27f0-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ## Viewing Events
 
@@ -45,8 +47,6 @@ To view details about an alert associated with a System/Alert event, click the *
 {% include shared/alert_details.html %}
 
 ![Alert notification](images/alert_notification_queries.png)
-
-{% include shared/searching.html entity="Events" entities="dashboards" %}
 
 ## Event States
 
@@ -113,7 +113,6 @@ To create a user event:
 1. Click **Save**.
 
 ## Deleting User Events
-
 You can delete one or more user events by checking the checkboxes next to the events and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Events page. The Trash icon is grayed out if any of the selected events cannot be deleted. To delete a single user event, select the three dots to the left of the event and click **Delete**.
 
 ## Closing an Ongoing Event

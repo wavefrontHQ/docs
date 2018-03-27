@@ -31,7 +31,7 @@ Lets you extract a string from an existing metric name, source name, or point ta
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use &#123;tagk, pointTagKey&#125; if you want to extract a node from an existing point tag value. To use this approach, enter `tagk` followed by the particular point tag key associated with the point tag value. <div>For example, if you have point tag `Region=us-west-2b`, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, `west`, then you specify `tagk, Region` in the query and set the zeroBasedNodeIndex to 1. In this example, you also have to use the `delimiterDefinition` parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
+<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use &#123;tagk, pointTagKey&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the particular point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
 <tr>
 <td>&lt;newPointTagKey&gt;, zeroBasedNodeIndex, delimiterDefinition</td>
 <td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and rename the source.
@@ -130,7 +130,7 @@ With this approach each customer has several version keys over time. Right now, 
 
 You want to collect a dataset that helps you understand the difference in performance between the different versions. You can create a synthetic point tag `version` based on `<versionKey>` to aggregate and group by `version` and to see the performance differences.
 
-#### Using taggify with a zeroBasedNodeIndex Example
+### Using taggify with a zeroBasedNodeIndex Example
 
 The following query uses the zeroBasedNodeIndex approach to:
 * identify `source` as the set of data to extract the `<versionKey>`,
@@ -155,7 +155,7 @@ taggify(taggify(default(0, ts(production.infra.aws.ec2.instance.pulldeploy.faile
 ```
 
 
-#### Using taggify with a Regular Expression
+### Using taggify with a Regular Expression
 
 To perform the transform shown in the zeroBasedNodeIndex Example with a regular expressions, use the following query:
 

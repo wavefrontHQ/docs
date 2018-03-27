@@ -28,6 +28,27 @@ You can specify multiple <span style="color: #00BCD4;">event filters</span> sepa
 
 {% include shared/event_filters.html %}
 
-## Further Information
+## Which Events Does a Query Return?
 
-There are many functions available for operating on the result of an events() query. For examples, see [Advanced events() Expressions](events_queries_advanced.html) and for a general reference, see [Event Functions](query_language_reference.html#event-functions).
+Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing them in the UI, or, if you use the API, returning the event itself. The following illustration illustrates the behavior:
+
+PICTURE HERE
+
+Here are some details. Note that for two cases, the behavior is different in Wavefront 2018.10 and later - however, the following table shows general behavior and does not focus on this (fairly minor) change.
+
+|**Event Number** | **Event start** | **Event end** | **Returned?** |
+|Event 1 | Before query start time time | Before query start time | No |
+|Event 2 | After query start time | Before query end time  | Yes  |
+|Event 3 | Before query start time | After query start time  | Yes  |
+|Event 4 | Before query start time  | After query end time | No(*) |
+|Event 5 | Before query start time | N.A. (ongoing event) | No(*)|
+|Event 6 | After query start time  | After query end time | Yes  |
+|Event 7 | After query end time | N.A. (ongoing event) | No  |
+|Event 8 | After query start time | N.A. (ongoing event)  | Yes  |
+|Event 9 | After query end time | After query end time  | No |
+
+(*) means that we returned the event before 2018.10, but we no longer return it to benefit customers who asked for performance improvements.
+
+## More Info
+
+You can use `events()` functions to fine-tune your events query. For examples, see [Advanced events() Expressions](events_queries_advanced.html) and for a general reference, see [Event Functions](query_language_reference.html#event-functions).
