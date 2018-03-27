@@ -294,6 +294,13 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 <td markdown="span">limit(<span style=" color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>[, offsetNumber], <span style="color:#3a0699;font-weight:bold"> expression</span>)</td>
 <td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span>time series. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
 </tr>
+<tr>
+<td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>Hides data before a specified time. For example, <code>hideBefore(10m)</code> hides data that’s older than 10 minutes.  </td>
+</tr>
+<tr><td>hideAfter(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>Hides data after a specified time. For example, <code>hideAfter(10m)</code> hides data that’s newer than 10 minutes ago. </td>
+</tr>
 </tbody>
 </table>
 
@@ -663,13 +670,6 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 <li><span style="color:#757575;font-weight:bold">timeWindow3</span> is the rate at which the expression should be sampled. </li>
 <li> The optional three values are coefficients for the Holt-Winters equations, and must be decimals between 0 and 1. If no values are given, Wavefront selects them manually. </li>
 </ul></td>
-</tr>
-<tr>
-<td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Hides data before a specified time. For example, <code>hideBefore(10m)</code> hides data that’s older than 10 minutes.  </td>
-</tr>
-<tr><td>hideAfter(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Hides data after a specified time. For example, <code>hideAfter(10m)</code> hides data that’s newer than 10 minutes ago. </td>
 </tr>
 </tbody>
 </table>

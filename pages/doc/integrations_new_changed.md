@@ -9,6 +9,36 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis.
 
+## March 2018
+
+We added the following integrations in March 2018:
+
+* Apache Hadoop HDFS
+* Apache Hadoop MapReduce
+* Apache Hadoop Yarn
+* Atlassian Bitbucket
+* AWS Web Services Integration: AWS Cloudfront dashboard
+* CoreOS
+* Couchbase
+* Ceph
+* Fedora Linux Host
+* Fluentd
+* FreeBSD Host
+* Github
+* Lighttpd
+* NetBSD Host
+* OpenBSD Host
+* Oracle Linux Host
+* PHP-FPM
+* Papertrail
+* Rollbar
+* Suse Linux Host
+* VMware vRealize Operations
+
+We enhanced the following integrations in March 2018:
+* PCF (Summary tab)
+* Microsoft Exchange (dashboards)
+
 ## February 2018
 
 We added the following integrations in February 2018:

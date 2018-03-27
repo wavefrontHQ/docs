@@ -52,6 +52,8 @@ Instead of using an integration, you can directly instrument your application wi
 
 ## Datastore
 * Cassandra
+* Ceph
+* Couchbase
 * CouchDB
 * etcd KV store
 * Microsoft SQL Server
@@ -62,19 +64,28 @@ Instead of using an integration, you can directly instrument your application wi
 * Riak KV store
 
 ## DevOps Tools
+* Atlassian Bitbucket
 * Ansible
 * Chef
+* Github
 * Puppet Server
 * Terraform Provider
 
 ## Operating System
+* CoreOS Host
+* FreeBSD Host
 * Linux Host
-  * AWS Linux
-  * CentOS
-  * Debian
+  * AWS Linux Host
+  * CentOS Linux Host
+  * Debian Linux Host
+  * Fedora Linux Host
+  * Oracle Linux Host
   * Redhat Enterprise Linux
-  * Ubuntu Host
+  * Suse Linux Host
+  * Ubuntu Linux Host
 * Mac Host
+* NetBSD Host
+* OpenBSD Host
 * Windows Host
 * Windows Service
 * Windows Performance Counter
@@ -88,14 +99,18 @@ Instead of using an integration, you can directly instrument your application wi
 * Cernan
 * collectd
 * Filebeat log data
+* Fluentd
 * Graphite
 * Log Data
 * Logstash data
 * OpenTSB
+* Papertrail
 * Prometheus
+* Rollbar
 * SNMP
 * Splunk
 * Telegraf
+* VMware vRealize Operations
 * Zabbix
 
 ## Other
@@ -106,6 +121,9 @@ Instead of using an integration, you can directly instrument your application wi
 * Tesla
 
 ## Web
+* Apache Hadoop HDFS
+* Apache Hadoop MapReduce
+* Apache Hadoop Yarn
 * Apache HTTP
 * Apache Mesos
 * Apache Solr
@@ -117,6 +135,7 @@ Instead of using an integration, you can directly instrument your application wi
 * HAProxy
 * IBM WebSphere Application Server
 * JBoss AS
+* Lighttpd
 * Memcached
 * Microsoft IIS
 * .NET
@@ -124,6 +143,7 @@ Instead of using an integration, you can directly instrument your application wi
 * NGNIX Plus
 * Oracle Weblogic Server
 * Pivotal Container Service (PKS)
+* PHP-FPM
 * tcServer
 * Varnish Cache
 * Wildfly

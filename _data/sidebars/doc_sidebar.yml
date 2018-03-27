@@ -107,6 +107,11 @@ entries:
       url: /direct_ingestion.html
       output: web
 
+    - title: Derived Metrics
+      url: /derived_metrics.html
+      output: web
+
+
   - title: Query Language
     output: web
     folderitems:
@@ -125,10 +130,6 @@ entries:
 
     - title: Query Wizard
       url: /query_language_query_wizard.html
-      output: web
-
-    - title: Registered Queries
-      url: /registered_queries.html
       output: web
 
     - title: Point Tags in Queries
