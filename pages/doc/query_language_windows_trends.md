@@ -9,7 +9,7 @@ summary: Learn how to use moving window functions in Wavefront Query Language ex
 
 ## Moving Window Functions
 
-The moving window functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `count()`, etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
+The moving window functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `mcount()`, etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
 
 The chart below for instance shows the 24 hour moving average of the points received from the following queries:
 

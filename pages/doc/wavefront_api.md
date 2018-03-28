@@ -15,6 +15,10 @@ The current version of the API is v2 and is accessed at `<wavefront_instance>/ap
 
 The API is publicly documented in the Swagger generated API documentation. To access the API documentation from the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select **API Documentation**.
 
+## Code Samples
+
+You can find some code samples on the [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront). We're providing these samples as is - some are from the Wavefront team, others will come from the community. 
+
 ## API Categories
 Wavefront supports the following API categories:
 
@@ -35,7 +39,7 @@ Wavefront supports the following API categories:
 - **User** - Allows users with [User Management permission](permissions_overview.html) to retrieve a list of all users, create, update, and delete users, and manage permissions.
 - **Webhook** - Allows all users to retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.
 
- 
+
 ## Invoking the API
 
 When invoking the API outside of the Wavefront UI, you must pass a Wavefront API token in the `Authorization: Bearer` header. For example, to return all alerts, invoke the following:
@@ -46,7 +50,7 @@ curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer
 A Wavefront API token is a string of hexadecimal characters and dashes. For example:
 
 ```
-a411c16b-3cf7-4f03-bf11-8ca05aab898d  
+a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
 
 ### Generating an API Token
@@ -56,7 +60,7 @@ To generate an API token:
 1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/>  at the top right of the task bar and select your username.
 1. At the bottom of your user profile, locate the section **API Access**.
 1. Click **Generate**. You can have up to 2 tokens at any given time. If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens by clicking the **Revoke** link next to a token. If you create an API script using a token, and that token is revoked, that script will return an authorization error.
- 
+
 ## API SDKs
 
 Wavefront provides SDKs in several languages for accessing the Wavefront API and integrations for sending metrics from applications written in Go and Java:
@@ -98,4 +102,3 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API and
 </tr>
 </tbody>
 </table>
-
