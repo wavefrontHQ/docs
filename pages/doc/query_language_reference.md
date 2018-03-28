@@ -808,17 +808,19 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 </thead>
 <tbody>
 <tr>
-<td>A time series you send to Wavefront is discrete, for example, you send data points every minute, but the data appear at every single time slice or second regardless of the interval of the underlying data. </td>
-<td>Constant time series are continuous. This includes <code>&lt;number&gt;</code>, <code>at()</code>, <code>top()</code>, <code>bottom()</code> and the functions on the right.
+<td>A time series you send to Wavefront is discrete, for example, you send data points every minute, but the data appear as continuous. Continuous means that you see data every second (or time slice) regardless of the interval of the underlying data. </td>
+<td>Some functions return continuous time series even if the underlying metrics are discrete. See the list on the right.
 </td>
-<td>The following functions report time series.
+<td>The following functions return continuous time series.
 <ul>
 <li>Moving time windows except <code>integral</code>.</li>
 <li>Missing data functions. </li>
-<li>The <code>if()</code> function when <span style="color:#3a0699;font-weight:bold">expression</span> and at least one of <code>ThenExpression</code> or <code>ElseExpression</code> is not a constant time series  </li>
+<li>The <code>if()</code> function when <span style="color:#3a0699;font-weight:bold">expression</span> is not a constant time series  </li>
 <li>The <code>ongoing()</code>, <code>exists()</code>, and <code>random()</code> functions.</li>
 <li>The <code>at()</code>, <code>year()</code>, <code>month()</code>, <code>dayOfYear()</code>, <code>day()</code>, <code>weekday()</code>, <code>hour()</code>, and <code>time()</code> functions.</li>
-<li>The <code>between()</code>, <code>top()</code>, and <code>bottom()</code> functions. </li></ul></td>
+<li>The <code>between()</code>, <code>top()</code>, and <code>bottom()</code> functions. </li>
+<li>Constant time series functions: <code>at()</code>, <code>top()</code>, <code>bottom()</code>, <code>&lt;number&gt;</code></li>
+</ul></td>
 </tr>
 <tr>
 <td>After entering a query expression the following error displays: <em>Query syntax error: Missing expression argument.</em></td>
