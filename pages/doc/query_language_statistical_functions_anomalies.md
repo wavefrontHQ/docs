@@ -26,25 +26,25 @@ The result shows a 10 minute range of change as a ratio. You can change the time
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
 ## Mean and Median
-The `avg`/ `mavg` and `median` functions can help you understand the tendency of the data.
+The `avg`/ `mavg` and `mmedian` functions can help you understand the tendency of the data.
 
-Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier. The `median` function is more robust in dealing with outliers than `avg`/ `mavg` because outliers tend to move the mean towards the outlier value.
+Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier. The `mmedian` function is more robust in dealing with outliers than `avg`/ `mavg` because outliers tend to move the mean towards the outlier value.
 
-Cosider the following queries that examine how `mavg` and `median` behave in case of sudden spikes in the HTTP requests hitting a particular host:
+Cosider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
 data:|`ts(test.http.requests, host=web493.corp.example.com)`
 mean:|`mavg(10m,${data})`
-median:|`median(10m,${data})`
+median:|`mmedian(10m,${data})`
 
 The screen shot below shows the corresponding Wavefront chart:
 * If you consider these spikes as anomalies, use `avg` or `mavg` to catch similar deviations or variability.
-* If you consider the spikes as noise and want to ignore one-off spikes, use `median`, which is less sensitive to outliers or variations, and shows only show sustained dips.
+* If you consider the spikes as noise and want to ignore one-off spikes, use `mmedian`, which is less sensitive to outliers or variations, and shows only show sustained dips.
 
 ![mean_median](images/mean_median.png)
 
 ## Standard Deviation (Std Dev) and Inter-Quartile Range (IQR)
 
-While the `avg`/ `mavg` and `median` functions can help you understand the tendency of the data, Std Dev and IQR measure the spread of the data. If you want to use a level of dispersion or spread of the data as a function to define normal, you can use these functions to catch anomalies.
+While the `avg`/ `mavg` and `mmedian` functions can help you understand the tendency of the data, Std Dev and IQR measure the spread of the data. If you want to use a level of dispersion or spread of the data as a function to define normal, you can use these functions to catch anomalies.
 
 Standard deviation and IQR react to outliers (and to skewed data to some extent) in a similar way as  mean and median respectively. Both help you understand the spread of the data over a range, but Std Dev is more sensitive to outliers and skewed data, while IQR is less sensitive.
 

@@ -11,6 +11,8 @@ summary: Learn how to use moving window functions in Wavefront Query Language ex
 
 The moving window functions in Wavefront allow you to calculate continuous aggregation over sliding windows. Wavefront offers many moving functions that allow you to create moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `mcount()`, etc. These functions create continuous moving or sliding windows which can extremely useful to look at moving trends.
 
+The moving windows recalculation is done every second for discrete time series. When running against continuous time series, it is done for every bucketing intervals. For example, if you have a 30 second bucketing interval, then recalculation will be every 30 seconds.
+
 The chart below for instance shows the 24 hour moving average of the points received from the following queries:
 
 Rate: `sum(rate(ts(~agent.points.2878.received)))`
