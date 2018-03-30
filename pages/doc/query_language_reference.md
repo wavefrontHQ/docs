@@ -190,7 +190,7 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 <td markdown="span">percentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the <span style="color:#d63a36;font-weight:bold">percentileValue</span> value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation. Example: If <span style="color:#d63a36;font-weight:bold">percentileValue is</span> 99, returns the 99th percentile value of all series.</td>
 <div>
-Set <span style="color:#d63a36;font-weight:bold">percentileValue to 50 for the mean value of all series.
+Set <span style="color:#d63a36;font-weight:bold">percentileValue</span> to 50 for the mean value of all series.
 </div>
 </tr>
 <tr>
