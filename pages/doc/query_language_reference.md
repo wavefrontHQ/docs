@@ -698,7 +698,7 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 </tr>
 <tr>
 <td>ongoing(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns a continuous time series representing the number of ongoing <span style="color:#3a0699;font-weight:bold">events</span> at any given moment. This function returns constant time series</td>
+<td>Returns a continuous time series representing the number of ongoing <span style="color:#3a0699;font-weight:bold">events</span> at any given moment within the query time window. See [When Does an Event Query Return Events?](events_queries.html#when-does-an-event-query-return-events) for some background information.</td>
 </tr>
 <tr>
 <td>closed(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
