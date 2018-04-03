@@ -211,7 +211,7 @@ With this addition, the query returns the following 6 series, joined with the el
 </tr>
 <tr>
 <td><code>cpu.idle host=”host-3” dc=Oregon stage=test</code></td>
-<td><code>build version host=”host-3” stage=test</code></td>
+<td><code>build.version host=”host-3” stage=test</code></td>
 </tr>
 <tr>
 <td><code>cpu.idle host=”host-1” dc=ny stage=prod </code></td>
@@ -223,7 +223,7 @@ With this addition, the query returns the following 6 series, joined with the el
 </tr>
 <tr>
 <td><code>cpu.idle host=”host-3” dc= ny stage=test</code></td>
-<td><code>build version host=”host-3” stage=test</code></td>
+<td><code>build.version host=”host-3” stage=test</code></td>
 </tr>
 </tbody>
 </table>
