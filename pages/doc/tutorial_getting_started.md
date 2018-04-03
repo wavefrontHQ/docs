@@ -6,9 +6,11 @@ permalink: tutorial_getting_started.html
 summary: Get started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. The tutorial is based on the sample metrics preloaded in your Wavefront account.
 ---
 
-This tutorial gets you started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. To complete these tasks you need [Dashboard Management and Alert Management permissions](permissions_overview.html), which your Wavefront administrator can grant.
+This tutorial gets you started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. To complete these tasks you need access to a Wavefront instance. Sign up for a [free trial](https://www.wavefront.com/sign-up/)!
 
-The tutorial is based on the sample metrics preloaded in your Wavefront account.
+You also need [Dashboard Management and Alert Management permissions](permissions_overview.html). Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them. 
+
+The tutorial is based on the sample metrics preloaded in each trial user's  Wavefront account.
 
 ## Review Sample Dashboards and Metrics
 

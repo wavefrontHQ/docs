@@ -18,6 +18,8 @@ You can create alert targets from scratch or use one of the predefined integrati
 
 To view and manage alert targets, select **Browse > Alert Targets**.
 
+**Note** Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly. 
+
 ## Alert Target Types
 
 Use one of the following alert target types:
