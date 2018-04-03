@@ -81,7 +81,7 @@ All operations between expressions are subject to the matching processes describ
 <li>Boolean operators - combine ts() expressions and constants and the filtering performed by source names, alert names, source tags, alert tags, and point tags.</li>
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
-<li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. You can use a comma instead of `or`, see the first example below. </li>
+<li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
 <li markdown="span">`not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Arithmetic operators</li>
@@ -92,7 +92,6 @@ All operations between expressions are subject to the matching processes describ
 <li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Examples</li>
 <ul>
-<li markdown="span">`ts(cpu.load.1m, tag=prod or tag=db)` is same as `ts(cpu.load.1m, tag=prod, tag=db)` and returns `cpu.load.1m` for all sources tagged with `prod` or `db` or both. </li>
 <li markdown="span">`(ts(my.metric) > 10) and (ts(my.metric) < 20)` returns 1 if `my.metric` is between 10 and 20. Otherwise, returns 0.</li>
 <li markdown="span">`ts(cpu.load.1m, tag=prod and tag=db)` returns `cpu.load.1m` for all sources tagged with both `prod` and `db`.</li>
 <li markdown="span">`ts(db.query.rate, tag=db and not source=db5.wavefront.com)` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
