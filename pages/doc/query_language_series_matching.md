@@ -102,7 +102,7 @@ In this example, the `env` point tag key takes the values `production` and `deve
 
 ## Series Matching with the "by" Construct
 
-In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. Starting with Release 2017.48, you can use the `by` construct to perform matching using the element of your choice to get results for those series.
+In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. You can use the `by` construct to perform matching using the element of your choice to get results for those series.
 
 Consider the following example:
 
@@ -192,7 +192,7 @@ In this example, while there is a host-1 on both sides of the operation, the fir
 
 Starting with Release 2017.48.x, you can use the `by` query language keyword to specify the point tag(s) to map by. For the example above, you can expand the query as follows:
 
-`(ts(cpu.idle) > 50) and by stage, source (ts(build.version) = 10000)`
+`(ts(cpu.idle) > 50) and by (stage, source) (ts(build.version) = 10000)`
 
 With this addition, the query returns the following 6 series, joined with the elements on the right.
 
@@ -218,11 +218,11 @@ With this addition, the query returns the following 6 series, joined with the el
 <td><code>build.version host=”host-1” stage=prod </code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-2” dc= ny stage=prod </code></td>
+<td><code>cpu.idle host=”host-2” dc=ny stage=prod </code></td>
 <td><code>build.version host=”host-2” stage=prod </code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-3” dc= ny stage=test</code></td>
+<td><code>cpu.idle host=”host-3” dc=ny stage=test</code></td>
 <td><code>build.version host=”host-3” stage=test</code></td>
 </tr>
 </tbody>
