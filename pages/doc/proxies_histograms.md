@@ -335,7 +335,7 @@ This table lists other histogram configuration properties in addition to the his
 </tr>
 <tr>
 <td>histogramDistAccumulators</td>
-<td>Number of accumulators per distribution port. In high traffic environments we recommend the total number of accumulators per proxy across all utilized ports not to exceed the number of available CPU cores. Default: 2. </td>
+<td>Number of accumulators per distribution port. In high traffic environments we recommend the total number of accumulators per proxy across all utilized ports not to exceed the number of available CPU cores. Default: number of available CPU cores. </td>
 <td>Positive integer.</td>
 </tr>
 <tr>
