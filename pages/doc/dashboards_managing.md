@@ -22,7 +22,8 @@ You can create a dashboard from the All Dashboards page, an existing dashboard, 
 
     A Create New Dashboard dialog displays. Enter a URL and name for your dashboard.
 
-    * The URL field supports letters, numbers, underscores, and dashes. If you enter a special character or space, then the URL field turns red and requires you to make changes before saving.
+    * The URL field supports letters, numbers, underscores, and dashes.
+      **Note** If you enter any special character or space, then the URL field turns red and requires you to make changes before saving. You can specify `my_url` but not `http://my_url.com` because `://` and the period are special characters.
     * The Name field supports letters, numbers, characters, and spaces.
 
 2.  Click **Create**. The dashboard is created and displays in edit mode.
@@ -65,7 +66,7 @@ To set the dashboard preferences:
 1. Optionally edit the dashboard name.
 1. Click **Clone**.
 
-## Editing a Dashboard
+## Editing and Saving a Dashboard
 
 {% include shared/system_dashboard.html %}
 
@@ -80,7 +81,9 @@ When editing a dashboard, you can make changes to the dashboard description, nam
 1. Edit the dashboard.
 
    When editing a dashboard, you may make several changes at a time. To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current edit mode session.
-2. To save configuration changes, click **Save**.
+2. To save configuration changes, click the  **Save** button in the top right.
+
+   ![save dashboard](images/save_dashboard.png)
 
 ### Setting the Dashboard Name and Description
 

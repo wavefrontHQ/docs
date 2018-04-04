@@ -68,3 +68,7 @@ mcount(5m,sum(rate(ts(~agent.check-in)), sources))=0 and mcount(1h, sum(rate(ts(
 This query uses the `~agent.check-in` metric to verify that the agents are reporting. By applying a second argument to the alert query, you capture any time series that reported at least 1 value  in the last hour and that stopped reporting in the last 5 minutes.
 
 Examine the Wavefront System Usage dashboard for your instance for proxy monitoring examples.
+
+## More Info
+
+For more tips, see our blog post [Intelligent Alert Design: Three Simple Tips for Increasing Alert Robustness](https://www.wavefront.com/intelligent-alert-design-three-simple-tips-increasing-alert-robustness/){:target="_blank" rel="noopenner noreferrer"}
