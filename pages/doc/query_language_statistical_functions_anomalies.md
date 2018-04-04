@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Learn how to use simple functions and statistical functions in Wavefront Query Language expressions to detect anomalies.
 ---
-Anomalies can indicate that something's about to go wrong in your environment. If you have a set of data points that span across a certain range, you can define which points of these set can be treated as normal and which should be identified as abnormal. If points cross a certain threshold, they create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/) and the following video:
+Anomalies can indicate that something's about to go wrong in your environment. If you have a set of data points that span across a certain range, you can define which points of these set can be treated as normal and which should be identified as abnormal. If points cross a certain threshold, they create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/){:target="_blank" rel="noopenner noreferrer"} and the following video:
 
 [Wavefront Demo 6 - Anomaly Detection](https://youtu.be/I-Z9d94Zi7Y)
 
@@ -26,7 +26,7 @@ The result shows a 10 minute range of change as a ratio. You can change the time
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
 ## Mean and Median
-The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data. 
+The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data.
 
 **Note** Use the `percentile()` function to get the mean, that is, `percentile(50,<expression>[,<args])`.
 

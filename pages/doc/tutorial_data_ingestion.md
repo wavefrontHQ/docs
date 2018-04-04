@@ -37,7 +37,7 @@ Many users set up Wavefront to monitor the host on which they're working.
 
  Both types of integration include dashboards for exploring your data.
 
-**Note:** Our [Free 30-day Trial](https://www.wavefront.com/sign-up/) steps you through setting up an integration. You learn how to get data flowing from you host or for your AWS account and can experiment with dashboards, charts, and alerts. We've included interactive tutorials and a tour so you can explore your own data or some sample data that are available for trial users. 
+**Note:** Our [Free 30-day Trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"} steps you through setting up an integration. You learn how to get data flowing from you host or for your AWS account and can experiment with dashboards, charts, and alerts. We've included interactive tutorials and a tour so you can explore your own data or some sample data that are available for trial users. 
 
 ## Next Steps
 

@@ -13,7 +13,7 @@ Wavefront supports two methods for sending log data metrics to Wavefront proxy: 
 * When traffic is split between nodes, each node tracks its own counter. The counters collide when they are sent to Wavefront.
 * Information about the actual source (host) is lost.
 
-The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https://www.wavefront.com/creating-metrics-logs/) blog post discusses a real example and complements this page. 
+The [Create Metrics from Logs for Real-Time Cloud Application Monitoring](https://www.wavefront.com/creating-metrics-logs/){:target="_blank" rel="noopenner noreferrer"} blog post discusses a real example and complements this page. 
 
 ## Installing and Configuring a Wavefront Proxy
 
