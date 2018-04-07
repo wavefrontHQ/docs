@@ -45,11 +45,10 @@ The function has three required and three optional parameters:
 <td>sampling_rate</td>
 <td>Rate at which the function summarizes the points in the underlying expression, similar to the <code>align()</code> function. The sampling rate always uses the average of all points in the time window as the summarization strategy. To use a different summarization strategy, wrap the underlying expression with <code>align()</code>.
 <div>&nbsp;</div>
-<div>For example, <code>hw(4h, 1h, 1m, align(1m, max, ts(cpu.usage.idle)))</code>
+<div>For example, <code>hw(4h, 1h, 1m, align(1m, ts(cpu.usage.idle)))</code>
 <ul>
 <li>takes the time series <code>cpu.usage.idle</code>,</li>
-<li>aligns it to 1 minute intervals with the <code>max</code> summarization strategy,</li>
-<li>and runs the Holt-Winters algorithm on the max-summarized series with a season length of 1 hour and a sampling rate of 1 minute. </li></ul></div>
+<li>and runs the Holt-Winters algorithm on the series with a season length of 1 hour and a sampling rate of 1 minute. </li></ul></div>
 </td>
 </tr>
 <tr>
