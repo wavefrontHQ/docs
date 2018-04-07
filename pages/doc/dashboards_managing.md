@@ -66,7 +66,7 @@ To set the dashboard preferences:
 1. Optionally edit the dashboard name.
 1. Click **Clone**.
 
-## Editing and Saving a Dashboard
+## Editing a Dashboard
 
 {% include shared/system_dashboard.html %}
 

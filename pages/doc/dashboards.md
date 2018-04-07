@@ -14,8 +14,6 @@ Each [chart](charts.html) is a window into your company's data - and you can pri
 
 By creating dashboards, you can quickly compare different data sets, alter time windows for all data sets, and save those windows for future use. You use [dashboard sections](dashboards_managing.html#sections) to  organize charts.
 
-Go to **Saved Searches > My Dashboards** on the left to find dashboards you created. 
-
 All charts in a dashboard share [display preferences](dashboards_managing.html#prefs), [variables](dashboards_variables.html), and can share [events](charts_events_displaying.html#controlling-events-overlays).
 
 To view and manage dashboards, select **Dashboards > All Dashboards**.
