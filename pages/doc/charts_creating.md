@@ -26,10 +26,10 @@ Watch this video for details:
 
 Wavefront supports several methods for constructing query language queries:
 * Query Builder
+* Query Editor
 * Query Wizard
-* Manual construction.
 
-### Using Query Builder to Construct a Query
+### Query Builder
 
 [Wavefront Query Builder](query_language_query_builder.html) is a great option for users new to Wavefront because you don't have to know the query language syntax. Query Builder constructs a query based on a set of components (metric name, source, source tag, and point tag filters, advanced functions) that you specify.
 
@@ -37,11 +37,11 @@ In the image below, we specified the metric name `~sample.requests.total.num`, p
 
 ![query_builder_2](images/query_builder_2.png)
 
-### Manually Constructing a Query
+### Query Editor
 
 Instead of using Query Builder, you can click the Query Builder toggle and explicitly enter a [Wavefront Query Language](query_language_getting_started.html), expression into the query field. For example:
 
-`if((ts("requests.latency", tag="az-3" and not source="app-28") as test) > 160, $test, 0)`.
+`ts("requests.latency", tag="az-3" and not source="app-28")`
 
 ## Managing a Chart's Queries
 
