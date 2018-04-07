@@ -13,7 +13,7 @@ You use the direct data ingestion mechanism to send data directly to the Wavefro
 
 ## Background
 
-Wavefront currently expect that your host, application, or custom code send metrics to a Wavefront proxy installed in your environment. The proxy forwards metrics to the Wavefront service. In production environments, two proxies behind a load balancer guarantee availability and prevent data loss.
+Wavefront currently expects that your host, application, or custom code send metrics to a Wavefront proxy installed in your environment. The proxy forwards metrics to the Wavefront service. In production environments, two proxies behind a load balancer guarantee availability and prevent data loss.
 
 ![proxies behind load balancer](/images/proxy_deployment_load_balancer.svg)
 
@@ -22,33 +22,25 @@ Because some customers told us they'd like to send data directly to the Wavefron
 ## Example Commands
 
 The following commands illustrate how to send a string, a file, and an octet to Wavefront.
-* A token is required.
-* The examples use graphite format, but that's not a requirement.
+* An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<<TOKEN>>` in the examples.
+* You must know your Wavefront domain name, `metrics.wavefront.com` is used in the examples.
+* The examples use the [Wavefront Data Format](wavefront_data_format.html) which is named `graphite_v2`.
 
-### String
+### Multiple data points
 
-Send the text string "hello.world":
-
-```
-echo "hello.world 1 host=<myhost>"|curl -H "Content-Type:text/plain" --data @- http://localhost:8080/report?f=graphite_v2\&t=token
-```
-
-### File
-
-Send the file named `hello.world`:
+Assuming `wavefront.txt` contained 1 or more lines in the Wavefront data format you could send it to Waveront like this:
 
 ```
-echo "hello.world 1 host=<myhost>"|curl -F file=@- http://localhost:8080/report?f=graphite_v2\&t=token
+cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://metrics.wavefront.com/report?f=graphite_v2
 ```
 
-### Octet
+### Single data point
 
-Send the octet stream `hello.world`:
+Send a single data point:
 
 ```
-echo "hello.world 1 host=<myhost>"|curl --data @- http://localhost:8080/report?f=graphite_v2\&t=token
+echo "hello.world 1 host=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://metrics.wavefront.com/report?f=graphite_v2
 ```
-
 
 ## Comparing Proxy and Direct Ingestion
 
