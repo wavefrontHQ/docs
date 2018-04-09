@@ -121,8 +121,9 @@ Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>
 
 <span id="aggregate"></span>
 
-## Aggregate and Raw Aggregate Functions
-Aggregate and raw aggregate functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregate functions first interpolate the points of the underlying set of series (up to one day), and then apply the aggregate function to the interpolated series. Raw aggregate functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+## Aggregation and Raw Aggregation Functions
+Aggregation and raw aggregation functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregation functions first interpolate the points of the underlying set of series (up to one day), and then apply the aggregation function to the interpolated series. Raw aggregation functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+
 
 
 <table style="width: 100%;">
@@ -138,8 +139,8 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 </thead>
 <tbody>
 <tr>
-<td markdown="span">sum(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the sum of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation.</td>
+<td><a href="ts_sum.html"> sum(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the sum of all series. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
 </tr>
 <tr>
 <td markdown="span">rawsum(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
@@ -170,8 +171,8 @@ Aggregate and raw aggregate functions provide a way to combine (aggregate) multi
 <td>Returns the highest value of all series. </td>
 </tr>
 <tr>
-<td markdown="span">count(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;])</td>
-<td>Returns the number of series that are reporting. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation.</td>
+<td> count(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
+<td>Returns the number of series that are reporting. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
 </tr>
 <tr>
 <td markdown="span">rawcount(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
@@ -411,8 +412,8 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 <td>Returns the moving variance of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: To get the moving standard deviation, apply the sqrt function to mvar: sqrt(mvar(<span style="color:#757575;font-weight:bold">120m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>))).</td>
 </tr>
 <tr>
-<td>mcount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the number of data points over <span style="color:#757575;font-weight:bold">timeWindow</span>. If <span style="color:#3a0699;font-weight:bold">expression</span> stops reporting data, reports up to 2x the duration of <span style="color:#757575;font-weight:bold">timeWindow</span> before returning no data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with <code>msum()</code>, which returns the <em>sum of the data points</em>.</td>
+<td><a href="ts_mcount.html"> mcount(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the number of data points over <strong>timeWindow</strong>. If <strong>expression</strong> stops reporting data, reports up to 2x the duration of <strong>timeWindow</strong> before returning no data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with <code>msum()</code>, which returns the <em>sum of the data points</em>.</td>
 </tr>
 <tr>
 <td>mmin(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
@@ -584,9 +585,9 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 <td markdown="span">Returns <span style="color:#3a0699;font-weight:bold">expression</span> with the source renamed by extracting a string from a metric, source, or point tag value from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and using that extracted string to rename the source in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
 </tr>
 <tr>
-<td markdown="span">taggify(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, <span style="color:#08838c;font-weight:bold">&lt;newPointTagKey&gt;</span>, [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span>])</td>
-<td markdown="span">Returns <span style="color:#3a0699;font-weight:bold">expression</span> with a synthetic point tag created by extracting a string from a metric, source, or point tag value
-<span>from the result of <span style=" color:#3a0699;font-weight:bold">expression</span>, and using that extracted string to create the tag.</td>
+<td markdown="span">taggify(<span style="font-weight:bold">expression</span>, <span style="font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, <span style="font-weight:bold">&lt;newPointTagKey&gt;</span>, [<span style="font-weight:bold">zeroBasedNodeIndex</span> [<span style="font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span>)</td>
+<td markdown="span">Returns <span style="font-weight:bold">expression</span> with a synthetic point tag created by extracting a string from a metric, source, or point tag value
+<span>from the result of <span style="bold">expression</span>, and using that extracted string to create the tag.</td>
 </tr>
 </tbody>
 </table>
