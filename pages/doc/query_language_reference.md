@@ -64,7 +64,7 @@ See [Organizing with Tags](tags_overview.html) for information on the different 
 <li>constant - A number such as 5.01, 10000, or 40. Constants can be plotted by themselves and composed in <span style="color:#3a0699;font-weight:bold">expressions</span> using arithmetic operators.</li>
 <ul>
 <li markdown="span">[SI prefixes](https://en.wikipedia.org/wiki/Metric_prefix)(k, M, G, T, P, E, Z, Y) - Scales constants by multiples of 1000. For example, instead of typing 1000000, type 1M, and instead of typing 7200, type 7.2k. Other common prefixes are G and T (for a billion and a trillion, useful when working with network and I/O metrics).</li>
-<li>Examples: 100, ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>), ts(1)</li>
+<li>Examples: 100, ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>), 1</li>
 </ul>
 <li>wildcard - Matches strings in metric names, source names, alert name, source tags, alert tags, and point tags. A wildcard is represented with a <strong>"&#42;"</strong> character - Wavefront supports no other wildcard characters. For example, you can use a wildcard (example: <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>) when filtering by point tags. The result are the time series that have &lt;pointTagKey&gt; present (with any value). Time series that don't have &lt;pointTagKey&gt; are filtered out. To find time series without a specific point tag, use the <strong>not</strong> construct: <strong>not</strong> <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>.</li>
 <ul>
@@ -199,17 +199,27 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 </table>
 
 
-### Grouping
+### Grouping and Filtering
 
-When aggregating, to group by metrics, sources, source tags, all point tags keys, or a specific point tag key, use the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>\] group by clause. The clause is applied after the ts() expression, separated by a comma.
+When aggregating, you can group or filter the results.
 
-### Examples
+* When you filter, you restrict the query, for example, only to certain sources. You still get one line for aggregation function. To filter, use the element to filter by inside the parenthesis.
 
--   Group by metrics: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **metrics**)
--   Group by sources: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **sources**)
--   Group by source tags: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **sourceTags**)
--   Group by all available point tag keys: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **tags**) or sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), **pointTags**)
--   Group by the <span style="color:#3a0699;font-weight:bold">region</span> point tag key: sum(ts(<span style="color:#08838c;font-weight:bold">cpu.loadavg.1m</span>), <span style="color:#3a0699;font-weight:bold">region</span>)
+* You can also group the results of a query and display separate lines for the different group members. For example, when grouping by source, you get one line for each source.
+
+  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, use the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] after the `ts()` expression, separated by a comma.
+
+#### Filter Example ####
+
+`sum(ts(~sample.cpu.loadavg1m, source=app-1))` shows only the metric only for the source app-1.
+
+#### Grouping Examples ####
+
+-   Group by metrics: `sum(ts(cpu.loadavg.1m),`**`metrics`**)
+-   Group by sources: `sum(ts(cpu.loadavg.1m),`**`sources`**)
+-   Group by source tags: `sum(ts(cpu.loadavg.1m),`**`sourceTags`**)
+-   Group by all available point tag keys: `sum(ts(cpu.loadavg.1m),`**`tags`**) or `sum(ts(cpu.loadavg.1m),`**`pointTags`**)
+-   Group by the `region` point tag key: `sum(ts(cpu.loadavg.1m),`**`region`**)
 
 <span id="filter"></span>
 
@@ -293,7 +303,7 @@ When aggregating, to group by metrics, sources, source tags, all point tags keys
 </tr>
 <tr>
 <td markdown="span">limit(<span style=" color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>[, offsetNumber], <span style="color:#3a0699;font-weight:bold"> expression</span>)</td>
-<td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span>time series. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
+<td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span>time series. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%). Use the optional <span style="color:#008a09;font-weight:bold">offsetNumber</span> to specify an index to start with. For example, if the function returns 100 items, you can set <span style="color:#008a09;font-weight:bold">offsetNumber</span> to 5 to start with the 5th item.</td>
 </tr>
 <tr>
 <td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
