@@ -171,7 +171,7 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 <td>Returns the highest value of all series. </td>
 </tr>
 <tr>
-<td> count(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
+<td>count(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
 <td>Returns the number of series that are reporting. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
 </tr>
 <tr>
@@ -587,17 +587,17 @@ For further information, see [Metadata Functions](query_language_metadata_functi
 </thead>
 <tbody>
 <tr>
-<td markdown="span">aliasMetric(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
-<td>Returns <span style="color:#3a0699;font-weight:bold">expression</span> with the metric renamed by extracting a string from a metric, source, or point tag value from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and using that extracted string to rename the metric in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
+<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>expression</strong>&lbrack;,<strong>metrics|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;&lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a></td>
+<td markdown="span">Returns <strong>expression</strong> with the metric renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong>, the parameter is set to <strong>source</strong>.</td>
 </tr>
 <tr>
-<td markdown="span">aliasSource(<span style="color:#3a0699;font-weight:bold">expression</span>, [<span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;},</span>] [<span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span> [<span style="color:#757575;font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span> | <span style="font-weight:bold">"replacementString"</span>])</td>
-<td markdown="span">Returns <span style="color:#3a0699;font-weight:bold">expression</span> with the source renamed by extracting a string from a metric, source, or point tag value from the result of <span style="color:#3a0699;font-weight:bold">expression</span>, and using that extracted string to rename the source in <span style="color:#3a0699;font-weight:bold">expression</span>. If you don't specify  <span style="color:#bf5700;font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, the option is set to <span style="color:#bf5700;font-weight:bold">source</span>.</td>
+<td><a href="ts_aliasSource.html"> aliasSource(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a></td>
+<td markdown="span">Returns <strong>expression</strong> with the source renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong>, the option is set to <strong>source</strong>.</td>
 </tr>
 <tr>
-<td markdown="span">taggify(<span style="font-weight:bold">expression</span>, <span style="font-weight:bold">metric|source|{tagk, &lt;pointTagKey&gt;}</span>, <span style="font-weight:bold">&lt;newPointTagKey&gt;</span>, [<span style="font-weight:bold">zeroBasedNodeIndex</span> [<span style="font-weight:bold">,delimiterDefinition</span>] | <span style="font-weight:bold">"regexSearchPattern", "replacementPattern"</span>)</td>
-<td markdown="span">Returns <span style="font-weight:bold">expression</span> with a synthetic point tag created by extracting a string from a metric, source, or point tag value
-<span>from the result of <span style="bold">expression</span>, and using that extracted string to create the tag.</td>
+<td><a href="ts_taggify.html"> taggify(<strong>expression</strong>,<strong>metrics|sources|sourceTags|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&lt;newPointTagKey&gt;, &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a>
+</td>
+<td markdown="span">Returns <strong>expression</strong> with the source renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong>, the option is set to <strong>source</strong>.</td>
 </tr>
 </tbody>
 </table>

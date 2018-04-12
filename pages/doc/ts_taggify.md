@@ -16,7 +16,7 @@ taggify (expression, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
 taggify (expression, metric|source|{tagk, <pointTagKey>}, “regexSearchPattern”, “replacementPattern”])
 ```
 
-Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key-value for that particular query.
+Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
 
 ## Parameters
 
@@ -26,18 +26,18 @@ Lets you extract a string from an existing metric name, source name, or point ta
 <tr><th width="30%">Property</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td>expression</td>
+<td markdown="span">[expression](query_language_reference.html#expressions)</td>
 <td>The <code>ts()</code> expression to extract a piece of information from.</td>
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use &#123;tagk, pointTagKey&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the particular point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
+<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use <strong>&#123;tagk, pointTagKey&#125;</strong> if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
 <tr>
 <td>&lt;newPointTagKey&gt;, zeroBasedNodeIndex, delimiterDefinition</td>
 <td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and rename the source.
 <ul>
-<li><emphasis><code>newPointTagKey</code></emphasis> - The new point tag key.</li>
-<li><code>zeroBasedNodeIndex</code> - The node to extract from the selected source name(s), metric name(s), or point tag value(s). <code>taggify()</code> uses that node to create a new synthetic point tag key-value. Required.</li>
+<li><emphasis><code>newPointTagKey</code></emphasis> - New point tag key.</li>
+<li><code>zeroBasedNodeIndex</code> - Node to extract from the selected source name(s), metric name(s), or point tag value(s). <code>taggify()</code> uses that node to create a new synthetic point tag key-value. Required.</li>
 <li><code>delimiterDefinition</code> - Use this optional parameter to specify a delimiter other than period ("."). For example, to extract <code>total_environment</code> from <code>disk.space-total_environment</code>, set <code>zeroBasedNodeIndex</code> to 2 and <code>"delimiterDefinition"</code> to ".-". If no <code>"delimiterDefinition"</code> is specified, then only periods (".") are considered delimiters.</li>
 </ul> </td>
 </tr>
@@ -50,9 +50,9 @@ Lets you extract a string from an existing metric name, source name, or point ta
 
 ## Description
 
-`taggify()` lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that particular query.
+`taggify()` lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
 
-For example, assume you have a set of metrics that include a customer name in the actual metric name. Each customer has 3 unique metrics associated with it and all metrics are  being reported by a single source:
+For example, suppose that you have a set of metrics that include a customer name in the actual metric name. Each customer has 3 unique metrics associated with it and all metrics are  being reported by a single source:
 
 ```
 Source="Customer-Example"
@@ -69,7 +69,7 @@ cpu.total.customerB
 Based on this dataset, you can aggregate the data, but cannot aggregate based on customer. You can instead use a "group-by" point tag option for aggregate functions. To get the results you want, you:
 
 * Extract the customer name from the metric(s) and apply it as a synthetic point tag.
-* You apply an aggregate function.
+* Apply an aggregate function.
 
 ```
 min(taggify(ts("cpu.*"), metric, customer, 2), customer)
@@ -141,19 +141,7 @@ The following query uses the zeroBasedNodeIndex approach to:
 taggify(ts("performance.*.tracker"), source, version, 1)
 ```
 
-Because hyphens ("-") and underscores ("_") are used in the source name, you can write this query as in one of the following examples:
-
-- `taggify(ts("performance.*.tracker"), source, version, 4, "-_.")`
-- `taggify(ts("performance.*.tracker"), source, version, 3, "-.")`
-
-For any of these queries, your hover legend will show a new column labeled `version` with values `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.
-
-You can next `taggify` calls. For example, to extract `asg` from the source, you run this command:
-
-```
-taggify(taggify(default(0, ts(production.infra.aws.ec2.instance.pulldeploy.failed.count.sum, asg="buildslave*")),source,temp_asg,2,'.'),tagk,temp_asg,my_asg,0,'-')
-```
-
+You can nest `taggify` calls.
 
 ### Using taggify with a Regular Expression
 
@@ -175,4 +163,5 @@ When you use `taggify` with a regular expression, you might encounter a  behavio
 ``
 taggify(highpass(80, align(15m, mean, ts(metricname),tagk,tenant,grouping,".*","ProblematicTenant") ...
 ``
+
 Use ".+", "^." or ".*$" as your search pattern to match the entire string only once.
