@@ -14,7 +14,7 @@ Integrations are one easy way to get data from external systems into Wavefront. 
 
 ## Try an Integration!
 
-Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product. 
+Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product.
 
 Here's a sample of what you see when you select one of the Wavefront integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
@@ -130,3 +130,10 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 ## Cloning and Customizing Dashboards
 
 You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) icon, select **Clone**, and provide a URL string that's just the name (e.g. `mydashboard`) and not the URL (e.g. `http://mydashboard`). You can then customize the clone to suit your needs.
+
+## More Info
+
+On our [wavefront.com](http://www.wavefront.com){:target="_blank" rel="noopenner noreferrer"} site have some blog posts with use cases and background info:
+* [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://www.wavefront.com/gcp-metrics/){:target="_blank" rel="noopenner noreferrer"}
+* [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://www.wavefront.com/mongodb-metrics/){:target="_blank" rel="noopenner noreferrer"}
+* [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://www.wavefront.com/monitoring-apache-http-server-wavefront-metrics-driven-analytics/){:target="_blank" rel="noopenner noreferrer"}
