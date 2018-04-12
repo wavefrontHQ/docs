@@ -8,7 +8,7 @@ summary: Learn how to monitor Wavefront proxies.
 
 ## Monitoring Proxy Health with the System Usage Dashboard
 
-[Wavefront proxies](proxies_managing.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected.
+[Wavefront proxies](proxies.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected.
 
 The Proxy Health section of the System Usage dashboard includes commonly used internal metrics, such as the `~proxy.points` counter metrics, which measure the data traffic on each port of the proxy. These metrics show the rate at which each proxy receives points, the rate at which the proxy sends points to the Wavefront service, and any queued or blocked points. Here's an overview of metrics on this dashboard:
 

@@ -22,7 +22,7 @@ You can learn more about each set of permissions by clicking the permission head
 - [External Links Management](external_links_managing.html) - create, update, and delete external links.
 - [Integration Management](integrations.html) - install and uninstall integration dashboards.
 - [Metrics Management](metrics_managing.html) - manually hide and unhide metrics and metric prefixes from being displayed in the Metrics browser and autocomplete dropdown while creating a ts() query.
-- [Proxy Management](proxies_managing.html) - view, create, and manage proxies and set up external integrations with AWS.
+- [Proxy Management](proxies_installing.html#managing-proxy-services) - view, create, and manage proxies and set up external integrations with AWS.
 - [Registered Query Management](registered_queries.html) - create and manage registered queries, which support reingesting a query.
 - [Source Tag Management](sources_managing.html) - manage sources and source tags.
 - [User Management](users_managing.html) - add and remove users and administer permissions.
