@@ -41,27 +41,27 @@ With the optional `sources`, `metrics`, `sourceTags`, or `tags` parameter, you c
 
 The following examples illustrate this.
 
-**Example 1: No Grouping**
+**Example 1: No Filtering, no Grouping**
 
 This chart does no grouping and shows a single line:
 
 ![sum_simple](images/ts_sum.png)
 
-**Example 2: Grouping by Source**
+**Example 2: Filtering by Source**
 
-This chart selects only `db-*` servers. We still see a single line, but a different pattern:
+This chart uses a filter, it selects only `db-*` servers. We still see a single line, but a different pattern:
 
-`sum(ts (~sample.cpu.loadavg.1m and source="db-*"))`
+`sum(ts(~sample.cpu.loadavg.1m, source="db-*"))`
 
-![sum_groupby_db](images/ts_sum_groupby_db.png)
+![sum_groupby_db](images/ts_sum_filter.png)
 
 **Example 3: Grouping by Source and Point Tag**
 
-This chart groups by source and by the `env` point tag (env=production and env=dev). This chart also shows us why the charts in Example 1 and Example 2 are so similar. The servers in the two groups have similar but not the same CPU load patterns.
+This chart filters by source and groups by the `env` point tag (`env=production` and `env=dev`). This chart also shows us why the charts in Example 1 and Example 2 are so similar. The servers in the two groups have similar but not the same CPU load patterns.
 
-`sum(ts (~sample.cpu.loadavg.1m and source="db-*"),env)`
+`sum(ts(~sample.cpu.loadavg.1m, source="db-*"),env)`
 
-![sum_groupby_db](images/ts_sum_groupby_db_env.png)
+![sum_groupby_db](images/ts_sum_filter_group.png)
 
 
 You can specify multiple arguments. For example, `sum(ts("cpu.cpu*"), metrics, Customer)` first groups by metrics, and then groups by the `Customer` point tag.

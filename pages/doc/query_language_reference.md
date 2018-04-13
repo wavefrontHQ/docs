@@ -125,7 +125,6 @@ Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>
 Aggregation and raw aggregation functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregation functions first interpolate the points of the underlying set of series (up to one day), and then apply the aggregation function to the interpolated series. Raw aggregation functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
 
 
-
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -139,61 +138,62 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_sum.html"> sum(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the sum of all series. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
+<td><a href="ts_sum.html">sum(<strong>expression</strong> &lbrack;,<strong>metrics|sources| sourceTags|tags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td>Returns the sum of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
 </tr>
 <tr>
-<td markdown="span">rawsum(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the sum of all series.</td>
+<td><a href="ts_rawsum.html"> rawsum(<strong>expression</strong> &lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the sum of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">avg(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the average of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation.</td>
+<td><a href="ts_avg.html"> avg(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the average of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">rawavg(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the average of all series.</td>
+<td><a href="ts_rawavg.html"> rawavg(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt; pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the average of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">min(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the lowest value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation. </td>
+<td><a href="ts_min.html"> min(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the lowest value of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">rawmin(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the lowest value of all series.</td>
+<td><a href="ts_rawmin.html"> rawmin(<strong>expression</strong>&lbrack;,<strong> metrics|sources| sourceTags|tags|&lt; pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the lowest value of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">max(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the highest value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation.</td>
+<td><a href="ts_max.html"> max(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the highest value of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">rawmax(<span style="color:#3a0699;font-weight:bold">expression</span><span style="font-weight:bold">[,metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the highest value of all series. </td>
+<td><a href="ts_rawmax.html"> rawmax(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the highest value of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td>count(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
+<td><a href="ts_count.html">count(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags| tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of series that are reporting. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
 </tr>
 <tr>
-<td markdown="span">rawcount(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the number of series that are reporting.</td>
+<td><a href="ts_rawcount.html"> rawcount(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the number of series that are reporting. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">variance(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td> Returns the variance of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation.</td>
+<td><a href="ts_variance.html"> variance(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the variance of all series. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">rawvariance(<span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the variance of all series.</td>
+<td><a href="ts_rawvariance.html"> rawvariance(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the variance of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td markdown="span">percentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the <span style="color:#d63a36;font-weight:bold">percentileValue</span> value of all series. If there are gaps of data in <span style="color:#3a0699;font-weight:bold">expression</span>, they will first be filled in with interpolation. Example: If <span style="color:#d63a36;font-weight:bold">percentileValue is</span> 99, returns the 99th percentile value of all series.
-<div>Set <span style="color:#d63a36;font-weight:bold">percentileValue</span> to 50 for the mean value of all series.</div></td>
+<td><a href="ts_percentile.html"> percentile(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the <strong>percentileValue</strong> value of all series. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.
+For example, if <strong>percentileValue is</strong> 99, returns the 99th percentile value of all series.
+<div>Set <strong>percentileValue</strong> to 50 for the mean value of all series.</div></td>
 </tr>
 <tr>
-<td markdown="span">rawpercentile(<span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[,<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the <span style="color:#d63a36;font-weight:bold">percentileValue</span> value of all series. Example: If <span style="color:#d63a36;font-weight:bold">percentileValue</span> is 99, returns the 99th percentile value of all series.</td>
+<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>percentileValue</strong>,<strong>expression</strong>&lbrack; ,<strong>metrics|sources| sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the <strong>percentileValue</strong> value of all series. For example, if <strong>percentileValue</strong> is 99, returns the 99th percentile value of all series.</td>
 </tr>
 </tbody>
 </table>
