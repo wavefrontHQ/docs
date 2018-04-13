@@ -102,7 +102,7 @@ You can also use a regular expression with `aliasMetric()` to transform an exist
 
 ## Examples
 
-The following examples illustrate both the zeroBasedNodeIndex approach and the regEx approach.
+The following example illustrates the zeroBasedNodeIndex approach. More detailed examples are on the [aliasSource](ts_aliasSource.html) page, the examples for `aliasMetric` are similar. 
 
 ### aliasMetric Using a zeroBasedNodeIndex - Example
 
