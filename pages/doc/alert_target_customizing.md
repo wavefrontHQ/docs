@@ -7,7 +7,7 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert target templates.
 ---
 
-You can use Wavefront alert targets to integrate alerts with many types of notification systems. [Using Alert Targets to Send Alerts to Notification Systems](alert_targets.html) explains how to create and manage alert targets.
+You can use Wavefront alert targets to integrate alerts with many types of notification systems. [Using Alert Targets to Send Alerts to Notification Systems](webhooks_alert_notification.html) explains how to create and manage alert targets.
 
 Alert target customization variables and customization functions support customizing alert target templates. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
 

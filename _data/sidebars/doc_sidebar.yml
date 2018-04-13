@@ -43,6 +43,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2018-14.x Release Notes
+      url: /2018.14.x_release_notes.html
+      output: web
+
     - title: 2018-10.x Release Notes
       url: /2018.10.x_release_notes.html
       output: web
@@ -163,10 +167,6 @@ entries:
 
         - title: Standard Versus Raw Aggregate Functions
           url: /query_language_aggregate_functions.html
-          output: web
-
-        - title: Metadata Functions
-          url: /query_language_metadata_functions.html
           output: web
 
         - title: Detecting Anomalies
