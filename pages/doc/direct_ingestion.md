@@ -28,7 +28,7 @@ The following commands illustrate how to send a string, a file, and an octet to 
 
 ### Multiple data points
 
-Assuming `wavefront.txt` contained 1 or more lines in the Wavefront data format you could send it to Waveront like this:
+Assuming `wavefront.txt` contained 1 or more lines in the Wavefront data format you could send it to Wavefront like this:
 
 ```
 cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://metrics.wavefront.com/report?f=graphite_v2
