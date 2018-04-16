@@ -21,14 +21,14 @@ Because some customers told us they'd like to send data directly to the Wavefron
 
 ## Example Commands
 
-The following commands illustrate how to send a string, a file, and an octet to Wavefront.
+The following examples illustrate how to send data to Wavefront.
 * An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<<TOKEN>>` in the examples.
-* You must know your Wavefront domain name, `metrics.wavefront.com` is used in the examples.
+* You must know your Wavefront domain name. These examples use `metrics.wavefront.com`.
 * The examples use the [Wavefront Data Format](wavefront_data_format.html) which is named `graphite_v2`.
 
 ### Multiple data points
 
-Assuming `wavefront.txt` contained 1 or more lines in the Wavefront data format you could send it to Wavefront like this:
+Assume `wavefront.txt` containe 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
 
 ```
 cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://metrics.wavefront.com/report?f=graphite_v2
@@ -36,8 +36,7 @@ cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https:/
 
 ### Single data point
 
-Send a single data point:
-
+You can send a single data point like this: 
 ```
 echo "hello.world 1 host=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://metrics.wavefront.com/report?f=graphite_v2
 ```
