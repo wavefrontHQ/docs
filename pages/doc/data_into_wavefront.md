@@ -53,7 +53,9 @@ For many of the use cases that center around infrastructure monitoring and alert
     Wavefront supports integrations for many custom collectors. The collector agent can send your data to the Wavefront proxy.
 
     Some collector agents, such as Telegraf, include an output plug-in for Wavefront. You add a configuration file to Telegraf that specifies which data you want to get from which host, and select the proxy to send the data to.
+
 ![data flow](images/data_flow.png)
+
     Many of the in-product integrations include examples for Telegraf input plugin configuration.
     * The Active Directory integration is an example for a Windows Telegraf input plugin.
     * The Mesos integration is an example for an environment where both primary and secondary server have to have Telegraf input plugins.
