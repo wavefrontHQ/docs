@@ -447,4 +447,4 @@ Ansible is an open-source automation engine that automates software provisioning
 
 **Note**: In most cases, you install only one or two proxies in your environment. You don't need a proxy for each host you collect data from. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
 
-For details, see the Ansible in-product integration Setup tab.
+For details, see the Setup tab in the Ansible built-in integration.

@@ -14,7 +14,7 @@ You can create alert targets from scratch or use one of the predefined integrati
 
 * [Customizing Alert Targets](alert_target_customizing.html) explains how to use webhook templates, variables, and functions to customize alert target behavior.
 
-* Wavefront provides predefined integrations for several notification systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the in-product integration. Here's a list of all [in-product integrations](integrations_list.html).
+* Wavefront provides predefined integrations for several notification systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the built-in integration. Here's a list of all [built-in integrations](integrations_list.html).
 
 To view and manage alert targets, select **Browse > Alert Targets**.
 

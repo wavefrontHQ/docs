@@ -9,7 +9,7 @@ summary: Learn how to send memcached data collected by collectd to Wavefront.
 
 [memcached](https://memcached.org/) is a popular memory object cache system. See [collectd memcached plugin documentation] (https://collectd.org/wiki/index.php/Plugin:memcached).
 
-Wavefront supports an in-product integration that gets data from memcached using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
+Wavefront supports a built-in integration that gets data from memcached using Telegraf. If you want to use collectd instead, follow the instructions on this page. 
 
 ## Installation
 

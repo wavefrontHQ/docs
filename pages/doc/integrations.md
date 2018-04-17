@@ -4,13 +4,13 @@ keywords: integrations
 tags: [integrations, data, dashboards, alerts, administration]
 sidebar: doc_sidebar
 permalink: integrations.html
-summary: Learn how to customize an in-product integration and how to set up a custom integration.
+summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
 Integrations are one easy way to get data from external systems into Wavefront. This documentation includes:
  * A complete, up-to-date [list of Wavefront integrations](integrations_list.html)
  * A list [new and updated integrations](integrations_new_changed.html) that we update monthly.
- * Customization hints for in-product integrations and instructions for some [custom integrations](integrations.html#in-product-and-custom-integrations).
+ * Customization hints for built-in integrations and instructions for some [custom integrations](integrations.html#built-in-and-custom-integrations).
 
 ## Try an Integration!
 
@@ -28,16 +28,16 @@ Here's a screen shot that shows the different tabs of the Apache Solr integratio
 
 **Note** Even if we don't have an integration for you data source, you can send your data directly to the [Wavefront proxy](proxies.html) in one of the [supported data formats](proxies.html#supported-data-formats).
 
-## In-Product and Custom Integrations
+## Built-In and Custom Integrations
 Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
 
-- **In-product integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the menu bar and click the **Setup** tab.
+- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the menu bar and click the **Setup** tab.
 
   For some data sources, for example Amazon AWS, we offer an integration for the initial connection and give customization information in this documentation.
 
 - **Custom** integrations provide installation and configuration instructions in this documentation.
 
-To customize an in-product integration or set up a custom integration, click one of the links below, or pick the integration from the Table of Contents on the left.
+To customize an built-in integration or set up a custom integration, click one of the links below, or pick the integration from the Table of Contents on the left.
 
 <table width="100%">
 <colgroup>
@@ -49,7 +49,7 @@ To customize an in-product integration or set up a custom integration, click one
 </thead>
 <tbody>
 <tr>
-<td>In-Product Integration Customization</td>
+<td>Customization of Built-In Integrations</td>
 <td markdown="span">[AWS Metrics Integration](integrations_aws_metrics.html),[Amazon Web Services ECS](integrations_aws_ecs.html), [Log Data -- FileBeat and TCP](integrations_log_data.html)
 </td>
 </tr>
