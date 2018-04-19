@@ -10,14 +10,15 @@ summary: Reference to the aliasMetric() function
 ## Summary
 
 ```
-aliasMetric (expression, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
+aliasMetric (expressions, metrics|sources|{tagk, <pointTagKey>}, <newPointTagKey>,
          [zeroBasedNodeIndex [,delimiterDefinition])
 
-aliasMetric (expression, metric|source|{tagk, <pointTagKey>}, “regexSearchPattern”,
+aliasMetric (expression, metrics|sources|{tagk, <pointTagKey>}, “regexSearchPattern”,
          “replacementPattern” | "replacementString"])
 ```
 
-Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`expression, metric|source|{tagk, <pointTagKey>}`), it defaults to `source`.
+
+Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`expression, metrics|sources|{tagk, <pointTagKey>}`), it defaults to `sources`.
 
 ## Parameters
 
@@ -102,7 +103,7 @@ You can also use a regular expression with `aliasMetric()` to transform an exist
 
 ## Examples
 
-The following example illustrates the zeroBasedNodeIndex approach. More detailed examples are on the [aliasSource](ts_aliasSource.html) page, the examples for `aliasMetric` are similar. 
+The following example illustrates the zeroBasedNodeIndex approach. More detailed examples are on the [aliasSource](ts_aliasSource.html) page, the examples for `aliasMetric` are similar.
 
 ### aliasMetric Using a zeroBasedNodeIndex - Example
 

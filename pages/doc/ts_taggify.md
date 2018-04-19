@@ -10,10 +10,10 @@ summary: Reference to the taggify() function
 ## Summary
 
 ```
-taggify (expression, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
+taggify (expression, metrics|sources|{tagk, <pointTagKey>}, <newPointTagKey>,
          [zeroBasedNodeIndex [,delimiterDefinition])
 
-taggify (expression, metric|source|{tagk, <pointTagKey>}, “regexSearchPattern”, “replacementPattern”])
+taggify (expression, metrics|sources|{tagk, <pointTagKey>}, “regexSearchPattern”, “replacementPattern”])
 ```
 
 Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
@@ -30,8 +30,8 @@ Lets you extract a string from an existing metric name, source name, or point ta
 <td>The <code>ts()</code> expression to extract a piece of information from.</td>
 </tr>
 <tr>
-<td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use <strong>&#123;tagk, pointTagKey&#125;</strong> if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
+<td>metrics&vert;sources&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
+<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. For example, use <strong>&#123;tagk, &lt;pointTagKey&gt;&#125;</strong> if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
 <tr>
 <td>&lt;newPointTagKey&gt;, zeroBasedNodeIndex, delimiterDefinition</td>
 <td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and rename the source.
