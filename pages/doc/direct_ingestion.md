@@ -28,7 +28,7 @@ The following examples illustrate how to send data to Wavefront.
 
 ### Multiple data points
 
-Assume `wavefront.txt` containe 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
+Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
 
 ```
 cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://metrics.wavefront.com/report?f=graphite_v2
