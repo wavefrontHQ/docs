@@ -9,9 +9,7 @@ summary: Learn how to save a query so it runs once a minute, and how to use the 
 
 The derived metrics functionality allows you to run a query and ingest it back into Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.
 
-<div markdown="span" class="alert alert-info">While every Wavefront user can view derived metrics, you must have [Derived Metrics Management permissions](permissions_overview.html) to create and manage derived metrics.
-If you don't have the permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible, however, you can still view and use the derived metrics. </div>
-
+<div markdown="span" class="alert alert-info">You must have [Derived Metrics Management permissions](permissions_overview.html) to create and manage derived metrics.</div>
 
 ## Use Cases
 
