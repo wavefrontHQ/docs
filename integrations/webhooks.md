@@ -1,0 +1,31 @@
+---
+title: Webhooks Integration
+tags: []
+permalink: webhooks.html
+summary: Learn about the Wavefront Webhooks Integration.
+---
+## Webhooks
+
+Webhooks allow your application to send out information using HTTP callbacks. Wavefront supports webhooks through the Webhook alert target. You can use an alert target to send notifications that are based on alert trigger conditions.
+
+
+## Webhooks Setup
+
+
+
+
+### Step 1. Create a Webhook Alert Target
+
+{% include webhooks_create.md %}
+1. In the **content type** field, select `application/json`.
+1. Select **Alert Target POST Body Template > TEMPLATE > Webhook Default**.
+1. Customize the [template](https://docs.wavefront.com/webhooks_alert_notification.html#customizing-webhook-templates).
+1. Click **Save**. The webhook alert target is added to the Alert Targets page.
+1. In the Name column, note the ID of the alert target under the alert target description.
+
+### Step 2. Add the Alert Target to an Alert
+
+{% include alerts.md %}
+{% include webhooks_select.md %}
+
+

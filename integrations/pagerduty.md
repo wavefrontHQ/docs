@@ -1,0 +1,47 @@
+---
+title: PagerDuty Integration
+tags: []
+permalink: pagerduty.html
+summary: Learn about the Wavefront PagerDuty Integration.
+---
+## PagerDuty Integration
+
+PagerDuty is a popular incident management platform. This integration configures PageDuty API keys or email addresses as targets of Wavefront alert notifications.
+
+Wavefront recommends using the PagerDuty API integration key instead of the PagerDuty email integration, but the choice between the two targets should be dependent upon how you want incidents to be created in PagerDuty based on your Wavefront alerts. When a PagerDuty API integration key is used in a Wavefront alert, all alert changes (firing, updated, resolved) are tied to a single incident in PagerDuty. When a PagerDuty email address is used in a Wavefront alert, the number of incidents created in PagerDuty can change significantly based on the email management configurations.
+
+Consider the following scenario:
+{% raw %}
+```
+12:01pm - Alert: High Latency fires for source=app-1
+12:05pm - Alert Updates: High Latency fires for source=app-5 and source=app-7 (app-1 is still being affected)
+12:10pm - Alert Updates: High Latency recovers for source=app-1 and source=app-7 (app-5 is still being affected)
+12:12pm - Alert Resolves: High Latency resolves for source=app-5 (no more sources are affected)
+```
+{% endraw %}
+
+In this scenario, choosing a PagerDuty API integration key target means that a single incident would track all of those changes and would also resolve the incident automatically in PagerDuty if the alert resolves in Wavefront. Choosing a PagerDuty email target requires you to customize the email management configuration to determine whether the scenario above would create 1 to 4 separate incidents in PagerDuty.
+
+If want to use a PagerDuty email target, consider the **Open a new incident only if an open incident does not already exist** option carefully. If you select this option and the PagerDuty email target is used in multiple Wavefront alerts, you run the risk of having multiple Wavefront alerts tied to a single incident in PagerDuty.
+
+## PagerDuty Setup
+
+
+
+### Step 1. Retrieve Your PagerDuty API Integration Key or Email Address
+
+1. Log into your PagerDuty account.
+1. Click the **Services** tab.
+1. In the Integrations column, click the **API** or **Email** link.
+{% include image.md width="50" src="images/pagerduty_keys.png" %}
+1. Copy the API integration key or email address.
+
+### Step 2. Add the PagerDuty Integration to a Wavefront Alert
+
+Edit the alert and set the alert target.
+
+{% include alerts.md %}
+1. Configure the target with a PagerDuty API integration key or email address:
+   - PagerDuty API integration key - Type **pd:** into the Targets field and paste the API integration key after **pd:**. You will be unable to save the alert if **pd:** does not precede the key or the key is incomplete.
+   - PagerDuty email address - Paste the email address into the Targets field.
+1. Click **Save**.
