@@ -16,7 +16,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 
 
-#### Step 1: Install and Configure the Wavefront Proxy Manually
+### Step 1: Install and Configure the Wavefront Proxy Manually
 
 1. Download the [Wavefront proxy jar](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/proxy-4.26-uber.jar) and [Wavefront config file](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/wavefront.conf).
 2. Open the `wavefront.conf` file for edit, add the following proxy properties and save the file:{% raw %}
@@ -35,7 +35,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 **NOTE:** If Java is not installed, run `pkg install openjdk8`.
 6. [Verify that the proxy has registered](/proxies) with the Wavefront server.
 
-#### Step 2: Install and Configure the Telegraf Agent Manually
+### Step 2: Install and Configure the Telegraf Agent Manually
 
 1. Download the Telegraf package: [amd64](https://dl.influxdata.com/telegraf/releases/telegraf-1.5.2_freebsd_amd64.tar.gz) / [i386](https://dl.influxdata.com/telegraf/releases/telegraf-1.5.2_freebsd_i386.tar.gz)
 2. Extract the `telegraf-*.tar.gz` file and change the working directory to the extracted directory:
