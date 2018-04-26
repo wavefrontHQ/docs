@@ -38,7 +38,7 @@ cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https:/
 
 You can send a single data point like this:
 ```
-echo "hello.world 1 host=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://metrics.wavefront.com/report?f=graphite_v2
+echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://metrics.wavefront.com/report?f=graphite_v2
 ```
 
 ## Comparing Proxy and Direct Ingestion
