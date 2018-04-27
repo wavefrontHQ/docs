@@ -109,7 +109,12 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
        Measurement = "iis.http.queues"
        #IncludeTotal=false #Set to true to include _Total instance when querying for all (*).
    ```
-    **Note:** On `IIS` dashboard, `System Performance` section uses Windows system metrics configured by default in Telegraf. To get data on `Avg Disk Latency` chart, add Counters "Avg. Disk sec/Read", "Avg. Disk sec/Write" and set variable `IncludeTotal = true` for `LogicalDisk` configuration.
+   
+**Note:** On `IIS` dashboard, the **System Performance** section uses Windows system metrics configured by default in Telegraf. 
+
+To see data in the **Avg Disk Latency** chart, add the following to the config file: 
+* Add `Avg. Disk sec/Read"` and `Avg. Disk sec/Write` in the `Counters` section.
+* For `LogicalDisk` configuration, set the variable `IncludeTotal = true`.
 
 ### Step 4: Restart the Telegraf service
 
