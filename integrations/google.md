@@ -14,18 +14,17 @@ Wavefront supports authentication via SAML including Google SSO.
 1. In Google, create a SAML App for Wavefront within Google IDP (settings described below, following the instructions in [Set up your own SAML app](https://support.google.com/a/answer/6087519?hl=enhttp://)).
 {% include image.md src="images/integrations_sso_google.png" width="50" %}
 
-    Here are the service provider details settings that you need:
-    
-    - **Application Name**: Wavefront
-    - **Description**: Optional
-    - **ACS URL\*** : http://YOUR_CLUSTER.wavefront.com/api/saml/login
-    - **Entity ID\***:  http://YOUR_CLUSTER.wavefront.com
-    - **Start URL**: leave blank
-    - **Signed Response**: Unchecked
-    - **Name ID**: Basic Information, Primary Email
-    - **Name ID Format**: UNSPECIFIED
+Here are the service provider details settings that you need:    
+- **Application Name**: Wavefront
+- **Description**: Optional
+- **ACS URL\*** : http://YOUR_CLUSTER.wavefront.com:443/api/saml/login
+- **Entity ID\***:  http://YOUR_CLUSTER.wavefront.com:443
+- **Start URL**: leave blank
+- **Signed Response**: Unchecked
+- **Name ID**: Basic Information, Primary Email
+- **Name ID Format**: UNSPECIFIED
 
-      You do not need the optional Attribute Mapping.
+You do not need the optional Attribute Mapping.
       
 ### Step 2. Send Identity Provider Metadata to Wavefront
 
