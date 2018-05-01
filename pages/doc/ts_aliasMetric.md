@@ -10,15 +10,15 @@ summary: Reference to the aliasMetric() function
 ## Summary
 
 ```
-aliasMetric (<expression>, [metrics|sources|{tagk, <pointTagKey>}, <newPointTagKey>},]
+aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}, <newPointTagKey>},]
          [<zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasMetric (<expression>, [metrics|sources|{tagk, <pointTagKey>}], “<regexSearchPattern>”,
+aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearchPattern>”,
          “<replacementPattern>” | "<replacementString>"])
 ```
 
 
-Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metrics|sources|{tagk, <pointTagKey>}`), it defaults to `sources`.
+Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metric|source|{tagk, <pointTagKey>}`), it defaults to `source`.
 
 ## Parameters
 
@@ -32,11 +32,11 @@ Extract a string from an existing metric name, source name, or point tag value a
 <td>The <code>ts()</code> expression to extract a string from.</td>
 </tr>
 <tr>
-<td>metrics&vert;sources&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
+<td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
 <td>The set of data to extract a node from. This node is then used to rename one or more metrics.
 <ul>
 <li>Use &#123;tagk, &lt;pointTagKey&gt; &#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
-<li>If you don't specify metrics, sources, or tagk, this parameter defaults to <code>sources</code>.</li></ul> </td>
+<li>If you don't specify metric, source, or tagk, this parameter defaults to <code>source</code>.</li></ul> </td>
 </tr>
 <tr>
 <td>zeroBasedNodeIndex</td>

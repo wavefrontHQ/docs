@@ -10,10 +10,10 @@ summary: Reference to the aliasSource() function
 ## Summary
 
 ```
-aliasSource (<expression>, [metrics|sources|{tagk, <pointTagKey>},]
+aliasSource (<expression>, [metric|source|{tagk, <pointTagKey>},]
             <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasSource (<expression>, [metrics|sources|{tagk, <pointTagKey>},]
+aliasSource (<expression>, [metric|source|{tagk, <pointTagKey>},]
             “<regexSearchPattern>”, "<replacementPattern>")
 ```
 
@@ -31,11 +31,11 @@ Replace one or more source names in a ts() expression with a string extracted fr
 <td>The <code>ts()</code> expression to extract a string from.</td>
 </tr>
 <tr>
-<td>metrics&vert;sources&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
+<td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
 <td>The set of data to extract a node from. This node is then used to rename one or more sources.
 <ul>
 <li>Use &#123;tagk, pointTagKey&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
-<li>If you don't specify (<code>metrics</code>, <code>sources</code>, or <code>tagk</code>), this parameter defaults to <code>metrics</code>.</li></ul> </td>
+<li>If you don't specify (<code>metric</code>, <code>source</code>, or <code>tagk</code>), this parameter defaults to <code>metric</code>.</li></ul> </td>
 </tr>
 <tr>
 <td>zeroBasedNodeIndex</td>
@@ -149,10 +149,10 @@ source=phyServ
 To see the virtual machine name instead of the physical server name as the source name, you can use `aliasSource`:
 
 ```
-aliasSource(ts(disk.space.total.*),metrics, 3)
+aliasSource(ts(disk.space.total.*),metric, 3)
 ```
 
-* You set the second parameter to `metrics` because you want to extract the string from the metric name.
+* You set the second parameter to `metric` because you want to extract the string from the metric name.
 * You don't have to specify a delimiterDefinition because the metric name uses only periods as delimiters.
 * You set `zeroBasedNodeIndex` to 3 because the VM name has that index in `disk.space.total.vm1`.
 
