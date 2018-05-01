@@ -10,11 +10,11 @@ summary: Reference to the aliasSource() function
 ## Summary
 
 ```
-aliasSource (expression, [metric|source|{tagk, <pointTagKey>},]
-            zeroBasedNodeIndex [, "delimiterDefinition"])
+aliasSource (<expression>, [metrics|sources|{tagk, <pointTagKey>},]
+            <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasSource (expression, metric|source|{tagk, <pointTagKey>},]
-            “regexSearchPattern”, "replacementPattern")
+aliasSource (<expression>, [metrics|sources|{tagk, <pointTagKey>},]
+            “<regexSearchPattern>”, "<replacementPattern>")
 ```
 
 Replace one or more source names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).
@@ -31,11 +31,11 @@ Replace one or more source names in a ts() expression with a string extracted fr
 <td>The <code>ts()</code> expression to extract a string from.</td>
 </tr>
 <tr>
-<td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from for the purpose of renaming one or more sources.
+<td>metrics&vert;sources&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
+<td>The set of data to extract a node from. This node is then used to rename one or more sources.
 <ul>
 <li>Use &#123;tagk, pointTagKey&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
-<li>If you don't specify (<code>metric, source, tagk</code>), this parameter defaults to <code>metric</code>.</li></ul> </td>
+<li>If you don't specify (<code>metrics</code>, <code>sources</code>, or <code>tagk</code>), this parameter defaults to <code>metrics</code>.</li></ul> </td>
 </tr>
 <tr>
 <td>zeroBasedNodeIndex</td>
@@ -75,7 +75,7 @@ The `aliasSource()` function supports several ways of replacing source names in 
 
 ### zeroBasedNodeIndex Approach
 
-When you use the zeroBasedNodeIndex approach for `aliasSource()`, you extract a single node from an existing source name, metric name, or point tag value and use it to rename a source.
+When you use the zeroBasedNodeIndex approach for `aliasSource()`, you extract a single node from an existing source name, metric name, or point tag value and use that node to rename a source.
 
 Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. For example, let's say that you have the following metric name:
 
@@ -85,29 +85,28 @@ disk.space.total.environment
 
 In the metric name above, each node is assigned a number:
 
-```
-disk = 0
-space = 1
-total = 2
-environment = 3
-```
+|**node**|**node number**
+|disk | 0 |
+|space | 1 |
+|total | 2 |
+|environment | 3 |
 
-The numbers listed above would be associated with the `zeroBasedNodeIndex` parameter.
+The node numbers can be associated with the `zeroBasedNodeIndex` parameter.
 
-By default, Wavefront identifies each node separated by a (".") delimiter. So if the above metric name was:
+By default, Wavefront identifies each node separated by a (".") delimiter. If the metric name is:
 
 ```
 disk.space-total_environment
 ```
 
-Then each node would be assigned the following number:
+Then each node is assigned the following number:
 
 ```
 disk = 0
 space-total_environment = 1
 ```
 
-If the data you want to extract a node from include delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter to identify those as delimiters.
+If the data you want to extract a node from include delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter to identify those delimiters.
 
 See the examples below for details.
 
@@ -150,10 +149,10 @@ source=phyServ
 To see the virtual machine name instead of the physical server name as the source name, you can use `aliasSource`:
 
 ```
-aliasSource(ts(disk.space.total.*),metric, 3)
+aliasSource(ts(disk.space.total.*),metrics, 3)
 ```
 
-* You set the `<source>` option to `metric` because you want to extract the string from the metric name.
+* You set the second parameter to `metrics` because you want to extract the string from the metric name.
 * You don't have to specify a delimiterDefinition because the metric name uses only periods as delimiters.
 * You set `zeroBasedNodeIndex` to 3 because the VM name has that index in `disk.space.total.vm1`.
 
@@ -177,7 +176,7 @@ aliasSource(ts("application.latency"), tagk, application, 2, ".-")
 In the example above:
 * You want to extract a new source name from an existing point tag value associated with the application point tag key, so you enter `tagk, application` as the source option parameter.
 * You want the new source name to be `<value>_<appName>`, so you specify period and hyphen as the `"delimiterDefinition"`. You do not specify underscore ("\_") as a delimiter. If you were to do that, then the zeroBasedNodeIndex approach would no longer extract both the `<value>` and `<appName>` from the existing point tag value(s).
-* You set `zeroBasedNodeIndex` to 2 because `"delimiterDefinition"` us set to periods (".") and hyphens ("-"). The `delimiterDefinition` choices set `<company>` as 0, `id` as 1, and `<value>_<appName>` as 2.
+* You set `zeroBasedNodeIndex` to 2. The `delimiterDefinition` choices -- both hyphen and period -- set `<company>` to 0, `id` to 1, and `<value>_<appName>` to 2.
 
 
 The following set of examples uses the same scenarios as the zeroBasedNodeIndex examples, but uses the regular expression approach.

@@ -546,20 +546,23 @@ Missing data functions allow you to interpolate missing data with points based o
 </tr>
 </thead>
 <tr>
-<td markdown="span">default([<span style="color:#757575;font-weight:bold">timeWindow,</span>] [<span style="color:#bf5700;font-weight:bold">delayTime,</span>] <span style="font-weight:bold">defaultValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with <span style="font-weight:bold">defaultValue</span> (whether that's a constant or an expression). The optional argument (<span style="color:#757575;font-weight:bold">timeWindow</span>) fills in that period of time after each existing point (for example, <span style="color:#757575;font-weight:bold">5m</span> for 5 minutes); without this argument, all gaps are filled in. The optional argument (<span style="color:#bf5700;font-weight:bold">delayTime</span>) refers to the amount of time that must pass without a reported value in order for the default value to be applied.</td>
+<td><a href="ts_default.html">default(&lbrack;,<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Fills in gaps in <strong>expression</strong> with <strong>defaultValue</strong> (whether that's a constant or an expression). The optional <strong>timeWindow</strong> parameter fills in the specified period of time after each existing point (for example, <strong>5m</strong> for 5 minutes). Without this argument, all gaps are filled in. The optional <strong>delayTime</strong> parameter specifies the amount of time that must pass without a reported value in order for the default value to be applied.</td>
 </tr>
 <tr>
-<td markdown="span">last([<span style="color:#757575;font-weight:bold">timeWindow,</span>] <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with the last known value of <span style="color:#3a0699;font-weight:bold">expression</span>. <span style="color:#757575;font-weight:bold">timeWindow </span> fills in a specified time period after each existing point.</td>
+<td><a href="ts_last.html">last(&lbrack;,<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Fills in gaps in <strong>expression</strong> with the last known value of <strong>expression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period after each existing point.</td>
 </tr>
 <tr>
-<td markdown="span">next([<span style="color:#757575;font-weight:bold">timeWindow,</span>] <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with the next known value of <span style="color:#3a0699;font-weight:bold">expression</span>. <span style="color:#757575;font-weight:bold">timeWindow</span> fills in a specified time period before each existing point.</td>
+<td><a href="ts_next.html">next(&lbrack;,<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Fills in gaps in <strong>expression</strong> with the next known value of <strong>expression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period before the first data point after the missing data.</td>
 </tr>
 <tr>
-<td>interpolate(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Fills in gaps in <span style="color:#3a0699;font-weight:bold">expression</span> with a continuous linear interpolation of points.</td>
+<td><a href="ts_interpolate.html">interpolate(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Fills in gaps in <strong>expression</strong> with a continuous linear interpolation of points.</td>
 </tr>
 </tbody>
 </table>

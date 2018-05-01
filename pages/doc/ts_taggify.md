@@ -26,15 +26,15 @@ Lets you extract a string from an existing metric name, source name, or point ta
 <tr><th width="30%">Property</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">[expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>The <code>ts()</code> expression to extract a piece of information from.</td>
 </tr>
 <tr>
 <td>metrics&vert;sources&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. For example, use <strong>&#123;tagk, &lt;pointTagKey&gt;&#125;</strong> if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
+<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use <strong>&#123;tagk, &lt;pointTagKey&gt;&#125;</strong> if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
 <tr>
 <td>&lt;newPointTagKey&gt;, zeroBasedNodeIndex, delimiterDefinition</td>
-<td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and rename the source.
+<td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and use it as the point tag value.
 <ul>
 <li><emphasis><code>newPointTagKey</code></emphasis> - New point tag key.</li>
 <li><code>zeroBasedNodeIndex</code> - Node to extract from the selected source name(s), metric name(s), or point tag value(s). <code>taggify()</code> uses that node to create a new synthetic point tag key-value. Required.</li>
@@ -82,7 +82,7 @@ The query above:
 4. Applies an aggregate function, in this case `min()`.
 5. Groups by customer (see [Grouping](query_language_reference.html#grouping))
 
-You can use `taggify()` with a simple zeroBasedNodeIndex syntax. If that syntax doesn't solve your use case, use the regex syntax.
+You can use `taggify()` with a zeroBasedNodeIndex syntax. If that syntax doesn't solve your use case, use the regex syntax.
 
 ### zeroBasedNodeIndex Approach
 
@@ -103,10 +103,11 @@ customerA_latency = 1
 i49f21a72 = 2
 ```
 
-By default, Wavefront identifies each node separated by a (".") delimiter. This is why `customerA_latency` is considered a single node. If the data you want to extract a node from includes other delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter. The syntax for `taggify()` using the zeroBasedNodeIndex approach is:
+By default, Wavefront assumes nodes are separated by a (".") delimiter. This is why `customerA_latency` is considered a single node. If the data you want to extract a node from includes other delimiters, such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter. The syntax for `taggify()` using the zeroBasedNodeIndex approach is:
 
 ```
-taggify(expression, metric|source|{tagk, <pointTagKey>}, newPointTagKey, zeroBasedNodeIndex [, "delimiterDefinition"])
+taggify(expression, metric|source|{tagk, <pointTagKey>}, newPointTagKey,
+   zeroBasedNodeIndex [, "delimiterDefinition"])
 ```
 
 ### Regex Approach
@@ -114,7 +115,8 @@ taggify(expression, metric|source|{tagk, <pointTagKey>}, newPointTagKey, zeroBas
 You can use a regular expression in `taggify()` to extract an existing metric name, source name, or point tag value and create a synthetic point tag from the information.  This approach works like search and replace &mdash;everything matching `regexSearchPattern` is replaced with `replacementPattern`. The syntax for this approach is:
 
 ```
-taggify(expression, metric|source|{tagk, <pointTagKey>}, version, "regexSearchPattern", "replacementPattern")
+taggify(expression, metric|source|{tagk, <pointTagKey>}, version,
+   "regexSearchPattern", "replacementPattern")
 ```
 
 
@@ -145,7 +147,7 @@ You can nest `taggify` calls.
 
 ### Using taggify with a Regular Expression
 
-To perform the transform shown in the zeroBasedNodeIndex Example with a regular expressions, use the following query:
+To perform the transform shown in the zeroBasedNodeIndex example with a regular expressions, use the following query:
 
 ```
 taggify(ts("performance.*.tracker"), source, "regexSearchPattern", "replacementPattern")

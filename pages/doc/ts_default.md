@@ -115,3 +115,9 @@ Here are some things to watch out for -- and suggestions how you can rewrite the
   `default(0, rawsum(ts(...)))`
 
 If you still think that `default()` is needed, limit the time window to reduce performance problems.
+
+## See Also
+
+[Using Moving and Tumbling Time Windows to Highlight trends](query_language_windows_trends.html)
+
+Other missing data functions include [interpolate](ts_interpolate.html), [next](ts_next.html), and [last](ts_last.html).
