@@ -1,5 +1,5 @@
 ---
-title: The align() Function
+title: Bucketing with align()
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
