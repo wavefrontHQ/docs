@@ -64,11 +64,15 @@ The Amazon Web Services integration is full-featured implementation offering pre
 <div><img src="images/aws_elasticache.png" alt="Amazon ElastiCache" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
-<h5>Amazon SQS</h5>
-<div><img src="images/aws_sqs.png" alt="Amazon SQS" style="max-width: 70px;"/></div>
+<h5>Amazon S3</h5>
+<div><img src="images/storage_amazon_s3.png" alt="Amazon S3" style="max-width: 70px;"/></div>
 </td>
 </tr>
 <tr>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon SQS</h5>
+<div><img src="images/aws_sqs.png" alt="Amazon SQS" style="max-width: 70px;"/></div>
+</td>  
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Kinesis Data Stream</h5>
 <div><img src="images/AmazonKinesisStreams.png" alt="Amazon Kinesis Data Stream" style="max-width: 70px;"/></div>
