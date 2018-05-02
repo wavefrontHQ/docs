@@ -58,8 +58,9 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 7. Enable the Docker input plugin by adding the following snippet:
 
-   ```
+```
 [[inputs.docker]]
+
   ## Docker Endpoint
   ##   To use TCP, set endpoint = "tcp://[ip]:[port]"
   ##   To use environment variables (ie, docker-machine), set endpoint = "ENV"
@@ -104,7 +105,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
   ## Use SSL but skip chain & host verification
   # insecure_skip_verify = false
   name_prefix = "coreos."
-   ```
+```
 {% endraw %}
 
 ### Step 3. Start the Telegraf Docker container
