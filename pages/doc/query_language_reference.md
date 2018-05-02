@@ -20,26 +20,39 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 </thead>
 <tbody>
 <tr>
-<td><span style="color:#08838c;font-weight:bold">metric</span></td>
-<td>The name of a metric. Example: <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>.</td>
-</tr>
+<td><span style="color:#3a0699;font-weight:bold">metric</span></td>
+<td>The name of a metric. For example: <code>cpu.load.metric</code>
+</td></tr>
 <tr>
-<td><span style="color:#d63a36;font-weight:bold">source name</span></td>
-<td>The name of the entity that emitted the metric. Specify source names with the keyword <span style="color:#d63a36;font-weight:bold">source</span>. Example: <span style="color:#d63a36;font-weight:bold">source=appServer15</span>.</td>
-</tr>
+<td><span style="color:#3a0699;font-weight:bold">source</span></td>
+<td>The name of the entity that emitted the metric. Specify source names with the keyword <strong><code>source</code></strong>.
+For example:
+<pre>source=appServer15</pre>
+</td></tr>
 <tr>
-<td><span style="color:#2770e8;font-weight:bold">source tag</span></td>
-<td>A type of source metadata. Specify source tags with the keyword <span style="color:#2770e8;font-weight:bold">tag</span>.
-Example: <span style="color:#2770e8;font-weight:bold">tag=app.*</span>.</td>
-</tr>
+<td><span style="color:#3a0699;font-weight:bold">source tag</span></td>
+<td>A type of source metadata. Specify source tags with the keyword <strong><code>tag</code></strong>.
+For example: <pre>tag=app.*</pre>
+</td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">point tag</span></td>
-<td>A type of custom metric metadata. Point tags have keys and values. Example: <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>.</td>
-</tr>
+<td>A type of custom metric metadata. Point tags have keys and values. 
+For example: <pre>region=us-west-2b</pre>
+</td></tr>
 <tr>
-<td><span style="color:#757575;font-weight:bold">timeWindow</span></td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (<span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes. Example: <span style="color:#757575;font-weight:bold">1h</span>. It is also possible to specify the window length that you are currently looking at. For example, <span style="color:#757575;font-weight:bold">1vw</span> would mean 1 view window length. If you were looking at a 30 minute window and you specified <span style="color:#757575;font-weight:bold">1vw</span>, it would be equivalent to <span style="color:#757575;font-weight:bold">30m</span></td>
-</tr>
+<td><span style="color:#3a0699;font-weight:bold">timeWindow</span></td>
+<td>A window of time specified in seconds, minutes, hours, days or weeks (<code>1s</code>, <code>1m</code>, <code>1h</code>, <code>1d</code>, <code>1w</code>), or in terms of the window length you are currently looking at (<code>1vw</code>).
+If the unit is not specified, the default is minutes. 
+<ul>
+<li>Example. <code>3h</code> specifies a window of 3 hours.</li>
+<li>Example. If you are looking at a 30 minute window, <code>1vw</code> is one view-window length, and therefore equivalent to <code>30m</code>. </li>
+</ul>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">expression</span></td>
+<td>An expression consisting of a ts() expression, constant, or combination of ts() expressions and constants. See
+ <a href="#expressions">Expressions</a>. 
+</td></tr>
 </tbody>
 </table>
 
@@ -48,30 +61,67 @@ See [Organizing with Tags](tags_overview.html) for information on the different 
 **Note**: Do not use names of functions such as `default` or `sum` or other query language elements to name a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
 
 ## Expressions
+An <span style="color:#3a0699;font-weight:bold">expression</span> may be a ts() expression, a constant, or an arithmetic or Boolean combination of a ts() expressions and constants.
+<table style="width: 100%;">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">ts() expression</span></td>
+<td> 
+Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.
 <ul>
-<li>ts() expression - Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.</li>
-<ul>
-<li>Syntax:
-<pre>ts(&lt;<span style="color:#08838c;font-weight:bold">metricName</span>&gt;,
-  [<span style="color:#d63a36;font-weight:bold">source=</span>&lt;<span style="color:#d63a36;font-weight:bold">sourceName</span>&gt;] [and|or]
-  [<span style="color:#2770e8;font-weight:bold">tag</span>=&lt;<span style="color:#2770e8;font-weight:bold">sourceTagName</span>&gt;] [and|or]
-  [&lt;<span style="color:#3a0699;font-weight:bold">pointTagKey1</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValue1</span>&gt;[and|or] ... &lt;<span style="color:#3a0699;font-weight:bold">pointTagKeyN</span>&gt;=&lt;<span style="color:#3a0699;font-weight:bold">pointTagValueN</span>&gt;])
+<li>
+Syntax:
+<pre>ts(&lt;metricName&gt;,
+  [<strong>source=</strong>&lt;sourceName&gt;] [and|or]
+  [<strong>tag</strong>=&lt;sourceTagName&gt;] [and|or]
+  [&lt;<strong>pointTagKey1</strong>&gt;=&lt;pointTagValue1&gt;[and|or] ... &lt;<strong>pointTagKeyN</strong>&gt;=&lt;pointTagValueN&gt;])
 </pre>
 </li>
 <li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format.html).</li>
-<li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <span style="color:#08838c;font-weight:bold">my.metric</span> metric, specify ts(<span style="color:#08838c;font-weight:bold">my.metric</span>).</li>
+<li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <strong>my.metric</strong> metric, specify ts(<strong>my.metric</strong>).</li>
 </ul>
-<li>constant - A number such as 5.01, 10000, or 40. Constants can be plotted by themselves and composed in <span style="color:#3a0699;font-weight:bold">expressions</span> using arithmetic operators.</li>
+</td>
+</tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">constant</span></td>
+<td> 
+A number such as <code>5.01</code>, <code>10000</code>, or <code>40</code>. Constants can be plotted by themselves and composed in <strong>expressions</strong> using arithmetic operators.
 <ul>
-<li markdown="span">[SI prefixes](https://en.wikipedia.org/wiki/Metric_prefix)(k, M, G, T, P, E, Z, Y) - Scales constants by multiples of 1000. For example, instead of typing 1000000, type 1M, and instead of typing 7200, type 7.2k. Other common prefixes are G and T (for a billion and a trillion, useful when working with network and I/O metrics).</li>
-<li>Examples: 100, ts(<span style="color:#08838c;font-weight:bold">cpu.load.1m</span>), 1</li>
+<li markdown="span"> You can use [SI prefixes](https://en.wikipedia.org/wiki/Metric_prefix)(k, M, G, T, P, E, Z, Y) to scale constants by multiples of 1000.  G (billion) and T (trillion) are useful when working with network and I/O metrics. </li>
+<li>Example. Typing <code>1M</code> is equivalent to typing <code>1000000</code></li> 
+<li>Example. Typing <code>7.2k</code> is equivalent to typing <code>7200</code></li>
 </ul>
-<li>wildcard - Matches strings in metric names, source names, alert name, source tags, alert tags, and point tags. A wildcard is represented with a <strong>"&#42;"</strong> character - Wavefront supports no other wildcard characters. For example, you can use a wildcard (example: <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>) when filtering by point tags. The result are the time series that have &lt;pointTagKey&gt; present (with any value). Time series that don't have &lt;pointTagKey&gt; are filtered out. To find time series without a specific point tag, use the <strong>not</strong> construct: <strong>not</strong> <span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;="&#42;"</span>.</li>
+</td>
+</tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
+<td> 
+Matches strings in metric names, source names, alert names, source tags, alert tags, and point tags. 
 <ul>
-<li>Example: <span style="color:#d63a36;font-weight:bold">source=app-1&#42;</span> matches all sources starting with <span style="color:#d63a36;font-weight:bold">app-1</span>: <span style="color:#d63a36;font-weight:bold">app-10</span>, <span style="color:#d63a36;font-weight:bold">app-11</span>, <span style="color:#d63a36;font-weight:bold">app-12</span>, etc.</li>
+<li>A wildcard is represented with a <strong>"&#42;"</strong> character. Wavefront supports no other wildcard characters. </li>
+<li>Example. When filtering sources, match all sources starting with <code>"app-1"</code> (namely, <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, and so on):
+<pre>source=app-1&#42;</pre> </li>
+<li>Example. When filtering point tags, match the time series that have <code>&lt;pointTagKey&gt;</code> with any value, and filter out any time series without <code>&lt;pointTagKey&gt;</code>:
+<pre>&lt;pointTagKey&gt;="&#42;"</pre> </li>
+<li>Example. When filtering point tags, find any time series that do not have the specified point tag.
+<pre>not &lt;pointTagKey&gt;="&#42;"</pre></li>
 </ul>
-<li><span style="color:#3a0699;font-weight:bold">expression</span> - A ts() expression, constant, or arithmetic or Boolean combination of a ts() expressions and constants.</li>
-</ul>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Operators
 
