@@ -10,7 +10,7 @@ summary: Reference to the next() function
 ```
 next([<timeWindow>,] <expression>)
 ```
-Fills in gaps in <expression> with the next known value of <expression>. If you specify <timeWindow>, fills in a specified time period before each existing point.
+Fills in gaps in the expression with the next known value of the expression. If you specify `timeWindow`, fills in a specified time period before each existing point.
 
 ## Parameters
 

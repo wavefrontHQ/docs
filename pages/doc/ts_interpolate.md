@@ -10,7 +10,7 @@ summary: Reference to the interpolate() function
 ```
 interpolate(<expression>)
 ```
-Fills in gaps in `expression` with a continuous linear interpolation of points.
+Fills in gaps in the expression with a continuous linear interpolation of points.
 
 
 ## Parameters
