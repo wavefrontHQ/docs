@@ -8,19 +8,19 @@ summary: Reference to the rawcount() function
 ---
 ## Summary
 ```
-rawcount(expression[,metrics|sources|sourceTags|tags|<pointTagKey>])
+rawcount(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 
-The rawcount() aggregation function will aggregate together any data values that are truly reported at a given time slice across all reported series, and will display the total number of present data values as the point at that time slice.
+The `rawcount()` aggregation function aggregates any data values that are truly reported at a given time slice across all reported series, and displays the total number of present data values as the point at that time slice.
 
-In contrast to `count`, `rawcount` does not use interpolation.
+In contrast to `count()`, `rawcount()` does not perform interpolation.
 
 
 ## Parameters
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>

@@ -8,17 +8,17 @@ summary: Reference to the variance() function
 ---
 ## Summary
 ```
-variance(expression[,metrics|sources|sourceTags|tags|<pointTagKey>])
+variance(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 Returns the variance for `expression`.
 
-If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawvariance` if you don't want interpolation.
+If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawvariance()` if you don't want interpolation.
 
 ## Parameters
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>

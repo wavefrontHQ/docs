@@ -8,15 +8,15 @@ summary: Reference to the rawavg() function
 ---
 ## Summary
 ```
-rawavg(expression[,metrics|sources|sourceTags|tags|<pointTagKey>])
+rawavg(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
-Returns the average (the mean) of all series. In contrast to `avg`, `rawavg` does not use interpolation to fill gaps in the data.
+Returns the average (the mean) of all series. In contrast to `avg()`, `rawavg()` does not use interpolation to fill gaps in the data.
 
 ## Parameters
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>

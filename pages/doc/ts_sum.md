@@ -8,7 +8,7 @@ summary: Reference to the sum() function
 ---
 ## Summary
 ```
-sum(expression[,metrics|sources|sourceTags|tags|<pointTagKey>])
+sum(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 Returns the sum of all series. If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawsum()` if you don't need interpolation.
 
@@ -16,7 +16,7 @@ Returns the sum of all series. If there are gaps of data in the expression, they
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>

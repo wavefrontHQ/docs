@@ -10,18 +10,19 @@ summary: Reference to the percentile() function
 ## Summary
 
 ```
-percentile(percentileValue, expression[,metrics|sources|sourceTags|tags|<pointTagKey])
+percentile(<percentileValue>, <expression>[,metrics|sources|sourceTags|tags|<pointTagKey])
 ```
-Returns the percentileValue value of all series. If there are gaps of data in expression, then this function fills them with interpolation.
+Returns the `percentileValue` value of all series. If there are gaps of data in the expression, then this function fills them with interpolation.
 
-For example, if percentileValue is 99, `percentile()` returns the 99th percentile value of all series.
+For example, if `percentileValue` is 99, `percentile()` returns the 99th percentile value of all series.
+
 Set `percentileValue()` to 50 for the mean value of all series.
 
 ## Parameters
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td>percentileValue</td>

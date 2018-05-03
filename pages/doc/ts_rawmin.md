@@ -8,19 +8,19 @@ summary: Reference to the rawmin() function
 ---
 ## Summary
 ```
-rawmin(expression[,metrics|sources|sourceTags|tags|<pointTagKey>])
+rawmin(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 
-This aggregation function returns the lowest value of all series. In contrast to `min`, this function does not attempt to fill gaps in the data.
+This aggregation function returns the lowest value of all series. In contrast to `min()`, this function does not attempt to fill gaps in the data.
 
-There is no `rawmin` comparison function.
+There is no `rawmin()` comparison function.
 
 ## Parameters
 
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>

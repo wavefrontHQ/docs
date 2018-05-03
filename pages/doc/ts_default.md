@@ -8,7 +8,7 @@ summary: Reference to the default() function
 ---
 ## Summary
 ```
-default([timeWindow,] [delayTime,] defaultValue, expression)
+default([<timeWindow>,] [<delayTime>,] <defaultValue>, <expression>)
 ```
 
 Fills in gaps in an expression with `defaultValue`. `defaultValue` can be a constant or an expression). The optional `timeWindow` parameter fills in that period of time after each existing point (for example, 5m for 5 minutes). Without `timeWindow`, all gaps are filled in.

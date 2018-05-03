@@ -10,7 +10,7 @@ summary: Reference to the mcount() function
 ## Summary
 
 ```
-mcount(timeWindow, expression)
+mcount(<timeWindow>, <expression>)
 ```
 The `mcount()` (moving count) function returns the number of data points over `timeWindow()`. If the expression stops reporting data, `mcount()` continues to report until up to 2 the duration of `timeWindow` after the last reported point, and returns no data after that.
 
@@ -19,7 +19,7 @@ The `mcount()` (moving count) function returns the number of data points over `t
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td>timeWindow</td>

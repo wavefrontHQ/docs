@@ -10,7 +10,7 @@ summary: Reference to the last() function
 ```
 last([<timeWindow>,] <expression>)
 ```
-Fills in gaps in <expression> with the last known value of <expression>. If you specify <timeWindow>, fills in a specified time period after each existing point.
+Fills in gaps in the expression with the last known value of the expression. If you specify `a time window,  fills in a specified time period after each existing point.
 
 ## Parameters
 

@@ -10,17 +10,17 @@ summary: Reference to the mpercentile() function
 ## Summary
 
 ```
-mpercentile(timeWindow, percentileValue, expression)
+mpercentile(<timeWindow>, <percentileValue>, <expression>)
 ```
 
-Return the specied percentile value for expression over a shifting time window.
+Return the specied percentile value for the expression over a shifting time window.
 
 ## Parameters
 
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td>timeWindow</td>

@@ -10,16 +10,16 @@ summary: Reference to the rawpercentile() function
 ## Summary
 
 ```
-rawpercentile(timeWindow, percentileValue, expression)
+rawpercentile(<timeWindow>, <percentileValue>, <expression>)
 ```
-Returns the percentile of each series over `timeWindow`. In contrast to `percentile`, this function does not perform interpolation.
+Returns the percentile of each series over `timeWindow`. In contrast to `percentile()`, this function does not perform interpolation.
 
 
 ## Parameters
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td>percentileValue</td>

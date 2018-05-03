@@ -10,16 +10,17 @@ summary: Reference to the mavg() function
 ## Summary
 
 ```
-mavg(timeWindow, expression)
+mavg(<timeWindow>, <expression>)
 ```
-The `mavg()` (moving average) function returns the moving average of each series over `timeWindow`.
+
+Returns the moving average of each series over `timeWindow`.
 
 ## Parameters
 
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
 <td>timeWindow</td>

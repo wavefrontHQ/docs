@@ -10,10 +10,10 @@ summary: Reference to the taggify() function
 ## Summary
 
 ```
-taggify (expression, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
-         [zeroBasedNodeIndex [,delimiterDefinition])
+taggify (<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
+         [<zeroBasedNodeIndex> [,<delimiterDefinition>])
 
-taggify (expression, metric|source|{tagk, <pointTagKey>}, “regexSearchPattern”, “replacementPattern”])
+taggify (<expression>, metric|source|{tagk, <pointTagKey>}, “<regexSearchPattern>”, “<replacementPattern>”])
 ```
 
 Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
@@ -23,7 +23,7 @@ Lets you extract a string from an existing metric name, source name, or point ta
 <table>
 <tbody>
 <thead>
-<tr><th width="30%">Property</th><th width="70%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
