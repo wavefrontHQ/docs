@@ -34,7 +34,7 @@ The iterators return three types of objects:
   - `tags` - Point tags on the series.
   - `observed` - Number of points returned by the alert condition.
   - `firing` - Number of points that satisfy the alert condition.
-  - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns the only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or not 0, that information is usually not useful.
+  - `stats` - Series statistics: `first`, `last`, `min`, `max`, and `mean`. These are values for the Display Expression associated with the alert. If you do not set the Display Expression, the iterator returns only the value that is associated with the alert condition. Because the condition that triggers the alert is always either 0 or not 0, that information is usually not useful.
 
 Only the `XXXAlertSeries` and `XXXfailingSeries` iterators iterate through an empty source (host).
 
