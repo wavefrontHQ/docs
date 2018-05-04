@@ -77,6 +77,10 @@ The Amazon Web Services integration is full-featured implementation offering pre
 <h5>Amazon Kinesis Data Stream</h5>
 <div><img src="images/AmazonKinesisStreams.png" alt="Amazon Kinesis Data Stream" style="max-width: 70px;"/></div>
 </td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon OpsWorks</h5>
+<div><img src="images/aws_opsworks.png" alt="Amazon OpsWorks" style="max-width: 70px;"/></div>
+</td>
 </tr>
 </tbody>
 </table>
