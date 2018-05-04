@@ -9,6 +9,32 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis.
 
+## April 2018
+
+We added the following integrations in April 2018:
+
+* Azure
+* Kong
+
+We added the following dashboards to existing integrations in April 2018:
+
+* Amazon Route 53 dashboard
+* Amazon EBS dashboard
+* Amazon SNS dashboard
+* Amazon ElasticCache Memcached dashboard
+* Google App Engine dashboard
+* Google Cloud Datastore dashboard
+* Amazon SQS dashboard
+* Interactive Query Language Explorer Tutorial dashboard
+* Azure Storage Accounts dashboard
+* Amazon Kinesis Data Streams dashboard
+* Amazon S3 dashboard
+* Amazon OpWorks dashboard
+
+We enhanced the following dashboards in April 2018:
+* Google Compute Engine dashboard
+* Google Container Engine dashboard
+
 ## March 2018
 
 We added the following integrations in March 2018:
