@@ -12,3 +12,5 @@ query_language: "Learn how to query your data through tutorials, reference, guid
 release_notes: "Learn about the features added and updated in each Wavefront release."
 tutorials: "Quickly learn the basics of getting, displaying, and working with data."
 videos: "View demonstrations of Wavefront features and use cases."
+reference_page: "Reference pages for many Query Language Functions."
+integrations_list: "Overview and basic setup for each integration"

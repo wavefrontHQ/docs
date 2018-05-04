@@ -49,12 +49,12 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
                    <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_query%20language.html" class="btn btn-primary btn-block">Query Language</a></p>
-             <p>{{site.data.labels.query_language}}</p>
+             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations How To</a></p>
+             <p>{{site.data.labels.integrations}}</p>
          </div>
      </div>
  </div>
@@ -67,13 +67,42 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations</a></p>
-             <p>{{site.data.labels.integrations}}</p>
+             <p><a href="label_integrations_list.html" class="btn btn-primary btn-block">Integrations List</a></p>
+             <p>{{site.data.labels.integrations_list}}</p>
          </div>
      </div>
  </div>
- </div>
+</div>
+
 <div class="row">
+<div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_query%20language.html" class="btn btn-primary btn-block">Query Lang. How To</a></p>
+             <p>{{site.data.labels.query_language}}</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_reference%20page.html" class="btn btn-primary btn-block">Query Lang. Reference</a></p>
+             <p>{{site.data.labels.reference_page}}</p>
+         </div>
+     </div>
+ </div>
 <div class="col-md-3 col-sm-6">
     <div class="panel panel-default text-center">
         <div class="panel-heading">
@@ -101,7 +130,10 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
             <p>{{site.data.labels.dashboards}}</p>
         </div>
     </div>
+  </div>
 </div>
+
+<div class="row">
 <div class="col-md-3 col-sm-6">
    <div class="panel panel-default text-center">
        <div class="panel-heading">
@@ -130,9 +162,6 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
        </div>
    </div>
  </div>
-</div>
-<div class="row">
-
 <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-heading">
@@ -161,6 +190,10 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
        </div>
    </div>
 </div>
+
+</div>
+
+<div class="row">
 <div class="col-md-3 col-sm-6">
     <div class="panel panel-default text-center">
         <div class="panel-heading">
@@ -189,7 +222,7 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
           </div>
       </div>
   </div>
-</div>
+  </div>
 
 
 <!--
