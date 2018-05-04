@@ -41,7 +41,7 @@ Here are some details. Note that for two cases, the behavior changed in Wavefron
 |Event 2 | After query start time | Before query end time  | Yes  |
 |Event 3 | Before query start time | After query start time  | Yes  |
 |Event 4 | Before query start time  | After query end time | No(*) |
-|Event 5 | Before query start time | N.A. (ongoing event) | No(*)|
+|Event 5 | Before query start time | N.A. (ongoing event) | Yes |
 |Event 6 | After query start time  | After query end time | Yes  |
 |Event 7 | After query end time | N.A. (ongoing event) | No  |
 |Event 8 | After query start time | N.A. (ongoing event)  | Yes  |
