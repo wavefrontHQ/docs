@@ -1,6 +1,6 @@
 ---
 title: HipChat Integration
-tags: []
+tags: [integrations list]
 permalink: hipchat.html
 summary: Learn about the Wavefront HipChat Integration.
 ---
@@ -10,7 +10,7 @@ HipChat is a popular communication platform. Wavefront and HipChat both support 
 
 {% include image.md src="images/hc_message.png" width="80" %}
 
-See the [Setup](/integration/hipchat/setup) tab for the templates that generated these messages. 
+See the Setup tab for the templates that generated these messages. 
 
 ## HipChat Setup
 

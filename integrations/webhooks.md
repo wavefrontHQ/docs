@@ -1,6 +1,6 @@
 ---
 title: Webhooks Integration
-tags: []
+tags: [integrations list]
 permalink: webhooks.html
 summary: Learn about the Wavefront Webhooks Integration.
 ---

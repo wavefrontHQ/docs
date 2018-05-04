@@ -1,6 +1,6 @@
 ---
 title: Graphite Integration
-tags: []
+tags: [integrations list]
 permalink: graphite.html
 summary: Learn about the Wavefront Graphite Integration.
 ---
@@ -31,7 +31,7 @@ You can send Graphite data to Wavefront only or <a href="#duplicate">duplicate G
     1. Find the `DESTINATIONS` property and set to `127.0.0.1:2014, <wavefront_proxy_server>:5878`.  In this case port 2014 on the graphite machine should be available.  Replace `<wavefront_proxy_server>` accordingly.
     1. Go back to the `carbon` section of the file, and set the `LINE_RECEIVER_PORT` and `PICKER_RECEIVER_PORT` properties to 2013 and 2014 accordingly (based on the port setting in the preceding step).
     1. Save the `carbon.conf` file.
-1. If you have not already done so, [install the Wavefront proxy](/proxies/add).
+1. If you have not already done so, install the Wavefront proxy.
     1. Edit the `/etc/wavefront/wavefront-proxy/conf/wavefront.conf` file.
     1. Find the `graphitePorts` property. Uncomment and set to a free port on the system. 2113 is a good choice. The default is 2013, but if Graphite and the Wavefront proxy are running on the same machine you will need to set this to another port.
     1. Find the `graphiteFormat` property and set according to the existing metric hierarchy within Graphite to extract the hostname.  If the metrics look like: `collectd.prod.www04.cpu.loadavg.1m`, then the 3rd and 2nd indices should be extracted and treated as the hostname (`www04.prod`) and the remainder should be treated as the final metric name (`collectd.cpu.loadavg.1m`).  In this case the property value will be `3,2`.  This will likely be different for each implementation.

@@ -1,6 +1,6 @@
 ---
 title: Pivotal Container Service Integration
-tags: []
+tags: [integrations list]
 permalink: pks.html
 summary: Learn about the Wavefront Pivotal Container Service Integration.
 ---

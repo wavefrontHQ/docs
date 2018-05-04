@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Integration
-tags: []
+tags: [integrations list]
 permalink: kubernetes.html
 summary: Learn about the Wavefront Kubernetes Integration.
 ---

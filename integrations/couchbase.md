@@ -1,6 +1,6 @@
 ---
 title: Couchbase Integration
-tags: []
+tags: [integrations list]
 permalink: couchbase.html
 summary: Learn about the Wavefront Couchbase Integration.
 ---
@@ -11,7 +11,7 @@ Couchbase Server is an open-source, distributed  multi-model NoSQL database. Thi
 In addition to setting up the metrics flow, this integration also installs a dashboard. 
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Couchbase Setup
 
 This integration uses the Couchbase input plugin for Telegraf.

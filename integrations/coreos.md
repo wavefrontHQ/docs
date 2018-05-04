@@ -1,6 +1,6 @@
 ---
 title: CoreOS Integration
-tags: []
+tags: [integrations list]
 permalink: coreos.html
 summary: Learn about the Wavefront CoreOS Integration.
 ---
@@ -21,7 +21,7 @@ This integration uses the Telegraf Docker container and Telegraf Docker input pl
 
 ### Step 1. Install the Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add) as a Docker container in CoreOS.
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy as a Docker container in CoreOS.
 
 
 ### Step 2. Install and Configure the Telegraf Agent

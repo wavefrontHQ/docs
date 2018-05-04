@@ -1,6 +1,6 @@
 ---
 title: Pivotal Cloud Foundry Integration
-tags: []
+tags: [integrations list]
 permalink: pcf_alias.html
 summary: Learn about the Wavefront Pivotal Cloud Foundry Integration.
 ---

@@ -1,6 +1,6 @@
 ---
 title: Okta Integration
-tags: []
+tags: [integrations list]
 permalink: okta.html
 summary: Learn about the Wavefront Okta Integration.
 ---

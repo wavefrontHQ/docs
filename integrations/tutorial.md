@@ -1,6 +1,6 @@
 ---
 title: Wavefront Tutorial Integration
-tags: []
+tags: [integrations list]
 permalink: tutorial.html
 summary: Learn about the Wavefront Wavefront Tutorial Integration.
 ---

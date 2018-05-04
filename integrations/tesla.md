@@ -1,6 +1,6 @@
 ---
 title: Tesla automobile Integration
-tags: []
+tags: [integrations list]
 permalink: tesla.html
 summary: Learn about the Wavefront Tesla automobile Integration.
 ---

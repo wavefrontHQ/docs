@@ -1,6 +1,6 @@
 ---
 title: Wavefront Tour Integration
-tags: []
+tags: [integrations list]
 permalink: tour.html
 summary: Learn about the Wavefront Wavefront Tour Integration.
 ---

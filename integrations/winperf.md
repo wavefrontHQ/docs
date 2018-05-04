@@ -1,6 +1,6 @@
 ---
 title: Windows Performance Counters Integration
-tags: []
+tags: [integrations list]
 permalink: winperf.html
 summary: Learn about the Wavefront Windows Performance Counters Integration.
 ---
@@ -10,7 +10,7 @@ Performance counters help you explore how well the operating system, a service, 
 
 ### Step 1: Set up the Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2: Install the Telegraf Agent
 

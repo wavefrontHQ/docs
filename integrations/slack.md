@@ -1,6 +1,6 @@
 ---
 title: Slack Integration
-tags: []
+tags: [integrations list]
 permalink: slack.html
 summary: Learn about the Wavefront Slack Integration.
 ---

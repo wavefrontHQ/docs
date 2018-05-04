@@ -1,6 +1,6 @@
 ---
 title: collectd Integration
-tags: []
+tags: [integrations list]
 permalink: collectd.html
 summary: Learn about the Wavefront collectd Integration.
 ---

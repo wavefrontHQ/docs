@@ -1,4 +1,4 @@
-1.  If you have not already done so, [install a Wavefront proxy](/proxies/add).
+1.  If you have not already done so, install a Wavefront proxy.
 1.  [Configure the Wavefront proxy](https://docs.wavefront.com/proxies_configuring.html) to accept Graphite formatted data:
     1. On the server running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf`. Uncomment and configure the following properties as required:
 

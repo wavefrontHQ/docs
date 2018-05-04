@@ -1,6 +1,6 @@
 ---
 title: Go Integration
-tags: []
+tags: [integrations list]
 permalink: go.html
 summary: Learn about the Wavefront Go Integration.
 ---
@@ -17,7 +17,7 @@ The Wavefront plugin for [go-metrics](https://github.com/rcrowley/go-metrics) ad
 
 ### Step 1. Set up Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Go application, [install a proxy](/proxies/add). You configure the Wavefront proxy hostname and port (by default 2878) when you invoke the reporter.
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Go application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you invoke the reporter.
 
 ### Step 2. Create a Wavefront Reporter and Register Metrics
 

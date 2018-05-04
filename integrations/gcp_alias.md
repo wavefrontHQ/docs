@@ -1,6 +1,6 @@
 ---
 title: Google Cloud Platform Integration
-tags: []
+tags: [integrations list]
 permalink: gcp_alias.html
 summary: Learn about the Wavefront Google Cloud Platform Integration.
 ---
@@ -15,7 +15,7 @@ Wavefront ingests Google Cloud Platform metrics using the v3 Stackdriver Monitor
  [metrics documentation](https://cloud.google.com/monitoring/api/metrics).
 
 Metrics originating from Google Cloud Platform are prefixed with `gcp.` within Wavefront.  Once the integration has
-been set up, you can browse the available GCP metrics in the [metrics browser](/metrics#%28q%3Agcp.%2Cs%3A!f%29).
+been set up, you can browse the available GCP metrics in the metrics browser.
 
 ### Dashboards
 

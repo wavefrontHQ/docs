@@ -1,6 +1,6 @@
 ---
 title: PHP-FPM Integration
-tags: []
+tags: [integrations list]
 permalink: phpfpm.html
 summary: Learn about the Wavefront PHP-FPM Integration.
 ---
@@ -12,7 +12,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/overview.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## PHP-FPM Setup
 
 

@@ -1,6 +1,6 @@
 ---
 title: Prometheus Integration
-tags: []
+tags: [integrations list]
 permalink: prometheus.html
 summary: Learn about the Wavefront Prometheus Integration.
 ---
@@ -9,7 +9,7 @@ summary: Learn about the Wavefront Prometheus Integration.
 Prometheus is an open-source monitoring and alerting toolkit. This integration installs and configures Telegraf to collect Prometheus format metrics. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Prometheus Setup
 
 

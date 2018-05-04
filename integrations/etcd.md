@@ -1,6 +1,6 @@
 ---
 title: etcd KV store Integration
-tags: []
+tags: [integrations list]
 permalink: etcd.html
 summary: Learn about the Wavefront etcd KV store Integration.
 ---
@@ -13,7 +13,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/etcd-sample-dashboard.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## etcd Distributed Database Setup
 
 

@@ -1,6 +1,6 @@
 ---
 title: NetBSD Host Integration
-tags: []
+tags: [integrations list]
 permalink: netbsd.html
 summary: Learn about the Wavefront NetBSD Host Integration.
 ---
@@ -38,7 +38,7 @@ In addition to setting up the metrics flow, this integration also installs a das
    -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
    -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
    ```
-7. On [the Proxies page](/proxies), verify that the proxy has registered with the Wavefront server.
+7. On the Proxies page, verify that the proxy has registered with the Wavefront server.
 
 #### Step 2: Install and Configure the Collectd Daemon Manually
 

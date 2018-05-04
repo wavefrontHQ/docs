@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop HDFS Integration
-tags: []
+tags: [integrations list]
 permalink: hadoop-hdfs.html
 summary: Learn about the Wavefront Apache Hadoop HDFS Integration.
 ---
@@ -14,7 +14,7 @@ In addition to setting up the metrics flow, this integration also sets up a dash
 {% include image.md src="images/hadoop-hdfs-metrics.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Apache Hadoop HDFS
 
 

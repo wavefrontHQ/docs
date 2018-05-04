@@ -1,6 +1,6 @@
 ---
 title: OpenTSDB Integration
-tags: []
+tags: [integrations list]
 permalink: opentsdb.html
 summary: Learn about the Wavefront OpenTSDB Integration.
 ---
@@ -13,7 +13,7 @@ The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports OpenTSDB
 
 ### Step 1. Install Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your collector, [install a proxy](/proxies/add). By default, the proxy listens on TCP port 4242 for line messages in OpenTSDB [line format](http://opentsdb.net/docs/build/html/user_guide/writing.html#telnet).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your collector, install a proxy. By default, the proxy listens on TCP port 4242 for line messages in OpenTSDB [line format](http://opentsdb.net/docs/build/html/user_guide/writing.html#telnet).
 
 ### Step 2. Configure the Collector
 

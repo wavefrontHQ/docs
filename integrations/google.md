@@ -1,6 +1,6 @@
 ---
 title: Google Integration
-tags: []
+tags: [integrations list]
 permalink: google.html
 summary: Learn about the Wavefront Google Integration.
 ---

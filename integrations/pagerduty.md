@@ -1,6 +1,6 @@
 ---
 title: PagerDuty Integration
-tags: []
+tags: [integrations list]
 permalink: pagerduty.html
 summary: Learn about the Wavefront PagerDuty Integration.
 ---

@@ -1,6 +1,6 @@
 ---
 title: Oracle WebLogic Server Integration
-tags: []
+tags: [integrations list]
 permalink: weblogic.html
 summary: Learn about the Wavefront Oracle WebLogic Server Integration.
 ---
@@ -12,7 +12,7 @@ In addition to setting up the metrics flow, this integration also sets up a dash
 {% include image.md src="images/weblogic-metrics.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## WebLogic Server Setup
 
 

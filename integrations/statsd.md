@@ -1,6 +1,6 @@
 ---
 title: StatsD Integration
-tags: []
+tags: [integrations list]
 permalink: statsd.html
 summary: Learn about the Wavefront StatsD Integration.
 ---
@@ -11,7 +11,7 @@ StatsD is a popular network daemon used for monitoring applications. This integr
 This is a custom integration that supports sending custom metrics directly from your application code via a TCP or UDP socket. Using these metrics you can create your own dashboards.
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## StatsD Setup
 
 

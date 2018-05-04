@@ -1,6 +1,6 @@
 ---
 title: Microsoft Hyper-V Integration
-tags: []
+tags: [integrations list]
 permalink: hyperv.html
 summary: Learn about the Wavefront Microsoft Hyper-V Integration.
 ---
@@ -22,7 +22,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1: Set up a Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2: Install the Telegraf Agent
 

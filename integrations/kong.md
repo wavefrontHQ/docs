@@ -1,6 +1,6 @@
 ---
 title: Kong Integration
-tags: []
+tags: [integrations list]
 permalink: kong.html
 summary: Learn about the Wavefront Kong Integration.
 ---
@@ -13,7 +13,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/kong_dashboard-1.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Kong Setup
 
 

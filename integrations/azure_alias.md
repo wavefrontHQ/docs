@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Integration
-tags: []
+tags: [integrations list]
 permalink: azure_alias.html
 summary: Learn about the Wavefront Microsoft Azure Integration.
 ---
@@ -11,7 +11,7 @@ The Microsoft Azure integration enables monitoring Azure with Wavefront and offe
 ### Metrics Configuration
 Wavefront ingests Microsoft Azure metrics using the Azure Monitor APIs. For details on the metrics that the API supports, see the [documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
 
-Metrics originating from Microsoft Azure are prefixed with `azure.` within Wavefront. After you set up the integration, you can browse the available metrics in the [metrics browser](/metrics#%28q%3Aazure.%2Cs%3A!f%29). 
+Metrics originating from Microsoft Azure are prefixed with `azure.` within Wavefront. After you set up the integration, you can browse the available metrics in the metrics browser. 
 
 ### Dashboards
 

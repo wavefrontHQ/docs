@@ -1,6 +1,6 @@
 ---
 title: macOS Integration
-tags: []
+tags: [integrations list]
 permalink: mac_alias.html
 summary: Learn about the Wavefront macOS Integration.
 ---

@@ -1,6 +1,6 @@
 ---
 title: VMware vRealize Operations Integration
-tags: []
+tags: [integrations list]
 permalink: vrops.html
 summary: Learn about the Wavefront VMware vRealize Operations Integration.
 ---

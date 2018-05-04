@@ -1,6 +1,6 @@
 ---
 title: Windows Integration
-tags: []
+tags: [integrations list]
 permalink: windows_alias.html
 summary: Learn about the Wavefront Windows Integration.
 ---

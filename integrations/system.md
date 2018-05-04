@@ -1,6 +1,6 @@
 ---
 title: Wavefront Usage Integration
-tags: []
+tags: [integrations list]
 permalink: system.html
 summary: Learn about the Wavefront Wavefront Usage Integration.
 ---
@@ -13,7 +13,7 @@ The Wavefront System integration is a dashboard that visualizes the internal met
   - `~wavefront` - A set of gauges tracking statistics about your use of Wavefront.
   - `~metric`: Counter and gauge metrics computed by the proxy. These give you the total unique sources and metrics.  You can compute the rate of metric creation from each source.
 
-If you have an [Amazon Web Services integration](/integration/aws/overview), metrics with the following prefix are available:
+If you have an Amazon Web Services integration, metrics with the following prefix are available:
 
   - `~externalservices` - CloudWatch API requests and estimated costs, overall metric rates, and CloudTrail event rate.
 

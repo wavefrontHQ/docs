@@ -1,6 +1,6 @@
 ---
 title: Chef Server Integration
-tags: []
+tags: [integrations list]
 permalink: wavefront-chef.html
 summary: Learn about the Wavefront Chef Server Integration.
 ---

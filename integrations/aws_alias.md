@@ -1,6 +1,6 @@
 ---
 title: Amazon Web Services Integration
-tags: []
+tags: [integrations list]
 permalink: aws_alias.html
 summary: Learn about the Wavefront Amazon Web Services Integration.
 ---

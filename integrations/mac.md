@@ -1,6 +1,6 @@
 ---
 title: Mac Host Integration
-tags: []
+tags: [integrations list]
 permalink: mac.html
 summary: Learn about the Wavefront Mac Host Integration.
 ---

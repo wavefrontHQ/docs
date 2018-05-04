@@ -1,6 +1,6 @@
 ---
 title: OpenBSD Host Integration
-tags: []
+tags: [integrations list]
 permalink: openbsd.html
 summary: Learn about the Wavefront OpenBSD Host Integration.
 ---
@@ -36,7 +36,7 @@ Here, `hostname` represents the machine on which the proxy is running. The name 
    -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
    -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
    ```
-5. On [the Proxies page](/proxies), verify that the proxy has registered with the Wavefront server.
+5. On the Proxies page, verify that the proxy has registered with the Wavefront server.
 
 
 #### Step 2: Install and Configure the Collectd Daemon Manually

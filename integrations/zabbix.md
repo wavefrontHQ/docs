@@ -1,6 +1,6 @@
 ---
 title: Zabbix Integration
-tags: []
+tags: [integrations list]
 permalink: zabbix.html
 summary: Learn about the Wavefront Zabbix Integration.
 ---
@@ -15,7 +15,7 @@ Tested against Zabbix 2.2 with MySQL back end. The script is written in Python a
 
 ### Step 1. Install the Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2. Install MySQL Connector Library Adapter
 

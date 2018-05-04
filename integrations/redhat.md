@@ -1,6 +1,6 @@
 ---
 title: Red Hat Enterprise Linux Host Integration
-tags: []
+tags: [integrations list]
 permalink: redhat.html
 summary: Learn about the Wavefront Red Hat Enterprise Linux Host Integration.
 ---
@@ -14,7 +14,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/db_linux_cpu.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Linux Host Setup
 
 {% include telegraf.md %}

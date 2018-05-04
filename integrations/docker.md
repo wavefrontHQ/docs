@@ -1,6 +1,6 @@
 ---
 title: Docker with cAdvisor Integration
-tags: []
+tags: [integrations list]
 permalink: docker.html
 summary: Learn about the Wavefront Docker with cAdvisor Integration.
 ---
@@ -18,7 +18,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1. Set up Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from cAdvisor, [install a proxy](/proxies/add) running on your network. Wavefront offers a containerized proxy to run on your Docker host.
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from cAdvisor, install a proxy running on your network. Wavefront offers a containerized proxy to run on your Docker host.
 
 ### Step 2. Run the cAdvisor Container
 

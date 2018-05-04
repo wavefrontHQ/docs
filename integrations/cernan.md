@@ -1,6 +1,6 @@
 ---
 title: Cernan Integration
-tags: []
+tags: [integrations list]
 permalink: cernan.html
 summary: Learn about the Wavefront Cernan Integration.
 ---
@@ -19,7 +19,7 @@ Cernan is packaged with a built-in sink for Wavefront. This makes it very conven
 
 ### Step 1. Set up Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2. Follow the Cernan Quickstart
 

@@ -1,6 +1,6 @@
 ---
 title: Redis Integration
-tags: []
+tags: [integrations list]
 permalink: redis.html
 summary: Learn about the Wavefront Redis Integration.
 ---
@@ -13,7 +13,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/redis_activity.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Redis Setup
 
 

@@ -1,6 +1,6 @@
 ---
 title: ServiceNow Integration
-tags: []
+tags: [integrations list]
 permalink: servicenow.html
 summary: Learn about the Wavefront ServiceNow Integration.
 ---
@@ -49,7 +49,7 @@ The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the us
 
 ### Step 4. Create a ServiceNow Alert Target
 
-1. In Wavefront, [create an Alert Target](/notificants/add).
+1. In Wavefront, create an Alert Target.
 1. Give the Alert Target a meaningful name and description.
 1. In Triggers, check the **Alert Firing**, **Alert Status Updated**, and **Alert has No Data** options.
 1. Set Type to **Webhook**.

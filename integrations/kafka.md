@@ -1,6 +1,6 @@
 ---
 title: Kafka Integration
-tags: []
+tags: [integrations list]
 permalink: kafka.html
 summary: Learn about the Wavefront Kafka Integration.
 ---
@@ -13,7 +13,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 {% include image.md src="images/kafka_broker.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Kafka Setup
 
 

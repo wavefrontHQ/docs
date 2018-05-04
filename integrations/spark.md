@@ -1,6 +1,6 @@
 ---
 title: Apache Spark Integration
-tags: []
+tags: [integrations list]
 permalink: spark.html
 summary: Learn about the Wavefront Apache Spark Integration.
 ---

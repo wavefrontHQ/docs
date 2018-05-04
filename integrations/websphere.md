@@ -1,6 +1,6 @@
 ---
 title: IBM WebSphere Application Server Integration
-tags: []
+tags: [integrations list]
 permalink: websphere.html
 summary: Learn about the Wavefront IBM WebSphere Application Server Integration.
 ---
@@ -12,7 +12,7 @@ In addition to setting up the metrics flow, this integration also sets up a dash
 {% include image.md src="images/was.png" width="80" %}
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## IBM WebSphere Setup
 
 

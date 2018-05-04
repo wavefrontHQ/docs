@@ -1,6 +1,6 @@
 ---
 title: Ansible Role Integration
-tags: []
+tags: [integrations list]
 permalink: ansible.html
 summary: Learn about the Wavefront Ansible Role Integration.
 ---

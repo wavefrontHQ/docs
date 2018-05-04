@@ -1,6 +1,6 @@
 ---
 title: Log Data Integration
-tags: []
+tags: [integrations list]
 permalink: log.html
 summary: Learn about the Wavefront Log Data Integration.
 ---
@@ -18,7 +18,7 @@ Wavefront supports two methods for sending log data to your Wavefront proxy: Fil
 
 ### Step 1. Set up Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 
 ### Step 2. Configure the Wavefront Proxy to Ingest Log Data and Set up Data Flow

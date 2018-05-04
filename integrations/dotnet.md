@@ -1,6 +1,6 @@
 ---
 title: .NET Integration
-tags: []
+tags: [integrations list]
 permalink: dotnet.html
 summary: Learn about the Wavefront .NET Integration.
 ---
@@ -25,7 +25,7 @@ Supported .NET Version(s): 3.5 & later
 
 ### Step 1: Set up a Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2: Install the Telegraf Agent
 

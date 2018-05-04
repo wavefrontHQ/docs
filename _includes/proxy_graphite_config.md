@@ -1,4 +1,4 @@
-1.  If you have not already done so, [install a Wavefront proxy](/proxies/add).
+1.  If you have not already done so, install a Wavefront proxy.
 1.  On the server running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf`. Uncomment and configure the following properties as required:
     ```conf
     graphitePorts=2003

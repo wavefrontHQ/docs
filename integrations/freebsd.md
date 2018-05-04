@@ -1,6 +1,6 @@
 ---
 title: FreeBSD Host Integration
-tags: []
+tags: [integrations list]
 permalink: freebsd.html
 summary: Learn about the Wavefront FreeBSD Host Integration.
 ---
@@ -33,7 +33,7 @@ In addition to setting up the metrics flow, this integration also installs a das
    -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
    ```
 **NOTE:** If Java is not installed, run `pkg install openjdk8`.
-6. [Verify that the proxy has registered](/proxies) with the Wavefront server.
+6. Verify that the proxy has registered with the Wavefront server.
 
 ### Step 2: Install and Configure the Telegraf Agent Manually
 

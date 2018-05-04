@@ -1,6 +1,6 @@
 ---
 title: Papertrail Integration
-tags: []
+tags: [integrations list]
 permalink: papertrail.html
 summary: Learn about the Wavefront Papertrail Integration.
 ---
@@ -10,7 +10,7 @@ Papertrail provides cloud hosted log management for troubleshooting of infrastru
 Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Papertrail Setup
 
 

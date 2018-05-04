@@ -1,6 +1,6 @@
 ---
 title: Terraform Provider Integration
-tags: []
+tags: [integrations list]
 permalink: wavefront-terraform-provider.html
 summary: Learn about the Wavefront Terraform Provider Integration.
 ---

@@ -1,6 +1,6 @@
 ---
 title: OneLogin Integration
-tags: []
+tags: [integrations list]
 permalink: onelogin.html
 summary: Learn about the Wavefront OneLogin Integration.
 ---

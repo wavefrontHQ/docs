@@ -1,6 +1,6 @@
 ---
 title: Microsoft Exchange Integration
-tags: []
+tags: [integrations list]
 permalink: msexchange.html
 summary: Learn about the Wavefront Microsoft Exchange Integration.
 ---
@@ -14,7 +14,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1: Set up the Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2: Install the Telegraf Agent
 

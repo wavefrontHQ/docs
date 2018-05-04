@@ -1,6 +1,6 @@
 ---
 title: WildFly Integration
-tags: []
+tags: [integrations list]
 permalink: wildfly.html
 summary: Learn about the Wavefront WildFly Integration.
 ---
@@ -13,7 +13,7 @@ In addition to setting up the metrics flow, this integration also sets up a dash
 
 
 
-To see the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
+To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## JBoss AS Setup
 
 

@@ -1,6 +1,6 @@
 ---
 title: Windows Service Integration
-tags: []
+tags: [integrations list]
 permalink: winserv.html
 summary: Learn about the Wavefront Windows Service Integration.
 ---
@@ -35,7 +35,7 @@ All metrics have the following point tags:
 
 ### Step 1: Set up the Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2: Install the Telegraf Agent
 

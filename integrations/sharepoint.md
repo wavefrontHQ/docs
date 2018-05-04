@@ -1,6 +1,6 @@
 ---
 title: SharePoint Integration
-tags: []
+tags: [integrations list]
 permalink: sharepoint.html
 summary: Learn about the Wavefront SharePoint Integration.
 ---
@@ -23,7 +23,7 @@ This integration uses Windows performance counters specific to the SharePoint Te
 
 ### Step 1: Set up a Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, [install a proxy](/proxies/add).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
 
 ### Step 2: Install the Telegraf Agent
 

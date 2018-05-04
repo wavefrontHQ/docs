@@ -1,6 +1,6 @@
 ---
 title: Azure AD Integration
-tags: []
+tags: [integrations list]
 permalink: azure_ad.html
 summary: Learn about the Wavefront Azure AD Integration.
 ---

@@ -1,6 +1,6 @@
 ---
 title: Java Integration
-tags: []
+tags: [integrations list]
 permalink: dropwizard.html
 summary: Learn about the Wavefront Java Integration.
 ---
@@ -19,7 +19,7 @@ Wavefront has reporters for [Dropwizard Metrics 3.1](https://dropwizard.github.i
 
 ### Step 1. Set up Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Java application, [install a proxy](/proxies/add). You configure the Wavefront proxy hostname and port (by default 2878) when you create the reporter.
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Java application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you create the reporter.
 
 ### Step 2. Set up Maven
 

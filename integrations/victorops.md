@@ -1,6 +1,6 @@
 ---
 title: VictorOps Integration
-tags: []
+tags: [integrations list]
 permalink: victorops.html
 summary: Learn about the Wavefront VictorOps Integration.
 ---
