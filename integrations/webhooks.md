@@ -19,7 +19,7 @@ Webhooks allow your application to send out information using HTTP callbacks. Wa
 {% include webhooks_create.md %}
 1. In the **content type** field, select `application/json`.
 1. Select **Alert Target POST Body Template > TEMPLATE > Webhook Default**.
-1. Customize the [template](https://docs.wavefront.com/webhooks_alert_notification.html#customizing-webhook-templates).
+1. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
 1. Click **Save**. The webhook alert target is added to the Alert Targets page.
 1. In the Name column, note the ID of the alert target under the alert target description.
 
