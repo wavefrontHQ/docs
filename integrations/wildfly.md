@@ -4,7 +4,7 @@ tags: [integrations list]
 permalink: wildfly.html
 summary: Learn about the Wavefront WildFly Integration.
 ---
-## JBoss AS Integration
+## JBoss AS (WildFly) Integration
 
 JBoss Application Server (JBoss AS) is an open-source, cross-platform Java application server developed by JBoss, a division of Red Hat Inc. JBoss AS is an open-source implementation of Java 2 Enterprise Edition (J2EE) that is used for implementing Java applications and other Web-based applications and software.
 
@@ -14,7 +14,7 @@ In addition to setting up the metrics flow, this integration also sets up a dash
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
-## JBoss AS Setup
+## JBoss AS (WildFly) Setup
 
 
 

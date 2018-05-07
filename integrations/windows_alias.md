@@ -1,8 +1,8 @@
 ---
-title: Windows Integration
+title: Windows Host Integration
 tags: [integrations list]
 permalink: windows_alias.html
-summary: Learn about the Wavefront Windows Integration.
+summary: Learn about the Wavefront Windows Host Integration.
 ---
 ## Windows Host Integration
 
