@@ -17,4 +17,3 @@ If you have an Amazon Web Services integration, metrics with the following prefi
 
   - `~externalservices` - CloudWatch API requests and estimated costs, overall metric rates, and CloudTrail event rate.
 
-undefined
