@@ -23,7 +23,7 @@ To see a list of the metrics for this integration, select the integration from <
 
 If you don't have the Telegraf agent installed, follow the steps below. Otherwise, continue to step 2.
 
-Run a command to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy.
+Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
 ### Step 2. Install the Jolokia JVM-Agent on Your HDFS nodes
 
