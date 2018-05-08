@@ -12,7 +12,7 @@ variance(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 Returns the variance for `expression`.
 
-If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawvariance()` if you don't want interpolation.
+If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawvariance()` if you don't want interpolation.
 
 ## Parameters
 <table>
@@ -32,7 +32,9 @@ If there are gaps of data in the expression, they are first filled in using inte
 
 ## Description
 
-Returns the variance between the different data lines in a `ts()` expression, computed at each time interval. If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawvariance()` if you don't need interpolation.
+Returns the variance between the different data lines in a `ts()` expression, computed at each time interval. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.
+
+Use `rawvariance()` if you don't need interpolation.
 
 ## Examples
 

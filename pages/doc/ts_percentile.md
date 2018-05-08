@@ -12,7 +12,7 @@ summary: Reference to the percentile() function
 ```
 percentile(<percentileValue>, <expression>[,metrics|sources|sourceTags|tags|<pointTagKey])
 ```
-Returns the `percentileValue` value of all series. If there are gaps of data in the expression, then this function fills them with interpolation.
+Returns the `percentileValue` value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.
 
 For example, if `percentileValue` is 99, `percentile()` returns the 99th percentile value of all series.
 

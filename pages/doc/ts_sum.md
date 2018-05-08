@@ -10,7 +10,7 @@ summary: Reference to the sum() function
 ```
 sum(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
-Returns the sum of all series. If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawsum()` if you don't need interpolation.
+Returns the sum of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawsum()` if you don't need interpolation.
 
 ## Parameters
 <table>

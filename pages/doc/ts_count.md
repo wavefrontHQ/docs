@@ -11,7 +11,7 @@ summary: Reference to the count() function
 count(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 
-At each time interval, the `count()` function adds together the number of reporting sources for each represented metric, and displays that value on the chart. If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawcount` if you don't want interpolation.
+At each time interval, the `count()` function adds together the number of reporting sources for each represented metric, and displays that value on the chart. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawcount` if you don't want interpolation.
 
 
 

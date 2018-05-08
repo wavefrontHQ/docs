@@ -13,7 +13,7 @@ min(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
 ```
 
 When used as a comparison function, returns the lower of the two values in `expression1` and `expression2`.
-When used as an aggregation function, returns the lowest value of all series. If there are gaps of data, they will first be filled in with interpolation. Use `rawmin` to return the highest value of all series without interpolation.
+When used as an aggregation function, returns the lowest value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawmin` to return the highest value of all series without interpolation.
 
 ## Parameters
 

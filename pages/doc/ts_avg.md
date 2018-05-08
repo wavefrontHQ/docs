@@ -10,7 +10,7 @@ summary: Reference to the avg() function
 ```
 avg(expression[,metrics|sources|sourceTags|tags|<pointTagKey])
 ```
-Returns the average (the mean) of all series. If there are gaps of data in the expression, they are first filled in using interpolation. Use `rawavg` if you don't want interpolation.
+Returns the average (the mean) of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawavg` if you don't want interpolation.
 
 ## Parameters
 <table>
@@ -30,7 +30,7 @@ Returns the average (the mean) of all series. If there are gaps of data in the e
 
 ## Description
 
-The `avg()` function takes the average (the mean), at each time slice, of the different data lines in `expression`. If at least one data value is present in the time slice, then all other existing time series in the query will be interpolated before the average is computed (if possible).
+The `avg()` function takes the average (the mean), at each point in time, of the different time series in the expression. If at least one data value is present at a point in time, then all other existing time series in the query will be interpolated before the average is computed (if possible).
 
 The `avg`, `mavg` and `median` functions can help you understand the tendency of the data.
 
@@ -61,7 +61,7 @@ We can group by the `env` point tag to see the differences between the dev and p
 
 ## Caveats
 
-Using [`rawavg()`](ts_rawavg.html) instead of `avg()` can significantly improve query performance.
+Using [`rawavg()`](ts_rawavg.html) instead of `avg()` can significantly improve query performance because `rawavg()` does not perform interpolation.
 
 ## See Also
 * [Mean and Median](query_language_statistical_functions_anomalies.html#mean-and-median)

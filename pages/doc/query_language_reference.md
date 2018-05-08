@@ -36,13 +36,13 @@ For example: <pre>tag=app.*</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">point tag</span></td>
-<td>A type of custom metric metadata. Point tags have keys and values. 
+<td>A type of custom metric metadata. Point tags have keys and values.
 For example: <pre>region=us-west-2b</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">timeWindow</span></td>
 <td>A window of time specified in seconds, minutes, hours, days or weeks (<code>1s</code>, <code>1m</code>, <code>1h</code>, <code>1d</code>, <code>1w</code>), or in terms of the window length you are currently looking at (<code>1vw</code>).
-If the unit is not specified, the default is minutes. 
+If the unit is not specified, the default is minutes.
 <ul>
 <li>Example. <code>3h</code> specifies a window of 3 hours.</li>
 <li>Example. If you are looking at a 30 minute window, <code>1vw</code> is one view-window length, and therefore equivalent to <code>30m</code>. </li>
@@ -51,7 +51,7 @@ If the unit is not specified, the default is minutes.
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">expression</span></td>
 <td>An expression consisting of a ts() expression, constant, or combination of ts() expressions and constants. See
- <a href="#expressions">Expressions</a>. 
+ <a href="#expressions">Expressions</a>.
 </td></tr>
 </tbody>
 </table>
@@ -76,7 +76,7 @@ An <span style="color:#3a0699;font-weight:bold">expression</span> may be a ts() 
 <tbody>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">ts() expression</span></td>
-<td> 
+<td>
 Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.
 <ul>
 <li>
@@ -95,11 +95,11 @@ Syntax:
 
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">constant</span></td>
-<td> 
+<td>
 A number such as <code>5.01</code>, <code>10000</code>, or <code>40</code>. Constants can be plotted by themselves and composed in <strong>expressions</strong> using arithmetic operators.
 <ul>
 <li markdown="span"> You can use [SI prefixes](https://en.wikipedia.org/wiki/Metric_prefix)(k, M, G, T, P, E, Z, Y) to scale constants by multiples of 1000.  G (billion) and T (trillion) are useful when working with network and I/O metrics. </li>
-<li>Example. Typing <code>1M</code> is equivalent to typing <code>1000000</code></li> 
+<li>Example. Typing <code>1M</code> is equivalent to typing <code>1000000</code></li>
 <li>Example. Typing <code>7.2k</code> is equivalent to typing <code>7200</code></li>
 </ul>
 </td>
@@ -107,8 +107,8 @@ A number such as <code>5.01</code>, <code>10000</code>, or <code>40</code>. Cons
 
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
-<td> 
-Matches strings in metric names, source names, alert names, source tags, alert tags, and point tags. 
+<td>
+Matches strings in metric names, source names, alert names, source tags, alert tags, and point tags.
 <ul>
 <li>A wildcard is represented with a <strong>"&#42;"</strong> character. Wavefront supports no other wildcard characters. </li>
 <li>Example. When filtering sources, match all sources starting with <code>"app-1"</code> (namely, <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, and so on):
@@ -172,7 +172,7 @@ Example: ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>
 <span id="aggregate"></span>
 
 ## Aggregation and Raw Aggregation Functions
-Aggregation and raw aggregation functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregation functions first interpolate the points of the underlying set of series (up to one day), and then apply the aggregation function to the interpolated series. Raw aggregation functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+Aggregation and raw aggregation functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregation functions first interpolate the points of the underlying set of series (up to one day) if at least 1 known value is available. Then the aggregation function iself is applied to the interpolated series. Raw aggregation functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
 
 
 <table style="width: 100%;">
@@ -221,7 +221,7 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 </tr>
 <tr>
 <td><a href="ts_count.html">count(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags| tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of series that are reporting. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
+<td>Returns the number of series that are reporting. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.</td>
 </tr>
 <tr>
 <td><a href="ts_rawcount.html"> rawcount(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
@@ -229,7 +229,7 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 </tr>
 <tr>
 <td><a href="ts_variance.html"> variance(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance of all series. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
+<td>Returns the variance of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. </td>
 </tr>
 <tr>
 <td><a href="ts_rawvariance.html"> rawvariance(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
@@ -237,8 +237,7 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 </tr>
 <tr>
 <td><a href="ts_percentile.html"> percentile(<strong>expression</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the <strong>percentileValue</strong> value of all series. If there are gaps of data in <strong>expression</strong>, they will first be filled in with interpolation.
-For example, if <strong>percentileValue is</strong> 99, returns the 99th percentile value of all series.
+<td>Returns the <strong>percentileValue</strong> value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. For example, if <strong>percentileValue is</strong> 99, returns the 99th percentile value of all series.
 <div>Set <strong>percentileValue</strong> to 50 for the mean value of all series.</div></td>
 </tr>
 <tr>
@@ -646,7 +645,7 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <td markdown="span">Returns <strong>expression</strong> with the sources renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong>, the parameter defaults to <strong>source</strong>.</td>
 </tr>
 <tr>
-<td><a href="ts_taggify.html"> taggify(<strong>expression</strong>,<strong>metric|source|sourceTags|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&lt;newPointTagKey&gt;, &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a>
+<td><a href="ts_taggify.html"> taggify(<strong>expression</strong>,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&lt;newPointTagKey&gt;, &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a>
 </td>
 <td markdown="span">Returns <strong>expression</strong> with the source renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|sourceTags {tagk, &lt;pointTagKey&gt;}</strong>, the parameter defaults to <strong>source</strong>.</td>
 </tr>

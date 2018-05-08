@@ -20,6 +20,12 @@ aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearc
 
 Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metric|source|{tagk, <pointTagKey>}`), it defaults to `source`.
 
+Here are some sample scenarios:
+* You want to group by a given parameter that is only found within a metric, source, or point tag value.
+* You want to clean up the view of the Tabular View chart columns
+* The complexity of your metric name is too much for the end users and you want to make it easier for them to digest what is being captured.
+* You use [derived metrics](derived_metrics.html)
+
 ## Parameters
 
 <table>
