@@ -30,7 +30,7 @@ First create a file called `hadoop-yarn.conf` in `/etc/telegraf/telegraf.d` and 
 ```
 [[inputs.httpjson]]
 name_prefix = "hadoop.yarn."
-servers = ["http://loclahost:8088/ws/v1/cluster/metrics"]
+servers = ["http://localhost:8088/ws/v1/cluster/metrics"]
 ```
 
 Then, specify your Yarn server URL as the `servers` value. Specify your server(s) with URL matching.
@@ -41,7 +41,7 @@ servers = ["http://<address>:<port>/ws/v1/cluster/metrics"]
 ```
 Example:
 ```
-servers = ["http://loclahost:8088/ws/v1/cluster/metrics"]
+servers = ["http://localhost:8088/ws/v1/cluster/metrics"]
 ```
 
 To monitor multiple Yarn servers, add `servers` entries:
