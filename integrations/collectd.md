@@ -7,6 +7,9 @@ summary: Learn about the Wavefront collectd Integration.
 ## collectd Integration
 
 [collectd](https://collectd.org/) is a daemon that periodically collects system and application performance metrics. This integration describes how to send collected data to Wavefront using the Graphite plugin.
+
+For step-by-step instructions for using collectd as the collector agent with Apache, Cassandra, Memcached, MySQL, NGiNX, Redis, and Zookeeper, see [our documentation pages](https://docs.wavefront.com/integrations_collectd.html). 
+
 ## collectd Setup
 
 ### Step 1. Configure Wavefront Proxy to Listen for Graphite Data

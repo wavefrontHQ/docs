@@ -16,13 +16,13 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 
 
-#### Step 1: Install and Configure the Wavefront Proxy Manually
+### Step 1: Install and Configure the Wavefront Proxy Manually
 
 1. Download the Java package from a package source suitable for [your NetBSD OS version](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/lang/openjdk8/README.html).
 2. Run the command `pkg_add -fD openjdk8*.tgz` to install the Java package.
-3. Append the Java path to the `PATH` environmental variable.
+3. Append the Java path to the `PATH` environment variable.
 4. Download the [Wavefront proxy jar](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/proxy-4.26-uber.jar) and [Wavefront config file](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/wavefront.conf).
-5. Open the `wavefront.conf` file for edit, add the following proxy properties and save the file:{% raw %}
+5. Open the `wavefront.conf` file for edit, add the following proxy properties, and save the file:{% raw %}
    ```
    server = http://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN
@@ -31,7 +31,7 @@ In addition to setting up the metrics flow, this integration also installs a das
    graphiteFormat = 2
    graphiteDelimiters = _
    ```
-   Here, `hostname` represents the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
+Here, `hostname` represents the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
 6. Start the Wavefront proxy service:
    ```
    sudo java -cp ./proxy-4.26-uber.jar \
@@ -40,7 +40,7 @@ In addition to setting up the metrics flow, this integration also installs a das
    ```
 7. On the Proxies page, verify that the proxy has registered with the Wavefront server.
 
-#### Step 2: Install and Configure the Collectd Daemon Manually
+### Step 2: Install and Configure the Collectd Daemon Manually
 
 1. Download the Collectd package from a package source suitable for [your NetBSD OS version](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/sysutils/collectd/README.html).
 2. Run the command `pkg_add -fD collectd*.tgz` to install the Collectd package.

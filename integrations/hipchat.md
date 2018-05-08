@@ -34,7 +34,7 @@ See the Setup tab for the templates that generated these messages.
    - **application/json** - The request payload must be valid JSON with body parameter fields as described in [HipChat documentation](https://www.hipchat.com/docs/apiv2/method/send_room_notification).
    
 1. Select **Alert Target POST Body Template > TEMPLATE > HipChat**.
-1. Customize the [template](https://docs.wavefront.com/webhooks_alert_notification.html#customizing-webhook-templates).
+1. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
  Here is the sample message template:
    - **application/json**
 {% raw %}

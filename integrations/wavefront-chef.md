@@ -1,8 +1,8 @@
 ---
-title: Chef Server Integration
+title: Wavefront Chef Server Integration
 tags: [integrations list]
 permalink: wavefront-chef.html
-summary: Learn about the Wavefront Chef Server Integration.
+summary: Learn about the Wavefront Wavefront Chef Server Integration.
 ---
 ## Wavefront Chef Server Integration
 

@@ -29,7 +29,7 @@ You can use Wavefront alerts to trigger a VictorOps incident of varying types (i
 {% include webhooks_create.md %}
 1. Set the URL field to the one generated within VictorOps API Endpoint (including your routing key).
 1. Select **Alert Target POST Body Template > TEMPLATE > VictorOps**.
-1. Customize the [template](https://docs.wavefront.com/webhooks_alert_notification.html#customizing-webhook-templates).
+1. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
 1. Give a meaningful description to your new alert target:
 {% include image.md width="90" src="images/victorops_webhook.png" %}
 1. Click **Save**. 

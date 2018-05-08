@@ -16,4 +16,3 @@ The Tour integration is a set of dashboards that give an overview of capabilitie
 - Tour: Anomaly Detection: Using Weekly Patterns - how to use historical data to establish a pattern and capture precisely when a service issue occurred.
 
 These dashboards use sample real-time and historical metrics that have been automatically pre-populated in your instance.
-undefined

@@ -58,7 +58,7 @@ The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the us
 1. Create a new Custom Header with the name `Authorization` and the value `Basic <TOKEN>`, where <TOKEN> is the Base64 token that you copied and saved in Step 3.
 1. Copy and paste the following into the Body Template of the alert target.{% raw %}
     ```
-    {{! https://docs.wavefront.com/webhooks_alert_notification.html#customizing-alert-target-templates }}
+    {{! https://docs.wavefront.com/alert_target_customizing.html }}
     {
       "short_description":"{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",
       "description":"Series: {{#trimTrailingComma}}{{#jsonEscape}}{{#newlyFailingSeries}}{{{.}}}, {{/newlyFailingSeries}}{{/jsonEscape}}{{/trimTrailingComma}}\nSources: {{#trimTrailingComma}}{{#jsonEscape}}{{#newlyFailingHosts}}{{{.}}}, {{/newlyFailingHosts}}{{/jsonEscape}}{{/trimTrailingComma}}\n\n{{{url}}}\n\n{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
@@ -78,7 +78,7 @@ The ServiceNow API uses Basic Authorization, a Base64 encoded string, for the us
     ```
 {% endraw %}
 1. In the Body Template, find the `caller_id` property and set its value to the `sys_id` that you copied in Step 2.
-1. Customize other aspects of the [template](https://docs.wavefront.com/webhooks_alert_notification.html#customizing-webhook-templates) as desired.
+1. Customize other aspects of the [template](https://docs.wavefront.com/alert_target_customizing.html) as desired.
 {% include image.md width="90" src="images/servicenow_alert_target.png" %}
 1. Click **Save**
 
