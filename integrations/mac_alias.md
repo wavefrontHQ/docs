@@ -1,8 +1,8 @@
 ---
-title: macOS Integration
+title: Mac Host Integration
 tags: [integrations list]
 permalink: mac_alias.html
-summary: Learn about the Wavefront macOS Integration.
+summary: Learn about the Wavefront Mac Host Integration.
 ---
 ## Mac Host Integration
 
