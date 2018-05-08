@@ -11,12 +11,12 @@ This document lists new and changed integrations on a month-by-month basis.
 
 ## April 2018
 
-We added the following integrations in April 2018:
+We added the following integrations:
 
 * Azure
 * Kong
 
-We added the following dashboards to existing integrations in April 2018:
+We enhanced existing integrations by adding dashboards:
 
 * Amazon Route 53 dashboard
 * Amazon EBS dashboard
