@@ -67,7 +67,7 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_integrations%20list.html" class="btn btn-primary btn-block">Integrations List</a></p>
+             <p><a href="label_integrations%20list.html" class="btn btn-primary btn-block">All Integrations</a></p>
              <p>{{site.data.labels.integrations_list}}</p>
          </div>
      </div>

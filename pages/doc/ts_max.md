@@ -67,11 +67,12 @@ To provide an aggregate value that our customers typically expect, Wavefront att
 
 For a live-view chart, where interpolation is not possible because no new points have been reported yet, Wavefront associates the last known reported value for all queries if a real reported data value is present. We apply the last known reported value only if interpolation can’t occur AND the last known reported point has been reported within the last 15% of the query time in the chart window.
 
+
+
 ## Examples
 
 ### Comparison Function
 
-`max(160, ts(my.metric))` for all values in `my.metric` that are is less than 160. For all `my.metric` values greater than 160, returns the value of `my.metric`.
 
 The following example shows the total number of sample requests.
 
