@@ -7,8 +7,10 @@ summary: Learn about the Wavefront Cernan Integration.
 ## Cernan Integration
 
 Cernan is an open source telemetry and logging aggregation server. From the [Cernan wiki](https://github.com/postmates/cernan/wiki):
-
-> Cernan exposes multiple interfaces for ingestion and can emit to multiple aggregation sources while doing in-flight manipulation of data. Cernan has minimal CPU and memory requirements and is intended to service bursty telemetry without load shedding. Cernan aims to be reliable and convenient to use, both for application engineers and operations staff.
+{% raw %}
+```
+Cernan exposes multiple interfaces for ingestion and can emit to multiple aggregation sources while doing in-flight manipulation of data. Cernan has minimal CPU and memory requirements and is intended to service bursty telemetry without load shedding. Cernan aims to be reliable and convenient to use, both for application engineers and operations staff.
+```
 
 
 ## Cernan Setup
@@ -30,7 +32,7 @@ In particular, make sure you are sending a test metric `foo.bar` to Cernan.  The
 metric value.
  
 After following these steps you should have Cernan running and are seeing sample output printed to your terminal that looks similar to below:
-{% raw %}
+
 ```
 Flushing metrics: 2017-01-30T17:49:29.782336+00:00  
   sums:  

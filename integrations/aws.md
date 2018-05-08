@@ -10,7 +10,7 @@ The Amazon Web Services integration is full-featured implementation offering pre
 
 ### Dashboards
 
-<p>Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricing**, and **Billing** and the service-specific dashboards for:</p>
+Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricing**, and **Billing** and the service-specific dashboards for the following products:
 
 <table width="100%" style="max-width: 650px; margin-bottom: 20px;">
 <tbody>
@@ -80,6 +80,12 @@ The Amazon Web Services integration is full-featured implementation offering pre
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon OpsWorks</h5>
 <div><img src="images/aws_opsworks.png" alt="Amazon OpsWorks" style="max-width: 70px;"/></div>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon EMR</h5>
+<div><img src="images/aws_emr.png" alt="Amazon SQS" style="max-width: 70px;"/></div>
 </td>
 </tr>
 </tbody>

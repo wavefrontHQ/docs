@@ -106,10 +106,13 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
   # insecure_skip_verify = false
   name_prefix = "coreos."
 ```
-{% endraw %}
 
 ### Step 3. Start the Telegraf Docker container
 
-Run `docker run -d=true --rm -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /cgroup/:/host/sys/fs/cgroup:ro -v $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro telegraf` 
+Run the following command to start the Docker container: 
+```
+docker run -d=true --rm -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /cgroup/:/host/sys/fs/cgroup:ro -v $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro telegraf
+```
+{% endraw %}
 
 
