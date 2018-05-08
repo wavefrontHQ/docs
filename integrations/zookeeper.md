@@ -42,7 +42,7 @@ Create a file called `zookeeper.conf` in `/etc/telegraf/telegraf.d` and enter th
    ```
 {% endraw %}
 
-Even though server will default to localhost if left blank, do not leave this blank as the metric generated will contain an invalid value for the `server` point tag and be blocked by the Wavefront proxy.
+Even though servers will default to localhost if left blank, do not leave this blank as the metric generated will contain an invalid value for the `server` point tag and be blocked by the Wavefront proxy.
 
 ### Step 3. Restart Telegraf
 
