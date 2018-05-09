@@ -1,5 +1,5 @@
 ---
-title: Wavefront Query Language Quick Reference
+title: Wavefront Query Language Reference
 keywords: query language, queries, functions, expressions, operators, variables, aggregations, conditional, rounding, missing data, metadata, mathematical, event
 tags: [query language]
 sidebar: doc_sidebar
@@ -286,80 +286,80 @@ When aggregating, you can group or filter the results.
 </thead>
 <tbody>
 <tr>
-<td markdown="span">highpass(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[, inner])</td>
-<td>Returns only the points in <span style="color:#3a0699;font-weight:bold">expression</span> above <span style="color:#bf5700;font-weight:bold">expression</span>. <span style="color:#bf5700;font-weight:bold">expression</span> can be a constant.</td>
+<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>[, inner])</a></td>
+<td>Returns only the points in <strong>expression2</strong> that are above <strong>expression1</strong>. <strong>expression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td markdown="span">lowpass(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span>[, inner])</td>
-<td>Returns only the points in <span style="color:#3a0699;font-weight:bold">expression</span> below <span style="color:#bf5700;font-weight:bold">expression</span>. <span style="color:#bf5700;font-weight:bold">expression</span> can be a constant.</td>
+<td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression&gt;</strong>[, inner])</a></td>
+<td>Returns only the points in <strong>expression2</strong> that are below <strong>expression1</strong>. <strong>expression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td>min(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the lower of the two values in <span style="color:#bf5700;font-weight:bold">expression</span> and <span style="color:#3a0699;font-weight:bold">expression</span>. Example: min(<span style="color:#bf5700;font-weight:bold">160</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns 160 if <span style="color:#08838c;font-weight:bold">my.metric</span> is &gt; 160. If <span style="color:#08838c;font-weight:bold">my.metric</span> is &lt; 160, returns the value of <span style="color:#08838c;font-weight:bold">my.metric</span>.</td>
+<td><a href="ts_min.html">min(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
+<td>Returns the lower of the two values in <strong>expression1</strong> and <strong>expression2</strong>. For example: <strong>min( 160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
-<td>max(<span style="color:#bf5700;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the higher of the two values in <span style="color:#bf5700;font-weight:bold">expression</span> and <span style="color:#3a0699;font-weight:bold">expression</span>. Example: max(<span style="color:#bf5700;font-weight:bold">160</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns 160 if <span style="color:#08838c;font-weight:bold">my.metric</span> is &lt; 160. If <span style="color:#08838c;font-weight:bold">my.metric</span> is &gt; 160, returns the value of <span style="color:#08838c;font-weight:bold">my.metric</span>.</td>
+<td><a href="ts_max.html">max(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
+<td>Returns the higher of the two values in <strong>&lt;expression1&gt;</strong> and  <strong>&lt;expression2&gt;</strong>. For example: <strong>max( 160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
-<td>between(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf5700;font-weight:bold">lower</span>, <span style="color:#bf5700;font-weight:bold">upper</span>)</td>
-<td>Returns 1 if <span style="color:#3a0699;font-weight:bold">expression</span> is &gt;= <span style="color:#bf5700;font-weight:bold">lower</span> and &lt;= <span style="color:#bf5700;font-weight:bold">upper</span>. Otherwise, returns 0. This function outputs continuous time series.</td>
+<td><a href="ts_between.html">between(<strong>&lt;expression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
+<td>Returns 1 if <strong>expression</strong> is &gt;= <strong>lower</strong> and &lt;= <strong>upper</strong>. Otherwise, returns 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td>downsample(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the values in <span style="color:#3a0699;font-weight:bold">expression</span> occurring in each <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: downsample(<span><span style="color:#757575;font-weight:bold">30m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)</span> returns the values every half hour of <span style="color:#08838c;font-weight:bold">my.metric</span>.</td>
+<td><a href="ts_downsample.html">downsample(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the values in <strong>expression</strong> that occurs in each time window. For example: <strong>downsample( 30m, ts(my.metric)</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
 </tr>
 <tr>
-<td markdown="span">align(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#008a09;font-weight:bold">[mean|median|min|max|first|last|sum|count,]</span> <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 value in <span style="color:#3a0699;font-weight:bold">expression</span> for each <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: If you were collecting data once a minute, but wanted data points to be displayed every 30 minutes (summarized by median every 30 minutes), use align(<span style="color:#757575;font-weight:bold">30m</span>, <span style="color:#008a09;font-weight:bold">median</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)). See <a href="query_language_align_function.html">The <code>align()</code> Function</a>.</td>
+<td markdown="span"><a href="ts_align.html"> align(<strong>&lt;timeWindow&gt;</strong>,<strong>[mean|median|min|max|first|last|sum|count,]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns 1 value in <strong>expression</strong> for each time window. For example, if you are collecting data once a minute, but you want data points to be displayed every 30 minutes (summarized by median every 30 minutes), use <strong>align( 30m, median, ts(my.metric))</strong>. See <a href="query_language_align_function.html">The <code>align()</code> Function</a>.</td>
 </tr>
 <tr>
-<td>topk(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the top <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point.</td>
+<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the top <strong>numberOfTimeSeries</strong> series in <strong>expression</strong>, based on the most recent data point.</td>
 </tr>
 <tr>
-<td>bottomk(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the bottom <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series in <span  style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point.</td>
+<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the bottom <strong>numberOfTimeSeries</strong> series in <strong>expression</strong>, based on the most recent data point.</td>
 </tr>
 <tr>
-<td>top(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the top <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's. This function outputs continuous time series. </td>
+<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Displays the top <strong>numberOfTimeSeries</strong> series the expression as 1, based on the most recent data point. Displays other series as 0's. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td>bottom(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the bottom <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> series (as 1) in <span style="color:#3a0699;font-weight:bold">expression</span> based on the most recent data point. All other series are displayed as 0's. This function outputs continuous time series.</td>
+<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Displays the bottom <strong>numberOfTimeSeries</strong> series in the expression as 1, based on the most recent data point. Displays as 0's. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td markdown="span">filter(<span style="color:#3a0699;font-weight:bold">expression</span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tagk=</span>])</td>
-<td>Retains the specified metric, source, or point tag in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to filter a metric. To <span>filter</span> a particular source or point tag, specify either source= or tagk= respectively. Set <span style="color:#3a0699;font-weight:bold">tagk</span> to the point tag key to filter. You can specify only one parameter (metric|source|point tag) per function call. To specify multiple parameters, use a filter() call for each parameter. filter is similar to retainSeries(), but does not support expanding a source tag.</td>
+<td markdown="span"><a href="filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, metric|source=|tagk=]</strong>)</a></td>
+<td>Retains the specified metric, source, or point tag in the expression. No key is required to filter a metric. To filter by a particular source or point tag, specify <strong>source=</strong> or <strong>tagk=</strong> . You can specify only one parameter (metric, source, or point tag) per function call. To specify multiple parameters, use a <strong>filter()</strong> call for each parameter. <strong>filter</strong> is similar to <strong>retainSeries()</strong>, but does not support expanding a source tag.</td>
 </tr>
 <tr>
-<td markdown="span">retainSeries(<span style="color:#3a0699;font-weight:bold">expression</span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tag=|tagk=</span>])</td>
-<td>Retains the specified metric, source, source tag, or point tag in <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set <span style="color:#3a0699;font-weight:bold">tagk</span> to the point tag key to retain. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a retainSeries() call for each parameter.</td>
+<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, metric|source=|tag=|tagk=]</strong>)</a></td>
+<td>Retains the specified metric, source, source tag, or point tag in the expression. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set <strong>tagk</strong> to the point tag key to retain. You can specify only one parameter (metric, source, source tag, or point tag) per function call. To specify multiple parameters, use a <strong>retainSeries()</strong> call for each parameter.</td>
 </tr>
 <tr>
-<td markdown="span">removeSeries(<span style="color:#3a0699;font-weight:bold">expression </span> [<span style="color:#bf5700;font-weight:bold">, metric|source=|tag=|tagk=</span>])</td>
-<td>Removes the specified metric, source, source tag, or point tag from <span style="color:#3a0699;font-weight:bold">expression</span>. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set <span style="color:#3a0699;font-weight:bold">tagk</span> to the unique point tag key to remove. You can specify only one parameter (metric|source|tag|point tag) per function call. To specify multiple parameters, use a removeSeries() call for each parameter. <br/>A simpler way to remove series is to use Boolean operators. For example, instead of removeSeries(ts("<span style="color:#08838c;font-weight:bold">smp-fax\*.count</span>", <span style="color:#d63a36;font-weight:bold">source="-eq"</span>), "<span style="color:#08838c;font-weight:bold">smp-fax\*.metrics.wavefront.\*</span>") you can use ts("<span style="color:#08838c;font-weight:bold">smp-fax\*.count</span>" and not "<span style="color:#08838c;font-weight:bold">smp-fax\*.metrics.wavefront.*</span>", <span style="color:#d63a36;font-weight:bold">source="-eq*"</span>).
+<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, metric|source=|tag=|tagk=]</strong>)</a></td>
+<td>Removes the specified metric, source, source tag, or point tag from the expression. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify source=, tag=, or tagk= . Set  <strong>tagk</strong> to the unique point tag key to remove. You can specify only one parameter (metric, source, source tag, or point tag) per function call. To specify multiple parameters, use a <strong>removeSeries()</strong> call for each parameter.
 </td>
 </tr>
 <tr>
-<td>sample(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression)</span></td>
-<td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> non-random time series based on <span style="color:#3a0699;font-weight:bold">expression</span>. This function is deterministic, as long as the underlying set of time series stays the same. The returned values may change, e.g., if a new source starts reporting the metric. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
+<td><a href="ts_sample.html">sample(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;)</strong></a></td>
+<td>Displays <strong>numberOfTimeSeries</strong> non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. However, the returned values change, e.g., if a new source starts reporting the metric. You can express <strong>numberOfTimeSeries</strong> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
 </tr>
 <tr>
-<td>random(<span style="color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> random time series based on <span style="color:#3a0699;font-weight:bold">expression</span>. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
+<td><a href="ts_random.html">random(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Displays <strong>numberOfTimeSeries</strong> random time series based on the expression. You can express <strong>numberOfTimeSeries</strong> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
 </tr>
 <tr>
-<td markdown="span">limit(<span style=" color:#008a09;font-weight:bold">&lt;numberOfTimeSeries&gt;</span>[, offsetNumber], <span style="color:#3a0699;font-weight:bold"> expression</span>)</td>
-<td>Returns <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span>time series. You can express <span style="color:#008a09;font-weight:bold">numberOfTimeSeries</span> as a number (e.g. 10) or a percentage (e.g. 17%). Use the optional <span style="color:#008a09;font-weight:bold">offsetNumber</span> to specify an index to start with. For example, if the function returns 100 items, you can set <span style="color:#008a09;font-weight:bold">offsetNumber</span> to 5 to start with the 5th item.</td>
+<td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;expression&gt;</strong>)</a></td>
+<td>Displays <strong>numberOfTimeSeries</strong>time series. You can express <strong>numberOfTimeSeries</strong> as a number (e.g. 10) or a percentage (e.g. 17%). Use the optional <strong>offsetNumber</strong> to specify an index to start with. For example, if the function returns 100 items, you can set <strong>offsetNumber</strong> to 5 to start with the 5th item.</td>
 </tr>
 <tr>
-<td>hideBefore(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Hides data before a specified time. For example, <code>hideBefore(10m)</code> hides data that’s older than 10 minutes.  </td>
+<td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;,&lt;expression&gt;</strong>)</a></td>
+<td>Hides data before a specified time. For example, <strong>hideBefore(10m)</strong> hides data that’s older than 10 minutes.  </td>
 </tr>
-<tr><td>hideAfter(<span style="color:#757575;font-weight:bold">timeWindow</span>,<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Hides data after a specified time. For example, <code>hideAfter(10m)</code> hides data that’s newer than 10 minutes ago. </td>
+<tr><td><a href="ts_hideAfter.html"> hideAfter(<strong>&lt;timeWindow&gt;,&lt;expression&gt;</strong>)</a></td>
+<td>Hides data after a specified time. For example, <strong>hideAfter(10m)</strong> hides data that’s newer than 10 minutes ago. </td>
 </tr>
 </tbody>
 </table>
