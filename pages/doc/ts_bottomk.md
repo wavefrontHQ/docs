@@ -36,6 +36,6 @@ Returns the bottom number of time series in the expression, based on the most re
 
 ## Examples
 
-The following example shows only the bottom 3 of the sources for which we have the total number of sample requests.
+The following example shows only the bottom 3 time seriesß for which we have the total number of sample requests.
 
 ![bottomk example](images/ts_bottomk.png)
