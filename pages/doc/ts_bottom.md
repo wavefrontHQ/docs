@@ -8,7 +8,7 @@ summary: Reference to the bottom() function
 ---
 ## Summary
 ```
-top(<numberOfTimeSeries>, <expression>)
+bottom(<numberOfTimeSeries>, <expression>)
 ```
 Returns the bottom `numberOfTimeSeries` series in expression as 1, based on the most recent data point. Displays all other series as 0's. This function outputs continuous time series.
 

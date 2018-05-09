@@ -41,7 +41,7 @@ The `lowpass()` filtering function plots a chart based on all reported data valu
 
 ![lowpass example](images/lowpass.png)
 
-In the example chart above, solid orange lines are only present when the reported data values are lower than the threshold. In this example, the threshold is 140. The remaining reported data values are essentially, resulting dashed lines to indicate missing data.
+In the example chart above, solid orange lines are only present when the reported data values are lower than the threshold. In this example, the threshold is 140. The remaining reported data values display as dashed lines to indicate missing data.
 
 
 ## See Also

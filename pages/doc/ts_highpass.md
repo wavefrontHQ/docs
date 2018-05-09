@@ -39,7 +39,7 @@ The `highpass()` filtering function plots a chart based on all reported data poi
 
 ## Examples
 
-In the example chart below, solid orange lines are only present when the reported data values exceed the threshold (the solid orange lines are right on top of the blue lines). In this example, the threshold is 120. The remaining reported data values that did not exceed 120 are dropped, resulting dashed lines to indicate missing data.
+In the example chart below, solid orange lines are only present when the reported data values exceed the threshold. The solid orange lines are right on top of the blue lines. In this example, the threshold is 120. The remaining reported data values that did not exceed 120 are dropped, resulting dashed lines to indicate missing data.
 
 ![highpass example](images/ts_highpass.png)
 

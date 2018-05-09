@@ -9,11 +9,10 @@ summary: Reference to the retainSeries() function
 
 ## Summary
 ```
-retainSeries(<expression> [, <metric>|source=<s>|tag=<st>|tagk=<pointTagKey>])
+retainSeries(<expression> [, metric|source=<source>|tag=<sourceTag>|tagk=<pointTagKey>])
 ```
-<!---should that be metric inside angles?-->
 
-Retains the specified metric, source, source tag, or point tag in the expression.  To retain a particular source, source tag, or point tag, specify one of `source=`, `tag=`, or `tagk=`. Set `tagk` to the point tag key to retain. You can specify only one parameter per function call. To specify multiple parameters, use a retainSeries() call for each parameter.
+Retains the specified metric, source, source tag, or point tag in the expression.  To retain a particular source, source tag, or point tag, specify one of `source=`, `tag=`, or `tagk=`. Set `tagk` to the point tag key to retain. You can specify only one parameter per function call. To specify multiple parameters, use a `retainSeries()` call for each parameter.
 
 <!-- No key is required to retain a metric. =>What does that mean? -->
 
@@ -35,19 +34,19 @@ Retains the specified metric, source, source tag, or point tag in the expression
 
 ## Description
 
-Allows you to retain only the specified metric, source, source tag, or point tag in the expression. To filter a particular source, source tag, or point tag, specify either `source=` or `tag=` or `tagk=` and to the key you want to filter by.
+Allows you to retain only time series that include the specified metric, source, source tag, or point tag. To filter a particular source, source tag, or point tag, specify either `source=` or `tag=` or `tagk=` and the key that you want to filter by.
 
-You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define, for example, in conjunction with `taggify()`
+You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define, for example, in conjunction with `taggify()`.
 
 You can specify only one parameter (metric, source, source tag, or point tag) per function call. To specify multiple parameters, use a `filter()` call for each parameter. In contrast to `filter()` this function supports expanding a source tag.
 
 
 ## Examples
 
-The following example first extracts all `~sample.requests.*` metrics that are in the `dev` environment.
+In the following example, we first extracts all `~sample.requests.*` metrics that are in the `dev` environment.
 
 ![retain series 1](images/ts_retain_series_1.png)
 
-Then we extract from that series only the series that come from the app-5 source. The result are just three series.
+Then we extract from that series only the series that come from the `app-5` source. The result are just three series.
 
-![retain series 2](images/ts_retain_series_2.png) 
+![retain series 2](images/ts_retain_series_2.png)

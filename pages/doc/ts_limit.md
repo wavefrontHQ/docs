@@ -10,7 +10,7 @@ summary: Reference to the limit() function
 ```
 limit(<numberOfTimeSeries>[, <offsetNumber>], <expression>)
 ```
-Returns only `numberOfTimeSeriestime` series.
+Displays only `numberOfTimeSeries` time series.
 
 ## Parameters
 <table>
@@ -20,10 +20,10 @@ Returns only `numberOfTimeSeriestime` series.
 </thead>
 <tr>
 <td>numberOfTimeSeries</td>
-<td>Number of time series that you want. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
+<td>Number of time series that you want displayed. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
 <td>offsetNumber</td>
-<td>Use this optional parameter to specify an index to start with. For example, if the function returns 100 items, you can set `offsetNumber` to 5 to start with the 5th item. </td></tr>
+<td>Use this optional parameter to specify an index to start with. For example, you can set `offsetNumber` to 5 to start with the 5th item. </td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression that you want to filter.</td>
@@ -33,7 +33,7 @@ Returns only `numberOfTimeSeriestime` series.
 
 ## Description
 
-Returns only `numberOfTimeSeriestime` series. Use the optional `offsetNumber` to specify an index to start with. For example, if the original query returns 100 items, you can set `offsetNumber` to 5 to start with the 5th item.
+Returns only `numberOfTimeSeriestime` series. Use the optional `offsetNumber` to specify an index to start with. For example, set `offsetNumber` to 5 to start with the 5th item.
 
 ## Examples
 

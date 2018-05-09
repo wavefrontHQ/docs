@@ -10,7 +10,7 @@ summary: Reference to the sample() function
 ```
 sample(<numberOfTimeSeries>, <expression>)
 ```
-Returns `numberOfTimeSeries` non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. The returned values might change, for example, if a new source starts reporting the metric.
+Returns `numberOfTimeSeries` non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. However, the returned values can change, for example, if a new source starts reporting the metric.
 
 ## Parameters
 <table>
@@ -32,10 +32,14 @@ Returns `numberOfTimeSeries` non-random time series based on the expression. Thi
 
 Returns `numberOfTimeSeries` non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. The returned values might change, for example, if a new source starts reporting the metric.
 
-Don't confuse `sample()` with  [` downsample()`](ts_downsample.html), which returns the values in the expression that occur in each timeWindow.
+Don't confuse `sample()` with  [` downsample()`](ts_downsample.html), which returns the values in the expression that occur in each time window.
 
 ## Examples
 
-The following example shows 10% of all `~sample.cpu.loadavg.1m` metrics. You would get the same results if you selected 3 of the metrics instead. 
+The following example shows 10% of all `~sample.cpu.loadavg.1m` metrics. You would get the same results if you selected 3 of the metrics instead.
 
 ![sample cpu load average](images/ts_sample.png)
+
+## See Also
+
+For a random set of time series, use the [random()](ts_random.html) function. 
