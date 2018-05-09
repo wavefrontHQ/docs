@@ -6,6 +6,12 @@ sidebar: doc_sidebar
 permalink: proxies_versions.html
 summary: Learn about new features and changes in different Wavefront proxy versions.
 ---
+## Version 4.27
+- Enables gzip compression for sending metrics to Wavefront by default
+- Supports variable sampling rate for logging valid points
+- Enables `--help` command-line option
+- Supports both `\u2206` and `\u0394` characters for delta metrics
+
 ## Version 4.26
 - Improves proxy throughput and reduces TCP congestion when queueing
 - Adds support and binaries for OpenSUSE, SUSE Linux Enterprise Server, Oracle Linux and Fedora
