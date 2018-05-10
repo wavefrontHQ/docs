@@ -24,7 +24,7 @@ In contrast to `count()`, `rawcount()` does not perform interpolation.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression to create a count for. With `rawcount`, we count only reported values and do not perform interpolation. </td></tr>
+<td>Expression to create a count for. With <strong>rawcount()</strong>, we count only reported values and do not perform interpolation. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional additional expressions to modify the count. </td>

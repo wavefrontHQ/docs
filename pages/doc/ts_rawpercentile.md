@@ -10,7 +10,7 @@ summary: Reference to the rawpercentile() function
 ## Summary
 
 ```
-rawpercentile(<timeWindow>, <percentileValue>, <expression>)
+rawpercentile(<percentileValue>, <expression>[, metrics|sources|sourceTags|tags|<pointTagKey])
 ```
 Returns the percentile of each series over `timeWindow`. In contrast to `percentile()`, this function does not perform interpolation.
 
