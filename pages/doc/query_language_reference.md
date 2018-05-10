@@ -299,7 +299,7 @@ When aggregating, you can group or filter the results.
 </tr>
 <tr>
 <td><a href="ts_max.html">max(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
-<td>Returns the higher of the two values in <strong>&lt;expression1&gt;</strong> and  <strong>&lt;expression2&gt;</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the higher of the two values in <strong>expression1</strong> and  <strong>expression2</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
 <td><a href="ts_between.html">between(<strong>&lt;expression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
