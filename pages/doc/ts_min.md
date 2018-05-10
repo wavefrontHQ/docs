@@ -59,9 +59,9 @@ The `min()` comparison function lets you display all data points above a desired
 
 ### Aggregation Function
 
-When you add `min()` to a ts() expression, Wavefront sorts the values at each time interval and displays the highest (maximum) data value across all reporting metrics and sources.
+When you add `min()` to a ts() expression, Wavefront sorts the values at each time interval and displays the lowest (minimum) data value across all reporting metrics and sources.
 
-The `min()` aggregation function interpolates the points of the underlying set of series, and then applies the function to the interpolated series. Use `rawmax` to not use interpolation. See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+The `min()` aggregation function interpolates the points of the underlying set of series, and then applies the function to the interpolated series. Use `rawmin` to not use interpolation. See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
 
 To provide an aggregate value that our customers typically expect, Wavefront attempts to interpolate all queries at a time slice if at least one real reported data value is present.
 
