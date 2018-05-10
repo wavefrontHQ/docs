@@ -290,16 +290,16 @@ When aggregating, you can group or filter the results.
 <td>Returns only the points in <strong>expression2</strong> that are above <strong>expression1</strong>. <strong>expression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression&gt;</strong>[, inner])</a></td>
+<td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>[, inner])</a></td>
 <td>Returns only the points in <strong>expression2</strong> that are below <strong>expression1</strong>. <strong>expression1</strong> can be a constant.</td>
 </tr>
 <tr>
 <td><a href="ts_min.html">min(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
-<td>Returns the lower of the two values in <strong>expression1</strong> and <strong>expression2</strong>. For example: <strong>min( 160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the lower of the two values in <strong>expression1</strong> and <strong>expression2</strong>. For example: <strong>min(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
 <td><a href="ts_max.html">max(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
-<td>Returns the higher of the two values in <strong>&lt;expression1&gt;</strong> and  <strong>&lt;expression2&gt;</strong>. For example: <strong>max( 160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the higher of the two values in <strong>&lt;expression1&gt;</strong> and  <strong>&lt;expression2&gt;</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
 <td><a href="ts_between.html">between(<strong>&lt;expression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
@@ -307,11 +307,11 @@ When aggregating, you can group or filter the results.
 </tr>
 <tr>
 <td><a href="ts_downsample.html">downsample(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the values in <strong>expression</strong> that occurs in each time window. For example: <strong>downsample( 30m, ts(my.metric)</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
+<td>Returns the values in <strong>expression</strong> that occur in each time window. For example: <strong>downsample(30m, ts(my.metric))</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_align.html"> align(<strong>&lt;timeWindow&gt;</strong>,<strong>[mean|median|min|max|first|last|sum|count,]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns 1 value in <strong>expression</strong> for each time window. For example, if you are collecting data once a minute, but you want data points to be displayed every 30 minutes (summarized by median every 30 minutes), use <strong>align( 30m, median, ts(my.metric))</strong>. See <a href="query_language_align_function.html">The <code>align()</code> Function</a>.</td>
+<td>Returns one value in <strong>expression</strong> for each time window. For example, if you are collecting data once a minute, but you want data points to be displayed every 30 minutes (summarized by median every 30 minutes), use <strong>align(30m, median, ts(my.metric))</strong>. See <a href="query_language_align_function.html">Bucketing with <code>align()</code></a>.</td>
 </tr>
 <tr>
 <td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
@@ -323,42 +323,42 @@ When aggregating, you can group or filter the results.
 </tr>
 <tr>
 <td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Displays the top <strong>numberOfTimeSeries</strong> series the expression as 1, based on the most recent data point. Displays other series as 0's. This function outputs continuous time series.</td>
+<td>Displays the top <strong>numberOfTimeSeries</strong> series in <strong>expression</strong> as 1, based on the most recent data point. Displays all other series as 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Displays the bottom <strong>numberOfTimeSeries</strong> series in the expression as 1, based on the most recent data point. Displays as 0's. This function outputs continuous time series.</td>
+<td>Displays the bottom <strong>numberOfTimeSeries</strong> series in <strong>expression</strong> as 1, based on the most recent data point. Displays all other series as 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, metric|source=|tagk=]</strong>)</a></td>
-<td>Retains the specified metric, source, or point tag in the expression. No key is required to filter a metric. To filter by a particular source or point tag, specify <strong>source=</strong> or <strong>tagk=</strong> . You can specify only one parameter (metric, source, or point tag) per function call. To specify multiple parameters, use a <strong>filter()</strong> call for each parameter. <strong>filter</strong> is similar to <strong>retainSeries()</strong>, but does not support expanding a source tag.</td>
+<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, &lt;metric&gt;|source=|tagk=]</strong>)</a></td>
+<td>Retains only the time series in  <strong>expression</strong> that match the specified metric, source, or point tag. No key is required to filter a metric. <strong>filter</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, metric|source=|tag=|tagk=]</strong>)</a></td>
-<td>Retains the specified metric, source, source tag, or point tag in the expression. No key is required to retain a metric. To retain a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set <strong>tagk</strong> to the point tag key to retain. You can specify only one parameter (metric, source, source tag, or point tag) per function call. To specify multiple parameters, use a <strong>retainSeries()</strong> call for each parameter.</td>
+<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, &lt;metric&gt;|source=|tag=|tagk=]</strong>)</a></td>
+<td>Retains only the time series in <strong>expression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a metric. </td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, metric|source=|tag=|tagk=]</strong>)</a></td>
-<td>Removes the specified metric, source, source tag, or point tag from the expression. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify source=, tag=, or tagk= . Set  <strong>tagk</strong> to the unique point tag key to remove. You can specify only one parameter (metric, source, source tag, or point tag) per function call. To specify multiple parameters, use a <strong>removeSeries()</strong> call for each parameter.
+<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, &lt;metric&gt;|source=|tag=|tagk=]</strong>)</a></td>
+<td>Suppresses any time series in <strong>expression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a metric.
 </td>
 </tr>
 <tr>
 <td><a href="ts_sample.html">sample(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;)</strong></a></td>
-<td>Displays <strong>numberOfTimeSeries</strong> non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. However, the returned values change, e.g., if a new source starts reporting the metric. You can express <strong>numberOfTimeSeries</strong> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
+<td>Displays a non-random sample set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls will display the same sample set as long as the underlying set of time series stays the same. </td>
 </tr>
 <tr>
 <td><a href="ts_random.html">random(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Displays <strong>numberOfTimeSeries</strong> random time series based on the expression. You can express <strong>numberOfTimeSeries</strong> as a number (e.g. 10) or a percentage (e.g. 17%).</td>
+<td>Displays a random set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls always display different sample sets.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;expression&gt;</strong>)</a></td>
-<td>Displays <strong>numberOfTimeSeries</strong>time series. You can express <strong>numberOfTimeSeries</strong> as a number (e.g. 10) or a percentage (e.g. 17%). Use the optional <strong>offsetNumber</strong> to specify an index to start with. For example, if the function returns 100 items, you can set <strong>offsetNumber</strong> to 5 to start with the 5th item.</td>
+<td>Displays <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
 </tr>
 <tr>
-<td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;,&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Hides data before a specified time. For example, <strong>hideBefore(10m)</strong> hides data that’s older than 10 minutes.  </td>
 </tr>
-<tr><td><a href="ts_hideAfter.html"> hideAfter(<strong>&lt;timeWindow&gt;,&lt;expression&gt;</strong>)</a></td>
+<tr><td><a href="ts_hideAfter.html"> hideAfter(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Hides data after a specified time. For example, <strong>hideAfter(10m)</strong> hides data that’s newer than 10 minutes ago. </td>
 </tr>
 </tbody>

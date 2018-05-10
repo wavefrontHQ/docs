@@ -34,4 +34,4 @@ For example, `hideBefore(10m)` hides data that’s older than 10 minutes. The fu
 
 The `hideBefore()` and `hideAfter()` functions allow you to  pan chart windows into the future to further refine the display. They can be especially useful in conjunction with predictive functions, but also make charts easier to view by hiding unnecessary detail. 
 
-## Examples
+<!--- ## Examples --->

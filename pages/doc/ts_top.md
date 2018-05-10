@@ -10,7 +10,7 @@ summary: Reference to the top() function
 ```
 top(<numberOfTimeSeries>, <expression>)
 ```
-Returns the top `numberOfTimeSeries` series in expression as 1, based on the most recent data point. Displays all other series as 0's. This function outputs continuous time series.
+Returns the top `numberOfTimeSeries` series in expression as 1, based on the most recent data point. Displays all other series as 0. This function outputs continuous time series.
 
 ## Parameters
 <table>

@@ -10,7 +10,7 @@ summary: Reference to the align() function
 ```
 align(<timeWindow>,[mean|median|min|max|first|last|sum|count,] <expression>)
 ```
-Returns 1 value in the expression for each time window. For example, if you collect data once a minute, but want data points to be displayed every 30 minutes (summarized by median every 30 minutes), use `align(30m, median, ts(my.metric))`.
+Returns one value in the expression for each time window. For example, if you collect data once a minute, but want data points to be displayed every 30 minutes (summarized by median every 30 minutes), use `align(30m, median, ts(my.metric))`.
 
 
 ## Parameters
@@ -21,11 +21,11 @@ Returns 1 value in the expression for each time window. For example, if you coll
 </thead>
 <tr>
 <td>timeWindow</td>
-<td>The time window determines the bucket size into which align() organizes the data.</td>
+<td markdown="span">Time window (bucket size) into which `align()` organizes the data points.</td>
 </tr>
 <tr>
-<td>mean median min max first last sum count </td>
-<td>You can use align() with one of the aggregation functions.</td>
+<td>mean&vert;median&vert;min&vert;max&vert;first&vert;last&vert;sum&vert;count </td>
+<td>Aggregation function to use for grouping data points within buckets.</td>
 </tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
@@ -35,7 +35,7 @@ Returns 1 value in the expression for each time window. For example, if you coll
 
 ## Description
 
-The `align()` function groups points into buckets by allowing you to specify a time window. We often use `align()` with one of the aggregation functions to specify those points are aggregated (e.g. averaged, counted, summed, etc.).
+The `align()` function groups data points into buckets by allowing you to specify a time window. We often use `align()` with one of the aggregation functions to specify how the grouped points are aggregated (e.g. averaged, counted, summed, etc.).
 
 Metrics are automatically pre-aligned for performance reasons when more than 100 time series are used in an aggregation function. You might see a pre-align warning even if you're not using the `align()` function. You can ignore the warning in most cases, for instance, if a metric reflects a parameter changing over time.
 

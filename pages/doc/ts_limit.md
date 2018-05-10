@@ -23,7 +23,7 @@ Displays only `numberOfTimeSeries` time series.
 <td>Number of time series that you want displayed. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
 <td>offsetNumber</td>
-<td>Use this optional parameter to specify an index to start with. For example, you can set `offsetNumber` to 5 to start with the 5th item. </td></tr>
+<td markdown="span"> Specifies the index to start with.  </td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression that you want to filter.</td>

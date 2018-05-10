@@ -23,7 +23,7 @@ For example, `hideAfter(10m)` hides data that’s newer than 10 minutes ago.
 </thead>
 <tr>
 <td>timeWindow</td>
-<td>Time where you want to start hiding data.  For example, `hideAfter(10m)` hides data that’s newer than 10 minutes ago. </td></tr>
+<td>Time where you want to start hiding data.  For example, <code>hideAfter(10m)</code> hides data that’s newer than 10 minutes ago. </td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression that you want to filter.</td>
@@ -35,4 +35,4 @@ For example, `hideAfter(10m)` hides data that’s newer than 10 minutes ago.
 
 The `hideBefore()` and `hideAfter()` functions allow you to  pan chart windows into the future to further refine the display. They can be especially useful in conjunction with predictive functions, but also make charts easier to view by hiding unnecessary detail.
 
-## Examples
+<!--- ## Examples --->

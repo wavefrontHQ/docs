@@ -10,7 +10,7 @@ summary: Reference to the between() function
 ```
 between(<expression>, <lower>, <upper>)
 ```
-Returns 1 if `expression` is >= `lower` and <= `upper`. Otherwise, returns 0. This function outputs continuous time series.
+Returns 1 if `expression` is greater than or equal to `lower` and less than or equal to `upper`. Otherwise, returns 0. This function outputs continuous time series.
 
 
 ## Parameters
@@ -35,7 +35,7 @@ Returns 1 if `expression` is >= `lower` and <= `upper`. Otherwise, returns 0. Th
 
 ## Description
 
-The `between()` function determines if the value of `expression` is greater than or equal to`lower` and less than or equal to `upper`. When the value of `expression` falls in between the values of `lower` and `upper` the function displays 1 on the chart.  When `expression` does not fall between `lower` and `upper` the function displays 1 on the chart. The values for `expression`, `lower`, and `upper` can be any constant or `ts()` expression.
+The `between()` function determines whether the value of `expression` is greater than or equal to`lower` and less than or equal to `upper`. When the value of `expression` falls in between the values of `lower` and `upper`, the function displays 1 on the chart.  When `expression` does not fall between `lower` and `upper`, the function displays 0 on the chart. The values for `expression`, `lower`, and `upper` can be any constant or ts() expression.
 
 ## Examples
 

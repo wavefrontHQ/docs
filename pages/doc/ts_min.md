@@ -71,7 +71,7 @@ For a live-view chart, where interpolation is not possible because no new points
 
 ### Comparison Function
 
-The following example from our built-in Interactive Query Language Tutorial illustrates the use of `min`. It includes a mar line so you can see how the values are shown as 200 if they are higher than the specified minimum.
+The following example from our built-in Interactive Query Language Tutorial illustrates the use of `min`. It includes a mark line so you can see how the values are shown as 200 if they are higher than the specified minimum.
 
 ![ts min](images/ts_min.png)
 
@@ -84,4 +84,4 @@ The following example shows `min()` without an expression to compare against. Fo
 
 ## Caveats
 
-Sometimes it's best to use `min` with `align`. See [The align() Function](query_language_align_function.html)
+Sometimes it's best to use `min` with `align`. See [Bucketing with align()](query_language_align_function.html).

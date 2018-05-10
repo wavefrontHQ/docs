@@ -13,7 +13,7 @@ removeSeries(<expression> [, <metric>|source=<s>|tag=<st>|tagk=<pointTagKey>])
 ```
 <!---should that be metric inside angles?-->
 
-Removes the specified metric, source, source tag, or point tag from the expression. No key is required to remove a metric. To remove a particular source, source tag, or point tag, specify one of source=, tag=, or tagk= respectively. Set tagk to the unique point tag key to remove.
+Filters the expression to display only the time series that do <em>not</em> match the specified metric, source, source tag, or point tag. No key is required to remove a metric. To filter by a particular source, source tag, or point tag, specify `source=`, `tag=`, or `tagk=`, respectively. You can specify only one filtering parameter per function call.
 
 <!-- No key is required to retain a metric. =>What does that mean? -->
 
@@ -28,24 +28,27 @@ Removes the specified metric, source, source tag, or point tag from the expressi
 <td>Expression that you want to filter.</td>
 </tr>
 <tr>
-<td>metric, source=, tag=, tagk=</td>
-<td>The metric, source, source tag, or point tag to filter by. See [the filter() Function](ts_filter.html) for an in-depth discussion of source tags, point tags, and when to use them. </td></tr>
+<td>metric&vert;source=&vert;tag=&vert;tagk=</td>
+<td markdown="span">The metric, source, source tag, or point tag to filter by. See [filter() Function](ts_filter.html) for an in-depth discussion of source tags, point tags, and when to use them. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-Removes the specified metric, source, source tag, or point tag from the expression. You can specify only one parameter per function call. To specify multiple parameters, use a `removeSeries()` call for each parameter.
+The `removeSeries()` function filters the expression to display only the time series that do not match the specified metric, source, source tag, or point tag. To filter by a particular source, source tag, or point tag, specify `source=`, `tag=`, or `tagk=`, respectively. Set `pointTagKey` to the unique point tag key to filter by.
 
-At times, a simpler way to remove series is to use Boolean operators. For example, instead of:
+You can specify only one filtering parameter per function call. To filter by multiple parameters, use a `removeSeries()` call for each parameter.
+
+<!---At times, a simpler way to remove series is to use Boolean operators. For example, instead of:
 ```
-removeSeries(ts("smp-fax\*.count", source="-eq"), "smp-fax\*.metrics.wavefront.\*")
+removeSeries(ts("smp-fax*.count", source="-eq"), "smp-fax*.metrics.wavefront.*")
 ```
 you can call:
 
 ```
-ts("smp-fax\*.count" and not "smp-fax\*.metrics.wavefront.*", source="-eq*")`
+ts("smp-fax*.count" and not "smp-fax*.metrics.wavefront.*", source="-eq*")`
 ```
+--->
 
 
 ## Examples

@@ -8,9 +8,9 @@ summary: Reference to the filter() function
 ---
 ## Summary
 ```
-filter(<expression> [, metric|source=|tagk=<pointTagKey>])
+filter(<expression> [, <metric>|source=|tagk=<pointTagKey>])
 ```
-Allows you to retain only the specified metric, source, or point tag in the expression. To filter a particular source or point tag, specify `source=`, or specify `tagk=` and set it to the point tag key to filter. You can specify only one parameter (metric, source, or point tag) per function call.
+Filters the expression to display only the time series that match the specified metric, source, or point tag. To filter by a particular source or point tag, specify `source=` or `tagk=`, respectively. You can specify only one filtering parameter per function call.
 
 ## Parameters
 <table>
@@ -23,16 +23,16 @@ Allows you to retain only the specified metric, source, or point tag in the expr
 <td>Expression that you want to filter.</td>
 </tr>
 <tr>
-<td>metric, source=, tagk=</td>
+<td>metric&vert;source=&vert;tagk=</td>
 <td>The metric, source or point tag to filter by. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-Allows you to retain only the specified metric, source, or point tag in the expression. To filter a particular source or point tag, specify `source=`, or specify `tagk=` and set the value to the point tag key to filter by.
+The `filter()` function filters the expression to display only the time series that match the specified metric, source, or point tag. To filter by a particular source or point tag, specify `source=` or `tagk=`, respectively. Set `pointTagKey` to the unique point tag key to filter by.
 
-You can specify only one parameter (metric, source, or point tag) per function call. To specify multiple parameters, use a `filter()` call for each parameter. `filter()` is similar to `retainSeries()`, but does not support expanding a source tag.
+You can specify only one filtering parameter (metric, source, or point tag) per function call. To filter by multiple parameters, use a `filter()` call for each parameter. `filter()` is similar to `retainSeries()`, but does not support matching a source tag.
 
 <!---The following content from QL Reference - need to verify this is still true.
 
@@ -47,7 +47,7 @@ When you apply a source tag to a source, that source is grouped with other sourc
 
 ### Point Tag Filters
 
-Use Point tags to add extra dimensions to individual data values. While source tags are great for filtering your data to just the sources that are important to your use case, they do not store historical data. If your company uses a cloud-computing platform, then you might see instances constantly being re-provisioned as they are spun up and shut down. In those cases, historical data can be very important.
+Use point tags to add extra dimensions to individual data values. While source tags are great for filtering your data to just the sources that are important to your use case, they do not store historical data. If your company uses a cloud-computing platform, then you might see instances constantly being re-provisioned as they are spun up and shut down. In those cases, historical data can be very important.
 
 Point tags are tied to individual data values, and allow you to create queries based on historical data. Point tags are expressed as `<PointTagKey> = <PointTagValue>`. The `PointTagKey` and `PointTagValue` are unique to each customer. For example, let’s say that source `app-1` is reporting data values for application `BLUE` to metric `cpu.loadavg.1m`. However the next day `app-1` is re-provisioned and is now reporting data values for application `RED`. The data values reported by `app-1` can include a `PointTagKey` of  `app` and a `PointTagValue` of `red` and `blue`. You could then construct the following query to only see data values for application `blue`:
 ```

@@ -95,4 +95,5 @@ And here we see what happens when we apply max.
 
 ## Caveats
 
-Sometimes it's best to use `max` with `align`.
+Sometimes it's best to use `max` with `align`. 
+See [Bucketing with align()](query_language_align_function.html).

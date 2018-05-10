@@ -9,10 +9,10 @@ summary: Reference to the retainSeries() function
 
 ## Summary
 ```
-retainSeries(<expression> [, metric|source=<source>|tag=<sourceTag>|tagk=<pointTagKey>])
+retainSeries(<expression> [, <metric>|source=<source>|tag=<sourceTag>|tagk=<pointTagKey>])
 ```
 
-Retains the specified metric, source, source tag, or point tag in the expression.  To retain a particular source, source tag, or point tag, specify one of `source=`, `tag=`, or `tagk=`. Set `tagk` to the point tag key to retain. You can specify only one parameter per function call. To specify multiple parameters, use a `retainSeries()` call for each parameter.
+Filters the expression to display only the time series that match the specified metric, source, source tag, or point tag.  To filter by a particular source, source tag, or point tag, specify `source=`, `tag=`, or `tagk=`, respectively. You can specify only one filtering parameter per function call.
 
 <!-- No key is required to retain a metric. =>What does that mean? -->
 
@@ -27,26 +27,26 @@ Retains the specified metric, source, source tag, or point tag in the expression
 <td>Expression that you want to filter.</td>
 </tr>
 <tr>
-<td>metric, source=, tag=, tagk=</td>
-<td>The metric, source, source tag, or point tag to filter by. See [the filter() Function](ts_filter.html) for an in-depth discussion of source tags, point tags, and when to use them. </td></tr>
+<td>metric&vert;source=&vert;tag=&vert;tagk=</td>
+<td markdown="span">The metric, source, source tag, or point tag to filter by. See [filter() Function](ts_filter.html) for an in-depth discussion of source tags, point tags, and when to use them. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-Allows you to retain only time series that include the specified metric, source, source tag, or point tag. To filter a particular source, source tag, or point tag, specify either `source=` or `tag=` or `tagk=` and the key that you want to filter by.
+The `retainSeries()` function filters the expression to display only the time series that match the specified metric, source, source tag, or point tag. To filter by a particular source, source tag, or point tag, specify `source=`, `tag=`, or `tagk=`, respectively. Set `pointTagKey` to the unique point tag key to filter by.
 
 You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define, for example, in conjunction with `taggify()`.
 
-You can specify only one parameter (metric, source, source tag, or point tag) per function call. To specify multiple parameters, use a `filter()` call for each parameter. In contrast to `filter()` this function supports expanding a source tag.
+You can specify only one filtering parameter (metric, source, source tag, or point tag) per function call. To filter by multiple parameters, use a `retainSeries()` call for each parameter. In contrast to `filter()`, this function supports expanding a source tag.
 
 
 ## Examples
 
-In the following example, we first extracts all `~sample.requests.*` metrics that are in the `dev` environment.
+In the following example, we first extract all `~sample.requests.*` metrics that are in the `dev` environment.
 
 ![retain series 1](images/ts_retain_series_1.png)
 
-Then we extract from that series only the series that come from the `app-5` source. The result are just three series.
+Then we extract from that series only the series that come from the `app-5` source. The resulting chart displays just three series.
 
 ![retain series 2](images/ts_retain_series_2.png)
