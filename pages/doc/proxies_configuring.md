@@ -347,7 +347,7 @@ Ex: 0 </td>
 
 ## Sending Source Tags and Source Descriptions Through the Wavefront Proxy
 
-In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, when if the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
+In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, when the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
 
 Starting with proxy version 4.24, this feature is available on the same listening port as regular metrics (`pushListenerPort` setting, 2878 by default).
 
