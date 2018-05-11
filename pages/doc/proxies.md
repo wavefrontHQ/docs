@@ -21,7 +21,7 @@ Having a proxy be part of the Wavefront architecture has benefits:
 Wavefront lets you choose a deployment option:
 * As part of the in-product Getting Started workflow, trial users install their first integration - in most cases, an integration with the local host. In that case, the data source, the agent, and the proxy all run on the same host and the proxy forwards metrics to the Wavefront service.
 * As your environment grows, you place the proxy on a dedicated host. Different agents and other data sources can send metrics to the proxy, and the proxy forwards the metrics to the Wavefront service. Agents can run either on the same host as the data source or on a different host.
-*  In production environments, you usually place two proxies behind a load balancer for optimal performance and high availability.
+*  In production environments, you usually place two proxies behind a load balancer for optimal performance and high availability. In that case, each proxy must have a unique name.
 
 ### Setting Up Your First Agent and Proxy
 
@@ -50,6 +50,8 @@ Wavefront supports a rich set of custom collector integrations. You can follow t
 To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies, as shown below.
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.svg)
+
+**Note:**In environments with more than one proxy, each proxy must have a unique name. 
 
 ## Proxy Configuration
 
