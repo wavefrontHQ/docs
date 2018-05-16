@@ -12,7 +12,7 @@ This integration configures Nagios to send notifications from hosts and services
 
 ## Nagios Setup
 
-### Prepare the Wavefront script.
+### Prepare the Wavefront script
 
 On your Nagios server:
 
