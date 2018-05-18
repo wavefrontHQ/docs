@@ -71,7 +71,7 @@ After installing a proxy, you can start and stop the proxy service, check servic
 
 ### Starting and Stopping a Proxy
 
-You can start and stop a proxy by run the following commands on the proxy host:
+You can start and stop a proxy by running the following commands on the proxy host:
 
 - Linux
 
@@ -161,7 +161,7 @@ To upgrade the environment, you can select **Browse > Proxies > Add New Proxy**.
 For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 
 Linux| `sudo apt-get update && sudo apt-get install wavefront-proxy`
-Linux (RPM)|`brew update && brew upgrade wfproxy`
+Linux (RPM)|`yum update wavefront-proxy`
 Mac OS|`brew update && brew upgrade wfproxy`
 
 
