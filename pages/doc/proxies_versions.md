@@ -23,7 +23,7 @@ summary: Learn about new features and changes in different Wavefront proxy versi
 
 ## Version 4.25
 - Fixes Java 9 compatibility issue
-- Supports [SourceTag and SourceDescription](http://docs-dev.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
+- Supports [SourceTag and SourceDescription](https://docs.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
 - Supports tagged Graphite format (Graphite 1.1.x and newer)
 - Enables logging of raw valid points to a separate file (see `log4j2.xml.default` for more details)
 - Supports configurable max number of HTTP connections and automatic retries
@@ -33,7 +33,7 @@ summary: Learn about new features and changes in different Wavefront proxy versi
 ## Version 4.17
 - Miscellaneous reliability and stability improvements.
 - Accepts timestamps in microsecond and nanosecond format
-- Adds [SourceTag and SourceDescription](http://docs-dev.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy)
+- Adds [SourceTag and SourceDescription](https://docs.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy)
 
 ## Version 4.12
 - Compatible with latest Linux kernels patched to address Stack Clash vulnerability
