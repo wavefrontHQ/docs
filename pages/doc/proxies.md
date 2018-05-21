@@ -31,7 +31,7 @@ Users who set up their first integration -- usually as part of the Getting Start
 
 The single-host deployment is an exception. Most environments use one or two proxies on dedicated hosts and run the agents on different systems - either on the same system as the data source or on separate systems.
 
-When you set up an integration, the Setup page let's you pick a proxy –- or offers to install a new proxy. If the integration's Setup page doesn't have options for installing a proxy, that integration most likely does not use a proxy.
+When you set up an integration, the Setup page lets you pick a proxy –- or offers to install a new proxy. If the integration's Setup page doesn't have options for installing a proxy, that integration most likely does not use a proxy.
 
 **Note** If you don't see a suitable integration, you might be able to use a code instrumentation integration (Java, Go, etc), or you can send data directly to the proxy -- as long as you use one of the [Supported Data Formats](http://docs-dev.wavefront.com/proxies.html#supported-data-formats).
 
@@ -57,7 +57,7 @@ To enable fault tolerance and higher data rates, production environments typical
 
 No matter which of the deployment options you choose, you can modify proxy behavior in several ways:
 
-- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to whitelist and blacklist regx patterns -- specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
+- **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to whitelist and blacklist regx patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
 - **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Sending source Tags and Source Descriptions Through the Wavefront Proxy](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy).
 - **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
 
