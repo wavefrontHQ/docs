@@ -36,8 +36,10 @@ Create a file called `zookeeper.conf` in `/etc/telegraf/telegraf.d` and enter th
 	#   ## with port e.g. localhost:2181, 10.0.0.1:2181, etc.
 	#
 	#   ## If no servers are specified, then localhost is used as the host.
+	#   ## However, don't leave the server blank as the metric generated will 
+	#   ## contain an invalid value for the `server` point tag and be blocked by the Wavefront proxy.
 	#   ## If no port is specified, 2181 is used
-	  servers = [":2181"]
+	  servers = ["<server>:<client port>"]
 	  fielddrop = ["version"]
    ```
 {% endraw %}
