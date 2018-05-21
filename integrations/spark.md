@@ -25,8 +25,8 @@ Apache Spark is an open-source cluster-computing framework. This integration exp
     ```
     #Enable Graphite
     *.sink.graphite.class=org.apache.spark.metrics.sink.GraphiteSink
-    *.sink.graphite.host=10.152.26.40
-    *.sink.graphite.port=2003
+    *.sink.graphite.host=[proxy address]
+    *.sink.graphite.port=[proxy port]
     *.sink.graphite.period=10
     *.sink.graphite.prefix=spark.master_foo_com
 
@@ -43,5 +43,5 @@ Apache Spark is an open-source cluster-computing framework. This integration exp
 4. Set up your Spark node name:
     * `*.sink.graphite.prefix=spark.[hostname]`
     * **Note**: Replace `.` in the hostname with `_`. For example, enter `spark.prod_host1` instead of `spark.prod.host1`.
-5. Distribute the `metrics.conf` file to all your Spark nodes.
+5. Distribute the `metrics.properties` file to all your Spark nodes.
 6. Restart your **master** and **slaves** nodes.
