@@ -470,7 +470,7 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 </tr>
 <tr>
 <td><a href="ts_mcount.html"> mcount(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
-<td>Returns the number of data points over <strong>timeWindow</strong>. If <strong>expression</strong> stops reporting data, reports up to 2x the duration of <strong>timeWindow</strong> before returning no data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with <code>msum()</code>, which returns the <em>sum of the data points</em>.</td>
+<td>Returns the number of data points over <strong>timeWindow</strong>. If <strong>expression</strong> stops reporting data, mcount() continues to return data up to 2x the duration of <strong>timeWindow</strong> before returning no data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with <code>msum()</code>, which returns the <em>sum of the data points</em>.</td>
 </tr>
 <tr>
 <td>mmin(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
