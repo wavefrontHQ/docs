@@ -45,26 +45,21 @@ First create a file called `hadoop-mapreduce.conf` in `/etc/telegraf/telegraf.d`
 
 ```
 [[inputs.exec]]
-  commands = [ "python /home/telegraf/hadoop/mapreduce.py http://10.152.25.144:8088"]
+  commands = [ "python <mapreduce.py script path> http://<address>:<port>"]
   tag_keys = ["id","user","name","queue","applicationType","clusterId"]
   timeout = "5s"
   name_override = "hadoop.mapreduce"
   data_format = "json"
 ```
 
-Then, specify your command and your Yarn server URL as the `commands` value. Specify your server(s) with URL matching.
-
-Format:
-```
-commands = [ "<python bin> <mapreduce.py script path> http://<address>:<port>"]
-```
+In the commands field, specify, if needed, the location of the Python binary, the mapreduce.py script location and the address of your Yarn ResourceManager server.
 
 Example:
 ```
-commands = [ "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarm1.foo.com:8088"]
+commands = [ "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarn1.foo.com:8088"]
 ```
 
-To monitor multiple Yarn servers, add `commands` entries:
+To monitor multiple Yarn ResourceManager servers, add entries within `commands`:
 ```
 commands = [
   "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarn1.foo.com:8088",
