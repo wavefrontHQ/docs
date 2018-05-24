@@ -254,7 +254,9 @@ When aggregating, you can group or filter the results.
 
 * You can also group the results of a query and display separate lines for the different group members. For example, when grouping by source, you get one line for each source.
 
-  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, use the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] after the `ts()` expression, separated by a comma.
+  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
+  
+  The **sourceTags** keyword groups an aggregation by only the source tags that are explicitly specified in the ts() expression. Any other (unspecified) source tags associated with the expression's sources are ignored.
 
 #### Filter Example ####
 
@@ -264,7 +266,7 @@ When aggregating, you can group or filter the results.
 
 -   Group by metrics: `sum(ts(cpu.loadavg.1m),`**`metrics`**)
 -   Group by sources: `sum(ts(cpu.loadavg.1m),`**`sources`**)
--   Group by source tags: `sum(ts(cpu.loadavg.1m),`**`sourceTags`**)
+-   Group by source tags: `sum(ts(cpu.loadavg.1m, tag=prod, tag=db),`**`sourceTags`**)
 -   Group by all available point tag keys: `sum(ts(cpu.loadavg.1m),`**`tags`**) or `sum(ts(cpu.loadavg.1m),`**`pointTags`**)
 -   Group by the `region` point tag key: `sum(ts(cpu.loadavg.1m),`**`region`**)
 
