@@ -150,7 +150,7 @@ You can nest `taggify` calls.
 To perform the transform shown in the zeroBasedNodeIndex example with a regular expressions, use the following query:
 
 ```
-taggify(ts("performance.*.tracker"), source, "regexSearchPattern", "replacementPattern")
+taggify(ts("performance.*.tracker"), source, version, "regexSearchPattern", "replacementPattern")
 ```
 
 ## Caveats
