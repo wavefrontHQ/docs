@@ -91,6 +91,10 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <h5>Amazon EFS</h5>
 <div><img src="images/aws_efs.png" alt="Amazon EFS" style="max-width: 70px;"/></div>
 </td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon Auto Scaling</h5>
+<div><img src="images/AmazonEC2_AutoScaling.svg" alt="Amazon Auto Scaling" style="max-width: 70px;"/></div>
+</td>  
 </tr>
 </tbody>
 </table>
