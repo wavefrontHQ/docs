@@ -404,7 +404,7 @@ The Wavefront proxy supports two log files: proxy log and blocked point log. To 
 
 ### Proxy Log
 
-By default, proxy log entries are logged to `<wavefront_log_path>/wavefront.log`. The log file is rolled over every day and when its size reaches 100MB. When there are 30 log files, older files are deleted.
+By default, proxy log entries are logged to `<wavefront_log_path>/wavefront.log`. The log file is rolled over every day and when its size reaches 100MB. When there are 31 log files, older files are deleted.
 
 ### Blocked Point Log
 
