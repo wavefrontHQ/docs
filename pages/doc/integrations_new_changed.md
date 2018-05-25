@@ -7,7 +7,7 @@ permalink: integrations_new_changed.html
 summary: Learn about new and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
-This document lists new and changed integrations on a month-by-month basis.
+This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 ## April 2018
 
