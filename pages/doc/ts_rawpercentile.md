@@ -19,7 +19,7 @@ Returns the percentile of each series over `timeWindow`. In contrast to `percent
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td>percentileValue</td>
