@@ -8,7 +8,7 @@ summary: Reference to the avg() function
 ---
 ## Summary
 ```
-avg(expression[,metrics|sources|sourceTags|tags|<pointTagKey])
+avg(expression[,metrics|sources|sourceTags|pointTags|<pointTagKey])
 ```
 Returns the average (the mean) of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawavg` if you don't want interpolation.
 
@@ -22,8 +22,9 @@ Returns the average (the mean) of all series. If there are gaps of data in the e
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to create an average (mean) for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional additional expressions to include in the average. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the average for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
@@ -37,11 +38,16 @@ The `avg`, `mavg` and `median` functions can help you understand the tendency of
 * Use `avg` or `mavg` to get the mean (average), that is, the number in the middle of a set of values.
 * Use `mendian` to be less sensitive to outliers. Even a single outlier can affect the result of `avg` and `mavg`. Use `mpercentile` with a percentile of 50 to get the moving median.
 
-Like all aggregation functions, `avg` usually returns a single line when used without additional arguments.
 
 ### Grouping
 
-With the optional `sources`, `metrics`, `sourceTags`, or `tags` arguments, you can 'group by' that attribute. You can use more than one argument, and you can specify one or more point tags by name.
+Like all aggregation functions, `avg()` returns a single series of results by default.  
+
+You can include a 'group by' parameter to obtain separate averages for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
+
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `avg(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+
 
 ### Interpolation
 To provide an aggregate value that our customers typically expect, Wavefront attempts to interpolate all queries at a time slice if at least one real reported data value is present.

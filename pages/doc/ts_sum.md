@@ -8,7 +8,7 @@ summary: Reference to the sum() function
 ---
 ## Summary
 ```
-sum(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
+sum(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the sum of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawsum()` if you don't need interpolation.
 
@@ -22,8 +22,9 @@ Returns the sum of all series. If there are gaps of data in the expression, they
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to create a sum for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional second expression to include in the sum. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the sum for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
@@ -33,9 +34,10 @@ Returns the sum of all series. If there are gaps of data in the expression, they
 
 The `sum()` function takes the sum, at each time slice, of the different data lines in `expression`. If at least one data value is present in a given time slice, then all other existing time series in the query are interpolated before the aggregation if possible.
 
-Like all aggregation functions, `sum` usually returns a single line when used without additional arguments.
+Like all aggregation functions, `sum()` returns a single series of results by default.  You can include a 'group by' parameter to obtain separate subtotals for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
 
-With the optional `sources`, `metrics`, `sourceTags`, or `tags` parameter, you can 'group by' that parameter. You can use more than one parameter, and you can specify one or more point tags by name.
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `sum(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 ## Examples
 
@@ -64,7 +66,7 @@ This chart filters by source and groups by the `env` point tag (`env=production`
 ![sum_groupby_db](images/ts_sum_filter_group.png)
 
 
-You can specify multiple arguments. For example, `sum(ts("cpu.cpu*"), metrics, Customer)` first groups by metrics, and then groups by the `Customer` point tag.
+
 
 ## Caveats
 

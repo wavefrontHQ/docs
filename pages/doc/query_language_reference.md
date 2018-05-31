@@ -186,60 +186,60 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_sum.html">sum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td><a href="ts_sum.html">sum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns the sum of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
 </tr>
 <tr>
-<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the sum of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_avg.html"> avg(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_avg.html"> avg(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the average of all series. If there are gaps in the data in they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|tags|&lt; pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt; pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the average of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_min.html"> min(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_min.html"> min(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the lowest value of all series. If there are gaps in the data in the expression, they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;expression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;expression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the lowest value of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_max.html"> max(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_max.html"> max(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the highest value of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the highest value of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_count.html">count(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags| tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_count.html">count(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of series that are reporting. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.</td>
 </tr>
 <tr>
-<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of series that are reporting. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_variance.html"> variance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_variance.html"> variance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. </td>
 </tr>
 <tr>
-<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentileValue&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentileValue&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the <strong>percentileValue</strong> value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. For example, if <strong>percentileValue is</strong> 99, returns the 99th percentile value of all series.
 <div>Set <strong>percentileValue</strong> to 50 for the mean value of all series.</div></td>
 </tr>
 <tr>
-<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentileValue&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|tags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentileValue&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the <strong>percentileValue</strong> value of all series. For example, if <strong>percentileValue</strong> is 99, returns the 99th percentile value of all series.</td>
 </tr>
 </tbody>
@@ -254,7 +254,7 @@ When aggregating, you can group or filter the results.
 
 * You can also group the results of a query and display separate lines for the different group members. For example, when grouping by source, you get one line for each source. When grouping by source tags, you get one line for each source tag that is explicitly specified in the ts() expression.
 
-  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**tags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
+  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
   
 
 #### Filter Example ####
@@ -266,7 +266,7 @@ When aggregating, you can group or filter the results.
 -   Group by metrics: `sum(ts(cpu.loadavg.1m),`**`metrics`**`)`
 -   Group by sources: `sum(ts(cpu.loadavg.1m),`**`sources`**`)`
 -   Group by source tags: `sum(ts(cpu.loadavg.1m, tag=prod or tag=db),`**`sourceTags`**`)`
--   Group by all available point tag keys: `sum(ts(cpu.loadavg.1m),`**`tags`**`)` or `sum(ts(cpu.loadavg.1m),`**`pointTags`**`)`
+-   Group by all available point tag keys: `sum(ts(cpu.loadavg.1m),`**`pointTags`**`)`
 -   Group by the `region` point tag key: `sum(ts(cpu.loadavg.1m),`**`region`**`)`
 
 <span id="filter"></span>
@@ -486,7 +486,7 @@ Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span 
 <td>Returns the <span>percentile</span> of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. <span style="color:#d63a36;font-weight:bold">percentileValue</span> must be &gt;= <span style="color:#d63a36;font-weight:bold">0</span> and &lt;= <span style="color:#d63a36;font-weight:bold">100</span>.</td>
 </tr>
 <tr>
-<td>mseriescount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>,[<span style="font-weight:bold">metrics|sources|sourceTags|tags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
+<td>mseriescount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>,[<span style="font-weight:bold">metrics|sources|sourceTags|pointTags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
 <td>Returns the aggregated number of series reporting over <span style="color:#757575;font-weight:bold">timeWindow</span>.
 Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns, at each point, the number of series reporting over the last <span style="color:#757575;font-weight:bold">60 minutes</span>
 </td>

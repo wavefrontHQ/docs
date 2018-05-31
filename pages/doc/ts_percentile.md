@@ -10,7 +10,7 @@ summary: Reference to the percentile() function
 ## Summary
 
 ```
-percentile(<percentileValue>, <expression>[,metrics|sources|sourceTags|tags|<pointTagKey])
+percentile(<percentileValue>, <expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey])
 ```
 Returns the `percentileValue` value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.
 
@@ -31,8 +31,9 @@ Set `percentileValue()` to 50 for the mean value of all series.
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to return the percentile for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional additional expressions to modify the count. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the values at the specified percentile for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
@@ -42,9 +43,13 @@ Set `percentileValue()` to 50 for the mean value of all series.
 
 The `percentile()` aggregation function lets you compute percentiles, including the median. The `percentileValue` can be any number greater than 0 and less than or equal to 100, and can include as many decimal points as you like. The Wavefront system sorts all values for each time slice and returns data based on the `percentileValue`.
 
-Like all aggregation functions, `percentile()` displays a single line when used without additional arguments. You can group the results by point tag, source tag, and so on.
-
 This function uses interpolation. Use `rawpercentile` if you don't want interpolation.
+
+Like all aggregation functions, `percentile()` returns a single series of results by default.  You can include a 'group by' parameter to obtain separate percentile results for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
+
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `percentile(ts(50, "cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+
 
 ## Examples
 

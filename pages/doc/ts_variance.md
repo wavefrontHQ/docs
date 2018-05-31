@@ -8,7 +8,7 @@ summary: Reference to the variance() function
 ---
 ## Summary
 ```
-variance(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
+variance(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the variance for `expression`.
 
@@ -24,8 +24,9 @@ If there are gaps of data in the expression, they are first filled in using inte
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to return the variance for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional additional expressions to modify the variance. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the variance for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
@@ -35,6 +36,12 @@ If there are gaps of data in the expression, they are first filled in using inte
 Returns the variance between the different data lines in a `ts()` expression, computed at each time interval. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.
 
 Use `rawvariance()` if you don't need interpolation.
+
+Like all aggregation functions, `variance()` returns a single series of results by default.  You can include a 'group by' parameter to obtain separate variances for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
+
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `variance(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+
 
 ## Examples
 

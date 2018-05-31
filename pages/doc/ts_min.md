@@ -9,7 +9,7 @@ summary: Reference to the min() function
 ## Summary
 ```
 min(<expression1>, <expression2>)
-min(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
+min(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
 When used as a comparison function, returns the lower of the two values in `expression1` and `expression2`.
@@ -43,8 +43,9 @@ When used as an aggregation function, returns the lowest value of all series. If
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to find the minimum for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional additional expressions to filter or group the minimum by. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the minimum for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
@@ -60,12 +61,20 @@ The `min()` comparison function lets you display all data points above a desired
 ### Aggregation Function
 
 When you add `min()` to a ts() expression, Wavefront sorts the values at each time interval and displays the lowest (minimum) data value across all reporting metrics and sources.
-
 The `min()` aggregation function interpolates the points of the underlying set of series, and then applies the function to the interpolated series. Use `rawmin` to not use interpolation. See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+
+#### Interpolation
 
 To provide an aggregate value that our customers typically expect, Wavefront attempts to interpolate all queries at a time slice if at least one real reported data value is present.
 
 For a live-view chart, where interpolation is not possible because no new points have been reported yet, Wavefront associates the last known reported value for all queries if a real reported data value is present. We apply the last known reported value only if interpolation can’t occur AND the last known reported point has been reported within the last 15% of the query time in the chart window.
+
+#### Grouping
+
+The `min()` aggregation function returns a single series of results by default. You can include a 'group by' parameter to obtain separate minimums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
+
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `min(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 ## Examples
 

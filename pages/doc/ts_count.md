@@ -8,10 +8,11 @@ summary: Reference to the count() function
 ---
 ## Summary
 ```
-count(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
+count(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-At each time interval, the `count()` function adds together the number of reporting sources for each represented metric, and displays that value on the chart. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawcount` if you don't want interpolation.
+Returns the number of time series that are reporting values.
+If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawcount` if you don't want interpolation.
 
 
 
@@ -25,21 +26,28 @@ At each time interval, the `count()` function adds together the number of report
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to create a count for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional additional expressions to filter or group the count by. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the count for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-Like all aggregation functions, `count()` usually returns a single line when used without additional arguments.
+At each time interval, the `count()` function adds together the number of reporting sources for each represented metric, and displays that value as a line on the chart.
 
 To provide the aggregate value, Wavefront interpolates all queries at a time slice if at least one real reported data value is present.
 
 ### Grouping
 
-With the optional `sources`, `metrics`, `sourceTags`, or `tags` arguments, you can 'group by' that attribute. You can use more than one argument, and you can specify one or more point tags by name.
+Like all aggregation functions, `count()` returns a single series of results by default.  
+
+You can include a 'group by' parameter to obtain separate counts for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
+
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `count(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
+
 
 ### Interpolation
 To provide an aggregate value that our customers typically expect, Wavefront attempts to interpolate all queries at a time slice if at least one real reported data value is present.

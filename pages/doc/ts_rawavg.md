@@ -8,7 +8,7 @@ summary: Reference to the rawavg() function
 ---
 ## Summary
 ```
-rawavg(<expression>[,metrics|sources|sourceTags|tags|<pointTagKey>])
+rawavg(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the average (the mean) of all series. In contrast to `avg()`, `rawavg()` does not use interpolation to fill gaps in the data.
 
@@ -22,8 +22,9 @@ Returns the average (the mean) of all series. In contrast to `avg()`, `rawavg()`
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression to create an average (mean) for. </td></tr>
 <tr>
-<td>metrics&vert;sources&vert;sourceTags&vert;tags&vert;&lt;pointTagKey&gt;</td>
-<td>Optional additional expressions to include in the average. You can use these expressions to group the results. </td>
+<td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
+<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the raw average for each subgroup.
+Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
 </table>
@@ -32,9 +33,12 @@ Returns the average (the mean) of all series. In contrast to `avg()`, `rawavg()`
 
 The `rawavg()` function aggregates any values that are truly reported at a given time slice across all reported series. The function displays the average total value as a single line on a chart.
 
-If you want to group the results, you can use one of the optional arguments. For example, suppose you want to see the request latency for all sources.
-
 Using `rawavg()` instead of `avg()` can significantly improve query performance.
+
+Like all aggregation functions, `rawavg()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw averages for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The function returns a separate series of results corresponding to each group.
+
+You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawavg(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 ## Example
 
