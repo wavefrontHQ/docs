@@ -29,10 +29,10 @@ Set `percentileValue()` to 50 for the mean value of all series.
 <td>A number greater than 0 and less than or equal to 100 that determines which percentile the function returns. You can include as many decimal points as you like.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression to return the percentile for. </td></tr>
+<td>Expression describing the time series to return values at the specified percentile for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the values at the specified percentile for each subgroup.
+<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the values at the specified percentile for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>

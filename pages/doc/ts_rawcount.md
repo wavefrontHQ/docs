@@ -24,10 +24,10 @@ In contrast to `count()`, `rawcount()` does not perform interpolation.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression to create a count for. With <strong>rawcount()</strong>, we count only reported values and do not perform interpolation. </td></tr>
+<td>Expression describing the time series to return a raw count for. With <strong>rawcount()</strong>, we count only reported values and do not perform interpolation. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the raw count for each subgroup.
+<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a raw count for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>

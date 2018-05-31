@@ -24,10 +24,10 @@ There is no `rawmax()` comparison function.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression to find the maximum for. </td></tr>
+<td>Expression describing the time series to return the raw maximum for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
-<td markdown="span">Optional 'group by' parameter for subdividing the results of **expression** and then returning the raw maximum for each subgroup.
+<td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the raw maximum for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
 </tr>
 </tbody>
