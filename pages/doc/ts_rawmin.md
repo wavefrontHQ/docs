@@ -11,9 +11,8 @@ summary: Reference to the rawmin() function
 rawmin(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-This aggregation function returns the lowest value of all series. In contrast to `min()`, this function does not attempt to fill gaps in the data.
-
-There is no `rawmin()` comparison function.
+Returns the lowest value across the time series described by the expression. The results are computed only from real reported values. 
+Use [`min()`](ts_min.html) if you need interpolation.
 
 ## Parameters
 
@@ -36,9 +35,15 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-When you add `rawmin()` to a `ts()` expression, Wavefront sorts the values at each time interval and displays the lowest (minimum) data value across all reporting metrics and sources.
+The `rawmin()` aggregation function finds the lowest (minimum) reported data value at each moment in time, across the time series that are represented by the expression.
 
-For `rawmin`, Wavefront does not perform interpolation.
+By default, `rawmin()` returns a single series of minimums by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of minimums for each group.
+
+A raw minimum is computed only from real values reported at a given moment in time. 
+No interpolation is performed to fill in data gaps in any time series.
+Use [`min()`](ts_min.html) if you want the minimums to include interpolated values wherever possible. Using `rawmin()` instead of `min()` can significantly improve query performance. 
+
+### Grouping
 
 Like all other aggregation functions, `rawmin()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw minimums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
 The function returns a separate series of results corresponding to each group.
@@ -47,6 +52,6 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 ## Examples
 
-In following example, we use `rawmin` to display the sample requests number for each region.
+In following example, we use `rawmin()` to display the sample requests number for each region.
 
 ![raw min](images/ts_rawmin.png)

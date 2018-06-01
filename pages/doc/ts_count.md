@@ -11,8 +11,9 @@ summary: Reference to the count() function
 count(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the number of time series that are reporting values.
-If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawcount` if you don't want interpolation.
+Returns the number of reporting time series described by the expression at each moment in time.
+A time series is counted as reporting even if it has interpolated values. 
+Use [`rawcount()`](ts_rawcount.html) if you don't want to consider interpolated values.
 
 
 
@@ -35,9 +36,11 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-At each time interval, the `count()` function adds together the number of reporting sources for each represented metric, and displays that value as a line on the chart.
+The `count()` aggregate function adds together the number of reporting time series represented by the expression, at each moment in time.
 
-To provide the aggregate value, Wavefront interpolates all queries at a time slice if at least one real reported data value is present.
+By default, `count()` produces a single count across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate count for each group.
+
+If a time series has data gaps, `count()` fills them in by interpolation whenever possible. A time series with an interpolated value is considered to be reporting and is included in the current count.  When a value cannot be interpolated into a time series (or if the series stops reporting altogether), the series is excluded from the count.
 
 ### Grouping
 
@@ -50,9 +53,16 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 
 ### Interpolation
-To provide an aggregate value that our customers typically expect, Wavefront attempts to interpolate all queries at a time slice if at least one real reported data value is present.
 
-For a live-view chart, where interpolation is not possible because no new points have been reported yet, Wavefront associates the last known reported value for all queries if a real reported data value is present. We apply the last known reported value only if interpolation can’t occur AND the last known reported point has been reported within the last 15% of the query time in the chart window.
+If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function. 
+A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
+
+Within a given time series, an interpolated value is calculated from two real reported values on either side of it. 
+Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart. 
+In this case, Wavefront finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
+
+You can use [`rawcount()`](ts_rawcount.html) to prevent interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
+
 
 ## Examples
 

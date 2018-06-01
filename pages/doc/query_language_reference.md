@@ -198,7 +198,7 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 <td>Returns the average of all series. If there are gaps in the data in they will first be filled in with interpolation. </td>
 </tr>
 <tr>
-<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt; pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the average of all series. Does not perform interpolation. </td>
 </tr>
 <tr>
