@@ -71,6 +71,8 @@ cpu.loadavg-customerB.5m
 
 The set of metrics is being reported by 1 source (e.g. `source1`) -- what if you wanted to aggregate the data and group by customer? You could create two separate ts() expressions, or you could instead use `aliasSource()` to update the `<source1>` name to `customerA` or `customerB`. You could then group by source and get the answer you need from a single expression.
 
+Starting with release 2018.22, source names are converted to lowercase to maintain consistent behavior for series matching. When you use `aliasSource()` with a static string (e.g. `aliasSource(ts(<metric.name>), "Source.Test")`, source names retain their original case. 
+
 The `aliasSource()` function supports several ways of replacing source names in a ts() expression: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
 
 ### zeroBasedNodeIndex Approach
