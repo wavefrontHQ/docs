@@ -10,21 +10,22 @@ ADFS is a popular identity management product that can be integrated with Wavefr
 ## ADFS Setup
 
 ### Step 1. Run the Wizard
- 
+
 To add the ADFS integration to Wavefront, follow these steps:
 
-{% include image.md src="images/sso_adfs_1.png" width="40" %}
-{% include image.md src="images/sso_adfs_2.png" width="40" %}
-{% include image.md src="images/sso_adfs_3.png" width="40" %}
-{% include image.md src="images/sso_adfs_4.png" width="40" %}
-{% include image.md src="images/sso_adfs_5.png" width="40" %}
-{% include image.md src="images/sso_adfs_6.png" width="40" %}
-{% include image.md src="images/sso_adfs_7.png" width="40" %}
-{% include image.md src="images/sso_adfs_8.png" width="40" %}
-{% include image.md src="images/sso_adfs_9.png" width="40" %}
+{% include image.md src="images/sso_adfs_1.png" width="65" %}
+{% include image.md src="images/sso_adfs_2.png" width="65" %}
+{% include image.md src="images/sso_adfs_3.png" width="65" %}
+{% include image.md src="images/sso_adfs_4.png" width="65" %}
+{% include image.md src="images/sso_adfs_5.png" width="65" %}
+**Note**: For the next two steps, replace `https://customer.wavefront.com` with your Wavefront instance URL: `http://YOUR_CLUSTER.wavefront.com`.
+{% include image.md src="images/sso_adfs_6.png" width="65" %}
+{% include image.md src="images/sso_adfs_7.png" width="65" %}
+{% include image.md src="images/sso_adfs_8.png" width="65" %}
+{% include image.md src="images/sso_adfs_9.png" width="65" %}
 
 ## Step 2. Set up Claim Rules
- 
+
 This task produces a SAML claim in the format:
 {% raw %}
 ```
@@ -33,11 +34,11 @@ urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified
 
 that contains an identifier pull from Active Directory. Wavefront sends an email to this identifier value, so it should be a valid email address. The screenshots below show how to form this identifier from the 1st email address for the user stored in Active Directory.
 
-{% include image.md src="images/sso_adfs_10.png" width="30" %}
+{% include image.md src="images/sso_adfs_10.png" width="65" %}
 
 The above rule will send an email address claim in the SAML response. The new rule transforms that email address claim into the NameID claim that Wavefront needs.
 
-{% include image.md src="images/sso_adfs_11.png" width="30" %}
+{% include image.md src="images/sso_adfs_11.png" width="65" %}
 
 Here is the resulting rule:
 
