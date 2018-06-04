@@ -81,7 +81,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <h5>Amazon OpsWorks</h5>
 <div><img src="images/aws_opsworks.png" alt="Amazon OpsWorks" style="max-width: 70px;"/></div>
 </td>
-<td style="text-align:center;vertical-align:top;">
+<td>  
 <h5>Amazon EMR</h5>
 <div><img src="images/aws_emr.png" alt="Amazon SQS" style="max-width: 70px;"/></div>
 </td>
@@ -94,6 +94,10 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Auto Scaling</h5>
 <div><img src="images/AmazonEC2_AutoScaling.svg" alt="Amazon Auto Scaling" style="max-width: 70px;"/></div>
+</td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon Elastic Beanstalk</h5>
+<div><img src="images/Compute_AWSElasticBeanstalk.svg" alt="Amazon Elstic Beanstalk" style="max-width: 70px;"/></div>
 </td>  
 </tr>
 </tbody>
