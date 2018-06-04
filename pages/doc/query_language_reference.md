@@ -255,7 +255,7 @@ When aggregating, you can group or filter the results.
 * You can also group the results of a query and display separate lines for the different group members. For example, when grouping by source, you get one line for each source. When grouping by source tags, you get one line for each source tag that is explicitly specified in the ts() expression.
 
   To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
-  
+
 
 #### Filter Example ####
 
@@ -719,7 +719,7 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <tbody>
 <tr>
 <td markdown="span">hw(<span style="color:#757575;font-weight:bold">timeWindow1</span>, <span style="color:#757575;font-weight:bold">timeWindow2</span>, <span style="color:#757575;font-weight:bold">timeWindow3</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)[, value1, value2, value3])</td>
-<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. See [Holt-Winters Predictive Analysis](query_language_hw_function.html).
+<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. See <a href="query_language_hw_function.html">Holt-Winters Predictive Analysis</a>.
 <ul>
 <li><span style="color:#757575;font-weight:bold">timeWindow1</span> is the amount of data we use to smooth the series and to forecast.  </li>
 <li><span style="color:#757575;font-weight:bold">timeWindow2</span> is the seasonal length of the data. </li>
