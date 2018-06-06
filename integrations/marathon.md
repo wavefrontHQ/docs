@@ -4,7 +4,7 @@ tags: [integrations list]
 permalink: marathon.html
 summary: Learn about the Wavefront Marathon Integration.
 ---
-## Mesos Marathon Integration
+## Marathon Integration
 
 Marathon is a container orchestration platform for the Mesosphere Datacenter Operating System (DC/OS) and Apache Mesos.
 This integration installs and configures Telegraf to send Marathon metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
