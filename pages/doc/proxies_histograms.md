@@ -79,7 +79,7 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
  
 ## Sending Histogram Distributions
 
-You can also compute a histogram distribution yourself and send it to the Wavefront proxy. A distribution allows you to send a group of points with a single value. 
+A distribution allows you to send multiple points with a single value.
 
 To send histogram data as a distribution:
 
@@ -389,9 +389,9 @@ The Wavefront proxy adds the suffixes `.m`, `.h`, or `.d` to the metric name acc
 
 ### Histogram Functions
 
-To query histogram metrics, use the `hs()` function to return points. 
+To query histogram metrics, use `hs()`. 
 
-You can apply a limited set of statistical functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
+You can apply the following functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
 
 - `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
 - `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.
