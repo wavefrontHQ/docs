@@ -391,11 +391,12 @@ The Wavefront proxy adds the suffixes `.m`, `.h`, or `.d` to the metric name acc
 
 To query histogram metrics, use `hs()`. 
 
-You can apply the following functions to the returned data&mdash; `percentile`, `max`, `median`, `min`, and `count`. For example:
+You can apply the following functions to the returned data&mdash; `percentile`, `merge`, `max`, `median`, `min`, and `count`. For example:
 
 - `percentile(<percentile>, hs(histogram.<metricName>.m))` returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
-- `max(hs(histogram.<metricName>.m))` returns the largest `<metricName>` aggregated over a minute.
-- `median(hs(histogram.<metricName>.h))` returns the median `<metricName>` aggregated over an hour.
+- `max(hs(histogram.<metricName>.m))` returns the largest value in `<metricName>` 
+- `median(hs(histogram.<metricName>.m))` returns the median of `<metricName>` 
+- `merge(hs(histogram.<metricName>.m))` merges the centroids and counts of each series and returns the aggregated result `<metricName>`. Because this is an aggregation function, you can also do "group-bys". ie: `merge(hs(histogram.<metricName>.m),key)` where "key" is a tag key name. 
 
 {% include note.html content="Direct histogram visualization in charts is not supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with another supported function, for example, `max(hs(...))`." %}
 
