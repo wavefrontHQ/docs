@@ -385,7 +385,7 @@ You send metrics using the standard [Wavefront data format](wavefront_data_forma
 
 For example, `request.latency 20 1484877771 source=<source>`. 
 
-The Wavefront proxy adds the prefix `histogram` and suffixes `.m`, `.h`, or `.d` according to the aggregation interval. For example, if the preceding metric `request.latency` is aggregated over an hour, it would be named `histogram.request.latency.h`.
+The Wavefront proxy adds the suffixes `.m`, `.h`, or `.d` to the metric name according to the aggregation interval. For example, if the metric `request.latency` is aggregated over an hour, it would be named `request.latency.h`.
 
 ### Histogram Functions
 
