@@ -12,8 +12,10 @@ min(<expression1>, <expression2>)
 min(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-When used as a comparison function, returns the lower of the two values in `expression1` and `expression2`.
-When used as an aggregation function, returns the lowest value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. Use `rawmin` to return the highest value of all series without interpolation.
+When used as a comparison function, returns the lower of the two values in `expression1` and `expression2`.  
+
+When used as an aggregation function, returns the lowest value across the set of time series described by `expression`. The results may be computed from real reported values and interpolated values. 
+Use  [`rawmin()`](ts_rawmin.html) if you don't need interpolation.
 
 ## Parameters
 
@@ -25,10 +27,10 @@ When used as an aggregation function, returns the lowest value of all series. If
 </thead>
 <tr>
 <td>expression1</td>
-<td>Expression to compare with another expression or with a metric, source, sourceTag(s), tag(s), or pointTagKey. </td></tr>
+<td>Expression to use as a threshold value for comparison. </td></tr>
 <tr>
 <td>expression2</td>
-<td>Second expression of two expressions to compare.   </td>
+<td>Expression describing the time series to be compared against the threshold value.   </td>
 </tr>
 </tbody>
 </table>
@@ -41,7 +43,7 @@ When used as an aggregation function, returns the lowest value of all series. If
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return the minimum for. </td></tr>
+<td>Expression describing the set of time series to return minimums for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the minimum for each subgroup.
@@ -56,18 +58,15 @@ You can use `min()` as a comparison function or as an aggregation function.
 
 ### Comparison Function
 
-The `min()` comparison function lets you display all data points above a desired threshold, and assigns the threshold value to all data points below the threshold.
+The `min()` comparison function lets you display all data points below a desired threshold, and assigns the threshold value to all data points above the threshold.
 
 ### Aggregation Function
 
-When you add `min()` to a ts() expression, Wavefront sorts the values at each time interval and displays the lowest (minimum) data value across all reporting metrics and sources.
-The `min()` aggregation function interpolates the points of the underlying set of series, and then applies the function to the interpolated series. Use `rawmin` to not use interpolation. See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+The `min()` aggregation function finds the lowest (minimum) data value at each moment in time, across the time series that are represented by the expression.  
 
-#### Interpolation
+By default, `min()` produces a single series of minimums by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of minimums for each group.
 
-To provide an aggregate value that our customers typically expect, Wavefront attempts to interpolate all queries at a time slice if at least one real reported data value is present.
-
-For a live-view chart, where interpolation is not possible because no new points have been reported yet, Wavefront associates the last known reported value for all queries if a real reported data value is present. We apply the last known reported value only if interpolation can’t occur AND the last known reported point has been reported within the last 15% of the query time in the chart window.
+If any time series has data gaps, `min()` fills them in by interpolation whenever possible. 
 
 #### Grouping
 
@@ -76,11 +75,22 @@ The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `min(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
+#### Interpolation
+
+If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function. 
+A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
+
+Within a given time series, an interpolated value is calculated from two real reported values on either side of it. 
+Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart. 
+In this case, Wavefront finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
+
+You can use [`rawmin()`](ts_rawmin.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
+
 ## Examples
 
 ### Comparison Function
 
-The following example from our built-in Interactive Query Language Tutorial illustrates the use of `min`. It includes a mark line so you can see how the values are shown as 200 if they are higher than the specified minimum.
+The following example from our built-in Interactive Query Language Tutorial illustrates the use of `min()`. It includes a mark line so you can see how the values are shown as 200 if they are higher than the specified minimum.
 
 ![ts min](images/ts_min.png)
 
@@ -93,4 +103,6 @@ The following example shows `min()` without an expression to compare against. Fo
 
 ## Caveats
 
-Sometimes it's best to use `min` with `align`. See [Bucketing with align()](query_language_align_function.html).
+Sometimes it's best to use `min()` with `align()`. See [Bucketing with align()](query_language_align_function.html).
+
+Using [`rawmin()`](ts_rawmin.html) instead of `min()` can significantly improve query performance because `rawmin()` does not perform interpolation.

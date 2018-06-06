@@ -11,9 +11,8 @@ summary: Reference to the rawmax() function
 rawmax(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-This aggregation function returns the highest value of all series. In contrast to `max()`, this function does not attempt to fill gaps in the data.
-
-There is no `rawmax()` comparison function.
+Returns the highest value across the set of time series described by the expression. The results are computed from real reported data values only. 
+Use [`max()`](ts_max.html) to include interpolated values.
 
 ## Parameters
 
@@ -24,7 +23,7 @@ There is no `rawmax()` comparison function.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return the raw maximum for. </td></tr>
+<td>Expression describing the set of time series to return raw maximums for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the raw maximum for each subgroup.
@@ -36,11 +35,17 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-When you add `rawmax()` to a `ts()` expression, Wavefront sorts the values at each time interval and displays the highest (maximum) data value across all reporting metrics and sources.
+The `rawmax()` aggregation function displays the highest (maximum) data value at each moment in time, across the time series that are represented by the expression.
 
-For `rawmax`, Wavefront does not perform interpolation.
+By default, `rawmax()` returns a single series of maximums by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of maximums for each group.
 
-The `rawmax()` aggregation function returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw maximums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+A raw maximum is computed only from real values reported at a given moment in time. 
+No interpolation is performed to fill in data gaps in any time series.
+Use [`max()`](ts_max.html) if you want the maximums to include interpolated values wherever possible. Using `rawmax()` instead of `max()` can significantly improve query performance. 
+
+### Grouping
+
+Like all other aggregation functions, `rawmax()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw maximums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawmax(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
@@ -48,6 +53,6 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 ## Examples
 
-In following example, we use `rawmax` to display the maximum for the sample cpu usage percentage, and display a line for each region.
+In following example, we use `rawmax()` to display the maximum for the sample cpu usage percentage, and display a line for each region.
 
 ![raw max](images/ts_rawmax_aggr.png)

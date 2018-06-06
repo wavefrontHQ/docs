@@ -187,60 +187,67 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 <tbody>
 <tr>
 <td><a href="ts_sum.html">sum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Returns the sum of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation.</td>
+<td>Returns the sum of the time series described by <strong>expression</strong>. 
+The results may be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_rawsum.html"> rawsum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the sum of all series. Does not perform interpolation. </td>
+<td>Returns the raw sum of the time series described by <strong>expression</strong>. 
+The results are computed from real reported data values only, with no interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_avg.html"> avg(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the average of all series. If there are gaps in the data in they will first be filled in with interpolation. </td>
+<td>Returns the average (mean) of the time series described by <strong>expression</strong>. 
+The results may be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt; pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the average of all series. Does not perform interpolation. </td>
+<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the raw average (mean) of the time series described by <strong>expression</strong>. 
+The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_min.html"> min(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the lowest value of all series. If there are gaps in the data in the expression, they will first be filled in with interpolation. </td>
+<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results may be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
 <td><a href="ts_rawmin.html"> rawmin(<strong>&lt;expression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the lowest value of all series. Does not perform interpolation. </td>
+<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_max.html"> max(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the highest value of all series. If there are gaps in the data in <strong>expression</strong>, they will first be filled in with interpolation. </td>
+<td>Returns the highest value across the time series described by <strong>expression</strong>. The results may be computed from real reported values and interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_rawmax.html"> rawmax(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the highest value of all series. Does not perform interpolation. </td>
+<td>Returns the highest value across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_count.html">count(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of series that are reporting. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available.</td>
+<td>Returns the number of reporting time series described by <strong>expression</strong>,
+where a time series is counted as reporting even if it has interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_rawcount.html"> rawcount(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of series that are reporting. Does not perform interpolation. </td>
+<td>Returns the number of reporting time series described by <strong>expression</strong>, where a time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
 </tr>
 <tr>
 <td><a href="ts_variance.html"> variance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. </td>
+<td>Returns the variance based on the time series described by <strong>expression</strong>. 
+The results may be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
 <td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance of all series. Does not perform interpolation. </td>
+<td>Returns the variance across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentileValue&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the <strong>percentileValue</strong> value of all series. If there are gaps of data in the expression, they are first filled in using interpolation if at least 1 known value is available. For example, if <strong>percentileValue is</strong> 99, returns the 99th percentile value of all series.
-<div>Set <strong>percentileValue</strong> to 50 for the mean value of all series.</div></td>
+<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>. 
+The results may be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentileValue&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the <strong>percentileValue</strong> value of all series. For example, if <strong>percentileValue</strong> is 99, returns the 99th percentile value of all series.</td>
+<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>. 
+The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 </tbody>
 </table>

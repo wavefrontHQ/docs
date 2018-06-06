@@ -10,7 +10,9 @@ summary: Reference to the rawsum() function
 ```
 rawsum(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
-Returns the sum of all series. In contrast to `sum()`, `rawsum()` does not use interpolation to fill gaps in the data.
+Returns the raw sum of the set of time series described by the expression. 
+The results are computed from real reported data values only.
+Use [`sum()`](ts_sum.html) to include interpolated values.
 
 ## Parameters
 <table>
@@ -20,7 +22,7 @@ Returns the sum of all series. In contrast to `sum()`, `rawsum()` does not use i
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return a raw sum for. </td></tr>
+<td>Expression describing the set of time series to be summed. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a raw sum for each subgroup.
@@ -32,11 +34,15 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-The `rawsum()` aggregation function sums the values that are reported in a given time slice
-across all reported series and displays the total value as a single line in a chart.
+The `rawsum()` aggregation function adds together the data values reported at each moment in time, across the time series that are represented by the expression.  
 
-Using `rawsum()` instead of `sum()` can significantly improve query performance.
+By default, `rawsum()` returns a single series of sums by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of sums for each group.
 
+A raw sum is computed only from real values reported at a given moment in time. 
+No interpolation is performed to fill in data gaps in any time series.
+Use [`sum()`](ts_sum.html) if you want the sums to include interpolated values wherever possible. Using `rawsum()` instead of `sum()` can significantly improve query performance. 
+
+### Grouping
 Like all aggregation functions, `rawsum()` returns a single series of results by default.  You can include a 'group by' parameter to obtain separate raw sums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
 The function returns a separate series of results corresponding to each group.
 
@@ -45,7 +51,7 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 ## Examples
 
-The following chart for returns a single line that sums the load average for all sources.
+The following chart for returns a single line that sums the load average for all time series.
 
 ![rawsum_raw](images/ts_rawsum.png)
 
