@@ -10,9 +10,9 @@ summary: Reference to the rawavg() function
 ```
 rawavg(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
-Returns the average (the mean) of the time series described by the expression. 
-The results are computed only from real reported values.
-Use [`avg()`](ts_avg.html) if you need interpolation.
+Returns the raw average (mean) of the time series described by the expression. 
+The results are computed using only real reported data values.
+Use [`avg()`](ts_avg.html) to include interpolated values.
 
 ## Parameters
 <table>
@@ -22,7 +22,7 @@ Use [`avg()`](ts_avg.html) if you need interpolation.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return a raw average (mean) for. </td></tr>
+<td>Expression describing the set of time series to be averaged. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the raw average for each subgroup.
@@ -35,7 +35,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 The `rawavg()` aggregation function averages the data values reported at each moment in time, across the time series that are represented by the expression. 
 
-By default, `rawavg()` returns a single series of averages by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of averages for each group.
+By default, `rawavg()` returns a single series of averages by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of averages for each group.
 
 A raw average is computed only from real values reported at a given moment in time. 
 No interpolation is performed to fill in data gaps in any time series.

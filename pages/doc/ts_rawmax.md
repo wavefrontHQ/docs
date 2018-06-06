@@ -11,8 +11,8 @@ summary: Reference to the rawmax() function
 rawmax(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the highest value across the time series described by the expression. The results are computed only from real reported values. 
-Use [`max()`](ts_max.html) if you need interpolation.
+Returns the highest value across the set of time series described by the expression. The results are computed using only real reported data values. 
+Use [`max()`](ts_max.html) to include interpolated values.
 
 ## Parameters
 
@@ -23,7 +23,7 @@ Use [`max()`](ts_max.html) if you need interpolation.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return the raw maximum for. </td></tr>
+<td>Expression describing the set of time series to return raw maximums for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the raw maximum for each subgroup.
@@ -37,7 +37,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 The `rawmax()` aggregation function displays the highest (maximum) data value at each moment in time, across the time series that are represented by the expression.
 
-By default, `rawmax()` returns a single series of maximums by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of maximums for each group.
+By default, `rawmax()` returns a single series of maximums by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of maximums for each group.
 
 A raw maximum is computed only from real values reported at a given moment in time. 
 No interpolation is performed to fill in data gaps in any time series.
@@ -53,6 +53,6 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 ## Examples
 
-In following example, we use `rawmax` to display the maximum for the sample cpu usage percentage, and display a line for each region.
+In following example, we use `rawmax()` to display the maximum for the sample cpu usage percentage, and display a line for each region.
 
 ![raw max](images/ts_rawmax_aggr.png)

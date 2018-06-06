@@ -10,9 +10,9 @@ summary: Reference to the rawsum() function
 ```
 rawsum(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
-Returns the raw sum of the time series described by the expression. 
-The results are computed only from real reported values.
-Use [`sum()`](ts_sum.html) if you need interpolation.
+Returns the raw sum of the set of time series described by the expression. 
+The results are computed using only real reported data values.
+Use [`sum()`](ts_sum.html) to include interpolated values.
 
 ## Parameters
 <table>
@@ -22,7 +22,7 @@ Use [`sum()`](ts_sum.html) if you need interpolation.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return a raw sum for. </td></tr>
+<td>Expression describing the set of time series to be summed. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a raw sum for each subgroup.
@@ -36,7 +36,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 The `rawsum()` aggregation function adds together the data values reported at each moment in time, across the time series that are represented by the expression.  
 
-By default, `rawsum()` returns a single series of sums by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of sums for each group.
+By default, `rawsum()` returns a single series of sums by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of sums for each group.
 
 A raw sum is computed only from real values reported at a given moment in time. 
 No interpolation is performed to fill in data gaps in any time series.

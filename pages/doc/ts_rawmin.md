@@ -11,8 +11,8 @@ summary: Reference to the rawmin() function
 rawmin(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the lowest value across the time series described by the expression. The results are computed only from real reported values. 
-Use [`min()`](ts_min.html) if you need interpolation.
+Returns the lowest value across the set of time series described by the expression. The results are computed using only real reported data values. 
+Use [`min()`](ts_min.html) to include interpolated values.
 
 ## Parameters
 
@@ -23,7 +23,7 @@ Use [`min()`](ts_min.html) if you need interpolation.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to return the minimum for. </td></tr>
+<td>Expression describing the set of time series to return raw minimums for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning the raw minimum for each subgroup.
@@ -37,7 +37,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 The `rawmin()` aggregation function finds the lowest (minimum) reported data value at each moment in time, across the time series that are represented by the expression.
 
-By default, `rawmin()` returns a single series of minimums by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of minimums for each group.
+By default, `rawmin()` returns a single series of minimums by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of minimums for each group.
 
 A raw minimum is computed only from real values reported at a given moment in time. 
 No interpolation is performed to fill in data gaps in any time series.
