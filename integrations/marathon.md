@@ -1,8 +1,8 @@
 ---
-title: Mesos Marathon Integration
+title: Marathon Integration
 tags: [integrations list]
 permalink: marathon.html
-summary: Learn about the Wavefront Mesos Marathon Integration.
+summary: Learn about the Wavefront Marathon Integration.
 ---
 ## Mesos Marathon Integration
 
