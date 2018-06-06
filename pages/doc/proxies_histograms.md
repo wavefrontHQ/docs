@@ -81,9 +81,9 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
 
 You can also compute a histogram distribution yourself and send it to the Wavefront proxy. A distribution allows you to send a group of points with a single value. 
 
-To indicate that data is a histogram distribution, you send histogram data:
+To send histogram data as a distribution:
 
-- To the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
+- Send to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
 
 - Using the following format:
 
@@ -104,7 +104,7 @@ To indicate that data is a histogram distribution, you send histogram data:
 
 ## Histogram Configuration
 
-Histograms are supported by Wavefront proxy 4.8 and higher. Using histograms require that you configure various options in the Wavefront proxy. For information on how to configure proxies, see [Configuring Proxies](proxies_configuring.html).
+Histograms are supported by Wavefront proxy 4.12 and higher. Using histograms requires that you configure various options in the Wavefront proxy. For information on how to configure proxies, see [Configuring Proxies](proxies_configuring.html).
 
 
 ### Histogram Proxy Ports
