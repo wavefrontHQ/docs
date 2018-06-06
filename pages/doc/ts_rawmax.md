@@ -11,7 +11,7 @@ summary: Reference to the rawmax() function
 rawmax(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the highest value across the set of time series described by the expression. The results are computed using only real reported data values. 
+Returns the highest value across the set of time series described by the expression. The results are computed from real reported data values only. 
 Use [`max()`](ts_max.html) to include interpolated values.
 
 ## Parameters

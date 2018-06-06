@@ -11,7 +11,7 @@ summary: Reference to the rawvariance() function
 rawvariance(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the variance across the set of time series described by the expression. The results are computed using only real reported data values. 
+Returns the variance across the set of time series described by the expression. The results are computed from real reported data values only. 
 Use [`variance()`](ts_variance.html) to include interpolated values.
 
 ## Parameters

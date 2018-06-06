@@ -13,7 +13,7 @@ summary: Reference to the percentile() function
 percentile(<percentage>, <expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the estimated `percentage` percentile across the set of time series described by the expression. 
-Percentiles may be estimated from interpolated values and real reported values.
+The results may be computed from real reported values and interpolated values.
 Use  [`rawpercentile()`](ts_rawpercentile.html) if you don't want interpolation.
 
 ## Parameters

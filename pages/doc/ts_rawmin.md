@@ -11,7 +11,7 @@ summary: Reference to the rawmin() function
 rawmin(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the lowest value across the set of time series described by the expression. The results are computed using only real reported data values. 
+Returns the lowest value across the set of time series described by the expression. The results are computed from real reported data values only. 
 Use [`min()`](ts_min.html) to include interpolated values.
 
 ## Parameters

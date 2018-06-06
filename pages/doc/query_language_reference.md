@@ -188,66 +188,66 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 <tr>
 <td><a href="ts_sum.html">sum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns the sum of the time series described by <strong>expression</strong>. 
-The results may combine interpolated values and real reported values.</td>
+The results may be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_rawsum.html"> rawsum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the raw sum of the time series described by <strong>expression</strong>. 
-The results are computed using only real reported data values, with no interpolated values.</td>
+The results are computed from real reported data values only, with no interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_avg.html"> avg(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the average (mean) of the time series described by <strong>expression</strong>. 
-The results may combine interpolated values and real reported values.  </td>
+The results may be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
 <td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the raw average (mean) of the time series described by <strong>expression</strong>. 
-The results are computed using only real reported data values, with no interpolated values. </td>
+The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_min.html"> min(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results are computed from interpolated values and real reported values.  </td>
+<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results may be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
 <td><a href="ts_rawmin.html"> rawmin(<strong>&lt;expression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results are computed using only real reported data values, with no interpolated values. </td>
+<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_max.html"> max(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the highest value across the time series described by <strong>expression</strong>. The results are computed from interpolated values and real reported values. </td>
+<td>Returns the highest value across the time series described by <strong>expression</strong>. The results may be computed from real reported values and interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_rawmax.html"> rawmax(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the highest value across the time series described by <strong>expression</strong>. The results are computed using only real reported data values, with no interpolated values. </td>
+<td>Returns the highest value across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_count.html">count(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of reporting time series described by <strong>expression</strong>.
-A time series is counted as reporting even if it has interpolated values. </td>
+<td>Returns the number of reporting time series described by <strong>expression</strong>,
+where a time series is counted as reporting even if it has interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_rawcount.html"> rawcount(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of reporting time series described by <strong>expression</strong>. A time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
+<td>Returns the number of reporting time series described by <strong>expression</strong>, where a time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
 </tr>
 <tr>
 <td><a href="ts_variance.html"> variance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance based on the time series described by <strong>expression</strong>. 
-The results may combine interpolated values and real reported values.  </td>
+The results may be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
 <td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance across the time series described by <strong>expression</strong>. The results are computed using only real reported data values. </td>
+<td>Returns the variance across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
 <td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>. 
-Percentiles may be estimated from interpolated values and real reported values.</td>
+The results may be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>. 
-The results are computed using only real reported data values. </td>
+The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 </tbody>
 </table>

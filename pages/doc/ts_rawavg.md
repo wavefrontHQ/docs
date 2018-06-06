@@ -11,7 +11,7 @@ summary: Reference to the rawavg() function
 rawavg(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the raw average (mean) of the time series described by the expression. 
-The results are computed using only real reported data values.
+The results are computed from real reported data values only.
 Use [`avg()`](ts_avg.html) to include interpolated values.
 
 ## Parameters

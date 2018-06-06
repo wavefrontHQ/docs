@@ -11,7 +11,7 @@ summary: Reference to the avg() function
 avg(expression[,metrics|sources|sourceTags|pointTags|<pointTagKey])
 ```
 Returns the average (the mean) of the set of time series described by the expression. 
-The results may combine interpolated values and real reported values. 
+The results may be computed from real reported values and interpolated values. 
 Use [`rawavg()`](ts_rawavg.html) if you don't need interpolation.
 
 ## Parameters

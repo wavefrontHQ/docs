@@ -11,7 +11,7 @@ summary: Reference to the rawsum() function
 rawsum(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the raw sum of the set of time series described by the expression. 
-The results are computed using only real reported data values.
+The results are computed from real reported data values only.
 Use [`sum()`](ts_sum.html) to include interpolated values.
 
 ## Parameters
