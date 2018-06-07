@@ -13,7 +13,7 @@ summary: Reference to the percentile() function
 percentile(<percentage>, <expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the estimated `percentage` percentile across the set of time series described by the expression. 
-The results may be computed from real reported values and interpolated values.
+The results might be computed from real reported values and interpolated values.
 Use  [`rawpercentile()`](ts_rawpercentile.html) if you don't want interpolation.
 
 ## Parameters
@@ -69,7 +69,7 @@ You can use [`rawpercentile()`](ts_rawpercentile.html) to suppress interpolation
 
 A percentile is a value below which a particular percentage of data values fall. For example, in a given group of data values, the 75th percentile is a value that is greater than 75% of the data values in that group.
 
-In general, percentiles may be estimated in various ways. The `percentile()` function computes the estimated percentile value for a given moment in time as follows:
+In general, percentiles can be estimated in various ways. The `percentile()` function computes the estimated percentile value for a given moment in time as follows:
 1. Obtain the set of reported and/or interpolated data values, one from each time series in the group. 
 2. Sort these data values into an ordered list.
 3. Use the specified `percentage` to compute the estimated percentile position in the list, and then:

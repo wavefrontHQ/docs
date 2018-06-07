@@ -14,7 +14,7 @@ min(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 When used as a comparison function, returns the lower of the two values in `expression1` and `expression2`.  
 
-When used as an aggregation function, returns the lowest value across the set of time series described by `expression`. The results may be computed from real reported values and interpolated values. 
+When used as an aggregation function, returns the lowest value across the set of time series described by `expression`. The results might be computed from real reported values and interpolated values. 
 Use  [`rawmin()`](ts_rawmin.html) if you don't need interpolation.
 
 ## Parameters

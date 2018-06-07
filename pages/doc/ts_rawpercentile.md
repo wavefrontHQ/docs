@@ -60,7 +60,7 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 A percentile is a value below which a particular percentage of data values fall. For example, in a given group of data values, the 75th percentile is a value that is greater than 75% of the data values in that group.
 
-In general, percentiles may be estimated in various ways. The `percentile()` function computes the estimated raw percentile value for a given moment in time as follows:
+In general, percentiles can be estimated in various ways. The `percentile()` function computes the estimated raw percentile value for a given moment in time as follows:
 1. Obtain the set of data values, one from each time series that has an actual reported data value.  
 2. Sort these data values into an ordered list.
 3. Use the specified `percentage` to compute the estimated percentile position in the list, and then:
