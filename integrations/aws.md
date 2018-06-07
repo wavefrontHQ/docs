@@ -21,11 +21,11 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon DynamoDB</h5>
-<div><img src="images/aws_dynamodb.png" alt="Amazon DynamoDB" style="max-width: 70px;"/></div>
+<div><img src="images/aws-dynamodb.svg" alt="Amazon DynamoDB" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon EC2</h5>
-<div><img src="images/aws_ec2.png" alt="Amazon EC2" style="max-width: 70px;"/></div>
+<div><img src="images/aws-ec2.svg" alt="Amazon EC2" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon ELB</h5>
@@ -39,7 +39,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Lambda</h5>
-<div><img src="images/aws_lambda.png" alt="Amazon Lambda" style="max-width: 70px;"/></div>
+<div><img src="images/aws-lambda.svg" alt="Amazon Lambda" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon EBS</h5>
@@ -53,35 +53,35 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <tr>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Cloudfront</h5>
-<div><img src="images/aws_cloudfront.png" alt="Amazon Cloudfront" style="max-width: 70px;"/></div>
+<div><img src="images/aws-cloudfront.svg" alt="Amazon Cloudfront" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon SNS</h5>
-<div><img src="images/Messaging_AmazonSNS.png" alt="Amazon SNS" style="max-width: 70px;"/></div>
+<div><img src="images/aws-sns.svg" alt="Amazon SNS" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon ElastiCache</h5>
-<div><img src="images/aws_elasticache.png" alt="Amazon ElastiCache" style="max-width: 70px;"/></div>
+<div><img src="images/aws-elastic-cache.svg" alt="Amazon ElastiCache" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon S3</h5>
-<div><img src="images/storage_amazon_s3.png" alt="Amazon S3" style="max-width: 70px;"/></div>
+<div><img src="images/aws-s3.svg" alt="Amazon S3" style="max-width: 70px;"/></div>
 </td>
 </tr>
 <tr>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon SQS</h5>
-<div><img src="images/aws_sqs.png" alt="Amazon SQS" style="max-width: 70px;"/></div>
+<div><img src="images/aws-sqs.svg" alt="Amazon SQS" style="max-width: 70px;"/></div>
 </td>  
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Kinesis Data Stream</h5>
-<div><img src="images/AmazonKinesisStreams.png" alt="Amazon Kinesis Data Stream" style="max-width: 70px;"/></div>
+<div><img src="images/aws-kinesis.svg" alt="Amazon Kinesis Data Stream" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon OpsWorks</h5>
-<div><img src="images/aws_opsworks.png" alt="Amazon OpsWorks" style="max-width: 70px;"/></div>
+<div><img src="images/aws-opsworks.svg" alt="Amazon OpsWorks" style="max-width: 70px;"/></div>
 </td>
-<td>  
+<td style="text-align:center;vertical-align:top;">
 <h5>Amazon EMR</h5>
 <div><img src="images/aws_emr.png" alt="Amazon SQS" style="max-width: 70px;"/></div>
 </td>
@@ -98,7 +98,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Elastic Beanstalk</h5>
 <div><img src="images/Compute_AWSElasticBeanstalk.svg" alt="Amazon Elstic Beanstalk" style="max-width: 70px;"/></div>
-</td>  
+</td>
 </tr>
 </tbody>
 </table>
