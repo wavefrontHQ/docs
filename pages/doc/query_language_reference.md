@@ -386,11 +386,11 @@ When aggregating, you can group or filter the results.
 <tbody>
 <tr>
 <td><a href="ts_rate.html">rate(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the per-second change of <strong>expression</strong>; should be used on counter metrics that report only increasing values. Automatically handles zero-resets in counters.</td>
+<td>Returns the per-second change of the time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values. Automatically handles zero-resets in counters.</td>
 </tr>
 <tr>
-<td>deriv(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the per-second change of <span style="color:#3a0699;font-weight:bold">expression</span>. Does not handle zero-resets, but can be used on non-counter (decreasing) metrics.</td>
+<td><a href="ts_deriv.html">deriv(<strong>&lt;expression&gt;</strong>)</td>
+<td>Returns the per-second change of the time series described by <strong>expression</strong>. Appropriate for metrics that report increasing or decreasing data values.</td>
 </tr>
 <tr>
 <td>lag(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
