@@ -4,150 +4,27 @@ tags: [integrations list]
 permalink: pks.html
 summary: Learn about the Wavefront Pivotal Container Service Integration.
 ---
-## Kubernetes Integration
+## Pivotal Container Service Integration
 
-Kubernetes is a popular open source container orchestration system. This integration uses [Heapster](https://github.com/kubernetes/heapster), a collector agent that runs natively in Kubernetes. It collects detailed resource metrics about the containers, namespaces, nodes, pods, and the cluster itself and sends them to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+Pivotal Container Service (PKS) enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters on Pivotal Cloud Foundry (PCF). This integration uses [Heapster](https://github.com/kubernetes/heapster), a collector agent that runs natively in Kubernetes and [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics), a simple service that listens to the Kubernetes API server and generates metrics. The integration collects detailed metrics about the containers, namespaces, nodes, pods, deployments, services and the cluster itself and sends them to a Wavefront.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some of the pod charts in the Kubernetes dashboard.
+This integration explains how to configure PKS monitoring with Wavefront from the PKS tile present in PCF Ops Manager. After you've completed the integration setup, you can use Wavefront to monitor the PKS cluster.
 
-{% include image.md src="images/db_kubernetes_pods.png" width="80" %}
-## Kubernetes Setup
+In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of **Overview** and **Nodes** section of the dashboard.
 
-### Step 1. Deploy a Wavefront Proxy in Kubernetes
+{% include image.md src="images/db_overview.png" width="80" %}
 
-Copy the following yaml to your system as `proxy.yaml`:
-{% raw %}
-```
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  labels:
-    app: wavefront-proxy
-    name: wavefront-proxy
-  name: wavefront-proxy
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-    app: wavefront-proxy
-  template:
-    metadata:
-      labels:
-        app: wavefront-proxy
-    spec:
-      containers:
-      - name: wavefront-proxy
-        image: wavefronthq/proxy:latest
-        imagePullPolicy: Always
-        env:
-        - name: WAVEFRONT_URL
-          value: http://YOUR_CLUSTER.wavefront.com/api/
-        - name: WAVEFRONT_TOKEN
-          value: YOUR_API_TOKEN
-        ports:
-        - containerPort: 2878
-          protocol: TCP
-        - containerPort: 4242
-          protocol: TCP
-        securityContext:
-          privileged: false
-```
+## Pivotal Container Services Setup
 
-Run `kubectl create -f </path/to>/proxy.yaml`. The Wavefront proxy should now be running in Kubernetes.
+  Supported Version: PKS 1.1 and above
 
-### Step 2. Create a Wavefront Proxy Service
+### Configuring the Wavefront Account
 
-Create a proxy service to expose the Wavefront proxy internally to your Kubernetes cluster.
-
-Copy and save the following yaml to a file named `proxy-service.yaml`.
-
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: wavefront-proxy
-  labels:
-    app: wavefront-proxy
-spec:
-  ports:
-  - name: wavefront
-    port: 2878
-    protocol: TCP
-  - name: opentsdb
-    port: 4242
-    protocol: TCP
-  selector:
-    app: wavefront-proxy
-```
-
-Run `kubectl create -f </path/to>/proxy-service.yaml`. A `wavefront-proxy` service should now be running on your cluster.
-
-### Step 3. Deploy Heapster
-
-Copy and save the following yaml to your system as `heapster.yaml`:
-
-```
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: heapster
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: system:heapster
-subjects:
-- kind: ServiceAccount
-  name: heapster
-  namespace: kube-system
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: heapster
-  namespace: kube-system
----
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  labels:
-    k8s-app: heapster
-    name: heapster
-    version: v6
-  name: heapster
-  namespace: kube-system
-spec:
-  replicas: 1
-  selector:
-    k8s-app: heapster
-    version: v6
-  template:
-    metadata:
-      labels:
-        k8s-app: heapster
-        version: v6
-    spec:
-      serviceAccount: "heapster"
-      containers:
-      - name: heapster
-        image: wavefronthq/heapster-amd64:latest
-        imagePullPolicy: Always
-        command:
-        - /heapster
-        - --source=kubernetes.summary_api:''
-        - --sink=wavefront:wavefront-proxy.default.svc.cluster.local:2878?clusterName=k8s-cluster&includeLabels=true
-        volumeMounts:
-        - name: ssl-certs
-          mountPath: /etc/ssl/certs
-          readOnly: true
-        ports:
-        - containerPort: 8082
-          protocol: TCP
-      volumes:
-      - name: ssl-certs
-        hostPath:
-          path: /etc/ssl/certs
-```
-{% endraw %}
-Run `kubectl create -f /path/to/heapster.yaml`. The Heapster collector agent should now be running on your cluster.
-
-If you do not see metrics in the Kubernetes dashboard, check the logs from the Heapster and proxy pods.
+1. Log in to PCF Ops Manager and click the **Pivotal Container Service** tile in Installation Dashboard.
+2. Under the Settings tab, click **Monitoring**.
+3. In the right pane, check **Yes** to enable **Wavefront Integration** and enter the account information:
+   * **Wavefront URL**: `http://YOUR_CLUSTER.wavefront.com`
+   * **API Token**: `YOUR_API_TOKEN`
+   * **Wavefront Alert Recipient**: `A list of Email addresses &/or Wavefront Target IDs`
+4. Click **Save**.
+5. Navigate back to the Installation dashboard and click **Apply Changes**.
