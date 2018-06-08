@@ -99,6 +99,10 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <h5>Amazon Elastic Beanstalk</h5>
 <div><img src="images/Compute_AWSElasticBeanstalk.svg" alt="Amazon Elstic Beanstalk" style="max-width: 70px;"/></div>
 </td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon Kinesis Firehose</h5>
+<div><img src="images/firehose.png" alt="Amazon Kinesis Firehose" style="max-width: 70px;"/></div>
+</td>
 </tr>
 </tbody>
 </table>
