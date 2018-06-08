@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
 summary: Learn how to send AWS data to Wavefront.
 ---
-Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefronts Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup. 
+Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefronts Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
@@ -198,13 +198,60 @@ The AWS Billing and Cost Management service sends [billing metrics](http://docs.
 
 Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source` field and `ServiceName` point tag identify the AWS services. For the total estimated charge metric, `source` is set to `usd` and `ServiceName` is empty. Wavefront also provides the point tags `accountId`, `Currency`, `LinkedAccount`, and `Region`. Billing metrics are typically reported every 4 hours.
 
-## CloudTrail Data
+## CloudTrail Events, Metrics, and Point Tags
 
-Wavefront retrieves CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html). The EC2 operations include: **\[Run\|Start\|Stop\|Terminate\|Monitor\|Unmonitor\]Instances**, **\[Attach\|Detach\]Volume**, **DeleteNetworkInterface**, **AuthorizeSecurityGroupIngress**, **CreateSecurityGroup**, **RequestSpotInstances**, **CancelSpotInstanceRequests**, **ModifyInstanceAttribute**, **CreateTags**, **\[Create\|Delete\]KeyPair**, and **DeregisterImage**.
+Wavefront retrieves CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html).
 
 In the [Events browser](events.html) the events are named **AWS Action: \<Operation\>** and have the [event tag](tags_overview.html) `aws.cloudtrail.ec2`. For example:
 
 ![aws start instance](images/aws_start_instances.png)
+
+Starting with release 2018.22.x, we group AWS CloudTrail events by the minute and report the metrics. We also support several point tags that allow you to filter the events.
+
+### Metrics
+
+Each metrics starts with `aws.cloudtrail.event.`, followed by one of the EC2 operation names. For example `aws.cloudtrail.event.Start` or `aws.cloudtrail.event.CreateTags`.
+
+The EC2 operations include: **\[Run\|Start\|Stop\|Terminate\|Monitor\|Unmonitor\]Instances**, **\[Attach\|Detach\]Volume**, **DeleteNetworkInterface**, **AuthorizeSecurityGroupIngress**, **CreateSecurityGroup**, **RequestSpotInstances**, **CancelSpotInstanceRequests**, **ModifyInstanceAttribute**, **CreateTags**, **\[Create\|Delete\]KeyPair**, and **DeregisterImage**.
+
+### Point Tags for Filtering
+You can use the following point tags to filter the metrics.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="30%">Point tag</th><th width="50%">Description</th><th width="20%">Example</th></tr>
+</thead>
+<tr>
+<td>eventType</td>
+<td>The type of event that generated the event record.
+</td>
+<td>AwsApiCall, AwsServiceEvent </td></tr>
+<tr>
+<td>eventSource</td>
+<td>The service that the request was made to.</td>
+<td>ec2.amazonaws.com</td></tr>
+<tr>
+<td>awsRegion</td>
+<td>The AWS region that the request was made to.
+</td>
+<td>us-east-2</td></tr>
+<tr>
+<td>accountID</td>
+<td>The account ID that you specified when you set up the AWS CloudTrail integration.
+</td>
+<td>User42</td></tr>
+<tr>
+<td>bucket</td>
+<td>Bucket that you specified when you set up the AWS CloudTrail integration.
+</td>
+<td>A random number</td></tr>
+<tr>
+<td>_count</td>
+<td> Actual event count</td>
+<td>5000</td></tr>
+</tbody>
+</table>
 
 ## AWS Metrics+ Data
 
