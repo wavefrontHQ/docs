@@ -214,6 +214,8 @@ Each metrics starts with `aws.cloudtrail.event.`, followed by one of the EC2 ope
 
 The EC2 operations include: **\[Run\|Start\|Stop\|Terminate\|Monitor\|Unmonitor\]Instances**, **\[Attach\|Detach\]Volume**, **DeleteNetworkInterface**, **AuthorizeSecurityGroupIngress**, **CreateSecurityGroup**, **RequestSpotInstances**, **CancelSpotInstanceRequests**, **ModifyInstanceAttribute**, **CreateTags**, **\[Create\|Delete\]KeyPair**, and **DeregisterImage**.
 
+In addition, the metric `aws.cloudtrail.event.total-per-minute` reports the per-minute count of *all* AWS API calls recorded by the AWS CloudTrail integration.
+
 ### Point Tags for Filtering
 You can use the following point tags to filter the metrics.
 
@@ -246,10 +248,6 @@ You can use the following point tags to filter the metrics.
 <td>Bucket that you specified when you set up the AWS CloudTrail integration.
 </td>
 <td>A random number</td></tr>
-<tr>
-<td>_count</td>
-<td> Actual event count</td>
-<td>5000</td></tr>
 </tbody>
 </table>
 
