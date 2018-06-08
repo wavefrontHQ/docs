@@ -385,8 +385,8 @@ When aggregating, you can group or filter the results.
 </thead>
 <tbody>
 <tr>
-<td>rate(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the per-second change of <span style="color:#3a0699;font-weight:bold">expression</span>; should be used on monotonic counter metrics (metrics that have values that only increase). Automatically handles zero-resets in counters.</td>
+<td><a href="ts_rate.html">rate(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the per-second change of <strong>expression</strong>; should be used on counter metrics that report only increasing values. Automatically handles zero-resets in counters.</td>
 </tr>
 <tr>
 <td>deriv(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
