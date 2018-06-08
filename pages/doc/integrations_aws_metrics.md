@@ -234,12 +234,12 @@ You can use the following point tags to filter the metrics.
 <td>The service that the request was made to.</td>
 <td>ec2.amazonaws.com</td></tr>
 <tr>
-<td>awsRegion</td>
+<td>Region</td>
 <td>The AWS region that the request was made to.
 </td>
 <td>us-east-2</td></tr>
 <tr>
-<td>accountID</td>
+<td>accountId</td>
 <td>The account ID that you specified when you set up the AWS CloudTrail integration.
 </td>
 <td>User42</td></tr>
