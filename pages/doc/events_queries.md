@@ -32,7 +32,7 @@ You can specify multiple <span style="color: #00BCD4;">event filters</span> sepa
 
 Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing the event in the UI, or, if you use the API, returning the event itself. The following illustration illustrates the behavior:
 
-![when events return](images/events_returns.svg)
+![when events return](images/events_returns_22.svg)
 
 Here are some details. Note that for two cases, the behavior changed in Wavefront 2018.10; however, the following table shows general behavior and does not focus on this (fairly minor) change.
 
