@@ -62,7 +62,7 @@ If you have an [AWS integration](integrations_aws_metrics.html) and are ingestin
 
 ![aws_metric_sections](images/aws_metric_sections.png)
 
-The available metrics are:
+The available metrics for the AWS integration are:
 
 - `~externalservices.cloudwatch.api-requests` - number of CloudWatch API requests
 - `~externalservices.cloudwatch.points`- number of CloudWatch metrics returned
@@ -82,17 +82,68 @@ The metrics used in this section are:
 
 ## Using Internal Metrics to Optimize Performance
 
-A small set of internal metrics can help you optimize performance. This section highlights some things to look for - the exact steps depend on how you're using Wavefront and on the characteristics of your environment. The following internal metrics were added to Wavefront in the 2017.52 release based on suggestions from our customer support engineers.
+A small set of internal metrics can help you optimize performance. This section highlights some things to look for - the exact steps depend on how you're using Wavefront and on the characteristics of your environment.
 
-* `~query.requests`-- Counter tracking the number of queries a user made.
-* `~metric.new_host_ids` -- Counter that increments when a new `source=` or `host=` is sent to Wavefront.
-* `~metric.new_metric_ids` -- Counter that increments when a new metric name is sent to Wavefront.
-* `~metric.new_string_ids` -- Counter that increments when a new point tag value is sent to Wavefront.
-* `~alert.query_time.{alert_id}`-- Tracks the average time, in ms, that a specified alert took to run in the past hour.
-* `~alert.query_points.{alert_id}` -- tracks the average number of points that a specified alert scanned in the past hour.
-* `~alert.checking_frequency.{id}` -- Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.
+Wavefront customer support engineers have found the following metrics especially useful.
 
-Here's one easy way to see this new information:
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Type</th><th width="30%">Metric</th><th width="50%">Description</th></tr>
+</thead>
+<tr>
+<td markdown="span">~query</td>
+<td>~query.requests</td><td>Counter tracking the number of queries a user made.</td></tr>
+<tr>
+<td markdown="span">~metric</td>
+<td>~metric.new_host_ids</td>
+<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to Wavefront.</td></tr>
+<tr>
+<td markdown="span">~metric</td>
+<td>~metric.new_metric_ids</td>
+<td markdown="span">Counter that increments when a new metric name is sent to Wavefront.</td></tr>
+<tr>
+<td markdown="span">~metric</td>
+<td>~metric.new_string_ids</td>
+<td markdown="span">Counter that increments when a new point tag value is sent to Wavefront.</td></tr>
+<tr>
+<td markdown="span">~alert</td>
+<td markdown="span">~alert.query_time.{alert_id}</td>
+<td markdown="span">Tracks the average time, in ms, that a specified alert took to run in the past hour.</td></tr>
+<tr>
+<td markdown="span">~alert</td>
+<td markdown="span">~alert.query_points.{alert_id}</td>
+<td markdown="span">Tracks the average number of points that a specified alert scanned in the past hour.</td></tr>
+<tr>
+<td markdown="span">~alert</td>
+<td markdown="span">~alert.checking_frequency.{id}</td>
+<td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.</td></tr>
+<tr>
+<td markdown="span">~collector(*)</td>
+<td markdown="span">~collector.points.reported, ~collector.histograms.reported</td>
+<td markdown="span">Valid metric points or histogram points reported from the collector to Wavefront. This is the billing metric that customers can look up on their system dashboard. </td></tr>
+<tr>
+<td markdown="span">~collector</td>
+<td markdown="span">~collector.points.valid, ~collector.histograms.valid</td>
+<td markdown="span">Valid metric points or histogram points received by the collector.</td></tr>
+<tr>
+<td markdown="span">~collector</td>
+<td markdown="span">~collector.points.batches, ~collector.histograms.batches</td>
+<td markdown="span">Number of batches of points or histogram points received by the collector, either via the proxy or via the direct ingestion API</td></tr>
+<tr>
+<td markdown="span">~collector</td>
+<td markdown="span">~collector.points.undecodable, ~collector.histograms.undecodable</td>
+<td markdown="span">Points or histogram points that the collector receives but that the collector cannot report to Wavefront because the points are not in the right format.</td></tr>
+
+</tbody>
+</table>
+
+(*) The collector is in the Wavefront cloud and comes after the agents and proxies. 
+
+
+### Viewing Internal Metrics
+
+Here's one easy way to see internal metrics information:
 1. Select **Integrations** and click the Wavefront Usage integration.
 2. Select **Dashboard**.
 3. Click the pencil icon and select **Clone**.
