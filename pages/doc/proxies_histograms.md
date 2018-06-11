@@ -398,5 +398,6 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 * `max(hs(histogram.<metricName>.m))` -- Returns the largest value in `<metricName>`
 * `median(hs(histogram.<metricName>.m))` -- Returns the median of `<metricName>`
 * `merge(hs(histogram.<metricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<metricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(histogram.<metricName>.m),key)` where `key` is a point tag name.
+* `align(<timeWindow>,hs(histogram.<metricName>.m))` -- Allows the user to merge histograms across time buckets. For example, A user can use `align(1h, hs(histogram.<metricName>.m))` to output hourly buckets on a minutely histogram.
 
 {% include note.html content="Direct histogram visualization in charts is not supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with another supported function, for example, `max(hs(...))`." %}
