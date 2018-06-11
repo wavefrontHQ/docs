@@ -9,7 +9,7 @@ summary: Learn how to use Wavefront histograms.
 ---
 Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics.
 
-**Note:** The histogram feature requires a separate license and is not available by default.
+**Note:** The histogram feature requires a separate license and is not enabled on your cluster by default.
 
 ## What are Histograms?
 
@@ -81,10 +81,11 @@ To send histogram data as a distribution:
 
 - Send to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
 
-- Using the following format:
+- Use the following format:
 
-  ```html
-  {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>] <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
+  ```
+  {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
+   <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
   ```
 
   where
@@ -104,7 +105,7 @@ To send histogram data as a distribution:
 
 ## Histogram Configuration
 
-Histograms are supported by Wavefront proxy 4.12 and higher. Using histograms requires that you configure various options in the Wavefront proxy. For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
+Histograms are supported by Wavefront proxy 4.12 and higher. To use histograms, ensure that your data is in histogram format, and set the [histogram proxy port](#histogram-proxy-ports). For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
 
 
 ### Histogram Proxy Ports

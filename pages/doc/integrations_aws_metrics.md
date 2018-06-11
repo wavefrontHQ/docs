@@ -200,23 +200,36 @@ Wavefront reports the single metric `aws.billing.estimatedcharges`. The `source`
 
 ## CloudTrail Events, Metrics, and Point Tags
 
-Wavefront retrieves CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html).
+Wavefront retrieves CloudTrail event information stored in JSON-formatted log files in an S3 bucket. The CloudTrail integration parses the files for all events that result from an operation that is not a describe, get, or list, and creates a Wavefront [System event](events.html).
 
-In the [Events browser](events.html) the events are named **AWS Action: \<Operation\>** and have the [event tag](tags_overview.html) `aws.cloudtrail.ec2`. For example:
+In the [Events browser](events.html) the events are named **AWS Action: \<Operation\>** and have the event tag `aws.cloudtrail.ec2`. For example:
 
 ![aws start instance](images/aws_start_instances.png)
 
 Starting with release 2018.22.x, we group AWS CloudTrail events by the minute and report the metrics. We also support several point tags that allow you to filter the events.
 
-### Metrics
+### CloudTrail Metrics
 
-Each metrics starts with `aws.cloudtrail.event.`, followed by one of the EC2 operation names. For example `aws.cloudtrail.event.Start` or `aws.cloudtrail.event.CreateTags`.
+Each metrics starts with `aws.cloudtrail.event.`, followed by one of the EC2 operation names.
 
-The EC2 operations include: **\[Run\|Start\|Stop\|Terminate\|Monitor\|Unmonitor\]Instances**, **\[Attach\|Detach\]Volume**, **DeleteNetworkInterface**, **AuthorizeSecurityGroupIngress**, **CreateSecurityGroup**, **RequestSpotInstances**, **CancelSpotInstanceRequests**, **ModifyInstanceAttribute**, **CreateTags**, **\[Create\|Delete\]KeyPair**, and **DeregisterImage**.
+The EC2 operations include:
+- **\[Run\|Start\|Stop\|Terminate\|Monitor\|Unmonitor\]Instances**
+- **\[Attach\|Detach\]Volume**
+- **DeleteNetworkInterface**
+- **AuthorizeSecurityGroupIngress**
+- **CreateSecurityGroup**
+- **RequestSpotInstances**
+- **CancelSpotInstanceRequests**
+- **ModifyInstanceAttribute**
+- **CreateTags**
+- **\[Create\|Delete\]KeyPair**
+- **DeregisterImage**
+
+As a result, the metrics include, for example `aws.cloudtrail.event.Start` or `aws.cloudtrail.event.CreateTags`.
 
 In addition, the metric `aws.cloudtrail.event.total-per-minute` reports the per-minute count of *all* AWS API calls recorded by the AWS CloudTrail integration.
 
-### Point Tags for Filtering
+### Point Tags for Filtering CloudTrail Metrics
 You can use the following point tags to filter the metrics.
 
 <table>
