@@ -109,7 +109,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <h5>Amazon RDS</h5>
 <div><img src="images/aws-rds.svg" alt="Amazon RDS" style="max-width: 70px;"/></div>
 </td>
-<td style="text-align:center;vertical-align:top;">  
+<td style="text-align:center;vertical-align:top;">
 <h5>Amazon Key Management Service</h5>
 <div><img src="images/AWSKMS.svg" alt="Amazon KMS" style="max-width: 70px;"/></div>
 </td>  
