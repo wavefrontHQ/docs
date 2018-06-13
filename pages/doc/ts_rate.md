@@ -62,8 +62,11 @@ If the metric's counter restarts, the metric reports a higher data value after t
 
 ## Examples
 
-Here's a query that shows a sample metric that increments a counter. The reporting interval is 2 seconds, which means the counter increments every 2 seconds:
+Here's a query that shows a sample metric that increments a counter. The reporting interval is 2 seconds, which means the counter increments every 2 seconds. We see the count climb from 3:46:00 to 3:46:16, when it resets to 0. The counter restarts at 3:46:20.
 ![rate before](images/ts_rate_before.png)
 
-Here we apply `rate()` our original query to find how fast the counter grows per second. Notice that the `rate()` results begin one reporting interval after the counter metric began:
+Now we apply `rate()` to our original query to find out how fast the counter grows per second. Notice: 
+* `rate()`  starts reporting at the counter's second value. 
+* At 3:46:10, the rate of growth is .500, indicating the total has grown half a unit per second since the preceding value.
+* No rate is reported when the counter falls to 0. The reported rate is 0 while the counter stays at 0, and then becomes positive when the count starts to climb. 
 ![rate after](images/ts_rate_after.png)

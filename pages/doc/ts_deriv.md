@@ -58,3 +58,12 @@ The `deriv()` function computes the rate of change between these data values usi
 
 
 ## Examples
+
+Here's a query that shows a sample metric that increments a counter. The reporting interval is 2 seconds, which means the counter increments every 2 seconds. We see the count climb from 3:46:00 to 3:46:16, when it resets to 0. The counter restarts at 3:46:20.
+![deriv before](images/ts_deriv_before.png)
+
+Now we apply `deriv()` to our original query to find out how fast the counter grows per second. Notice: 
+* `deriv()`  starts reporting at the counter's second value. 
+* At 3:46:10, the rate of growth is .500, indicating the total has grown half a unit per second since the preceding value.
+* A negative rate is reported when the counter falls to 0. 
+![deriv after](images/ts_deriv_after.png)

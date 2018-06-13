@@ -389,19 +389,19 @@ When aggregating, you can group or filter the results.
 <td>Returns the per-second change of the time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values. Automatically handles zero-resets in counters.</td>
 </tr>
 <tr>
-<td><a href="ts_deriv.html">deriv(<strong>&lt;expression&gt;</strong>)</td>
+<td><a href="ts_deriv.html">deriv(<strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns the per-second change of the time series described by <strong>expression</strong>. Appropriate for metrics that report increasing or decreasing data values.</td>
 </tr>
 <tr>
-<td>lag(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns an <span style="color:#3a0699;font-weight:bold">expression</span> time shifted by <span style="color:#757575;font-weight:bold">timeWindow</span>, to enable comparison of an expression with its own past behavior. Starting with release 2018.10, you can shift by <span style="color:#757575;font-weight:bold">timeWindow</span> into the future. Example: lag(<span style="color:#757575;font-weight:bold">3h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns each point from <span style="color:#3a0699;font-weight:bold">expression</span> from 3 hours ago.</td>
+<td><a href="ts_lag.html">lag(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns earlier data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own past behavior. Example: <strong>lag(3h, ts(my.metric))</strong> shifts earlier values from my.metric forward 3 hours along the time axis for easy comparison with more recent values.</td>
 </tr>
 <tr>
-<td>lead(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns an <span style="color:#3a0699;font-weight:bold">expression</span> time shifted by <span style="color:#757575;font-weight:bold">timeWindow</span> into the past  to enable comparison of an expression with its own future behavior. For example lead(<span style="color:#757575;font-weight:bold">3h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns each point from <span style="color:#3a0699;font-weight:bold">expression</span> 3 hours earlier than its actual timestamp.</td>
+<td><a href="ts_lead.html">lead(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns later data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own subsequent or forecasted behavior. Example: <strong>lead(3h, ts(my.metric))</strong> shifts later values from my.metric back 3 hours along the time axis for easy comparison with earlier values.</td>
 </tr>
 <tr>
-<td>at(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
+<td>at(<strong>timeWindow</strong>, <strong>expression</strong>)</td>
 <td>Returns the value of the <span style="color:#3a0699;font-weight:bold">expression</span> from <span style="color:#757575;font-weight:bold">timeWindow</span> ago. at() only looks at a single point, and returns a flat line, across all time points. If you query at(<span style="color:#757575;font-weight:bold">2h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)), you'll see the value of ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) from 2 hours ago, even if you're looking at a chart from weeks or months ago. To associate at() with a time at the beginning or end of your current chart window, replace <span style="color:#757575;font-weight:bold">timeWindow</span> with <span style="color:#757575;font-weight:bold">start</span>, <span style="color:#757575;font-weight:bold">end</span>, or <span style="color:#757575;font-weight:bold">now</span>. This function outputs continuous time series.</td>
 </tr>
 <tr>
