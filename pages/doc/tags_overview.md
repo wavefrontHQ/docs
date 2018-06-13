@@ -53,7 +53,7 @@ The table summarizes where the two types of tags are used and where they are add
 <td>dashboard</td>
 <td markdown="span">[Managing Dashboards](dashboards_managing.html)</td>
 <td></td>
-<td markdown="span">Wavefront UI and API</td>
+<td markdown="span">Wavefront UI and API<br /><br />Dashboards added by Wavefront have system tags that start with `~`, e.g. `~integration.aws` or `~welcome.tutorial`.</td>
 </tr>
 <tr>
 <td>event</td>

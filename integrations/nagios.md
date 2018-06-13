@@ -18,22 +18,28 @@ On your Nagios server:
 
 1. Download the [nagios-wf.py](https://github.com/wavefrontHQ/integrations/raw/master/nagios/nagios-wf.py) script.
 2. Give the script permission to run for the Nagios user: `chmod u+x nagios-wf.py`
-3. Test the script execution by typing this: `./nagios-wf.py`
-  You should get something like this:{% raw %}
-  ```
+3. Test the script execution by typing this: `./nagios-wf.py`.
+
+
+  You should get something like this:
+
+{% raw %}
+```
   usage: nagios-wf.py [-h] [-S] [--type TYPE] [--host HOST]
                     [--service [SERVICE]] [--time TIME] [--msg MSG]
                     server token
 
   nagios-wf.py: error: too few arguments
-  ```
+```
 
 ### Configure Your Nagios Instance
 
 On your Nagios configuration files:
 
 1. Create these two new commands:
-  ```
+
+
+```
   define command{
   	command_name nagios-to-wavefront-service
   	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' http://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
@@ -43,21 +49,25 @@ On your Nagios configuration files:
   	command_name nagios-to-wavefront-host
   	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' http://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
   }
-  ```
+```
 
 2. Add the two new commands to the contact associated with your resources.
-  ```
+
+
+```
   define contact{
     ...
     service_notification_commands   nagios-to-wavefront-service
     host_notification_commands      nagios-to-wavefront-host
     ...
   }
-  ```
+```
 
 ### Configuration Sample
 
 Here's a complete configuration example:
+
+
 ```
 define contact{
   name                            wf-generic-contact
