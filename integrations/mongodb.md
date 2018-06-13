@@ -37,6 +37,8 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
       ##   mongodb://user:auth_key@10.10.3.30:27017,
       ##   mongodb://10.10.3.33:18832,
       servers = ["mongodb://127.0.0.1:27017"]
+
+      fielddrop = ["member_status", "state", "type"]
       
       ##Collects metrics exposed by db.stats
       gather_perdb_stats = true 
