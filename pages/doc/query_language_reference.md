@@ -41,12 +41,14 @@ For example: <pre>region=us-west-2b</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">timeWindow</span></td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (<code>1s</code>, <code>1m</code>, <code>1h</code>, <code>1d</code>, <code>1w</code>), or in terms of the window length you are currently looking at (<code>1vw</code>).
-If the unit is not specified, the default is minutes.
+<td>A measure of time. You can specify:
 <ul>
-<li>Example. <code>3h</code> specifies a window of 3 hours.</li>
-<li>Example. If you are looking at a 30 minute window, <code>1vw</code> is one view-window length, and therefore equivalent to <code>30m</code>. </li>
+<li>Seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). For example, <strong>3h</strong> specifies 3 hours.</li>
+<li> Time relative to the window length of the chart you are currently looking at (1vw).
+If you are looking at a 30 minute window, <strong>1vw</strong> is one view-window length, and therefore equivalent to <strong>30m</strong>. </li>
+<li>Time relative to the bucket size of the chart (1bw). Wavefront calculates bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
 </ul>
+The default unit is minutes if the unit is not specified.
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">expression</span></td>
