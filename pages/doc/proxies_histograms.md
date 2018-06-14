@@ -13,7 +13,7 @@ Wavefront histograms let you compute, store, and use distributions of metrics ra
 
 ## What are Histograms?
 
-Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However some scenarios generate even higher frequency data. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric,
+Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However, some scenarios generate even higher frequency data. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric,
 timestamp, and source. Using "normal" metrics, we can't measure this because, rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
 
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
@@ -103,12 +103,12 @@ To send histogram data as a distribution:
 
 ## Histogram Configuration
 
-Histograms are supported by Wavefront proxy 4.12 and higher. To use histograms, ensure that your data is in histogram format, and set the [histogram proxy port](#histogram-proxy-ports). For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
+Histograms are supported by Wavefront proxy 4.12 and newer. To use histograms, ensure that your data is in histogram format, and set the [histogram proxy port](#histogram-proxy-ports) to send to. Refer to the table below for the port's data format. For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
 
 
 ### Histogram Proxy Ports
 
-To indicate that metrics should be treated as histogram data, you send the metrics to a specific Wavefront proxy TCP port. Select a port to specify whether you are sending a distribution or by aggregation interval. For example:
+To indicate that you are sending histogram data, send the metrics to a specific Wavefront proxy TCP port. Select a port to specify whether you are sending an aggregation interval, or use port 40000 for sending a distribution. Example:
 
 <table>
 <colgroup>
