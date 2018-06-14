@@ -396,15 +396,15 @@ When aggregating, you can group or filter the results.
 </tr>
 <tr>
 <td><a href="ts_lag.html">lag(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns earlier data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own past behavior. Example: <strong>lag(3h, ts(my.metric))</strong> shifts earlier values from my.metric forward 3 hours along the time axis for easy comparison with more recent values.</td>
+<td>Returns earlier data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own past behavior. </td>
 </tr>
 <tr>
 <td><a href="ts_lead.html">lead(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns later data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own subsequent or forecasted behavior. Example: <strong>lead(3h, ts(my.metric))</strong> shifts later values from my.metric back 3 hours along the time axis for easy comparison with earlier values.</td>
+<td>Returns later data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own subsequent or forecasted behavior. </td>
 </tr>
 <tr>
-<td>at(<strong>timeWindow</strong>, <strong>expression</strong>)</td>
-<td>Returns the value of the <span style="color:#3a0699;font-weight:bold">expression</span> from <span style="color:#757575;font-weight:bold">timeWindow</span> ago. at() only looks at a single point, and returns a flat line, across all time points. If you query at(<span style="color:#757575;font-weight:bold">2h</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)), you'll see the value of ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) from 2 hours ago, even if you're looking at a chart from weeks or months ago. To associate at() with a time at the beginning or end of your current chart window, replace <span style="color:#757575;font-weight:bold">timeWindow</span> with <span style="color:#757575;font-weight:bold">start</span>, <span style="color:#757575;font-weight:bold">end</span>, or <span style="color:#757575;font-weight:bold">now</span>. This function outputs continuous time series.</td>
+<td><a href="ts_at.html">at(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns a data value reported at a particular time by the time series described by <strong>expression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
 </tr>
 <tr>
 <td>year(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>

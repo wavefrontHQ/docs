@@ -19,13 +19,7 @@ Returns earlier data values from the time series described by the expression, to
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td>timeWindow</td>
-<td>Amount of time you want to go back to obtain the past values. You can specify:
-<ul>
-<li>Seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w).</li>
-<li>Time relative to the view window length you are currently looking at (1vw). If you are looking at a 30 minute window, <code>1vw</code> is one view-window length, and therefore equivalent to 30m. </li>
-<li>Time relative to the bucket size of the chart (1bw). Wavefront calculates bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
-</ul>
-If the unit is not specified, the default is minutes. 
+<td>Amount of time you want to go back to obtain the past values. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
 </td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
@@ -43,7 +37,7 @@ For example, say you want to use a single chart to show a set of recent data val
 `lag()` returns a separate series of results for each time series described by the expression.
 
 Note:
-* If you simply want to see earlier values without comparing them to more recent data in the same chart, you can simply turn off live data and specify custom start and end dates. 
+* If you simply want to see earlier values without comparing them to more recent data in the same chart, you can simply click <strong>Custom Date</strong> and specify the start and end time to display. 
 * If you want to time shift by 1 day, 1 week, or 1 month, you can use the chart's <strong>Compare</strong> menu as a shortcut for querying with `lag(1d, ...)`, `lag(1w, ...)`, or `lag(1m, ...)`. 
 
 ## Examples
@@ -51,5 +45,5 @@ Note:
 Here's a query that shows some recent request latency averages.
 ![lag before](images/ts_lag_before.png)
 
-Now we'd like to see how these averages compare to the averages that were reported 4 hours earlier. We add a second query that applies `lag()` to the original query.
+Now we'd like to see how these averages compare to the averages that were reported 4 hours earlier. We add a second query that applies `lag()` to the original query. At a given moment in time, `lag()` returns the value that was actually reported by the time series 4 hours earlier.
 ![lag after](images/ts_lag_after.png)
