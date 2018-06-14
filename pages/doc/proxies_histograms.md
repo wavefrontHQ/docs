@@ -13,17 +13,15 @@ Wavefront histograms let you compute, store, and use distributions of metrics ra
 
 ## What are Histograms?
 
-Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However some environments generate higher frequency data. For example, suppose you are measuring the latency of web requests. If you have sufficient traffic at multiple servers, you might have multiple distinct measurements for a given metric,
-timestamp, and source. With the [Wavefront data
-format](wavefront_data_format.html), not all metrics are unique with such a data flow. The frequency of the metrics is higher than the Wavefront
-format. Rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
+Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However some scenarios generate even higher frequency data. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric,
+timestamp, and source. Using "normal" metrics, we can't measure this because, rather than metric-timestamp-source mapping to a single value, the composite key maps to a [multiset](https://en.wikipedia.org/wiki/Multiset) (multiple and possibly duplicate values).
 
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
-P95s from a variety of sources) does not yield a valid percentile.
+a 95th percentile from a variety of sources) does not yield an accurate and valid percentile.
 
-To address cases where high frequency data is available, Wavefront supports histograms, a mechanism to compute, store, and use distributions of metrics rather than single metrics. A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy or sent by you to the proxy. Histograms are supported by Wavefront proxy 4.12 and later. To indicate that metrics should be treated as histogram data, send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the usual port 2878.
+To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront [histogram](https://en.wikipedia.org/wiki/Histogram) is a distribution of metrics collected and computed by the Wavefront proxy. Histograms are supported by Wavefront proxy 4.12 and newer. To indicate that metrics should be treated as histogram data, the user must send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the normal metrics port, 2878.
 
-Once the proxy sends the histogram data to the Wavefront service, Wavefront [rewrites the names of histogram metrics](#histogram-metric-names) which you can query with a limited set of [functions](#histogram-functions).
+Once the proxy forwards the histogram data to the Wavefront service, Wavefront [rewrites the names of histogram metrics](#histogram-metric-names), which you can query with a set of [functions](#histogram-functions).
 
 ## Wavefront Histogram Distributions
 
