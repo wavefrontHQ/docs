@@ -126,25 +126,25 @@ To indicate that metrics should be treated as histogram data, you send the metri
 <td>distribution</td>
 <td>histogramDistListenerPorts</td>
 <td>40000</td>
-<td>[distribution data format](#distribution-data-format)</td>
+<td><td markdown="span">[distribution data format](#distribution-data-format)</td></td>
 </tr>
 <tr>
 <td>minute</td>
 <td>histogramMinuteListenerPorts</td>
 <td>40001</td>
-<td>[Wavefront data format](#wavefront-data-format)</td>
+<td><td markdown="span">[Wavefront data format](#wavefront-data-format)</td></td>
 </tr>
 <tr>
 <td>hour</td>
 <td>histogramHourListenerPorts</td>
 <td>40002</td>
-<td>[Wavefront data format](#wavefront-data-format)</td>
+<td><td markdown="span">[Wavefront data format](#wavefront-data-format)</td></td>
 </tr>
 <tr>
 <td>day</td>
 <td>histogramDayListenerPorts</td>
 <td>40003</td>
-<td>[Wavefront data format](#wavefront-data-format)</td>
+<td><td markdown="span">[Wavefront data format](#wavefront-data-format)</td></td>
 </tr>
 </tbody>
 </table>
