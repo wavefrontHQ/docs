@@ -48,3 +48,7 @@ The following example shows the result of a simple `mmedian` query with the curs
 The next example shows how you can compare the `mmedian()` by doing a Cmd-select of several lines.
 
 ![mmedian compare](images/ts_mmedian_clicked.png)
+
+## See Also
+
+[Preventing False Alarms with mmedian() (video)](https://www.youtube.com/watch?v=dkHmnH_Dchc&feature=youtu.be)

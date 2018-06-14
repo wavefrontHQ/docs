@@ -23,22 +23,22 @@ Because some customers told us they'd like to send data directly to the Wavefron
 
 The following examples illustrate how to send data to Wavefront.
 * An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<<TOKEN>>` in the examples.
-* You must know your Wavefront domain name. These examples use `metrics.wavefront.com`.
-* The examples use the [Wavefront Data Format](wavefront_data_format.html) which is named `graphite_v2`.
+* You must know your Wavefront domain name. These examples use `mydomain.wavefront.com`.
+* Currently, we support only [Wavefront Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 
 ### Multiple data points
 
 Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
 
 ```
-cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://metrics.wavefront.com/report?f=graphite_v2
+cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://mydomain.wavefront.com/report
 ```
 
 ### Single data point
 
 You can send a single data point like this:
 ```
-echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://metrics.wavefront.com/report?f=graphite_v2
+echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report
 ```
 
 ## Comparing Proxy and Direct Ingestion
@@ -49,7 +49,7 @@ Direct ingestion has some benefits, but also some limitations:
 * No rate limiting
 * No blacklist or whitelist
 * No preprocessor
-* No support for OpenTSB, JSON, and Pickle
+* Only Wavefront data format is currently supported. No support for OpenTSB, JSON, and Pickle
 * No support for log ingestion
 
-Some limitations, for example supported data formats, might be resolved in the future, but others are benefits of the Wavefront proxy.
+Some limitations, for example supported data formats, might be resolved in the future, but other limitations are benefits of the Wavefront proxy.

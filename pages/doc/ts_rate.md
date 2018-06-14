@@ -20,7 +20,7 @@ Returns the per-second change of `expression`. Automatically handles zero-resets
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression to create an average (mean) for. </td></tr>
+<td>Expression to create the rate for. </td></tr>
 </tbody>
 </table>
 
