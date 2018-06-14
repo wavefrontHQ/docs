@@ -27,7 +27,7 @@ Once the proxy sends the histogram data to the Wavefront service, Wavefront [rew
 
 ## Wavefront Histogram Distributions
 
-Wavefront creates distributions by aggregating metrics into bins. For example, the following figure illustrates a distribution of 205 metrics that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
+Wavefront creates distributions by aggregating metrics into bins. For example, the following figure illustrates a distribution of 205 points that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
 
 ![histogram](images/histogram.png)
 
@@ -62,7 +62,7 @@ The following table enumerates the distribution of the same metric at successive
 </table>
 
 
-The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. With that algorithm, bin size is not unifor (unlike the histogram illustrated above).
+The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. With that algorithm, bin size is not uniform (unlike the histogram illustrated above).
 
 Because histograms do not store data point values, quantiles calculated from histograms are estimates within a certain margin of error.
 
@@ -172,14 +172,14 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <td>persistAccumulator</td>
 <td>Whether to persist accumulation state. We suggest keeping this setting enabled unless you are not using hour and day level aggregation and consider losing up to 1 minute worth of data during proxy restarts acceptable. Default: true.
 </td>
-<td>Boolean. {% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
+<td>Boolean. {% include warning.html content="If set to false, unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 <tr>
 <td>persistMessages</td>
 <td>Whether to persist received metrics to disk. Default: true.
 </td>
-<td>Boolean. {% include warning.html content="If set to false unprocessed metrics are lost on proxy shutdown." %}
+<td>Boolean. {% include warning.html content="If set to false, unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 <tr>
