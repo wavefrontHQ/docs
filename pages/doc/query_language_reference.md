@@ -41,7 +41,7 @@ For example: <pre>region=us-west-2b</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">timeWindow</span></td>
-<td>A measure of time. You can specify:
+<td>A measure of time, expressed as an integer number of units. You can specify:
 <ul>
 <li>Seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). For example, <strong>3h</strong> specifies 3 hours.</li>
 <li> Time relative to the window length of the chart you are currently looking at (1vw).
