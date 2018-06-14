@@ -119,28 +119,32 @@ To indicate that metrics should be treated as histogram data, you send the metri
 <col width="20%" />
 </colgroup>
 <thead>
-<tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th></tr>
+<tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>distribution</td>
 <td>histogramDistListenerPorts</td>
 <td>40000</td>
+<td><a href="#distribution-data-format">Distribution data format</a></td>
 </tr>
 <tr>
 <td>minute</td>
 <td>histogramMinuteListenerPorts</td>
 <td>40001</td>
+<td><a href="#wavefront-data-format">Wavefront data format</a></td>
 </tr>
 <tr>
 <td>hour</td>
 <td>histogramHourListenerPorts</td>
 <td>40002</td>
+<td><a href="#wavefront-data-format">Wavefront data format</a></td>
 </tr>
 <tr>
 <td>day</td>
 <td>histogramDayListenerPorts</td>
 <td>40003</td>
+<td><a href="#wavefront-data-format">Wavefront data format</a></td>
 </tr>
 </tbody>
 </table>
