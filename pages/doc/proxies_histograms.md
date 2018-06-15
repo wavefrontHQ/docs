@@ -112,9 +112,10 @@ To indicate that you are sending histogram data, send the metrics to a specific 
 
 <table>
 <colgroup>
-<col width="40%" />
-<col width="40%" />
-<col width="20%" />
+<col width="30%" />
+<col width="30%" />
+<col width="15%" />
+<col width="25%" />
 </colgroup>
 <thead>
 <tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
@@ -124,25 +125,25 @@ To indicate that you are sending histogram data, send the metrics to a specific 
 <td>distribution</td>
 <td>histogramDistListenerPorts</td>
 <td>40000</td>
-<td><a href="#distribution-data-format">Distribution data format</a></td>
+<td><a href="#sending-histogram-distributions">Distribution data format</a></td>
 </tr>
 <tr>
 <td>minute</td>
 <td>histogramMinuteListenerPorts</td>
 <td>40001</td>
-<td><a href="#wavefront-data-format">Wavefront data format</a></td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
 </tr>
 <tr>
 <td>hour</td>
 <td>histogramHourListenerPorts</td>
 <td>40002</td>
-<td><a href="#wavefront-data-format">Wavefront data format</a></td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
 </tr>
 <tr>
 <td>day</td>
 <td>histogramDayListenerPorts</td>
 <td>40003</td>
-<td><a href="#wavefront-data-format">Wavefront data format</a></td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
 </tr>
 </tbody>
 </table>

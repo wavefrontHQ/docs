@@ -11,6 +11,8 @@ In Wavefront charts, point buckets represent data that has been summarized over 
 
 Both the [**Summarize By** chart option](charts.html#summarize-by) and the [`align()` function](query_language_reference.html#filtering-and-comparison-functions) group points into buckets and allow you to specify how those points are aggregated (e.g. averaged, counted, summed, etc.).  The `align()` function additionally allows you to specify the desired bucket size whereas the bucket size available to the summarization method is automatically set based on the [chart resolution](charts_customizing.html#charts_resolution).
 
+To support bucketing, `align()` supports the value `bw` (bucket window) for the `timeWindow` parameter. 
+
 ## The Pre-Align Warning
 
 Sometimes you will see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"/> in a chart and a warning something like the following:
