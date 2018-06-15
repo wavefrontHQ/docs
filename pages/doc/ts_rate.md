@@ -30,7 +30,7 @@ Returns the per-second rate of change for each time series described by the expr
 The `rate()` standard time function returns the rate of change (per second) between adjacent increasing data values in the time series described by the expression. 
 For example, consider a metric that counts the cumulative total number of logins for an application over time. You can use the `rate()` function to see how fast the logins are being added, reported as a number of logins per second. 
 
-`rate()` returns a separate series of results for each time series described by the expression.
+`rate()` returns a separate, continuous series of results for each time series described by the expression.
 
 Although you can apply `rate()` to any kind of metric, the intended use is to find the rate of change for counter metrics, which are metrics that report cumulative totals (increasing values) over time. Accordingly, `rate()` returns only positive rates of change. 
 You can use [`deriv()`](ts_deriv.html) if you want to see rates of change in other kinds of metrics.
@@ -45,10 +45,10 @@ The rate of change between a pair of increasing data values is computed as follo
 For example, let's say that a metric has a reporting interval of 30 seconds, and reports successive data values: 
 
 | Value | Time
-|105,500 | 05:45:00p 
-|105,750 | 05:45:30p
+|105,500 | 05:45:00pm 
+|105,750 | 05:45:30pm
 
-The `rate()` function computes the rate of change between these data values using the following formula: `(105,750 - 105,500)/30`. The resulting value (8.333) is returned at 05:45:30p, indicating that the metric increased by 8.333 per second between the two values.
+The `rate()` function computes the rate of change between these data values using the following formula: `(105,750 - 105,500)/30`. The resulting value (8.333) is returned at 05:45:30pm, indicating that the metric increased by 8.333 per second between the two values.
 
 Notice that the per-second rate of change between the same two data values would be quite different if the metric had reported them two minutes (120 seconds) apart: `(105,750 - 105,500)/120`.  In this case, the returned per-second rate would be 2.083.
 

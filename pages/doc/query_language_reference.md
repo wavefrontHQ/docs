@@ -407,12 +407,12 @@ When aggregating, you can group or filter the results.
 <td>Returns a data value reported at a particular time by the time series described by <strong>expression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
 </tr>
 <tr>
-<td>year(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the 4-digit year for a <span style="color:#757575;font-weight:bold">timezone</span>. Sample timezones include <span style="color:#757575;font-weight:bold">"US/Pacific"</span> and <span style="color:#757575;font-weight:bold">"Europe/London"</span>. The list of valid <span style="color:#757575;font-weight:bold">timezones</span> is available at <a href="http://joda-time.sourceforge.net/timezones.html">http://joda-time.sourceforge.net/timezones.html</a>. This function outputs continuous time series.</td>
+<td><a href="ts_year.html">year(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Returns the year in the specified time zone. Years are returned as 4-digit numbers in the Gregorian calendar.</td>
 </tr>
 <tr>
-<td>month(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the numerical month for a <span style="color:#757575;font-weight:bold">timezone</span>. This function outputs continuous time series.</td>
+<td><a href="ts_month.html">month(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Returns the month of the year in the specified time zone. Months are returned as integers from 1 (January) through 12 (December).</td>
 </tr>
 <tr>
 <td>dayOfYear(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
@@ -427,8 +427,8 @@ When aggregating, you can group or filter the results.
 <td>Returns the day (within the week) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 (Monday) to 5 (Friday) for weekdays, and 6 (Saturday) and 7 (Sunday) for weekends. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td>hour(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the hour (within the day) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a decimal value from 0.0 to 24.0. This function outputs continuous time series.</td>
+<td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Returns the hour (within the day) in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
 </tr>
 <tr>
 <td>timestamp(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
