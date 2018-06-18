@@ -9,36 +9,6 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-## May 2018
-
-We added the following integrations in May 2018
-
-* Pivotal Container Service (PKS)
-* Nagios
-* AWS CloudTrail
-* Chef
-* Marathon
-* OpsGenie
-* Python
-* Jenkins
-* Twemproxy
-* Oracle DB
-* JIRA
-
-We enhanced existing integrations by adding dashboards in May 2018:
-* AWS Elastic Map Reduce
-* AWS Elastic File System
-* AWS Auto Scaling
-* AWS Elastic Beanstalk
-* AWS Firehose
-* AWS RDS
-* AWS Key Management
-
-We made other enhancements to the following integrations in May 2018:
-*	HyperV - Added charts for Latency, Throughput, Page Reads/Sec, Page Writes/Sec, and Page Faults/Sec
-*	Go - Now supports [direct ingestion](direct_ingestion.html)
-
-
 ## April 2018
 
 We added the following integrations in April 2018:
