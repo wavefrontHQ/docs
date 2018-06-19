@@ -21,7 +21,7 @@ Returns a single current or past reported data value from the time series descri
 <tr><td>timeWindow</td>
 <td>The report time of the data value to be returned, expressed as:
 <ul>
-<li>A numeric amount of time before the current time. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.</li>
+<li>Amount of time before the current time. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.</li>
 <li>A quoted string indicating a time relative to your chart. You can specify the current time (<strong>"now"</strong>), 
 the start time of your chart (<strong>"start"</strong>), or the end time of your chart (<strong>"end"</strong>).</li>
 </ul>

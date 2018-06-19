@@ -412,30 +412,30 @@ When aggregating, you can group or filter the results.
 </tr>
 <tr>
 <td><a href="ts_month.html">month(<strong>&lt;timezone&gt;</strong>)</a></td>
-<td>Returns the month of the year in the specified time zone. Months are returned as integers from 1 (January) through 12 (December).</td>
+<td>Returns the month of the year in the specified time zone. Months are returned as whole numbers from 1 (January) through 12 (December).</td>
 </tr>
 <tr>
-<td>dayOfYear(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the day (within the year) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a value from 1 to 366. This function outputs continuous time series.</td>
+<td><a href="ts_dayOfYear.html">dayOfYear(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Returns the day of the year in the specified time zone. Days of the year are returned as whole numbers from 1 to 366.</td>
 </tr>
 <tr>
-<td>day(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the day (within the month) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 to 31. This function outputs continuous time series.</td>
+<td><a href="ts_day.html">day(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Returns the day of the month in the specified time zone. Days of the month are returned as whole numbers from 1 to 31.</td>
 </tr>
 <tr>
-<td>weekday(<span style="color:#757575;font-weight:bold">"timezone"</span>)</td>
-<td>Returns the day (within the week) for a <span style="color:#757575;font-weight:bold">timezone</span>. Always returns a whole number from 1 (Monday) to 5 (Friday) for weekdays, and 6 (Saturday) and 7 (Sunday) for weekends. This function outputs continuous time series.</td>
+<td><a href="ts_weekday.html">weekday(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Returns the day of the week in the specified time zone. Days of the week are returned as whole numbers from 1 (Monday) to 7 (Sunday).</td>
 </tr>
 <tr>
 <td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong>)</a></td>
-<td>Returns the hour (within the day) in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
+<td>Returns the hour within the day in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
 </tr>
 <tr>
-<td>timestamp(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the timestamp associated with the reported data point of <span style="color:#3a0699;font-weight:bold">expression</span>. To see the entire raw value of the timestamp in the legend (in epoch seconds), hold down the shift key when you hover over a point.</td>
+<td><a href="ts_timestamp.html">timestamp(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the timestamps associated with the reported data values in the time series described by <strong>expression</strong>. </td>
 </tr>
 <tr>
-<td>time()</td>
+<td><a href="ts_time.html">time()</a></td>
 <td>Returns epoch seconds for each point in time. This function outputs continuous time series.</td>
 </tr>
 </tbody>

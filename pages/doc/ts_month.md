@@ -10,7 +10,7 @@ summary: Reference to the month() function
 ```
 month(<timeZone>)
 ```
-Returns the month in the specified time zone, plotted against the time on the chart's x-axis. 
+Returns the month of the year in the specified time zone. 
 
 ## Parameters
 <table>
@@ -28,7 +28,7 @@ String identifier or alias for a time zone, such as `"US/Pacific"`. Names are ca
 
 ## Description
 
-The `month()` standard time function returns the month of the year in the specified time zone, represented as an integer from 1 (January) through 12 (December). 
+The `month()` standard time function returns the month of the year in the specified time zone. A month is represented as a whole number from 1 (January) through 12 (December), as defined by the Gregorian calendar.
 
 The returned values are plotted against the times shown on the x-axis. The returned series is generally a straight line, unless you are looking at a chart that includes times from multiple months.
 `month()` automatically adjusts its return values for daylight savings time.
@@ -38,7 +38,7 @@ The returned values are plotted against the times shown on the x-axis. The retur
 
 ## Examples
 
-In this chart, we have set custom dates spanning several months. `month("America/New_York")` returns integers 4, 5, and 6, representing April, May, and June, Eastern Daylight Time.
+In this chart, we have set custom dates spanning several months. `month("America/New_York")` returns 4, 5, and 6, representing April, May, and June, Eastern Daylight Time.
 ![month](images/ts_month.png)
 
 

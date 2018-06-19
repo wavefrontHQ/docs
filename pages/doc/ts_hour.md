@@ -10,7 +10,7 @@ summary: Reference to the hour() function
 ```
 hour(<timeZone>)
 ```
-Returns the hours of the day in the specified time zone, plotted against the hours of the day on the chart's x-axis. 
+Returns the hours of the day in the specified time zone. 
 
 ## Parameters
 <table>

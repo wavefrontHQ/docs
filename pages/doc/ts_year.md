@@ -10,7 +10,7 @@ summary: Reference to the year() function
 ```
 year(<timeZone>)
 ```
-Returns the year in the specified time zone, plotted against the time on the chart's x-axis. 
+Returns the year in the specified time zone. 
 
 ## Parameters
 <table>
