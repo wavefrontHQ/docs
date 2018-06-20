@@ -90,7 +90,7 @@ Alert targets support the following customization variables:
 <td>Iterator for series that are failing.</td>
 </tr>
 <tr>
-<td markdown="span">`hostFailingMessage`</td>
+<td markdown="span">`hostsFailingMessage`</td>
 <td>List of sources (hosts) that are failing, displayed as a message.</td>
 </tr>
 <tr>
@@ -208,7 +208,7 @@ Here is a sample webhook alert target template:
   "endedTime": "{{{endedTime}}}",
   "snoozedUntilTime": "{{{snoozedUntilTime}}}",
   "subject": "{{#jsonEscape}}{{{subject}}}{{/jsonEscape}}",
-  "sourcesFailingMessage": "{{#jsonEscape}}{{{sourcesFailingMessage}}}{{/jsonEscape}}",
+  "hostsFailingMessage": "{{#jsonEscape}}{{{hostsFailingMessage}}}{{/jsonEscape}}",
   "errorMessage": "{{#jsonEscape}}{{{errorMessage}}}{{/jsonEscape}}",
   "additionalInformation": "{{#jsonEscape}}{{{additionalInformation}}}{{/jsonEscape}}",
   "failingSources": [
@@ -293,7 +293,7 @@ Here is a sample alert target output generated with the template:
   "endedTime": "",
   "snoozedUntilTime": "",
   "subject": "[SMOKE] OPENED: Alert on Data rate ( Test)",
-  "sourcesFailingMessage": "localhost (~agent.points.2878.received)",
+  "hostsFailingMessage": "localhost (~agent.points.2878.received)",
   "errorMessage": "",
   "additionalInformation": "An alert to test a webhook integration with HipChat",
   "failingSources": ["localhost"],
