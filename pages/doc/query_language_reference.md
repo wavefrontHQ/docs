@@ -431,12 +431,16 @@ When aggregating, you can group or filter the results.
 <td>Returns the hour within the day in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
 </tr>
 <tr>
+<td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td>Tests for the current day in the specified time zone. Return values are 1 for times during the current day, or 0 for times before or after today. </td>
+</tr>
+<tr>
 <td><a href="ts_timestamp.html">timestamp(<strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns the timestamps associated with the reported data values in the time series described by <strong>expression</strong>. </td>
 </tr>
 <tr>
 <td><a href="ts_time.html">time()</a></td>
-<td>Returns epoch seconds for each point in time. This function outputs continuous time series.</td>
+<td>Returns the epoch seconds representing each point in time.</td>
 </tr>
 </tbody>
 </table>

@@ -18,8 +18,8 @@ Returns later data values from the time series described by the expression, to h
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td>timeWindow</td>
-<td>Amount of time you want to go forward to obtain the values to return. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
+<td markdown="span"> [timeWindow](query_language_reference.html#query-elements)</td>
+<td>Amount of time you want to go forward to obtain the values to return. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr> 
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
@@ -49,4 +49,7 @@ Now we'd like to compare each average to the average that was reported 1 minute 
 
 ![lead after](images/ts_lead_after.png)
 
-<!--- add an example that involves hw() some day ---!>
+<!--- add an example that involves hw() some day --->
+
+## See Also
+[`lag()` Function](ts_lag.html)

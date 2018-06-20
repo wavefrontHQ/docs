@@ -35,6 +35,8 @@ The returned values are plotted against the times shown on the x-axis. The retur
 `dayOfYear()` is particularly useful when you want to define an alert that fires only on a specific day or range of days within a year, such as a range that starts in the middle of a month and spans multiple weeks or months.
 For example, you could use an expression such as `between(dayOfYear("America/Chicago"),304,359)` in an alert condition to ensure that the alert fires only between Halloween and Christmas in a non-leap year in Central Standard Time. 
 
+`dayOfYear()` does not automatically accommodate leap years. You can use the [`lead()`](ts_lead.html) function in an expression such as the following to return 1 on the last day of the year for a given time zone, regardless of whether the year is a leap year: `lead(1d, dayOfYear(...)=1)`. 
+
 
 ## Examples
 
@@ -44,3 +46,8 @@ This chart shows live data for 8 days. `dayOfYear("America/Chicago")` returns 16
 
 Here we include `(dayOfYear("America/Chicago") = 163)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on the 163rd day of the year. 
 ![dayOfYear alert](images/ts_dayOfYear_alert.png)
+
+## See Also
+[`weekday()` Function](ts_weekday.html)
+
+[`day()` Function](ts_day.html)

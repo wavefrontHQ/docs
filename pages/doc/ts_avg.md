@@ -81,4 +81,4 @@ Using [`rawavg()`](ts_rawavg.html) instead of `avg()` can significantly improve 
 
 ## See Also
 * [Mean and Median](query_language_statistical_functions_anomalies.html#mean-and-median)
-* [The align() Function](https://docs.wavefront.com/query_language_align_function.html)
+* [Bucketing with align()](https://docs.wavefront.com/query_language_align_function.html)

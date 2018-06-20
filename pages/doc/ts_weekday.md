@@ -44,3 +44,8 @@ This chart shows live data for 8 days. `weekday("America/Chicago")` returns 1 th
 
 Here we include `(weekday("UTC") = 1 or weekday("UTC") = 3 or weekday("UTC") = 5)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on a Monday, Wednesday, or Friday of each week. 
 ![weekday alert](images/ts_weekday_alert.png)
+
+## See Also
+[`day()` Function](ts_day.html)
+
+[`dayOfYear()` Function](ts_dayOfYear.html)

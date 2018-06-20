@@ -18,8 +18,8 @@ Returns earlier data values from the time series described by the expression, to
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td>timeWindow</td>
-<td>Amount of time you want to go back to obtain the past values. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart.
+<td markdown="span"> [timeWindow](query_language_reference.html#query-elements)</td>
+<td>Amount of time you want to go back to obtain the past values. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
@@ -47,3 +47,6 @@ Here's a query that shows some recent request latency averages.
 
 Now we'd like to see how these averages compare to the averages that were reported 4 hours earlier. We add a second query that applies `lag()` to the original query. At a given moment in time, `lag()` returns the value that was actually reported by the time series 4 hours earlier.
 ![lag after](images/ts_lag_after.png)
+
+## See Also
+[`lead()` Function](ts_lead.html)

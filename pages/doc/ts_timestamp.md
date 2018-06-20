@@ -27,15 +27,19 @@ Returns the timestamps for the reported data values in the time series described
 
 ## Description
 
-The `timestamp()` standard time function returns timestamps for the reported data values in the time series described by the expression. A timestamp is returned only for a data value that is actually reported by a time series. This function does not interpolate data values.
+The `timestamp()` standard time function returns timestamps for the reported data values in the time series described by the expression. This function returns timestamps only for data values that are actually reported by a time series, and does not interpolate data values.
 
-A timestamp is represented as a number of epoch seconds, which is the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970. By default, the chart legend displays an abbreviated version of the epoch seconds that represent the timestamp. You can cause the legend to display the entire raw value of the timestamp in epoch seconds by holding down the shift key when you hover over the time series.
+A timestamp is represented as a whole number of epoch seconds, which is the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970. 
+
+By default, the chart legend displays an abbreviated version of the epoch seconds that represent the timestamp. You can cause the legend to display the entire raw value of the timestamp in epoch seconds by holding down the shift key when you hover over the time series. 
+
+Note that if the chart's bucket size is greater than 1 second, some of the displayed values will be averages over multiple timestamp values, and therefore shown as decimal numbers with fractional parts. To get precise timestamps, you can zoom in to shrink the chart's bucket size to ~1 second.
 
 
 ## Examples
 
-This chart shows the timestamp values associated with the reported CPU usage maximums. Notice that the legend displays a timestamp as an abbreviated numeric value (`1.529G`).
+This chart shows the timestamp values associated with the reported maximum CPU usage percentage. Notice that the legend displays a timestamp as an abbreviated numeric value (`1.529G`).
 ![timestamp](images/ts_timestamp_no_shift.png)
 
-This chart also shows the timestamp values associated with the reported CPU usage maximums, but this time we held the shift key while hovering the pointer over the value, so the legend displays the timestamp as an an actual number of epoch seconds (`1529366640`).
+This chart also shows the timestamp values associated with the same time series, but this time we held the shift key while hovering the pointer over the value, so the legend displays the timestamp as an an actual number of epoch seconds (`1529366640`).
 ![timestamp change](images/ts_timestamp_shift.png)
