@@ -18,7 +18,7 @@ Wavefront public repositories into the official documentation)
 
 ## Run and View Site Locally
 
-1. Run Jekyll using the following command:
+1. Run Jekyll with the following command:
    ```shell
    $ bundle exec jekyll serve
    ```
