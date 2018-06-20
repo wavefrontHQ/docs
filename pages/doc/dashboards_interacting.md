@@ -90,7 +90,7 @@ To select a larger or smaller time window or to view past data instead of realti
 
 The following video gives an overview:
 
-[Interacting with Dashboards and Charts]([Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+[Interacting with Dashboards and Charts](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### Working with Sections
 
@@ -172,7 +172,7 @@ To zoom into to all charts on a dashboard, hold down the **Shift** key while sel
 You can shift the time window of a single chart by shifting the X-axis.
 
 1. Place your cursor over the X-axis until your cursor changes to a 4-way arrow <i class="fa fa-arrows"/>.
-1. Click and hold while dragging your cursor to the left to shift the time window or the focus into the past, or to the right to shift the time window into the future. 
+1. Click and hold while dragging your cursor to the left to shift the time window or the focus into the past, or to the right to shift the time window into the future.
 
   You can move the time window into the future, however, unless you are using one of the [predictive functions](query_language_reference.html#predictive-functions), the data you see won't be predictive.
 

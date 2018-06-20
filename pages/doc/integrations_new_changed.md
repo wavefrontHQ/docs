@@ -11,11 +11,11 @@ This document lists new and changed integrations on a month-by-month basis. We u
 
 ## May 2018
 
-We added the following integrations in May 2018
+We added the following integrations in May 2018:
 
 * Pivotal Container Service (PKS)
 * Nagios
-* AWS CloudTrail
+* AWS CloudTrail
 * Chef
 * Marathon
 * OpsGenie
@@ -26,7 +26,8 @@ We added the following integrations in May 2018
 * JIRA
 
 We enhanced existing integrations by adding dashboards in May 2018:
-* AWS Elastic Map Reduce
+
+AWS Elastic Map Reduce
 * AWS Elastic File System
 * AWS Auto Scaling
 * AWS Elastic Beanstalk
@@ -37,7 +38,6 @@ We enhanced existing integrations by adding dashboards in May 2018:
 We made other enhancements to the following integrations in May 2018:
 *	HyperV - Added charts for Latency, Throughput, Page Reads/Sec, Page Writes/Sec, and Page Faults/Sec
 *	Go - Now supports [direct ingestion](direct_ingestion.html)
-
 
 ## April 2018
 
