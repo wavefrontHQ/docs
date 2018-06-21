@@ -498,7 +498,7 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong> </td>
 </tr>
 <tr>
-<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack; ,metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
+<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,&lt;metric&gt;|source=|tag=|tagk=&rbrack;</strong>)</a></td>
 <td>Returns the aggregated number of series reporting during the specified time window. </td>
 </tr>
 <tr>
@@ -507,7 +507,7 @@ These functions output continuous time series, with the exception of `integral()
 </td>
 </tr>
 <tr>
-<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, &lt;expression1&gt;, &lt;expression2&gt;, &lbrack;,inner&rbrack;</strong>)</a></td>
+<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, &lt;expression1&gt;, &lt;expression2&gt;  &lbrack;,inner&rbrack;</strong>)</a></td>
 <td>Returns the moving correlation between two expressions for a specified time window.</td>
 </tr>
 <tr>
