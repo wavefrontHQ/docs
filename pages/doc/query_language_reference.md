@@ -607,17 +607,17 @@ Missing data functions allow you to interpolate missing data with points based o
 </tr>
 </thead>
 <tr>
-<td><a href="ts_default.html">default(&lbrack;,<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a>
 </td>
 <td>Fills in gaps in <strong>expression</strong> with <strong>defaultValue</strong> (whether that's a constant or an expression). The optional <strong>timeWindow</strong> parameter fills in the specified period of time after each existing point (for example, <strong>5m</strong> for 5 minutes). Without this argument, all gaps are filled in. The optional <strong>delayTime</strong> parameter specifies the amount of time that must pass without a reported value in order for the default value to be applied.</td>
 </tr>
 <tr>
-<td><a href="ts_last.html">last(&lbrack;,<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
 </td>
 <td>Fills in gaps in <strong>expression</strong> with the last known value of <strong>expression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period after each existing point.</td>
 </tr>
 <tr>
-<td><a href="ts_next.html">next(&lbrack;,<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
 </td>
 <td>Fills in gaps in <strong>expression</strong> with the next known value of <strong>expression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period before the first data point after the missing data.</td>
 </tr>

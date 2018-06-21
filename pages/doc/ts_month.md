@@ -38,9 +38,12 @@ The returned values are plotted against the times shown on the x-axis. The retur
 
 ## Examples
 
+**Example 1: Showing Months**
+
 In this chart, we have set custom dates spanning several months. `month("America/New_York")` returns 4, 5, and 6, representing April, May, and June, Eastern Daylight Time.
 ![month](images/ts_month.png)
 
+**Example 2: Defining an Alert that Fires in Particular Months**
 
 Here we include `between(month("America/New_York"),4,6)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.0 during the second quarter (April through June) of the current year. 
 ![month alert](images/ts_month_alert.png)

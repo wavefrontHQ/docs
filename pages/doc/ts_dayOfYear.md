@@ -40,9 +40,12 @@ For example, you could use an expression such as `between(dayOfYear("America/Chi
 
 ## Examples
 
+**Example 1: Showing Days of the Year**
+
 This chart shows live data for 8 days. `dayOfYear("America/Chicago")` returns 161 through 169, representing the 161st through the 169th days of the current year. The legend shows that 163 is returned for June 12, 2018.
 ![dayOfYear](images/ts_dayOfYear.png)
 
+**Example 2: Defining an Alert that Fires on Particular Days**
 
 Here we include `(dayOfYear("America/Chicago") = 163)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on the 163rd day of the year. 
 ![dayOfYear alert](images/ts_dayOfYear_alert.png)

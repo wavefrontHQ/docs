@@ -38,8 +38,12 @@ The returned values are plotted against the corresponding hours of the day shown
 
 ## Examples
 
+**Example 1: Showing Hours**
+
 `hour("Europe/London")` lets you compare times in your dashboard's current time zone with times in another time zone. In this example, we can find 12 noon in the current time zone (along the x-axis) and see that it is 20.000 (8:00pm) in the Europe/London time zone (along the y-axis). 
 ![hour](images/ts_hour.png)
+
+**Example 2: Defining an Alert that Fires in Particular Hours**
 
 Here we include `between(hour("Europe/London"),22,8)` in a conditional expression to define an alert that fires when the CPU load average rises above 1.5 between the hours of 10pm and 8am in the Europe/London time zone. 
 ![hour alert](images/ts_hour_alert.png)

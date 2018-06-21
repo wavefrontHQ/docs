@@ -39,9 +39,12 @@ The returned values are plotted against the times shown on the x-axis. The retur
 
 ## Examples
 
+**Example 1: Showing Days of the Month**
+
 This chart shows live data for 8 days. `day("Asia/Bangkok")` returns 11 through 18, representing the 11th through the 18th days of each month.
 ![day](images/ts_day.png)
 
+**Example 2: Defining an Alert that Fires on Particular Days**
 
 Here we include `(day("Asia/Bangkok") = 10 or between(day("Asia/Bangkok"),14,21))` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 either on day 10 of the month or from day 14 through day 21. 
 ![day alert](images/ts_day_alert.png)

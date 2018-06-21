@@ -42,7 +42,7 @@ The `isToday()` standard time function test whether the times shown on the chart
 This chart shows the results of `isToday("US/Eastern")`. The function returns 0 up until midnight this morning (Eastern Time), and then returns 1 for the current day. Notice that the change occurs at 9pm on the chart, because the chart's times are shown in  Pacific Time. 
 ![isToday](images/ts_isToday.png)
 
-**Example 1: Using Only Today's Values in a Function**
+**Example 2: Using Only Today's Values in a Function**
 
 Consider the moving maximum for CPU load averages over a shifting 1-hour window (the orange line).  
 ![isToday before](images/ts_isToday_before.png)
