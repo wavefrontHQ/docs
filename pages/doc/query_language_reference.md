@@ -494,7 +494,7 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the maximum of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, percentileValue, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentileValue&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong> </td>
 </tr>
 <tr>
@@ -507,7 +507,7 @@ These functions output continuous time series, with the exception of `integral()
 </td>
 </tr>
 <tr>
-<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, expression1, expression2, &lbrack;,inner&rbrack;</strong>)</a></td>
+<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, &lt;expression1&gt;, &lt;expression2&gt;, &lbrack;,inner&rbrack;</strong>)</a></td>
 <td>Returns the moving correlation between two expressions for a specified time window.</td>
 </tr>
 <tr>
