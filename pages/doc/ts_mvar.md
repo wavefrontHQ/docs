@@ -12,7 +12,7 @@ summary: Reference to the mvar() function
 ```
 mvar(<timeWindow>, <expression>)
 ```
-The `mvar` (moving variance) function returns the moving variance of each series over `timeWindow`.
+The `mvar` (moving variance) function returns the moving variance of each series over the specified time window.
 
 ## Parameters
 
@@ -22,9 +22,8 @@ The `mvar` (moving variance) function returns the moving variance of each series
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>timeWindow</td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). If the unit is not specified, the default is minutes. Example: 1h.
-<div><strong>NOTE</strong>: <code>mcount()</code> returns the number of data points for 2x the duration of <code>&lt;timeWindow&gt;</code>.</div></td></tr>
+<td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
+<td>A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>The expression can be a constant, a wildcard, or an expression. </td>
@@ -34,14 +33,18 @@ The `mvar` (moving variance) function returns the moving variance of each series
 
 ## Description
 
-The `mvar()` (moving variance) function stands for moving variance. The mvar() function computes the moving variance of each data stream over a shifting time window. You can apply the `sqrt()` function to mvar to get the moving standard deviation, for example: `sqrt(mvar(120m, ts(my.metric)))`.
+The `mvar()` (moving variance) function computes the moving variance of each time series over a moving time window.
+
+You can apply the `sqrt()` function to `mvar()` to get the moving standard deviation, for example: `sqrt(mvar(120m, ts(my.metric)))`.
 
 ## Example
 
-The following example computes the moving variance tor the CPU usage user percentage  over a time span of 5 hours.
+The following example computes the moving variance tor the CPU usage user percentage over a time span of 5 hours.
 
 ![mvar simple](images/ts_mvar_simple.png)
 
 ## See Also
 
-[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
+
+[Detecting Anomalies With Functions and Statistical Functions](query_language_statistical_functions_anomalies.html)

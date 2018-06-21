@@ -12,7 +12,7 @@ summary: Reference to the mmedian() function
 ```
 mmedian(<timeWindow>, <expression>)
 ```
-The `mmedian()` (moving median) function computes the moving median of each data stream over a shifting time window.
+The `mmedian()` (moving median) function computes the moving median of each data stream over a moving time window.
 
 ## Parameters
 
@@ -22,8 +22,8 @@ The `mmedian()` (moving median) function computes the moving median of each data
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>timeWindow</td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). If the unit is not specified, the default is minutes. Example: 1h.</td></tr>
+<td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
+<td markdown="span">A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default unit is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
@@ -32,11 +32,11 @@ The `mmedian()` (moving median) function computes the moving median of each data
 
 ## Description
 
-The `mmedian()` function computes the moving median of each data stream over a shifting time window.
+The `mmedian()` function computes the moving median of each time series over a moving time window.
 
-Use the `mpercentile()` function to get the moving mean, that is, `mpercentile(50,<expression>[,<args])`.
+To get the moving mean (rather than median), use the `mpercentile()` function, that is, `mpercentile(50,<expression>[,<args])`.
 
-By default, all the lines are dimmed. You can move the curser over a line to highlight it, and Cmd-select lines if you want to turn on highlighting for multiple lines to do comparisons.
+By default, all the lines are dimmed. You can move the cursor over a line to highlight it, and Cmd-select lines if you want to turn on highlighting for multiple lines.
  
 
 ## Examples
@@ -45,7 +45,7 @@ The following example shows the result of a simple `mmedian` query with the curs
 
 ![mmedian](images/ts_mmedian.png)
 
-The next example shows how you can compare the `mmedian()` by doing a Cmd-select of several lines.
+The next example shows how you can compare the `mmedian()` results by doing a Cmd-select of several lines.
 
 ![mmedian compare](images/ts_mmedian_clicked.png)
 

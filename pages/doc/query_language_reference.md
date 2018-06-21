@@ -189,22 +189,22 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 <tbody>
 <tr>
 <td><a href="ts_sum.html">sum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Returns the sum of the time series described by <strong>expression</strong>. 
+<td>Returns the sum of the time series described by <strong>expression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_rawsum.html"> rawsum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the raw sum of the time series described by <strong>expression</strong>. 
+<td>Returns the raw sum of the time series described by <strong>expression</strong>.
 The results are computed from real reported data values only, with no interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_avg.html"> avg(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the average (mean) of the time series described by <strong>expression</strong>. 
+<td>Returns the average (mean) of the time series described by <strong>expression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
 <td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the raw average (mean) of the time series described by <strong>expression</strong>. 
+<td>Returns the raw average (mean) of the time series described by <strong>expression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
@@ -234,7 +234,7 @@ where a time series is counted as reporting even if it has interpolated values. 
 </tr>
 <tr>
 <td><a href="ts_variance.html"> variance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance based on the time series described by <strong>expression</strong>. 
+<td>Returns the variance based on the time series described by <strong>expression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
@@ -243,12 +243,12 @@ The results might be computed from real reported values and interpolated values.
 </tr>
 <tr>
 <td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>. 
+<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
 <td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>. 
+<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 </tbody>
@@ -466,72 +466,69 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td>mavg(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the moving average of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>.
-Example: mavg(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns, at each point, the moving average over the last <span style="color:#757575;font-weight:bold">60 minutes</span> for each series in <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_mavg.html">mavg(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns the moving average of each series for the specified time window.<span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
 </tr>
 <tr>
-<td>msum(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the moving sum of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. Don't confuse this function with mcount(), which returns the <em>number of data points</em>. Example: msum(<span style="color:#757575;font-weight:bold">10m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns, at each point, the sum of all the points over the last <span style="color:#757575;font-weight:bold">10 minutes</span> for each series in <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_msum.html">msum(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns the moving sum of each series for the specified time window. Don't confuse this function with mcount(), which returns the <em>number of data points</em>.</td>
 </tr>
 <tr>
-<td>mmedian(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the moving median of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td><a href="ts_mmedian.html">mmedian(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns the moving median of each series for the specified time window.</td>
 </tr>
 <tr>
-<td>mvar(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the moving variance of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. Example: To get the moving standard deviation, apply the sqrt function to mvar: sqrt(mvar(<span style="color:#757575;font-weight:bold">120m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>))).</td>
+<td><a href="ts_mvar.html">mvar(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns the moving variance of each series for the specified time window. </td>
 </tr>
 <tr>
 <td><a href="ts_mcount.html"> mcount(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
-<td>Returns the number of data points over <strong>timeWindow</strong>. If <strong>expression</strong> stops reporting data, mcount() continues to return data up to 2x the duration of <strong>timeWindow</strong> before returning no data. See <a href="alerts_robustness_increasing.html#account-for-missing-data-points">Account for Missing Data Points</a>. Don't confuse this with <code>msum()</code>, which returns the <em>sum of the data points</em>.</td>
+<td>Returns the number of data points for the specified time window.  If <strong>expression</strong> stops reporting data, mcount() continues to return data up to 2x the duration of the time window before returning no data. </td>
 </tr>
 <tr>
-<td>mmin(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the minimum of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td><a href="ts_mmin.html">mmin(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the minimum of each series for the specified time window. </td>
 </tr>
 <tr>
-<td>mmax(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the maximum of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td><a href="ts_mmax.html">mmax(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the maximum of each series for the specified time window.</td>
 </tr>
 <tr>
-<td>mpercentile(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#d63a36;font-weight:bold">percentileValue</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the <span>percentile</span> of each series over <span style="color:#757575;font-weight:bold">timeWindow</span>. <span style="color:#d63a36;font-weight:bold">percentileValue</span> must be &gt;= <span style="color:#d63a36;font-weight:bold">0</span> and &lt;= <span style="color:#d63a36;font-weight:bold">100</span>.</td>
+<td><a href="ts_mpercentile.html">mpercentile(<strong>timeWindow</strong>,<strong>percentileValue</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the <span>percentile</span> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong> </td>
 </tr>
 <tr>
-<td>mseriescount(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>,[<span style="font-weight:bold">metrics|sources|sourceTags|pointTags|</span><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;</span>])</td>
-<td>Returns the aggregated number of series reporting over <span style="color:#757575;font-weight:bold">timeWindow</span>.
-Example: mseriescount(<span style="color:#757575;font-weight:bold">60m</span>, ts(<span style="color:#08838c;font-weight:bold">my.metric</span>)) returns, at each point, the number of series reporting over the last <span style="color:#757575;font-weight:bold">60 minutes</span>
+<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the aggregated number of series reporting during the specified time window. </td>
+</tr>
+<tr>
+<td><a href="ts_mdiff.html">mdiff(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the difference between the current value of the expression and value of the expression expression's value at the point in time that is <strong>timeWindow</strong> ago. This function, does not interpolate the points before doing the subtraction.
 </td>
 </tr>
 <tr>
-<td>mdiff(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the difference between expression and expression's value at <span style="color:#757575;font-weight:bold">timeWindow</span> ago. This is a raw function, so it does not interpolate the points before doing the subtraction. An example would be expression - expression's value 5 minutes ago.
-</td>
+<td><a href="ts_mcorr.html">mcorr(<strong>timeWindow</strong>, <strong>expression1</strong>, <strong>expression2</strong>, &lbrack;,<strong>inner</strong>&rbrack;)</a></td>
+<td>Returns the moving correlation between two expressions for a specified time window.</td>
 </tr>
 <tr>
-<td markdown="span">mcorr(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression1</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>[, inner])</td>
-<td>Returns the moving correlation between two time series <span style="color:#3a0699;font-weight:bold">expressions</span> over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td><a href="ts_integrate.html">integrate(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the moving integration for the specified expression for the specified time window.</td>
 </tr>
 <tr>
-<td>integrate(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the moving integration on a given time series <span style="color:#3a0699;font-weight:bold">expression</span> over <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td><a href="ts_integral.html">integral( <strong>expression</strong>)</a></td>
+<td>Returns the moving sum over time for the given expression over the time window of the current chart window. Always starts at 0 on the left side of the chart, and shows the total accumulation over the duration of the current chart window.</td>
 </tr>
 <tr>
-<td>integral(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the moving sum over time for the given time series <span style="color:#3a0699;font-weight:bold">expression</span> over the time interval of the current chart window. Always starts at 0 on the left side of the chart showing the total accumulation over the time duration of the current chart window.</td>
+<td><a href="ts_flapping.html">flapping(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns the number of times a counter has reset within the specified time window.</td>
 </tr>
 <tr>
-<td>flapping(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the number of times a counter has reset within <span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td><a href="ts_any.html">any(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns 1 if the expression has been non-zero at any time during the specified time window. Otherwise, returns 0.</td>
 </tr>
 <tr>
-<td>any(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 if the <span style="color:#3a0699;font-weight:bold">expression</span> over <span style="color:#757575;font-weight:bold">timeWindow</span> has been non-zero at any time. Otherwise, it returns 0.</td>
-</tr>
-<tr>
-<td>all(<span style="color:#757575;font-weight:bold">timeWindow</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 if the <span style="color:#3a0699;font-weight:bold">expression</span> over <span style="color:#757575;font-weight:bold">timeWindow</span> has been non-zero at every time in that window. Otherwise, it returns 0.</td>
+<td><a href="ts_all.html">all(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td>Returns 1 if the expression has been non-zero at every point in time during the time window. Otherwise, returns 0.</td>
 </tr>
 </tbody>
 </table>

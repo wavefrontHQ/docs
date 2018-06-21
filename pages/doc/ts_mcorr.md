@@ -1,0 +1,64 @@
+---
+title: mcorr Function
+keywords: query language reference
+tags: [reference page]
+sidebar: doc_sidebar
+permalink: ts_mcorr.html
+summary: Reference to the mcorr() function
+---
+
+## Summary
+
+```
+mcorr(<timeWindow>, <expression1>, <expression2> [,inner])
+```
+Returns the correlation between two time series, specified by `expression1` and `expression2`, over the specified time window.
+
+## Parameters
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
+<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<tr>
+<td markdown="span"> [expression1](query_language_reference.html#expressions)</td>
+<td>First expression for the correlation. The expression can be a constant, a wildcard, or an expression.  </td></tr><tr>
+<td markdown="span"> [expression2](query_language_reference.html#expressions)</td>
+<td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
+<tr>
+<td markdown="span">inner</td>
+<td markdown="span">If the number of unique series associated with either expression is dynamic, then you can force series matching by adding the optional **inner**  parameter</td></tr>
+</tbody>
+</table>
+
+## Description
+
+The `mcorr()` function stands for moving correlation.
+
+When you run the query, `mcorr()` compares `expression1` to `expression2` during the specified time window, and displays the correlation between the two expression as a value between -1 and 1.
+
+* Values at or close to 1 are total positive correlations.
+* 0 is no correlation.
+* Values at or close to -1 are total negative correlations.
+
+`mcorr()` applies [series matching](query_language_series_matching.html) between `expression1` and `expression2`.
+* If the two expressions have 2 or more unique series associated with them, `mcorr` evaluates only those unique series that appear in both expressions.
+* If there are no overlapping unique series, `mcorr` returns NO DATA.
+* If `expression1` or `expression2` only have a single unique series associated with them, then `mcorr` correlates that single unique series with every unique series in the other expression.
+* If the number of unique series associated with either expression is dynamic, then you can force series matching by adding the optional `,inner`  parameter after `expression2`.
+
+## Examples
+
+The following example shows the correlation between the total requests for app-19 and app-15 over a 10 minute time window.
+
+![mcorr](images/ts_mcorr.png)
+
+## See Also
+
+[Using Moving and Tumbing Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+
+[Using Correlation Functions (video)](https://www.youtube.com/watch?v=bV9mGSAbD8s&feature=youtu.be)

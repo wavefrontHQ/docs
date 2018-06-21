@@ -12,7 +12,7 @@ summary: Reference to the mcount() function
 ```
 mcount(<timeWindow>, <expression>)
 ```
-The `mcount()` (moving count) function returns the number of data points over `timeWindow()`. If the expression stops reporting data, `mcount()` continues to report until up to 2 the duration of `timeWindow` after the last reported point, and returns no data after that.
+Returns the number of data points over `timeWindow()`. If the expression stops reporting data, `mcount()` continues to report until up to 2 the duration of `timeWindow` after the last reported point, and returns no data after that.
 
 ## Parameters
 
@@ -22,8 +22,8 @@ The `mcount()` (moving count) function returns the number of data points over `t
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>timeWindow</td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). If the unit is not specified, the default is minutes. Example: 1h.
+<td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
+<td>A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.
 <div><strong>NOTE</strong>: <code>mcount()</code> returns the number of data points for 2x the duration of <code>&lt;timeWindow&gt;</code>.</div></td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
@@ -34,11 +34,14 @@ The `mcount()` (moving count) function returns the number of data points over `t
 
 ## Description
 
-The `mcount()` function returns the number of data points for 2x the duration of a specified time window. Here's how to select your counting/summing function:
+The `mcount()` (moving count) function returns the number of data points over `timeWindow()`. If the expression stops reporting data, `mcount()` continues to report until up to 2 the duration of `timeWindow` after the last reported point, and returns no data after that.
 
-* Use `mcount()` to see the number of points in a time window
-* Use `msum()` to see the sum of the data points in a time window
-* Use `count()` to see the number of systems reporting
+Here's how to select your counting/summing function:
+
+* `mcount()` - returns the number of data points for a time window
+* `msum()` - returns the sum of the data points for a time window
+* `count()` - returns the number of series
+* `mseriescount()` - returns the number of series reporting during the specified time window
 
 Common use cases include finding missing data points. Because of that, `mcount()` is often used with alerts. 
 
@@ -65,3 +68,5 @@ Notice how the red points are around 180 until the yellow points stop reporting.
 ## See Also
 
 [Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+
+[Account for Missing Data Points](https://docs.wavefront.com/alerts_robustness_increasing.html#account-for-missing-data-points)

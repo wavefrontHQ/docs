@@ -23,9 +23,9 @@ Returns the moving average of each series over `timeWindow`.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>timeWindow</td>
-<td>A window of time specified in seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). If the unit is not specified, the default is minutes. Example: 1h.
-<div><strong>NOTE</strong>:If the series stops reporting, then <code>mcount()</code> returns the number of data points for 2x the duration of <code>&lt;timeWindow&gt;</code>.</div></td></tr>
+<td><a href="query_language_reference.html#query-elements">timeWindow</a></td>
+<td>A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if the unit is not specified.
+<div><strong>NOTE</strong>: If the series stops reporting, then <code>mcount()</code> returns the number of data points for 2x the duration of the time window.</div></td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>A ts expression, a constant, or a wildcard.</td>
@@ -35,7 +35,7 @@ Returns the moving average of each series over `timeWindow`.
 
 ## Description
 
-The `mavg()` function computes the moving average of each data stream over a shifting time window. For example, `mavg(60m, ts(my.metric))` returns, at each point, the moving average over the last 60 minutes for each series in expression.
+The `mavg()` function computes the moving average of each time series over a shifting time window. For example, `mavg(60m, ts(my.metric))` returns, at each point, the moving average over the last 60 minutes for each series in `expression`.
 
 Here's how to select your averaging function:
 
