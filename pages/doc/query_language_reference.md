@@ -467,7 +467,7 @@ These functions output continuous time series, with the exception of `integral()
 <tbody>
 <tr>
 <td><a href="ts_mavg.html">mavg(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
-<td>Returns the moving average of each series for the specified time window.<span style="color:#757575;font-weight:bold">timeWindow</span>.</td>
+<td>Returns the moving average of each series for the specified time window.</td>
 </tr>
 <tr>
 <td><a href="ts_msum.html">msum(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
@@ -482,53 +482,53 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the moving variance of each series for the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mcount.html"> mcount(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td><a href="ts_mcount.html"> mcount(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Returns the number of data points for the specified time window.  If <strong>expression</strong> stops reporting data, mcount() continues to return data up to 2x the duration of the time window before returning no data. </td>
 </tr>
 <tr>
-<td><a href="ts_mmin.html">mmin(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td><a href="ts_mmin.html">mmin(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Returns the minimum of each series for the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mmax.html">mmax(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td><a href="ts_mmax.html">mmax(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Returns the maximum of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_mpercentile.html">mpercentile(<strong>timeWindow</strong>,<strong>percentileValue</strong>, <strong>expression</strong>)</a></td>
-<td>Returns the <span>percentile</span> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong> </td>
+<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, percentileValue, &lt;expression&gt;</strong>)</a></td>
+<td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong> </td>
 </tr>
 <tr>
-<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack; ,metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
 <td>Returns the aggregated number of series reporting during the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mdiff.html">mdiff(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
-<td>Returns the difference between the current value of the expression and value of the expression expression's value at the point in time that is <strong>timeWindow</strong> ago. This function, does not interpolate the points before doing the subtraction.
+<td><a href="ts_mdiff.html">mdiff(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns the difference between the current value of the expression and the expression's value at the point in time that is <strong>timeWindow</strong> ago. This function doesn't interpolate the points before doing the subtraction.
 </td>
 </tr>
 <tr>
-<td><a href="ts_mcorr.html">mcorr(<strong>timeWindow</strong>, <strong>expression1</strong>, <strong>expression2</strong>, &lbrack;,<strong>inner</strong>&rbrack;)</a></td>
+<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, expression1, expression2, &lbrack;,inner&rbrack;</strong>)</a></td>
 <td>Returns the moving correlation between two expressions for a specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_integrate.html">integrate(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td><a href="ts_integrate.html">integrate(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Returns the moving integration for the specified expression for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_integral.html">integral( <strong>expression</strong>)</a></td>
+<td><a href="ts_integral.html">integral(<strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns the moving sum over time for the given expression over the time window of the current chart window. Always starts at 0 on the left side of the chart, and shows the total accumulation over the duration of the current chart window.</td>
 </tr>
 <tr>
-<td><a href="ts_flapping.html">flapping(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
+<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
 <td>Returns the number of times a counter has reset within the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_any.html">any(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
-<td>Returns 1 if the expression has been non-zero at any time during the specified time window. Otherwise, returns 0.</td>
+<td><a href="ts_any.html">any(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns 1 if the expression has been non-zero at <em>any</em> time during the specified time window. Otherwise, returns 0.</td>
 </tr>
 <tr>
-<td><a href="ts_all.html">all(<strong>timeWindow</strong>, <strong>expression</strong>)</a></td>
-<td>Returns 1 if the expression has been non-zero at every point in time during the time window. Otherwise, returns 0.</td>
+<td><a href="ts_all.html">all(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td>Returns 1 if the expression has been non-zero at <em>every</em> point in time during the time window. Otherwise, returns 0.</td>
 </tr>
 </tbody>
 </table>
