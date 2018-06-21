@@ -194,7 +194,8 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the 
 
 ```
 {% endraw %}
-
+**Note:** Make sure all `[[inputs.win_perf_counters.object]]` configuration snippets are inside the `[[inputs.win_perf_counters]]` configuration section. If there are any `[[inputs.win_perf_counters.object]]` configuration snippets added prior to enabling Microsoft Exchange, move those snippets into the `[[inputs.win_perf_counters]]`. 
+   
 ### Step 4. Restart Telegraf
 
 After any changes restart your Telegraf agent service.
