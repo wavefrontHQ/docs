@@ -10,7 +10,7 @@ summary: Reference to the lead() function
 ```
 lead(<timeWindow>, <expression>)
 ```
-Returns later data values from the time series described by the expression, to help you compare each time series with its own subsequent behavior. 
+Returns later data values from the time series described by the expression, to help you compare each time series with its own subsequent behavior.
 
 ## Parameters
 <table>
@@ -18,9 +18,9 @@ Returns later data values from the time series described by the expression, to h
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
-<td markdown="span"> [timeWindow](query_language_reference.html#query-elements)</td>
+<tr><td markdown="span"> [timeWindow](query_language_reference.html#query-elements)</td>
 <td>Amount of time you want to go forward to obtain the values to return. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
-</td></tr> 
+</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression describing the time series to return later values from. </td></tr>
@@ -30,15 +30,15 @@ Returns later data values from the time series described by the expression, to h
 
 ## Description
 
-The `lead()` standard time function returns later data values from the time series described by the expression. These later data values are time-shifted back by the specified amount of time along the time axis, for easy comparison with earlier data values. 
+The `lead()` standard time function returns later data values from the time series described by the expression. These later data values are time-shifted back by the specified amount of time along the time axis, for easy comparison with earlier data values.
 
-For example, say you have used [`hw()`](query_language_hw_function.html) to project a time series into the future, and you want to compare some actual reported data values against the values forecasted for 3 weeks from now.  You can use `lead()` to "shift" the forecasted values back by 3 weeks, so that they align, point for point, with the currently reported values. 
+For example, say you have used [`hw()`](query_language_hw_function.html) to project a time series into the future, and you want to compare some actual reported data values against the values forecasted for 3 weeks from now.  You can use `lead()` to "shift" the forecasted values back by 3 weeks, so that they align, point for point, with the currently reported values.
 
-Or, say you are using a chart with a custom date to view data values that were reported 4 hours ago, and you want to  compare each of those values with the value reported by the same time series 1 hour later.  You can use `lead()` to "shift" the later values back, so that they align, point for point, with the earlier values. 
+Or, say you are using a chart with a custom date to view data values that were reported 4 hours ago, and you want to  compare each of those values with the value reported by the same time series 1 hour later.  You can use `lead()` to "shift" the later values back, so that they align, point for point, with the earlier values.
 
 `lead()` returns a separate series of results for each time series described by the expression.
 
-You cannot use `lead()` to see the future values of live data that have not yet been reported by a time series.  
+You cannot use `lead()` to see the future values of live data that have not yet been reported by a time series.
 
 ## Examples
 
