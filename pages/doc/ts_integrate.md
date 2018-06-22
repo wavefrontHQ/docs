@@ -44,4 +44,4 @@ The following example shows the behavior of 5 services over 8 days.
 
 ## See Also
 
-[Using Moving and Tumbing Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)

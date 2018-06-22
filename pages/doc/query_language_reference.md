@@ -483,7 +483,7 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 <tr>
 <td><a href="ts_mcount.html"> mcount(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
-<td>Returns the number of data points for the specified time window.  If <strong>expression</strong> stops reporting data, mcount() continues to return data up to 2x the duration of the time window before returning no data. </td>
+<td>Returns the number of data points reported by each time series over the specified time window. </td>
 </tr>
 <tr>
 <td><a href="ts_mmin.html">mmin(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
@@ -495,7 +495,7 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 <tr>
 <td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentileValue&gt;, &lt;expression&gt;</strong>)</a></td>
-<td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong> </td>
+<td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong>. </td>
 </tr>
 <tr>
 <td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,&lt;metric&gt;|source=|tag=|tagk=&rbrack;</strong>)</a></td>
@@ -516,7 +516,7 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 <tr>
 <td><a href="ts_integral.html">integral(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the moving sum over time for the given expression over the time window of the current chart window. Always starts at 0 on the left side of the chart, and shows the total accumulation over the duration of the current chart window.</td>
+<td>Returns the moving sum over time for the given expression over the time window of the current chart window.</td>
 </tr>
 <tr>
 <td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>

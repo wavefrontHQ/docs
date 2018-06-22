@@ -37,7 +37,7 @@ The `any()` function looks at the displayed point buckets within a specified mov
 * Returns 0  if no displayed point buckets meet that condition.
 * Returns 1 if at least one of the displayed point buckets meets that condition.
 
-You can use [`all()`](ts_all.html) to test whether all displayed point buckets meet the condition.
+Note: You can use [`all()`](ts_all.html) to test whether all displayed point buckets meet the condition.
 
 ## Examples
 
