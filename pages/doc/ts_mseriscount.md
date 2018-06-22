@@ -19,14 +19,14 @@ Returns the aggregated number of series reporting during the specified time wind
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<td >Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
+<td>A ts() expression, a constant, or a wildcard. </td></tr>
 <tr><td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a count for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>
@@ -36,17 +36,17 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-The `mseriescount()` (moving series count) function returns the aggregated number of series reporting during the specified time window. For example, `mseriescount(60m, ts(my.metric))` returns the number of series reporting over the last 60 minutes.
+The `mseriescount()` function returns the moving series count, which is the aggregated number of time series that are reporting during the shifting time window. For example, `mseriescount(60m, ts(my.metric))` returns the number of series reporting over the previous 60 minutes.
 
-This function is especially helpful if new series are constantly spun up and taken down and the number of reporting series changes over time. For example, you could use this function to check whether you have the right number of hosts in a cluster. You could also write an alert that checks whether you have enough hosts.
+This function is especially helpful if new time series are constantly spun up and taken down and the number of reporting series changes over time. For example, you could use this function to check whether you have the right number of hosts in a cluster. You could also write an alert that checks whether you have enough hosts.
 
 Here's how you use different counting functions:
-* `count()` - returns the number of series reporting at each point in time.
-* `mcount()` - returns the number of data points in a time window
-* `mseriescount()` - returns the number of series reporting during the specified time window
+* `count()` - returns the number of time series reporting at each moment in time
+* `mcount()` - returns the number of data points reported by a given time series over a shifting time window 
+* `mseriescount()` - returns the number of time series reporting during a shifting time window
 
 
-For example, one customer used `mseriescount` in an alert that fired when the build number changed in any of a set of service pods. To do that, the alert:
+For example, you could use `mseriescount()` in an alert that fires when the build number changes in any of a set of service pods. To do that, the alert:
 * Extracts the `build` point tag
 * Checks how many `build` point tags there are in the last hour, day, or week.
 * Alerts if it's not 1.

@@ -22,20 +22,22 @@ Returns 1 if the expression has been non-zero at any time during the time window
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<td >Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
+<td>A ts() expression, a constant, or a wildcard.</td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `any()` and `all()` time functions emulate alert windows and allow you to predetermine how often an alert would fire based on existing data.
+The `any()` function enables you to emulate an alert window and helps you predetermine how often an alert would fire based on existing data within a shifting time window. 
 
-When you use these functions, you must also include a moving time window in minutes. The `any()` function looks at all displayed point buckets within a specified moving time window and
-* Displays the value 0  on the chart if no displayed point buckets meet that condition
-* Displays the value 1 if any of the displayed point buckets meet that condition.
+The `any()` function looks at the displayed point buckets within a specified moving time window and:
+* Returns 0  if no displayed point buckets meet that condition.
+* Returns 1 if at least one of the displayed point buckets meets that condition.
+
+You can use [`all()`](ts_all.html) to test whether all displayed point buckets meet the condition.
 
 ## Examples
 

@@ -12,7 +12,7 @@ summary: Reference to the integral() function
 ```
 integral(<expression>)
 ```
-Returns the moving sum over time for the given time series expression over the time interval of the current chart window.
+Returns the moving sum for each time series, over the time window set for the current chart.
 
 ## Parameters
 
@@ -23,13 +23,13 @@ Returns the moving sum over time for the given time series expression over the t
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
+<td>A ts() expression, a constant, or a wildcard.  </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `integral` function returns the moving sum for the time series specified by `expression` over the time interval of the current chart window. The function always starts at 0 on the left side of the chart and shows the total accumulation over the time duration of the current chart window.
+The `integral` function returns the moving sum for each time series described by the expression, over the time window set for the current chart. The function always returns 0 at the left side of the chart, and shows the total accumulation over the duration of the chart's time window.
 
 The function is useful for determining trends, for example, whether the total number of requests per minute increased, or whether new sources were added to meet demand.
 
@@ -47,4 +47,4 @@ As we zoom in, the differences between the different sources become more obvious
 
 ## See Also
 
-[Using Moving and Tumbing Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)

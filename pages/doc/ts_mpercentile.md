@@ -24,21 +24,22 @@ Returns the specied percentile value for each time series over a moving time win
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<td >Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td>percentileValue</td>
 <td>A number greater than 0 and less than or equal to 100. You can include as many decimal points as you like.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.   </td>
+<td>A ts() expression, a constant, or a wildcard.   </td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-The `mpercentile()` function computes the percentile value of each time series over a moving time window. The percentile value must be between 0 and 100.
-Unlike other moving time window functions, the `mpercentile()` function also requires a `percentileValue`.
+The `mpercentile()` function computes the value at the specified percentile for each time series over a shifting time window. For example, `mpercentile(10m, 95, ts(my.metric))` returns, at each point, the data value at the 95th percentile among the values reported by a given time series during the previous 10 minutes.
+
+The percentile value must be between 0 and 100.
 
 ## Example
 
