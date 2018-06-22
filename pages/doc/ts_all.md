@@ -22,18 +22,24 @@ Returns 1 if the expression has been non-zero at every point in time during the 
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td>></tr>
+<td>A ts() expression, a constant, or a wildcard.  </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `any()` and `all()` time functions emulate alert windows and allow you to predetermine how often an alert would fire based on existing data.
+The `all()` function enables you to emulate an alert window and helps you predetermine how often an alert would fire based on existing data within a shifting time window.
 
-When you use these functions, you must also include a moving time window in minutes. The `all()` function works in a similar manner, but the chart will only display 1 values if all displayed point buckets meet the condition in the specified moving time window.
+The `all()` function looks at the displayed point buckets within a specified moving time window and:
+* Returns 1 if _all_ of the displayed point buckets meets that condition.
+* Returns 0 in all other cases.
+
+You can use [`any()`](ts_any.html) to test whether one or more displayed point buckets meet the condition.
+
+
 
 ## Examples
 

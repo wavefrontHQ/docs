@@ -12,7 +12,7 @@ summary: Reference to the mdiff() function
 ```
 mdiff(<timeWindow>, <expression>)
 ```
-Returns the difference between the expression's value and the expression's value `timeWindow` ago.
+Returns the moving difference between data values reported `timeWindow` apart, within each time series described by the expression.
 
 ## Parameters
 
@@ -23,30 +23,27 @@ Returns the difference between the expression's value and the expression's value
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
+<td>A ts() expression, a constant, or a wildcard.  </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `mdiff()` (moving diff) function returns the difference between the expression's current value and the expression's value `timeWindow` ago.
+The `mdiff()` function returns the moving difference for each time series described by the expression.
+The moving difference for a time series is the difference, at each point in time, between the currently reported data value, and the data value that was reported `timeWindow` ago. For example, `mdiff(10m, ts(my.metric))` returns, at each point, the result of subtracting the data value reported 10 minutes ago from the current data value, for each specified time series.
 
-For example: `expression` minus `expression's value 5 minutes ago`.
-
-This function does not interpolate the points before doing the subtraction.
-
-We created the `mdiff()` function to return a moving sum of rates. Users found it difficult to understand what a moving sum of rates is.
+This function does not interpolate any data values before doing the subtraction.
  
 
 ## Examples
 
-In the following image, the value at 5pm is 462 and the value 15 minutes before that was 258, resulting in a difference of 204
+In the following chart, the value at 5:00pm is 462 and the value 15 minutes before that was 258, resulting in a difference of 204.
 
 ![ts mdiff](images/ts_mdiff.png)
 
 ## See Also
 
-See [Using Moving and Tumbing Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html) for background information. 
+See [Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html) for background information. 

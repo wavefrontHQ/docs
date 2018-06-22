@@ -13,7 +13,7 @@ summary: Reference to the mavg() function
 mavg(<timeWindow>, <expression>)
 ```
 
-Returns the moving average of each series over `timeWindow`.
+Returns the moving average of each time series over the specified time window.
 
 ## Parameters
 
@@ -24,24 +24,24 @@ Returns the moving average of each series over `timeWindow`.
 </thead>
 <tr>
 <td><a href="query_language_reference.html#query-elements">timeWindow</a></td>
-<td>A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if the unit is not specified.
-<div><strong>NOTE</strong>: If the series stops reporting, then <code>mcount()</code> returns the number of data points for 2x the duration of the time window.</div></td></tr>
+<td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
+</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts expression, a constant, or a wildcard.</td>
+<td>A ts() expression, a constant, or a wildcard.</td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-The `mavg()` function computes the moving average of each time series over a shifting time window. For example, `mavg(60m, ts(my.metric))` returns, at each point, the moving average over the last 60 minutes for each series in `expression`.
+The `mavg()` function computes the moving average of each time series over a shifting time window. For example, `mavg(60m, ts(my.metric))` returns, at each point, the average of the data values over the previous 60 minutes for each specified time series.
 
 Here's how to select your averaging function:
 
 * Use `mavg()` to see the moving average in a specified time window.
 * Use `avg()` to see the average (the mean).
-* Use `median()` to see the median. Using `median` is preferred if there are a lot of outliers.
+* Use `median()` to see the median. Using `median()` is preferred if there are a lot of outliers.
 * Use `mpercentile()` with a percentile of 50 to see the moving median.
 
 
@@ -63,4 +63,4 @@ And here's what we see when we apply `mavg()`.
 
 ## Caveats
 
-At times, using `msum` can get you the information you want. In that case, use `msum` because performance is better.
+At times, using `msum()` can get you the information you want. In that case, use `msum()` because performance is better.

@@ -12,7 +12,7 @@ summary: Reference to the mcount() function
 ```
 mcount(<timeWindow>, <expression>)
 ```
-Returns the number of data points over `timeWindow()`. If the expression stops reporting data, `mcount()` continues to report until up to 2 the duration of `timeWindow` after the last reported point, and returns no data after that.
+Returns the number of data points reported over the specified time window. If a time series stops reporting data, `mcount()` continues for 2x the specified time window, and then stops.
 
 ## Parameters
 
@@ -23,25 +23,28 @@ Returns the number of data points over `timeWindow()`. If the expression stops r
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td>A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.
-<div><strong>NOTE</strong>: <code>mcount()</code> returns the number of data points for 2x the duration of <code>&lt;timeWindow&gt;</code>.</div></td></tr>
+<td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
+
+<div><strong>NOTE</strong>: If a time series stops reporting data, <code>mcount()</code> continues for 2x the specified time window, and then stops.</div></td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td>
+<td>A ts() expression, a constant, or a wildcard.  </td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-The `mcount()` (moving count) function returns the number of data points over `timeWindow()`. If the expression stops reporting data, `mcount()` continues to report until up to 2 the duration of `timeWindow` after the last reported point, and returns no data after that.
+The `mcount()` function returns the moving count for each time series described by the expression. The moving count is the number of data points reported by a time series over a shifting time window. For example, `mcount(10m, ts(my.metric))` returns, at each point, the number data values over the previous 10 minutes for each specified time series.
+
+If a time series stops reporting data, `mcount()` continues to return the moving count until up to 2 times the elapsed time window after the last reported point, and returns no data after that.
 
 Here's how to select your counting/summing function:
 
-* `mcount()` - returns the number of data points for a time window
-* `msum()` - returns the sum of the data points for a time window
-* `count()` - returns the number of series
-* `mseriescount()` - returns the number of series reporting during the specified time window
+* `mcount()` - returns the number of data points reported over a shifting time window
+* `msum()` - returns the sum of the data points reported over a shifting time window
+* `count()` - returns the number of time series reporting at each moment in time
+* `mseriescount()` - returns the number of time series reporting during a shifting time window
 
 Common use cases include finding missing data points. Because of that, `mcount()` is often used with alerts. 
 
@@ -51,7 +54,7 @@ The following example queries the ambient air temperature in a vehicle using thi
 
 `ts(vehicle.ambient_air_temp)`
 
-The chart on the right shows this simple raw metric, which reports points several times per minute. Near the end of the time window, no points are reported.
+The chart below shows this simple raw metric, which reports points several times per minute. Near the end of the time window, no points are reported.
 
 ![chart_without_mcount](images/mcount_1.png)
 

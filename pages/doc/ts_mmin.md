@@ -12,7 +12,7 @@ summary: Reference to the mmin() function
 ```
 mmin(<timeWindow>, <expression>)
 ```
-Returns the moving minimum of each time series over a moving time window.
+Returns the moving minimum of each time series over the specified time window.
 
 ## Parameters
 
@@ -23,25 +23,25 @@ Returns the moving minimum of each time series over a moving time window.
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
-<td >A clock/calendar time measurement (1s, 1m, 1h, 1d, 1w), time relative to the window length (vw), or time relative to the bucket size (bw) of the chart. Default is minutes if no unit is specified.</td></tr>
+<td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span">[expression](query_language_reference.html#expressions)</td>
-<td>The expression can be a constant, a wildcard, or an expression.  </td></tr>
+<td>A ts() expression, a constant, or a wildcard.  </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `mmin()` (moving minimum) function returns the moving minimum of each time series over a moving time window.
+The `mmin()` function returns the moving minimum of each time series over a shifting time window. For example, `mmin(10m, ts(my.metric))` returns, at each point, the minimum data value over the previous 10 minutes for each specified time series.
 
 By default, all the lines are dimmed. You can move the curser over a line to highlight it, and Cmd-select lines if you want to turn on highlighting for multiple lines to do comparisons.
 
 ## Examples
 
-The following example shows the result of a simple `mmin` query.
+The following example shows the result of a simple `mmin()` query.
 
 ![mmin](images/ts_mmin.png)
 
 ## See Also
 
-[Using Moving and Tumbing Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
