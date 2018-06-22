@@ -331,36 +331,36 @@ When aggregating, you can group or filter the results.
 </tr>
 <tr>
 <td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Displays the top <strong>numberOfTimeSeries</strong> series in <strong>expression</strong> as 1, based on the most recent data point. Displays all other series as 0. This function outputs continuous time series.</td>
+<td>Returns the top <strong>numberOfTimeSeries</strong> series in <strong>expression</strong> as 1, based on the most recent data point. Returns all other series as 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Displays the bottom <strong>numberOfTimeSeries</strong> series in <strong>expression</strong> as 1, based on the most recent data point. Displays all other series as 0. This function outputs continuous time series.</td>
+<td>Returns the bottom <strong>numberOfTimeSeries</strong> series in <strong>expression</strong> as 1, based on the most recent data point. Displays all other series as 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, &lt;metric&gt;|source=|tagk=]</strong>)</a></td>
-<td>Retains only the time series in  <strong>expression</strong> that match the specified metric, source, or point tag. No key is required to filter a metric. <strong>filter</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
+<td>Retains only the time series in  <strong>expression</strong> that match the specified metric, source, or point tag. No key is required to filter a time series. <strong>filter()</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, &lt;metric&gt;|source=|tag=|tagk=]</strong>)</a></td>
-<td>Retains only the time series in <strong>expression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a metric. </td>
+<td>Retains only the time series in <strong>expression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a time series. </td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, &lt;metric&gt;|source=|tag=|tagk=]</strong>)</a></td>
-<td>Suppresses any time series in <strong>expression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a metric.
+<td>Suppresses any time series in <strong>expression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a time series.
 </td>
 </tr>
 <tr>
 <td><a href="ts_sample.html">sample(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;)</strong></a></td>
-<td>Displays a non-random sample set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls will display the same sample set as long as the underlying set of time series stays the same. </td>
+<td>Returns a non-random sample set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls display the same sample set as long as the underlying set of time series stays the same. </td>
 </tr>
 <tr>
 <td><a href="ts_random.html">random(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Displays a random set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls always display different sample sets.</td>
+<td>Returns a random set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls always display different sample sets.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;expression&gt;</strong>)</a></td>
-<td>Displays <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
+<td>Returns <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
 </tr>
 <tr>
 <td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
@@ -498,7 +498,7 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong>. </td>
 </tr>
 <tr>
-<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,&lt;metric&gt;|source=|tag=|tagk=&rbrack;</strong>)</a></td>
+<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,&lt;metrics&gt; |sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
 <td>Returns the aggregated number of series reporting during the specified time window. </td>
 </tr>
 <tr>
