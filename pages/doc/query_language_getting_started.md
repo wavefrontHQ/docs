@@ -33,7 +33,7 @@ For further exploration try one of the aggregation functions. Aggregation functi
 
 ## Applying Mathematical Functions
 
-Notice how the sum of `cpu.idle` is slowly increasing over time.  To increase your proficiency in the language and to learn the power of the other functions, take a metric example and experiment with the different functions. For example, the `sum(ts(cpu.idle))` metric is a counter metric, or a metric that continuously increases over time. Counter metrics give a snapshot of a current count, but they do not provide information such as the rate of change. The query language has a `deriv()` function that transforms a counter to show the rate of change per second: `deriv(sum(ts(cpu.idle))`.
+Notice how the result of `sum(ts(cpu.idle))` is slowly increasing over time.  To increase your proficiency in the language and to learn the power of the other functions, you can take a metric example and experiment with the different functions. For example, we see that `sum(ts(cpu.idle))` gives us snapshots of the sum over time, but does not provide information such as how fast the sum is increasing. The query language has a `deriv()` function that shows the rate of change per second: `deriv(sum(ts(cpu.idle))`.
 
 ![summed rate query](images/deriv_sum.png)
 

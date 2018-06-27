@@ -57,11 +57,21 @@ Options that support general customization.
 </tr>
 <tr>
 <td>Summarize By</td>
-<td>When displaying metrics, Wavefront determines the chart resolution and summarizes data into point buckets based on a summarization method. You can choose the method to apply to the data values within each point bucket. The summarization method displays in all caps next to the chart time bar.
-<div>
-You can summarize the raw data values within each point bucket by <strong>Average</strong>, <strong>Median</strong>, <strong>Min</strong>, <strong>Max</strong>, <strong>Count</strong>, and <strong>Sum</strong>. Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". When you choose the <strong>Median</strong> summarization method, the raw data values reported in each 30 second interval are aggregated, and the median value displays as a point.</div>
+<td>Summarization method for grouping raw, reported data points, and mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed, which is indicated in the chart's time bar.
 
-<div>The <strong>Count</strong> summarization method counts the <em>number</em> of data values reported in each 30 second interval, and displays that value to represent the point bucket. <strong>First</strong> assigns a value to each point bucket based on the <em>first</em> data value reported within the interval. <strong>Last</strong> works in a similar manner, but the point bucket value is based on the <em>last</em> data value reported within the interval.</div></td>
+<ul>
+<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
+<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
+<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
+<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
+<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
+<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
+<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
+<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
+</ul>
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
 </tr>
 <tr>
 <td>Display Source Events</td>

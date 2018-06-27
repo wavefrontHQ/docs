@@ -56,4 +56,4 @@ The following example shows the raw average for sample requests, grouped by the 
 
 ## See Also
 [Detecting Anomalies With Functions and Statistical Functions](query_language_statistical_functions_anomalies.html#mean-and-median)
-[The align() Function](https://docs.wavefront.com/query_language_align_function.html)
+[Bucketing with align()](https://docs.wavefront.com/query_language_align_function.html)

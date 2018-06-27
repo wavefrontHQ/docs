@@ -54,7 +54,7 @@ Here's a video  that demonstrates different customization options:
 
 The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, Wavefront would first align the values into 15 minute buckets, and then take two aligned values and summarize those based on the Summarize By method.
 
-{% include note.html content="In order to improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [The align() Function](query_language_align_function.html)." %}
+{% include note.html content="In order to improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
 
 ## Units in Chart Axes and Legends
 

@@ -30,7 +30,7 @@ Returns the per-second rate of change for each time series described by the expr
 The `rate()` standard time function returns the rate of change (per second) between adjacent increasing data values in the time series described by the expression. 
 For example, consider a metric that counts the cumulative total number of logins for an application over time. You can use the `rate()` function to see how fast the logins are being added, reported as a number of logins per second. 
 
-`rate()` returns a separate, continuous series of results for each time series described by the expression.
+`rate()` returns a separate series of results for each time series described by the expression.
 
 Although you can apply `rate()` to any kind of metric, the intended use is to find the rate of change for counter metrics, which are metrics that report cumulative totals (increasing values) over time. Accordingly, `rate()` returns only positive rates of change. 
 You can use [`deriv()`](ts_deriv.html) if you want to see rates of change in other kinds of metrics.
