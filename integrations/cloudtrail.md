@@ -112,7 +112,11 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Key Management</h5>
 <div><img src="images/aws-kms.svg" alt="Amazon KMS" style="max-width: 70px;"/></div>
-</td>  
+</td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon CloudSearch</h5>
+<div><img src="images/AmazonCloudSearch.svg" alt="Amazon CloudSearch" style="max-width: 70px;"/></div>
+</td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon CloudTrail</h5>
 <div><img src="images/aws-cloudtrail.png" alt="Amazon KMS" style="max-width: 70px;"/></div>
