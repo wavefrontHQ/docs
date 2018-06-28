@@ -573,16 +573,17 @@ When <span style="color:#3a0699;font-weight:bold">expression</span> and at least
 </tr>
 </thead>
 <tr>
-<td>round(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the nearest whole number to <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_round.html">round(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the nearest integer for each data value in the specified time series. 
+</td>
 </tr>
 <tr>
-<td>ceil(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Rounds up <span style="color:#3a0699;font-weight:bold">expression</span> to the next largest whole number.</td>
+<td><a href="ts_ceil.html">ceil(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the ceiling for the specified time series, by rounding any data values with decimals up to the next largest integer.</td>
 </tr>
 <tr>
-<td>floor(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Rounds down <span style="color:#3a0699;font-weight:bold">expression</span> to the next smallest whole number.</td>
+<td><a href="ts_floor.html">floor(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
 </tr>
 </tbody>
 </table>
