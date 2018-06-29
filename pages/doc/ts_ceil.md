@@ -34,7 +34,7 @@ The ceiling of a data value is the smallest integer that is greater than or equa
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Sample query with ceil()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Returned ceiling value</th></tr>
+<tr><th width="20%">Sample query with ceil()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Returned value (ceiling)</th></tr>
 </thead>
 <tr><td markdown="span">`ceil(1.75)`</td> <td> 2 </td> <td>Positive, with fractional part</td><td>Next higher integer</td></tr>
 <tr><td markdown="span">`ceil(-1.75)`</td><td> -1 </td> <td>Negative, with fractional part</td><td>Integer part of the input value</td></tr>

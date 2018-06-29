@@ -27,21 +27,21 @@ Returns the nearest integer for each data value in the time series described by 
 
 ## Description
 
-The `round()` function returns the nearest integer for each data value in the time series described by the expression. 
+The `round()` function returns the nearest integer for each data value in the time series described by the expression, by mapping any data value with a fractional part to the integer that is closest in value. 
 
 The nearest integer is computed as follows:
 
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Sample query with round()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Rounded return value</th></tr>
+<tr><th width="20%">Sample query with round()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Returned value (nearest integer)</th></tr>
 </thead>
 <tr><td markdown="span">`round(1.75)`</td> <td>2 </td> <td>Positive, with fractional part &gt; 0.5</td><td>Integer with the next higher absolute value</td></tr>
 <tr><td markdown="span">`round(-1.75)`</td><td>-2 </td> <td>Negative, with fractional part &gt; 0.5</td><td>Integer with the next higher absolute value</td></tr>
 <tr><td markdown="span">`round(1.25)`</td><td>1 </td> <td>Positive, with fractional part &lt; 0.5</td><td>Integer with the next lower absolute value</td></tr>
 <tr><td markdown="span">`round(-1.25)`</td><td>-1 </td> <td>Negative, with fractional part &lt; 0.5</td><td>Integer with the next lower absolute value</td></tr>
-<tr><td markdown="span">`round(0.5)`</td><td>1 </td> <td>Positive, with fractional part = 0.5</td><td>Integer with the next higher value</td></tr>
-<tr><td markdown="span">`round(-0.5)`</td><td>0 </td> <td>Negative, with fractional part = 0.5</td><td>Integer with the next higher value</td></tr>
+<tr><td markdown="span">`round(0.5)`</td><td>1 </td> <td>Positive, with fractional part = 0.5</td><td>Integer with the next higher value (round half up technique)</td></tr>
+<tr><td markdown="span">`round(-0.5)`</td><td>0 </td> <td>Negative, with fractional part = 0.5</td><td>Integer with the next higher value (round half up technique)</td></tr>
 </tbody>
 </table>
 

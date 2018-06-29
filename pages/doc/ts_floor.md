@@ -34,7 +34,7 @@ The floor of a data value is the greatest integer that is less than or equal to 
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Sample query with floor()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Returned floor value</th></tr>
+<tr><th width="20%">Sample query with floor()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Returned value (floor)</th></tr>
 </thead>
 <tr><td markdown="span">`floor(1.75)`</td> <td> 1 </td> <td>Positive, with fractional part</td><td>Integer part of the input value</td></tr>
 <tr><td markdown="span">`floor(-1.75)`</td><td> -2 </td> <td>Negative, with fractional part</td><td>Next lower integer</td></tr>
