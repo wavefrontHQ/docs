@@ -33,10 +33,10 @@ Wavefront creates distributions by aggregating metrics into bins. The following 
 
 The following table lists the distribution of one metric at successive minutes. The first row of the table contains the distribution illustrated in the figure. The following rows show how the distribution evolves over successive minutes.
 
-<table width="50%">
+<table width="100%">
 <colgroup>
-<col width="30%" />
-<col width="70%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr><th>Time (minute)</th><th>Distribution (number of points)</th></tr>
@@ -214,7 +214,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <td>persistAccumulator</td>
 <td>Whether to persist accumulation state. We suggest keeping this setting enabled unless you are not using hour and day level aggregation and consider losing up to 1 minute worth of data during proxy restarts acceptable. Default: true.
 </td>
-<td>Boolean. {% include warning.html content="If set to false, unprocessed metrics are lost on proxy shutdown." %}
+<td>. {% include warning.html content="If set to false, unprocessed metrics are lost on proxy shutdown." %}
 </td>
 </tr>
 <tr>
@@ -226,7 +226,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramAccumulatorResolveInterval</td>
-<td>Interval in milliseconds to write back accumulation changes from memory cache to disk. Only applicable when memory cache is enabled. Increasing this setting reduces storage IO pressure but may increase heap memory use. Default: 100.</td>
+<td>Interval in milliseconds to write back accumulation changes from memory cache to disk. Only applicable when memory cache is enabled. Increasing this setting reduces storage IO pressure but might increase heap memory use. Default: 100.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -241,7 +241,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramReceiveBufferFlushInterval</td>
-<td>Sets maximum time in milliseconds incoming points can stay in the receive buffer when incoming traffic volume is very low. Default: 100.</td>
+<td>Sets maximum time in milliseconds that incoming points can stay in the receive buffer when incoming traffic volume is very low. Default: 100.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -256,12 +256,12 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramMinuteAccumulators</td>
-<td>Number of accumulators per minute port. In high traffic environments we recommend the total number of accumulators per proxy across all utilized ports not to exceed the number of available CPU cores. Default: 2.</td>
+<td>Number of accumulators per minute port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: 2.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramMinuteFlushSecs</td>
-<td>Time-to-live in seconds for a minute granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 70.</td>
+<td>Time-to-live, in seconds, for a minute granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 70.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -272,12 +272,12 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <tr>
 <td>histogramMinuteCompression</td>
 <td>A bound on the number of centroids per histogram. Default: 100.</td>
-<td markdown="span">Positive integer in the interval [20;1000].</td>
+<td markdown="span">Positive integer in the interval. [20;1000].</td>
 </tr>
 <tr>
 <td>histogramMinuteMemoryCache</td>
 <td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (more than 1 point per second per time series). Default: false.</td>
-<td>boolean</td>
+<td>Boolean.</td>
 </tr>
 <tr>
 <td>histogramMinuteAvgDigestBytes</td>
@@ -296,12 +296,12 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramHourAccumulators</td>
-<td>Number of accumulators per hour port. In high traffic environments we recommend the total number of accumulators per proxy across all utilized ports not to exceed the number of available CPU cores. Default: 2.</td>
+<td>Number of accumulators per hour port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: 2.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramHourFlushSecs</td>
-<td>Time-to-live in seconds for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
+<td>Time-to-live, in seconds, for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -317,7 +317,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <tr>
 <td>histogramHourMemoryCache</td>
 <td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (more than 1 point per second per time series). Default: false.</td>
-<td>boolean</td>
+<td>Boolean.</td>
 </tr>
 <tr>
 <td>histogramHourAvgDigestBytes</td>
@@ -336,12 +336,12 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramDayAccumulators</td>
-<td>Number of accumulators per day port. In high traffic environments we recommend the total number of accumulators per proxy across all utilized ports not to exceed the number of available CPU cores. Default: 2.</td>
+<td>Number of accumulators per day port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: 2.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
 <td>histogramDayFlushSecs</td>
-<td>Time-to-live in seconds for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
+<td>Time-to-live, in seconds, for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
 </td>
 <td>Positive integer.</td>
 </tr>
@@ -358,7 +358,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <tr>
 <td>histogramDayMemoryCache</td>
 <td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (more than 1 point per second per time series). Default: false.</td>
-<td>boolean</td>
+<td>Boolean.</td>
 </tr>
 <tr>
 <td>histogramDayAvgDigestBytes</td>
@@ -373,12 +373,12 @@ Wavefront supports additional histogram configuration properties, shown in the f
 
 <tr>
 <td>histogramDistListenerPorts</td>
-<td>TCP ports to listen on for ingesting histogram distributions, usually 40000. Default: none.</td>
+<td>TCP ports to listen on for ingesting histogram distributions. Default: 40000.</td>
 <td>Comma-separated list of ports. Can be a single port.</td>
 </tr>
 <tr>
 <td>histogramDistAccumulators</td>
-<td>Number of accumulators per distribution port. In high traffic environments we recommend the total number of accumulators per proxy across all utilized ports not to exceed the number of available CPU cores. Default: number of available CPU cores. </td>
+<td>Number of accumulators per distribution port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: number of available CPU cores. </td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -399,7 +399,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <tr>
 <td>histogramDistMemoryCache</td>
 <td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (Aggregating more than 1 distribution per second per time series). Default: false.</td>
-<td>boolean</td>
+<td>Boolean.</td>
 </tr>
 <tr>
 <td>histogramDistAvgDigestBytes</td>
@@ -440,6 +440,6 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 * `max(hs(histogram.<metricName>.m))` -- Returns the largest value in `<metricName>`
 * `median(hs(histogram.<metricName>.m))` -- Returns the median of `<metricName>`
 * `merge(hs(histogram.<metricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<metricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(histogram.<metricName>.m),key)` where `key` is a point tag name.
-* `align(<timeWindow>,hs(histogram.<metricName>.m))` -- Allows the user to merge histograms across time buckets. For example, a user can use `align(1h, hs(histogram.<metricName>.m))` to output hourly buckets on a minutely histogram.
+* `align(<timeWindow>,hs(histogram.<metricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(histogram.<metricName>.m))` to output hourly buckets on a minutely histogram.
 
-{% include note.html content="Direct histogram visualization in charts is not supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with another supported function, for example, `max(hs(...))`." %}
+{% include note.html content="Direct histogram visualization in charts is not currently supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with one of the supported functions listed above, for example, `max(hs(...))`." %}
