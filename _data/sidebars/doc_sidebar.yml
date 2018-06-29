@@ -115,10 +115,6 @@ entries:
       url: /direct_ingestion.html
       output: web
 
-    - title: Derived Metrics
-      url: /derived_metrics.html
-      output: web
-
 
   - title: Query Language
     output: web
