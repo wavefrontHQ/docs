@@ -13,26 +13,27 @@ The mechanism that Wavefront provides for expressing alert dependencies are _ale
 
 ## Alert Metrics
 
-The three types of alert metrics&mdash;**isfiring**, **summary**, **firing**&mdash;and their syntax are:
-- **isfiring** - `~alert.isfiring.<alertID>`. As opposed to firing, isfiring returns just one timeseries that indicates if the alert is firing or not. The value is 1 if the alert is firing, 0 otherwise.
+An alert generates three metrics (**isfiring**, **summary**, **firing**), with the following syntax:
 
-- **summary** - `~alert.summary.<alertID>.<severity>.<type>`where
-  - `alertID` - The alert ID. The field accepts the wildcard `*`.
+- **isfiring** - `~alert.isfiring.<alertID>`. Returns a single time series indicating whether the alert is firing. The value is 1 if the alert is firing, 0 otherwise.
+  - `alertID` - The alert ID. The field accepts the wildcard `*`. See [Referencing Alert Metrics](#referencing-alert-metrics).
+
+- **summary** - `~alert.summary.<alertID>.<severity>.<type>`. Returns a count for the specified type of metric. The count is 0 if an alert is snoozed or not firing. No value is returned if the alert is in a maintenance window.
+  - `alertID` - The alert ID. The field accepts the wildcard `*`. See [Referencing Alert Metrics](#referencing-alert-metrics).
   - `severity` - The severity of the alert.
-
-When an alert is snoozed or not firing, the `~alert.summary.*` metrics are emitted with the value 0. If the alert is in a maintenance window, no metric is emitted.
   - `type` - The type of the metric. One of:
     - `sourcesFiring` - Count of unique sources causing the alert to fire.
     - `seriesFiring` - Count of all series present in the alert causing the alert to fire.
     - `labelsFiring` - Count of unique metrics or aggregations present in the alert causing the alert to fire.
     - `pointTagsFiring` - Count of point tag key-value pairs present in the alert causing the alert to fire.
+    
+- **firing** - `~alert.firing.<alert ID>.<severity>.<metricName>`. Returns a time series for each source/label associated with the alert. The value is 1 if the alert is firing, 0 otherwise.
+  - `alertID` - The alert ID. The field accepts the wildcard `*`. See [Referencing Alert Metrics](#referencing-alert-metrics).
+  - `severity` - The severity of the alert.
+  - `metricName` - Name of the _first_ metric in the alert condition causing the alert to fire.
 
-- **firing** - `~alert.firing.<alert ID>.<severity>.<metricName>`, where `<metricName>`is the name of the _first_ metric in the alert condition causing the alert to fire. Firing will return a timeseries for each source/label associated with the alert. The value is 1 if the alert is firing, 0 otherwise.
 
-
-
-
-NOTE: It is recommended that you use last() with the ~alert metrics. Examples are in the use cases below.
+NOTE: It is recommended that you use `last()` with the ~alert metrics. Examples are in the use cases below.
 
 ### Example Metrics
 
@@ -43,7 +44,7 @@ NOTE: It is recommended that you use last() with the ~alert metrics. Examples ar
 
 ### Use Case Example 1: Chain together alert dependencies with isFiring
 
-Without ~alert metrics, one would traditionally create dependencies across alert A, B, and C using the following method:
+Without `~alert` metrics, you could create dependencies across alert A, B, and C using the following method:
 
 - Alert A: `ts(processes.blocked) > 2 and ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
 - Alert B: `ts(mem.available) > 10 and ts(cpu.loadavg.1m) > 5`
@@ -51,7 +52,7 @@ Without ~alert metrics, one would traditionally create dependencies across alert
 
 The problem is, if you decide to change alert B or C, you will have to manually copy those changes to alerts A and B.
 
-With ~alert metrics you can rewrite the alerts as follows:
+With `~alert` metrics you can rewrite the alerts as follows:
 
 - Alert A: `ts(processes.blocked) > 2 and last(ts(~alert.isFiring.*, alertName="B"))`
 - Alert B: `ts(mem.available) > 10 and last(ts(~alert.isFiring.*, alertName="C"))`
@@ -65,7 +66,7 @@ Suppose you want to write an alert, Alert A, that only fires when specific sourc
 
 - Alert A: `last(ts(~alert.firing.*, source="app-10" and alertName="B"))`
 
-In this case, Alert A would only fire if app-10 was firing from Alert B.
+In this case, Alert A would only fire if `app-10` was firing from Alert B.
 
 ### Use Case Example 3: Alert if more than X sources are firing from another alert
 
@@ -73,7 +74,7 @@ Suppose you want to write an alert, Alert A, that only fires when Alert B has mo
 
 - Alert A: `last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
-Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing AND the metric, "mem.available" is less than 2.
+Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing AND the metric, `mem.available` is less than 2.
 
 - Alert A: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
@@ -89,9 +90,9 @@ The example below is an alert condition that depends on 2 separate alerts genera
 
 ## Referencing Alert Metrics
 
-There are three ways to reference an alert metric: alert name, alert tags, and alert ID.
+You can reference a particular alert metric by specifying the alert name, alert tags, or alert ID.
 
-- **alert name** - Specify `*` in the `alertID` field and the alert name in the `alertName` tag. The example below shows an alert condition that depends on an alert named `alert1` generating the `sourcesFiring` metric with severity `WARN`.
+- **alert name** - Specify `*` in the `alertID` field and the alert name using the `alertName` keyword. The example below shows an alert condition that depends on an alert named `alert1` generating the `sourcesFiring` metric with severity `WARN`.
 
   ```
   last(ts(~alert.summary.*.WARN.sourcesFiring, alertName=alert1)) > 0
