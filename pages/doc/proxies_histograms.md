@@ -436,10 +436,10 @@ To query histogram metrics, use `hs()` queries.
 
 You can apply the following functions to the returned data&mdash; `percentile`, `merge`, `max`, `median`, `min`, and `count`. For example:
 
-* `percentile(<percentile>, hs(histogram.<metricName>.m))`-- Returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
-* `max(hs(histogram.<metricName>.m))` -- Returns the largest value in `<metricName>`
-* `median(hs(histogram.<metricName>.m))` -- Returns the median of `<metricName>`
-* `merge(hs(histogram.<metricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<metricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(histogram.<metricName>.m),key)` where `key` is a point tag name.
-* `align(<timeWindow>,hs(histogram.<metricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(histogram.<metricName>.m))` to output hourly buckets on a minutely histogram.
+* `percentile(<percentile>, hs(<metricName>.m))`-- Returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
+* `max(hs(<metricName>.m))` -- Returns the largest value in `<metricName>`
+* `median(hs(<metricName>.m))` -- Returns the median of `<metricName>`
+* `merge(hs(<metricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<metricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(<metricName>.m),key)` where `key` is a point tag name.
+* `align(<timeWindow>,hs(<metricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(<metricName>.m))` to output hourly buckets on a minutely histogram.
 
 {% include note.html content="Direct histogram visualization in charts is not currently supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with one of the supported functions listed above, for example, `max(hs(...))`." %}
