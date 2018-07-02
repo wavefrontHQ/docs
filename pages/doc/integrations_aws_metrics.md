@@ -49,7 +49,8 @@ If you use a Wavefront external ID you set up all types of data&mdash;CloudWatch
      - **Role ARN** - Role ARN from Amazon account.
      - **Bucket Name -** The S3 bucket containing CloudTrail logs. In your AWS account, go to **CloudTrail** &gt;**Trails** to see the bucket name.
      - **Prefix** - A log file prefix specified when you created the CloudTrail.
-1.  Click **Connect**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](#configure).
+     - **CloudTrail Region** - AWS Region where the CloudTrail logs reside.
+1.  Click **SET UP**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](#configure).
 
 ## Adding AWS Data Types Individually
 
