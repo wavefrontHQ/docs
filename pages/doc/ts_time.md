@@ -25,4 +25,4 @@ Note that if the chart's bucket size is greater than 1 second, some of the displ
 ## Examples
 
 You can monitor the system clock of a source if it has a metric for sending its system time to Wavefront as epoch seconds. By comparing such a metric to the results of `time()`, you can detect latency or system clock drift. The following chart shows the results of `time()-ts(time.seconds)`, which is the difference between the time maintained by Wavefront servers and a source's system clock (`time.seconds`). Notice that this difference is positive 187 seconds up to 11:59am, which means the Wavefront time is ahead of the source's time by a little over 3 minutes. At 12 noon, the two clocks are synchronized again. 
-![timestamp](images/ts_time_clock_drift.png)
+![time](images/ts_time_clock_drift.png)
