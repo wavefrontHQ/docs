@@ -22,11 +22,7 @@ By default, the chart legend displays an abbreviated version of the epoch second
 
 Note that if the chart's bucket size is greater than 1 second, some of the displayed values will be averages over multiple epoch time values, and therefore shown as decimal numbers with fractional parts. To get precise epoch times, you can zoom in to shrink the chart's bucket size to ~1 second.
 
-<!---## Examples
+## Examples
 
-This chart shows the timestamp values associated with the reported CPU usage maximums. Notice that the legend displays a timestamp as an abbreviated numeric value (`1.529G`).
-![timestamp](images/ts_timestamp_no_shift.png)
-
-This chart also shows the timestamp values associated with the reported CPU usage maximums, but this time we held the shift key while hovering the pointer over the value, so the legend displays the timestamp as an an actual number of epoch seconds (`1529366640`).
-![timestamp change](images/ts_timestamp_shift.png)
---->
+You can monitor the system clock of a source if it has a metric for sending its system time to Wavefront as epoch seconds. By comparing such a metric to the results of `time()`, you can detect latency or system clock drift. The following chart shows the results of `time()-ts(time.seconds)`, which is the difference between the time maintained by Wavefront servers and a source's system clock (`time.seconds`). Notice that this difference is positive 187 seconds up to 11:59am, which means the Wavefront time is ahead of the source's time by a little over 3 minutes. At 12 noon, the two clocks are synchronized again. 
+![timestamp](images/ts_time_clock_drift.png)
