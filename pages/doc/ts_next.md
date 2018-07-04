@@ -52,6 +52,6 @@ Then we replace the missing data with the first good value after the gap using `
 
 ## See Also
 
-[Using Moving and Tumbling Time Windows to Highlight trends](query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
 Other missing data functions include [default](ts_default.html), [interpolate](ts_interpolate.html), and [last](ts_last.html).

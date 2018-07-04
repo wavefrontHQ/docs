@@ -46,6 +46,6 @@ When you use `interpolate()` for this use case, the dashed lines are replaced wi
 
 ## See Also
 
-[Using Moving and Tumbling Time Windows to Highlight trends](query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
 Other missing data functions include [default](ts_default.html), [next](ts_next.html), and [last](ts_last.html).

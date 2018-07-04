@@ -30,7 +30,7 @@ Returns the specied percentile value for each time series over a moving time win
 <td>A number greater than 0 and less than or equal to 100. You can include as many decimal points as you like.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression, a constant, or a wildcard.   </td>
+<td>Expression describing the time series for which to return percentile values over the moving time window.   </td>
 </tr>
 </tbody>
 </table>

@@ -26,7 +26,7 @@ Returns the number of times a counter has reset within the specified time window
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression, a constant, or a wildcard. </td></tr>
+<td>Expression describing the time series you want the number of counter resets for. </td></tr>
 </tbody>
 </table>
 

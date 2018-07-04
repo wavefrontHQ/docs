@@ -26,7 +26,7 @@ Returns the aggregated number of series reporting during the specified time wind
 <td >Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression, a constant, or a wildcard. </td></tr>
+<td>Expression describing the time series you want the moving series count for. </td></tr>
 <tr><td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning a count for each subgroup.
 Use one or more parameters to group by metric names, source names, source tag names, point tag names, values for a particular point tag key, or any combination of these items. Specify point tag keys by name.</td>

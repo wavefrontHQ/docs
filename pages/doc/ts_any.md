@@ -25,7 +25,7 @@ Returns 1 if the expression has been non-zero at any time during the time window
 <td >Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression, a constant, or a wildcard.</td></tr>
+<td>Expression describing the condition to be tested for.</td></tr>
 </tbody>
 </table>
 
@@ -34,8 +34,8 @@ Returns 1 if the expression has been non-zero at any time during the time window
 The `any()` function enables you to emulate an alert window and helps you predetermine how often an alert would fire based on existing data within a shifting time window. 
 
 The `any()` function looks at the displayed point buckets within a specified moving time window and:
-* Returns 0  if no displayed point buckets meet that condition.
-* Returns 1 if at least one of the displayed point buckets meets that condition.
+* Returns 0  if no displayed point buckets meet the specified condition.
+* Returns 1 if at least one of the displayed point buckets meets the specified condition.
 
 Note: You can use [`all()`](ts_all.html) to test whether all displayed point buckets meet the condition.
 

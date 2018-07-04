@@ -22,7 +22,7 @@ pip install wavefront_pyformance
 
 ### Option 1. Create a Wavefront Proxy Reporter and Register Metrics
 
-Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for sending metrics directly to a Wavefront server.
+Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for sending metrics directly to a Wavefront service.
 
 
 
@@ -69,7 +69,7 @@ c1.inc()
 server = "http://YOUR_CLUSTER.wavefront.com"
 token = "YOUR_API_TOKEN"
 
-# Direct Reporter with tags reporting directly to a Wavefront server every 10s
+# Direct Reporter with tags reporting directly to a Wavefront service every 10s
 wf_direct_reporter = WavefrontDirectReporter(server=server, token=token, registry=reg,
                                              source="wavefront-pyformance-exmaple",
                                              tags={"key1":"val1", "key2": "val2"},

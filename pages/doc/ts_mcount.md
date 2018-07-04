@@ -28,7 +28,7 @@ Returns the number of data points reported over the specified time window. If a 
 <div><strong>NOTE</strong>: If a time series stops reporting data, <code>mcount()</code> continues for 2x the specified time window, and then stops.</div></td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression, a constant, or a wildcard.  </td>
+<td>Expression describing the time series you want moving counts for.  </td>
 </tr>
 </tbody>
 </table>
@@ -70,6 +70,6 @@ Notice how the red points are around 180 until the yellow points stop reporting.
 
 ## See Also
 
-[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
 
-[Account for Missing Data Points](https://docs.wavefront.com/alerts_robustness_increasing.html#account-for-missing-data-points)
+[Account for Missing Data Points](alerts_robustness_increasing.html#account-for-missing-data-points)
