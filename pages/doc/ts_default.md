@@ -118,6 +118,6 @@ If you still think that `default()` is needed, limit the time window to reduce p
 
 ## See Also
 
-[Using Moving and Tumbling Time Windows to Highlight trends](query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
 Other missing data functions include [interpolate](ts_interpolate.html), [next](ts_next.html), and [last](ts_last.html).
