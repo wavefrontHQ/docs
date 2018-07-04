@@ -548,7 +548,7 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_if.html">if(<strong>&lt;conditionalExpression&gt;</strong>, <strong>&lt;thenExpression&gt;</strong> &lbrack;, <strong>&lt;elseExpression&gt;</strong>&rbrack;)</a></td>
+<td>if(<strong>&lt;conditionalExpression&gt;</strong>, <strong>&lt;thenExpression&gt;</strong> &lbrack;, <strong>&lt;elseExpression&gt;</strong>&rbrack;)</td>
 <td>Returns points from <strong>thenExpression</strong> only while <strong>conditionalExpression</strong> &gt; 0. Otherwise, returns points from <strong>elseExpression</strong>, if it is specified. <strong>conditionalExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>thenExpression</strong> and <strong>elseExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>conditionalExpression</strong>.<br /><br />
 Example: The query <strong>if(ts(my.metric) &gt;= 10, ts(my.metric), ts(another.metric))</strong> returns ts(<strong>my.metric</strong>) only when its values are &gt;= 10. Whenever ts(<strong>my.metric)</strong> &lt; 10, the query returns points from ts(<strong>another.metric</strong>).<br /><br />
 When <strong>conditionalExpression</strong> and at least one of <strong>thenExpression</strong> or <strong>elseExpression</strong> is not a constant time series, this function outputs continuous time series.
