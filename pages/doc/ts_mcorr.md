@@ -26,9 +26,9 @@ Returns the correlation between two time series, specified by `expression1` and 
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression1](query_language_reference.html#expressions)</td>
-<td>First expression for the correlation. The expression can be a ts() expression, a constant, or a wildcard.  </td></tr><tr>
+<td>Expression describing the first set of time series to be correlated.   </td></tr><tr>
 <td markdown="span"> [expression2](query_language_reference.html#expressions)</td>
-<td>Second expression for the correlation. The expression can be a ts() expression, a constant, or a wildcard.  </td></tr>
+<td>Expression describing the second set of time series to be correlated.   </td></tr>
 <tr>
 <td markdown="span">inner</td>
 <td markdown="span">If the number of unique series associated with either expression is dynamic, then you can force series matching by adding the optional **inner**  parameter.</td></tr>
@@ -59,6 +59,6 @@ The following example shows the correlation between the total requests for app-1
 
 ## See Also
 
-[Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html)
+[Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
 
 [Using Correlation Functions (video)](https://www.youtube.com/watch?v=bV9mGSAbD8s&feature=youtu.be)

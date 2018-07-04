@@ -18,7 +18,7 @@ The reporters support sending metrics to Wavefront using the [Wavefront proxy](h
 
 ### Option 1. Create a Wavefront Proxy Reporter
 
-Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for sending metrics directly to a Wavefront server.
+Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for sending metrics directly to a Wavefront service.
 
 
 
@@ -147,7 +147,7 @@ func main() {
 
   go wavefront.WavefrontProxy(metrics.DefaultRegistry, 1*time.Second, reporterTags, "some.prefix", addr)
 
-  // Send metrics directly to a wavefront server
+  // Send metrics directly to a wavefront service
   server := "http://YOUR_CLUSTER.wavefront.com"
   token := "YOUR_API_TOKEN"
   go wavefront.WavefrontDirect(metrics.DefaultRegistry, 5*time.Second, hostTags, "direct.prefix", server, token)

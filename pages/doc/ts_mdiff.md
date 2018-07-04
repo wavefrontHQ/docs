@@ -26,7 +26,7 @@ Returns the moving difference between data values reported `timeWindow` apart, w
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression, a constant, or a wildcard.  </td></tr>
+<td>Expression describing the time series you want moving differences for.  </td></tr>
 </tbody>
 </table>
 
@@ -46,4 +46,4 @@ In the following chart, the value at 5:00pm is 462 and the value 15 minutes befo
 
 ## See Also
 
-See [Using Moving and Tumbling Windows to Highlight Trends](https://docs.wavefront.com/query_language_windows_trends.html) for background information. 
+See [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html) for background information. 
