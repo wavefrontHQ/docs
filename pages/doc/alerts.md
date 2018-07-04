@@ -76,7 +76,7 @@ To create an alert:
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">Targets to notify when the alert changes state.  For example, notifications are sent when alert state changes from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html) separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
+<td markdown="span">Targets to notify when the alert changes state, for example, from FIRING to CHECKING, or when an alert is snoozed. You can specify a list of up to ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html), separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
 </td>
 </tr>
 <tr>
@@ -145,11 +145,11 @@ When an alert changes state, a notification containing alert information and a l
 * You can add simple targets (email and PagerDuty) directly in the alert's Targets field.
 * You can explicitly create an [alert target](webhooks_alert_notification.html) and add that target to your alert.
 
-For example, if you have configured an email address as the alert target, you receive an email like the following whenever the alert fires, adds or removes an affected source, resolves, or is updated:
+For example, if you have configured your email address as the alert target, you receive an email like the following whenever the alert fires, adds or removes an affected source, resolves, or is updated:
 
 ![alert_email](images/alert_email.png)
 
-When you click the link in the notification, you see the queries and alert events:
+When you click the **View Alert** button in the notification, you see the queries and alert events:
 
 {% include shared/alert_details.html %}
 
