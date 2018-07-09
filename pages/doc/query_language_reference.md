@@ -548,10 +548,10 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td>if(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">ThenExpression</span>, <span style="color:#08838c;font-weight:bold">ElseExpression</span>)</td>
-<td>Returns <span><span style="color:#bf4b89;font-weight:bold">ThenExpression</span> if <span style="color:#3a0699;font-weight:bold">expression</span> &gt;0. Otherwise, returns <span style="color:#08838c;font-weight:bold">ElseExpression</span>. Expects a time series expression as a first argument, and, since time series are numeric, only numeric comparisons are supported. When both <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> and <span style="color:#08838c;font-weight:bold">ElseExpression</span> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <span style="color:#3a0699;font-weight:bold">expression</span>.<br /><br />
-Example: If <span style="color:#3a0699;font-weight:bold">expression</span> is ts(<span style="color:#08838c;font-weight:bold">my.metric</span>) &gt;= 10</span>, if (<span style="color:#3a0699;font-weight:bold">expression</span>, ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>), ts(<span style="color:#08838c;font-weight:bold">another.metric</span>)) returns ts(<span style="color:#bf4b89;font-weight:bold">my.metric</span>) only when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &gt;= 10; when ts(<span style="color:#08838c;font-weight:bold">my.metric)</span> &lt; 10, it returns ts(<span style="color:#08838c;font-weight:bold">another.metric</span>).<br /><br />
-When <span style="color:#3a0699;font-weight:bold">expression</span> and at least one of <span style="color:#bf4b89;font-weight:bold">ThenExpression</span> or <span style="color:#08838c;font-weight:bold">ElseExpression</span> is not a constant time series, this function outputs continuous time series.
+<td>if(<strong>&lt;conditionalExpression&gt;</strong>, <strong>&lt;thenExpression&gt;</strong> &lbrack;, <strong>&lt;elseExpression&gt;</strong>&rbrack;)</td>
+<td>Returns points from <strong>thenExpression</strong> only while <strong>conditionalExpression</strong> &gt; 0. Otherwise, returns points from <strong>elseExpression</strong>, if it is specified. <strong>conditionalExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>thenExpression</strong> and <strong>elseExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>conditionalExpression</strong>.<br /><br />
+Example: The query <strong>if(ts(my.metric) &gt;= 10, ts(my.metric), ts(another.metric))</strong> returns ts(<strong>my.metric</strong>) only when its values are &gt;= 10. Whenever ts(<strong>my.metric)</strong> &lt; 10, the query returns points from ts(<strong>another.metric</strong>).<br /><br />
+When <strong>conditionalExpression</strong> and at least one of <strong>thenExpression</strong> or <strong>elseExpression</strong> is not a constant time series, this function outputs continuous time series.
 
 </td>
 </tr>
@@ -573,16 +573,17 @@ When <span style="color:#3a0699;font-weight:bold">expression</span> and at least
 </tr>
 </thead>
 <tr>
-<td>round(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the nearest whole number to <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_round.html">round(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the nearest integer for each data value in the specified time series. 
+</td>
 </tr>
 <tr>
-<td>ceil(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Rounds up <span style="color:#3a0699;font-weight:bold">expression</span> to the next largest whole number.</td>
+<td><a href="ts_ceil.html">ceil(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the ceiling for the specified time series, by rounding any data values with decimals up to the next largest integer.</td>
 </tr>
 <tr>
-<td>floor(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Rounds down <span style="color:#3a0699;font-weight:bold">expression</span> to the next smallest whole number.</td>
+<td><a href="ts_floor.html">floor(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
 </tr>
 </tbody>
 </table>

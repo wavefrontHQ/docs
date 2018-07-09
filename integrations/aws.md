@@ -97,7 +97,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Elastic Beanstalk</h5>
-<div><img src="images/Compute_AWSElasticBeanstalk.svg" alt="Amazon Elstic Beanstalk" style="max-width: 70px;"/></div>
+<div><img src="images/Compute_AWSElasticBeanstalk.svg" alt="Amazon Elastic Beanstalk" style="max-width: 70px;"/></div>
 </td>
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon Kinesis Firehose</h5>
@@ -130,6 +130,10 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 <td style="text-align:center;vertical-align:top;">
 <h5>Amazon CloudTrail</h5>
 <div><img src="images/aws-cloudtrail.png" alt="Amazon KMS" style="max-width: 70px;"/></div>
+</td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Amazon Elastic Transcoder</h5>
+<div><img src="images/aws-elastic-transcoder.png" alt="Amazon Elastic Transcoder" style="max-width: 70px;"/></div>
 </td>
 </tr>
 </tbody>

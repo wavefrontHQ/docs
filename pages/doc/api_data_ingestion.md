@@ -4,6 +4,7 @@ keywords: data
 tags: [data]
 sidebar: doc_sidebar
 permalink: api_data_ingestion.html
+published: false
 summary: Learn how to use the data ingestion API to ingest metrics directly into the Wavefront service.
 ---
 

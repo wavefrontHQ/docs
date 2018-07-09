@@ -31,9 +31,11 @@ Returns the moving sum for each time series, over the time window set for the cu
 
 The `integral` function returns the moving sum for each time series described by the expression, over the time window set for the current chart. The function always returns 0 at the left side of the chart, and shows the total accumulation over the duration of the chart's time window.
 
-The function is useful for determining trends, for example, whether the total number of requests per minute increased, or whether new sources were added to meet demand.
+The function is useful for determining trends, for example, whether the total number of requests per minute increased, or whether new sources were added to meet demand. For example, you might want to know how much traffic you serve in a day. By looking at the slope that results from the call to `integral`, you can see where traffic grows the fastest.
 
 In contrast to [integrate](ts_integrate.html), this function depends completely on the time window that you're currently looking at.
+
+
 
 ## Examples
 

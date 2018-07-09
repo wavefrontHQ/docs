@@ -434,12 +434,13 @@ The Wavefront proxy adds the suffixes `.m`, `.h`, or `.d` to the metric name acc
 
 To query histogram metrics, use `hs()` queries.
 
-You can apply the following functions to the returned data&mdash; `percentile`, `merge`, `max`, `median`, `min`, and `count`. For example:
+You can apply the following functions to the returned data&mdash; `percentile`,  `max`, `min`, `median`, `merge`,  `align`, and `count`. For example:
 
-* `percentile(<percentile>, hs(<metricName>.m))`-- Returns `<metricName>` for the `<percentile>` percentile aggregated over a minute.
-* `max(hs(<metricName>.m))` -- Returns the largest value in `<metricName>`
-* `median(hs(<metricName>.m))` -- Returns the median of `<metricName>`
-* `merge(hs(<metricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<metricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(<metricName>.m),key)` where `key` is a point tag name.
-* `align(<timeWindow>,hs(<metricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(<metricName>.m))` to output hourly buckets on a minutely histogram.
+* `percentile(<percentile>, hs(<histogramMetricName>.m))`-- Returns `<histogramMetricName>` for the `<percentile>` percentile aggregated over a minute.
+* `max(hs(<histogramMetricName>.m))` -- Returns the largest value in `<histogramMetricName>`
+* `median(hs(<histogramMetricName>.m))` -- Returns the median of `<histogramMetricName>`
+* `merge(hs(<histogramMetricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<histogramMetricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(<histogramMetricName>.m),key)` where `key` is a point tag name.
+* `align(<timeWindow>,hs(<histogramMetricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(<histogramMetricName>.m))` to output hourly buckets on a minutely histogram.
+* `count(hs(<histogramMetricName>.m))` –- Returns the number of values in a distribution. 
 
 {% include note.html content="Direct histogram visualization in charts is not currently supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with one of the supported functions listed above, for example, `max(hs(...))`." %}
