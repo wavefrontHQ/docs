@@ -11,11 +11,12 @@ summary: Reference to the random() function
 random(<numberOfTimeSeries>, <expression>)
 random()
 ```
-When used as a filtering function, returns `numberOfTimeSeries` random time series based on the expression.
+When used as a filtering function, returns the specified number of time series chosen randomly from the series described by the expression.
 
-When used with no parameters, returns random values between 0.0 and 1.0.
+When used as a value generator (no parameters), returns a series of random values between 0.0 and 1.0.
 
 ## Parameters
+### Filtering Function
 <table style="width: 100%;">
 <tbody>
 <thead>
@@ -23,22 +24,29 @@ When used with no parameters, returns random values between 0.0 and 1.0.
 </thead>
 <tr>
 <td>numberOfTimeSeries</td>
-<td>Number of time series that you want. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
+<td>Number of time series in the random subset. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression that you want to filter.</td>
+<td>Expression describing the time series that you want to filter.</td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-When used to filter an expression, `random()` returns a random value between 0.0 and 1.0 for every point in time on a chart. If you reload a chart that uses `random()`, the reloaded chart computes a brand new random value at each point.
+### Filtering Function
 
-You can also use `random()` without arguments to return random values between 0.0 and 1.0.
+The `random()` filtering function returns the specified number of time series chosen randomly from the time series described by the expression. Repeated calls display different random subsets.
+
+### Value generator
+
+The `random()` value generator returns a random value between 0.0 and 1.0 for every point in time on a chart. Repeated calls display different random values at each point.
+
 
 ## Examples
 
-The following example chart shows 10% of the `~sample.cpu.loadavg.1m` time series, picked randomly. Notice how the sources that were selected are not related.
+### Filtering Function
+
+The following example chart shows 3 of the `~sample.cpu.loadavg.1m` time series, picked randomly. Notice how the sources that were selected are not related.
 
 ![random](images/ts_random.png)

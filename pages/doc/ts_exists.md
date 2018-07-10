@@ -10,8 +10,8 @@ summary: Reference to the exists() function
 ```
 exists(<expression>)
 ```
-Returns 1 if at least one value has been reported for the expression in the last 4 weeks. Returns 0 otherwise.
-
+Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
+A time series exists if it has reported a data value in the last 4 weeks.
 ## Parameters
 <table style="width: 100%;">
 <tbody>
@@ -20,43 +20,53 @@ Returns 1 if at least one value has been reported for the expression in the last
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression.</td></tr>
+<td>Expression describing the time series to be tested for existence.</td></tr>
 </tbody>
 </table>
 
 
 ## Description
 
-Returns 1 if at least one value in the expression has been reported in the last 4 weeks. Returns 0 otherwise.
-
-This function outputs continuous time series.
+The `exists()` function returns 1 if any time series described by the expression exists, and returns 0 otherwise. A time series exists if it has at least one value that was reported within the last 4 weeks. The returned constant series is continuous.
 
 You can use `exists()` to see if a metric is obsolete or has never reported.
 
-In addition, `exists()` is useful if you're creating a query that uses a metric that you will send in soon, for example, when you're building a dashboard before you're  sending the data. Unless you wrap the queries in `exists()`, all your charts will show errors. If you use `exists`, you get the syntax errors, which help you make corrections, but not the errors for the missing metric.
+`exists()` is useful if you're creating a query that uses a metric that is planned but has not yet started reporting, for example, when you're building a dashboard before any data is sent. Unless you wrap the query in `exists()`, all your charts will show errors for the missing metric. Using `exists` allows any syntax errors to be reported, which help you make corrections, but suppresses the errors for the missing metric.
 
 ## Examples
 
-You can wrap `exists()` around a query, like this:
+You can wrap `exists()` around an expression that returns some number of time series, like this:
 
-`hasData:  exists(ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"))`
+```
+exists(ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"))
+```
 
-If that time series returns data, the result of the query is `1`. You can use `if()` to return a constant, or to plug in a different query as in the following two examples. Both examples use the `exists()` query above which is named `hasData`.
+This query returns 1 if at least one time series has a value reported within the last 4 weeks. Otherwise, the query returns 0 if the values of all of the time series are older than 4 weeks.
+Because this query returns either 1 or 0, it is useful as a conditional expression in an `if()` function. 
 
-**Note**: Be sure to name your queries to keep things clear.
+For clarity, we'll name this query `hasData` so we can easily refer to it in the following examples.
 
 ### Example 1
 
-`if(${hasData}, ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"), 1)`
+This example tests `hasData` to see whether its underlying metrics are reporting data, and if so, returns that data:
 
-For this query:
-* If `${hasData}` returns `1`, indicating it has data, then use the underlying query.
-* If not, plug in the constant 1 or another value that makes sense for the use case.
-*
+```
+if(${hasData}, ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"), 100)
+```
+
+In this example,
+* `hasData` evaluates to 1 (true) if its underlying metrics are reporting, so `if()` returns that time series.
+* `hasData` evaluates to 0 (false) if its underlying metrics are not reporting, so `if()` returns the constant 100.
+
+
 ### Example 2
 
-`if(${hasData}, ${HDquery}, ${substituteQuery})`
+This example tests `hasData` to see whether its underlying metrics are reporting data, and uses the result to choose between two other previously defined queries named `queryOfInterest` and `substituteQuery`: 
 
-This example illustrates that:
-* You can use a query for the then clause of the `if` statement.
-* You can also use a third query for the `else` clause. For example, the substitute query could use `lag(48,...)` to go back two days.
+```
+if(${hasData}, ${queryOfInterest}, ${substituteQuery})
+```
+
+In this example:
+* `hasData` evaluates to 1 (true) if its underlying metrics are reporting, so `if()` returns the results of `queryOfInterest`.
+* `hasData` evaluates to 0 (false) if its underlying metrics are not reporting, so `if()` returns the results of `substituteQuery`.

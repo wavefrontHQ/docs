@@ -10,7 +10,7 @@ summary: Reference to the normalize() function
 ```
 normalize(<expression>)
 ```
-Returns every series in expression scaled, so that each series has a minimum of 0 and a maximum of 1.0.
+Returns the time series described by the expression, scaled to fit between the values 0 and 1.0.
 
 ## Parameters
 
@@ -21,18 +21,21 @@ Returns every series in expression scaled, so that each series has a minimum of 
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression you want to normalize. </td>
+<td>Expression describing the time series you want to normalize. </td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-The `normalize()` function scales every time series so that it has a minimum value of 0 and maximum value of 1. Normalizing is useful if you want to see shape correlation between time series of very different scale. After normalizing, all the time series fit in the same vertical space.
+The `normalize()` function scales the time series described by the expression, so that each series has a minimum value of 0 and maximum value of 1.
+`normalize()` returns a separate series of results for each time series.
+
+Normalizing is useful if you want to see shape correlation between time series of very different scale. After normalizing, all the time series fit in the same vertical space.
 
 ## Examples
 
-The following diagram shows the request latency for app-2 and app-20.
+The following diagram shows the request latency for `app-2` and `app-20`.
 
 ![normalize before](images/ts_normalize_before.png)
 

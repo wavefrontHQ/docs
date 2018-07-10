@@ -10,7 +10,7 @@ summary: Reference to the abs() function
 ```
 abs(<expression>)
 ```
-Returns the absolute value of the expression.
+Returns the absolute value of the time series described by the expression.
 
 ## Parameters
 <table style="width: 100%;">
@@ -20,19 +20,21 @@ Returns the absolute value of the expression.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>A ts() expression for which you want the absolute value.</td></tr>
+<td>Expression describing the time series for which you want the absolute value.</td></tr>
 </tbody>
 </table>
 
 
 ## Description
 
-At times, charts display data that fluctuates between positive and negative values. When the `abs()` function is added to a `ts()` expression, each data point will be displayed as an absolute value (the distance from zero).
+The `abs()` function returns the absolute value of each data value in the time series described by the expression. `abs()` returns a separate series of results for each such time series.
+
+If the data points of a time series fluctuate between positive and negative values, you can apply the `abs()` function to display each data point as an absolute value (the distance from zero).
 
 
 ## Examples
 
-Suppose that you have a `ts()` expression that displays three data points: 2, -1, and -9. If you add the `abs()` function to the expression, then the data points are displayed as 2, 1, and 9.
+Suppose that you have a time series that includes three data points: 2, -1, and -9. If you apply the `abs()` function to the series, these data points are displayed as 2, 1, and 9.
 
 The following example shows how `abs()` displays a corresponding positive value for each negative value in the chart. We've included a line for 0 to illustrate how the function works.
 

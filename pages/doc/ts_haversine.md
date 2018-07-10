@@ -10,7 +10,7 @@ summary: Reference to the haversine() function
 ```
 haversine(<lat1>, <long1>, <lat2>, <long2>)
 ```
-Returns the distance between coordinates. The input expressions can be constants or ts() expressions.
+Returns the distance between the specified pair of coordinates. 
 
 
 ## Parameters
@@ -20,16 +20,18 @@ Returns the distance between coordinates. The input expressions can be constants
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [lat1, long1, lat2, long2](query_language_reference.html#expressions)</td>
-<td>The coordinates for which you want the distance.</td></tr>
+<td markdown="span"> [lat1, long1](query_language_reference.html#expressions)</td>
+<td>Expressions specifying the latitude and longitude of the first pair coordinates.</td></tr>
+<td markdown="span"> [lat2, long2](query_language_reference.html#expressions)</td>
+<td>Expressions specifying the latitude and longitude of the second pair of coordinates.</td></tr>
 </tbody>
 </table>
 
 
 ## Description
-Returns the distance between coordinates. The expression(s) can be constants or ts() expressions. You must specify 4 arguments, each representing latitude and longitude pairs.
-* The 1st and 3rd arguments are latitudes
-* The 2nd and 4th arguments are longitudes.
+The `haversine()` function returns the distance between the specified pair of coordinates. 
+
+You specify each coordinate as a pair of expressions representing latitude and longitude. The expressions may be constants or ts() expressions.
 
 
 ## Example

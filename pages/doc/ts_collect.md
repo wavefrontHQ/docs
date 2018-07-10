@@ -8,7 +8,7 @@ summary: Reference to the collect() function
 ---
 ## Summary
 ```
-collect(<expression>, <expression2>, <expression3>)
+collect(<expression1>, <expression2> [, <expression3>, ...])
 ```
 Returns a ts() expression that is the combination of two or more ts() expressions.
 
@@ -27,11 +27,12 @@ Returns a ts() expression that is the combination of two or more ts() expression
 
 ## Description
 
-Returns a ts() expression that is the combination of two or more ts() expressions.
+The `collect()` function returns a ts() expression that is the combination of two or more ts() expressions.
 
 The returned expression includes a synthetic `collect_<number>` point tag, where `<number>` is the number of input expressions.
 
-The `collect()` function is just a convenience function to combine multiple different series. It doesn't create one single series.
+The `collect()` function is just a convenience function that combines multiple expressions into a single expression. It does not operate on the time series described by the input expressions (for example, it does not create a single series from them).
+
 
 ## Example
 
@@ -47,7 +48,7 @@ lag(5w,${processes})
 ) / 5
 ```
 
-The problem is, if there's a holiday or other anomaly during one of those lags the data are affected and the mean doesn't tell you the complete story.
+The problem is, if there's a holiday or other anomaly during one of those lags, the data are affected and the mean doesn't tell you the complete story.
 
 With `collect()` you can do a similar query but get the median instead of the mean. The median filters out anomalies and holidays:
 

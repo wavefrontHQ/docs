@@ -831,40 +831,41 @@ See [Event Filters](events_queries.html#event-filters) for details on filters.
 <tbody>
 <tr>
 <td>
-<a href="ts_collect.html">collect(<strong>&lt;expression1&gt;</strong>,<strong>&lt;expression2&gt;</strong>,<strong>&lt;expression3&gt;...</strong>...)</a>
+<a href="ts_collect.html">collect(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong> &lsqb;, <strong>&lt;expression3&gt;, ...</strong>&rsqb;)</a>
 </td>
-<td>Returns a ts() expression that is the combination of two or more ts() expressions.</td>
+<td>Returns a single ts() expression that is the combination of two or more ts() expressions.</td>
 </tr>
 <tr>
 <td>
 <a href="ts_exists.html">exists(<strong>&lt;expression&gt;</strong>)</a>
 </td>
-<td>Returns 1 if at least one value in the expression has been reported in the last 4 weeks. Returns 0 otherwise. </td>
+<td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
+A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
 <td>
 <a href="ts_abs.html">abs(<strong>&lt;expression&gt;</strong>)</a>
 </td>
-<td>Returns the absolute value of the expression.</td>
+<td>Returns the absolute value of the time series described by the expression.</td>
 </tr>
 <tr>
 <td>
 <a href="ts_random.html">random()</a>
 </td>
-<td>Returns random values between 0.0 and 1.0. If you reload a chart that uses random(), the reloaded chart returns new random values.</td>
+<td>Returns random values between 0.0 and 1.0. Repeated calls display different random values.</td>
 </tr>
 <tr>
 <td>
 <a href="ts_normalize.html">normalize(<strong>&lt;expression&gt;</strong>)</a>
 </td>
-<td>Returns every series in expression scaled, so that each series has a minimum of 0 and a maximum of 1.0.
+<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
 </td>
 </tr>
 <tr>
 <td>
 <a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
 </td>
-<td>Returns the distance between coordinates. The input expressions can be constants or ts() expressions.
+<td>Returns the distance between a pair of coordinates. 
 </td>
 </tr>
 </tbody>
