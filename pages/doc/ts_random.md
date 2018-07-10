@@ -9,11 +9,14 @@ summary: Reference to the random() function
 ## Summary
 ```
 random(<numberOfTimeSeries>, <expression>)
+random()
 ```
-Returns `numberOfTimeSeries` random time series based on the expression.
+When used as a filtering function, returns `numberOfTimeSeries` random time series based on the expression.
+
+When used with no parameters, returns random values between 0.0 and 1.0.
 
 ## Parameters
-<table>
+<table style="width: 100%;">
 <tbody>
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
@@ -30,7 +33,9 @@ Returns `numberOfTimeSeries` random time series based on the expression.
 
 ## Description
 
-The `random()` function returns a random value between 0.0 and 1.0 for every point in time on a chart. If you reload a chart that uses `random()`, the reloaded chart computes a brand new random value at each point.
+When used to filter an expression, `random()` returns a random value between 0.0 and 1.0 for every point in time on a chart. If you reload a chart that uses `random()`, the reloaded chart computes a brand new random value at each point.
+
+You can also use `random()` without arguments to return random values between 0.0 and 1.0.
 
 ## Examples
 

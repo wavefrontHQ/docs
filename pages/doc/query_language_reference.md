@@ -574,7 +574,7 @@ When <strong>conditionalExpression</strong> and at least one of <strong>thenExpr
 </thead>
 <tr>
 <td><a href="ts_round.html">round(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the nearest integer for each data value in the specified time series. 
+<td>Returns the nearest integer for each data value in the specified time series.
 </td>
 </tr>
 <tr>
@@ -840,28 +840,42 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 </thead>
 <tbody>
 <tr>
-<td>collect(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>, <span style="color:#3a0699;font-weight:bold">expression3</span>, ...)</td>
-<td>Returns a ts() expression that is the combination of two or more ts() expressions. The returned expression includes a synthetic <code>collect_&lt;number&gt;</code> point tag, where <code>&lt;number&gt;</code> is the number of input expressions.</td>
+<td>
+<a href="ts_collect.html">collect(<strong>&lt;expression1&gt;</strong>,<strong>&lt;expression2&gt;</strong>,<strong>&lt;expression3&gt;...</strong>...)</a>
+</td>
+<td>Returns a ts() expression that is the combination of two or more ts() expressions.</td>
 </tr>
 <tr>
-<td>exists(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 if at least one value in <span style=" color:#3a0699;font-weight:bold">expression</span> has been reported in the last 4 weeks. Otherwise, it returns 0. This function outputs continuous time series.</td>
+<td>
+<a href="ts_exists.html">exists(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Returns 1 if at least one value in the expression has been reported in the last 4 weeks. Returns 0 otherwise. </td>
 </tr>
 <tr>
-<td>abs(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the absolute value of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td>
+<a href="ts_abs.html">abs(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Returns the absolute value of the expression.</td>
 </tr>
 <tr>
-<td>random()</td>
-<td>Returns random values between 0.0 and 1.0. If you reload a chart that uses random(), the reloaded chart returns new random values. This function outputs continuous time series.</td>
+<td>
+<a href="ts_random.html">random()</a>
+</td>
+<td>Returns random values between 0.0 and 1.0. If you reload a chart that uses random(), the reloaded chart returns new random values.</td>
 </tr>
 <tr>
-<td>normalize(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns every series in <span style="color:#3a0699;font-weight:bold">expression</span> scaled so it has a minimum of 0 and a maximum of 1.0.</td>
+<td>
+<a href="ts_normalize.html">normalize(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Returns every series in expression scaled, so that each series has a minimum of 0 and a maximum of 1.0.
+</td>
 </tr>
 <tr>
-<td>haversine(<span style="color:#3a0699;font-weight:bold">expression1</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>, <span style="color:#3a0699;font-weight:bold">expression3</span>, ...)</td>
-<td>Returns the distance between coordinates. <span style="color:#3a0699;font-weight:bold">expression(s)</span> can be constants or ts() expressions.</td>
+<td>
+<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
+</td>
+<td>Returns the distance between coordinates. The input expressions can be constants or ts() expressions.
+</td>
 </tr>
 </tbody>
 </table>
