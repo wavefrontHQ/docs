@@ -152,22 +152,19 @@ All operations between expressions are subject to the matching processes describ
 </ul>
 
 ## Tags in Queries
-<ul>
-<li>Source tags are a way to group sources together. For example, if you have two sources, <span style="color:#d63a36;font-weight:bold">appServer15</span> and <span style="color:#d63a36;font-weight:bold">appServer16</span>, you could add the source tag <span style="color:#2770e8;font-weight:bold">app</span> to both of them to specify that they are both app servers. Source tags aid in querying by grouping sources together. You can query ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#2770e8;font-weight:bold">tag=app</span>) instead of ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#d63a36;font-weight:bold">source=appServer15</span> or <span style="color:#d63a36;font-weight:bold">source=appServer16</span>). Both queries yield the same result as long as the <span style="color:#d63a36;font-weight:bold">app</span> tag is added to <span style="color:#d63a36;font-weight:bold">source=appServer15</span> and <span style="color:#d63a36;font-weight:bold">source=appServer16</span>.</li>
-<li>Alert tags are a way to group alerts together.</li>
-<li><span style="color:#3a0699;font-weight:bold">Point tags</span> are an additional way to describe metrics. An example of a point tag is <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>.</li>
-<li>Example: To query a point <span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, source <span style="color:#d63a36;font-weight:bold">app2</span>, and point tag <span style="color:#3a0699;font-weight:bold">region=us-west-2b</span>, specify ts(<span style="color:#08838c;font-weight:bold">cpu.load.metric</span>, <span style="color:#3a0699;font-weight:bold">region=us-west-2b </span>and <span style="color:#d63a36;font-weight:bold">source=app2</span>).</li></ul>
-
-For an overview of tags, see [Organizing with Tags](tags_overview.html).
+Tags can help you organize your data. Here's an overview. See [Organizing with Tags](tags_overview.html) for details.
+* Source tags allow you to group sources. For example, if you have two sources, `appServer15` and `appServer16` you can add the source tag `app` to both sources to specify that both are app servers. Source tags allow you to group sources together. For example, you can query `ts(cpu.load.metric, tag=app)` instead of `ts(cpu.load.metric, source=appServer15 or source=appServer16)` Both queries yield the same result as long as the `app` tag is added to each server.
+* Alert tags allow you to group alerts.
+* Point tags are an additional way to describe metrics. For example, assume your data include the point tag `region` with value `us-west-2a` and `us-west-2b`.
 
 ## Variables in Queries
-<ul>
-<li>A <em>query line variable</em> allows you to refer to a query line as a variable in another query field within the same chart. The query line variable name is the same as the query line name and is referenced in another query field with the syntax <span style="color:#008a09;font-weight:bold">${queryLineName}</span>. For example, if you have a query line named <span style="font-weight:bold">queryLine1</span> with ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>) as the <span style="color:#3a0699;font-weight:bold">expression</span>, you can enter <span style="color:#008a09;font-weight:bold">${queryLine1}</span> in a another query field to reference ts(<span style="color:#08838c;font-weight:bold">requests.latency</span>). The query line being referenced must be a complete expression. If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable. </li>
-
-<li>An <em>alias</em> defines any ts() expression as an alias within that single query line using a SQL-style "as" expression. The syntax of an alias is: <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">&lt;aliasName&gt;</span>. If you specify <span style="color:#3a0699;font-weight:bold">expression</span> <span style="font-weight:bold">as</span> <span style="color:#008a09;font-weight:bold">myAlias</span>, you reference the alias as
-<span style="color:#008a09;font-weight:bold">$myAlias</span>. You can use <span style="color:#008a09;font-weight:bold">$myAlias</span> multiple times in that query line, and define multiple aliases within a query line. We recommend using alias names that are three letters or longer; specifically, you can't use the SI prefixes (such as k, G, or T) as alias names, and numeric characters are allowed only at the end of the alias name ($test123 is ok, but not $1test or $test4test).<br /></li>
-
-<li>A <em>dashboard variable</em> is a variable that can be used within any query line in every chart contained in the dashboard. A dashboard variable can replace any string of text, as opposed to a query line variable and alias which must be a complete expression. If you define <span style="color:#008a09;font-weight:bold">dashvar</span> in a dashboard, you refer to <span style="color:#008a09;font-weight:bold">${dashvar}</span> within any query line. You can use aliases, query line variables, and dashboard variables in the same query line; indeed, you can use the same variable name for a dashboard and an alias (though we don't recommend it). See <a href="dashboards_variables.html">Dashboard Variables</a>.</li></ul>
+We support variables in several ways:
+* A *query line variable* allows you to refer to a query line as a variable in another query field within the same chart. The query line variable name is the same as the query line name and is referenced in another query field with the syntax `${queryLineName}`. For example, if you have a query line named `queryLine1` with `ts(requests.latency)` as the expression, you can enter `${queryLine1}` in a another query field to reference `ts(requests.latency)`. The query line being referenced must be a complete expression. If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable.
+* An *alias* defines any ts() expression as an alias within that single query line using a SQL-style "as" expression. The syntax of an alias is: expression as `<aliasName>`. If you specify expression as `myAlias`, you reference the alias as `$myAlias`. You can use `$myAlias` multiple times in that query line, and define multiple aliases within a query line.
+  - Use names that are three letters or longer.
+  - You can't use the SI prefixes (such as k, G, or T) as alias names.
+  - Numeric characters are allowed only at the end of the alias name (`$test123` is ok, but `$1test` or `$test4test` is not).
+* A *dashboard variable* can be used within any query line in every chart contained in a specific dashboard. A dashboard variable can replace any string of text--in contrast, a query line variable and alias must be a complete expression. If you define `dashvar` in a dashboard, you refer to `${dashvar}` within any query line. You can use aliases, query line variables, and dashboard variables in the same query line. You can even use the same variable name for a dashboard and an alias (though we don't recommend it). See [Dashboard Variables](dashboards_variables.html).
 
 <span id="aggregate"></span>
 
@@ -574,7 +571,7 @@ When <strong>conditionalExpression</strong> and at least one of <strong>thenExpr
 </thead>
 <tr>
 <td><a href="ts_round.html">round(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the nearest integer for each data value in the specified time series. 
+<td>Returns the nearest integer for each data value in the specified time series.
 </td>
 </tr>
 <tr>
@@ -729,22 +726,16 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </thead>
 <tbody>
 <tr>
-<td markdown="span">hw(<span style="color:#757575;font-weight:bold">timeWindow1</span>, <span style="color:#757575;font-weight:bold">timeWindow2</span>, <span style="color:#757575;font-weight:bold">timeWindow3</span>, <span style="color:#3a0699;font-weight:bold">expression</span>)[, value1, value2, value3])</td>
-<td>Returns a smoothed version of <span style="color:#3a0699;font-weight:bold">expression</span> and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. See <a href="query_language_hw_function.html">Holt-Winters Predictive Analysis</a>.
-<ul>
-<li><span style="color:#757575;font-weight:bold">timeWindow1</span> is the amount of data we use to smooth the series and to forecast.  </li>
-<li><span style="color:#757575;font-weight:bold">timeWindow2</span> is the seasonal length of the data. </li>
-<li><span style="color:#757575;font-weight:bold">timeWindow3</span> is the rate at which the expression should be sampled. </li>
-<li> The optional three values are coefficients for the Holt-Winters equations, and must be decimals between 0 and 1. If no values are given, Wavefront selects them manually. </li>
-</ul></td>
+<td><a href="ts_hw.html">hw(&lbrack;<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;expression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
+</td>
+<td>Returns a smoothed version of the expression and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>
 </tbody>
 </table>
 
 ## Event Functions
 
-Event functions are used to [display events in charts](charts_events_displaying.html) and perform conversions on events sets.
-For further information, see [Basic events() Queries](events_queries.html) and [Advanced events() Queries](events_queries_advanced.html).
+You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. See [Basic events() Queries](events_queries.html) and [Advanced events() Queries](events_queries_advanced.html) for details.
 
 
 <table style="width: 100%;">
@@ -760,71 +751,65 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 </thead>
 <tbody>
 <tr>
-<td>events(<span style="color:#2770e8;font-weight:bold">filters</span>)</td>
-<td>Returns the set of events that match <span style="color:#2770e8;font-weight:bold">filters</span>. The available filters are <a href="#event_filters">Event Filters</a>. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() <span style="color:#3a0699;font-weight:bold">expression</span> for events to display.</td></tr>
+<td>events(<strong>&lt;filters&gt;</strong>)</td>
+<td>Returns the set of events that match <strong>&lt;filters&gt;</strong>. See <a href="events_queries.html#event-filters">Event Filters</a> for a list of available filters. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() expression for events to display.</td></tr>
 <tr>
-<td>count(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Converts <span style="color:#3a0699;font-weight:bold">events</span> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
+<td>count(<strong>&lt;events&gt;</strong>)</td>
+<td>Converts <strong>&lt;events&gt;</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
 </tr>
 <tr>
-<td>ongoing(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns a continuous time series representing the number of ongoing <span style="color:#3a0699;font-weight:bold">events</span> at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
+<td>ongoing(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns a continuous time series representing the number of ongoing events at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
 </tr>
 <tr>
-<td>closed(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns <span style="color:#3a0699;font-weight:bold">events</span> that have ended and instantaneous <span style="color:#3a0699;font-weight:bold">events</span> that occurred in the past.</td>
+<td>closed(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns events that have ended and instantaneous events that occurred in the past.</td>
 </tr>
 <tr>
-<td>until(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns synthetic <span style="color:#3a0699;font-weight:bold">events</span> that start at the beginning of time (Jan 1, 1970) and end where the input <span style="color:#3a0699;font-weight:bold">events</span> start.</td>
+<td>until(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns synthetic events that start at the beginning of epoch time (Jan 1, 1970) and end where the input events start.</td>
 </tr>
 <tr>
-<td>after(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns synthetic ongoing <span style="color:#3a0699;font-weight:bold">events</span> that start the moment the input <span style="color:#3a0699;font-weight:bold">events</span> end.</td>
+<td>after(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns synthetic ongoing events that start the moment the input events end.</td>
 </tr>
 <tr>
-<td>since(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns synthetic <span style="color:#3a0699;font-weight:bold">events</span> with the same start time and no end time (converts all input <span style="color:#3a0699;font-weight:bold">events</span> to ongoing).</td>
+<td>since(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns synthetic events with the same start time and no end time (converts all input events to ongoing events).</td>
 </tr>
 <tr>
-<td>since(<span style="color:#757575;font-weight:bold">timeWindow</span>)</td>
-<td>Creates a single synthetic event that started <span style="color:#757575;font-weight:bold">timeWindow</span> ago and ended &quot;now&quot;. <span style="color:#757575;font-weight:bold">timeWindow</span> can be specified in seconds, minutes, hours, days or weeks (e.g., <span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes.</td>
+<td>since(<strong>timeWindow</strong>)</td>
+<td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;. Specify <strong>timeWindow</strong> in seconds, minutes, hours, days or weeks (e.g., <strong> 1s, 1m, 1h, 1d, 1w</strong>. Default is minutes.</td>
 </tr>
 <tr>
-<td>timespan(<span style="color:#bf5700;font-weight:bold">startTimestamp</span>, <span style="color:#bf5700;font-weight:bold">endTimestamp</span>)</td>
+<td>timespan(<strong>startTimestamp</strong>, <strong>endTimestamp</strong>)</td>
 <td>Creates a single synthetic event with the specified start and end timestamps. A timestamp can be expressed in epoch seconds or using a time expression such as "5 minutes ago". Example: timespan("5 minutes ago", "2 minutes ago").</td>
 </tr>
 <tr>
-<td>first(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>first(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the earliest start time.</td>
 </tr>
 <tr>
-<td>last(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>last(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the latest start time.</td>
 </tr>
 <tr>
-<td>firstEnding(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>firstEnding(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the earliest end time.</td>
 </tr>
 <tr>
-<td>lastEnding(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>lastEnding(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the latest end time.</td>
 </tr>
 </tbody>
 </table>
 
-### Example
+The following example shows a query you could use to filter the events in your charts.
 
 ```
 events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ```
-
-<a name="event_filters"></a>
-
-### Event Filters
-
-{% include shared/event_filters.html %}
-
+See [Event Filters](events_queries.html#event-filters) for details on filters.
 
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">
@@ -840,28 +825,43 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 </thead>
 <tbody>
 <tr>
-<td>collect(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>, <span style="color:#3a0699;font-weight:bold">expression3</span>, ...)</td>
-<td>Returns a ts() expression that is the combination of two or more ts() expressions. The returned expression includes a synthetic <code>collect_&lt;number&gt;</code> point tag, where <code>&lt;number&gt;</code> is the number of input expressions.</td>
+<td>
+<a href="ts_collect.html">collect(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong> &lsqb;, <strong>&lt;expression3&gt;, ...</strong>&rsqb;)</a>
+</td>
+<td>Returns a single ts() expression that is the combination of two or more ts() expressions.</td>
 </tr>
 <tr>
-<td>exists(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns 1 if at least one value in <span style=" color:#3a0699;font-weight:bold">expression</span> has been reported in the last 4 weeks. Otherwise, it returns 0. This function outputs continuous time series.</td>
+<td>
+<a href="ts_exists.html">exists(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
+A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
-<td>abs(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the absolute value of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td>
+<a href="ts_abs.html">abs(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Returns the absolute value of the time series described by the expression.</td>
 </tr>
 <tr>
-<td>random()</td>
-<td>Returns random values between 0.0 and 1.0. If you reload a chart that uses random(), the reloaded chart returns new random values. This function outputs continuous time series.</td>
+<td>
+<a href="ts_random.html">random()</a>
+</td>
+<td>Returns random values between 0.0 and 1.0. Repeated calls display different random values.</td>
 </tr>
 <tr>
-<td>normalize(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns every series in <span style="color:#3a0699;font-weight:bold">expression</span> scaled so it has a minimum of 0 and a maximum of 1.0.</td>
+<td>
+<a href="ts_normalize.html">normalize(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
+</td>
 </tr>
 <tr>
-<td>haversine(<span style="color:#3a0699;font-weight:bold">expression1</span>, <span style="color:#3a0699;font-weight:bold">expression2</span>, <span style="color:#3a0699;font-weight:bold">expression3</span>, ...)</td>
-<td>Returns the distance between coordinates. <span style="color:#3a0699;font-weight:bold">expression(s)</span> can be constants or ts() expressions.</td>
+<td>
+<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
+</td>
+<td>Returns the distance between a pair of coordinates. 
+</td>
 </tr>
 </tbody>
 </table>

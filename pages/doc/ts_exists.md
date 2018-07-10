@@ -1,0 +1,72 @@
+---
+title: exists Function
+keywords: query language reference
+tags: [reference page]
+sidebar: doc_sidebar
+permalink: ts_exists.html
+summary: Reference to the exists() function
+---
+## Summary
+```
+exists(<expression>)
+```
+Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
+A time series exists if it has reported a data value in the last 4 weeks.
+## Parameters
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td>Expression describing the time series to be tested for existence.</td></tr>
+</tbody>
+</table>
+
+
+## Description
+
+The `exists()` function returns 1 if any time series described by the expression exists, and returns 0 otherwise. A time series exists if it has at least one value that was reported within the last 4 weeks. The returned constant series is continuous.
+
+You can use `exists()` to see if a metric is obsolete or has never reported.
+
+`exists()` is useful if you're creating a query that uses a metric that is planned but has not yet started reporting, for example, when you're building a dashboard before any data is sent. Unless you wrap the query in `exists()`, all your charts will show errors for the missing metric. Using `exists` allows any syntax errors to be reported, which help you make corrections, but suppresses the errors for the missing metric.
+
+## Examples
+
+You can wrap `exists()` around an expression that returns some number of time series, like this:
+
+```
+exists(ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"))
+```
+
+This query returns 1 if at least one time series has a value reported within the last 4 weeks. Otherwise, the query returns 0 if the values of all of the time series are older than 4 weeks.
+Because this query returns either 1 or 0, it is useful as a conditional expression in an `if()` function. 
+
+For clarity, we'll name this query `hasData` so we can easily refer to it in the following examples.
+
+### Example 1
+
+This example tests `hasData` to see whether its underlying metrics are reporting data, and if so, returns that data:
+
+```
+if(${hasData}, ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"), 100)
+```
+
+In this example,
+* `hasData` evaluates to 1 (true) if its underlying metrics are reporting, so `if()` returns that time series.
+* `hasData` evaluates to 0 (false) if its underlying metrics are not reporting, so `if()` returns the constant 100.
+
+
+### Example 2
+
+This example tests `hasData` to see whether its underlying metrics are reporting data, and uses the result to choose between two other previously defined queries named `queryOfInterest` and `substituteQuery`: 
+
+```
+if(${hasData}, ${queryOfInterest}, ${substituteQuery})
+```
+
+In this example:
+* `hasData` evaluates to 1 (true) if its underlying metrics are reporting, so `if()` returns the results of `queryOfInterest`.
+* `hasData` evaluates to 0 (false) if its underlying metrics are not reporting, so `if()` returns the results of `substituteQuery`.
