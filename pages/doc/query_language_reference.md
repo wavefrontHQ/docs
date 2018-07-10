@@ -740,8 +740,7 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 
 ## Event Functions
 
-Event functions are used to [display events in charts](charts_events_displaying.html) and perform conversions on events sets.
-For further information, see [Basic events() Queries](events_queries.html) and [Advanced events() Queries](events_queries_advanced.html).
+You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. See [Basic events() Queries](events_queries.html) and [Advanced events() Queries](events_queries_advanced.html) for details.
 
 
 <table style="width: 100%;">
@@ -757,64 +756,65 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 </thead>
 <tbody>
 <tr>
-<td>events(<span style="color:#2770e8;font-weight:bold">filters</span>)</td>
-<td>Returns the set of events that match <span style="color:#2770e8;font-weight:bold">filters</span>. The available filters are <a href="events_queries.html#event-filters">Event Filters</a>. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() <span style="color:#3a0699;font-weight:bold">expression</span> for events to display.</td></tr>
+<td>events(<strong>&lt;filters&gt;</strong>)</td>
+<td>Returns the set of events that match <strong>&lt;filters&gt;</strong>. See <a href="events_queries.html#event-filters">Event Filters</a> for a list of available filters. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() expression for events to display.</td></tr>
 <tr>
-<td>count(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Converts <span style="color:#3a0699;font-weight:bold">events</span> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
+<td>count(<strong>&lt;events&gt;</strong>)</td>
+<td>Converts <strong>&lt;events&gt;</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
 </tr>
 <tr>
-<td>ongoing(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns a continuous time series representing the number of ongoing <span style="color:#3a0699;font-weight:bold">events</span> at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
+<td>ongoing(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns a continuous time series representing the number of ongoing events at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
 </tr>
 <tr>
-<td>closed(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns <span style="color:#3a0699;font-weight:bold">events</span> that have ended and instantaneous <span style="color:#3a0699;font-weight:bold">events</span> that occurred in the past.</td>
+<td>closed(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns events that have ended and instantaneous events that occurred in the past.</td>
 </tr>
 <tr>
-<td>until(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns synthetic <span style="color:#3a0699;font-weight:bold">events</span> that start at the beginning of time (Jan 1, 1970) and end where the input <span style="color:#3a0699;font-weight:bold">events</span> start.</td>
+<td>until(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns synthetic events that start at the beginning of epoch time (Jan 1, 1970) and end where the input events start.</td>
 </tr>
 <tr>
-<td>after(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns synthetic ongoing <span style="color:#3a0699;font-weight:bold">events</span> that start the moment the input <span style="color:#3a0699;font-weight:bold">events</span> end.</td>
+<td>after(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns synthetic ongoing events that start the moment the input events end.</td>
 </tr>
 <tr>
-<td>since(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
-<td>Returns synthetic <span style="color:#3a0699;font-weight:bold">events</span> with the same start time and no end time (converts all input <span style="color:#3a0699;font-weight:bold">events</span> to ongoing).</td>
+<td>since(<strong>&lt;events&gt;</strong>)</td>
+<td>Returns synthetic events with the same start time and no end time (converts all input events to ongoing events).</td>
 </tr>
 <tr>
-<td>since(<span style="color:#757575;font-weight:bold">timeWindow</span>)</td>
-<td>Creates a single synthetic event that started <span style="color:#757575;font-weight:bold">timeWindow</span> ago and ended &quot;now&quot;. <span style="color:#757575;font-weight:bold">timeWindow</span> can be specified in seconds, minutes, hours, days or weeks (e.g., <span style="color:#757575;font-weight:bold">1s</span>, <span style="color:#757575;font-weight:bold">1m</span>, <span style="color:#757575;font-weight:bold">1h</span>, <span style="color:#757575;font-weight:bold">1d</span>, <span style="color:#757575;font-weight:bold">1w</span>). If the unit is not specified, the default is minutes.</td>
+<td>since(<strong>timeWindow</strong>)</td>
+<td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;. Specify <strong>timeWindow</strong> in seconds, minutes, hours, days or weeks (e.g., <strong> 1s, 1m, 1h, 1d, 1w</strong>. Default is minutes.</td>
 </tr>
 <tr>
 <td>timespan(<strong>startTimestamp</strong>, <strong>endTimestamp</strong>)</td>
 <td>Creates a single synthetic event with the specified start and end timestamps. A timestamp can be expressed in epoch seconds or using a time expression such as "5 minutes ago". Example: timespan("5 minutes ago", "2 minutes ago").</td>
 </tr>
 <tr>
-<td>first(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>first(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the earliest start time.</td>
 </tr>
 <tr>
-<td>last(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>last(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the latest start time.</td>
 </tr>
 <tr>
-<td>firstEnding(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>firstEnding(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the earliest end time.</td>
 </tr>
 <tr>
-<td>lastEnding(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
+<td>lastEnding(<strong>&lt;events&gt;</strong>)</td>
 <td>Returns a single event with the latest end time.</td>
 </tr>
 </tbody>
 </table>
 
-### Example
+The following example shows a query you could use to filter the events in your charts.
 
 ```
 events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ```
+See [Event Filters](events_queries.html#event-filters) for details on filters.
 
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">
