@@ -758,7 +758,7 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 <tbody>
 <tr>
 <td>events(<span style="color:#2770e8;font-weight:bold">filters</span>)</td>
-<td>Returns the set of events that match <span style="color:#2770e8;font-weight:bold">filters</span>. The available filters are <a href="#event_filters">Event Filters</a>. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() <span style="color:#3a0699;font-weight:bold">expression</span> for events to display.</td></tr>
+<td>Returns the set of events that match <span style="color:#2770e8;font-weight:bold">filters</span>. The available filters are <a href="events_queries.html#event-filters">Event Filters</a>. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() <span style="color:#3a0699;font-weight:bold">expression</span> for events to display.</td></tr>
 <tr>
 <td>count(<span style="color:#3a0699;font-weight:bold">events</span>)</td>
 <td>Converts <span style="color:#3a0699;font-weight:bold">events</span> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
@@ -815,13 +815,6 @@ For further information, see [Basic events() Queries](events_queries.html) and [
 ```
 events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ```
-
-<a name="event_filters"></a>
-
-### Event Filters
-
-{% include shared/event_filters.html %}
-
 
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">
