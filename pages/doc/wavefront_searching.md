@@ -1,67 +1,26 @@
 ---
 title: Searching Wavefront
 keywords: getting started
-tags: [getting started, videos]
+tags: [getting started, video]
 sidebar: doc_sidebar
 permalink: wavefront_searching.html
 summary: Learn how to search for entities in the Wavefront UI.
 ---
+Wavefront supports tags and a variety of search features to help you find exactly the information you need.
 
-## Organizing with Tags
+For a video demo, see [Searching Content in Wavefront](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
-Tags allow you to flexibly manage and organize your Wavefront content. Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront. If desired, content can be included in multiple hierarchies to suit the needs of particular subgroups of users. Tags and tag path support has been extended beyond the UI into many areas and can be leveraged in searching/filters, alerts, maintenance windows, and events. For an overview using tags, see [Organizing with Tags](tags_overview.html).
+## Using Tags to Facilitate Searches
+
+Tags allow you to flexibly manage and organize your Wavefront content.
+* Tag paths allow you to organize your content in hierarchies that best suit your particular use of Wavefront.
+* You can include content in multiple hierarchies to suit the needs of different groups of users.
+
+We support several different types of tags that you can leverage when searching. See [Organizing with Tags](tags_overview.html)
 
 ## Searching
 
-All Wavefront browsers (All Dashboards, Alerts, Integrations, Events, Maintenance Windows, Proxies, Webhooks, and External Links) support a variety of search methods. You can search in the Search field at the top or in the faceted filter bar at the left. Both methods support facets:
-
-<table width="75%">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr><th>Browser</th><th>Facets</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>All Dashboards</td>
-<td>Sources, Updated By, Metrics, Tags</td>
-</tr>
-<tr>
-<td>Alerts</td>
-<td>Severity, State, Updated By, Tags</td>
-</tr>
-<tr>
-<td>Sources</td>
-<td>sources, tags</td>
-</tr>
-<tr>
-<td>Events</td>
-<td>Severity, Source, State, Tags</td>
-</tr>
-<tr>
-<td>Maintenance Windows</td>
-<td>Creator, State</td>
-</tr>
-<tr>
-<td>Proxies</td>
-<td>Hostname, Status</td>
-</tr>
-<tr>
-<td>Integrations</td>
-<td>Type, State</td>
-</tr>
-<tr>
-<td>Webhooks</td>
-<td>ID, Updated By, Triggers, URLs</td>
-</tr>
-<tr>
-<td>External Links</td>
-<td>Updated By, Template Domains, ID</td>
-</tr>
-</tbody>
-</table>
+All Wavefront browsers (**All Dashboards**, **Alerts**, **Integrations**, and so on) support a variety of search methods. You can search in the Search field at the top or in the faceted filter bar at the left.
 
 ### Search Field
 
@@ -81,7 +40,7 @@ Search fields support multi-word searches. If you type **cpu usage** in any brow
 
 ### Filter Bar
 
-In the filter bar on the left you search by selecting facets and typing in Search fields. Many facets have their own Search fields to limit the displayed facet values. Most pages support the standard facets Tag Paths, Tags, and Updated By.
+In the filter bar on the left you search by selecting facets, such as **State** and **Severity** for alerts, and by typing in Search fields. Some facets one some pages have their own Search field to limit the displayed facet values. Most pages support the standard facets Tag Paths, Tags, and Updated By.
 
 ### Saved Searches
 
@@ -92,12 +51,6 @@ Once you press **Return** or **Enter** after typing a search string, the icons !
 The following Alert browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
 ![Tag path](images/MicroService.App4_firing.png)
-
-### Video Demo
-
-For a demo of searching in Wavefront, see
-
-[Searching Content in Wavefront](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 
 ## Other Actions
