@@ -6,37 +6,32 @@ summary: Learn about the Wavefront Java Integration.
 ---
 # Java Integration
 
-To send Java application metrics to Wavefront use the DropWizard metrics library and the Wavefront reporter. The reporter sends data to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html). Wavefront supports the 3.1 reporter which lets you assign point tags at the reporter level.
+You can use the Dropwizard metrics library and the Wavefront reporters to send Java application metrics to Wavefront. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). You can assign point tags at the reporter level for fine-grained filtering.
 
 This is a custom integration. You can send your own metrics and create your own dashboards.
 
-
 ## Java Setup
 
-Wavefront has reporters for [Dropwizard Metrics 3.1](https://dropwizard.github.io/metrics/3.1.0/): [Wavefront reporter 3.1](https://github.com/wavefrontHQ/java/tree/master/dropwizard-metrics/3.1).
+The Wavefront plugin for [Dropwizard Metrics] (https://metrics.dropwizard.io) adds [Wavefront reporters](https://github.com/wavefrontHQ/java/tree/master/dropwizard-metrics/dropwizard-metrics) and an abstraction that supports tagging at the reporter level. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
+
+Supported Versions: Dropwizard Metrics versions 3.1.x, 3.2.x and 4.0.x.
 
 
 
-### Step 1. Set up Wavefront Proxy
+### Set up Maven
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Java application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you create the reporter.
-
-### Step 2. Set up Maven
-
-Add the DropWizard `metrics-core`, Wavefront `metrics-wavefront`, and `org.slf4j` libraries as dependencies in your project:
-
-#### DropWizard 3.1
+Add the Dropwizard `metrics-core`, Wavefront `dropwizard-metrics`, and `org.slf4j` libraries as dependencies in your project:
 {% raw %}
 ```
 <dependency>
   <groupId>io.dropwizard.metrics</groupId>
   <artifactId>metrics-core</artifactId>
-  <version>3.1.2</version>
+  <version>3.2.5</version>
 </dependency>
 <dependency>
   <groupId>com.wavefront</groupId>
-  <artifactId>dropwizard-metrics-3.1</artifactId>
-  <version>3.9</version>
+  <artifactId>dropwizard-metrics</artifactId>
+  <version>4.29</version>
 </dependency>
 <dependency>
   <groupId>org.slf4j</groupId>
@@ -45,22 +40,25 @@ Add the DropWizard `metrics-core`, Wavefront `metrics-wavefront`, and `org.slf4j
 </dependency>       
 ```
 
-Versions `3.1.0` and `3.1.1` of `metrics-core` also work.
+Versions `3.1.x`, `3.2.x` and `4.0.x` of `metrics-core` also work.
 
-### Step 3. Create a Wavefront Reporter and Register Metrics
+### Configure Wavefront Reporter
 
-The Wavefront reporter lets you use DropWizard metrics exactly as you normally would. See the [DropWizard getting started guide](https://dropwizard.github.io/metrics/3.1.0/getting-started/) for DropWizard basics. 
+These steps are applicable to both the Wavefront proxy reporter and Wavefront direct reporter.
 
-To create the Wavefront reporter:
+To create a Wavefront reporter:
 
-- Import `com.wavefront.integrations.metrics.WavefrontReporter`
-- Set the source using the `.withSource(String source)`
-- Set the hostname and port of the Wavefront proxy using the `.build(String hostname, long port)` method. 
-- Set point tags at the reporter level:
+1. Import `com.wavefront.integrations.metrics.WavefrontReporter`
+2. Set the source using the `.withSource(String source)` method.
+3. Set point tags at the reporter level:
   - Add one point tag using `.withPointTag(String tagK, String tagV)`
   - Add one or more tags to a `Map<String,String>` and call `.withPointTags(Map)`
+4. Bind the reporter to a Wavefront proxy or directly to a Wavefront service:
+  - For the Wavefront proxy: Set the hostname and port of the proxy using the `.build(String hostname, long port)` method.  
+  - For the Wavefront service: Set the server and token of the Wavefront service using the `.buildDirect(String server, String token)` method.
 
-The reporter provides all the same options as [GraphiteReporter](http://metrics.dropwizard.io/3.1.0/manual/graphite/). By default:
+
+By default:
 
   - There is no metric prefix
   - Rates are converted to seconds
@@ -68,42 +66,64 @@ The reporter provides all the same options as [GraphiteReporter](http://metrics.
   - The filter is set to `MetricFilter.ALL`
   - The clock is set to `Clock.defaultClock()`
 
-#### Example
+### Option 1. Create a Wavefront Proxy Reporter and Register Metrics
 
-The following code fragment creates a reporter that emits data every 10 seconds for:
+Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for sending metrics directly to a Wavefront service.
 
-- A `MetricRegistry` named `metrics`
-- A Wavefront proxy on `localhost` at port `2878`
-- Data that should appear with the source `app-1.company.com`
-- Reporter-level point tags named `dc` and `service`
-- A counter metric prefix with `numbers`
-- Various JVM metrics prefix with `jvm`
+#### Step 1. Set up Wavefront Proxy
 
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Java application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you create the reporter.
+
+#### Step 2. Create a Wavefront Proxy Reporter and Register Metrics
+
+To create a reporter which will emit data to a Wavefront proxy every 5 seconds:
+```
+import com.wavefront.integrations.metrics.WavefrontReporter;
+import com.codahale.metrics.Counter;
+import com.codahale.metrics.MetricRegistry;
+
+MetricRegistry registry = new MetricRegistry();
+Counter evictions = registry.counter("cache-evictions");
+
+String hostname = "wavefront.proxy.hostname";
+int port = 2878;
+
+WavefrontReporter reporter = WavefrontReporter.forRegistry(registry).
+    withSource("app-1.company.com").
+    withPointTag("dc", "us-west-2").
+    withPointTag("service", "query").
+    build(hostname, port);
+reporter.start(5, TimeUnit.SECONDS);
+```
+
+### Option 2. Create a Wavefront Direct Reporter and Register Metrics
+
+You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
+
+To create a reporter which will emit data to a Wavefront service every 5 seconds:
 
 ```
 import com.wavefront.integrations.metrics.WavefrontReporter;
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.MetricRegistry;
 
-MetricRegistry metrics = new MetricRegistry();
+MetricRegistry registry = new MetricRegistry();
+Counter evictions = registry.counter("cache-evictions");
 
-Counter counter = metrics.counter("numbers");
-counter.inc();
+String server = "http://YOUR_CLUSTER.wavefront.com";
+String token = "YOUR_API_TOKEN";
 
-// Reporter-level point tags
-WavefrontReporter reporter = WavefrontReporter.forRegistry(metrics)
-    .withSource("app-1.company.com")
-    .withPointTag("dc", "dallas")
-    .withPointTag("service", "query")
-    .withJvmMetrics()
-    .build("localhost", 2878);
-
-reporter.start(10, TimeUnit.SECONDS);
+WavefrontReporter reporter = WavefrontReporter.forRegistry(registry).
+    withSource("app-1.company.com").
+    withPointTag("dc", "us-west-2").
+    withPointTag("service", "query").
+    buildDirect(server, token);
+reporter.start(5, TimeUnit.SECONDS);
 ```
 
-#### JVM Metrics
+### JVM Metrics
 
-Default JVM metrics are added to the `MetricsRegistry` by calling `.withJvmMetrics()` when you create the reporter. If you call `.withJvmMetrics()`, the following metrics are added to the registry:
+To add default JVM metrics to the `MetricsRegistry`, call `.withJvmMetrics()` when you create the reporter. If you call `.withJvmMetrics()`, the following metrics are added to the registry:
 
 ```
 registry.register("jvm.uptime", new Gauge<Long>() {
@@ -118,7 +138,7 @@ registry.register("jvm.current_time", new Gauge<Long>() {
         return clock.getTime();
     }
 });
-    
+
 registry.register("jvm.classes", new ClassLoadingGaugeSet());
 registry.register("jvm.fd_usage", new FileDescriptorRatioGauge());
 registry.register("jvm.buffers", new BufferPoolMetricSet(ManagementFactory.getPlatformMBeanServer()));
