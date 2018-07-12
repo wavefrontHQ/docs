@@ -74,11 +74,18 @@ The process for creating an alert target is fairly similar for the different tar
     <li>Alert Entered Maintenance From No Data - Trigger when the series that is referenced in the alert condition is not reporting data and is affected by a  maintenance window.</li>
     </ul>    </td>
     </tr>
+    
     <tr>
-    <td rowspan="3">Webhook Alert Target Type </td>
+    <td rowspan="4">Type: Webhook </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+    
+    <tr>
     <td>URL </td>
     <td>REST endpoint of the receiving application, e.g. Slack.</td>
     </tr>
+    
     <tr>
       <td>Content Type</td>
       <td>Content type of the POST body:
@@ -89,13 +96,18 @@ The process for creating an alert target is fairly similar for the different tar
           <li>application/x-www-form-urlencoded</li>
       </ul></td>
     </tr>
+    
     <tr>
       <td>Custom Headers </td>
       <td>Name and value of one or more HTTP headers to pass in the POST request.</td>
     </tr>
 
     <tr>
-      <td rowspan="2">Email Alert Target Type </td>
+      <td rowspan="3"> Type: Email </td>
+      <td >&nbsp;</td>
+      <td>&nbsp;</td>      
+    </tr>
+    <tr>  
       <td markdown="span">Email Address List </td>
       <td markdown="span">One or more addresses, separated by commas. </td>
     </tr>
@@ -104,7 +116,11 @@ The process for creating an alert target is fairly similar for the different tar
       <td markdown="span">Subject of all emails from this alert target. </td>
     </tr>
     <tr>
-      <td>Pagerduty Alert Target Type </td>
+      <td rowspan="2">Type: Pagerduty </td>
+      <td >&nbsp;</td>
+      <td>&nbsp;</td>          
+    </tr>  
+    <tr>  
       <td markdown="span">Pagerduty key </td>
       <td markdown="span">Key for the PagerDuty application. </td>
     </tr>

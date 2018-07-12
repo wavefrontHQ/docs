@@ -9,8 +9,8 @@ summary: Learn about alert conditions and states, when alerts fire, and how aler
 ## Alert Conditions
 
 An alert condition is a conditional ts() expression that defines the threshold for an alert.
-* If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all reported values that satisfy the condition are marked as `true` (1) and all reported values that do not satisfy the condition are marked as `false` (0).
-* If the Condition field is set to a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ reported values are marked as `true` and all zero reported values are marked as `false`. If there is _no reported data_, then values are evaluated as neither true nor false.
+* If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all data values that satisfy the condition are marked as `true` (1) and all data values that do not satisfy the condition are marked as `false` (0).
+* If the Condition field is set to a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are evaluated as neither true nor false.
 
 ## Alert States
 
@@ -52,24 +52,34 @@ You can set up an alert that triggers if the alert is in a NO DATA state for a s
   
 ## When Alerts Are Checked
 
-The time series associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency interval is 1 minute. You can change this interval by setting the **Checking Frequency** advanced property when you create or edit the alert.
+The time series associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency interval is 1 minute. This means that the conditional expression associated with the alert is evaluated once a minute. You can change this interval by setting the **Checking Frequency** advanced property when you create or edit the alert.
 
 The exact time of the check for a particular alert is not fixed and can vary slightly within the minute. For example, for a specific alert it’s possible that a check occurs at 1:01:17pm and the next check occurs at 1:02:13pm.
 
-The alert checking process summarizes the data values that are reported within each checking frequency interval, and then evaluates the summarized data values against the alert condition. The summarization method used is average (mean). For example, if 5 data values are reported between 12:11:00pm and 12:11:59pm, then the average value of those 5 data values is displayed at 12:11:00pm. If you want a different summarization strategy, then you can use a 1 minute [`align()`](ts_align.html) function in your query and specify the summarization method.
+## Data Granularity for Alert Checking
+
+The data granularity for alert checking is 1 minute. Rather than checking the raw data reported by the time series of interest, the alert checking process instead:
+
+1. Groups the reported data values into 1-minute buckets.
+1. Summarizes the values in each group by averaging them.
+1. Evaluates the summarized data values against the alert condition. 
+
+For example, if 5 data values are reported between 12:11:00pm and 12:11:59pm, then the average value of those 5 data values is displayed at 12:11:00pm. If you want a different summarization strategy, then you can use the [`align()`](ts_align.html) function in your query, with parameters specifying a 1-minute time window and your preferred summarization method.
 
 ## Alert Check Time Window
 
 The time window that we evaluate at each checking frequency interval depends on the state of the alert:
 
-- When an alert is currently not firing, the **Alert fires** property determines the time window that is evaluated. For example, if the **Alert fires** property is set to 3 minutes, we evaluate the summarized data values within a 3 minute time window.
+- When an alert is currently not firing, the **Alert fires** property determines the time window that is evaluated. For example, if the **Alert fires** property is set to 3 minutes, we evaluate the data values that occur within a 3 minute time window.
 - When an alert is currently firing, the **Alert resolves** property determines the time window that is evaluated.
 
-The last data point to be evaluated within a given alert check is determined by the following formula:
+The last data point to be evaluated within a given alert check time window is determined by the following formula:
 
- `alert check time (rounded down to nearest minute) - 1 minute`
+ ```
+ alert check time (rounded down to nearest minute) - 1 minute
+ ```
 
-We use this formula to ensure that the alert has a full minute's worth of data to evaluate.
+We use this formula to ensure that the alert has a full minute's worth of data to summarize and evaluate.
 For example, suppose the **Alert fires** property is set to 5 minutes. If the alert check time is 1:09:32pm, then the last data point evaluated is 1:08:00pm `((1:09:32 - 0:00:32) - 0:01:00)`. The 5 minute time window covers data points in the 1:04:00pm to 1:08:59pm interval.
 
 ## When Alerts Fire

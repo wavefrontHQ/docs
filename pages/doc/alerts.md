@@ -75,7 +75,7 @@ To create an alert:
 <td>How important the alert is. In decreasing importance:  SEVERE, WARN, SMOKE, and INFO.</td>
 </tr>
 <tr>
-<td>Targets</td>
+<td>Target List</td>
 <td markdown="span">Targets to notify when the alert changes state, for example, from FIRING to CHECKING, or when an alert is snoozed. You can specify a list of up to ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html), separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
 </td>
 </tr>
