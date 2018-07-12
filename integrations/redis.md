@@ -10,7 +10,8 @@ Redis is a popular open source, in-memory data store. This integration installs 
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the activity and system section of a dashboard displaying Redis metrics:
 
-{% include image.md src="images/redis_activity.png" width="80" %}
+{% include image.md src="images/redis-1.png" width="80" %}
+{% include image.md src="images/redis-2.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
