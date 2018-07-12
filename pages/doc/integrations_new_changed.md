@@ -17,7 +17,7 @@ We added the following integrations in June 2018:
 * Metricproxy
 * Pingdom
 * VMware Kubernetes Engine (VKE)
-* Amazon EKS
+* Amazon EKS (Elastic Container Service for Kubernetes)
 
 We enhanced existing integrations by adding new dashboards in June 2018:
 
