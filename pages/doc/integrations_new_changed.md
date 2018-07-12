@@ -27,15 +27,15 @@ We enhanced existing integrations by adding new dashboards in June 2018:
 
 We enhanced the following integrations in June 2018:
 
-* MongoDB - Updated dashboard with filtering support and new charts
+* MongoDB - New charts and improved dashboard filtering
 * Kubernetes
   - Updated existing Kubernetes dashboard
   - Added a new Kubernetes namespace dashboard
-* Pivotal Container Service (PKS) dashboard - Updated dashboard so all charts display data 
-* PostgreSQL – Updated dashboard with filtering support and new charts
-* Redis – Updated dashboard with filtering support and new charts
+* Pivotal Container Service (PKS) dashboard - Improved dashboard filtering
+* PostgreSQL – New charts and improved dashboard filtering
+* Redis – New charts and improved dashboard filtering
 * Java – Added support for direct ingestion
-* NodeJS – Updated library with added support for direct ingestion
+* NodeJS – Added support for direct ingestion
 
 
 ## May 2018
