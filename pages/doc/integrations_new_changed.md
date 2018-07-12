@@ -9,6 +9,35 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## June 2018
+
+We added the following integrations in June 2018:
+
+* Convox
+* Metricproxy
+* Pingdom
+* VMware Kubernetes Engine (VKE)
+* Amazon EKS
+
+We enhanced existing integrations by adding new dashboards in June 2018:
+
+* Amazon CloudSearch
+* Amazon Elasticsearch
+* Amazon Elastic Transcoder
+
+We enhanced the following integrations in June 2018:
+
+* MongoDB - Updated dashboard with filtering support and new charts
+* Kubernetes
+  - Updated existing Kubernetes dashboard
+  - Added a new Kubernetes namespace dashboard
+* Pivotal Container Service (PKS) dashboard - Updated dashboard so all charts display data 
+* PostgreSQL – Updated dashboard with filtering support and new charts
+* Redis – Updated dashboard with filtering support and new charts
+* Java – Added support for direct ingestion
+* NodeJS – Updated library with added support for direct ingestion
+
+
 ## May 2018
 
 We added the following integrations in May 2018:
@@ -27,7 +56,7 @@ We added the following integrations in May 2018:
 
 We enhanced existing integrations by adding dashboards in May 2018:
 
-AWS Elastic Map Reduce
+* AWS Elastic Map Reduce
 * AWS Elastic File System
 * AWS Auto Scaling
 * AWS Elastic Beanstalk
