@@ -263,11 +263,11 @@ When aggregating, you can group or filter the results.
   To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
 
 
-#### Filter Example ####
+**Filter Example**
 
 `sum(ts(~sample.cpu.loadavg.1m, source=app-1*))` shows the sum of the values reported for the metric, but only from the sources that match `app-1*`.
 
-#### Grouping Examples ####
+**Grouping Examples**
 
 -   Group by metrics: `sum(ts(cpu.loadavg.1m),`**`metrics`**`)`
 -   Group by sources: `sum(ts(cpu.loadavg.1m),`**`sources`**`)`
@@ -645,21 +645,23 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <tbody>
 <tr>
 <td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;&lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"&lt;regexSearchPattern&gt;", "&lt;replacementPattern&gt;" | "&lt;replacementString&gt;")</strong>&rbrack;</a></td>
-<td markdown="span">Returns <strong>expression</strong> with the metrics renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify the <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong> parameter, it defaults to <strong>source</strong>. </td>
+<td markdown="span">Extracts a string from an existing metric name, source name, or point tag value and renames the metric in the expression with that string. If you don't specify the <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong> parameter, it defaults to <strong>source</strong>. </td>
 </tr>
 <tr>
 <td><a href="ts_aliasSource.html"> aliasSource(<strong>expression</strong>&lbrack;,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a></td>
-<td markdown="span">Returns <strong>expression</strong> with the sources renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong>, the parameter defaults to <strong>source</strong>.</td>
+<td markdown="span">Replaces one or more source names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).
+</td>
 </tr>
 <tr>
 <td><a href="ts_taggify.html"> taggify(<strong>expression</strong>,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&lt;newPointTagKey&gt;, &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a>
 </td>
-<td markdown="span">Returns <strong>expression</strong> with the source renamed with a string extracted from a metric, source, or point tag value of <strong>expression</strong>. If you don't specify <strong>metric|source|sourceTags {tagk, &lt;pointTagKey&gt;}</strong>, the parameter defaults to <strong>source</strong>.</td>
+<td markdown="span">Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
+</td>
 </tr>
 </tbody>
 </table>
 
-### Examples
+**Examples**
 
 - Node index: `aliasMetric(ts(cpu.loadavg.1m, source), 1)` the extracted string is selected by node index. The metric `cpu.loadavg.1m` has 3 components. Setting `zeroBasedNodeIndex` to `1` extracts the second component (`loadavg`).
 - Node index with delimiter: `cpu-loadavg-1m` sets `delimiterDefinition` to `-`.
@@ -735,7 +737,9 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 
 ## Event Functions
 
-You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. See [Basic events() Queries](events_queries.html) and [Advanced events() Queries](events_queries_advanced.html) for details.
+You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. Some `events()` functions return synthetic events. These events are displayed by the query, but not stored in Wavefront.
+
+See [Basic events() Queries](events_queries.html). See [Advanced events() Queries](events_queries_advanced.html) for details about the different kinds of `events()` functions.
 
 
 <table style="width: 100%;">
@@ -834,7 +838,7 @@ See [Event Filters](events_queries.html#event-filters) for details on filters.
 <td>
 <a href="ts_exists.html">exists(<strong>&lt;expression&gt;</strong>)</a>
 </td>
-<td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
+<td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
 A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
@@ -860,7 +864,7 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <td>
 <a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
 </td>
-<td>Returns the distance between a pair of coordinates. 
+<td>Returns the distance between a pair of coordinates.
 </td>
 </tr>
 </tbody>
