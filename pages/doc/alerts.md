@@ -34,49 +34,80 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 To create an alert:
 
 <ol>
+
 <li>Do one of the following:
 <ul>
 <li markdown="span"><strong>Alerts browser</strong> - Select <strong>Alerts</strong> and click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
 <li markdown="span"><strong>Chart</strong> - Hover over a query field and click the <strong>Create Alert</strong> link below the query field. </li>
 </ul></li>
-<li>Fill in the alert properties.
+
+<li>Fill in the following required alert properties.
 <table id="alert-properties">
 <tbody>
 <thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>Events Display</td>
-<td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying.html">event icons</a> on the preview chart.
-<ul><li><strong>Actual Firings (existing alerts only)</strong> - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.</li>
-<li><strong>Backtesting</strong> - Displays hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. See <strong>Backtesting</strong> above. </li></ul>
-</td>
-</tr>
-<tr>
 <td>Name</td>
 <td>Name of the alert. The name must contain 1-255 characters. Pick a name that makes it easy to identify the alert's purpose. </td>
 </tr>
+
 <tr>
 <td>Condition</td>
 <td>A conditional ts() expression that defines the threshold for the alert. You can use any valid <a href=
 "query_language_getting_started.html">Wavefront Query Language</a> construct in the expression. The expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
-<ul><li><strong>Alert fires</strong> - Length of time during which the Condition expression must be true before the alert fires. The minimum number of minutes is 1.  For example, if you enter 5, the alerting engine reviews the value of the Condition during the last 5 minute window to determine if the alert should fire or not.</li>
-<li><strong>Alert resolves</strong> - Length of time during which the Condition expression must be false before the alert switches to resolved. The minimum number of minutes is 1.  If you don't specify a time, defaults to the <strong>Alert fires</strong> setting.</li></ul>For details on theses settings and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
-<div><strong>Note:</strong> Setting Alert resolves to a value that is lower than Alert fires can result in  multiple resolve-fire cycles under certain circumstances. </div>
+<ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be true before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5 minute window to determine whether the alert should fire.</li>
+<li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be false before the alert switches to resolved. Minimum is 1.  Omit this setting to use the <strong>Alert fires</strong> setting.
+Pick a value that is greater than or equal to the <strong>Alert fires</strong> to avoid potential chains of resolve-fire cycles. </li>
+</ul>
+
+For details and examples, see <a href="alerts_states_lifecycle.html">Alert States and Lifecycle</a>.
 </td>
 </tr>
-<tr>
-<td>Display Expression</td>
-<td markdown="span">Optional. The query that is sent to targets when notified of alert state changes. Use this field to show a more helpful query, for example, the underlying time series. If not set, the query sent is the expression in the Condition field.</td>
-</tr>
+
 <tr>
 <td>Severity</td>
 <td>How important the alert is. In decreasing importance:  SEVERE, WARN, SMOKE, and INFO.</td>
 </tr>
+
 <tr>
 <td>Target List</td>
-<td markdown="span">Targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when an alert is snoozed. You can specify up to ten different targets, which can include comma-separated email addresses, [PagerDuty](pagerduty.html) keys, or names of custom alert targets that specify webhooks for pager services and communication channels such as [VictorOps](victorops.html), [Slack](slack.html), and [HipChat](hipchat.html). See [Using Alert Targets](webhooks_alert_notification.html) for details.
-</td>
+<td>Targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets across the following types. Use commas to separate targets of the same type.
+<ul>
+<li><strong>Email</strong> - Valid email addresses. Email alert notifications contain default HTML-formatted content.</li>
+
+<li  markdown="span"><strong>PagerDuty Key</strong> - PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). PagerDuty alert notifications contain default content.</li>
+
+<li><strong>Alert Target</strong> - Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
+
+<ul>
+<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
+<li>Configure email or PagerDuty notifications with nondefault content or triggering events. </li>
+</ul>
+
+</li>
+</ul>
+</td></tr>
+</tbody>
+</table>
+</li>
+
+<li>Optionally fill in the following additional alert properties.
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr><td>Events Display</td>
+<td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying.html">event icons</a> on the preview chart.
+<ul><li><strong>Actual Firings (existing alerts only)</strong> - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.</li>
+<li><strong>Backtesting</strong> - Displays hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. See <strong>Backtesting</strong> above. 
+</li></ul>
+</td></tr>
+
+<tr>
+<td>Display Expression</td>
+<td>The query that is sent to targets when notified of alert state changes. Use this field to show a more helpful query, for example, the underlying time series. If not set, the query sent is the expression in the <strong>Condition</strong> field.</td>
 </tr>
 <tr>
 <td>Additional Information</td>
@@ -84,16 +115,16 @@ To create an alert:
 </tr>
 <tr>
 <td>Tags</td>
-<td>Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html).</td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html). </td>
 </tr>
 </tbody>
 </table>
+</li>
 
-Click the <strong>Advanced</strong> link to configure the following alert properties:
-
+<li>Optionally click the <strong>Advanced</strong> link to configure the following alert properties:
 <table>
 <tbody>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+<thead><tr><th width="20%">Property</th><th width="80%">Description</th></tr></thead>
 <tr>
 <td>Checking Frequency</td>
 <td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
@@ -103,11 +134,13 @@ Click the <strong>Advanced</strong> link to configure the following alert proper
 </tr>
 <tr>
 <td>Metrics</td>
-<td>Click the <strong>Obsolete Metrics</strong> check box to include metrics that did not report for 4 weeks or more. Customers who use queries that aggregate data in longer timeframes sometimes want to include those older metrics.</td>
+<td>Whether to include obsolete metrics. If enabled, the alert considers metrics that have not reports for 4 weeks or more. Customers who use queries that aggregate data in longer timeframes sometimes want to include those older metrics.</td>
 </tr>
 </tbody>
 </table>
+
 </li>
+
 <li>Click <strong>Save</strong>.</li>
 </ol>
 

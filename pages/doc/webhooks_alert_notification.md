@@ -7,17 +7,19 @@ permalink: webhooks_alert_notification.html
 summary: Learn how to create custom alert targets to receive alert notifications on different messaging platforms.
 ---
 
-You can create custom alert targets for sending notifications to a variety of messaging platforms, including email, pager services, and communication channels. A custom alert target enables you to configure where you want notifications to be sent, what kind of information you want in them, how you want them to be formatted, and which alert events should trigger them. For example, you can use a custom alert target to:
+You can create custom alert targets to configure alert notifications for a variety of messaging platforms, including email, pager services, and communication channels. A custom alert target enables you to specify where you want notifications to be sent, what kind of information you want in them, how you want them to be formatted, and which alert events should trigger them. For example, you can use a custom alert target to:
 * Expand (or limit) the set of triggering events for notifications sent to a particular list of email addresses. 
 * Associate a short name with a lengthy PagerDuty key.
 * Configure notifications for a webhook-based messaging platform such as Slack, HipChat, and VictorOps.
 
 This page provides general steps for creating and managing a custom alert target. These steps apply to any custom alert target, including targets you create from scratch.
-* Wavefront provides predefined integrations to create alert targets for [PagerDuty](pagerduty.html), [VictorOps](victorops.html), [Slack](slack.html), and [HipChat](hipchat.html). Follow the instructions in the built-in integration. (Here's a list of all [built-in integrations](label_integrations.html).)
-* See [Customizing Alert Target Templates](alert_target_customizing.html) for information about customizing a notification's contents.
+* You can follow the steps for the [PagerDuty integration](pagerduty.html), [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) to configure alert notifications for these messagine platforms. (You can check for additional integrations [here](label_integrations.html).)
+* See [Customizing Alert Target Templates](alert_target_customizing.html) for details about customizing the contents of alert notifications.
 
 
 **Note** Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly.
+
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to create and manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks areß not visible.</div>
 
 ## Alert Target Types
 
@@ -32,13 +34,13 @@ callback that is triggered when an alert changes state. When the state change oc
 
 The POST data that you can include with each type of alert are passed as a JSON payload.
 
-## Viewing Alert Targets
+## Viewing Custom Alert Targets
 
 To view alert targets, select **Browse > Alert Targets**.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-## Creating an Alert Target
+
+## Creating a Custom Alert Target
 
 The process for creating an alert target is fairly similar for the different targets. A few fields on the Alert Target page change if you change the Type.
 
