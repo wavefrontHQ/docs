@@ -13,9 +13,8 @@ Legacy monitoring systems are limited to simple, threshold-based alerts. With Wa
 ## How Alerts Work
 
 An alert defines:
-* The conditions under which metric values indicate a system problem and
-* One or more targets to notify when the condition evaluates to true or false
-* For a specified period of time.
+* The condition under which metric values indicate a system problem.
+* One or more targets to notify when the condition evaluates to true or false for a specified period of time.
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric reaches a value that indicates a problem.
 
@@ -76,7 +75,7 @@ To create an alert:
 </tr>
 <tr>
 <td>Target List</td>
-<td markdown="span">Targets to notify when the alert changes state, for example, from FIRING to CHECKING, or when an alert is snoozed. You can specify a list of up to ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html), separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
+<td markdown="span">Targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when an alert is snoozed. You can specify up to ten different targets, which can include comma-separated email addresses, [PagerDuty](pagerduty.html) keys, or names of custom alert targets that specify webhooks for pager services and communication channels such as [VictorOps](victorops.html), [Slack](slack.html), and [HipChat](hipchat.html). See [Using Alert Targets](webhooks_alert_notification.html) for details.
 </td>
 </tr>
 <tr>
@@ -130,22 +129,22 @@ For example, for the alert shown above, the chart displays:
 
 ![Alert queries](images/alert_queries.png)
 
-The Firings column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
+The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
 Alert history shows the changes that have been made to an alert over time. To access the alert history, click he three dots to the left of the alert on the Alerts page and click **Versions**. Alert history shows:
 * Which user made the changes.
 * The date and time the changes were made.
 * A description of the changes.
-You can revert back to or clone a past alert version. Alert history was implemented in Q4 of 2015. Even if the alert was created before that time, you won't see history before Q4 of 2015.
+You can revert back to or clone a past alert version.
 
-## Alert Notifications and Alerts
+## Alert Notifications
 
-When an alert changes state, a notification containing alert information and a link to a chart is sent to the alert targets.
+When an alert changes state, a notification containing alert information is sent to each alert target that you specified for the alert.
 
-* You can add simple targets (email and PagerDuty) directly in the alert's Targets field.
-* You can explicitly create an [alert target](webhooks_alert_notification.html) and add that target to your alert.
+* You can add simple targets (email addresses and PagerDuty keys) directly in the alert's Targets field.
+* You can explicitly create a [custom alert target](webhooks_alert_notification.html) and add that target to your alert.
 
-For example, if you have configured your email address as the alert target, you receive an email like the following whenever the alert fires, adds or removes an affected source, resolves, or is updated:
+For example, if you have specified your email address as the alert target, you receive an email like the following whenever the alert fires, updates (adds or removes an affected source), or resolves:
 
 ![alert_email](images/alert_email.png)
 

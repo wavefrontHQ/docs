@@ -1,22 +1,21 @@
 ---
-title: Using Alert Targets to Send Alerts to Notification Systems
+title: Creating and Managing Custom Alert Targets
 keywords: alert targets
 tags: [alerts, integrations]
 sidebar: doc_sidebar
 permalink: webhooks_alert_notification.html
-summary: Learn how to use alert targets to integrate alerts and notification systems.
+summary: Learn how to create custom alert targets to receive alert notifications on different messaging platforms.
 ---
-You can use Wavefront alert targets to integrate alerts with many types of notification systems.
 
-You can create alert targets from scratch or use one of the predefined integrations that use alert notification.
+You can create custom alert targets for sending notifications to a variety of messaging platforms, including email, pager services, and communication channels. A custom alert target enables you to configure where you want notifications to be sent, what kind of information you want in them, how you want them to be formatted, and which alert events should trigger them. For example, you can use a custom alert target to:
+* Expand (or limit) the set of triggering events for notifications sent to a particular list of email addresses. 
+* Associate a short name with a lengthy PagerDuty key.
+* Configure notifications for a webhook-based messaging platform such as Slack, HipChat, and VictorOps.
 
-* This page explains how to create and configure different alert targets, including webhooks.
+This page provides general steps for creating and managing a custom alert target. These steps apply to any custom alert target, including targets you create from scratch.
+* Wavefront provides predefined integrations to create alert targets for [PagerDuty](pagerduty.html), [VictorOps](victorops.html), [Slack](slack.html), and [HipChat](hipchat.html). Follow the instructions in the built-in integration. (Here's a list of all [built-in integrations](label_integrations.html).)
+* See [Customizing Alert Target Templates](alert_target_customizing.html) for information about customizing a notification's contents.
 
-* [Customizing Alert Targets](alert_target_customizing.html) explains how to use webhook templates, variables, and functions to customize alert target behavior.
-
-* Wavefront provides predefined integrations for several notification systems such as Slack, PagerDuty, HipChat, and VictorOps. Follow the instructions in the built-in integration. Here's a list of all [built-in integrations](integrations_list.html).
-
-To view and manage alert targets, select **Browse > Alert Targets**.
 
 **Note** Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly.
 
@@ -29,13 +28,13 @@ callback that is triggered when an alert changes state. When the state change oc
 
 * An Email alert target allows you to specify the attributes of an email that is sent when an alert is triggered. The email can include a POST body with details about the alert.
 
-* A PargerDuty alert target allows you to specify a PagerDuty key and a POST body to use when an alert is triggered.
+* A PagerDuty alert target allows you to specify a PagerDuty key and a POST body to use when an alert is triggered.
 
 The POST data that you can include with each type of alert are passed as a JSON payload.
 
-## Prerequisites
+## Viewing Alert Targets
 
-If you use a webhook alert target, the webhook url must be publicly accessible.
+To view alert targets, select **Browse > Alert Targets**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
@@ -83,7 +82,7 @@ The process for creating an alert target is fairly similar for the different tar
     
     <tr>
     <td>URL </td>
-    <td>REST endpoint of the receiving application, e.g. Slack.</td>
+    <td>REST endpoint of the receiving application, e.g. Slack. The webhook url must be publicly accessible.</td>
     </tr>
     
     <tr>
@@ -103,10 +102,14 @@ The process for creating an alert target is fairly similar for the different tar
     </tr>
 
     <tr>
-      <td rowspan="3"> Type: Email </td>
+      <td rowspan="4"> Type: Email </td>
       <td >&nbsp;</td>
       <td>&nbsp;</td>      
     </tr>
+    <tr>  
+      <td markdown="span">HTML Format </td>
+      <td markdown="span">Specifies the expected message formatting. When checked, messages are interpreted as HTML; otherwise plain text. </td>
+    </tr>    
     <tr>  
       <td markdown="span">Email Address List </td>
       <td markdown="span">One or more addresses, separated by commas. </td>

@@ -94,6 +94,10 @@ Alert targets support the following customization variables:
 <td>List of sources (hosts) that are failing, displayed as a message.</td>
 </tr>
 <tr>
+<td markdown="span">`imageLinks`</td>
+<td>Image of a chart showing the data at the time the alert fired or was updated.</td>
+</tr>
+<tr>
 <td markdown="span">`inMaintenanceAlertSeries`</td>
 <td>Iterator for alert series whose sources are in a maintenance window.</td>
 </tr>
