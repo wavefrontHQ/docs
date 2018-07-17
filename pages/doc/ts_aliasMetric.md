@@ -18,7 +18,7 @@ aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearc
 ```
 
 
-Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metric|source|{tagk, <pointTagKey>}`), it defaults to `source`.
+Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metric|source|{tagk, <pointTagKey>}`), it defaults to `metric`.
 
 Here are some sample scenarios:
 * You want to group by a given parameter that is only found within a metric, source, or point tag value.
