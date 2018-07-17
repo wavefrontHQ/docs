@@ -56,7 +56,7 @@ Here are some sample scenarios:
 <td>"regexSearchPattern", "replacementPattern"</td>
 <td>Use these parameters to use a regular expression to specify the node that you want to extract with <code>aliasMetric()</code>.
 <ul>
-<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the extraction node specified above (source is the default).</li>
+<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the extraction node specified above (metric is the default).</li>
 <li><code>"replacementPattern"</code> - The replacement string. If capturing groups are used in regexSearchPattern, they can be referred to as $1, $2, etc.
 </li>
 </ul> </td>
