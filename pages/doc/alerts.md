@@ -74,15 +74,15 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 <td>Target List</td>
 <td>Targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets across the following types. Use commas to separate targets of the same type.
 <ul>
-<li><strong>Email</strong> - Valid email addresses. Email alert notifications contain default HTML-formatted content.</li>
+<li><strong>Email</strong> - Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content.</li>
 
-<li  markdown="span"><strong>PagerDuty Key</strong> - PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). PagerDuty alert notifications contain default content.</li>
+<li  markdown="span"><strong>PagerDuty Key</strong> - PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). Alert notifications that use these keys are sent in response to a default set of triggering events, and contain default content.</li>
 
 <li><strong>Alert Target</strong> - Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
 
 <ul>
 <li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
-<li>Configure email or PagerDuty notifications with nondefault content or triggering events. </li>
+<li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
 </ul>
 
 </li>
@@ -170,20 +170,44 @@ Alert history shows the changes that have been made to an alert over time. To ac
 * A description of the changes.
 You can revert back to or clone a past alert version.
 
+## Editing an Alert
+
+You can change an alert at any time.
+
+1. Click the **Alerts** button or select **Browse > Alerts** to display the Alerts page. 
+2. Click the name of the alert you want to change to display the Edit Alert page.
+3. Update the properties you want to change, and click **Save**.
+
+
 ## Alert Notifications
 
-When an alert changes state, a notification containing alert information is sent to each alert target that you specified for the alert.
+Alerts report their significant state changes by sending notifications to the alert targets in their target lists. Each such notification contains information extracted from the alert about its state change.
 
-* You can add simple targets (email addresses and PagerDuty keys) directly in the alert's Targets field.
-* You can explicitly create a [custom alert target](webhooks_alert_notification.html) and add that target to your alert.
+The timing of an alert notification depends on the alert target: 
 
-For example, if you have specified your email address as the alert target, you receive an email like the following whenever the alert fires, updates (adds or removes an affected source), or resolves:
+* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), notifications are sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
+* For [custom alert targets](webhooks_alert_notification.html), notifications are sent in response to the particular triggering events that were specified for the target.
+
+For example, if you have specified your email address as the alert target, you receive an email like the following whenever the alert fires:
 
 ![alert_email](images/alert_email.png)
 
-When you click the **View Alert** button in the notification, you see the queries and alert events:
+When you click the **VIEW ALERT** button in the notification, you see the interactive chart for the query condition, along with queries for alert events and metrics:
 
 {% include shared/alert_details.html %}
+
+### Chart Images in Alert Notifications
+
+When an alert starts firing or is updated, the resulting alert notification can include an image of the chart for the conditional query that triggered the alert. The sample email notification shown above includes a chart image. 
+
+A chart image is a snapshot of the time series at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image shows you the exact state of the data that triggered the alert. In contrast, the interactive chart obtained by clicking **VIEW ALERT** shows you the data at the time you bring up the chart, which might be somewhat later. This time difference can allow delayed data to be backfilled, which could obscure the reason why the alert fired.
+
+For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to execute. The chart image itself can take a few moments to create, in which case you'll briefly see a placeholder image in your notification until the chart image is ready. 
+
+Chart images are automatically included in notifications for simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).  Notifications for [custom alert targets](webhooks_alert_notification.html) include chart images by default.
+
+**Note** If you created a custom alert target before 2018-26.x, you have to update it in order to include chart images in the notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+
 
 ## Alert Events
 

@@ -7,13 +7,16 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert target templates.
 ---
 
-You can use Wavefront alert targets to integrate alerts with many types of notification systems. [Using Alert Targets to Send Alerts to Notification Systems](webhooks_alert_notification.html) explains how to create and manage alert targets.
+A custom alert target provides a template for specifying the contents of the notifications to be sent when an alert changes state.
+The template is a blueprint for extracting various pieces of information from the alert and assembling them into the notification.
 
-Alert target customization variables and customization functions support customizing alert target templates. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
+You typically customize a template by starting with the default template for the alert target type, and then editing that template. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
 
-## Alert Target Customization Iterators and Properties
+**Note** For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html).
 
-You can customize the alert target using iterators and properties.
+## Alert Target Variables
+
+An alert target template uses variables to request pieces of information (values) from an alert. Some variables return individual values, while others (iterators) return a list of values.
 
 The iterator categories are:
 * `failing`
@@ -23,7 +26,7 @@ The iterator categories are:
 
 The iterators return three types of objects:
 
-- `host` - Affected source (host). The only value returned by `XXXHosts` iterators such as `failingHosts` or `newlyFailingHosts`.
+- hosts - Affected source (host). The only value returned by `XXXHosts` iterators such as `failingHosts` or `newlyFailingHosts`.
 - series - Returned by `XXXSeries` iterators such as `failingSeries` or `newlyFailingSeries`.
   - `host` - Affected source (host).
   - `label` - Metric or aggregation.
@@ -188,7 +191,7 @@ Alert targets support the following customization variables:
 </tbody>
 </table>
 
-### Webhook Template Example
+### Example Webhook Template
 
 Here is a sample webhook alert target template:
 
@@ -580,3 +583,21 @@ Output:\\
 </tr>
 </tbody>
 </table>
+
+## Adding Chart Images to Older Custom Alert Targets
+
+As of 2018-26.x, the default template for a custom alert target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, any custom alert targets you created prior to 2018-26.x will not include a chart image unless you update their templates.
+
+Here's how to update the template for custom alert target for email notifications:
+
+1. Click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
+2. Make sure the template is displayed in the **Body Template** box.
+3. Insert the following snippet into the template:
+
+{% raw %}
+```handlebars
+{{#imageLinks}}
+<img src="{{{.}}}" />
+{{/imageLinks}} 
+```
+{% endraw %}
