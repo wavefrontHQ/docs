@@ -11,9 +11,9 @@ You can create custom alert targets to configure alert notifications for a varie
 
 This page provides general steps for creating and managing a custom alert target. 
 
-* See [Customizing Alert Target Templates](alert_target_customizing.html) for specific details about customizing the contents of alert notifications.
-
 * As a convenience, you can follow the steps in [PagerDuty Integration](pagerduty.html), [VictorOps Integration](victorops.html), [Slack Integration](slack.html), or [HipChat Integration](hipchat.html) to configure custom alert targets specifically for these messaging platforms. (You can check for additional integrations [here](label_integrations.html).)
+
+* See [Customizing Alert Target Templates](alert_target_customizing.html) for specific details about customizing the contents of alert notifications.
 
 * Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly.
 
@@ -24,15 +24,15 @@ This page provides general steps for creating and managing a custom alert target
 Alert targets specify when and how to send notifications in response to alert activity. You implicitly use Wavefront's built-in alert targets when you specify an email address or a PagerDuty key in the target list of an alert. These simple alert targets:
 
 * Cause notifications to be sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window. 
-* Provide internal templates for composing and formatting the notification contents. 
+* Provide internal templates that compose and format the notification contents. These internal templates are maintained by Wavefront, and may change from release to release.
 
 You can create custom alert targets when you need more flexibility about where you want notifications to be sent, what kind of information you want in them, how you want them to be formatted, and which alert events should trigger them. For example, you could use a custom alert target to:
 
 * Expand (or limit) the set of triggering events for notifications.
 * Configure different contents for notifications triggered by different events.
-* Associate a short name with a lengthy list of email addresses or a lengthy PagerDuty key.
+* Associate a short name with a long list of email addresses or a lengthy PagerDuty key.
 
-**Note** You must use a custom alert target to configure notifications for a webhook-based messaging platform such as Slack, HipChat, and VictorOps. 
+**Note:** You always use a custom alert target for sending notifications to a webhook-based messaging platform such as Slack, HipChat, or VictorOps. 
 
 
 ## Viewing Custom Alert Targets
@@ -90,11 +90,11 @@ The process for creating an alert target is similar for the different types of t
     </tr>
     <tr>
     <td><strong>Email</strong></td>
-    <td colspan="2">Alert target for specifying the attributes of an email message that is sent when an alert changes state.</td>
+    <td colspan="2">Alert target for sending notifications to email systems. This alert target specifies the attributes of the email messages to be sent when an alert changes state.</td>
     </tr>
     <tr>
     <td><strong>PagerDuty</strong></td>
-    <td colspan="2">Alert target for specifying a PagerDuty key and a POST body to use when an alert changes state.</td>
+    <td colspan="2">Alert target for sending notifications to PagerDuty. This alert target specifies the PagerDuty key and a POST body to use when an alert changes state.</td>
     </tr>
     </tbody>
     </table>

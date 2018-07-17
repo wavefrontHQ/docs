@@ -16,7 +16,7 @@ You typically customize a template by starting with the default template for the
 
 ## Alert Target Variables
 
-An alert target template uses variables to request pieces of information (values) from an alert. Some variables return individual values, while others (iterators) return a list of values.
+An alert target template uses variables to request pieces of information from an alert. Some variables return individual values, while others (iterators) return a list of values.
 
 The iterator categories are:
 * `failing`
@@ -588,7 +588,7 @@ Output:\\
 
 As of 2018-26.x, the default template for a custom alert target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, any custom alert targets you created prior to 2018-26.x will not include a chart image unless you update their templates.
 
-Here's how to update the template for custom alert target for email notifications:
+Here's how to update the template for a custom email alert target:
 
 1. Click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
 2. Make sure the template is displayed in the **Body Template** box.

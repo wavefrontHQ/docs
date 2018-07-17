@@ -206,7 +206,7 @@ For performance reasons, a chart image is included only if the alert's condition
 
 Chart images are automatically included in notifications for simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).  Notifications for [custom alert targets](webhooks_alert_notification.html) include chart images by default.
 
-**Note** If you created a custom alert target before 2018-26.x, you have to update it in order to include chart images in the notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+**Note** If you created a custom alert target before 2018-26.x, you must update it if you want to include chart images in the notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
 
 
 ## Alert Events
