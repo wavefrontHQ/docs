@@ -3,6 +3,7 @@ title: Metadata Functions
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
+published: false
 permalink: query_language_metadata_functions.html
 summary: Learn how to use metadata functions in Wavefront Query Language expressions to rename metrics and sources and create point tags.
 ---
