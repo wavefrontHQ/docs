@@ -18,7 +18,7 @@ aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearc
 ```
 
 
-Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metric|source|{tagk, <pointTagKey>}`), it defaults to `source`.
+Extract a string from an existing metric name, source name, or point tag value and rename the metric in `expression` with that string. If you don't specify the second parameter (`metric|source|{tagk, <pointTagKey>}`), it defaults to `metric`.
 
 Here are some sample scenarios:
 * You want to group by a given parameter that is only found within a metric, source, or point tag value.
@@ -56,7 +56,7 @@ Here are some sample scenarios:
 <td>"regexSearchPattern", "replacementPattern"</td>
 <td>Use these parameters to use a regular expression to specify the node that you want to extract with <code>aliasMetric()</code>.
 <ul>
-<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the extraction node specified above (source is the default).</li>
+<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the extraction node specified above (metric is the default).</li>
 <li><code>"replacementPattern"</code> - The replacement string. If capturing groups are used in regexSearchPattern, they can be referred to as $1, $2, etc.
 </li>
 </ul> </td>
