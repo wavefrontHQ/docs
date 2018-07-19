@@ -40,6 +40,10 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 <h5>Google Cloud Datastore</h5>
 <div><img src="images/datastore.svg" alt="Google Cloud Datastore" style="max-width: 70px;"/></div>
 </td>
+<td style="text-align:center;vertical-align:top;">
+<h5>Google Cloud Storage</h5>
+<div><img src="images/googlestorage.svg" alt="Google Cloud Storage" style="max-width: 70px;"/></div>
+</td>
 </tr>
 </tbody>
 </table>
