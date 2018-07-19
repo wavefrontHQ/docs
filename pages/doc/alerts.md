@@ -216,7 +216,11 @@ A chart image is a static snapshot that captures the state of the data at the ti
 
 For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image itself can take a few moments to create, in which case you'll briefly see a placeholder image in your notification until the chart image is ready. 
 
-Chart images are automatically included in notifications for simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list). You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html). As of 2018-26.x, chart images are included in the predefined templates for custom HTML email targets and for Slack targets.
+Chart images are automatically included in notifications for: 
+* Simple alert targets -- that is, email addresses and PagerDuty keys that are added directly in the alert's target list. 
+* [Custom alert targets](webhooks_alert_notification.html) for PagerDuty notifications.
+
+You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms. As of 2018-26.x, chart images are included in the predefined templates for custom HTML email targets and for Slack targets.
 
 **Note** If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
 

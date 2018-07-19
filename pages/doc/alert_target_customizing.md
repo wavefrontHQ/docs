@@ -586,9 +586,11 @@ Output:\\
 
 ## Adding Chart Images to Older Custom Alert Targets
 
-As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, any custom alert target you created before 2018-26.x will not include a chart image in the alert notification unless you update the alert target's template.
+As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom alert target for one of these messaging platforms before 2018-26.x, you must explicitly update the alert target's template to include chart images in the alert notifications.
 
-Here's how to update the template for a custom HTML email alert target:
+**Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images. 
+
+Here's how to update the template for a pre-existing custom HTML email alert target:
 
 1. Click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
 2. In the **Body Template** box, insert the following snippet into the template:
