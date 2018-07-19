@@ -41,21 +41,21 @@ To create an alert:
 <li markdown="span"><strong>Chart</strong> - Hover over a query field and click the <strong>Create Alert</strong> link below the query field. </li>
 </ul></li>
 
-<li>Fill in the following required alert properties.
+<li>Fill in the following required and recommended alert properties.
 <table id="alert-properties">
 <tbody>
 <thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>Name</td>
+<td><strong>Name</strong></td>
 <td>Name of the alert. The name must contain 1-255 characters. Pick a name that makes it easy to identify the alert's purpose. </td>
 </tr>
 
 <tr>
-<td>Condition</td>
-<td>A conditional ts() expression that defines the threshold for the alert. You can use any valid <a href=
-"query_language_getting_started.html">Wavefront Query Language</a> construct in the expression. The expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
+<td><strong>Condition</strong></td>
+<td>A conditional ts() expression that defines the threshold for the alert. The condition expression can include any valid <a href=
+"query_language_getting_started.html">Wavefront Query Language</a> construct. The condition expression coupled with the <strong>Alert fires</strong> setting determines when the alert fires.
 <ul><li><strong>Alert fires</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be true before the alert fires. Minimum is 1.  For example, if you enter 5, the alerting engine reviews the value of the condition during the last 5 minute window to determine whether the alert should fire.</li>
 <li><strong>Alert resolves</strong> - Length of time (in minutes) during which the <strong>Condition</strong> expression must be false before the alert switches to resolved. Minimum is 1.  Omit this setting to use the <strong>Alert fires</strong> setting.
 Pick a value that is greater than or equal to the <strong>Alert fires</strong> to avoid potential chains of resolve-fire cycles. </li>
@@ -66,12 +66,24 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 
 <tr>
-<td>Severity</td>
+<td><strong>Display Expression</strong></td>
+<td><em>Recommended.</em> A ts() expression that returns the data you want to inspect when the alert fires. The display expression can include any valid <a href="query_language_getting_started.html">Wavefront Query Language</a> construct, and typically returns the underlying time series being tested by the condition expression. The results of the display expression are shown:
+<ul>
+<li>In the <strong>Events Display</strong> preview chart on the page for creating or editing the alert.</li>
+<li markdown="span">In any [chart image](#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
+<li  markdown="span">In the [interactive chart](#interactive-charts-linked-by-alert-notifications) you can visit from a notification triggered by the alert.</li>
+</ul>
+
+If you leave this field blank, the condition expression is used. Note, however, that the values returned by the condition expression are either 0 or 1, which might not provide the information you want to inspect when the alert changes state. </td>
+</tr>
+
+<tr>
+<td><strong>Severity</strong></td>
 <td>How important the alert is. In decreasing importance:  SEVERE, WARN, SMOKE, and INFO.</td>
 </tr>
 
 <tr>
-<td>Target List</td>
+<td><strong>Target List</strong></td>
 <td>Targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets across the following types. Use commas to separate targets of the same type.
 <ul>
 <li><strong>Email</strong> - Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content.</li>
@@ -92,13 +104,14 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </table>
 </li>
 
+
 <li>Optionally fill in the following additional alert properties.
 <table>
 <tbody>
 <thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td>Events Display</td>
+<tr><td><strong>Events Display</strong></td>
 <td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying.html">event icons</a> on the preview chart.
 <ul><li><strong>Actual Firings (existing alerts only)</strong> - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.</li>
 <li><strong>Backtesting</strong> - Displays hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. See <strong>Backtesting</strong> above. 
@@ -106,15 +119,11 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </td></tr>
 
 <tr>
-<td>Display Expression</td>
-<td>The query that is sent to targets when notified of alert state changes. Use this field to show a more helpful query, for example, the underlying time series. If not set, the query sent is the expression in the <strong>Condition</strong> field.</td>
-</tr>
-<tr>
-<td>Additional Information</td>
+<td><strong>Additional Information</strong></td>
 <td>Any additional information, such as a link to a run book.</td>
 </tr>
 <tr>
-<td>Tags</td>
+<td><strong>Tags</strong></td>
 <td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html). </td>
 </tr>
 </tbody>
@@ -126,14 +135,14 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 <tbody>
 <thead><tr><th width="20%">Property</th><th width="80%">Description</th></tr></thead>
 <tr>
-<td>Checking Frequency</td>
+<td><strong>Checking Frequency</strong></td>
 <td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
 </tr><tr>
-<td>Resend Notifications</td>
+<td><strong>Resend Notifications</strong></td>
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
 </tr>
 <tr>
-<td>Metrics</td>
+<td><strong>Metrics</strong></td>
 <td>Whether to include obsolete metrics. If enabled, the alert considers metrics that have not reports for 4 weeks or more. Customers who use queries that aggregate data in longer timeframes sometimes want to include those older metrics.</td>
 </tr>
 </tbody>
@@ -194,22 +203,36 @@ If you have specified your email address as the alert target, you receive an ema
 
 ![alert_email](images/alert_email.png)
 
-When you click the **View Alert** button in the notification, you see the interactive chart for the query condition, along with queries for alert events and metrics:
-
-{% include shared/alert_details.html %}
 
 ### Chart Images in Alert Notifications
 
-When an alert starts firing or is updated, the resulting alert notification can include an image of the chart for the conditional query that triggered the alert. The sample email notification shown above includes a chart image. 
+When an alert starts firing or is updated, the resulting alert notification can include an image of a chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above includes the following chart image:
 
-A chart image is a snapshot of the time series at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image shows you the exact state of the data that triggered the alert. In contrast, the interactive chart obtained by clicking **View Alert** shows you the data at the time you bring up the chart, which might be somewhat later. This time difference can allow delayed data to be backfilled, which could obscure the reason why the alert fired.
+![alert_chart_only](images/alert_chart_only.png)
 
-For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to execute. The chart image itself can take a few moments to create, in which case you'll briefly see a placeholder image in your notification until the chart image is ready. 
+Chart images show the results of an alert's display expression. If you have [set the alert's **Display Expression** field](#alert-properties) as recommended, the chart image provides a snapshot of the time series being tested by the alert. 
 
-Chart images are automatically included in notifications for simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).  Notifications for [custom alert targets](webhooks_alert_notification.html) include chart images by default.
+A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.) Note that all chart images are shown in Coordinated Universal Time (UTC), regardless of the time zone set for your live data charts.
 
-**Note** If you created a custom alert target before 2018-26.x, you must update it if you want to include chart images in the notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image itself can take a few moments to create, in which case you'll briefly see a placeholder image in your notification until the chart image is ready. 
 
+Chart images are automatically included in notifications for:
+* All simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list). 
+* Any [custom alert targets](webhooks_alert_notification.html) created with version 2018-26.x or later.
+
+**Note** If you created a custom alert target before 2018-26.x, you must edit the alert target template if you want to include chart images in the notifications.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+
+### Interative Charts Linked by Alert Notifications
+
+An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see the following interactive chart:
+
+![alert_interactive_chart](images/alert_interactive_chart.png)
+
+The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have [set the alert's **Display Expression** field](#alert-properties) as recommended, the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart provided for it can display additional queries for alert events and alert metrics:
+
+{% include shared/alert_details.html %}
+
+Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on. Note that interactive charts always show the current state of your data as of the time you bring up the chart, which could be somewhat later than the event triggering the alert. This time difference can allow delayed data to be backfilled, which could obscure the reason why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), you can inspect a [chart image](#chart-images-in-alert-notifications) included in the notification.
 
 ## Alert Events
 
