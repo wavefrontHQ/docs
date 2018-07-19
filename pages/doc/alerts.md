@@ -224,7 +224,7 @@ You can optionally include chart images in notifications for [custom alert targe
 
 **Note** If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
 
-### Interative Charts Linked by Alert Notifications
+### Interactive Charts Linked by Alert Notifications
 
 An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see the following interactive chart:
 
