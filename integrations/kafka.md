@@ -26,19 +26,19 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 ### Step 2. Download and Set up Jolokia
 Jolokia is a JVM agent that exposes JMX data as JSON on an HTTP port (8778 by default).
-1. Download the **JVM-Agent** artifact from [Jolokia - Download](https://jolokia.org/download.html). 1.3.6 is the current version as of this writing.
+1. Download the **JVM-Agent** artifact from [Jolokia - Download](https://jolokia.org/download.html). 1.5.0 is the current version as of this writing.
 1. Save Jolokia on your Kafka broker nodes in `/opt/kafka/libs` or any location accessible to Kafka.
 1. Configure Kafka to use Jolokia:
     1. Add the following snippet to `kafka-server-start.sh`:{% raw %}
     ```
     export JMX_PORT=9999
-    export RMI_HOSTNAME=ENTER_KAFKA_SERVER_IP_ADDRESS
-    export KAFKA_JMX_OPTS="-javaagent:/opt/kafka/libs/jolokia-jvm-1.3.6-agent.jar  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=$RMI_HOSTNAME -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
+    export RMI_HOSTNAME=KAFKA_SERVER_IP_ADDRESS
+    export KAFKA_JMX_OPTS="-javaagent:/opt/kafka/libs/jolokia-jvm-1.5.0-agent.jar  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=$RMI_HOSTNAME -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
     ```
     1. Restart the Kafka broker node.
     1. Verify that you can access Jolokia on port 8778 by running:
     ```
-    curl http://KAFKA_SERVER_IP_ADDRESS:8778/jolokia/
+    curl http://KAFKA_SERVER_IP_ADDRESS:8778/jolokia/version
     ```
     Jolokia is working if you receive a non-empty JSON response with the Kafka metrics.
 
@@ -48,161 +48,158 @@ Create a file called `jolokia-kafka.conf` in `/etc/telegraf/telegraf.d` and ente
 
 ```
 ## Read JMX metrics through Jolokia
- [[inputs.jolokia]]
-
-   name_override = "kafka"
-
-   context = "/jolokia/list/"
-
-   ## List of servers exposing jolokia read service
-   [[inputs.jolokia.servers]]
-     name = "kafka-server-1"
-     host = "SERVER_ADDRESS"
-     port = "8778"
-     # username = "myuser"
-     # password = "mypassword"
+ [[inputs.jolokia2_agent]]
+   urls = ["http://KAFKA_SERVER_IP_ADDRESS:8778/jolokia"]
+   name_prefix = "kafka."
 
    ## List of metrics collected on above servers
-   ## Each metric consists in a name, a jmx path and either
-   ## a pass or drop slice attribute.
-   ## This collects all heap memory usage metrics.
-   [[inputs.jolokia.metrics]]
+   ## Each metric consists of a name, a jmx path and
+   ## optionally, a list of fields to collect.
+   ## This collects all heap memory usage metrics.
+   [[inputs.jolokia2_agent.metric]]
      name = "heap_memory_usage"
      mbean  = "java.lang:type=Memory"
-     attribute = "HeapMemoryUsage"
+     paths = ["HeapMemoryUsage"]
 
-   ## This collects thread counts metrics.
-   [[inputs.jolokia.metrics]]
+   ## This collects thread counts metrics.
+   [[inputs.jolokia2_agent.metric]]
      name = "thread_count"
      mbean  = "java.lang:type=Threading"
-     attribute = "TotalStartedThreadCount,ThreadCount,DaemonThreadCount,PeakThreadCount"
+     paths = ["TotalStartedThreadCount","ThreadCount","DaemonThreadCount","PeakThreadCount"]
 
-   ## This collects garbage collection metrics.
-   [[inputs.jolokia.metrics]]
-     name = "gc_old_generation"
-     mbean  = "java.lang:type=GarbageCollector,name=G1 Old Generation"
-     attribute = "CollectionCount,CollectionTime"
-   [[inputs.jolokia.metrics]]
-     name = "gc_young_generation"
-     mbean  = "java.lang:type=GarbageCollector,name=G1 Young Generation"
-     attribute = "CollectionCount,CollectionTime"
+   ## This collects garbage collection metrics.
+   [[inputs.jolokia2_agent.metric]]
+     name = "garbage_collector"
+     mbean  = "java.lang:type=GarbageCollector,name=*"
+     paths = ["CollectionCount","CollectionTime"]
+     tag_keys = ["name"]
 
    # Kafka Server Broker Topic Metrics
-   [[inputs.jolokia.metrics]]
+   [[inputs.jolokia2_agent.metric]]
      name = "server_brokertopics_messagesinpersec"
      mbean  = "kafka.server:type=BrokerTopicMetrics,name=MessagesInPerSec"
-   [[inputs.jolokia.metrics]]
+   [[inputs.jolokia2_agent.metric]]
      name = "server_brokertopics_bytesinpersec"
      mbean  = "kafka.server:type=BrokerTopicMetrics,name=BytesInPerSec"
-   [[inputs.jolokia.metrics]]
+   [[inputs.jolokia2_agent.metric]]
      name = "server_brokertopics_bytesoutpersec"
      mbean  = "kafka.server:type=BrokerTopicMetrics,name=BytesOutPerSec"
 
+   # Kafka Server Request Handler Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_requesthandler_avgidlepct"
+     mbean  = "kafka.server:name=RequestHandlerAvgIdlePercent,type=KafkaRequestHandlerPool"
+
    # Kafka Server Delayed Operation Purgatory Metrics
-   [[inputs.jolokia.metrics]]
-    name = "server_delayedoperationpugatory_fetch"
-    mbean  = "kafka.server:type=DelayedOperationPurgatory,name=PurgatorySize,delayedOperation=Fetch"
-   [[inputs.jolokia.metrics]]
-    name = "server_delayedoperationpugatory_produce"
-    mbean  = "kafka.server:type=DelayedOperationPurgatory,name=PurgatorySize,delayedOperation=Produce"
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_delayedoperationpugatory_fetch"
+     mbean  = "kafka.server:type=DelayedOperationPurgatory,name=PurgatorySize,delayedOperation=Fetch"
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_delayedoperationpugatory_produce"
+     mbean  = "kafka.server:type=DelayedOperationPurgatory,name=PurgatorySize,delayedOperation=Produce"
 
-    # Kafka Server Replica Fetcher Manager Metrics
-    [[inputs.jolokia.metrics]]
-    name = "server_replicafetchmanager.maxlag"
-    mbean  = "kafka.server:type=ReplicaFetcherManager,name=MaxLag,clientId=Replica"
+   # Kafka Server Replica Fetcher Manager Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_replicafetchmanager.maxlag"
+     mbean  = "kafka.server:type=ReplicaFetcherManager,name=MaxLag,clientId=Replica"
 
-    # Kafka Server Replica Manager Metrics
-    [[inputs.jolokia.metrics]]
-    name = "server_replicamanager_underreplicated"
-    mbean  = "kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions"
-    [[inputs.jolokia.metrics]]
-    name = "server_replicamanager_partitioncount"
-    mbean  = "kafka.server:type=ReplicaManager,name=PartitionCount"
-    [[inputs.jolokia.metrics]]
-    name = "server_replicamanager_leadercount"
-    mbean  = "kafka.server:type=ReplicaManager,name=LeaderCount"
-    [[inputs.jolokia.metrics]]
-    name = "server_replicamanager_isrshrinkspersec"
-    mbean  = "kafka.server:type=ReplicaManager,name=IsrShrinksPerSec"
-    [[inputs.jolokia.metrics]]
-    name = "server_replicamanager_isrexpandspersec"
-    mbean  = "kafka.server:type=ReplicaManager,name=IsrExpandsPerSec"
+   # Kafka Server Replica Manager Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_replicamanager_underreplicated"
+     mbean  = "kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions"
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_replicamanager_partitioncount"
+     mbean  = "kafka.server:type=ReplicaManager,name=PartitionCount"
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_replicamanager_leadercount"
+     mbean  = "kafka.server:type=ReplicaManager,name=LeaderCount"
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_replicamanager_isrshrinkspersec"
+     mbean  = "kafka.server:type=ReplicaManager,name=IsrShrinksPerSec"
+   [[inputs.jolokia2_agent.metric]]
+     name = "server_replicamanager_isrexpandspersec"
+     mbean  = "kafka.server:type=ReplicaManager,name=IsrExpandsPerSec"
 
-    # Kafka Network Request Metrics
-    [[inputs.jolokia.metrics]]
-    name = "network_requestmetrics_requests_fetch_consumer"
-    mbean  = "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=FetchConsumer"
-    [[inputs.jolokia.metrics]]
-    name = "network_requestmetrics_requests_fetch_follower"
-    mbean  = "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=FetchFollower"
-    [[inputs.jolokia.metrics]]
-    name = "network_requestmetrics_requests_produce"
-    mbean  = "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Produce"
-    [[inputs.jolokia.metrics]]
-    name = "network_requestmetrics_totaltime_fetch_consumer"
-    mbean  = "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchConsumer"
-    [[inputs.jolokia.metrics]]
-    name = "network_requestmetrics_totaltime_fetch_follower"
-    mbean  = "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchFollower"
-    [[inputs.jolokia.metrics]]
-    name = "network_requestmetrics_totaltime_produce"
-    mbean  = "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Produce"
+   # Kafka Network Request Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_requestmetrics_requests_fetch_consumer"
+     mbean  = "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=FetchConsumer"
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_requestmetrics_requests_fetch_follower"
+     mbean  = "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=FetchFollower"
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_requestmetrics_requests_produce"
+     mbean  = "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Produce"
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_requestmetrics_totaltime_fetch_consumer"
+     mbean  = "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchConsumer"
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_requestmetrics_totaltime_fetch_follower"
+     mbean  = "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchFollower"
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_requestmetrics_totaltime_produce"
+     mbean  = "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Produce"
 
-    # Kafka Controller Metrics
-    [[inputs.jolokia.metrics]]
-    name = "controller_activecontrollers"
-    mbean  = "kafka.controller:type=KafkaController,name=ActiveControllerCount"
-    [[inputs.jolokia.metrics]]
-    name = "controller_offlinepartitions"
-    mbean  = "kafka.controller:type=KafkaController,name=OfflinePartitionsCount"
-    [[inputs.jolokia.metrics]]
-    name = "controller_stats_leaderelectionrateandtime"
-    mbean  = "kafka.controller:type=ControllerStats,name=LeaderElectionRateAndTimeMs"
-    [[inputs.jolokia.metrics]]
-    name = "controller_stats_uncleanleaderelections"
-    mbean  = "kafka.controller:type=ControllerStats,name=UncleanLeaderElectionsPerSec"
+   # Kafka Network Processor Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "network_processor_avgidlepct"
+     mbean  = "kafka.network:name=NetworkProcessorAvgIdlePercent,type=SocketServer"
 
-    # Zookeeper Metrics
-    [[inputs.jolokia.metrics]]
-    name = "zookeeper_disconnects"
-    mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperDisconnectsPerSec"
-    attribute = "Count,OneMinuteRate,FiveMinuteRate,FifteenMinuteRate,MeanRate"
-    [[inputs.jolokia.metrics]]
-    name = "zookeeper_sync_connects"
-    mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperSyncConnectsPerSec"
-    attribute = "Count,OneMinuteRate,FiveMinuteRate,FifteenMinuteRate,MeanRate"
-    [[inputs.jolokia.metrics]]
-    name = "zookeeper_auth_failures"
-    mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperAuthFailuresPerSec"
-    attribute = "Count,OneMinuteRate,FiveMinuteRate,FifteenMinuteRate,MeanRate"
-    [[inputs.jolokia.metrics]]
-    name = "zookeeper_readonly_connects"
-    mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperReadOnlyConnectsPerSec"
-    attribute = "Count,OneMinuteRate,FiveMinuteRate,FifteenMinuteRate,MeanRate"
-    [[inputs.jolokia.metrics]]
-    name = "zookeeper_authentications"
-    mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperSaslAuthenticationsPerSec"
-    attribute = "Count,OneMinuteRate,FiveMinuteRate,FifteenMinuteRate,MeanRate"
-    [[inputs.jolokia.metrics]]
-    name = "zookeeper_expires"
-    mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperExpiresPerSec"
-    attribute = "Count,OneMinuteRate,FiveMinuteRate,FifteenMinuteRate,MeanRate"
+   # Kafka Controller Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "controller_activecontrollers"
+     mbean  = "kafka.controller:type=KafkaController,name=ActiveControllerCount"
+   [[inputs.jolokia2_agent.metric]]
+     name = "controller_offlinepartitions"
+     mbean  = "kafka.controller:type=KafkaController,name=OfflinePartitionsCount"
+   [[inputs.jolokia2_agent.metric]]
+     name = "controller_stats_leaderelectionrateandtime"
+     mbean  = "kafka.controller:type=ControllerStats,name=LeaderElectionRateAndTimeMs"
+   [[inputs.jolokia2_agent.metric]]
+     name = "controller_stats_uncleanleaderelections"
+     mbean  = "kafka.controller:type=ControllerStats,name=UncleanLeaderElectionsPerSec"
+
+   # Zookeeper Metrics
+   [[inputs.jolokia2_agent.metric]]
+     name = "zookeeper_disconnects"
+     mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperDisconnectsPerSec"
+     paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
+   [[inputs.jolokia2_agent.metric]]
+     name = "zookeeper_sync_connects"
+     mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperSyncConnectsPerSec"
+     paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
+   [[inputs.jolokia2_agent.metric]]
+     name = "zookeeper_auth_failures"
+     mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperAuthFailuresPerSec"
+     paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
+   [[inputs.jolokia2_agent.metric]]
+     name = "zookeeper_readonly_connects"
+     mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperReadOnlyConnectsPerSec"
+     paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
+   [[inputs.jolokia2_agent.metric]]
+     name = "zookeeper_authentications"
+     mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperSaslAuthenticationsPerSec"
+     paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
+   [[inputs.jolokia2_agent.metric]]
+     name = "zookeeper_expires"
+     mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperExpiresPerSec"
+     paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
 ```
-**Note:** Replace `SERVER_ADDRESS` with the Kafka server IP address.
+**Note:** Replace `KAFKA_SERVER_IP_ADDRESS` with the Kafka server IP address.
 
 To monitor multiple Kafka brokers, add additional `[[inputs.jolokia.servers]]` entries:
 ```
 [[inputs.jolokia.servers]]
   name = "kafka-server-1"
-  host = "SERVER1_ADDRESS"
+  host = "KAFKA_SERVER1_IP_ADDRESS"
   port = "8778"
 
 [[inputs.jolokia.servers]]
   name = "kafka-server-2"
-  host = "SERVER2_ADDRESS"
+  host = "KAFKA_SERVER2_IP_ADDRESS"
   port = "8778"
 ```
-{% endraw %}  
+{% endraw %}
 
 ### Step 4. Restart Telegraf
 
