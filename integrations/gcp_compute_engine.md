@@ -1,8 +1,8 @@
 ---
-title: Google Cloud Platform Integration
+title: Google Compute Engine Integration
 tags: [integrations list]
-permalink: gcp.html
-summary: Learn about the Wavefront Google Cloud Platform Integration.
+permalink: gcp_compute_engine.html
+summary: Learn about the Wavefront Google Compute Engine Integration.
 ---
 ## Google Cloud Platform Integration
 
