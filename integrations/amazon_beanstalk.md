@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: AWS Elastic Beanstalk Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_beanstalk.html
+summary: Learn about the Wavefront AWS Elastic Beanstalk Integration.
 ---
 ## Amazon Web Services Integration
 

@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: AWS Lambda Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_lambda.html
+summary: Learn about the Wavefront AWS Lambda Integration.
 ---
 ## Amazon Web Services Integration
 

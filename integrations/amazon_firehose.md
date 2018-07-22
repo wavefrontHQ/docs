@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon Kinesis Data Firehose Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_firehose.html
+summary: Learn about the Wavefront Amazon Kinesis Data Firehose Integration.
 ---
 ## Amazon Web Services Integration
 

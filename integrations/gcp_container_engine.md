@@ -19,7 +19,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 
 ### Dashboards
 
-<p>Wavefront provides Google Cloud Platform dashboards for the following the services:</p>
+<p>Wavefront provides Google Cloud Platform dashboards for the following services:</p>
 
 - Google Compute Engine
 - Google Container Engine

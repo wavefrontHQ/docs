@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon OpsWorks Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_opsworks.html
+summary: Learn about the Wavefront Amazon OpsWorks Integration.
 ---
 ## Amazon Web Services Integration
 

@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon Elasticsearch Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_elasticsearch.html
+summary: Learn about the Wavefront Amazon Elasticsearch Integration.
 ---
 ## Amazon Web Services Integration
 

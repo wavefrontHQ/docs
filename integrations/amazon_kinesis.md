@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon Kinesis Data Stream Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_kinesis.html
+summary: Learn about the Wavefront Amazon Kinesis Data Stream Integration.
 ---
 ## Amazon Web Services Integration
 

@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon Cloud Search Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_cloudsearch.html
+summary: Learn about the Wavefront Amazon Cloud Search Integration.
 ---
 ## Amazon Web Services Integration
 

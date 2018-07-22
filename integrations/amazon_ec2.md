@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon EC2 Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_ec2.html
+summary: Learn about the Wavefront Amazon EC2 Integration.
 ---
 ## Amazon Web Services Integration
 

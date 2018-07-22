@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: AWS KMS Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_kms.html
+summary: Learn about the Wavefront AWS KMS Integration.
 ---
 ## Amazon Web Services Integration
 

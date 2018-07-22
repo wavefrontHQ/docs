@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon Route53 Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_route53.html
+summary: Learn about the Wavefront Amazon Route53 Integration.
 ---
 ## Amazon Web Services Integration
 

@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon ElasticCache Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_elastic_cache.html
+summary: Learn about the Wavefront Amazon ElasticCache Integration.
 ---
 ## Amazon Web Services Integration
 

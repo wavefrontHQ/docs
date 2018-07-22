@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon SNS Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_sns.html
+summary: Learn about the Wavefront Amazon SNS Integration.
 ---
 ## Amazon Web Services Integration
 

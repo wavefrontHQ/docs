@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon RDS Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_rds.html
+summary: Learn about the Wavefront Amazon RDS Integration.
 ---
 ## Amazon Web Services Integration
 

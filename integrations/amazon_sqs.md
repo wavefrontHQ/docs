@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon SQS Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_sqs.html
+summary: Learn about the Wavefront Amazon SQS Integration.
 ---
 ## Amazon Web Services Integration
 

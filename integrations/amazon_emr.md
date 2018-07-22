@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon EMR Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_emr.html
+summary: Learn about the Wavefront Amazon EMR Integration.
 ---
 ## Amazon Web Services Integration
 

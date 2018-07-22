@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon EBS Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_ebs.html
+summary: Learn about the Wavefront Amazon EBS Integration.
 ---
 ## Amazon Web Services Integration
 

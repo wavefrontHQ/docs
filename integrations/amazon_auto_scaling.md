@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: AWS Auto Scaling Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_auto_scaling.html
+summary: Learn about the Wavefront AWS Auto Scaling Integration.
 ---
 ## Amazon Web Services Integration
 

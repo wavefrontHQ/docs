@@ -1,8 +1,8 @@
 ---
-title: Amazon Web Services Integration
+title: Amazon DynamoDB Integration
 tags: [integrations list]
-permalink: aws.html
-summary: Learn about the Wavefront Amazon Web Services Integration.
+permalink: amazon_dynamodb.html
+summary: Learn about the Wavefront Amazon DynamoDB Integration.
 ---
 ## Amazon Web Services Integration
 
