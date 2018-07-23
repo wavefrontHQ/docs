@@ -19,9 +19,11 @@ This integration uses Windows performance counters specific to the IIS Telegraf 
 
 
 
-Supported IIS Version(s): IIS 6.0 & later
-
-    **Note:**  This integration is supported only on Windows.
+Supported IIS Version(s): IIS 6.0 & later{% raw %}
+```
+This integration is supported only on Windows.
+```
+**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](http://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
 
 ### Step 1: Set up a Wavefront Proxy
 
@@ -34,7 +36,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3: Configure the IIS Input Plugin
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
-{% raw %}
+
    ```
    [[inputs.win_perf_counters]]
      [[inputs.win_perf_counters.object]]

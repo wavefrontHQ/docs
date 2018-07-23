@@ -12,6 +12,10 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 {% include image.md src="images/ms_exchange_dashboard.png" width="80" %}
 
+## Microsoft Exchange Setup
+
+**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](http://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
+
 ### Step 1: Set up the Wavefront Proxy
 
 If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
