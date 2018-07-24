@@ -126,7 +126,7 @@ The process for creating an alert target is similar for the different types of t
       </tr>
       <tr>
         <td><strong>Body Template</strong> </td>
-        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the template that corresponds your messaging platform: **Slack**, **VictorOps**, or **HipChat**. Or, select **Webhook Default** to see all of the available content options combined in a single template.</td>
+        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the template that corresponds your messaging platform: **Slack**, **VictorOps**, or **HipChat**. Or, select **Generic Webhook** to see all of the available content options combined in a single template.</td>
       </tr>
       </tbody>
       </table>
@@ -138,7 +138,7 @@ The process for creating an alert target is similar for the different types of t
       </thead>
       <tr>  
         <td><strong>HTML Format</strong> </td>
-        <td>Specifies whether to interpret the message body as HTML or plain text. When checked (the default), messages are interpreted as HTML.   </td>
+        <td>Specifies whether the email platform should interpret the message body as HTML or plain text. When checked (the default), messages are interpreted as HTML. It is your responsibility to coordinate this setting with the chosen <strong>Body Template</strong> option.  </td>
       </tr>
       <tr>  
         <td><strong>Email Address List</strong> </td>
@@ -150,7 +150,7 @@ The process for creating an alert target is similar for the different types of t
       </tr>
       <tr>
         <td><strong>Body Template</strong> </td>
-        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the **HTML Email Default** template.</td>
+        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the template that corresponds to your email formatting preference: **HTML Email** or **Plain Text**. It is your responsibility to coordinate this option with the **HTML Format** setting.</td>
       </tr>
       </tbody>
       </table>
@@ -161,12 +161,12 @@ The process for creating an alert target is similar for the different types of t
       <tr><th>PagerDuty Property</th><th>Description</th></tr>
       </thead>
       <tr>  
-        <td><strong>Pagerduty key</strong> </td>
-        <td markdown="span">API integraton key for the PagerDuty application. Follow the setup steps in [PagerDuty Integration](pagerduty.html) to obtain the key.</td>
+        <td><strong>PagerDuty Key</strong> </td>
+        <td markdown="span">API integration key for the PagerDuty application. Follow the setup steps in [PagerDuty Integration](pagerduty.html) to obtain the key.</td>
       </tr> 
       <tr>
         <td><strong>Body Template</strong> </td>
-        <td markdown="span">Template describing the contents of the alert notification. Click **Template** and select the **PagerDuty Default** template.</td>
+        <td markdown="span">Template describing the contents of the alert notification's subject line. Click **Template** and select the **PagerDuty Subject** template.</td>
       </tr>
       </tbody>
       </table>

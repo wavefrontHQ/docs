@@ -98,7 +98,7 @@ Alert targets support the following customization variables:
 </tr>
 <tr>
 <td markdown="span">`imageLinks`</td>
-<td>Image of a chart showing the data at the time the alert fired or was updated.</td>
+<td markdown="span">Iterator for URLs to [chart images](alerts.html#chart-images-in-alert-notifications). Currently returns only a single URL to the chart image showing the alert's display expression at the time the alert fired or was updated.</td>
 </tr>
 <tr>
 <td markdown="span">`inMaintenanceAlertSeries`</td>
@@ -200,6 +200,7 @@ Here is a sample webhook alert target template:
 {
   "alertId": "{{{alertId}}}",
   "notificationId": "{{{notificationId}}}",
+  "imageLinks": "{{{imageLinks}}}",  
   "reason": "{{{reason}}}",
   "name": "{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",
   "severity": "{{{severity}}}",
@@ -285,6 +286,7 @@ Here is a sample alert target output generated with the template:
 {
   "alertId": "1460761882996",
   "notificationId": "66dc2064-6bc1-437e-abe0-7c41afcd4aab",
+  "imageLinks": "[https://yourcompany.wavefront.com/api/v2/image/RPx3zR7u2X"],  
   "reason": "ALERT_OPENED",
   "name": "Alert on Data rate (Test)",
   "severity": "SMOKE",
@@ -586,14 +588,18 @@ Output:\\
 
 ## Adding Chart Images to Older Custom Alert Targets
 
-As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom alert target for one of these messaging platforms before 2018-26.x, you must explicitly update the alert target's template to include chart images in the alert notifications.
+As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom alert target for one of these messaging platforms before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 **Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images. 
 
-Here's how to update the template for a pre-existing custom HTML email alert target:
 
-1. Click the alert target name in the Alert Targets browser or click the three dots to the left of the alert target and select **Edit**.
-2. In the **Body Template** box, insert the following snippet into the template:
+
+### Updating an Pre-Existing Custom Alert Target for  HTML Email
+
+Here's one way to update the template for a custom HTML email alert target that was created before 2018-26.x:
+
+1. Click the name of the pre-existing alert target in the Alert Targets browser, or click the three dots to the left of the alert target and select **Edit**.
+2. In the **Body Template** box, insert a snippet such as the following at an appropriate place in the template: 
 
 {% raw %}
 ```handlebars
@@ -602,3 +608,32 @@ Here's how to update the template for a pre-existing custom HTML email alert tar
 {{/imageLinks}} 
 ```
 {% endraw %}
+
+This snippet causes an HTML `<img>` tag to be emitted, in which the `src` is set to the URL for the chart image generated for the alert. 
+
+**Hint:** For other formatting possibilities, you can create a new custom alert target of type **Email** with the **HTML Email** template, and inspect or copy the section enclosed in the following lines:
+
+{% raw %}
+```handlebars
+{{#imageLinks}}
+  ...
+{{/imageLinks}} 
+```
+{% endraw %}
+
+### Updating an Pre-Existing Custom Alert Target for Slack
+
+Here's one way to update the template for a custom Slack alert target that was created before 2018-26.x:
+
+1. Click the name of the pre-existing alert target in the Alert Targets browser, or click the three dots to the left of the alert target and select **Edit**.
+1. In a separate browser tab, connect to your Wavefront service and create a new custom alert target of type **Webhook** with the **Slack** template.
+2. In the newly created template, find and copy the section enclosed in the following lines:
+    {% raw %}
+    ```handlebars
+    {{#imageLinks}}
+      ...
+    {{/imageLinks}} 
+    ```
+    {% endraw %}
+  
+4. Paste the copied section into template of the pre-existing alert target.

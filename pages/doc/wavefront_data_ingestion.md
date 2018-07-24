@@ -105,4 +105,4 @@ Once data is flowing, you can use Wavefront for visualization and alerting.
 
 1. Many integrations include dashboards that collect commonly used metrics.
 2. You can customize existing dashboards or create charts from scratch and add them to your own dashboard.
-3. Optionally, you can add alerts to your charts and send them to alert targets such as Pagerduty or a custom Webhook target.
+3. Optionally, you can add alerts to your charts and send them to alert targets such as PagerDuty or a custom Webhook target.

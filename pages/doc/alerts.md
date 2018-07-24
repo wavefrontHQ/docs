@@ -67,7 +67,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 
 <tr>
 <td><strong>Display Expression</strong></td>
-<td><em>Recommended.</em> A ts() expression that returns the data you want to inspect when the alert fires. The display expression can include any valid <a href="query_language_getting_started.html">Wavefront Query Language</a> construct, and typically returns the underlying time series being tested by the condition expression. The results of the display expression are shown:
+<td><em>Recommended.</em> A ts() expression that returns the data you want to inspect when the alert fires. The display expression can include any valid <a href="query_language_getting_started.html">Wavefront Query Language</a> construct, and typically captures the underlying time series being tested by the condition expression. The results of the display expression are shown:
 <ul>
 <li>In the <strong>Events Display</strong> preview chart on the page for creating or editing the alert.</li>
 <li markdown="span">In any [chart image](#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
@@ -194,7 +194,7 @@ An alert reports state changes by sending notifications to one or more alert tar
 
 The timing of an alert notification depends on the alert target: 
 
-* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), notifications are sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
+* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
 * For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
 
 ### Sample Alert Notification
@@ -214,7 +214,7 @@ Chart images show the results of an alert's display expression. If you have set 
 
 A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.) 
 
-For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image itself can take a few seconds to create, so you might briefly see a placeholder image in the notification. 
+For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image can take a few seconds to create, so you might briefly see a placeholder image in the notification. 
 
 Chart images are automatically included in notifications for: 
 * Simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list). 
@@ -234,13 +234,13 @@ An alert notification includes a URL that links to an interactive chart showing 
 
 ![alert_interactive_chart](images/alert_interactive_chart.png)
 
-The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have [set the alert's **Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
+The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
 
 {% include shared/alert_details.html %}
 
 Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on. 
 
-Note that interactive charts always show the current state of your data as of the time you bring up the chart, which could be somewhat later than the event that triggered the alert. Consequently, although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it could be backfilled with data values that were reported during that time window, but not ingested until later. The presence of delayed and then backfilled data could obscure the reason why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), you can inspect a [chart image](#chart-images-in-alert-notifications) included in the notification.
+Note that interactive charts always show the current state of your data as of the time you bring up the chart, which could be somewhat later than the event that triggered the alert. Consequently, although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it could be backfilled with data values that were reported during that time window, but were not ingested until later. The presence of delayed and then backfilled data could obscure the reason why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), you can inspect a [chart image](#chart-images-in-alert-notifications) included in the notification.
 
 ## Alert Events
 
