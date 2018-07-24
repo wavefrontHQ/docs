@@ -58,13 +58,16 @@ The exact time of the check for a particular alert is not fixed and can vary sli
 
 ## Data Granularity for Alert Checking
 
-The data granularity for alert checking is 1 minute. Rather than checking the raw data reported by the time series of interest, the alert checking process instead:
+The data granularity for alert checking is 1 minute. The alert checking process:
 
-1. Groups the reported data values into 1-minute buckets.
-1. Summarizes the values in each group by averaging them.
-1. Evaluates the summarized data values against the alert condition. 
+1. Evaluates the reported data values according to the query you specified as the alert condition. 
+1. Implicitly aligns the alert condition's results by grouping them into 1-minute buckets.
+1. Summarizes the values within each group by averaging them.
+1. Tests each average value (1 per minute) to see whether it is 0 or non-zero. 
 
-For example, if 5 data values are reported between 12:11:00pm and 12:11:59pm, then the average value of those 5 data values is displayed at 12:11:00pm. If you want a different summarization strategy, then you can use the [`align()`](ts_align.html) function in your query, with parameters specifying a 1-minute time window and your preferred summarization method.
+For example, say 5 data values are reported between 12:11:00pm and 12:11:59pm. The alert checking process evaluates these data values against the alert condition to produce a series of result values, also between 12:11:00pm and 12:11:59pm. The average of these 5 result values is then displayed at 12:11:00pm. 
+
+**Note** If you want a different summarization strategy, then you can use the [`align()`](ts_align.html) function in your query, with parameters specifying a 1-minute time window and your preferred summarization method.
 
 ## Alert Check Time Window
 
@@ -102,7 +105,7 @@ In the following example, the threshold for the alert is set to 50%. The event w
 
 ## PagerDuty Notifications
 
-If you use the out-of-the-box PagerDuty alert target, and you resolve the incident while the alert is still firing in Wavefront, two scenarios are possible:
+If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Wavefront, two scenarios are possible:
 
 - If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
 
@@ -111,7 +114,7 @@ If you use the out-of-the-box PagerDuty alert target, and you resolve the incide
 
 - If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
 
-You can customize this behavior using the PagerDuty [alert target](webhooks_alert_notification.html).
+You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
 
 ## Viewing Firing Alerts
 
