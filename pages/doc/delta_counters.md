@@ -53,7 +53,7 @@ Delta Functions are also useful in some other situations where the Wavefront ser
 You can set up delta counters in several ways:
 * If integration, metrics collected
 * If integration, custom metrics
-* If no integration, directly to proxy or service. 
+* If no integration, directly to proxy or service.
 
 ## Delta Counter Caveats
 
