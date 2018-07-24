@@ -249,11 +249,11 @@ entries:
       url: /alerts_best_practices.html
       output: web
 
-    - title: Alert Targets
+    - title: Custom Alert Targets
       url: /webhooks_alert_notification.html
       output: web
 
-    - title: Customizing Alert Targets
+    - title: Custom Target Templates
       url: /alert_target_customizing.html
       output: web
 

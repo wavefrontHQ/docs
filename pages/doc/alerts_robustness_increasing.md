@@ -13,13 +13,13 @@ Because each environment is different, Wavefront supports fine-grained customiza
 ## Account for Delayed Data Points
 
 Network delays or slow processing of application metrics at the backend can negatively impact alert processing -- and that can lead to false triggers. These false triggers (false positives) happen if the alerting mechanism is too sensitive.
-If backtesting shows that the alert should have fire, delayed points are often the reason.
+If backtesting shows that the alert should have fired, delayed points are often the reason.
 
 You can resolve this problem like this:
 
 * Set the **Alert fires** threshold higher than the default 2 minutes. This setting depends on how often data points arrive, and it accounts for any delays in the application metrics delivery pipeline. Changing **Alert fires** can compensate for external delays of metrics.
 
-* Adjusting the alert query to account for delayed metric data points can prevent false positives. Use the `lag()` function, as follows:
+* Adjust the alert query to account for delayed metric data points. Use the `lag()` function, as follows:
 
   ```
   lag(30m, sum(ts("aws.elb.requestcount"))) < 0.3 * lag(1w, sum(ts("aws.elb.requestcount")))
@@ -41,7 +41,7 @@ You can tweak a few things:
     - If you want to know when no data at all was reported, then using = 0 is the right approach.
     - However, if you expect data to be reported once a minute, and you'd like to know when data are not consistently reported, then `mcount(5m, ts(my.metric)) <= 3` works better. With that query, you trigger the alert if there are 2 or more missing data points in the last 5 minutes.
 
-The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data. The example below shows how `mcount(10 m...)` reports a decreasing value for 10 minutes, then a value of 0 for 10 more minutes, and then stops reporting.
+The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data. The example below shows how `mcount(10m, ...)` reports a decreasing value for 10 minutes, then a value of 0 for 10 more minutes, and then stops reporting.
 
 ![mcount_demo-2](images/mcount_demo-2.png)
 

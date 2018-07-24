@@ -7,13 +7,16 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert target templates.
 ---
 
-You can use Wavefront alert targets to integrate alerts with many types of notification systems. [Using Alert Targets to Send Alerts to Notification Systems](webhooks_alert_notification.html) explains how to create and manage alert targets.
+A custom alert target provides a template for specifying the contents of the notifications to be sent when an alert changes state.
+The template is a blueprint for extracting various pieces of information from the alert and assembling them into the notification.
 
-Alert target customization variables and customization functions support customizing alert target templates. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
+You typically customize a template by starting with the default template for the alert target type, and then editing that template. Wavefront alert target templates support [Mustache syntax](https://mustache.github.io/).
 
-## Alert Target Customization Iterators and Properties
+**Note** For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html).
 
-You can customize the alert target using iterators and properties.
+## Alert Target Variables
+
+An alert target template uses variables to request pieces of information from an alert. Some variables return individual values, while others (iterators) return a list of values.
 
 The iterator categories are:
 * `failing`
@@ -23,7 +26,7 @@ The iterator categories are:
 
 The iterators return three types of objects:
 
-- `host` - Affected source (host). The only value returned by `XXXHosts` iterators such as `failingHosts` or `newlyFailingHosts`.
+- hosts - Affected source (host). The only value returned by `XXXHosts` iterators such as `failingHosts` or `newlyFailingHosts`.
 - series - Returned by `XXXSeries` iterators such as `failingSeries` or `newlyFailingSeries`.
   - `host` - Affected source (host).
   - `label` - Metric or aggregation.
@@ -92,6 +95,10 @@ Alert targets support the following customization variables:
 <tr>
 <td markdown="span">`hostsFailingMessage`</td>
 <td>List of sources (hosts) that are failing, displayed as a message.</td>
+</tr>
+<tr>
+<td markdown="span">`imageLinks`</td>
+<td markdown="span">Iterator for URLs to [chart images](alerts.html#chart-images-in-alert-notifications). Currently returns only a single URL to the chart image showing the alert's display expression at the time the alert fired or was updated.</td>
 </tr>
 <tr>
 <td markdown="span">`inMaintenanceAlertSeries`</td>
@@ -184,7 +191,7 @@ Alert targets support the following customization variables:
 </tbody>
 </table>
 
-### Webhook Template Example
+### Example Webhook Template
 
 Here is a sample webhook alert target template:
 
@@ -193,6 +200,7 @@ Here is a sample webhook alert target template:
 {
   "alertId": "{{{alertId}}}",
   "notificationId": "{{{notificationId}}}",
+  "imageLinks": "{{{imageLinks}}}",  
   "reason": "{{{reason}}}",
   "name": "{{#jsonEscape}}{{{name}}}{{/jsonEscape}}",
   "severity": "{{{severity}}}",
@@ -278,6 +286,7 @@ Here is a sample alert target output generated with the template:
 {
   "alertId": "1460761882996",
   "notificationId": "66dc2064-6bc1-437e-abe0-7c41afcd4aab",
+  "imageLinks": "[https://yourcompany.wavefront.com/api/v2/image/RPx3zR7u2X"],  
   "reason": "ALERT_OPENED",
   "name": "Alert on Data rate (Test)",
   "severity": "SMOKE",
@@ -576,3 +585,46 @@ Output:\\
 </tr>
 </tbody>
 </table>
+
+## Adding Chart Images to Older Custom Alert Targets
+
+As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template in order to include a chart image in the alert notifications.
+
+**Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images. 
+
+### Updating a Pre-Existing Custom Email Alert Target
+
+To update a custom email alert target that was created before 2018-26.x: 
+
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
+1. Select **HTML Format**. (All custom email alert targets created before 2018-26.x are plain text.)
+1. In the **Body Template** box, insert a snippet such as the following: 
+
+    {% raw %}
+    ```handlebars
+    {{#imageLinks}}
+    <img src="{{{.}}}" />
+    {{/imageLinks}} 
+    ```
+    {% endraw %}
+    
+
+Subsequent email notifications will now include a chart image that is generated for the alert. (Without the HTML `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL to a chart image, and not as an image.)
+
+
+### Updating an Pre-Existing Custom Alert Target for Slack
+
+To update the template for a custom Slack alert target that was created before 2018-26.x:
+
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
+1. In a separate browser tab, connect to your Wavefront service and create a new custom alert target of type **Webhook** with the **Slack** template.
+1. In the newly created template, find and copy the section enclosed in the following lines:
+    {% raw %}
+    ```handlebars
+    {{#imageLinks}}
+      ...
+    {{/imageLinks}} 
+    ```
+    {% endraw %}
+  
+4. Paste the copied section into template of the pre-existing alert target.
