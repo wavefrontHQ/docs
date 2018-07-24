@@ -594,11 +594,11 @@ As of 2018-26.x, the predefined template for a custom HTML email target or a cus
 
 ### Updating a Pre-Existing Custom Email Alert Target
 
-To update a custom email alert target that was created before 2018-26.x, you can: 
+To update a custom email alert target that was created before 2018-26.x: 
 
-1. Click the name of the pre-existing alert target in the Alert Targets browser, or click the three dots to the left of the alert target and select **Edit**.
-1. Select **HTML Format** to cause the target's notifications to be interpreted as HTML instead of plain text. (All custom email alert targets created before 2018-26.x are formatted as plain text.)
-1. In the **Body Template** box, insert a snippet such as the following at an appropriate place in the template: 
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
+1. Select **HTML Format**. (All custom email alert targets created before 2018-26.x are plain text.)
+1. In the **Body Template** box, insert a snippet such as the following: 
 
     {% raw %}
     ```handlebars
@@ -609,16 +609,16 @@ To update a custom email alert target that was created before 2018-26.x, you can
     {% endraw %}
     
 
-The inserted snippet causes the notification to include an HTML `<img src= >` tag in which the `src` is set to the URL for the chart image that was generated for the alert. (Without the `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL instead of an image.)
+Subsequent email notifications will now include a chart image that is generated for the alert. (Without the HTML `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL to a chart image, and not as an image.)
 
 
 ### Updating an Pre-Existing Custom Alert Target for Slack
 
-To update the template for a custom Slack alert target that was created before 2018-26.x, you can:
+To update the template for a custom Slack alert target that was created before 2018-26.x:
 
-1. Click the name of the pre-existing alert target in the Alert Targets browser, or click the three dots to the left of the alert target and select **Edit**.
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
 1. In a separate browser tab, connect to your Wavefront service and create a new custom alert target of type **Webhook** with the **Slack** template.
-2. In the newly created template, find and copy the section enclosed in the following lines:
+1. In the newly created template, find and copy the section enclosed in the following lines:
     {% raw %}
     ```handlebars
     {{#imageLinks}}
