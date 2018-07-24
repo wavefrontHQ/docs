@@ -588,38 +588,29 @@ Output:\\
 
 ## Adding Chart Images to Older Custom Alert Targets
 
-As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom alert target for one of these messaging platforms before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
+As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template in order to include a chart image in the alert notifications.
 
 **Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images. 
 
+### Updating a Pre-Existing Custom Email Alert Target
 
-
-### Updating an Pre-Existing Custom Alert Target for  HTML Email
-
-Here's one way to update the template for a custom HTML email alert target that was created before 2018-26.x:
+To update a custom email alert target that was created before 2018-26.x: 
 
 1. Click the name of the pre-existing alert target in the Alert Targets browser, or click the three dots to the left of the alert target and select **Edit**.
-2. In the **Body Template** box, insert a snippet such as the following at an appropriate place in the template: 
+1. Select **HTML Format** to cause the target's notifications to be interpreted as HTML instead of plain text. (All custom email alert targets created before 2018-26.x are formatted as plain text.)
+1. In the **Body Template** box, insert a snippet such as the following at an appropriate place in the template: 
 
-{% raw %}
-```handlebars
-{{#imageLinks}}
-<img src="{{{.}}}" />
-{{/imageLinks}} 
-```
-{% endraw %}
+    {% raw %}
+    ```handlebars
+    {{#imageLinks}}
+    <img src="{{{.}}}" />
+    {{/imageLinks}} 
+    ```
+    {% endraw %}
+    
 
-This snippet causes an HTML `<img>` tag to be emitted, in which the `src` is set to the URL for the chart image generated for the alert. 
+The inserted snippet causes the notification to include an HTML `<img src= >` tag in which the `src` is set to the URL for the chart image that was generated for the alert. Without the `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL instead of an image.
 
-**Hint:** For other formatting possibilities, you can create a new custom alert target of type **Email** with the **HTML Email** template, and inspect or copy the section enclosed in the following lines:
-
-{% raw %}
-```handlebars
-{{#imageLinks}}
-  ...
-{{/imageLinks}} 
-```
-{% endraw %}
 
 ### Updating an Pre-Existing Custom Alert Target for Slack
 
