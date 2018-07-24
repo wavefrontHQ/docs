@@ -3,10 +3,11 @@ title: Delta Counters
 keywords: metrics
 tags:
 sidebar: doc_sidebar
-permalink: delta_metrics.html
+permalink: delta_counters.html
 summary: Learn when and how to use delta metrics
 ---
 Counters support aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. Delta counters make counter functionality available for serverless Function-as-a-service environments and some other use cases.
+
 
 ## Gauges, Counters, and Delta Counters
 Wavefront users primarily look at two types of metrics:

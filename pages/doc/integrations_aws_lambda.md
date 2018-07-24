@@ -15,7 +15,7 @@ While it's convenient to stop worrying about function execution, you might want 
 * Use the Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but it can get expensive.
   - First you pay to extract the metrics from Amazon CloudWatch.
   - Then you pay to analyze the metrics in Wavefront.
-* Using the Wavefront AWS Lambda integration. The integration supports all standard metrics available through the API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
+* Using the Wavefront AWS Lambda integration. The integration supports all standard metrics available through the API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js. 
 
 ## How to Monitor AWS Lambda
 
