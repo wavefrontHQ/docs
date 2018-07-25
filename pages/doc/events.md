@@ -4,14 +4,11 @@ keywords: events
 tags: [events, alerts]
 sidebar: doc_sidebar
 permalink: events.html
-summary: Learn how to view events and about event types.
+summary: Learn about Wavefront events and how to view, create, and close events
 ---
-An event is a record that something of interest has occurred&mdash;an alert has changed state,
-a maintenance window has been created, AWS instances have started or stopped, and so on.
+An event is a record that something of interest has happened. For example, the event might show that an alert has changed state, AWS instances have started or stopped, and so on. To view the list of all events, select **Browse > Events**.
 
-You can display events as [overlays on a chart](charts_events_displaying.html) using [events queries](events_queries.html).
-
-The Wavefront CloudTrail integration retrieves EC2 event information and creates Wavefront System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-integration).
+By default, events are displayed as small dots on the X axis of most charts. You can choose to display an [event overlay](charts_events_displaying.html) to give users more detail, and you can further customize the event display using [events queries](events_queries.html).
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
@@ -21,46 +18,58 @@ For an overview of events, watch the following videos:
 * [Creating an Event](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 * [Controlling Event Displays](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=71ef27f0-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
-## Viewing Events
-
-To view events, select **Browse > Events**. The Events list displays. Here's an example event that shows an alert was triggered.
-
-![Alert firing](images/event_alert_firing.png)
-
 ## Event Sources and Types
 
-Events have three types of sources.
+An event can have one of the following sources.
 
 - **System/Alert** -- When an alert fires or resolves, the source is **System/Alert**.
-- **System** -- When you perform actions in Wavefront, such as when you [edit an alert](alerts.html) or [snooze an alert](maintenance_windows_managing.html#snoozing-and-unsnoozing-alerts), or when newly affected sources fail or recover from an alert condition, the source is **System**.
-
+- **System** -- When you perform actions in Wavefront, such as when you edit an alert or snooze an alert, or when newly affected sources fail or recover from an alert condition, the source is **System**.
 ![Events system](images/event_system.png)
 
-- **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that occur outside Wavefront but that affect Wavefront metrics.
+    - The Wavefront CloudTrail integration retrieves EC2 event information and creates Wavefront System events that represent the EC2 events. See [CloudTrail Integration](integrations_aws_metrics.html#cloudtrail-integration).
+    - For Microsoft Azure, some information from the Azure Activity Log integration is available as events.
+- **User** -- You can [manually create events](events.html#creating-a-user-event) with source **User** to identify user actions. For example, you can create an event for code pushes that affect Wavefront metrics but that occur outside Wavefront. The event is then available on charts that display the metrics.
 
-Events have types and subtypes, which are typically used in [events queries](events_queries.html).
-
-### Viewing System Event Details
-
-To view details about an alert associated with a System/Alert event, click the **View System Event** and then **View Alert** links in the System/Alert event or the **View Alert** in a System event. You see a chart with the following queries:
-
-{% include shared/alert_details.html %}
-
-![Alert notification](images/alert_notification_queries.png)
+Events have types and subtypes, which are typically used in [events queries](events_queries.html). Types include **alert** or **alert-detail** You can see types in the Type column of the **Events** page.
 
 ## Event States
 
-A System event can be in the Ongoing or Ended state. System and alert events are Ongoing until all affected alert sources are recovered and the alert is resolved. Then the state changes to Ended.
+Event states differ for system and user generated events:
+* A System/Alert and a System event can be in the Ongoing or Ended state.
+  - The events are Ongoing until all corresponding alert sources are recovered and the alert is resolved.
+  - Then the state changes to Ended.
 
-A User event can be in the Pending, Ongoing, or Ended state. A User event with a start time in the future has the state Pending.
+* A User event can be in the Pending, Ongoing, or Ended state. A User event with a start time in the future has the state Pending.
+
+To improve event performance, we close events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing events queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
+
+## Viewing Events
+
+To view events, select **Browse > Events**. The Events list displays. Here's an example event that shows that an alert was triggered.
+
+![Alert firing](images/event_alert_firing.png)
+
+
+To view details for an alert associated with a System/Alert event:
+1. Click **Browse > Events** and filter by Source **SYSTEM** or **ALERT** on the left.
+2. In the event, click the  **View Alert** link.
+
+The chart includes information about the alert associated with the event, and about the alert itself:
+
+* **Alert name>** - The alert condition.
+* **Alert Firings** - An [`events()`](events.html) query that shows the events of type alert for the alert. These are events when alerts are open and are resolved.
+* **Alert Details** - An [`events()`](events.html) query that shows the events of type alert-detail for the alert. These are events when sources are failing or recovered.
+* **Alert Data** - A query for alert metrics.
+
+![Alert notification](images/alert_notification_queries.png)
 
 ## Creating a User Event
 
 To create a user event:
 
 1. Do one of the following:
-   - Select **Browse > Events** and clicking the <strong>Create Event</strong> button located at the top of the filter bar.
-   - In a chart, click the flag icon located in the top right corner of the time
+   - Select **Browse > Events** and click the <strong>Create Event</strong> button at the top of the filter bar.
+   - In a chart, click the flag icon in the top right corner of the time
    bar. Hover over the chart and set your cursor at a point in time. To make the event instantaneous, click that point.
    If the start and end time for the desired event are included in the current time window, click, hold, and drag across the window.
 
@@ -72,33 +81,34 @@ To create a user event:
     <tbody>
     <tr>
     <td>Name</td>
-    <td>The name displayed on the Events page and when you hover over an event icon on the X-axis of a chart.</td>
+    <td>Name displayed on the Events page and when you hover over an event icon on the X-axis of a chart.</td>
     </tr>
     <tr>
     <td>Type</td>
-    <td>The type of the event, such as code push. While there are no limitations to what you can enter into this field, try to limit it to type. You can enter additional information about the event in the Details field.  You can enter the type as an event parameter in events() queries.</td>
+    <td>Type of the event, such as code push. Keep the type short. You can enter additional information about the event in the <strong>Details</strong> field.  You later can enter the type as a parameter in events() queries.</td>
     </tr>
     <tr>
     <td>Start Time</td>
     <td>The start time of the event:
     <ul><li><strong>Now</strong> - The maintenance window starts immediately.</li>
-    <li><i class="fa fa-calendar"></i> - The maintenance window starts on the specified date and time.Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
+    <li><i class="fa fa-calendar"></i> - The maintenance window starts on the specified date and time. Click the text field to select the start time.</li></ul></td>
     </tr>
     <tr>
     <td>End Time</td>
     <td>The end time of the event:
     <ul>
     <li><strong>Instantaneous</strong> - End the event instantaneously with the start time. The exact interval is indeterminate. The Events page can report that the event starts and ends at exactly the same time or that it lasts a few seconds.</li>
-    <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page.</li>
-    <li><i class="fa fa-calendar"></i> - End the event at the specified day and time. Click the text field and choose a date and time or type a date and time in the format MM/DD/YYYY HH:MM [AM|PM].</li></ul></td>
+    <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page. Wavefront closes events that are older than 60 days.</li>
+    <li><i class="fa fa-calendar"></i> - End the event at the specified day and time. Click the text field to select the end time.</li></ul>
+    <strong>Note:</strong> If you can create an event with an end time, you cannot make changes to the event name or other event properties later.</td>
     </tr>
     <tr>
     <td>Classification</td>
-    <td>The event classification: SEVERE, WARN, INFO, and UNCLASSIFIED. You can enter the classification as an event parameter in events() queries.</td>
+    <td>The event classification: SEVERE, WARN, INFO, and UNCLASSIFIED. You can enter that classification as a parameter in events() queries.</td>
     </tr>
     <tr>
     <td>Tags</td>
-    <td>Tags to associate with the event. You can start typing the names of existing event tags and matching tags display or create new event tags.</td>
+    <td>Tags to associate with the event. You can start typing to select existing tags or create new event tags.</td>
     </tr>
     <tr>
     <td>Details</td>
@@ -106,18 +116,35 @@ To create a user event:
     </tr>
     <tr>
     <td>Display Event in Chart</td>
-    <td>Displays only when creating an event from a <strong>chart</strong>. Whether to add an events(name=&lt;name&gt;) query to the chart so that the event displays.</td>
+    <td>Whether to add the events query to the chart so users can examine it later. Displays only when you create an event from a chart.</td>
     </tr>
     </tbody>
     </table>
 1. Click **Save**.
 
-## Deleting User Events
-You can delete one or more user events by checking the checkboxes next to the events and clicking the Trash icon <i class="fa fa-trash"/> at the top of the Events page. The Trash icon is grayed out if any of the selected events cannot be deleted. To delete a single user event, select the three dots to the left of the event and click **Delete**.
+## Event Closure and Deletion
 
-## Closing an Ongoing Event
-Ongoing events do not have an end time. To close ongoing events, check the checkboxes next to the events and click the **Close** button. The Close button is grayed out if any of the selected events cannot be closed.
-To close a single event, select the three dots to the left of the event and click **Close**.
+Wavefront closes any event that is older than 60 days, based on start time. You can explicitly close events and delete user events if you have the right permissions.
+
+### Closing an Event
+
+You can close an event if you no longer need it. It's especially important to close ongoing events, which do not have an end time.
+
+**Note:** To prevent performance degradation, you cannot have more than 1000 (one thousand) ongoing events.
+
+To close ongoing events:
+1. Click the check box(es) next to the event(s).
+2. Click the **Close** button.
+
+If the **Close** button is grayed out, you don't have permissions to close the selected events.
+
+### Deleting User Events
+
+To delete one or more user events:
+1. Click the check box(es) next to the event(s).
+2. Click the Trash icon <i class="fa fa-trash"/> at the top of the Events page.
+
+If the Trash icon is grayed out, you don't have permission delete the selected events.
 
 ## Managing Event Tags
 
