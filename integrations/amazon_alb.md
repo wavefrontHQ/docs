@@ -1,8 +1,8 @@
 ---
-title: Amazon Elasticsearch Integration
+title: AWS ALB Integration
 tags: [integrations list]
-permalink: amazon_elasticsearch.html
-summary: Learn about the Wavefront Amazon Elasticsearch Integration.
+permalink: amazon_alb.html
+summary: Learn about the Wavefront AWS ALB Integration.
 ---
 ## Amazon Web Services Integration
 

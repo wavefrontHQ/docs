@@ -38,6 +38,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 - AWS: CloudTrail
 - AWS: Elasticsearch
 - AWS: Elastic Transcoder
+- AWS: ALB
 
 #### Summary Dashboard
 
