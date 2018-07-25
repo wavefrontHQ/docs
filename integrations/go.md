@@ -151,6 +151,8 @@ func main() {
   server := "http://YOUR_CLUSTER.wavefront.com"
   token := "YOUR_API_TOKEN"
   go wavefront.WavefrontDirect(metrics.DefaultRegistry, 5*time.Second, hostTags, "direct.prefix", server, token)
+
+  select{}
 }
 ```
 {% endraw %}
