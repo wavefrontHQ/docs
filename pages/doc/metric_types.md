@@ -34,11 +34,11 @@ The following table gives an overview of metric types. We introduce each type in
 </tr>
 <tr>
 <td>Delta counter</td>
-<td>Useful for monitoring bursty traffic in a Function-as-a-Service (serverless) environment. We use delta counters for some of the metrics in the AWS Lambda integration. You can send delta counters to the proxy or the service using Python, Go, or Node.js. See [Delta counters](delta_counters.html) and the [AWS Lambda integration](integrations_aws_lambda).</td>
+<td>Useful for monitoring bursty traffic in a Function-as-a-Service (serverless) environment. We use delta counters for some of the metrics in the AWS Lambda integration. You can send delta counters to the proxy or the service using Python, Go, or Node.js. See the <a href="integrations_aws_lambda.html">AWS Lambda integration</a> and the <a href="delta_counters.html">delta counters page</a>.</td>
 </tr>
 <tr>
 <td>Histogram</td>
-<td>Histograms support computing, storing, and using distributions of metrics. Useful for very high frequency data. See the [discussion of histograms](proxies_histogram.html) </td>
+<td>Histograms support computing, storing, and using distributions of metrics. Useful for very high frequency data. See the <a href="proxies_histogram.html">discussion of histograms</a>. </td>
 </tr>
 </tbody>
 </table>
@@ -61,7 +61,7 @@ Wavefront internal metrics that are counters include `~metric.new_host_ids` and 
 
 [Delta counters](delta_counters.html) are well suited for they kind of bursty traffic you typically get in a Function-as-a-Service environment. A large number of functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing significant parts of the metrics information to collision.
 
-For delta counters, which must have a u"\u2206" prefix, the Wavefront service performs aggregation when the points arrive and stores the aggregated point. The point does not include informaton about the source -- but an environment like AWS Lambda, the source is irrelevant.
+For delta counters, which must have a &#916; prefix, the Wavefront service performs aggregation when the points arrive and stores the aggregated point. The point does not include informaton about the source -- but an environment like AWS Lambda, the source is irrelevant.
 
 ## Histograms
 
