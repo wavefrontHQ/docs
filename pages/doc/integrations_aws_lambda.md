@@ -7,7 +7,7 @@ permalink: integrations_aws_lambda.html
 summary: Learn how view AWS Lambda metrics in Wavefront.
 ---
 
-## AWS Lambda and Wavefront
+## AWS Lambda and Wavefront 
 
 AWS Lambda is ideal for situations when you want to run a function in response to an event. Use cases include generating thumbnails whenever users upload images to a website or similar scenarios. You define the function in one of the languages that AWS Lambda supports, and the function runs whenever a triggering event occurs. This model is called Function-as-a-Service or serverless.
 
