@@ -73,9 +73,11 @@ The following snippet shows the basic [Mustache](https://mustache.github.io/) sy
  
 {% raw %}
 ```handlebars
-{{#setDefaultIterationLimit}}5{{/setDefaultIterationLimit}}   {{! a function}}
+{{! a function}}
+{{#setDefaultIterationLimit}}5{{/setDefaultIterationLimit}}   
 
-{{#isAlertOpened}}               {{! another function}}
+{{! another function}}
+{{#isAlertOpened}}               
     {{! Message content }}
 {{/isAlertOpened}}
 ```
@@ -106,7 +108,7 @@ Like iterators, a function is used in a Mustache section, with the function's na
 </tr>
 <tr>
 <td markdown="span">`alertTags`</td>
-<td>List of tags associated with the alert that triggered the alert target.</td>
+<td>Iterator returning a list of tags associated with the alert that triggered the alert target.</td>
 </tr>
 <tr>
 <td markdown="span">`condition`</td>
@@ -185,7 +187,7 @@ Like iterators, a function is used in a Mustache section, with the function's na
 
 ### Example Template and Output 
 
-Here is an excerpt from the Generic Webhook alert target template that accesses information about the alert:
+This excerpt from the Generic Webhook alert target template shows variables that access information about the alert:
 
 {% raw %}
 ```handlebars
@@ -341,7 +343,7 @@ Alert targets support the following customization variables:
 
 ### Example Template and Output 
 
-Here is an excerpt from the Generic Webhook alert target template that accesses information about the time series tested by the alert:
+This excerpt from the Generic Webhook alert target template shows iterators that access information about the time series tested by the alert:
 
 {% raw %}
 ```handlebars
