@@ -11,7 +11,7 @@ Counters support aggregating metric information such as the number of hits on a 
 
 ## Gauges, Counters, and Delta Counters
 
-Wavefront users primarily look at gages and counters:
+Wavefront users primarily look at gauges and counters:
 * Gauges show the current state of something, such as the CPU or memory that's currently in use.
 * Counters show information over time, such as how many network connections failed and succeded. It's also possible to wrap a gauge with certain functions such as `sum()` or `integral()` to get a counter metric.
 
