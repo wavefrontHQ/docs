@@ -23,36 +23,36 @@ Users who are monitoring an environment where multiple sources perform the same 
 
 Delta counters are useful if you want to combine metrics from several sources, and if the name of the source is irrelevant. For example:
 
-* If you're monitoring a Function-as-a-Service (FaaS or serverless) environment, many functions execute simultaneously. It's not possible to monitor bursty traffic like that without losing significant parts of the metrics information to collision. You want to know how often a FaaS function executed, but you don't care which source executed the function.
-* You want to collect metrics from two sets of application each using a separate Telegraf instance behind a load balancer. Again, the source is irrelevant -- you want to know the actual metrics.
+* If you're monitoring a Function-as-a-Service (FaaS or serverless) environment, many functions execute simultaneously. It's not possible to monitor bursty traffic like that without losing significant parts of the metrics information to collision.
+* You want to collect metrics from two sets of application each using a separate Telegraf instance behind a load balancer.
 ![telegraf and delta_counters](images/delta_metrics_telegraph.svg)
 * Delta counters also support log integration.
 
 {::comment}See xref to blog{:/comment}
 
-Even in a serverless environment, it makes sense to collect counter metrics and delta counter metrics.
+Even in a serverless environment, it makes sense to collect both counter metrics and delta counter metrics.
 * Use regular counters for monitoring over long time spans. In that case, a small number of metrics lost to collision are not a problem.
 * Use delta counters for metrics that run in short busts of high-volume traffic where collisions can become a big problem.
 
 
 ### Example: Monitoring AWS Lambda
 
-AWS Lambda allows you to specify functions you want to run -- and then you can stop worrying about the function execution. For example, assume you want to generate a thumbnail each time any of your users uploads images to their folder. You can write a Lambda function that monitors the folders, and takes care of thumbnail generation for you. At any time, AWS runs as many of the functions as necessary to handle the current workload.
+AWS Lambda allows you to specify functions you want to run -- and then you can stop worrying about the function execution. For example, assume you want to generate a thumbnail each time any of your users uploads images to their folder. You can write a Lambda function that monitors the folders and takes care of thumbnail generation for you. AWS runs as many of the functions as necessary to handle the current workload, and you can use Wavefront to get the details.
 
-When Wavefront engineers developed the AWS integration to support monitoring AWS Lambda, they found that regular counters were not a good solution.
+When Wavefront engineers developed the AWS Lambda Functions integration, they found that regular counters were not a good solution.
 * If you use the name of the function as the source name, collision is highly likely.
 * If you use an ephemeral UUID as the source, you create a series each time a Lambda function is invoked, but you admit only 1 point per series. In addition, collision can lead to lost points.
 {::comment}See Link to Blog for a detailed explanation of the shortcomings of using regular counters for monitoring AWS Lambda functions.{:/comment}
 
-Delta counters offer a solution to the problem. The Wavefront service aggregates the metrics that come from different invocations of the same functions. The AWS Lambda integration allows you to monitor your Lambda environment with several delta counters and a few counters. You can also monitor business metrics by defining your own delta counters. {::comment}See Link to Lambda pageXX for details.{:/comment}
+Delta counters offer a solution to the problem. The Wavefront service aggregates the metrics that come from different invocations of the same functions. The Wavefront AWS Lambda Functions integration comes preconfigured with several delta counters and several counters. In addition, you can monitor business metrics by using our SDK to define a wrapper for your AWS Lambda function. {::comment}See Link to Lambda pageXX for details.{:/comment}
 
 ### Other Examples
 
-Delta Functions are also useful in some other situations where the Wavefront service cannot determine whether metrics from several sources are best grouped as one metric.
+Delta Functions are also useful in some other situations:
 
 * Suppose your environment has several application execution environments, each with a Telegraf instance, behind a load balancer. For that case, you want to combine the metrics coming from one environment with the metrics from another environment.
-* Before delta counters, it was not possible to have two instances of the Wavefront proxy behind a load balancer. With the support of delta counters, the aggregation can be done on the server and Wavefront can now support this use case if you use delta counters.
-* Using the delta counters, we were able to solve our aggregation of counters across multiple apps for our logs to metrics Wavefront integration. We switched from raw counters to delta counters in the logs-to-metrics integration and report those deltas to Wavefront. The Wavefront service does the aggregation from multiple log sources.
+* Before delta counters, it was not possible to have two instances of the Wavefront proxy behind a load balancer. Wavefront can now support this use case with delta counters.
+* Using the delta counters, you can aggregate counters across multiple apps. Wavefront switched from raw counters to delta counters in the logs-to-metrics integration and those delta counters are now available in Wavefront.
 
 ## How to Set Up Delta Counters
 
@@ -71,7 +71,7 @@ Wavefront already collects some delta counters, and makes it easy to collect cus
 <td>The AWS Lambda integration includes instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function. </td></tr>
 <tr>
 <td>Send metrics directy to Wavefront</td>
-<td>If you want to send metrics directly to the Wavefront proxy or the Wavefront service, you prefix each metric with a delta character so the Wavefront service knows these metrics are part of a delta counter, as shown in the following sample code snippet from https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py
+<td>If you want to send metrics directly to the Wavefront proxy or the Wavefront service, you prefix each metric with a delta character so the Wavefront service knows these metrics are part of a delta counter, as shown in the following <a href="https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py"> sample code snippet</a>.
 
 <code>
 DELTA_PREFIX = u"\u2206"

@@ -16,12 +16,12 @@ While it's convenient to stop worrying about function execution, you might want 
   - It can get expensive because AWS charges to extract metrics from Amazon CloudWatch.
   - Polling CloudWatch and send the data to Wavefront introduces some lag.
 * Using the Wavefront AWS Lambda integration. The integration supports all standard metrics available through the API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
-  - Real-time metrics are sent directly from your AWS Lambda function to Wavefront. (With Cloudwatch, you have to poll Cloudwatch and send the data to Wavefront)
-  - You set up only the AWS Lambda integration - setting up CloudWatch is not necessary.
+  - Real-time metrics are sent directly from your AWS Lambda function to Wavefront.
+  - You set up only the AWS Lambda integration -- setting up CloudWatch is not necessary.
 
 ## How To Monitor AWS Lambda
 
-In AWS Lambda and other serverless environments, using the name of the lambda function or a UUID would yield incorrect results. Instead, Wavefront supports a new type of metric called [delta counter](delta_counters.html). Wavefront performs server-side aggregation of related metrics for delta counters.
+For AWS Lambda and other serverless environments, Wavefront supports a new type of metric called [delta counter](delta_counters.html). Wavefront performs server-side aggregation of related metrics for delta counters, eliminating potential issues with collision.
 
 {::comment}See xref to blog{:/comment}
 
@@ -31,7 +31,7 @@ The Wavefront AWS Lambda integration  supports out-of-the-box monitoring of many
 
 ### Sending Business Metrics to the AWS Lambda Integration
 
-If you want to go beyond standard metrics and monitor business metrics, that is, metrics associated with your AWS Lambda function, you can publish those directly from your lambda function into Wavefront with very little additional code. You specify the metric(s) you want to send to Wavefront in the wrapper. Instructions and links are in the AWS Lambda integration, you you can look at the [example on Github](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_lambda/example.py).
+If you want to go beyond standard metrics and monitor business metrics, that is, metrics associated with your AWS Lambda function, you can publish those directly from your Lambda function into Wavefront with very little additional code. You specify the metric(s) you want to send to Wavefront in a wrapper for your Lambda function. Instructions and links are in the AWS Lambda integration, or you can look at the [example on Github](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_lambda/example.py).
 
 Wavefront supports wrappers for Python, Go, and Node.js.
 
