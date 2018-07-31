@@ -48,11 +48,10 @@ Delta counters offer a solution to the problem. The Wavefront service aggregates
 
 ### Other Examples
 
-Delta Functions are also useful in some other situations:
+Delta counters are also useful in some other situations:
 
 * Suppose your environment has several application execution environments, each with a Telegraf instance, behind a load balancer. For that case, you want to combine the metrics coming from one environment with the metrics from another environment.
-* Before delta counters, it was not possible to have two instances of the Wavefront proxy behind a load balancer. Wavefront can now support this use case with delta counters.
-* Using the delta counters, you can aggregate counters across multiple apps. Wavefront switched from raw counters to delta counters in the logs-to-metrics integration and those delta counters are now available in Wavefront.
+* Before delta counters, it was not possible to have two instances of the Wavefront proxy behind a load balancer for [Log Data Metrics Integration](https://docs.wavefront.com/integrations_log_data.html). Wavefront can now support this use case with delta counters.
 
 ## How to Set Up Delta Counters
 
