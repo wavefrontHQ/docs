@@ -10,7 +10,7 @@ permalink: index.html
 Welcome to the Wavefront documentation site!
 
 * New users usually start with [What is Wavefront?](wavefront_introduction.html) or [Docs and Dashboards Overview](documentation_getting_started.html).
-* Even if you don't usually read docs, have a look at the [Wavefront Query Language Quick Reference](https://docs.wavefront.com/query_language_reference.html).
+* Even if you don't usually read docs, have a look at the [Wavefront Query Language Quick Reference](query_language_reference.html) or look at [individual reference pages](label_reference%20page.html)
 * Ready to try for yourself? Sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}!
 
 You can explore the documentation in the nav bar hierarchy on the left. Each topic also has one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
@@ -39,36 +39,36 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_data.html" class="btn btn-primary btn-block">Data</a></p>
-             <p>{{site.data.labels.data}}</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_integrations.html" class="btn btn-primary btn-block">Integrations How To</a></p>
-             <p>{{site.data.labels.integrations}}</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
              <p><a href="label_integrations%20list.html" class="btn btn-primary btn-block">All Integrations</a></p>
              <p>{{site.data.labels.integrations_list}}</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_videos.html" class="btn btn-primary btn-block">Videos</a></p>
+             <p>{{site.data.labels.videos}}</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_reference%20page.html" class="btn btn-primary btn-block">Query Lang. Reference</a></p>
+             <p>{{site.data.labels.reference_page}}</p>
          </div>
      </div>
  </div>
@@ -84,8 +84,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_query%20language.html" class="btn btn-primary btn-block">Query Lang. How To</a></p>
-             <p>{{site.data.labels.query_language}}</p>
+             <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
+             <p>{{site.data.labels.charts}}</p>
          </div>
      </div>
  </div>
@@ -98,8 +98,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_reference%20page.html" class="btn btn-primary btn-block">Query Lang. Reference</a></p>
-             <p>{{site.data.labels.reference_page}}</p>
+             <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
+             <p>{{site.data.labels.dashboards}}</p>
          </div>
      </div>
  </div>
@@ -112,8 +112,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
             </span>
         </div>
         <div class="panel-body">
-          <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
-            <p>{{site.data.labels.charts}}</p>
+            <p><a href="label_alerts.html" class="btn btn-primary btn-block">Alerts</a></p>
+            <p>{{site.data.labels.alerts}}</p>
         </div>
     </div>
 </div>
@@ -126,8 +126,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
             </span>
         </div>
         <div class="panel-body">
-            <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
-            <p>{{site.data.labels.dashboards}}</p>
+            <p><a href="label_events.html" class="btn btn-primary btn-block">Events</a></p>
+            <p>{{site.data.labels.events}}</p>
         </div>
     </div>
   </div>
@@ -143,8 +143,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
            </span>
        </div>
        <div class="panel-body">
-           <p><a href="label_alerts.html" class="btn btn-primary btn-block">Alerts</a></p>
-           <p>{{site.data.labels.alerts}}</p>
+           <p><a href="label_query%20language.html" class="btn btn-primary btn-block">Query Lang. How To</a></p>
+           <p>{{site.data.labels.query_language}}</p>
        </div>
    </div>
 </div>
@@ -157,8 +157,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
            </span>
        </div>
        <div class="panel-body">
-           <p><a href="label_events.html" class="btn btn-primary btn-block">Events</a></p>
-           <p>{{site.data.labels.events}}</p>
+           <p><a href="label_administration.html" class="btn btn-primary btn-block">Administration</a></p>
+           <p>{{site.data.labels.administration}}</p>
        </div>
    </div>
  </div>
@@ -185,14 +185,15 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
            </span>
        </div>
        <div class="panel-body">
-           <p><a href="label_administration.html" class="btn btn-primary btn-block">Administration</a></p>
-           <p>{{site.data.labels.administration}}</p>
+           <p><a href="label_best%20practice.html" class="btn btn-primary btn-block">Best Practice</a></p>
+           <p>{{site.data.labels.best_practice}}</p>
        </div>
    </div>
 </div>
 
 </div>
 
+<!--
 <div class="row">
 <div class="col-md-3 col-sm-6">
     <div class="panel panel-default text-center">
@@ -225,7 +226,7 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
   </div>
 
 
-<!--
+
 <table style="width: 100%;">
 <colgroup>
 <col width="25%" />

@@ -43,7 +43,6 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
-
     - title: 2018-22.x Release Notes
       url: /2018.22.x_release_notes.html
       output: web
@@ -287,7 +286,7 @@ entries:
       output: web
 
     - title: List of Wavefront Integrations
-      url: /integrations_list.html
+      url: /label_integrations%20list.html
       output: web
 
 

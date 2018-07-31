@@ -7,10 +7,9 @@ permalink: integrations.html
 summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into Wavefront. This documentation includes:
- * A complete, up-to-date [list of Wavefront integrations](integrations_list.html)
- * A list [new and updated integrations](integrations_new_changed.html) that we update monthly.
- * Customization hints for built-in integrations and instructions for some [custom integrations](integrations.html#built-in-and-custom-integrations).
+Integrations are one easy way to get data from external systems into Wavefront. Use one of the [built-in integrations](integrations_list.html) - and customize it as needed. 
+
+We update our list of [new and updated built-in integrations](integrations_new_changed.html) monthly.
 
 ## Try an Integration!
 
@@ -133,7 +132,7 @@ You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) ico
 
 ## More Info
 
-On our [wavefront.com](http://www.wavefront.com){:target="_blank" rel="noopenner noreferrer"} site have some blog posts with use cases and background info:
+On our [wavefront.com](http://www.wavefront.com){:target="_blank" rel="noopenner noreferrer"} site we have several blog posts with use cases and background info:
 * [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://www.wavefront.com/gcp-metrics/){:target="_blank" rel="noopenner noreferrer"}
 * [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://www.wavefront.com/mongodb-metrics/){:target="_blank" rel="noopenner noreferrer"}
 * [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://www.wavefront.com/monitoring-apache-http-server-wavefront-metrics-driven-analytics/){:target="_blank" rel="noopenner noreferrer"}
