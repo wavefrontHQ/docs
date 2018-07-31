@@ -55,7 +55,7 @@ Derived metrics are saved like alerts. After you save a derived metric, Wavefron
 
 By default, we include the last 5 minutes of results to protect against data loss. The query overwrites the existing data with exactly the same data. You can change how many results you want to include.
 
-Wavefront charges for derived metrics on a per-pps basis.
+Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 
 ## Creating and Managing Derived Metrics
 
