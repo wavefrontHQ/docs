@@ -1,8 +1,8 @@
 ---
-title: Google Container Engine Integration
+title: Google Firebase Integration
 tags: [integrations list]
-permalink: gcp_container_engine.html
-summary: Learn about the Wavefront Google Container Engine Integration.
+permalink: gcp_cloud_firebase.html
+summary: Learn about the Wavefront Google Firebase Integration.
 ---
 ## Google Cloud Platform Integration
 

@@ -27,6 +27,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google Cloud Datastore
 - Google Cloud Storage
 - Google Cloud Spanner
+- Google Firebase
 
 ### Alerts
 
