@@ -384,13 +384,15 @@ Here is a sample alert target output generated with the template:
 {% raw %}
 ```handlebars
 {
-  "failingSources": ["localhost"],
+  "failingSources": ["localhost", "db-1"],
   "inMaintenanceSources": ["app-3"],
-  "newlyFailingSources": ["localhost"],
+  "newlyFailingSources": ["localhost", "db-1"],
   "recoveredSources": []
   }
 ```
 {% endraw %}
+
+Notice that the template provides literal text for enclosing each source name in quotation marks, for separating the source names with commas, and for enclosing the list in square brackets. The `trimTrailingComma` function suppresses the comma after the last source name.
 
 ## Listing the Definitions of an Alert's Time Series
 
@@ -468,13 +470,22 @@ Here is a sample alert target output generated with the template:
 {% raw %}
 ```handlebars
 {
-  "failingSeries": ["localhost", "~agent.points.2878.received", ["env=dev","az=us-west-1"]],
+  "failingSeries": [
+     ["localhost", "~agent.points.2878.received", ["env=dev","az=us-west-1"]],
+     ["db-1", "~agent.points.2878.received", ["env=prod","az=us-west-2"]]
+  ],
   "inMaintenanceSeries": [],
-  "newlyFailingSeries": ["localhost", "~agent.points.2878.received", ["env=dev","az=us-west-1"]],
+  "newlyFailingSeries": [
+     ["localhost", "~agent.points.2878.received", ["env=dev","az=us-west-1"]],
+     ["db-1", "~agent.points.2878.received", ["env=prod","az=us-west-2"]]
+  ],
   "recoveredSeries": []
   }
 ```
 {% endraw %}
+
+Notice that the template provides literal text for enclosing the overall list of preformatted strings in square brackets, and for separating the preformatted strings with commas. (The `trimTrailingComma` function suppresses the comma after the last preformatted string.) The preformatted strings themselves automatically provide quotation marks, comma separators, and square brackets around the component information.
+
 
 ## Accessing a Custom Group of Time Series Details
 
@@ -727,7 +738,7 @@ The order of the limit settings determines limit precedence. For example, if you
 
 The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, and `failingHosts`.
 
-See [Setting and Testing Iteration Limits](#setting-and-testing-iteration-limits) for an example.
+See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteration-limits) for an example.
 
 {% include note.html content="If the application that is being integrated requires the full list of items (e.g. `failingHosts`) you can retrieve the `alertId` from the notification and use the Wavefront API to get the full list of items." %}
 
@@ -815,13 +826,6 @@ Suppose you have 8 failing sources: `source1`, `source2`, `source3`, `source4`, 
         "{{{.}}}",
       {{/failingHosts}}
     {{/trimTrailingComma}}
-  ],
-  "failingSeries": [
-    {{#trimTrailingComma}}
-      {{#failingSeries}}
-        {{{.}}},
-      {{/failingSeries}}
-    {{/trimTrailingComma}}
   ]
 }
 ```
@@ -848,8 +852,7 @@ The template with these settings produces the following output for the 8 failing
  "alertId": "1492543979795",
  "alertTags": ["production", "mysql"],
  ...
- "failingSources": ["source5", "source4", "source7", "source6", "source1"],
- "failingSeries": [null,"3.0",[]]
+ "failingSources": ["source5", "source4", "source7", "source6", "source1"]
 }
 ```
 {% endraw %}
@@ -877,8 +880,7 @@ In contrast, if the `failingLimit` is 10, the output is the following for 8 fail
   "alertId": "1492543979795",
   "alertTags": [production, mysql],
   ...
-  "failingSources": ["source5", "source4", "source7", "source6", "source1", "source3", "source2", "source8"],
-  "failingSeries": [null,"3.0",[]]
+  "failingSources": ["source5", "source4", "source7", "source6", "source1", "source3", "source2", "source8"]
 }
 ```
 {% endraw %}
