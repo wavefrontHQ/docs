@@ -46,7 +46,11 @@ The Overall Data Rate section shows the overall point rate being processed by th
 
 These charts use the following metrics:
 
-- **Data Ingestion Rate** - `~collector.points.reported`, `~externalservices.cloudwatch.points`, and `~externalservices.ec2.points`, counter metrics the per second rate at which new data points are being ingested into Wavefront. The AWS metrics are broken out in [AWS Integration](#aws-integration-metrics).
+- **Data Ingestion Rate**
+   - `~collector.points.reported` -- points coming from the proxy.
+   - `~collector.direct-ingestion.points.reported` -- points coming through direct ingestion.
+   - `~collector.delta_points.reported` -- delta counter points.
+   - `~externalservices.*.points` -- the per-second rate at which Wavefront ingests new points from cloud integrations such as AWS, GCP, and Azure. For details on the AWS metrics, see the [AWS Integration](#aws-integration-metrics).
 - **Data Scan Rate** - `~query.summaries_scanned`, the per second rate at which data points are being queried out of Wavefront through dashboards, alerts, custom charts, or API calls.
 
 
@@ -138,7 +142,7 @@ Wavefront customer support engineers have found the following metrics especially
 </tbody>
 </table>
 
-(*) The collector is in the Wavefront cloud and comes after the agents and proxies. 
+(*) The collector is in the Wavefront cloud and comes after the agents and proxies.
 
 
 ### Viewing Internal Metrics

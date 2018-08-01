@@ -4,8 +4,14 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_lambda.html
-summary: Learn how view AWS Lambda metrics in Wavefront.
+summary: Learn about viewing AWS Lambda metrics in Wavefront.
 ---
+The Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html) includes:
+* Setup instructions
+* Information about standard counters that the integration includes
+* Instructions for collecting custom business metrics
+
+On this page, we give some background and details not available on the integration page.
 
 ## AWS Lambda and Wavefront
 
@@ -21,9 +27,8 @@ While it's convenient to stop worrying about function execution, you might want 
 
 ## How To Monitor AWS Lambda
 
-For AWS Lambda and other serverless environments, Wavefront supports a new type of metric called [delta counter](delta_counters.html). Wavefront performs server-side aggregation of related metrics for delta counters, eliminating potential issues with collision.
+For AWS Lambda and other serverless environments, Wavefront supports a new type of metric called [delta counter](delta_counters.html). Wavefront performs server-side aggregation of related metrics for delta counters, eliminating potential issues with collision. See our blog [Monitoring Apps in the Serverless World](https://www.wavefront.com/monitoring-applications-in-the-serverless-world-part-1-of-2/)
 
-{::comment}See xref to blog{:/comment}
 
 ### AWS Lambda Integration
 

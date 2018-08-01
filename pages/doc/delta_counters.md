@@ -28,7 +28,8 @@ Delta counters are useful if you want to combine metrics from several sources, a
 ![telegraf and delta_counters](images/delta_metrics_telegraph.svg)
 * Delta counters also support log integration.
 
-{::comment}See xref to blog{:/comment}
+For more on delta counter use cases, see our blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/)
+
 
 Even in a serverless environment, it makes sense to collect both counter metrics and delta counter metrics.
 * Use regular counters for monitoring over long time spans. In that case, a small number of metrics lost to collision are not a problem.
@@ -42,9 +43,9 @@ AWS Lambda allows you to specify functions you want to run -- and then you can s
 When Wavefront engineers developed the AWS Lambda Functions integration, they found that regular counters were not a good solution.
 * If you use the name of the function as the source name, collision is highly likely.
 * If you use an ephemeral UUID as the source, you create a series each time a Lambda function is invoked, but you admit only 1 point per series. In addition, collision can lead to lost points.
-{::comment}See Link to Blog for a detailed explanation of the shortcomings of using regular counters for monitoring AWS Lambda functions.{:/comment}
+See  [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/) for a detailed explanation of the shortcomings of using regular counters for monitoring AWS Lambda functions.
 
-Delta counters offer a solution to the problem. The Wavefront service aggregates the metrics that come from different invocations of the same functions. The Wavefront AWS Lambda Functions integration comes preconfigured with several delta counters and several counters. In addition, you can monitor business metrics by using our SDK to define a wrapper for your AWS Lambda function. {::comment}See Link to Lambda pageXX for details.{:/comment}
+Delta counters offer a solution to the problem. The Wavefront service aggregates the metrics that come from different invocations of the same functions. The Wavefront AWS Lambda Functions integration comes preconfigured with several delta counters and several counters. In addition, you can monitor business metrics by using our SDK to define a wrapper for your AWS Lambda function. See [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions. 
 
 ### Other Examples
 
