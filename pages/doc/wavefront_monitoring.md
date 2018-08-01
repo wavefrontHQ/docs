@@ -50,7 +50,10 @@ These charts use the following metrics:
    - `~collector.points.reported` -- points coming from the proxy.
    - `~collector.direct-ingestion.points.reported` -- points coming through direct ingestion.
    - `~collector.delta_points.reported` -- delta counter points.
-   - `~externalservices.*.points` -- the per-second rate at which Wavefront ingests new points from cloud integrations such as AWS, GCP, and Azure. For details on the AWS metrics, see the [AWS Integration](#aws-integration-metrics).
+   - `~externalservices.<*>.points` -- per-second rate at which Wavefront ingests new points from cloud integrations such as AWS, GCP, and Azure.
+
+   For example, use `~externalservices.ec2.points` for the EC2 points.
+   - `externalservices.points.reported` -- shows how you get billed for external services.
 - **Data Scan Rate** - `~query.summaries_scanned`, the per second rate at which data points are being queried out of Wavefront through dashboards, alerts, custom charts, or API calls.
 
 
