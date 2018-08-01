@@ -293,12 +293,12 @@ Wavefront defines variables for obtaining information about the time series that
 </tr>
 <tr>
 <td><em>Recovered</em></td>
-<td>Any previously failing time series that are no longer failing, so that the alert is now updated or resolved. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window, and then returned either false (0) values or no data for the duration of the <strong>Alert resolves</strong> time window. 
+<td>Any previously failing time series that is no longer failing, causing the alert to be updated or possibly resolved. These are time series for which the alert condition returned all true (non-zero) values for the duration of the <strong>Alert fires</strong> time window, and then returned either false (0) values or no data for the duration of the <strong>Alert resolves</strong> time window. 
 </td>
 </tr>
 <tr>
 <td><em>In maintenance</em></td>
-<td>Any time series whose source is associated with an ongoing maintenance window.</td>
+<td markdown="span">Any time series whose source is associated with an ongoing [maintenance window](maintenance_windows_managing.html#using-maintenance-windows). These are time series that continue to be tested against the alert condition, but whose results do not change the alert's state.</td>
 </tr>
 </tbody>
 </table>
@@ -546,30 +546,30 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tr>
 <tr>
 <td markdown="span">`observed`</td>
-<td>Number of values in the visited time series during the time window immediately preceding the notification.
+<td>Number of data points in the visited time series during the time window immediately preceding the notification.
 </td>
 </tr>
 <tr>
 <td markdown="span">`firing`</td>
-<td>Number of values satisfying the alert condition in the visited time series during the time window immediately preceding the notification. 
+<td>Number of data points whose values satisfy the alert condition in the visited time series during the time window immediately preceding the notification. 
 </td>
 </tr>
 <tr>
 <td markdown="span">`stats`</td>
-<td markdown="span">See [Accessing Series Statistics](#accessing-series-statistics).
+<td markdown="span">See [Alert-Series Statistics](#alert-series-statistics).
 </td>
 </tr>
 </tbody>
 </table>
 
 
-### Accessing Series Statistics
+### Alert-Series Statistics
 
-Statistics provide a profile of the values in a time series during the time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out the largest (or smallest) of these values, or the last value to be reported during the **Alert fires** time window.
+Statistics provide a profile of the values in a time series during the time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
-Statistics are normally useful only if you have set a display expression for the alert, where the display expression captures the underlying time series being tested by the condition expression. If the alert has no display expression set for it, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is generally not useful. 
+Statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is generally not useful. 
 
-Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to enclose them in any punctuation, separators, or labels.
+Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any punctuation, separators, or labels.
 
 <table>
 <colgroup>
@@ -582,7 +582,7 @@ Use the following variables within the section of an [alert-series iterator](#al
 <tbody>
 <tr>
 <td markdown="span">`stats`</td>
-<td markdown="span"> Complete set of statistics about the values in the visited time series during the time window preceding the notification. 
+<td markdown="span"> Set of statistics about the values in the visited time series during the time window preceding the notification.
 </td>
 </tr>
 <tr>
@@ -595,7 +595,8 @@ First value reported within the time window immediately preceding the notificati
 <td markdown="span">`stats.last`</td>
 <td markdown="span">
 Last value reported within the time window immediately preceding the notification.
-**Note** This value is automatically appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets.
+<div>
+**Note** This value is automatically appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets.</div>
 </td>
 </tr>
 <tr>
@@ -621,7 +622,7 @@ Average of the values reported within the time window immediately preceding the 
 
 ### Example Template and Output
 
-This portion of the Generic Webhook alert target template shows how to use the `failingAlertSeries` iterator to retrieve series statistics for each time series that failed:
+This portion of the Generic Webhook alert target template shows how to use the `failingAlertSeries` iterator to retrieve alert-series statistics for each time series that failed:
 
 {% raw %}
 ```handlebars
@@ -689,22 +690,22 @@ You can use the following functions to produce notifications with different cont
 
 ### Example Template
 
-Here is an alert target template for plain text notifications that include a single line according to the type of trigger. 
+Here is an alert target template for plain text notifications that include a single line corresponding to the type of trigger. 
 {% raw %}
 ```handlebars
 {{! Alert Opened section }}
 {{#isAlertOpened}}
-Alert is firing!
+  Alert is firing!
 {{/isAlertOpened}}
 
 {{! Alert Updated section }}
 {{#isAlertUpdated}}
-An individual time series failed or recovered while at least one other time series is firing!
+  An individual time series failed or recovered while at least one other time series is firing!
 {{/isAlertUpdated}}
 
 {{! Alert Resolved section }}
 {{#isAlertResolved}}
-Alert has resolved!
+  Alert has resolved!
 {{/isAlertResolved}}
 ```
 {% endraw %}

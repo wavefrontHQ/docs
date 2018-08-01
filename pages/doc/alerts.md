@@ -67,11 +67,12 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 
 <tr>
 <td><strong>Display Expression</strong></td>
-<td><em>Recommended.</em> A ts() expression that returns the data you want to inspect when the alert fires. The display expression can include any valid <a href="query_language_getting_started.html">Wavefront Query Language</a> construct, and typically captures the underlying time series being tested by the condition expression. The results of the display expression are shown:
+<td><em>Recommended.</em> A ts() expression that returns the data you want to inspect when the alert fires. The display expression can include any valid <a href="query_language_getting_started.html">Wavefront Query Language</a> construct, and typically captures the underlying time series being tested by the condition expression. The results of the display expression are:
 <ul>
-<li>In the <strong>Events Display</strong> preview chart on the page for creating or editing the alert.</li>
-<li markdown="span">In any [chart image](#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
-<li  markdown="span">In the [interactive chart](#interactive-charts-linked-by-alert-notifications) you can visit from a notification triggered by the alert.</li>
+<li>Shown in the <strong>Events Display</strong> preview chart on the page for creating or editing the alert.</li>
+<li markdown="span">Shown in any [chart image](#chart-images-in-alert-notifications) that is included in a notification triggered by the alert.</li>
+<li  markdown="span">Shown in the [interactive chart](#interactive-charts-linked-by-alert-notifications) you can visit from a notification triggered by the alert.</li>
+<li markdown="span">Used as the basis for any [statistics](alert_target_customizing.html#alert-series-statistics) that you might include in a [custom notification](alert_target_customizing.html) triggered by the alert. </li>
 </ul>
 
 If you leave this field blank, the condition expression is used. Note, however, that the values returned by the condition expression are either 0 or 1, which might not provide the information you want to inspect when the alert changes state. </td>
