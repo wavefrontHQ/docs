@@ -7,13 +7,9 @@ permalink: metric_types.html
 summary: Learn about the different type of metrics Wavefront collects.
 ---
 
-Wavefront shows how the metrics in the environment you are monitoring change over time. Each metric includes several elements:
-* metric name and value
-* timestamp
-* metric source
-* point tag or source tag (optional)
+Wavefront monitors time series. Each time series consists of numeric data points for a metric, for example, CPU load or failed network connections.
 
-The type of data that you’re collecting determines the characteristics of the metrics. Currently, you can use Wavefront with gauges, counters, delta counters, and histograms.
+The type of data that you’re collecting determines the type of metric. Wavefront supports several metric types: gauges, counters, delta counters, and histograms.
 
 ## Summary of Metric Types
 
@@ -22,49 +18,65 @@ The following table gives an overview of metric types. We introduce each type in
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Metric</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Metric</th><th width="40%">Description</th><th width="40%">Example</th></tr>
 </thead>
 <tr>
-<td> Gauge</td>
-<td>Monitor metrics that increase and decrease.</td>
+<td>Gauge</td>
+<td>Shows current value for each point in time.</td>
+<td>CPU load, network connections</td>
 </tr>
 <tr>
 <td>Counter</td>
-<td>Shows metrics that increase over time.</td>
+<td>Shows values as they increase (and decrease).</td>
+<td>Number of failed connections, registered users.</td>
 </tr>
 <tr>
 <td>Delta counter</td>
-<td>Useful for monitoring bursty traffic in a Function-as-a-Service (serverless) environment. We use delta counters for some of the metrics in the AWS Lambda integration. You can send delta counters to the proxy or the service using Python, Go, or Node.js. See the <a href="integrations_aws_lambda.html">AWS Lambda integration</a> and the <a href="delta_counters.html">delta counters page</a>.</td>
+<td>Useful for monitoring bursty traffic in a Function-as-a-Service (serverless) environment. </td>
+<td>Shows how many times an FaaS function executed (or failed). </td>
 </tr>
 <tr>
 <td>Histogram</td>
-<td>Histograms support computing, storing, and using distributions of metrics. Useful for very high frequency data. See the <a href="proxies_histogram.html">discussion of histograms</a>. </td>
+<td>Histograms support computing, storing, and using distributions of metrics.</td>
+<td>Histograms are useful for very high frequency data. See the <a href="proxies_histogram.html">discussion of histograms</a>. </td>
 </tr>
 </tbody>
 </table>
 
 ## Gauge
 
-Gauges monitor metrics that increase and decrease. Each gauge shows the current state of something, such as the CPU or memory that's in use.
+A gauge shows the current value for each point in time. Think of a thermometer that shows the current temperature or a gauge that shows how much electricity your Tesla has left.
 
 Many metrics that come into Wavefront are gauges. For example, Wavefront internal metrics include `~alert.checking_frequency.{id}` and `~alert.query_time.{alert_id}`.
 
 ## Counter
 
-Counters show information over time, such as how many network connections failed and succeded.
+Counters show information over time. Think of a person with a counter at the entrance to a concert. The counter shows the total number of people that have entered so far.
 
-   Counters increase over time but might briefly go to zero, for example, in case of a network outage. In many cases, users wrap `rate()` around a counter.
+   Counters usually increase over time but might briefly go to zero, for example, in case of a network outage. Users wrap `rate()` around a counter if they're interested in the total count and want to ignore temporary 0 values.
 
-Wavefront internal metrics that are counters include `~metric.new_host_ids` and `~query.requests`. It's also possible to use query language functions such as `integral` to turn a gauge into a counter. For example, you could convert a `~alert.checking_frequency.{id}` to see the trend in checking frequency instead of the raw data.
+Wavefront internal metrics that are counters include `~metric.new_host_ids` and `~query.requests`.
+
+Even if the metrics that arrive at the Wavefront service aren't counters, you can use query language functions such as `integral` to turn a gauge into a counter. For example, you could convert a `~alert.checking_frequency.{id}` to see the trend in checking frequency instead of the raw data.
 
 ## Delta Counter
 
 [Delta counters](delta_counters.html) are well suited for they kind of bursty traffic you typically get in a Function-as-a-Service environment. A large number of functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing significant parts of the metrics information to collision.
 
-For delta counters, which must have a &#916; prefix, the Wavefront service performs aggregation when the points arrive and stores the aggregated point. The point does not include informaton about the source -- but an environment like AWS Lambda, the source is irrelevant.
+If you think of the example of the person with the counter standing at a concert entrance, imagine that you now have 3 people standing at 3 entrances. A single person can't capture that information, but that's not a problem because what you want to know is the total number of people that entered.
+
+The Wavefront service considers metrics that start with a delta character delta metrics. The Wavefront service aggregates delta metric points and stores the aggregated point.
+
+The following illustration compares a counter and a delta counter.
+* The **counter** mycounter sends 3 data points to the Wavefront service. Wavefront stores each value with its timestamp. When the user runs a query, the Wavefront service fetches the datapoints, aggregates them, and returns them.
+* In the **delta counter** use case, a FaaS environment runs the function in multiple function invocation instances and sends the points to the Wavefront service. The Wavefront service aggregates the points and stores the result. When the user runs a query, the Wavefront service fetches the already aggregated counter.
+
+![counters_delta_counters](images/counters_delta_counters.png)
 
 ## Histograms
 
 Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However, some scenarios generate even higher frequency data. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using “normal” metrics, we can’t measure this.
 
 To address high frequency data, Wavefront supports histograms – a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy. Histograms are supported by Wavefront proxy 4.12 and later. To indicate that metrics should be treated as histogram data, the user must send the metrics to a histogram proxy port instead of the normal metrics port (2878).
+
+![histogram](images/histogram.png)
