@@ -735,7 +735,7 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <tr>
 <td>hs(<strong>&lt;histogram_metric&gt;</strong>)
 </td>
-<td>Returns a histogram metric, which you can <a href="proxies_histograms.html#histogram-functions">query with</a> certain other query language functions. See <a href="proxies_histograms.html">Wavefront Histogram</a> for details.</td>
+<td>Returns a histogram metric, which you can <a href="proxies_histograms.html#histogram-functions">query with</a> certain other query language functions. See <a href="proxies_histograms.html">Wavefront Histograms</a> for details.</td>
 </tr>
 </tbody>
 </table>
