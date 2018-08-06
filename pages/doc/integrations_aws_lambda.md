@@ -1,10 +1,10 @@
 ---
-title: AWS Lambda Integration
+title: AWS Lambda Function Integration Details
 keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_lambda.html
-summary: Learn about viewing AWS Lambda metrics in Wavefront.
+summary: Learn about AWS Lambda and Wavefront.
 ---
 The Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html) includes:
 * Setup instructions
@@ -13,27 +13,45 @@ The Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html) incl
 
 On this page, we give some background and details not available on the integration page.
 
-## AWS Lambda and Wavefront
+## Wavefront and AWS Lambda
 
 AWS Lambda is ideal for situations when you want to run a function in response to an event. Use cases include generating thumbnails whenever users upload images to a website or similar scenarios. You define the function in one of the languages that AWS Lambda supports, and the function runs whenever a triggering event occurs. This model is called Function-as-a-Service or serverless.
 
-While it's convenient to stop worrying about function execution, you might want to monitor the function. Wavefront offers these choices to monitor your Lambda function:
-* Use the Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but has some drawbacks:
-  - It can get expensive because AWS charges to extract metrics from Amazon CloudWatch.
-  - Polling CloudWatch and send the data to Wavefront introduces some lag.
-* Using the Wavefront AWS Lambda integration. The integration supports all standard metrics available through the API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
-  - Real-time metrics are sent directly from your AWS Lambda function to Wavefront.
-  - You set up only the AWS Lambda integration -- setting up CloudWatch is not necessary.
+While it's convenient to stop worrying about function execution, you might want to monitor the function. Wavefront offers these choices to monitor your AWS Lambda function:
+* Use the Wavefront Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but polling CloudWatch and send the data to Wavefront introduces some lag.
+* Use the Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html). The integration collects standard metrics available through the public API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
+  - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
+  - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
+  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_lambda)
 
-## How To Monitor AWS Lambda
+## How to Use Wavefront to Monitor AWS Lambda
 
-For AWS Lambda and other serverless environments, Wavefront supports a new type of metric called [delta counter](delta_counters.html). Wavefront performs server-side aggregation of related metrics for delta counters, eliminating potential issues with collision. See our blog [Monitoring Apps in the Serverless World](https://www.wavefront.com/monitoring-applications-in-the-serverless-world-part-1-of-2/)
+To support monitoring serverless environments, Wavefront has a new type of metric called [delta counter](delta_counters.html). With delta counters, Wavefront performs server-side aggregation -- that eliminates metric point collisions during bursty traffic. See our blog [Monitoring Apps in the Serverless World](https://www.wavefront.com/monitoring-applications-in-the-serverless-world-part-1-of-2/)
 
+The Wavefront AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
 
-### AWS Lambda Integration
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Use Case</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>AWS Lambda standard metrics</td>
+<td>We collect AWS Lambda standard metrics for you. Some metrics are counters, others are delta counters. You can see these counters in the integration's dashboard, and use them in queries and alerts just like other counters. For example, you can wrap a <code>rate()</code> function around your delta counter if you want to for the counter to continue increasing case of counter reset.</td></tr>
+<tr>
+<td>AWS Lambda custom business metrics</td>
+<td>The AWS Lambda integration includes instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function. </td></tr>
+<tr>
+<td>Send metrics directy to Wavefront</td>
+<td>If you want to send metrics directly to the Wavefront proxy or the Wavefront service, you prefix each metric with a delta character so the Wavefront service knows these metrics are part of a delta counter, as shown in the following <a href="https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py"> sample code snippet</a>.
 
-The Wavefront AWS Lambda integration  supports out-of-the-box monitoring of many standard AWS Lambda metrics. The charts in the integration's dashboard query many of those metrics so you can get a good first impression of what's going on in your environment. You can also set up the alerts that are predefined as part of the integration
+<code>
+  DELTA_PREFIX = u"\u2206"
+  ALT_DELTA_PREFIX = u"\u0394"</code></td></tr>
+</tbody>
+</table>
 
+<!--
 ### Sending Business Metrics to the AWS Lambda Integration
 
 If you want to go beyond standard metrics and monitor business metrics, that is, metrics associated with your AWS Lambda function, you can publish those directly from your Lambda function into Wavefront with very little additional code. You specify the metric(s) you want to send to Wavefront in a wrapper for your Lambda function. Instructions and links are in the AWS Lambda integration, or you can look at the [example on Github](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_lambda/example.py).
@@ -54,3 +72,4 @@ ALT_DELTA_PREFIX = u"\u0394"
 name = name if _has_delta_prefix(name) else DeltaCounter.DELTA_PREFIX + name
 ```
 See the [sample code](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py) for details.
+-->
