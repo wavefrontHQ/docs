@@ -61,9 +61,9 @@ Even if the metrics that arrive at the Wavefront service aren't counters, you ca
 
 ## Delta Counter
 
-[Delta counters](delta_counters.html) are well suited for they kind of bursty traffic you typically get in a Function-as-a-Service environment. A large number of functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing significant parts of the metrics information to collision.
+[Delta counters](delta_counters.html) are well suited for the kind of bursty traffic you typically get in a Function-as-a-Service environment. Many functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing metric points to collision.
 
-If you think of the example of the person with the counter standing at a concert entrance, imagine that you now have 3 people standing at 3 entrances. A single person can't capture that information, but that's not a problem because what you want to know is the total number of people that entered.
+For counters, one person with a counter standing at a concert entrance, is an example. Now imagine that you have 3 people standing at 3 entrances. A single person can't capture that information, but that's not a problem because you can add up the counters. In the same way, the Wavefront service can aggregate delta counter information.
 
 The Wavefront service considers metrics that start with a delta character delta metrics. The Wavefront service aggregates delta metric points and stores the aggregated point.
 
