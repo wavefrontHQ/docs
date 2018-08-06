@@ -8,34 +8,32 @@ summary: Learn how to customize alert target templates.
 ---
 
 A custom alert target provides a template for specifying the contents of the notifications to be sent when an alert changes state.
-The template is a blueprint for extracting various pieces of information from the alert and assembling them into the notification.
+The template is a blueprint for extracting information from the alert and assembling the notification.
 
-You typically customize a template by starting with the default template for the alert target type, and then editing that template. 
+To customize a template, start with the default template for the alert target type, and edit that template. 
 
 **Note** For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html).
 
 ## About Alert Target Templates
 
-The template defined by a custom alert target describes the contents of the notifications that will be sent whenever an alert transition triggers an event of interest. A template identifies the information you want to extract from the transitioned alert, and embeds that information within a formatted structure that is sent to the target's messaging platform, where the structure is interpreted and display as a readable notification. For example:
-
-* A template for a Slack alert target specifies the JSON structure that will be POSTed to the Slack endpoint, and specifies the alert information to be included within that structure. Each piece of alert information is inserted as a value of a Slack-defined JSON attribute.
+The template defined by a custom alert target describes the contents of the notifications that will be sent whenever an alert transition triggers an event of interest. A template identifies the information you want to extract from the transitioned alert, and embeds that information in a formatted structure that is sent to the target's messaging platform. The messaging platform interprets the structure and displays it as a readable notification. For example:
 
 * A template for an HTML email alert target specifies the HTML structure that will be sent as the message body, and specifies the alert information to be included within that structure. Each piece of alert information is inserted as a value of an HTML element or attribute.
 
-A custom alert target's template uses [Mustache](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
+* A template for a Slack alert target specifies the JSON structure that will be POSTed to the Slack endpoint, and specifies the alert information to be included within that structure. Each piece of alert information is inserted as a value of a Slack-defined JSON attribute.
+
+A custom alert target's template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
 ### Predefined Templates
 Wavefront provides a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it to add, remove, or rearrange alert information and structural elements. You can even use a predefined template as a guide for composing your own template. 
 
-You can display a predefined template in the **Body Template** field of the [Create Alert Target](webhooks_alert_notification.html#creating-a-custom-alert-target) page by clicking **Template** and selecting one of the predefined templates. The list of available predefined templates is determined by the custom alert target's **Type**.
-
-You can inspect a predefined template to see:
+You can [inspect](#displaying-and-editing-predefined-templates) a predefined template to see:
 
 * The Wavefront-defined [variables](#template-variables) and [functions](#template-functions) that extract information from the alert. 
 
 * The structural elements in which the extracted information is embedded. These are JSON attributes, HTML elements, or plain text, depending on the  messaging platform to which notifications will be sent.
 
-The predefined Slack, HipChat, and VictorOps templates contain JSON attributes defined by the messaging platform. You can consult the product documentation for the platform to learn more about these attributes.  
+The predefined Slack, HipChat, and VictorOps templates contain JSON attributes defined by the messaging platform. See the product documentation for the platform for details.  
 
 **Note** The predefined Webhook Generic template contains JSON attributes that do not conform to any particular message platform's Webhook endpoint specification. This template simply demonstrates how to access the different kinds of alert information for a Webhook endpoint.
 
@@ -43,9 +41,9 @@ The predefined Slack, HipChat, and VictorOps templates contain JSON attributes d
 
 Wavefront defines template variables for accessing information about [the alert](#listing-information-about-the-alert) and about [the time series tested by the alert](#listing-information-about-the-alerts-time-series). When the alert triggers a notification, Wavefront replaces the variables in the template with strings that represent the requested values. 
 
-The way you use a variable depends on whether it is:
-* A property, which accesses a single value. For example, `alertID` accesses a single string representing the alert's unique ID.
-* An iterator, which accesses a value that is a list of elements. For example, `alertTags` accesses a list of 0 or more strings representing tags associated with the alert.
+How you use a variable depends on whether it is:
+* A _property_, which accesses a single value. For example, `alertID` accesses a single string that represents the alert's unique ID.
+* An _iterator_, which accesses a value that is a list of elements. For example, `alertTags` accesses a list of 0 or more strings that represents tags associated with the alert.
 
 The following snippet shows the basic [Mustache](https://mustache.github.io/) syntax for a property and an iterator:
  
@@ -84,6 +82,19 @@ The following snippet shows the basic [Mustache](https://mustache.github.io/) sy
 {% endraw %}
 
 Like iterators, a function is used in a Mustache section, with the function's name appearing on either end. The contents of the section are passed as input to the function. 
+
+## Displaying and Editing Predefined Templates
+
+To display and edit a predefined template for a new or existing custom alert target:
+
+1. [Create](webhooks_alert_notification.html#creating-a-custom-alert-target) or [view](webhooks_alert_notification.html#viewing-a-custom-alert-target) the custom alert target. 
+2. In the **Body Template** field, click **Template** and select one of the predefined templates. 
+3. Add, remove, or rearrange alert information and structural elements of the predefined template, or replace the predefined template with a template of your own.
+4. Scroll to the end of the **Body Template** field and click **Save**.
+
+The custom alert target's **Type** determines the list of available predefined templates. For example, here are the choices for a custom alert target of type **Email**: 
+
+![predefined alert target](images/alert_target_predefined_template.png)
 
 ## Obtaining Information About the Alert
 
@@ -189,7 +200,7 @@ Wavefront defines variables for obtaining information about the alert as a whole
 </tbody>
 </table>
 
-### Example Template and Output 
+**Example: Accessing Alert Information in a Generic Webhook Alert Target Template**
 
 This portion of the Generic Webhook alert target template uses variables that access information about the alert. 
 
@@ -228,7 +239,9 @@ This portion of the Generic Webhook alert target template uses variables that ac
 ```
 {% endraw %}
 
-Here is a sample alert target output generated with the template:
+**Example: Alert Information in Output From the Sample Template**
+
+Here is sample alert target output generated with the preceding template:
 
 {% raw %}
 ```handlebars
@@ -261,7 +274,7 @@ Here is a sample alert target output generated with the template:
 
 Notice that, in a template entry such as {% raw %} `"alertId": "{{{alertId}}}"`{% endraw %}, everything except the variable is literal text that is passed through as output. So, for example:
 *  `"alertId": " " `  is literal text that produces a sample JSON attribute called `"alertId"`.
-* {% raw %}`{{{alertId}}}`{% endraw %} invokes the Wavefront-defined variable `alertId`, which is expands to `1460761882996` in our example. 
+* {% raw %}`{{{alertId}}}`{% endraw %} invokes the Wavefront-defined variable `alertId`, which expands to `1460761882996` in our example. 
 
 
 ## Obtaining Information About the Alert's Time Series
@@ -340,7 +353,7 @@ You can use the following iterators to visit each time series in the indicated [
 </tbody>
 </table>
 
-### Example Template and Output 
+**Example: Accessing Alert Sources in a Generic Webhook Alert Target Template**
 
 This portion of the Generic Webhook alert target template shows iterators that return the sources of the time series tested by the alert:
 
@@ -379,7 +392,9 @@ This portion of the Generic Webhook alert target template shows iterators that r
 ```
 {% endraw %}
 
-Here is a sample alert target output generated with the template:
+**Example: Alert Sources in Output From the Sample Template**
+
+Here is a sample alert target output generated with the preceding template:
 
 {% raw %}
 ```handlebars
@@ -396,7 +411,7 @@ Notice that the template provides literal text for enclosing each source name in
 
 ## Listing the Definitions of an Alert's Time Series
 
-You can use the following iterators to visit each time series in the indicated [category](#series-category) and return the series' defining information. The defining information for a series is a preformatted string containing the source name, the metric name, and any point tags (shown as `<key>=<value>` pairs). 
+You can use the following iterators to visit each time series in the indicated [category](#series-category) and return the series' defining information. The defining information for a series is a preformatted string that contains the source name, the metric name, and any point tags (shown as `<key>=<value>` pairs). 
 
 <table>
 <colgroup>
@@ -427,7 +442,8 @@ You can use the following iterators to visit each time series in the indicated [
 </tbody>
 </table>
 
-### Example Template and Output 
+**Example: Accessing Time Series Information in a Generic Webhook Alert Target Template**
+
 This portion of the Generic Webhook alert target template shows iterators that return the defining information about the time series tested by the alert:
 
 {% raw %}
@@ -465,7 +481,9 @@ This portion of the Generic Webhook alert target template shows iterators that r
 ```
 {% endraw %}
 
-Here is a sample alert target output generated with the template:
+**Example: Time Series Information in Output From The Sample Template**
+
+Here is a sample alert target output generated with the preceding template:
 
 {% raw %}
 ```handlebars
@@ -484,7 +502,7 @@ Here is a sample alert target output generated with the template:
 ```
 {% endraw %}
 
-Notice that the template provides literal text for enclosing the overall list of preformatted strings in square brackets, and for separating the preformatted strings with commas. (The `trimTrailingComma` function suppresses the comma after the last preformatted string.) The preformatted strings themselves automatically provide quotation marks, comma separators, and square brackets around the component information.
+The template explicitly includes literal text for enclosing the overall list of preformatted strings in square brackets, and for separating the preformatted strings with commas. The `trimTrailingComma` function suppresses the comma after the last preformatted string. The punctuation (quotation marks, comma separators, and square brackets) in each preformatted output string is generated automatically.
 
 
 ## Accessing a Custom Group of Time Series Details
@@ -530,7 +548,7 @@ Use the following iterators to visit each time series in the indicated [category
 
 ### Alert-Series Details
 
-Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the details to be included for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to enclose them in any punctuation, separators, or labels.
+Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the details to be included for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any labels, separators, or other punctuation.
 <table>
 <colgroup>
 <col width="20%"/>
@@ -573,12 +591,38 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tbody>
 </table>
 
+**Example: Accessing Alert-Series Details in a Generic Webhook Alert Target Template**
+
+This portion of the Generic Webhook alert target template shows how to use the `failingAlertSeries` iterator to retrieve alert-series details for each time series that failed:
+
+{% raw %}
+```handlebars
+"failingAlertSeries": [
+  {{#trimTrailingComma}}
+    {{#failingAlertSeries}}
+      "Source: {{host}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}}, Firing: {{firing}}",
+    {{/failingAlertSeries}}
+  {{/trimTrailingComma}}
+]
+```
+{% endraw %}
+
+**Example: Alert-Series Details in Output from the Sample Template**
+
+The preceding template might yield the following message:
+
+{% raw %}
+```handlebars
+"failingAlertSeries": [
+    "Source: raspberrypi, Label: humidity, Tags: {env=production, az=us-west-2}, Observed: 5, Firing: 2"]
+```
+{% endraw %}
 
 ### Alert-Series Statistics
 
 Statistics provide a profile of the values in a time series during the time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
-Statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is generally not useful. 
+Statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful. 
 
 Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any punctuation, separators, or labels.
 
@@ -607,7 +651,7 @@ First value reported within the time window immediately preceding the notificati
 <td markdown="span">
 Last value reported within the time window immediately preceding the notification.
 <div>
-**Note** This value is automatically appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets.</div>
+**Note** This value is appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets.</div>
 </td>
 </tr>
 <tr>
@@ -631,7 +675,7 @@ Average of the values reported within the time window immediately preceding the 
 </tbody>
 </table>
 
-### Example Template and Output
+**Example: Accessing Alert-Series Statistics in a Generic Webhook Alert Target Template**
 
 This portion of the Generic Webhook alert target template shows how to use the `failingAlertSeries` iterator to retrieve alert-series statistics for each time series that failed:
 
@@ -648,19 +692,22 @@ This portion of the Generic Webhook alert target template shows how to use the `
 ```
 {% endraw %}
 
-This template might yield the following message:
+**Example: Alert-Series Statistics in Output from the Sample Template**
+
+The preceding template might yield the following message:
 
 {% raw %}
 ```handlebars
 "failingAlertSeries": [
-    "Source: raspberrypi, Label: humidity, Tags: {env=production, az=us-west-2}, 
-Observed: 5, Firing: 2, First: 46.6, Last: 46.0, Min: 46.0, Max: 46.6, Mean: 46.279999999999994"]
+    "Source: raspberrypi, Label: humidity, Tags: {env=production, az=us-west-2}, Observed: 5, Firing: 2, 
+    First: 46.6, Last: 46.0, Min: 46.0, Max: 46.6, Mean: 46.279999999999994"]
 ```
 {% endraw %}
 
 ## Tailoring Content to the Trigger Type
 
-You can use the following functions to produce notifications with different content for different types of trigger. 
+If you want to send out different notifications for different types of triggers, you can use the following functions.
+For example, you can use the same template to send out one message for a firing alert, and another message for an updated alert.
 
 <table>
 <colgroup>
@@ -673,35 +720,37 @@ You can use the following functions to produce notifications with different cont
 <tbody>
 <tr>
 <td markdown="span">`isAlertOpened`</td>
-<td markdown="span"> Outputs the contents of the section only if the alert is firing.
+<td markdown="span"> Includes the contents of the section only if the alert is firing.
 </td>
 </tr>
 <tr>
 <td markdown="span">`isAlertUpdated`</td>
-<td markdown="span"> Outputs the contents of the section only if the alert is updated.
+<td markdown="span"> Includes the contents of the section only if the alert is updated.
 </td>
 </tr>
 <tr>
 <td markdown="span">`isAlertResolved`</td>
-<td markdown="span"> Outputs the contents of the section only if the alert is resolved.
+<td markdown="span"> Includes the contents of the section only if the alert is resolved.
 </td>
 </tr>
 <tr>
 <td markdown="span">`isAlertMaintenance`</td>
-<td markdown="span"> Outputs the contents of the section only if one or more sources associated with the alert are in an ongoing maintenance window.
+<td markdown="span"> Includes the contents of the section only if one or more sources associated with the alert are in an ongoing maintenance window.
 </td>
 </tr>
 <tr>
 <td markdown="span">`isAlertSnoozed`</td>
-<td markdown="span"> Outputs the contents of the section only if the alert has been snoozed.
+<td markdown="span"> Includes the contents of the section only if the alert has been snoozed.
 </td>
 </tr>
 </tbody>
 </table>
 
-### Example Template
+**Example: Conditionalizing Content in a Plain Text Alert Target Template**
 
-Here is an alert target template for plain text notifications that include a single line corresponding to the type of trigger. 
+
+Here is an alert target template for plain text notifications that sends the text "Alert is firing!" if the alert opened, and sends different messages if the alert is updated or resolved.
+ 
 {% raw %}
 ```handlebars
 {{! Alert Opened section }}
@@ -721,7 +770,7 @@ Here is an alert target template for plain text notifications that include a sin
 ```
 {% endraw %}
 
-Here is the output in a notification that was triggered by the alert firing. Notice that the other content is suppressed.
+Here is the output in a notification that was triggered by the alert firing.
 {% raw %}
 ```handlebars
 Alert is firing!
@@ -730,7 +779,7 @@ Alert is firing!
 
 ## Limiting List Sizes
 
-If your messaging platform imposes a limit on the overall number of characters in a notification, you can avoid exceeding this limit by setting a limit on the number of items returned by iterators.
+If your messaging platform imposes a limit on the number of characters in a notification, you can avoid exceeding this limit by setting a limit on the number of items returned by iterators.
 
 The default value for each limit you can set with a customization function is 500. You must set the limit before iteration or the limit does not take effect.
 
@@ -790,7 +839,7 @@ See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteratio
 </tbody>
 </table>
 
-### Example: Setting and Testing Iteration Limits
+**Example: Setting and Testing Iteration Limits**
 
 Suppose you have 8 failing sources: `source1`, `source2`, `source3`, `source4`, `source5`, `source6`, `source7`, `source8`. You set `setDefaultIterationLimit` to 5 in the first line of the following template:
 
@@ -885,11 +934,14 @@ In contrast, if the `failingLimit` is 10, the output is the following for 8 fail
 ```
 {% endraw %}
 
-For this case (limit 10, failing sources 8) `failingLimitExceed` is `false` because the number the failing sources does not exceed the limit set.
+For this case (limit 10, failing sources 8) `failingLimitExceed` is `false` because the number of failing sources does not exceed the limit set.
 
 ## Utility Functions for Readability
 
-Alert target utility functions allow you to make the output of the alert target more readable. If you send the notification to a system that uses JSON, you can use `jsonEscape`. If the system uses XML, you can use `xml11Escape` or `xml10Escape`.
+You can use alert target utility functions to make the output of the alert target more readable. 
+* Use `jsonEscape` if you send notifications to a messaging platform that uses JSON. 
+* Use `xml11Escape` or `xml10Escape` if you send notifications to a messaging platform that uses XML.
+* Use `trimTrailingComma` if you send notifications to a messaging platform that does not automatically suppress a literal comma after the final element of a list.
 
 <table>
 <colgroup>
@@ -903,7 +955,7 @@ Alert target utility functions allow you to make the output of the alert target 
 <tbody>
 <tr>
 <td markdown="span">`jsonEscape`</td>
-<td markdown="span">Escapes the characters in a string using Json string rules.
+<td markdown="span">Escapes the characters in a string using JSON string rules.
 Escapes any values it finds into their Json string form. Deals correctly with quotes and control-chars (tab, backslash, cr, ff, etc) so, for example, a tab becomes the characters `\\` and `t`.</td>
 <td markdown="span">Input: `He didn't say, "Stop!"`\\
 Output: `He didn't say, \"Stop!\"`</td>
@@ -948,8 +1000,8 @@ Output: `&quot;bread&quot; &amp; &quot;chocolate&quot;`</td>
 <tr>
 <td markdown="span">`trimTrailingComma`
 </td>
-<td markdown="span">Retain the string content up to the last comma.
-Often used with webhook templates with iterators to remove the extra comma of the last item.
+<td markdown="span">Retains the string content up to the last comma.
+Often used within iterator sections to remove the extra comma after the last element visited by an iterator.
 </td>
 <td markdown="span">
 Input:\\
@@ -963,7 +1015,7 @@ Output:\\
 
 ## Adding Chart Images to Older Custom Alert Targets
 
-As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template in order to include a chart image in the alert notifications.
+As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 **Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images. 
 
@@ -987,7 +1039,7 @@ To update a custom email alert target that was created before 2018-26.x:
 Subsequent email notifications will now include a chart image that is generated for the alert. (Without the HTML `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL to a chart image, and not as an image.)
 
 
-### Updating an Pre-Existing Custom Alert Target for Slack
+### Updating a Pre-Existing Custom Alert Target for Slack
 
 To update the template for a custom Slack alert target that was created before 2018-26.x:
 
