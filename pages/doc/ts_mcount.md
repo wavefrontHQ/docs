@@ -37,7 +37,7 @@ Returns the number of data points reported over the specified time window. If a 
 
 The `mcount()` function returns the moving count for each time series described by the expression. The moving count is the number of data points reported by a time series over a shifting time window. For example, `mcount(10m, ts(my.metric))` returns, at each point, the number data values over the previous 10 minutes for each specified time series.
 
-If a time series stops reporting data, `mcount()` continues to return the moving count until up to 2 times the elapsed time window after the last reported point, and returns no data after that.
+If a time series stops reporting data, `mcount()` continues to return the moving count until up to 2 times the elapsed time window after the last reported point, and returns no data after that. Later, If the time series starts to report data again, the data gap in between the last point reported by mcount() and the new point gets filled with zeros.
 
 Here's how to select your counting/summing function:
 

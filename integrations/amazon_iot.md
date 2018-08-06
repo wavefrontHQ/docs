@@ -1,8 +1,8 @@
 ---
-title: Amazon Elasticsearch Integration
+title: Amazon IoT Integration
 tags: [integrations list]
-permalink: amazon_elasticsearch.html
-summary: Learn about the Wavefront Amazon Elasticsearch Integration.
+permalink: amazon_iot.html
+summary: Learn about the Wavefront Amazon IoT Integration.
 ---
 ## Amazon Web Services Integration
 

@@ -1,23 +1,30 @@
 ---
-title: Displaying Events in Charts
+title: Displaying Event Overlays in Charts
 keywords: events
 tags: [events, charts]
 sidebar: doc_sidebar
 permalink: charts_events_displaying.html
-summary: Learn how to display events in charts.
+summary: Learn how to customize how events display in charts.
 ---
 
-When events occur it can be helpful to view them in charts so that you can correlate metric anomalies with the events. Such events include the firing of an alert or the start of a maintenance window. There are also user events, such as deployment activities, that occur outside Wavefront, but can affect the values of metrics. To help you understand the effect of the event on your metrics you can choose whether to display an *overlay* associated with the event on a chart. 
+Examining events directly in charts can help you correlate metric anomalies with the events. This page explains how you can display an event *overlay* with details about the event, and customize the overlay.
+
+## Event Overlay Example
+
+The example below shows an event overlay that includes a link to the alert that generated it and other information about the event.
 
 ![Events queries](images/events_queries.png)
 
-## Event Overlay Types
+## Event Overlay Types and Color
 
-If a single event occurs in a given time interval, the event icon displays as a dot on the chart's X-axis. If two or more events occur in a  time interval, the event icon displays as a star on the X-axis. Instantaneous events display a vertical line and non-instantaneous or ongoing events display a shaded region representing the duration of the event. 
+Different events display in different ways:
+* If a single event occurs in a time interval, the event icon displays as a **dot** on the chart's X-axis.
+* If two or more events occur in a  time interval, the event icon displays as a **star** on the X-axis.
+* Instantaneous events display a vertical line and non-instantaneous or ongoing events display a shaded region that represents the duration of the event. 
 
 ![Event overlay](images/event_overlay.png)
 
-The color of the overlays are determined by the event severity:
+The event severity determines the color of the overlay:
 
 -   **SEVERE** - red
 -   **WARN** - orange
@@ -26,27 +33,26 @@ The color of the overlays are determined by the event severity:
 
 <a name="dashboards_events"></a>
 
-## Controlling Events Overlays
+## Controlling Event Overlays
 
-You have several ways to control when event overlays display in charts:
+You have several ways to control when and how event overlays display in charts:
 
-- Select the **Display Source Events** checkbox in the [chart configuration](charts.html#source_events) to display events related to alerts fired for sources displaying in the chart. 
+For individual charts, you can:
 
-- Add an [events() query](events_queries.html) to the chart. An events() query cannot be the only query on the chart; to display the events at least one ts() query must be enabled on the chart in addition to the events() query.
+- Select the **Display Source Events** check box in the chart configuration [General options](charts.html#general) to display events related to alerts that fired for sources that display in the chart.
 
-- For all charts in a dashboard:
-  - Set an [events() query](events_queries.html) in [dashboard preferences](dashboards_managing.html#prefs).
+- Add an [events() query](events_queries.html) to the chart. An `events()` query cannot be the only query on a chart. At least one `ts()` query must be enabled on the chart so that the `events()` query results display.
+
+For all charts in a dashboard, you can:
+  - Set an [events() query](events_queries.html) in [dashboard preferences](dashboards_managing.html#prefs), which you can access from the wrench icon in the right corner of the time bar.
   - Select an option in the dashboard **Show Events** dropdown in the middle of the time bar:
 
-    ![time window](images/time_bar.png)
-    
-    The options are:
+  ![time window](images/time_bar.png)
 
-    - **From Chart** - Display events based on the selection of the **Display Source Events** checkbox. Default setting.
-    - **From Dashboard Prefs** - Display events by the global events() expression set in dashboard preferences and forces the Display Source Events checkbox off.
-    - **From Chart & Dashboard**- Display events based on the selection of the Display Source Events checkbox and the global events() expression.
-    - **Related Source Alerts** - Forces the Display Source Events checkbox on.
-    - **All** - Display all events that have occurred within the time window associated with the chart windows.
-    - **None** - Hide all events from every chart in the dashboard.
-
-
+   The **Show Events** options are:
+   - **From Chart** - Displays events based on the selection of the **Display Source Events** checkbox. Default setting.
+   - **From Dashboard Prefs** - Displays events based on the `events()` query set in the dashboard preferences. Forces the **Display Source Events** checkbox off.
+   - **From Chart & Dashboard**- Displays events based on the selection of the **Display Source Events** checkbox and the global `events()` query.
+   - **Related Source Alerts** - Selects the **Display Source Events** checkbox.
+   - **All** - Displays all events that have occurred within the time window associated with the chart windows.
+   - **None** - Hides all events from every chart in the dashboard.

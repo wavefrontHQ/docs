@@ -713,7 +713,7 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </tbody>
 </table>
 
-## Predictive Functions
+## Predictive and Histogram Functions
 
 <table style="width: 100%;">
 <colgroup>
@@ -731,6 +731,11 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <td><a href="ts_hw.html">hw(&lbrack;<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;expression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
 </td>
 <td>Returns a smoothed version of the expression and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
+</tr>
+<tr>
+<td>hs(<strong>&lt;histogram_metric&gt;</strong>)
+</td>
+<td>Returns a histogram metric, which you can <a href="proxies_histograms.html#histogram-functions">query with</a> certain other query language functions. See <a href="proxies_histograms.html">Wavefront Histograms</a> for details.</td>
 </tr>
 </tbody>
 </table>

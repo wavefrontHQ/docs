@@ -286,7 +286,7 @@ entries:
       output: web
 
     - title: List of Wavefront Integrations
-      url: /integrations_list.html
+      url: /label_integrations%20list.html
       output: web
 
 

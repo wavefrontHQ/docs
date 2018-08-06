@@ -1,8 +1,8 @@
 ---
-title: Google Cloud Platform Integration
+title: Google Cloud Spanner Integration
 tags: [integrations list]
-permalink: gcp.html
-summary: Learn about the Wavefront Google Cloud Platform Integration.
+permalink: gcp_cloud_spanner.html
+summary: Learn about the Wavefront Google Cloud Spanner Integration.
 ---
 ## Google Cloud Platform Integration
 

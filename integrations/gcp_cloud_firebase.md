@@ -1,8 +1,8 @@
 ---
-title: Google Cloud Platform Integration
+title: Google Firebase Integration
 tags: [integrations list]
-permalink: gcp.html
-summary: Learn about the Wavefront Google Cloud Platform Integration.
+permalink: gcp_cloud_firebase.html
+summary: Learn about the Wavefront Google Firebase Integration.
 ---
 ## Google Cloud Platform Integration
 

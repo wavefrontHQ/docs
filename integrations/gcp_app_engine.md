@@ -25,7 +25,10 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google Container Engine
 - Google App Engine
 - Google Cloud Datastore
+- Google Cloud Functions 
 - Google Cloud Storage
+- Google Cloud Spanner
+- Google Firebase
 
 ### Alerts
 
