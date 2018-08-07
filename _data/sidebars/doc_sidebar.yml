@@ -63,38 +63,6 @@ entries:
       url: /2018.06.x_release_notes.html
       output: web
 
-    - title: 2017-52.x Release Notes
-      url: /2017_52.x_release_notes.html
-      output: web
-
-    - title: 2017-48.x Release Notes
-      url: /2017_48.x_release_notes.html
-      output: web
-
-    - title: 2017-44.x Release Notes
-      url: /2017_44.x_release_notes.html
-      output: web
-
-    - title: 2017-40.x Release Notes
-      url: /2017_40.x_release_notes.html
-      output: web
-
-    - title: 2017-36.x Release Notes
-      url: /2017_36.x_release_notes.html
-      output: web
-
-    - title: 2017-32.x Release Notes
-      url: /2017_32.x_release_notes.html
-      output: web
-
-    - title: 2017-28.x Release Notes
-      url: /2017_28.x_release_notes.html
-      output: web
-
-    - title: 2017-16.x Release Notes
-      url: /2017_16.x_release_notes.html
-      output: web
-
     - title: Wavefront Obsolescence Policy
       url: /wavefront_obsolescence_policy.html
       output: web
@@ -115,9 +83,30 @@ entries:
       url: /wavefront_data_naming.html
       output: web
 
-    - title: Direct Data Ingestion
-      url: /direct_ingestion.html
+    - title: Wavefront Metric Types
+      url: /metric_types.html
       output: web
+
+      subfolders:
+      - title: Advanced Data Ingestion
+        output: web
+        subfolderitems:
+
+        - title: Direct Data Ingestion
+          url: /direct_ingestion.html
+          output: web
+
+        - title: Derived Metrics
+          url: /derived_metrics.html
+          output: web
+
+        - title: Wavefront Histograms
+          url: /proxies_histograms.html
+          output: web
+
+        - title: Delta Counters
+          url: /delta_counters.html
+          output: web
 
 
   - title: Query Language
@@ -253,7 +242,7 @@ entries:
       url: /webhooks_alert_notification.html
       output: web
 
-    - title: Custom Target Templates
+    - title: Customizing Alert Target Templates
       url: /alert_target_customizing.html
       output: web
 
@@ -301,6 +290,10 @@ entries:
 
           - title: AWS ECS Integration
             url: /integrations_aws_ecs.html
+            output: web
+
+          - title: AWS Lambda Function Integration
+            url: /integrations_aws_lambda.html
             output: web
 
           - title: Log Data Metrics Integration
@@ -402,10 +395,6 @@ entries:
     - title: Advanced Proxy Configuration
       url: /proxies_configuring.html
       output: web
-
-#    - title: Wavefront Histograms
-#      url: /proxies_histograms.html
-#      output: web
 
     - title: Wavefront Proxy Preprocessor Rules
       url: /proxies_preprocessor_rules.html
