@@ -12,7 +12,7 @@ This is a custom integration. You can send your own metrics and create your own 
 
 ## Python Setup
 
-The Wavefront plugin for [PyFormance](https://github.com/omergertel/pyformance) adds [Wavefront reporters](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_pyformance) and a simple abstraction that supports tagging at the reporter level. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
+The Wavefront plugin for [PyFormance](https://github.com/omergertel/pyformance) adds [Wavefront reporters](https://github.com/wavefrontHQ/wavefront-pyformance) and an  abstraction that supports tagging at the reporter level. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 ### Install wavefront_pyformance
 {% raw %}

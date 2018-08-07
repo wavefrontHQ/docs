@@ -35,7 +35,7 @@ The Wavefront AWS Lambda function wrappers use the following environment variabl
 - **REPORT_STANDARD_METRICS**: Optional. Set to False to omit reporting standard Lambda metrics.
 
 ### Python Lambda Wrapper
-To report metrics from your Python Lambda functions, use the [Wavefront Python Lambda Wrapper](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_lambda).
+To report metrics from your Python Lambda functions, use the [Wavefront Python Lambda Wrapper](https://github.com/wavefrontHQ/wavefront-lambda-python).
 
 #### Install wavefront_lambda{% raw %}
 ```
