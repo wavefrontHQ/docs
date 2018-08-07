@@ -115,15 +115,15 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">Counter that increments when a new point tag value is sent to Wavefront.</td></tr>
 <tr>
 <td markdown="span">~alert</td>
-<td markdown="span">~alert.query_time.{alert_id}</td>
+<td markdown="span">~alert.query_time.&lt;alert_id&gt;</td>
 <td markdown="span">Tracks the average time, in ms, that a specified alert took to run in the past hour.</td></tr>
 <tr>
 <td markdown="span">~alert</td>
-<td markdown="span">~alert.query_points.{alert_id}</td>
+<td markdown="span">~alert.query_points.&lt;alert_id&gt;</td>
 <td markdown="span">Tracks the average number of points that a specified alert scanned in the past hour.</td></tr>
 <tr>
 <td markdown="span">~alert</td>
-<td markdown="span">~alert.checking_frequency.{id}</td>
+<td markdown="span">~alert.checking_frequency.&lt;alert_id&gt;</td>
 <td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.</td></tr>
 <tr>
 <td markdown="span">~collector(*)</td>
