@@ -10,13 +10,33 @@ You use `events()` queries to [customize how events display in charts](charts_ev
 
 ## Event Query Syntax
 
-An `events()` query has the following syntax:
+The `events()` query syntax includes several parameters that you can combine:
 
-`[<event_function>(]events([<filterName>=""<filterValue>")][and|or|not <filterName>="<filterValue>"])[)]`
+```
+<event_function>(events)
 
-where
-* `<event_function>` is one of the supported [events functions](query_language_reference.html#event-functions). Events functions let you fine tune your `events()` query.
-* `<filterName>` is an [event filter](#filters). You can specify multiple event filters separated by the boolean operators (and, or, not).
+events(<filterName>=""<filterValue>” [and|or|not “<filterName>”="<filterValue>”])
+```
+### Parameters
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>event_function</td>
+<td markdown="span"> One of the supported [events functions](query_language_reference.html#event-functions). Events functions let you fine tune your events() query.</td>
+</tr>
+<tr>
+<td>filterName</td>
+<td markdown="span"> An [event filter](#filters). You can optionally specify multiple event filters separated by the boolean operators (and, or, not).</td></tr>
+</tbody>
+</table>
+
+You can combine the syntax elements, that is, you can use both an event function and a filter in a query.
+
+### Examples
 
 The following examples use only filters, see [Advanced events() Queries](events_queries_advanced.html) for examples for using events functions.
 

@@ -96,6 +96,10 @@ entries:
           url: /direct_ingestion.html
           output: web
 
+        - title: Derived Metrics
+          url: /derived_metrics.html
+          output: web
+
         - title: Wavefront Histograms
           url: /proxies_histograms.html
           output: web
@@ -290,7 +294,7 @@ entries:
 
           - title: AWS Lambda Function Integration
             url: /integrations_aws_lambda.html
-            output: web  
+            output: web
 
           - title: Log Data Metrics Integration
             url: /integrations_log_data.html
