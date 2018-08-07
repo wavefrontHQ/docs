@@ -575,12 +575,12 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tr>
 <tr>
 <td markdown="span">`observed`</td>
-<td>Number of data points in the visited time series during the time window immediately preceding the notification.
+<td>Number of data points returned by the visited time series during the time window immediately preceding the notification.
 </td>
 </tr>
 <tr>
 <td markdown="span">`firing`</td>
-<td>Number of data points whose values satisfy the alert condition in the visited time series during the time window immediately preceding the notification. 
+<td markdown="span">Maximum number of data points in the visited series that could be satisfying the alert condition during the time window immediately preceding the notification. The smaller the number, the closer the series is to recovering. This property is useful only for time series visited by `failingAlertSeries` and `newlyFailingAlertSeries`.  
 </td>
 </tr>
 <tr>
@@ -720,17 +720,17 @@ For example, you can use the same template to send out one message for a firing 
 <tbody>
 <tr>
 <td markdown="span">`isAlertOpened`</td>
-<td markdown="span"> Includes the contents of the section only if the alert is firing.
+<td markdown="span"> Includes the contents of the section only if the alert has transitioned from checking to firing.
 </td>
 </tr>
 <tr>
 <td markdown="span">`isAlertUpdated`</td>
-<td markdown="span"> Includes the contents of the section only if the alert is updated.
+<td markdown="span"> Includes the contents of the section only if the alert is updated - that is, if the alert continues firing while an individual time series changes from recovered to failing, or from failing to recovered.
 </td>
 </tr>
 <tr>
 <td markdown="span">`isAlertResolved`</td>
-<td markdown="span"> Includes the contents of the section only if the alert is resolved.
+<td markdown="span"> Includes the contents of the section only if the alert is fully resolved, and so has transitioned from firing to checking.
 </td>
 </tr>
 <tr>
