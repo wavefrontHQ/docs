@@ -125,6 +125,9 @@ The subtype of event of type alert-detail: failing, recovered.
 <li>alert-created</li>
 <li>alert-updated</li>
 <li>alert-deleted</li>
+<li>alert-undeleted</li>
+<li>alert-snoozed</li>
+<li>alert-unsnoozed</li>
 <li>dashboard-deleted</li>
 <li>maintenancewindow-created</li>
 <li>maintenancewindow-updated</li>

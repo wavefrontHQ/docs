@@ -53,7 +53,7 @@ Many metrics that come into Wavefront are gauges. For example, Wavefront interna
 
 Counters show information over time. Think of a person with a counter at the entrance to a concert. The counter shows the total number of people that have entered so far.
 
-   Counters usually increase over time but might briefly go to zero, for example, in case of a network outage. Users can wrap [**rate()**](ts_rate.html) around a counter if they're want to ignore temporary 0 values and see only the positive rate of change.
+   Counters usually increase over time but might briefly go to zero, for example, in case of a network outage. Users can wrap [**rate()**](ts_rate.html) around a counter if they want to ignore temporary 0 values and see only the positive rate of change.
 
 Wavefront internal metrics that are counters include `~metric.new_host_ids` and `~query.requests`.
 
