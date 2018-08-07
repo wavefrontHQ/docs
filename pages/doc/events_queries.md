@@ -13,9 +13,9 @@ You use `events()` queries to [customize how events display in charts](charts_ev
 The `events()` query syntax includes several parameters that you can combine:
 
 ```
-<event_function>(events)
+<events_function>(<eventSet>)
 
-events(<filterName>=""<filterValue>” [and|or|not “<filterName>”="<filterValue>”])
+events("<filterName>"="<filterValue>” [and|or|not "<filterName>"="<filterValue>"])
 ```
 ### Parameters
 
@@ -28,6 +28,9 @@ events(<filterName>=""<filterValue>” [and|or|not “<filterName>”="<filterVa
 <td>event_function</td>
 <td markdown="span"> One of the supported [events functions](query_language_reference.html#event-functions). Events functions let you fine tune your events() query.</td>
 </tr>
+<tr>
+<td>eventSet</td>
+<td>Set of events returned by a call to events().</td></tr>
 <tr>
 <td>filterName</td>
 <td markdown="span"> An [event filter](#filters). You can optionally specify multiple event filters separated by the boolean operators (and, or, not).</td></tr>
