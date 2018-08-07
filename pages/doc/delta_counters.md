@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: delta_counters.html
 summary: Learn when and how to use delta counters
 ---
-Counters support aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. Delta counters make counter functionality available for serverless Function-as-a-service environments and some other use cases.
+Wavefront supports [several types of metrics](metric_types.html). For example, counters support aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. Delta counters make counter functionality available for serverless Function-as-a-service environments and some other use cases.
 
 For example, users who are monitoring an environment where multiple sources perform the same function can't use regular counters. Lost points because of collision are likely. Wavefront solves the problem by performing the aggretation on the server side.
 
