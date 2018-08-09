@@ -43,7 +43,7 @@ You can use the APIs in our libraries to make your metric a delta counter.
 **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
   - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
   - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
-  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_lambda)
+  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
 **Python Client** For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_pyformance/wavefront_pyformance).
 
 Delta counters are like other counters in many ways.
