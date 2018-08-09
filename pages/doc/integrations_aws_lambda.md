@@ -8,8 +8,8 @@ summary: Learn about AWS Lambda and Wavefront.
 ---
 The Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html) includes:
 * Setup instructions
-* Information about standard counters that the integration includes
-* Instructions for collecting custom business metrics
+* Information about standard metrics that the integration includes
+* Links to instructions for collecting custom business metrics
 
 On this page, we give some background and details not available on the integration page.
 
@@ -26,7 +26,7 @@ While it's convenient to stop worrying about function execution, you might want 
 
 ## How to Use Wavefront to Monitor AWS Lambda
 
-To support monitoring serverless environments, Wavefront has a new type of metric called [delta counter](delta_counters.html). With delta counters, Wavefront performs server-side aggregation -- that eliminates metric point collisions during bursty traffic. See our blog [Monitoring Apps in the Serverless World](https://www.wavefront.com/monitoring-applications-in-the-serverless-world-part-1-of-2/)
+To support monitoring serverless environments, Wavefront has added a new type of metric called [delta counter](delta_counters.html). With delta counters, Wavefront performs server-side aggregation -- that eliminates metric point collisions during bursty traffic. See our blog [Monitoring Apps in the Serverless World](https://www.wavefront.com/monitoring-applications-in-the-serverless-world-part-1-of-2/)
 
 The Wavefront AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
 
@@ -37,17 +37,22 @@ The Wavefront AWS Lambda Function integration and the SDKs listed above make it 
 </thead>
 <tr>
 <td>AWS Lambda standard metrics</td>
-<td>We collect AWS Lambda standard metrics for you. Some metrics are counters, others are delta counters. You can see these counters in the integration's dashboard, and use them in queries and alerts just like other counters. For example, you can wrap a <code>rate()</code> function around your delta counter if you want to for the counter to continue increasing case of counter reset.</td></tr>
+<td markdown="span">We collect AWS Lambda standard metrics for you. You can see these metrics in the integration's dashboard, and use them in queries and alerts. The [AWS Lambda integration](aws-lambda-functions.html) includes pointers to instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function.
+
+We collect AWS Lambda standard metrics for you. Some metrics are counters, others are delta counters. You can see these counters in the integration's dashboard, and use them in queries and alerts just like other counters. For example, you can wrap a <code>rate()</code> function around your delta counter if you want to for the counter to continue increasing case of counter reset.</td></tr>
 <tr>
 <td>AWS Lambda custom business metrics</td>
 <td>The AWS Lambda integration includes instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function. </td></tr>
 <tr>
-<td>Send metrics directy to Wavefront</td>
+<td>Send metrics as delta counters directy to Wavefront</td>
 <td>If you want to send metrics directly to the Wavefront proxy or the Wavefront service, you prefix each metric with a delta character so the Wavefront service knows these metrics are part of a delta counter, as shown in the following <a href="https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py"> sample code snippet</a>.
 
 <code>
   DELTA_PREFIX = u"\u2206"
-  ALT_DELTA_PREFIX = u"\u0394"</code></td></tr>
+  ALT_DELTA_PREFIX = u"\u0394"</code><br/>
+
+In queries, you don't have to specify the delta character. For example, you query <code>∆aws.lambda.wf.invocations.count</code> as <code>ts(aws.lambda.wf.invocations.count</code>.
+  </td></tr>
 </tbody>
 </table>
 
