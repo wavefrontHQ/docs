@@ -34,6 +34,7 @@ After setting up your Wavefront account and R environment, install the R package
     install.packages("TSA")
     install.packages("RCurl")
     install.packages("rjson")
+    install.packages("httr")
     ```
 
  1. You may be asked to restart R during the installation; feel free to do so. Load the libraries into your R workspace:
@@ -46,12 +47,13 @@ After setting up your Wavefront account and R environment, install the R package
     library(dplyr)
     library(RCurl)
     library(rjson)
+    library(httr)
     ```
 
  1. Pull in the Wavefront R library:
 
     ```r
-    source("http://wavefront-customer.s3.amazonaws.com/wavefront-2.4.R")
+    source("http://wavefront-customer.s3.amazonaws.com/wavefront-2.5.R")
     ```
 
     This is an older version of this library:
