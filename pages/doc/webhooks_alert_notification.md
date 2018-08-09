@@ -65,14 +65,14 @@ The process for creating an alert target is similar for the different types of t
     <td><strong>Triggers</strong></td>
     <td colspan="2">One or more <a href="alerts_states_lifecycle.html">alert state changes</a> that trigger the alert target. The options are:
     <ul>
-    <li><strong>Alert Firing</strong> - Trigger when the alert is firing.</li>
-    <li><strong>Alert Status Updated</strong> - Trigger when the status of an open alert changes. For example, a new source satisfies the alert condition and joins the set of affected sources.</li>
-    <li><strong>Alert Resolved</strong> - Trigger when the alert is resolved.</li>
+    <li><strong>Alert Firing</strong> - Trigger when the alert transitions from checking to firing.</li>
+    <li><strong>Alert Status Updated</strong> - Trigger when at least one time series changes category while the alert continues firing. For example, an individual time series could start to fail (satisfy the alert condition during the <strong>Alert fires</strong> time window) or could recover (stop satisfying the alert condition during the <strong>Alert resolves</strong> time window).</li>
+    <li><strong>Alert Resolved</strong> - Trigger when the alert resolves.</li>
     <li><strong>Alert Affected by Maintenance Window</strong> - Trigger when the alert is affected by a maintenance window.</li>
     <li><strong>Alert Snoozed</strong> - Trigger when the alert is snoozed.</li>
-    <li><strong>Alert Has No Data</strong> - Trigger when the series that is referenced in the alert condition is not reporting data.</li>
-    <li><strong>Alert Has No Data Resolved</strong> - Trigger when the series that is referenced in the alert condition starts reporting data after having no data.</li>
-    <li><strong>Alert Entered Maintenance From No Data</strong> - Trigger when the series that is referenced in the alert condition is not reporting data and is affected by a  maintenance window.</li>
+    <li><strong>Alert Has No Data</strong> - Trigger when the time series associated with the alert have all stopped reporting data.</li>
+    <li><strong>Alert Has No Data Resolved</strong> - Trigger when at least one time series associated with the alert has started reporting data, while all other time series are still reporting no data.</li>
+    <li><strong>Alert Entered Maintenance From No Data</strong> - Trigger when none of the alert's time series are reporting data, and the alert is affected by a maintenance window.</li>
     </ul>
     </td></tr>
     </tbody>
