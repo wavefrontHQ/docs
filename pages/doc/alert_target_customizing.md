@@ -575,12 +575,12 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tr>
 <tr>
 <td markdown="span">`observed`</td>
-<td>Number of data points returned by the visited time series during the time window immediately preceding the notification.
+<td>Number of data points returned by the visited time series during the most recent checking time window.
 </td>
 </tr>
 <tr>
 <td markdown="span">`firing`</td>
-<td markdown="span">Maximum number of data points in the visited series that could be satisfying the alert condition during the time window immediately preceding the notification. The smaller the number, the closer the series is to recovering. This property is useful only for time series visited by `failingAlertSeries` and `newlyFailingAlertSeries`.  
+<td markdown="span">Number of data points in the visited series that are preventing the alert from resolving, during the most recent checking time window. The smaller the number, the closer the series is to recovering. This property is useful only for time series visited by `failingAlertSeries` and `newlyFailingAlertSeries`.  
 </td>
 </tr>
 <tr>
@@ -620,7 +620,7 @@ The preceding template might yield the following message:
 
 ### Alert-Series Statistics
 
-Statistics provide a profile of the values in a time series during the time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
+Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
 Statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful. 
 
@@ -637,19 +637,19 @@ Use the following variables within the section of an [alert-series iterator](#al
 <tbody>
 <tr>
 <td markdown="span">`stats`</td>
-<td markdown="span"> Set of statistics about the values in the visited time series during the time window preceding the notification.
+<td markdown="span"> Set of statistics about the values in the visited time series during the checking time window preceding the notification.
 </td>
 </tr>
 <tr>
 <td markdown="span">`stats.first`</td>
 <td>
-First value reported within the time window immediately preceding the notification.
+First value reported within the checking time window immediately preceding the notification.
 </td>
 </tr>
 <tr>
 <td markdown="span">`stats.last`</td>
 <td markdown="span">
-Last value reported within the time window immediately preceding the notification.
+Last value reported within the checking time window immediately preceding the notification.
 <div>
 **Note** This value is appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets.</div>
 </td>
@@ -657,19 +657,19 @@ Last value reported within the time window immediately preceding the notificatio
 <tr>
 <td markdown="span">`stats.min`</td>
 <td>
-Minimum value reported within the time window immediately preceding the notification.
+Minimum value reported within the checking time window immediately preceding the notification.
 </td>
 </tr>
 <tr>
 <td markdown="span">`stats.max`</td>
 <td>
-Maximum value reported within the time window immediately preceding the notification.
+Maximum value reported within the checking time window immediately preceding the notification.
 </td>
 </tr>
 <tr>
 <td markdown="span">`stats.mean`</td>
 <td>
-Average of the values reported within the time window immediately preceding the notification.
+Average of the values reported within the checking time window immediately preceding the notification.
 </td>
 </tr>
 </tbody>
