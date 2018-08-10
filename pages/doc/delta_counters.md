@@ -36,15 +36,30 @@ Delta counters make it easy to do monitoring for this use case. The Wavefront se
 
 
 ## Using Delta Counters
-If you want to use a delta counter, it must have a delta character as the first letter. Our sample code shows how to do that.
+Start with our sample libraries - or you can send metrics as delta counters explicitly if you specify a delta character as the first letter.
 
+### APIs
 You can use the APIs in our libraries to make your metric a delta counter.
 
 **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
   - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
   - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
   - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
-**Python Client** For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_pyformance/wavefront_pyformance).
+
+**Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/python-client/tree/master/wavefront_pyformance/wavefront_pyformance).
+
+### Delta Prefix
+
+If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, you must prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/python-client/blob/master/wavefront_pyformance/wavefront_pyformance/delta.py).
+
+```
+DELTA_PREFIX = u"\u2206"
+ALT_DELTA_PREFIX = u"\u0394"
+```
+
+**Note:** In queries, you don't have to specify the delta character. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count`.
+
+### Best Practices
 
 Delta counters are like other counters in many ways.
 * You can apply query language functions such as `rate()` to a delta counter.
@@ -52,5 +67,5 @@ Delta counters are like other counters in many ways.
 
 
 Delta counters have some special characeristics.
-* The timestamp of a delta counter is the time at which the point was *aggregated* on the Wavefront service side. For regular counters, the timestamp is the time when the counter is *emitted*.
+* The timestamp of a delta counter is the time at which the point was *aggregated* by the Wavefront service. For regular counters, the timestamp is the time when the counter is *emitted*.
 * If the source for your delta counters stops reporting, Wavefront initially continues reporting once a minute for 1 hour. If the source does not report for an hour, Wavefront resets a delta counter to 0, stops aggregating, and stops reporting.
