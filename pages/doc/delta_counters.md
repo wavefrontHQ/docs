@@ -57,7 +57,7 @@ DELTA_PREFIX = u"\u2206"
 ALT_DELTA_PREFIX = u"\u0394"
 ```
 
-**Note:** In queries, you don't have to specify the delta character. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count`.
+**Note:** In queries, you don't have to specify the delta character. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`.
 
 ### Best Practices
 
