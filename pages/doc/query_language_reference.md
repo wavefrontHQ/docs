@@ -875,48 +875,68 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tbody>
 </table>
 
-## Troubleshooting
+## Functions that Return Discrete vs. Continuous Time Series
 
-<table style="width: 100%;">
-<colgroup>
-<col width="30%" />
-<col width="30%" />
-<col width="40%" />
-</colgroup>
-<thead>
-<tr><th>Problem</th><th>Cause</th><th>Resolution/Details</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>A time series you send to Wavefront is discrete, for example, you send data points every minute, but the data appear as continuous. Continuous means that you see data every second (or time slice) regardless of the interval of the underlying data. </td>
-<td>Some functions return continuous time series even if the underlying metrics are discrete. See the list on the right.
-</td>
-<td>The following functions return continuous time series.
-<ul>
-<li>Moving time windows except <code>integral</code>.</li>
-<li>Missing data functions. </li>
-<li>The <code>if()</code> function when <span style="color:#3a0699;font-weight:bold">expression</span> is not a constant time series  </li>
-<li>The <code>ongoing()</code>, <code>exists()</code>, and <code>random()</code> functions.</li>
-<li>The <code>at()</code>, <code>year()</code>, <code>month()</code>, <code>dayOfYear()</code>, <code>day()</code>, <code>weekday()</code>, <code>hour()</code>, and <code>time()</code> functions.</li>
-<li>The <code>between()</code>, <code>top()</code>, and <code>bottom()</code> functions. </li>
-<li>Constant time series functions: <code>at()</code>, <code>top()</code>, <code>bottom()</code>, <code>&lt;number&gt;</code></li>
-</ul></td>
-</tr>
-<tr>
-<td>After entering a query expression the following error displays: <em>Query syntax error: Missing expression argument.</em></td>
-<td>An <span style="color:#3a0699;font-weight:bold">expression</span> argument to a function is not well-formed.</td>
-<td>Build up the <span style="color:#3a0699;font-weight:bold">expression</span> by small steps ensuring that the expression is valid at each step.</td>
-</tr>
-<tr>
-<td>You see the warning indicator <i class="fa-exclamation-triangle fa" style="color: red;"></i> in a chart and a warning like the following:<br /><br />
-<em>The expression: ts(&lt;metric&gt;, source=&lt;source&gt;) has been pre-aligned, making it equivalent to align(120s, mean, ts(&lt;metric&gt;, source=&lt;source&gt;)) in order to improve the performance of the sum()
-aggregation operation. You can wrap the expression with align() to explicitly state the periodicity
-and desired summarization strategy.</em><br /><br />
-</td>
-<td>Assuming an original query of <code>sum(ts(&lt;metric&gt;, source=&lt;source&gt;))</code>, Wavefront has pre-aligned the series to improve performance.
-</td>
-<td>Depends on the use case. For details, see <a href="query_language_align_function.html">The <code>align()</code> Function</a>.
-</td>
-</tr>
-</tbody>
-</table>
+Many Wavefront queries operate on and return data as one or more time series. Each time series is a unique sequence of data points that pair a data value with a timestamp. To understand a query better, it is helpful to know whether it uses functions that return _discrete_ or _continuous_ time series:
+
+* A _discrete time series_ consists of data points separated by time intervals that are greater than one second. A discrete time series might have:
+  * A data-reporting interval that is infrequent (e.g., 1 point per minute) or irregular (e.g., whenever a user logs in)
+  * Gaps where values are missing due to reporting interruptions (e.g., intermittent server or network downtime)
+
+* A _continuous time series_ contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value corresponding to every moment in time that can be represented on the X-axis of a chart. 
+
+For example, the following chart shows a point plot for the results of two queries. The query labeled **Discrete** returns multiple time series, each consisting of data points that occur 1 minute apart (at 9:30, 9:31, 9:32, and so on). The query labeled **Continuous** is an expression that returns the constant value `160` for every second in the chart.
+
+
+![discrete continuous](images/query_language_discrete_continuous.png)
+
+A discrete time series is still discrete, even if you use a line plot to display it. The following chart shows of the same queries, but with the points connected by lines in the display. (By default, gaps larger than 60 seconds would be shown as dotted lines.)
+
+![discrete continuous lineplot](images/query_language_discrete_continuous_lineplot.png)
+
+
+### Functions that Preserve Discrete Data
+
+Most query language functions that operate on a discrete time series return a new time series that is also discrete.  
+
+Some functions operate on an input time series to produce a new series with the same number of data points at exactly the same times, but with values resulting from some calculation.  The result time series will have the same intervals and gaps as the original input time series did. For example:
+* The [`floor()`](ts_floor.html) function visits each point in a given time series, rounds the point's data value down to the nearest integer, and assigns the result of that calculation to a new point with a matching timestamp.
+
+Some functions operate on an input time series to produce a new series that has fewer data points. The points in the result series might have different timestamps, different values, or both, and the series typically has wider intervals and gaps. For example:
+* The [`align()`](ts_align.html) function groups the input data points into “buckets”, and returns a new series consisting of one data point per bucket.
+* The [`lowpass()`](ts_lowpass.html) function returns a new series consisting of data points that match just the input points whose values fall below a specified threshold.
+
+
+
+### Functions that Create Continuous Data
+
+Certain query language functions and expressions return a new time series that is guaranteed to be continuous (have one data point per second).
+
+Some functions and expressions produce a continuous time series in which a constant value is assigned to every possible data point. For example:
+* The expression `160` assigns the value `160` to every data point in a continuous result series.
+* The [`at()`](ts_at.html) function obtains a value from a past data point in an input time series, and assigns that value to every data point in a continuous result series.
+
+Some functions produce a continuous time series by calculating a value from the timestamp of each data point. For example:
+* The [`dayOfYear()`](ts_dayOfYear.html) function produces a time series by correlating every second of a time line with the day of the year it falls on.
+
+#### Interpolation
+
+Some functions produce a continuous time series by starting with data points from a discrete time series, and inserting additional points (1 per second) to fill in the intervals and gaps. The process of filling in intervals and gaps is called _interpolation_. For example:
+* The [`last()`](ts_last.html) function produces a new time series consisting of the actual, reported data points from the input series, plus points that are interpolated between them. Each interpolated point has the same value as the last reported point before it.
+
+Here's a point plot showing a discrete series (the red dots) and the points (blue dots) produced by applying `last()`. The points of the discrete series are reported once a minute, and the points between them are all interpolated. 
+
+![continuous last](images/query_language_continuous_last.png)
+
+Different functions calculate the values of interpolated points in different ways. For example, when the `interpolate()` function inserts a new point with a particular timestamp, the assigned value of that point is an estimate of what the input series would have reported at that time, based on the values of the actual, reported points on either side. Regardless of how a function computes the values of its data points, producing a continuous result series means that you see data every second regardless of the reporting interval of the underlying input data. 
+
+### Summary of Functions that Return Continuous Time Series
+
+The following functions always return continuous time series, even when they operate on an input series that is discrete:
+
+* [Moving time windows](#moving-window-time-functions) except [`integral()`](ts_integral.html).
+* Missing data functions: [`default()`](ts_default.html), [`last()`](ts_last.html), [`next()`](ts_next.html), [`interpolate()`](ts_interpolate.html)
+* `if()` function, when `expression` is not a constant time series. 
+* [`between()`](ts_between.html), [`ongoing()`](ts_ongoing.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.
+* Calendar/clock standard time functions: [`year()`](ts_year.html), [`month()`](ts_month.html), [`dayOfYear()`](ts_dayOfYear.html), [`day()`](ts_day.html), [`weekday()`](ts_weekday.html), [`hour()`](ts_hour.html), [`time()`](ts_time.html) 
+* Constant time series functions and expressions: [`at()`](ts_at.html), [`top()`](ts_top.html), [`bottom()`](ts_bottom.html), `<number>`
