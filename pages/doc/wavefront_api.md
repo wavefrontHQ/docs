@@ -9,6 +9,8 @@ summary: Learn how to view API documentation, how the Wavefront API is organized
 
 Wavefront is fully API driven. This means that all interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront API.
 
+**Note:** The Wavefront API is not the same as the `/api` endpoint that you specify for the Wavefront proxy. 
+
 The current version of the API is v2 and is accessed at `<wavefront_instance>/api/v2`. While Wavefront recommends that you move to the v2 API, the v1 API (`<wavefront_instance>/api/`), though [deprecated](wavefront_obsolescence_policy.html), is still supported.
 
 ## API Documentation
@@ -17,7 +19,7 @@ The API is publicly documented in the Swagger generated API documentation. To ac
 
 ## Code Samples
 
-You can find some code samples on the [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront). We're providing these samples as is - some are from the Wavefront team, others will come from the community. 
+You can find some code samples on the [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront). We're providing these samples as is - some are from the Wavefront team, others will come from the community.
 
 ## API Categories
 Wavefront supports the following API categories:
