@@ -16,15 +16,18 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ## Pivotal Container Services Setup
 
-  Supported Version: PKS 1.1 and above
+  Supported Version: PKS 1.1 and later. See the [PKS Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
 
 ### Configuring the Wavefront Account
 
 1. Log in to PCF Ops Manager and click the **Pivotal Container Service** tile in Installation Dashboard.
-2. Under the Settings tab, click **Monitoring**.
+2. Under the **Settings** tab, click **Monitoring**.
 3. In the right pane, check **Yes** to enable **Wavefront Integration** and enter the account information:
    * **Wavefront URL**: `http://YOUR_CLUSTER.wavefront.com/api`
    * **API Token**: `YOUR_API_TOKEN`
    * **Wavefront Alert Recipient**: `A list of Email addresses &/or Wavefront Target IDs`
-4. Click **Save**.
-5. Navigate back to the Installation dashboard and click **Apply Changes**.
+4. Click the **Errands** tab and enable the **Create pre-defined Wavefront alerts** errand and the **Delete pre-defined Wavefront alerts** errand.
+5. Click **Save** to save the Wavefront configuration.
+6. Navigate back to the Installation dashboard and click **Apply Changes**.
+
+Wavefront monitoring will be active for any cluster that is created after you have saved the configuration settings and applied the changes.
