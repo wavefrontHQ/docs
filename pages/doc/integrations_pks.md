@@ -104,23 +104,16 @@ kubectl logs wavefront-proxy-pod-name -n kube-system -c kube-state-metrics
 
 Wavefront includes several predefined dashboards for monitoring PKS. You can use these dashboards as is, or [clone and customize them](dashboards_managing.html).
 
+We support dashboards for major functionality including PKS Home dashboard, Nodes dashboard, Namespaces dashboard, Deployments dashboard, Pods dashbord, Pod containers dashboard, and Services and Replication Sets dashboard. The screenshots below show some examples:
+
 ### PKS Home Dashboard
 ![dashboard home](images/pks-03-home.png)
 
 ### Nodes Dashboard
 ![pks nodes](images/pks-04-nodes.png)
 
-### Namespaces Dashboard
-![pks namespaces](images/pks-05-namespaces.png)
-
 ### Deployments Dashboard
 ![pks namespaces](images/pks-06-deployments.png)
 
 ### Pods Dashboard
 ![pks pods](images/pks-07-pods.png)
-
-### Pod Containers Dashboard
-![pks pods](images/pks-08-pod-containers.png)
-
-### Services and Replication Sets Dashboard
-![pks services](images/pks-09-services-reps.png)
