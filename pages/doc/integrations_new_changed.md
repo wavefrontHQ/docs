@@ -30,24 +30,28 @@ AWS Integration
 
 We improved the following integrations in July/August 2018:
 
-* Improved Pivotal Container Service (PKS) dashboards
-* Improved Jenkins integration (setup and dashboard)
-* Improved Kafka integration setup (use Jolokia 2 telegraf plugin)
-* Updated Wavefront System Usage dashboard
-* AWS dashboard improvements
-* SQS
-* Elastic Transcoder
-* EBS
-* ElasticCache
-* R53
-* Beanstalk
-* KMS (Key Management Service)
-* SNS (Simple Notification Service)
-* EFS
-* CloudFront
-* Nginx dashboard improvements
-* RabbitMQ dashboard improvements
+* Pivotal Container Service (PKS) dashboards
+* Jenkins integration (setup and dashboard)
+* Kafka integration setup (use Jolokia 2 telegraf plugin)
+* Wavefront System Usage dashboard
 
+We improved the following dashboards in the AWS integration in July/August 2018:
+
+* Amazon SQS
+* Amazon Elastic Transcoder
+* Amazon EBS
+* Amazon ElasticCache
+* R53
+* AWS Elastic Beanstalk
+* AWS KMS (Key Management Service)
+* Amazon SNS (Simple Notification Service)
+* Amazon EFS
+* Amazon CloudFront
+
+We improved the following dashboards in other integrations in July/August 2018:
+
+* NGNIX dashboard
+* RabbitMQ dashboard
 
 ## June 2018
 
