@@ -4,7 +4,7 @@ keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
-summary: Learn how to send AWS data to Wavefront.
+summary: Learn how to send AWS Metrics data to Wavefront.
 ---
 Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefronts Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
@@ -157,7 +157,7 @@ You can configure which instances and volumes to ingest metrics from, which metr
 
 ### Sources
 
-Wavefront automatically sets each metric's source field and adds source tags to each AWS source.
+Wavefront automatically sets each metric's source field and adds source tags to each AWS source, as follows:
 
 #### Metric Source Field
 
@@ -169,7 +169,7 @@ Wavefront sets the value of the AWS metric [`source`](wavefront_data_format.html
 
 #### Source Tags
 
-AWS sources are assigned source tags that identify their originating service: `wavefront.aws.<service>`. For example: `wavefront.aws.ec2`, `wavefront.aws.ebs`, etc.)
+AWS sources are assigned source tags that identify their originating service following this pattern: `~integration.aws.<service>`, for example, `~integration.aws.ec2`.
 
 ### Point Tags
 
