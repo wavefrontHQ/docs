@@ -43,6 +43,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: Wavefront Proxy Release Notes
+      url: /proxies_versions.html
+      output: web
+
     - title: 2018-26.x Release Notes
       url: /2018.26.x_release_notes.html
       output: web
@@ -284,7 +288,7 @@ entries:
 
 
       subfolders:
-      - title: Customizing Built-In Integrations
+      - title: Details for Built-In Integrations
         output: web
         subfolderitems:
 
@@ -298,6 +302,10 @@ entries:
 
           - title: AWS Lambda Function Integration
             url: /integrations_aws_lambda.html
+            output: web
+
+          - title: Pivotal Container Service Integration
+            url: /integrations_pks.html
             output: web
 
           - title: Log Data Metrics Integration
@@ -383,10 +391,6 @@ entries:
   - title: Proxies
     output: web
     folderitems:
-
-    - title: Wavefront Proxy Release Notes
-      url: /proxies_versions.html
-      output: web
 
     - title: Wavefront Proxies
       url: /proxies.html
