@@ -683,20 +683,20 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </thead>
 <tbody>
 <tr>
-<td>sqrt(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the square root of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_sqrt.html">sqrt(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the square root of <strong>expression</strong>.</td>
 </tr>
 <tr>
 <td markdown="span">pow(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">expression</span>[, inner])</td>
 <td>Raises <span style="color:#3a0699;font-weight:bold">expression</span> to the power of <span style=" color:#bf4b89;font-weight:bold">expression</span>. Wavefront does not support imaginary numbers, so pow(-1, 0.5) returns no data.</td>
 </tr>
 <tr>
-<td>exp(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the exponential of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_exp.html">exp(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the exponential of <strong>expression</strong>.</td>
 </tr>
 <tr>
-<td>log(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the natural log of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_log.html">log(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the natural log of <strong>expression</strong>.</td>
 </tr>
 <tr>
 <td>log10(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
