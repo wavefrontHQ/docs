@@ -85,7 +85,7 @@ The screenshots below show some examples. To see the full set of dashboards, sig
 ![pks pods](images/pks-07-pods.png)
 
 **Pods Containers Dashboard**
-![pks containers](images/pks-08-pods-containers.png)
+![pks containers](images/pks-08-pod-containers.png)
 
 ## Architecture
 
