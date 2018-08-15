@@ -10,7 +10,7 @@ summary: Reference to the trigonometric functions
 
 Performs the indicated trigonometric function on each data value described by the expression.
 
-<table style="width: 100%;">
+<table style="width: 100%;" id="trig-functions">
 <colgroup>
 <col width="20%" />
 <col width="20%" />
@@ -20,7 +20,7 @@ Performs the indicated trigonometric function on each data value described by th
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Function Syntax</th><th>Description</th><th>Input Represents</th><th>Output Represents</th><th>Math Notation</th></tr>
+<tr><th>Function Syntax</th><th>Description</th><th>Input Values</th><th>Return Values</th><th>Math Notation</th></tr>
 </thead>
 <tr>
 <td markdown="span">`sin(<expression>)`</td>
@@ -100,7 +100,7 @@ Performs the indicated trigonometric function on each data value described by th
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression describing input values that are interpreted as indicated above. </td></tr>
+<td markdown="span">Expression describing input values that are interpreted as indicated in the [table above](#trig-functions). **Note:** You can use [`toRadians()`](ts_trig_utilities.html) to convert values from numbers of degrees to numbers of radians.</td></tr>
 <tr>
 <td markdown="span"> [y-expression](query_language_reference.html#expressions), [x-expression](query_language_reference.html#expressions)</td>
 <td markdown="span">Used in `atan2()`. Expressions describing values that represent pairs of y and x coordinates. </td></tr>
@@ -109,7 +109,13 @@ Performs the indicated trigonometric function on each data value described by th
 
 ## Description
 
-Each trigonometric function produces data points by performing a calculation on the data points returned by the input expression.
+Each trigonometric function produces data points by performing a calculation on the data points returned by the input expression. 
 * If `expression` is a constant, then the function returns a continuous series.  
 * If `expression` describes one or more time series, then the function returns a new time series for each input time series. 
 Each value in a new time series is obtained by operating on the value of the corresponding point in the input time series. 
+
+## See Also
+
+[`toDegrees()`](ts_trig_utilities.html)
+
+[`toRadians()`](ts_trig_utilities.html)

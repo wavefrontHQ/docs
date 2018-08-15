@@ -703,13 +703,13 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <td>Returns the log base 10 of each data value described by the expression.</td>
 </tr>
 <tr>
-<td>toDegrees(<strong>&lt;numRadians&gt;</strong>), <br>toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
-<td>Converts radians to degrees, and vice versa. <br>See <a href="ts_trig_utilities.html">Trigonometric Utility Functions</a> for details.</td>
-</tr>
-<tr>
 <td>sin(<strong>&lt;expression&gt;</strong>), cos(<strong>&lt;expression&gt;</strong>), tan(<strong>&lt;expression&gt;</strong>),<br/>asin(<strong>&lt;expression&gt;</strong>), acos(<strong>&lt;expression&gt;</strong>),<br/>atan(<strong>&lt;expression&gt;</strong>), 
 atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;expression&gt;</strong>), cosh(<strong>&lt;expression&gt;</strong>), tanh(<strong>&lt;expression&gt;</strong>)</td>
 <td>Performs the specified trigonometric function on each data value described by the expression. <br>See <a href="ts_trig.html">Trigonometric Functions</a> for details.</td>
+</tr>
+<tr>
+<td>toDegrees(<strong>&lt;numRadians&gt;</strong>), <br>toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
+<td>Converts radians to degrees, and vice versa. <br>See <a href="ts_trig_utilities.html">Trigonometric Utility Functions</a> for details.</td>
 </tr>
 </tbody>
 </table>
