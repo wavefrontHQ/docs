@@ -11,7 +11,7 @@ summary: Reference to the exp() function
 exp(<expression>)
 ```
 
-Returns the natural exponential of the expression.
+Returns the natural exponential for each data value described by the expression.
 
 
 ## Parameters
@@ -23,13 +23,16 @@ Returns the natural exponential of the expression.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td markdown="span">Expression specifying the power to raise the constant _e_ to. </td></tr>
+<td markdown="span">Expression specifying the powers to raise the constant _e_ to. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `exp()` function produces a time series in which each data value is equal to _e_ raised to the power specified by the expression.
+The `exp()` function produces a time series in which each data value is equal to _e_ raised to the power specified by the expression. 
+* If the expression describes a constant value _`N`_, then `exp()` returns a continuous series where every data value is <code><em>e<sup>N</sup></em></code>.
+* If the expression describes one or more time series, then `exp()` returns a new time series for each input time series. 
+Each value in a new time series is calculated as <code><em>e<sup>V</sup></em></code>, where _`V`_ is the value of the corresponding point in the input time series.  
 
 The inverse of this function is [`log()`](ts_log.html).
 
@@ -37,6 +40,10 @@ By default, the chart legend displays a rounded version of the result. You can c
 
 ## Examples
 
-In this example, we see the result (in red) of using `exp(2)` to raise _e_ to the 2nd power. We also see the result (in blue) of obtaining the inverse by applying the `log()` function.
+In this example, we see the result (in red) of using `exp(2)` to raise _e_ to the power `2`. We also see the result (in blue) of obtaining the inverse by applying the `log()` function.
 
 ![ts exp](images/ts_exp_and_inverse.png)
+
+Here we see the result (in orange) of using `exp()` to obtain the natural exponential of a time series (in blue).
+
+![ts exp ts](images/ts_exp_time_series.png)
