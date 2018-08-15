@@ -103,11 +103,11 @@ In this section you create an alert that fires when the request latency metric r
     1. Click **Save**.
 1.  Click **Alerts** in the task bar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
 
-    ![firing alert](images/alert_firing.png)
+    ![firing alert](images/tutorial_get_started_alert_firing.png)
 
      and you receive an email like the following:
 
-    ![alert_email](images/alert_email.png)
+    ![alert_email](images/tutorial_get_started_alert_email.png)
 
     As alerts fire and resolve, events are created in Wavefront. You can add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying.html) that are added to the Request Latencies chart's X-axis:
 
