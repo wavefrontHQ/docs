@@ -672,8 +672,8 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
 <colgroup>
-<col width="45%" />
-<col width="55%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr>
@@ -683,32 +683,33 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </thead>
 <tbody>
 <tr>
-<td>sqrt(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the square root of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_sqrt.html">sqrt(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the square root of each data value described by the expression.</td>
 </tr>
 <tr>
-<td markdown="span">pow(<span style="color:#3a0699;font-weight:bold">expression</span>, <span style="color:#bf4b89;font-weight:bold">expression</span>[, inner])</td>
-<td>Raises <span style="color:#3a0699;font-weight:bold">expression</span> to the power of <span style=" color:#bf4b89;font-weight:bold">expression</span>. Wavefront does not support imaginary numbers, so pow(-1, 0.5) returns no data.</td>
+<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;baseExpression&gt;</strong>, <strong>&lt;exponentExpression&gt;</strong>[, inner])</a></td>
+<td>Raises the base expression to the power of the exponent expression. </td>
 </tr>
 <tr>
-<td>exp(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the exponential of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_exp.html">exp(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the natural exponential for each data value described by the expression.</td>
 </tr>
 <tr>
-<td>log(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the natural log of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_log.html">log(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the natural log of each data value described by the expression.</td>
 </tr>
 <tr>
-<td>log10(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Returns the log base 10 of <span style="color:#3a0699;font-weight:bold">expression</span>.</td>
+<td><a href="ts_log10.html">log10(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the log base 10 of each data value described by the expression.</td>
 </tr>
 <tr>
-<td>toDegrees(numRadians), toRadians(numDegrees)</td>
-<td>Convert radians to degrees, and vice versa.</td>
+<td>sin(<strong>&lt;expression&gt;</strong>), cos(<strong>&lt;expression&gt;</strong>), tan(<strong>&lt;expression&gt;</strong>),<br/>asin(<strong>&lt;expression&gt;</strong>), acos(<strong>&lt;expression&gt;</strong>),<br/>atan(<strong>&lt;expression&gt;</strong>), 
+atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;expression&gt;</strong>), cosh(<strong>&lt;expression&gt;</strong>), tanh(<strong>&lt;expression&gt;</strong>)</td>
+<td>Performs the specified trigonometric function on each data value described by the expression. <br>See <a href="ts_trig.html">Trigonometric Functions</a> for details.</td>
 </tr>
 <tr>
-<td>sin(<span style="color:#3a0699;font-weight:bold">expression</span>), cos(<span style="color:#3a0699;font-weight:bold">expression</span>), tan(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>asin(<span style="color:#3a0699;font-weight:bold">expression</span>), acos(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>atan(<span style="color:#3a0699;font-weight:bold">expression</span>), atan2(<span style="color:#3a0699;font-weight:bold">expression</span>),<br/>sinh(<span style="color:#3a0699;font-weight:bold">expression</span>), cosh(<span style="color:#3a0699;font-weight:bold">expression</span>), tanh(<span style="color:#3a0699;font-weight:bold">expression</span>)</td>
-<td>Performs the specified trigonometric function on <span style="color:#3a0699;font-weight:bold">expression</span> interpreted in radians.</td>
+<td>toDegrees(<strong>&lt;numRadians&gt;</strong>), <br>toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
+<td>Converts radians to degrees, and vice versa. <br>See <a href="ts_trig_utilities.html">Trigonometric Utility Functions</a> for details.</td>
 </tr>
 </tbody>
 </table>
@@ -728,7 +729,7 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_hw.html">hw(&lbrack;<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;expression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
+<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;expression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
 </td>
 <td>Returns a smoothed version of the expression and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>

@@ -11,7 +11,7 @@ summary: Reference to the sqrt() function
 sqrt(<expression>)
 ```
 
-Returns the square root of the expression.
+Returns the square root of each data value described by the expression.
 
 
 ## Parameters
@@ -23,18 +23,16 @@ Returns the square root of the expression.
 </thead>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>Expression to find the square root of. </td></tr>
+<td>Expression describing the values to find the square root of. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
 The `sqrt()` function produces data points by taking the square root of the data points returned by the input expression.
-
-If `expression` is a constant, then `sqrt(expression)` returns the square root of that constant.  
-
-If `expression` is a ts() expression, then `sqrt(expression)` returns a new time series for each time series returned by the expression. 
-The values in each new time series are obtained by taking the square root of the corresponding values in an input time series. 
+* If `expression` is a constant, then `sqrt()` returns the square root of that constant.  
+* If `expression` describes one or more time series, then `sqrt()` returns a new time series for each input time series. 
+Each value in a new time series is obtained by taking the square root of the value of the corresponding point in the input time series. 
 
 
 ## Examples
