@@ -9,6 +9,50 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## July/August 2018
+
+We added the following integrations in July/August 2018:
+* Runscope integration
+* AWS Lambda Functions Integration (Wavefront SDK support for AWS Lambda)
+* Google Cloud Functions integration
+
+We added dashboards to some of our cloud integrations. Each of the dashboards also has an integration file so it's easy to find.
+
+* Google Cloud Platform Integration
+  * Google Cloud Storage integration
+  * Google Cloud Spanner integration
+  * Google Firebase integration
+
+* AWS Integration
+  * AWS IoT Integration
+  * AWS Application Load Balancer Integration (ALB)
+  * AWS Database Migration Service Integration (DMS)
+
+We improved the following integrations in July/August 2018:
+
+* Pivotal Container Service (PKS) dashboards
+* Jenkins integration (setup and dashboard)
+* Kafka integration setup (use Jolokia 2 telegraf plugin)
+* Wavefront System Usage dashboard
+
+We improved the following dashboards in the AWS integration in July/August 2018:
+
+* Amazon SQS
+* Amazon Elastic Transcoder
+* Amazon EBS
+* Amazon ElasticCache
+* R53
+* AWS Elastic Beanstalk
+* AWS KMS (Key Management Service)
+* Amazon SNS (Simple Notification Service)
+* Amazon EFS
+* Amazon CloudFront
+
+We improved the following dashboards in other integrations in July/August 2018:
+
+* NGNIX dashboard
+* RabbitMQ dashboard
+
 ## June 2018
 
 We added the following integrations in June 2018:
