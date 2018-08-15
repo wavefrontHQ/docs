@@ -16,17 +16,17 @@ We added the following integrations in July/August 2018:
 * AWS Lambda Functions Integration (Wavefront SDK support for AWS Lambda)
 * Google Cloud Functions integration
 
-We added dashboards to some of our cloud integrations. Each has in integration tile:
+We added dashboards to some of our cloud integrations. Each of the dashboards also has an integration file so it's easy to find.
 
-Google Cloud Platform Integration
-* Google Cloud Storage integration
-* Google Cloud Spanner integration
-* Google Firebase integration
+* Google Cloud Platform Integration
+  * Google Cloud Storage integration
+  * Google Cloud Spanner integration
+  * Google Firebase integration
 
-AWS Integration
-* AWS IoT Integration
-* AWS Application Load Balancer Integration (ALB)
-* AWS Database Migration Service Integration (DMS)
+* AWS Integration
+  * AWS IoT Integration
+  * AWS Application Load Balancer Integration (ALB)
+  * AWS Database Migration Service Integration (DMS)
 
 We improved the following integrations in July/August 2018:
 
