@@ -9,7 +9,7 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-## July/August 2018
+## July 2018
 
 We added the following integrations in July/August 2018:
 * Runscope integration
@@ -45,7 +45,7 @@ We improved the following dashboards in the AWS integration in July/August 2018:
 * Amazon R53
 * AWS Elastic Beanstalk
 * AWS KMS
-* Amazon SNS 
+* Amazon SNS
 * Amazon EFS
 * Amazon CloudFront
 
