@@ -13,15 +13,16 @@ This document lists new and changed integrations on a month-by-month basis. We u
 
 We added the following integrations in July/August 2018:
 * Runscope integration
-* AWS Lambda Functions Integration (Wavefront SDK support for AWS Lambda)
-* Google Cloud Functions integration
+* AWS Lambda Functions Integration (Collection of standard metrics plus Wavefront wrappers for AWS Lambda functions)
 
-We added dashboards to some of our cloud integrations. Each of the dashboards also has an integration file so it's easy to find.
+
+We added dashboards to some of our cloud integrations. Each of the dashboards also has an integration tile so it's easy to find.
 
 * Google Cloud Platform Integration
   * Google Cloud Storage integration
   * Google Cloud Spanner integration
   * Google Firebase integration
+  * Google Cloud Functions integration
 
 * AWS Integration
   * AWS IoT Integration
@@ -41,10 +42,10 @@ We improved the following dashboards in the AWS integration in July/August 2018:
 * Amazon Elastic Transcoder
 * Amazon EBS
 * Amazon ElasticCache
-* R53
+* Amazon R53
 * AWS Elastic Beanstalk
-* AWS KMS (Key Management Service)
-* Amazon SNS (Simple Notification Service)
+* AWS KMS
+* Amazon SNS 
 * Amazon EFS
 * Amazon CloudFront
 
