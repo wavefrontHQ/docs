@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_ingestion.html
 summary: Learn how to get data into Wavefront.
 ---
-Wavefront customers use Wavefront to visualize their metric and instrument them with alerts. How you get your data into Wavefront depends on the use case, but you have many options. Wavefront supports many built-in integrations and custom custom integration, or you can instrument your application and send data directly to Wavefront.
+Wavefront customers use Wavefront to visualize their metric and instrument them with alerts. How you get your data into Wavefront depends on the use case, but you have many options. Wavefront supports many integrations, or you can instrument your application and send data directly to Wavefront.
 
 ## The Big Picture
 
@@ -14,72 +14,77 @@ You can use Wavefront for any time series metrics, even if you're already collec
 
 1. The metrics originate with your infrastructure or application.
 2. The metrics are sent to Wavefront:
-    * For many built-in integrations, a collector agent take the metrics from your sources sends them to the proxy. A single proxy can forward metrics from many sources to the Wavefront service.
+    * For many built-in integrations, a collector agent takes the metrics from your sources and sends them to the proxy. A single proxy can forward metrics from many sources to the Wavefront service.
     * For cloud services, you use one of the [Cloud integrations](integrations_list.html#cloud) -- you don't have to install or set up a proxy.
-    * If no built-in integration for you data source exists, you can use one of the Custom Collector integrations or send data directly to the proxy. The proxy accepts metrics in OpenTSB, Graphana, and [Wavefront data format](images/data_flow.png).
+    * If no built-in integration for your data source exists, you can use one of the collector integrations (such as a collectd integration) or you can stream your data to the proxy. The proxy accepts metrics in OpenTSB, Graphana, and [Wavefront data format](images/data_flow.png).
 
 ![wavefront architecture condensed](images/wavefront_architecture_condensed.svg)
 
 ## Step 1: Understand Your Use Case
 
-Wavfront can help you get insight into all levels of your toolchain. Here are the levels, and the associated use cases:
+Wavefront can help you get insight into all levels of your toolchain. Here are the levels, and the associated use cases:
 
 ![application layers](images/application_layers.svg)
 
-- **Infrastructure metrics (2)** range from the simple to the complex:
-   - Collect host metrics, such as CPU, memory, etc. to find bottlenecks, explore trends, and troubleshoot your environment. These customers often use Telegraf or another open source solution to extract data and send those data to the Wavefront proxy.
-   - Use Wavefront for app-driven infrastructure data. For example, you can send metrics from NGNIX, MySQL, and similar sources into Wavefront.
+- **Infrastructure metrics (1)** enable you to find bottlenecks, explore trends, and troubleshoot your environment. You may be interested in:
+   - Metrics such as CPU loads, memory usage, and so on, from host operating systems.
+   - Application-driven infrastructure data from NGNIX, MySQL, and similar sources.
 
-   See the [list of integrations](integrations_list.html).
-- **Custom metrics (1)** include data you want to collect from you in-house applications, or customized metrics, for example to monitor user behavior. Here are the main use cases:
-    - Use one of the collector agents, such as Telegraf, to get data into Wavefront. Telegraf includes a Wavefront output plugin that sends you data to the Wavefront proxy.
-    - Monitor applications by following the steps in one of the [Application Instrumentation](integrations_list.html#application-instrumentation) integrations - or use one of them as an example for your application.
-- **Cloud metrics (3)** are available through one of the our cloud integrations. There's no need to install or set up a proxy.
-- **Special cases** don't readily fit into one of the use cases above. But because the Wavefront data format is simple, it's straightforward to get any time series metrics into Wavefront. For example:
-  - Customers with a metrics pipeline that already collects data might be interested in Wavefront for visualization, alerting, and troubleshooting. Those customers can send their data to the Wavefront proxy in one of the supported data formats.
-  - Customers with log files or similar data might use the [log data custom integration](integrations_log_data.html). If your data are in a supported format, Wavefront can pull them from logs and present them for analysis.
+   See the [list of integrations](label_integrations%20list.html).
+
+- **Custom metrics (2)** include custom data you want to collect from your proprietary applications, for example, to monitor business activity or to collect customer data such as website interactions. 
+
+- **Cloud metrics (3)** are various metrics that are generated by a suite of cloud computing services such as AWS or GCP. Wavefront lets you combine and correlate these metrics, for unified visualizing, alerting, and troubleshooting. 
+
+- **Special cases** don't readily fit into one of the use cases above. For example, you might already have a metrics pipeline in place, or you might want to pull metrics from log files to present them from analysis. 
+
 
 ## Step 2: Use the Simplest Integration Path for Your Use Case
 
-You might be able to use an built-in integration or custom integration. But even without an integration, it's straightforward to get your metrics into Wavefront. Wavefront accepts data in [Wavefront data format](wavefront_data_format.html), Graphite data format, and OpenTSDB data format. See [Supported Data Formats](proxies.html#supported-data-formats).
+The simplest integration path for any use case is to use an integration, if one is supported. Even without one, though, it's straightforward to get your metrics into Wavefront. 
 
-### Infrastructure and Application Integration
+### Infrastructure Integration
 
-For many of the use cases that center around infrastructure monitoring and alerting, you can follow these steps to get your data into Wavefront:
-1. Check whether an built-in integration for your use case exists. See the [complete list of integrations](integrations_list.html).
+For use cases that center around infrastructure data like CPU, memory, or database metrics, you can get your data into Wavefront by following these steps:
 
-   **Note** If no built-in integration exists for your data source, check whether we have a [custom integration](integrations.html#in-product-and-custom-integrations) that gives step-by-step instructions.
+1. Check whether a built-in integration for your use case exists. See the [complete list of integrations](label_integrations%20list.html).
+
 2. Use the Setup steps in the integration to get data flowing from your application to Wavefront.
     As part of the setup, the integration lets you install a Wavefront proxy or pick one if you have proxies in your environment.
-3. If no integration exists, you set up a collector agent such as Telegraf or collectd to collect your metrics.
-    Wavefront includes integrations for many custom collectors. The collector agent can send your data to the Wavefront proxy.
+    
+3. If no built-in integration exists, set up a collector agent such as Telegraf or collectd to collect your metrics.
+    Wavefront includes integrations for many custom collector agents. The collector agent can send your data to the Wavefront proxy.
 
     Some collector agents, such as Telegraf, include an output plug-in for Wavefront. You add a configuration file to Telegraf that specifies which data you want to get from which host, and select the proxy to send the data to.
 
-![data flow](images/data_flow.svg)
+    ![data flow](images/data_flow.svg)
 
     Many of the built-in integrations use Telegraf. Wavefront supports different ways of using Telegraf, but also supports other agents. You can mix and match.
     * The Active Directory integration is an example for a Windows Telegraf input plugin.
     * The Mesos integration is an example for an environment where both primary and secondary server have to have Telegraf input plugins.
     * The JBoss AS integration is an example for a Linux Telegraf plugin that uses Jolokia.
 
-### Code Instrumentation
+### Custom Code Instrumentation
 
-Certain use cases don't center around infrastructure or application data like CPU, memory, or database metrics, but involve instrumenting custom code. Some customers collect custom metrics, others might be interested in business monitoring, for example, in collecting customer data such as website interactions.
+For use cases that involve custom metrics from proprietary applications, you can instrument your code and get data into Wavefront using one of the following techniques:
 
-* Wavefront supports integrations for several popular programming languages. For example, you can create a Java Wavefront Reporter to use DropWizard metrics.
-* Wavefront provides SDKs in Go, Java, Python, and Ruby that allow you to send metrics from applications written in Go and Java. See [Wavefront API SDKs](wavefront_api.html#api-sdks) for links to the different SDKs.
+* Use a Wavefront application instrumentation integration. Wavefront supports instrumentation libraries for several popular programming languages. For example, you can create a Java Wavefront Reporter to use DropWizard metrics.
 
-For application instrumentation use cases, you can follow these steps:
-1. Check whether you can use one of the existing code instrumentation integrations, and follow the Setup steps.
-2. Otherwise, follow these steps:
+  1. Click **Integrations** and search for **Application Integration** to display the available application instrumentation integrations.
+  2. Choose the integration that best suits your use case.
+  3. Follow the Setup steps to register metrics and configure metric reporters. As part of the setup, the integration lets you install a Wavefront proxy or pick one if you have proxies in your environment.
+
+* Use your own custom-coded instrumentation:
 
    1. Set up a Wavefront Proxy. If you have a proxy installed in your environment, consider using that - or you can install a new proxy. See [Installing and Managing Proxies](proxies_installing.html)
-   2. Send the metrics you're interested in to the Wavefront proxy at port 2878 in a format that Wavfront supports. See [Supported Data Formats](proxies.html#supported-data-formats)
+   2. Send the metrics you're interested in to the Wavefront proxy at port 2878 in a format that Wavefront supports. See [Supported Data Formats](proxies.html#supported-data-formats)
+
+**Note:** If you are using the Wavefront API to interact with Wavefront, and your applications are written in Go or Java, you can use your Wavefront SDK to send metrics from those applications. See [Wavefront API SDKs](wavefront_api.html#api-sdks) for links to the different SDKs.
+
 
 ### Metrics from a Cloud Provider
 
-Cloud integrations use a different process than other integrations. You log in to the cloud service, and give Wavefront read access to the metrics that you're interested in.
+Cloud integrations use a different process than other integrations. You log in to the cloud service, and give Wavefront read access to the metrics that you're interested in. There's no need to install or set up a proxy.
 
 Wavefront supports integrations for the most popular cloud services. This doc set has customization information for [AWS Metrics Integration](integrations_aws_metrics.html) and [AWS ECS Integration](integrations_aws_ecs.html).
 
@@ -89,12 +94,16 @@ Even if your use case doesn't fit the examples above, you can still get your tim
 
 If your company already has a custom metrics pipeline, follow these steps:
 
-1. Convert your data into one of the [supported data formats](proxies.html#supported-data-formats).
+1. Convert your data into one of the [supported data formats](proxies.html#supported-data-formats). Wavefront accepts data in [Wavefront data format](wavefront_data_format.html), Graphite data format, and OpenTSDB data format.
 2. Send the data to a Wavefront proxy. You can use one proxy or a set of proxies behind a load balancer in most situations.
 
-If you're interested in sending log files to Wavefront, you can use use the Filebeat Log Data built-in integration, and customize the process as discussed in [Log Data Metrics Integration](integrations_log_data.html)
 
-**Note** For some use cases, for example some integrations that use collectd instead of Telegraf as the collection agent, we give you the setup instructions in the documentation. See [Integrations Pages](label_integrations.html) for all topics related to integrations.
+If you have metrics recorded in log files, follow these steps:
+
+1. Use the Filebeat Log Data built-in integration. 
+2. Customize the process as discussed in [Log Data Metrics Integration](integrations_log_data.html)
+
+**Note** For some integrations that use collectd instead of Telegraf as the collection agent, we give you the setup instructions in the documentation. See [Integrations Pages](label_integrations%20list.html) for all topics related to integrations.
 
 
 
