@@ -8,7 +8,7 @@ summary: Learn about the Wavefront AWS Lambda Functions Integration.
 
 In a Function-as-a-Service (FaaS) environment, also called a serverless environment, code runs in response to events. AWS Lambda is one implementation of this paradigm: After you define a Lambda function, the AWS Lambda service will run it in response to events. Because Lambda functions are stateless, AWS Lambda can run as many copies of the function as needed, rapidly scaling up or scaling down in response to incoming events.
 
-This integration allows you to instrument your Lambda function to report custom metrics to Wavefront. Additionally, this integration reports the following metrics about your Lambda functions:
+This integration allows you to instrument your Lambda function to report custom metrics to Wavefront. Additionally, this integration reports the following standard metrics about your Lambda functions:
 
 - **aws.lambda.wf.invocations.count**: Lambda function invocations (Delta Counter)
 - **aws.lambda.wf.invocation_event.count**: Lambda function invocations (Counter)
@@ -18,6 +18,14 @@ This integration allows you to instrument your Lambda function to report custom 
 - **aws.lambda.wf.coldstart_event.count**: Lambda function cold starts (Counter)
 - **aws.lambda.wf.duration.value**: Execution time of the Lambda function handler in milliseconds (Gauge)
 
+The Lambda wrapper also adds the following point tags automatically to all metrics sent to Wavefront:
+- **LambdaArn**: ARN (Amazon Resource Name) of the Lambda function.
+- **Region**: AWS Region of the Lambda function.
+- **accountId**: AWS Account ID from which the Lambda function was invoked.
+- **ExecutedVersion**: Version of the Lambda function.
+- **FunctionName**: Name of the Lambda function.
+- **Resource**: Name and version/alias of the Lambda function. (Ex: DemoLambdaFunc:aliasProd)
+- **EventSourceMappings**: AWS Event source mapping Id. (Set in case of Lambda invocation by AWS poll-based Services)
 
 In addition to setting up the metrics, this integration also installs a dashboard:  
 {% include image.md src="images/dashboard_1.png" width="80" %}
