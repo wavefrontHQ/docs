@@ -8,7 +8,7 @@ summary: Learn about predefined alerts, code examples, and other PKS details
 ---
 The Wavefront [Pivotal Container Service integration](pks.html) includes an overview and setup instructions.
 
-On this page, we give some code examples and other details about the integration.
+On this page, we list predefined alerts and give other details about the integration.
 
 ## Predefined Alerts for the PKS Integration
 
