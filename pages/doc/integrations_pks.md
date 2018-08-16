@@ -12,7 +12,7 @@ On this page, we give some code examples and other details about the integration
 
 ## Predefined Alerts for the PKS Integration
 
-The PKS integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required.
+The PKS integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts.
 
 <table>
 <tbody>
@@ -93,7 +93,7 @@ The Wavefront proxy pod includes four containers.
 * Heapster monitors your worker kubelets and sends the result to the proxy.
 * Telegraf receives metrics about the node, pod, and container status from kube-state-metrics, and sends those metrics to the Wavefront proxy as well.
 
-![pks-arch](images/pks-14-arch.png)
+![pks-arch](images/pks-14-arch.svg)
 
 Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster.
 
