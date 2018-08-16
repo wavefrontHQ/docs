@@ -7,7 +7,7 @@ permalink: integrations.html
 summary: Learn how to customize a built-in integration and how to set up a custom integration.
 ---
 
-Integrations are one easy way to get data from external systems into Wavefront. Use one of the [built-in integrations](integrations_list.html) - and customize it as needed. 
+Integrations are one easy way to get data from external systems into Wavefront. Use one of the [built-in integrations](label_integrations%20list.html) and customize it as needed.
 
 We update our list of [new and updated built-in integrations](integrations_new_changed.html) monthly.
 
@@ -35,8 +35,6 @@ Wavefront lets you set up many integrations directly from the product. For other
   For some data sources, for example Amazon AWS, we offer an integration for the initial connection and give customization information in this documentation.
 
 - **Custom** integrations provide installation and configuration instructions in this documentation.
-
-To customize an built-in integration or set up a custom integration, click one of the links below, or pick the integration from the Table of Contents on the left.
 
 <table width="100%">
 <colgroup>
@@ -111,7 +109,7 @@ When you hover over an integration, Wavefront colors the integration border and 
 </tbody>
 </table>
 
-For example the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
+For example, the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
 
 ![integration state](images/integration_state.png)
 

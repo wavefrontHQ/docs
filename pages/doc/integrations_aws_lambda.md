@@ -20,9 +20,9 @@ AWS Lambda is ideal for situations when you want to run a function in response t
 While it's convenient to stop worrying about function execution, you might want to monitor the function. Wavefront offers these choices to monitor your AWS Lambda function:
 * Use the Wavefront Amazon CloudWatch integration. Using the CloudWatch integration allows access to the full set of standard metrics, but polling CloudWatch and send the data to Wavefront introduces some lag.
 * Use the Wavefront [AWS Lambda Functions integration](aws-lambda-functions.html). The integration collects standard metrics available through the public API. It also allows you to monitor business metrics by using a wrapper in Python, Go, or Node.js.
-  - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
-  - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
-  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
+  - [Wavefront Go SDK for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
+  - [Wavefront Node.js SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
+  - [Wavefront Python SDK for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
 
 ## How to Use Wavefront to Monitor AWS Lambda
 
@@ -42,7 +42,7 @@ The Wavefront AWS Lambda Function integration and the SDKs listed above make it 
 Some metrics are counters, others are delta counters. </td></tr>
 <tr>
 <td>AWS Lambda custom business metrics</td>
-<td markdown="span">The [AWS Lambda integration](amazon_lambda.html) includes pointers to instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function. </td></tr>
+<td markdown="span">The [AWS Lambda Functions integration](aws-lambda-functions.html) includes pointers to instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function. </td></tr>
 
 </tbody>
 </table>
