@@ -7,9 +7,11 @@ permalink: dashboards_interacting.html
 summary: Learn how to isolate sources and series, share URLs, alter time windows, apply global queries, and activate chart display modes.
 
 ---
-Watch this video for an introduction:
+Watch this video for an introduction to dashboards:
 
-[Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5a810256-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_dashboards_intro.png" style="width: 700px;" alt="introduction to dashboards"/></a>
+</p>
+
 
 ## Common Interactions
 A few interactions are common to dashboards and charts. You can isolate sources and share shortened URLs. These are available in the action buttons at the bottom right of a dashboard or chart:
@@ -66,6 +68,11 @@ The time window associated with your live view URL link is based on your selecti
 
 ## Dashboard Interactions
 
+You can customize your dashboards in many ways. Watch this video for an introduction:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5a810256-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_dashboards_charts.png" style="width: 700px;"/></a>
+</p>
+
 You can perform some tasks, such as working with sections, on the dashboard itself, while other tasks such as selecting the time window, apply to every chart in the dashboard.
 
 <a name="time_window"></a>
@@ -88,9 +95,6 @@ To select a larger or smaller time window or to view past data instead of realti
   - When Live Data is selected, click an interval to quickly increase or decrease the amount of live data displayed within each chart.
   - When Custom Date is selected, clicking an interval adjusts the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, the start time is adjusted to 3:00 AM.
 
-The following video gives an overview:
-
-[Interacting with Dashboards and Charts](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### Working with Sections
 

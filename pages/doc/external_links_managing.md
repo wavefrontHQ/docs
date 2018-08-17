@@ -8,6 +8,11 @@ summary: Learn how to manage external links.
 ---
 External links provide integration between Wavefront and external systems. If you use logging systems such as ELK and Splunk, you can easily construct a meaningful URL to navigate from Wavefront to a log entry.
 
+Here's a video to get you started:
+
+<p><a href="https://youtu.be/oufjL7nM0LQ"><img src="/images/v_external_links.png" style="width: 700px;"/></a>
+</p>
+
 Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate
 and you want to navigate to logs to look for entries that could shed light on why the transaction rate drop occurred. External links allow you to click through from a Wavefront series directly to a related entry in your
 logging system.
@@ -150,9 +155,3 @@ The string inside the function delimiters is URL encoded as:
 host%3Atest%20AND%20source%3A%22%2Fmnt%2Flogs%2Falerting.log%22
 ```
 {% endraw %}
-
-## Video Overview
-
-Here's a video overview:
-
-[Using External Links](https://youtu.be/oufjL7nM0LQ)

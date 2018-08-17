@@ -8,7 +8,10 @@ summary: Learn how to search for entities in the Wavefront UI.
 ---
 Wavefront supports tags and a variety of search features to help you find exactly the information you need.
 
-For a video demo, see [Searching Content in Wavefront](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+Here's a video to get your started:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5468d6de-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_searching.png" style="width: 700px;"/></a>
+</p>
 
 ## Using Tags to Facilitate Searches
 

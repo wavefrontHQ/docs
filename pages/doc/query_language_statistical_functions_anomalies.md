@@ -8,9 +8,12 @@ summary: Learn how to use simple functions and statistical functions in Wavefron
 ---
 Anomalies can indicate that something's about to go wrong in your environment. If you have a set of data points that span across a certain range, you can define which points of these set can be treated as normal and which should be identified as abnormal. If points cross a certain threshold, they create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/){:target="_blank" rel="noopenner noreferrer"} and the following video:
 
-[Wavefront Demo 6 - Anomaly Detection](https://youtu.be/I-Z9d94Zi7Y)
+<p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
+</p>
 
 **Note** Consider using [query wizard](query_language_query_wizard.html) if you want a recipe-based approach to queries that use mean and median.
+
+## Functions for Anomaly Detection
 
 You can use simple functions or statistical functions to examine trends that might result in an anomaly.
 * Simple functions can give insight into rate of change and trends.

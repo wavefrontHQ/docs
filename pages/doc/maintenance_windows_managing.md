@@ -1,7 +1,7 @@
 ---
 title: Preventing Alerts from Firing
 keywords: alerts
-tags: [alerts]
+tags: [alerts, videos]
 sidebar: doc_sidebar
 permalink: maintenance_windows_managing.html
 summary: Learn how snooze an alert, and how to use maintenance windows to prevent alerts from firing when systems are undergoing maintenance.
@@ -13,7 +13,8 @@ You can disable alert checking:
 * To disable alerts from firing for a set of sources or alerts during a custom time window you can create a maintenance window.
 
 Watch this video for an introduction to maintenance windows:
-[Creating a Maintenance Window](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_maintenance.png" style="width: 700px;"/></a>
+</p>
 
 ## Snoozing and Unsnoozing Alerts
 

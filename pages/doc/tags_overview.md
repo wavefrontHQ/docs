@@ -8,7 +8,8 @@ summary: Learn how to use tags to speed up searching and query display and how t
 A tag is custom metadata that adds application-specific meaning to Wavefront _entities_: alerts, dashboards, events, and sources and _metrics_. Tags group together entities and metrics according to categories you define.
 
 For an overview of how tags can help you organize your data and improve searches, watch this video:
-[Using Tags](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_organize_tags.png" style="width: 700px;"/></a>
+</p>
 
 ## Why Tags?
 

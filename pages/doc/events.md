@@ -1,7 +1,7 @@
 ---
 title: Events
 keywords: events
-tags: [events, alerts]
+tags: [events, alerts, videos]
 sidebar: doc_sidebar
 permalink: events.html
 summary: Learn about Wavefront events and how to view, create, and close events
@@ -12,11 +12,15 @@ By default, events are displayed as small dots on the X axis of most charts. You
 
 {% include shared/permissions.html entity="events" entitymgmt="Event" %}
 
-For an overview of events, watch the following videos:
+To learn about events, watch the following videos:
 
-* [Introduction to Events](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
-* [Creating an Event](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
-* [Controlling Event Displays](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=71ef27f0-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+<table style="width: 100%;">
+<tbody>
+<tr><td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_events_intro.png" alt="intro to events"/></a></td>
+<td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_event_creating.png" alt="creating events"></a></td>
+<td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=71ef27f0-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_events_control.png" alt="controlling events"/></a></td></tr>
+</tbody>
+</table>
 
 ## Event Sources and Types
 

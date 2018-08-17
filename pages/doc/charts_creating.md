@@ -1,7 +1,7 @@
 ---
 title: Creating a Chart
 keywords: getting started
-tags: [charts]
+tags: [charts, videos]
 sidebar: doc_sidebar
 permalink: charts_creating.html
 summary: Learn how to create a Wavefront chart and save it to a dashboard.
@@ -20,7 +20,8 @@ Every chart starts out with one query field named New Query.
 
 Watch this video for details:
 
-[Creating New Charts](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5d02190e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5d02190e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_creating.png" style="width: 700px;"/></a>
+</p>
 
 ## Constructing Queries
 
