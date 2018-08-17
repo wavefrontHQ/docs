@@ -1,15 +1,19 @@
 ---
 title: Customizing Chart Resolution and Units
 keywords: getting started
-tags: [getting started, charts, best practice]
+tags: [getting started, charts, best practice, videos]
 sidebar: doc_sidebar
 permalink: charts_customizing.html
 summary: Learn about the Wavefront chart time window and display resolution, and how to configure the units displayed in chart axes and legends.
 ---
+Here's a video to get you started with time windows:
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
+</p>
 
-Although Wavefront accepts and stores data at up to 1 second resolution, Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, Wavefront groups data points into time interval buckets and maps the buckets to display points. Wavefront lets you select a [summarization method](charts.html#summarize-by) for grouping (or summarizing) points into buckets.
 
 ## Chart Resolution
+
+Although Wavefront accepts and stores data at up to 1 second resolution, Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, Wavefront groups data points into time interval buckets and maps the buckets to display points. Wavefront lets you select a [summarization method](charts.html#summarize-by) for grouping (or summarizing) points into buckets.
 
 Chart resolution is the bucket time interval, and it displays in the **Horizontal Scale** field in the lower-left corner of a chart.  The following chart has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the Count summarization method you can see how many points are in each bucket.
 ![resolution](images/chart_resolution.png)
@@ -44,11 +48,7 @@ Here is a series of charts with increasing time window for the _same_ display re
 
   ![6h resolution](images/chart_resolution_6h.png)
 
-### Chart Customization Video
 
-Here's a video  that demonstrates different customization options:
-
-[Interacting with Charts and Dashboards](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
 
 ### The align() Function and Resolution
 

@@ -1,10 +1,14 @@
 ---
 title: Alert States and Lifecycle
-tags: [alerts]
+tags: [alerts, videos]
 sidebar: doc_sidebar
 permalink: alerts_states_lifecycle.html
 summary: Learn about alert conditions and states, when alerts fire, and how alerts resolve.
 ---
+Here's a video to get you started:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6cb2ac52-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_lifecycle.png" style="width: 700px;"/></a>
+</p>
 
 ## Alert Conditions
 
@@ -49,7 +53,7 @@ You can set up an alert that triggers if the alert is in a NO DATA state for a s
 </tbody>
 </table>
 
-  
+
 ## When Alerts Are Checked
 
 The time series associated with an alert are checked to determine whether the alert should fire or not. The default checking frequency interval is 1 minute. This means that the conditional expression associated with the alert is evaluated once a minute. You can change this interval by setting the **Checking Frequency** advanced property when you create or edit the alert.
@@ -60,12 +64,12 @@ The exact time of the check for a particular alert is not fixed and can vary sli
 
 The data granularity for alert checking is 1 minute. The alert checking process:
 
-1. Evaluates the reported data values according to the query you specified as the alert condition. 
+1. Evaluates the reported data values according to the query you specified as the alert condition.
 1. Implicitly aligns the alert condition's results by grouping them into 1-minute buckets.
 1. Summarizes the values within each group by averaging them.
-1. Tests each average value (1 per minute) to see whether it is 0 or non-zero. 
+1. Tests each average value (1 per minute) to see whether it is 0 or non-zero.
 
-For example, say 5 data values are reported between 12:11:00pm and 12:11:59pm. The alert checking process evaluates these data values against the alert condition to produce a series of result values, also between 12:11:00pm and 12:11:59pm. The average of these 5 result values is then displayed at 12:11:00pm. 
+For example, say 5 data values are reported between 12:11:00pm and 12:11:59pm. The alert checking process evaluates these data values against the alert condition to produce a series of result values, also between 12:11:00pm and 12:11:59pm. The average of these 5 result values is then displayed at 12:11:00pm.
 
 **Note** If you want a different summarization strategy, then you can use the [`align()`](ts_align.html) function in your query, with parameters specifying a 1-minute time window and your preferred summarization method.
 
@@ -130,7 +134,7 @@ Sometimes an alert fires even though it looks like it shouldn't have fired. This
 - An aggregate function is used in the alert query and missing data was present for one or more underlying series at the time the alert fired. This tends to make up the majority of misfiring alerts. If there is at least one truly reported data value present at a given time window for one of the underlying series, then Wavefront attempts to apply an interpolated value for all underlying series that did not report a value at that given moment in time. For example, suppose you are aggregating data for `app-1`, `app-2`, and `app-3` using the `sum()` aggregate function. `app-1` and `app-3` reported values at 1:00:00pm and 1:03:00pm, while `app-2` reported values at 1:00:00pm, 1:01:00pm, and 1:03:00pm. In this case, an interpolated value is applied for `app-1` and `app-3` at 1:01:00pm because `app-2` reported a value at that moment in time.
 
   Now assume that the end of the alerting check time window is 1:02:00pm. To apply accurate interpolated values, a reported value must exist before and after the moment of interpolation. Because `app-1` and `app-3` don't report a value until 1:03:00pm, it's impossible to interpolate a value for them at 1:02:00pm. At 1:03:00pm, the data values for `app-1` and `app-3` are reported and therefore interpolated values are retroactively applied to 1:02:00pm for these sources. If the alerting check evaluates the data before the interpolated values are applied, then it's possible that the interactive chart you view 5 or 10 minutes later does not show the value that the alerting check originally saw.
-  
+
 If an alert appears to have misfired, you can gain insight into the situation by checking the alert notification for a [chart image](alerts.html#chart-images-in-alert-notifications) that shows the state of the data at the time the alert fired.
 
 ## When Alerts Resolve

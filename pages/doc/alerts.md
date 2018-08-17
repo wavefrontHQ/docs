@@ -1,7 +1,7 @@
 ---
 title: Alerts
 keywords: alerts
-tags: [alerts, events]
+tags: [alerts, events, videos]
 sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, and how to create and examine them.
@@ -9,6 +9,12 @@ summary: Learn how alerts work, and how to create and examine them.
 Legacy monitoring systems are limited to simple, threshold-based alerts. With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. The end results is fewer false alarms and faster remediation when real issues occur.
 
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
+
+Watch this video to get started:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_intro.png" style="width: 700px;"/></a>
+</p>
+
 
 ## How Alerts Work
 
@@ -20,8 +26,12 @@ An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric re
 
 You express alert [conditions](alerts_states_lifecycle.html#alert-conditions) using [Wavefront Query Language](query_language_getting_started.html) expressions.
 
-View this video for an overview:
-[Monitoring Your Data With Alerts](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+
+Watch this video to see the process:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
+</p>
+
 
 ### Backtesting
 
@@ -115,7 +125,7 @@ If you leave this field blank, the condition expression is used. Note, however, 
 <tr><td><strong>Events Display</strong></td>
 <td>Whether to display actual or hypothetical alert firing <a href="charts_events_displaying.html">event icons</a> on the preview chart.
 <ul><li><strong>Actual Firings (existing alerts only)</strong> - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.</li>
-<li><strong>Backtesting</strong> - Displays hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. See <strong>Backtesting</strong> above. 
+<li><strong>Backtesting</strong> - Displays hypothetical alert-generated events icons on the chart. You will see how often an alert hypothetically would fire within the given chart time window based on the conditional threshold and the <strong>Alert fires</strong> field. See <strong>Backtesting</strong> above.
 </li></ul>
 </td></tr>
 
@@ -154,8 +164,7 @@ If you leave this field blank, the condition expression is used. Note, however, 
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
-Watch this video to see the process:
-[Creating an Alert](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true)
+
 
 ## Viewing Alerts and Alert History
 
@@ -184,7 +193,7 @@ You can revert back to or clone a past alert version.
 
 You can change an alert at any time.
 
-1. Click the **Alerts** button or select **Browse > Alerts** to display the Alerts page. 
+1. Click the **Alerts** button or select **Browse > Alerts** to display the Alerts page.
 2. Click the name of the alert you want to change to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
@@ -193,7 +202,7 @@ You can change an alert at any time.
 
 An alert reports state changes by sending notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change.
 
-The timing of an alert notification depends on the alert target: 
+The timing of an alert notification depends on the alert target:
 
 * For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
 * For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
@@ -211,18 +220,18 @@ When an alert starts firing or is updated, the resulting alert notification can 
 
 ![alert_chart_only](images/alert_chart_only.png)
 
-Chart images show the results of an alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the chart image provides a snapshot of the time series being tested by the alert. 
+Chart images show the results of an alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the chart image provides a snapshot of the time series being tested by the alert.
 
-A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.) 
+A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.)
 
-For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image can take a few seconds to create, so you might briefly see a placeholder image in the notification. 
+For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image can take a few seconds to create, so you might briefly see a placeholder image in the notification.
 
-Chart images are automatically included in notifications for: 
-* Simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list). 
-* [Custom alert targets](webhooks_alert_notification.html) for PagerDuty notifications. 
-* (Version 2018-26.x and later) Predefined templates for custom HTML email targets and for Slack targets. 
+Chart images are automatically included in notifications for:
+* Simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).
+* [Custom alert targets](webhooks_alert_notification.html) for PagerDuty notifications.
+* (Version 2018-26.x and later) Predefined templates for custom HTML email targets and for Slack targets.
 
-You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms. 
+You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms.
 
 **Note** If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
 
@@ -239,7 +248,7 @@ The interactive chart viewed through an alert notification shows the results of 
 
 {% include shared/alert_details.html %}
 
-Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on. 
+Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
 
 Note that interactive charts always show the current state of your data as of the time you bring up the chart, which could be somewhat later than the event that triggered the alert. Consequently, although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it could be backfilled with data values that were reported during that time window, but were not ingested until later. The presence of delayed and then backfilled data could obscure the reason why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), you can inspect a [chart image](#chart-images-in-alert-notifications) included in the notification.
 
