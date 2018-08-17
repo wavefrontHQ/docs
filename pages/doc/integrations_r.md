@@ -18,8 +18,8 @@ To use R and Wavefront together, you need:
 
 - A Wavefront account.
 - A valid Wavefront token.
-- A version of [R](http://cran.rstudio.com/) at least 3.0 or higher.
-- Optionally an R IDE, such as [R Studio](https://www.rstudio.com/). Screenshots in this document were taken with RStudio running R 3.0.
+- A version of [R](http://cran.rstudio.com/) at least 3.5.1 or higher.
+- Optionally an R IDE, such as [R Studio](https://www.rstudio.com/). Screenshots in this document were taken with RStudio running R 3.5.1.
 
 ## Installation
 After setting up your Wavefront account and R environment, install the R packages that we'll use in our demo, as well as the two (RCurl and rjson) used by the Wavefront library.
