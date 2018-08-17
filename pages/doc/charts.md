@@ -137,7 +137,7 @@ Options that control the style of the chart.
 </thead>
 <tr>
 <td>Gap Threshold</td>
-<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. Data considered missing based on the threshold are shown as dotted lines. 
+<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. Data considered missing based on the threshold are shown as dotted lines.
 </td>
 </tr>
 <tr>
@@ -456,6 +456,5 @@ the string **lower** displays when the metrics value is below 150, **middle** di
 
 A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts. In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
-The [Getting Started Dashboards](dashboards_getting_started.html) contain many examples of Markdown charts.
 
 A Markdown chart only has General options and Markdown options.

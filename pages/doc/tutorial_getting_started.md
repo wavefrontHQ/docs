@@ -14,7 +14,7 @@ The tutorial is based on the sample metrics preloaded in each trial user's  Wave
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes a set of [Getting Started Dashboards](dashboards_getting_started.html) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes a set of [Getting Started Dashboards](documentation_getting_started.html#getting-started-dashboards) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
 1. Log in to Wavefront.
 1. Select **Dashboards > All Dashboards**.
