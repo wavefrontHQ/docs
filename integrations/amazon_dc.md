@@ -1,8 +1,8 @@
 ---
-title: Amazon OpsWorks Integration
+title: AWS Direct Connect Integration
 tags: [integrations list]
-permalink: amazon_opsworks.html
-summary: Learn about the Wavefront Amazon OpsWorks Integration.
+permalink: amazon_dc.html
+summary: Learn about the Wavefront AWS Direct Connect Integration.
 ---
 ## Amazon Web Services Integration
 
