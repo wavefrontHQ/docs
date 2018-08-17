@@ -12,7 +12,7 @@ Legacy monitoring systems are limited to simple, threshold-based alerts. With Wa
 
 Watch this video to get started:
 
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_intro.png" style="width: 700px;"/></a>
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_monitor_with_alerts.png" style="width: 700px;"/></a>
 </p>
 
 
