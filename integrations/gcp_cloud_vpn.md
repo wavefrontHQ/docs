@@ -1,8 +1,8 @@
 ---
-title: Google Firebase Integration
+title: Google Cloud VPN Integration
 tags: [integrations list]
-permalink: gcp_cloud_firebase.html
-summary: Learn about the Wavefront Google Firebase Integration.
+permalink: gcp_cloud_vpn.html
+summary: Learn about the Wavefront Google Cloud VPN Integration.
 ---
 ## Google Cloud Platform Integration
 
