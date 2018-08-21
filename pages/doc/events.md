@@ -60,10 +60,10 @@ To view details for an alert associated with a System/Alert event:
 
 The chart includes information about the alert associated with the event, and about the alert itself:
 
-* **Alert name>** - The alert condition.
-* **Alert Firings** - An [`events()`](events.html) query that shows the events of type alert for the alert. These are events when alerts are open and are resolved.
-* **Alert Details** - An [`events()`](events.html) query that shows the events of type alert-detail for the alert. These are events when sources are failing or recovered.
-* **Alert Data** - A query for alert metrics.
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts.html#alert-properties) expression. If the display expression is shown, the condition appears in a separate **Alert Condition** field.
+* **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
+* **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
+* **Alert Data** - A query for alert metrics. These metrics are shown when the alert is open or updated.
 
 ![Alert notification](images/alert_notification_queries.png)
 

@@ -246,7 +246,12 @@ An alert notification includes a URL that links to an interactive chart showing 
 
 The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
 
-{% include shared/alert_details.html %}
+* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts.html#alert-properties) expression.
+* **Alert Condition** - The condition expression, if the display expression is shown.
+* **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
+* **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
+* **Alert Data** - A query for alert metrics. These metrics are shown when the alert is open or updated.
+
 
 Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
 
