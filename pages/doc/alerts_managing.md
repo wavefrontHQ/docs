@@ -65,7 +65,7 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 </tr>
 <tr>
 <td>Targets</td>
-<td markdown="span">Targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](integrations.html#in-product-integrations) and [VictorOps](integrations.html#in-product-integrations), communication channels such as [Slack](integrations.html#in-product-integrations) and [HipChat](integrations.html#in-product-integrations), and [webhooks](webhooks_alert_notification.html) separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
+<td markdown="span">Targets to notify when the alert changes state.  For example, notifications are sent when an alert changes state from FIRING to CHECKING, and when an alert is snoozed. A list of: ten different email addresses, pager services such as [PagerDuty](pagerduty.html) and [VictorOps](victorops.html), communication channels such as [Slack](slack.html) and [HipChat](hipchat.html), and [webhooks](webhooks_alert_notification.html) separated by commas. See [Using Alert Targets](webhooks_alert_notification.html) for details.
 </td>
 </tr>
 <tr>

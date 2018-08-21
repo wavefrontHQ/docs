@@ -28,7 +28,7 @@ If you have an [AWS integration](integrations_aws_metrics.html), metrics with th
 
 ## Charts in the Wavefront Usage Integration Dashboard
 
-The [Wavefront Usage integration](integrations.html#in-product-integrations) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown. You can examine many aspects or your Wavefront Instance. We'll look at  the following sections here:
+The [Wavefront Usage integration](system.html) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown. You can examine many aspects or your Wavefront Instance. We'll look at  the following sections here:
 * Overall Data Rate
 * Wavefront Stats
 * AWS Integration
