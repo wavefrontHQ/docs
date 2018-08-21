@@ -82,13 +82,13 @@ Wavefront provides SDKs in several languages for accessing the Wavefront API and
 <td>Go</td>
 <td>NA</td>
 <td>NA</td>
-<td markdown="span">[Go Metrics Integration](integrations.html#in-product-integrations)</td>
+<td markdown="span">[Go Metrics Integration](go.html)</td>
 </tr>
 <tr>
 <td>Java</td>
 <td markdown="span">[Wavefront Java client](https://github.com/wavefrontHQ/java)</td>
 <td>NA</td>
-<td markdown="span">[DropWizard Java Metrics Integration](integrations.html#in-product-integrations)</td>
+<td markdown="span">[DropWizard Java Metrics Integration](dropwizard.html)</td>
 </tr>
 <tr>
 <td>Python</td>
