@@ -27,7 +27,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 ### Step 3. Create a Script to Gather Hadoop MapReduce Metrics
 
-1. Download [mapreduce.py](https://github.com/wavefrontHQ/wavefront-hadoop/raw/master/mapreduce.py) onto your Telegraf agent server.
+1. Download [mapreduce.py](https://github.com/wavefrontHQ/integrations/blob/master/hadoop/mapreduce.py) onto your Telegraf agent server.
 2. Test the script execution using this command:{% raw %}
     ```
     python mapreduce.py
