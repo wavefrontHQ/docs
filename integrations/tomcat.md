@@ -10,6 +10,7 @@ The Apache Tomcat® software is an open source implementation of the Java Servle
 
 In addition to setting up the metrics flow, this integration also sets up a dashboard.
 {% include image.md src="images/tomcat-metrics.png" width="80" %}
+{% include image.md src="images/tomcat-metrics-1.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
