@@ -12,34 +12,36 @@ The Amazon Web Services integration is full-featured implementation offering pre
 
 Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricing**, and **Billing** and the service-specific dashboards for the following products:
 
-- AWS: EC2
-- AWS: ECS
-- AWS: ELB
-- AWS: DynamoDB
-- AWS: Lambda
-- AWS: Redshift
-- AWS: SNS
-- AWS: EBS
-- AWS: CloudFront
-- AWS: Route53
-- AWS: ElastiCache
-- AWS: S3
-- AWS: SQS
-- AWS: EFS
-- AWS: Kinesis Data Stream
-- AWS: Kinesis Firehose
-- AWS: OpsWorks
-- AWS: Elastic Beanstalk
-- AWS: EMR
-- AWS: KMS
+- AWS: ALB
 - AWS: Auto Scaling
-- AWS: RDS
+- AWS: CloudFront
 - AWS: Cloud Search
 - AWS: CloudTrail
+- AWS: DMS
+- AWS: Direct Connect
+- AWS: DynamoDB
+- AWS: EBS
+- AWS: EC2
+- AWS: ECS
+- AWS: EFS
+- AWS: ELB
+- AWS: EMR
+- AWS: Elastic Beanstalk
+- AWS: ElastiCache
 - AWS: Elasticsearch
 - AWS: Elastic Transcoder
-- AWS: ALB
-- AWS: Direct Connect
+- AWS: IoT Core
+- AWS: Kinesis Data Stream
+- AWS: Kinesis Firehose
+- AWS: KMS
+- AWS: Lambda
+- AWS: OpsWorks
+- AWS: RDS
+- AWS: Redshift
+- AWS: Route53
+- AWS: S3
+- AWS: SNS
+- AWS: SQS
 
 #### Summary Dashboard
 
