@@ -88,14 +88,23 @@ Wavefront recommends that you keep the number of distinct time series per metric
 </tbody>
 </table>
 
-### Valid Metrics
+## Video: Point Tags and Source Tags
+
+Watch the following video for an introduction to point tags and source tags:
+
+<p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
+</p>
+
+## Valid and Invalid Metrics Examples
+
+The following metrics are valid:
 
 -   `request.count 1001 source=test.wavefront.com`
 -   `system.cpu.loadavg.1m 0.03 1382754475 source=test1.wavefront.com`
 -   `marketing.adsense.impressions 24056 source=campaign1`
 -   `new-york.power.usage 42422 source=localhost datacenter="dc1"`
 
-### Invalid Metrics
+The following metrics are invalid. For each metric, we explain why it's invalid.
 
 - `system.cpu.load\# 0.03 source=test.wavefront.com`
 

@@ -7,11 +7,23 @@ published: true
 permalink: proxies_histograms.html
 summary: Learn how to use Wavefront histograms.
 ---
-Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. See the following blog posts for background information:
+Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+
+**Note:** The histogram feature requires a separate license and is not enabled on your cluster by default.
+
+## Getting Started
+
+Watch this video for an introduction to histograms:
+<p><a href="https://www.youtube.com/watch?v=syIKQ2oZk9s&index=4&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_histograms.png" style="width: 700px;" alt="histograms"/></a>
+</p>
+
+The following blog posts give some background information:
 * [What if I Told You Your Monitoring Data is Lying: Why Histograms are Critical for Accurate Reporting of Hi-Velocity Metrics](https://www.wavefront.com/why-histograms-critical-for-reporting-hi-velocity-metrics/)
 * [How the Metric Histogram Type Works: True Visibility into High-Velocity Application Metrics](https://www.wavefront.com/metric-histogram-type-works-true-visibility-high-velocity-application-metrics-part-2-2-2-2/)
 
-**Note:** The histogram feature requires a separate license and is not enabled on your cluster by default.
+
+
+
 
 ## Why Use Histograms?
 
@@ -441,6 +453,6 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 * `median(hs(<histogramMetricName>.m))` -- Returns the median of `<histogramMetricName>`
 * `merge(hs(<histogramMetricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<histogramMetricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(<histogramMetricName>.m),key)` where `key` is a point tag name.
 * `align(<timeWindow>,hs(<histogramMetricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(<histogramMetricName>.m))` to output hourly buckets on a minutely histogram.
-* `count(hs(<histogramMetricName>.m))` –- Returns the number of values in a distribution. 
+* `count(hs(<histogramMetricName>.m))` –- Returns the number of values in a distribution.
 
 {% include note.html content="Direct histogram visualization in charts is not currently supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with one of the supported functions listed above, for example, `max(hs(...))`." %}

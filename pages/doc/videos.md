@@ -7,12 +7,30 @@ permalink: videos.html
 summary: Get started with Wavefront by watching a set of videos.
 ---
 
-In October 2017, Jason Goocher, Wavefront Customer Success Engineer, put together a set of instructional videos for new users.
-**Note** These videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
+This page is for users who learn best watching videos. Many of the videos are also included on the pages about the topic.
 
-Here's the complete set of videos, which are hosted on VMware Learning Zone.
+* Wavefront engineers explain how things work in a set of lighboard videos. For example, we show how point tags and source tags work, or how we do alerting.
+* Jason Goocher, Wavefront Customer Success Engineer, created a set of videos for VMware Learning Zone in October 2017.
 
-## Introduction
+  **Note** These videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
+
+## Lighboard Videos
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%"><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
+<td width="50%"><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_alerting_clement.png"  alt="Alerting With Wavefront"/></a></td>
+</tr>
+<tr><td width="50%"><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
+<td width="50%"><a href="https://www.youtube.com/watch?v=syIKQ2oZk9s&index=4&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_histograms.png" alt="Wavefront histograms"/></a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+## Introduction to Wavefront
 
 <table style="width: 100%;">
 <tbody>

@@ -10,8 +10,13 @@ Legacy monitoring systems are limited to simple, threshold-based alerts. With Wa
 
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
 
-Watch this video to get started:
+## Videos
+Watch this video to understand how alerts work:
+<p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
+</p>
 
+
+Watch this video to learn about alerts while looking at the Wavefront UI:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_monitor_with_alerts.png" style="width: 700px;"/></a>
 </p>
 

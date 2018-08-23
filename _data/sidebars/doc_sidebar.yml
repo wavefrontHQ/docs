@@ -31,7 +31,7 @@ entries:
       url: /tutorial_data_ingestion.html
       output: web
 
-    - title: "Getting Started Videos"
+    - title: "Videos"
       url: /videos.html
       output: web
 
