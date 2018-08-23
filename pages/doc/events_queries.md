@@ -146,24 +146,23 @@ You can optionally assign a type to a user event. The value requires quotes if i
 
 ## When Does an Event Query Return Events?
 
-Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing the event in the UI, or, if you use the API, returning the event itself. The following illustration illustrates the behavior:
+Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing the event in the UI, or, if you use the API, returning the event itself. The following illustration illustrates the behavior: 
 
-![when events return](images/events_returns_22.svg)
+![when events return](images/events_returns.svg)
 
-Here are some details. Note that for two cases, the behavior changed in Wavefront 2018.10; however, the following table shows general behavior and does not focus on this (fairly minor) change.
+Here are the details:
 
 |**Event Number** | **Event start** | **Event end** | **Returned?** |
 |Event 1 | Before query start time time | Before query start time | No |
 |Event 2 | After query start time | Before query end time  | Yes  |
 |Event 3 | Before query start time | After query start time  | Yes  |
-|Event 4 | Before query start time  | After query end time | No(*) |
-|Event 5 | Before query start time | N.A. (ongoing event) | No(*) |
+|Event 4 | Before query start time  | After query end time | No |
+|Event 5 | Before query start time | N.A. (ongoing event) | No |
 |Event 6 | After query start time  | After query end time | Yes  |
 |Event 7 | After query end time | N.A. (ongoing event) | No  |
 |Event 8 | After query start time | N.A. (ongoing event)  | Yes  |
 |Event 9 | After query end time | After query end time  | No |
 
-(*) Wavefront returned the event before 2018.10, but we no longer return it. Performance improvements are significant.
 
 ## More Info
 
