@@ -14,7 +14,7 @@ This page is for users who learn best watching videos. Many of the videos are al
 
   **Note** These videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
 
-## Lighboard Videos
+## Lightboard Videos
 
 <table style="width: 100%;">
 <tbody>
