@@ -341,7 +341,7 @@ In addition to general options, a Single Stat chart supports Sparkline options a
 
 #### Sparkline Options
 
-Options controlling how the graph that summarizes the series displays.
+A sparkline is a small graph that summarizes the series displays. You can customize the sparkline with these options: 
 
 <table>
 <tbody>
@@ -360,7 +360,7 @@ Position of the sparkline. The options are:
 </tr>
 <tr>
 <td>Line Color</td>
-<td>The position of the sparkline. The options are <strong>Bottom</strong> which means below the single stat, <strong>Background</strong> which places the sparkline in the background of the single stat, or <strong>None</strong> for no sparkline on the chart.
+<td>The color of the sparkline.
 </td>
 </tr>
 <tr>
@@ -416,7 +416,7 @@ A Single Stat chart supports the following options:
 </tr>
 <tr>
 <td>Text Color</td>
-<td>The color of the single stat.
+<td>The text color of the single stat.
 </td>
 </tr>
 <tr>
