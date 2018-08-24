@@ -251,7 +251,7 @@ Any substitutions that address data quality issues that would normally make the 
 <tr>
 <td>replace</td>
 <td>&lt;replacement string&gt;</td>
-<td>Replacement string. The empty string is allowed. To refer to a capturing group by its number, use &quot;\\1&quot;.</td>
+<td>Replacement string. The empty string is allowed. To refer to a capturing group by its number, use &quot;$1&quot;.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -476,7 +476,7 @@ Create a new point tag based on a metric name, source name, or another point tag
 <tr>
 <td>replace</td>
 <td>&lt;replacement string&gt;</td>
-<td>String or pattern (empty string is allowed) that will be used as a value for the new point tag. To refer to a capturing group in &quot;search&quot; regex by its number, use either of the following constructs: &quot;\\1&quot; or &quot;$1&quot;.</td>
+<td>String or pattern (empty string is allowed) that will be used as a value for the new point tag. To refer to a capturing group in &quot;search&quot; regex by its number, use &quot;$1&quot;.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -560,5 +560,3 @@ Examples:
     match   : "^\\d*$"
     newtag  : numericTag
 ```
-
-
