@@ -8,7 +8,10 @@ summary: Learn about the Wavefront Couchbase Integration.
 
 Couchbase Server is an open-source, distributed  multi-model NoSQL database. This integration installs and configures Telegraf to send Couchbase metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. 
+In addition to setting up the metrics flow, this integration also installs a dashboard.
+
+{% include image.md src="images/couchbase1.png" width="80" %}
+{% include image.md src="images/couchbase2.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
@@ -24,9 +27,11 @@ This integration uses the Couchbase input plugin for Telegraf. If you've already
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
+### Step 2: Edit the Wavefront Output Plugin
 
-### Step 2. Configure Couchbase Input Plugin
+Comment out the `source_override` property in the Wavefront output plugin.
 
+### Step 3. Configure Couchbase Input Plugin
 
 Create a file called `couchbase.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
@@ -53,6 +58,6 @@ To monitor multiple Couchbase server instances, configure the `servers` paramete
 ```
 {% endraw %}
 
-### Step 3. Restart Telegraf
+### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
