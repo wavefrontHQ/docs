@@ -35,15 +35,10 @@ The REST API is publicly documented in the Swagger-generated API documentation. 
 Some code samples are available on the [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront). We're providing these samples as is - some are from the Wavefront team, others will come from the community.
 
 
-## Invoking the API Using curl
+## Invoking the API
 
-You can invoke the API using `curl` or from an API client. In either case, you must pass in a Wavefront API token. This example shows how to pass in the token using `url`.
+You can invoke the API using `curl` or from an API client. In either case, you must pass in a Wavefront API token.
 
-With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:
-
-```shell
-curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <wavefront_api_token>'
-```
 ### Generating an API Token
 
 A Wavefront API token is a string of hexadecimal characters and dashes. For example:
@@ -59,6 +54,14 @@ To generate an API token:
 3. Click **Generate**. You can have up to 2 tokens at any given time.
    If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
 4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
+
+## Example: Invoke the API using curl
+
+With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:
+
+```shell
+curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <wavefront_api_token>'
+```
 
 ## Generate an API Client Using Swagger
 
