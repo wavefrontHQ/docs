@@ -32,4 +32,4 @@ Click the **Setup** tab for an integration for details on that integration.
 You can access the API SDKs from our public Github repository. We're constantly adding functionality to existing SDKs, and adding new SDKs. For example:
 
 * [Wavefront Java Top-Level Project](https://github.com/wavefrontHQ/java) - several independent projects for sending metrics from your Java application to Wavefront.
-* **New** [Wavefront C# SDK](https://github.com/wavefrontHQ/wavefront-csharp-sdk) - Support for sending metrics and histograms to the Wavefront proxy or directly to the Wavefront service.
+* [Wavefront Python Client](https://github.com/wavefrontHQ/python-client)
