@@ -4,26 +4,27 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_api.html
-summary: Learn about the Wavefront Management API.
+summary: Learn about the REST API for managing Wavefront.
 ---
 
-Wavefront is fully API driven and supports a REST API and [instrumentation APIs](wavefront_instrumentation_api.html).
-* The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as create an event. You can use Swagger to create a language binding of your choice.  Wavefront customers have created CLI clients of this API.
-* The [instrumentation SDKs](wavefront_instrumentation_api.html) allow you to send metrics to the Wavefront proxy or directly to the Wavefront service. These SDKs is available through different Application Instrumentation integrations and in Github.
+Wavefront supports a REST API for management and [instrumentation APIs](wavefront_instrumentation_api.html) for sending metrics.
+* The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as creating event. You can use Swagger to create an API client or a CLI client from this API.
+* The [instrumentation SDKs](wavefront_instrumentation_api.html) allow you to send metrics to the Wavefront proxy or directly to the Wavefront service. These SDKs are available through different Application Instrumentation integrations and in GitHub.
 
-The focus of this page is on the Wavefront REST API.
+This page describes the Wavefront REST API.
 
 ## REST API Overview
 
-All interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront management API. You can perform those actions using REST - or create API clients using Swagger, discussed below.
-
-**Note:** The Wavefront REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy.
+All interactions between the Wavefront UI and your Wavefront instance occur through the Wavefront management API. You can perform those actions using REST - or you can create an API client using Swagger, discussed below.
 
 The current version of the REST API is v2. You can access the API at `<wavefront_instance>/api/v2`. The v1 API (`<wavefront_instance>/api/`) was deprecated in 2017 and is no longer supported.
 
+**Note:** The Wavefront REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy.
+
 ### API Documentation
 
-The REST API is publicly documented in the Swagger generated API documentation. To access the API documentation:
+The REST API is publicly documented in the Swagger-generated API documentation. To access the REST API documentation:
+
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
   * From the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select **API Documentation**.
@@ -36,20 +37,20 @@ Some code samples are available on the [VMware code website](https://code.vmware
 
 ## Invoking the API Using curl
 
-When you invoke the API, either using curl or from an API client, you must pass a Wavefront API token. This example shows how to pass in the token using `url`.
+You can invoke the API using `curl` or from an API client. In either case, you must pass in a Wavefront API token. This example shows how to pass in the token using `url`.
 
-With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, invoke the following:
+With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:
 
 ```shell
 curl 'https://<wavefront_instance>/api/v2/alert' --header 'Authorization: Bearer <wavefront_api_token>'
 ```
-You can generate the token from the Wavefront UI, discussed below. A Wavefront API token is a string of hexadecimal characters and dashes. For example:
+### Generating an API Token
+
+A Wavefront API token is a string of hexadecimal characters and dashes. For example:
 
 ```
 a411c16b-3cf7-4f03-bf11-8ca05aab898d
 ```
-
-### Generating an API Token
 
 To generate an API token:
 
@@ -59,11 +60,11 @@ To generate an API token:
    If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
 4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
 
-## Generate an API Using Swagger
+## Generate an API Client Using Swagger
 
-Because we expose the Wavefront REST API via Swagger, you can generate a working implementation of the API for the language or CLI you want to use.
+Because we expose the Wavefront REST API via Swagger, you can generate a working implementation of the API for the programming language or CLI you want to use.
 
-**Note:** If you use the default Swagger configuration settings, for example, do generate a Java client, might result in errors. Follow these steps instead:
+**Note:** Using the default Swagger configuration settings might result in errors. Create your own configuration file instead, as in the following example for generating a Java client:
 
 1. Create a file `swagger-config.json`:
 ```
@@ -82,7 +83,7 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 
 ## Wavefront REST API Categories
 
-The management API supports the following API categories:
+The REST API supports the following categories of management tasks:
 
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert Management permission](permissions_overview.html) can create and update alerts.
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxy Management permission](permissions_overview.html) can add and remove cloud integration data types.
