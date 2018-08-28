@@ -286,6 +286,9 @@ entries:
       url: /label_integrations%20list.html
       output: web
 
+    - title: Wavefront Integration CLI
+      url: /wavefront_cli.html
+      output: web    
 
       subfolders:
       - title: Details for Built-In Integrations
@@ -376,6 +379,7 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
 
+
   - title: Organizing and Searching
     output: web
     folderitems:
@@ -409,20 +413,20 @@ entries:
       output: web
 
 
-  - title: API and CLI
+  - title: API, SDK, and  CLI
     output: web
     folderitems:
 
-      - title: Wavefront API
+      - title: Wavefront Management API (REST)
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront API Python Client
-        url: /wavefront_api_python.html
+      - title: Wavefront Instrumentation SDKs
+        url: /wavefront_instrumentation_api.html
         output: web
 
-      - title: Wavefront CLI
-        url: /wavefront_cli.html
+      - title: Wavefront CLIs
+        url: /wavefront_clis.html
         output: web
 
   - title: Administration
