@@ -3,6 +3,7 @@ title: 5.0 Release Notes
 keywords: release notes
 tags: [release notes]
 sidebar: doc_sidebar
+published: false
 permalink: 50_release_notes.html
 summary: Learn about new and updated features in the Wavefront 5.0 release.
 ---
@@ -122,7 +123,7 @@ For more information on Telegraf, see [collectd vs. Telegraf: Comparing Metric C
 
 Wavefront has added many new integrations and example dashboards. For information on each integration, see the related documentation:
 
--   Docker - Supports Docker containers, Amazon ECS, and Kubernetes. See [Monitoring Docker with Wavefront](integrations_containers.html).
+-   Docker - Supports Docker containers, Amazon ECS, and Kubernetes.
 -   AWS - [AWS Metrics Integration](integrations_aws_metrics.html)
 -   Cassandra - [Apache Cassandra 3 Integration](integrations_collectd_cassandra.html)
 -   Java metrics - [DropWizard Metrics Integration](integrations.html#in-product-integrations)
