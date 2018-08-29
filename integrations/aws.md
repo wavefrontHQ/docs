@@ -13,6 +13,7 @@ The Amazon Web Services integration is full-featured implementation offering pre
 Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricing**, and **Billing** and the service-specific dashboards for the following products:
 
 - AWS: ALB
+- AWS: API Gateway
 - AWS: Auto Scaling
 - AWS: CloudFront
 - AWS: Cloud Search

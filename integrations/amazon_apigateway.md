@@ -1,8 +1,8 @@
 ---
-title: Amazon Elastic Transcoder Integration
+title: AWS API Gateway Integration
 tags: [integrations list]
-permalink: amazon_elastic_transcoder.html
-summary: Learn about the Wavefront Amazon Elastic Transcoder Integration.
+permalink: amazon_apigateway.html
+summary: Learn about the Wavefront AWS API Gateway Integration.
 ---
 ## Amazon Web Services Integration
 
