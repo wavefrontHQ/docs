@@ -7,8 +7,8 @@ permalink: wavefront_api.html
 summary: Learn about the REST API for managing Wavefront.
 ---
 
-Wavefront supports a REST API for management and [instrumentation APIs](wavefront_instrumentation_api.html) for sending metrics.
-* The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as creating event. You can use Swagger to create an API client or a CLI client from this API.
+Wavefront supports a REST API for management and [instrumentation SDKs](wavefront_instrumentation_api.html) for sending metrics.
+* The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as creating events. You can use Swagger to create an API client or a CLI client from this API.
 * The [instrumentation SDKs](wavefront_instrumentation_api.html) allow you to send metrics to the Wavefront proxy or directly to the Wavefront service. These SDKs are available through different Application Instrumentation integrations and in GitHub.
 
 This page describes the Wavefront REST API.
@@ -55,7 +55,7 @@ To generate an API token:
    If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
 4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
 
-## Example: Invoke the API using curl
+### Example: Invoke the API Using curl
 
 With `curl`, you specify the API token in the `Authorization: Bearer` header. For example, to return all alerts, run the following command:
 
