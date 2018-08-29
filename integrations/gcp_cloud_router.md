@@ -1,8 +1,8 @@
 ---
-title: Google Cloud Functions Integration
+title: Google Cloud Router Integration
 tags: [integrations list]
-permalink: gcp_cloud_functions.html
-summary: Learn about the Wavefront Google Cloud Functions Integration.
+permalink: gcp_cloud_router.html
+summary: Learn about the Wavefront Google Cloud Router Integration.
 ---
 ## Google Cloud Platform Integration
 

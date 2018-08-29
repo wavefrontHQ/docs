@@ -21,15 +21,16 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 
 <p>Wavefront provides Google Cloud Platform dashboards for the following services:</p>
 
-- Google Compute Engine
-- Google Container Engine
 - Google App Engine
 - Google Cloud Datastore
-- Google Cloud Functions 
-- Google Cloud Storage
+- Google Cloud Functions
+- Google Cloud Router
 - Google Cloud Spanner
-- Google Firebase
+- Google Cloud Storage
 - Google Cloud VPN
+- Google Compute Engine
+- Google Container Engine
+- Google Firebase
 
 ### Alerts
 
