@@ -4,13 +4,14 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: permissions_misc.html
+published: false
 summary: Learn about miscellaneous Wavefront permissions.
 ---
 
 ## Browse Data Permission
 
 By default, Browse Data permission is given to all users when an account is first created in Wavefront. Browse Data permission allows you to:
- 
+
 - View the Dashboards, Alerts, Metrics, Sources, Events, Maintenance Windows, and Webhooks pages
 - Add dashboards to your list of favorites
 - View existing dashboards and charts
@@ -27,6 +28,3 @@ Users with Direct Data Ingestion permission have the ability to directly ingest 
 ## Embed Charts Permission
 
 While every Wavefront user can access charts and make temporary changes to chart parameters, Embed Charts permission gives you the ability to embed an interactive chart outside of Wavefront. Embedded chart URLs are associated with a specific user account, so if a user embeds a chart and later has their Wavefront account removed, that embedded chart will no longer work. For instructions, see [Embedding a Chart](charts_embedding.html).
-
-
-
