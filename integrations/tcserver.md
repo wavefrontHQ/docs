@@ -26,13 +26,14 @@ This integration uses Jolokia to extract metrics from Tomcat, and the Jolokia in
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
-### Step 2. Install the Jolakia Agent on Your Tomcat Server
+### Step 2. Install the Jolokia Agent on Your Tomcat Server
 
 1. Download the latest version of the Jolokia war file from: https://jolokia.org/download.html.
 2. Rename the file from `jolokia-war-X.X.X.war` to `jolokia.war`.
 3. Copy the `jolokia.war` file to `${TOMCAT_HOME}/webapps`.
-4. Start or restart your Tomcat server.
-5. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
+4. Add `jolokia` as role in `tomcat-users.xml` (mandatory for Jolokia 1.6 or later)
+5. Start or restart your Tomcat server.
+6. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
 The result looks similar to this:{% raw %}
 ```
@@ -45,70 +46,85 @@ First, create a file called `tomcat.conf` in `/etc/telegraf/telegraf.d` and ente
 
 ```
 [[inputs.jolokia2_agent]]
-urls = ["http://localhost:8080/jolokia"]
-name_prefix = "tomcat."
+  # Prefix to attach to the measurement name
+  name_prefix = "tomcat."
 
-### JVM Generic
+  # Add agents URLs to query
+  urls = ["http://localhost:8080/jolokia"]
 
-[[inputs.jolokia2_agent.metric]]
-name  = "OperatingSystem"
-mbean = "java.lang:type=OperatingSystem"
-paths = ["ProcessCpuLoad","SystemLoadAverage","SystemCpuLoad"]
+  #username and password are mandatory for Jolokia 1.6 or later
+  #username = <jolokia role username>
+  #password = <jolokia role password>
 
-[[inputs.jolokia2_agent.metric]]
-name  = "jvm_runtime"
-mbean = "java.lang:type=Runtime"
-paths = ["Uptime"]
+  # response_timeout = "5s"
 
-[[inputs.jolokia2_agent.metric]]
-name  = "jvm_memory"
-mbean = "java.lang:type=Memory"
-paths = ["HeapMemoryUsage", "NonHeapMemoryUsage", "ObjectPendingFinalizationCount"]
+  ## Optional TLS config
+  # tls_ca   = "/var/private/ca.pem"
+  # tls_cert = "/var/private/client.pem"
+  # tls_key  = "/var/private/client-key.pem"
+  # insecure_skip_verify = false
 
-[[inputs.jolokia2_agent.metric]]
-name     = "jvm_garbage_collector"
-mbean    = "java.lang:name=*,type=GarbageCollector"
-paths    = ["CollectionTime", "CollectionCount"]
-tag_keys = ["name"]
+  ### JVM Generic
 
-[[inputs.jolokia2_agent.metric]]
-name       = "jvm_memory_pool"
-mbean      = "java.lang:name=*,type=MemoryPool"
-paths      = ["Usage", "PeakUsage", "CollectionUsage"]
-tag_keys   = ["name"]
-tag_prefix = "pool_"
+  [[inputs.jolokia2_agent.metric]]
+    name  = "OperatingSystem"
+    mbean = "java.lang:type=OperatingSystem"
+    paths = ["ProcessCpuLoad","SystemLoadAverage","SystemCpuLoad"]
 
-### TOMCAT
+  [[inputs.jolokia2_agent.metric]]
+    name  = "jvm_runtime"
+    mbean = "java.lang:type=Runtime"
+    paths = ["Uptime"]
 
-[[inputs.jolokia2_agent.metric]]
-name     = "GlobalRequestProcessor"
-mbean    = "Catalina:name=*,type=GlobalRequestProcessor"
-paths    = ["requestCount","bytesReceived","bytesSent","processingTime","errorCount"]
-tag_keys = ["name"]
+  [[inputs.jolokia2_agent.metric]]
+    name  = "jvm_memory"
+    mbean = "java.lang:type=Memory"
+    paths = ["HeapMemoryUsage", "NonHeapMemoryUsage", "ObjectPendingFinalizationCount"]
 
-[[inputs.jolokia2_agent.metric]]
-name     = "JspMonitor"
-mbean    = "Catalina:J2EEApplication=*,J2EEServer=*,WebModule=*,name=jsp,type=JspMonitor"
-paths    = ["jspReloadCount","jspCount","jspUnloadCount"]
-tag_keys = ["J2EEApplication","J2EEServer","WebModule"]
+  [[inputs.jolokia2_agent.metric]]
+    name     = "jvm_garbage_collector"
+    mbean    = "java.lang:name=*,type=GarbageCollector"
+    paths    = ["CollectionTime", "CollectionCount"]
+    tag_keys = ["name"]
 
-[[inputs.jolokia2_agent.metric]]
-name     = "ThreadPool"
-mbean    = "Catalina:name=*,type=ThreadPool"
-paths    = ["maxThreads","currentThreadCount","currentThreadsBusy"]
-tag_keys = ["name"]
+  [[inputs.jolokia2_agent.metric]]
+    name       = "jvm_memory_pool"
+    mbean      = "java.lang:name=*,type=MemoryPool"
+    paths      = ["Usage", "PeakUsage", "CollectionUsage"]
+    tag_keys   = ["name"]
+    tag_prefix = "pool_"
 
-[[inputs.jolokia2_agent.metric]]
-name     = "Servlet"
-mbean    = "Catalina:J2EEApplication=*,J2EEServer=*,WebModule=*,j2eeType=Servlet,name=*"
-paths    = ["processingTime","errorCount","requestCount"]
-tag_keys = ["name","J2EEApplication","J2EEServer","WebModule"]
+  ### TOMCAT
 
-[[inputs.jolokia2_agent.metric]]
-name     = "Cache"
-mbean    = "Catalina:context=*,host=*,name=Cache,type=WebResourceRoot"
-paths    = ["hitCount","lookupCount"]
-tag_keys = ["context","host"]
+  [[inputs.jolokia2_agent.metric]]
+    name     = "GlobalRequestProcessor"
+    mbean    = "Catalina:name=*,type=GlobalRequestProcessor"
+    paths    = ["requestCount","bytesReceived","bytesSent","processingTime","errorCount"]
+    tag_keys = ["name"]
+
+  [[inputs.jolokia2_agent.metric]]
+    name     = "JspMonitor"
+    mbean    = "Catalina:J2EEApplication=*,J2EEServer=*,WebModule=*,name=jsp,type=JspMonitor"
+    paths    = ["jspReloadCount","jspCount","jspUnloadCount"]
+    tag_keys = ["J2EEApplication","J2EEServer","WebModule"]
+
+  [[inputs.jolokia2_agent.metric]]
+    name     = "ThreadPool"
+    mbean    = "Catalina:name=*,type=ThreadPool"
+    paths    = ["maxThreads","currentThreadCount","currentThreadsBusy"]
+    tag_keys = ["name"]
+
+  [[inputs.jolokia2_agent.metric]]
+    name     = "Servlet"
+    mbean    = "Catalina:J2EEApplication=*,J2EEServer=*,WebModule=*,j2eeType=Servlet,name=*"
+    paths    = ["processingTime","errorCount","requestCount"]
+    tag_keys = ["name","J2EEApplication","J2EEServer","WebModule"]
+
+  [[inputs.jolokia2_agent.metric]]
+    name     = "Cache"
+    mbean    = "Catalina:context=*,host=*,name=Cache,type=WebResourceRoot"
+    paths    = ["hitCount","lookupCount"]
+    tag_keys = ["context","host"]
 ```
 
 Then, replace the `urls` value with your Tomcat server URL. Specify your servers with URL matching.
