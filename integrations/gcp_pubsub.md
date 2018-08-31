@@ -1,8 +1,8 @@
 ---
-title: Google Compute Engine Integration
+title: Google Cloud Pub/Sub Integration
 tags: [integrations list]
-permalink: gcp_compute_engine.html
-summary: Learn about the Wavefront Google Compute Engine Integration.
+permalink: gcp_pubsub.html
+summary: Learn about the Wavefront Google Cloud Pub/Sub Integration.
 ---
 ## Google Cloud Platform Integration
 

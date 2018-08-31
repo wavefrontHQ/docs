@@ -24,6 +24,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google App Engine
 - Google Cloud Datastore
 - Google Cloud Functions
+- Google Cloud Pub/Sub
 - Google Cloud Router
 - Google Cloud Spanner
 - Google Cloud Storage
@@ -39,12 +40,6 @@ The Google Cloud Platform integration dashboard contains predefined alert condit
 {% include image.md src="images/alert_condition.png" width="50" %}
 
 To create the alert, click the **Create Alert** link under the query and configure the [alert properties](https://docs.wavefront.com/alerts_managing.html#creating-an-alert) (notification targets, condition checking frequency, etc.).
-
-
-
-
-
-
 
 ## Google Cloud Platform Integration
 
