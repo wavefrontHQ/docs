@@ -429,12 +429,8 @@ entries:
     output: web
     folderitems:
 
-      - title: Permissions Overview
+      - title: Permissions
         url: /permissions_overview.html
-        output: web
-
-      - title: Miscellaneous Permissions
-        url: /permissions_misc.html
         output: web
 
       - title: Managing Your Wavefront Account
