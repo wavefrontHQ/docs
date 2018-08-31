@@ -51,28 +51,23 @@ You can interact with Wavefront from your web browser or using the REST API:
 
 * The **user interface** (UI) is displayed in a browser. You log in to the Wavefront UI from a standard web browser, in many cases using an SSO solution.  One unique feature of the UI is that it can display charts with data over any range of time (e.g. over an entire year).
 
-  Wavefront supports Chrome, Firefox, and Safari. Wavefront does not support Internet Explorer because of technical limitations of that browser. 
+  Wavefront supports Chrome, Firefox, and Safari. Wavefront does not support Internet Explorer because of technical limitations of that browser.
 
-* The **REST API** allows custom applications to access all Wavefront UI actions.
-
-## Wavefront Proxy
-
-The [Wavefront proxy](https://docs.wavefront.com/proxies.html) allows you to send your data to Wavefront in a secure, fast, and reliable manner. The proxy works with the Wavefront service to ensure end-to-end flow control. When it detects network connectivity issues, the proxy
-queues metrics in memory and on disk. Once connectivity is restored, the proxy replays queued metrics but prioritizes
-real-time traffic. There are many ways to  [configure](proxies_configuring.html) the proxy to tune this behavior.
-
-The [proxy preprocessor](proxies_preprocessor_rules.html) allows you to correct errors in the metrics coming from your source, reducing the number of invalid metrics which would otherwise be rejected by the proxy.
-
-The proxy generates its own [internal metrics](wavefront_monitoring.html) for easy monitoring of the pipeline within Wavefront. In initial deployments, you can start with one Wavefront proxy. To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies:
-
-![Wavefront architecture load balanced](images/wavefront_architecture_lb.svg)
-
+* The [Wavefront REST API](wavefront_api.html) allows you to perform UI actions programmatically. The API is based on Swagger, so you can generate the client of your choice.
 
 
 ## How to Get Data Into Wavefront
 
-You have many choices for getting data into Wavefront. You can combine them to monitor all data sources in your environment.
+You have many choices for [getting data into Wavefront](wavefront_data_ingestion.html). For an introduction, watch this video by Wavefront Co-Founder Clement Pang.
+
+<p><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_data_into_wavefront.png" style="width: 700px;" alt="getting data into wavefront"/></a>
+</p>
+
+Using Wavefront, you can monitor all data sources in your environment.
+
 * Configure Wavefront to access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
 * Set up a collector agent such as Telegraf to gather data from your applications and send that data to the Wavefront proxy. Wavefront supports many standard [collector agents](integrations.html), including Telegraf, Docker cAdvisor​, and others. You can use a collector agent integration install the agent and proxy for you.
 * Instrument your applications using the Wavefront metrics library and send the data to the Wavefront proxy.
-* Send data directly to Wavefront. If your environment already has a metrics infrastructure, you can do some pre-processing on the data so they correspond to the Wavefront Data Format, and send them to the Wavefront proxy.
+* Send data directly to the Wavefront proxy. If your environment already has a metrics infrastructure, you can do some pre-processing on the data so they correspond to the Wavefront Data Format, and send them to the Wavefront proxy.
+* Use direct ingestion. For some use cases, [direct ingestion](direct_ingestion.html) is the best approach. Consider the [proxy benefits](proxies.html#proxy-benefits) before you select direct ingestion.
+* For high-velocity metrics, [Wavefront histograms](proxies_histograms.html) might be the best solution.

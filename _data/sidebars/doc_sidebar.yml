@@ -19,16 +19,12 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-    - title: "Docs & Dashboards Overview"
-      url: /documentation_getting_started.html
-      output: web
-
     - title: "Tutorial: Getting Started"
       url: /tutorial_getting_started.html
       output: web
 
-    - title: "Tutorial: Getting Data into Wavefront"
-      url: /tutorial_data_ingestion.html
+    - title: "Docs & Dashboards Overview"
+      url: /documentation_getting_started.html
       output: web
 
     - title: "Videos"
