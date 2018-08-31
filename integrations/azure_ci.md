@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Virtual Machine Integration
+title: Microsoft Azure Container Instances Integration
 tags: [integrations list]
-permalink: azure_vm.html
-summary: Learn about the Wavefront Microsoft Azure Virtual Machine Integration.
+permalink: azure_ci.html
+summary: Learn about the Wavefront Microsoft Azure Container Instances Integration.
 ---
 ## Microsoft Azure Integration
 
