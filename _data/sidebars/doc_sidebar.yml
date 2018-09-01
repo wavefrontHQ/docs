@@ -92,6 +92,26 @@ entries:
       output: web
 
       subfolders:
+      - title: Proxies
+        output: web
+        subfolderitems:
+
+        - title: Wavefront Proxies
+          url: /proxies.html
+          output: web
+
+        - title: Installing and Managing Proxies
+          url: /proxies_installing.html
+          output: web
+
+        - title: Advanced Proxy Configuration
+          url: /proxies_configuring.html
+          output: web
+
+        - title: Wavefront Proxy Preprocessor Rules
+          url: /proxies_preprocessor_rules.html
+          output: web
+
       - title: Advanced Data Ingestion
         output: web
         subfolderitems:
@@ -111,7 +131,6 @@ entries:
         - title: Delta Counters
           url: /delta_counters.html
           output: web
-
 
   - title: Query Language
     output: web
@@ -170,7 +189,7 @@ entries:
           url: /query_language_windows_trends.html
           output: web
 
-        - title: Wavefront Use Cases
+        - title: Use Case Videos
           url: /wavefront_use_cases.html
           output: web
 
@@ -383,27 +402,6 @@ entries:
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
-
-  - title: Proxies
-    output: web
-    folderitems:
-
-    - title: Wavefront Proxies
-      url: /proxies.html
-      output: web
-
-    - title: Installing and Managing Wavefront Proxies
-      url: /proxies_installing.html
-      output: web
-
-    - title: Advanced Proxy Configuration
-      url: /proxies_configuring.html
-      output: web
-
-    - title: Wavefront Proxy Preprocessor Rules
-      url: /proxies_preprocessor_rules.html
-      output: web
-
 
   - title: API and CLI
     output: web

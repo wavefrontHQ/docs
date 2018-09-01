@@ -123,6 +123,6 @@ To learn more:
 
 * Use the Interactive Query Language Exporer dashboard.
 
-![query language tutorial](images/ql_dashboard.png)
+  ![query language tutorial](images/ql_dashboard.png)
 
 Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your exciting journey!
