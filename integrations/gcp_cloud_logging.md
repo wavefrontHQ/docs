@@ -1,8 +1,8 @@
 ---
-title: Google Cloud VPN Integration
+title: Google Cloud Logging Integration
 tags: [integrations list]
-permalink: gcp_cloud_vpn.html
-summary: Learn about the Wavefront Google Cloud VPN Integration.
+permalink: gcp_cloud_logging.html
+summary: Learn about the Wavefront Google Cloud Logging Integration.
 ---
 ## Google Cloud Platform Integration
 

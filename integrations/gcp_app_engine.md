@@ -24,6 +24,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google App Engine
 - Google Cloud Datastore
 - Google Cloud Functions
+- Google Cloud Logging
 - Google Cloud Pub/Sub
 - Google Cloud Router
 - Google Cloud Spanner
