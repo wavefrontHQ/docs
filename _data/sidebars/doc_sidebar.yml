@@ -112,6 +112,10 @@ entries:
           url: /proxies_preprocessor_rules.html
           output: web
 
+        - title: Wavefront Integration CLI
+          url: /wavefront_cli.html
+          output: web
+
       - title: Advanced Data Ingestion
         output: web
         subfolderitems:
@@ -403,20 +407,20 @@ entries:
       url: /wavefront_searching.html
       output: web
 
-  - title: API and CLI
+  - title: API, SDKs, and CLI
     output: web
     folderitems:
 
-      - title: Wavefront API
+      - title: Wavefront REST API
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront API Python Client
-        url: /wavefront_api_python.html
+      - title: Wavefront SDKs
+        url: /wavefront_instrumentation_api.html
         output: web
 
-      - title: Wavefront CLI
-        url: /wavefront_cli.html
+      - title: Wavefront CLIs
+        url: /wavefront_command-line_interfaces.html
         output: web
 
   - title: Administration
