@@ -47,6 +47,10 @@ entries:
       url: /proxies_versions.html
       output: web
 
+    - title: 2018-30.x Release Notes
+      url: /2018.30.x_release_notes.html
+      output: web
+
     - title: 2018-26.x Release Notes
       url: /2018.26.x_release_notes.html
       output: web
