@@ -19,16 +19,12 @@ entries:
       url: /wavefront_introduction.html
       output: web
 
-    - title: "Docs & Dashboards Overview"
-      url: /documentation_getting_started.html
-      output: web
-
     - title: "Tutorial: Getting Started"
       url: /tutorial_getting_started.html
       output: web
 
-    - title: "Tutorial: Getting Data into Wavefront"
-      url: /tutorial_data_ingestion.html
+    - title: "Docs & Dashboards Overview"
+      url: /documentation_getting_started.html
       output: web
 
     - title: "Videos"
@@ -96,6 +92,26 @@ entries:
       output: web
 
       subfolders:
+      - title: Proxies
+        output: web
+        subfolderitems:
+
+        - title: Wavefront Proxies
+          url: /proxies.html
+          output: web
+
+        - title: Installing and Managing Proxies
+          url: /proxies_installing.html
+          output: web
+
+        - title: Advanced Proxy Configuration
+          url: /proxies_configuring.html
+          output: web
+
+        - title: Wavefront Proxy Preprocessor Rules
+          url: /proxies_preprocessor_rules.html
+          output: web
+
       - title: Advanced Data Ingestion
         output: web
         subfolderitems:
@@ -115,7 +131,6 @@ entries:
         - title: Delta Counters
           url: /delta_counters.html
           output: web
-
 
   - title: Query Language
     output: web
@@ -174,7 +189,7 @@ entries:
           url: /query_language_windows_trends.html
           output: web
 
-        - title: Wavefront Use Cases
+        - title: Use Case Videos
           url: /wavefront_use_cases.html
           output: web
 
@@ -286,9 +301,6 @@ entries:
       url: /label_integrations%20list.html
       output: web
 
-    - title: Wavefront Integration CLI
-      url: /wavefront_cli.html
-      output: web    
 
       subfolders:
       - title: Details for Built-In Integrations
@@ -379,7 +391,6 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
 
-
   - title: Organizing and Searching
     output: web
     folderitems:
@@ -392,53 +403,28 @@ entries:
       url: /wavefront_searching.html
       output: web
 
-  - title: Proxies
+  - title: API and CLI
     output: web
     folderitems:
 
-    - title: Wavefront Proxies
-      url: /proxies.html
-      output: web
-
-    - title: Installing and Managing Wavefront Proxies
-      url: /proxies_installing.html
-      output: web
-
-    - title: Advanced Proxy Configuration
-      url: /proxies_configuring.html
-      output: web
-
-    - title: Wavefront Proxy Preprocessor Rules
-      url: /proxies_preprocessor_rules.html
-      output: web
-
-
-  - title: API, SDK, and  CLI
-    output: web
-    folderitems:
-
-      - title: Wavefront Management API (REST)
+      - title: Wavefront API
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront Instrumentation SDKs
-        url: /wavefront_instrumentation_api.html
+      - title: Wavefront API Python Client
+        url: /wavefront_api_python.html
         output: web
 
-      - title: Wavefront CLIs
-        url: /wavefront_clis.html
+      - title: Wavefront CLI
+        url: /wavefront_cli.html
         output: web
 
   - title: Administration
     output: web
     folderitems:
 
-      - title: Permissions Overview
+      - title: Permissions
         url: /permissions_overview.html
-        output: web
-
-      - title: Miscellaneous Permissions
-        url: /permissions_misc.html
         output: web
 
       - title: Managing Your Wavefront Account
