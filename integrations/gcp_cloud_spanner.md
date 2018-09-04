@@ -33,6 +33,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google Compute Engine
 - Google Container Engine
 - Google Firebase
+- Google ML Engine
 
 ### Alerts
 
