@@ -42,7 +42,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 ### Step 4. Create a Script to Gather Oracle RDBMS Metrics
 
-1. Download [wavefront_oracle_metrics.py](https://raw.githubusercontent.com/wavefrontHQ/oracle-metrics-collector/master/wavefront_oracle_metrics.py) onto your Telegraf agent server.
+1. Download [wavefront_oracle_metrics.py](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/oracle/wavefront_oracle_metrics.py) onto your Telegraf agent server.
 2. Test the script execution using this command:
     ```
     python wavefront_oracle_metrics.py
@@ -53,7 +53,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
     wavefront_oracle_metrics.py: error: the following arguments are required: -u/--user, -p/--passwd, -s/--sid
     ```
     If the script is not executing, adjust the file permission and the Python path.
-3. Download [exec_oracle_python.sh](https://raw.githubusercontent.com/wavefrontHQ/oracle-metrics-collector/master/exec_oracle_python.sh) onto your Telegraf agent server.
+3. Download [exec_oracle_python.sh](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/oracle/exec_oracle_python.sh) onto your Telegraf agent server.
 4. Edit the script to change the environment variables, and  python execution path for your Telegraf agent server. 
 5. Change the ``wavefront password`` & ``sid`` parameters in exec_oracle_python.sh file. 
 ```
