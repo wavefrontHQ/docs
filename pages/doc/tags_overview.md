@@ -3,30 +3,28 @@ title: Organizing with Tags
 tags: [getting started, alerts, dashboards, events, videos]
 sidebar: doc_sidebar
 permalink: tags_overview.html
-summary: Learn how to use tags to speed up searching and query display and how to manage entity tags.
+summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.
 ---
-A tag is custom metadata that adds application-specific meaning to Wavefront _entities_: alerts, dashboards, events, and sources and _metrics_. Tags group together entities and metrics according to categories you define.
+A tag is custom metadata that adds application-specific meaning to Wavefront entities such alerts, dashboards, events, and sources and metrics.
 
-For an overview of how tags can help you organize your data and improve searches, watch this video:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_organize_tags.png" style="width: 700px;"/></a>
+Watch the following video for an introduction to point tags and source tags:
+
+<p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
 </p>
+
 
 ## Why Tags?
 
-You use tags to limit the number entities and metrics you are working with or querying at once. Limiting the number of entities reduces information overload. Limiting the number of metrics reduces the time to display results.
+You use tags in several ways:
+* **Point tags** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
+* **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
+  **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
+* **Alert tags** -- Find alerts or to exclude tagged alerts froma maintenance window.
+* **Entity tags** -- Limit the number of entities and metrics. For example, you might  display only dashboards with a certain tag.
 
-In the Wavefront UI and API you can use entity tags to filter alert, dashboard, event, and source entities. In the Wavefront UI, entity tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
+You can use tags to filter alerts, dashboards, events, and sources from the Wavefront UI or with the REST API.
 
-In ts() and events() queries, you can filter:
-
--   Metrics with _source_ and _point_ tags
--   Events with:
-    - _alert_ and _event_ entity tags
-    - _system_ severity, subtype, and type tags added by alerts
-
-## Tag Types
-
-The table summarizes where the two types of tags are used and where they are added and updated.
+### Tag Types
 
 <table>
 <colgroup>
@@ -45,39 +43,58 @@ The table summarizes where the two types of tags are used and where they are add
 </thead>
 <tbody>
 <tr>
-<td>alert</td>
-<td markdown="span">[Alert Management](alerts.html) and [Preventing Alerts from Firing](maintenance_windows_managing.html)</td>
-<td markdown="span">[Basic events() Queries](events_queries.html)</td>
+<td>point tag</td>
+<td markdown="span">Data sources can include point tags, or you can add point tags. Use the [Wavefront Data Format](wavefront_data_format.html).
+</td>
+<td markdown="span">Add point tags using [preprocessor rules](proxies_preprocessor_rules.html). <br /><br />
+Use point tags to [filter queries](query_language_point_tags.html)</td>
+<td markdown="span">Data source, e.g. AWS or Telegraf agent<br /><br />[Wavefront Integration CLI](wavefront_cli.html)</td>
+</tr>
+<tr>
+<td>source tag</td>
+<td markdown="span">The Wavefront UI and API supports filtering by source and filtering by source tag. </td>
+<td markdown="span">[Tags in Queries](query_language_reference.html#tags-in-queries)</td>
 <td markdown="span">Wavefront UI and API</td>
 </tr>
 <tr>
-<td>dashboard</td>
-<td markdown="span">[Managing Dashboards](dashboards_managing.html)</td>
+<td>alert tag</td>
+<td markdown="span">[Create or add alert tags](alerts.html#creating-an-alert) <br />
+<br />
+[Suppress alerts](maintenance_windows_managing.html#creating-a-maintenance-window) with alert tags or source tags during a maintenance window.</td>
+<td markdown="span">Event filters in [Basic events() Queries](events_queries.html)</td>
+<td markdown="span">Wavefront UI and API</td>
+</tr>
+<tr>
+<td>dashboard tag</td>
+<td markdown="span">Creating a dashboard from the Metrics browser allows you to add source tags to the dashboard.</td>
 <td></td>
 <td markdown="span">Wavefront UI and API<br /><br />Dashboards added by Wavefront have system tags that start with `~`, e.g. `~integration.aws` or `~welcome.tutorial`.</td>
 </tr>
 <tr>
-<td>event</td>
-<td markdown="span">[Managing Events](events.html)</td>
-<td markdown="span">[Basic events() Queries](events_queries.html)</td>
-<td markdown="span">system tags added by alerts<br /><br />entity tags added in the Wavefront UI and API</td>
-</tr>
-<tr>
-<td>point</td>
-<td></td>
-<td markdown="span">[Wavefront Data Format](wavefront_data_format.html) and [Point Tags in Queries](query_language_point_tags.html)</td>
-<td markdown="span">Wavefront proxy<br />[Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html)<br /><br />
-Telegraf agent<br />
-[Wavefront CLI](wavefront_cli.html)</td>
-</tr>
-<tr>
-<td>source</td>
-<td markdown="span">[Managing Sources](sources_managing.html) and [Managing Maintenance Windows](maintenance_windows_managing.html#using-maintenance-windows)</td>
-<td markdown="span">[Getting Started with Wavefront Query Language](query_language_getting_started.html)</td>
-<td markdown="span">Wavefront UI and API</td>
+<td>event tags</td>
+<td markdown="span">[Create or add event tags](events.html#creating-a-user-event)</td>
+<td markdown="span">Event filters in [Basic events() Queries](events_queries.html)</td>
+<td markdown="span">Alerts add system tags to events<br /><br />Users add entity tags to events</td>
 </tr>
 </tbody>
 </table>
+
+### Tags in the UI
+
+In the Wavefront UI:
+* Tags display when you hover your mouse over a line, point, etc. in a chart.
+* Tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
+* Tags on the left of the entity browser allow you to filter your display.
+
+### Tags in Queries
+
+In ts() and events() queries, you can filter:
+
+-   Metrics with source tags and point tags
+-   Events with:
+    - alert tags and event tags
+    - system tags added by alerts (severity, subtype, and type)
+
 
 ## Tag Paths
 
@@ -93,8 +110,8 @@ In queries, you achieve the same effect by using trailing wildcards "**.\***" wh
 
 When you create maintenance windows you can use tag paths and wildcards to put a group of of alerts in maintenance.
 
-<a name="entity_tags"></a>
 
+<a name="entity_tags"></a>
 ## Managing Entity Tags
 
 Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
@@ -122,8 +139,14 @@ To add tags to one or more entities:
 
 When you have many tags in your environment, you can search for tags by typing tag names in the Search box below the Tags heading in the filter bar on the left. As you type, the list of tags is filtered by the search string.
 
-**Note** When you search for tags, the search process is *case insensitive*. For example, searching for the tag **myapp** returns **MyApp** and **myapp.**.
+**Note** When you search for tags, the search process is *case insensitive*. For example, searching for the tag **myapp** returns **MyApp** and **myapp**.
 
 ### Filtering by Entity Tags
 
 To filter by a tag, click a tag icon. You can click the icon in the filter bar on the left or below an entity in an entity browser.
+
+## Video: Organizing with Tags
+
+For an overview of how tags can help you organize your data and improve searches, watch this video:
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_organize_tags.png" style="width: 700px;"/></a>
+</p>
