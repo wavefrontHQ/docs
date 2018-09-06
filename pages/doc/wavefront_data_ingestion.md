@@ -84,7 +84,7 @@ For use cases that involve metrics from proprietary applications, you can instru
    1. Set up a Wavefront Proxy. If you have a proxy installed in your environment, consider using that - or you can install a new proxy. See [Installing and Managing Proxies](proxies_installing.html)
    2. Send the metrics you're interested in to the Wavefront proxy at port 2878 in a format that Wavefront supports. See [Supported Data Formats](proxies.html#supported-data-formats)
 
-**Note:** You can use a [Wavefront SDK](wavefront_instrumentation_api) to send metrics from your applications. We support several integrations for application instrumentation, or you can access the SDK directly from GitHub.
+**Note:** You can use a Wavefront Application Instrumentation integration to send metrics from your applications. 
 
 
 ### Metrics from a Cloud Provider

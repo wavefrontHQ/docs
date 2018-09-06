@@ -419,10 +419,6 @@ entries:
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront SDKs
-        url: /wavefront_instrumentation_api.html
-        output: web
-
       - title: Wavefront CLIs
         url: /wavefront_command-line_interfaces.html
         output: web

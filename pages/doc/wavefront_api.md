@@ -7,11 +7,8 @@ permalink: wavefront_api.html
 summary: Learn about the REST API for managing Wavefront.
 ---
 
-Wavefront supports a REST API for management and [instrumentation SDKs](wavefront_instrumentation_api.html) for sending metrics.
-* The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as creating events. You can use Swagger to create an API client or a CLI client from this API.
-* The [instrumentation SDKs](wavefront_instrumentation_api.html) allow you to send metrics to the Wavefront proxy or directly to the Wavefront service. These SDKs are available through different Application Instrumentation integrations and in GitHub.
+The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as creating events. You can use Swagger to create an API client or a CLI client from this API.
 
-This page describes the Wavefront REST API.
 
 ## REST API Overview
 

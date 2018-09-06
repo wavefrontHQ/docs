@@ -4,6 +4,7 @@ keywords: getting started
 tags: [getting started]
 sidebar: doc_sidebar
 permalink: wavefront_instrumentation_api.html
+published: false
 summary: Learn about reporting metrics from your application.
 ---
 
