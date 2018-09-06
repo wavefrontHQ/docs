@@ -6,9 +6,10 @@ sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: Learn about the Wavefront native data format.
 ---
-Wavefront proxies support the following data formats:
+The Wavefront data format is supported by Wavefront proxies and by [direct ingestion](direct_ingestion.html)
 
-- Wavefront data format
+Wavefront proxies support the following additional data formats:
+
 - [Graphite data format (plaintext and  pickle)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html)
 - [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing.html)
 

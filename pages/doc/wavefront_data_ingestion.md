@@ -23,7 +23,7 @@ You can use Wavefront for any time series metrics, even if you're already collec
     * For cloud services, you use one of the [Cloud integrations](integrations_list.html#cloud) -- you don't have to install or set up a Wavefront proxy.
     * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a collectd integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Graphana, and [Wavefront data format](images/data_flow.png).
 
-![wavefront architecture condensed](images/wavefront_architecture_condensed.svg)
+![data into wavefront](images/data_into_wavefront_with_ingestion.svg)
 
 ## Step 1: Understand Your Use Case
 
