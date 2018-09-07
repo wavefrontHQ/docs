@@ -26,10 +26,14 @@ When you log in to Wavefront the first time, the Getting Started workflow displa
 
 ## Tutorials <i class="fa-check-circle fa" style="color: green;"/>
 
-Standalone tutorials in this doc set help you learn the basics.
+You can go through the [Tutorial: Getting Started](tutorial_getting_started.html) in this doc set for the basics.
 
-- [Tutorial: Getting Started](tutorial_getting_started.html)
-- [Tutorial: Getting Data into Wavefront](tutorial_data_ingestion.html)
+Once you've signed in to Wavefront, you can go through Wavefront Tutorial -- one of the Featured integrations.
+
+![tutorial integration](images/tutorial_integration.png)
+
+You can also explore with the Interactive Query Language dashboard.
+![query language tutorial](images/ql_dashboard.png)
 
 <a name="overview-documents"></a>
 
@@ -38,7 +42,7 @@ Standalone tutorials in this doc set help you learn the basics.
 The following docs are great for learning what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront. These docs also explore the main entities in Wavefront: charts, dashboards, alerts, events, and integrations.
 
 - [What is Wavefront?](wavefront_introduction.html)
-- [Getting Data into Wavefront Overview](wavefront_data_ingestion.html)
+- [Getting Data into Wavefront](wavefront_data_ingestion.html)
 - [Permissions Overview](permissions_overview.html)
 - [Organizing with Tags](tags_overview.html)
 - [Searching Wavefront](wavefront_searching.html)
@@ -52,6 +56,10 @@ The following docs are great for learning what Wavefront is, how to get data int
 
 Here are some links to popular docs and videos. You can also search this doc set (top right) to find what you need.
 
+### Videos
+
+You can find most videos on our [videos](videos.html) page. We've also included those  videos on pages where they're most useful.
+
 ### Charts and Dashboards
 
 Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video help you learn how to create and use charts and dashboards in Wavefront.
@@ -62,7 +70,7 @@ Dashboards make it possible to save multiple charts in a single location for fut
 
 ### Query Language
 
-The Wavefront Query Language is the foundation of charts and alerts in Wavefront. The following topics and video help you learn the query language.
+The Wavefront Query Language is the foundation of charts and alerts in Wavefront. The following topics help you learn the query language.
 
 - [Getting Started with Wavefront Query Language](query_language_getting_started.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Query Builder](query_language_query_builder.html) <i class="fa-check-circle fa" style="color: green;"/>
@@ -70,6 +78,8 @@ The Wavefront Query Language is the foundation of charts and alerts in Wavefront
 - [Query Wizard](query_language_query_wizard.html)
 - [Series Matching](query_language_series_matching.html)
 - [Point Tags in Queries](query_language_point_tags.html)
+
+We also have a complete list of [Query Language Reference Pages](label_reference%20page.html).
 
 ### Alerts and Events
 
