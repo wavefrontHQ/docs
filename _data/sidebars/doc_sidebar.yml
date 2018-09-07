@@ -420,7 +420,7 @@ entries:
         output: web
 
       - title: Wavefront CLIs
-        url: /wavefront_command-line_interfaces.html
+        url: /wavefront_clis.html
         output: web
 
   - title: Administration
