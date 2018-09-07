@@ -30,10 +30,10 @@ You can go through the [Tutorial: Getting Started](tutorial_getting_started.html
 
 Once you've signed in to Wavefront, you can go through Wavefront Tutorial -- one of the Featured integrations.
 
-![tutorial integration](images/tutorial_integration.png)
+![tutorial integration](images/tut_integration.png)
 
 You can also explore with the Interactive Query Language dashboard.
-![query language tutorial](images/ql_dashboard.png)
+![query language tutorial](images/ql_dashbrd.png)
 
 <a name="overview-documents"></a>
 

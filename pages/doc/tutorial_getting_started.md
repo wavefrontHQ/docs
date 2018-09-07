@@ -119,10 +119,10 @@ To learn more:
 
 * Explore the Wavefront Tutorial -- one of the Featured integrations.
 
-  ![tutorial integration](images/tutorial_integration.png)
+  ![tutorial integration](images/tut_integration.png)
 
 * Use the Interactive Query Language Exporer dashboard.
 
-  ![query language tutorial](images/ql_dashboard.png)
+  ![query language tutorial](images/ql_dashbrd.png)
 
 Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your exciting journey!
