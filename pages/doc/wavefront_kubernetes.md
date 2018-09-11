@@ -25,7 +25,7 @@ Our [Monitoring VMware Kubernetes Engine and Application Metrics with Wavefront]
 
 ## Core Monitoring
 
-Core monitoring retrives metrics a cluster monitoring service -- currently Heapster -- and through kube-state-metrics.
+Core monitoring retrieves metrics using a cluster monitoring service -- currently Heapster -- and through kube-state-metrics.
 * The cluster monitoring service provides CPU, memory, filesystem, and network/IO usage for the cluster and all nodes, pods, namespaces, and containers.
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) provides the current state of Kubernetics objects such as deployments, replica sets, pods, etc.
 
@@ -41,7 +41,7 @@ How you perform application monitoring depends on the type of application. You h
   A sidecar enhances or extends the capability of an existing container and is deployed within the same Kubernetes pod. The pod wraps these containers and their storage resources into a single entity. No changes to the existing container image are necessary.
 
 * To monitor a Kubernetes cluster, for example, a MySQL cluster, you deploy your Telegraf agent in a standalone container. This container can live in the same node as the cluster you monitor, or even in a different node.
-* Wavefront is also compatible with Prometheus. You deploy a container with Telegraf, and the Telegraf Prometheus plugin scrapes the Prometheus endpoint for metrics. A headless service exposes the Prometheus endpoint (port) so that it can be scraped easily.
+* You can also use Wavefront with Prometheus. You deploy a container with Telegraf, and the Telegraf Prometheus plugin scrapes the Prometheus endpoint for metrics. A headless service exposes the Prometheus endpoint (port) so that it can be scraped easily.
 
   As in the other cases, Telegraf sends the metrics it collects to the Wavefront proxy.
 
@@ -51,7 +51,7 @@ How you perform application monitoring depends on the type of application. You h
 
 The Kubernetes infrastructure includes the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) which can automatically scale the number of pods.
 
-* By default, the Horizontal Pod Autoscaler gets CPU information from the Kubernetes Metrics Server.
+* By default, the Horizontal Pod Autoscaler gets CPU and memory information from the Kubernetes Metrics Server.
 
 * The Wavefront Horizontal Pod Autoscaler Adapter allows you to collect additional metrics, such as memory or other information from your Kubernetes environment, and provide them to the Horizontal Pod Autoscaler. The Horizontal Pod Autoscaler can then use that information to scale the environment.
 
