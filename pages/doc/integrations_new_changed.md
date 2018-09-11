@@ -18,7 +18,7 @@ We added the following integrations in August 2018:
 * Google Cloud Router integration/dashboard
 * Google Cloud Pub/Sub integration/dashboard
 * Google Cloud Logging integration/dashboard
-* Google Cloud ML integration/dashboard
+* Google Cloud ML Engine integration/dashboard
 * Azure Container Instance integration/dashboard
 
 We added dashboards to the following integration in August 2018:
