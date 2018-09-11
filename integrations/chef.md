@@ -34,7 +34,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
    chef-server-ctl reconfigure
    opscode-reporting-ctl reconfigure
    ```
-2. Download [chef-metrics-collector](https://github.com/wavefrontHQ/chef-metrics-collector/raw/master/chef-metrics-collector) onto your Chef server, and place it in an accessible location, for example `/etc/telegraf/.chef`
+2. Download [chef-metrics-collector](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/chef/chef-metrics-collector) onto your Chef server, and place it in an accessible location, for example `/etc/telegraf/.chef`
 3. Keep the private key of the Chef user in a file in an accessible location, for example `/etc/telegraf/.chef/admin.pem`
 4. Create the file `knife.rb` on your Chef server with the following configuration settings for your environment, and place it in an accessible location, for example `/etc/telegraf/.chef`
    ```
