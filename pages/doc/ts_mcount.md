@@ -25,7 +25,7 @@ Returns the number of data points reported over the specified time window. If a 
 <td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 
-<div><strong>NOTE</strong>: If a time series stops reporting data, <code>mcount()</code> continues for 2x the specified time window, and then stops.</div></td></tr>
+<div><strong>NOTE</strong>: If a time series stops reporting data, <code>mcount()</code> reports 0 for 2x the specified time window, and then stops.</div></td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>Expression describing the time series you want moving counts for.  </td>
@@ -37,7 +37,7 @@ Returns the number of data points reported over the specified time window. If a 
 
 The `mcount()` function returns the moving count for each time series described by the expression. The moving count is the number of data points reported by a time series over a shifting time window. For example, `mcount(10m, ts(my.metric))` returns, at each point, the number data values over the previous 10 minutes for each specified time series.
 
-If a time series stops reporting data, `mcount()` continues to return the moving count until up to 2 times the elapsed time window after the last reported point, and returns no data after that. Later, If the time series starts to report data again, the data gap in between the last point reported by mcount() and the new point gets filled with zeros.
+If a time series stops reporting data, `mcount()` continues to return the moving count until 2x the time window after the last reported point, and returns no data after that. Later, if the time series starts to report data again, the data gap between the last point returned by `mcount()` and the new point gets filled with zeros.
 
 Here's how to select your counting/summing function:
 

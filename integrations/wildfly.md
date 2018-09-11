@@ -31,7 +31,8 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 1. Download the latest version of the Jolokia WAR-Agent from: https://jolokia.org/download.html.
 2. Rename the `jolokia-war-X.X.X.war` file to `jolokia.war`.
 3. Deploy the `jolokia.war` file into the JBoss AS Instance.
-4. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
+4. Add an `ApplicationRealm` user with `jolokia` role (mandatory for Jolokia 1.6 or later)
+5. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
 The result looks similar to this:{% raw %}
 ```
@@ -46,6 +47,10 @@ First create a file called `jboss.conf` in `/etc/telegraf/telegraf.d` and enter 
 [[inputs.jolokia2_agent]]
 urls = ["http://10.152.24.99:8380/jolokia","http://10.152.24.99:8230/jolokia"]
 name_prefix = "jboss."
+
+#username and password are mandatory for Jolokia 1.6 or later
+#username = <jolokia role username>
+#password = <jolokia role password>
 
 ### JVM Generic
 

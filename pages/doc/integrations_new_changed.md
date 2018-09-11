@@ -9,9 +9,43 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## August 2018
+We added the following integrations in August 2018:
+
+* AWS Direct Connect integration/dashboard
+* AWS API Gateway integration/dashboard
+* Google Cloud VPN integration/dashboard
+* Google Cloud Router integration/dashboard
+* Google Cloud Pub/Sub integration/dashboard
+* Google Cloud Logging integration/dashboard
+* Google Cloud ML integration/dashboard
+* Azure Container Instance integration/dashboard
+
+We added dashboards to the following integration in August 2018:
+* Added kube-state-metrics setup instructions and dashboard to Kubernetes integration
+
+We updated charts and filtering for the following dashboards in August 2018:
+* Azure VM Scale Set dashboard
+* Azure Storage Account dashboard
+* Azure VM dashboard
+* Couchbase dashboard
+* Amazon Redshift dashboard
+* RabbitMQ dashboard
+* Apache HTTPD dashboard
+* AWS EC2 dashboard
+* AWS Auto-Scaling dashboard
+* AWS DynamoDB dashboard
+* Apache Tomcat
+
+We updated the Setup instructions for the following integrations:
+* JBOSS setup now uses Jolokia 1.6
+* Apache Tomcat setup now uses Jolokia 1.6.
+
+
+
 ## July 2018
 
-We added the following integrations in July/August 2018:
+We added the following integrations in July 2018:
 * Runscope integration
 * AWS Lambda Functions Integration (Collection of standard metrics plus Wavefront wrappers for AWS Lambda functions)
 

@@ -11,11 +11,8 @@ In a Function-as-a-Service (FaaS) environment, also called a serverless environm
 This integration allows you to instrument your Lambda function to report custom metrics to Wavefront. Additionally, this integration reports the following standard metrics about your Lambda functions:
 
 - **aws.lambda.wf.invocations.count**: Lambda function invocations (Delta Counter)
-- **aws.lambda.wf.invocation_event.count**: Lambda function invocations (Counter)
 - **aws.lambda.wf.errors.count**: Lambda function errors (Delta Counter)
-- **aws.lambda.wf.error_event.count**: Lambda function errors (Counter)
 - **aws.lambda.wf.coldstarts.count**: Lambda function cold starts (Delta Counter)
-- **aws.lambda.wf.coldstart_event.count**: Lambda function cold starts (Counter)
 - **aws.lambda.wf.duration.value**: Execution time of the Lambda function handler in milliseconds (Gauge)
 
 The Lambda wrapper also adds the following point tags automatically to all metrics sent to Wavefront:

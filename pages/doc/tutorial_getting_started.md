@@ -3,14 +3,14 @@ title: "Tutorial: Getting Started"
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
-summary: Get started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. The tutorial is based on the sample metrics preloaded in your Wavefront account.
+summary: Get started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert.
 ---
 
 This tutorial gets you started with navigating Wavefront, building Wavefront dashboards and charts, and creating an alert. To complete these tasks you need access to a Wavefront instance. Sign up for a [free trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"}!
 
 You also need [Dashboard Management and Alert Management permissions](permissions_overview.html). Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.
 
-The tutorial is based on the sample metrics preloaded in each trial user's  Wavefront account.
+The tutorial uses the sample metrics preloaded in your Wavefront account.
 
 ## Review Sample Dashboards and Metrics
 
@@ -115,4 +115,14 @@ In this section you create an alert that fires when the request latency metric r
 
 ## Next Steps
 
-Now that you are acquainted with the basics of Wavefront features and the UI, you can investigate your own data. If you do not already have your own metrics flowing into Wavefront, follow the instructions in [Tutorial - Getting Data into Wavefront](tutorial_data_ingestion.html) to get started.
+To learn more:
+
+* Explore the Wavefront Tutorial -- one of the Featured integrations.
+
+  ![tutorial integration](images/tut_integration.png)
+
+* Use the Interactive Query Language Exporer dashboard.
+
+  ![query language tutorial](images/ql_dashbrd.png)
+
+Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your exciting journey!

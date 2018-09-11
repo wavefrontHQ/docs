@@ -23,7 +23,7 @@ You can use Wavefront for any time series metrics, even if you're already collec
     * For cloud services, you use one of the [Cloud integrations](integrations_list.html#cloud) -- you don't have to install or set up a Wavefront proxy.
     * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a collectd integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Graphana, and [Wavefront data format](images/data_flow.png).
 
-![wavefront architecture condensed](images/wavefront_architecture_condensed.svg)
+![data into wavefront](images/data_into_wavefront_with_ingestion.svg)
 
 ## Step 1: Understand Your Use Case
 
@@ -84,14 +84,14 @@ For use cases that involve metrics from proprietary applications, you can instru
    1. Set up a Wavefront Proxy. If you have a proxy installed in your environment, consider using that - or you can install a new proxy. See [Installing and Managing Proxies](proxies_installing.html)
    2. Send the metrics you're interested in to the Wavefront proxy at port 2878 in a format that Wavefront supports. See [Supported Data Formats](proxies.html#supported-data-formats)
 
-**Note:** If you are using the Wavefront API to interact with Wavefront, and your applications are written in Go or Java, you can use your Wavefront SDK to send metrics from those applications. See [Wavefront API SDKs](wavefront_api.html#api-sdks) for links to the different SDKs.
+**Note:** You can use a Wavefront Application Instrumentation integration to send metrics from your applications.
 
 
 ### Metrics from a Cloud Provider
 
 Cloud integrations use a different setup process than other integrations. You log in to the cloud service, and give Wavefront read access to the metrics that you're interested in. There's no need to install or set up a Wavefront proxy.
 
-Wavefront supports integrations for the most popular cloud services. This doc set has customization information for [AWS Metrics Integration](integrations_aws_metrics.html) and [AWS ECS Integration](integrations_aws_ecs.html).
+Wavefront supports integrations for the most popular cloud services. This doc set has customization information for example, for [AWS Metrics Integration](integrations_aws_metrics.html), [AWS ECS Integration](integrations_aws_ecs.html), [AWS Lambda Functions](integrations_aws_lambda.html), and [Pivotal Container Service](integrations_pks.html).
 
 ### Special Use Cases
 

@@ -25,7 +25,7 @@ If you don't have the Telegraf agent installed, follow the steps below. Otherwis
 
 Log in to your Wavefront instance and follow the instructions in the **Setup** tab to install Telegraf and a Wavefront proxy in your environment. If a proxy is already running in your environment, you can select that proxy and the Telegraf install command connects with that proxy. Sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"} to check it out!
 
-### Step 3. Create a Script to Gather Hadoop MapReduce Metrics
+### Step 2. Download the Script to Gather Hadoop MapReduce Metrics
 
 1. Download [mapreduce.py](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/hadoop/mapreduce.py) onto your Telegraf agent server.
 2. Test the script execution using this command:{% raw %}
