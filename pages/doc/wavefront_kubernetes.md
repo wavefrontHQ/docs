@@ -22,6 +22,7 @@ The architecture and the tools you use differs for core monitoring and for monit
 
 Our [Monitoring VMware Kubernetes Engine and Application Metrics with Wavefront](https://www.wavefront.com/monitoring-vmware-kubernetes-engine-and-application-metrics-with-wavefront/) discussed that special use case.
 
+Visit the [wavefront-kubernetes](https://www.github.com/wavefrontHQ/wavefront-kubernetes) GitHub repository to find sample deployment definitions, and container images used for Core and Application Monitoring.
 
 ## Core Monitoring
 
@@ -55,7 +56,7 @@ The Kubernetes infrastructure includes the [Horizontal Pod Autoscaler](https://k
 
 * By default, the Horizontal Pod Autoscaler gets CPU and memory information from the Kubernetes Metrics Server.
 
-* The Wavefront Horizontal Pod Autoscaler Adapter allows you to collect additional metrics, such as memory or other information from your Kubernetes environment, and provide them to the Horizontal Pod Autoscaler. The Horizontal Pod Autoscaler can then use that information to scale the environment.
+* The [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to collect additional metrics, such as memory or other information from your Kubernetes environment, and provide them to the Horizontal Pod Autoscaler. The Horizontal Pod Autoscaler can then use that information to scale the environment.
 
 * In addition to other Kubernetes environment metrics, the Wavefront Horizontal Pod Autoscaler Adapter can also allow provide any metric and query within Wavefront to be the driving factor for scale. This functionality allows you to scale Kubernetes pods on any metric, including custom applicaiton metrics, or even metrics external to your Kubernetes environment.
 
