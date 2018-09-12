@@ -174,8 +174,8 @@ Aggregation and raw aggregation functions provide a way to combine (aggregate) m
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -319,12 +319,12 @@ When aggregating, you can group or filter the results.
 <td>Returns one value in <strong>expression</strong> for each time window. For example, if you are collecting data once a minute, but you want data points to be displayed every 30 minutes (summarized by median every 30 minutes), use <strong>align(30m, median, ts(my.metric))</strong>. See <a href="query_language_align_function.html">Bucketing with <code>align()</code></a>.</td>
 </tr>
 <tr>
-<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the top <strong>numberOfTimeSeries</strong> series in <strong>expression</strong>, based on the most recent data point.</td>
+<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the top <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>, based on the single most recent data point or an aggregation of recent data points.</td>
 </tr>
 <tr>
-<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the bottom <strong>numberOfTimeSeries</strong> series in <strong>expression</strong>, based on the most recent data point.</td>
+<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the bottom <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>, based on the single most recent data point or an aggregation of recent data points.</td>
 </tr>
 <tr>
 <td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
