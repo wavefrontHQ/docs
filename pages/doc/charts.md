@@ -247,6 +247,7 @@ The following stack types are supported.
 <li><strong>Normalize to 0-1</strong> - Results in a similar shape to <strong>Zero</strong> except that the values are normalized so that they fill the range between 0 and 1 with the peak of the chart always a solid line drawn at magnitude 1.</li>
 <li><strong>Minimize Weighted Change</strong> - Plots the area while attempting to minimize the weighted change in the slope of the lines. Both this and the <strong>Center the Stream</strong> option tend to result in similar shapes in which the chart does not show a solid area beginning at 0.</li>
 <li><strong>Center the Stream</strong> - Represents the collective magnitude of the queries displayed on the chart with the band narrowing or widening as the metrics fluctuate over time.</li>
+<li><strong>Stacked Columns</strong> - Shows the result as a set of stacked columns.</li>
 </ul>
 </td>
 </tr>
@@ -341,7 +342,7 @@ In addition to general options, a Single Stat chart supports Sparkline options a
 
 #### Sparkline Options
 
-A sparkline is a small graph that summarizes the series displays. You can customize the sparkline with these options: 
+A sparkline is a small graph that summarizes the series displays. You can customize the sparkline with these options:
 
 <table>
 <tbody>
