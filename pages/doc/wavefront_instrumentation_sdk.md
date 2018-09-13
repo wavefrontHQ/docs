@@ -25,8 +25,7 @@ Wavefront supports several out-of-the-box integrations for sending metrics eithe
 ![app instrument](images/app_instrumentation.png)
 
 
-
-### Other SDKs
+## Other SDKs
 
 You can access our SDKs from our public GitHub repository. We're constantly adding functionality to existing SDKs, and adding new SDKs. For example:
 
