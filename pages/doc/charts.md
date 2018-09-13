@@ -258,6 +258,9 @@ Here's an example of **Center the Stream**:
 
 ![center stream](images/center_stream.png)
 
+Here's an example of **Stacked Columns**:
+![stacked columns](images/stacked_columns.png)
+
 ## Scatter Plot
 
 ![scatter plot](images/scatter_plot.png)
