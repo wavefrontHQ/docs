@@ -22,7 +22,7 @@ Wavefront supports several out-of-the-box integrations for sending metrics eithe
 3. Click **Setup** and follow the steps to register metrics and configure metric reporters.
 
 
-![app instrument](images/app_instrument.png)
+![app instrument](images/app_instrumentation.png)
 
 
 
