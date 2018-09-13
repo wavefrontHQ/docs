@@ -335,6 +335,10 @@ entries:
             url: /integrations_log_data.html
             output: web
 
+          - title: Monitor and Scale Kubernetes
+            url: /wavefront_kubernetes.html
+            output: web
+
       - title: Custom Integrations Setup
         output: web
         subfolderitems:
@@ -422,6 +426,11 @@ entries:
       - title: Wavefront CLIs
         url: /wavefront_clis.html
         output: web
+
+      - title: Wavefront SDKs
+        url: /wavefront_sdks.html
+        output: web
+
 
   - title: Administration
     output: web
