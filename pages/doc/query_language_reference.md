@@ -384,12 +384,16 @@ When aggregating, you can group or filter the results.
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_rate.html">rate(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the per-second change of the time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values. Automatically handles zero-resets in counters.</td>
+<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>&rbrack;, <strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the per-second change of the time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values over regular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
 <td><a href="ts_deriv.html">deriv(<strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns the per-second change of the time series described by <strong>expression</strong>. Appropriate for metrics that report increasing or decreasing data values.</td>
+</tr>
+<tr>
+<td><a href="ts_ratediff.html">ratediff(<strong>&lt;expression&gt;</strong>)</a></td>
+<td>Returns the differences between adjacent values in each time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values over irregular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
 <td><a href="ts_lag.html">lag(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
