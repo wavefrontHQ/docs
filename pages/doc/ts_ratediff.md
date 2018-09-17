@@ -58,21 +58,22 @@ A metric indicates a counter reset by reporting a lower data value immediately a
 `ratediff()` never returns a negative change in value. 
 
 
-<!--- ## Examples --->
+## Examples
 
-<!--- This example uses a series of specially ingested points on longboard. See Notes+on+Sending+Points+to+a+Proxy --->
+<!--- This example uses a series of specially ingested points. See Notes+on+Sending+Points+to+a+Proxy --->
 
-<!---
-Here's a query that shows a sample metric that increments a counter. The reporting interval is 2 seconds, which means the counter increments every 2 seconds. We see the count climb from 3:46:00 to 3:46:16, when it resets to 0. The counter restarts at 3:46:20.
-![rate before](images/ts_rate_before.png)
+Here's a query that shows a sample metric that increments a counter. The reporting interval is 2 seconds, which means the counter increments every 2 seconds. We see the count climb from 8:50:36 to 8:50:51, when it resets. The counter restarts at 8:50:55.
+![ratediff before](images/ts_ratediff_before.png)
 
-Now we apply `rate()` to our original query to find out how fast the counter grows per second. Notice: 
-* `rate()`  starts reporting at the counter's second value. 
-* At 3:46:10, the rate of growth is .500, indicating the total has grown half a unit per second since the preceding value.
-* No rate is reported when the counter falls to 0. The reported rate is 0 while the counter stays at 0, and then becomes positive when the count starts to climb. 
-![rate after](images/ts_rate_after.png)
+Now we apply `ratediff()` to our original query to find out how fast the counter grows from point to point. 
+ 
+![ratediff after](images/ts_ratediff_after.png)
 
---->
+Notice: 
+* The first value returned by `ratediff()` is 2, which is the counter's first value minus an inferred value of 0.
+* `ratediff()` returns no value when the counter skips a point at roughly 8:50:53. 
+* When the counter restarts at 8:50:55, `ratediff()` returns 2, which is the counter's first value after the restart, minus an inferred value of 0.
+* The two points reported after the counter restarts have the same value (2), causing `ratediff()` to dip down to 0 at 8:50:57.
 
 ## See Also
 
