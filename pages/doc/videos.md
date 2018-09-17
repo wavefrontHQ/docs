@@ -9,12 +9,23 @@ summary: Get started with Wavefront by watching a set of videos.
 
 This page is for users who learn best watching videos. Many of the videos are also included on the pages about the topic.
 
-* Wavefront engineers explain how things work in a set of lighboard videos. For example, we show how point tags and source tags work, or how we do alerting.
+* Wavefront engineers explain how things work in a set of lighboard videos and ask-the-expert videos. For example, Clement explains point tags and source tags work, and our interview video explores container monitoring best practices.
 * Jason Goocher, Wavefront Customer Success Engineer, created a set of videos for VMware Learning Zone in October 2017.
 
   **Note** These videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
 
-## Lightboard Videos
+## Kubernetes and Container Monitoring
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="45%"><a href="https://www.youtube.com/watch?v=uqknhOpUEqU&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_kubernetes_pierre.png" alt="monitor and scale kubernetes"/></a></td>
+<td width="55%"><a href="https://www.youtube.com/watch?v=_XYr1hlQqfI&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_container_monitoring.png"  alt="container monitoring best practice"/></a></td>
+</tr>
+</tbody>
+</table>
+
+## Clement's Lightboard Videos
 
 <table style="width: 100%;">
 <tbody>

@@ -64,5 +64,5 @@ Wavefront allows you to scale based on other metrics.
 
 In the following video, two Wavefront systems engineers discuss container monitoring best practices.
 
-<p><a href="https://www.youtube.com/watch?v=_XYr1hlQqfI&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_container_monitoring.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
+<p><a href="https://www.youtube.com/watch?v=_XYr1hlQqfI&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_container_monitoring.png" style="width: 700px;" alt="container monitoring best practice"/></a>
 </p>
