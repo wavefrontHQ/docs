@@ -35,7 +35,7 @@ the start time of your chart (<strong>"start"</strong>), or the end time of your
 
 ## Description
 
-The `at()` standard time function returns the data value that was reported at a particular time by the time series described by the expression.  The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against the results of other queries. `at()` returns a separate result for each time series described by the expression.
+The `at()` standard time function returns the data value that was reported at a particular time (or, if such value is not available, the last reported value within a 1-hour time window preceding that particular time) by the time series described by the expression.  The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against the results of other queries. `at()` returns a separate result for each time series described by the expression.
 
 You designate the data value of interest by specifying the time it was reported, typically as an interval before the current time. For example, you can specify `2h` to obtain the data value that was reported 2 hours ago. In fact, you'll see the value from 2 hours ago, even if you're looking at a chart of past values from weeks or months ago.
 
