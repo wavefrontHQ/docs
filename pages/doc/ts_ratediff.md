@@ -34,6 +34,8 @@ For example, consider a metric that counts the cumulative total number of logins
 
 Although you can apply `ratediff()` to any kind of metric, the intended use is to find the differences for counter metrics, which are metrics that report cumulative totals (increasing values) over time. Accordingly, `ratediff()` returns only positive changes in value. 
 
+`ratediff()` is similar to Graphite's `nonNegativeDerivative()` function, except for the way `ratediff()` handles the first data value in a series or the first data value after a counter reset (see below).
+
 ### Change in Value
 
 `ratediff()` returns a simple change in value from one data point to the next, rather than computing a rate of change over time. For example, let's say that a metric has a reporting interval of 30 seconds, and reports these successive data values: 
