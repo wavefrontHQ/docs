@@ -735,7 +735,12 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 <tr>
 <td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;expression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
 </td>
-<td>Returns a smoothed version of the expression and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
+<td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
+</tr>
+<tr>
+<td>forecast(<strong>&lt;expression&gt;</strong>)
+</td>
+<td>Forecasts future data values for each time series described by the expression. The chart's bucket size affects how the amount of data used in the predictions. A larger bucket size produces faster, but less detailed, results. </td>
 </tr>
 <tr>
 <td>hs(<strong>&lt;histogram_metric&gt;</strong>)

@@ -35,7 +35,7 @@ The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand t
 
 Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier. The `mmedian` function is more robust in dealing with outliers than `avg`/ `mavg` because outliers tend to move the mean towards the outlier value.
 
-Cosider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
+Consider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
 data:|`ts(test.http.requests, host=web493.corp.example.com)`
 mean:|`mavg(10m,${data})`
@@ -72,22 +72,21 @@ Here are some examples for both Std Dev and IQR that illustrate these functions.
 
 The following example first uses a query without standard deviation:
 
-`ts(network.rate.*)`
+raw:|`ts(network.rate.*)`
 
-Then we add a query that gets the standard deviation for the network rate:
+Then we add a query that builds on `raw` to get the standard deviation for the network rate:
 
-`ts (network.rate.*)`
-`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
+StandardDeviation:|`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
 
 We use standard deviation to identify which series deviate greatly from their usual behavior, with a 2 hour moving window. When the standard deviation crosses a certain value (10 in this case), we have an anomaly. The same function is applied to different, widely scaled time series (each shown in a different color) and it identifies the spread of each series independently.
 
 ### Query Without Standard Deviation
 
-![before_std_dev](images/before_std_dev.png)
+![before_std_dev](images/std_dev_before.png)
 
 ### Adding Query With Standard Deviation
 
-![after_std_dev](images/after_std_dev.png)
+![after_std_dev](images/std_dev_after.png)
 
 ## Example 2
 
