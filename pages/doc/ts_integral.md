@@ -14,6 +14,8 @@ integral(<expression>)
 ```
 Returns the moving sum for each time series, over the time window set for the current chart.
 
+{% include important.html content="The `integral()` function depends on the window size and is not compatible with `at()`. Applying `at()` to the results of `integral()` may produce unexpected results. We recommend using `msum()` function with `1vw` time window argument instead of `integral()` as it provides greater flexibility and is not subject to this limitation." %}
+
 ## Parameters
 
 <table>

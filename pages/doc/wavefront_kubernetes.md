@@ -1,5 +1,5 @@
 ---
-title: Monitoring Kubernetes with Wavefront
+title: Monitor and Scale Kubernetes with Wavefront
 keywords: containers, kubernetes
 tags: [containers]
 sidebar: doc_sidebar
@@ -32,7 +32,7 @@ Core monitoring retrieves metrics using a cluster monitoring service -- currentl
 
 Monitoring data are sent to a Wavefront proxy and from there to the Wavefront service.
 
-![kubernetes core monitoring](/images/kubernetes_core.jpeg)
+![kubernetes core monitoring](/images/kubernetes_core.svg)
 
 ## Application Monitoring
 
@@ -48,7 +48,7 @@ How you perform application monitoring depends on the type of application. You h
 
   As in the other cases, Telegraf sends the metrics that it collects to the Wavefront proxy.
 
-![kubernetes application monitoring](/images/kubernetes_apps.jpg)
+![kubernetes application monitoring](/images/kubernetes_apps.svg)
 
 ## Scaling your Kubernetes Environment Based on Metrics
 
@@ -60,9 +60,9 @@ Wavefront allows you to scale based on other metrics.
 
 * In addition to other Kubernetes environment metrics, the Wavefront Horizontal Pod Autoscaler Adapter can also allow any metric and query within Wavefront to be the driving factor for scale. As a result, you can scale Kubernetes pods on any metric, including custom application metrics or even metrics external to your Kubernetes environment.
 
-![kubernetes scaling](/images/kubernetes_scaling.jpg)
+![kubernetes scaling](/images/kubernetes_scaling.svg)
 
 In the following video, two Wavefront systems engineers discuss container monitoring best practices.
 
-<p><a href="https://www.youtube.com/watch?v=_XYr1hlQqfI&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_container_monitoring.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
+<p><a href="https://www.youtube.com/watch?v=_XYr1hlQqfI&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_container_monitoring.png" style="width: 700px;" alt="container monitoring best practice"/></a>
 </p>

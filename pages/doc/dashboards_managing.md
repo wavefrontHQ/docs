@@ -26,8 +26,9 @@ You can create a dashboard from the All Dashboards page, an existing dashboard, 
       **Note** If you enter any special character or space, then the URL field turns red and requires you to make changes before saving. You can specify `my_url` but not `http://my_url.com` because `://` and the period are special characters.
     * The Name field supports letters, numbers, characters, and spaces.
 
-2.  Click **Create**. The dashboard is created and displays in edit mode.
-3.  Click **Cancel** or edit the dashboard and click **Save**.
+2.  Click **Create**, edit the dashboard, and click **Save**.
+
+**Note:** Many Wavefront customers manage use existing dashboards as templates, and store dashboard templates as well as dashboards generated from scratch in a a repository such as GitHub.
 
 ## Deploying a Dashboard
 

@@ -62,25 +62,36 @@ You can use [`rawsum()`](ts_rawsum.html) to suppress interpolation.  See [Standa
 
 ## Examples
 
-The following examples illustrate this.
+**Unaggregated Series**
+
+This chart shows all of the time series described by the expression `ts(~sample.cpu.loadavg.1m)`. Each time series reports CPU load averages from a particular source associated with particular point tag values.
+We will sum these series in different ways in the following examples.
+
+![sum_base](images/ts_sum_base.png)
+
 
 **Example 1: No Filtering, no Grouping**
 
-This chart does no grouping and shows a single line:
+Here we include all of the time series in the results:
+ 
+```sum(ts(~sample.cpu.loadavg.1m))```
+
+Summing these series adds their values "vertically" to produce a single series of sums, so the chart shows a single line. For example, the aggregated value at 3:30pm (`22.376`) is the sum of the individual values reported by each time series at 3:30pm. 
 
 ![sum_simple](images/ts_sum.png)
 
+
 **Example 2: Filtering by Source**
 
-This chart uses a filter, it selects only `db-*` servers. We still see a single line, but a different pattern:
+Here we filter the time series to include only those reported from `db-*` servers in the results. We still see a single line, but a different pattern. Notice that the aggregated value at 3:30pm is now `7.112`, because it is the sum of values from fewer series. 
 
 `sum(ts(~sample.cpu.loadavg.1m, source="db-*"))`
 
 ![sum_groupby_db](images/ts_sum_filter.png)
 
-**Example 3: Grouping by Source and Point Tag**
+**Example 3: Grouping by Point Tag**
 
-This chart filters by source and groups by the `env` point tag (`env=production` and `env=dev`). This chart also shows us why the charts in Example 1 and Example 2 are so similar. The servers in the two groups have similar but not the same CPU load patterns.
+Here we not only filter by source, but we also group the results to obtain separate subtotals for each `env` point tag value. This chart displays one line that sums the series with `env=production`, and a second line that sums the series with `env=dev`. This chart allows you to compare the CPU load patterns across the two groups of servers.
 
 `sum(ts(~sample.cpu.loadavg.1m, source="db-*"),env)`
 

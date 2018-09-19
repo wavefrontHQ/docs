@@ -169,7 +169,15 @@ If you leave this field blank, the condition expression is used. Note, however, 
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
+## Cloning an Alert
 
+If you want to make copies of an existing alert, then change the copy slightly, you can clone the alert.
+1. Select **Browse > Alerts** to display the Alerts page.
+2. Click the 3 buttons to the left of the alert and click **Clone**.
+
+   ![Alert cloning](images/clone_alert.png)
+
+3. Update the properties you want to change, and click **Save**.
 
 ## Viewing Alerts and Alert History
 
