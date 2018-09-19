@@ -26,7 +26,7 @@ The following examples illustrate how to send data to Wavefront.
 * You must know your Wavefront domain name. These examples use `mydomain.wavefront.com`.
 * Currently, we support only [Wavefront Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 
-### Multiple data points
+### Multiple Data Points
 
 Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
 
@@ -34,12 +34,16 @@ Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. Yo
 cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://mydomain.wavefront.com/report
 ```
 
-### Single data point
+### Single Data Point
 
 You can send a single data point like this:
 ```
 echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report
 ```
+
+### Histogram Distribution
+
+You can perform direct ingestion of [histogram distributions](proxies_histograms.html#sending-histogram-distributions) in histogram distribution format. You cannot perform direct ingestion of histogram data in Wavefront data format. 
 
 ## Comparing Proxy and Direct Ingestion
 
