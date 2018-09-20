@@ -8,7 +8,7 @@ summary: Reference to the highpass() function
 ---
 ## Summary
 ```
-highpass(<expression1>, <expression1>[, <inner>])
+highpass(<expression1>, <expression2>[, <inner>])
 ```
 Returns only the points in `expression2` that are above `expression1`. `expression1` is often a constant.
 
