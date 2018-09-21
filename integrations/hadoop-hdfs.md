@@ -27,11 +27,11 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 ### Step 2. Install the Jolokia JVM-Agent on Your HDFS nodes
 
-1. Download the latest version of the Jolokia JVM-Agent jar from https://jolokia.org/download.html.
-2. Deploy the `jolokia-jvm-1.5.0-agent.jar` to your HDFS nodes (name & data).
+1. Download the latest version of the Jolokia JVM-Agent from [here](https://jolokia.org/download.html).
+2. Deploy the `jolokia-jvm-*-agent.jar` to your HDFS nodes (name & data).
 3. Edit your `etc/hadoop/hadoop-env.sh` files and enter the following snippet:{% raw %}
     ```
-    JOLOKIAJAR="[JOLOKIA_JAR_INSTALL_PATH]/jolokia-jvm-1.5.0-agent.jar"
+    JOLOKIAJAR="[JOLOKIA_JAR_INSTALL_PATH]/jolokia-jvm-*-agent.jar"
     export HDFS_NAMENODE_OPTS="-javaagent:${JOLOKIAJAR}=port=7777,host=localhost"
     export HDFS_DATANODE_OPTS="-javaagent:${JOLOKIAJAR}=port=7778,host=localhost"
     ```

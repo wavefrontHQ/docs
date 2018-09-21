@@ -32,6 +32,8 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 3. Deploy the `jolokia.war` file into the WebLogic Server.
 4. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
+**Note:** Jolokia 1.6 or later uses authentication. Create a user and group, and apply that to the Jolokia web app.
+
 The result looks similar to this:{% raw %}
 ```
 {"request":{"type":"version"},"value":{"agent":"1.3.7","protocol":"7.2","config":{"maxCollectionSize":"0","agentId":"10.152.24.99-29844-172f5788-servlet","debug":"false","agentType":"servlet","serializeException":"false","detectorOptions":"{}","dispatcherClasses":"org.jolokia.jsr160.Jsr160RequestDispatcher","maxDepth":"15","discoveryEnabled":"false","canonicalNaming":"true","historyMaxEntries":"10","includeStackTrace":"true","maxObjects":"0","debugMaxEntries":"100"},"info":{"product":"tomcat","vendor":"Apache","version":"8.5.23"}},"timestamp":1509955465,"status":200}
@@ -45,6 +47,10 @@ First create a file called `weblogic.conf` in `/etc/telegraf/telegraf.d` and ent
 [[inputs.jolokia2_agent]]
 urls = ["http://SERVER_URL:PORT/jolokia"]
 name_prefix = "weblogic."
+
+#username and password are mandatory for Jolokia 1.6 or later
+#username = <jolokia web app username>
+#password = <jolokia web app password>
 
 ### JVM Generic
 

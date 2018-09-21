@@ -26,14 +26,14 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 ### Step 2. Download and Set up Jolokia
 Jolokia is a JVM agent that exposes JMX data as JSON on an HTTP port (8778 by default).
-1. Download the **JVM-Agent** artifact from [Jolokia - Download](https://jolokia.org/download.html). 1.5.0 is the current version as of this writing.
+1. Download the latest version of the Jolokia JVM-Agent from [here](https://jolokia.org/download.html).
 1. Save Jolokia on your Kafka broker nodes in `/opt/kafka/libs` or any location accessible to Kafka.
 1. Configure Kafka to use Jolokia:
     1. Add the following snippet to `kafka-server-start.sh`:{% raw %}
     ```
     export JMX_PORT=9999
     export RMI_HOSTNAME=KAFKA_SERVER_IP_ADDRESS
-    export KAFKA_JMX_OPTS="-javaagent:/opt/kafka/libs/jolokia-jvm-1.5.0-agent.jar  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=$RMI_HOSTNAME -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
+    export KAFKA_JMX_OPTS="-javaagent:/opt/kafka/libs/jolokia-jvm-*-agent.jar  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=$RMI_HOSTNAME -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
     ```
     1. Restart the Kafka broker node.
     1. Verify that you can access Jolokia on port 8778 by running:

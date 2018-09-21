@@ -21,6 +21,7 @@ Wavefront provides Microsoft Azure dashboards for the following services:
 - Azure: Virtual Machine Scale Set
 - Azure: Storage Accounts
 - Azure: Container Instances
+- Azure: SQL Databases
 
 Here's a preview of the Virtual Machine dashboard:
 {% include image.md src="images/azure-overview.png" width="80" %}
