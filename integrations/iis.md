@@ -114,9 +114,20 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
    
 **Note:** On `IIS` dashboard, the **System Performance** section uses Windows system metrics configured by default in Telegraf. 
 
-To see data in the **Avg Disk Latency** chart, add the following to the config file: 
-* Add `Avg. Disk sec/Read"` and `Avg. Disk sec/Write` in the `Counters` section.
-* For `LogicalDisk` configuration, set the variable `IncludeTotal = true`.
+To see data in the **Avg Disk Latency** chart, make sure the following properties for `LogicalDisk` object are set in the Telegraf config file:
+* `Avg. Disk sec/Read` and `Avg. Disk sec/Write` in `Counters` section.
+* `IncludeTotal = true`.
+
+Example:
+
+```
+[[inputs.win_perf_counters.object]]
+ObjectName = "LogicalDisk"
+Instances = ["*"]
+Counters = ["% Disk Read Time", "% Disk Write Time", "% Free Space", "% Idle Time", "Avg. Disk Bytes/Read", "Avg. Disk Bytes/Write", "Avg. Disk Queue Length", "Avg. Disk sec/Read", "Avg. Disk sec/Write", "Avg. Disk Write Queue Length", "Free Megabytes", "Split IO/Sec"]
+Measurement = "win.disk"
+IncludeTotal = true
+```
 
 ### Step 4: Restart the Telegraf service
 
