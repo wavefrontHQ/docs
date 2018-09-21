@@ -31,6 +31,11 @@ entries:
       url: /videos.html
       output: web
 
+    - title: Managing Your Wavefront Account
+      url: /users_account_managing.html
+      output: web
+
+
   - title: Release Notes
     output: web
     folderitems:
@@ -93,6 +98,10 @@ entries:
 
     - title: Wavefront Metric Types
       url: /metric_types.html
+      output: web
+
+    - title: Hiding and Redisplaying Metrics
+      url: /metrics_managing.html
       output: web
 
       subfolders:
@@ -436,14 +445,6 @@ entries:
     output: web
     folderitems:
 
-      - title: Permissions
-        url: /permissions_overview.html
-        output: web
-
-      - title: Managing Your Wavefront Account
-        url: /users_account_managing.html
-        output: web
-
       - title: Enabling SSO with Authentication Providers
         url: /integrations_authentication.html
         output: web
@@ -452,8 +453,8 @@ entries:
         url: /users_managing.html
         output: web
 
-      - title: Managing Metrics
-        url: /metrics_managing.html
+      - title: Permissions
+        url: /permissions_overview.html
         output: web
 
       - title: Managing Sources
