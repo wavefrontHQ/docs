@@ -21,6 +21,8 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 **Note:** This integration is supported with Apache HTTP version 2.4.33 and later.
+
+
 **Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](http://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
 
 ### Step 1. Install the Telegraf Agent
