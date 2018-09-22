@@ -19,30 +19,26 @@ Query Builder is enabled by default. You can toggle Query Builder settings in yo
 * If **Enable Query Builder** and **Always Open the Query Builder** are both checked, then Query Builder always displays when you navigate to a blank chart or new alert.
 * If **Always Open the Query Builder** is not checked, then the Query Editor displays by default. Query Builder displays only if you click the Query Builder toggle.
 
-![Query builder new](images/query_builder_new.png)
-
 To switch from Query Builder to Query Editor, click the toggle.
 
-**Note:** You cannot switch from Query Editor to Query Builder if any part of the query has changed.
+![Query builder new](images/query_builder_new.png)
+
+**Warning:** If you switch to Query Editor and make changes to the query there, you can't return to Query Builder.
 
 ## Constructing Queries
 
-You use Query Builder to assemble a query from its building blocks:
+You use Query Builder to construct a query from its building blocks:
 * A metric, constant, or other query.
 * Zero or more filters (i.e. sources, source tags, and point tags). The metric determines which filters make sense.
 * Zero or more functions for manipulating the output.
 
 ![Query builder](images/query_builder_04x.png)
 
-As you assemble a query, it displays below the query builder. The chart associated with the query updates as you add filters and use functions to manipulate the output.
+As you construct a query, it displays below the query builder. The chart associated with the query updates as you add filters and use functions to manipulate the output.
 
 ![Query builder with chart](images/query_builder_showing_chart.png)
 
-To use a constant value or the value of another query instead of a metric, you can toggle the metrics field by clicking the metrics selector:
-
-![Metric selector](images/metric_selector.png)
-
-You can preview the result of each evaluation step in real-time:
+You can preview the result of each step in real-time before you make the change:
 * For filters, click the bar chart icon at the end of each field (shown below).
 * For functions, hover over the function to get documentation and a preview of the changed chart.
 
@@ -55,6 +51,6 @@ Query Builder helps you construct your queries like this:
   Unlike manually constructed `ts()` queries, which allow mixed `AND`s and `OR`s, the Query Builder applies either `AND` or `OR`.
 * The order of evaluation is left to right -- metrics, then filters, then functions.
 * Wildcard matching is supported for metrics, sources, and tags.
-* You can remove any element in the chain by clicking the X icon to the right of that element. The rest of your expression remains intact.
+* To remove any query element, click the X icon to the right of that element. The rest of your query remains intact.
 
 ![filter and](images/filter_and.png)
