@@ -9,7 +9,7 @@ summary: Learn about Wavefront permissions.
 
 Permissions allow administrators to control access to Wavefront feature sets. Permissions are assigned at the user level.
 
-{% include shared/badge.html content="While every Wavefront user with Browse Data permission can view Wavefront entities, you must have the appropriate entity management permission to manage those entities. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
+{% include shared/badge.html content="While every Wavefront user with Browse Data permission can view Wavefront objects, you must have the appropriate object management permission to manage those objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
 ## Permissions Overview
 

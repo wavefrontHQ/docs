@@ -39,7 +39,7 @@ You can also explore with the Interactive Query Language dashboard.
 
 ## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
 
-The following docs are great for learning what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search for entities in Wavefront. These docs also explore the main entities in Wavefront: charts, dashboards, alerts, events, and integrations.
+The following docs are great for learning what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search in Wavefront. These docs also explore the main objects in Wavefront: charts, dashboards, alerts, events, and integrations.
 
 - [What is Wavefront?](wavefront_introduction.html)
 - [Getting Data into Wavefront](wavefront_data_ingestion.html)

@@ -25,7 +25,7 @@ summary: Learn about the query syntax, operators, and functions supported by Wav
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">source</span></td>
-<td>The name of the entity that emitted the metric. Specify source names with the keyword <strong><code>source</code></strong>.
+<td>Source (usually host) that emitted the metric. Specify source names with the keyword <strong><code>source</code></strong>.
 For example:
 <pre>source=appServer15</pre>
 </td></tr>

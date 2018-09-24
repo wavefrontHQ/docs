@@ -249,7 +249,7 @@ You can use the following parameters in the request:
 
 |Parameter| Description|
 |type|  METRIC, HOST, or STRING. STRING shows point tags. Each point tag, e.g. `env=prod` is a single string. |
-|name| Prefix for the entity that you are interested in|
+|name| Prefix for the item that you are interested in|
 |sampling| 0 to 1, with 0.01 being 1%|
 
 For example, if you have a Wavefront instance named `ex1`, you can use the following query URLs.

@@ -67,7 +67,7 @@ Metric naming hierarchy recommendations:
 <tr>
 <td>source</td>
 <td>Yes</td>
-<td>The name of an application, host, container, instance, or any other unique entity sending the metric to Wavefront.</td>
+<td>The name of an application, host, container, instance, or any other unique source that is sending the metric to Wavefront.</td>
 <td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). The length of the source field should be less than 1024 characters. Prior to Wavefront proxy 2.2, this field was named <strong>host</strong>. <strong>host</strong> is still supported.</td>
 </tr>
 <tr>

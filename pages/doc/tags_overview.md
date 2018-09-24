@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: tags_overview.html
 summary: Learn how to use tags to focus and speed up queries display and to unclutter the UI.
 ---
-A tag is custom metadata that adds application-specific meaning to Wavefront entities such alerts, dashboards, events, and sources and metrics.
+A tag is custom metadata that adds application-specific meaning to Wavefront objects such alerts, dashboards, events, and sources and metrics.
 
 Watch the following video for an introduction to point tags and source tags:
 
@@ -20,7 +20,7 @@ You use tags in several ways:
 * **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
   **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
 * **Alert tags** -- Find alerts or to exclude tagged alerts froma maintenance window.
-* **Entity tags** -- Limit the number of entities and metrics. For example, you might  display only dashboards with a certain tag.
+* **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
 
 You can use tags to filter alerts, dashboards, events, and sources from the Wavefront UI or with the REST API.
 
@@ -74,7 +74,7 @@ Use point tags to [filter queries](query_language_point_tags.html)</td>
 <td>event tags</td>
 <td markdown="span">[Create or add event tags](events.html#creating-a-user-event)</td>
 <td markdown="span">Event filters in [Basic events() Queries](events_queries.html)</td>
-<td markdown="span">Alerts add system tags to events<br /><br />Users add entity tags to events</td>
+<td markdown="span">Alerts add system tags to events<br /><br />Users add object tags to events</td>
 </tr>
 </tbody>
 </table>
@@ -83,8 +83,8 @@ Use point tags to [filter queries](query_language_point_tags.html)</td>
 
 In the Wavefront UI:
 * Tags display when you hover your mouse over a line, point, etc. in a chart.
-* Tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each entity in the entity browser.
-* Tags on the left of the entity browser allow you to filter your display.
+* Tags display as gray labeled icons ![tag](images/tag.png#inline) in the filter bar and below each object in the browser for that object (e.g. dashboard or alerts browse).
+* Tags on the left of the object browser allow you to filter your display.
 
 ### Tags in Queries
 
@@ -112,21 +112,21 @@ When you create maintenance windows you can use tag paths and wildcards to put a
 
 
 <a name="entity_tags"></a>
-## Managing Entity Tags
+## Managing Object Tags
 
-Entity tags are tags that apply to Wavefront entities: alerts, dashboards, events, and sources.
+Object tags apply to Wavefront objects: alerts, dashboards, events, and sources.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view Wavefront entities, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those entities. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-### Adding Entity Tags
+### Adding Object Tags
 
-To add tags to one or more entities:
+To add tags to one or more objects:
 
-1.  Open an entity browser.
-    - For some entities, you select **Browse &gt; &lt;entity&gt;**, where **&lt;entity&gt;** is **Sources** or **Events**.
-    - For other entities, such as Alerts, you click the entity.
-2.  Choose which entities to tag:
-    -   Check the checkboxes next to the entities and click the **+ Tag** button.
+1.  Open an object browser.
+    - For some objects, you select **Browse &gt; &lt;object&gt;**, where **&lt;object&gt;** is **Sources** or **Events**.
+    - For other objects, such as Alerts, you click the object.
+2.  Choose which objects to tag:
+    -   Check the checkboxes next to the object and click the **+ Tag** button.
     -   Click **+** at the bottom and select a tag or click **Create New Tag**.
 
         ![source tags](images/source_tags.png)
@@ -135,15 +135,15 @@ To add tags to one or more entities:
 4. Type a tag name. Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (\_), and colon (:) characters. Tag names are *case sensitive*. For example, the tags **MyApp** and **myapp** are stored as distinct tags. However, mixed case tag paths are collapsed into one path; **MyService.myapp** and **myservice.myapp** are collapsed into **Myservice.myapp**.
 5. Click **Add**.
 
-### Searching for Entity Tags
+### Searching for Object Tags
 
 When you have many tags in your environment, you can search for tags by typing tag names in the Search box below the Tags heading in the filter bar on the left. As you type, the list of tags is filtered by the search string.
 
 **Note** When you search for tags, the search process is *case insensitive*. For example, searching for the tag **myapp** returns **MyApp** and **myapp**.
 
-### Filtering by Entity Tags
+### Filtering by Object Tags
 
-To filter by a tag, click a tag icon. You can click the icon in the filter bar on the left or below an entity in an entity browser.
+To filter by a tag, click a tag icon. You can click the icon in the filter bar on the left or below an object in an object browser.
 
 ## Video: Organizing with Tags
 

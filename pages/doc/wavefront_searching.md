@@ -4,9 +4,9 @@ keywords: getting started
 tags: [getting started, video]
 sidebar: doc_sidebar
 permalink: wavefront_searching.html
-summary: Learn how to search for entities in the Wavefront UI.
+summary: Learn how to search for objects in the Wavefront UI.
 ---
-Wavefront supports tags and a variety of search features to help you find exactly the information you need.
+To help you find exactly what you need, Wavefront supports tags and a variety of search features.
 
 Here's a video to get your started:
 
@@ -27,7 +27,7 @@ All Wavefront browsers (**All Dashboards**, **Alerts**, **Integrations**, and so
 
 ### Search Field
 
-The search field at the top of every Wavefront browser page supports both autocomplete and search. The autocompleted entities include the browser object name, object properties, and other entities relevant to that object.
+The search field at the top of every Wavefront browser page supports both autocomplete and search. We support autocomplete for many searches.
 
 For example, in the All Dashboards browser page, searching returns a dropdown list that displays:
 
@@ -39,7 +39,7 @@ You can select each item in the list individually. The dropdown list also contai
 
 ![search auto](images/search_auto.png)
 
-Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the dropdown list of matching entities includes all entities containing one or more instances of both words in any order.
+Search fields support multi-word searches. If you type **cpu usage** in any browser or autocompleted text field, the dropdown list includes all matches for both **cpu** and **usage**.
 
 ### Filter Bar
 
@@ -58,11 +58,11 @@ The following Alert browser filter demonstrates filtering alerts by the tag path
 
 ## Other Actions
 
-The Wavefront UI supports several universal patterns for performing other types of actions on Wavefront entities beyond searching:
+The Wavefront UI supports tagging and other actions.
 
--   **Tagging** - After selecting entities, click the tag buttons to create, add, and remove tags.
--   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on individual entities by clicking the three dots to the far left of the entity. Actions are different for different entities but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
+-   **Tagging** - Make a selection and click the tag buttons to create, add, and remove tags.
+-   **Actions** - Perform actions (clone, delete, edit, rename, etc.) on an individual object (e.g. an alert) by clicking the three dots to the far left of the object, for example, to the left of an alert. Actions are different for different objects but might include Clone, Delete, or Test (for alerts). Here's an example for the Actions menu for dashboards:
 
     ![dashboard clone](/images/dashboard_clone.png)
 
--   **Trash** - View deleted entities by clicking the trash toggle.
+-   **Trash** - Click the trash toggle to view deleted objects.
