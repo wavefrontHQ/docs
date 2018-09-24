@@ -1,5 +1,5 @@
 ---
-title: Managing Your Wavefront Account
+title: Your Wavefront Account
 keywords: administration
 sidebar: doc_sidebar
 permalink: users_account_managing.html

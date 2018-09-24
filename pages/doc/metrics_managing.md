@@ -1,5 +1,5 @@
 ---
-title: Hiding and Redisplaying Metrics
+title: Hiding and Unhiding Metrics
 keywords: metrics
 tags: [administration]
 sidebar: doc_sidebar
@@ -9,7 +9,7 @@ summary: Learn how to hide and redisplay metrics.
 
 You can _manually_ hide metrics from the Metrics browser and in the autocomplete dropdown associated with queries. Manually hiding metrics does not permanently delete a particular metric or metric namespace from Wavefront.
 
-To view and manage metrics, select **Browse > Metrics**.
+To view, hide, and redisplay metrics, select **Browse > Metrics**.
 
 {% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
 

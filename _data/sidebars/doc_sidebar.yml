@@ -31,7 +31,7 @@ entries:
       url: /videos.html
       output: web
 
-    - title: Managing Your Wavefront Account
+    - title: Your Wavefront Account
       url: /users_account_managing.html
       output: web
 
@@ -100,7 +100,7 @@ entries:
       url: /metric_types.html
       output: web
 
-    - title: Hiding and Redisplaying Metrics
+    - title: Hiding and Unhiding Metrics
       url: /metrics_managing.html
       output: web
 
