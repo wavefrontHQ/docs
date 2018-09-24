@@ -36,6 +36,8 @@ The function is useful for determining trends, for example, whether the total nu
 
 In contrast to [integrate](ts_integrate.html), this function depends completely on the time window that you're currently looking at.
 
+**Note:** This function considers time window boundaries inclusive. For example, when used with a 10 minute time window and with data that are returned once a minute, `integral()` returns the sum for 11 minutes.
+
 
 
 ## Examples
@@ -52,7 +54,6 @@ As we zoom in, the differences between the different sources become more obvious
 
 The `integral()` function depends on the window size and is not compatible with `at()`. Applying `at()` to the results of `integral()` may produce unexpected results. Use the `msum()` function with a `1vw` time window argument instead.
 
-This function considers time window boundaries inclusive. For example, when used with a 10 minute time window and with data that are returned once a minute, `integral()` returns the sum for 11 minutes.
 
 ## See Also
 
