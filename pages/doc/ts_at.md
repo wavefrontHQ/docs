@@ -51,3 +51,7 @@ Here's a query that shows the maximum request latency across all sources and poi
 
 Now we'd like to see how these maximums compare to the maximum request latency that was reported 2 weeks ago. We add a second query that applies `at()` to the original query. From this chart, we can see some increases in the maximum latency over 2 weeks ago.
 ![at after](images/ts_at_after.png)
+
+## Caveats
+
+Applying `at()` to the results of `integral()` may produce unexpected results because `integral()` considers time window boundaries inclusive. Use the `msum()` function with a `1vw` time window argument instead.

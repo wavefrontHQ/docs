@@ -14,7 +14,6 @@ integral(<expression>)
 ```
 Returns the moving sum for each time series, over the time window set for the current chart.
 
-{% include important.html content="The `integral()` function depends on the window size and is not compatible with `at()`. Applying `at()` to the results of `integral()` may produce unexpected results. We recommend using `msum()` function with `1vw` time window argument instead of `integral()` as it provides greater flexibility and is not subject to this limitation." %}
 
 ## Parameters
 
@@ -48,6 +47,12 @@ The following example shows how `integral()` sums all sources that start with `a
 As we zoom in, the differences between the different sources become more obvious.
 
 ![integral zoomed](images/ts_integral_zoomed.png)
+
+## Caveats
+
+The `integral()` function depends on the window size and is not compatible with `at()`. Applying `at()` to the results of `integral()` may produce unexpected results. Use the `msum()` function with a `1vw` time window argument instead.
+
+This function considers time window boundaries inclusive. For example, when used with a 10 minute time window and with data that are returned once a minute, `integral()` returns the sum for 11 minutes.
 
 ## See Also
 
