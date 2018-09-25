@@ -22,7 +22,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
 - Memory - you don't need a dedicated host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux
-    - Ubuntu 12.04, 14.04, 16.04
+    - Ubuntu 14.04, 16.04, 18.04
     - CentOS 6.5, 7
     - RHEL 6, 7
     - Debian 7, 8, 9, 10
