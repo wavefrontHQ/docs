@@ -42,7 +42,15 @@ Despite its apparent simplicity, the `default()` function is one of the most mis
 
 The `default()` function allows you to specify the value that you would like to assign to gaps of missing data on a chart. This is the only missing data function that allows you to specify the value you’d like to assign to gaps of missing data.
 
-Enter the data value for missing data before the actual `ts()` expression.
+For the simplest case, you can use `default()` to set the default value of a query to 0 if the specified metric does not exist:
+
+`default(0, ts(my.metric))`
+
+**Note:** In certain situations we don't recommenbt using `default()`. See the list of **Caveats** below. In that case, use the following query instead.
+
+`if(exists(ts(my.metric)), ts(my.metric), 0)`
+
+
 
 ## Examples
 
