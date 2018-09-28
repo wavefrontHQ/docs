@@ -169,9 +169,6 @@ entries:
       url: /query_language_query_wizard.html
       output: web
 
-    - title: Point Tags in Queries
-      url: /query_language_point_tags.html
-      output: web
 
     - title: Series Matching
       url: /query_language_series_matching.html
@@ -412,12 +409,20 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
 
-  - title: Organizing and Searching
+  - title: Tags & Searches
     output: web
     folderitems:
 
     - title: Organizing with Tags
       url: /tags_overview.html
+      output: web
+
+    - title: Point Tags in Queries
+      url: /query_language_point_tags.html
+      output: web
+
+    - title: Managing Source Tags
+      url: /source_tags.html
       output: web
 
     - title: Searching Wavefront

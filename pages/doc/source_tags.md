@@ -41,7 +41,7 @@ To add a source tag from the UI:
 1. Click **Browse>Sources**.
 2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
 
-## Sending Source Tags to the Wavefront Proxy
+## Adding Source Tags and Source Descriptions 
 
 You can use the `SourceTag` and `SourceDescription` properties to add source tags and source descriptions before the metrics reach Wavefront. Starting with proxy version 4.24, you send these properties to the same listening port as regular metrics (`pushListenerPort` setting, 2878 by default).
 

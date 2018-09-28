@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
-Advanced proxy configuration includes use of configuration properties, annotating your sources with SourceTag and SourceDescription properties, and performing advanced installation management.
+Advanced proxy configuration includes use of configuration propertie  and performing advanced installation management such as installing proxies in a container.
 
 This document describes Wavefront proxy 4.12 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Versions](proxies_versions.html).
 
@@ -341,48 +341,6 @@ Ex: 0 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 4878 </div></td>
 <td>3.14</td>
-</tr>
-</tbody>
-</table>
-
-## Sending Source Tags and Source Descriptions Through the Wavefront Proxy
-
-In environments with large datasets, you might want to have the proxy client, e.g. Telegraf, add source tags and source descriptions to the data before the data reaches Wavefront. You can use the SourceTag and SourceDescription properties to do that, when the proxy is running. You use a client-specific API or CLI on the source data to insert SourceTag and SourceDescription properties. The proxy will then pick up that information.
-
-Starting with proxy version 4.24, this feature is available on the same listening port as regular metrics (`pushListenerPort` setting, 2878 by default).
-
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Purpose</th>
-<th>Example </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SourceTag</td>
-<td>Save or delete a source tag. For example, you use this property to inject a source tag into a database on a host. Use SourceTag with <code>action=</code> and <code>source=</code> arguments.  NOTE: Use quotes if any of the values includes spaces or special characters.
-<ul>
-<li><code>action</code> is either save or delete.</li>
-<li><code>source</code> takes the source as the first value, followed by a source tag to save or delete.</li>
-</ul>
-</td>
-<td>Ex:<code> &#64;SourceTag action=save source=host_42 db1</code>
-<div>Ex:<code> &#64;SourceTag action=delete source=host_42 sourceTag1</code></div>
-</td>
-</tr>
-<tr>
-<td>SourceDescription</td>
-<td>Save or delete a description on the specified source. You can use this property to add a description or delete an existing description. Use SourceDescriptor with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments. NOTE: Use quotes if any of the values includes spaces or special characters.
-<ul>
-<li><code>action</code> is either save or delete.</li>
-<li><code>source</code> takes the source as the first value, followed by a descriptor.</li>
-<li><code>description</code> allows you to specify a description for the tag.</li>
-</ul>
-</td>
-<td>Ex:<code>&#64;SourceDescription action=save source="sourceId" description=A Description</code>
-<div>Ex:<code>&#64;SourceDescription action=delete source="sourceId"</code></div></td>
 </tr>
 </tbody>
 </table>
