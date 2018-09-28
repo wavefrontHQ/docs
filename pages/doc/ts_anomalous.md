@@ -19,7 +19,7 @@ Returns the percentage of anomalous points in each time series described by the 
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span"> [testWindow](query_language_reference.html#query-elements)</td>
-<td>Length of the _test window_, which is the moving time window to check for anomalous points. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
+<td markdown="span">Length of the _test window_, which is the moving time window to check for anomalous points. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr>
 <tr><td markdown="span"> confidenceFactor</td>
 <td markdown="span"> A number from 0.0 to 1.00 (inclusive) that expresses the _confidence factor_ for determining the range of expected values. This number is used to compute the range as a number of standard deviations around the mean expected value.
