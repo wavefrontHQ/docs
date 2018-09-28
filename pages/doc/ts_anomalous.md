@@ -72,6 +72,7 @@ If the data points used for prediction have missing data or an irregular reporti
 
 For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input data points at 1-minute intervals. 
 
+<!--- Looking for a more realistic example.
 ## Example
 
 The following chart shows CPU usage for one of the sources. 
@@ -81,3 +82,4 @@ The following chart shows CPU usage for one of the sources.
 We'd like to know whether the actual CPU usage deviates from the expected CPU usage, based on the past 2 weeks's worth of actual data. So we run the query `anomalous(2m, 0.50, 2w, ts(~sample.cpu.usage.user.percentage, source=app-14))` to analyze the points in 2-minute test windows. The resulting orange line in the following chart suggests that the dip in CPU usage between 3:18 and 3:22 may be anomalous, because 2/3 (0.667) of the values fall outside a fairly narrow range (50%) of the expected values. In contrast, the behavior from 3:23 on seems right in line with expectations -- the percentage of anomalous points here is 0.  
 
 ![anomalous after](images/ts_anomalous_after.png)
+---> 
