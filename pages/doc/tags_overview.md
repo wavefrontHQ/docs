@@ -16,15 +16,15 @@ Watch the following video for an introduction to point tags and source tags:
 ## Why Tags?
 
 You use tags in several ways:
-* **Point tags** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
-* **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
+* **[Point tags](query_language_point_tags.html)** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
+* **[Source tags](source_tags.html)** -- Group your sources. For example, examine only production hosts but not development hosts.
   **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
 * **Alert tags** -- Find alerts or to exclude tagged alerts froma maintenance window.
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
 
 You can use tags to filter alerts, dashboards, events, and sources from the Wavefront UI or with the REST API.
 
-### Tag Types
+### How to Use Different Tag Types
 
 <table>
 <colgroup>
@@ -36,45 +36,36 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <thead>
 <tr>
 <th>Tag Type</th>
-<th>Used in UI and API</th>
-<th>Used in Queries</th>
-<th>Where Added and Updated</th>
+<th>Usage Example</th>
+<th>Add and Update</th>
+<th>Query</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>point tag</td>
-<td markdown="span">Data sources can include point tags, or you can add point tags. Use the [Wavefront Data Format](wavefront_data_format.html).
-</td>
-<td markdown="span">Add point tags using [preprocessor rules](proxies_preprocessor_rules.html). <br /><br />
-Use point tags to [filter queries](query_language_point_tags.html)</td>
-<td markdown="span">Data source, e.g. AWS or Telegraf agent<br /><br />[Wavefront Integration CLI](wavefront_cli.html)</td>
+<td markdown="span">Filter metrics.</td>
+<td markdown="span">Often part of data source, or you can add using [proxy preprocessor rules](proxies_preprocessor_rules.html#point-altering-rules). </td>
+<td markdown="span"> Filter and perform [series matching](query_language_series_matching.html) </td>
 </tr>
 <tr>
 <td>source tag</td>
-<td markdown="span">The Wavefront UI and API supports filtering by source and filtering by source tag. </td>
-<td markdown="span">[Tags in Queries](query_language_reference.html#tags-in-queries)</td>
-<td markdown="span">Wavefront UI and API</td>
+<td>Filter sources</td>
+<td markdown="span">[Add source tags ](source_tags.html) using API, CLI, or UI. </td>
+<td markdown="span">[Select only tagged sources](query_language_reference.html#tags-in-queries) in your query.</td>
 </tr>
 <tr>
 <td>alert tag</td>
-<td markdown="span">[Create or add alert tags](alerts.html#creating-an-alert) <br />
-<br />
-[Suppress alerts](maintenance_windows_managing.html#creating-a-maintenance-window) with alert tags or source tags during a maintenance window.</td>
-<td markdown="span">Event filters in [Basic events() Queries](events_queries.html)</td>
-<td markdown="span">Wavefront UI and API</td>
-</tr>
-<tr>
-<td>dashboard tag</td>
-<td markdown="span">Creating a dashboard from the Metrics browser allows you to add source tags to the dashboard.</td>
-<td></td>
-<td markdown="span">Wavefront UI and API<br /><br />Dashboards added by Wavefront have system tags that start with `~`, e.g. `~integration.aws` or `~welcome.tutorial`.</td>
+<td markdown="span">
+Suppress alerts with alert tags tags during a [maintenance window](maintenance_windows_managing.html#creating-a-maintenance-window).</td>
+<td markdown="span">[Create or add alert tags](alerts.html#creating-an-alert).</td>
+<td markdown="span">[Reference alert metrics by tag](alerts_dependencies.html#referencing-alert-metrics).</td>
 </tr>
 <tr>
 <td>event tags</td>
-<td markdown="span">[Create or add event tags](events.html#creating-a-user-event)</td>
-<td markdown="span">Event filters in [Basic events() Queries](events_queries.html)</td>
-<td markdown="span">Alerts add system tags to events<br /><br />Users add object tags to events</td>
+<td>Filter and find events.</td>
+<td markdown="span">[Create or add event tags](events.html#creating-a-user-event).</td>
+<td markdown="span">Use filters in [Basic events() Queries](events_queries.html).</td>
 </tr>
 </tbody>
 </table>
