@@ -58,8 +58,6 @@ spec:
         ports:
         - containerPort: 2878
           protocol: TCP
-        - containerPort: 4242
-          protocol: TCP
         securityContext:
           privileged: false
 ```
@@ -84,9 +82,6 @@ spec:
   - name: wavefront
     port: 2878
     protocol: TCP
-  - name: opentsdb
-    port: 4242
-    protocol: TCP
   selector:
     k8s-app: wavefront-proxy
 ```
@@ -100,21 +95,21 @@ If RBAC is enabled on your Kubernetes cluster, copy and save the following yaml 
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-name: heapster
+  name: heapster
 roleRef:
-apiGroup: rbac.authorization.k8s.io
-kind: ClusterRole
-name: system:heapster
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:heapster
 subjects:
 - kind: ServiceAccount
-name: heapster
-namespace: kube-system
+  name: heapster
+  namespace: kube-system
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-name: heapster
-namespace: kube-system
+  name: heapster
+  namespace: kube-system
 ```
 Run `kubectl create -f heapster-rbac.yaml`.
 
