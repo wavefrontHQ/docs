@@ -47,7 +47,7 @@ You can perform direct ingestion of [histogram distributions](proxies_histograms
 
 Here's a simple example:
 ```
-echo "!M 1493773500 #20 30 #10 5 request.latency source=appServer1 region=us-west" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report
+echo "\!M 1493773500 #20 30 #10 5 request.latency source=appServer1 region=us-west" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report
 ```
 
 ## Comparing Proxy and Direct Ingestion
