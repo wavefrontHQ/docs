@@ -10,7 +10,7 @@ summary: Reference to the align() function
 ```
 align(<timeWindow>,[mean|median|min|max|first|last|sum|count,] <expression>)
 ```
-Groups the data values of a time series into buckets of size <strong>timeWindow</strong>, and returns one displayed value per bucket. Each returned value is the result of aggregating the data values in a bucket using the specified summarization method.
+Groups the data values of a time series into buckets of size <strong>timeWindow</strong>, and returns one displayed value per bucket. Each returned value is the result of combining the data values in a bucket using the specified summarization method.
 
 ## Parameters
 <table>
