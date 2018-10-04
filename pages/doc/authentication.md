@@ -20,9 +20,9 @@ After a user has been successfully authenticated, administrators set the permiss
 
 ## Multi-Tenant Authentication
 
-Many Wavefront customers set up their environment to support logins into a single tenant, but a few Wavefront customers have asked us to support separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Wavefront. We support this separation of teams, called multi-tenancy, like this:
+Several Wavefront customers have asked for an environment that supports separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Wavefront. We support this separation of teams, called multi-tenancy, like this:
 
-* First, the administrator at the customer site requests tenants from Wavefront and specifies the tenant administrator emails and some other information, such as the IDP.
+* The administrator at the customer site requests tenants from Wavefront and provides the tenant administrator emails and other information such as the IDP.
 * After Wavefront has set up the tenants, each tenant administrator invites users to that tenant.
 * Administrators can invite users to multiple tenants.
 * Users who have been invited to multiple tenants:
@@ -49,7 +49,7 @@ Multi-tenancy is set up jointly by the Wavefront administrator at the customer s
 1. The administrator at the customer site and the newly specified tenant administrator(s) can then:
   * Log in to the tenant.
   * [Invite users](users_managing.html#adding-users) to the tenant and assign permissions for that tenant.
-  * Make other users tenant administrator by granting [User Management permission](permissions.html) to a invited user.
+  * Make other users tenant administrator by granting [User Management permission](permissions.html) to those invited users.
 
 ## Multi-Tenant Modes
 
