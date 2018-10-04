@@ -1,0 +1,82 @@
+---
+title: ratediff Function
+keywords: query language reference
+tags: [reference page]
+sidebar: doc_sidebar
+permalink: ts_ratediff.html
+summary: Reference to the ratediff() function
+---
+## Summary
+```
+ratediff(<expression>)
+```
+Returns the differences between adjacent values in each time series described by the expression. The results include only positive changes in value. Use [`rate()`](ts_rate.html) if you want to see per-second rates of change. 
+
+## Parameters
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td>Expression describing the time series to return differences for. </td></tr>
+</tbody>
+</table>
+
+
+## Description
+
+The `ratediff()` standard time function returns the differences between adjacent increasing data values in the time series described by the expression. 
+For example, consider a metric that counts the cumulative total number of logins for an application over time. You can use the `ratediff()` function to see how many logins were added from one reported data point to the next. 
+
+`ratediff()` returns a separate series of results for each time series described by the expression.
+
+Although you can apply `ratediff()` to any kind of metric, the intended use is to find the differences for counter metrics, which are metrics that report cumulative totals (increasing values) over time. Accordingly, `ratediff()` returns only positive changes in value. 
+
+`ratediff()` is similar to Graphite's `nonNegativeDerivative()` function, except for the way `ratediff()` handles the first data value in a series or the first data value after a counter reset (see below).
+
+### Change in Value
+
+`ratediff()` returns a simple change in value from one data point to the next, rather than computing a rate of change over time. For example, let's say that a metric has a reporting interval of 30 seconds, and reports these successive data values: 
+
+| Value | Time
+|105,500 | 05:45:00pm 
+|105,750 | 05:45:30pm
+
+`ratediff()` subtracts the later data value from the earlier one (`105,750 - 105,500`) and returns the resulting value (`250`) at 05:45:30pm. The difference between these data values would be exactly the same if the metric had reported them two minutes apart. 
+
+Because `ratediff()` ignores the time interval between reported data values, it is useful for time series that have lots of gaps or irregular reporting intervals. Use [`rate()`](ts_rate.html) if you want to see per-second rates of change for time series with relatively regular reporting intervals and few gaps. 
+
+**Note:** `ratediff()` treats the first data value reported by a time series as if it were preceded by 0. Consequently, the first value returned by `ratediff()` is the same as the first data value in the input series. 
+
+
+### Response to Counter Resets
+
+A counter metric normally produces an monotonically increasing series of data values, for which `ratediff()` returns positive changes in value. However, a metric might reset its counter on occasion -- for example, if the metric's source restarts or encounters a particular condition. 
+
+A metric indicates a counter reset by reporting a lower data value immediately after a higher data value. `ratediff()` responds to a counter reset by simply returning the lower data value. (More specifically, `ratediff()` treats the lower data value as if it were preceded by 0, and returns the difference between that value and the inferred 0.)
+
+`ratediff()` never returns a negative change in value. 
+
+
+## Examples
+
+<!--- This example uses a series of specially ingested points. See Notes+on+Sending+Points+to+a+Proxy --->
+
+Here's a query that shows a sample metric that increments a counter. The reporting interval is 2 seconds, which means the counter increments every 2 seconds. We see the count climb from 8:50:36 to 8:50:51, when it resets. The counter restarts at 8:50:55.
+![ratediff before](images/ts_ratediff_before.png)
+
+Now we apply `ratediff()` to our original query to find out how fast the counter grows from point to point. 
+ 
+![ratediff after](images/ts_ratediff_after.png)
+
+Notice: 
+* The first value returned by `ratediff()` is 2, which is the counter's first value minus an inferred value of 0.
+* `ratediff()` returns no value when the counter skips a point at roughly 8:50:53. 
+* When the counter restarts at 8:50:55, `ratediff()` returns 2, which is the counter's first value after the restart, minus an inferred value of 0.
+* The two points reported after the counter restarts have the same value (2), causing `ratediff()` to dip down to 0 at 8:50:57.
+
+## See Also
+
+[`rate()` Function](ts_rate.html)
