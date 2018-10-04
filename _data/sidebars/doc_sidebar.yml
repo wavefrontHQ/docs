@@ -446,8 +446,8 @@ entries:
     output: web
     folderitems:
 
-      - title: Enabling SSO with Authentication Providers
-        url: /integrations_authentication.html
+      - title: Authentications with SSO Providers
+        url: /authentication.html
         output: web
 
       - title: Managing Users and Permissions
