@@ -1,0 +1,77 @@
+---
+title: Authentication with SSO Providers
+keywords:
+tags: [integrations, administration]
+sidebar: doc_sidebar
+permalink: authentication.html
+summary: Learn how to enable authentication and multi-tenant authentication.
+---
+
+Wavefront supports authentication through your identity provider (IDP). For several popular IDPs we support integrations. Most customers use single-tenant authentication. If your company wants to set up a different tenant for different teams, a multi-tenant setup might make sense.
+
+
+## Single-Tenant Authentication
+
+Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IDP). We support predefined integrations with [ADFS](adfs.html), [Azure AD](azure_ad.html), [Google](google.html), [OneLogin](onelogin.html), and [Okta](okta.html), but SSO setup with other IDPs is also possible.
+
+After a user has been successfully authenticated, administrators determine which [permissions](permissions_overview.html) the user has from within Wavefront.
+
+## Multi-Tenant Authentication
+
+Many Wavefront customers set up their environment to support logins into a single tenant, but a few Wavefront customers have asked us to support separate tenants for different teams. For example, here at VMware it made sense to keep vSphere team separate from the VMware NSX team -- both teams use Wavedfront. We support this separation of teams, called multi-tenancy.
+
+* For initial setup, the administrator at the customer site requests tenants from Wavefront and specifies the tenant administrator emails.
+* Each tenant administrator invites users to that tenant.
+* Administrators can invite users to multiple tenants.
+* Users who have been invited to multiple tenants:
+    - are directed to the last tenant they used
+    - can switch to other tenants from the gear icon menu.
+
+Users log in to an identity provider that administrators specify when they first get their Wavefront account. For multi-tenant authentication, we support Okta, [VMware Identity Manager](https://docs.vmware.com/en/VMware-Identity-Manager/index.html), and Google IdP.
+
+## How to Set Up Multi-Tenancy
+
+To set up multi-tenancy, an administrator at the customer site has to request the feature.
+
+Multi-tenancy is set up jointly by the Wavefront administrator at the customer site and the Wavefront team:
+
+1. The administrator decides on the multi-tenancy mode (see below), that is, sandbox or strict multi-tenant setup.
+1. The administrator requests a multi-tenant setup from Wavefront, providing the following information:
+   * Name of the tenants to create (one tenant per team).
+   * Email addresses of the administrators of reach team.
+   * IDP details.
+   * Sandbox mode or strict mode (see below).
+1. The Wavefront team sets up the multi-tenant environment based on the request:
+   * Creates a tenant for team specified by the customer.
+   * Creates tenant administrator users with **User Management** permissions on each tenant.
+   * Ties all the tenants under the IDP.
+   * Sets multi-tenancy mode of IDP.
+1. The administrator at the customer site and the newly specified tenant administrator(s) can then:
+  * Log in to the tenant.
+  * [Invite users](users_managing.html#adding-users) to the tenant and assign permissions for that tenant.
+  * Make other users tenant administrator by granting [User Management permission](permissions.html) to a invited user.
+
+## Multi-Tenant Modes
+
+Administrators who request a multi-tenant setup can specify sandbox mode or strict mode.
+
+### Sandbox Mode (Default Login Enabled)
+
+In sandbox mode, any user who is authenticated by the corporate ID provider is given access to a default tenant.
+* If that user was never invited to any of the tenants, Wavefront creates a user on the default tenant.
+* If the user has been invited to an existing tenant, the user is given access to that tenant, and Wavefront does not create a user on the default tenant.
+
+### Strict Mode (Default Login Disabled)
+
+In strict mode, users can access Wavefront only if they've been invited to one or more of the tenants.
+
+## How Users Experience Multi-Tenant SSO
+
+If your environment is set up to support multi-tenant SSO, you log in to Wavefront with your SSO credentials. After successful authentication, your user experience is like this:
+
+   * If you've been invited to only one tenant, then you are logged in to that tenant after authentication.
+   * If you've been invited to more than one tenant, you are logged in to the last tenant you logged in. You can switch to the other tenant(s) by selecting the tenant from the gear icon.
+   * For each tenant, you have the permissions granted on that tenant. That means, for example, if you have the User Management permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
+   **Note:** You can have different sets of permissions on different tenants because each tenant administrator controls the permissions for that tenant for each user.
+
+   * When you log out, the logout applies to *all* tenants.
