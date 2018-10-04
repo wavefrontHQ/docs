@@ -7,45 +7,45 @@ permalink: authentication.html
 summary: Learn how to enable authentication and multi-tenant authentication.
 ---
 
-Wavefront supports authentication through your identity provider (IDP). For several popular IDPs we support integrations. Most customers use single-tenant authentication. If your company wants to set up a different tenant for different teams, a multi-tenant setup might make sense.
+Wavefront supports authentication through your identity provider (IDP). For several popular IDPs we support integrations.
+
+Most Wavefront customers use single-tenant authentication. If your company wants to set up a different tenant for different teams, a multi-tenant setup might make sense.
 
 
 ## Single-Tenant Authentication
 
-Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IDP). We support predefined integrations with [ADFS](adfs.html), [Azure AD](azure_ad.html), [Google](google.html), [OneLogin](onelogin.html), and [Okta](okta.html), but SSO setup with other IDPs is also possible.
+Most Wavefront administrators set up authentication in their environment by setting up SSO using an identity provider (IDP). We support predefined integrations with [ADFS](adfs.html), [Azure AD](azure_ad.html), [Google](google.html), [OneLogin](onelogin.html), and [Okta](okta.html). SSO setup with other IDPs is also possible.
 
-After a user has been successfully authenticated, administrators determine which [permissions](permissions_overview.html) the user has from within Wavefront.
+After a user has been successfully authenticated, administrators set the permissions for that user. [Permissions](permissions_overview.html) determine what the user can do in Wavefront.
 
 ## Multi-Tenant Authentication
 
-Many Wavefront customers set up their environment to support logins into a single tenant, but a few Wavefront customers have asked us to support separate tenants for different teams. For example, here at VMware it made sense to keep vSphere team separate from the VMware NSX team -- both teams use Wavedfront. We support this separation of teams, called multi-tenancy.
+Many Wavefront customers set up their environment to support logins into a single tenant, but a few Wavefront customers have asked us to support separate tenants for different teams. For example, here at VMware it made sense to keep the VMware vSphere team separate from the VMware NSX team -- both teams use Wavefront. We support this separation of teams, called multi-tenancy, like this:
 
-* For initial setup, the administrator at the customer site requests tenants from Wavefront and specifies the tenant administrator emails.
-* Each tenant administrator invites users to that tenant.
+* First, the administrator at the customer site requests tenants from Wavefront and specifies the tenant administrator emails and some other information, such as the IDP.
+* After Wavefront has set up the tenants, each tenant administrator invites users to that tenant.
 * Administrators can invite users to multiple tenants.
 * Users who have been invited to multiple tenants:
     - are directed to the last tenant they used
-    - can switch to other tenants from the gear icon menu.
+    - can switch to other tenants from the gear icon menu without having to log in again.
 
-Users log in to an identity provider that administrators specify when they first get their Wavefront account. For multi-tenant authentication, we support Okta, [VMware Identity Manager](https://docs.vmware.com/en/VMware-Identity-Manager/index.html), and Google IdP.
+Users log in to an identity provider that administrators specify when they first get their Wavefront account. For multi-tenant authentication, we support Okta and Google IdP.
 
 ## How to Set Up Multi-Tenancy
 
-To set up multi-tenancy, an administrator at the customer site has to request the feature.
-
 Multi-tenancy is set up jointly by the Wavefront administrator at the customer site and the Wavefront team:
 
-1. The administrator decides on the multi-tenancy mode (see below), that is, sandbox or strict multi-tenant setup.
+1. The administrator decides on the multi-tenancy mode (see below), that is, sandbox or strict multi-tenant mode.
 1. The administrator requests a multi-tenant setup from Wavefront, providing the following information:
    * Name of the tenants to create (one tenant per team).
    * Email addresses of the administrators of reach team.
    * IDP details.
    * Sandbox mode or strict mode (see below).
 1. The Wavefront team sets up the multi-tenant environment based on the request:
-   * Creates a tenant for team specified by the customer.
+   * Enables multi-tenancy for the customer.
+   * Creates a tenant for each team specified by the customer.
+   * Points each tenant to the customer's IDP.
    * Creates tenant administrator users with **User Management** permissions on each tenant.
-   * Ties all the tenants under the IDP.
-   * Sets multi-tenancy mode of IDP.
 1. The administrator at the customer site and the newly specified tenant administrator(s) can then:
   * Log in to the tenant.
   * [Invite users](users_managing.html#adding-users) to the tenant and assign permissions for that tenant.
