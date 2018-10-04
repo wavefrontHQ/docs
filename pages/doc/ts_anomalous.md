@@ -70,7 +70,7 @@ By default, the history window is a week long. You can fine tune the forecast by
 
 If the data points used for prediction have missing data or an irregular reporting interval, you can smooth over the gaps by specifying an optional `alignWindow` parameter. You must specify `historyWindow` as well.
 
-For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input data points at 1-minute intervals. 
+For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input (and output) data points at 1-minute intervals. 
 
 <!--- Looking for a more realistic example.
 ## Example
