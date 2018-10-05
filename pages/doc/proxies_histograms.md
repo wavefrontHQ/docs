@@ -7,7 +7,7 @@ published: true
 permalink: proxies_histograms.html
 summary: Learn how to use Wavefront histograms.
 ---
-Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion. 
 
 **Note:** The histogram feature requires a separate license and is not enabled on your cluster by default.
 
@@ -33,9 +33,11 @@ timestamp, and source. Using "normal" metrics, we can't measure this because, ra
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
 a 95th percentile from a variety of sources) does not yield an accurate and valid percentile with high velocity metrics. That might mean that even though you have an outlier in some of the source data, it becomes obscured by all the other data.
 
-To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy. Histograms are supported by Wavefront proxy 4.12 and later. To indicate that metrics should be treated as histogram data, the user must send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the normal metrics port (2878).
+To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user must either:
+* Send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the normal metrics port (2878).
+* Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
-Once the proxy forwards the histogram data to the Wavefront service, Wavefront [rewrites the names of histogram metrics](#histogram-metric-names), which you can query with a set of [functions](#histogram-functions).
+The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-names), which you can query with a set of [functions](#histogram-functions).
 
 ## Wavefront Histogram Distributions
 
@@ -89,7 +91,7 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
 
 A distribution allows you to send multiple points with a single value.
 
-To send histogram data as a distribution:
+To send histogram data as a distribution to the Wavefront proxy:
 
 - Send to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
 
@@ -113,6 +115,8 @@ To send histogram data as a distribution:
   is a distribution that sends 20 points of the metric `request.latency` with value 30 and 10 points with value 5, that have been aggregated into minute intervals.
 
   {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, histogram data format inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
+
+You can also send a histogram distribution using [direct ingestion](direct_ingestion.html#histogram-distribution). In that case, you must include `f=histogram` or your data are treated as metrics even if you use histogram format.
 
 ## Histogram Example
 

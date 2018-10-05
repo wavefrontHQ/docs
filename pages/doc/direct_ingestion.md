@@ -47,8 +47,13 @@ You can perform direct ingestion of [histogram distributions](proxies_histograms
 
 Here's a simple example:
 ```
-echo "\!M 1493773500 #20 30 #10 5 request.latency source=appServer1 region=us-west" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report
+echo '!M #20 30 #10 5 request.latency source=appServer1 region=us-west' | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report?f=histogram
 ```
+
+Note that:
+* The histogram feature requires a separate license and is not enabled on your cluster by default.
+* You enclose the distribution in single quotes and use the [histogram distribution format](proxies_histograms.html#sending-histogram-distributions).
+* You must include `f=histogram` to ensure the input is treated as a histogram distribution.
 
 ## Comparing Proxy and Direct Ingestion
 
