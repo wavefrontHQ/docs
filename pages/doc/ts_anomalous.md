@@ -44,7 +44,7 @@ The `anomalous()` function analyzes data points in the time series described by 
 
 `anomalous()` analyzes successive groups of data points in a time series, and returns the percentage of anomalous points for each group. You define the groups to be checked by specifying the `testWindow` parameter. For example, `anomalous(10m, ts(my.metric))` returns, for each data point, the percentage of data points with anomalous values that were reported during the 10 minutes before that data point. If 4 out of 10 points in a test window have anomalous values, the result returned for that test window is `0.40`. 
 
-`anomalous()` reports the result for a test window at the end of that window. Consequently, if the test window is long, `anomalous()` can appear to detect sudden changes after a significant delay. Choose a shorter test window such as `10m` to enable `anomalous()` to report changes right away.
+`anomalous()` returns the result for a test window at the end of that window. Consequently, the longer the test window, the more the result might appear to be delayed after a sudden change in the time series. Choosing a shorter test window enables `anomalous()` to report changes right away. A typical test window is `10m`.
 
 `anomalous()` returns a separate series of results for each time series described by the expression.
 
@@ -70,16 +70,19 @@ The wider the range, the fewer points will lie outside it, and the smaller the r
 
 By default, the history window is a week long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although it might cause the query to take longer.
 
-If the data points used for prediction have missing data or an irregular reporting interval, you can smooth over the gaps by specifying an optional `alignWindow` parameter. You must specify `historyWindow` as well.
+If the data points used for prediction have missing data or an irregular reporting interval, you can smooth over the gaps by specifying an optional `alignWindow` parameter. This also smooths the gaps in the results. You must specify `historyWindow` as well.
 
-For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input (and output) data points at 1-minute intervals. 
+For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input and output data points at 1-minute intervals. 
 
+<!---  9/30/18-10/08/18 sum(rate(ts(dataingester.report-points, tag=${cluster}))) --->
 ## Example
 
-The following chart shows an aggregated rate of data ingestion for a particular cluster. 
+The following chart shows an aggregated rate of data ingestion for a particular cluster. Data ingestion appears to fluctuate daily, with lower rates around midight and peaking around noon.
 
 ![anomalous before](images/ts_anomalous_before.png)
 
-We'd like to know whether the actual ingestion deviates from the expected ingestion, based on the past 1 weeks's worth of actual data. So we run the query `anomalous(10m, 1w, ...)` to analyze the points in 10-minute test windows. The resulting orange line in the following chart suggests that the spikes in data ingestion in the afternoons of 4 days may be anomalous (fall outside the range of 99% of expected values). In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.  
+We'd like to know whether the actual fluctuation deviates from the expected fluctuation, based on about 2 weeks's worth of actual data (the week before the chart, in addition to the week shown in the chart). We want to keep the test window short, to better correlate the results with the changes in the time series. So we run `anomalous()` with a `10m` test window and a `1w` history window. 
+
+The orange line in the following chart suggests that the spikes in data ingestion on the afternoons of October 1, 3, 4, and 5 may be anomalous because they fall outside the range of 99% of expected values. In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.  
 
 ![anomalous after](images/ts_anomalous_after.png)
