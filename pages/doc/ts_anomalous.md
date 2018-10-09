@@ -42,7 +42,9 @@ Default is 0.99 if this parameter is not specified.
 
 The `anomalous()` function analyzes data points in the time series described by the expression, and returns the percentage of points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. By default, `anomalous()` uses a range that is predicted with 0.99 (99%) confidence.
 
-`anomalous()` analyzes successive groups of data points in a time series, and returns the percentage of anomalous points for each group. You define the groups to be checked by specifying the `testWindow` parameter. For example, `anomalous(5m, ts(my.metric))` returns, for each data point, the percentage of data points with anomalous values that were reported during the 5 minutes before that data point. If 2 out of 5 points in a test window have anomalous values, the result returned for that test window is `0.40`. 
+`anomalous()` analyzes successive groups of data points in a time series, and returns the percentage of anomalous points for each group. You define the groups to be checked by specifying the `testWindow` parameter. For example, `anomalous(10m, ts(my.metric))` returns, for each data point, the percentage of data points with anomalous values that were reported during the 10 minutes before that data point. If 4 out of 10 points in a test window have anomalous values, the result returned for that test window is `0.40`. 
+
+`anomalous()` reports the result for a test window at the end of that window. Consequently, if the test window is long, `anomalous()` can appear to detect sudden changes after a significant delay. Choose a shorter test window such as `10m` to enable `anomalous()` to report changes right away.
 
 `anomalous()` returns a separate series of results for each time series described by the expression.
 
@@ -72,14 +74,12 @@ If the data points used for prediction have missing data or an irregular reporti
 
 For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input (and output) data points at 1-minute intervals. 
 
-<!--- Looking for a more realistic example.
 ## Example
 
-The following chart shows CPU usage for one of the sources. 
+The following chart shows an aggregated rate of data ingestion for a particular cluster. 
 
 ![anomalous before](images/ts_anomalous_before.png)
 
-We'd like to know whether the actual CPU usage deviates from the expected CPU usage, based on the past 2 weeks's worth of actual data. So we run the query `anomalous(2m, 0.50, 2w, ts(~sample.cpu.usage.user.percentage, source=app-14))` to analyze the points in 2-minute test windows. The resulting orange line in the following chart suggests that the dip in CPU usage between 3:18 and 3:22 may be anomalous, because 2/3 (0.667) of the values fall outside a fairly narrow range (50%) of the expected values. In contrast, the behavior from 3:23 on seems right in line with expectations -- the percentage of anomalous points here is 0.  
+We'd like to know whether the actual ingestion deviates from the expected ingestion, based on the past 1 weeks's worth of actual data. So we run the query `anomalous(10m, 1w, ...)` to analyze the points in 10-minute test windows. The resulting orange line in the following chart suggests that the spikes in data ingestion in the afternoons of 4 days may be anomalous (fall outside the range of 99% of expected values). In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.  
 
 ![anomalous after](images/ts_anomalous_after.png)
----> 

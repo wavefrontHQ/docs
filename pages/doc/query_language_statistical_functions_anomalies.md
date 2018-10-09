@@ -15,8 +15,9 @@ Anomalies can indicate that something's about to go wrong in your environment. I
 
 ## Functions for Anomaly Detection
 
-You can use simple functions or statistical functions to examine trends that might result in an anomaly.
+You can use simple functions, prediction-based functions, or statistical functions to examine trends that might result in an anomaly.
 * Simple functions can give insight into rate of change and trends.
+* Prediction-based functions can help you compare actual values against expected values based on past performance.
 * Statistical functions like mean, median, range, standard deviation, and inter-quartile range are great for understandstanding trends and variability in your dataset. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
 
 ## Simple Functions
@@ -27,6 +28,14 @@ A great way to do dynamic anomaly detection is a query like the following:
 The result shows a 10 minute range of change as a ratio. You can change the time period to 1d or 30m to get the information you need.
 
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
+
+## Prediction-Based Functions
+You can use [`anomalous()`](ts_anomalous.html) to return the percentage of data points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions. 
+
+For example, the following query considers points to be anomalous if they fall outside 95% of the expected values, or 2 standard deviations from the predictions:
+
+`anomalous(5m, .95, ts(my.metric))`
+
 
 ## Mean and Median
 The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data.
