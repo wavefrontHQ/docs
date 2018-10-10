@@ -15,8 +15,9 @@ Anomalies can indicate that something's about to go wrong in your environment. I
 
 ## Functions for Anomaly Detection
 
-You can use simple functions or statistical functions to examine trends that might result in an anomaly.
+You can use simple functions, prediction-based functions, or statistical functions to examine trends that might result in an anomaly.
 * Simple functions can give insight into rate of change and trends.
+* Prediction-based functions can help you compare actual values against expected values based on past performance.
 * Statistical functions like mean, median, range, standard deviation, and inter-quartile range are great for understandstanding trends and variability in your dataset. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
 
 ## Simple Functions
@@ -28,6 +29,14 @@ The result shows a 10 minute range of change as a ratio. You can change the time
 
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
+## Prediction-Based Functions
+You can use [`anomalous()`](ts_anomalous.html) to return the percentage of data points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions. 
+
+For example, the following query considers points to be anomalous if they fall outside 95% of the expected values, or 2 standard deviations from the predictions:
+
+`anomalous(5m, .95, ts(my.metric))`
+
+
 ## Mean and Median
 The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data.
 
@@ -35,7 +44,7 @@ The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand t
 
 Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier. The `mmedian` function is more robust in dealing with outliers than `avg`/ `mavg` because outliers tend to move the mean towards the outlier value.
 
-Cosider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
+Consider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
 data:|`ts(test.http.requests, host=web493.corp.example.com)`
 mean:|`mavg(10m,${data})`
@@ -72,22 +81,21 @@ Here are some examples for both Std Dev and IQR that illustrate these functions.
 
 The following example first uses a query without standard deviation:
 
-`ts(network.rate.*)`
+raw:|`ts(network.rate.*)`
 
-Then we add a query that gets the standard deviation for the network rate:
+Then we add a query that builds on `raw` to get the standard deviation for the network rate:
 
-`ts (network.rate.*)`
-`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
+StandardDeviation:|`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
 
 We use standard deviation to identify which series deviate greatly from their usual behavior, with a 2 hour moving window. When the standard deviation crosses a certain value (10 in this case), we have an anomaly. The same function is applied to different, widely scaled time series (each shown in a different color) and it identifies the spread of each series independently.
 
 ### Query Without Standard Deviation
 
-![before_std_dev](images/before_std_dev.png)
+![before_std_dev](images/std_dev_before.png)
 
 ### Adding Query With Standard Deviation
 
-![after_std_dev](images/after_std_dev.png)
+![after_std_dev](images/std_dev_after.png)
 
 ## Example 2
 
