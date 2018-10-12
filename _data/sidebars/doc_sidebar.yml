@@ -275,7 +275,7 @@ entries:
       url: /webhooks_alert_notification.html
       output: web
 
-    - title: Customizing Alert Target Templates
+    - title: Customizing Alert Notifications
       url: /alert_target_customizing.html
       output: web
 
