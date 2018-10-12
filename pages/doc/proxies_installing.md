@@ -19,6 +19,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
 ## Proxy Host Requirements
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
+- Networking - The proxy uses port 2878 by default. Change the `pushListenerPort` in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties) if you need a different port.
 - Memory - you don't need a dedicated host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux
@@ -130,19 +131,12 @@ To check if the proxy is running, run the following commands on the proxy host:
 
 ### Testing a Proxy
 
-You can test that a proxy is receiving and sending data by sending it a JSON payload as follows:
+You can test that a proxy is receiving and sending data as follows:
 
-1. In the [proxy configuration file](proxies_configuring.html), set the JSON listener port to 3878.
-
-   ```
-   jsonListenerPorts=3878
-   ```
 1. Run the following command:
 
    ```shell
-   curl --header "Content-type: application/json" \
-   'http://<wavefront_proxy_address>:3878/?h=test_host&d=now' \
-   -d '{"test.metric":{"value":1,"tags":{"key1":"v1","key2":"v2"}}}'
+echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
    ```
    where `<wavefront_proxy_address>` is the address of your Wavefront proxy.
 1. In the Wavefront UI, select **Browse > Metrics**.
