@@ -6,79 +6,103 @@ sidebar: doc_sidebar
 permalink: wavefront_sdk_quickstart.html
 summary: Learn how to set up your application to send data into Wavefront.
 ---
-It's easy to get telemetry data (metrics, histograms, and tracing spans) out of your application and into Wavefront.
 
-You'll want to start by instrumenting the services in your app to send out-of-the-box metrics and tracing data from each request and response.
-* The out-of-the-box metrics can tell you this sort of thing: ...
-* The out-of-the-box tracing data can tell you this sort of thing: ...
+You start the flow of telemetry data into Wavefront by instrumenting the services in your application. 
 
-Watch this video:
+This page shows you the fast track to instrumentation, which produces out-of-the-box metrics, histograms, and tracing spans from popular application frameworks. As your application executes, you'll be able to identify requests that have unusual frequency, the most errors, the longest latency, the largest payload, and so on. With this information, you can quickly pinpoint application hotspots to be fixed.
 
-(video here? Need to define what territory it covers.)
+Wavefront also supports custom instrumentation. _[[Link to other SDKs]]_
+
+## Sample Setup
+
+Watch this video to see how to set up a sample application to send out-of-the-box metrics and traces. (You can read about the steps [below](#setup-process).)
+
+_[[video that describes how to set up Beach Shirt app?]]_
 
 ## Setup Process 
 
-Your exact setup steps will depend on which programming language and frameworks you use in the application you want to instrument. You'll pick these [below](#pick-a-language-and-framework-to-instrument). 
+You get the exact setup steps by picking a programming language and framework in a [table below](#pick-a-language-and-framework-to-instrument). 
 
 In all cases, you will:
  
 1. Define dependencies in a build system of your choice, such as Maven. 
 
 2. Edit your code to create a few helper objects. These objects:
-  * Describe your application to Wavefront. _Link to tagging topic._
-  * Determine how often data is reported. _Link to reporter topic._
-  * Specify whether to send data through a Wavefront proxy or directly to the Wavefront service.  _Link to proxy vs. direct ingestion topic._
-    You'll also need to start a Wavefront proxy if you are using one. 
-3. Build and run your application.
-4. Click Applications in the Wavefront menu bar to start exploring your metrics and traces.
+  * Describe your application to Wavefront. _[[Link to tagging topic]]_
+  * Determine how often data is reported. _[[Link to reporter topic]]_
+  * Specify whether to send data through a Wavefront proxy or directly to the Wavefront service. _[[Link to proxy vs. direct ingestion topic]]_
+
+3. Start a Wavefront proxy if you are using one. 
+
+After you build and run your application, you can click **Applications** in the Wavefront menu bar to start exploring your metrics and traces.
 
 
 ## Pick a Language and Framework to Instrument 
 
-For each service in your app, pick the language and framework it uses.  _Pretend this is a better table!_
+Pick the language and framework used by the service you want to instrument. Click on the link to go to the detailed setup steps.
 
-| Java | Framework |
-|------| --------- |
-|   | [Jersey Compliant](#instrumenting-a-jersey-compliant-framework) |
-|   | gRPC | 
+<table width="100%">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>Java Framework</th><th>Description</th></tr>
+</thead>
+<tr><td markdown="span">[Jersey Compliant](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instruments Jersey-compliant APIs to send telemetry data to Wavefront.</td></tr>
+<tr><td markdown="span">gRPC</td>
+<td>Instruments gRPC APIs to send telemetry data to Wavefront.</td></tr>
+<tr><td markdown="span">JVM</td>
+<td>Instruments the Java Virtual Machine to send metrics and histograms to Wavefront. Measures CPU, disk usage, and so on.</td></tr>
+</tbody>
+</table>
 
-| Python or C# | Framework |
-|------| --------- |
-|   | tbd  |
-|   | tbd  |
+<table width="100%">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>Python Framework</th><th>Description</th></tr>
+</thead>
+<tr><td markdown="span"> TBD </td>
+<td>TBD</td></tr>
+<tr><td markdown="span">TBD</td>
+<td>TBD</td></tr>
+</tbody>
+</table>
 
 
-## Instrumenting a Jersey Compliant Framework
-
-*PRETEND THIS IS A SEPARATE PAGE*
-
-_The content of this page should be either the [GitHub readme.md file](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java), or a doc page generated from that file._
+_[[Links from this table should be either go to the GitHub readme.md file, or to a doc page generated from that file.]]_
 
 
 
 ## Writer's Discussion:
 
-
-2. **Git readme.md** file already has steps with snippets.  
-  - Doc should not duplicate. 
-    - Error prone and confusing to user.
-    - Duplication in doc Won't scale to complete set of SDKs with current writing staff.
-
-3. Git readme.md should be the **single source for code and doc**.
+1. This is the standard doc template. Changing would be time-consuming. 
+    - TOC at the top only suppressed if there are no headers on the page.
+3. OK to use SDK readme file on Git for detailed setup steps. 
+  - File already has steps with snippets.  
+  - Doc should not duplicate -- Error prone and confusing to user; won't scale
+  - Developers are comfortable with the style and length.
   - Many developers will go to readme anyway.
 
-### Proposal 
-**package and present SDKs as integrations**.
-  * Datadog does this: [DataDog Language Integrations](https://docs.datadoghq.com/integrations/#cat-languages)
+### Writer's Questions
+
+1. Is the page title ok? 
+  *  Instrumenting Your App? or Instrumenting Your App for Tracing? 
+  * SDKs do more than emit tracing data. In fact, JVM SDK doesn’t emit traces at all
+1. OK to use SDK readme file on Git as source for a generated doc .html file?
+2. Consider packaging/presenting SDKs as integrations?
+  * Datadog does this for its JVM SDK equivalent: [DataDog Language Integrations](https://docs.datadoghq.com/integrations/#cat-languages)
   * WF already has UI conventions and infrastructure for integrations.
+  * Easy for user to search for integration tiles in the WF UI and then view setup info. Click on a tile to view integration page with Overview, Setup, Metrics tabs.
+  * Easy for user to view setup info from doc. Script combines all separate overview.md, setup.md, metrics.md files into a single generated .html page in the doc. Other doc pages can link to generated page.
 
-  * Easy for user to search for integration tiles in the WF UI and then view setup info: 
-    - Click on a tile to view integration page with Overview, Setup, Metrics tabs
-    - Generated from separate overview.md, setup.md, metrics.md files.
-  * Easy for user to view setup info from doc:
-    - Script combines all .md into a single generated .html page in the doc. 
-    - Other doc pages can link to generated page.
-
+### Background details
 readme files cover the following:
 1. Set up dependencies
       * Snippet
