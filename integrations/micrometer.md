@@ -16,6 +16,8 @@ This is a custom integration. You can send your own metrics and create your own 
 
 Wavefront has a reporter for [Micrometer](http://micrometer.io/docs/registry/wavefront): [Wavefront reporter for Micrometer](https://github.com/micrometer-metrics/micrometer).
 
+This page gives the setup steps. See the [Wavefront section of the Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics-export-wavefront) for some additional information.  
+
 
 
 ### Step 1. Set up Wavefront Proxy
