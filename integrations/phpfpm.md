@@ -9,7 +9,7 @@ PHP-FPM (FastCGI Process Manager) is a PHP FastCGI implementation with features 
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are the **Overview** and **Cluster Resources** sections of a dashboard displaying PHP-FPM  metrics:
 
-{% include image.md src="images/overview.png" width="80" %}
+{% include image.md src="images/php_dashboard.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
