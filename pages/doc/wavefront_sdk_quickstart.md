@@ -7,11 +7,11 @@ permalink: wavefront_sdk_quickstart.html
 summary: Learn how to set up your application to send data into Wavefront.
 ---
 
-One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation provides you with the ability to trace requests across services, with visibility into key metrics from your application.
+One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By displaying a transaction as a hierarchy of Wavefront tracing _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
 
 This page shows you the fast track to producing out-of-the-box metrics and tracing spans from popular application frameworks. 
 
-**Note:** You can instrument your application to send custom traces and metrics. _[[Link to other SDKs]]_
+**Note:** You can also instrument your application to send custom traces and metrics. _[[Link to other SDKs]]_
 
 ## Sample Setup
 
@@ -28,9 +28,9 @@ In all cases, you will:
 1. Add dependencies in the build system of your choice, such as Maven. 
 
 2. Edit your code to instantiate a few helper objects. These objects:
-  * Describe your application to Wavefront. _[[Link to tagging topic]]_
+  * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
   * Configure how frequently data is reported. _[[Link to reporter topic]]_
-  * Specify whether to send data through a Wavefront proxy or directly to the Wavefront service. _[[Link to proxy vs. direct ingestion topic]]_
+  * Specify whether to send data through a Wavefront proxy or directly to the Wavefront service. <br>_[[Link to topic on proxy vs. direct ingestion]]_
 
 3. Start a Wavefront proxy if you are using one. 
 
@@ -80,12 +80,22 @@ _[[Links from this table should be either go to the GitHub readme.md file, or to
 
 ## Describing Your Application to Wavefront
 
-When you instrument an application framework, you define several tags that describe the topology of your application. These tags (called _application metadata_) are associated with the data points sent by the framework's APIs. Wavefront uses these tags when aggregating the predefined metrics that provide you with a meaningful context for understanding your application's traces.
+When you instrument an application framework, you need to specify values for several tags that describe the deployment topology of the application in which the framework is used.  These tags (called _application metadata_) will be associated with the data sent from each request or response that uses an API from the instrumented framework. Wavefront uses these tags for aggregating predefined metrics that provide you with a meaningful context for your application's traces. 
 
-The tags you must define are:
-* `application` - Name that identifies the application you are instrumenting. If the application is composed of coordinated microservices, all of those microservices should share the same application name.
-* `service` - Name that identifies a particular microservice within the instrumented application. Each microservice should have its own service name.
+Because the metadata tags describe the application's architecture as it is deployed, your code should implement a mechanism for reading a configuration file that you can update after the application has been built. Then you can set the application metadata in that file.
 
-If the physical topology of your application is useful for filtering, you can define the following optional tags:
-* `cluster` - Name of the cluster or region you will run your application in. 
+For each microservice that uses an instrumented framework, you specify values for the following required tags:
+* `application` - Name that identifies the application. If the application is composed of coordinated microservices, all of those microservices should share the same application name.
+* `service` - Name that identifies the microservice. Each microservice should have its own service name.
+
+If the physical topology of your application will be useful for filtering metrics, you can provide values for the following optional tags:
+* `cluster` - Name of a cluster or region in which the application will run. 
 * `shard` - Name of a partition or replica within a cluster.
+
+
+For more discussion of how to choose tag values, see _[[link to tagging topic on another page]]_.
+
+
+## Configuring Data Reporting
+
+_[[here or a different page?]]_
