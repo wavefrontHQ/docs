@@ -1,13 +1,13 @@
 ---
 title: Instrumenting Your App for Tracing
 keywords: data
-tags: [data, proxies]
+tags: [tracing]
 sidebar: doc_sidebar
 permalink: wavefront_sdk_quickstart.html
 summary: Learn how to set up your application to send data into Wavefront.
 ---
 
-One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation provides you with the ability to trace requests across services, in the context of key metrics from your application.
+One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation provides you with the ability to trace requests across services, with visibility into key metrics from your application.
 
 This page shows you the fast track to producing out-of-the-box metrics and tracing spans from popular application frameworks. 
 
@@ -78,11 +78,14 @@ Pick the language and framework used by the service you want to instrument. Clic
 
 _[[Links from this table should be either go to the GitHub readme.md file, or to a doc page generated from that file.]]_
 
-## Writer's Questions
+## Describing Your Application to Wavefront
 
-1. OK to use SDK readme file on Git as source for a generated doc .html file?
-2. Consider packaging/presenting SDKs as integrations?
-  * Datadog does this for its JVM SDK equivalent: [DataDog Language Integrations](https://docs.datadoghq.com/integrations/#cat-languages)
-  * WF already has UI conventions and infrastructure for integrations.
-  * Easy for user to search for integration tiles in the WF UI and then view setup info. Click on a tile to view integration page with Overview, Setup, Metrics tabs.
-  * Easy for user to view setup info from doc. Script combines all separate overview.md, setup.md, metrics.md files into a single generated .html page in the doc. Other doc pages can link to generated page.
+When you instrument an application framework, you define several tags that describe the topology of your application. These tags (called _application metadata_) are associated with the data points sent by the framework's APIs. Wavefront uses these tags when aggregating the predefined metrics that provide you with a meaningful context for understanding your application's traces.
+
+The tags you must define are:
+* `application` - Name that identifies the application you are instrumenting. If the application is composed of coordinated microservices, all of those microservices should share the same application name.
+* `service` - Name that identifies a particular microservice within the instrumented application. Each microservice should have its own service name.
+
+If the physical topology of your application is useful for filtering, you can define the following optional tags:
+* `cluster` - Name of the cluster or region you will run your application in. 
+* `shard` - Name of a partition or replica within a cluster.
