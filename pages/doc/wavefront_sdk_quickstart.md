@@ -80,20 +80,20 @@ _[[Links from this table should be either go to the GitHub readme.md file, or to
 
 ## Describing Your Application to Wavefront
 
-When you instrument an application framework, you need to specify values for several tags that describe the deployment topology of the application in which the framework is used.  These tags (called _application metadata_) will be associated with the data sent from each request or response that uses an API from the instrumented framework. Wavefront uses these tags for aggregating predefined metrics that provide you with a meaningful context for your application's traces. 
+When you instrument an application framework, you need to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags for aggregating predefined metrics that provide you with a meaningful context for your application's traces. 
 
-Because the metadata tags describe the application's architecture as it is deployed, your code should implement a mechanism for reading a configuration file that you can update after the application has been built. Then you can set the application metadata in that file.
+Because the metadata tags describe the application's architecture as it is deployed, you will normally implement a mechanism for obtaining values for the tags from a configuration file that you can update at deployment.
 
-For each microservice that uses an instrumented framework, you specify values for the following required tags:
+For each microservice that uses an instrumented framework, you specify the following required tags:
 * `application` - Name that identifies the application. If the application is composed of coordinated microservices, all of those microservices should share the same application name.
 * `service` - Name that identifies the microservice. Each microservice should have its own service name.
 
-If the physical topology of your application will be useful for filtering metrics, you can provide values for the following optional tags:
-* `cluster` - Name of a cluster or region in which the application will run. 
-* `shard` - Name of a partition or replica within a cluster.
+If the physical topology of your application will be useful for filtering metrics, you can specify the following optional tags:
+* `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run. 
+* `shard` - Name of a subgroup of hosts within a cluster that serve as a partition or replica.
 
 
-For more discussion of how to choose tag values, see _[[link to tagging topic on another page]]_.
+For more discussion of how to choose values for metadata tags, see _[[link to tagging topic on another page]]_.
 
 
 ## Configuring Data Reporting
