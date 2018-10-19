@@ -16,7 +16,7 @@ Wavefront has these main components:
 * The **Wavefront proxy** forwards data to the Wavefront service in a secure, fast, and reliable way.
   - A **collector agent** such as Telegraf can send data to the proxy or
   - You can send your metrics directly to the proxy -- as long as the data is in one of the supported data formats. For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
-  - The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](http://docs-dev.wavefront.com/integrations_log_data.html)
+  - The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
 
 ![Wavefront architecture](images/wavefront_architecture.svg)
 

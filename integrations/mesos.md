@@ -10,7 +10,7 @@ Apache Mesos is a cluster manager that provides efficient resource isolation and
 This integration installs and configures Telegraf to send Mesos metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here are the `Overview` and `Cluster Resources` sections of a dashboard displaying Mesos cluster metrics:
-{% include image.md src="images/overview.png" width="80" %}
+{% include image.md src="images/mesos_dashboard.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.

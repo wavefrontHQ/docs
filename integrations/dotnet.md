@@ -11,7 +11,7 @@ This integration installs and configures Telegraf to send .NET performance metri
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the Overview section of a dashboard displaying .NET metrics:
 
-{% include image.md src="images/overview.png" width="80" %}
+{% include image.md src="images/dotnet_dashboard.png" width="80" %}
 
 ## .NET Setup
 

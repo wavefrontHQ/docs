@@ -11,7 +11,7 @@ This integration installs and configures Telegraf to send Github metrics into Wa
 
 In addition to setting up the metrics flow, this integration installs a dashboard. Here are the **Overview** and **Events** sections of a dashboard displaying Github metrics:
 
-{% include image.md src="images/overview.png" width="80" %}
+{% include image.md src="images/github_dashboard.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.

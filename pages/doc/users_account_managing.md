@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: users_account_managing.html
 summary: Learn how to manage your passwords and preferences.
 ---
-You manage your Wavefront account from the gear icon in the top right corner. From there, all users can manage passwords and configure preferences. Users in a [multi-tenant environment](authentication.html#multi-tenant-authentication) who have been invited to more than one tenant can also switch tenants from the gear icon. 
+You manage your Wavefront account from the gear icon in the top right corner. From there, all users can manage passwords and configure preferences. Users in a [multi-tenant environment](authentication.html#multi-tenant-authentication) who have been invited to more than one tenant can also switch tenants from the gear icon.
 
 ## Managing Your Password
 
@@ -31,7 +31,7 @@ To reset a forgotten password:
 
 ## Configuring User Preferences and Viewing Permissions
 
-In your user profile, you can configure several preferences and view your permissions. If you can't perform certain tasks such as user management, you might not have permissions.
+In your user profile, you can configure several preferences, for example, select our dark theme or chart title size. You can also view your permissions. If you can't perform certain tasks such as user management, you might not have permissions.
 
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username. Your user profile displays.
 1. Change preferences in the User Information section.

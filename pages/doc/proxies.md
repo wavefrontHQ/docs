@@ -33,7 +33,7 @@ The single-host deployment is an exception. Most environments use one or two pro
 
 When you set up an integration, the Setup page lets you pick a proxy –- or offers to install a new proxy. If the integration's Setup page doesn't have options for installing a proxy, that integration most likely does not use a proxy.
 
-**Note** If you don't see a suitable integration, you might be able to use a code instrumentation integration (Java, Go, etc), or you can send data directly to the proxy -- as long as you use one of the [Supported Data Formats](http://docs-dev.wavefront.com/proxies.html#supported-data-formats).
+**Note** If you don't see a suitable integration, you might be able to use a code instrumentation integration (Java, Go, etc), or you can send data directly to the proxy -- as long as you use one of the [Supported Data Formats](proxies.html#supported-data-formats).
 
 ### Shared Proxy Deployment
 
@@ -51,7 +51,7 @@ To enable fault tolerance and higher data rates, production environments typical
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.svg)
 
-**Note:**In environments with more than one proxy, each proxy must have a unique name. 
+**Note:**In environments with more than one proxy, each proxy must have a unique name.
 
 ## Proxy Configuration
 
