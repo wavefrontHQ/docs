@@ -11,7 +11,7 @@ summary: Reference to the if() function
 if(<conditionExpression>, <thenExpression>, [<elseExpression>])
 ```
 
-Returns the points from `thenExpression` while `conditionExpression` returns values >0.
+Returns the points from `thenExpression` while `conditionExpression` returns non-zero values.
 Returns points from `elseExpression` otherwise.
 
 ## Parameters
@@ -21,30 +21,57 @@ Returns points from `elseExpression` otherwise.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span"> [conditionExpression](query_language_reference.html#expressions)</td>
-<td>Expression describing the time series to be used as the condition. For example, if the condition is `cpu.loadavg.1m>100` then the condition evaluates to true if the load is greater than 100, and to false otherwise.  </td></tr>
+<td>Expression describing the time series to be used as the condition. For example, if the condition is <strong>cpu.loadavg.1m>100</strong>, then the condition evaluates to true if the load is greater than 100, and to false otherwise.  </td></tr>
 <tr><td markdown="span"> [thenExpression](query_language_reference.html#expressions)</td>
-<td>Expression that describes the time series to display when the condition is met. Required. </td></tr>
+<td>Required expression that describes the time series to return when the condition is met. </td></tr>
 <tr><td markdown="span"> [elseExpression](query_language_reference.html#expressions)</td>
-<td>Expression that describes the time series to display when the condition is not met. Optional. <br />
-If you include elseExpression, then we display a continuous stream that changes depending on the value of the condition. </td></tr>
+<td>Optional expression that describes the time series to return when the condition is not met. <br />
+If you include elseExpression, then we return a continuous stream that changes depending on the value of the condition. If you don't include elseExpression, then we return no data values when conditionExpression returns false. </td></tr>
 </tbody>
 </table>
 
 ## Description
-The `if()` conditional function returns data values based on the specified condition. You can determine what values are displayed if the condition is true, and what values are displayed if the condition is false. The Wavefront system treats a 0 value as false, and all other values as true.
+The `if()` conditional function returns data values based on the specified condition. You can determine what values are returned if the condition is true, and what values are returned if the condition is false. The Wavefront system treats a 0 value as false, and all other values as true.
+
+Each of the [expressions](query_language_reference.html#expressions) can be constant or a ts() query.
 
 ### Optional Else Expression
 
+We evaluate the condition for each point.
+
 * The `conditionExpression` typically uses a comparison operator.
 * The `thenExpression` is required.
-  - If `conditionExpression` is true for a point we display `thenExpression`. - - - If `conditionExpression` is false for a point, we display nothing.
+  - If `conditionExpression` is true for a point, we return `thenExpression`.
+  - If `conditionExpression` is false for a point, we return nothing.
 * The `elseExpression` is optional.
-  - If `conditionExpression` is true for a point we display `thenExpression`.
-  - If `conditionExpression` is false for a point, we display `elseExpression`.
+  - If `conditionExpression` is true for a point, we return `thenExpression`.
+  - If `conditionExpression` is false for a point, we return `elseExpression`.
 
 ### Interpolation
 
-If you're using `if` without an `elseExpression`, and if there are multiple true values displayed for a single time series in a time window, then we use interpolation to join those (true) values. You'll see a dotted line.
+If a single time series in a time window returns multiple true values, then we use interpolation to join those (true) values. You'll see a dotted line.
+
+For example:
+
+* Assume you have an `if` query like the following:
+
+  `if(ts(my.metricA) > 0, ts(my.metricB), ts(my.metricC))`.
+
+* `my.metricA` reports a value of 0 at 12:00pm and `my.metricC` reports values at 11:59am and 12:01pm.
+* Because `my.metricA` is false, we show `my.metricC`and we show an interpolated value for `my.metricC` at 12:00pm.
+
+### Series Matching and if()
+
+We perform [series matching](query_language_series_matching.html) when ts() queries are used across 2 or more expressions.
+
+For example, assume we have a query that's structured like this:
+
+`if(ts(my.metricA) > 100, ts(my.metricB))`
+
+* `my.metricA` consists of 100 time series
+* `my.metricB` consists of 50 time series,
+* If some elements in the `my.metricA` time series, for example, the hosts, map to elements in the time series in `myMetricB`, then we can return `myMetricB` time series for those series where `my.metricA` is greater than 100.
+* However, if the time series don't include elements that map, then it's not possible to determine what to return if the condition is met.
 
 ## Examples
 
@@ -52,7 +79,7 @@ The following example set starts with a simple metric, which looks like this:
 
 ![if metric](images/ts_if_metric.png)
 
-Now we use an `if` condition that displays a value of 50 for any point that's greater than 100, and a value of 25 otherwise. Here, the behavior of the two time series diverges: For one, the value alternates between 25 and 50. The other time series is always greater than 100 and displays as a single orange line.
+Now we use an `if` condition that returns a value of 50 for any point that's greater than 100, and a value of 25 otherwise. Here, the behavior of the two time series diverges: For one, the value alternates between 25 and 50. The other time series is always greater than 100 and displays a single orange line.
 
 ![if then else](images/ts_if_then_else.png)
 
