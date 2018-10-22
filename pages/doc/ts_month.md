@@ -10,7 +10,7 @@ summary: Reference to the month() function
 ```
 month(<timeZone>)
 ```
-Returns the month of the year in the specified time zone. 
+Returns the month of the year in the specified time zone.
 
 ## Parameters
 <table>
@@ -33,17 +33,17 @@ The `month()` standard time function returns the month of the year in the specif
 The returned values are plotted against the times shown on the x-axis. The returned series is generally a straight line, unless you are looking at a chart that includes times from multiple months.
 `month()` automatically adjusts its return values for daylight savings time.
 
-`month()` is particularly useful when you want to define an alert that fires only during a specific month or range of months, such as quarters of the year (Q1, etc.). For example, you could use an expression such as `between(month("America/New_York"),4,6)` in an alert condition to ensure that the alert fires only in Q2 (April through June), Eastern Daylight Time. 
+`month()` is particularly useful when you want to define an alert that fires only during a specific month or range of months, such as quarters of the year (Q1, etc.). For example, you could use an expression such as `between(month("America/New_York"),4,6)` in an alert condition to ensure that the alert fires only in Q2 (April through June), Eastern Daylight Time.
 
 
 ## Examples
 
 **Example 1: Showing Months**
 
-In this chart, we have set custom dates spanning several months. `month("America/New_York")` returns 4, 5, and 6, representing April, May, and June, Eastern Daylight Time.
+In this chart, we have set custom dates over several months. `month("America/New_York")` returns 4, 5, and 6, representing April, May, and June, Eastern Daylight Time.
 ![month](images/ts_month.png)
 
 **Example 2: Defining an Alert that Fires in Particular Months**
 
-Here we include `between(month("America/New_York"),4,6)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.0 during the second quarter (April through June) of the current year. 
+Here we include `between(month("America/New_York"),4,6)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.0 during the second quarter (April through June) of the current year.
 ![month alert](images/ts_month_alert.png)

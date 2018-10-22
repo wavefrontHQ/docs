@@ -39,7 +39,7 @@ You can apply the `sqrt()` function to `mvar()` to get the moving standard devia
 
 ## Example
 
-The following example computes the moving variance for the CPU usage user percentage over a time span of 5 hours.
+The following example computes the moving variance for the CPU usage user percentage over 5 hours.
 
 ![mvar simple](images/ts_mvar_simple.png)
 

@@ -6,19 +6,19 @@ sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
 summary: Learn how to use simple functions and statistical functions in Wavefront Query Language expressions to detect anomalies.
 ---
-Anomalies can indicate that something's about to go wrong in your environment. If you have a set of data points that span across a certain range, you can define which points of these set can be treated as normal and which should be identified as abnormal. If points cross a certain threshold, they create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/){:target="_blank" rel="noopenner noreferrer"} and the following video:
+Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/){:target="_blank" rel="noopenner noreferrer"} and the following video:
 
 <p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
 </p>
 
-**Note** Consider using [query wizard](query_language_query_wizard.html) if you want a recipe-based approach to queries that use mean and median.
+**Note:** Consider using [query wizard](query_language_query_wizard.html) for a recipe-based approach to queries that use mean and median.
 
 ## Functions for Anomaly Detection
 
-You can use simple functions, prediction-based functions, or statistical functions to examine trends that might result in an anomaly.
-* Simple functions can give insight into rate of change and trends.
+You can use simple functions, prediction-based functions, or statistical functions to examine trends that might indicate an anomaly.
+* Simple functions can give insight into the rate of change and trends.
 * Prediction-based functions can help you compare actual values against expected values based on past performance.
-* Statistical functions like mean, median, range, standard deviation, and inter-quartile range are great for understandstanding trends and variability in your dataset. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
+* Statistical functions that return the mean, median, range, standard deviation, and inter-quartile range are great for understanding trends and variability in your data set. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
 
 ## Simple Functions
 A great way to do dynamic anomaly detection is a query like the following:
@@ -30,7 +30,7 @@ The result shows a 10 minute range of change as a ratio. You can change the time
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
 ## Prediction-Based Functions
-You can use [`anomalous()`](ts_anomalous.html) to return the percentage of data points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions. 
+You can use [`anomalous()`](ts_anomalous.html) to return the percentage of data points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions.
 
 For example, the following query considers points to be anomalous if they fall outside 95% of the expected values, or 2 standard deviations from the predictions:
 
@@ -52,7 +52,7 @@ median:|`mmedian(10m,${data})`
 
 The screen shot below shows the corresponding Wavefront chart:
 * If you consider these spikes as anomalies, use `avg` or `mavg` to catch similar deviations or variability.
-* If you consider the spikes as noise and want to ignore one-off spikes, use `percentile` or `mmedian`, which are less sensitive to outliers or variations, and show only show sustained dips.
+* If you consider the spikes as noise and want to ignore one-off spikes, use `percentile` or `mmedian`, which are less sensitive to outliers or variations, and show only sustained dips.
 
 ![mean_median](images/mean_median.png)
 
@@ -75,7 +75,7 @@ The inter-quartile range (IQR) indicates the extent to which the central 50% of 
 
 What function you use depends your use case. Decide which statistical function works most effectively to define the normal behavior of your system and then use that function to detect anomalies.
 
-Here are some examples for both Std Dev and IQR that illustrate these functions.
+Here are some examples for both Std Dev and IQR that illustrate these functions. See the [reference page for anomalous](ts_anomalous.html) for an example for that function. 
 
 ## Example 1
 

@@ -24,9 +24,8 @@ For more on delta counter use cases, see our blog [Monitoring Apps in the Server
 
 
 Even in a serverless environment, it makes sense to collect both counter metrics and delta counter metrics.
-* Use regular counters for monitoring over long time spans. For long spans, a small number of metrics lost to collision are not a problem.
+* Use regular counters for monitoring over long periods of time, where a small number of metrics lost to collision are not a problem.
 * Use delta counters to accurately accumulate points where shorts bursts of high-volume traffic is experienced and collisions can become a problem.
-
 
 ### Example: Monitoring AWS Lambda
 
