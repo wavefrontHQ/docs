@@ -48,7 +48,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Bucket Size</td>
+<td markdown="span">Bucket size</td>
 <td markdown="span">In Wavefront charts, point buckets represent data that have been summarized over a certain length of time. [**Chart resolution**](charts_customizing.html#chart-resolution) is the bucket time interval, and it displays in the Horizontal Scale field in the lower-left corner of a chart.</td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Embedded Chart**](charts_embedding.html)</td>
+<td markdown="span">[**Embedded chart**](charts_embedding.html)</td>
 <td>You can embed an interactive chart outside of Wavefront. When you use the UI, we generate an HTML code snippet and you can adjust the width and height.</td>
 </tr>
 <tr>
@@ -120,7 +120,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**External Link**](external_links_managing.html)</td>
+<td markdown="span">[**External link**](external_links_managing.html)</td>
 <td>External links allow you to go from a Wavefront chart to an external system such as a log. You can in effect connect your streaming metrics to logs and other external info. </td>
 </tr>
 <tr>
@@ -147,7 +147,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Maintenance Window**](maintenance_windows_managing.html)</td>
+<td markdown="span">[**Maintenance window**](maintenance_windows_managing.html)</td>
 <td>You can create a maintenance window to prevent alerts from firing. That's useful if you expect to perform disruptive operations that result in conditions where alerts would fire.</td>
 </tr>
 <tr>
@@ -226,12 +226,12 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Telemetry data</td>
-<td>Refers to all data you can store and analyze with the Wavefront observability platform. Metrics (including delta counters), histograms, traces, and spans are collectively described as telemetry data.</td>
+<td>Refers to all data you can store and analyze with the Wavefront observability platform. Metrics (including delta counters), histograms, and tracing spans are collectively described as telemetry data.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Tenant</td>
-<td> If your company has several teams, and if each team wants to work independently, you can request a multi-tenant SSO setup. Afterwards, users can be invited to individual tenants only - and users who belong to multiple teams can be invited to multiple tenants. <strong>See also:</strong> Multi-tenant SSO </td>
+<td> If your company has several teams, and if each team wants to work independently, you can request a multi-tenant SSO setup. Afterwards, users can be invited to individual tenants only - and users who belong to multiple teams can be invited to multiple tenants. <strong>See also:</strong> Multi-tenant SSO. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
