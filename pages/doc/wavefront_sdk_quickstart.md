@@ -28,8 +28,8 @@ In all cases, you will:
 1. Add dependencies in the build system of your choice, such as Maven. 
 
 2. Edit your code to instantiate a few helper objects. These objects:
-  * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
   * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
+  * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
   * [Configure how frequently data is reported](#configuring-data-reporting). 
 
 
@@ -76,14 +76,13 @@ Pick the language and framework used by the service you want to instrument. Clic
 </tbody>
 </table>
 
-
-_[[Links from this table should be either go to the GitHub readme.md file, or to a doc page generated from that file.]]_
+**Note:** Each link in these tables displays the README file of an Wavefront SDK. Following the setup steps in the file, you'll see examples of the kinds of metrics that are reported for each API in the instrumented framework.
 
 ## Describing Your Application to Wavefront
 
-Part of instrumenting an application framework is to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags for aggregating predefined metrics that provide you with a meaningful context for your application's traces. 
+Part of instrumenting an application framework is to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the predefined metrics and tracing data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags to aggregate and filter the metrics and traces at different levels of granularity.
 
-In your application, you instantiate an _application tags_ object that will store your values for the metadata tags.
+In your application, you instantiate an _application-tags_ object that will store your values for the metadata tags.
 Because the metadata tags describe the application's architecture as it is deployed, you typically implement a mechanism for obtaining tag values from a configuration file, which you then update for each deployed application instance.
 
 For each microservice that uses an instrumented framework, you specify the following required tags:
@@ -100,23 +99,31 @@ If the physical topology of your application will be useful for filtering metric
 
 Part of instrumenting an application framework is to specify how you want metrics and spans to be sent to Wavefront. The recommended way in most cases is to send data to a Wavefront proxy, which in turn forwards the data to the Wavefront service. An alternative is for your applications to send data directly to the Wavefront service.
 
-* If you choose to use a proxy, you will need to specify the ports it listens to for metrics, histograms, and tracing data. 
+* If you choose to use a proxy, you will need to specify the proxy host, and the ports it listens to for metrics, histograms, and tracing data. 
 * If you choose direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
 
-In either case, you can optionally tune performance by changing the default frequency for flushing data into Wavefront.
+In either case, you can optionally tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service.
 
 In your application, you instantiate a _Wavefront sender_ object that will store your ingestion choices.
 To make it easy to reconfigure the sender at runtime, you typically implement a mechanism for obtaining values from a configuration file.
-You only need one Wavefront sender object per JVM. If you are instrumenting multiple frameworks in the same JVM, they should all share the same Wavefront sender object.
+
 
 **Note:** For details, see _[[link to proxy vs direct ingest topic on another page]]_.
 
 ## Configuring Data Reporting
 <!--- Mention source here? --->
 
-Part of instrumenting an application framework is to specify a reporting interval, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender, which has a separate interval for sending the reported data on to the Wavefront service.) 
+Part of instrumenting an application framework is to specify a reporting interval, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender.) 
  
 In your application, you instantiate a _Wavefront reporter_ object that will store your reporting interval.
 To make it easy to reconfigure the sender at runtime, you normally implement and use a mechanism for obtaining values from a configuration file.
 
-**Note:** For details, see _[[link to reporting interval topic on another page]]_.
+**Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
+
+## Instrumenting Multiple Frameworks in the Same Service 
+
+If you are instrumenting multiple frameworks that are used in the same service, bear in mind that you need only a single application-tags object, Wavefront sender object, and Wavefront reporter object per process. Your code should instantiate each object once, and then re-use these in the setup steps for each framework you are instrumenting.
+
+## Questions for Reviewers
+
+1. Mention configuring sampling rate on this page? Proxy or SDK or both?
