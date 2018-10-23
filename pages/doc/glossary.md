@@ -21,7 +21,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Access management</td>
+<td markdown="span">**Access management**</td>
 <td>By default, Wavefront users can access objects based on their permissions. Wavefront allows administrators to limit access to Wavefront objects (initially dashboards). With this strict security setting, only the creator (e.g. dashboard creator) and invited users/groups have access to new objects.
 </td>
 </tr>
@@ -39,7 +39,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Alert target</td>
+<td markdown="span">**Alert target**</td>
 <td markdown="span">Specifies when and how to send notifications in response to alert activity. You can use our built-in alert targets by specifying an email address or a PagerDuty key in the alert, or you can create a [**custom alert target**](webhooks_alert_notification.html).</td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Bucket size</td>
+<td markdown="span">**Bucket size**</td>
 <td markdown="span">In Wavefront charts, point buckets represent data that have been summarized over a certain length of time. [**Chart resolution**](charts_customizing.html#chart-resolution) is the bucket time interval, and it displays in the Horizontal Scale field in the lower-left corner of a chart.</td>
 </tr>
 <tr>
@@ -62,7 +62,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td markdown="span">&nbsp;</td>
-<td markdown="span">Collector agent</td>
+<td markdown="span">**Collector agent**</td>
 <td>Many Wavefront customers set up their environment to use a collector agent such as Telegraf for data collection. The collector agent sends the metrics to the Wavefront proxy. We support integrations for commonly used collector agents. </td>
 </tr>
 <tr>
@@ -193,7 +193,7 @@ You can manage authorization with user-level permissions or user and group-level
 <!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">SDK</td>
+<td markdown="span">**SDK**</td>
 <td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports several tiers of SDKs. High-level SDKs (for example the Jersey SDK) collect metrics from your application, lower-level SDKs (for example java) include code samples so you can instrument your application. </td>
 </tr>
 -->
@@ -210,7 +210,7 @@ You can manage authorization with user-level permissions or user and group-level
 <!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Span</td>
+<td markdown="span">**Span**</td>
 <td>A span is a named, timed operation that represents a contiguous segment of work in a trace. In OpenTracing, a trace is a directed acyclic graph of spans. </td>
 </tr>
 -->
@@ -225,23 +225,23 @@ You can manage authorization with user-level permissions or user and group-level
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Telemetry data</td>
+<td markdown="span">**Telemetry data**</td>
 <td>Refers to all data you can store and analyze with the Wavefront observability platform. Metrics (including delta counters), histograms, and tracing spans are collectively described as telemetry data.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Tenant</td>
+<td markdown="span">**Tenant**</td>
 <td> If your company has several teams, and if each team wants to work independently, you can request a multi-tenant SSO setup. Afterwards, users can be invited to individual tenants only - and users who belong to multiple teams can be invited to multiple tenants. <strong>See also:</strong> Multi-tenant SSO. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Time series</td>
+<td markdown="span">**Time series**</td>
 <td>Collection of unique data points over time. The data points are related to a specific metrics on specific source, with specific point tags. In Wavefront query language, you use a ts() function to describe a time series. <strong>See also:</strong> Continuous time series and Discrete time series.</td>
 </tr>
 <!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Trace</td>
+<td markdown="span">**Trace**</td>
 <td>A trace allows you to follow and examine a transaction or workflow in your application. As a result, you might be able to improve execution speed. </td>
 </tr>
 -->
@@ -251,7 +251,7 @@ You can manage authorization with user-level permissions or user and group-level
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">Wavefront service</td>
+<td markdown="span">**Wavefront service**</td>
 <td>The Wavefront service runs the metrics collection engine. It can receive telemetry data from a Wavefront proxy or through direct ingestion. </td>
 </tr>
 </tbody>
