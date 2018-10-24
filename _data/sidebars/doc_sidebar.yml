@@ -203,6 +203,18 @@ entries:
           url: /wavefront_use_cases.html
           output: web
 
+  - title: "Distributed Tracing"
+    output: web
+    folderitems:
+
+    - title: Distributed Tracing Basics
+      url: /tracing_basics.html
+      output: web
+
+    - title: Instrumenting Your App for Tracing
+      url: /tracing_instrumenting_frameworks.html
+      output: web
+
   - title: "Charts & Dashboards"
     output: web
     folderitems:

@@ -1,17 +1,17 @@
 ---
 title: Instrumenting Your App for Tracing
-keywords: data
+keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: wavefront_sdk_quickstart.html
-summary: Learn how to set up your application to send data into Wavefront.
+permalink: tracing_instrumenting_frameworks.html
+summary: Learn how to set up your application to send tracing data to Wavefront.
 ---
 
 One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By displaying a transaction as a hierarchy of Wavefront tracing _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
 
 This page shows you the fast track to producing out-of-the-box metrics and tracing spans from popular application frameworks. 
 
-**Note:** You can also instrument your application to send custom traces and metrics. _[[Link to SDK page for custom tracing & metrics ]]_
+**Note:** You can also instrument your application to send custom traces and metrics. _[[Link to SDK page for custom tracing and metrics ]]_
 
 ## Sample Setup
 
