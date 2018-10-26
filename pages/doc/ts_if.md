@@ -45,7 +45,7 @@ Each of the [expressions](query_language_reference.html#expressions) can be cons
 
 ### Interpolation
 
-We use interpolation to connect points. For example:
+We use interpolation to connect points in each of the expressions. We use interpolated values in `conditionalExpression` to determine whether to return values from `thenExpression` or `elseExpression`. For example:
 
 * Assume you have an `if()` query like the following:
 
