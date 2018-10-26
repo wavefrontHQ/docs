@@ -1,10 +1,10 @@
 ---
-title: Customizing Alert Target Templates
+title: Customizing Alert Notifications
 keywords: alert targets
 tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alert_target_customizing.html
-summary: Learn how to customize alert target templates.
+summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
 A custom alert target provides a template for specifying the contents of the notifications to be sent when an alert changes state.

@@ -45,9 +45,7 @@ Each of the [expressions](query_language_reference.html#expressions) can be cons
 
 ### Interpolation
 
-If a single time series in a time window returns points for some points (true values), but nothing for other points (false values), then we use interpolation to join the returned points. You'll see a dotted line, which indicates interpolation.
-
-For example:
+We use interpolation to connect points. For example:
 
 * Assume you have an `if()` query like the following:
 
