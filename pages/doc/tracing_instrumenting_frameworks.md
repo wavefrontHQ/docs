@@ -52,7 +52,7 @@ Pick the language and framework used by the service you want to instrument. Clic
 <tr><th>Java Framework</th><th>Description</th></tr>
 </thead>
 <tr><td markdown="span">[Jersey Compliant](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instruments all Jersey-compliant APIs to send telemetry data to Wavefront, such as DropWizard and Spring Boot.</td></tr>
+<td>Instruments all Jersey-compliant APIs to send telemetry data to Wavefront, such as Dropwizard and Spring Boot.</td></tr>
 <tr><td markdown="span">gRPC</td>
 <td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
 <tr><td markdown="span">JVM</td>
