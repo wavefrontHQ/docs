@@ -52,8 +52,8 @@ To get an access token that this integration's Python script can use to poll the
 1. Log in to Runscope service.
 2. Go to [https://www.runscope.com/applications/create](https://www.runscope.com/applications/create) and create an application by providing following details: 
      * **Name**: `[[Application Name]]`
-     * **Website URL**: `http://YOUR_CLUSTER.wavefront.com`
-     * **Callback URL**: `http://YOUR_CLUSTER.wavefront.com`
+     * **Website URL**: `https://YOUR_CLUSTER.wavefront.com`
+     * **Callback URL**: `https://YOUR_CLUSTER.wavefront.com`
 3. Click **Create Application**.
 4. Navigate to the section **Personal Access Token** and make a note of the token.
 

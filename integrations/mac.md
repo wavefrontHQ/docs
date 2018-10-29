@@ -41,7 +41,7 @@ To run the Wavefront proxy on a host:
    **Note:** You may be prompted to install Xcode and Java.
 1. Edit the file `/usr/local/etc/wavefront/wavefront-proxy/wavefront.conf` and configure the `server` and `token` properties:{% raw %}
    ```
-   server=http://YOUR_CLUSTER.wavefront.com/api/
+   server=https://YOUR_CLUSTER.wavefront.com/api/
    token=YOUR_API_TOKEN
    ```
 1. Run `brew services restart wfproxy`.

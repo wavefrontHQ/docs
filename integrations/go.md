@@ -69,7 +69,7 @@ func main() {
     "source": "go-metrics-test",
   }
 
-  server := "http://YOUR_CLUSTER.wavefront.com"
+  server := "https://YOUR_CLUSTER.wavefront.com"
   token := "YOUR_API_TOKEN"
 
   // Report to a Wavefront server every 5 seconds
@@ -148,7 +148,7 @@ func main() {
   go wavefront.WavefrontProxy(metrics.DefaultRegistry, 1*time.Second, reporterTags, "some.prefix", addr)
 
   // Send metrics directly to a wavefront service
-  server := "http://YOUR_CLUSTER.wavefront.com"
+  server := "https://YOUR_CLUSTER.wavefront.com"
   token := "YOUR_API_TOKEN"
   go wavefront.WavefrontDirect(metrics.DefaultRegistry, 5*time.Second, hostTags, "direct.prefix", server, token)
 

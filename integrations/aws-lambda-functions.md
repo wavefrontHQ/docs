@@ -35,7 +35,7 @@ Wavefront provides Lambda function wrappers, which allow you to send custom metr
 ### Configure Wavefront Lambda Wrapper
 The Wavefront AWS Lambda function wrappers use the following environment variables:
 
-- **WAVEFRONT_URL**: `http://YOUR_CLUSTER.wavefront.com`
+- **WAVEFRONT_URL**: `https://YOUR_CLUSTER.wavefront.com`
 - **WAVEFRONT_API_TOKEN**: `YOUR_API_TOKEN` (Wavefront API token with Direct Data Ingestion permission).
 - **REPORT_STANDARD_METRICS**: Optional. Set to False to omit reporting standard Lambda metrics.
 

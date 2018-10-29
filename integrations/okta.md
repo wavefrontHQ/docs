@@ -20,9 +20,9 @@ Okta is a popular identity management product that can be integrated with Wavefr
 1. In the **App logo** field, browse to the logo file and click **Upload Logo**.
 1. Click **Next**. 
 1. Enter the following SAML settings:
-    - **Single sign on URL** - http://YOUR_CLUSTER.wavefront.com/api/saml/login
+    - **Single sign on URL** - https://YOUR_CLUSTER.wavefront.com/api/saml/login
     - **Use this for Recipient URL and Destination URL** - Checked
-    - **Audience URI (SP Entity ID)** - http://YOUR_CLUSTER.wavefront.com
+    - **Audience URI (SP Entity ID)** - https://YOUR_CLUSTER.wavefront.com
     - **Default RelayState** - &lt;LEAVE BLANK&gt;
     - **Name ID Format** - EmailAddress
     - **Application username** - Email

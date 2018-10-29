@@ -110,7 +110,7 @@ import com.codahale.metrics.MetricRegistry;
 MetricRegistry registry = new MetricRegistry();
 Counter evictions = registry.counter("cache-evictions");
 
-String server = "http://YOUR_CLUSTER.wavefront.com";
+String server = "https://YOUR_CLUSTER.wavefront.com";
 String token = "YOUR_API_TOKEN";
 
 WavefrontReporter reporter = WavefrontReporter.forRegistry(registry).

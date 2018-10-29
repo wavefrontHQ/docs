@@ -21,7 +21,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 1. Download the [Wavefront proxy jar](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/proxy-4.26-uber.jar) and [Wavefront config file](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/wavefront.conf).
 2. Open the `wavefront.conf` file for edit, add the following proxy properties, and save the file:{% raw %}
    ```
-   server = http://YOUR_CLUSTER.wavefront.com/api/
+   server = https://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN
    hostname = HOSTNAME
    graphitePorts = 2003

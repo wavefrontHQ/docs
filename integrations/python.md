@@ -66,7 +66,7 @@ reg = MetricsRegistry()
 c1 = reg.counter("numbers")
 c1.inc()
 
-server = "http://YOUR_CLUSTER.wavefront.com"
+server = "https://YOUR_CLUSTER.wavefront.com"
 token = "YOUR_API_TOKEN"
 
 # Direct Reporter with tags reporting directly to a Wavefront service every 10s

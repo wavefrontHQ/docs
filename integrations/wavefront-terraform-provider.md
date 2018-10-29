@@ -36,7 +36,7 @@ Create a main.tf with the following configurations.
 {% raw %}
 ```
 provider "wavefront" {
-  address = "http://YOUR_CLUSTER.wavefront.com"
+  address = "https://YOUR_CLUSTER.wavefront.com"
   token = "YOUR_API_TOKEN"
 }
 

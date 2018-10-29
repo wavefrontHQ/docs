@@ -57,7 +57,7 @@ Create a sample playbook (yml) file like the one shown below named `wavefront-an
       ```
       ansible-playbook -i "`hostname`," --connection=local wavefront-ansible.yml \
       --extra-vars "wavefront_install_proxy=true wavefront_api_token=YOUR_API_TOKEN proxy_address=localhost \
-      wavefront_url="http://YOUR_CLUSTER.wavefront.com" \
+      wavefront_url="https://YOUR_CLUSTER.wavefront.com" \
       --tags "redhat"
       ```
 
@@ -65,7 +65,7 @@ Create a sample playbook (yml) file like the one shown below named `wavefront-an
       ```
       ansible-playbook -i "`hostname`," --connection=local wavefront-ansible.yml \
       --extra-vars "wavefront_install_proxy=true wavefront_api_token=YOUR_API_TOKEN proxy_address=localhost \
-      wavefront_url="http://YOUR_CLUSTER.wavefront.com" \
+      wavefront_url="https://YOUR_CLUSTER.wavefront.com" \
       --tags "debian"
       ```
 {% endraw %}
