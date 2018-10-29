@@ -82,7 +82,7 @@ mcount: `sum(mcount(24h, ${data}))`
 
 windowed: `if (hour("US/Pacific") <= 0.5,${mcount})`
 
-window-aligned: `align(1h, first, $windowed})`
+window-aligned: `align(1h, first, ${windowed})`
 
 Readable across day: `next(24h, ${window-aligned})`
 
