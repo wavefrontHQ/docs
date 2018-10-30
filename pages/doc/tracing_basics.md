@@ -36,10 +36,10 @@ Let's look at an example. Here we see a simple Java application for ordering bea
 ![tracing beachShirts](images/tracing_beachshirts_app.png)
 
 This BeachShirts application has multiple services for processing different aspects of a customer order. The diagram shows how these services collaborate by sending requests and responses:
-* The customer clicks a button on the client browser to trigger a request (`orderShirts`) to the Shopping service.
+* The customer clicks a button on the client browser to trigger a request ("Order Shirts") to the Shopping service.
 * The Shopping service sends the customer's shirt-selection data in a request to the Styling service. 
-* The Styling service sends a series of requests to invoke other application services (such as Printing and Packaging). Each invoked service performs its operations and returns a response to Styling.
-* Finally, the Styling service sends a response to the Shopping service, which invokes the Delivery service and sends a confirmation email back to the customer. 
+* The Styling service performs its operations, which include sending requests to the Printing and Packaging services. Each of these services performs its operations and returns a response to Styling.
+* Finally, the Styling service sends a response to the Shopping service, which in turn invokes the Delivery service and sends a confirmation email back to the customer. 
 
 These services are designed to be run on different hosts, so they are implemented using frameworks (like Dropwizard, gRPC, and Spring Boot) that support HTTP and RPC requests. The requests among these services might be asynchronous and quite lengthy.
 
@@ -48,16 +48,20 @@ These services are designed to be run on different hosts, so they are implemente
 <!--- Check final names of services. Styling vs. Designer. --->
 <!--- Get real screen shot when colors are finalized. --->
 
-Now let's look at how we represent the end-to-end transaction that starts with the `orderShirts` request:
+Now let's look at how traces and spans represent an end-to-end transaction. 
+
+In this diagram, we see a trace for a particular transaction that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request:
 
 ![tracing trace spans](images/tracing_trace_spans.png)
 
-Notice:
+The 
 * trace is a tree of spans
+* * 
 * spans contain other spans. Represents operation within a service that passes data or control to another operation in some other service (could be in same service)
 * trace at one level is a span in a larger trace above it.
 * trace is identified by the name of its first span. Could have a trace called makeShirts whose spans are operations in Styling service.
 
+It's a particular call -- notice the times
 
 ## Ways to Send Trace Data to Wavefront
 
