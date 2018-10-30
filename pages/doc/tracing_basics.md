@@ -29,7 +29,7 @@ Wavefront follows the [OpenTracing](https://opentracing.io/) standard for repres
 Because requests are normally composed of other requests, a trace actually consists of a _tree_ of spans. 
 
 ### Sample Application
-<!--- Check final names of services. Styling vs. Designer. --->
+<!--- Revise with final names and inventory of services and operations. Styling vs. Designer. --->
 
 Let's look at an example. Here we see a simple Java application for ordering beach shirts. 
 
@@ -43,27 +43,37 @@ This BeachShirts application has multiple services for processing different aspe
 
 These services are designed to be run on different hosts, so they are implemented using frameworks (like Dropwizard, gRPC, and Spring Boot) that support HTTP and RPC requests. The requests among these services might be asynchronous and quite lengthy.
 
+<!--- Could be in different threads, or in containers --->
+
 
 ### Sample Traces and Spans
-<!--- Check final names of services. Styling vs. Designer. --->
+<!--- Check final names and inventory of services and operations. Styling vs. Designer. --->
 <!--- Get real screen shot when colors are finalized. --->
 
 Now let's look at how traces and spans represent an end-to-end transaction. 
 
-In this diagram, we see a trace for a particular transaction that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request:
+In this diagram, we see a trace for a particular transaction that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. This trace consists of 8 spans, one for each operation performed in the transaction.
 
 ![tracing trace spans](images/tracing_trace_spans.png)
 
-The 
-* trace is a tree of spans
-* * 
-* spans contain other spans. Represents operation within a service that passes data or control to another operation in some other service (could be in same service)
-* trace at one level is a span in a larger trace above it.
-* trace is identified by the name of its first span. Could have a trace called makeShirts whose spans are operations in Styling service.
+### A Closer Look at Traces and Spans
 
-It's a particular call -- notice the times
+As is typical, some of the the spans in the sample trace have parent-child relationships to each other. For example, the Styling service's `makeShirts` span has two child spans (`printShirts` and `wrapShirts`), and each of these spans has a child span of its own. A parent-child relationship exists between two spans when one operation passes data or control to another, in either the same or a different service. A parent span can have several children, representing requested operations that execute serially or in parallel. 
+
+You can think of the trace as the top-level parent in a tree of related spans. The main difference between a trace and a span is the level of granularity you're interested in:
+* A span can be a trace to the spans below it.
+* A trace can be a span in a larger trace above it. 
+
+So, if you were primarily interested in the chain of requests that begins with the Styling `makeShirts` operation, then you could view it as the top-level trace, and examine the tree of spans below it. 
+
+We refer to a trace by the service and operation of its first span. Because the first operation in our sample trace is Shopping service's `orderShirts`, we use that operation to refer to the trace. 
+
+It is important to remember that many traces can begin with the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called. Each such trace has a unique start time and duration. Our sample trace is just one of potentially thousands of similar traces.
+
 
 ## Ways to Send Trace Data to Wavefront
+
+Wavefront customers can use Wavefront to visualize and analyze their trace data. How you get your trace data into Wavefront depends on the use case, but you have many options. 
 
 _This section to mention/link to doc for:_
 
@@ -79,8 +89,10 @@ _This section to mention/link to doc for:_
 
 * _"Tracing a Hotspot Across Services" pages._
 
+WF collects traces and spans, and enables you to query and visualize them.
+
+Spans are the basic data type. You can configure WF to keep spans for 7 or 30 days.
 
 ## Questions for Reviewers
 
 1. Mention configuring sampling rate on this page? Proxy or SDK or both?
-2. Simplify BeachShirts app diagram? Just want to illustrate trace vs. span for now, and give link to UI section for full demo.
