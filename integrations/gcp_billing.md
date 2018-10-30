@@ -1,8 +1,8 @@
 ---
-title: Google Firebase Integration
+title: Google Cloud Billing Integration
 tags: [integrations list]
-permalink: gcp_cloud_firebase.html
-summary: Learn about the Wavefront Google Firebase Integration.
+permalink: gcp_billing.html
+summary: Learn about the Wavefront Google Cloud Billing Integration.
 ---
 ## Google Cloud Platform Integration
 

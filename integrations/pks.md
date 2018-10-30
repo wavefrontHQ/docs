@@ -23,7 +23,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 1. Log in to PCF Ops Manager and click the **Pivotal Container Service** tile in Installation Dashboard.
 2. Under the **Settings** tab, click **Monitoring**.
 3. In the right pane, check **Yes** to enable **Wavefront Integration** and enter the account information:
-   * **Wavefront URL**: `http://YOUR_CLUSTER.wavefront.com/api`
+   * **Wavefront URL**: `https://YOUR_CLUSTER.wavefront.com/api`
    * **API Token**: `YOUR_API_TOKEN`
    * **Wavefront Alert Recipient**: `A list of Email addresses &/or Wavefront Target IDs`
 4. Click the **Errands** tab and enable the **Create pre-defined Wavefront alerts** errand and the **Delete pre-defined Wavefront alerts** errand.

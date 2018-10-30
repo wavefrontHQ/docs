@@ -127,6 +127,13 @@ In this section, file paths use the following conventions and values:
 <td> </td>
 </tr>
 <tr>
+<td>histogramMaxReceivedLength</td>
+<td>Maximum line length for received histogram points. Default: 65536.
+</td>
+<td>Positive integer</td>
+<td>4.31 </td>
+</tr>
+<tr>
 <td>hostname</td>
 <td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
 <td>A string containing alphanumeric characters and periods.</td>
@@ -164,6 +171,13 @@ In this section, file paths use the following conventions and values:
 <td>TCP ports to listen on for incoming JSON-formatted metrics. Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td></td>
+</tr>
+<tr>
+<td>listenerIdleConnectionTimeout</td>
+<td>Close idle inbound connections after specified time in seconds. Default: 300
+</td>
+<td>Number of seconds.</td>
+<td>4.31</td>
 </tr>
 <tr>
 <td>logsIngestionConfigFile</td>
@@ -252,6 +266,20 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td> </td>
 </tr>
 <tr>
+<td>pushListenerHttpBufferSize</td>
+<td>Maximum allowed request size (in bytes) for incoming HTTP requests on Wavefront, OpenTSDB, or Graphite ports. Default: 16777216 (16MB).
+</td>
+<td>Ex: 8388608</td>
+<td>4.31</td>
+</tr>
+<tr>
+<td>pushListenerMaxReceivedLength</td>
+<td>Maximum line length for received points in plaintext format on Wavefront, OpenTSDB, or Graphite ports. Default: 4096</td>
+<td>Positive integer.
+<div>Ex: 4096 </div></td>
+<td>4.31</td>
+</tr>
+<tr>
 <td>pushListenerPorts</td>
 <td>TCP ports to listen on for incoming data. Default: 2878.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
@@ -286,6 +314,14 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>NUMERIC_ONLY or NO_VALIDATION
 <div>Ex: NUMERIC_ONLY </div></td>
 <td> </td>
+</tr>
+<tr>
+<td>rawLogsMaxReceivedLength</td>
+<td>Maximum line length for received raw logs. Default: 4096.
+</td>
+<td>Positive integer.
+<div>Ex: 4096 </div></td>
+<td>4.31</td>
 </tr>
 <tr>
 <td>rawLogsPort</td>
@@ -326,6 +362,18 @@ Ex: 0 </td>
 <td>true or false
 <div>Ex: false </div></td>
 <td> </td>
+</tr>
+<tr>
+<td>traceJaegerListenerPorts</td>
+<td>Comma-separated list of ports on which to listen on for Jaeger Thrift formatted data. Defaults to none.</td>
+<td> </td>
+<td>4.31 </td>
+</tr>
+<tr>
+<td>traceListenerPorts</td>
+<td>Comma-separated list of ports to listen on for trace data. Defaults to none.</td>
+<td> </td>
+<td>4.31 </td>
 </tr>
 <tr>
 <td>whitelistRegex</td>

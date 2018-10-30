@@ -22,7 +22,7 @@ This integration uses the Riak Telegraf input plugin.
 
 Supported Riak Version(s): 2.2.x  
 
-**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](http://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
+**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](https://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
 
 ### Step 1. Install the Telegraf Agent
 

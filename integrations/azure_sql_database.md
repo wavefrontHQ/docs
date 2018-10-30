@@ -17,11 +17,15 @@ Metrics originating from Microsoft Azure are prefixed with `azure.` within Wavef
 
 Wavefront provides Microsoft Azure dashboards for the following services:
 
+- Azure: Application Gateways
+- Azure: App Service
+- Azure: Container Instances
+- Azure: Functions
+- Azure: Load Balancers
+- Azure: Storage Accounts
+- Azure: SQL Databases
 - Azure: Virtual Machine
 - Azure: Virtual Machine Scale Set
-- Azure: Storage Accounts
-- Azure: Container Instances
-- Azure: SQL Databases
 
 Here's a preview of the Virtual Machine dashboard:
 {% include image.md src="images/azure-overview.png" width="80" %}

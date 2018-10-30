@@ -17,8 +17,8 @@ Wavefront supports authentication via SAML including Google SSO.
 Here are the service provider details settings that you need:    
 - **Application Name**: Wavefront
 - **Description**: Optional
-- **ACS URL\*** : http://YOUR_CLUSTER.wavefront.com:443/api/saml/login
-- **Entity ID\***:  http://YOUR_CLUSTER.wavefront.com:443
+- **ACS URL\*** : https://YOUR_CLUSTER.wavefront.com:443/api/saml/login
+- **Entity ID\***:  https://YOUR_CLUSTER.wavefront.com:443
 - **Start URL**: leave blank
 - **Signed Response**: Unchecked
 - **Name ID**: Basic Information, Primary Email

@@ -22,8 +22,8 @@ An [Azure AD Premium subscription](https://www.microsoft.com/en-us/cloud-platfor
 1. Enter `Wavefront` as the application name and click **Add**.
 1. Select the Wavefront application and click **Single sign-on** in the navigation menu on the left.
 1. Select **SAML-based Sign-on** in the Mode pulldown menu.
-1. In the Identifier field enter `http://YOUR_CLUSTER.wavefront.com:443`. 
-1. In the Reply URL field, enter `http://YOUR_CLUSTER.wavefront.com/api/saml/login`.
+1. In the Identifier field enter `https://YOUR_CLUSTER.wavefront.com:443`. 
+1. In the Reply URL field, enter `https://YOUR_CLUSTER.wavefront.com/api/saml/login`.
 1. Select **user.mail** from the **User Identifier** pulldown menu in the **User Attributes** section.
 1. Download the metadata XML file from the **SAML Signing Certificate** section.
 1. In the **Notification Email** section, enter the email address of the person or group that maintains the SSO integration at your company.

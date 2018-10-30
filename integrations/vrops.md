@@ -19,5 +19,5 @@ Supported Versions: VMware vRealize Operations 6.7 or later
 1. In vRealize Operations Manager, select the **Home** tab.
 1. In the left pane, click **Application Monitoring (Wavefront)**.
 2. In the right pane, click **Configure Wavefront Account** and enter the account information:  
-   * **Wavefront URL**: `http://YOUR_CLUSTER.wavefront.com`
+   * **Wavefront URL**: `https://YOUR_CLUSTER.wavefront.com`
    * **API Token**: `YOUR_API_TOKEN`

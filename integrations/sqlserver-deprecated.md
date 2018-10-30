@@ -1,8 +1,8 @@
 ---
-title: Microsoft SQL Server Integration
+title: Microsoft SQL Server (Deprecated) Integration
 tags: [integrations list]
-permalink: sqlserver.html
-summary: Learn about the Wavefront Microsoft SQL Server Integration.
+permalink: sqlserver-deprecated.html
+summary: Learn about the Wavefront Microsoft SQL Server (Deprecated) Integration.
 ---
 ## Microsoft SQL Server Integration
 
@@ -56,12 +56,13 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
 #    for more information about the plugin, visit https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sqlserver
 #    See https://github.com/denisenkom/go-mssqldb for detailed connection parameters.
 
+
+
 servers = [
 "Server=<servername>;Port=1433;User Id=telegraf;Password=<'mystrongpassword' from step 2>;app name=telegraf;log=1;",
 "Server=<servername>;Port=1433;User Id=telegraf;Password=<'mystrongpassword' from step 2>;app name=telegraf;log=1;"
 ]
-query_version = 2
-name_prefix = "MSSQL2."
+name_prefix = "MSSQL."
 ```
 
 

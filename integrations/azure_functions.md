@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Storage Integration
+title: Microsoft Azure Functions Integration
 tags: [integrations list]
-permalink: azure_storage.html
-summary: Learn about the Wavefront Microsoft Azure Storage Integration.
+permalink: azure_functions.html
+summary: Learn about the Wavefront Microsoft Azure Functions Integration.
 ---
 ## Microsoft Azure Integration
 

@@ -41,7 +41,7 @@ tile distributed through the Pivotal network.
 
 See the [documentation](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html) for info on installing and configuring the tile within your PCF deployment.  
 Use the following Wavefront instance URL and API token for configuring the [Wavefront proxy](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#install):   
-Wavefront Instance URL: `http://YOUR_CLUSTER.wavefront.com/api`  
+Wavefront Instance URL: `https://YOUR_CLUSTER.wavefront.com/api`  
 Wavefront API Token: `YOUR_API_TOKEN`
 
 ### Install Bosh Health Metrics Forwarder tile for PCF v1.x

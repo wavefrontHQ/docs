@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Storage Integration
+title: Microsoft Azure Application Gateways Integration
 tags: [integrations list]
-permalink: azure_storage.html
-summary: Learn about the Wavefront Microsoft Azure Storage Integration.
+permalink: azure_ag.html
+summary: Learn about the Wavefront Microsoft Azure Application Gateways Integration.
 ---
 ## Microsoft Azure Integration
 

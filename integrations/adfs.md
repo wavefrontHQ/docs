@@ -18,7 +18,7 @@ To add the ADFS integration to Wavefront, follow these steps:
 {% include image.md src="images/sso_adfs_3.png" width="65" %}
 {% include image.md src="images/sso_adfs_4.png" width="65" %}
 {% include image.md src="images/sso_adfs_5.png" width="65" %}
-**Note**: For the next two steps, replace `https://customer.wavefront.com` with your Wavefront instance URL: `http://YOUR_CLUSTER.wavefront.com`.
+**Note**: For the next two steps, replace `https://customer.wavefront.com` with your Wavefront instance URL: `https://YOUR_CLUSTER.wavefront.com`.
 {% include image.md src="images/sso_adfs_6.png" width="65" %}
 {% include image.md src="images/sso_adfs_7.png" width="65" %}
 {% include image.md src="images/sso_adfs_8.png" width="65" %}

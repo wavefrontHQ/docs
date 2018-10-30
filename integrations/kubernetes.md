@@ -52,7 +52,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: WAVEFRONT_URL
-          value: http://YOUR_CLUSTER.wavefront.com/api/
+          value: https://YOUR_CLUSTER.wavefront.com/api/
         - name: WAVEFRONT_TOKEN
           value: YOUR_API_TOKEN
         ports:

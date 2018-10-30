@@ -42,12 +42,12 @@ On your Nagios configuration files:
 ```
   define command{
   	command_name nagios-to-wavefront-service
-  	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' http://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+  	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
   }
 
   define command{
   	command_name nagios-to-wavefront-host
-  	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' http://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+  	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
   }
 ```
 
@@ -98,12 +98,12 @@ define contactgroup{
 
 define command{
 	command_name nagios-to-wavefront-service
-	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' http://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
 }
 
 define command{
 	command_name nagios-to-wavefront-host
-	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' http://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
 }
 ```
 {% endraw %}

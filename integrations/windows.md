@@ -22,14 +22,14 @@ This integration uses various Telegraf input plugins. You can install the Wavefr
 
 Supported Version(s): Windows 8 and up
 
-**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](http://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
+**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](https://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
 
 ### Install the Wavefront Proxy
 
 1. Download [wavefront-proxy-setup.exe](https://s3-us-west-2.amazonaws.com/wavefront-cdn/windows/wavefront-proxy-setup.exe).
 2. In a `cmd.exe` shell, go to the directory you downloaded the installer to and run:
 
-   ```.\wavefront-proxy-setup.exe /server=http://YOUR_CLUSTER.wavefront.com/api /token=<YOUR_API_TOKEN> /SILENT```
+   ```.\wavefront-proxy-setup.exe /server=https://YOUR_CLUSTER.wavefront.com/api /token=<YOUR_API_TOKEN> /SILENT```
 
 3. The proxy is started automatically. Check `Program Files (x86)\Wavefront\wavefront.log` to verify the installation.
 4. You can manage the proxy service using the Windows Services Management Console.

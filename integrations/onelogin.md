@@ -13,7 +13,7 @@ OneLogin is a popular identity management product that can be integrated with Wa
 
 1. In OneLogin, create a new App such as the following:
 {% include image.md src="images/onelogin_1.png" width="30" %}
-1. Configure the **Application settings** like the following. The URLs for you will be: http://YOUR_CLUSTER.wavefront.com/api/saml/login. We do not currently have a logout URL but it's safe to fill it in the form if it's a required field.
+1. Configure the **Application settings** like the following. The URLs for you will be: https://YOUR_CLUSTER.wavefront.com/api/saml/login. We do not currently have a logout URL but it's safe to fill it in the form if it's a required field.
 {% include image.md src="images/onelogin_2.png" width="30" %}
 1. Complete SAML configuration.
 

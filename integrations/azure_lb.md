@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Storage Integration
+title: Microsoft Azure Load Balancers Integration
 tags: [integrations list]
-permalink: azure_storage.html
-summary: Learn about the Wavefront Microsoft Azure Storage Integration.
+permalink: azure_lb.html
+summary: Learn about the Wavefront Microsoft Azure Load Balancers Integration.
 ---
 ## Microsoft Azure Integration
 

@@ -81,7 +81,7 @@ MeterRegistry registry = new WavefrontMeterRegistry(config, Clock.SYSTEM);
 WavefrontConfig config = new WavefrontConfig() {
     @Override
     public String uri() {
-        return "http://YOUR_CLUSTER.wavefront.com"; // (1)
+        return "https://YOUR_CLUSTER.wavefront.com"; // (1)
     }
 
     @Override
@@ -101,7 +101,7 @@ WavefrontConfig config = new WavefrontConfig() {
 };
 MeterRegistry registry = new WavefrontMeterRegistry(config, Clock.SYSTEM);
 ```
-  1. This configuration file uses `http://YOUR_CLUSTER.wavefront.com`, which is the Wavefront instance that is going to receive data.
+  1. This configuration file uses `https://YOUR_CLUSTER.wavefront.com`, which is the Wavefront instance that is going to receive data.
   2. API token is the token that you can use to access the Wavefront API. Details can be found [here](https://docs.wavefront.com/wavefront_api.html#invoking-the-api).
   3. Accept the defaults for other fields.
 
