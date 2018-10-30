@@ -20,6 +20,7 @@ Wavefront provides Microsoft Azure dashboards for the following services:
 - Azure: Application Gateways
 - Azure: App Service
 - Azure: Container Instances
+- Azure: Functions
 - Azure: Storage Accounts
 - Azure: SQL Databases
 - Azure: Virtual Machine
