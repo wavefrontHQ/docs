@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Virtual Machine Scale Sets Integration
+title: Microsoft Azure Application Gateways Integration
 tags: [integrations list]
-permalink: azure_vm_scalesets.html
-summary: Learn about the Wavefront Microsoft Azure Virtual Machine Scale Sets Integration.
+permalink: azure_ag.html
+summary: Learn about the Wavefront Microsoft Azure Application Gateways Integration.
 ---
 ## Microsoft Azure Integration
 
