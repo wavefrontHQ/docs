@@ -434,11 +434,11 @@ The proxies are not stateful. Your configuration is managed in your `yaml` file.
 
 ### Restricting Memory Usage for the Container
 
-To restrict memory usage of the container using Docker, you need to add a `JAVA\_HEAP\_USAGE` environment variable and restrict memory using the `-m` or `--memory` options for the docker `run` command.  The container memory contraint should be at least 350mb larger than the JAVA\_HEAP\_USAGE environment variable.
+To restrict memory usage of the container using Docker, you need to add a `JAVA_HEAP_USAGE` environment variable and restrict memory using the `-m` or `--memory` options for the docker `run` command.  The container memory contraint should be at least 350mb larger than the JAVA\_HEAP\_USAGE environment variable.
 
 To restrict a container's memory usage to 2g with Docker run:
 
-```docker run -d --name MyContainer ... -e JAVA_HEAP_USAGE="1650m" -m 2g ...```
+```docker run -d --name wavefront-proxy ... -e JAVA_HEAP_USAGE="1650m" -m 2g ...```
 
 To limit memory usage of the container in Kubernetes use the `resources.limits.memory` property of a container definition. See the [Kubernetes doc](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)
 
