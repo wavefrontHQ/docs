@@ -6,10 +6,10 @@ sidebar: doc_sidebar
 permalink: proxies_versions.html
 summary: Learn about new features and changes in different Wavefront proxy versions.
 ---
-This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases). 
+This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 
 ## Version 4.28-4.31
-* Supports HTTP POST and gzipped streams for Wavefront and OpenTSDB data ingestion endpoints (on the same port)
+* Supports HTTP POST and gzipped streams for Wavefront and OpenTSDB data ingestion endpoints on the same port
 * Tags `~proxy` metrics with `processId` to prevent metric name collisions in case of duplicate proxy instances
 * Limits default memory usage to 8GB
 * Supports a configurable idle timeout for listening ports which defaults to 5 minutes
