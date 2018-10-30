@@ -9,7 +9,10 @@ summary: Learn about the Wavefront MongoDB Integration.
 mongoDB is an open source NoSQL, cross-platform document-oriented database. This integration installs and configures Telegraf to send mongoDB metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a screen shot of an example dashboard with statistics collected from mongoDB.
-{% include image.md src="images/mongodb-metrics.png" width="80" %}
+{% include image.md src="images/mongodb-dashboard-1.png" width="80" %}
+{% include image.md src="images/mongodb-dashboard-2.png" width="80" %}
+{% include image.md src="images/mongodb-dashboard-3.png" width="80" %}
+{% include image.md src="images/mongodb-dashboard-4.png" width="80" %}
 
 
 
