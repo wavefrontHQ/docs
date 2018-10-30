@@ -12,7 +12,7 @@ This page gives an overview of important changes for Wavefront proxy releases. F
 * Supports HTTP POST and gzipped streams for Wavefront and OpenTSDB data ingestion endpoints on the same port
 * Tags `~proxy` metrics with `processId` to prevent metric name collisions in case of duplicate proxy instances
 * Limits default memory usage to 8GB
-* Supports a configurable idle timeout for listening ports which defaults to 5 minutes
+* Supports a configurable idle timeout for listening ports, which defaults to 5 minutes. See our [Proxy Configuration Properties](proxies_configuring.html#proxy-configuration-properties) documentation for details. 
 
 
 ## Version 4.27
@@ -32,7 +32,7 @@ This page gives an overview of important changes for Wavefront proxy releases. F
 
 ## Version 4.25
 - Fixes Java 9 compatibility issue
-- Supports [SourceTag and SourceDescription](https://docs.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
+- Supports [SourceTag and SourceDescription](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) on Wavefront format listening port (2878)
 - Supports tagged Graphite format (Graphite 1.1.x and newer)
 - Enables logging of raw valid points to a separate file (see `log4j2.xml.default` for more details)
 - Supports configurable max number of HTTP connections and automatic retries
@@ -42,7 +42,7 @@ This page gives an overview of important changes for Wavefront proxy releases. F
 ## Version 4.17
 - Miscellaneous reliability and stability improvements.
 - Accepts timestamps in microsecond and nanosecond format
-- Adds [SourceTag and SourceDescription](https://docs.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy)
+- Adds [SourceTag and SourceDescription](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy)
 
 ## Version 4.12
 - Compatible with latest Linux kernels patched to address Stack Clash vulnerability
