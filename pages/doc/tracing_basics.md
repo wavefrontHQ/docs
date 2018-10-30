@@ -16,6 +16,8 @@ Because Wavefront integrates tracing data with metrics, you can use Wavefront ch
 * Troubleshoot and analyze reported errors. 
 * Pinpoint the specific operations that bottlenecks occur in.
 
+<!--- This page gives basic concepts. You can go straight to Instrumenting [link]--->
+
 ## Wavefront Trace Data
 
 Wavefront follows the [OpenTracing](https://opentracing.io/) standard for representing and manipulating trace data. This means:
@@ -26,23 +28,35 @@ Wavefront follows the [OpenTracing](https://opentracing.io/) standard for repres
 
 Because requests are normally composed of other requests, a trace actually consists of a _tree_ of spans. 
 
-### Example
-Let's look at an example. Here we see a simple application for ordering beach shirts. 
+### Sample Application
+<!--- Check final names of services. Styling vs. Designer. --->
+
+Let's look at an example. Here we see a simple Java application for ordering beach shirts. 
 
 ![tracing beachShirts](images/tracing_beachshirts_app.png)
 
-This application has multiple services for processing different aspects of a customer order. A user's order is processed by an API service, which in turn passes the user's shirt selection data along to a Styling service. The Styling service makes a series of requests, passing control to other services, such as OrderDetails, Printing, and Wrapping. 
+This BeachShirts application has multiple services for processing different aspects of a customer order. The diagram shows how these services collaborate by sending requests and responses:
+* The customer clicks a button on the client browser to trigger a request (`orderShirts`) to the Shopping service.
+* The Shopping service sends the customer's shirt-selection data in a request to the Styling service. 
+* The Styling service sends a series of requests to invoke other application services (such as Printing and Packaging). Each invoked service performs its operations and returns a response to Styling.
+* Finally, the Styling service sends a response to the Shopping service, which invokes the Delivery service and sends a confirmation email back to the customer. 
 
-These services are running an different hosts, and so they use frameworks like Dropwizard and gRPC to make HTTP and RPC requests.
+These services are designed to be run on different hosts, so they are implemented using frameworks (like Dropwizard, gRPC, and Spring Boot) that support HTTP and RPC requests. The requests among these services might be asynchronous and quite lengthy.
 
 
-Now let's look at how we represent the end-to-end transaction that starts with ordering a shirt:
+### Sample Traces and Spans
+<!--- Check final names of services. Styling vs. Designer. --->
+<!--- Get real screen shot when colors are finalized. --->
 
-_[[Diagram (or screen shot of UI P4?) with callout for a trace and a span]]_
+Now let's look at how we represent the end-to-end transaction that starts with the `orderShirts` request:
+
+![tracing trace spans](images/tracing_trace_spans.png)
 
 Notice:
+* trace is a tree of spans
 * spans contain other spans. Represents operation within a service that passes data or control to another operation in some other service (could be in same service)
 * trace at one level is a span in a larger trace above it.
+* trace is identified by the name of its first span. Could have a trace called makeShirts whose spans are operations in Styling service.
 
 
 ## Ways to Send Trace Data to Wavefront
