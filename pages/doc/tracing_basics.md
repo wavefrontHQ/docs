@@ -52,37 +52,44 @@ These services are designed to be run on different hosts, so they are implemente
 
 Now let's look at how traces and spans represent an end-to-end transaction. 
 
-In this diagram, we see a trace for a particular transaction that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. This trace consists of 8 spans, one for each operation performed in the transaction.
+In this diagram, we see a trace for a particular transaction that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. This trace consists of 8 member spans, one for each operation performed in the transaction.
 
 ![tracing trace spans](images/tracing_trace_spans.png)
 
 ### A Closer Look at Traces and Spans
 
-As is typical, some of the the spans in the sample trace have parent-child relationships to each other. For example, the Styling service's `makeShirts` span has two child spans (`printShirts` and `wrapShirts`), and each of these spans has a child span of its own. A parent-child relationship exists between two spans when one operation passes data or control to another, in either the same or a different service. A parent span can have several children, representing requested operations that execute serially or in parallel. 
+As is typical, several of the spans in our sample trace have parent-child relationships to other spans in the trace. For example,
+the Styling service's `makeShirts` span has two child spans (`printShirts` and `wrapShirts`), and each of these spans has a child span of its own. 
+* A parent-child relationship exists between two spans when one operation passes data or control to another, either in the same service or in a different one. 
+* A parent span with multiple children indicates a request that invokes multiple operations, either serially or in parallel. 
 
-You can think of the trace as the top-level parent in a tree of related spans. The main difference between a trace and a span is the level of granularity you're interested in:
-* A span can be a trace to the spans below it.
-* A trace can be a span in a larger trace above it. 
+You can think of the trace itself as the top-level parent in a tree of related spans. We refer to a trace by the service and operation of its first (root) span. Because the first operation in our sample trace is Shopping service's `orderShirts`, we use that operation to refer to the trace. 
 
-So, if you were primarily interested in the chain of requests that begins with the Styling `makeShirts` operation, then you could view it as the top-level trace, and examine the tree of spans below it. 
-
-We refer to a trace by the service and operation of its first span. Because the first operation in our sample trace is Shopping service's `orderShirts`, we use that operation to refer to the trace. 
-
-It is important to remember that many traces can begin with the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called. Each such trace has a unique start time and duration. Our sample trace is just one of potentially thousands of similar traces.
+It is important to remember that many traces can begin with the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called. Each such trace has a unique trace id, which is shared by each of the member spans. The trace in our example is just one of potentially thousands of similar traces, which might have different start times or durations. 
 
 
 ## Ways to Send Trace Data to Wavefront
 
-Wavefront customers can use Wavefront to visualize and analyze their trace data. How you get your trace data into Wavefront depends on the use case, but you have many options. 
+An application must be _instrumented for tracing_ before it can produce and send trace data to Wavefront. Wavefront supports several options to choose from, depending on your use case. 
 
-_This section to mention/link to doc for:_
+<!--- Other metrics, and enable histograms too? --->
 
-* _Applications instrumented by 3rd party OpenTracing solutions such as Jaeger._
+If you have already instrumented your code using a 3rd party OpenTracing-compliant solution such as Jaeger, you can simply set up an integration to forward the trace data to Wavefront. <!--- See XX.--->
 
-* _Applications instrumented by Wavefront SDKs._
+If you have not yet instrumented your code, choose one of these options:
 
+* Set up your application with one or more Wavefront SDKs that instrument the frameworks you use in your application. This is the simplest technique, because each SDK produces out-of-the-box metrics, histograms, and trace data for each API supported by the instrumented framework. See [Instrumenting Your App For Tracing](tracing_instrumenting_frameworks.html) for a list of supported frameworks and for links to the setup steps for each SDK.
+
+* Use Wavefront's OpenTracing SDK to implement custom traces for your application's operations. This is a good choice if you want to use annotations to tag your traces or if you want to obtain trace data from critical operations that do not use a supported framework. <!--- ---> See XX for a list of supported programming languages and for links to the setup and usage steps.
+
+All of the options for instrumenting your code allow you to choose whether to send trace data to a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is recommended because of it enables you to configure sampling for your trace data. <!--- See XX --->
+ 
 
 ## How to See Trace Data in Wavefront
+
+Wavefront enables you to visualize and analyze trace data from your applications.
+
+
 _This section to mention/link to doc for:_
 
 * _spans() query page._

@@ -40,7 +40,7 @@ After your application starts running, you can click **Applications** in the Wav
 
 ## Pick a Language and Framework to Instrument 
 
-Pick the language and framework used by the service you want to instrument. Click on the link to go to the detailed setup steps.
+Pick the language and framework used by the service you want to instrument. Click on the link to go to the detailed setup steps. You'll also see examples of metrics that will be reported.
 
 <table width="100%">
 <colgroup>
@@ -53,13 +53,14 @@ Pick the language and framework used by the service you want to instrument. Clic
 </thead>
 <tr><td markdown="span">[Jersey Compliant](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments all Jersey-compliant APIs to send telemetry data to Wavefront, such as Dropwizard and Spring Boot.</td></tr>
-<tr><td markdown="span">gRPC</td>
+<tr><td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
 <td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
 <tr><td markdown="span">JVM</td>
 <td>Instruments Java Virtual Machine calls to send metrics and histograms to Wavefront. Measures CPU, disk usage, and so on.</td></tr>
 </tbody>
 </table>
 
+<!--- 
 <table width="100%">
 <colgroup>
 <col width="20%" />
@@ -75,8 +76,9 @@ Pick the language and framework used by the service you want to instrument. Clic
 <td>TBD</td></tr>
 </tbody>
 </table>
+--->
 
-**Note:** Each link in these tables displays the README file of an Wavefront SDK. Following the setup steps in the file, you'll see examples of the kinds of metrics that are reported for each API in the instrumented framework.
+**Note:** If you do not use any of the frameworks in this table, you can instead instrument your application with Wavefront's OpenTracing SDK. _[[Link to page for OpenTracing SDK ]]_
 
 ## Describing Your Application to Wavefront
 
