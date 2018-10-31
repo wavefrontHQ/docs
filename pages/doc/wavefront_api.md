@@ -23,7 +23,11 @@ The current version of the REST API is v2. You can access the API at `<wavefront
 
 ### API Documentation
 
-The REST API is publicly documented in the Swagger-generated API documentation. To access the REST API documentation:
+The REST API is publicly documented in the Swagger-generated API documentation.
+
+**Note:** In our blog post [Did You Know that Our API Docs Are Alive](https://www.wavefront.com/wavefront-rest-api/) we explain how you can experiment with our API directly from the documentation.
+
+To access the REST API documentation:
 
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
