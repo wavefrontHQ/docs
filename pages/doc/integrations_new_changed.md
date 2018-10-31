@@ -10,6 +10,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 This document lists new and changed integrations on a per-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
 ## October 2018
+
 We added the following integrations in October 2018:
 * Microsoft Azure SQL Database
 * Apache Kudu
