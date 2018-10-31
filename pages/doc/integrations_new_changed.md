@@ -7,7 +7,26 @@ permalink: integrations_new_changed.html
 summary: Learn about new and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
-This document lists new and changed integrations on a month-by-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
+This document lists new and changed integrations on a per-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
+
+## October 2018
+We added the following integrations in October 2018:
+* Microsoft Azure SQL Database
+* Apache Kudu
+* Google Cloud Pub/Sub
+* Microsoft Azure App Service
+* Microsoft Azure Functions
+* Google Cloud Billing
+* Microsoft Azure Load Balancers
+
+We updated the following integrations in October 2018:
+
+* PostgreSQL integration (setup and dashboard)
+* Weblogic, Kafka, and Hadoop HDFS integrations setup now use Jolokia 1.6 or later
+* Nginx setup and dashboard now include metrics obtained via the Telegraf Tail plugin
+* Microsoft SQL Server setup new uses a newer Telegraf plugin and includes several dashboard improvements. For this integration, you can access the previous setup and dashboard from the **Archived** section of the **Integrations** page.
+
+
 
 ## August 2018
 We added the following integrations in August 2018:
