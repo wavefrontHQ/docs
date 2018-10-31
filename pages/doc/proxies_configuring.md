@@ -8,9 +8,6 @@ summary: Learn how to configure a Wavefront proxy.
 ---
 Advanced proxy configuration includes use of configuration propertie  and performing advanced installation management such as installing proxies in a container.
 
-This document describes Wavefront proxy 4.12 configuration options. For changes since previous proxy versions, see [Wavefront Proxy Versions](proxies_versions.html).
-
-
 
 ## Proxy Configuration Properties
 
