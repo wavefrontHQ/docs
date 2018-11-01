@@ -14,15 +14,15 @@ This document lists new and changed integrations on a per-month basis. We update
 We added the following integrations in October 2018:
 * Microsoft Azure SQL Database
 * Apache Kudu
-* Google Cloud Pub/Sub
 * Microsoft Azure App Service
 * Microsoft Azure Functions
 * Google Cloud Billing
 * Microsoft Azure Load Balancers
 
-We updated the following integrations in October 2018:
+We made improvements to the following integrations in October 2018:
 
-* PostgreSQL integration (setup and dashboard)
+* PostgreSQL integration
+* Google Cloud Pub/Sub
 * Weblogic, Kafka, and Hadoop HDFS integrations setup now use Jolokia 1.6 or later
 * Nginx setup and dashboard now include metrics obtained via the Telegraf Tail plugin
 * Microsoft SQL Server setup new uses a newer Telegraf plugin and includes several dashboard improvements. For this integration, you can access the previous setup and dashboard from the **Archived** section of the **Integrations** page.
