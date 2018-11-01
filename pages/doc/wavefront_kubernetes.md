@@ -17,7 +17,7 @@ In the following video, Pierre Tessier discusses different approaches to monitor
 
 The architecture and the tools you use for monitoring Kubernetes differ for core monitoring and for monitoring applications.
 
-* **Core monitoring:** Monitor performance of the Kubernetes cluster and the state of the objects within the cluster using a metrics collector such as Heapster.
+* **Core monitoring:** Monitor performance of the Kubernetes cluster and the state of the objects within the cluster using a metrics collector such as the [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector).
 * **Application monitoring:** Monitor applications such as NGNIX, Redis, or MySQL that run in your Kubernetes cluster. To monitor applications, you might use a Telegraf sidecar or Telegraf in a standalone container which can also be used for Prometheus scraping.
 
 Our [Monitoring VMware Kubernetes Engine and Application Metrics with Wavefront](https://www.wavefront.com/monitoring-vmware-kubernetes-engine-and-application-metrics-with-wavefront/) blog discusses that special use case.
@@ -26,7 +26,7 @@ Visit the [wavefront-kubernetes Github repository](https://www.github.com/wavefr
 
 ## Core Monitoring
 
-Core monitoring retrieves metrics using a cluster monitoring service -- currently Heapster -- and through kube-state-metrics.
+Core monitoring retrieves metrics using a cluster monitoring service such as the [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) -- and through kube-state-metrics.
 * The cluster monitoring service provides CPU, memory, filesystem, and network/IO usage for the cluster and all nodes, pods, namespaces, and containers.
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) provides the current state of Kubernetes resources such as deployments, replica sets, pods, etc.
 
