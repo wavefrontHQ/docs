@@ -6,6 +6,8 @@ summary: Learn about the Wavefront Microsoft SQL Server Integration.
 ---
 ## Microsoft SQL Server Integration
 
+**Note:** This integration provides updated setup instructions and dashboard for SQL server. For the previous setup instructions, see the **SQL Server (Archived)** integration in the **Archived** section.
+
 SQL Server by Microsoft is a popular enterprise RDBMS. This integration installs and configures Telegraf to send SQL server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's the performance counters section of a dashboard displaying MSSQL metrics:

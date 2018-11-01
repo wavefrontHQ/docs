@@ -1,10 +1,12 @@
 ---
-title: Microsoft SQL Server (Deprecated) Integration
+title: Microsoft SQL Server (Archived) Integration
 tags: [integrations list]
-permalink: sqlserver-deprecated.html
-summary: Learn about the Wavefront Microsoft SQL Server (Deprecated) Integration.
+permalink: sqlserver-archived.html
+summary: Learn about the Wavefront Microsoft SQL Server (Archived) Integration.
 ---
 ## Microsoft SQL Server Integration
+
+**Note:** This integration provides the previous setup instructions and dashboard for SQL Server. For the current setup instructions, see the **SQL Server** integration in the **Data Store** section.
 
 SQL Server by Microsoft is a popular enterprise RDBMS. This integration installs and configures Telegraf to send SQL server metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
