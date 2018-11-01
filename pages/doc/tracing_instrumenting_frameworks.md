@@ -4,14 +4,15 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_instrumenting_frameworks.html
-summary: Learn how to set up your application to send tracing data to Wavefront.
+summary: Learn how to set up your application to send trace data to Wavefront.
 ---
 
-One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By displaying a transaction as a hierarchy of Wavefront tracing _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
+One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By displaying a transaction as a _trace_ that consists of a hierarchy of _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
 
-This page shows you the fast track to producing out-of-the-box metrics and tracing spans from popular application frameworks. 
+This page shows you the fast track to producing out-of-the-box metrics and trace data from popular application frameworks. 
+* For information about instrumenting your application to send custom traces and metrics. _[[Link to SDK page for custom tracing and metrics ]]_
+* For an introduction to distributed tracing in Wavefront, see [Distributed Tracing Basics](tracing_basics.html).
 
-**Note:** You can also instrument your application to send custom traces and metrics. _[[Link to SDK page for custom tracing and metrics ]]_
 
 ## Sample Setup
 
@@ -21,7 +22,7 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Setup Process 
 
-You get the exact setup steps by picking a programming language and framework in a [table below](#pick-a-language-and-framework-to-instrument). 
+You get the exact setup steps by [picking a programming language and framework](#pick-a-language-and-framework-to-instrument) below, and clicking on the link. 
 
 In all cases, you will:
  
@@ -30,10 +31,10 @@ In all cases, you will:
 2. Edit your code to instantiate a few helper objects. These objects:
   * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
   * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
-  * [Configure how frequently data is reported](#configuring-data-reporting). 
+  * [Configure several aspects of reporting metrics and histograms](#configuring-metric-data-reporting). 
+  * [Configure several aspects of reporting trace data](#configuring-trace-data-reporting).
 
-
-3. Start a Wavefront proxy if you are using one. 
+3. Configure and start a Wavefront proxy if you are using one. 
 
 After your application starts running, you can click **Applications** in the Wavefront menu bar to start exploring your metrics and traces.
 
@@ -82,7 +83,7 @@ Pick the language and framework used by the service you want to instrument. Clic
 
 ## Describing Your Application to Wavefront
 
-Part of instrumenting an application framework is to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the predefined metrics and tracing data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags to aggregate and filter the metrics and traces at different levels of granularity.
+Part of instrumenting an application framework is to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the predefined metrics and trace data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags to aggregate and filter the metrics and traces at different levels of granularity.
 
 In your application, you instantiate an _application-tags_ object that will store your values for the metadata tags.
 Because the metadata tags describe the application's architecture as it is deployed, you typically implement a mechanism for obtaining tag values from a configuration file, which you then update for each deployed application instance.
@@ -97,11 +98,11 @@ If the physical topology of your application will be useful for filtering metric
 
 **Note:** For details, see _[[link to tagging topic on another page]]_.
 
-## Configuring How to Send Data to Wavefront
+## Configuring How to Send Metric Data to Wavefront
 
 Part of instrumenting an application framework is to specify how you want metrics and spans to be sent to Wavefront. The recommended way in most cases is to send data to a Wavefront proxy, which in turn forwards the data to the Wavefront service. An alternative is for your applications to send data directly to the Wavefront service.
 
-* If you choose to use a proxy, you will need to specify the proxy host, and the ports it listens to for metrics, histograms, and tracing data. 
+* If you choose to use a proxy, you will need to specify the proxy host, and the ports it listens to for metrics, histograms, and trace data. 
 * If you choose direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
 
 In either case, you can optionally tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service.
@@ -112,7 +113,7 @@ To make it easy to reconfigure the sender at runtime, you typically implement a 
 
 **Note:** For details, see _[[link to proxy vs direct ingest topic on another page]]_.
 
-## Configuring Data Reporting
+## Configuring Metric Data Reporting
 <!--- Mention source here? --->
 
 Part of instrumenting an application framework is to specify a reporting interval, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender.) 
@@ -122,9 +123,12 @@ To make it easy to reconfigure the sender at runtime, you normally implement and
 
 **Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
 
+## Configuring Trace Data Reporting
+
+
 ## Instrumenting Multiple Frameworks in the Same Service 
 
-If you are instrumenting multiple frameworks that are used in the same service, bear in mind that you need only a single application-tags object, Wavefront sender object, and Wavefront reporter object per process. Your code should instantiate each object once, and then re-use these in the setup steps for each framework you are instrumenting.
+If you are instrumenting multiple frameworks that are used in the same service, bear in mind that you need only a single application-tags object and a single Wavefront sender object object per process. Your code should instantiate each object once, and then re-use these objects as needed in the setup steps for each framework you are instrumenting.
 
 ## Questions for Reviewers
 
