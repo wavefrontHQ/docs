@@ -32,9 +32,9 @@ In all cases, you will:
   * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
   * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
   * [Configure several aspects of reporting metrics and histograms](#configuring-metric-data-reporting). 
-  * [Configure several aspects of reporting trace data](#configuring-trace-data-reporting).
+  * [Arranging for trace data to be created and reported](#arranging-for-trace-data-to-be-reported).
 
-3. Configure and start a Wavefront proxy if you are using one. 
+3. Configure and start a Wavefront proxy if you are using one. _[[Link to table of proxy config properties, and steps for starting proxy ]]_
 
 After your application starts running, you can click **Applications** in the Wavefront menu bar to start exploring your metrics and traces.
 
@@ -53,10 +53,10 @@ Pick the language and framework used by the service you want to instrument. Clic
 <tr><th>Java Framework</th><th>Description</th></tr>
 </thead>
 <tr><td markdown="span">[Jersey Compliant](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instruments all Jersey-compliant APIs to send telemetry data to Wavefront, such as Dropwizard and Spring Boot.</td></tr>
+<td>Instruments Jersey-compliant frameworks, such as Dropwizard and Spring Boot. Enables HTTP operations to send telemetry data to Wavefront.</td></tr>
 <tr><td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
 <td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
-<tr><td markdown="span">JVM</td>
+<tr><td markdown="span">[JVM](https://github.com/wavefrontHQ/wavefront-appagent-sdk-jvm)</td>
 <td>Instruments Java Virtual Machine calls to send metrics and histograms to Wavefront. Measures CPU, disk usage, and so on.</td></tr>
 </tbody>
 </table>
@@ -79,7 +79,7 @@ Pick the language and framework used by the service you want to instrument. Clic
 </table>
 --->
 
-**Note:** If you do not use any of the frameworks in this table, you can instead instrument your application with Wavefront's OpenTracing SDK. _[[Link to page for OpenTracing SDK ]]_
+**Note:** If you do not use any of the frameworks in this table, you can instead instrument your application with [Wavefront's OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
 
 ## Describing Your Application to Wavefront
 
@@ -116,20 +116,35 @@ To make it easy to reconfigure the sender at runtime, you typically implement a 
 ## Configuring Metric Data Reporting
 <!--- Mention source here? --->
 
-Part of instrumenting an application framework is to specify a reporting interval, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender.) 
+Part of instrumenting an application framework for metrics and histograms is to specify a reporting interval, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender.) 
+
+Another aspect of reporting is to identify the source of the metrics and histograms. By default, the source will be automatically set to the name of the host that the code is running on. You can optionally specify a more meaningful name explicitly.
  
-In your application, you instantiate a _Wavefront reporter_ object that will store your reporting interval.
-To make it easy to reconfigure the sender at runtime, you normally implement and use a mechanism for obtaining values from a configuration file.
+In your application, you instantiate a _Wavefront reporter_ object that will store your reporting interval and optional source.
+To make it easy to reconfigure the reporter at runtime, you normally implement and use a mechanism for obtaining values from a configuration file.
 
 **Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
 
-## Configuring Trace Data Reporting
+## Arranging for Trace Data to be Reported
+
+Part of instrumenting an application framework for tracing is to set up the mechanism for creating and reporting trace data. 
+
+In your application, you instantiate:
+* A _Wavefront span reporter_ object that will forward trace data to a Wavefront sender. (You can optionally configure the reporter to send trace data to your console for debugging, too.)
+* A _Wavefront tracer_ object that will create spans and traces, and hand the trace data off to the Wavefront span reporter. 
+
+Whereas metric data reporting occurs at the interval you specify, trace data reporting occurs automatically whenever spans are complete. 
 
 
 ## Instrumenting Multiple Frameworks in the Same Service 
 
-If you are instrumenting multiple frameworks that are used in the same service, bear in mind that you need only a single application-tags object and a single Wavefront sender object object per process. Your code should instantiate each object once, and then re-use these objects as needed in the setup steps for each framework you are instrumenting.
+If you are instrumenting multiple frameworks that are used in the same service, bear in mind: 
 
+* You create a single application-tags object and a single Wavefront sender object object per process. Your code should instantiate each object once, and then re-use these objects as needed in the setup steps for each framework you are instrumenting.
+* Each framework uses its own Wavefront reporter (or Wavefront span reporter) object. 
+
+<!--- 
 ## Questions for Reviewers
 
 1. Mention configuring sampling rate on this page? Proxy or SDK or both?
+--->
