@@ -10,8 +10,8 @@ A dashboard variable is a placeholder that allows you to dynamically change the 
 
 Dashboard variables enable text replacement. Wavefront supports three types of dashboard variables:
 * Simple - Maps a single variable to a single value. When you change the variable value, it changes in all charts on your dashboard.
-* List - Maps a variable label to a list of labels and values that users can choose from.
-* Dynamic - Defines a variable whose set of values are dynamically determined by a query.
+* List - Allows users to select the value of a variable from a list of choices.
+* Dynamic - Defines a variable whose set of values are dynamically determined.
 
 All Wavefront users can select and temporarily alter the value of a dashboard variable.
 
@@ -29,30 +29,30 @@ Dashboard variables can contain:
 Different types of dashboard variables can help in different ways:
 
 - **Simple**: Use a simple dashboard variable if you want to update all your charts to query for a different item, for example, for a different source.
-- **List**: Use a list variable to present choices. The following example shows a variable that allows users to display components with a contract duration of 1 year or 3 years. After the user selects the options, all charts in the dashboard that use the variable are updated.
+- **List**: Use a list variable to present choices. The following example shows a list variable that allows users to make all charts in a dashboard use a contract duration of 1 year or 3 years.
 
   ![Variable Name.png](images/db_var_name.png)
-- **Dynamic**: Use a dynamic variable to interactively change your dashboard based on the source, source tag, matching source tag, metric, or point tag.
+- **Dynamic**: Use dynamic variable show choices that to interactively change your dashboard based on the source, source tag, matching source tag, metric, or point tag.
 
 ## Accessing Dashboard Variables
 
-To access the variables associated with a dashboard, click the icon to the left of the pen in the dashboard icon group in the top right corner of the task bar ![db_actions.png](images/db_actions.png#inline).
+To access the variables associated with a dashboard, click the icon to the left of the pen in the top right corner of the task bar ![db_actions.png](images/db_actions.png#inline).
 
 
 ## Creating a Dashboard Variable
 
-1.  Put your dashboard into edit mode by clicking the pencil icon at the far right of the task bar.
+1.  Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
 
-    - If no dashboard are defined, click **Create**.
+    - If no dashboards are defined, click **Create**.
 
-    - If there is at least one variable associated with the dashboard, click the plus (+) icon.
+    - If at least one variable is associated with the dashboard, click the plus (+) icon.
 
 2.  Inside the Variables pane, click the pen icon.
 
     ![variables edit icon](images/variables_edit.png)
 
 3.  In the Variable Details dialog box, specify the variable name and label, and select the Variable Type. Fill in remaining fields depending on the variable type: [simple](#simple), [list](#list), and [dynamic](#dynamic).
-4.  Click **Hide from non-editors** to make your dashboard variable non-viewable/non-changeable by all users when the dashboard is not in edit mode. The dashboard variable can still be used in `ts()`` queries and becomes visible when you put the dashboard into edit mode.
+4.  To make your dashboard variable non-viewable/non-changeable when the dashboard is not in edit mode, click **Hide from non-editors**. The dashboard variable can still be used in `ts()` expressions and is visible when you put the dashboard into edit mode.
 
 ## Using Dashboard Variables
 
