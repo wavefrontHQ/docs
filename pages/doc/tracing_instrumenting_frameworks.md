@@ -53,20 +53,28 @@ Pick the language and framework used by the service you want to instrument. Clic
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Java Framework or Technology</th><th>Wavefront SDK</th><th>Description</th></tr>
+<tr><th>To Instrument</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
 </thead>
 <tr>
-<td>Dropwizard</td>
+<td>Dropwizard operations</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Enables HTTP operations to send metrics, histograms and trace data to Wavefront.</td></tr>
 <tr>
-<td>Spring Boot</td>
+<td>Spring Boot operations</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enables HTTP operations to send metrics, histograms, and trace data to Wavefront.</td></tr>
 <tr>
-<td>JVM</td>
+<td>JVM operations</td>
 <td markdown="span">[`wavefront-appagent-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-appagent-sdk-jvm)</td>
 <td>Instruments Java Virtual Machine calls to send metrics and histograms to Wavefront. Measures CPU, disk usage, and so on.</td></tr>
+<tr>
+<td>Custom business operations (metrics data)</td>
+<td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
+<td>Instruments custom business operations using Wavefront's Dropwizard Metrics implementation. Enables your operations to send metrics and histograms to Wavefront. </td></tr>
+<td>Custom business operations (trace data)</td>
+<td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
+<td>Instruments custom business operations using Wavefront's OpenTracing implementation. Enables your operations to send traces and spans to Wavefront. </td></tr>
+
 </tbody>
 </table>
 
@@ -74,29 +82,24 @@ Pick the language and framework used by the service you want to instrument. Clic
 <tr><td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
 <td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
 --->
-<!--- 
-<table width="100%">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody>
-<thead>
-<tr><th>C#/.NET Framework</th><th>Description</th></tr>
-</thead>
-<tr><td markdown="span"> TBD </td>
-<td>TBD</td></tr>
-<tr><td markdown="span">TBD</td>
-<td>TBD</td></tr>
-</tbody>
-</table>
---->
-
+<!---
 **Note:** To instrument custom business operations that are not based on the supported frameworks: 
 * For metrics and histograms, use [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
 * For trace data, use [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
+--->
+## A Closer Look at Instrumentation
 
-## Describing Your Application to Wavefront
+Regardless of the SDK you pick, the detailed setup steps will include instantiating various objects that work together to create and send metrics, histograms, and trace data to Wavefront. 
+
+Here is an overview of these objects in a Java service that uses Spring Boot and the JVM to implement RESTful operations to other services.
+
+![sdk objects](images/sdk_objects.png)
+
+<!---
+Passing contexts between oprations for trace data.
+--->
+
+### Describing Your Application to Wavefront
 
 Part of instrumenting an application framework is to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the predefined metrics and trace data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags to aggregate and filter the metrics and traces at different levels of granularity.
 
@@ -115,7 +118,7 @@ If the physical topology of your application will be useful for filtering metric
 **Note:** For details, see _[[link to tagging topic on another page]]_.
 --->
 
-## Configuring How to Send Data to Wavefront
+### Configuring How to Send Data to Wavefront
 
 Part of instrumenting an application framework is to specify how you want metrics and spans to be sent to Wavefront. The recommended way in most cases is to send data to a Wavefront proxy, which in turn forwards the data to the Wavefront service. An alternative is for your applications to send data directly to the Wavefront service.
 
@@ -130,7 +133,7 @@ To make it easy to reconfigure the sender at runtime, you typically implement a 
 <!--- change links when proxy/dir ing decision is in a single section --->
 **Note:** For information about the choices for sending data to Wavefront, see [Proxies](proxies.html) and  [Direct Ingestion](direct_ingestion.html).
 
-## Configuring Metric Data Reporting
+### Configuring Metric Data Reporting
 <!--- Mention source here? --->
 
 Part of instrumenting an application framework for metrics and histograms is to specify a reporting interval, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender.) 
@@ -144,7 +147,7 @@ To make it easy to reconfigure the reporter at runtime, you normally implement a
 **Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
 --->
 
-## Arranging for Trace Data to be Reported
+### Arranging for Trace Data to be Reported
 
 Part of instrumenting an application framework for tracing is to set up the mechanism for creating and reporting trace data. 
 
@@ -155,7 +158,7 @@ In your application, you instantiate:
 Whereas metric data reporting occurs at the interval you specify, trace data reporting occurs automatically whenever spans are complete. 
 
 
-## Instrumenting Multiple Frameworks in the Same Service 
+### Instrumenting Multiple Frameworks in the Same Service 
 
 If you are instrumenting multiple frameworks that are used in the same service, bear in mind: 
 
