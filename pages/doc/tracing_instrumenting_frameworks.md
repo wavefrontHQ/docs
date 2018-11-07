@@ -31,8 +31,8 @@ In all cases, you will:
 2. Edit your code to instantiate a few helper objects. These objects:
   * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
   * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
-  * [Configure several aspects of reporting metrics and histograms](#configuring-metric-data-reporting). 
-  * [Arranging for trace data to be created and reported](#arranging-for-trace-data-to-be-reported).
+  * [Configure how metrics and histograms are reported](#configuring-metric-data-reporting). 
+  * [Arrange for trace data to be created and reported](#arranging-for-trace-data-to-be-reported).
 
 3. Configure and start a Wavefront proxy if you are using one. _[[Link to table of proxy config properties, and steps for starting proxy ]]_
 
