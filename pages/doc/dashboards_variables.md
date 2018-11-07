@@ -95,13 +95,8 @@ For example:
 To create a list dashboard variable:
 1. Enter a variable name (case sensitive) and a label. We suggest keeping the variable name short.
 2. Select **Variable Type > List**:
-
-![list var with non-editor hide.png](images/db_var_list_with_non-editor_hide.png)
-
-3. Add, remove, or clone fields by using the icons on the right.
-
-![list var with non-editor hide and parameters.png](images/db_var_list_with_non-editor_hide_and_parameters.png)
-
+3. Add, remove, or clone fields by using the icons on the right and set the default.
+  ![list var with non-editor hide and parameters.png](images/db_var_list_with_non-editor_hide_and_parameters.png)
 4. Click **Accept** and click **Save** to save your dashboard and the dashboard variable.
 
 To use a list dashboard variable:
@@ -116,9 +111,9 @@ For example, using the example above, selecting **Production** replaces `{enviro
 
 ## Dynamic Dashboard Variables
 
-A *dynamic dashboard variable* defines a variable whose set of values are dynamically determined by a query.
+A *dynamic dashboard variable* is a variable whose set of values are dynamically determined by a query.
 
-For example, you could set up a query that returns a CPU metric based on the customer. You've specified the point tag `customer` before.
+For example, you could set up a query that returns a CPU metric based on the customer. You've specified the point tag `customer`, and set up a variable that allows you to pick the value for the `customer` point tag.
 
 **Note** Dynamic dashboard variables allow you to specify only a single metric name, source, source tag, or point tag at a time. Use simple or list dashboard variables if you want to use wildcards that return more than 1 metric name, source, source tag, or point tag.
 
@@ -126,7 +121,7 @@ To create a dynamic variable:
 1. Put the dashboard into edit mode and add or edit a variable.
 2. Specify the Variable Type **Dynamic**.
 3. In the Field pulldown menu, select the field and Query field displays.
-4. Type the query, using the field type, for example a metric with a wildcard in it, and select one of the options in the list that appears. 
+4. Type the query, using the field type, for example a metric with a wildcard in it, and select one of the options in the list that appears.
 
 ![dynamic with field options.png](images/db_var_dynamic_with_field_options.png)
 
