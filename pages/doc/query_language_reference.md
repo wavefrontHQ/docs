@@ -168,9 +168,14 @@ We support variables in several ways:
 
 <span id="aggregate"></span>
 
-## Aggregation and Raw Aggregation Functions
-Aggregation and raw aggregation functions provide a way to combine (aggregate) multiple series into a single series. If there are gaps of data, non-raw aggregation functions first interpolate the points of the underlying set of series (up to one day) if at least 1 known value is available. Then the aggregation function iself is applied to the interpolated series. Raw aggregation functions do not interpolate the underlying series before aggregation. Raw functions aggregate data points by time buckets. For further information, see [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
+## Aggregation Functions
+Aggregation functions are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
+* Standard aggregation functions interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series. 
+* Raw aggregation functions do not interpolate the underlying series before aggregation. 
 
+All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.  
+
+See [Aggregating Data Values Across Time Series](#aggregating-data-values-across-time-series).
 
 <table style="width: 100%;">
 <colgroup>
@@ -252,28 +257,6 @@ The results are computed from real reported data values only, with no interpolat
 </table>
 
 
-### Grouping and Filtering
-
-When aggregating, you can group or filter the results.
-
-* When you filter, you restrict the query, for example, only to certain sources. You still get one line for aggregation function. To filter, use the element to filter by inside the parenthesis.
-
-* You can also group the results of a query and display separate lines for the different group members. For example, when grouping by source, you get one line for each source. When grouping by source tags, you get one line for each source tag that is explicitly specified in the ts() expression.
-
-  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
-
-
-**Filter Example**
-
-`sum(ts(~sample.cpu.loadavg.1m, source=app-1*))` shows the sum of the values reported for the metric, but only from the sources that match `app-1*`.
-
-**Grouping Examples**
-
--   Group by metrics: `sum(ts(cpu.loadavg.1m),`**`metrics`**`)`
--   Group by sources: `sum(ts(cpu.loadavg.1m),`**`sources`**`)`
--   Group by source tags: `sum(ts(cpu.loadavg.1m, tag=prod or tag=db),`**`sourceTags`**`)`
--   Group by all available point tag keys: `sum(ts(cpu.loadavg.1m),`**`pointTags`**`)`
--   Group by the `region` point tag key: `sum(ts(cpu.loadavg.1m),`**`region`**`)`
 
 <span id="filter"></span>
 
@@ -968,3 +951,67 @@ The following functions always return continuous time series, even when they ope
 * [`between()`](ts_between.html), [`ongoing()`](ts_ongoing.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.
 * Calendar/clock standard time functions: [`year()`](ts_year.html), [`month()`](ts_month.html), [`dayOfYear()`](ts_dayOfYear.html), [`day()`](ts_day.html), [`weekday()`](ts_weekday.html), [`hour()`](ts_hour.html), [`time()`](ts_time.html)
 * Constant time series functions and expressions: [`at()`](ts_at.html), [`top()`](ts_top.html), [`bottom()`](ts_bottom.html), `<number>`
+
+## Aggregating Data Values Across Time Series
+
+You can use aggregation functions to combine values from multiple time series. An aggregation function returns a series of data points whose values are calculated from corresponding points in two or more input time series. The function's name indicates the way each return value is calculated. For example, `sum()` returns a series of totals, `max()` returns a series of maximums, `avg()` returns a series of means, and so on. 
+
+### Filtering the Input Series
+You use an expression to describe the set of time series to be aggregated. When using a ts() expression, you can include filters to narrow the set. For example, if multiple sources are reporting the metric `~sample.cpu.loadavg.1m`:
+* `sum(ts(~sample.cpu.loadavg.1m))` shows the sum of the values reported for the metric from all sources. 
+* `sum(ts(~sample.cpu.loadavg.1m, source=app-1*))` shows the sum of the values reported for the metric, but only from sources that match `app-1*`.
+* `sum(ts(~sample.cpu.loadavg.1m, source=app-1*, env=prod))` further filters the input series to those with the point tag `env=prod`.
+
+### Aggregating Data Points That Line Up
+
+The easiest way to see the results of an aggregation function is when all of the input series report their data points at exactly the same time, so the points at any given timestamp all "line up". The aggregation function operates on the values in each "lineup" of points, and returns each result in a point at the corresponding timestamp.
+
+For example, consider the two time series in the following chart. The reporting interval for these series is 1 minute, and the points in these series "line up" at each 1-minute mark on the x-axis. We use a point plot to reveal the correspondences between reported points.
+
+![agg lineup](images/query_language_agg_lineup.png)
+
+Now we use the `sum()` function to aggregate these two time series. Each blue point produced by `sum()` is the result of adding the data values reported by the input series at the same minute. 
+
+![agg lineup sum](images/query_language_agg_lineup_sum.png)
+
+
+### When Data Points Do Not Line Up
+
+In many cases, the set of time series you specify to an aggregation function will have data points that do _not_ "line up" at corresponding moments in time. For example: 
+* One input series might report data points regularly, but at a longer or shorter interval than another input series.
+* One input series might report at irregular times that don't match the reporting times of any other input series. 
+* One otherwise regular input series might have gaps due to reporting interruptions (e.g., intermittent server or network downtime) which are not experienced by the other input series.
+
+Wavefront provides two kinds of aggregation functions for handling this situation:
+* _Standard aggregation functions_ fill in the gaps in each input series by interpolating values, and therefore operate on interpolated values as well as actual reported data points. 
+* _Raw aggregation functions_ do not interpolate the underlying series before aggregation, but rather operate only on actual reported data points.
+
+### Standard Aggregation Functions (Interpolation)
+
+When a new point is inserted by interpolation, the value assigned to that point is an estimate of what the input series would have reported at that time, based on the values of the actual, reported points on either side.  
+
+### Raw Aggregation Functions (No Interpolation)
+
+
+### Grouping the Results
+
+When aggregating, you can group the results.
+
+
+
+* You can also group the results of a query and display separate lines for the different group members. For example, when grouping by source, you get one line for each source. When grouping by source tags, you get one line for each source tag that is explicitly specified in the ts() expression.
+
+  To group an aggregation by metrics, sources, source tags, all point tags keys, or a specific point tag key, include the <br/> \[, **metrics**\|**sources**\|**sourceTags**\|**pointTags**\|<span style="font-weight:bold">&lt;pointTagKey&gt;</span>\] keyword after the ts() expression, separated by a comma.
+
+
+Wavefront provides query functions that combine values from the data points in multiple time series. 
+
+
+
+**Grouping Examples**
+
+-   Group by metrics: `sum(ts(cpu.loadavg.1m),`**`metrics`**`)`
+-   Group by sources: `sum(ts(cpu.loadavg.1m),`**`sources`**`)`
+-   Group by source tags: `sum(ts(cpu.loadavg.1m, tag=prod or tag=db),`**`sourceTags`**`)`
+-   Group by all available point tag keys: `sum(ts(cpu.loadavg.1m),`**`pointTags`**`)`
+-   Group by the `region` point tag key: `sum(ts(cpu.loadavg.1m),`**`region`**`)`
