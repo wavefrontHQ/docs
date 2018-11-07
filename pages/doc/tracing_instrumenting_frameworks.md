@@ -9,10 +9,12 @@ summary: Learn how to set up your application to send trace data to Wavefront.
 
 One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By displaying a transaction as a _trace_ that consists of a hierarchy of _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
 
-This page shows you the fast track to producing out-of-the-box metrics and trace data from popular application frameworks. 
+This page shows you the fast track to producing out-of-the-box metrics and trace data from popular application frameworks. These frameworks are listed [below](#pick-a-language-and-framework-to-instrument), along with links to detailed setup steps.
+
+<!---
 * For information about instrumenting your application to send custom traces and metrics. _[[Link to SDK page for custom tracing and metrics ]]_
 * For an introduction to distributed tracing in Wavefront, see [Distributed Tracing Basics](tracing_basics.html).
-
+--->
 
 ## Sample Setup
 
@@ -34,7 +36,7 @@ In all cases, you will:
   * [Configure how metrics and histograms are reported](#configuring-metric-data-reporting). 
   * [Arrange for trace data to be created and reported](#arranging-for-trace-data-to-be-reported).
 
-3. Configure and start a Wavefront proxy if you are using one. _[[Link to table of proxy config properties, and steps for starting proxy ]]_
+3. [Configure and start a Wavefront proxy](proxies_installing.html) if you are using one. <!---_[[Eventually, Link to section on proxy config properties for sdks, and steps for starting proxy ]]_--->
 
 After your application starts running, you can click **Applications** in the Wavefront menu bar to start exploring your metrics and traces.
 
@@ -46,21 +48,32 @@ Pick the language and framework used by the service you want to instrument. Clic
 <table width="100%">
 <colgroup>
 <col width="20%" />
-<col width="80%" />
+<col width="30%" />
+<col width="50%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Java Framework</th><th>Description</th></tr>
+<tr><th>Java Framework or Technology</th><th>Wavefront SDK</th><th>Description</th></tr>
 </thead>
-<tr><td markdown="span">[Jersey Compliant](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instruments Jersey-compliant frameworks, such as Dropwizard and Spring Boot. Enables HTTP operations to send telemetry data to Wavefront.</td></tr>
-<tr><td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
-<td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
-<tr><td markdown="span">[JVM](https://github.com/wavefrontHQ/wavefront-appagent-sdk-jvm)</td>
+<tr>
+<td>Dropwizard</td>
+<td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Enables HTTP operations to send metrics, histograms and trace data to Wavefront.</td></tr>
+<tr>
+<td>Spring Boot</td>
+<td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enables HTTP operations to send metrics, histograms, and trace data to Wavefront.</td></tr>
+<tr>
+<td>JVM</td>
+<td markdown="span">[`wavefront-appagent-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-appagent-sdk-jvm)</td>
 <td>Instruments Java Virtual Machine calls to send metrics and histograms to Wavefront. Measures CPU, disk usage, and so on.</td></tr>
 </tbody>
 </table>
 
+<!---
+<tr><td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
+<td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
+--->
 <!--- 
 <table width="100%">
 <colgroup>
@@ -79,7 +92,9 @@ Pick the language and framework used by the service you want to instrument. Clic
 </table>
 --->
 
-**Note:** If you do not use any of the frameworks in this table, you can instead instrument your application with [Wavefront's OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
+**Note:** To instrument custom business operations that are not based on the supported frameworks: 
+* For metrics and histograms, use [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
+* For trace data, use [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
 
 ## Describing Your Application to Wavefront
 
@@ -96,9 +111,11 @@ If the physical topology of your application will be useful for filtering metric
 * `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run. 
 * `shard` - Name of a subgroup of hosts within a cluster that serve as a partition or replica.
 
+<!---
 **Note:** For details, see _[[link to tagging topic on another page]]_.
+--->
 
-## Configuring How to Send Metric Data to Wavefront
+## Configuring How to Send Data to Wavefront
 
 Part of instrumenting an application framework is to specify how you want metrics and spans to be sent to Wavefront. The recommended way in most cases is to send data to a Wavefront proxy, which in turn forwards the data to the Wavefront service. An alternative is for your applications to send data directly to the Wavefront service.
 
@@ -110,8 +127,8 @@ In either case, you can optionally tune performance by setting the frequency for
 In your application, you instantiate a _Wavefront sender_ object that will store your ingestion choices.
 To make it easy to reconfigure the sender at runtime, you typically implement a mechanism for obtaining values from a configuration file.
 
-
-**Note:** For details, see _[[link to proxy vs direct ingest topic on another page]]_.
+<!--- change links when proxy/dir ing decision is in a single section --->
+**Note:** For information about the choices for sending data to Wavefront, see [Proxies](proxies.html) and  [Direct Ingestion](direct_ingestion.html).
 
 ## Configuring Metric Data Reporting
 <!--- Mention source here? --->
@@ -123,7 +140,9 @@ Another aspect of reporting is to identify the source of the metrics and histogr
 In your application, you instantiate a _Wavefront reporter_ object that will store your reporting interval and optional source.
 To make it easy to reconfigure the reporter at runtime, you normally implement and use a mechanism for obtaining values from a configuration file.
 
+<!---
 **Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
+--->
 
 ## Arranging for Trace Data to be Reported
 
@@ -140,8 +159,9 @@ Whereas metric data reporting occurs at the interval you specify, trace data rep
 
 If you are instrumenting multiple frameworks that are used in the same service, bear in mind: 
 
-* You create a single application-tags object and a single Wavefront sender object object per process. Your code should instantiate each object once, and then re-use these objects as needed in the setup steps for each framework you are instrumenting.
-* Each framework uses its own Wavefront reporter (or Wavefront span reporter) object. 
+* You create a single Wavefront sender object object per process. Your code should instantiate each object once, and then re-use these objects as needed in the setup steps for each framework you are instrumenting.
+* Each instrumented framework should have its own application-tags object.
+* Each instrumented framework should have its own Wavefront reporter (or Wavefront span reporter) object. 
 
 <!--- 
 ## Questions for Reviewers
