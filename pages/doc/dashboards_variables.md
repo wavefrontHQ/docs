@@ -31,9 +31,8 @@ Different types of dashboard variables can help in different ways:
 - **Simple**: Use a simple dashboard variable if you want to update all your charts to query for a different item, for example, for a different source.
 - **List**: Use a list variable to present choices. The following example shows a variable that allows users to display components with a contract duration of 1 year or 3 years. After the user selects the options, all charts in the dashboard that use the variable are updated.
 
-![Variable Name.png](images/db_var_name.png)
-
--**Dynamic**: Use a dynamic variable to interactively change your dashboard based on the source, source tag, matching source tag, metric, or point tag.
+  ![Variable Name.png](images/db_var_name.png)
+- **Dynamic**: Use a dynamic variable to interactively change your dashboard based on the source, source tag, matching source tag, metric, or point tag.
 
 ## Accessing Dashboard Variables
 
@@ -61,6 +60,7 @@ You use a dashboard variable by referencing its name in a `ts()` expression usin
 1. Define a variable `az` and give it the value `tag=az-3 or source=app-3`.
 2. Use the variable in a query like this:
    `ts(cpu.loadavg.1m, ${az})`.
+
 When this query is executed, Wavefront replaces `${az}` with the current variable value: `ts(cpu.loadavg.1m, tag=az-3 or source=app-3)`.
 
 <span id="simple"></span>
@@ -75,18 +75,22 @@ To create a simple dashboard variable:
 Click **Save** to save the dashboard and the dashboard variable.
 
 To use a simple dashboard variable:
-1. Enter the string of text that you'd like to replace the dashboard variable with in a `ts()` query, for example: `ts(${Variable1})`
+1. Give the variable a value from the Variables section of the dashboard.
+  1. Edit the dashboard to make a permanent change.
+  2. Click the value in the dashboard's Variables section and replace the existing value for a temporary change.
+2. In your query or queries, enter the string of text that you'd like to replace.
 
-To temporarily change the value of a simple variable:
-1. Access the dashboard's Variables section.
-2. Click the value and replace the existing value with a new value.
 
-This change is temporary. You have to edit the variable to make a permanent change.
 <span id="list"></span>
 
 ## List Dashboard Variables
 
-A *list dashboard variable* maps a variable label to a list of labels and values. They allow users to set a list of values to choose from. For example, let's assume that sources located in Availability Zone 1 are production and Availability Zone 2 are development. Instead of requiring a user to change the text from `tag=az-1` to `tag=az-2`, you can set the labels to **Production** and **Development**. This allows users to view the data they are interested in without having to know the underlying information, such as source or metric names.
+A *list dashboard variable* maps a variable label to a list of labels and values. These variables allow users to set a list of values to choose from.
+
+For example:
+1. Suppose that sources located in Availability Zone 1 are production and Availability Zone 2 are development.
+2. You can define a list variable `environment` with label **Datacenter** with options  **Production** and **Development**.
+3. Users can use the `{environment}` variable in queries, and pick **Production** or **Development**. Wavefront maps to the correct availability zone, and users don't have to know the underlying information.
 
 To create a list dashboard variable:
 1. Enter a variable name (case sensitive) and a label. We suggest keeping the variable name short.
@@ -104,7 +108,7 @@ To use a list dashboard variable:
 1. Find the variable in the variables section at the top of the dashboard.
 2. Select the variable value from the dropdown.
 
-For example, using the example above, selecting **Production** replaces **${environment}** in a ts() query with **tag=az-1** and selecting **Development** replaces **${environment}** in a ts() query with **tag=az-2**.
+For example, using the example above, selecting **Production** replaces `{environment}` in any ts() query in charts in the dashboard with **tag=az-1** and selecting **Development** replaces `{environment}` in a ts() query with **tag=az-2**.
 
 ![Varible list.png](images/db_var_list.png)
 
@@ -122,6 +126,7 @@ To create a dynamic variable:
 1. Put the dashboard into edit mode and add or edit a variable.
 2. Specify the Variable Type **Dynamic**.
 3. In the Field pulldown menu, select the field and Query field displays.
+4. Type the query, using the field type, for example a metric with a wildcard in it, and select one of the options in the list that appears. 
 
 ![dynamic with field options.png](images/db_var_dynamic_with_field_options.png)
 
