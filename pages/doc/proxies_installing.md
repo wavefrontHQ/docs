@@ -19,7 +19,9 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
 ## Proxy Host Requirements
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
-- Networking - The proxy uses port 2878 by default. Change the `pushListenerPort` in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties) if you need a different port.
+- Networking:
+  - For **metrics**, the proxy uses port 2878 by default. Change the `pushListenerPort` in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties) if you need a different port.
+  - For **histograms**, the [proxy histogram port](proxies_histograms.html#histogram-proxy-ports) depends on the data format. You can change those defaults using [histogram configuration properties](proxies_histograms.html#histogram-configuration-properties)
 - Memory - you don't need a dedicated host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux
@@ -31,7 +33,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
   - Mac - MacOS Sierra (10.12)
   - Windows - Windows 8 and later
 
-You can also run a proxy in a Docker or Kubernetes container.
+You can also run a proxy in a [Docker or Kubernetes container](proxies_configuring.html#configuring-a-proxy-in-a-container).
 
 <a name="single"></a>
 

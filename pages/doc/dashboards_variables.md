@@ -44,7 +44,6 @@ To access the variables associated with a dashboard, click the icon to the left 
 1.  Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
 
     - If no dashboards are defined, click **Create**.
-
     - If at least one variable is associated with the dashboard, click the plus (+) icon.
 
 2.  Inside the Variables pane, click the pen icon.
