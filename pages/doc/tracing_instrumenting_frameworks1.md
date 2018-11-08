@@ -1,9 +1,9 @@
 ---
-title: Instrumenting Your App for Tracing
+title: Instrumenting Your App for Tracing - Draft1
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: tracing_instrumenting_frameworks.html
+permalink: tracing_instrumenting_frameworks1.html
 summary: Learn how to set up your application to send trace data to Wavefront.
 ---
 
@@ -24,16 +24,22 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Setup  
 
+You get the exact setup steps by [picking a programming language and framework](#pick-a-language-and-framework-to-instrument) below, and clicking on the link. 
 
-1. Choose how you want to send metric and trace data to Wavefront: by proxy or by direct ingestion.
-  * [Configure and start a Wavefront proxy](proxies_installing.html) if you are using one. <!--- make sure the linked section has config info for trace, histograms --->
-2. Find the detailed setup steps for instrumenting each framework in your application. 
-  * To instrument a Java Dropwizard Jersey application and its JVM, click here for steps and an example.
-  * To instrument a Java Spring Boot application and its JVM, click here for steps and an example.
-  * Otherwise, [pick the programming language and framework](#pick-a-language-and-framework-to-instrument) below, and click on the link.
-3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring your metrics and traces.
+In all cases, you will:
+ 
+1. Add dependencies in the build system of your choice, such as Maven. 
 
-For a general overview of the setup steps, click [here](#overview-of-sdk-setup).
+2. Edit your code to instantiate a few helper objects. These objects:
+  * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
+  * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
+  * [Configure how metrics and histograms are reported](#configuring-metric-data-reporting). 
+  * [Arrange for trace data to be created and reported](#arranging-for-trace-data-to-be-reported).
+
+3. [Configure and start a Wavefront proxy](proxies_installing.html) if you are using one. <!---_[[Eventually, Link to section on proxy config properties for sdks, and steps for starting proxy ]]_--->
+
+After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring your metrics and traces.
+
 
 ## Pick a Language and Framework to Instrument 
 
@@ -89,15 +95,9 @@ Pick the language and framework used by the service you want to instrument. Clic
 * For metrics and histograms, use [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
 * For trace data, use [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
 --->
-## Overview of SDK Setup
+## A Closer Look at Instrumentation
 
-Regardless of the SDK(s) you pick, you will edit your code to create several helper objects that work together to create and send metrics, histograms, and trace data to Wavefront. These objects:
-
-  * [Describe your application to Wavefront](#describing-your-application-to-wavefront). 
-  * [Specify how to send data](#configuring-how-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service.
-  * [Configure how metrics and histograms are reported](#configuring-metric-data-reporting). 
-  * [Arrange for trace data to be created and reported](#arranging-for-trace-data-to-be-reported).
-
+Regardless of the SDK(s) you pick, the setup steps for an SDK include the creation of various objects that work together to create and send metrics, histograms, and trace data to Wavefront. 
 
 Here is an overview of these objects in a Java service that uses Spring Boot and the JVM to implement RESTful operations to other services.
 
