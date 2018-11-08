@@ -55,22 +55,28 @@ Pick the language and framework used by the service you want to instrument. Clic
 <thead>
 <tr><th>To Instrument</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
 </thead>
+
 <tr>
 <td>Dropwizard operations</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Enables HTTP operations to send metrics, histograms and trace data to Wavefront.</td></tr>
+
 <tr>
 <td>Spring Boot operations</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enables HTTP operations to send metrics, histograms, and trace data to Wavefront.</td></tr>
+
 <tr>
 <td>JVM operations</td>
 <td markdown="span">[`wavefront-appagent-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-appagent-sdk-jvm)</td>
 <td>Instruments Java Virtual Machine calls to send metrics and histograms to Wavefront. Measures CPU, disk usage, and so on.</td></tr>
+
 <tr>
 <td>Custom business operations (metrics data)</td>
 <td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
 <td>Instruments custom business operations using Wavefront's Dropwizard Metrics implementation. Enables your operations to send metrics and histograms to Wavefront. </td></tr>
+
+<tr>
 <td>Custom business operations (trace data)</td>
 <td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
 <td>Instruments custom business operations using Wavefront's OpenTracing implementation. Enables your operations to send traces and spans to Wavefront. </td></tr>
@@ -79,7 +85,9 @@ Pick the language and framework used by the service you want to instrument. Clic
 </table>
 
 <!---
-<tr><td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
+<tr>
+<td>gRPC operations</td> 
+<td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
 <td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
 --->
 <!---
@@ -89,7 +97,7 @@ Pick the language and framework used by the service you want to instrument. Clic
 --->
 ## A Closer Look at Instrumentation
 
-Regardless of the SDK you pick, the detailed setup steps will include instantiating various objects that work together to create and send metrics, histograms, and trace data to Wavefront. 
+Regardless of the SDK(s) you pick, the setup steps for an SDK include the creation of various objects that work together to create and send metrics, histograms, and trace data to Wavefront. 
 
 Here is an overview of these objects in a Java service that uses Spring Boot and the JVM to implement RESTful operations to other services.
 
