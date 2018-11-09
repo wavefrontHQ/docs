@@ -32,7 +32,7 @@ In this section, file paths use the following conventions and values:
 
 {% include important.html content="On Windows, _do not_ use **notepad** to edit any configuration files. Use an editor that supports Unix style line endings, such as **Notepad++** or **EditPlus**."%}
 
-### Properties and Examples
+### General Proxy Properties and Examples
 
 This section lists general proxy configuration properties and metrics proxy configuration properties. See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions. 
 
