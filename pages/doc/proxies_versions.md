@@ -25,7 +25,8 @@ This page gives an overview of important changes for Wavefront proxy releases. F
 - Improves proxy throughput and reduces TCP congestion when queueing
 - Adds support and binaries for OpenSUSE, SUSE Linux Enterprise Server, Oracle Linux and Fedora
 - Supports configurable timestamp cut-off limit for future-dated points
-- The preprocessor now includes a `forceLowercase` rule type:
+- Preprocessor improvements:
+  - additional rule type `forceLowercase`
   - tracks CPU time spent per rule to identify performance improvement opportunities
   - supports placeholders for point tags/metric name/source name in replaceRegex rules
 - Logs ingestion now supports placeholders for point tag values and improve histogram precision

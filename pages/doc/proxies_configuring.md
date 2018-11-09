@@ -34,6 +34,8 @@ In this section, file paths use the following conventions and values:
 
 ### Properties and Examples
 
+This section lists general proxy configuration properties and metrics proxy configuration properties. See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions. 
+
 <table>
 <thead>
 <tr>
