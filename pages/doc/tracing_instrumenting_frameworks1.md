@@ -4,7 +4,7 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_instrumenting_frameworks1.html
-summary: Learn how to set up your application to send trace data to Wavefront.
+summary: Learn how to set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
 One of the ways to start the flow of traces into Wavefront is to instrument your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By displaying a transaction as a _trace_ that consists of a hierarchy of _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
@@ -95,7 +95,7 @@ Pick the language and framework used by the service you want to instrument. Clic
 * For metrics and histograms, use [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
 * For trace data, use [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
 --->
-## A Closer Look at Instrumentation
+## A Closer Look at Instrumenting a Microservice
 
 Regardless of the SDK(s) you pick, the setup steps for an SDK include the creation of various objects that work together to create and send metrics, histograms, and trace data to Wavefront. 
 
