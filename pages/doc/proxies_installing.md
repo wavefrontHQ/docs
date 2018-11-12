@@ -133,12 +133,12 @@ To check if the proxy is running, run the following commands on the proxy host:
 The proxy listens to different ports for different kinds of data. These ports are specified in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties). 
 
 * You do not need to edit this file if you only plan to ingest metrics using the default port (2878).
-* You do need to edit this file (and restart the proxy) if you want to ingest metrics on a nondefault port, or if you want to ingest histograms or trace data through the proxy. 
+* You must edit this file (and restart the proxy) if you want to ingest metrics on a nondefault port, or if you want to ingest histograms or trace data through the proxy. 
 
 You typically set the following properties to configure proxy ports:
-* For **metrics**, set `pushListenerPort`. (Required only to change to a port other than 2878.)
+* For **metrics**, set `pushListenerPort`. (Required only if you want to change to a port other than 2878.)
 * For **histograms**, set `histogramDistListenerPort`, typically to 40,000.
-  * **Note:** The property you set depends on the data format. See [Histogram Proxy Ports](proxies_histograms.html#histogram-configuration-properties).
+  * **Note:** The property you set depends on the data format. See [Histogram Proxy Ports](proxies_histograms.html#histogram-proxy-ports).
 * For **trace data**, set `traceListenerPort`, typically to 30,000.
 
 **Note:** If you are instrumenting your application with a Wavefront SDK that will send data through the proxy, make sure the proxy's port settings match the port numbers you specify during SDK setup.
