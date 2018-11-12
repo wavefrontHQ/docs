@@ -30,7 +30,7 @@ Watch this video to see how to set up a sample application to send out-of-the-bo
 
 _[[video that describes how to set up BeachShirts app]]_
 
-## Before You Start
+## Step 1. Prepare to Send Data to Wavefront
 
 1. Choose how you want to send metric and trace data to Wavefront: by proxy or by direct ingestion.
 2. If you are using a Wavefront proxy: 
@@ -40,18 +40,36 @@ _[[video that describes how to set up BeachShirts app]]_
 3. If you are using direct ingestion:
   * Identify the URL of your Wavefront instance and obtain an API token.
 
-**Note:** You will need to specify information from step 2 or 3 during setup.
+**Note:** You will need to specify information from these steps when you instrument your code.
 
-## Quickstart  
+## Step 2. Plan Your Application Tags 
 
-Use this quickstart to instrument one or more RESTful microservices in a cloud-native Java application, if these  microservices are based on one of the following Jersey-compliant frameworks: 
+Wavefront requires tags that describe the architecture of your application as it is deployed. These tags (called _application tags_) will be associated with the metrics and trace data sent from each instrumented service. Wavefront uses these tags to aggregate and filter data at different levels of granularity.
+
+For each microservice in your application:
+1. Choose values for these required tags:
+  * `application` - Name that identifies the application. **All microservices in the same application should share the same application name.**
+  * `service` - Name that identifies the microservice. **Each microservice should have its own service name.**
+
+2. (Optional) Choose values for these optional tags, if the physical topology of your application will be useful for filtering metrics:
+* `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run. 
+* `shard` - Name of a subgroup of hosts within a cluster that serve as a partition or replica.
+
+3. (Optional) Plan any additional custom tags that you want to associate with reported metrics or trace data.
+
+**Note:** You will need to specify the chosen values for application tags when you instrument your code.
+
+## Step 3. Instrument Your Code
+
+### Option 1. Quickstart  
+
+Use this option to instrument one or more RESTful microservices in a cloud-native Java application, if these  microservices are based on one of the following Jersey-compliant frameworks: 
 * Dropwizard Jersey
 * Spring Boot
 
-
 These steps use configuration files and minimal code changes to instrument your application: 
 
-1. Make sure you have completed the steps in [Before You Start](#before-you-start). 
+1. Make sure you have [prepared to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
 3. For each Dropwizard or Spring Boot microservice:   
   * Add [dependencies](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) to the build system.
   * Follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java/blob/master/docs/basic-mode.md).
@@ -59,16 +77,16 @@ These steps use configuration files and minimal code changes to instrument your 
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework operations and from the Java Virtual Machine (JVM).
 
 
-## Advanced Setup  
+### Option 2. Custom Setup  
 
-Use advanced setup:
+Use this option:
 * For complete control over every configurable aspect of instrumenting an application framework. 
-* To instrument a microservice that cannot be instrumented with the [quickstart](#quickstart) steps.
+* To instrument a microservice that cannot be instrumented with [Option 1](#option-1-quickstart).
 * To add custom metrics or traces to your business operations.
 
 These steps involve instantiating various [helper objects](#a-closer-look-at-an-instrumented-microservice) in your code to instrument your application:
 
-1. Make sure you have completed the steps in [Before You Start](#before-you-start).
+1. Make sure you have [prepared to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
 
 2. For each microservice in your application: 
   * Pick one or more frameworks to instrument from the [following table](#pick-a-language-and-framework-to-instrument), and click the corresponding link(s).
@@ -76,9 +94,9 @@ These steps involve instantiating various [helper objects](#a-closer-look-at-an-
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring metrics, histograms, and/or trace data.
 
 
-### Pick a Language and Framework to Instrument 
+## SDKs for Instrumenting Java Applications
 
-Pick the language and frameworks used by the service you want to instrument. For each framework, click on the link to go to the detailed setup steps. You'll also see examples of metrics that will be reported.
+This table shows the available Wavefront SDKs for collecting data from services in a Java application. For each SDK, click on the link to go to the detailed setup steps. You'll also see examples of metrics that will be reported.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -136,7 +154,7 @@ When an application consists of multiple microservices, you instrument each micr
  
 For each microservice, you edit some combination of configuration files and code files to create several helper objects that work together to create and send metrics, histograms, and trace data to Wavefront. These objects include:
 
-  * An [ApplicationTags](#describing-your-application-to-wavefront) object for describing your application to Wavefront. 
+  * An [ApplicationTags](#ApplicationTags) object for describing your application to Wavefront. 
   * A [WavefrontSender](#configuring-how-to-send-data-to-wavefront) for specifying whether to send data through a Wavefront proxy or directly to the Wavefront service.
   * Several different kinds of [WavefrontReporter objects](#configuring-metric-data-reporting) for configuring how metrics and histograms are reported to the WavefrontSender.
   * [WavefrontTracer and WavefrontSpanReporter](#arranging-for-trace-data-to-be-reported) objects for creating and propagating trace data.
@@ -151,20 +169,12 @@ Here is an overview of these objects in a Java service that uses Spring Boot and
 Passing contexts between oprations for trace data.
 --->
 
-### ApplicationTags: Describing Your Application to Wavefront
+### ApplicationTags
 
-Part of instrumenting an application framework is to specify values for a few tags that describe the architecture of your application as it is deployed. These tags (called _application metadata_) will be associated with the predefined metrics and trace data sent from each operation that uses an API from the instrumented framework. Wavefront uses these tags to aggregate and filter the metrics and traces at different levels of granularity.
 
 These tags are encapsulated in an ApplicationTags object that will store your values for the metadata tags.
 Because the metadata tags describe the application's architecture as it is deployed, you typically implement a mechanism for obtaining tag values from a configuration file, which you then update for each deployed application instance.
 
-**Required tags.** For each microservice that uses an instrumented framework, you specify the following required tags:
-* `application` - Name that identifies the application. **All microservices in the same application should share the same application name.**
-* `service` - Name that identifies the microservice. **Each microservice should have its own service name.**
-
-**Optional tags.** If the physical topology of your application will be useful for filtering metrics, you can specify the following optional tags:
-* `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run. 
-* `shard` - Name of a subgroup of hosts within a cluster that serve as a partition or replica.
 
 <!---
 **Note:** For details, see _[[link to tagging topic on another page]]_.
