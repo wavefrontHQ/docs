@@ -885,8 +885,15 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <td>Returns the distance between a pair of coordinates.
 </td>
 </tr>
+<tr>
+<td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;expression&gt;</strong>)</a>
+</td>
+<td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
+</td>
+</tr>
 </tbody>
 </table>
+
 
 ## Discrete Versus Continuous Time Series
 

@@ -19,7 +19,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
 ## Proxy Host Requirements
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
-- Networking - The proxy uses port 2878 by default. Change the `pushListenerPort` in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties) if you need a different port.
+- Networking - For **metrics**, the proxy uses port 2878 by default. If you want to change this default, or if you want to set up ports for histograms or trace data, see [Configuring Proxy Ports for Metrics, Histograms, and Traces](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces).
 - Memory - you don't need a dedicated host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux
@@ -31,7 +31,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
   - Mac - MacOS Sierra (10.12)
   - Windows - Windows 8 and later
 
-You can also run a proxy in a Docker or Kubernetes container.
+You can also run a proxy in a [Docker or Kubernetes container](proxies_configuring.html#configuring-a-proxy-in-a-container).
 
 <a name="single"></a>
 
@@ -128,6 +128,20 @@ To check if the proxy is running, run the following commands on the proxy host:
   ```
   To view the proxy log, run `docker logs <proxy_container_id>`.
 
+### Configuring Proxy Ports for Metrics, Histograms, and Traces
+
+The proxy listens to different ports for different kinds of data. These ports are specified in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties). 
+
+* You do not need to edit this file if you only plan to ingest metrics using the default port (2878).
+* You must edit this file (and restart the proxy) if you want to ingest metrics on a nondefault port, or if you want to ingest histograms or trace data through the proxy. 
+
+You typically set the following properties to configure proxy ports:
+* For **metrics**, set `pushListenerPort`. (Required only if you want to change to a port other than 2878.)
+* For **histograms**, set `histogramDistListenerPort`, typically to 40,000.
+  * **Note:** The property you set depends on the data format. See [Histogram Proxy Ports](proxies_histograms.html#histogram-proxy-ports).
+* For **trace data**, set `traceListenerPort`, typically to 30,000.
+
+**Note:** If you are instrumenting your application with a Wavefront SDK that will send data through the proxy, make sure the proxy's port settings match the port numbers you specify during SDK setup.
 
 ### Testing a Proxy
 

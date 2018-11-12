@@ -35,6 +35,7 @@ been set up, you can browse the available GCP metrics in the metrics browser.
 - Google Container Engine
 - Google Firebase
 - Google ML Engine
+- Google BigQuery
 
 ### Alerts
 
