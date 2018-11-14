@@ -127,7 +127,7 @@ Matches strings in metric names, source names, alert names, source tags, alert t
 
 ## Operators
 
-All operations between expressions are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​.
+All operations between expressions are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​. The result is always interpolated.
 
 <ul>
 <li>Boolean operators - combine ts() expressions and constants and the filtering performed by source names, alert names, source tags, alert tags, and point tags.</li>
