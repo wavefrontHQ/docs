@@ -45,12 +45,11 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Step 2. Instrument Your Application
 
-Choose a setup option for instrumenting your application, based on the frameworks (components) you use in your application. 
-* Take a moment to identify the microservices in your application, and the components each microservice is built with.
+Take a moment to identify the microservices in your application, and the components you use in each microservice. Then choose the setup option that best fits your use case. 
 
 ### Option 1. Quickstart  
 
-Use this option to instrument one or more RESTful microservices in a cloud-native Java application, if these  microservices are based on one of the following Jersey-compliant frameworks running on a Java Virtual Machine (JVM): 
+Use this option to instrument a cloud-native Java application with RESTful microservices that are based on one of the following Jersey-compliant frameworks: 
 * **Dropwizard Jersey** 
 * **Spring Boot**
 
@@ -62,6 +61,7 @@ These steps use configuration files and minimal code changes:
   * For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
 
+**Note:** This option automatically sets up the SDK for the Java Virtual Machine (JVM).
 
 ### Option 2. Custom Setup  
 
@@ -72,7 +72,7 @@ These steps involve instantiating various [helper objects](#a-closer-look-at-an-
 1. Make sure you have [prepared to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
 
 2. For each microservice in your application: 
-  * Pick a framework to instrument from the [following table](#pick-a-language-and-framework-to-instrument), and click the corresponding link.
+  * Pick a framework to instrument from the [following table](#sdks-for-instrumenting-java-applications), and click the corresponding link.
   * Follow the setup steps in the `README` file for the SDK. If a `README` file offers Custom Setup steps, choose those.
   * Repeat for each instrumentable framework or component in the microservice. 
 
@@ -108,7 +108,7 @@ This table shows the available Wavefront observability SDKs for collecting data 
 <tr>
 <td>JVM</td>
 <td markdown="span">[`wavefront-runtime-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
-<td>Instrument the Java Virtual Machine to send metrics and histograms to Wavefront. Measure CPU, disk usage, and so on.</td></tr>
+<td>Instrument the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Measure CPU, disk usage, and so on.</td></tr>
 
 <tr>
 <td>Custom business operations (metrics data)</td>
@@ -196,14 +196,15 @@ Your choice is represented in your microservice's code as an object of type `Wav
 <!--- change links when proxy/dir ing decision is in a single section --->
 
 ### Wavefront Reporters
-<!--- Mention source here? --->
 
-Part of instrumenting an application framework is to specify a reporting interval for metrics and histograms, which determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute. (The reporting interval controls how often data is reported to the Wavefront sender.) 
+Wavefront uses one or more Reporter objects to gather metrics and histograms and forward that data to the `WavefrontSender`. Different Wavefront Reporters gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data obtained from the JVM.
 
-Another aspect of reporting is to identify the source of the metrics and histograms. By default, the source will be automatically set to the name of the host that the code is running on. You can optionally specify a more meaningful name explicitly.
- 
-These choices are encapsulated in your microservice's code as one or more kinds of WavefrontReporter.
-To make it easy to reconfigure the reporter at runtime, you normally implement and use a custom mechanism for obtaining values from a configuration file.
+A Wavefront Reporter specifies: 
+* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the `WavefrontSender` and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
+
+* The source of the reported metrics and histograms. By default, the source is automatically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All Reporters for a particular microservice should specify the same source.
+
+**Note:** The [custom setup steps](#option-2-custom-setup) enable you to set a nondefault reporting interval.
 
 <!---
 **Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
@@ -211,15 +212,16 @@ To make it easy to reconfigure the reporter at runtime, you normally implement a
 
 ### WavefrontTracer and WavefrontSpanReporter
 
-Part of instrumenting an application framework for tracing is to set up the mechanism for creating and reporting trace data. 
+Wavefront uses a pair of objects create and report trace data: 
 
-Your application must instantiate:
-* A WavefrontSpanReporter object that will forward trace data to a Wavefront sender. (You can optionally configure the reporter to send trace data to your console for debugging, too.)
-* A WavefrontTracer object that will create spans and traces, and hand the trace data off to the Wavefront span reporter. 
-
+* A `WavefrontTracer` creates spans and traces. 
+* A `WavefrontSpanReporter` forwards the trace data to the `WavefrontSender`. 
+ 
 Whereas metric data reporting occurs at the interval you specify, trace data reporting occurs automatically whenever spans are complete. 
 
+**Note:** The [custom setup steps](#option-2-custom-setup) enable you to set up a reporter that sends trace data to your console for debugging, too.
 
+<!---
 ### Instrumenting Multiple Frameworks in the Same Service 
 
 If you are instrumenting multiple frameworks that are used in the same service, bear in mind: 
@@ -227,9 +229,10 @@ If you are instrumenting multiple frameworks that are used in the same service, 
 * You create a single Wavefront sender object object per process. Your code should instantiate each object once, and then re-use these objects as needed in the setup steps for each framework you are instrumenting.
 * Each instrumented framework should have its own application-tags object.
 * Each instrumented framework should have its own Wavefront reporter (or Wavefront span reporter) object. 
-
+--->
 <!--- 
 ## Questions for Reviewers
 
 1. Mention configuring sampling rate on this page? Proxy or SDK or both?
+2. Mention passing tracing context around?
 --->
