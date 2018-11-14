@@ -1,5 +1,5 @@
 ---
-title: Distributed Tracing Basics
+title: Distributed Tracing Basics - Beta
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
@@ -80,9 +80,9 @@ If you have not yet instrumented your code, choose one of these options:
 
 * Set up your application with one or more Wavefront SDKs that instrument the frameworks you use in your application. This is the simplest technique, because each SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App For Tracing](tracing_instrumenting_frameworks.html) for a list of supported frameworks and for information about setting them up.
 
-* Use Wavefront's OpenTracing SDK to implement custom traces for your application's operations. This is a good choice if you want to use annotations to tag your traces or if you want to obtain trace data from critical operations that do not use a supported framework. <!--- ---> See XX for a list of supported programming languages and for links to the setup and usage steps.
+* Use Wavefront's OpenTracing SDK to implement custom traces for your application's operations. This is a good choice if you want to use annotations to tag your traces or if you want to obtain trace data from critical operations that do not use a supported framework. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
 
-All of the options for instrumenting your code allow you to choose whether to send trace data to a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. _[[Link to proxy vs dir ingestion discussion]]_<!--- See XX --->
+All of the options for instrumenting your code allow you to choose whether to send trace data to a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
  
 
 ## How to See Trace Data in Wavefront
@@ -93,11 +93,11 @@ Wavefront enables you to query and visualize the trace data it collects from you
 If you instrumented any frameworks in your code to produce out-of-the-box metrics, histograms, and trace data, then Wavefront can show you a great deal of context for your traces. You can examine this context to help you find the traces you want to see. The best way to get started is to:
 1. Select **Browse > Application** and find your application.
 2. Click on a service that you are interested in viewing traces from.
-3. Show information about specific traces and spans by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.
+3. Select a framework and an operation in it to show information about the traces and spans for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
 If you instrumented your code only for tracing -- for example, with a Wavefront OpenTracing SDK -- you find the traces you want to see by describing one or more spans that belong to those traces:
 1. Select **Browse > Traces**.
-2. Select filters to describe the spans of interest by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.
+2. Select filters to describe the spans of interest. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
 The **Browse Traces** page displays all traces containing one or more spans that match your description. For example, you could describe the span that is produced when `orderShirts` is called in the Shopping service of BeachShirts. The **Browse Traces** chart shows a set of traces that each contain at least one `orderShirts` span. Because a large number of traces might contain a matching span, we normally limit the result set to some manageable number, such as 20.
 
@@ -117,7 +117,7 @@ limit(20, spans(orderShirts, application=beachshirts and service=shopping))
 A large-scale web application can produce a very high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  You normally limit the volume of trace data by specify a _sampling strategy_. 
 A sampling strategy helps you keep the volume of trace data manageable, and can help to reduce your costs.
 
-_[[Summary of supported strategies. Link to topic on sampling strategies, proxy setup steps, SDK setup steps]]_
+<!--- _[[Summary of supported strategies. Link to topic on sampling strategies, proxy setup steps, SDK setup steps]]_ --->
 
 Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days.
 

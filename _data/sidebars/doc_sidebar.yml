@@ -203,7 +203,7 @@ entries:
           url: /wavefront_use_cases.html
           output: web
 
-  - title: "Distributed Tracing"
+  - title: "Distributed Tracing - Beta"
     output: web
     folderitems:
 
@@ -211,10 +211,6 @@ entries:
       url: /tracing_basics.html
       output: web
 
-    - title: Instrumenting Your App for Tracing - Draft1
-      url: /tracing_instrumenting_frameworks1.html
-      output: web
-      
     - title: Instrumenting Your App for Tracing
       url: /tracing_instrumenting_frameworks.html
       output: web
