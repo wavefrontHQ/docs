@@ -43,40 +43,46 @@ _[[video that describes how to set up BeachShirts app]]_
 
 **Note:** You will need to specify information from these steps when you instrument your code.
 
-## Step 2. Instrument Your Code
+## Step 2. Instrument Your Application
+
+Choose a setup option for instrumenting your application, based on the frameworks (components) you use in your application. 
+* Take a moment to identify the microservices in your application, and the components each microservice is built with.
 
 ### Option 1. Quickstart  
 
-Use this option to instrument one or more RESTful microservices in a cloud-native Java application, if these  microservices are based on one of the following Jersey-compliant frameworks: 
-* **Dropwizard Jersey**
+Use this option to instrument one or more RESTful microservices in a cloud-native Java application, if these  microservices are based on one of the following Jersey-compliant frameworks running on a Java Virtual Machine (JVM): 
+* **Dropwizard Jersey** 
 * **Spring Boot**
 
-These steps use configuration files and minimal code changes to instrument your application: 
+These steps use configuration files and minimal code changes: 
 
 1. Make sure you have [prepared to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
 3. For each Dropwizard or Spring Boot microservice:   
   * Add [dependencies](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#maven) to the build system, and then follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart).
   * For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
-3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework operations and from the Java Virtual Machine (JVM).
+3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
 
 
 ### Option 2. Custom Setup  
 
-Use this option for complete control over every configurable aspect of instrumenting an application framework, or to instrument a microservice that cannot be instrumented with [Option 1](#option-1-quickstart). In particular, follow these steps if you want to add custom metrics or traces to your business operations.
+Use this option to instrument any microservices that cannot be instrumented with [Option 1](#option-1-quickstart). In particular, follow these steps if you want to add custom metrics or traces to your business operations. Custom setup gives you complete control over every configurable aspect of instrumenting an application framework.
 
-These steps involve instantiating various [helper objects](#a-closer-look-at-an-instrumented-microservice) in your code to instrument your application:
+These steps involve instantiating various [helper objects](#a-closer-look-at-an-instrumented-microservice) in your code:
 
 1. Make sure you have [prepared to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
 
 2. For each microservice in your application: 
-  * Pick one or more frameworks to instrument from the [following table](#pick-a-language-and-framework-to-instrument), and click the corresponding link(s).
-  * Follow the setup steps in each `README` file. If a `README` file offers Custom Setup steps, choose those.
+  * Pick a framework to instrument from the [following table](#pick-a-language-and-framework-to-instrument), and click the corresponding link.
+  * Follow the setup steps in the `README` file for the SDK. If a `README` file offers Custom Setup steps, choose those.
+  * Repeat for each instrumentable framework or component in the microservice. 
+
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring metrics, histograms, and/or trace data.
 
+**Note:** With this option, you set up the chosen SDKs individually. For example, you instrument the JVM separately from instrumenting any other framework. 
 
 ## SDKs for Instrumenting Java Applications
 
-This table shows the available Wavefront SDKs for collecting data from services in a Java application. For each SDK, click on the link to go to the detailed setup steps. You'll also see examples of metrics that will be reported.
+This table shows the available Wavefront observability SDKs for collecting data from microservices in a Java application. For each SDK, click on the link to go to the detailed setup steps. You'll also see examples of metrics that will be reported.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -101,8 +107,8 @@ This table shows the available Wavefront SDKs for collecting data from services 
 
 <tr>
 <td>JVM</td>
-<td markdown="span">[`wavefront-appagent-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-appagent-sdk-jvm)</td>
-<td>Instrument Java Virtual Machine calls to send metrics and histograms to Wavefront. Measure CPU, disk usage, and so on.</td></tr>
+<td markdown="span">[`wavefront-runtime-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
+<td>Instrument the Java Virtual Machine to send metrics and histograms to Wavefront. Measure CPU, disk usage, and so on.</td></tr>
 
 <tr>
 <td>Custom business operations (metrics data)</td>
@@ -169,7 +175,7 @@ You specify a separate set of application tags for each microservice you instrum
   ![tracing service filter](images/tracing_service_filter_page.png)
 
 Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code.
-Because the tags describe the application's architecture as it is deployed, your code typically obtains values for the tags from a configuration file, either through the [quickstart setup steps](#option-1-quickstart), or through a mechanism implemented by your application.
+Because the tags describe the application's architecture as it is deployed, your code typically obtains values for the tags from a configuration file, either through the [quickstart setup steps](#option-1-quickstart), or through a custom mechanism implemented by your application.
 
 **Note:** You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data.
 <!---
@@ -183,7 +189,7 @@ Part of instrumenting an application is to set up a mechanism for sending metric
 * Sending data to a [Wavefront proxy](proxies.html), which in turn forwards the data to the Wavefront service. (Recommended for most use cases.)
 * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
 
-Your choice is represented in your microservice's code as an object of type `WavefrontSender`, which encapsulates the settings you supply when you instrument your microservice. Your code typically obtains the settings from a configuration file, either through the [quickstart setup steps](#option-1-quickstart), or through a mechanism implemented by your application.
+Your choice is represented in your microservice's code as an object of type `WavefrontSender`, which encapsulates the settings you supply when you instrument your microservice. Your code typically obtains the settings from a configuration file, either through the [quickstart setup steps](#option-1-quickstart), or through a custom mechanism implemented by your application.
 
 **Note:** The [custom setup steps](#option-2-custom-setup) enable you to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
 
@@ -197,7 +203,7 @@ Part of instrumenting an application framework is to specify a reporting interva
 Another aspect of reporting is to identify the source of the metrics and histograms. By default, the source will be automatically set to the name of the host that the code is running on. You can optionally specify a more meaningful name explicitly.
  
 These choices are encapsulated in your microservice's code as one or more kinds of WavefrontReporter.
-To make it easy to reconfigure the reporter at runtime, you normally implement and use a mechanism for obtaining values from a configuration file.
+To make it easy to reconfigure the reporter at runtime, you normally implement and use a custom mechanism for obtaining values from a configuration file.
 
 <!---
 **Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
