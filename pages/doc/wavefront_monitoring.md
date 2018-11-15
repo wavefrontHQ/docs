@@ -26,6 +26,9 @@ If you have an [AWS integration](integrations_aws_metrics.html), metrics with th
 
 - `~externalservices` - metric rates, API requests, and events from AWS CloudWatch, AWS CloudTrail, and AWS Metrics+.
 
+There's also a metric you can use to monitor ongoing events and make sure the number does not exceed 1000:
+- `~events.num-ongoing-events` - Returns the number of [ongoing events](events.html#event-states).
+
 ## Charts in the Wavefront Usage Integration Dashboard
 
 The [Wavefront Usage integration](system.html) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown. You can examine many aspects or your Wavefront Instance. We'll look at  the following sections here:
