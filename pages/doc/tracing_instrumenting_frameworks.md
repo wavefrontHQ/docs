@@ -23,12 +23,13 @@ This page shows you the fast track to producing out-of-the-box metrics and trace
 * For information about ingesting trace data from an application that has been instrumented with a 3rd party solution such as Jaeger, see XX.
 --->
 
-
+<!---
 ## Sample Setup
 
 Watch this video to see how to set up a sample application to send out-of-the-box metrics and traces. (You can read about the steps [below](#quickstart).)
 
 _[[video that describes how to set up BeachShirts app]]_
+--->
 
 ## Step 1. Prepare to Send Data to Wavefront
 
@@ -61,7 +62,7 @@ These steps use configuration files and minimal code changes:
   * For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
 
-**Note:** This option automatically sets up the SDK for the Java Virtual Machine (JVM).
+**Note:** This option automatically sets up the SDK for the Java Virtual Machine (JVM) in addition to the  SDK for the selected framework.
 
 ### Option 2. Custom Setup  
 
@@ -104,6 +105,11 @@ This table shows the available Wavefront observability SDKs for collecting data 
 <td>Spring Boot framework</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instrument Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
+
+<tr>
+<td>JAX-RS implementations</td>
+<td markdown="span">[`wavefront-jaxrs-sdk-java`](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)</td>
+<td>Instrument a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
 
 <tr>
 <td>JVM</td>
