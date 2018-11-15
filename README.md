@@ -22,4 +22,4 @@ Wavefront public repositories into the official documentation)
    ```shell
    $ bundle exec jekyll serve
    ```
-1. Go to [http://localhost:4000/](http://localhost:4000/). The host and port are set in [_config.yml](_config.yml).
+1. Go to url [http://localhost:4000/](http://localhost:4000/). The host and port are set in [_config.yml](_config.yml).
