@@ -190,13 +190,12 @@ You can manage authorization with user-level permissions or user and group-level
 <td><strong><big>S</big></strong></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td></tr>
-<!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">**SDK**</td>
-<td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports several tiers of SDKs. High-level SDKs (for example the Jersey SDK) collect metrics from your application, lower-level SDKs (for example java) include code samples so you can instrument your application. </td>
+<td markdown="span">[**SDK**](tracing_instrumenting_frameworks.html)</td>
+<td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports a variety of _observability SDKs_ in various programming languages to enable you to instrument applications to report telemetry data to Wavefront. High-level observability SDKs collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. Mid-level observability SDKs enable you to define, collect, and report your own types of telemetry data from your business operations.
+Lower-level observability SDKs enable you to instrument your application by sending raw telemetry data to Wavefront. </td>
 </tr>
--->
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Source**](source.html)</td>
@@ -207,13 +206,11 @@ You can manage authorization with user-level permissions or user and group-level
 <td markdown="span">[**Source tag**](source_tags.html)</td>
 <td>Source tags allow you to group your sources. For example, you can tag production hosts and development hosts with different source tags, and later run a query over only one group of sources. </td>
 </tr>
-<!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">**Span**</td>
-<td>A span is a named, timed operation that represents a contiguous segment of work in a trace. In OpenTracing, a trace is a directed acyclic graph of spans. </td>
+<td markdown="span">[**Span**](tracing_basics.html#wavefront-trace-data)</td>
+<td>A span is a named, timed operation that represents a contiguous segment of work in a trace.  </td>
 </tr>
--->
 <tr>
 <td><strong><big>T</big></strong></td>
 <td>&nbsp;</td>
@@ -238,13 +235,11 @@ You can manage authorization with user-level permissions or user and group-level
 <td markdown="span">Time series</td>
 <td>Collection of unique data points over time. The data points are related to a specific metrics on specific source, with specific point tags. In Wavefront query language, you use a ts() function to describe a time series. <strong>See also:</strong> Continuous time series and Discrete time series.</td>
 </tr>
-<!--
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">**Trace**</td>
-<td>A trace allows you to follow and examine a transaction or workflow in your application. As a result, you might be able to improve execution speed. </td>
+<td markdown="span">[**Trace**](tracing_basics.html#wavefront-trace-data)</td>
+<td>A trace allows you to follow and examine a transaction or workflow in your application. As a result, you might be able to locate errors in context or improve execution speed. In [OpenTracing](https://opentracing.io/), a trace is a directed, acyclic graph of spans.</td>
 </tr>
--->
 <tr>
 <td><strong><big>W</big></strong></td>
 <td>&nbsp;</td>
