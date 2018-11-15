@@ -33,13 +33,23 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Step 1. Prepare to Send Data to Wavefront
 
-1. Choose how you want to send metric and trace data to Wavefront: by [proxy](proxies.html) or by [direct ingestion](direct_ingestion.html).
-2. If you are using a Wavefront proxy: 
-   * [Install it](proxies_installing.html), if necessary. Make sure you are using Version 4.32 or later.
-   * [Configure its ports](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces). 
+1. Choose how you want to send metric and trace data to Wavefront. Two options are available:
+   * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service. (Recommended for most use cases.)
+   * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
+2. If you are using a **Wavefront proxy**: 
+   * [Install the proxy](proxies_installing.html), if necessary. Make sure you are using Version 4.32 or later.
+   * On the proxy host, open the proxy configuration file `wavefront.conf` in the installed [file path](proxies_configuring.html#paths), for example, `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+   * In the `wavefront.conf` file, find the following [port properties](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces), and uncomment them if necessary. You can optionally change these default port numbers:
+    ```
+    pushListenerPort=2878
+    ...
+    histogramDistListenerPort=40000
+    ...
+    traceListenerPort=30000
+    ```
    * [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
-3. If you are using direct ingestion:
-  * Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `myCompany.wavefront.com`.
+3. If you are using **direct ingestion**:
+  * Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://myCompany.wavefront.com`.
   * [Obtain an API token](wavefront_api.html#generating-an-api-token).
 
 **Note:** You will need to specify information from these steps when you instrument your code.
@@ -190,12 +200,9 @@ Because the tags describe the application's architecture as it is deployed, your
 
 ### WavefrontSender
 
-Part of instrumenting an application is to set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. Two options are available: 
+Part of instrumenting an application is to choose and set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. 
 
-* Sending data to a [Wavefront proxy](proxies.html), which in turn forwards the data to the Wavefront service. (Recommended for most use cases.)
-* Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
-
-Your choice is represented in your microservice's code as an object of type `WavefrontSender`, which encapsulates the settings you supply when you instrument your microservice. Your code typically obtains the settings from a configuration file, either through the [quickstart setup steps](#option-1-quickstart), or through a custom mechanism implemented by your application.
+Your choice is represented in your microservice's code as an object of type `WavefrontSender`. This object encapsulates the settings you supply when you instrument your microservice, either through the [quickstart setup steps](#option-1-quickstart) or the [custom setup steps](#option-2-custom-setup). These settings must match the information you provided in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. 
 
 **Note:** The [custom setup steps](#option-2-custom-setup) enable you to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
 
