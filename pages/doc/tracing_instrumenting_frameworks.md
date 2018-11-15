@@ -34,7 +34,7 @@ _[[video that describes how to set up BeachShirts app]]_
 
 1. Choose how you want to send metric and trace data to Wavefront: by [proxy](proxies.html) or by [direct ingestion](direct_ingestion.html).
 2. If you are using a Wavefront proxy: 
-   * [Install it](proxies_installing.html), if necessary. Make sure you are using Version 4.31.
+   * [Install it](proxies_installing.html), if necessary. Make sure you are using Version 4.32 or later.
    * [Configure its ports](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces). 
    * [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
 3. If you are using direct ingestion:
