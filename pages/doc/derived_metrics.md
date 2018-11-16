@@ -52,11 +52,9 @@ You can reduce the data scan rate in a similar way using derived metrics.
 ## Derived Metrics Basics
 
 You can customize how often the derived metric executes, and how many minutes of results we include.
-* **Execute the query every N minutes**: After you save a derived metric, Wavefront executes it every 1 minute by default. You can change that default from the field right below the query.
+* **Execute the query every N minutes**: By default, Wavefront executes the derived metric query every 1 minute. Use this setting to adjust the execution interval.
 
-* **Include results in the last N minutes**: Specifies the time window for the derived metrics query. By default, we include the last 5 minutes of results to protect against data loss.
-
-  The query overwrites the existing data with exactly the same data. You can change how many results you want to include.
+* **Include results in the last N minutes**: By default, Wavefront uses the last 5 minutes as the time window for the derived metrics query. The results of the query are ingested back into Wavefront and will overwrite existing data in the last N minutes for the derived metric. Use this setting to adjust the time window of the query.  
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 
