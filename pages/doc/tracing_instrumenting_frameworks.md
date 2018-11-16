@@ -7,7 +7,7 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Learn how to set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
-You start the flow of trace data into Wavefront by instrumenting your application. Instrumentation enables you to trace a transaction flow from end to end across multiple distributed services, guided by key metrics from your application. By visualizing a transaction as a _trace_ that consists of a hierarchy of _spans_, you can pinpoint where the transaction is spending most of its time, and discover where it might be failing.
+You start the flow of trace data into Wavefront by instrumenting your application. Instrumentation enables you to trace a request flow from end to end across multiple distributed services, guided by key metrics from your application. By visualizing a request as a _trace_ that consists of a hierarchy of _spans_, you can pinpoint where the request is spending most of its time, and discover where it might be failing.
 
 You instrument each microservice in your application with one or more Wavefront _observability SDKs_. You choose these SDKs based on:
 * The frameworks (components) you use in the microservice -- for example, Java Dropwizard Jersey
@@ -40,7 +40,7 @@ Gather the following information, which you will need in Step 2. This informatio
 
 
 <details>
-<summary>If you prefer to send data through a Wavefront proxy.</summary>
+<summary>If you prefer to send data through a Wavefront proxy...</summary>
 <br>
 <p>
 You can optionally instrument your application to send data through a Wavefront proxy instead of using direct ingestion.
@@ -141,7 +141,7 @@ This table shows the available Wavefront observability SDKs for collecting data 
 <tr>
 <td>Custom business operations (metrics data)</td>
 <td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Instrument custom business operations using Wavefront's Dropwizard Metrics implementation. Enable your operations to send metrics and histograms to Wavefront. </td></tr>
+<td>Instrument your code using Wavefront's Dropwizard Metrics implementation. Send metrics and histograms to Wavefront from anywhere in your code. </td></tr>
 
 <tr>
 <td>Custom business operations (trace data)</td>
@@ -168,10 +168,10 @@ When an application consists of multiple microservices, you instrument each micr
  
 For each microservice, you edit some combination of configuration files and code files to create several helper objects that work together to create and send metrics, histograms, and trace data to Wavefront. These objects include:
 
-  * An [ApplicationTags](#ApplicationTags) object for describing your application to Wavefront. 
-  * A [WavefrontSender](#configuring-how-to-send-data-to-wavefront) for specifying whether to send data through a Wavefront proxy or directly to the Wavefront service.
-  * Several different kinds of [WavefrontReporter objects](#configuring-metric-data-reporting) for configuring how metrics and histograms are reported to the WavefrontSender.
-  * [WavefrontTracer and WavefrontSpanReporter](#arranging-for-trace-data-to-be-reported) objects for creating and propagating trace data.
+  * An [ApplicationTags](#application-tags) object for describing your application to Wavefront. 
+  * A [WavefrontSender](#wavefrontsender) for specifying whether to send data through a Wavefront proxy or directly to the Wavefront service.
+  * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) for configuring how metrics and histograms are reported to the WavefrontSender.
+  * [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects for creating and propagating trace data.
   * One or more framework-specific objects (such as a Java WavefrontJerseyFilter) for collecting metrics and histograms.
 
 
