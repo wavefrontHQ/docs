@@ -39,7 +39,7 @@ The following example shows how you can save a metric that sums all `telegraph.c
 
 The example uses `aliasSource` to ensure that you don't mix up a synthetic metric with the original source.
 
-#### Example 1: Report Points
+#### Example 2: Report Points
 
 Suppose you have the following query:
 
@@ -49,11 +49,14 @@ You create a derived metric that outputs `saved.dataingester.report-points`. The
 
 You can reduce data scan rate in a similar way using derived metrics.
 
-## Some Basics
+## Derived Metrics Basics
 
-Derived metrics are saved like alerts. After you save a derived metric, Wavefront executes it every 1 minute (by default), just as we check alerts approximately every 1 minute by default.
+You can customize how often the derived metric executes, and how many minutes of results we include.
+* **Execute the query every N minutes**: After you save a derived metric, Wavefront executes it every 1 minute by default. You can change that default from the field right below the query.
 
-By default, we include the last 5 minutes of results to protect against data loss. The query overwrites the existing data with exactly the same data. You can change how many results you want to include.
+* **Include results in the last N minutes**: Specifies the time window for the derived metrics query. By default, we include the last 5 minutes of results to protect against data loss.
+
+  The query overwrites the existing data with exactly the same data. You can change how many results you want to include.
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 
