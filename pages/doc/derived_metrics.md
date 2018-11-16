@@ -47,7 +47,7 @@ Suppose you have the following query:
 
 You create a derived metric that outputs `saved.dataingester.report-points`. The next time you need the report points information, you query `ts(saved.dataingester.report-points)` and you get instant results. The server does not have to compute the `rawsum`, `rate`, and 60-day moving average.
 
-You can reduce data scan rate in a similar way using derived metrics.
+You can reduce the data scan rate in a similar way using derived metrics.
 
 ## Derived Metrics Basics
 
