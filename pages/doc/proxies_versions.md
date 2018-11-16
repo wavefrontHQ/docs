@@ -8,6 +8,9 @@ summary: Learn about new features and changes in different Wavefront proxy versi
 ---
 This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 
+## Version 4.32
+* Compatibility with new SDKs 
+
 ## Version 4.31
 * Supports HTTP POST and gzipped streams for Wavefront and OpenTSDB data ingestion endpoints on the same port
 * Tags `~proxy` metrics with `processId` to prevent metric name collisions in case of duplicate proxy instances

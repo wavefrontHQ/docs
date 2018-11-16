@@ -1,8 +1,8 @@
 ---
-title: Google Cloud Spanner Integration
+title: Google BigQuery Integration
 tags: [integrations list]
-permalink: gcp_cloud_spanner.html
-summary: Learn about the Wavefront Google Cloud Spanner Integration.
+permalink: gcp_bigquery.html
+summary: Learn about the Wavefront Google BigQuery Integration.
 ---
 ## Google Cloud Platform Integration
 
