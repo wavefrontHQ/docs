@@ -33,26 +33,38 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Step 1. Prepare to Send Data to Wavefront
 
-1. Choose how you want to send metric and trace data to Wavefront. Two options are available:
-   * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service. (Recommended for most use cases.)
-   * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
-2. If you are using a **Wavefront proxy**: 
-   * [Install the proxy](proxies_installing.html), if necessary. Make sure you are using Version 4.32 or later.
-   * On the proxy host, open the proxy configuration file `wavefront.conf` in the installed [file path](proxies_configuring.html#paths), for example, `/etc/wavefront/wavefront-proxy/wavefront.conf`.
-   * In the `wavefront.conf` file, find the following [port properties](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces), and uncomment them if necessary. You can optionally change these default port numbers:
-    ```
-    pushListenerPort=2878
-    ...
-    histogramDistListenerPort=40000
-    ...
-    traceListenerPort=30000
-    ```
-   * [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
-3. If you are using **direct ingestion**:
-  * Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://myCompany.wavefront.com`.
-  * [Obtain an API token](wavefront_api.html#generating-an-api-token).
+Gather the following information, which you will need in Step 2. This information will enable your instrumented application send metrics and trace data directly to Wavefront.
 
-**Note:** You will need to specify information from these steps when you instrument your code.
+* Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://virunga.wavefront.com`.
+* [Obtain an API token](wavefront_api.html#generating-an-api-token).
+
+
+<details>
+<summary>If you prefer to send data through a Wavefront proxy.</summary>
+<br>
+<p>
+You can optionally instrument your application to send data through a Wavefront proxy instead of using direct ingestion.
+(A proxy is required only if your code is already instrumented with a 3rd party solution, such as <a href="jaeger.html">Jaeger</a>.)
+To set up a Wavefront proxy:
+</p>
+<ol>
+<li> <a href="proxies_installing.html">Install the proxy</a>, if necessary. Make sure you are using Version 4.32 or later.</li>
+<li> On the proxy host, open the proxy configuration file <code>wavefront.conf</code> in the installed <a href="proxies_configuring.html#paths">file path</a>, for example, <code>/etc/wavefront/wavefront-proxy/wavefront.conf</code>.</li>
+<li> In the <code>wavefront.conf</code> file, find the following <a href="proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces">port properties</a>, and uncomment them if necessary. You can optionally change these default port numbers:</li>
+<pre>
+pushListenerPort=2878
+...
+histogramDistListenerPort=40000
+...
+traceListenerPort=30000
+</pre>
+<li> Save the <code>wavefront.conf</code> file. </li>
+<li> <a href="proxies_installing.html#starting-and-stopping-a-proxy">Start the proxy</a>.</li>
+</ol>
+<strong>Note:</strong> You will need to specify information from these steps when you instrument your code.
+
+</details>
+
 
 ## Step 2. Instrument Your Application
 
@@ -68,7 +80,7 @@ These steps use configuration files and minimal code changes:
 
 1. Make sure you have [prepared to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
 3. For each Dropwizard or Spring Boot microservice:   
-  * Add [dependencies](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#maven) to the build system, and then follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart).
+  * Follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart). 
   * For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
 
@@ -200,9 +212,12 @@ Because the tags describe the application's architecture as it is deployed, your
 
 ### WavefrontSender
 
-Part of instrumenting an application is to choose and set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. 
+Part of instrumenting an application is to choose and set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. You can choose between:
 
-Your choice is represented in your microservice's code as an object of type `WavefrontSender`. This object encapsulates the settings you supply when you instrument your microservice, either through the [quickstart setup steps](#option-1-quickstart) or the [custom setup steps](#option-2-custom-setup). These settings must match the information you provided in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. 
+* Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
+* Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service. 
+
+Your choice is represented in your microservice's code as an object of type `WavefrontSender`. This object encapsulates the settings you supply when you instrument your microservice, either through the [quickstart setup steps](#option-1-quickstart) or the [custom setup steps](#option-2-custom-setup). The settings in your microservice must match the information you provided in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. 
 
 **Note:** The [custom setup steps](#option-2-custom-setup) enable you to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
 
@@ -215,7 +230,7 @@ Wavefront uses one or more Reporter objects to gather metrics and histograms and
 A Wavefront Reporter specifies: 
 * The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the `WavefrontSender` and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
 
-* The source of the reported metrics and histograms. By default, the source is automatically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All Reporters for a particular microservice should specify the same source.
+* The source of the reported metrics and histograms, typically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All Reporters for a particular microservice should specify the same source.
 
 **Note:** The [custom setup steps](#option-2-custom-setup) enable you to set a nondefault reporting interval.
 

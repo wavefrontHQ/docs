@@ -70,11 +70,11 @@ It is important to remember that many traces can begin with the same operation. 
 
 ## Ways to Send Trace Data to Wavefront
 
-An application must be _instrumented for tracing_ before it can produce and send trace data to Wavefront. Wavefront supports several options to choose from, depending on your use case. 
+An application must be _instrumented for tracing_ before it can produce and send trace data to Wavefront. Wavefront supports several options to choose from, depending on your use case. Here's the big picture:
 
-<!--- Other metrics, and enable histograms too? --->
+![tracing architecture](images/tracing_architecture.png)
 
-If you have already instrumented your code using a 3rd party OpenTracing-compliant solution such as Jaeger, you can simply set up an integration to forward the trace data to Wavefront. <!--- See XX.--->
+If you have already instrumented your code using a 3rd party OpenTracing-compliant solution such as [Jaeger](jaeger.html), you can simply set up an integration to forward the trace data to Wavefront. 
 
 If you have not yet instrumented your code, choose one of these options:
 
