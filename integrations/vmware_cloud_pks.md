@@ -1,8 +1,8 @@
 ---
-title: VMware Kubernetes Engine Integration
+title: VMware Cloud PKS Integration
 tags: [integrations list]
-permalink: vke.html
-summary: Learn about the Wavefront VMware Kubernetes Engine Integration.
+permalink: vmware_cloud_pks.html
+summary: Learn about the Wavefront VMware Cloud PKS Integration.
 ---
 ## Kubernetes Integration
 
