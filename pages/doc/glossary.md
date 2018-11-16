@@ -198,7 +198,7 @@ Lower-level observability SDKs enable you to instrument your application by send
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Source**](source.html)</td>
+<td markdown="span">[**Source**](sources_managing.html)</td>
 <td>A source is a unique application, host, container, or instance that emits metrics. In contrast to other platforms, each Wavefront metric explicitly includes the source. For cloud integrations, the source is extracted from service properties or dimensions. </td>
 </tr>
 <tr>
