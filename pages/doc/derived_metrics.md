@@ -11,6 +11,8 @@ The derived metrics functionality allows you to run a query and ingest it back i
 
 <div markdown="span" class="alert alert-info">You must have [Derived Metrics Management permissions](permissions_overview.html) to create and manage derived metrics.</div>
 
+Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
+
 ## Use Cases
 
 Our customers have asked us to be able to register and ingest a query so they can have instantly available metrics (derived metrics). Here are some use cases.
@@ -52,11 +54,13 @@ You can reduce the data scan rate in a similar way using derived metrics.
 ## Derived Metrics Basics
 
 You can customize how often the derived metric executes, and how many minutes of results we include.
+
 * **Execute the query every N minutes**: By default, Wavefront executes the derived metric query every 1 minute. Use this setting to adjust the execution interval.
 
-* **Include results in the last N minutes**: By default, Wavefront uses the last 5 minutes as the time window for the derived metrics query. The results of the query are ingested back into Wavefront and will overwrite existing data in the last N minutes for the derived metric. Use this setting to adjust the time window of the query.  
+* **Include results in the last N minutes**: By default, Wavefront uses the last 5 minutes as the time window for the derived metrics query to account for possible delays in the upstream metric pipeline. The results of the query are ingested back into Wavefront and  overwrite existing data in the last N minutes for the derived metric. You can adjust the time window of the query with this setting.
 
-Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
+**Note**: We recommend that the **Includes...** setting is always larger than the **Execute** setting.
+
 
 ## Creating and Managing Derived Metrics
 
