@@ -964,7 +964,7 @@ You use an expression to describe the set of time series to be aggregated. When 
 
 ### Aggregating Data Points That Line Up
 
-The easiest way to see the results of an aggregation function is when all of the input series report their data points at exactly the same time, so the points at any given timestamp all "line up". The aggregation function operates on the values in each "lineup" of points, and returns each result in a point at the corresponding timestamp.
+The easiest way to see the results of an aggregation function is when all of the input series report their data points at exactly the same time. This causes the points at any given timestamp to all line up. The aggregation function operates on the values in each lineup of points, and returns each result in a point at the corresponding timestamp.
 
 For example, consider the two time series in the following chart. The reporting interval for these series is 1 minute, and the points in these series "line up" at each 1-minute mark on the x-axis. We use a point plot to reveal the correspondences between reported points.
 
@@ -999,9 +999,13 @@ Now we use the `sum()` function (a standard aggregation function) to aggregate t
 
 The result at 4:26 is more interesting. At this moment in time, `sum()` returns the value 328.430, although there is only a single input data value (164) at that time, reported by `series 1`. `sum()` produces the return value by adding 164 to an _interpolated_ value from `series 2`. Interpolation inserts an implicit point into `series 2` at 4:26, and assigns an estimated value to that point based on the values of the actual, reported points on either side (at 4:25 and 4:27:30). `sum()` uses the estimated value (in this case, 164.43) to calculate the value returned at 4:26.
 
-A value can be interpolated into an input time series only if at least one other input time series reports a real data value at the same moment in time. In our example, no values are interpolated at, say, 4:26:30, because neither input series reports a point at that time.
+**Requirements for Interpolation**
 
-Furthermore, a value can be estimated for an interpolated point only when the time series has an actual reported value on either side of it. Sometimes this cannot occur, for example, when a new data point has not been reported yet at the right edge of a live-view chart. In this case, implicit points are inserted wherever needed, and the last known reported value in the time series is assigned to those implicit points.
+Wavefront interpolates a value into an input time series only under the following circumstances:
+
+* When at least one other input time series reports a real data value at the same moment in time. In our example, no values are interpolated at, say, 4:26:30, because neither input series reports a point at that time.
+
+* When the time series has an actual reported value on either side of it. Sometimes this cannot occur, for example, when a new data point has not been reported yet at the right edge of a live-view chart. In this case, Wavefront inserts implicit points wherever needed, and assigns the last known reported value in the time series to those implicit points.
 (The last known reported value must be reported within the last 15% of the query time in the chart window.)
 
 
@@ -1011,11 +1015,11 @@ You can use raw aggregation functions instead of standard aggregation functions 
 
 Let's see how the raw aggregation function `rawsum()` treats the two sample time series from the previous section. The following chart shows that `rawsum()`, like `sum()`, produces a result for _every_ moment in time that a data point is reported by _at least one_ input series. 
 
-Unlike `sum()`, however, `rawsum()` produces its results by adding up just the actual values at each reporting moment. At 4:26, for example, `rawsum()` returns 164.00, which is the value of the only input data value to be reported at that time. No values from `series 2` are present at that time, and none are interpolated.
+Unlike `sum()`, `rawsum()` produces its results by adding up just the actual values at each reporting moment. At 4:26, for example, `rawsum()` returns 164.00, which is the only value reported at this time. No values from `series 2` are present at that time, and none are interpolated.
 
 ![raw agg mismatch sum](images/query_language_rawagg_mismatch_sum.png)
 
-Of course, whenever both series report a data point at the same time (for example, 4:25), `rawsum()` returns a data point whose value is the sum of both reported points (169.05 + 162 = 331.05).
+Whenever both series report a data point at the same time (for example, 4:25), `rawsum()` returns a data point whose value is the sum of both reported points (169.05 + 162 = 331.05).
 
 ### Grouping the Results of Aggregation
 
