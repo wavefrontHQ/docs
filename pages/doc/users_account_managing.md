@@ -19,7 +19,7 @@ To change your password:
 
 1. Log in to your Wavefront instance.
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
-2. Click the **Change Password** link and make the change.
+2. Click the **User Information** tab, click the **Change Password** link, and make the change.
 
 ### Resetting a Forgotten Password
 
@@ -29,14 +29,28 @@ To reset a forgotten password:
 2. Follow the prompts to reset the password.
 
 
-## Configuring User Preferences and Viewing Permissions
+## Configuring User Preferences
 
-In your user profile, you can configure several preferences, for example, select our dark theme or chart title size. You can also view your permissions. If you can't perform certain tasks such as user management, you might not have permissions.
+In your user profile, you can configure several preferences, for example, select our dark theme or chart title size.
 
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username. Your user profile displays.
-1. Change preferences in the User Information section.
-1. View the permissions assigned to your account in the Permissions section.
-1. To request additional permissions, contact the Wavefront administrator at your site or a user with [User Management permission](permissions_overview.html).
+1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Click the **User Information** tab and make changes as needed.
 
 
-{% include note.html content="Some preferences are set for [all users in an account](users_managing.html#customer_prefs) by a user with [User Management permission](permissions_overview.html)." %}
+{% include note.html content="Some preferences are preset for [all users in an account](users_managing.html#customer_prefs) by a user with [User Management permission](permissions_overview.html)." %}
+
+## Examining Groups and Permissions
+
+If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html). You can check the permissions you have and see which groups you belong to from your account page.
+1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+2. Click the **Groups & Permissions** tab.
+3. You see a list of groups, and the permissions you have. Hover over any group to see the permissions you have because you belong to that group. Permissions are additive.
+
+If you have **Dashboard** permission, it's possible that the [Access system preference](access.html) is set to allow access to new dashboards only to the creator. Ask the dashboard creator to share the dashboard with you.
+
+## Generating an API Token
+
+Wavefront allows you to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html). When you make an API call, you have to pass in a token, which you can generate from your account page.
+
+1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+2. Click the **API Access** tab and follow the instructions.

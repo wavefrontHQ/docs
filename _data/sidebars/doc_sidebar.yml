@@ -48,9 +48,13 @@ entries:
       url: /proxies_versions.html
       output: web
 
+    - title: 2018-46.x Release Notes
+      url: /2018.46.x_release_notes.html
+      output: web
+
     - title: 2018-42.x Release Notes
       url: /2018.42.x_release_notes.html
-      output: web  
+      output: web
 
     - title: 2018-38.x Release Notes
       url: /2018.38.x_release_notes.html
@@ -66,14 +70,6 @@ entries:
 
     - title: 2018-22.x Release Notes
       url: /2018.22.x_release_notes.html
-      output: web
-
-    - title: 2018-18.x Release Notes
-      url: /2018.18.x_release_notes.html
-      output: web
-
-    - title: 2018-14.x Release Notes
-      url: /2018.14.x_release_notes.html
       output: web
 
     - title: Wavefront Obsolescence Policy
@@ -165,10 +161,13 @@ entries:
       url: /query_language_query_builder.html
       output: web
 
+    - title: AI Genie
+      url: /ai_genie.html
+      output: web
+
     - title: Query Wizard
       url: /query_language_query_wizard.html
       output: web
-
 
     - title: Series Matching
       url: /query_language_series_matching.html
@@ -454,13 +453,30 @@ entries:
         url: /authentication.html
         output: web
 
-      - title: Managing Users and Permissions
-        url: /users_managing.html
-        output: web
+        subfolders:
+        - title: Authorization
+          output: web
+          subfolderitems:
 
-      - title: Permissions
-        url: /permissions_overview.html
-        output: web
+          - title: Authorization in Wavefront
+            url: /authorization.html
+            output: web
+
+          - title: Managing Users and Groups
+            url: /users_groups.html
+            output: web
+
+          - title: Managing Permissions
+            url: /permissions.html
+            output: web
+
+          - title: Permissions Reference
+            url: /permissions_overview.html
+            output: web
+
+          - title: Managing Access
+            url: /access.html
+            output: web
 
       - title: Managing Sources
         url: /sources_managing.html
