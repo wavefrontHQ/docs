@@ -90,7 +90,7 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 
 ## Wavefront REST API Categories
 
-The REST API supports the following categories of management tasks:
+The REST API supports the following objects corresponding to different categories of management tasks:
 
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert permission](permissions_overview.html) can create and update alerts.
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxies permission](permissions_overview.html) can add and remove cloud integration data types.
