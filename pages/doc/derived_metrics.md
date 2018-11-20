@@ -11,6 +11,8 @@ The derived metrics functionality allows you to run a query and ingest it back i
 
 <div markdown="span" class="alert alert-info">You must have [Derived Metrics Management permissions](permissions_overview.html) to create and manage derived metrics.</div>
 
+Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
+
 ## Use Cases
 
 Our customers have asked us to be able to register and ingest a query so they can have instantly available metrics (derived metrics). Here are some use cases.
@@ -39,7 +41,7 @@ The following example shows how you can save a metric that sums all `telegraph.c
 
 The example uses `aliasSource` to ensure that you don't mix up a synthetic metric with the original source.
 
-#### Example 1: Report Points
+#### Example 2: Report Points
 
 Suppose you have the following query:
 
@@ -47,15 +49,18 @@ Suppose you have the following query:
 
 You create a derived metric that outputs `saved.dataingester.report-points`. The next time you need the report points information, you query `ts(saved.dataingester.report-points)` and you get instant results. The server does not have to compute the `rawsum`, `rate`, and 60-day moving average.
 
-You can reduce data scan rate in a similar way using derived metrics.
+You can reduce the data scan rate in a similar way using derived metrics.
 
-## Some Basics
+## Derived Metrics Basics
 
-Derived metrics are saved like alerts. After you save a derived metric, Wavefront executes it every 1 minute (by default), just as we check alerts approximately every 1 minute by default.
+You can customize how often the derived metric executes, and how many minutes of results we include.
 
-By default, we include the last 5 minutes of results to protect against data loss. The query overwrites the existing data with exactly the same data. You can change how many results you want to include.
+* **Execute the query every N minutes**: By default, Wavefront executes the derived metric query every 1 minute. Use this setting to adjust the execution interval.
 
-Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
+* **Include results in the last N minutes**: By default, Wavefront uses the last 5 minutes as the time window for the derived metrics query to account for possible delays in the upstream metric pipeline. The results of the query are ingested back into Wavefront and  overwrite existing data in the last N minutes for the derived metric. You can adjust the time window of the query with this setting.
+
+**Note**: We recommend that the **Includes...** setting is always larger than the **Execute** setting.
+
 
 ## Creating and Managing Derived Metrics
 

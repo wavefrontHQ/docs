@@ -26,6 +26,9 @@ If you have an [AWS integration](integrations_aws_metrics.html), metrics with th
 
 - `~externalservices` - metric rates, API requests, and events from AWS CloudWatch, AWS CloudTrail, and AWS Metrics+.
 
+There's also a metric you can use to monitor ongoing events and make sure the number does not exceed 1000:
+- `~events.num-ongoing-events` - Returns the number of [ongoing events](events.html#event-states).
+
 ## Charts in the Wavefront Usage Integration Dashboard
 
 The [Wavefront Usage integration](system.html) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown. You can examine many aspects or your Wavefront Instance. We'll look at  the following sections here:
@@ -191,7 +194,9 @@ Your Wavefront instance includes an HTTP endpoint that allows you to answer ques
 * Show me new sources
 * Show me new point tags (K=V)
 
-Because the endpoint hits a single back-end, the call returns only what a single ingestion shard sees, even with 100% sampling,
+Because the endpoint hits a single back-end, the call returns only what a single ingestion shard sees, even with 100% sampling.
+
+Note: Direct Data Ingestion permission is required to use these endpoints.
 
 ### Examining Points
 
@@ -261,17 +266,17 @@ For example, if you have a Wavefront instance named `ex1`, you can use the follo
 </thead>
 <tr>
 <td>See ID assignments for metrics prefixed by <code>cpu</code>.</td>
-<td><code>http://ex1.wavefront.com/api/spy/id?type=METRIC&name=cpu</code>
+<td><code>http://ex1.wavefront.com/api/spy/ids?type=METRIC&name=cpu</code>
 </td>
 </tr>
 <tr>
 <td>See ID assignments for point tag key and values prefixed by <code>loc=palo</code>. </td>
-<td><pre>http://ex1.wavefront.com/api/spy/id?type=&name=loc%3Dpalo</pre>
+<td><pre>http://ex1.wavefront.com/api/spy/ids?type=&name=loc%3Dpalo</pre>
 </td>
 </tr>
 <tr>
 <td>See ID assignments for hosts prefixed by <code>web1</code>.</td>
-<td><code>http://ex1.wavefront.com/api/spy/points?host=web1</code>
+<td><code>http://ex1.wavefront.com/api/spy/ids?type=HOST&name=web1</code>
 </td>
 </tr>
 

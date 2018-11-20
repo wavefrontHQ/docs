@@ -7,9 +7,7 @@ published: true
 permalink: proxies_histograms.html
 summary: Learn how to use Wavefront histograms.
 ---
-Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion. 
-
-**Note:** The histogram feature requires a separate license and is not enabled on your cluster by default.
+Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion.
 
 ## Getting Started
 
@@ -460,3 +458,19 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 * `count(hs(<histogramMetricName>.m))` –- Returns the number of values in a distribution.
 
 {% include note.html content="Direct histogram visualization in charts is not currently supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with one of the supported functions listed above, for example, `max(hs(...))`." %}
+
+## Viewing Histogram Metrics
+
+Starting with release 2018.42, you can view histograms in the Histogram browser if you're cluster is licensed for that feature.
+
+To view histograms:
+1. Click **Browse > Histograms** and start typing the histogram metric name.
+  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram format, three metrics result. If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
+2. Select the metric you're interested in.
+
+   ![select_histogram_chart](images/histogram_select_chart.png)
+3. Examine the chart.
+   * The query is an `hs()` query, not a `ts()` query.
+   * We display the median for histogram metrics by default. You can use  `percentile(<value>, hs(<expression>))` to retrieve other percentiles.
+
+   ![histogram_chart](images/histogram_chart.png)

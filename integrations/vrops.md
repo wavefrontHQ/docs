@@ -10,6 +10,10 @@ vRealize Operations Manager delivers intelligent operations management with appl
 
 This integration explains how to configure application monitoring with Wavefront from the vRealize Operations Manager UI. After you've completed the integration setup, you can use Wavefront to monitor the services and applications that vRealize Operations is set up to manage.
 
+In addition, this integration also installs a dashboard tracking the health of the VMware Application Proxy:
+
+{% include image.md src="images/vap-dashboard.png" width="80" %}
+
 ## VMware vRealize Operations Manager Setup
 
 Supported Versions: VMware vRealize Operations 6.7 or later
