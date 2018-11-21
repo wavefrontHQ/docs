@@ -93,7 +93,7 @@ The Wavefront proxy pod includes four containers.
 * Heapster monitors your worker kubelets and sends the result to the proxy.
 * Telegraf receives metrics about the node, pod, and container status from kube-state-metrics, and sends those metrics to the Wavefront proxy as well.
 
-![pks-arch](images/pks-14-arch.svg)
+![pks-arch](images/pks-architecture.png)
 
 Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster.
 
