@@ -7,7 +7,7 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Learn how to set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
-You instrument your application so that trace data from different parts of the stack can become visible to Wavefront. Instrumentation enables you to trace a request flow from end to end across multiple distributed services, guided by key metrics from your application. By visualizing a request as a trace that consists of a hierarchy of spans, you can pinpoint where the request is spending most of its time, and discover where it might be failing.
+You instrument your application so that trace data from different parts of the stack can be sent to Wavefront. Instrumentation enables you to trace a request flow from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our tracing UI to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover where it might be failing.
 
 You instrument each microservice in your application with one or more Wavefront observability SDKs. You choose these SDKs based on:
 * The frameworks (components) you use in the microservice -- for example, Java Dropwizard Jersey
@@ -68,7 +68,7 @@ traceListenerPort=30000
 
 ## Step 2. Instrument Your Application
 
-Take a moment to identify the microservices in your application, and the components you use in each microservice. Then choose the setup option that best fits your use case. 
+Identify the microservices in your application and the components you use in each microservice. Then choose the setup option that best fits your use case. 
 
 ### Option 1. Quickstart - Use Config Files 
 
@@ -171,18 +171,18 @@ This table shows the available Wavefront observability SDKs for collecting data 
 When an application consists of multiple microservices, you instrument each microservice separately by setting up one or more Wavefront SDKs. Doing so causes several helper objects to be created in the instrumented microservice. These helper objects work together to create and send metrics, histograms, and trace data to Wavefront.
 
 The details of creating the helper objects for an SDK are in the setup steps for that SDK's `README` file: 
-* In some cases, you edit a configuration file, which enables Wavefront to instantiate the helper objects.
-* In other cases, you instantiate the helper objects directly in your code.
+* In some cases, you edit a configuration file, and Wavefront instantiates the helper object.
+* In other cases, you instantiate the helper object directly in your code.
 
 
 The following diagram shows the Wavefront helper objects in a Java microservice that uses Spring Boot to implement RESTful operations to other services:
 
 ![sdk objects](images/sdk_objects.png)
 
-The helper objects include:
+The actual set of helper objects in a particular microservice depends on which SDKs you set up. A typical set of helper objects includes some or all of the following:
 
 * An [ApplicationTags](#application-tags) object that describes your application to Wavefront. 
-* A framework-specific object (in this case, the Java `WavefrontJerseyFilter`) that collects metrics and histograms.
+* A framework-specific object (such as the Java `WavefrontJerseyFilter` in the diagram) that collects metrics and histograms.
 * [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects that create and propagate trace data.
 * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
 * A [WavefrontSender](#wavefrontsender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
@@ -197,7 +197,13 @@ Passing contexts between operations for trace data.
 
 Wavefront requires tags that describe the architecture of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront. 
 
-You specify a separate set of application tags for each microservice you instrument. Wavefront uses these tags to aggregate and filter data at different levels of granularity.
+Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code. You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. Because the tags describe the application's architecture and the way it is deployed, your code typically obtains tag values from a configuration file, either through the [quickstart setup steps](#option-1-quickstart---use-config-files), or through a custom mechanism implemented by your application.
+
+**Note:** You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data.
+
+### How Wavefront Uses Application Tags
+
+Wavefront uses application tags to aggregate and filter data at different levels of granularity.
 
 * **Required tags** enable you to drill down into the data for a particular service:  
     - `application` - Name that identifies the application, for example, `beachshirts`. All microservices in the same application should use the same `application` name.
@@ -212,10 +218,8 @@ You specify a separate set of application tags for each microservice you instrum
 
   ![tracing service filter](images/tracing_service_filter_page.png)
 
-Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code.
-Because the tags describe the application's architecture and the way it is deployed, your code typically obtains values for the tags from a configuration file, either through the [quickstart setup steps](#option-1-quickstart---use-config-files), or through a custom mechanism implemented by your application.
 
-**Note:** You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data.
+
 <!---
 **Note:** For details, see _[[link to tagging topic on another page]]_.
 --->
