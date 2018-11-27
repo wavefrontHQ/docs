@@ -1,16 +1,16 @@
 ---
-title: Pivotal Container Service Integration Details
+title: VMware PKS Integration Details
 keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_pks.html
 summary: Learn about predefined alerts, code examples, and other PKS details
 ---
-The Wavefront [Pivotal Container Service integration](pks.html) includes an overview and setup instructions.
+The Wavefront [VMware PKS integration](pks.html) includes an overview and setup instructions.
 
 On this page, we list predefined alerts and give other details about the integration.
 
-## Predefined Alerts for the PKS Integration
+## Predefined Alerts for the VMware PKS Integration
 
 The PKS integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts.
 
@@ -60,7 +60,7 @@ The PKS integration provides the following monitoring alerts for PKS. These aler
 
 You can [create additional alerts](alerts.html#creating-an-alert) using the Wavefront UI.
 
-## PKS Monitoring Dashboards
+## VMware PKS Monitoring Dashboards
 
 Wavefront includes several predefined dashboards for monitoring PKS. You can use these dashboards as is, or [clone and customize them](dashboards_managing.html).
 
@@ -93,7 +93,7 @@ The Wavefront proxy pod includes four containers.
 * Heapster monitors your worker kubelets and sends the result to the proxy.
 * Telegraf receives metrics about the node, pod, and container status from kube-state-metrics, and sends those metrics to the Wavefront proxy as well.
 
-![pks-arch](images/pks-14-arch.svg)
+![pks-arch](images/pks-architecture.png)
 
 Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster.
 
@@ -102,7 +102,7 @@ Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster.
 There are four containers within the Wavefront proxy pod:
 
 
-## Troubleshooting the PKS Integration
+## Troubleshooting the VMware PKS Integration
 
 ### 401 Unauthorized Error
 
