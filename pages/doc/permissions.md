@@ -14,6 +14,22 @@ You must be a Super Admin user or have User Management permissions to view and m
 
 Permissions were part of the initial Wavefront authorization model. They determine which tasks a Wavefront user can perform. Starting with Release 2018.46, administrators can grant and revoke permissions for users and for groups.
 
+### New User Actions
+When an account is created in Wavefront, the user can perform the following actions:
+
+* View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notificat pages
+* Add dashboards to the list of favorites
+* View existing dashboards and charts
+* Create and interact with charts – but NOT save charts
+* Share links to dashboards and charts with other users
+* Access the user profile from the gear icon
+
+In earlier Wavefront releases, these new user tasks were associated with a permission (Browse Data). This permission no longer exists.
+
+### New User Permissions
+
+Administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**).
+
 ## Granting and Revoking Permissions for Groups
 
 To manage permissions for groups:

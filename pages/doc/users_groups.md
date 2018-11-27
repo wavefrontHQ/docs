@@ -10,15 +10,19 @@ You can secure your Wavefront environment by:
 * Granting and revoking permissions for users and groups
 * Granting and revoking object access (initially dashboard access) for users and groups
 
-You must have Users & Groups permission or be a Super Admin user to view and manage users, groups, and permissions in Wavefront. If you don't have permission, the UI menu selections, buttons, and links that you use to view users and permissions are not visible.
+You must have Users & Groups permission or be a Super Admin user to view and manage users, groups, and permissions in Wavefront. If you don't have Users & Groups permission, the UI menu selections, buttons, and links that you use to view users and permissions are not visible.
 
 ## Users and Groups Basics
 
 Before you start with users and groups, here's what you need to know:
 
-### What Can New Wavefront Users Do?
+### What Can a New User Do?
 
-When an account is created in Wavefront, the user can perform the following tasks:
+What a new user can do depends on new user actions, new user permissions, and new user group membership.
+
+**New User Actions**
+
+When an account is created in Wavefront, the user can perform the following actions:
 
 * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notificat pages
 * Add dashboards to the list of favorites
@@ -29,9 +33,12 @@ When an account is created in Wavefront, the user can perform the following task
 
 In earlier Wavefront releases, these new user tasks were associated with a permission (Browse Data). This permission no longer exists.
 
+**New User Permissions**
+Administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**).
+
 ### Who is Super Admin?
 
-When your company signs up with Wavefront, you specify one user as Super Admin. A Super Admin user has all permissions and can also  perform some tasks that nobody else can perform, such as looking at orphan dashboards and inviting other Super Admin users.
+When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions and can also  perform some tasks that nobody else can perform, such as looking at orphan dashboards and inviting other Super Admin users.
 
 To add a Super Admin user:
 1. Click the gear icon and select **Super Admin**
@@ -41,13 +48,26 @@ Going forward, that user can perform Super Admin tasks.
 
 ### Why Groups?
 
-Groups make it easy to make changes for many users. More importantly, if you change permissions or access settings, you're less likely to forget something if you take advantage of groups. For example, you can grant additional permissions to a group of users or invite a group to a set of dashboards.
+Groups make it easy to make changes for many users. More importantly, if you change permissions or access settings, you're less likely to forget something if you take advantage of groups. For example, you can grant additional permissions to a group of users or share a dashboard with a group.
 
 **Note:** Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
+### What's the Everyone Group
+
+All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
+Here's what you need to know:
+
+* You cannot remove users from the Everyone group. All users, including Super Admin, are always in the Everyone group.
+* You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means users can browse data but cannot modify anything.
+* **Warning** If you change the permissions assigned to the Everyone group, you change the permissions for each user in your environment.
+* If you use access management in your environment, you can share a dashboard with the Everyone group to:
+  - Give View & Modify access to users who have Dashboard permissions
+  - Give View access to users who don't have Dashboard permissions
+  You can also remove the Everyone group from a dashboard to limit access to the dashboard.
+
 ## Accessing Management Pages
 
-The Super Admin user and users who have the Users & Groups permission can access management pages:
+The Super Admin user and users who have Users & Groups permission can access management pages:
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar.
 2. Select one of the menu items:
    - **System Preferences** -- Set initial preferences for all users.
@@ -60,7 +80,7 @@ The Super Admin user and users who have the Users & Groups permission can access
 
 ## Managing Groups
 
-Users who have **Users & Groups** permission can create groups, add and remove users, and grant and revoke permissions.
+Users who have **Users & Groups** permission can create groups, change groups by adding and removing users, and grant and revoke permissions.
 
 1. Click the gear icon and select **User Group Management**.
 2. To create a group:
@@ -70,18 +90,8 @@ Users who have **Users & Groups** permission can create groups, add and remove u
 3. To change a group's users or permission:
    2. Select the group you want to change.
    3. Select **Add User**, **Remove User**, **Grant Permission**, or **Revoke Permission**.
+
    **Note:** If you revoke permission for a group, all users in that group no longer have the permission unless they belong to another group with that permission or they have the individual permission.
-
-## Managing the Everyone Group
-
-All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
-Here's what you need to know:
-
-* All users, including Super Admin, are always in the Everyone group. You cannot remove users from the Everyone group.
-* You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means users can browse data but cannot modify anything.
-* If you use access management in your environment, you can share a dashboard with the Everyone group to:
-  - Give View & Modify access to users who have Dashboard permissions
-  - Give View access to users who don't have Dashboard permissions
 
 ## Managing Users
 
@@ -95,12 +105,15 @@ Users with Users & Groups permissions can manage users.
 3. To delete a user, change permissions, or change group membership:
    1. Select one or more users on the Users page.
    2. Select the check box for one or more users.
-   3. Use the **Permission**, **Group**, or trash can buttons, and confirm when prompted.
+   3. Click the **Permission**, **Group**, or trash can button, and confirm when prompted.
 
    If you delete a user, you remove that user's access to Wavefront. You can instead remove the user from one or more groups.
 
 New users can browse data and might have additional permissions based on group membership. Each user receives an email with an account activation link that is valid for 24 hours.
 
+## Setting Default Permissions for New Users
+
+TBD.
 
 ## Setting the Default Group for New Users
 

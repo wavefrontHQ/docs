@@ -9,7 +9,7 @@ summary: Learn about authorization of Wavefront users.
 
 For the first few years of its existence, Wavefront supported a simple authorization model that is based on [permissions](permissions_overview.html) assigned to individual users. Now Wavefront customers come from many different industries, and some customers have requested more fine-grained authorization.
 
-Starting with release 2018.46.x, administrators can select the authorization management model that works best for their environment. If administrators want more control over who can do what, they can perform some additional setup tasks.
+Starting with release 2018.46.x, administrators can select the authorization model that works best for their environment. If administrators want more control over who can do what, they can perform some additional setup tasks.
 
 **Note:** This model is cumulative. If you need more than basic permissions, add user groups. If that's not enough, add access control, which applies to users and groups.
 
@@ -17,33 +17,31 @@ Starting with release 2018.46.x, administrators can select the authorization man
 
 With additional setup, administrators gain finer-grained control:
 * **Permissions for users** -- Administrators can initially use the simple model in which each user has access based on [permissions](permissions_overview.html).
-* **Permissions for groups** -- In production environments, it often makes sense to simplify operations by specifying permissions for groups. With groups, it's easy keep permissions consistent.
-* **Access control on objects** -- To change who can view or modify certain objects (initially dashboards) administrators can use access control for object-level restrictions.
+* **Permissions for groups** -- Using permissions with groups is faster and less error prone than using permissions with users. It's easy keep permissions consistent.
+* **Access control on objects** -- Administrators can turn on the access control security preference for object-level access restriction. Access control determines who can view or view and modify certain objects (initially dashboards) .
 
-![control setup](images/security_levels.svg)
+  ![control setup](images/security_levels.svg)
 
 ## Level 1: Permissions for Users
 
 Wavefront continues to support the initial model of users and permissions. Level 1 means minimal effort, but also minimal control.
 
 In that model:
-* A new user can browse data but has no other permissions by default.
-* In addition, all users get the permissions the administrator assigned to the Everyone group. For example, all users might get Dashboard permission and Proxy permission.
-* Administrators can [grant or revoke permissions](users_managing.html#granting-and-revoking-permissions) for individual users (and for groups).
+* A new user:
+  - Can browse data.
+  - Has **New User Permissions**. This set is determined by the administrator.
+* All users get the permissions that the administrator assigned to the Everyone group. For example, all users might get Dashboard permission and Proxy permission.
+* Administrators can [grant or revoke permissions](users_managing.html#granting-and-revoking-permissions) for individual users (and for groups, discussed next).
 
 
-## Level 2: Groups
+## Level 2: Permissions for Groups and Users
 
-Starting with Release 2018.46.x, administrators can use groups to make permissions assignment more transparent and consistent. They can use groups with permissions only, or with the access control list (ACL) for objects (see Level 3).
-
-Groups determine the default permissions for a new user:
-* Initially, each user is in the Everyone group. We created this group for backward compatibility and to allow changes to all users. You can't remove users from this group.
-*  The administrator can set up additional default groups for new users. In that case, new users also get the permissions for that group.
+Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent. They can use groups with permissions only, or with the access control list (ACL) for objects (see Level 3).
 
 Groups support permission management like this:
-* Administrators create one or more groups and assign permissions. For example, administrators might create an Admin group that includes user management permission.
+* Administrators create one or more groups and assign permissions. For example, administrators might create an Admin group that includes User Management permission.
 * When an administrator invites a new user, the administrator can add the user to one or more groups. If users belong to more than one group, they get permission from each group (addition). The UI makes it easy to see where a permission comes from. XXLink
-* Administrators can later manage permissions on a per-group basis. This helps when permission changes are needed.
+* Administrators can manage permissions on a per-group basis. For example, assume the Marketing group has User Management permission. If the administrator removes the permission, all members of the Marketing group no longer have it - unless they were granted the permission at a user level.
 * It's possible to combine group permissions and user permissions. In that case, if users get a permission from a group and as individuals, they keep the permission if you remove it only in one place.
 
 Wavefront does not currently integrate with the groups of your identity manager (Active Directory or LDAP).
@@ -52,11 +50,13 @@ Wavefront does not currently integrate with the groups of your identity manager 
 
 Starting with Release 2018.46.x, Wavefront supports object-level access control lists (ACLs) in addition to permissions. Initially, we support access control only for dashboards.
 
-By default, all users can access all dashboards. An administrator can change the default setting for *new* dashboards to give modify access only to the dashboard creator. After that happens, only the dashboard creator can access new dashboards initially. The dashboard creator or Super Admin can share the dashboard with other user groups or users to give view or view and modify access.
+By default, all users with **Dashboard** permission can view and modify all dashboards. An administrator can change the default Security preference to grant access  for *new* dashboards only to the dashboard creator.
+
+After the preference change, only the dashboard creator can access new dashboards initially. The dashboard creator or Super Admin can share the dashboard with other user groups or users to give View or View & Modify access. Users with View & Modify access can share the dashboard with more users.
 
 **Note:** This security setting affects new dashboards only.
-* If you change the security setting to give modify access *only to the dashboard creator*  (strict access), then you affect any new dashboards for the customer or tenant (team).
-* If you return the security setting to to *Everyone*, then all dashboards that were created while only the dashboard creator had Modify access for a new dashboard, remain protected by the access control list.
+* If you change the security setting to give modify access only to the dashboard creator  (strict access), then you affect any new dashboards for the customer or tenant (team).
+* If you return the security setting to to Everyone, then all dashboards that were created while only the dashboard creator had Modify access for a new dashboard, remain protected by the access control list.
 
 ACLs work like this:
 
@@ -68,7 +68,7 @@ ACLs work like this:
   - Super Admin
   - Dashboard creator
   - Users who were granted modify access
-* Users in the Everyone group continue to have View and Modify access to dashboards that existed before the switch -- and all users in that group can remove the Everyone group from the access list and add other users or groups.
+* Users in the Everyone group continue to have View & Modify access to dashboards that existed before the switch -- and all users in the Everyone group can remove the Everyone group from the dashboard's access list and add other users or groups.
 * If the administrator changes the Security system preference back so Everyone has access to new dashboards, then dashboards that were created while the setting was Creator only continue to be protected by access control.
 
 ## Example: Can Dana View or Modify Dashboard X?
