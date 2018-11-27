@@ -20,21 +20,18 @@ Before you start with users and groups, here's what you need to know:
 
 What a new user can do depends on new user actions, new user permissions, and new user group membership.
 
-**New User Actions**
+- **New User Actions:** When an account is created in Wavefront, the user can perform the following actions:
+  * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notificat pages
+  * Add dashboards to the list of favorites
+  * View existing dashboards and charts
+  * Create and interact with charts – but NOT save charts
+  * Share links to dashboards and charts with other users
+  * Access the user profile from the gear icon
 
-When an account is created in Wavefront, the user can perform the following actions:
+  In earlier Wavefront releases, these new user tasks were associated with a permission (Browse Data). This permission no longer exists.
 
-* View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notificat pages
-* Add dashboards to the list of favorites
-* View existing dashboards and charts
-* Create and interact with charts – but NOT save charts
-* Share links to dashboards and charts with other users
-* Access the user profile from the gear icon
-
-In earlier Wavefront releases, these new user tasks were associated with a permission (Browse Data). This permission no longer exists.
-
-**New User Permissions**
-Administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**).
+- **New User Permissions:** Administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**).
+- **New User Groups:** Administrators can set up a group with permissions for all new users, and set up the environment to assign all new users to that group (**System Preferences > New User Defaults**).
 
 ### Who is Super Admin?
 
@@ -113,7 +110,15 @@ New users can browse data and might have additional permissions based on group m
 
 ## Setting Default Permissions for New Users
 
-TBD.
+By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system from that point on:
+
+1. From the gear icon, select **System Preferences** and pick **New User Defaults**.
+2. Check the set of permissions you want to grant to new users.
+
+The default permissions affect new user accounts that you create after you made the change.
+
+**Note:** In many cases, it makes sense to create a group with permissions for new users, and to set that group as the default for new users.
+
 
 ## Setting the Default Group for New Users
 
@@ -124,3 +129,5 @@ To add new users to additional groups:
 2. In the Default User Groups field
   * Start typing the name of additional groups to add groups.
   * Click the **x** next to a group name to remove groups. You cannot remove the Everyone group.
+
+The user gets the permissions from the group and any permissions set as **New User Default Permissions**.  
