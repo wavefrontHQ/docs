@@ -15,7 +15,7 @@ You instrument each microservice in your application with one or more Wavefront 
 * Whether you want to collect out-of-the-box metrics and trace data, custom business metrics and trace data, or both
 
 This page shows you the fast track to producing out-of-the-box metrics and trace data from the application frameworks you use in your microservices. 
-* For an overview of what instrumentation adds to your microservices, see [A Closer Look at an Instrumented Microservice below](#a-closer-look-at-an-instrumented-microservice)
+* For an overview of what instrumentation adds to your microservices, see [A Closer Look at an Instrumented Microservice below](#a-closer-look-at-an-instrumented-microservice).
 * For an overview of distributed tracing in Wavefront, see [Distributed Tracing Basics](tracing_basics.html).
 
 <!---
@@ -86,12 +86,12 @@ These steps use configuration files and minimal code changes:
 
 **Note:** When you use the quickstart option, we automatically set up the SDK for the Java Virtual Machine (JVM) in addition to the  SDK for the Jersey-compliant framework.
 
-## Option 2. Custom Setup - Instantiate Helper Objects Directly
+### Option 2. Custom Setup - Instantiate Helper Objects Directly
 
 Use Option 2:
 * For any microservice that is not based on a framework listed for [Option 1](#option-1-quickstart---use-config-files). 
-* If you want to add custom metrics or traces to your business operations. 
-* If you want complete control over all configurable aspects of instrumentation, such as tuning [the rate at which data is sent](#wavefrontsender) to Wavefront.
+* To add custom metrics or traces to your business operations. 
+* For control over all configurable aspects of instrumentation, such as tuning [the data reporting interval](#wavefront-reporters).
 
 These steps involve instantiating [helper objects](#a-closer-look-at-an-instrumented-microservice) directly in your code:
 
@@ -105,7 +105,7 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
 
 3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring metrics, histograms, and trace data.
 
-**Note:** When you use the custom setup option, we do not automatically set up the SDK for the Java Virtual Machine (JVM). You must set up each SDK you want individually.
+**Note:** When you use the custom setup option, we do not automatically set up the SDK for the Java Virtual Machine (JVM). You must set up each selected SDK individually.
 
 ## SDKs for Instrumenting Java Applications
 
@@ -171,29 +171,29 @@ This table shows the available Wavefront observability SDKs for collecting data 
 When an application consists of multiple microservices, you instrument each microservice separately by setting up one or more Wavefront SDKs. Doing so causes several helper objects to be created in the instrumented microservice. These helper objects work together to create and send metrics, histograms, and trace data to Wavefront.
 
 The details of creating the helper objects for an SDK are in the setup steps for that SDK's `README` file: 
-* In some cases, you edit a configuration file to enable Wavefront to instantiate the helper objects.
-* In other cases, you instantiate helper objects directly in your code.
+* In some cases, you edit a configuration file, which enables Wavefront to instantiate the helper objects.
+* In other cases, you instantiate the helper objects directly in your code.
 
 
 The following diagram shows the Wavefront helper objects in a Java microservice that uses Spring Boot to implement RESTful operations to other services:
 
 ![sdk objects](images/sdk_objects.png)
 
-This diagram shows a typical group of helper objects for a single microservice:
+The helper objects include:
 
-* An [ApplicationTags](#application-tags) object describes your application to Wavefront. 
-* A framework-specific object (in this case, the Java `WavefrontJerseyFilter`) collects metrics and histograms.
-* The [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects create and propagate trace data.
-* Several different kinds of [WavefrontReporter objects](#wavefront-reporters) specify how metrics and histograms are reported.
-* A [WavefrontSender](#wavefrontsender) specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
+* An [ApplicationTags](#application-tags) object that describes your application to Wavefront. 
+* A framework-specific object (in this case, the Java `WavefrontJerseyFilter`) that collects metrics and histograms.
+* [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects that create and propagate trace data.
+* Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
+* A [WavefrontSender](#wavefrontsender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
 
-**Note:** When you use multiple Wavefront SDKs to instrument a microservice, several helper objects will belong to exactly one SDK, and other helper objects will be shared.
+**Note:** When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects will belong to exactly one SDK, and other helper objects will be shared.
 
 <!---
 Passing contexts between operations for trace data.
 --->
 
-### Application Tags
+## Application Tags
 
 Wavefront requires tags that describe the architecture of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront. 
 
@@ -219,6 +219,10 @@ Because the tags describe the application's architecture and the way it is deplo
 <!---
 **Note:** For details, see _[[link to tagging topic on another page]]_.
 --->
+
+## Helper Objects That Collect and Transfer Data
+
+
 
 ### WavefrontSender
 
