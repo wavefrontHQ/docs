@@ -170,10 +170,10 @@ We support variables in several ways:
 
 ## Aggregation Functions
 Aggregation functions are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
-* Standard aggregation functions interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series. 
-* Raw aggregation functions do not interpolate the underlying series before aggregation. 
+* Standard aggregation functions interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
+* Raw aggregation functions do not interpolate the underlying series before aggregation.
 
-All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.  
+All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.
 
 See [Aggregating Data Values Across Time Series](#aggregating-data-values-across-time-series).
 
@@ -924,9 +924,12 @@ Some functions produce a continuous time series by calculating a value from the 
 
 ### Functions that Use Interpolation to Create Continuous Data
 
-Certain functions produce a continuous time series by starting with data points from a discrete time series, and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data.
+Certain functions produce a continuous time series by starting with data points from a discrete time series, and inserting additional points (1 per second) to fill in the intervals and gaps. You see data every second regardless of the reporting interval of the underlying input data. The process is called _interpolation_. In the following video, Wavefrount co-founder Clement Pang explains how it works:
 
-The process of filling in intervals and gaps is called _interpolation_. For example:
+<p><a href="https://youtu.be/9LnDszVrJs4" target="_blank"><img src="/images/v_interpolation.png" style="width: 700px;" alt="time series and interpolation"/></a>
+</p>
+
+For example:
 * The [`last()`](ts_last.html) function produces a new time series that consists of the actual, reported data points from the input series, plus points that are added by interpolation between them. Each interpolated point has the same value as the last reported point before it.
 
 Here's a point plot showing a discrete series (the red dots) and the points (blue dots) produced by applying `last()`. The points of the discrete series are reported once a minute, and the points between them are all interpolated.
@@ -954,11 +957,11 @@ The following functions always return continuous time series, even when they ope
 
 ## Aggregating Data Values Across Time Series
 
-You can use aggregation functions to combine values from multiple time series. An aggregation function returns a series of data points whose values are calculated from corresponding points in two or more input time series. The function's name indicates the way each return value is calculated. For example, `sum()` returns a series of totals, `max()` returns a series of maximums, `avg()` returns a series of means, and so on. 
+You can use aggregation functions to combine values from multiple time series. An aggregation function returns a series of data points whose values are calculated from corresponding points in two or more input time series. The function's name indicates the way each return value is calculated. For example, `sum()` returns a series of totals, `max()` returns a series of maximums, `avg()` returns a series of means, and so on.
 
 ### Filtering the Input Series
 You use an expression to describe the set of time series to be aggregated. When using a ts() expression, you can include filters to narrow the set. For example, if multiple sources are reporting the metric `~sample.cpu.loadavg.1m`:
-* `sum(ts(~sample.cpu.loadavg.1m))` shows the sum of the values reported for the metric from all sources. 
+* `sum(ts(~sample.cpu.loadavg.1m))` shows the sum of the values reported for the metric from all sources.
 * `sum(ts(~sample.cpu.loadavg.1m, source=app-1*))` shows the sum of the values reported for the metric, but only from sources that match `app-1*`.
 * `sum(ts(~sample.cpu.loadavg.1m, source=app-1*, env=prod))` further filters the input series to those with the point tag `env=prod`.
 
@@ -970,30 +973,30 @@ For example, consider the two time series in the following chart. The reporting 
 
 ![agg lineup](images/query_language_agg_lineup.png)
 
-Now we use the `sum()` function to aggregate these two time series. Each blue point produced by `sum()` is the result of adding the data values reported by the input series at the same minute. 
+Now we use the `sum()` function to aggregate these two time series. Each blue point produced by `sum()` is the result of adding the data values reported by the input series at the same minute.
 
 ![agg lineup sum](images/query_language_agg_lineup_sum.png)
 
 
 ### Aggregating When Data Points Do Not Line Up
 
-In many cases, the set of time series you specify to an aggregation function will have data points that do _not_ "line up" at corresponding moments in time. For example: 
+In many cases, the set of time series you specify to an aggregation function will have data points that do _not_ "line up" at corresponding moments in time. For example:
 * All input series might report data points regularly, but some might report at a longer or shorter interval than the others.
-* One input series might report at irregular times that don't match the reporting times of any other input series. 
+* One input series might report at irregular times that don't match the reporting times of any other input series.
 * One otherwise regular input series might have gaps due to reporting interruptions (e.g., intermittent server or network downtime) which are not experienced by the other input series.
 
 Wavefront provides two kinds of aggregation functions for handling this situation:
-* [_Standard aggregation functions_](#standard-aggregation-functions-interpolation) fill in the gaps in each input series by interpolating values, and therefore operate on interpolated values as well as actual reported data points. 
+* [_Standard aggregation functions_](#standard-aggregation-functions-interpolation) fill in the gaps in each input series by interpolating values, and therefore operate on interpolated values as well as actual reported data points.
 * [_Raw aggregation functions_](#raw-aggregation-functions-no-interpolation) do not interpolate the underlying series before aggregation, but rather operate only on actual reported data points.
 
 
 ### Standard Aggregation Functions (Interpolation)
 
 To see how standard aggregation functions work, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute, and `series 2` reports once every 2.5 minutes. Both series have data points aligned at 4:25 and again at 4:30. Between these times, we see unaligned data points -- 4 points from `series 1`, and one point (at 4:27:30) from `series 2`.
- 
+
 ![agg mismatch](images/query_language_agg_mismatch.png)
 
-Now we use the `sum()` function (a standard aggregation function) to aggregate these two time series. In the following chart, we see that `sum()` produces a result for _every_ moment in time that a data point is reported by _at least one_ input series. Whenever both series report a data point at the same time (for example, 4:25), `sum()` returns a data point whose value is the sum of both reported points (169.05 + 162 = 331.05).  
+Now we use the `sum()` function (a standard aggregation function) to aggregate these two time series. In the following chart, we see that `sum()` produces a result for _every_ moment in time that a data point is reported by _at least one_ input series. Whenever both series report a data point at the same time (for example, 4:25), `sum()` returns a data point whose value is the sum of both reported points (169.05 + 162 = 331.05).
 
 ![agg mismatch sum](images/query_language_agg_mismatch_sum.png)
 
@@ -1013,7 +1016,7 @@ Wavefront interpolates a value into an input time series only under the followin
 
 You can use raw aggregation functions instead of standard aggregation functions if you want the results to be based on actual reported values, without any interpolated values. For example, you might use raw aggregation results as a way of detecting when one or more input time series fail to report a value.
 
-Let's see how the raw aggregation function `rawsum()` treats the two sample time series from the previous section. The following chart shows that `rawsum()`, like `sum()`, produces a result for _every_ moment in time that a data point is reported by _at least one_ input series. 
+Let's see how the raw aggregation function `rawsum()` treats the two sample time series from the previous section. The following chart shows that `rawsum()`, like `sum()`, produces a result for _every_ moment in time that a data point is reported by _at least one_ input series.
 
 Unlike `sum()`, `rawsum()` produces its results by adding up just the actual values at each reporting moment. At 4:26, for example, `rawsum()` returns 164.00, which is the only value reported at this time. No values from `series 2` are present at that time, and none are interpolated.
 
