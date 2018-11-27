@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Virtual Machine Scale Sets Integration
+title: Microsoft Azure Kubernetes Services Integration
 tags: [integrations list]
-permalink: azure_vm_scalesets.html
-summary: Learn about the Wavefront Microsoft Azure Virtual Machine Scale Sets Integration.
+permalink: azure_aks.html
+summary: Learn about the Wavefront Microsoft Azure Kubernetes Services Integration.
 ---
 ## Microsoft Azure Integration
 
