@@ -169,13 +169,12 @@ We support variables in several ways:
 <span id="aggregate"></span>
 
 ## Aggregation Functions
-Aggregation functions are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
+
+[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
 * Standard aggregation functions interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
 * Raw aggregation functions do not interpolate the underlying series before aggregation.
 
 All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.
-
-See [Aggregating Data Values Across Time Series](#aggregating-data-values-across-time-series).
 
 <table style="width: 100%;">
 <colgroup>

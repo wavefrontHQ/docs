@@ -1,10 +1,10 @@
 ---
-title: Standard and Raw Aggregation Functions
+title: Aggregation Functions
 keywords: query language, aggregate function
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_aggregate_functions.html
-summary: Learn how to use standard versus raw aggregation functions in Wavefront Query Language expressions.
+summary: Learn how to use standard and raw aggregation functions in Wavefront Query Language expressions.
 ---
 
 You can use aggregation functions to combine values from multiple time series. An aggregation function returns a series of data points whose values are calculated from corresponding points in two or more input time series. Wavefront provides two types of aggregation functions:

@@ -183,15 +183,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Bucketing with align()
-          url: /query_language_align_function.html
-          output: web
-
-        - title: Holt-Winters Predictive Analysis
-          url: /query_language_hw_function.html
-          output: web
-
-        - title: Standard and Raw Aggregation Functions
+        - title: Aggregation Functions
           url: /query_language_aggregate_functions.html
           output: web
 
@@ -203,8 +195,16 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-        - title: Using Moving and Tumbling Windows to Highlight Trends
+        - title: Highlighting Trends with Moving and Tumbling Windows 
           url: /query_language_windows_trends.html
+          output: web
+
+        - title: Bucketing with align()
+          url: /query_language_align_function.html
+          output: web
+
+        - title: Holt-Winters Predictive Analysis
+          url: /query_language_hw_function.html
           output: web
 
         - title: Use Case Videos
