@@ -56,6 +56,8 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 * Live view -- Changes as you make changes to the dashboard.
 * Current view -- Links to a snapshot of what you're looking at right now.
 
+**Note:**If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to share access first. 
+
 **To share a dashboard using a link**
 1. Navigate to the dashboard and click the Share Dashboard icon.
 
