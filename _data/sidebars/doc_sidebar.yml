@@ -50,7 +50,7 @@ entries:
 
     - title: 2018-42.x Release Notes
       url: /2018.42.x_release_notes.html
-      output: web  
+      output: web
 
     - title: 2018-38.x Release Notes
       url: /2018.38.x_release_notes.html
@@ -191,8 +191,12 @@ entries:
           url: /query_language_hw_function.html
           output: web
 
-        - title: Standard Versus Raw Aggregate Functions
+        - title: Standard and Raw Aggregation Functions
           url: /query_language_aggregate_functions.html
+          output: web
+
+        - title: Discrete and Continuous Time Series
+          url: /query_language_discrete_continuous.html
           output: web
 
         - title: Detecting Anomalies
