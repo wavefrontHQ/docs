@@ -18,7 +18,7 @@ Before you start with users and groups, here's what you need to know:
 
 ### What Can a New User Do?
 
-What a new user can do depends on new user actions, new user permissions, and new user group membership.
+When you invite a user to Wavefront, what that new user can do depends on new user actions, new user permissions, and new user group membership.
 
 - **New User Actions:** When an account is created in Wavefront, the user can perform the following actions:
   * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notificat pages
@@ -30,8 +30,11 @@ What a new user can do depends on new user actions, new user permissions, and ne
 
   In earlier Wavefront releases, these new user tasks were associated with a permission (Browse Data). This permission no longer exists.
 
-- **New User Permissions:** Administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**).
+- **New User Permissions - Existing Customers** For customers who joined Wavefront before 2019, administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**). For those customers, the Everyone group has no permissions.
+- **New User Permissions - New Customers** For customers who joined Wavefront in 2019 and later, the permissions of the Everyone group determine the new user permissions. Administrators can modify the permissions 
 - **New User Groups:** Administrators can set up a group with permissions for all new users, and set up the environment to assign all new users to that group (**System Preferences > New User Defaults**).
+
+
 
 ### Who is Super Admin?
 
@@ -130,4 +133,4 @@ To add new users to additional groups:
   * Start typing the name of additional groups to add groups.
   * Click the **x** next to a group name to remove groups. You cannot remove the Everyone group.
 
-The user gets the permissions from the group and any permissions set as **New User Default Permissions**.  
+The user gets the permissions from the group and any permissions set as **New User Default Permissions**.

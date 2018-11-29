@@ -36,7 +36,7 @@ In that model:
 
 ## Level 2: Permissions for Groups and Users
 
-Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent. They can use groups with permissions only, or with the access control list (ACL) for objects (see Level 3).
+Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent. They can use groups with permissions only, or can use access control for objects (see Level 3).
 
 Groups support permission management like this:
 * Administrators create one or more groups and assign permissions. For example, administrators might create an Admin group that includes User Management permission.
@@ -48,7 +48,7 @@ Wavefront does not currently integrate with the groups of your identity manager 
 
 ## Level 3: Access Control for Objects
 
-Starting with Release 2018.46.x, Wavefront supports object-level access control lists (ACLs) in addition to permissions. Initially, we support access control only for dashboards.
+Starting with Release 2018.46.x, Wavefront supports object-level access control in addition to permissions. Initially, we support access control only for dashboards.
 
 By default, all users with **Dashboard** permission can view and modify all dashboards. An administrator can change the default Security preference to grant access  for *new* dashboards only to the dashboard creator.
 
@@ -58,7 +58,7 @@ After the preference change, only the dashboard creator can access new dashboard
 * If you change the security setting to give modify access only to the dashboard creator  (strict access), then you affect any new dashboards for the customer or tenant (team).
 * If you return the security setting to to Everyone, then all dashboards that were created while only the dashboard creator had Modify access for a new dashboard, remain protected by the access control list.
 
-ACLs work like this:
+Access control works like this:
 
 * Initially, all users in the Everyone group--that is, all users--have View and Modify access to all dashboards.
 * When the administrator changes the default Security system preference, access control starts:
