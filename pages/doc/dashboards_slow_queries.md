@@ -4,7 +4,7 @@ keywords: getting started
 tags: [query language, dashboards, best practice]
 sidebar: doc_sidebar
 permalink: dashboards_slow_queries.html
-summary: Learn how to display the Slow Query Dashboard page and use the information available in the dashboard to help you understand which and why queries take a long time to complete.
+summary: Learn how to use Slow Query dashboards to understand which queries take a long time to complete.
 ---
 ## Displaying the Slow Query Dashboard
 1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select your username.
