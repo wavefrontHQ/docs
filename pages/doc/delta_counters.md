@@ -4,41 +4,44 @@ keywords: metrics
 tags:
 sidebar: doc_sidebar
 permalink: delta_counters.html
-summary: Learn when and how to use delta counters
+summary: Learn when and how to use delta counters.
 ---
-Wavefront supports [several types of metrics](metric_types.html). For example, counters support aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. Delta counters make counter functionality available for serverless Function-as-a-service environments and some other use cases.
+Wavefront supports [several types of metrics](metric_types.html). Counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. Delta counters make counter functionality available for serverless Function-as-a-service environments and some other use cases.
 
-For example, users who are monitoring an environment where multiple sources perform the same function can't use regular counters. Lost points because of collision are likely. Wavefront solves the problem by performing the aggretation on the server side.
+For example, users who are monitoring an environment where multiple sources perform the same function can't use regular counters. Lost points because of collision are likely. Wavefront solves the problem by performing the aggregation on the server side.
 
 
 ## Where Are Delta Counters Useful?
 
-Delta counters are useful if you want to combine points come in at the same time from several sources. For example:
+Delta counters are useful if you want to combine points that come in at the same time from several sources. For example:
 
-* If you're monitoring a Function-as-a-Service (FaaS or serverless) environment, many functions execute simultaneously. It's not possible to monitor bursty traffic like that without without losing reported metric points due to collision.
-* You want to collect metrics from two sets of application each using a separate Telegraf instance behind a load balancer.
+* You're monitoring a Function-as-a-Service (FaaS or serverless) environment, and many functions execute simultaneously. It's not possible to monitor bursty traffic like that without losing some reported metric points due to collision.
+* You want to collect metrics from two sets of applications, each using a separate Telegraf instance behind a load balancer.
 ![telegraf and delta_counters](images/delta_metrics_telegraph.svg)
-* Wavefront uses delta counters to aggregate counters across multiple apps for the [logs to metrics Wavefront integration](integrations_log_data.html).
+* You want to aggregate counters across multiple apps. For example, Wavefront uses delta counters for the [logs to metrics Wavefront integration](integrations_log_data.html).
 
 For more on delta counter use cases, see our blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/)
 
+### Collecting Counter Metrics and Delta Counter Metrics
 
 Even in a serverless environment, it makes sense to collect both counter metrics and delta counter metrics.
 * Use regular counters for monitoring over long periods of time, where a small number of metrics lost to collision are not a problem.
-* Use delta counters to accurately accumulate points where shorts bursts of high-volume traffic is experienced and collisions can become a problem.
+* Use delta counters to accurately accumulate points when shorts bursts of high-volume traffic is experienced and collisions can become a problem.
 
 ### Example: Monitoring AWS Lambda
 
-AWS Lambda allows you to specify functions you want to run -- and then you can stop worrying about the function execution. For example, assume you want to generate a thumbnail each time any of your users uploads images to their folder. You can write a Lambda function that monitors the folders and takes care of thumbnail generation for you. AWS runs as many of the functions as necessary to handle the current workload, and you don't have to worry about scaling up or down.
+AWS Lambda allows you to specify functions that you want to run -- and then you can stop worrying about the function execution. For example, assume that you want to generate a thumbnail each time any of your users uploads images to a folder. You can write a Lambda function that monitors the folders and takes care of thumbnail generation for you. AWS runs as many of the functions as necessary to handle the current workload, and you don't have to worry about scaling up or down.
 
-Delta counters make it easy to do monitoring for this use case. The Wavefront service aggregates the metrics that come from different invocations of the same functions. The Wavefront AWS Lambda Functions integration comes preconfigured with several delta counters and several counters for standard metrics. In addition, you can monitor business metrics by using our SDK to define a wrapper for your AWS Lambda function. See [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions.
+Delta counters make monitoring easy for this use case. The Wavefront service aggregates the metrics that come from different invocations of the same function. The Wavefront AWS Lambda Functions integration comes preconfigured with several delta counters and a gauge for standard metrics. In addition, you can monitor custom business metrics by using our SDK to define a wrapper for your AWS Lambda function. See the [AWS Lambda Functions Integration](aws-lambda-functions.html) for setup instructions.
 
 
 ## Using Delta Counters
-Start with our sample libraries - or you can send metrics as delta counters explicitly if you specify a delta character as the first letter.
+To use delta counters, you have several options:
+* Start with our sample libraries.
+* Send metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
 
-### APIs
-You can use the APIs in our libraries to make your metric a delta counter.
+### SDKs
+You can use our SDKs to make your metric a delta counter.
 
 **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
   - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
@@ -66,5 +69,5 @@ Delta counters are like other counters in many ways.
 
 
 Delta counters have some special characeristics.
-* The timestamp of a delta counter is the time at which the point was *aggregated* by the Wavefront service. For regular counters, the timestamp is the time when the counter is *emitted*.
-* If the source for your delta counters stops reporting, Wavefront initially continues reporting once a minute for 1 hour. If the source does not report for an hour, Wavefront resets a delta counter to 0, stops aggregating, and stops reporting.
+* The timestamp of a delta counter is the time at which the point was *aggregated* by the Wavefront service. For regular counters, the timestamp is the time when the point is *emitted*.
+* If the source for your delta counters stops reporting, Wavefront continues reporting once a minute for 1 hour. If the source does not report for an hour, Wavefront resets the delta counter to 0, stops aggregating, and stops reporting.
