@@ -11,6 +11,7 @@ Wavefront supports a [REST API for management](wavefront_api.html) and several S
 * The Wavefront REST API allows you to perform management tasks that you'd perform from the UI, such as creating events. You can use Swagger to create an API client or a CLI client from this API.
 * The [SDKs](wavefront_sdks.html) allow you to send metrics to the Wavefront proxy or directly to the Wavefront service. These SDKs are available through different integrations and in GitHub.
 
+**Note:** You can use our API to [interactively try things out](https://www.wavefront.com/wavefront-rest-api/) from the in-product REST API doc. 
 
 
 ## REST API Overview
@@ -97,7 +98,7 @@ The REST API supports the following categories of management tasks:
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard Management permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Event** - Retrieve events and tags associated with a specific event. Users with [Event Management permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
 - **External Link** - Navigate external links. Users with [External Links Management permission](permissions_overview.html) can create, update, and delete external links.
-- **Integration** - Retrieve integrations. Users with [Integration Management permission](permissions_overview.html) can install and uninstall integration dashboards. 
+- **Integration** - Retrieve integrations. Users with [Integration Management permission](permissions_overview.html) can install and uninstall integration dashboards.
 - **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [Alert Management permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Retrieve messages and mark messages read.
 - **Metric** - Retrieve details on a metric.
