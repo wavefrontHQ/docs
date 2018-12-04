@@ -77,6 +77,12 @@ To run the Telegraf agent on a host:
 1. Run `brew services restart telegraf`.
 1. Check `/usr/local/var/log/telegraf.log` to verify the installation.
 
+### Upgrade the Wavefront Proxy and Telegraf Agent
+Once installed, to upgrade the Wavefront Proxy and Telegeraf to the latest version:
+1. Run `brew update`
+2. Run `brew upgrade wfproxy` to upgrade the Wavefront Proxy
+3. Run `brew upgrade telegraf` to upgrade Telegraf
+
 ### Uninstall the Wavefront Proxy and Telegraf Agent
 
 To uninstall the Wavefront proxy and Telegraf agent, run:
