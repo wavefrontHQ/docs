@@ -14,37 +14,29 @@ You must have Users & Groups permission or be a Super Admin user to view and man
 
 ## Users and Groups Basics
 
-Before you start with users and groups, here's what you need to know:
+Before you start with users and groups, here's what you need to know.
 
 ### What Can a New User Do?
 
-When you invite a user to Wavefront, what that new user can do depends on new user actions, new user permissions, and new user group membership.
+When you invite a user to Wavefront, what that new user can do depends on several factors.
 
-- **New User Actions:** When an account is created in Wavefront, the user can perform the following actions:
-  * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notificat pages
+- **New User Tasks:** All Wavefront users can perform the following tasks:
+  * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notification pages
   * Add dashboards to the list of favorites
   * View existing dashboards and charts
   * Create and interact with charts – but NOT save charts
   * Share links to dashboards and charts with other users
   * Access the user profile from the gear icon
 
-  In earlier Wavefront releases, these new user tasks were associated with a permission (Browse Data). This permission no longer exists.
+  **Note:** It's possible that [access to dashboards](access.html#how-access-control-works) is limited.
 
-- **New User Permissions - Existing Customers** For customers who joined Wavefront before 2019, administrators can view and modify new user default permissions from the gear icon (**System Preferences > New User Defaults**). For those customers, the Everyone group has no permissions.
-- **New User Permissions - New Customers** For customers who joined Wavefront in 2019 and later, the permissions of the Everyone group determine the new user permissions. Administrators can modify the permissions 
-- **New User Groups:** Administrators can set up a group with permissions for all new users, and set up the environment to assign all new users to that group (**System Preferences > New User Defaults**).
-
+- **New User Permissions:** Users with Users & Groups permission can view and modify new user default permissions [from the gear icon](users_groups.html#setting-default-permissions-for-new-users).
+- **New User Groups:** Administrators can set up a group with permissions for all new users, and set up the environment to [assign all new users to that group](users_groups.html#setting-the-default-group-for-new-users).
 
 
 ### Who is Super Admin?
 
 When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions and can also  perform some tasks that nobody else can perform, such as looking at orphan dashboards and inviting other Super Admin users.
-
-To add a Super Admin user:
-1. Click the gear icon and select **Super Admin**
-2. Enter the user name of a user you want to add as Super Admin.
-
-Going forward, that user can perform Super Admin tasks.
 
 ### Why Groups?
 
@@ -52,7 +44,7 @@ Groups make it easy to make changes for many users. More importantly, if you cha
 
 **Note:** Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
-### What's the Everyone Group
+### What's the Everyone Group?
 
 All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
 Here's what you need to know:
@@ -60,23 +52,10 @@ Here's what you need to know:
 * You cannot remove users from the Everyone group. All users, including Super Admin, are always in the Everyone group.
 * You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means users can browse data but cannot modify anything.
 * **Warning** If you change the permissions assigned to the Everyone group, you change the permissions for each user in your environment.
-* If you use access management in your environment, you can share a dashboard with the Everyone group to:
+* If you use access control in your environment, you can share a dashboard with the Everyone group to:
   - Give View & Modify access to users who have Dashboard permissions
   - Give View access to users who don't have Dashboard permissions
   You can also remove the Everyone group from a dashboard to limit access to the dashboard.
-
-## Accessing Management Pages
-
-The Super Admin user and users who have Users & Groups permission can access management pages:
-1. Click the gear icon <i class="fa fa-cog"/> on the task bar.
-2. Select one of the menu items:
-   - **System Preferences** -- Set initial preferences for all users.
-   - **User Group Management** -- Create, manage, and delete groups.
-   - **User Management** -- Invite, manage, and delete users.
-3. If you're logged in as Super Admin, you can also select the following menu item:
-   - **Super Admin** -- Manage Super Admin users and Orphaned objects.
-
-**Note:** You might be prompted to re-enter your login credentials to perform user management tasks.
 
 ## Managing Groups
 
@@ -89,7 +68,7 @@ Users who have **Users & Groups** permission can create groups, change groups by
    3. Select the initial set of permissions for the group and click **Create**.
 3. To change a group's users or permission:
    2. Select the group you want to change.
-   3. Select **Add User**, **Remove User**, **Grant Permission**, or **Revoke Permission**.
+   3. Select **+User**, **-User**, **+Permission**, or **-Permission**.
 
    **Note:** If you revoke permission for a group, all users in that group no longer have the permission unless they belong to another group with that permission or they have the individual permission.
 
@@ -105,18 +84,26 @@ Users with Users & Groups permissions can manage users.
 3. To delete a user, change permissions, or change group membership:
    1. Select one or more users on the Users page.
    2. Select the check box for one or more users.
-   3. Click the **Permission**, **Group**, or trash can button, and confirm when prompted.
+   3. Click one of the **Permission** or  **Group** icons or the trash can button, and confirm when prompted.
 
    If you delete a user, you remove that user's access to Wavefront. You can instead remove the user from one or more groups.
 
-New users can browse data and might have additional permissions based on group membership. Each user receives an email with an account activation link that is valid for 24 hours.
+[New users](users_groups.html#what-can-a-new-user-do) can browse data and might have additional permissions. Each invited user receives an email with an account activation link that is valid for 24 hours.
+
+## Adding a Super Admin
+
+To add a Super Admin user:
+1. Click the gear icon and select **Super Admin**.
+2. Enter the user name of a user you want to add as Super Admin.
+
+Going forward, that user can perform Super Admin tasks.
 
 ## Setting Default Permissions for New Users
 
 By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system from that point on:
 
-1. From the gear icon, select **System Preferences** and pick **New User Defaults**.
-2. Check the set of permissions you want to grant to new users.
+1. Click the gear icon and select **System Preferences**.
+2. Click **New User Defaults** and check the set of permissions you want to grant to new users.
 
 The default permissions affect new user accounts that you create after you made the change.
 
@@ -125,12 +112,12 @@ The default permissions affect new user accounts that you create after you made 
 
 ## Setting the Default Group for New Users
 
-By default, each new user is assigned to the Everyone group.
+Each new user is assigned to the Everyone group.
 
-To add new users to additional groups:
+To add a new user to additional groups:
 1. Click the gear icon and select **System Preferences**.
 2. In the Default User Groups field
   * Start typing the name of additional groups to add groups.
-  * Click the **x** next to a group name to remove groups. You cannot remove the Everyone group.
+  * Click the **x** next to a group name to remove a group. You cannot remove the Everyone group.
 
-The user gets the permissions from the group and any permissions set as **New User Default Permissions**.
+Going forward, new users are added to the group. They get the group's permissions and any permissions set as **New User Default Permissions**.

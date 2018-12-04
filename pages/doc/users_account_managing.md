@@ -43,10 +43,12 @@ In your user profile, you can configure several preferences, for example, select
 
 If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html). You can check the permissions you have and see which groups you belong to from your account page.
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
-2. Click the **Groups & Permissions** tab.
-3. You see a list of groups, and the permissions you have. Hover over any group to see the permissions you have because you belong to that group. Permissions are additive.
+2. Click the **Groups & Permissions** tab to display the groups you belong to and the permissions you have.
+![groups and permissions](images/groups_and_permissions.png)
 
-If you have **Dashboard** permission, it's possible that the [Access system preference](access.html) is set to allow access to new dashboards only to the creator. Ask the dashboard creator to share the dashboard with you.
+3. Hover over any group to see the permissions you have because you belong to that group. Permissions are additive.
+
+**Note:** It's possible that you can't modify a dashboard even if you have Dashboard permission. In that case,  the [Security system preference](access.html) is set to allow access to new dashboards only to the creator. Ask the dashboard creator to share the dashboard with you.
 
 ## Generating an API Token
 
