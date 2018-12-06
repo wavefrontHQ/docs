@@ -15,7 +15,7 @@ We added the following integrations in November 2018:
 * Jaeger
 * Istio
 * Envoy Proxy
-* Kubernetes Beta
+* Kubernetes Beta (Uses the new `wavefront-kubernetes-collector` to monitor Kubernetes)
 * Microsoft Azure Kubernetes Service
 * NVIDIA
 * JMX
@@ -25,7 +25,7 @@ We added the following integrations in November 2018:
 
 We made the following improvements to integrations in November 2018:
 
-* Improved dashboard filtering for the following Amazon dashboards:
+* Improved dashboard filtering for the following AWS dashboards:
    * Amazon ECS
    * Amazon RDS
    * Amazon ElasticSearch
