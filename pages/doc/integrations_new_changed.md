@@ -14,12 +14,12 @@ This document lists new and changed integrations on a per-month basis. We update
 We added the following integrations in November 2018:
 * Jaeger
 * Istio
-* Envoy
+* Envoy Proxy
 * Kubernetes Beta
 * Microsoft Azure Kubernetes Service
 * NVIDIA
 * JMX
-* Impala
+* Apache Impala
 * Google Big Query
 * VMware vSphere
 
@@ -36,8 +36,8 @@ We made the following improvements to integrations in November 2018:
    * Amazon EMR
    * Amazon S3
    * Amazon Kinesis Data Stream
-* Added dashboard to Telegraf integration for tracking Telegraf agent performance
-* Added canary metrics and health status dashboard for vRealize Operations integration
+* Added dashboard for tracking Telegraf agent performance to Telegraf integration.
+* Added canary metrics and health status dashboard for vRealize Operations integration.
 
 ## October 2018
 
