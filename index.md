@@ -11,7 +11,7 @@ Welcome to the Wavefront documentation site!
 
 * New users usually start with [What is Wavefront?](wavefront_introduction.html) or [Docs and Dashboards Overview](documentation_getting_started.html).
 * Even if you don't usually read docs, have a look at the [Wavefront Query Language Quick Reference](query_language_reference.html) or look at [individual reference pages](label_reference%20page.html)
-* Ready to try for yourself? Sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}!
+* Ready to try for yourself? Sign up for a [free trial](https://www.wavefront.com/sign-up/?utm_source=Website&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}!
 
 You can explore the documentation in the nav bar hierarchy on the left. Each topic also has one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
 
