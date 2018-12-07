@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Load Balancers Integration
+title: Microsoft Azure Redis Caches Integration
 tags: [integrations list]
-permalink: azure_lb.html
-summary: Learn about the Wavefront Microsoft Azure Load Balancers Integration.
+permalink: azure_redis_caches.html
+summary: Learn about the Wavefront Microsoft Azure Redis Caches Integration.
 ---
 ## Microsoft Azure Integration
 
