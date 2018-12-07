@@ -46,7 +46,7 @@ These entries instruct the Wavefront proxy to listen for log data:
 
 You use grok patterns (similar to [Logstash](https://www.elastic.co/products/logstash)) to add structure to your log data. To do this:
 1. Open the `logsIngestion.yaml` file you specified in the proxy configuration file. The file may be empty.
-2. Add the following snipped, which specifies basic instructions for parsing log data:
+2. Add the following snippet, which gives instructions for parsing log data:
 
 ```yaml
 aggregationIntervalSeconds: 5  # Metrics are aggregated and sent at this interval
