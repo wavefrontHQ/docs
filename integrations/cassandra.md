@@ -8,7 +8,7 @@ summary: Learn about the Wavefront Cassandra Integration.
 
 Apache Cassandra is a free and open-source distributed NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients.
 
-This integration installs and configures Telegraf to send Cassandra metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
+This integration installs and configures Telegraf Jolokia2 input plugin to send Cassandra metrics into Wavefront. Telegraf is a light-weight server process capable of collecting, processing, aggregating, and sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html).
 
 Collecting Cassandra metric requires the installation of Jolokia java-jvm agent. [Jolokia](https://jolokia.org/index.html) is a JMX-HTTP bridge giving an alternative to JSR-160 connectors. It is an agent based approach with support for many platforms. 
 The Cassandra integration collects Cassandra 3 / JVM metrics exposed as MBean's attributes through jolokia REST endpoint.
@@ -27,7 +27,7 @@ To see a list of the metrics for this integration, select the integration from <
 1. Download Jolokia agent and save it in /usr/share/java
 {% raw %}
    ```
-   sudo curl -o /usr/share/java/jolokia-jvm-1.3.7-agent.jar -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.3.7/jolokia-jvm-1.3.7-agent.jar
+   sudo curl -o /usr/share/java/jolokia-jvm-1.6.0-agent.jar -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar
    ```
 
 1. Enable Jolokia agent in Cassandra
@@ -35,17 +35,17 @@ To see a list of the metrics for this integration, select the integration from <
     1. Modify /etc/default/cassandra
 
        ```
-       echo "export JVM_EXTRA_OPTS=\"-javaagent:/usr/share/java/jolokia-jvm-1.3.7-agent.jar=port=8778,host=localhost\"" | sudo tee -a /etc/default/cassandra
+       echo "export JVM_EXTRA_OPTS=\"-javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost\"" | sudo tee -a /etc/default/cassandra
        ```
-    
-    1. Alternatively, one can also enable the agent by modifying cassandra-env.sh 
-    
+
+    1. Alternatively, one can also enable the agent by modifying cassandra-env.sh
+
        Include the following line at the bottom of the your cassandra-env.sh
-        
+
        ```
-       JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.3.7-agent.jar=port=8778,host=localhost"
+       JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
        ```
- 
+
 1. Restart cassandra
 
    ```
@@ -53,7 +53,7 @@ To see a list of the metrics for this integration, select the integration from <
    ```
 
 1. Verify that you can access Jolokia on port 8778 by running:
- 
+
    ```
    curl http://localhost:8778/jolokia/
    ```
@@ -70,73 +70,107 @@ Create a file called `cassandra.conf` in `/etc/telegraf/telegraf.d` and enter th
 
 ```
 # Cassandra
-[[inputs.cassandra]]
+[[inputs.jolokia2_agent]]
   # This is the context root used to compose the jolokia url
-  context = "/jolokia/read"
   ## List of cassandra servers exposing jolokia read service
-  servers = ["127.0.0.1:8778"]
-  
-  metrics = [   
-        "/java.lang:type=Memory/HeapMemoryUsage",
-        "/java.lang:type=Memory/NonHeapMemoryUsage",
-        "/java.lang:type=GarbageCollector,name=ConcurrentMarkSweep/CollectionTime",
-        "/java.lang:type=GarbageCollector,name=ConcurrentMarkSweep/CollectionCount",
-        "/java.lang:type=GarbageCollector,name=ParNew/CollectionTime",
-        "/java.lang:type=GarbageCollector,name=ParNew/CollectionCount",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=TotalLatency",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=TotalLatency",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Latency",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Latency",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Timeouts",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Timeouts",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Unavailables",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Unavailables",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Read,name=Failures",
-        "/org.apache.cassandra.metrics:type=ClientRequest,scope=Write,name=Failures",
-        "/org.apache.cassandra.metrics:type=CommitLog,name=TotalCommitLogSize",
-        "/org.apache.cassandra.metrics:type=Compaction,name=PendingTasks",
-        "/org.apache.cassandra.metrics:type=Compaction,name=BytesCompacted",
-        "/org.apache.cassandra.metrics:type=Connection,name=TotalTimeouts",
-        "/org.apache.cassandra.metrics:type=Storage,name=Load",
-        "/org.apache.cassandra.metrics:type=Storage,name=Exceptions",
-        "/org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=ReadLatency",
-        "/org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=ReadTotalLatency",
-        "/org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=WriteLatency",
-        "/org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=WriteTotalLatency",
-        "/org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=LiveDiskSpaceUsed",
-        "/org.apache.cassandra.metrics:type=ColumnFamily,keyspace=*,scope=*,name=MaxRowSize",
-        "/org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Hits",
-        "/org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Requests",
-        "/org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Entries",
-        "/org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Size",
-        "/org.apache.cassandra.metrics:type=Cache,scope=KeyCache,name=Capacity",
-        "/org.apache.cassandra.metrics:type=Cache,scope=RowCache,name=Hits",
-        "/org.apache.cassandra.metrics:type=Cache,scope=RowCache,name=Requests",
-        "/org.apache.cassandra.metrics:type=Cache,scope=RowCache,name=Entries",
-        "/org.apache.cassandra.metrics:type=Cache,scope=RowCache,name=Size",
-        "/org.apache.cassandra.metrics:type=Cache,scope=RowCache,name=Capacity",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=internal,scope=CompactionExecutor,name=ActiveTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=internal,scope=CompactionExecutor,name=ActiveTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=internal,scope=AntiEntropyStage,name=ActiveTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=CounterMutationStage,name=PendingTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=CounterMutationStage,name=CurrentlyBlockedTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=MutationStage,name=PendingTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=MutationStage,name=CurrentlyBlockedTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadRepairStage,name=PendingTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadRepairStage,name=CurrentlyBlockedTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadStage,name=PendingTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=ReadStage,name=CurrentlyBlockedTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=RequestResponseStage,name=PendingTasks",
-        "/org.apache.cassandra.metrics:type=ThreadPools,path=request,scope=RequestResponseStage,name=CurrentlyBlockedTasks"
-      ]
-```
+  urls = ["http://localhost:8778/jolokia"]
+  name_prefix = "cassandra2."
 
-Replace the servers field with your Cassandra servers that have installed Jolokia agent.
+  [[inputs.jolokia2_agent.metrics]]
+    name  = "javaMemory"
+    mbean = "java.lang:type=Memory"
 
-```
-servers = ["[username[:password]]@[your_server_host]:8778"]
+  [[inputs.jolokia2_agent.metric]]
+    name  = "javaGarbageCollector"
+    mbean = "java.lang:name=*,type=GarbageCollector"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "Cache"
+    mbean = "org.apache.cassandra.metrics:name=*,scope=*,type=Cache"
+    tag_keys = ["name", "scope"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "Client"
+    mbean = "org.apache.cassandra.metrics:name=*,type=Client"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "ClientRequestMetrics"
+    mbean = "org.apache.cassandra.metrics:name=*,type=ClientRequestMetrics"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "ClientRequest"
+    mbean = "org.apache.cassandra.metrics:name=*,scope=*,type=ClientRequest"
+    tag_keys = ["name", "scope"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "CommitLog"
+    mbean = "org.apache.cassandra.metrics:name=*,type=CommitLog"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "Compaction"
+    mbean = "org.apache.cassandra.metrics:name=*,type=Compaction"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "CQL"
+    mbean = "org.apache.cassandra.metrics:name=*,type=CQL"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "DroppedMessage"
+    mbean = "org.apache.cassandra.metrics:name=*,scope=*,type=DroppedMessage"
+    tag_keys = ["name", "scope"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "FileCache"
+    mbean = "org.apache.cassandra.metrics:name=*,type=FileCache"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "ReadRepair"
+    mbean = "org.apache.cassandra.metrics:name=*,type=ReadRepair"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "Storage"
+    mbean = "org.apache.cassandra.metrics:name=*,type=Storage"
+    tag_keys = ["name"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name  = "ThreadPools"
+    mbean = "org.apache.cassandra.metrics:name=*,path=*,scope=*,type=ThreadPools"
+    tag_keys = ["name", "path", "scope"]
+    field_prefix = "$1_"
+
+  [[inputs.jolokia2_agent.metric]]
+    name = "Table"
+    mbean = "org.apache.cassandra.metrics:type=Table,keyspace=*,scope=*,name=*"
+    tag_keys = ["keyspace", "scope", "name"]
+    field_prefix = "$3_"
+
+  [inputs.jolokia2_agent.tags]
+    cassandra_host="<server-name>"
 ```
 {% endraw %}
+
+Replace the cassandra_host field with your Cassandra server hostname that have installed Jolokia agent.
+
 
 ### Step 4. Restart Telegraf
 
