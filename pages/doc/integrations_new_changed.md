@@ -9,6 +9,36 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a per-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## November 2018
+
+We added the following integrations in November 2018:
+* Jaeger
+* Istio
+* Envoy Proxy
+* Kubernetes Beta (Uses the new `wavefront-kubernetes-collector` to monitor Kubernetes)
+* Microsoft Azure Kubernetes Service
+* NVIDIA
+* JMX
+* Apache Impala
+* Google Big Query
+* VMware vSphere
+
+We made the following improvements to integrations in November 2018:
+
+* Improved dashboard filtering for the following AWS dashboards:
+   * Amazon ECS
+   * Amazon RDS
+   * Amazon ElasticSearch
+   * Amazon Kinesis Data Firehose
+   * AWS ALB
+   * AWS Lambda
+   * AWS ELB
+   * Amazon EMR
+   * Amazon S3
+   * Amazon Kinesis Data Stream
+* Added dashboard for tracking Telegraf agent performance to Telegraf integration.
+* Added canary metrics and health status dashboard for vRealize Operations integration.
+
 ## October 2018
 
 We added the following integrations in October 2018:

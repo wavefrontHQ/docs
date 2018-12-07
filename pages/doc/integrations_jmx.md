@@ -4,6 +4,7 @@ keywords:
 tags: [integrations, proxies]
 sidebar: doc_sidebar
 permalink: integrations_jmx.html
+published: false
 summary: Learn how to send JMX data to Wavefront.
 ---
 
