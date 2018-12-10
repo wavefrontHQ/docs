@@ -6,38 +6,29 @@ sidebar: doc_sidebar
 permalink: access.html
 summary: Learn how to manage access to dashboards.
 ---
-The users/groups/permissions authorization paradigm works well for many Wavefront customers. However, admins who need finer-grained control can manage access on a per-object basis. The first release supports [access control for dashboards](authorization.html#level-3-access-control-for-objects).
+The users/groups/permissions authorization paradigm is sufficient for many Wavefront customers. However, admins who need finer-grained control can manage access to Wavefront objects on a per-object basis. The first release supports access control for dashboards. See [Authorization in Wavefront](authorization.html#level-3-access-control-for-objects) for background information.
 
+**Note**: After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can share the object with other groups or users.
 
 ## How Access Control Works
 
-Wavefront supports granting and revoking access to individual dashboards.
-* By default, all users are in the Everyone group, and the Everyone group is in the access list of each dashboard.
-* Administrators can change who can access an individual dashboard from the dashboard browser.
-
-In sensitive environments, you can ensure that access for new dashboards is limited.
+Initially, Wavefront supports granting and revoking access to dashboards.
+* By default, all users can access all dashboards.
 * If administrators change a security preference, each *new* dashboard is visible only to the creator and to Super Admin.
 * The dashboard creator or Super Admin can then share new dashboards with groups or users.
-* If an administrator changes the security preference back to allow Everyone access, then the dashboards that were created while the strict security preference was set continue to be governed by access control.
+* If the administrator changes the security preference back to allow Everyone access, then the dashboards that were created while the strict security preference was set continue to be governed by access control.
 
-## Changing Dashboar Access from the Dashboard Browser
 
-Users with Dashboard permission can change access to one or more dashboards.
+## Changing the Access Control Preference
 
-To change access for one dashboard:
-1. Select **Dashboards > All Dashboards**.
-2. Select the dashboard and
-  * Click **+Access+** to grant access more users and groups.
-  * Click **-Access** to revoke access for users and groups.
-**Warning:** If you remove the Everyone group and you don't add another group, only Super Admin can view the dashboard. You might have to ask Super Admin to [restore the orphan dashboard].
+Initially, all users can view all dashboards and users with Dashboard permission can modify all dashboards. For more control, administrators can restrict access for new dashboards:
 
-To change access for multiple dashboards:
-1. From the top menu bar, click **Dashboards > All Dashboards**.
-2. Select the check boxes for the dashboards you want to change. You can see the dashboard's current Access settings in the **Access** column.
-3. Make the change:
-   * Click **+Access** to add groups/users. Access is added for each selected dashboard.
-   * Click **-Access** to remove groups/users. Only the groups or users that have access to all selected dashboards are visible in the Revoke Access dialog.
-4. Click **Update**.
+1. Click the gear icon and select **System Preferences**.
+2. Click the **Security** tab and select **Grant Modify Access To: Creator**
+
+After the change to the preference, access to new dashboards is initially limited to the dashboard creator and Super Admin users. Those two users can share the dashboard with other groups of users and individual users by giving View access or View & Modify access.
+
+**Note:** A security preference change applies only to dashboards created after the change. If you change the setting to **Creator**, only new dashboards have restricted access. If you later change the setting to **Everyone**, all dashboards that were created while the setting was **Creator** keep the restricted access.
 
 ## Sharing Dashboards with Limited Access
 
@@ -51,23 +42,20 @@ If the Security system preference is set to **Grant Modify Access To: Creator**,
 
 Privileged users can later remove groups or users to revoke access.
 
-## Changing the Access Security Preference for New Dashboards
+## Change Access for Multiple Dashboards
 
-Initially, all users can view all dashboards and users with Dashboard permission can modify all dashboards. For more control, administrators can restrict access for new dashboards:
+Privileged users can change the access setting for multiple dashboard from the Dashboards browser.
+1. From the top menu bar, click **Dashboards > All Dashboards**.
+2. Select the check boxes for the dashboards you want to change. You can see the dashboard's current Access settings in the **Access** column.
+3. Click **+Access** to add groups/users and **-Access** to remove groups/users.
+4. Specify the groups/users and click **Update**.
 
-1. Click the gear icon and select **System Preferences**.
-2. Click the **Security** tab and select **Grant Modify Access To: Creator**
+## Making Orphan Dashboards Visible
 
-After the change to the preference, access to new dashboards is initially limited to the dashboard creator and Super Admin users. Those two users can share the dashboard with other groups of users and individual users by giving View access or View & Modify access.
-
-**Note:** A security preference change applies only to dashboards created after the change. If you change the setting to **Creator**, only new dashboards have restricted access. If you later change the setting to **Everyone**, all dashboards that were created while the setting was **Creator** keep the restricted access.
-
-
-## Restoring Orphan Dashboards
-
-An orphan dashboard results in these situations:
-* The Everyone group was removed from a dashboard's access list and no other user or group are in the dashboard's access list.
-* The dashboard creator did not share a dashboard and the dashboard creator user account is deleted.
+An orphan dashboard results if:
+* The security preference is set to Creator only.
+* The dashboard creator did not share a dashboard.
+* The dashboard creator user account is deleted.
 The dashboard and all its charts and alerts still exist, potentially sending alerts and consuming resources, but no users except for Super Admin can view and modify or delete the dashboard.
 
 To access an orphan dashboard:
