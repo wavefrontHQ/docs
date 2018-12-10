@@ -30,13 +30,16 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 ### Step 2. Install Prometheus Plugin
 Jenkins metrics can be collected using the Jenkins Prometheus Plugin. Install the plugin like this:
 
-1. Log in to your Jenkins environment as an administrator and select **Manage Jenkins > Manage Plugins**. 
+1. Log in to your Jenkins environment as an administrator and select **Manage Jenkins > Manage Plugins**.
 2. Select the **Available** tab, and search for **Prometheus**.
 3. Select the `Prometheus` plugin and install using standard instructions.
- 
+
 For details, see the Jenkins [Managing Plugins](https://jenkins.io/doc/book/managing/plugins/) docs.
 
-### Step 3. Enable the Prometheus Input Plugin
+### Step 3. Set the Permission for an Anonymous User
+Set the ACL in Jenkins to allow anonymous user to allow Prometheus to read job metrics as it's scraping clients.
+
+### Step 4. Enable the Prometheus Input Plugin
 
 Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
@@ -70,6 +73,6 @@ urls = [
 ]
 ```
 {% endraw %}
-### Step 4. Restart Telegraf
+### Step 5. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.

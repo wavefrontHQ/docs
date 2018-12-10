@@ -195,7 +195,7 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-        - title: Highlighting Trends with Moving and Tumbling Windows 
+        - title: Highlighting Trends with Moving and Tumbling Windows
           url: /query_language_windows_trends.html
           output: web
 
@@ -367,10 +367,6 @@ entries:
 
           - title: AppDynamics Integration
             url: /integrations_appdynamics.html
-            output: web
-
-          - title: JMX Integration
-            url: /integrations_jmx.html
             output: web
 
           - title: New Relic Integration
