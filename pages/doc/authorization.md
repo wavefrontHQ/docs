@@ -16,13 +16,13 @@ Wavefront supports several levels of authorization control to support customers 
 With additional setup, you gain finer-grained control:
 * **Permissions for users** -- You can initially use the simple model in which each user has access based on [permissions](permissions_overview.html).
 * **Permissions for groups** -- Using permissions with groups is faster and less error prone than using permissions with users. It's easy keep permissions consistent.
-* **Access control on objects** -- You can turn on the access control security preference for object-level access restriction. Access control allows you to restrict who can view or view and modify certain objects (initially dashboards) .
+* **Access control on objects** -- You can turn on the access control security preference for object-level access restriction. Access control allows you to restrict who can view or view and modify certain objects (initially dashboards).
 
   ![control setup](images/security_levels.svg)
 
 ## Level 1: Permissions for Users
 
-Level 1 authorization allows adminstrators to assign permissions to individual users. Level 1 means minimal effort, but also minimal control.
+Level 1 authorization allows administrators to assign permissions to individual users. Level 1 means minimal effort, but also minimal control.
 
 In Level 1:
 * A new user:
@@ -37,7 +37,7 @@ Starting with Release 2018.46.x, administrators can use groups to make permissio
 
 As an administrator, you manage group permissions like this:
 * You create one or more groups and assign permissions. For example, you can create an Admin group that includes User Management permission.
-* When an you invites a new user, you can add the user to one or more groups. If users belong to more than one group, they get permission from each group (addition). The UI makes it easy to see where a permission comes from.
+* When you invite a new user, you can add the user to one or more groups. If users belong to more than one group, they get permission from each group (addition). In the UI, you can hover over a permission to see which groups it comes from.
 * You can manage permissions on a per-group basis. For example, assume that Marketing group has User Management permission. If you remove the permission, all members of the Marketing group no longer have it - unless they were granted the permission at a user level.
 * A user who belongs to more than one group gets permissions from both groups.
 

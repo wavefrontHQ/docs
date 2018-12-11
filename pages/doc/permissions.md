@@ -10,7 +10,7 @@ All new users can perform a basic set of tasks when they are invited to Wavefron
 
 The Super Admin user and users with Users & Groups permission can set the default user group and can assign [permissions](permissions_overview.html) or revoke permissions at the group level or for individual users.
 
-**Note:** You must be a Super Admin user or have Users & Groups permission to view and manage users and permissions in Wavefront. Otherwise, the relevent UI elements aren't available to you.
+**Note:** You must be a Super Admin user or have Users & Groups permission to view and manage users and permissions in Wavefront. Otherwise, the relevant UI elements aren't available to you.
 
 ## Permissions Basics
 
