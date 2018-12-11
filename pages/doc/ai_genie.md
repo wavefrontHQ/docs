@@ -39,7 +39,7 @@ It's easy to access AI Genie from any chart and to display and customize the Ano
 To access AI Genie:
 1. Hover over the query and click **Open AI Genie** below the query.
 
-   ![open genie](images/open_ai_genie.png)
+   ![open genie](images/open_ai_geniepng.png)
    AI Genie opens in a new browser tab, with Anomaly Detection selected initially.
 2. With Anomaly Detection selected, you can customize the Display Settings, Historical Sample Size, and Sensitivity. You can focus on individual time series just as you do for other charts.
 3. Click **Save To > Save as New Alert** to save the anomaly query as an alert.
