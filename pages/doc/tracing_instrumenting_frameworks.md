@@ -33,16 +33,16 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Step 1. Prepare to Send Data to Wavefront
 
-You can prepare to send data from your application to the Wavefront service in either of 2 ways: 
-* The simplest way is to use direct ingestion, which gets you up and running with minimal preparation. 
-* For large-scale deployments, you'll need a Wavefront proxy to provide resilience to internet outages, control over data queuing and filtering, and more. (You must use a proxy if your code is already instrumented with a 3rd party solution, such as [Jaeger](jaeger.html).)
+**Choose** one of the following ways for your application to send metrics, histograms, and trace data to the Wavefront service:
+* The simplest way is to use direct ingestion to send data directly to the Wavefront service. This gets you up and running with minimal preparation.  
+* For large-scale deployments, you'll need a Wavefront proxy to forward data from your application to the Wavefront service. Using a proxy provides resilience to internet outages, control over data queuing and filtering, and more. 
 
-**Prepare for direct ingestion.** Gather the following information, which you will need when you instrument your code. This information will enable your instrumented application to send metrics and trace data directly to Wavefront.
+**To prepare for direct ingestion:** Gather the following information, which you will need to specify when you instrument your code. 
 
 1. Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://virunga.wavefront.com`.
 2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
 
-**Prepare a Wavefront proxy.** If you need to send data through a Wavefront proxy, follow these steps to set up the proxy. You will need to specify information from these steps when you instrument your code.
+**To prepare a Wavefront proxy:** If you need to send data through a Wavefront proxy, follow these steps to set up the proxy. You will need to specify information from these steps when you instrument your code.
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). If you already have a proxy installed, you may need to upgrade it. You need Version 4.33 or later. 
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
@@ -93,7 +93,7 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
 
 2. For each microservice in your application: 
 
-    1. Choose a Wavefront observability SDK to set up, and click the link to its `README` file. The SDKs are listed by programming language:
+    1. Choose the Wavefront observability SDK you want to set up, and click the link to its `README` file. The SDKs are listed by programming language:
           * [Java SDKs](#java-observability-sdks)
           * [C# SDKs](#netc-observability-sdks)
     3. Follow the setup steps in the `README` file. If a `README` file offers Custom Setup steps, choose those. 
@@ -105,17 +105,19 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
 
 ## Java Observability SDKs
 
-This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Java application. For each SDK, click on the link to see the detailed setup steps and examples of metrics that Wavefront collects.
+This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Java application. For each SDK, click on the link to see the detailed setup steps.
 
-### Instrument a Java Application's Frameworks
+### Instrument Java Application Frameworks
 
-The SDKs in the following table collect metrics, histograms, and trace data from a particular Java framework or component.
+Each SDK collects metrics, histograms, and trace data from a particular Java framework or component. Setup consists of configuring and instantiating several helper objects in your microservice. No other code updates are needed.
+
+These SDKs automatically collect metric data for request rates, error rates, latencies, payload sizes, runtime information, and so on. Click on the link for an SDK to find a list of these predefined metrics and histograms.
 
 <table id = "sdks" width="100%">
 <colgroup>
 <col width="25%" />
-<col width="35%" />
-<col width="40%" />
+<col width="30%" />
+<col width="45%" />
 </colgroup>
 <tbody>
 <thead>
@@ -125,34 +127,36 @@ The SDKs in the following table collect metrics, histograms, and trace data from
 <tr>
 <td>Dropwizard</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instrument Dropwizard, a Jersey-compliant framework for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms and trace data to Wavefront.</td></tr>
+<td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Sends metrics, histograms and trace data from HTTP requests and responses.</td></tr>
 
 <tr>
 <td>gRPC</td>
 <td markdown="span">[`wavefront-grpc-sdk-java`](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java)</td>
-<td>Instrument gRPC, a framework for building services that communicate through remote procedure calls. Enable gRPC requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
+<td>Instruments gRPC, a framework for building services that communicate through remote procedure calls. Sends metrics, histograms and trace data from gRPC requests and responses.</td></tr>
 
 <tr>
 <td>JAX-RS implementation</td>
 <td markdown="span">[`wavefront-jaxrs-sdk-java`](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)</td>
-<td>Instrument a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
+<td>Instruments a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Sends metrics, histograms and trace data from HTTP requests and responses.</td></tr>
 
 <tr>
 <td>JVM</td>
 <td markdown="span">[`wavefront-runtime-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
-<td>Instrument the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Measure CPU, disk usage, and so on.</td></tr>
+<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Sends metrics and histograms for CPU usage, disk usage, and so on.</td></tr>
 
 <tr>
 <td>Spring Boot</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instrument Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
+<td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Sends metrics, histograms and trace data from HTTP requests and responses.</td></tr>
 
 </tbody>
 </table>
 
-### Instrument Proprietary Operations in Your Java Code
+### Instrument Proprietary Java Code
 
-The Java SDKs in the following table enable you to instrument critical-path, proprietary business operations that are not based on the supported frameworks. 
+Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
+
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -167,12 +171,12 @@ The Java SDKs in the following table enable you to instrument critical-path, pro
 <tr>
 <td>Metrics and histograms</td>
 <td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Instrument custom business operations using the Wavefront Dropwizard Metrics implementation. Send metrics and histograms to Wavefront from anywhere in your code. </td></tr>
+<td>Implements Dropwizard Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
 
 <tr>
 <td>Trace data</td>
 <td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td>Instrument custom business operations using the Wavefront OpenTracing implementation. Enable your operations to send traces and spans to Wavefront. </td></tr>
+<td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
 </tbody>
 </table>
 
@@ -186,9 +190,12 @@ The Java SDKs in the following table enable you to instrument critical-path, pro
 
 This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. For each SDK, click on the link to see the detailed setup steps.
 
-### Instrument Proprietary Operations in Your .NET/C# Code
+### Instrument Proprietary .NET/C# Code
 
-The C# SDKs in the following table enable you to instrument critical-path, proprietary business operations that are not based on the supported frameworks. 
+Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
+
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
+
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -203,12 +210,12 @@ The C# SDKs in the following table enable you to instrument critical-path, propr
 <tr>
 <td>Metrics and histograms</td>
 <td markdown="span">[wavefront-appmetrics-sdk-csharp](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)</td>
-<td>Instrument custom business operations using the Wavefront App Metrics implementation. Send metrics and histograms to Wavefront from anywhere in your code. </td></tr>
+<td>Implements App Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
 
 <tr>
 <td>Trace data</td>
 <td markdown="span">[wavefront-opentracing-sdk-csharp](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-<td>Instrument custom business operations using the Wavefront OpenTracing implementation. Enable your operations to send traces and spans to Wavefront. </td></tr>
+<td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
 </tbody>
 </table>
 
@@ -224,12 +231,12 @@ The details of creating the helper objects for an SDK are in the setup steps for
 
 The following diagram shows the Wavefront helper objects in a Java microservice that uses Spring Boot to implement RESTful operations to other services:
 
-![sdk objects](images/sdk_objects.png)
+![sdk objects](images/sdk_objects.svg)
 
 The actual set of helper objects in a particular microservice depends on which SDKs you set up. A typical set of helper objects includes some or all of the following:
 
 * An [ApplicationTags](#application-tags) object that describes your application to Wavefront. 
-* A framework-specific object (such as the Java `WavefrontJerseyFilter` in the diagram) that collects metrics and histograms.
+* One or more framework-specific objects that collect metrics and histograms. (In the diagram, these are the Java `WavefrontJerseyFilter` and `WavefrontJaxrsClientFilter` objects).
 * [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects that create and propagate trace data.
 * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
 * A [WavefrontSender](#wavefrontsender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
@@ -277,12 +284,12 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 ### WavefrontSender
 
-Part of instrumenting an application is to choose and set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. You can choose between:
+Part of instrumenting an application is to choose and set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. You can choose between:
 
 * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service. 
 
-Your choice is represented in your microservice's code as an object of type `WavefrontSender`. This object encapsulates the settings you supply when you instrument your microservice, either through the [quickstart setup steps](#option-1-quickstart---use-config-files) or the [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly). The settings in your microservice must match the information you provided in [Step 1](step-1-prepare-to-send-data-to-wavefront) above. 
+Your choice is represented in your microservice's code as an object of type `WavefrontSender`. This object encapsulates the settings you supply when you instrument your microservice, either through the [quickstart setup steps](#option-1-quickstart---use-config-files) or the [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly). The settings in your microservice must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. 
 
 **Note:** The [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly) enable you to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
 
@@ -305,7 +312,7 @@ A Wavefront Reporter specifies:
 
 ### WavefrontTracer and WavefrontSpanReporter
 
-Wavefront uses a pair of objects create and report trace data: 
+Wavefront uses a pair of objects to create and report trace data: 
 
 * A `WavefrontTracer` creates spans and traces. 
 * A `WavefrontSpanReporter` forwards the trace data to the `WavefrontSender`. 
