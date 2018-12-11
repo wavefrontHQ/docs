@@ -1,5 +1,5 @@
 ---
-title: Instrumenting Your App for Tracing - Beta
+title: Instrumenting Your App for Tracing
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
@@ -33,37 +33,31 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Step 1. Prepare to Send Data to Wavefront
 
-Gather the following information, which you will need in Step 2. This information will enable your instrumented application to send metrics and trace data directly to Wavefront.
+You can prepare to send data from your application to the Wavefront service in either of 2 ways: 
+* The simplest way is to use direct ingestion, which gets you up and running with minimal preparation. 
+* For large-scale deployments, you'll need a Wavefront proxy to provide resilience to internet outages, control over data queuing and filtering, and more. (You must use a proxy if your code is already instrumented with a 3rd party solution, such as [Jaeger](jaeger.html).)
 
-* Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://virunga.wavefront.com`.
-* [Obtain an API token](wavefront_api.html#generating-an-api-token).
+**Prepare for direct ingestion.** Gather the following information, which you will need when you instrument your code. This information will enable your instrumented application to send metrics and trace data directly to Wavefront.
+
+1. Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://virunga.wavefront.com`.
+2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
+
+**Prepare a Wavefront proxy.** If you need to send data through a Wavefront proxy, follow these steps to set up the proxy. You will need to specify information from these steps when you instrument your code.
+
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). If you already have a proxy installed, you may need to upgrade it. You need Version 4.33 or later. 
+2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
+3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#configuring-listener-ports-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
+    ```
+    pushListenerPort=2878
+    ...
+    histogramDistListenerPort=40000
+    ...
+    traceListenerPort=30000
+    ```
+4. Save the `wavefront.conf` file. 
+5. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
 
 
-<details>
-<summary>If you prefer to send data through a Wavefront proxy...</summary>
-<br>
-<p>
-You can optionally instrument your application to send data through a Wavefront proxy instead of using direct ingestion.
-(A proxy is required only if your code is already instrumented with a 3rd party solution, such as <a href="jaeger.html">Jaeger</a>.)
-To set up a Wavefront proxy:
-</p>
-<ol>
-<li> <a href="proxies_installing.html">Install the proxy</a>, if necessary. Make sure you are using Version 4.32 or later.</li>
-<li> On the proxy host, open the proxy configuration file <code>wavefront.conf</code> in the installed <a href="proxies_configuring.html#paths">file path</a>, for example, <code>/etc/wavefront/wavefront-proxy/wavefront.conf</code>.</li>
-<li> In the <code>wavefront.conf</code> file, find the following <a href="proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces">port properties</a>, and uncomment them if necessary. You can optionally change these default port numbers:</li>
-<pre>
-pushListenerPort=2878
-...
-histogramDistListenerPort=40000
-...
-traceListenerPort=30000
-</pre>
-<li> Save the <code>wavefront.conf</code> file. </li>
-<li> <a href="proxies_installing.html#starting-and-stopping-a-proxy">Start the proxy</a>.</li>
-</ol>
-<strong>Note:</strong> You will need to specify information from these steps when you instrument your code.
-
-</details>
 
 
 ## Step 2. Instrument Your Application
@@ -82,7 +76,7 @@ These steps use configuration files and minimal code changes:
 2. For each Dropwizard or Spring Boot microservice, follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart) in the `README` file for the SDK.  
 
     For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
-3. After your application starts running, click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
+3. After your recompiled application starts running, click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
 
 **Note:** When you use the quickstart option, we automatically set up the SDK for the Java Virtual Machine (JVM) in addition to the  SDK for the Jersey-compliant framework.
 
@@ -90,8 +84,8 @@ These steps use configuration files and minimal code changes:
 
 Use Option 2:
 * For any microservice that is not based on a framework listed for [Option 1](#option-1-quickstart---use-config-files). 
-* To add custom metrics or traces to your business operations. 
-* For control over all configurable aspects of instrumentation, such as tuning [the data reporting interval](#wavefront-reporters).
+* For instrumenting critical-path custom business operations that are not based directly on any framework API. 
+* For control over every configurable feature, such as tuning [the data reporting interval](#wavefront-reporters).
 
 These steps involve instantiating [helper objects](#a-closer-look-at-an-instrumented-microservice) directly in your code:
 
@@ -99,41 +93,47 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
 
 2. For each microservice in your application: 
 
-    1. Pick an SDK from the [following table](#sdks-for-instrumenting-java-applications), and click the corresponding link.
-    2. Follow the setup steps in the `README` file for the SDK. If a `README` file offers Custom Setup steps, choose those. 
-    3. Repeat for each instrumentable framework or component in the microservice. 
+    1. Choose a Wavefront observability SDK to set up, and click the link to its `README` file. The SDKs are listed by programming language:
+          * [Java SDKs](#java-observability-sdks)
+          * [C# SDKs](#netc-observability-sdks)
+    3. Follow the setup steps in the `README` file. If a `README` file offers Custom Setup steps, choose those. 
+    4. Repeat for each instrumentable framework or component in the microservice. 
 
-3. After your application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring metrics, histograms, and trace data.
+3. After your recompiled application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring metrics, histograms, and trace data.
 
-**Note:** When you use the custom setup option, we do not automatically set up the SDK for the Java Virtual Machine (JVM). You must set up each selected SDK individually.
+**Note:** When you use the custom setup option for an SDK, no other SDK is set up automatically for you. If you want to add multiple SDKs to a microservice, you must set up each one individually.
 
-## SDKs for Instrumenting Java Applications
+## Java Observability SDKs
 
-This table shows the available Wavefront observability SDKs for collecting data from microservices in a Java application. For each SDK, click on the link to see the detailed setup steps and examples of metrics that Wavefront collects.
+This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Java application. For each SDK, click on the link to see the detailed setup steps and examples of metrics that Wavefront collects.
+
+### Instrument a Java Application's Frameworks
+
+The SDKs in the following table collect metrics, histograms, and trace data from a particular Java framework or component.
 
 <table id = "sdks" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="30%" />
-<col width="50%" />
+<col width="25%" />
+<col width="35%" />
+<col width="40%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>To Collect Data From</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
+<tr><th>To Collect Data From This Framework</th><th>Set Up This Wavefront SDK</th><th>Description</th></tr>
 </thead>
 
 <tr>
-<td>Dropwizard framework</td>
+<td>Dropwizard</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instrument Dropwizard, a Jersey-compliant framework for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms and trace data to Wavefront.</td></tr>
 
 <tr>
-<td>Spring Boot framework</td>
-<td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instrument Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
+<td>gRPC</td>
+<td markdown="span">[`wavefront-grpc-sdk-java`](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java)</td>
+<td>Instrument gRPC, a framework for building services that communicate through remote procedure calls. Enable gRPC requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
 
 <tr>
-<td>JAX-RS implementations</td>
+<td>JAX-RS implementation</td>
 <td markdown="span">[`wavefront-jaxrs-sdk-java`](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)</td>
 <td>Instrument a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
 
@@ -143,29 +143,76 @@ This table shows the available Wavefront observability SDKs for collecting data 
 <td>Instrument the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Measure CPU, disk usage, and so on.</td></tr>
 
 <tr>
-<td>Custom business operations (metrics data)</td>
-<td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Instrument your code using the Wavefront Dropwizard Metrics implementation. Send metrics and histograms to Wavefront from anywhere in your code. </td></tr>
-
-<tr>
-<td>Custom business operations (trace data)</td>
-<td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td>Instrument custom business operations using the Wavefront OpenTracing implementation. Enable your operations to send traces and spans to Wavefront. </td></tr>
+<td>Spring Boot</td>
+<td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instrument Spring Boot, a Jersey-compliant framework for building RESTful Web services. Enable HTTP requests and responses to send metrics, histograms, and trace data to Wavefront.</td></tr>
 
 </tbody>
 </table>
 
-<!---
+### Instrument Proprietary Operations in Your Java Code
+
+The Java SDKs in the following table enable you to instrument critical-path, proprietary business operations that are not based on the supported frameworks. 
+
+<table id = "sdks" width="100%">
+<colgroup>
+<col width="25%" />
+<col width="35%" />
+<col width="40%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>To Collect This Type of Data</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
+</thead>
 <tr>
-<td>gRPC operations</td> 
-<td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)</td>
-<td>Instruments all gRPC APIs to send telemetry data to Wavefront.</td></tr>
---->
+<td>Metrics and histograms</td>
+<td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
+<td>Instrument custom business operations using the Wavefront Dropwizard Metrics implementation. Send metrics and histograms to Wavefront from anywhere in your code. </td></tr>
+
+<tr>
+<td>Trace data</td>
+<td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
+<td>Instrument custom business operations using the Wavefront OpenTracing implementation. Enable your operations to send traces and spans to Wavefront. </td></tr>
+</tbody>
+</table>
+
 <!---
-**Note:** To instrument custom business operations that are not based on the supported frameworks: 
-* For metrics and histograms, use [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
-* For trace data, use [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java).
+**Note:** To instrument critical-path, proprietary business operations that are not based on the supported frameworks: 
+* For metrics and histograms, use the Wavefront Dropwizard Metrics implementation: [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
+* For trace data, use the Wavefront OpenTracing implementation [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)
 --->
+
+## .NET/C# Observability SDKs
+
+This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. For each SDK, click on the link to see the detailed setup steps.
+
+### Instrument Proprietary Operations in Your .NET/C# Code
+
+The C# SDKs in the following table enable you to instrument critical-path, proprietary business operations that are not based on the supported frameworks. 
+
+<table id = "sdks" width="100%">
+<colgroup>
+<col width="25%" />
+<col width="30%" />
+<col width="45%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>To Collect This Type of Data</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
+</thead>
+<tr>
+<td>Metrics and histograms</td>
+<td markdown="span">[wavefront-appmetrics-sdk-csharp](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)</td>
+<td>Instrument custom business operations using the Wavefront App Metrics implementation. Send metrics and histograms to Wavefront from anywhere in your code. </td></tr>
+
+<tr>
+<td>Trace data</td>
+<td markdown="span">[wavefront-opentracing-sdk-csharp](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
+<td>Instrument custom business operations using the Wavefront OpenTracing implementation. Enable your operations to send traces and spans to Wavefront. </td></tr>
+</tbody>
+</table>
+
+
 ## A Closer Look at an Instrumented Microservice
 
 When an application consists of multiple microservices, you instrument each microservice separately by setting up one or more Wavefront SDKs. Doing so causes several helper objects to be created in the instrumented microservice. These helper objects work together to create and send metrics, histograms, and trace data to Wavefront.

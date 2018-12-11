@@ -211,7 +211,7 @@ entries:
           url: /wavefront_use_cases.html
           output: web
 
-  - title: "Distributed Tracing - Beta"
+  - title: "Distributed Tracing"
     output: web
     folderitems:
 

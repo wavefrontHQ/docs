@@ -1,5 +1,5 @@
 ---
-title: Distributed Tracing Basics - Beta
+title: Distributed Tracing Basics
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
