@@ -8,8 +8,11 @@ summary: Learn about new features and changes in different Wavefront proxy versi
 ---
 This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 
+## Version 4.33
+* First class integration for Jaeger. Anyone using Jaeger can point their agent to the Wavefront proxy instead of the Jaeger collector to send data to Wavefront. 
+
 ## Version 4.32
-* Compatibility with new SDKs 
+* Compatibility with new SDKs
 
 ## Version 4.31
 * Supports HTTP POST and gzipped streams for Wavefront and OpenTSDB data ingestion endpoints on the same port
