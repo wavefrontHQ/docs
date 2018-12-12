@@ -133,8 +133,8 @@ Enter the following snippet in all the servers belongs to the FoundationDB clust
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 
-### Step 5: Deploy the Wavefront Metrics Adaptor for FDB (Optional)
-In addition to the above steps, you can optionally deploy the [wavefront-fdb-tailer](https://github.com/wavefrontHQ/wavefront-fdb-tailer), an open source Java application developed by Wavefront that provides additional FDB metrics.
+### Step 5: Optionally Deploy the Wavefront Metrics Adaptor for FDB
+In addition to the above steps, you can optionally deploy the [wavefront-fdb-tailer](https://github.com/wavefrontHQ/wavefront-fdb-tailer). It is an open source Java application developed by Wavefront that provides additional FDB metrics.
 
 To deploy:
 1. `git clone https://github.com/wavefrontHQ/wavefront-fdb-tailer.git`
