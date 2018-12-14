@@ -6,19 +6,9 @@ sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, and how to create and examine them.
 ---
-Legacy monitoring systems are limited to simple, threshold-based alerts. With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. The end results is fewer false alarms and faster remediation when real issues occur.
+With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. You can even view an image of the chart in the alert notification. The end results is fewer false alarms and faster remediation when real issues occur.
 
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
-
-## Videos
-Watch this video to understand how alerts work:
-<p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
-</p>
-
-
-Watch this video to learn about alerts while looking at the Wavefront UI:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_monitor_with_alerts.png" style="width: 700px;"/></a>
-</p>
 
 
 ## How Alerts Work
@@ -31,18 +21,16 @@ An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric re
 
 You express alert [conditions](alerts_states_lifecycle.html#alert-conditions) using [Wavefront Query Language](query_language_getting_started.html) expressions.
 
-
-Watch this video to see the process:
-
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
+In this video, Clement explains how alerts work:
+<p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
 
 
-### Backtesting
+In this video, Jason explain alerts while he's showing them in the UI:
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_monitor_with_alerts.png" style="width: 700px;"/></a>
+</p>
 
-Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
 
-Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
 
 ## Creating an Alert
 
@@ -169,6 +157,11 @@ If you leave this field blank, the condition expression is used. Note, however, 
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
+Watch this video to watch Jason create an alert:
+
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
+</p>
+
 ## Cloning an Alert
 
 If you want to make copies of an existing alert, then change the copy slightly, you can clone the alert.
@@ -211,67 +204,16 @@ You can change an alert at any time.
 3. Update the properties you want to change, and click **Save**.
 
 
-## Alert Notifications
 
-An alert reports state changes by sending notifications to one or more alert targets. Each notification contains information extracted from the alert about its state change.
-
-The timing of an alert notification depends on the alert target:
-
-* For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
-* For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
-
-### Sample Alert Notification
-
-If you have specified your email address as the alert target, you receive an email like the following whenever the alert fires:
-
-![alert_email](images/alert_email.png)
-
-
-### Chart Images in Alert Notifications
-
-When an alert starts firing or is updated, the resulting alert notification can include an image of a chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above includes the following chart image:
-
-![alert_chart_only](images/alert_chart_only.png)
-
-Chart images show the results of an alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the chart image provides a snapshot of the time series being tested by the alert.
-
-A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.)
-
-For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image can take a few seconds to create, so you might briefly see a placeholder image in the notification.
-
-Chart images are automatically included in notifications for:
-* Simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).
-* [Custom alert targets](webhooks_alert_notification.html) for PagerDuty notifications.
-* (Version 2018-26.x and later) Predefined templates for custom HTML email targets and for Slack targets.
-
-You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms.
-
-**Note** If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
-
-(Version 2018-26.x and later) You exclude chart images from notifications to custom HTML email or Slack targets by removing the corresponding variable from their templates. You cannot remove chart images from custom PagerDuty alert targets.
-
-
-### Interactive Charts Linked by Alert Notifications
-
-An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see the following interactive chart:
-
-![alert_interactive_chart](images/alert_interactive_chart.png)
-
-The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
-
-* **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts.html#alert-properties) expression.
-* **Alert Condition** - The condition expression, if the display expression is shown.
-* **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
-* **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
-* **Alert Data** - A query for alert metrics. These metrics are shown when the alert is open or updated.
-
-
-Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
-
-Note that interactive charts always show the current state of your data as of the time you bring up the chart, which could be somewhat later than the event that triggered the alert. Consequently, although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it could be backfilled with data values that were reported during that time window, but were not ingested until later. The presence of delayed and then backfilled data could obscure the reason why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#misfiring-alerts), you can inspect a [chart image](#chart-images-in-alert-notifications) included in the notification.
 
 ## Alert Events
 
 As alerts fire, update, and resolve, [events](events.html) are created in Wavefront. You can optionally display those events as [icons](charts_events_displaying.html) on a chart's X-axis:
 
 ![event icons](images/event_icons.png)
+
+## Backtesting
+
+Wavefront can display actual firings or hypothetical alert-generated events using backtesting. Backtesting enables you to fine tune new or existing alert conditions before you save them.
+
+Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
