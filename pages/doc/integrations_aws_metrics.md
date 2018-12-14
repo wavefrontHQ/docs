@@ -39,7 +39,7 @@ If you use a Wavefront external ID you set up all types of data&mdash;CloudWatch
 
 ## Managing an AWS Integration
 
-From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration. 
+From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration.
 
 ### Adding an AWS Integration
 
@@ -140,7 +140,7 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
   </tr>
 </table>
 
-The following bare bones JSON shows how to add IAM role permissions to AWS integrations:
+The following basic JSON snippet shows how to add IAM permissions to AWS integrations:
 
 ```
 {
