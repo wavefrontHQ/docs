@@ -223,6 +223,10 @@ entries:
       url: /tracing_instrumenting_frameworks.html
       output: web
 
+    - title: Querying Trace Data
+      url: /trace_data_query.html
+      output: web
+
   - title: "Charts & Dashboards"
     output: web
     folderitems:

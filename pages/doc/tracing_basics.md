@@ -7,9 +7,9 @@ permalink: tracing_basics.html
 summary: Learn about Wavefront support for trace data, and how visualizing traces can help you pinpoint errors and bottlenecks in your app.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a user request. In an application that consists of multiple services, a typical user request starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into an entire transaction across services, even when those services are running in different environments. This visibility can help you find errors and performance problems in your code. 
+Distributed tracing enables you to track the flow of work that is performed by an application as it processes a user request. In an application that consists of multiple services, a typical user request starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into an entire request across services, even when those services are running in different environments. This visibility can help you find errors and performance problems in your code. 
 
-Distributed tracing starts with ingesting _trace data_ from your applications into Wavefront.
+Distributed tracing starts with ingesting trace data from your applications into Wavefront.
 Because Wavefront integrates trace data with metrics, you can use Wavefront charts and dashboards for tasks such as the following: 
 
 * Monitor your application to make sure its response times are as expected.
@@ -22,11 +22,11 @@ Because Wavefront integrates trace data with metrics, you can use Wavefront char
 
 Wavefront follows the [OpenTracing](https://opentracing.io/) standard for representing and manipulating trace data. This means:
 
-* Wavefront represents an individual workflow (transaction) in an application as a _trace_. A trace shows you how a particular request propagates throughout your application or among a set of services. 
+* Wavefront represents an individual workflow in an application as a trace. A trace shows you how a particular request propagates throughout your application or among a set of services. 
 
-* A Wavefront trace consists of one or more _spans_, which are the individual segments of work in the trace. Each span represents time spent by an operation in a service. 
+* A Wavefront trace consists of one or more spans, which are the individual segments of work in the trace. Each span represents time spent by an operation in a service. 
 
-Because requests normally consist of other requests, a trace actually consists of a _tree_ of spans. 
+Because requests normally consist of other requests, a trace actually consists of a tree of spans. 
 
 ### Sample Application
 <!--- Revise with final names and inventory of services and operations. Styling vs. Designer. --->
@@ -50,9 +50,9 @@ These services run on different hosts, and are implemented using frameworks (lik
 <!--- Check final names and inventory of services and operations. Styling vs. Designer. --->
 <!--- Get real screen shot when colors are finalized. --->
 
-Now let's look at how traces and spans represent an end-to-end transaction. 
+Now let's look at how traces and spans represent an end-to-end request. 
 
-In this diagram, we see a trace for a particular transaction that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. This trace consists of 8 member spans, one for each operation performed in the transaction.
+In this diagram, we see a trace for a particular request that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. This trace consists of 8 member spans, one for each operation performed in the request.
 
 ![tracing trace spans](images/tracing_trace_spans.png)
 
