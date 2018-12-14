@@ -367,7 +367,7 @@ entries:
             url: /integrations_aws_lambda.html
             output: web
 
-          - title: Pivotal Container Service Integration
+          - title: VMware PKS Integration
             url: /integrations_pks.html
             output: web
 
