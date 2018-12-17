@@ -204,6 +204,8 @@ You can change an alert at any time.
 3. Update the properties you want to change, and click **Save**.
 
 
+
+
 ## Alert Events
 
 As alerts fire, update, and resolve, [events](events.html) are created in Wavefront. You can optionally display those events as [icons](charts_events_displaying.html) on a chart's X-axis:

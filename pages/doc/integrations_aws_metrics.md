@@ -189,7 +189,7 @@ You can configure which instances and volumes to ingest metrics from, which metr
 
 Wavefront automatically sets each metric's source field and adds source tags to each AWS source, as follows:
 
-#### Metric Source Field
+**Metric Source Field**
 
 Wavefront sets the value of the AWS metric [`source`](wavefront_data_format.html) field by service:
 
@@ -197,7 +197,7 @@ Wavefront sets the value of the AWS metric [`source`](wavefront_data_format.html
 - **EBS** - the Amazon instance ID of the EC2 instance the volume is attached to.
 - All other services - the value of the *first* CloudWatch dimension. The supported dimensions appear at the bottom of the Amazon service metric documentation topic. For example, see [Amazon EC2 Dimensions](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ec2-metricscollected.html#ec2-metric-dimensions).
 
-#### Source Tags
+**Source Tags**
 
 AWS sources are assigned source tags that identify their originating service following this pattern: `~integration.aws.<service>`, for example, `~integration.aws.ec2`.
 
