@@ -6,9 +6,9 @@ summary: Learn about the Wavefront Amazon EKS Integration.
 ---
 ## Kubernetes Integration
 
-Kubernetes is a popular open source container orchestration system. This integration uses [Heapster](https://github.com/kubernetes/heapster), a collector agent that runs natively in Kubernetes. It collects detailed resource metrics about the containers, namespaces, nodes, pods, and the cluster itself and sends them to a [Wavefront proxy](https://docs.wavefront.com/proxies.html). This integration also explains how to configure and collect [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics). The kube-state-metrics service listens to the Kubernetes API server and generates metrics about the state of Kubernetes objects.
+Kubernetes is a popular open source container orchestration system. This integration uses the new [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to collect detailed resource metrics about the containers, namespaces, nodes, pods, and the Kubernetes cluster itself and sends them to a [Wavefront proxy](https://docs.wavefront.com/proxies.html). This integration also explains how to configure and collect [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics). The kube-state-metrics service listens to the Kubernetes API server and generates metrics about the state of Kubernetes objects.
 
-In addition to setting up the metrics flow, this integration also installs dashboards. 
+In addition to setting up the metrics flow, this integration also installs dashboards.
 
 Here's a preview of some of the pod charts in the Kubernetes dashboard.
 
@@ -18,411 +18,43 @@ Here's a preview of some of the charts from kube-state-metrics dashboard.
 
 {% include image.md src="images/kube-state-dashboard.png" width="80" %}
 
-
 ## Kubernetes Setup
+
+**Note:** This integration provides updated setup instructions and dashboard for Kubernetes. For the previous setup instructions, see the **Kubernetes (Archived)** integration in the **Archived** section.
 
 ### Step 1. Deploy a Wavefront Proxy in Kubernetes
 
-Copy the following yaml to your system as `proxy.yaml`:
-{% raw %}
-```
-apiVersion: apps/v1
-# Kubernetes versions after 1.9.0 should use apps/v1
-# Kubernetes versions before 1.8.0 should use apps/v1beta1 or extensions/v1beta1
-kind: Deployment
-metadata:
-  labels:
-   app: wavefront-proxy
-   name: wavefront-proxy
-  name: wavefront-proxy
-  namespace: default
-spec:
-  replicas: 1
-  selector:
-   matchLabels:
-    k8s-app: wavefront-proxy
-  template:
-    metadata:
-      labels:
-        k8s-app: wavefront-proxy
-    spec:
-      containers:
-      - name: wavefront-proxy
-        image: wavefronthq/proxy:latest
-        imagePullPolicy: Always
-        env:
-        - name: WAVEFRONT_URL
-          value: https://YOUR_CLUSTER.wavefront.com/api/
-        - name: WAVEFRONT_TOKEN
-          value: YOUR_API_TOKEN
-        ports:
-        - containerPort: 2878
-          protocol: TCP
-        securityContext:
-          privileged: false
-```
+Download [wavefront.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/wavefront-proxy/wavefront.yaml) to your system. Edit the file and set `WAVEFRONT_URL` to `https://YOUR_CLUSTER.wavefront.com/api/` and `WAVEFRONT_TOKEN` to `YOUR_API_TOKEN`.
 
-Run `kubectl create -f </path/to>/proxy.yaml`. The Wavefront proxy should now be running in Kubernetes.
+Run `kubectl create -f </path/to>/wavefront.yaml` to deploy the proxy.
 
-### Step 2. Create a Wavefront Proxy Service
+The Wavefront proxy and a `wavefront-proxy` service should now be running in Kubernetes.
 
-Create a proxy service to expose the Wavefront proxy internally to your Kubernetes cluster.
+### Step 2. Deploy the kube-state-metrics Service
 
-Copy and save the following yaml to a file named `proxy-service.yaml`.
+Download [kube-state.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/ksm-all-in-one/kube-state.yaml) to your system and run `kubectl create -f </path/to>/kube-state.yaml`.
 
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: wavefront-proxy
-  labels:
-   k8s-app: wavefront-proxy
-spec:
-  ports:
-  - name: wavefront
-    port: 2878
-    protocol: TCP
-  selector:
-    k8s-app: wavefront-proxy
-```
+The `kube-state-metrics` service should now be running on your cluster.
 
-Run `kubectl create -f </path/to>/proxy-service.yaml`. A `wavefront-proxy` service should now be running on your cluster.
+### Step 3. Deploy Wavefront Kubernetes Collector
 
-### Step 3. Deploy Heapster
+Download the following deployment files to a directory named `wavefront-collector-dir` on your system:
+* [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/0-collector-namespace.yaml)
+* [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/1-collector-cluster-role.yaml)
+* [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/2-collector-rbac.yaml)
+* [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/3-collector-service-account.yaml)
+* [4-collector-deployment.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/4-collector-deployment.yaml)
 
-If RBAC is enabled on your Kubernetes cluster, copy and save the following yaml to your system as `heapster-rbac.yaml`:
-```
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: heapster
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: system:heapster
-subjects:
-- kind: ServiceAccount
-  name: heapster
-  namespace: kube-system
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: heapster
-  namespace: kube-system
-```
-Run `kubectl create -f heapster-rbac.yaml`.
+Edit `4-collector-deployment.yaml` as follows:
 
-Copy and save the following yaml to your system as `heapster.yaml`:
+* Replace `clusterName=k8s-cluster` to uniquely identify your Kubernetes cluster.
+* If RBAC is disabled in your Kubernetes cluster, comment out `serviceAccountName: wavefront-collector`.
 
-```
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  labels:
-    k8s-app: heapster
-    name: heapster
-    version: v6
-  name: heapster
-  namespace: kube-system
-spec:
-  replicas: 1
-  selector:
-    k8s-app: heapster
-    version: v6
-  template:
-    metadata:
-      labels:
-        k8s-app: heapster
-        version: v6
-    spec:
-      serviceAccount: "heapster"
-      containers:
-      - name: heapster
-        image: wavefronthq/heapster-amd64:latest
-        imagePullPolicy: Always
-        command:
-        - /heapster
-        - --source=kubernetes.summary_api:''
-        - --sink=wavefront:wavefront-proxy.default.svc.cluster.local:2878?clusterName=k8s-cluster&includeLabels=true
-        volumeMounts:
-        - name: ssl-certs
-          mountPath: /etc/ssl/certs
-          readOnly: true
-        ports:
-        - containerPort: 8082
-          protocol: TCP
-      volumes:
-      - name: ssl-certs
-        hostPath:
-          path: /etc/ssl/certs
-```
-Replace the `clusterName=k8s-cluster` above to uniquely identify your Kubernetes cluster.
+Run `kubectl create -f </path/to/wavefront-collector-dir>/` to deploy the collector on your cluster.
 
-If RBAC is disabled, comment out `serviceAccount: "heapster"` from `heapster.yaml`.
+To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
 
-Run `kubectl create -f /path/to/heapster.yaml`. The Heapster collector agent should now be running on your cluster.
+If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
 
-If you do not see metrics in the Kubernetes dashboard, check the logs from the Heapster and proxy pods.
-
-
-To collect **kube-state metrics** from your Kubernetes cluster, follow Step 4 & Step 5.
-
-### Step 4. Deploy the kube-state-metrics service
-
-Copy and save the following yaml to your system as `kube-state.yaml`:
-
-```
-apiVersion: rbac.authorization.k8s.io/v1
-# kubernetes versions before 1.8.0 should use rbac.authorization.k8s.io/v1beta1
-#kube-state-metrics-cluster-role.yaml
-kind: ClusterRole
-metadata:
-    name: kube-state-metrics
-rules:
-- apiGroups: [""]
-  resources:
-  - configmaps
-  - secrets
-  - nodes
-  - pods
-  - services
-  - resourcequotas
-  - replicationcontrollers
-  - limitranges
-  - persistentvolumeclaims
-  - persistentvolumes
-  - namespaces
-  - endpoints
-  verbs: ["list", "watch"]
-- apiGroups: ["extensions"]
-  resources:
-  - daemonsets
-  - deployments
-  - replicasets
-  verbs: ["list", "watch"]
-- apiGroups: ["apps"]
-  resources:
-  - statefulsets
-  verbs: ["list", "watch"]
-- apiGroups: ["batch"]
-  resources:
-  - cronjobs
-  - jobs
-  verbs: ["list", "watch"]
-- apiGroups: ["autoscaling"]
-  resources:
-  - horizontalpodautoscalers
-  verbs: ["list", "watch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-# kubernetes versions before 1.8.0 should use rbac.authorization.k8s.io/v1beta1
-#kube-state-metrics-cluster-role-binding.yaml
-kind: ClusterRoleBinding
-metadata:
-  name: kube-state-metrics
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: kube-state-metrics
-subjects:
-  - kind: ServiceAccount
-    name: kube-state-metrics
-    namespace: kube-system
----
-apiVersion: rbac.authorization.k8s.io/v1
-# kubernetes versions before 1.8.0 should use rbac.authorization.k8s.io/v1beta1
-#kube-state-metrics-role.yaml
-kind: Role
-metadata:
-  namespace: kube-system
-  name: kube-state-metrics-resizer
-rules:
-- apiGroups: [""]
-  resources:
-  - pods
-  verbs: ["get"]
-- apiGroups: ["extensions"]
-  resources:
-  - deployments
-  resourceNames: ["kube-state-metrics"]
-  verbs: ["get", "update"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-# kubernetes versions before 1.8.0 should use rbac.authorization.k8s.io/v1beta1
-#kube-state-metrics-role-binding.yaml
-kind: RoleBinding
-metadata:
-  name: kube-state-metrics
-  namespace: kube-system
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: kube-state-metrics-resizer
-subjects:
-- kind: ServiceAccount
-  name: kube-state-metrics
-  namespace: kube-system
----
-#kube-state-metrics-service-account.yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: kube-state-metrics
-  namespace: kube-system
----
-#kube-state-metrics-service.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: kube-state-metrics
-  namespace: kube-system
-  labels:
-    k8s-app: kube-state-metrics
-  annotations:
-    prometheus.io/scrape: 'true'
-spec:
-  ports:
-  - name: http-metrics
-    port: 8080
-    targetPort: http-metrics
-    protocol: TCP
-  - name: telemetry
-    port: 8081
-    targetPort: telemetry
-    protocol: TCP
-  selector:
-    k8s-app: kube-state-metrics
----
-#kube-state-metrics-deployment.yaml
-apiVersion: apps/v1
-# Kubernetes versions after 1.9.0 should use apps/v1
-# Kubernetes versions before 1.8.0 should use apps/v1beta1 or extensions/v1beta1
-kind: Deployment
-metadata:
-  name: kube-state-metrics
-  namespace: kube-system
-spec:
-  selector:
-    matchLabels:
-      k8s-app: kube-state-metrics
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        k8s-app: kube-state-metrics
-    spec:
-      serviceAccountName: kube-state-metrics
-      containers:
-      - name: kube-state-metrics
-        image: quay.io/coreos/kube-state-metrics:v1.3.1
-        ports:
-        - name: http-metrics
-          containerPort: 8080
-        - name: telemetry
-          containerPort: 8081
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 8080
-          initialDelaySeconds: 5
-          timeoutSeconds: 5
-      - name: addon-resizer
-        image: k8s.gcr.io/addon-resizer:1.7
-        resources:
-          limits:
-            cpu: 100m
-            memory: 30Mi
-          requests:
-            cpu: 100m
-            memory: 30Mi
-        env:
-          - name: MY_POD_NAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: MY_POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
-        command:
-          - /pod_nanny
-          - --container=kube-state-metrics
-          - --cpu=100m
-          - --extra-cpu=1m
-          - --memory=100Mi
-          - --extra-memory=2Mi
-          - --threshold=5
-          - --deployment=kube-state-metrics
-
-```
-Run `kubectl create -f </path/to>/kube-state.yaml`. A `kube-state-metrics` service should now be running on your cluster.
-
-### Step 5. Deploy Telegraf to Collect kube-state-metrics
-
-Copy and save the following yaml to your system as `telegraf.yaml`:
-
-```
-apiVersion: apps/v1
-# Kubernetes versions after 1.9.0 should use apps/v1
-# Kubernetes versions before 1.8.0 should use apps/v1beta1 or extensions/v1beta1
-kind: Deployment
-metadata:
-  name: telegraf-ksm
-  namespace: kube-system
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: telegraf-ksm
-  template:
-    metadata:
-      labels:
-        app: telegraf-ksm
-    spec:
-      containers:
-      - name: telegraf
-        image: wavefronthq/telegraf:latest
-        env:
-        - name: WAVEFRONT_PROXY
-          value: wavefront-proxy.default
-        - name: INTERVAL
-          value: 60s
-        - name: METRIC_SOURCE_NAME
-          value: kube-state-metrics
-        resources:
-          requests:
-            memory: 30Mi
-            cpu: 100m
-          limits:
-            memory: 50Mi
-            cpu: 200m
-        volumeMounts:
-        - name: telegraf-d
-          mountPath: /etc/telegraf/telegraf.d
-      volumes:
-      - name: telegraf-d
-        projected:
-          sources:
-          - configMap:
-              name: telegraf-ksm-config
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: telegraf-ksm-config
-  namespace: kube-system
-data:
-  prometheus.conf: |
-    [[inputs.prometheus]]
-      urls = ["http://kube-state-metrics:8080/metrics"]
-      [inputs.prometheus.tags]
-        cluster = "k8s-cluster"
-
-```
-{% endraw %}
-Replace the `cluster = "k8s-cluster"` property above to uniquely identify your Kubernetes cluster.
-
-Run `kubectl create -f </path/to>/telegraf.yaml`. A `telegraf` agent should now be running on your cluster.
-
-If you do not see metrics in the Kubernetes dashboard, check the logs from the telegraf and proxy pods.
+### Horizontal Pod Autoscaling (HPA)
+Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See  [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
