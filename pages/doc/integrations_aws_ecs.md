@@ -35,21 +35,25 @@ Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefro
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
 
-1. Within AWS Services, navigate to **EC2 Container Service**. It appears below EC2.
-1. Click **Task Definitions**, then **Create new Task Definition**:
+1. Within AWS Services, navigate to **EC2**.
+1. Click **Task Definitions**, then **Create new Task Definition**.
   ![create task def](images/create_new_task_definition.png)
-1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button. A JSON form displays.
-   1. Paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field:
+1. Select the launch type that you want your task to be compatible with and click **Next Step**.
+
+   ![select launch type](images/select_launch_type.png)
+1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button.
+   1. Delete the content and paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field:
 
       ![paste json](images/paste_json.png)
 
-   1. In the JSON form, set the property `-storage_driver_wf_proxy_host` to `<wavefront_proxy_ip_address>:<port>`.
-   1. Click **Save**.
+   1. In the JSON form, set the `-storage_driver_wf_proxy_host` property  to `<wavefront_proxy_ip_address>:<port>` and click **Save**.
 1. Click the **Create** button at the bottom of the Task Definition form.
-1. Select **Actions > Run Task**.
-
+1. Select **Actions > Run Task** and specify the task information:
    ![actions menu](images/actions_run_task.png)
-1. In the **Placement Templates** dropdown under the Task Placement section, select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
+   1. In the **Cluster** dropdown, select the cluster on which your task has to run.
+   2. Enter the number of tasks (minimum 1) of same definition you want to run.
+   3. (Optional) Enter the Task Group name to identify a set of related tasks.
+1. In the **Placement Templates** dropdown select **One Task Per Host**. This ensures that each EC2 instance in your ECS cluster has a Wavefront cAdvisor task.
 
    ![actions menu](images/one_task_per_host.png)
 1. Click **Run Task**.

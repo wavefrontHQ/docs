@@ -279,45 +279,63 @@ entries:
       url: /alerts_states_lifecycle.html
       output: web
 
-    - title: Alert Dependencies
-      url: /alerts_dependencies.html
-      output: web
+      subfolders:
+      - title: Alert Targets and Notifications
+        output: web
+        subfolderitems:
 
-    - title: Increasing Alert Robustness
-      url: /alerts_robustness_increasing.html
-      output: web
+        - title: Alert Notifications
+          url: /alerts_notifications.html
+          output: web
 
-    - title: Preventing Alerts from Firing
-      url: /maintenance_windows_managing.html
-      output: web
+        - title: Custom Alert Targets
+          url: /webhooks_alert_notification.html
+          output: web
 
-    - title: Alerts Best Practices
-      url: /alerts_best_practices.html
-      output: web
+        - title: Customizing Alert Notifications
+          url: /alert_target_customizing.html
+          output: web
 
-    - title: Custom Alert Targets
-      url: /webhooks_alert_notification.html
-      output: web
+      - title: Alerts Tips and Tricks
+        output: web
+        subfolderitems:
 
-    - title: Customizing Alert Notifications
-      url: /alert_target_customizing.html
-      output: web
+        - title: Managing Alert Dependencies
+          url: /alerts_dependencies.html
+          output: web
 
-    - title: Events
-      url: /events.html
-      output: web
+        - title: Increasing Alert Robustness
+          url: /alerts_robustness_increasing.html
+          output: web
 
-    - title: Displaying Events in Charts
-      url: /charts_events_displaying.html
-      output: web
+        - title: Preventing Alerts from Firing
+          url: /maintenance_windows_managing.html
+          output: web
 
-    - title: Basic events() Queries
-      url: /events_queries.html
-      output: web
+        - title: Alerts Best Practices
+          url: /alerts_best_practices.html
+          output: web
 
-    - title: Advanced events() Queries
-      url: /events_queries_advanced.html
-      output: web
+
+      - title: Events
+        output: web
+        subfolderitems:
+
+        - title: Events Overview
+          url: /events.html
+          output: web
+
+        - title: Displaying Events in Charts
+          url: /charts_events_displaying.html
+          output: web
+
+        - title: Basic events() Queries
+          url: /events_queries.html
+          output: web
+
+        - title: Advanced events() Queries
+          url: /events_queries_advanced.html
+          output: web
 
   - title: Integrations
     output: web
@@ -353,7 +371,7 @@ entries:
             url: /integrations_aws_lambda.html
             output: web
 
-          - title: Pivotal Container Service Integration
+          - title: VMware PKS Integration
             url: /integrations_pks.html
             output: web
 

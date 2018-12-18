@@ -93,7 +93,9 @@ For example, suppose the **Alert fires** property is set to 5 minutes. If the al
 
 An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Alert fires** time window.
 
-### Example: ts(cpu.loadavg.1m) > 4 fires
+**Example 1**
+
+Consider the following alert query: `ts(cpu.loadavg.1m) > 4`. The corresponding alert fires:
 - If the series has one reported data value of 5 in the last X minutes, and no other points (no data), the alert fires.
 - If the series has two reported data values of 5 and 3, both anywhere in the last X minutes, the alert does not fire.
 - If the series only has points <= 4 in the last X minutes, the alert does not fire.
@@ -101,24 +103,11 @@ An alert fires when its [condition](#alert-conditions) evaluates to at least one
 
 Alert checks are based on data summarized every minute.  This means that if you have a series of 9, 9, 9, 3, 9 in the _same minute_ for the alert condition, then the condition evaluates to true for that particular minute although there is a value of 3 reported. All alert queries are checked according to the **Checking Frequency** property.
 
-###  Detailed Example
+**Example 2**
 
-In the following example, the threshold for the alert is set to 50%. The event window from 09:34-09:35 identifies the interval during which the metric crossed the threshold going up. The event window from 09:39-09:40 identifies the interval during with the metric crossed the threshold going down. The settings for the alert were **Alert fires** = 2 minutes, **Alert resolves** = 2 minutes, and **Checking Frequency** = 1 minute. The alert fires around 09:37:09 and resolves at 09:41:59.
+In the example shown in the screen shot below, the threshold for the alert is set to 50%. The event window from 09:34-09:35 identifies the interval during which the metric crossed the threshold going up. The event window from 09:39-09:40 identifies the interval during with the metric crossed the threshold going down. The settings for the alert were **Alert fires** = 2 minutes, **Alert resolves** = 2 minutes, and **Checking Frequency** = 1 minute. The alert fires around 09:37:09 and resolves at 09:41:59.
 
 ![Alert fires](images/alert_fire.png)
-
-## PagerDuty Notifications
-
-If you use the out-of-the-box PagerDuty alert target, and you resolve the incident in PagerDuty while the alert is still firing in Wavefront, two scenarios are possible:
-
-- If there is a change to the set of sources being affected, that change triggers a new incident in PagerDuty. Changes to the set of sources being affected include:
-
-  - Newly affected sources are added to the list of existing affected sources
-  - A subset of the existing sources being affected is no longer affected
-
-- If all affected sources are no longer affected and the alert is resolved in Wavefront, then no new incident is logged into PagerDuty.
-
-You can customize this behavior by creating a custom PagerDuty [alert target](webhooks_alert_notification.html) with different triggers.
 
 ## Viewing Firing Alerts
 
