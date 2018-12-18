@@ -35,7 +35,7 @@ Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefro
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
 
-1. Within AWS Services, navigate to **EC2**.
+1. Within AWS Services, navigate to **ECS**.
 1. Click **Task Definitions**, then **Create new Task Definition**.
   ![create task def](images/create_new_task_definition.png)
 1. Select the launch type that you want your task to be compatible with and click **Next Step**.
