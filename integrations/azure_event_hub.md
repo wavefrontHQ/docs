@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure App Service Integration
+title: Microsoft Azure Event Hub Integration
 tags: [integrations list]
-permalink: azure_app_service.html
-summary: Learn about the Wavefront Microsoft Azure App Service Integration.
+permalink: azure_event_hub.html
+summary: Learn about the Wavefront Microsoft Azure Event Hub Integration.
 ---
 ## Microsoft Azure Integration
 
