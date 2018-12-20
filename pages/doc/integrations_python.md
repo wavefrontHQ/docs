@@ -148,7 +148,6 @@ Beyond visualizing data, you can use Python to perform more complicated analyses
 
 ![linearregression.jpeg](images/linearregression.jpeg)
 
-### Example
 
 ```python
 queries = c('ts(mem.used.percentage,source=app-1)','ts(cpu.loadavg.1m,source=app-1)')
