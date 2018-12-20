@@ -28,11 +28,11 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 ### Install and Configure Wavefront Proxy and Telegraf Agent Manually
 
-*Linux*: Follow the steps under linux/setup.
+*Linux*: Follow the steps under [linux/setup]({% link integrations/linux.md %}).
 
-*Mac*: Follow the steps under mac/setup.
+*Mac*: Follow the steps under [mac/setup]({% link integrations/mac.md %}).
 
-*Windows*: Follow the steps under windows/setup.
+*Windows*: Follow the steps under [windows/setup]({% link integrations/windows.md %}).
 
 ### Insights into Telegraf performance (Optional)
 
