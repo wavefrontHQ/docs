@@ -6,7 +6,7 @@ summary: Learn about the Wavefront VMware vSphere Integration.
 ---
 ## vSphere Integration
 
-The vSphere integration is a full-featured implementation offering pre-defined dashboards and alert conditions and is fully configurable.
+The vSphere integration is a full-featured implementation offering pre-defined dashboards and predifined alert conditions. The integration is fully configurable.
 
 ### Dashboards
 
@@ -27,7 +27,7 @@ Wavefront provides the following dashboards for vSphere:
 {% include image.md src="images/vsphere_summary.png" width="80" %}
 
 #### Host and VM System Metrics
-<p>The integration includes system metrics for all ESXi Hosts and VMs part of your environment</p>
+<p>The integration includes system metrics for all ESXi Hosts and VMs that are part of your environment.</p>
 
 {% include image.md src="images/vsphere_vm_summary.png" width="80" %}
 
