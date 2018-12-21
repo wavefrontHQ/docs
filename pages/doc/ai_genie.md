@@ -25,16 +25,16 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 ### Forecast Prediction Use Case
 
-Assume that Jo, a application developer, works on the backend database technology. In the company environment, each instance of the application is dedicated to a different customer, so the instances can be sized independently depending on customer usage.
+Assume that Jo, an application developer, works on the backend database technology. In the company environment, each instance of the application is dedicated to a different customer, so the instances can be sized independently depending on customer usage.
 
-1. Scott needs to know several weeks ahead of time when the instance has to be expanded, and starts by using Wavefront to look at a chart that shows usage of the service over the last few weeks.
-2. Next, Scott switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict what saturation levels will look like for the next four weeks.
-3. Scott adjusts the historic sample size to 5 weeks, and selects a conservative confidence factor. Even with conservative forecasting, it's pretty clear that saturation will be above 90% in 25 days.
-4. Scott initiates a change request to scale the cluster during the next change window. He also saves the chart to a new dashboard so he can use it later to explore other metrics associated with the same change window.
+1. Jo needs to know several weeks ahead of time when the instance has to be expanded, and starts by using Wavefront to look at a chart that shows usage of the service over the last few weeks.
+2. Next, Jo switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict what saturation levels will look like for the next four weeks.
+3. Jo adjusts the historic sample size to 5 weeks, and selects a conservative confidence factor. Even with conservative forecasting, it's pretty clear that saturation will be above 90% in 25 days.
+4. Jo initiates a change request to scale the cluster during the next change window. Jo also saves the chart to a new dashboard -- that dashboard will be useful later for exploration of other metrics associated with the same change window.
 
 ## How to Use AI Genie
 
-It's easy to access AI Genie from any chart and to display and customize the Anomaly Detection and Forecast pages.
+You can access AI Genie from any chart and display and customize the Anomaly Detection and Forecast pages.
 
 To access AI Genie:
 1. Hover over the query and click **Open AI Genie** below the query.
@@ -46,4 +46,4 @@ To access AI Genie:
    When the Create Alert page displays, you see that the `anomalous` function is part of the query. You do some alert customization, but several settings are optimized for anomaly detection.
 
    ![anomaly alert](images/anomaly_save_as_alert.png)
-3. Select **Forecasting** to explore forecasting for this set of time series. You can customize the historical sample size and confidence. If you display confidence bands, they change as you select a different confidence factor.
+3. Select **Forecasting** to explore forecasting for the current set of time series. You can customize the historical sample size and confidence. If you display confidence bands, they change as you select a different confidence factor.
