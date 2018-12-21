@@ -34,9 +34,11 @@ When you invite a user to Wavefront, what that new user can do depends on severa
 - **New User Groups:** Administrators can set up a group with permissions for all new users, and set up the environment to [assign all new users to that group](users_groups.html#setting-the-default-group-for-new-users).
 
 
-### Who is Super Admin?
+### Who is the Super Admin User?
 
 When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions and can also  perform some tasks that nobody else can perform, such as looking at orphan dashboards and inviting other Super Admin users.
+
+
 
 ### Why Groups?
 
@@ -50,12 +52,18 @@ All users in Wavefront are members of the Everyone group, which was created when
 Here's what you need to know:
 
 * You cannot remove users from the Everyone group. All users, including Super Admin, are always in the Everyone group.
+* You cannot delete the Everyone group.
 * You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means users can browse data but cannot modify anything.
 * **Warning** If you change the permissions assigned to the Everyone group, you change the permissions for each user in your environment.
 * If you use access control in your environment, you can share a dashboard with the Everyone group to:
   - Give View & Modify access to users who have Dashboard permissions
   - Give View access to users who don't have Dashboard permissions
   You can also remove the Everyone group from a dashboard to limit access to the dashboard.
+
+### What is the Ingest Only Group?
+
+The Ingest Only group is created when Wavefront enables groups. The group is meant for service accounts and it has only the **Direct Data Ingestion** permission by default.  You cannot delete this group. You can change the permissions assigned to this group. 
+
 
 ## Managing Groups
 
