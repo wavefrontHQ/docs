@@ -55,7 +55,7 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
 1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
 1. Click **Done** and verify that your proxy is listed on the Proxies page. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to start the proxy is running.
 
-If you want to run a proxy in a Kubernetes container, log in to Wavefront, click **Integrations**, click Kubernetes, click the **Setup** tab, and follow the instructions to deploy a Wavefront proxy in Kubernetes, create a proxy service, and deploy Heapster.
+If you want to run a proxy in a Kubernetes container, log in to Wavefront, click **Integrations**, click Kubernetes, click the **Setup** tab, and follow the instructions to deploy a Wavefront proxy in Kubernetes, create a proxy service, and deploy Wavefront Kubernetes Collector.
 
 ### Scripted Proxy Installation
 
@@ -130,7 +130,7 @@ To check if the proxy is running, run the following commands on the proxy host:
 
 ### Configuring Listener Ports for Metrics, Histograms, and Traces
 
-The proxy listens on different ports for different kinds of data. These ports are specified in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties). 
+The proxy listens on different ports for different kinds of data. These ports are specified in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties).
 
 * **For metrics**, you do not need to edit this file if you plan to ingest metrics using the default port (2878).
 * **For histogram distributions or trace data**, you must edit this file, uncomment the port properties, and restart the proxy. You can optionally set nondefault port numbers.

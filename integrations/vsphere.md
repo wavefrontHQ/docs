@@ -6,7 +6,7 @@ summary: Learn about the Wavefront VMware vSphere Integration.
 ---
 ## vSphere Integration
 
-The vSphere integration is a full-featured implementation offering pre-defined dashboards and alert conditions and is fully configurable.
+The vSphere integration is a full-featured implementation offering pre-defined dashboards and predifined alert conditions. The integration is fully configurable.
 
 ### Dashboards
 
@@ -27,7 +27,7 @@ Wavefront provides the following dashboards for vSphere:
 {% include image.md src="images/vsphere_summary.png" width="80" %}
 
 #### Host and VM System Metrics
-<p>The integration includes system metrics for all ESXi Hosts and VMs part of your environment</p>
+<p>The integration includes system metrics for all ESXi Hosts and VMs that are part of your environment.</p>
 
 {% include image.md src="images/vsphere_vm_summary.png" width="80" %}
 
@@ -42,9 +42,8 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
-vSphere metrics can be extensive, we recommend you use a dedicated VM which will collect data using Telegraf.  
-Installing the Wavefront Proxy on the same VM as Telegraf is not required.
-This VM needs network connectivity to your vCenter, which can be from a VM deployed within your vCenter environment.
+vSphere metrics can be extensive. We recommend that you use a dedicated VM that will collect data using Telegraf.  
+This VM needs network connectivity to your vCenter Server. It can be from a VM deployed within your vCenter environment. Installing the Wavefront proxy on the same VM as Telegraf is not required.
 
 ### Step 1. Install the Telegraf Agent
 
@@ -209,15 +208,15 @@ Create a file called `vsphere.conf` in `/etc/telegraf/telegraf.d` and enter the 
 ```
 {% endraw %}
 
-Update the `vcenters`, `username`, and `password` property according to your vCenter setup.
+Update the `vcenters`, `username`, and `password` properties according to your vCenter setup.
 
-Many vCenter environments use self signed certificates. Ensure to update the bottom portion of the above configuration and provide proper
-values for all applicable SSL Config settings per your vSphere environment. In some environments, setting `insecure_skip_verify = true` will be
+Many vCenter environments use self-signed certificates. Be sure to update the bottom portion of the above configuration and provide proper
+values for all applicable SSL Config settings that apply in your vSphere environment. In some environments, setting `insecure_skip_verify = true` will be
 necessary when the SSL certificates are not available.
 
 Detailed instructions on how to configure the vSphere plugin can be found [here](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere)
 
 ### Step 3. Restart Telegraf
 
-Run `sudo service telegraf restart` to restart your agent.
+Run `sudo service telegraf restart` to restart your Telegraf agent.
 

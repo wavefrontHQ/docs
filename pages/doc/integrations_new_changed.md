@@ -9,6 +9,30 @@ summary: Learn about new and changed Wavefront integrations.
 Wavefront continuously adds new integrations to the existing set, and improves available integrations.
 This document lists new and changed integrations on a per-month basis. We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
+## December 2018
+
+We added the following integrations in December 2018:
+
+* FoundationDB integration
+* Azure Event Hub integration
+* Azure Redis Cache integration
+* Datadog integration
+* Hashicorp Vault integration
+* Gitlab integration
+* VMware Cloud on AWS integration (same setup instructions as vSphere integration)
+
+We promoted the Kubernetes Integration, which used Wavefront Kubernetes Collector instead of Heapster, from Beta to GA.
+
+We updated the following integrations in December 2018:
+
+* Improved Cassandra integration dashboard
+* Jenkins integration dashboard fixes
+* Minor fixes to GCP Billing dashboard
+* Minor fixes to AWS Cloudtrail dashboards
+
+We archived the previous Kubernetes integration, which was based on Heapster.
+
+
 ## November 2018
 
 We added the following integrations in November 2018:
