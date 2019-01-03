@@ -6,9 +6,9 @@ sidebar: doc_sidebar
 permalink: proxies_manual_install.html
 summary: Learn how to manually install a Wavefront proxy.
 ---
-We have instructions for scripted installation of the Wavefront proxy and the Telegraf agen in this document set and the integrations for the different operating systems.
+We have instructions for scripted installation of the Wavefront proxy and the Telegraf agent in this document set and the integrations for the different operating systems.
 
-However, depending on your insisting environment, you might have to perform a manual installation instead. This page gives some guidance.
+However, depending on your environment, you might have to perform a manual installation instead. This page gives some guidance.
 
 ## Prerequisites
 
