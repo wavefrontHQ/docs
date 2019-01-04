@@ -72,7 +72,7 @@ Many traces can begin with the same operation. For example, a new, separate trac
 
 An application must be _instrumented for tracing_ before it can produce and send trace data to Wavefront. Wavefront supports several options to choose from, depending on your use case. Here's the big picture:
 
-![tracing architecture](images/tracing_architecture.png)
+![tracing architecture](images/tracing_architecture.svg)
 
 If you have already instrumented your code using a 3rd party OpenTracing-compliant solution such as [Jaeger](jaeger.html), you can set up an integration to forward the trace data to Wavefront. 
 

@@ -7,7 +7,33 @@ permalink: trace_data_query.html
 summary: Learn how to query for Wavefront trace data.
 ---
 
-After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can query that data from the **Traces** page. Querying trace data lets you find the particular traces and spans you are interested in, by filtering them by duration or according to the tags you set up when you instrumented your application.
+After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can query that data from the **Traces** page. Querying trace data lets you find the particular traces you are interested in by specifying the criteria that their spans must match.
+
+## Understanding Trace Queries
+
+You query for traces by describing the spans they must contain. A trace query can specify various span characteristics, such as an operation name, duration thresholds, and values for the tags that you set up when you instrumented your application. 
+
+When you submit a trace query, it:
+1. Finds the spans that match the description you specify.
+2. Returns the whole traces that contain one or more qualifying spans. 
+
+### Graphic Representation of a Returned Trace
+
+Each returned trace is shown graphically as a bar. The bar's length represents the trace's overall duration. The bar's color indicates whether the trace has an error in one or more spans (red) or has no reported errors (blue):
+
+![tracing query results](images/tracing_query_results.png)
+
+### Identity of a Returned Trace
+
+Each bar in a result set represents a unique trace with a unique trace id. For readability, we label each trace using the operation that its root span represents. (The root span is the first span in the trace.)  For example, each of the two returned traces shown above has a root span that represents the work done by the `orderShirts` operation in the `shopping` service, so the label for each of these traces is **shopping: orderShirts**. Although these root spans have the same operation name, they represent distinct executions of the `orderShirts` operation, with different start times.
+
+**Note:** It is important to remember that a label such as **shopping: orderShirts** refers to the root span of a trace, and not necessarily to the span that was specified by the query. For example, say you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain one or more `dispatch` spans. 
+
+### Limited Result Set
+
+To prevent a trace query from taking a long time, you normally specify a limit on the number of spans that can be matched. After reaching the limit, the query stops looking for more spans to qualify. 
+
+**Note:** It is important to remember that the limit applies to the number of spans that a query matches, and not to the number of traces that the query returns. For example, say you limit a query to 20 spans. If 2 or more qualified spans belong to the same trace, that trace is shown only once, and you will see fewer than 20 traces in the result set.
 
 
 ## Ways to Submit Trace Queries
@@ -82,11 +108,11 @@ The Query Builder lets you use menus for selecting values that describe the span
     </colgroup>
     <tbody>
     <tr>
-    <td markdown="span">**Min Duration**</td>
+    <td markdown="span">**Min Span**</td>
     <td markdown="span">Minimum number of milliseconds in a matching span.</td>
     </tr>
     <tr>
-    <td markdown="span">**Max Duration**</td>
+    <td markdown="span">**Max Span**</td>
     <td markdown="span">Maximum number of milliseconds in a matching span.</td>
     </tr>
     </tbody>
@@ -100,17 +126,47 @@ The Query Builder produces a `spans()` function for you. So, for example, you ca
 2. Toggle to the Query Editor to see what the corresponding `span()` function looks like. 
 3. Either continue to edit the function, or else toggle back to the Query Builder. **Note:** Once you change a query using the Query Editor, you cannot go back to the Query Builder.
 
-## Query Results
+## Sorting the Result Set
 
-A trace query:
-1. Identifies spans that match the search criteria you specified.
-2. Returns the whole traces that contain the matched spans. 
+You can sort a set of returned traces by selecting a sort order from the **Sort By** menu: 
 
-**Note:** Each trace is listed by its root span, which may be different from the span the query asked for.
+<table style="width: 100%">
+<colgroup>
+<col width="30%"/>
+<col width="70%"/>
+</colgroup>
+<thead>
+<tr><th>Menu</th><th>Start With the Traces That Have</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">**Most Recent**</td>
+<td markdown="span">The most recent start times.</td>
+</tr>
+<tr>
+<td markdown="span">**Longest First**</td>
+<td markdown="span">The longest overall duration.</td>
+</tr>
+<tr>
+<td markdown="span">**Shortest First**</td>
+<td markdown="span">The shortest overall duration.</td>
+</tr>
+<tr>
+<td markdown="span">**Most Spans**</td>
+<td markdown="span">The largest number of spans.</td>
+</tr>
+<tr>
+<td markdown="span">**Least Spans**</td>
+<td markdown="span">The smallest number of spans.</td>
+</tr>
+</tbody>
+</table>
 
-By default, a query matches up to 20 spans, and returns all the traces that contain them. This doesn't mean you'll always see 20 traces in the result set. If 2 or more qualified spans belong to the same trace, that trace is shown only once.
 
-If you've enabled a a sampling strategy, results are found among the spans that have actually been ingested. (The query does not search through spans before they’ve been sampled.)
+Sorting always applies after the result set has been limited. For example, say you limited the query to 20 matching spans, and sorted the returned traces from shortest to longest. The sorted list includes only the traces that contain one or more of the 20 matching spans. (We do not first sort all traces containing a matching span, and then display the 20 shortest traces.)
+ 
+**Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. (The query does not search through spans before they’ve been sampled.)
+
 
 <!---
 <table>
