@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: permissions.html
 summary: Learn how to manage permissions.
 ---
-All new users can perform a basic set of tasks when they are invited to Wavefront. In addition, all users have the permissions of the Default New User Group, and any permissions that they are assigned explicitly.
+All new users can perform a basic set of tasks when they are invited to Wavefront. In addition, all users have the permissions of the Default New User Group, and any permissions that they are assigned explicitly. 
 
 The Super Admin user and users with Users & Groups permission can set the default user group and can assign [permissions](permissions_overview.html) or revoke permissions at the group level or for individual users.
 
