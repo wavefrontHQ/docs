@@ -138,16 +138,16 @@ For example:<br>
 </tr>
 <tr>
 <td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**.  Specify **spanDuration** as an integer number of seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). <br>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br>
 For example, to return traces in which the qualifying spans are longer than 3 seconds: <br>
 `highpass(3s, spans("makeShirts", application="beachshirts"))`
 </td>
 </tr>
 <tr>
 <td>lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are shorter than **spanDuration**.  Specify **spanDuration** as an integer number of seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). <br>
-For example, to return traces in which the qualifying spans are shorter than 3 seconds: <br>
-`lowpass(3s, spans("makeShirts", application="beachshirts"))`
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are shorter than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br>
+For example, to return traces in which the qualifying spans are shorter than 10 milliseconds: <br>
+`lowpass(10ms, spans("makeShirts", application="beachshirts"))`
 </td>
 </tr>
 <tr>
@@ -159,7 +159,7 @@ For example: <br>
 </tr>
 <tr>
 <td>childrenOnly(<strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the child spans of a trace, i.e., filters out root spans. <br> 
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the child spans of a trace, i.e., no root spans. <br> 
 For example: <br>
 `childrenOnly(spans(traceId="5b309723-fb83-4c9c-afb6-f0dc4b2bff13"))`
 </td>
