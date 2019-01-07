@@ -31,14 +31,12 @@ When you invite a user to Wavefront, what that new user can do depends on severa
   **Note:** It's possible that [access to dashboards](access.html#how-access-control-works) is limited.
 
 - **New User Permissions:** Users with Users & Groups permission can view and modify new user default permissions [from the gear icon](users_groups.html#setting-default-permissions-for-new-users).
-- **New User Groups:** Administrators can set up a group with permissions for all new users, and set up the environment to [assign all new users to that group](users_groups.html#setting-the-default-group-for-new-users).
+- **Default User Groups:** Administrators can set up a [default user group](users_groups.html#setting-the-default-group-for-new-users). All new users get all permissions assigned to the default user groups.
 
 
 ### Who is the Super Admin User?
 
-When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions and can also  perform some tasks that nobody else can perform, such as looking at orphan dashboards and inviting other Super Admin users.
-
-
+When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions, has access to all dashboards, can [restore orphan dashboards](access.html#making-orphan-dashboards-visible), and can invite other Super Admin users.
 
 ### Why Groups?
 
@@ -46,7 +44,7 @@ Groups make it easy to make changes for many users. More importantly, if you cha
 
 **Note:** Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
-### What's the Everyone Group?
+#### What's the Everyone Group?
 
 All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
 Here's what you need to know:
@@ -60,9 +58,13 @@ Here's what you need to know:
   - Give View access to users who don't have Dashboard permissions
   You can also remove the Everyone group from a dashboard to limit access to the dashboard.
 
-### What is the Ingest Only Group?
+#### What is the Ingest Only Group?
 
-The Ingest Only group is created when Wavefront enables groups. The group is meant for service accounts and it has only the **Direct Data Ingestion** permission by default.  You cannot delete this group. You can change the permissions assigned to this group. 
+The Ingest Only group is created when Wavefront enables groups. The group is meant for service accounts and it has only the **Direct Data Ingestion** permission by default.
+
+When you invite a service account, add this group to the User Groups field.
+
+You can delete and rename this group, and you can change the permissions assigned to this group.
 
 
 ## Managing Groups
@@ -94,7 +96,7 @@ Users with Users & Groups permissions can manage users.
    2. Select the check box for one or more users.
    3. Click one of the **Permission** or  **Group** icons or the trash can button, and confirm when prompted.
 
-   If you delete a user, you remove that user's access to Wavefront. You can instead remove the user from one or more groups.
+   If you delete a user, you remove that user's access to Wavefront. 
 
 [New users](users_groups.html#what-can-a-new-user-do) can browse data and might have additional permissions. Each invited user receives an email with an account activation link that is valid for 24 hours.
 

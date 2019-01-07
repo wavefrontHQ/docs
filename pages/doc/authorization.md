@@ -17,7 +17,7 @@ With additional setup, you gain finer-grained control:
 * **Permissions for users** -- You can initially use the simple model in which each user has access based on [permissions](permissions_overview.html).
 * **Permissions for groups** -- Using permissions with groups is faster and less error prone than using permissions with users. It's easy keep permissions consistent.
 * **Access control on objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards).
-* **Security preference for new dashboards** -- In high security environments, administrator can set a security preference so all new dashboards are accessible only to the creater and to Super Admin users.
+* **Security preference for new dashboards** -- In high security environments, administrator can set a security preference so all new dashboards are accessible only to the creator and to Super Admin users.
 
   ![control setup](images/security_levels.svg)
 
@@ -29,16 +29,19 @@ Level 1 authorization allows adminstrators to assign permissions to individual u
   - Can perform a set of [New User Actions](users_groups.html#what-can-a-new-user-do) such as viewing dashboards, alerts, etc.
   - Has a set of New User Permissions. This set is determined by the administrator.
 * All users get the permissions that the administrator assigned to the Everyone group. For example, all users might get Dashboard permission and Proxy permission.
-* Administrators can [grant or revoke permissions](users_managing.html#granting-and-revoking-permissions) for individual users (and for groups, discussed next).
+* Users with Users & Groups permissions can [grant or revoke permissions](users_managing.html#granting-and-revoking-permissions) for individual users (and for groups, discussed next).
 
 ## Level 2: Permissions for Groups and Users
 
-Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent. They can use groups with permissions only, or can use access control for objects (see Level 3 below).
+Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent.
+* Assign permissions to a group. For example, assign Dashboard permission to allow group members to manage all dashboards.
+* Use access control for objects to restrict access to individual dashboards (see Level 3 below).
 
 As an administrator, you manage groups and permissions like this:
 * You create one or more groups and assign permissions. For example, you can create an Admin group that includes User Management permission.
 * When you invite a new user, you can add the user to one or more groups. The UI makes it easy to see where a permission comes from.
-* You can manage permissions on a per-group basis. For example, assume that Marketing group has User Management permission. If you remove the permission, all members of the Marketing group no longer have it - but you can grant the permission to individual users at the user level.
+* You can manage permissions on a per-group basis. For example, assume that Marketing group has User Management permission. If you remove the permission, all members of the Marketing group no longer have it.
+* You can still manage individual permissions. For the example above, after you're removed User Managerment permission from the Marketing group, you can give the permission explicitly to a few members of the group.
 * A user who belongs to more than one group gets permissions from both groups (addition).
 
 Wavefront does not currently integrate with the groups of your identity manager (Active Directory or LDAP).
@@ -49,10 +52,11 @@ Starting with Release 2018.46.x, Wavefront supports object-level access control 
 
 ### Basic Access Control
 
-All users with Dashboard permission can view and modify all dashboards. Those users can also [change access to individual dashboards](access.html#change-access-for-one-or-more-dashboards) from the dashboard browsers, like this:
+All users with Dashboard permission can view and modify all dashboards. Those users can also [change access to individual dashboards](access.html#change-access-for-one-or-more-dashboards) from the dashboard browsers.
 
-1 Add access for the user group or user that should have access to the dashboard.
-2 Remove access for the Everyone group.
+![dashboard access](images/dashboard_access.png)
+
+**Note:** Do not remove the Everyone group unless other users or groups have access.
 
 
 ### Security Preference for New Objects
