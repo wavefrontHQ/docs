@@ -58,9 +58,11 @@ After the change to the preference, access to new dashboards is initially limite
 ## Making Orphan Dashboards Visible
 
 An orphan dashboard results if:
-* All users and groups including the Everyone group no longer have access.
+* All users and groups, including the Everyone group, no longer have access.
 * Only one user had dashboard access, and that user was deleted.
 
 To access an orphan dashboard:
 1. Log in as Super Admin and select **Super Admin** from the gear icon.
-2. Select the dashboard and delete it or share it with other users.
+2. Select the dashboard and share it with other users or groups.
+
+  ![orphan dashboards](/images/orphan_dashboards.png)
