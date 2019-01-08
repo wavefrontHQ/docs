@@ -22,15 +22,44 @@ echo "PROXY_JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-3.b13.el7_5.x86_
 
 ## Installing the Proxy Manually
 
+## If the system has network access:
+
 1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](packagecloud.io/wavefront/proxy)
 2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`
-3. Edit the `/etc/wavefront/wavefront-proxy/wavefront.conf` file and set the `server`, `token`, and `hostname` settings.
+
+   Note: If a Java JRE is not in the path, a JRE will be installed locally under '/opt/wavefront/wavefront-proxy/proxy-jre'
+
+3. Edit the `/etc/wavefront/wavefront-proxy/wavefront.conf` file.
 
 
 ### Configuration File Settings
 
 <!---Need a section to either proved example config files or how to modify these config files. In a manual install the files are very different from the ones our installation script modifies; I supplied my customer ones to replace the the one from the manual installation. File include: wavefront.conf, telegraf.conf, 10-wavefront.conf and the add on for vSphere [output] for telegraf in telegraf.d.--->
 
+The configuration file can be updated via the script "bin/autoconf-wavefront-proxy.sh" - or you can edit the file directly.  In either case, you will need the following information:
+
+
+-  **server** - For example: https://try.wavefront.com/api/ - this is the address you use to login to Wavefront appended by /api/
+-  **token** - xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx319
+-  **hostname** - A name (alphanumeric plus periods) unique across your entire account representing the machine that the proxy is running on. The hostname is not used to tag your data; rather, it's used to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
+-  **enable graphite** - Indicate whether to enable the Graphite format. See the Graphite integration for details on Graphite configuration. When the interactive configuration is complete, the Wavefront proxy configuration at /etc/wavefront/wavefront-proxy/wavefront.conf is updated with the input that you provided and the wavefront-proxy service is started.
+-  **NOTE:** You can find the values for server and token by selecting "Integrations" from the menu bar, selecting the "Linux Host" tab, then viewing the information on the "Setup Tab"
+
+If you choose to edit the configuration file manually, find, uncomment and modify the following lines:
+
+```
+server=     # at this writing, line l0
+hostname=   #                  line 17
+token=      #                  line 24
+if using Graphite, you will need to modify the Graphite configuration section starting with:
+#graphitePorts=2003          # line 43
+
+Note: the above line numbers may change from one release to the next 
+
+```
+The autoconf script will start the Wavefront proxy.  If you have edited the configuration manually, you will need to start the Wavefront proxy service:
+
+- "sudo service wavefront-proxy start"  or "sudo systemctl start wavefront-proxy"
 
 ## Installing Telegraph Manually
 
