@@ -471,6 +471,10 @@ entries:
     output: web
     folderitems:
 
+      - title: Wavefront Interfaces
+        url: /wavefront_interfaces.html
+        output: web
+
       - title: Wavefront REST API
         url: /wavefront_api.html
         output: web
