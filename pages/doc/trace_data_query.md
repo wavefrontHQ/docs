@@ -38,10 +38,7 @@ To prevent a trace query from taking a long time, you normally specify a limit o
 
 ## Ways to Submit Trace Queries
 
-You submit queries and view the results on the **Traces** page. You can choose the level of Wavefront assistance you want for constructing and submitting a trace query:
-* Query Builder: Use menus to select tag values for filtering spans.
-* Query Editor: Type the `spans()` function and take advantage of syntax completion for selecting tags and their values. 
-
+You submit queries and view the results on the **Traces** page. 
 
 ### Displaying the Traces Page
 
@@ -51,12 +48,22 @@ To navigate to **Traces** directly:
 
   **Note:** Alternatively, you can navigate to the **Traces** page from any page that displays metrics for a service.
 
-### Choosing the Level of Query Assistance
+### Levels of Query Assistance
 
-To choose the level of query assistance you want: 
+Wavefront provides two levels of assistance for constructing and submitting a trace query:
+* Query Builder: Use menus to select tag values for filtering spans.
+    ![tracing query builder](images/tracing_query_builder.png)
 
-* Click this icon to toggle between the Query Builder and the Query Editor. 
+* Query Editor: Type a [`spans()` query](spans_queries.html), and take advantage of syntax completion for selecting tags and their values. 
+    ![tracing query editor](images/tracing_query_editor.png) 
 
+
+### Toggling Between Levels of Query Assistance
+
+To enable the level of query assistance you want: 
+
+1. [Display the **Traces** page.](#displaying-the-traces-page)
+2. Click this icon to toggle between the Query Builder and the Query Editor. 
     ![tracing query toggle](images/tracing_query_toggle.png)
 
 ## Building a Trace Query
@@ -64,7 +71,7 @@ To choose the level of query assistance you want:
 The Query Builder lets you use menus for selecting values that describe the spans you want to see. **Note:** Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
 
 1. Display the **Traces** page and make sure the Query Builder is displayed. (It is displayed by default.)
-2. Select a value from one or more of these menus. At a minimum you must select an application from the Operation menu. 
+2. Select a value from one or more of the menus. At a minimum you must select an application from the Operation menu. 
 
     <table>
     <colgroup>
@@ -118,13 +125,26 @@ The Query Builder lets you use menus for selecting values that describe the span
     </tbody>
     </table>
     
-4. Choose a **Limit** to specify the maximum number of matching spans that will be displayed in the result set.
+4. Choose a **Limit** to specify the maximum number of qualifying spans to display traces for. The default limit is 20.
 
-### Viewing the Underlying `spans()` Function
-The Query Builder produces a `spans()` function for you. So, for example, you can: 
-1. Start constructing a query with the Query Builder.
-2. Toggle to the Query Editor to see what the corresponding `span()` function looks like. 
-3. Either continue to edit the function, or else toggle back to the Query Builder. **Note:** Once you change a query using the Query Editor, you cannot go back to the Query Builder.
+### Example
+
+Assume you want to find traces that contain spans for an operation called `dispatch`, which is called from the `delivery` service of the `beachshirts` application. Furthermore, let's say you are only interested in these spans if they are longer than 30 milliseconds.  
+
+1. Select the operation from the cascading **Operation** menu as follows:
+    ![tracing query builder menu](images/tracing_query_builder_menu.png)
+2. Type 30 in the **Min Span** field.
+    ![tracing query builder menu2](images/tracing_query_builder_menu2.png) 
+
+### Viewing the Functions in the Underlying Trace Query
+
+The Query Builder automatically produces an equivalent query that includes the [`spans()` function](spans_queries.html) along with one or more [spans filtering functions](spans_queries.html#spans-filtering-functions). So, for example, you can: 
+
+1. Construct a query with the Query Builder as shown [above](#example).
+2. [Toggle to the Query Editor](#toggling-between-levels-of-query-assistance) to see what the corresponding functions look like. 
+    ![tracing query editor from builder](images/tracing_query_editor_from_builder.png)
+
+At this point, you can either continue to edit the query directly, or else toggle back to the Query Builder. **Note:** Once you change a query using the Query Editor, you cannot go back to the Query Builder.
 
 ## Sorting the Result Set
 

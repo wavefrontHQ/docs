@@ -74,7 +74,7 @@ An application must be _instrumented for tracing_ before it can produce and send
 
 ![tracing architecture](images/tracing_architecture.svg)
 
-If you have already instrumented your code using a 3rd party OpenTracing-compliant solution such as [Jaeger](jaeger.html), you can set up an integration to forward the trace data to Wavefront. 
+If you have already instrumented your code using a 3rd party OpenTracing-compliant solution such as [Jaeger](jaeger.html), you can set up an integration to forward the trace data to Wavefront.  
 
 If you have not yet instrumented your code, choose one of these options:
 
@@ -88,7 +88,7 @@ All options for instrumenting your code allow you to choose whether to send trac
 ## How to See Trace Data in Wavefront
 <!--- Revise if/when a top-level menu/button replaces Browse menu for Tracing. --->
 
-Wavefront enables you to query and visualize the trace data it collects from your application. There are several starting points, depending on the option you chose for instrumenting your code. 
+Wavefront enables you to [query](trace_data_query.html) and visualize the trace data it collects from your application. There are several starting points, depending on the option you chose for instrumenting your code. 
 
 If you instrumented any frameworks in your code to produce out-of-the-box metrics, histograms, and trace data, then Wavefront can show you a great deal of context for your traces. You can examine this context to help you find the traces you want to see. The best way to get started is to:
 1. Select **Browse > Application** and find your application.
