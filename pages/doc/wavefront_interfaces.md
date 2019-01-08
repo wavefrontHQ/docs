@@ -15,7 +15,7 @@ Wavefront provides different kinds of interfaces for performing different kinds 
 <col width="70%"/>
 </colgroup>
 <thead>
-<tr><th>This Interface</th><th>Provides Support For</th></tr>
+<tr><th>This Interface</th><th>Provides Support For These Tasks</th></tr>
 </thead>
 <tbody>
 <tr>

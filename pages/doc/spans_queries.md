@@ -135,7 +135,7 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 <col width="60%" />
 </colgroup>
 <thead>
-<tr><th>Spans Filtering Function</th><th>Description</th></tr>
+<tr><th>Spans Filtering Function</th><th>Description and Example</th></tr>
 </thead>
 <tbody>
 <tr>
