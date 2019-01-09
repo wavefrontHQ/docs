@@ -9,7 +9,6 @@ summary: Learn about the REST API for managing Wavefront.
 
 The Wavefront REST API enables you to write scripts to perform Wavefront management tasks, such as defining alerts and creating events. You can use the REST API to perform any task that is supported by the Wavefront UI. The REST API is based on Swagger, so you can generate the API client of your choice (including a CLI client).
 
-**Note:** You can use our API to [interactively try things out](https://www.wavefront.com/wavefront-rest-api/) from the in-product REST API doc. 
 
 
 ## REST API Overview
@@ -89,21 +88,24 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 
 ## Wavefront REST API Categories
 
-The REST API supports the following categories of management tasks:
+The REST API supports the following objects corresponding to different categories of management tasks:
 
-- **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert Management permission](permissions_overview.html) can create and update alerts.
-- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxy Management permission](permissions_overview.html) can add and remove cloud integration data types.
-- **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard Management permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
-- **Event** - Retrieve events and tags associated with a specific event. Users with [Event Management permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
-- **External Link** - Navigate external links. Users with [External Links Management permission](permissions_overview.html) can create, update, and delete external links.
-- **Integration** - Retrieve integrations. Users with [Integration Management permission](permissions_overview.html) can install and uninstall integration dashboards.
-- **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [Alert Management permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
+- **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert permission](permissions_overview.html) can create and update alerts.
+- **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxies permission](permissions_overview.html) can add and remove cloud integration data types.
+- **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
+- **Derived Metric** - Manage derived metrics.
+- **Event** - Retrieve events and tags associated with a specific event. Users with [Event permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
+- **External Link** - Navigate external links. Users with [External Links permission](permissions_overview.html) can create, update, and delete external links.
+- **Integration** - Retrieve integrations. Users with [Integration permission](permissions_overview.html) can install and uninstall integration dashboards.
+- **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [Alert permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Retrieve messages and mark messages read.
 - **Metric** - Retrieve details on a metric.
+- **Notificant** - Allows users with Users with [Alert permission](permissions_overview.html) to create, delete, update, or test alert notification targets.
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [Proxy Management permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and web hooks.
-- **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag Management permission](permissions_overview.html) can add and remove source tags and set descriptions.
-- **User** - Allows users with [User Management permission](permissions_overview.html) to retrieve a list of all users, create, update, and delete users, and manage permissions.
+- **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag permission](permissions_overview.html) can add and remove source tags and set descriptions.
+- **User** - Allows users with [Users & Groups permission](permissions_overview.html) to retrieve a list of all users, create, update, and delete users and manage permissions and groups associated with users.
+- **UserGroup** - Allows users with [Users & Groups permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and permissions associated with a group.
 - **Webhook** - Retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.
