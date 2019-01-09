@@ -7,10 +7,10 @@ permalink: users_groups.html
 summary: Learn how to manage users and groups.
 ---
 You can secure your Wavefront environment by:
-* Granting and revoking permissions for users and groups
-* Granting and revoking object access (initially dashboard access) for users and groups
+* Granting and revoking (global) permissions for users and groups.
+* Granting and revoking access to individual objects (initially dashboard access) for users and groups
 
-You must have Users & Groups permission or be a Super Admin user to view and manage users, groups, and permissions in Wavefront. If you don't have Users & Groups permission, the UI menu selections, buttons, and links that you use to view users and permissions are not visible.
+You must have Users & Groups permission to view and manage users, groups, and permissions in Wavefront. If you don't have Users & Groups permission, the UI menu selections, buttons, and links that you use to view users and permissions are not visible.
 
 ## Users and Groups Basics
 
@@ -44,7 +44,7 @@ Groups make it easy to make changes for many users. More importantly, if you cha
 
 **Note:** Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
-#### What's the Everyone Group?
+**What's the Everyone Group?**
 
 All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
 Here's what you need to know:
@@ -58,18 +58,19 @@ Here's what you need to know:
   - Give View access to users who don't have Dashboard permissions
   You can also remove the Everyone group from a dashboard to limit access to the dashboard.
 
+<!---
 #### What is the Ingest Only Group?
 
 The Ingest Only group is created when Wavefront enables groups. The group is meant for service accounts and it has only the **Direct Data Ingestion** permission by default.
 
 When you invite a service account, add this group to the User Groups field.
 
-You can delete and rename this group, and you can change the permissions assigned to this group.
+You can delete and rename this group, and you can change the permissions assigned to this group.--->
 
 
 ## Managing Groups
 
-Users who have **Users & Groups** permission can create groups, change groups by adding and removing users, and grant and revoke permissions.
+Users who have Users & Groups permission can create groups, change groups by adding and removing users, and grant and revoke permissions.
 
 1. Click the gear icon and select **User Group Management**.
 2. To create a group:
@@ -96,12 +97,14 @@ Users with Users & Groups permissions can manage users.
    2. Select the check box for one or more users.
    3. Click one of the **Permission** or  **Group** icons or the trash can button, and confirm when prompted.
 
-   If you delete a user, you remove that user's access to Wavefront. 
+   If you delete a user, you remove that user's access to Wavefront.
 
 [New users](users_groups.html#what-can-a-new-user-do) can browse data and might have additional permissions. Each invited user receives an email with an account activation link that is valid for 24 hours.
 
 ## Adding a Super Admin
 
+New Wavefront customers specify Super Admin users during account setup. Any existing Super Admin user can add other Super Admin users.
+ 
 To add a Super Admin user:
 1. Click the gear icon and select **Super Admin**.
 2. Enter the user name of a user you want to add as Super Admin.

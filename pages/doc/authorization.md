@@ -56,14 +56,14 @@ All users with Dashboard permission can view and modify all dashboards. Those us
 
 ![dashboard access](images/dashboard_access.png)
 
-**Note:** Do not remove the Everyone group unless other users or groups have access.
+**Note:** Do not remove the Everyone group from a dashboard's access list unless other users or groups have access.
 
 
 ### Security Preference for New Objects
 
 In high-security environments, an administrator can [change the default Security preference](access.html#changing-the-access-control-preference) to grant access for *new* dashboards only to the dashboard creator. After the preference change, only the dashboard creator and Super Admin users can access new dashboards initially. Those users can share the dashboard with user groups or individual users. Users with View & Modify access can then share the dashboard with more users.
 
-In those environments, access control works like this:
+When the preference is set, access control works like this:
 
 * Initially, all users in the Everyone group--that is, all users--have View & Modify access to all dashboards.
 * When an administrator changes the default Security system preference, access control starts:
