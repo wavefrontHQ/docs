@@ -1,5 +1,5 @@
 ---
-title: Wavefront Inntegration CLI
+title: Wavefront Integration CLI
 keywords: proxies
 tags: [proxies,integrations]
 layout: readme

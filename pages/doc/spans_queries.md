@@ -29,7 +29,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#filters) that each qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters separated by the boolean operators (and, or, not).</td></tr>
+<td markdown="span"> A [span filter](#filters) that each qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters separated by the Boolean operators (and, or, not).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>
@@ -38,14 +38,16 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 
 
 ## Description
-The `spans()` function finds spans that match the description you specify, and then returns the set of whole traces that contain one or more of these spans. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match. For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
+The `spans()` function finds spans that match the description you specify, and then returns the set of traces that contain one or more of these spans. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match. For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
 
-You submit a `spans()` function using the [Query Editor on the **Traces** page](trace_data_query.html#toggling-between-levels-of-query-assistance). 
+You submit a `spans()` function using the [Query Editor on the **Traces** page](trace_data_query.html#submitting-trace-queries). 
 You can use autocompletion to discover the span filters available for your query. Using the `spans()` function is a "power-user alternative" to using the menus provided by the Query Builder.  
 
-**Note:** To keep query execution manageable, it is highly recommended that you combine `spans()` with a [spans filtering function](#spans-filtering-functions) such as `limit()` in the same query. 
+<!--- Because trace data is generated the ordering of matched spans is unpredictable, running the same `spans()` query twice normally returns a different set of traces.--->
 
-### Examples
+**Note:** To keep query execution manageable, combine `spans()` with a [spans filtering function](#spans-filtering-functions) such as `limit()` in the same query. 
+
+## Examples
 
 Assume your team has instrumented an application called `beachshirts` for tracing. This application has a service called `styling` that executes an operation called `makeShirts`. The application is deployed on several hosts in each of several clusters.
 
@@ -140,36 +142,38 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 <tbody>
 <tr>
 <td>limit(<strong>&lt;numberOfSpans&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to the specified **numberOfSpans**. <br>
-*Example:* Limit the set of qualifying spans to 15, and return just the traces that contain the spans from that limited set:<br>
-`limit(15, spans("makeShirts", application="beachshirts"))`
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to the specified **numberOfSpans**.  <br>
+**Note:** Because the ordering of matched spans is unpredictable, you cannot use `limit()` to page through a set of results to obtain the traces that contain the "next" group of spans. <br><br>
+
+**Example:** Limit the set of qualifying spans to 15, and return just the traces that contain the spans from that limited set:<br>
+`limit(15, spans("makeShirts", application="beachshirts"))` <br>
 </td>
 </tr>
 <tr>
 <td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br>
-*Example:* Return traces in which the qualifying spans are longer than 3 seconds: <br>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
+**Example:** Return traces in which the qualifying spans are longer than 3 seconds: <br>
 `highpass(3s, spans("makeShirts", application="beachshirts"))`
 </td>
 </tr>
 <tr>
 <td>lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are shorter than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br>
-*Example:* Return traces in which the qualifying spans are shorter than 10 milliseconds: <br>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are shorter than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
+**Example:** Return traces in which the qualifying spans are shorter than 10 milliseconds: <br>
 `lowpass(10ms, spans("makeShirts", application="beachshirts"))`
 </td>
 </tr>
 <tr>
 <td>rootsOnly(<strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the root spans of a trace, i.e., spans without any ancestor. <br>
-*Example:* To return traces for whic <br>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the root spans of a trace, i.e., spans without any ancestor. <br><br>
+**Example:**  <br>
 `rootsOnly(spans(traceId="707261fc-d412-4926-b6f6-c2ca1053c914"))`
 </td>
 </tr>
 <tr>
 <td>childrenOnly(<strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the child spans of a trace, i.e., no root spans. <br> 
-*Example:*  <br>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the child spans of a trace, i.e., no root spans. <br> <br>
+**Example:**  <br>
 `childrenOnly(spans(traceId="707261fc-d412-4926-b6f6-c2ca1053c914"))`
 </td>
 </tr>
