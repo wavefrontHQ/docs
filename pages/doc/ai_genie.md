@@ -8,11 +8,11 @@ permalink: ai_genie.html
 summary: Learn how to use AI Genie for forecasting and anomaly detection
 ---
 
-Wavefront users are responsible for finding anomalies in their data. That task becomes harder as the amount of data increases. Wavefront already includes [anomaly detection based on statistical functions](https://docs.wavefront.com/query_language_statistical_functions_anomalies.html) such as standard deviation. The AI Genie offering takes a different approach, offering anomaly detection based on forecasting.
+Wavefront users are responsible for finding anomalies in their data. That task becomes harder as the amount of data increases. Wavefront already includes [anomaly detection based on statistical functions](https://docs.wavefront.com/query_language_statistical_functions_anomalies.html) such as standard deviation. AI Genie takes a different approach, offering anomaly detection based on forecasting.
 
 ## AI Genie Use Cases
 
-AI Genie offers an alternate view of your chart data that is focused on anomaly detection and forecasting and supports two main use cases.
+AI Genie offers an alternate view of your chart data that is focused on anomaly detection and forecasting and that supports two main use cases, anomaly detection and forecasting.
 
 ### Anomaly Detection Use Case
 
@@ -23,13 +23,13 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 ![anomaly intro](images/anomaly_simple.png)
 
-### Forecast Prediction Use Case
+### Forecasting Use Case
 
 Assume that Jo, an application developer, works on the backend database technology. In the company environment, each instance of the application is dedicated to a different customer, so the instances can be sized independently depending on customer usage.
 
-1. Jo needs to know several weeks ahead of time when the instance has to be expanded, and starts by using Wavefront to look at a chart that shows usage of the service over the last few weeks.
+1. Jo needs to know several weeks ahead of time when the instance has to be expanded, and uses Wavefront to look at a chart that shows usage of the service over the last few weeks.
 2. Next, Jo switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict what saturation levels will look like for the next four weeks.
-3. Jo adjusts the historic sample size to 5 weeks, and selects a conservative confidence factor. Even with conservative forecasting, it's pretty clear that saturation will be above 90% in 25 days.
+3. Jo adjusts the historic sample size to 5 weeks, and selects a conservative confidence factor. Even with conservative forecasting, saturation will be above 90% in 25 days.
 4. Jo initiates a change request to scale the cluster during the next change window. Jo also saves the chart to a new dashboard -- that dashboard will be useful later for exploration of other metrics associated with the same change window.
 
 ## How to Use AI Genie
