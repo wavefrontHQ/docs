@@ -48,6 +48,10 @@ entries:
       url: /proxies_versions.html
       output: web
 
+    - title: 2018-46.x Release Notes
+      url: /2018.46.x_release_notes.html
+      output: web
+
     - title: 2018-42.x Release Notes
       url: /2018.42.x_release_notes.html
       output: web
@@ -66,14 +70,6 @@ entries:
 
     - title: 2018-22.x Release Notes
       url: /2018.22.x_release_notes.html
-      output: web
-
-    - title: 2018-18.x Release Notes
-      url: /2018.18.x_release_notes.html
-      output: web
-
-    - title: 2018-14.x Release Notes
-      url: /2018.14.x_release_notes.html
       output: web
 
     - title: Wavefront Obsolescence Policy
@@ -153,35 +149,38 @@ entries:
     output: web
     folderitems:
 
-    - title: Wavefront Query Language Quickstart
+    - title: Query Language Quickstart
       url: /query_language_getting_started.html
       output: web
 
-    - title: Wavefront Query Language Reference
+    - title: Query Language Reference
       url: /query_language_reference.html
       output: web
 
-    - title: Query Builder
-      url: /query_language_query_builder.html
-      output: web
-
-    - title: Query Wizard
-      url: /query_language_query_wizard.html
-      output: web
-
-
-    - title: Series Matching
-      url: /query_language_series_matching.html
-      output: web
-
-    - title: Understanding Slow Queries
-      url: /dashboards_slow_queries.html
-      output: web
-
       subfolders:
-      - title: Function Guides and Use Cases
+      - title: Interaction with WQL
         output: web
         subfolderitems:
+
+        - title: Query Builder
+          url: /query_language_query_builder.html
+          output: web
+
+        - title: AI Genie (Beta)
+          url: /ai_genie.html
+          output: web
+
+        - title: Query Wizard
+          url: /query_language_query_wizard.html
+          output: web
+
+      - title: Query Language Tips and Tricks
+        output: web
+        subfolderitems:
+
+        - title: Delta Counters
+          url: /delta_counters.html
+          output: web
 
         - title: Aggregation Functions
           url: /query_language_aggregate_functions.html
@@ -195,9 +194,21 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-        - title: Highlighting Trends with Moving and Tumbling Windows
+        - title: Highlighting Trends
           url: /query_language_windows_trends.html
           output: web
+
+        - title: Series Matching
+          url: /query_language_series_matching.html
+          output: web
+
+        - title: Understanding Slow Queries
+          url: /dashboards_slow_queries.html
+          output: web
+
+      - title: Function Guides and Use Cases
+        output: web
+        subfolderitems:
 
         - title: Bucketing with align()
           url: /query_language_align_function.html
@@ -320,6 +331,7 @@ entries:
         - title: Advanced events() Queries
           url: /events_queries_advanced.html
           output: web
+
 
   - title: Integrations
     output: web
@@ -472,13 +484,30 @@ entries:
         url: /authentication.html
         output: web
 
-      - title: Managing Users and Permissions
-        url: /users_managing.html
-        output: web
+        subfolders:
+        - title: Authorization
+          output: web
+          subfolderitems:
 
-      - title: Permissions
-        url: /permissions_overview.html
-        output: web
+          - title: Authorization in Wavefront
+            url: /authorization.html
+            output: web
+
+          - title: Managing Users and Groups
+            url: /users_groups.html
+            output: web
+
+          - title: Managing Permissions
+            url: /permissions.html
+            output: web
+
+          - title: Permissions Reference
+            url: /permissions_overview.html
+            output: web
+
+          - title: Managing Access
+            url: /access.html
+            output: web
 
       - title: Managing Sources
         url: /sources_managing.html

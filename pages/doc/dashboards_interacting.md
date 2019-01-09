@@ -14,7 +14,7 @@ Watch this video for an introduction to dashboards:
 
 
 ## Common Interactions
-A few interactions are common to dashboards and charts. You can isolate sources and share shortened URLs. These are available in the action buttons at the bottom right of a dashboard or chart:
+A few interactions are common to dashboards and charts. You can isolate sources and share shortened URLs. The action buttons at the bottom right of a dashboard or chart support some of these interactions:
 
 ![action buttons](images/action_buttons.png)
 
@@ -50,21 +50,40 @@ Start typing the name of the sources to isolate. The fly-out supports wildcards.
 
 **To remove all isolated sources or series** click the **X** icon next to the list label.
 
-### Sharing Dashboards and Charts
+### Sharing Links to Dashboards and Charts
 
-The URLs in the Wavefront address bar encode information about the dashboard or chart name and any settings you have applied. When you make a change to a dashboard or chart, for example, change the time window, the URL updates to reflect that change. With this functionality, you can quickly and easily share your current view with other users. Those users can see exactly what you see and can also interact with the dashboard or chart.
+Wavefront allows you to share dashboards and charts with other authorized users of your environment. We support two options:
+* Live view -- Changes as you make changes to the dashboard.
+* Current view -- Links to a snapshot of what you're looking at right now.
 
-The actual URL can be a long string. When you click the link icon in the action buttons, a shortened URL is copied to your clipboard. The shortened URL allows you to share a fully interactive dashboard or chart, but the link is associated with a specific time frame instead of a live view.
+**Note:** If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to [share access](dashboards_interacting.html#sharing-access-to-dashboards-and-charts) before you share the link.
 
-**To share the dashboard or chart** in live view mode:
+**To share a dashboard using a link**
+1. Navigate to the dashboard and click the Share Dashboard icon.
 
-1. Navigate to the dashboard or chart.
-2. In the time bar, click **Live Data**.
-3. Select the desired time window (10m, 2h, 6h, 12h, 1d, 8d) from the time bar that you'd like to share. When a dashboard or chart is set to Live Data, a new link icon appears below the gear icon on the taskbar.
-1. Right-click the link icon and select **Copy link address**.
-2. Share the link with other users.
+   ![share dashboard icon](images/share_dashboard_icon.png)
+2. Select the **Shared Links** tab and click the button to copy the link you want to share:
 
-The time window associated with your live view URL link is based on your selection on the time bar. For example, if you select 10m, the result is a live view URL link with a 10 minute view.
+   | Share link to the LIVE display | The link recipient will see, at any time, what you see. As you make changes, the other user can see them. The time window associated with your live view URL link is based on your selection on the time bar. For example, if you select 10m, the result is a live view URL link with a 10 minute view.|
+   |  Share link to the CURRENT display | The link recipient sees what you're seeing right now. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link. |
+
+### Sharing Access to Dashboards and Charts
+
+If the **Security** system [preference is set](access.html#changing-the-access-control-default) to allow access to new objects to **Creator**, the following users can share dashboard access with other users and groups:
+* The dashboard creator
+* Super Admin
+* Any user who has View & Modify access because someone already shared access to the dashboard with that user.
+
+**To grant or revoke dashboard access**
+1. Navigate to the dashboard and click the Share Dashboard icon.
+
+   ![share dashboard icon](images/share_dashboard_icon.png)
+2. Click **Users & Groups**
+3. To grant access:
+   1. Start typing in the **View Dashboard** or **View & Modify Dashboard** field.
+   2. Select the group or user to give access to.
+   3. Click **Update**
+4. To revoke access, delete the group or user and click **Update**.
 
 ## Dashboard Interactions
 
