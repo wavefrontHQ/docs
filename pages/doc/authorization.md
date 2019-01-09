@@ -7,7 +7,7 @@ permalink: authorization.html
 summary: Learn about authorization of Wavefront users.
 ---
 
-Wavefront supports several levels of authorization control to support customers with different authorization needs. The basic level is based on [permissions](permissions_overview.html) assigned to individual users.  If you're an administrator who wants more control over who can do what, you can perform some additional setup tasks.
+Wavefront supports several levels of authorization to support customers with different authorization needs. The basic level is based on [permissions](permissions_overview.html) assigned to individual users.  If you're an administrator who wants more control over who can do what, you can perform some additional setup tasks.
 
 **Note:** We support several levels of authorization. If you need more than basic permissions, you can add user groups. If that's not enough, you can add access control, which applies to users and groups.
 
