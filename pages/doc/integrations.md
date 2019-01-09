@@ -32,32 +32,34 @@ Wavefront lets you set up many integrations directly from the product. For other
 
 - **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the menu bar and click the **Setup** tab.
 
-  For some data sources, for example Amazon AWS, we offer an integration for the initial connection and give customization information in this documentation.
+- **Customizable built-in integrations** provide a built-in integration for the initial connection, with additional customization information in this documentation.
 
 - **Custom** integrations provide installation and configuration instructions in this documentation.
 
+This table provides links to the documentation pages for many of the custom and customizable integrations: 
+ 
 <table width="100%">
 <colgroup>
-<col width="20%" />
-<col width="80%" />
+<col width="30%" />
+<col width="70%" />
 </colgroup>
 <thead>
-<tr><th>Category</th><th>Integrations</th></tr>
+<tr><th>Category</th><th>Examples</th></tr>
 </thead>
 <tbody>
 <tr>
-<td>Customization of Built-In Integrations</td>
-<td markdown="span">[AWS Metrics Integration](integrations_aws_metrics.html),[Amazon Web Services ECS](integrations_aws_ecs.html), [Log Data -- FileBeat and TCP](integrations_log_data.html)
+<td>Customizable built-in integrations</td>
+<td markdown="span">[AWS Metrics Integration](integrations_aws_metrics.html),[Amazon Web Services ECS](integrations_aws_ecs.html), [AWS Lambda Functions](integrations_aws_lambda.html), [Log Data -- FileBeat and TCP](integrations_log_data.html)
 </td>
 </tr>
 <tr>
-<td>Data Collector Integrations</td>
+<td>Custom integrations - Data Collector</td>
 <td markdown="span">[AppDynamics](integrations_appdynamics.html), [JMX](integrations_jmx.html), [NewRelic](integrations_newrelic.html), [External links](external_links_managing.html), [R](integrations_r.html)
 </td>
 </tr>
 <tr>
-<td>collectd Integrations</td>
-<td markdown="span"> [Apache collectd](integrations_collectd_apache.html), [Cassandra collectd](integrations_collectd_cassandra.html), [MySQL collectd](integrations_collectd_mysql.html), [NGINX collectd](integrations_collectd_nginx.html), [Redis collectd](integrations_collectd_redis.html), [ZooKeeper collected](integrations_collectd_zookeeper.html)
+<td>Custom integrations - collectd</td>
+<td markdown="span"> [Apache collectd](integrations_collectd_apache.html), [Cassandra collectd](integrations_collectd_cassandra.html), [MySQL collectd](integrations_collectd_mysql.html), [NGINX collectd](integrations_collectd_nginx.html), [Redis collectd](integrations_collectd_redis.html), [ZooKeeper collectd](integrations_collectd_zookeeper.html)
 </td>
 </tr>
 </tbody>
