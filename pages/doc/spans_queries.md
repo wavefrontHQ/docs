@@ -163,6 +163,11 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 `lowpass(10ms, spans("makeShirts", application="beachshirts"))`
 </td>
 </tr>
+
+</tbody>
+</table>
+
+<!--- May include eventually. Currently internal only, with no compelling use case for users.
 <tr>
 <td>rootsOnly(<strong>&lt;spansExpression&gt;</strong>)</td>
 <td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the root spans of a trace, i.e., spans without any ancestor. <br><br>
@@ -177,6 +182,4 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 `childrenOnly(spans(traceId="707261fc-d412-4926-b6f6-c2ca1053c914"))`
 </td>
 </tr>
-
-</tbody>
-</table>
+--->
