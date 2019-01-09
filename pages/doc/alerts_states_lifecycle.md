@@ -10,11 +10,34 @@ Here's a video to get you started:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6cb2ac52-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_lifecycle.png" style="width: 700px;"/></a>
 </p>
 
-## Alert Conditions
+## Alert Lifecycle Basics
 
-An alert condition is a conditional ts() expression that defines the threshold for an alert.
-* If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all data values that satisfy the condition are marked as `true` (1) and all data values that do not satisfy the condition are marked as `false` (0).
-* If the Condition field is set to a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are evaluated as neither true nor false.
+The alert lifecycle determines which events the alert triggers, and which alert targets get notifications. Classic and threshold alerts are exactly the same in terms of events. However, when notifications are sent to which target differs for classic alerts and for threshold alerts.
+
+### When Classic Alerts Notify Targets
+
+Classic alerts notify all targets at the same time when the alert changes state:
+1. Wavefront monitors the alert condition. When the condition is met for the specified amount of time, the alert fires.
+2. When the alert fires, Wavefront sends alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
+3. When the alert resolves or is snoozed, Wavefront sends additional notification to the alert target(s).
+
+### When Threshold Alerts Notify Targets
+
+A threshold alert supports multiple severities with different alert targets. Let's look at an example:
+
+|ts expression |`ts(cpu.loadavg.1m)`|
+|operator | >|
+|SEVERE  | 6000  |
+|WARN   | 5000  |
+|SMOKE  | 4000  |
+
+This threshold alert notifies targets like this:
+1. Wavefront monitors the alert condition.
+2. If at least one of the thresholds is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
+3. Notifications are always sent to all alert targets equal and below the severity that the alert fires. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the current value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
+4. Wavefront continues checking the alert condition at the specified interval (1 minute by default). If the alert condition for the higher level is no longer met, but a lower-level condition is met, then the higher-level alert target gets an Alert Resolved notification, and the lower-level alert targets get an Alert Updated notification.
+
+![alert multi concept](images/alert_multi_concept.png)
 
 ## Alert States
 
@@ -111,7 +134,9 @@ In the example shown in the screen shot below, the threshold for the alert is se
 
 ## Viewing Firing Alerts
 
-The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) shows the number of alerts firing and their severity. The filter bar at the left of the Alerts page shows the number of firing alerts. You can click the FIRING facet to filter the list of alerts:
+The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) shows the number of alerts firing and their severity. The filter bar at the left of the Alerts page shows the number of firing alerts by severity. For threshold alerts, we list each alert only for the highest severity even if lower severity conditions are also met.
+
+You can click the FIRING facet to filter the list of alerts:
 
 ![Tag path](images/alerts_filter.png)
 
