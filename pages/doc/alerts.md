@@ -292,15 +292,16 @@ For threshold alerts, you have to specify names of <a href="webhooks_alert_notif
 </ol>
 
 
-## Cloning an Alert
+## Cloning or Deleting an Alert
 
 If you want to make copies of an existing alert, then change the copy slightly, you can clone the alert.
 1. Select **Browse > Alerts** to display the Alerts page.
-2. Click the 3 dots to the left of the alert and click **Clone**.
+2. Click the 3 dots to the left of the alert.
 
    ![Alert cloning](images/clone_alert.png)
 
-3. Update the properties you want to change, and click **Save**.
+   * To clone an alert, click **Clone**, make changes when prompted, and click **Save**.
+   * To delete an alert, click **Delete** and confirm the deletion. 
 
 ## Viewing Alerts and Alert History
 
