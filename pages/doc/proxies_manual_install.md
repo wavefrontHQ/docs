@@ -236,7 +236,7 @@ Sample output for single proxy:
 }
 ```
 
-## Using an HTTP Proxy Instead of a HTTPS Proxy
+## Connecting to Wavefront Through an HTTP Proxy
 
 The Wavefront proxy initiates an HTTPS connection to the Wavefront service. The connection is made over the default https port 443. Connection parameters are configured in `/etc/wavefront/wavefront-proxy/wavefront.conf`.
 
@@ -244,7 +244,7 @@ You can instead configure the HTTP proxy setting within `wavefront.conf`.
 
 **Note:** The Wavefront proxy does not use the `http_proxy` environmental variables. You must specify the information in `wavefront.conf`.
 
-### Testing Proxy Host Connectivity for HTTP
+### Using curl to Test HTTP Proxy Connections
 
 If your environment requires the use of an HTTP proxy, add the proxy configuration command line directives or have the HTTP_PROXY environmental variable set.  These parms are the same as the HTTP proxy related configuration values need in `wavefront.conf`.
 
@@ -263,7 +263,7 @@ $ export https_proxy="https://USER:PASSWORD@PROXY_SERVER:PORT"
 $ export ftp_proxy="http://USER:PASSWORD@PROXY_SERVER:PORT"
 ```
 
-### Updating the Proxy Configuration to Use HTTP
+### Modifying wavefront.conf for HTTP Connections
 
 By default, the HTTP proxy section is commented out. Uncomment and configure with values required by your HTTP proxy:
 
@@ -277,7 +277,7 @@ By default, the HTTP proxy section is commented out. Uncomment and configure wit
 #
 ```
 
-You can then follow the other proxy setup steps. 
+You can then follow the other Wavefront proxy setup steps. 
 
 ## Installing Telegraf Manually
 
