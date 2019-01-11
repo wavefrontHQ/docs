@@ -233,7 +233,11 @@ entries:
     - title: Instrumenting Your App for Tracing
       url: /tracing_instrumenting_frameworks.html
       output: web
-
+      
+    - title: Setting Up Trace Sampling
+      url: /trace_data_sampling.html
+      output: web
+      
     - title: Querying Trace Data
       url: /trace_data_query.html
       output: web

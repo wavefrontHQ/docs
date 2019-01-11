@@ -94,8 +94,11 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
 2. For each microservice in your application: 
 
     1. Choose the Wavefront observability SDK you want to set up, and click the link to its `README` file. The SDKs are listed by programming language:
-          * [Java SDKs](#java-observability-sdks)
-          * [C# SDKs](#netc-observability-sdks)
+          
+          | [Java SDKs](#java-observability-sdks) |  
+          | [C# SDKs](#netc-observability-sdks) |
+          | [Python SDKs](#python-observability-sdks) | 
+
     3. Follow the setup steps in the `README` file. If a `README` file offers Custom Setup steps, choose those. 
     4. Repeat for each instrumentable framework or component in the microservice. 
 
@@ -152,7 +155,7 @@ These SDKs automatically collect metric data for request rates, error rates, lat
 </tbody>
 </table>
 
-### Instrument Proprietary Java Code
+### Instrument Custom Java Code
 
 Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
 
@@ -190,7 +193,7 @@ Setup consists of configuring and instantiating several helper objects in your m
 
 This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. For each SDK, click on the link to see the detailed setup steps.
 
-### Instrument Proprietary .NET/C# Code
+### Instrument Custom .NET/C# Code
 
 Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
 
@@ -218,6 +221,41 @@ Setup consists of configuring and instantiating several helper objects in your m
 <td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
 </tbody>
 </table>
+
+## Python Observability SDKs
+
+This section lists the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Python application. For each SDK, click on the link to see the detailed setup steps.
+
+### Instrument Custom Python Code
+
+Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
+
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
+
+
+<table id = "sdks" width="100%">
+<colgroup>
+<col width="25%" />
+<col width="30%" />
+<col width="45%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>To Collect This Type of Data</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
+</thead>
+<!--- This is actually a plug in. Does it belong here?
+<tr>
+<td>Metrics and histograms</td>
+<td markdown="span">[wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
+<td>Implements App Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
+--->
+<tr>
+<td>Trace data</td>
+<td markdown="span">[wavefront-opentracing-sdk-python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
+<td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
+</tbody>
+</table>
+
 
 
 ## A Closer Look at an Instrumented Microservice
