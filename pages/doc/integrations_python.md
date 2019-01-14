@@ -29,7 +29,7 @@ To set up the Python integration,
 2. Install the following packages:
    `pip install ggplot`
 3. Pull in the Wavefront Python library:
-   `wget "https://github.com/wavefrontHQ/integrations/blob/master/wavefront-python/wavefrontpython.py"`
+   `wget https://github.com/wavefrontHQ/integrations/blob/master/wavefront-python/wavefrontpython.py`
 4. Import `wavefrontpython.py` in to your Python file.
    `from wavefrontpython import*`
 
