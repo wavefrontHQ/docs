@@ -8,7 +8,7 @@ summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
 Most Wavefront customers perform a [scripted installation](proxies_installing.html#proxy-installation) of the Wavefront proxy and Telegraf agent. In some environments, it's necessary to perform a manual installation instead. This page gives some guidance. You can perform additional customization using [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples).
 
-**Note:** Because the exact steps depend on your environment, this page can't details for each use case.
+**Note:** Because the exact steps depend on your environment, this page can't give details for each use case. [Advanced Proxy Configuration](proxies_configuring.html) gives details about settings you can change in the proxy config file.
 
 
 ## Proxy Install - Full Network Access
@@ -34,7 +34,7 @@ If your system accepts incoming traffic, you can download the proxy file as foll
 
 Before you can customize the proxy configuration, you have to find the values for your environment. You need the following information to customize the settings.
 
-**NOTE:** To find the values for server and token, you can select **Integrations** from the task bar, select **Linux Host**, and select the **Setup** Tab.
+**Note:** To find the values for server and token, you can select **Integrations** from the task bar, select **Linux Host**, and select the **Setup** Tab.
 
 <table style="width: 100%;">
 <tbody>
@@ -101,8 +101,10 @@ Some Wavefront customers want to run the proxy on a host with limited network ac
 
 ### Prerequisites
 
-- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service so the proxy can send metrics to the Wavefront service. This connection can be routed via an HTTP proxy via configuration settings in the `wavefront.conf` file.
-  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](configuring-proxy-ports-for-metrics-histograms-and-traces) for histograms and traces, and
+- **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service so the proxy can send metrics to the Wavefront service.
+  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](configuring-proxy-ports-for-metrics-histograms-and-traces) for histograms and traces.
+
+  You can use an [HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy) for the connection.
 
 - **JRE:** The Wavefront proxy is a Java jar file and requires a JRE - for example, openjdk8.  If the JRE is in the execution path you should be able to install the .rpm or .deb file as above.
 
@@ -130,8 +132,6 @@ Installation and configuration is similar to environments with full network acce
 
 You can test connectivity from the proxy host to the Wavefront server using curl.
 
-**Note:** Testing HTTP proxy host connectivity is [discussed separately](proxies_manual_install.html#testing-proxy-host-connectivity-for-http).
-
 Run this test before installing the proxy, and again after installing and configuring the proxy.
 
 1. Find the values for server and token:
@@ -144,22 +144,22 @@ Run this test before installing the proxy, and again after installing and config
 
 Here is an example of the expected return when you use the `-v` parameter (without `-v` only HTTP(S) errors are reported):
 ```
-* About to connect() to try.wavefront.com port 443 (#0)
-*   Trying 54.69.182.228...
-* Connected to try.wavefront.com (54.69.182.228) port 443 (#0)
+* About to connect() to myhost.wavefront.com port 443 (#0)
+*   Trying NN.NN.NNN.NNN...
+* Connected to myhost.wavefront.com (NN.NN.NNN.NNN) port 443 (#0)
 * Initializing NSS with certpath: sql:/etc/pki/nssdb
 *   CAfile: /etc/pki/tls/certs/ca-bundle.crt
   CApath: none
 * SSL connection using TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 * Server certificate:
 * 	subject: CN=*.wavefront.com,O="VMware, Inc",L=Palo Alto,ST=California,C=US
-* 	start date: Feb 22 03:37:04 2018 GMT
-* 	expire date: Feb 22 04:07:03 2020 GMT
+* 	start date: <date>
+* 	expire date: <date>
 * 	common name: *.wavefront.com
-* 	issuer: CN=Entrust Certification Authority - L1K,OU="(c) 2012 Entrust, Inc. - for authorized use only",OU=See www.entrust.net/legal-terms,O="Entrust, Inc.",C=US
-> GET /api/daemon/test?token=18eb4c1b-2618-4f83-9f97-543582608f58 HTTP/1.1
+* 	issuer: <issuer details>
+> GET /api/daemon/test?token=<mytoken> HTTP/1.1
 > User-Agent: curl/7.29.0
-> Host: try.wavefront.com
+> Host: myhost.wavefront.com
 > Accept: */*
 >
 < HTTP/1.1 200 OK
@@ -167,18 +167,18 @@ Here is an example of the expected return when you use the `-v` parameter (witho
 < Date: Wed, 09 Jan 2019 20:41:45 GMT
 < Transfer-Encoding: chunked
 < Connection: keep-alive
-< X-Upstream: 10.15.0.148:41877
-< X-Wavefront-Cluster: /services-us-west-2c
+< X-Upstream: 10.15.N.NNN>:NNNNN
+< X-Wavefront-Cluster: /services-<services>
 < X-Frame-Options: SAMEORIGIN
 <
-* Connection #0 to host try.wavefront.com left intact
+* Connection #0 to host myhost.wavefront.com left intact
 ```
 
 ## Testing Your Installation
 
 After you have started the proxy you just configured, you can verify its status from the Wavefront UI or with curl commands.
 
-### Testing from the UI
+### Testing From the UI
 To check your proxy from the UI:
 1. Log in to Wavefront from a browser.
 2. From the task bar, select **Browse > Proxies** to view a list of all proxies.
@@ -220,7 +220,7 @@ Sample output for single proxy:
         "status": "ACTIVE",
         "customerId": "mike",
         "inTrash": false,
-        "hostname": "mikecKube",
+        "hostname": "mikeKubeH",
         "id": "443e5771-67c8-40fc-a0e2-674675d1e0a6",
         "lastCheckInTime": 1547069052859,
         "timeDrift": -728,
@@ -231,7 +231,7 @@ Sample output for single proxy:
         "ephemeral": false,
         "deleted": false,
         "statusCause": "",
-        "name": "Proxy on mikecKube"
+        "name": "Proxy on mikeKubeH"
     }
 }
 ```
@@ -248,7 +248,7 @@ You can instead configure the HTTP proxy setting within `wavefront.conf`.
 
 If your environment requires the use of an HTTP proxy, add the proxy configuration command line directives or have the HTTP_PROXY environmental variable set.  These parms are the same as the HTTP proxy related configuration values need in `wavefront.conf`.
 
-For curl testing, here are examples of setting the http_proxy env vars - as noted above, these vars are not used by the Wavefront proxy itself.
+For curl testing, here are examples of setting the `http_proxy` environment variables. These variables are not used by the proxy itself.
 
 ```
 Set these variables to configure Linux proxy server settings for the command-line tools:
@@ -277,7 +277,7 @@ By default, the HTTP proxy section is commented out. Uncomment and configure wit
 #
 ```
 
-You can then follow the other Wavefront proxy setup steps. 
+You can then follow the other Wavefront proxy setup steps.
 
 ## Installing Telegraf Manually
 
