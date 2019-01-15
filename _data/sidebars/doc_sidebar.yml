@@ -113,6 +113,10 @@ entries:
           url: /proxies_installing.html
           output: web
 
+        - title: Installing a Proxy Manually
+          url: /proxies_manual_install.html
+          output: web
+
         - title: Advanced Proxy Configuration
           url: /proxies_configuring.html
           output: web
