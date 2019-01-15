@@ -495,14 +495,13 @@ entries:
         url: /wavefront_api.html
         output: web
 
-      - title: Wavefront CLIs
-        url: /wavefront_clis.html
-        output: web
-
       - title: Wavefront SDKs
         url: /wavefront_sdks.html
         output: web
 
+      - title: Wavefront CLIs
+        url: /wavefront_clis.html
+        output: web
 
   - title: Administration
     output: web

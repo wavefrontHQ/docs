@@ -68,18 +68,15 @@ You can set up a sampling strategy using either of the following methods:
 * Configure a Wavefront proxy to run the sampler.  
 * Configure your instrumented application code to run the sampler.  
 
-
-Choose setup in the Wavefront proxy when you want to:
+Choose the Wavefront proxy for sampling when you want to:
 * Use a single sampling strategy to coordinate the sampling for all applications that use the same proxy. 
 * Configure sampling with minimal effort.
 * Improve the likelihood of ingesting complete traces. 
 
-Choose setup in your instrumented code when you want to:
+Choose sampling from your instrumented code when you want to:
 * Reduce the performance impact of span reporting on your application. 
 * Use direct ingestion (so no proxy).
 * Configure sampling on a service-by-service basis, for example, when you expect spans from different services to have different minimum durations.
-
-
 
 
 ## Setting Up Sampling Through the Proxy
