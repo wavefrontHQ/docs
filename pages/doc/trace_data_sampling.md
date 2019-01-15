@@ -7,54 +7,59 @@ permalink: trace_data_sampling.html
 summary: Learn how to set up sampling for Wavefront trace data.
 ---
 
-A typical instrumented application sends a very large number of [traces](tracing_basics.html#wavefront_trace_data) to Wavefront. You set up sampling strategies to reduce the volume of generated trace data that Wavefront receives and ingests. Well-chosen sampling strategies let you keep your storage costs down, and reduces ingest and query times, while still giving you a good idea of how your application is behaving.
+A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront_trace_data). You can set up sampling strategies to reduce the volume of generated trace data. 
+
+Well-chosen sampling strategies can give you a good idea of how your application is behaving, while: 
+* Limiting the performance impact on network bandwidth and application response times.
+* Reducing the amount of storage required for trace data.
+* Filtering out "noise" traces so you can see what's important.
 
 <!--- need links from instrumentation page, and from proxy setup page --->
 
 ## Wavefront Sampling Strategies
 
-A sampling strategy is a mechanism for selecting which traces to ingest and which to ignore. The work of a sampling strategy is done by a helper object called a sampler. Wavefront lets you set up samplers for either or both of the following sampling strategies: 
+A sampling strategy is a mechanism for selecting which traces to forward to Wavefront. Wavefront lets you set up either or both of the following sampling strategies: 
 
 <table>
 <colgroup>
-<col width="20%"/>
-<col width="70%"/>
+<col width="25%"/>
+<col width="75%"/>
 </colgroup>
 <thead>
 <tr><th>Sampling Strategy</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr>
-<td markdown="span">Sampling rate</td>
+<td markdown="span">Rate-based sampling</td>
 <td markdown="span">Sends N percent of the generated traces to Wavefront. For example, a sampling rate of 10% causes 1 out of 10 traces to be sent and ingested.</td>
 </tr>
 <tr>
-<td markdown="span">Sampling duration</td>
+<td markdown="span">Duration-based sampling</td>
 <td markdown="span"> Sends spans to Wavefront only if they are longer than N milliseconds. For example, a sampling duration of 45 sends spans to Wavefront only if they are longer than 45 milliseconds.</td>
 </tr>
 </tbody>
 </table>
 
-Samplers for both sampling strategies send spans to Wavefront if those spans contain errors, the regardless of a span's duration or whether it falls within a specified sampling percentage. (A span contains an error if it represents an operation that reported an error.)
+A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. (A span contains an error if it is associated with the span tag `error=true`.)
 
 **Note:** You can query and visualize only the traces and spans that Wavefront has actually received and ingested. If you set up a sampling strategy that severely reduces the volume of ingested trace data, you could end up with queries that produce no results.
 
 ### Complete vs. Partial Traces
 
-An ingested sample normally contains some combination of complete traces (traces ingested with all of their member spans) and partial traces (traces that are missing one or more spans). The completeness of traces in a sample depends in part on the sampling strategy:
+An ingested trace normally could be complete (a trace ingested with all of its member spans) or partial (a trace that is missing one or more spans). The completeness of the traces in a sample depends in part on the sampling strategy:
 
-* When you set up a sampling rate, the sampler attempts to send complete traces. That is, the sampler selects the specified percentage of trace IDs, and then sends all of the spans that belong to each selected trace. 
+* Rate-based sampling attempts to send complete traces. That is, the sampler selects the specified percentage of trace IDs, and then sends all of the spans that belong to each selected trace. 
 
-* When you set up a sampling duration, the sampler consider only individual spans. That is, the sampler selects all spans of an appropriate length, regardless of whether they form complete traces.
+* Duration-based sampling considers only individual spans. That is, the sampler selects all spans of an appropriate duration, regardless of whether they form complete traces.
 
-Furthermore, an ingested sample normally contains partial traces in the following situations:
-* If the sampler for either sampling strategy encounters a span that contains an error. (Wavefront receives the span with the error, but might not receive any of the other spans in the same trace.)
-* If a trace is distributed (has spans from multiple microservices), and you set up different sampling rates for those microservices. 
+Partial traces can also occur in the following situations:
+* If a span contains an error. Each such span is sent individually, without the other spans in the same trace.
+* If a trace has spans from multiple microservices, and you set up different sampling rates for those microservices. 
 
 
 ### When Sampling Strategies are Combined
 
-You can combine a sampling rate and a sampling duration in the same microservice. Doing so causes Wavefront to ingest the union of the spans that are selected by each sampler.
+You can combine rate-based sampling and duration-based sampling in the same microservice. Doing so causes Wavefront to ingest the union of the spans that are selected by each sampler.
 
 For example, suppose you set the sampling rate to 20% and the sampling duration to 45ms for the same microservice. This causes Wavefront to receive:
 * 20% of the traces generated by that microservice, regardless of the length of their spans.
@@ -65,18 +70,18 @@ As a result, the ingested sample will contain somewhat more than 20% of the gene
 ### Ways to Set Up Sampling
 You can set up a sampling strategy using either of the following methods:
 
-* Configure a Wavefront proxy to run the sampler.  
-* Configure your instrumented application code to run the sampler.  
+* [Configure sampling on a Wavefront proxy](#setting-up-sampling-through-the-proxy).  
+* [Configure sampling in your instrumented application code](#setting-up-sampling-in-your-code).  
 
 Choose the Wavefront proxy for sampling when you want to:
 * Use a single sampling strategy to coordinate the sampling for all applications that use the same proxy. 
 * Configure sampling with minimal effort.
 * Improve the likelihood of ingesting complete traces. 
 
-Choose sampling from your instrumented code when you want to:
+Choose sampling in your instrumented code when you want to:
 * Reduce the performance impact of span reporting on your application. 
 * Use direct ingestion (so no proxy).
-* Configure sampling on a service-by-service basis, for example, when you expect spans from different services to have different minimum durations.
+* Configure sampling on a per-process basis, for example, when you expect spans from the services in different processes to have different characteristics.
 
 
 ## Setting Up Sampling Through the Proxy
@@ -97,9 +102,9 @@ You can set up sampling strategies through a Wavefront proxy by adding the sampl
 
 ## Setting Up Sampling in Your Code
 
-You can set up sampling strategies in application code that is built with the Wavefront OpenTracing SDK, or with any Wavefront SDK that depends on the Wavefront OpenTracing SDK.
+You can set up sampling strategies in application code that is built with the Wavefront OpenTracing SDK, or with any Wavefront observability SDK that depends on the Wavefront OpenTracing SDK.
 
-You set up a sampling strategy by configuring a WavefrontTracer with a Sampler object. You create one Sampler for each sampling strategy. See the README file for your SDK.  
+You set up a sampling strategy by configuring a WavefrontTracer with a Sampler object. You create one Sampler for each sampling strategy. See the README file for the Wavefront observability SDK you are using.  
 
 
 <!---
@@ -121,36 +126,5 @@ You set up a sampling strategy by configuring a WavefrontTracer with a Sampler o
 </tbody>
 </table>
 
-<table style="width: 100%">
-<colgroup>
-<col width="30%"/>
-<col width="70%"/>
-</colgroup>
-<thead>
-<tr><th>Menu</th><th>Start With the Traces That Have</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span">**Most Recent**</td>
-<td markdown="span">The most recent start times.</td>
-</tr>
-<tr>
-<td markdown="span">**Longest First**</td>
-<td markdown="span">The longest overall duration.</td>
-</tr>
-<tr>
-<td markdown="span">**Shortest First**</td>
-<td markdown="span">The shortest overall duration.</td>
-</tr>
-<tr>
-<td markdown="span">**Most Spans**</td>
-<td markdown="span">The largest number of spans.</td>
-</tr>
-<tr>
-<td markdown="span">**Least Spans**</td>
-<td markdown="span">The smallest number of spans.</td>
-</tr>
-</tbody>
-</table>
 
 --->
