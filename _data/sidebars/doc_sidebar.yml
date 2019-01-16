@@ -214,10 +214,6 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-        - title: Prediction with Holt-Winters
-          url: /query_language_hw_function.html
-          output: web
-
   - title: "Charts & Dashboards"
     output: web
     folderitems:
