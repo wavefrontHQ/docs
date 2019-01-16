@@ -1,10 +1,10 @@
 ---
-title: Getting Started with Wavefront Query Language
+title: Query Language Quickstart
 keywords: query language
 tags: [query language, getting started, videos]
 sidebar: doc_sidebar
 permalink: query_language_getting_started.html
-summary: Learn how to get started with Wavefront Query Language.
+summary: Watch some videos, run a basic query, and apply filters and functions.
 ---
 The Wavefront Query Language has been designed especially for time series data. Time series data is unique and requires a query language that accommodates the periodicity, potential irregularity, and streaming nature of the data.
 
@@ -45,12 +45,23 @@ Notice how the result of `sum(ts(cpu.idle))` is slowly increasing over time.  To
 
 ## Next Steps
 
-Wavefront documentation includes tutorials, reference, and guides on the query language. And the query builder and query wizard can help you come up to speed quickly while using the product.
+What's next depends on the type of data you're interested in, and how you want to interact with your data.
 
-For more query language tutorial examples, see the Getting Started with Wavefront Query Language [getting started dashboard](documentation_getting_started.html#tutorials) and the tutorial [Tutorial: Getting Started](tutorial_getting_started.html).
+### Query Types for Different Data
 
-Once you have experimented with simple use cases, review [Wavefront Query Language Quick Reference](query_language_reference.html). The language reference gives an overview of the different types of functions that can be used in a query.
+Most Wavefront users query for metrics, but we support interacting with other data.
 
-From within the product, you can experiment with the [query builder](query_language_query_builder.html) and the [query wizard](query_language_query_wizard.html).
+Charts for metrics also support the following types of queries:
+* Query Wavefront events with [`events()` queries](query_language_reference.html#event-functions).
+* Query histograms with [`hs() queries`](proxies_histograms.html#querying-histogram-metrics)
 
-For in-depth discussions and examples, see some of the [advanced function guides](label_query%20language.html).
+A separate set of interfaces is available for developers who are interested in traces and spans.
+
+### Docs & Wizards
+
+Wavefront documentation includes tutorials, reference, and guides on the query language.
+
+- **[Query builder](query_language_query_builder.html)** and **[query wizard](query_language_query_wizard.html)** can help you come up to speed quickly while using the product.
+- Log in to Wavefront and learn with our Tutorial and  Tour. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
+- [Wavefront Query Language Quick Reference](query_language_reference.html). gives an overview of the different types of functions that can be used in a query. Each function names is a link to a reference page for the function.
+- For in-depth discussions and examples, see some of the [advanced function guides](label_query%20language.html).

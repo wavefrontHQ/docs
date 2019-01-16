@@ -1,10 +1,10 @@
 ---
-title: Detecting Anomalies With Functions and Statistical Functions
+title: Detecting Anomalies with Functions and Statistical Functions
 keywords: query language
 tags: [query language, videos, best practice]
 sidebar: doc_sidebar
 permalink: query_language_statistical_functions_anomalies.html
-summary: Learn how to use simple functions and statistical functions in Wavefront Query Language expressions to detect anomalies.
+summary: Detect anomalies with simple functions, and functions for mean, median, standard deviation, and and inter-quartile range.
 ---
 Anomalies can indicate that something's about to go wrong in your environment. If you have a set of points, you can define which points are normal and which should be identified as abnormal. For example, points that cross a certain threshold might create an anomaly. To learn more about anomaly detection, see the blog [Why is Operational Anomaly Detection So Hard?](https://www.wavefront.com/why-is-operational-anomaly-detection-so-hard/){:target="_blank" rel="noopenner noreferrer"} and the following video:
 
@@ -20,7 +20,7 @@ You can use simple functions, prediction-based functions, or statistical functio
 * Prediction-based functions can help you compare actual values against expected values based on past performance.
 * Statistical functions that return the mean, median, range, standard deviation, and inter-quartile range are great for understanding trends and variability in your data set. You can decide how much variability is normal. When datasets cross a certain threshold, they are detected as an anomaly.
 
-## Simple Functions
+## Detect Anomalies with Simple Functions
 A great way to do dynamic anomaly detection is a query like the following:
 
 `${data} / lag(10m,${data})`
@@ -29,21 +29,22 @@ The result shows a 10 minute range of change as a ratio. You can change the time
 
 This query calculates a rate of change between the current data and data from the series’ past performance.  This results in a ratio of the current metric against the past data.  This ratio helps you detect short-term changes, day-by-day changes, or even week-by-week changes.
 
-## Prediction-Based Functions
-You can use [`anomalous()`](ts_anomalous.html) to return the percentage of data points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions.
+## Detect Anomalies with anomalous()
+You can use the [`anomalous()`](ts_anomalous.html) prediction-based function to return the percentage of data points that have anomalous (unexpected) values. The function considers values considered anomalous if they fall outside a range of expected values. This range is centered around predictions based on past values. You can widen or narrow the range of expectation, typically to a number of standard deviations around the predictions.
 
 For example, the following query considers points to be anomalous if they fall outside 95% of the expected values, or 2 standard deviations from the predictions:
 
 `anomalous(5m, .95, ts(my.metric))`
 
 
-## Mean and Median
+## Detect Anomalies with Mean and Median
 The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data.
 
-**Note** Use the `percentile()` function to get the mean, that is, `percentile(50,<expression>[,<args])`.
+* **Mean:** Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier.
 
-Use `avg` or `mavg` to get the mean (average), that is, the number found in the middle of a set of values. The mean is affected and fluctuates easily even with single outlier. The `mmedian` function is more robust in dealing with outliers than `avg`/ `mavg` because outliers tend to move the mean towards the outlier value.
+***Median:** Use the `percentile()` function to get the median, that is, `percentile(50,<expression>[,<args])`, or `mmedian()` to get the moving median. The median functions are more robust in dealing with outliers than `avg`/`mavg` because outliers tend to move the mean towards the outlier value.
 
+**Example: `mavg()` amd `mmedian()`**
 Consider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
 data:|`ts(test.http.requests, host=web493.corp.example.com)`
@@ -56,7 +57,7 @@ The screen shot below shows the corresponding Wavefront chart:
 
 ![mean_median](images/mean_median.png)
 
-## Standard Deviation (Std Dev) and Inter-Quartile Range (IQR)
+## Detect Anomalies by Analyzing Data Spread
 
 While the `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand the tendency of the data, Std Dev and IQR measure the spread of the data. If you want to use a level of dispersion or spread of the data as a function to define normal, you can use these functions to catch anomalies.
 
@@ -75,9 +76,9 @@ The inter-quartile range (IQR) indicates the extent to which the central 50% of 
 
 What function you use depends your use case. Decide which statistical function works most effectively to define the normal behavior of your system and then use that function to detect anomalies.
 
-Here are some examples for both Std Dev and IQR that illustrate these functions. See the [reference page for anomalous](ts_anomalous.html) for an example for that function. 
+Here are some examples for both Std Dev and IQR that illustrate these functions. See the [reference page for anomalous](ts_anomalous.html) for an example for that function.
 
-## Example 1
+## Standard Deviation Example 1
 
 The following example first uses a query without standard deviation:
 
@@ -89,15 +90,15 @@ StandardDeviation:|`(${raw} - mavg(2h, ${raw})) / sqrt(mvar(2h, {raw}))`
 
 We use standard deviation to identify which series deviate greatly from their usual behavior, with a 2 hour moving window. When the standard deviation crosses a certain value (10 in this case), we have an anomaly. The same function is applied to different, widely scaled time series (each shown in a different color) and it identifies the spread of each series independently.
 
-### Query Without Standard Deviation
+**Query Without Standard Deviation**
 
 ![before_std_dev](images/std_dev_before.png)
 
-### Adding Query With Standard Deviation
+**Adding Query With Standard Deviation**
 
 ![after_std_dev](images/std_dev_after.png)
 
-## Example 2
+## Standard Deviation Example 2
 
 If the data is always distributed asymmetrically or is skewed, and you want to find  anomalies in this skewed data, standard deviation does not work well, and you can try IQR.
 
@@ -105,7 +106,7 @@ The time series in this example has a lot of spikes and troughs and we want to f
 
 As you can see, standard deviation shows you the initial spike but starts decaying immediately. But if you use IQR, which has more resistance to the spikes and outliers, we see a sustained increase, making it easy to spot real outliers.
 
-### Data
+**Data**
 
 The first chart uses the following query:
 
@@ -113,7 +114,7 @@ network rate:|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig
 
 ![network_rate](images/network_rate_data.png)
 
-### Std Dev
+**Std Dev**
 
 In the second chart, we add queries to see the standard deviation:
 
@@ -123,7 +124,7 @@ Std Dev:|`(${networkRate} - mavg(480m, ${networkRate}))/sqrt(mvar(480m, ${networ
 
 ![network_rate_std_dev](images/network_rate_std_dev.png)
 
-### IQR
+**IQR**
 But we see the information we're after only when we add the IQR query:
 
 network rate|`align(1m, mean, rate(ts(host=don* and not host=don-*ha*, ifconfig.rxBytes)))`
@@ -133,17 +134,17 @@ IQR|`({networkRate} - mmedian (480m, ${networkRate}))/(mpercentile(480m, 75, ${n
 
 ![network_rate_iqr](images/network_rate_iqr.png)
 
-## Example 3
+## Standard Deviation Example 3
 
 In this example, a time series deviates and continues oscillating over a day over range -- this is the normal behavior of the series). When you try to spot an anomaly in the oscillating data using std dev in a 1h or 2h window, standard deviation does not really capture the dip as well as IQR because the distribution of data in a moving 2h window is not normal. If you look at IQR, you see that it also fluctuates in the moving 2h window, but not as much as std dev, and it spikes in case of a immediate dip in the oscillating signal.
 
-### Data
+**Data**
 
 initial query|`sum(ts(log.web.transactions))`
 
 ![webxactions_data](images/webxactions_data.png)
 
-### Std Dev
+**Std Dev**
 We can add a second query to see the standard deviation:
 
 initial query|`sum(ts(log.web.transactions))`
@@ -152,7 +153,7 @@ Std Dev|`(${data} - mavg(1h, ${data})) / sqrt(mvar(1h, ${data}))`
 
 ![webxactions_std_dev](images/webxactions_std_dev.png)
 
-### IQR
+**IQR**
 
 IQR gives us more information about the time series:
 
