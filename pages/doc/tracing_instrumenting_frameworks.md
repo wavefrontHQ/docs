@@ -183,11 +183,6 @@ Setup consists of configuring and instantiating several helper objects in your m
 </tbody>
 </table>
 
-<!---
-**Note:** To instrument critical-path, proprietary business operations that are not based on the supported frameworks: 
-* For metrics and histograms, use the Wavefront Dropwizard Metrics implementation: [wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
-* For trace data, use the Wavefront OpenTracing implementation [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)
---->
 
 ## .NET/C# Observability SDKs
 
