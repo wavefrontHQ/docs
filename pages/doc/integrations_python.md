@@ -16,7 +16,7 @@ With Python and Wavefront, you can do just about any sort of analysis or visuali
 
 ## Prerequisites
 
-To use python and Wavefront together, you need:
+To use Python and Wavefront together, you need:
 
 * A Wavefront account.
 * A valid [Wavefront token](wavefront_api.html#generating-an-api-token).
@@ -28,8 +28,8 @@ To set up the Python integration,
 1. Follow the [instructions on the github page](https://github.com/wavefrontHQ/python-client).
 2. Install the following packages:
    `pip install ggplot`
-3. Execute the the following commands and pull in the Wavefront Python library:
-   `wget "http://wavefront-customer.s3.amazonaws.com/wavefrontpython.py"`
+3. Pull in the Wavefront Python library:
+   `wget https://github.com/wavefrontHQ/integrations/blob/master/wavefront-python/wavefrontpython.py`
 4. Import `wavefrontpython.py` in to your Python file.
    `from wavefrontpython import*`
 
@@ -148,14 +148,14 @@ Beyond visualizing data, you can use Python to perform more complicated analyses
 
 ![linearregression.jpeg](images/linearregression.jpeg)
 
-
 ```python
-queries = c('ts(mem.used.percentage,source=app-1)','ts(cpu.loadavg.1m,source=app-1)')
-dataset = wfqueryvl(base,token, wfnow() - wfhours(2), wfnow() - wfminutes(1),queries)
-# dataframe containing data from both queries along with timestamp
-scatterdata = data.frame(Mem = dataset[[2]],Cpu = dataset[[4]])
-# only metric values from both queries mapped based on timestamp
-ggplot(scatterdata,aes(x=Mem,y=Cpu)) + geom_point(shape=19) +geom_smooth(method=lm)
+queries = ['ts("mem.used.percentage", source=app-1)', 'ts("cpu.loadavg.1m", source=app-1)']
+dataset = wfqueryvl(base,token, wfnow() - wfhours(2), wfnow() - wfminutes(1), queries, granularity='m')
+scatterdata = pd.DataFrame({'time':scatterdata[0]['time']})
+scatterdata = pd.concat([scatterdata, pd.DataFrame({'Mem':scatterdata[0].iloc[:,1]})], axis=1)
+scatterdata = pd.concat([scatterdata, pd.DataFrame({'Cpu':scatterdata[1].iloc[:,1]})], axis=1)
+print ggplot(scatterdata, aes(x='Mem', y='Cpu')) + geom_point()
 ```
+
 
 ![scatterplot.jpeg](images/scatterplot.jpeg)
