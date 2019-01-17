@@ -13,7 +13,7 @@ The vSphere plugin for Telegraf is designed for high performance data collection
 ## Separating Real-time and Historical Metrics
 vCenter Server provides real-time and historical metrics:
 * **Real-time metrics** are typically stored in ESXi memory and can be accessed very quickly. They have a 20 second time resolution and are normally stored for 24 hours. Real-time metrics are available only for hosts and virtual machines.
-* **Historical metrics** are typically stored in 5h, 30m, 2h and 24h rolled-up intervals. Historical metrics are typically kept for up to one year, depending on the roll-up. The Telegraf plugin uses only the 5m data. Because historical metrics are stored in a database, they take considerably longer to query than real-time metrics.
+* **Historical metrics** are typically stored in 5m, 30m, 2h and 24h rolled-up intervals. Historical metrics are typically kept for up to one year, depending on the roll-up. The Telegraf plugin uses only the 5m data. Because historical metrics are stored in a database, they take considerably longer to query than real-time metrics.
 
 In the default configuration, all metrics are defined in a single instance of the vSphere plugin. Because the default setup mixes real-time and historical metrics, it sometimes has problems collecting the historical metrics within the collection interval, even though the real-time metric collections finish in just a few seconds. If this happens, consider moving some or all of the historical metrics to its own instance of the vSphere plugin. You can define two instances of the plugin:
 * The real-time instance of the plugin excludes all historical metrics.
