@@ -242,7 +242,7 @@ Setup consists of configuring and instantiating several helper objects in your m
 <tr>
 <td>Metrics and histograms</td>
 <td markdown="span">[wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
-<td>Implements App Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
+<td>Implements PyFormance, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
 --->
 <tr>
 <td>Trace data</td>
