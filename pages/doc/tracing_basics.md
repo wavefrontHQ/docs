@@ -120,9 +120,10 @@ limit(20, spans(orderShirts, application=beachshirts and service=shopping))
 ## Trace Sampling and Storage
 
 A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  You normally limit the volume of trace data by specifying a [sampling strategy](trace_data_sampling.html). 
-A sampling strategy helps you keep the volume of trace data manageable, and can help to reduce your costs.
 
-Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days.
+A sampling strategy helps you keep the volume of trace data manageable, and can help to reduce your costs. Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days.
+
+Wavefront supports several [ways to set up sampling](trace_data_sampling.html#ways-to-set-up-sampling). You can choose the way the best fits your use case. 
 
 <!---
 ## Questions for Reviewers

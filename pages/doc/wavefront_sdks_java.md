@@ -8,91 +8,106 @@ summary: Find Wavefront SDKs for instrumenting a Java application to send observ
 ---
 
 
-This page lists the available [Wavefront observability SDKs](wavefront_sdks.html) for collecting metrics, histograms, and trace data from the microservices in a Java application. For each SDK, click on the link to see the detailed setup steps.
+This page lists the available [Wavefront observability SDKs](wavefront_sdks.html) for collecting metrics, histograms, and trace data from the microservices in a Java application. 
+
+To obtain an SDK, click on the link and follow the setup steps on GitHub. 
+
+* **Note:** Be sure to use the latest version of the SDK.
 
 ## Framework-level Java SDKs
 
-Each framework-level SDK collects metrics, histograms, and trace data from a particular Java framework or component. Setup consists of configuring and instantiating several helper objects in your microservice. No other code updates are needed.
+Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-application-frameworks) collects observability data from a particular Java framework or component, with minimal code setup.
 
-<table id = "sdks" width="100%">
+<table id = "framework-java" width="100%">
 <colgroup>
 <col width="20%" />
-<col width="20%" />
 <col width="60%" />
+<col width="20%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Instrumented Framework</th><th>Collected Data</th><th>SDK Description</th></tr>
+<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 
 <tr>
-<td markdown="span">[Dropwizard](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td markdown="span">[Dropwizard Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Sends observability data from HTTP requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
-<td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Sends observability data from HTTP requests and responses.</td></tr>
+</tr>
 
 <tr>
-<td markdown="span">[gRPC](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java)</td>
+<td markdown="span">[gRPC SDK for Java](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java)</td>
+<td>Instruments gRPC, a framework for building services that communicate through remote procedure calls. Sends observability data from gRPC requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
-<td>Instruments gRPC, a framework for building services that communicate through remote procedure calls. Sends observability data from gRPC requests and responses.</td></tr>
+</tr>
 
 <tr>
-<td markdown="span">[JAX-RS](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)</td>
+<td markdown="span">[JAX-RS SDK for Java](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)</td>
+<td>Instruments a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Sends observability data from HTTP requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
-<td>Instruments a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Sends observability data from HTTP requests and responses.</td></tr>
+</tr>
 
 <tr>
-<td markdown="span">[JVM](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
+<td markdown="span">[JVM SDK](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
+<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Sends observability data for CPU usage, disk usage, and so on.</td>
 <td markdown="span">Metrics, histograms</td>
-<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Sends observability data for CPU usage, disk usage, and so on.</td></tr>
+</tr>
 
 <tr>
-<td markdown="span">[Spring Boot](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td markdown="span">[Spring Boot Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Sends observability data from HTTP requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
-<td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Sends observability data from HTTP requests and responses.</td></tr>
+</tr>
 
 </tbody>
 </table>
 
 ## Custom-level Java SDKs
 
-Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
-Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
+Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operations) enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. You'll need to add some code to each operation that is to report observability data.
 
-<table id = "sdks" width="100%">
+<table id = "custom-java" width="100%">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Supported Data</th><th>SDK Description</th></tr>
+<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
-<td markdown="span">[Metrics and histograms](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Implements Dropwizard Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
-
+<td markdown="span">[Dropwizard Metrics SDK for Java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
+<td>Implements Dropwizard Metrics, so you can instrument custom business operations to collect and send metrics and histograms to Wavefront. </td>
+<td markdown="span">Metrics, histograms</td>
+</tr>
 <tr>
-<td markdown="span">[Trace data](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td>Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
+<td markdown="span">[OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
+<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument custom business operations to collect and send traces and spans to Wavefront. </td>
+<td markdown="span">Trace data</td>
+</tr>
 </tbody>
 </table>
 
-## Core SDK
+## Core Java SDK
 
-The core SDK enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+The [core SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
-<table id = "sdks" width="100%">
+<table id = "core-java" width="100%">
 <colgroup>
-<col width="30%" />
-<col width="70%" />
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Values For</th><th>Java SDK Description</th></tr>
+<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
-<td markdown="span">[Metrics, histograms, trace data](https://github.com/wavefrontHQ/wavefront-sdk-java)</td>
-<td>Sends values either directly to the Wavefront service or to a Wavefront proxy. </td></tr>
+<td markdown="span">[Core SDK for Java](https://github.com/wavefrontHQ/wavefront-sdk-java)</td>
+<td>Sends raw data values either directly to the Wavefront service or to a Wavefront proxy. </td>
+<td markdown="span">Metrics, histograms, trace data</td>
+</tr>
 
 </tbody>
 </table>

@@ -11,7 +11,7 @@ A cloud-scale web application generates a very large number of [traces](tracing_
 
 Well-chosen sampling strategies can give you a good idea of how your application is behaving, while: 
 * Limiting the performance impact on network bandwidth and application response times.
-* Reducing the amount of storage required for trace data.
+* Reducing the amount of storage required for trace data, and lowering your monthly costs.
 * Filtering out "noise" traces so you can see what's important.
 
 <!--- need links from instrumentation page, and from proxy setup page --->
@@ -67,7 +67,7 @@ For example, suppose you set the sampling rate to 20% and the sampling duration 
 
 As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
 
-### Ways to Set Up Sampling
+## Ways to Set Up Sampling
 You can set up a sampling strategy using either of the following methods:
 
 * [Configure sampling on a Wavefront proxy](#setting-up-sampling-through-the-proxy).  

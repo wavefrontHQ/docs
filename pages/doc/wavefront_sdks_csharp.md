@@ -8,29 +8,32 @@ summary: Find Wavefront SDKs for instrumenting a .NET/C# application to send obs
 ---
 
 
-This page lists the available [Wavefront observability SDKs](wavefront_sdks.html) for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. For each SDK, click on the link to see the detailed setup steps.
+This page lists the available [Wavefront observability SDKs](wavefront_sdks.html) for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. 
+
+To obtain an SDK, click on the link and follow the setup steps on GitHub. 
+
+* **Note:** Be sure to use the latest version of the SDK.
 
 <!---
 ## Framework-level .NET/C# SDKs
 
-Each framework-level SDK collects metrics, histograms, and trace data from a particular .NET/C# framework or component. Setup consists of configuring and instantiating several helper objects in your microservice. No other code updates are needed.
+Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-application-frameworks) collects observability data from a particular .NET/C# framework or component, with minimal code setup.
 
-<table id = "sdks" width="100%">
+<table id = "framework-csharp" width="100%">
 <colgroup>
 <col width="20%" />
-<col width="20%" />
 <col width="60%" />
+<col width="20%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Instrumented Framework</th><th>Collected Data</th><th>SDK Description</th></tr>
+<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
-
 <tr>
-<td markdown="span"></td>
+<td markdown="span">[]()</td>
+<td> </td>
 <td markdown="span">Metrics, histograms, trace data</td>
-<td></td></tr>
-
+</tr>
 
 </tbody>
 </table>
@@ -38,46 +41,53 @@ Each framework-level SDK collects metrics, histograms, and trace data from a par
 
 ## Custom-level .NET/C# SDKs
 
-Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
-Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
+Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operations) enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. You'll need to add some code to each operation that is to report observability data.
 
-<table id = "sdks" width="100%">
+<table id = "custom-csharp" width="100%">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Supported Data</th><th>SDK Description</th></tr>
+<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
+
 <!---
 <tr>
-<td markdown="span">[Metrics and histograms](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
-<td>Implements PyFormance, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
+<td markdown="span">[App Metrics SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-xxx)</td>
+<td>Implements App Metrics, so you can instrument custom business operations to collect and send metrics and histograms to Wavefront. </td>
+<td markdown="span">Metrics, histograms</td>
+</tr>
 --->
 <tr>
-<td markdown="span">[Trace data](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-<td>Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
-
+<td markdown="span">[OpenTracing SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
+<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument custom business operations to collect and send traces and spans to Wavefront. </td>
+<td markdown="span">Trace data</td>
+</tr>
 </tbody>
 </table>
 
 ## Core .NET/C# SDK
 
-The core SDK enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+The [core SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
-<table id = "sdks" width="100%">
+<table id = "core-csharp" width="100%">
 <colgroup>
-<col width="30%" />
-<col width="70%" />
+<col width="20%" />
+<col width="60%" />
+<col width="20%" />
 </colgroup>
 <tbody>
 <thead>
-<tr><th>Values For</th><th>SDK Description</th></tr>
+<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
 <td markdown="span">[Metrics, histograms, trace data](https://github.com/wavefrontHQ/wavefront-sdk-csharp)</td>
-<td>Sends values either directly to the Wavefront service or to a Wavefront proxy. </td></tr>
+<td>Sends raw data values either directly to the Wavefront service or to a Wavefront proxy. </td>
+<td markdown="span">Metrics, histograms, trace data</td>
+</tr>
 
 </tbody>
 </table>
