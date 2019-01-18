@@ -21,7 +21,7 @@ Jaeger [deployments](https://www.jaegertracing.io/docs/1.8/architecture/#compone
 
 ### Install and Configure the Wavefront Proxy
 
-1. If you have not already done so, install a Wavefront proxy(version 4.33 or later).
+1. If you have not already done so, install a Wavefront proxy (version 4.33 or later).
 2. On the host that is running your Wavefront proxy, open the file `/etc/wavefront/wavefront-proxy/wavefront.conf` and add:{% raw %}
    ```
    traceJaegerListenerPorts=<enter-available-port>
