@@ -16,6 +16,11 @@ Users with Users & Groups permission can set the default user group and can assi
 
 Permissions determine which tasks a Wavefront user can perform. All new users can perform all new user tasks. In addition, administrators can grant and revoke permissions for users and for groups.
 
+This video shows how you find out the permissions you have, and how to manage permissions for users and groups.
+
+<p><a href="https://youtu.be/kQ-w-DyjW5M"><img src="/images/v_permissions_2019.png" style="width: 700px;" alt="permissions for users and groups"/></a>
+</p>
+
 ### New User Tasks
 When an account is created in Wavefront, the user can perform the following tasks:
 

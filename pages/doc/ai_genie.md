@@ -10,6 +10,16 @@ summary: Learn how to use AI Genie for forecasting and anomaly detection
 
 Wavefront users are responsible for finding anomalies in their data. That task becomes harder as the amount of data increases. Wavefront already includes [anomaly detection based on statistical functions](https://docs.wavefront.com/query_language_statistical_functions_anomalies.html) such as standard deviation. AI Genie takes a different approach, offering anomaly detection based on forecasting.
 
+Wavefront chief architect and co-founder talks about AI Genie in the following two videos:
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%"><a href="https://youtu.be/XiSkNETTfCI" target="_blank"><img src="/images/v_anomaly_detection.png" alt="ai genie anomaly detection"/></a></td>
+<td width="50%"><a href="https://youtu.be/ypyyg0CElE4" target="_blank"><img src="/images/v_anomaly_forecasting.png"  alt="ai genie forecasting"/></a></td>
+</tr>
+</tbody>
+</table>
+
 ## AI Genie Use Cases
 
 AI Genie offers an alternate view of your chart data that is focused on anomaly detection and forecasting and that supports two main use cases, anomaly detection and forecasting.
@@ -42,6 +52,7 @@ To access AI Genie:
    ![open genie](images/open_ai_genie.png)
    AI Genie opens in a new browser tab, with Anomaly Detection selected initially.
 2. With Anomaly Detection selected, you can customize the Display Settings, Historical Sample Size, and Sensitivity. You can focus on individual time series just as you do for other charts.
+   For sensitivity, **High** means that there's a 67% chance that the data is anomalous, **Medium** means there's a 95% chance, and **Low** means there's a 99% chance.
 3. Click **Save To > Save as New Alert** to save the anomaly query as an alert.
    When the Create Alert page displays, you see that the `anomalous` function is part of the query. You do some alert customization, but several settings are optimized for anomaly detection.
 

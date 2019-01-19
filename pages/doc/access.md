@@ -8,6 +8,11 @@ summary: Learn how to manage access to dashboards.
 ---
 The users/groups/permissions authorization paradigm is sufficient for many Wavefront customers. However, admins who need finer-grained control can manage access to Wavefront objects on a per-object basis. The first release supports access control for dashboards. See [Authorization in Wavefront](authorization.html#level-3-access-control-for-objects) for background information.
 
+This video shows how to limit access for dashboards, how to share dashboards, and how to set the Security system preference.
+
+<p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Wavefront access control"/></a>
+</p>
+
 **Note**: After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can share the object with other groups or users.
 
 ## How Access Control Works
