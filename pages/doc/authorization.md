@@ -11,6 +11,11 @@ Wavefront supports several levels of authorization to support customers with dif
 
 **Note:** We support several levels of authorization. If you need more than basic permissions, you can add user groups. If that's not enough, you can add access control, which applies to users and groups.
 
+Watch this video for an overview of the different authorization features.
+
+<p><a href=" https://youtu.be/-HFb1AJINrY"><img src="images/v_authorization.png" style="width: 700px;" alt="Authorization in Wavefront"/></a>
+</p>
+
 ## More Control, More Effort
 
 With additional setup, you gain finer-grained control:
