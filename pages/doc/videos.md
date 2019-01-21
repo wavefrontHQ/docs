@@ -1,18 +1,19 @@
 ---
-title: Getting Started Videos
+title: Learn with Videos
 keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos.html
-summary: Get started with Wavefront by watching a set of videos.
+summary: Learn how things work and how to do things by watching videos.
 ---
 
-This page is for users who learn best watching videos. Many of the videos are also included on the pages about the topic.
+This page is for users who learn best watching videos.
 
 * Wavefront engineers explain how things work in a set of lighboard videos and ask-the-expert videos. For example, Clement explains point tags and source tags work, and our interview video explores container monitoring best practices.
-* Jason Goocher, Wavefront Customer Success Engineer, created a set of videos for VMware Learning Zone in October 2017.
+* Jason Goocher, Wavefront Customer Success Engineer, created a set of videos for VMware Learning Zone in October 2017 that show how to do things such as creating alerts.
+* Some screen capture videos show you how to do things like creating groups or managing access control.
 
-  **Note** These videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
+  **Note** Many of these videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
 
 ## Clement's Lightboard Videos
 
