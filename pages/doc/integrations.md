@@ -30,7 +30,7 @@ Here's a screen shot that shows the different tabs of the Apache Solr integratio
 ## Built-In and Custom Integrations
 Wavefront lets you set up many integrations directly from the product. For other integrations, we give step-by-step instructions -- or you can send your data to Wavefront in other ways, for example, using the Telegraf output plugin for Wavefront.
 
-- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the menu bar and click the **Setup** tab.
+- **Built-in integrations** provide assisted installation and configuration. Many integrations also install a dashboard for you. Access the integration by selecting **Integrations** from the task bar and clicking the **Setup** tab.
 
 - **Customizable built-in integrations** provide a built-in integration for the initial connection, with additional customization information in this documentation.
 

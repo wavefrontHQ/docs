@@ -15,6 +15,13 @@ Wavefront supports a suite of SDKs that developers can use to instrument applica
 Will there be any integrations that facilitate setup with an SDK?
 --->
 
+Watch this video to listen to our Co-founder Clement Pang talk about how Wavefront expands application monitoring with its observability SDKs:
+
+<!---
+<p><a href=""><img src="/images/v_app_monitoring.png" style="width: 700px;" alt="application monitoring"/></a>
+</p>
+--->
+
 ## Levels of Support for Instrumenting Applications
 
 Wavefront organizes its observability SDKs into 3 groups, which correspond to different levels of support for instrumenting your applications. SDKs for each level are available in popular programming languages. 

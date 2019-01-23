@@ -50,7 +50,7 @@ You submit queries and view the results on the **Traces** page.
 
 To navigate to **Traces** directly:
 
-* Click **Browse > Traces** from the Wavefront top menu bar.
+* Click **Applications > Traces** in the task bar.
 
   **Note:** Alternatively, you can navigate to the **Traces** page from any page that displays metrics for a service.
 

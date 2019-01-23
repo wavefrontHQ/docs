@@ -77,7 +77,7 @@ These steps use configuration files and minimal code changes:
 2. For each Dropwizard or Spring Boot microservice, follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart) in the `README` file for the SDK.  
 
     For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
-3. After your recompiled application starts running, click **Browse > Applications** in the Wavefront menu bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
+3. After your recompiled application starts running, click **Applications > Inventory** in the task bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
 
 **Note:** When you use the quickstart option, we automatically set up the SDK for the Java Virtual Machine (JVM) in addition to the  SDK for the Jersey-compliant framework.
 
@@ -103,7 +103,7 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
     3. Follow the setup steps in the `README` file. If a `README` file offers Custom Setup steps, choose those. 
     4. Repeat for each instrumentable framework or component in the microservice. 
 
-3. After your recompiled application starts running, you can click **Browse > Applications** in the Wavefront menu bar to start exploring metrics, histograms, and trace data.
+3. After your recompiled application starts running, you can click **Applications > Inventory** in the task bar to start exploring metrics, histograms, and trace data.
 
 **Note:** When you use the custom setup option for an SDK, no other SDK is set up automatically for you. If you want to add multiple SDKs to a microservice, you must set up each one individually.
 

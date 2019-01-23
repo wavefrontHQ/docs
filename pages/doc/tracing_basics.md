@@ -16,6 +16,13 @@ Because Wavefront integrates trace data with metrics, you can use Wavefront char
 * Troubleshoot and analyze reported errors. 
 * Pinpoint the specific operations that bottlenecks occur in.
 
+<!---
+Watch this video to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront:
+
+<p><a href=""><img src="/images/v_tracing.png" style="width: 700px;" alt="distributed tracing"/></a>
+</p>
+--->
+
 <!--- This page gives basic concepts. You can go straight to Instrumenting [link]--->
 
 ## Wavefront Trace Data
@@ -96,17 +103,16 @@ Wavefront enables you to [query](trace_data_query.html) and visualize the trace 
 You can view trace data by starting with the RED metrics that Wavefront collects for each microservice in an instrumented application. RED metrics are the Rate (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces.
 
 To start from the RED metrics for your application's microservices:
-1. Select **Browse > Application** and find your application.
+1. Select **Applications > Inventory** in the task bar, and find your application.
 2. Click on a service that you are interested in viewing traces from.
-3. Select a framework and an operation in it to show information about the traces and spans for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
+3. Scroll the service's page to find the framework or component you are interested in.
+4. Select an operation to display the **Traces** page for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
 ### Start by Submitting a Trace Query
 
-You can view trace data by submitting a trace query. A trace query describes one or more spans to be matched, and then displays the traces that contain the matched spans:
-1. Select **Browse > Traces**.
-2. In the **Traces** page, select the filters that describe the spans to be matched. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
-
-**Note:** For details about submitting a trace query, see [Querying Trace Data](trace_data_query.html). 
+You can view trace data by [submitting a trace query](trace_data_query.html). A trace query describes one or more spans to be matched, and then displays the traces that contain the matched spans:
+1. Select **Applications > Traces** in the task bar.
+2. In the **Traces** page, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans to be matched. 
 
 <!--- In Hotspots topic - mention that specified span could be anywhere in result trace. Might but need not be first. ---> 
 <!---  In Hotspots topic -  mention and link to spans() function ---> 
