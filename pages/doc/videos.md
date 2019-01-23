@@ -1,31 +1,36 @@
 ---
-title: Getting Started Videos
+title: Learn with Videos
 keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos.html
-summary: Get started with Wavefront by watching a set of videos.
+summary: Learn how things work and how to do things by watching videos.
 ---
 
-This page is for users who learn best watching videos. Many of the videos are also included on the pages about the topic.
+This page is for users who learn best watching videos.
 
 * Wavefront engineers explain how things work in a set of lighboard videos and ask-the-expert videos. For example, Clement explains point tags and source tags work, and our interview video explores container monitoring best practices.
-* Jason Goocher, Wavefront Customer Success Engineer, created a set of videos for VMware Learning Zone in October 2017.
+* Jason Goocher, Wavefront Customer Success Engineer, created a set of videos for VMware Learning Zone in October 2017 that show how to do things such as creating alerts.
+* Some screen capture videos show you how to do things like creating groups or managing access control.
 
-  **Note** These videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
+  **Note** Many of these videos were made before the transition of the Wavefront UI to Project Clarity. Some UI details are slightly different in the current product.
 
 ## Clement's Lightboard Videos
 
 In the following lighboard videos, Wavefront co-founder Clement Pang explains:
+* AI Genie: Anomaly Detection and AI Genie: Forecasting
 * Getting Data into Wavefront
 * Time Series and Interpolation
 * Alerting with Wavefront
 * Tagging Your Data with Wavefront
 * Wavefront Histograms
 
-
 <table style="width: 100%;">
 <tbody>
+<tr>
+<td width="50%"><a href="https://youtu.be/XiSkNETTfCI" target="_blank"><img src="/images/v_anomaly_detection.png" alt="ai genie anomaly detection"/></a></td>
+<td width="50%"><a href="https://youtu.be/ypyyg0CElE4" target="_blank"><img src="/images/v_anomaly_forecasting.png"  alt="ai genie forecasting"/></a></td>
+</tr>
 <tr>
 <td width="50%"><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
 <td width="50%"><a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
@@ -38,6 +43,16 @@ In the following lighboard videos, Wavefront co-founder Clement Pang explains:
 <td width="50%"><a href="https://www.youtube.com/watch?v=syIKQ2oZk9s&index=4&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_histograms.png" alt="Wavefront histograms"/></a></td>
 <td width="50%">&nbsp;</td>
 </tr>
+</tbody>
+</table>
+
+## Authorization: Permissions and Access Control
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="33%"><a href=" https://youtu.be/-HFb1AJINrY" target="_blank"><img src="images/v_authorization.png"  alt="Authorization in Wavefront"/></a></td>
+<td width="33%"><a href="https://youtu.be/kQ-w-DyjW5M" target="_blank"><img src="/images/v_permissions_2019.png"  alt="Permissions for Users and Groups"/></a></td>
+<td width="33%"><a href="https://youtu.be/45E4pkann0E" target="_blank"><img src="images/v_access.png" alt="Wavefront access control"/></a></td></tr>
 </tbody>
 </table>
 
@@ -69,7 +84,7 @@ In the following lighboard videos, Wavefront co-founder Clement Pang explains:
 <table style="width: 100%;">
 <tbody>
 <tr><td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=4eaeccb3-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_navigating.png" alt="navigating wavefront"/></a></td>
-<td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=4fd9a1bc-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_permissions.png" alt="permissions and user profiles"/></a></td>
+<td width="33%"><a href="https://youtu.be/kQ-w-DyjW5M" target="_blank"><img src="/images/v_permissions_2019.png" alt="permissions and user profiles"/></a></td>
 <td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_dashboards_intro.png" alt="introduction to dashboards"/></a></td></tr>
 <tr><td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=522058ee-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alert_intro.png" alt="introduction to alerts"/></a></td>
 <td width="33%"><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=534a1003-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_integrations_intro.png" alt="intro to integrations"/></a></td>

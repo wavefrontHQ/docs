@@ -1,8 +1,8 @@
 ---
-title: Amazon EKS Integration
+title: OpenShift Integration
 tags: [integrations list]
-permalink: amazon_eks.html
-summary: Learn about the Wavefront Amazon EKS Integration.
+permalink: openshift.html
+summary: Learn about the Wavefront OpenShift Integration.
 ---
 ## Kubernetes Integration
 
