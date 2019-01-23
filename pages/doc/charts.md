@@ -146,7 +146,7 @@ Options that control the style of the chart.
 <ul>
 <li><strong>Linear</strong> - a straight line.</li>
 <li><strong>Step Before</strong> - a step value at the beginning of the bucket.</li>
-<li><strong>Step Before</strong> - a step value at the end of the bucket.</li>
+<li><strong>Step After</strong> - a step value at the end of the bucket.</li>
 <li><strong>Basis</strong> - a B-spline.</li>
 <li><strong>Cardinal</strong> - a Cardinal spline.</li>
 <li><strong>Monotone</strong> - a cubic interpolation that preserves monotonicity.</li>

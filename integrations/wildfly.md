@@ -45,7 +45,7 @@ First create a file called `jboss.conf` in `/etc/telegraf/telegraf.d` and enter 
 
 ```
 [[inputs.jolokia2_agent]]
-urls = ["http://10.152.24.99:8380/jolokia","http://10.152.24.99:8230/jolokia"]
+urls = ["http://<jboss-host1-ip>:<port>/jolokia","http://<jboss-host2-ip>:<port>/jolokia"]
 name_prefix = "jboss."
 
 #username and password are mandatory for Jolokia 1.6 or later
