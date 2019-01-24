@@ -43,7 +43,7 @@ To add a source tag from the UI:
 
 ## Adding Source Tags and Source Descriptions 
 
-You can use the `SourceTag` and `SourceDescription` properties to add source tags and source descriptions before the metrics reach Wavefront. Starting with proxy version 4.24, you send these properties to the same listening port as regular metrics (`pushListenerPort` setting, 2878 by default).
+You can use the `SourceTag` and `SourceDescription` properties to add source tags and source descriptions before the metrics reach Wavefront. Starting with proxy version 4.24, you send these properties to the same listening port as regular metrics (`pushListenerPorts` setting, 2878 by default).
 
 To send a source tag or source description to a proxy, you can include commands like a following:
 
