@@ -9,7 +9,7 @@ summary: Learn where to use the align() function and why Wavefront does pre-alig
 
 In Wavefront charts, point buckets represent data that has been summarized over a certain length of time.
 
-Both the [**Summarize By**](charts.html#general) chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g. averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size whereas the bucket size available to the summarization method is automatically set based on the [chart resolution](charts_customizing.html#charts_resolution).
+Both the [**Summarize By**](charts.html#general) chart option and the [`align()` function](ts_align.html) group points into buckets and allow you to specify how those points are aggregated (e.g. averaged, counted, summed, etc.).  The `align()` function allows you to specify the desired bucket size. By default, the summarization method that aggregation functions use is based on the bucket size of the [chart resolution](charts_customizing.html#charts_resolution).
 
 To support bucketing, `align()` supports the value `bw` (bucket window) for the `timeWindow` parameter.
 
@@ -26,14 +26,14 @@ The speed at which a query is executed and displayed is partly based on how many
 ### Reducing Unnecessary Interpolation
 Using `align()` can also improve query speed if [aggregation functions](query_language_aggregate_functions.html#standard-aggregation-functions-interpolation) perform [interpolation](query_language_discrete_continuous.html#functions-that-use-interpolation-to-create-continuous-data).
 
-Suppose you have:
-* 10 series typically reported every 60 seconds that you want to average over a 2-hour window.
+Here's a simple example:
+* You have 10 series that typically report every 60 seconds and that you want to average over a 2-hour window.
 * 1 of those 10 series is being reported intermittently and often reports only every 120 seconds.
-* Non-raw aggregate functions (e.g. `sum()` or `avg()`) interpolate that 1 intermittent series when at least one of the other nine series reported a value. For example, if there were only 9 reported values 9:03a, then `avg()` applies an interpolated value for the 10th series before aggregating.
+* Non-raw aggregation functions (e.g. `sum()` or `avg()`) interpolate that 1 intermittent series when at least one of the other nine series reported a value. For example, if there were 9 reported values 9:03a, then `avg()` generates an interpolated value for the 10th series before aggregating.
 
-Interpolated values require resources that can affect the speed at which the query is displayed. For example, a 1000+ series that reports every 5 seconds, but not always at the same 5-second interval could require a lot of interpolation and slow down the query speed.
+Interpolated require resources, and that can affect the speed at which the query is displayed. If a 1000+ series that reports every 5 seconds, but not always at the same 5-second interval could require a lot of interpolation and slow down the query speed.
 
-However, if you align these values to a larger bucket (e.g. `align(1m, mean, ts("my.metric"))`, then the number of times an interpolated value can occur changes from 12 times a minute without `align()` (in the best case) to once a minute with `align()`.
+To improve query speed, align to a larger bucket (e.g. `align(1m, mean, ts("my.metric"))`. Then the number of times that an interpolated value can occur might change from 12 times a minute without `align()` to once a minute with `align()`.
 
 ## The Pre-Align Warning -- When Wavefront Applies Align
 
@@ -47,15 +47,9 @@ aggregation operation. You can wrap the expression with align() to explicitly st
 
 where `sum(ts(<metric>, source=<source>))` is the original query.
 
-That means that Wavefront wrapped your query in `align()` to avoid unacceptable performance issues. This pre-alignment occurs when aggregate functions are applied to more than 100 unique series. In most cases, for instance, where a metric reflects a parameter changing over time, you can ignore the warning.
+That means that Wavefront wrapped your query in `align()` to avoid unacceptable performance issues. Wavefront performs pre-alignment when aggregation functions are applied to more than 100 unique series. In most cases, for instance, where a metric reflects a parameter changing over time, you can ignore the warning.
 
-The pre-alignment is tied to a window of time and not to the actual unique series reporting data at any given moment. For example, if 100+ series are reporting data at the same time for 50% of your chart but less than 100 series for the other 50%, then the entire chart window will be pre-aligned if you attempt to aggregate those series into a single series.
-
-When aggregating 100+ time series:
-* The pre-alignment that occurs includes a time window equal to the resolution bucket.
-* The summarize strategy for the pre-alignment matches the selected summarization method.
-
-For example, if the resolution bucket is ~1800 seconds and you select `sum()` as the summarization method, then the pre-alignment that occurs when aggregating 100+ time series are 1800s buckets that are summed.
+The pre-alignment is tied to a window of time and not to the actual unique series reporting data at any given moment. For example, if 100+ series are reporting data at the same time for 50% of your chart window but less than 100 series report for the other 50%, then the entire chart window will be pre-aligned if you attempt to aggregate those series into a single series.
 
 ## Pre-Alignment Side Effects
 

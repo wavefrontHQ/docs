@@ -6,13 +6,15 @@ sidebar: doc_sidebar
 permalink: query_language_windows_trends.html
 summary: Highlight trends with moving and tumbling windows.
 ---
-You can calculate continuous aggregation over a sliding time window using one of the moving window functions. They are useful if, for example, you want to calculate the moving average over the past 24 hours. But if you want to look at the daily average for each day, you have to create fixed-size time window. This page explains how to do both.
+You can calculate continuous aggregation over a sliding time window using one of the moving window functions. [Moving time window functions](query_language_reference.html#moving-window-time-functions) are useful if, for example, you want to calculate the moving average over the past 24 hours.
 
-## Calculating Continuous Aggregation Over Sliding Time Windows
+But if you want to look at the daily average for each day, you have to create fixed-size time window. This page explains how use moving and fixed-sized time windows.
+
+## Calculating Continuous Aggregation with Moving Window Functions
 
 The Wavefront [moving window time functions](query_language_reference.html#moving-window-time-functions) allow you to calculate continuous aggregation over sliding time windows. Wavefront offers functions for creating moving windows on various aggregation such as `msum()`,` mavg()`, `mmedian()`, `mcount()`, etc. These functions create continuous moving or sliding windows which can be useful for looking at moving trends.
 
-When recalculation happens differs between [discrete and continous time series](query_language_discrete_continuous.html):
+Recalculation happens at different times for [discrete and for continous time series](query_language_discrete_continuous.html):
 * For discrete time series, the moving windows recalculation is done every second.
 * For continuous time series, the recalculation is done for every bucketing interval. For example, if you have a 30 second bucketing interval, then recalculation happens every 30 seconds.
 
@@ -27,9 +29,9 @@ The following chart shows the resulting continuous moving average over the past 
 ![moving_average](images/moving_avg.png)
 
 
-The moving average hows, at any point in time, the average based on the values of the last 24 hours. But if you want to only look at the daily average for each day, and display that average, you have to:
+The moving average shows, at any point in time, the average based on the values of the last 24 hours. But if you want to only look at the daily average for each day, and display that average, you have to:
 * Create fixed-size time windows
-* Record your metrics in these windows.
+* Record your metrics in these windows. We show some examples at the bottom of this page.
 
 These windows are commonly referred as _tumbling windows_. Tumbling windows are a series of fixed size, non-overlapping, and contiguous time intervals.
 

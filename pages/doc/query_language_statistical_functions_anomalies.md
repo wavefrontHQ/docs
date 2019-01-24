@@ -44,7 +44,7 @@ The `avg`/ `mavg` and `percentile`/`mmedian` functions can help you understand t
 
 ***Median:** Use the `percentile()` function to get the median, that is, `percentile(50,<expression>[,<args])`, or `mmedian()` to get the moving median. The median functions are more robust in dealing with outliers than `avg`/`mavg` because outliers tend to move the mean towards the outlier value.
 
-**Example: `mavg()` amd `mmedian()`**
+**Example: `mavg()` and `mmedian()`**
 Consider the following queries that examine how `mavg` and `mmedian` behave in case of sudden spikes in the HTTP requests hitting a particular host:
 
 data:|`ts(test.http.requests, host=web493.corp.example.com)`

@@ -103,5 +103,11 @@ Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">sl
 <td>How do time windows work?</td>
 <td markdown=span>Wavefront supports [moving time window functions](). </a>.
 Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">slow queries</a>.</td><td> </td></tr>
+<tr>
+<td>How do I calculate the moving averate over a set of time (e.g. 24 hours)?</td>
+<td markdown=span>Use a moving time window function. See [Calculating Continuous Aggregation with Moving Window Functions](query_language_windows_trends.html#calculating-continuous-aggregation-with-moving-window-functions).</td><td> </td></tr>
+<tr>
+<td>How do I calculate over a specified of time (e.g. daily average)?</td>
+<td markdown=span>Use a tumbling time window. See [Tumbling Windows Examples](query_language_windows_trends.html#tumbling-window-examples).</td><td> </td></tr>
 </tbody>
 </table>
