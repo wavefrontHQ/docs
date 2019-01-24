@@ -48,11 +48,11 @@ _[[video that describes how to set up BeachShirts app]]_
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#configuring-listener-ports-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
     ```
-    pushListenerPort=2878
+    pushListenerPorts=2878
     ...
-    histogramDistListenerPort=40000
+    histogramDistListenerPorts=40000
     ...
-    traceListenerPort=30000
+    traceListenerPorts=30000
     ```
 4. Consider setting up [trace sampling](trace_data_sampling.html) by [configuring the proxy with a sampling strategy](trace_data_sampling.html#setting-up-sampling-through-the-proxy).
 5. Save the `wavefront.conf` file. 
