@@ -82,7 +82,7 @@ An application must be _instrumented for tracing_ before it can produce and send
 
 ### Use Cases
 
-If you have already instrumented your code with a 3rd party OpenTracing-compliant solution such as [Jaeger](jaeger.html) or [Zipkin](zipkin.html), you can set up an integration to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
+If you have already instrumented your code with a 3rd party tracing solution such as [Jaeger](jaeger.html), [Zipkin](zipkin.html), or [Envoy](envoy.html) you can set up an integration to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
 If you have not yet instrumented your code, you can do so by using one or more Wavefront observability SDKs:
 
@@ -127,9 +127,31 @@ limit(20, spans(orderShirts, application=beachshirts and service=shopping))
 
 A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  You normally limit the volume of trace data by specifying a [sampling strategy](trace_data_sampling.html). 
 
-A sampling strategy helps you keep the volume of trace data manageable, and can help to reduce your costs. Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days.
+A sampling strategy helps you keep the volume of trace data manageable, and can help to reduce your costs. Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days. 
 
 Wavefront supports several [ways to set up sampling](trace_data_sampling.html#ways-to-set-up-sampling). You can choose the way the best fits your use case. 
+
+You can [monitor](wavefront_monitoring.html) your span storage by checking the following metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place:
+<table width="100%">
+<colgroup>
+<col width="50%"/>
+<col width="50%"/>
+</colgroup>
+<thead>
+<tr><th>Metric</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`~collector.tracing.spans.reported`</td>
+<td markdown="span">Number of spans per second being sent via a Wavefront proxy.</td>
+</tr>
+<tr>
+<td markdown="span">`~collector.direct-ingestion.tracing.spans.reported`</td>
+<td markdown="span">Number of spans per second being sent directly to the Wavefront service (direct ingestion).</td>
+</tr>
+</tbody>
+</table>
+
 
 <!---
 ## Questions for Reviewers

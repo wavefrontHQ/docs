@@ -1,5 +1,5 @@
 ---
-title: Setting Up Trace Sampling
+title: Trace Sampling
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar

@@ -238,7 +238,7 @@ entries:
       url: /tracing_instrumenting_frameworks.html
       output: web
       
-    - title: Setting Up Trace Sampling
+    - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
       
