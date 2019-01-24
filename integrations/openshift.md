@@ -1,8 +1,8 @@
 ---
-title: Kubernetes Integration
+title: OpenShift Integration
 tags: [integrations list]
-permalink: kubernetes.html
-summary: Learn about the Wavefront Kubernetes Integration.
+permalink: openshift.html
+summary: Learn about the Wavefront OpenShift Integration.
 ---
 ## Kubernetes Integration
 

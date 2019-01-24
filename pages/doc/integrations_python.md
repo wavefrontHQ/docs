@@ -16,7 +16,7 @@ With Python and Wavefront, you can do just about any sort of analysis or visuali
 
 ## Prerequisites
 
-To use python and Wavefront together, you need:
+To use Python and Wavefront together, you need:
 
 * A Wavefront account.
 * A valid [Wavefront token](wavefront_api.html#generating-an-api-token).
@@ -148,14 +148,14 @@ Beyond visualizing data, you can use Python to perform more complicated analyses
 
 ![linearregression.jpeg](images/linearregression.jpeg)
 
-
 ```python
-queries = c('ts(mem.used.percentage,source=app-1)','ts(cpu.loadavg.1m,source=app-1)')
-dataset = wfqueryvl(base,token, wfnow() - wfhours(2), wfnow() - wfminutes(1),queries)
-# dataframe containing data from both queries along with timestamp
-scatterdata = data.frame(Mem = dataset[[2]],Cpu = dataset[[4]])
-# only metric values from both queries mapped based on timestamp
-ggplot(scatterdata,aes(x=Mem,y=Cpu)) + geom_point(shape=19) +geom_smooth(method=lm)
+queries = ['ts("mem.used.percentage", source=app-1)', 'ts("cpu.loadavg.1m", source=app-1)']
+dataset = wfqueryvl(base,token, wfnow() - wfhours(2), wfnow() - wfminutes(1), queries, granularity='m')
+scatterdata = pd.DataFrame({'time':scatterdata[0]['time']})
+scatterdata = pd.concat([scatterdata, pd.DataFrame({'Mem':scatterdata[0].iloc[:,1]})], axis=1)
+scatterdata = pd.concat([scatterdata, pd.DataFrame({'Cpu':scatterdata[1].iloc[:,1]})], axis=1)
+print ggplot(scatterdata, aes(x='Mem', y='Cpu')) + geom_point()
 ```
+
 
 ![scatterplot.jpeg](images/scatterplot.jpeg)

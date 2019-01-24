@@ -4,10 +4,10 @@ keywords: dashboards
 tags: [dashboards, charts, getting started, videos]
 sidebar: doc_sidebar
 permalink: dashboards_interacting.html
-summary: Learn how to isolate sources and series, share URLs, alter time windows, apply global queries, and activate chart display modes.
+summary: Customize dashboards and charts to see what's relevant.
 
 ---
-Watch this video for an introduction to dashboards:
+You can isolate sources and series, share URLs, alter time windows, apply global queries, and activate chart display modes.Watch this video for an introduction to dashboards:
 
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_dashboards_intro.png" style="width: 700px;" alt="introduction to dashboards"/></a>
 </p>

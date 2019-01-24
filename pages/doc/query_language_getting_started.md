@@ -4,9 +4,9 @@ keywords: query language
 tags: [query language, getting started, videos]
 sidebar: doc_sidebar
 permalink: query_language_getting_started.html
-summary: Watch some videos, run a basic query, and apply filters and functions.
+summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
-The Wavefront Query Language has been designed especially for time series data. Time series data is unique and requires a query language that accommodates the periodicity, potential irregularity, and streaming nature of the data.
+The Wavefront Query Language has been designed for time series data. Time series data are unique and requires a query language that accommodates the periodicity, potential irregularity, and streaming nature of the data.
 
 Watch these videos to get you started:
 
@@ -19,8 +19,11 @@ Watch these videos to get you started:
 
 ## Basic Query
 
-The simplest and most commonly used type of query retrieves an individual metric: `ts(<metricName>)`. If you are new to Wavefront, you might, for example, want to measure the time spent in the CPU idle task&mdash;`cpu.idle`&mdash;across all sources.
-For this example you enter `ts(cpu.idle)` into a query field to produce the chart below:
+A simple query retrieves an individual metric:
+
+`ts(<metricName>)`
+
+For example, you can show when the CPU is idle by entering `ts(cpu.idle)` into a query field to produce the chart below:
 
 ![base query](images/base_query.png)
 
@@ -33,13 +36,13 @@ The example chart displays many lines, particularly below 8M. To simplify the ch
 
 ## Applying Aggregation Functions
 
-For further exploration try one of the aggregation functions. Aggregation functions are the second most common query.  For example, use `avg()` to show the average value of the `cpu.idle` metric across all sources.  Or use `sum()` to get a total for all sources starting with "m". Here's the chart adding `sum()`:
+For further exploration try one of the aggregation functions. For example, use `avg()` to show the average value of the `cpu.idle` metric across all sources.  Or use `sum()` to get a total for all sources starting with "m". Here's the chart adding `sum()`:
 
 ![summed query](images/summed.png)
 
 ## Applying Mathematical Functions
 
-Notice how the result of `sum(ts(cpu.idle))` is slowly increasing over time.  To increase your proficiency in the language and to learn the power of the other functions, you can take a metric example and experiment with the different functions. For example, we see that `sum(ts(cpu.idle))` gives us snapshots of the sum over time, but does not provide information such as how fast the sum is increasing. The query language has a `deriv()` function that shows the rate of change per second: `deriv(sum(ts(cpu.idle))`.
+Notice how the result of `sum(ts(cpu.idle))` is slowly increasing over time, but does not show how fast the sum is increasing. The query language has a `deriv()` function that shows the rate of change per second: `deriv(sum(ts(cpu.idle))`.
 
 ![summed rate query](images/deriv_sum.png)
 
@@ -65,3 +68,40 @@ Wavefront documentation includes tutorials, reference, and guides on the query l
 - Log in to Wavefront and learn with our Tutorial and  Tour. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
 - [Wavefront Query Language Quick Reference](query_language_reference.html). gives an overview of the different types of functions that can be used in a query. Each function names is a link to a reference page for the function.
 - For in-depth discussions and examples, see some of the [advanced function guides](label_query%20language.html).
+
+## FAQ
+
+This doc set includes videos and explanations from the engineering team that helps you come up to speed quickly:
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="40%">Question</th><th width="30%">Doc/Blog</th><th width="30%">Video</th></tr>
+</thead>
+<tr>
+<td>How can I combine multiple series?</td>
+<td markdown="span">[Aggregating Time Series](query_language_aggregate_functions.html) </td>
+<td markdown="span">[Time Series and Interpolation](https://youtu.be/9LnDszVrJs4) </td></tr>
+<tr>
+<td>Why does my query return NO DATA?</td>
+<td markdown="span">Maybe the time series don't match. See [When Multiple Series Match (Or Not)](query_language_series_matching.html) </td>
+<td> </td></tr>
+<tr>
+<td>I got a warning about pre-aligned data. Why? </td>
+<td markdown="span">Wavefront improves performance by wrapping `align()` around certain functions. See [Bucketing with align()](query_language_align_function.html) </td>
+<td> </td></tr>
+<tr>
+<td>How can I use Wavefront for anomaly detection?</td>
+<td markdown="span">You can use [AI Genie](ai_genie.html) or [detect anomalies with functions and statistical functions](query_language_statistical_functions_anomalies.html). </td>
+<td><ul><li><a href="https://youtu.be/XiSkNETTfCI">AI Genie Anomaly Detection</a></li>
+<li><a href="https://youtu.be/I-Z9d94Zi7Y">Anomaly Detection with Functions</a></li></ul> </td></tr>
+<tr>
+<td>How can I improve query performance?</td>
+<td>Consider <a href="https://docs.wavefront.com/query_language_align_function.html">bucketing with align()</a>.
+Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">slow queries</a>.</td><td> </td></tr>
+<tr>
+<td>How do time windows work?</td>
+<td markdown=span>Wavefront supports [moving time window functions](). </a>.
+Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">slow queries</a>.</td><td> </td></tr>
+</tbody>
+</table>

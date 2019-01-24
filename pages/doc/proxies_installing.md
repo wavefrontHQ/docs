@@ -8,7 +8,13 @@ summary: Learn how to install and manage Wavefront proxies.
 ---
 In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to Wavefront from a host or application.
 
-You can install a proxy as part of a [built-in integration](integrations.html#built-in-and-custom-integrations). Even collector agent integrations, such as the Telegraf integration, install a proxy. But for some custom integrations, you install the proxy yourself. This topic describes methods for installing Wavefront proxies and for managing proxy services.
+## Scripted and Manual Install
+
+You can install a proxy:
+* As part of an. Even collector agent integrations, such as the Telegraf integration, install a proxy.
+* Explicitly from the UI, discussed below.
+* Explicitly as a package install. [Installing a proxy manually](proxies_manual_install.html) gives steps for different use cases, including install on hosts with limited network connectivity.
+* If you install a proxy into a container, you might have to [customize your setup](proxies_configuring.html#configuring-a-proxy-in-a-container).
 
 If you don't use the Wavefront UI to install the proxy, the installation procedures might require a Wavefront API URL `<wavefront_api_url>` in the format `https://<wavefront_instance>.wavefront.com/api/` and an API token. To get an API token, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
 

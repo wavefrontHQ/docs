@@ -34,20 +34,20 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 
 *Windows*: Follow the steps under [windows/setup]({% link integrations/windows.md %}).
 
-### Insights into Telegraf performance (Optional)
+### Insights into Telegraf Performance (Optional)
 
 If you want to monitor the performance of the Telegraf agent, follow these steps:
 
 Create a `telegraf.conf` file in `/etc/telegraf/telegraf.d` and add the following snippet:
 {% raw %}
-    ```
+```
     # Collect internal Telegraf statistics
     [[inputs.internal]]
       ## If true, collect Telegraf memory stats.
         collect_memstats = true
 
         name_prefix = "telegraf."
-    ```
+```
 {% endraw %}
 **Note:** The Telegraf dashboard shows `NO DATA` if this plugin is not enabled.
 

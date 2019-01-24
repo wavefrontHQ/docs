@@ -4,9 +4,9 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_series_matching.html
-summary: If a query has no results, series matching might be the problem. Learn how to understand (and sometimes fix) the problem.  
+summary: If a query has no results, series matching might be the problem. Learn how to understand (and sometimes fix) the problem.
 ---
-Series matching determines whether a combination of expressions and operators or other functions has a result or not. For example, when you try to subtract one time series from another, but none of the sources match, Wavefront can't perform the operation.
+Series matching determines whether a combination of expressions and operators or other functions has a result or not. For example, when you try to subtract one time series from another, Wavefront can't perform the operation if none of the sources match.
 
 ## When Wavefront Performs Series Matching
 
@@ -23,29 +23,50 @@ In the examples below, the results listed to the right of = represents the set o
 
 #### Series Matching Occurs
 
-- `(A,B,C) * (B,C,D) = (B,C)`
-  - Only series B and C match up
-
-- `(A,B,C) and (X,Y,Z) = NO DATA`
-  - No series match up which results in no data
-
-- `(A,B,C) [>] (A) = (A)`
-  - With the second argument being A only there would be no series matching, but the inner join around > forces series matching. As a result, we'll have a join on A only, resulting in 1 series instead of 3.
+The following examples show when series matching occurs:
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Query</th><th width="20%">Result</th><th width="60%">Reason</th></tr>
+</thead>
+<tr>
+<td> (A,B,C) * (B,C,D)</td>
+<td>(B,C)</td> <td>Only series B and C match up</td></tr>
+<tr>
+<td> (A,B,C) and (X,Y,Z)</td>
+<td>NO DATA</td> <td>No series match up which results in no data </td></tr>
+<tr>
+<td> (A,B,C) [>] (A)</td>
+<td>(A)</td> <td> With the second argument being A only there would be no series matching, but the inner join around > forces series matching. As a result, we'll have a join on A only, resulting in 1 series instead of 3. </td></tr>
+</tbody>
+</table>
 
 #### Series Matching Does Not Occur
 
-- `(A,B,C) / 3 = (A,B,C)`
-  - The number 3 is a single constant value and is applied to A, B, and C
-
-- `(D) * (A,B,C) = (A,B,C)`
-  - D is a single series value and is applied to A, B, and C
-
-- `(B,D,F) + sum(A,B,C) = (B,D,F)`
-  - While B is the only series in both arguments, A, B, and C are aggregated into a single value with sum() and applied to B, D, and F
+The following examples show when series matching does not occur:
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Query</th><th width="20%">Result</th><th width="60%">Reason</th></tr>
+</thead>
+<tr>
+<td> (A,B,C) / 3</td>
+<td>(A,B,C)</td>
+<td>The number 3 is a single constant value and is applied to A, B, and C</td></tr>
+<tr>
+<td> (D) * (A,B,C)</td>
+<td>(A,B,C)</td>
+<td>D is a single series value and is applied to A, B, and C. </td></tr>
+<tr>
+<td>(B,D,F) + sum(A,B,C)</td>
+<td>(B,D,F)</td>
+<td>While B is the only series in both arguments, A, B, and C are aggregated into a single value with sum() and applied to B, D, and F.</td></tr>
+</tbody>
+</table>
 
 ### Series Matching Basics
 
-Assume you enter the ts() expression
+Assume you enter the following ts() expression
 
 ```
 ts("stats.servers.MemTotal", source="dc1") - ts("stats.servers.MemFree", source="east")
@@ -100,7 +121,7 @@ Consider the following ts() query:
 ts(disk.space.total, tag=az-1 and env=*) - ts(disk.space.used, tag=az-1 and env=*)
 ```
 
-In this example, the `env` point tag key takes the values `production` and `development`. If source `app-1` includes the `env` value `development` in the first ts() call, but includes the `env` value `production` in the second ts() call, they will not match up.
+In this example, the `env` point tag key takes the values `production` and `development`. If source `app-1` includes the `env` value `development` in the first ts() call, but includes the `env` value `production` in the second ts() call, they do not match up.
 
 Series matching occurs only for exact matches. This also means that if two series have the same source\|metric\|point tag but one of the series includes an additional point tag that the other series does not have, series matching does not include the series with the additional point tag in the results.
 
