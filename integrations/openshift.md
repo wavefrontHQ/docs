@@ -60,5 +60,5 @@ If you do not see metrics in the Kubernetes dashboard, check the logs from the c
 Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See  [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
 
 ### Openshift Monitoring
-This collector supports monitoring of Openshift Origin 3.9 clusters. See [openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md) for detailed installation instructions.
+This collector supports monitoring of Openshift Origin clusters. See [openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md) for detailed installation instructions.
 
