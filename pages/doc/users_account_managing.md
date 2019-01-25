@@ -37,7 +37,7 @@ In your user profile, you can configure several preferences, for example, select
 1. Click the **User Information** tab and make changes as needed.
 
 
-{% include note.html content="Some preferences are preset for [all users in an account](users_managing.html#customer_prefs) by a user with [User Management permission](permissions_overview.html)." %}
+{% include note.html content="Some preferences are preset for all users in an account by a user with [Users and Groups permission](permissions_overview.html)." %}
 
 ## Examining Groups and Permissions
 

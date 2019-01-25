@@ -48,7 +48,7 @@ Multi-tenancy is set up jointly by the Wavefront administrator at the customer s
    * Creates tenant administrator users with **User Management** permissions on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrator(s) can then:
   * Log in to the tenant.
-  * [Invite users](users_managing.html#adding-users) to the tenant and assign permissions for that tenant.
+  * [Invite users](users_groups.html#managing-users) to the tenant and assign permissions for that tenant.
   * Make other users tenant administrator by granting [User Management permission](permissions.html) to those invited users.
 
 ## Multi-Tenant Modes
