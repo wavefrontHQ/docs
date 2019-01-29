@@ -32,7 +32,7 @@ Returns later data values from the time series described by the expression, to h
 
 The `lead()` standard time function returns later data values from the time series described by the expression. These later data values are time-shifted back by the specified amount of time along the time axis, for easy comparison with earlier data values.
 
-For example, say you have used [`hw()`](query_language_hw_function.html) to project a time series into the future, and you want to compare some actual reported data values against the values forecasted for 3 weeks from now.  You can use `lead()` to "shift" the forecasted values back by 3 weeks, so that they align, point for point, with the currently reported values.
+For example, say you have used [`hw()`](ts_hw.html) to project a time series into the future, and you want to compare some actual reported data values against the values forecasted for 3 weeks from now.  You can use `lead()` to "shift" the forecasted values back by 3 weeks, so that they align, point for point, with the currently reported values.
 
 Or, say you are using a chart with a custom date to view data values that were reported 4 hours ago, and you want to  compare each of those values with the value reported by the same time series 1 hour later.  You can use `lead()` to "shift" the later values back, so that they align, point for point, with the earlier values.
 

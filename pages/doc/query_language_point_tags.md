@@ -4,7 +4,7 @@ keywords: query language, point tags
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_point_tags.html
-summary: Learn how to use point tags in Wavefront Query Language queries.
+summary: Use point tags to fine tune queries.
 ---
 Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data and allow you to fine-tune your queries so the output shows just what you need.
 
@@ -12,14 +12,11 @@ Point tags are key-value pairs (strings) that are associated with a point. Point
 
 ## Point Tag Basics
 
-You can use point tags, for example, to label a point's datacenter, version, etc. and can then group by datacenter or version.
+Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags, to label a point's datacenter, version, etc. and can then group by datacenter or version.
 
-You add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
+Many of our cloud integrations generate point tags automatically to help you filter metrics. You add point tags explicitly using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
-**Note:** For best performance, keep the number of distinct time series per metric and host to under 1000. See Best Practices for Point Tags below. 
-
-The [AWS cloud integration](integrations_aws_metrics.html#wavefront-point-tags) generates point tags automatically to help you filter those metrics.
-
+**Note:** For best performance, keep the number of distinct time series per metric and host to under 1000. See Best Practices for Point Tags below.
 
 Suppose you send the following points, all from a single source `cache1`, over a 5 minute period:
 
@@ -81,15 +78,20 @@ ts(test.request.latency, clientService="batch" and clientApp="hourlyReport")
 
 ![Both point tags](images/both_point_tags.png)
 
-Now only a single a series that matches both point tags displays; all of the other series (with different point tags) are filtered out.
+Now only a single series that matches both point tags displays; all of the other series (with different point tags) are filtered out.
 
-Point tags offer you a powerful way of labeling your data so that you can slice and dice it in almost any way you can imagine.
 
 ## Best Practices for Point Tags
+
+To avoid performance issues, follow best practices.
+
+### Watch the Number of Time Series
 
 Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
 
 For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metric and host with the point tags `env=prod` and `datacenter=atl`, a new time series results. If you use `env=dev` and `datacenter=atl`, another distinct time series results.
+
+### Don't Use Point Tags for Highly Variable Data
 
 Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
 
