@@ -34,7 +34,7 @@ Level 1 authorization allows adminstrators to assign permissions to individual u
   - Can perform a set of [New User Actions](users_groups.html#what-can-a-new-user-do) such as viewing dashboards, alerts, etc.
   - Has a set of New User Permissions. This set is determined by the administrator.
 * All users get the permissions that the administrator assigned to the Everyone group. For example, all users might get Dashboard permission and Proxy permission.
-* Users with Users & Groups permissions can [grant or revoke permissions](users_managing.html#granting-and-revoking-permissions) for individual users (and for groups, discussed next).
+* Users with Users & Groups permissions can [grant or revoke permissions](permissions.html#granting-and-revoking-permissions-for-users) for individual users (and for groups, discussed next).
 
 ## Level 2: Permissions for Groups and Users
 
