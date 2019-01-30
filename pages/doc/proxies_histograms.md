@@ -146,7 +146,7 @@ my.metric 100 <t6> <source>
 my.metric 100 <t7> <source>
 ```
 
-The proxy aggregates the points and sends only the histogram distribution to Wavefront. The Wavefront service knows only what each bin is and how many points are in each bin. Wavefront does not store the value of each single histogram point, it computes and stores the quantiles.
+The proxy aggregates the points and sends only the histogram distribution to Wavefront. The Wavefront service knows only what each bin is and how many points are in each bin. Wavefront does not store the value of each single histogram point, it computes and stores the distribution.
 
 You can now apply other functions to the histogram, for example, you can try to find out what the 85th percentile of the histogram is. For this example, you could now write a query like this:
 
@@ -461,7 +461,7 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 
 ## Viewing Histogram Metrics
 
-Starting with release 2018.42, you can view histograms in the Histogram browser if you're cluster is licensed for that feature.
+Starting with release 2018.42, you can view histograms in the Histogram browser if your cluster is licensed for that feature.
 
 To view histograms:
 1. Click **Browse > Histograms** and start typing the histogram metric name.
