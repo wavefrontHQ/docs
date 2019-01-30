@@ -7,20 +7,20 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Learn how to set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
-You instrument your application so that trace data from different parts of the stack can be sent to Wavefront. Instrumentation enables you to trace a request flow from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our tracing UI to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover where it might be failing.
+You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack can be sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. 
 
-You instrument each microservice in your application with one or more Wavefront observability SDKs. You choose these SDKs based on:
+After instrumentation, you can use our tracing UI to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover where it might be failing.
+
+You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). You choose these SDKs based on:
 * The frameworks (components) you use in the microservice -- for example, Java Dropwizard Jersey
 * The kind of data you want to collect -- metrics, histograms, trace data, or all 3 
 * Whether you want to collect out-of-the-box metrics and trace data, custom business metrics and trace data, or both
 
-This page shows you the fast track to producing out-of-the-box metrics and trace data from the application frameworks you use in your microservices. 
-* For an overview of what instrumentation adds to your microservices, see [A Closer Look at an Instrumented Microservice below](#a-closer-look-at-an-instrumented-microservice).
-* For an overview of distributed tracing in Wavefront, see [Distributed Tracing Basics](tracing_basics.html).
+This page helps you choose the SDK(s) you need for your microservices, and then directs you to the setup steps for each SDK. For an overview of what instrumentation adds to your microservices, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
 
 <!---
 * For information about instrumenting your application to send custom traces and metrics. _[[Link to SDK page for custom tracing and metrics ]]_
-* For information about ingesting trace data from an application that has been instrumented with a 3rd party solution such as Jaeger, see XX.
+* For information about ingesting trace data from an application that has been instrumented with a 3rd party distributed system such as Jaeger, see XX.
 --->
 
 <!---
@@ -44,7 +44,7 @@ _[[video that describes how to set up BeachShirts app]]_
 
 **To prepare a Wavefront proxy:** If you need to send data through a Wavefront proxy, follow these steps to set up the proxy. You will need to specify information from these steps when you instrument your code.
 
-1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). If you already have a proxy installed, you may need to upgrade it. You need Version 4.33 or later. 
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). If you already have a proxy installed, you may need to upgrade it. You need Version 4.36 or later. 
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#configuring-listener-ports-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
     ```

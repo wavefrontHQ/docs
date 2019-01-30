@@ -91,7 +91,7 @@ Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operat
 
 ## Core Java SDK
 
-The [core SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+The [core SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
 <table id = "core-java" width="100%">
 <colgroup>

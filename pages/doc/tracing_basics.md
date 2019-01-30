@@ -82,7 +82,7 @@ An application must be _instrumented for tracing_ before it can produce and send
 
 ### Use Cases
 
-If you have already instrumented your code with a 3rd party tracing solution such as [Jaeger](jaeger.html), [Zipkin](zipkin.html), or [Envoy](envoy.html) you can set up an integration to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
+If you have already instrumented your code with a 3rd party distributed tracing system such as [Jaeger](jaeger.html), [Zipkin](zipkin.html), or [Envoy](envoy.html) you can set up an integration to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
 If you have not yet instrumented your code, you can do so by using one or more Wavefront observability SDKs:
 

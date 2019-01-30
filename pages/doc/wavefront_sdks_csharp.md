@@ -54,13 +54,12 @@ Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operat
 <tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 
-<!---
 <tr>
-<td markdown="span">[App Metrics SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-xxx)</td>
+<td markdown="span">[App Metrics SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)</td>
 <td>Implements App Metrics, so you can instrument custom business operations to collect and send metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
---->
+
 <tr>
 <td markdown="span">[OpenTracing SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
 <td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument custom business operations to collect and send traces and spans to Wavefront. </td>
@@ -71,7 +70,7 @@ Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operat
 
 ## Core .NET/C# SDK
 
-The [core SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+The [core SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
 <table id = "core-csharp" width="100%">
 <colgroup>

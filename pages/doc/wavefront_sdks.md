@@ -50,7 +50,7 @@ Wavefront organizes its observability SDKs into 3 groups, which correspond to di
 [.NET/C#](wavefront_sdks_csharp.html#custom-level-netc-sdks)</td>
 </tr>
 <tr>
-<td markdown="span">[Core SDKs](#sdks-for-sending-raw-data-to-wavefront)</td>
+<td markdown="span">[Core SDKs](#core-sdks-for-sending-raw-data-to-wavefront)</td>
 <td markdown="span">SDKs for sending raw data to Wavefront.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#core-java-sdk) [Python](wavefront_sdks_python.html#core-python-sdk) 
 [.NET/C#](wavefront_sdks_csharp.html#core-netc-sdk)</td>
@@ -108,7 +108,7 @@ Custom-level SDKs require some code changes in addition to setting up the usual 
 For example, suppose you have a Java microservice with a critical backend operation that writes to a proprietary database. Even though you've instrumented other aspects of the microservice (the HTTP and RPC calls) with framework-level SDKs, you'd also like to track how many critical writes are performed, and you'd like to see how long these operations take. You can use a custom-level SDK for metrics support to augment your write operation to maintain a count, and you can use a custom-level SDK for OpenTracing to augment your write operation to add spans to the microservice's traces. 
 
 
-## SDKs for Sending Raw Data to Wavefront
+## Core SDKs for Sending Raw Data to Wavefront
 
 The core SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. A core SDK enables an application to communicate with Wavefront in one of two ways:
 * Send data directly to the Wavefront service (direct ingestion). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.

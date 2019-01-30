@@ -14,7 +14,7 @@ Well-chosen sampling strategies can give you a good idea of how your application
 * Reducing the amount of storage required for trace data, and lowering your monthly costs.
 * Filtering out "noise" traces so you can see what's important.
 
-<!--- need links from instrumentation page, and from proxy setup page --->
+<!--- need links from proxy setup page --->
 
 ## Wavefront Sampling Strategies
 
@@ -91,9 +91,10 @@ You can set up sampling strategies through a Wavefront proxy by adding the sampl
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 2. In the `wavefront.conf` file, add one or both of the following properties. For example, the following properties set up a sampling rate of 10% and a sampling duration of 45 milliseconds:
     ```
-    samplingRate=10
+    # Number from 0.0 to 1.0
+    traceSamplingRate=.1
     ...
-    samplingDuration=45
+    traceSamplingDuration=45
     ```
 3. Save the `wavefront.conf` file. 
 4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).

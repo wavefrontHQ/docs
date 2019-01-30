@@ -280,7 +280,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
-<td>Port to listen on for incoming data.  A single port definition can accept both HTTP and TCP data.  For HTTP data, make a POST to this proxy port with an empty header, and the line terminated data format (https://docs.wavefront.com/wavefront_data_format.html). Default: 2878.</td>
+<td markdown="span">Port to listen on for incoming data.  A single port definition can accept both HTTP and TCP data.  For HTTP data, make a POST to this proxy port with an empty header, and the line terminated [data format](wavefront_data_format.html). Default: 2878.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878,2879,2880</div></td>
@@ -364,15 +364,37 @@ Ex: 0 </td>
 </tr>
 <tr>
 <td>traceJaegerListenerPorts</td>
-<td>Comma-separated list of ports on which to listen on for Jaeger Thrift formatted data. Defaults to none.</td>
-<td> </td>
+<td>TCP ports to listen on for Jaeger Thrift formatted data. Default: None.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>4.31 </td>
 </tr>
 <tr>
 <td>traceListenerPorts</td>
-<td>Comma-separated list of ports to listen on for trace data. Defaults to none.</td>
-<td> </td>
+<td markdown="span">TCP ports to listen on for incoming [trace data](tracing_basics.html). Default: None.</td>
+<td>Comma-separated list of available port numbers. Can be a single port. 
+<div>Ex: 30000</div>
+<div>Ex: 30000, 30001</div></td>
 <td>4.31 </td>
+</tr>
+<tr>
+<td>traceSamplingDuration</td>
+<td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). Default: 0 (send all generated spans). </td>
+<td>Number of milliseconds. 
+<div>Ex: 45</div> </td>
+<td>4.34</td>
+</tr>
+<tr>
+<td>traceSamplingRate</td>
+<td markdown="span">Percentage of all generated spans to send to Wavefront for [trace data sampling](trace_data_sampling.html). Default: 1.0 (send all generated spans). </td>
+<td>Number from 0.0 to 1.0. 
+<div>Ex: .1</div></td>
+<td>4.34</td>
+</tr>
+<tr>
+<td>traceZipkinListenerPorts</td>
+<td>TCP ports to listen on for Zipkin formatted data. Recommended: The default Zipkin Collector port (9411). Default: None.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
+<td>4.35 </td>
 </tr>
 <tr>
 <td>whitelistRegex</td>
