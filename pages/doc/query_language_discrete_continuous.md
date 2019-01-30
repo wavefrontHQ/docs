@@ -4,7 +4,7 @@ keywords: query language, discrete, continuous, interpolation
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_discrete_continuous.html
-summary: Learn discrete and continuous time series and about interpolation.
+summary: Understand discrete and continuous time series and when Wavefront performs interpolation.
 ---
 
 Many Wavefront queries operate on and return data as one or more time series. Each time series is a unique sequence of data points that consists of a data value and a timestamp.
@@ -21,7 +21,7 @@ The following chart shows a point plot for the results of two queries. The query
 
 ![discrete continuous](images/query_language_discrete_continuous.png)
 
-A discrete time series is still discrete, even if you use a line plot to display it. The following chart shows the same queries, but with the points connected by lines in the display. (By default, gaps larger than 60 seconds would be shown as dotted lines.)
+A discrete time series is still discrete, even if you use a line plot to display it. The following chart shows the same queries, but with the points connected by lines in the display. (By default, gaps larger than 60 seconds are shown as dotted lines.)
 
 ![discrete continuous lineplot](images/query_language_discrete_continuous_lineplot.png)
 
@@ -70,7 +70,7 @@ Different functions use different techniques to calculate the values of interpol
 
 **Note:** Interpolation is used for different purposes by different functions. For example:
 * Functions such as `last()`, `interpolate()`, and the others [summarized below](#summary-of-functions-that-return-continuous-time-series) use interpolation to fill in all gaps to produce a result series that is guaranteed to be continuous.
-* Standard aggregation functions such as [`sum()`](ts_sum.html) and [`avg()`](ts_avg.html) use interpolation to fill in specific gaps in an input series before including that series in the aggregation. The result series produced by an aggregation function is normally discrete. See [Standard Versus Raw Aggregate Functions](query_language_aggregate_functions.html).
+* Standard aggregation functions such as [`sum()`](ts_sum.html) and [`avg()`](ts_avg.html) use interpolation to fill in specific gaps in an input series before including that series in the aggregation. The result series produced by an aggregation function is normally discrete. [Aggregating Time Series](query_language_aggregate_functions.html) gives more details.
 
 ## Summary of Functions that Return Continuous Time Series
 

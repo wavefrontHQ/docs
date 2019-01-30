@@ -1,24 +1,21 @@
 ---
-title: Aggregation Functions
+title: Aggregating Time Series
 keywords: query language, aggregate function
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_aggregate_functions.html
-summary: Learn how to use standard and raw aggregation functions in Wavefront Query Language expressions.
+summary: How to aggregate points from multiple time series with or without interpolation.
 ---
 
-You can use aggregation functions to combine values from multiple time series. An aggregation function returns a series of data points whose values are calculated from corresponding points in two or more input time series. Wavefront provides two types of aggregation functions:
+You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. Wavefront supports aggregation with interpolation or without interpolation:
 
 * Standard aggregation functions (e.g. `sum()`, `avg()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series.
-* Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do not interpolate the underlying series before aggregation.
+* Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.
 
+In the following video, Wavefrount co-founder Clement Pang explains how interpolation works:
 
-## Filtering the Aggregation Input
-
-You use an expression to describe the set of time series to be aggregated. When using a ts() expression, you can include filters to narrow the set. For example, if multiple sources are reporting the metric `~sample.cpu.loadavg.1m`:
-* `sum(ts(~sample.cpu.loadavg.1m))` shows the sum of the values reported for the metric from all sources.
-* `sum(ts(~sample.cpu.loadavg.1m, source=app-1*))` shows the sum of the values reported for the metric, but only from sources that match `app-1*`.
-* `sum(ts(~sample.cpu.loadavg.1m, source=app-1*, env=prod))` further filters the input series to those with the point tag `env=prod`.
+<p><a href="https://youtu.be/9LnDszVrJs4" target="_blank"><img src="/images/v_interpolation.png" style="width: 700px;" alt="time series and interpolation"/></a>
+</p>
 
 ## Aggregating Data Points That Line Up
 
@@ -47,10 +44,7 @@ Wavefront provides two kinds of aggregation functions for handling this situatio
 
 ### Standard Aggregation Functions (Interpolation)
 
-Standard aggregation functions fill in the gaps in each input series by interpolating values. In the following video, Wavefrount co-founder Clement Pang explains how interpolation works:
-
-<p><a href="https://youtu.be/9LnDszVrJs4" target="_blank"><img src="/images/v_interpolation.png" style="width: 700px;" alt="time series and interpolation"/></a>
-</p>
+Standard aggregation functions fill in the gaps in each input series by interpolating values.
 
 For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute, and `series 2` reports once every 2.5 minutes. Both series have data points aligned at 4:25 and again at 4:30. Between these times, we see unaligned data points -- 4 points from `series 1`, and one point (at 4:27:30) from `series 2`.
 
@@ -84,7 +78,14 @@ Unlike `sum()`, `rawsum()` produces its results by adding up just the actual val
 
 Whenever both series report a data point at the same time (for example, 4:25), `rawsum()` returns a data point whose value is the sum of both reported points (169.05 + 162 = 331.05).
 
-## Grouping the Results of Aggregation
+## Filtering the Aggregation Input
+
+You use an expression to describe the set of time series to be aggregated. When using a ts() expression, you can include filters to narrow the set. For example, if multiple sources are reporting the metric `~sample.cpu.loadavg.1m`:
+* `sum(ts(~sample.cpu.loadavg.1m))` shows the sum of the values reported for the metric from all sources.
+* `sum(ts(~sample.cpu.loadavg.1m, source=app-1*))` shows the sum of the values reported for the metric, but only from sources that match `app-1*`.
+* `sum(ts(~sample.cpu.loadavg.1m, source=app-1*, env=prod))` further filters the input series to those with the point tag `env=prod`.
+
+## Grouping the Aggregation Results
 
 Each aggregation function accepts a 'group by' parameter that allows you to subdivide the input time series into groups, and request separate aggregates for each group. The chart displays a separate line corresponding to each group. For example, you can use a 'group by' parameter with `sum()` or `rawsum()` produce a separate subtotal for each group of time series that are reported from a common source. The chart for such a query displays one line corresponding to each source. When used without a 'group by' parameter, an aggregation function returns a single series of results.
 
@@ -131,12 +132,33 @@ The chart below represents 3 unique series reporting latency data. The sections 
 
 ![base chart](images/base_chart.png)
 
-Two of the reporting series have gaps of missing data between 9:15a and 9:21a, all three reporting series have gaps of missing data between 9:27a and 9:30a, and one reporting series has a gap of missing data between 9:36a and 9:42a. Standard and raw aggregation functions result in two different visualizations:
+The series report data like this:
+* Two of the reporting series have gaps of missing data between 9:15a and 9:21a.
+* All three reporting series have gaps of missing data between 9:27a and 9:30a
+* One reporting series has a gap of missing data between 9:36a and 9:42a.
+
+The following chart shows what happens when we apply `sum()` (blue line) and `rawsum()` (orange line) to the three time series.
 
 ![standard versus raw](images/standard_vs_raw_functions.png)
 
-The difference in visualization is based on interpolation that occurs with standard aggregation functions, but not with raw aggregation functions. Standard aggregation functions interpolate data values before executing the aggregation when there is at least 1 true data value reported at a given interval. The data values in the charts above are typically reported once a minute. The orange series in the first chart above is reported once a minute, on the minute, between 9:15a and 9:21a, while the other two series are not. Since there is at least 1 true data value reported by the orange series during this time, a standard aggregation function will apply interpolated values for the blue and green series before calculating the sum() value. This is also visible between 9:36a and 9:42a when the green and orange series reported data values every minute, but the blue series did not.
+The lines are different because interpolation occurs with the standard aggregation function (`sum()`), but not with the raw aggregation function (`rawsum()`).
 
-Raw aggregation functions on the other hand calculate aggregates based on actual reported values (no interpolation). The `rawsum()` values between 9:15a and 9:21a is approximately 1/3 of the `sum()` values (1 of 3 series reported values) and approximately 2/3 of the sum() value (2 of 3 series reported values) between 9:36a and 9:42a.
+**Example: Standard Aggregation Function**
 
-However, the gap between 9:27a and 9:30a are exactly the same regardless of which aggregation function type we use. This is due to the fact that none of the underlying series included in the aggregation reported a data value during this gap of time. Therefore standard aggregation functions do not apply interpolated values during this gap, and look exactly the same as a raw aggregation function. The behavioral differences between standard and raw apply to all aggregation functions (sum, avg, min, max, count, variance, percentile).
+When there is at least 1 true data value reported at a given interval, standard aggregation functions interpolate data values before executing the aggregation.
+
+The data values in the charts above are typically reported once a minute. In the chart that shows the 3 time series, we see that:
+* Between 9:15a and 9:21a, the orange series reports once a minute, on the minute, while the other two series do not. Because the orange series reports at least 1 true data value during this time, Wavefront interpolates the values for the blue and green series before calculating the `sum()` value.
+* Between 9:36a and 9:42a the green and orange series report data values every minute, but the blue series does not not. Wavefront does interpolation before aggregation. 
+
+**Example: Raw Aggregation Function**
+
+Raw aggregation functions on the other hand calculate aggregates based on actual reported values (no interpolation).
+
+* Between 9:15a and 9:21a, the `rawsum()` values are approximately 1/3 of the `sum()` values (1 of 3 series reported values)
+* Between 9:36a and 9:42a, the `rawsum()` values are
+approximately 2/3 of the `sum()` value (2 of 3 series reported values).
+
+Note that the gap between 9:27a and 9:30a is exactly the same regardless of which aggregation function type we use. None of the series included in the aggregation reported a data value during this time. As a result, the standard aggregation function does not apply interpolated values during this gap, and the result of aggregation looks the same for `sum()` and `rawsum()`.
+
+The behavior differences between standard and raw apply to all aggregation functions (sum, avg, min, max, count, variance, percentile).

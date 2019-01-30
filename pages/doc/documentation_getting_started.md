@@ -20,7 +20,7 @@ Wavefront offers an onboarding workflow, tutorial and tour dashboards, in-produc
 
 The in-product Getting Started onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. If you are a trial user, it leads you through the process of setting up your first [integration](integrations.html).
 
-When you log in to Wavefront the first time, the Getting Started workflow displays automatically. To access the Getting Started workflow later, click **Getting Started** in the Wavefront task bar. You can use the [customer-wide](users_managing.html#setting-customer-wide-preferences) and [ user](users_account_managing.html#configuring-your-preferences) preferences to control whether **Getting Started** is visible in the task bar.
+When you log in to Wavefront the first time, the Getting Started workflow displays automatically. To access the Getting Started workflow later, click **Getting Started** in the Wavefront task bar. You can use the customer-wide or user-level preferences to control whether **Getting Started** is visible in the task bar.
 
 <a name="tutorials"></a>
 

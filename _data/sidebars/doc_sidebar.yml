@@ -162,7 +162,23 @@ entries:
       output: web
 
       subfolders:
-      - title: Interaction with WQL
+      - title: Understanding WQL
+        output: web
+        subfolderitems:
+
+        - title: Discrete and Continuous Time Series
+          url: /query_language_discrete_continuous.html
+          output: web
+
+        - title: When Multiple Series Match
+          url: /query_language_series_matching.html
+          output: web
+
+        - title: Use Case Videos
+          url: /wavefront_use_cases.html
+          output: web
+
+      - title: Interacting with WQL
         output: web
         subfolderitems:
 
@@ -182,48 +198,20 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Delta Counters
-          url: /delta_counters.html
-          output: web
-
-        - title: Aggregation Functions
+        - title: Aggregating Time Series
           url: /query_language_aggregate_functions.html
           output: web
 
-        - title: Discrete and Continuous Time Series
-          url: /query_language_discrete_continuous.html
-          output: web
-
-        - title: Detecting Anomalies
-          url: /query_language_statistical_functions_anomalies.html
+        - title: Bucketing with align()
+          url: /query_language_align_function.html
           output: web
 
         - title: Highlighting Trends
           url: /query_language_windows_trends.html
           output: web
 
-        - title: Series Matching
-          url: /query_language_series_matching.html
-          output: web
-
-        - title: Understanding Slow Queries
-          url: /dashboards_slow_queries.html
-          output: web
-
-      - title: Function Guides and Use Cases
-        output: web
-        subfolderitems:
-
-        - title: Bucketing with align()
-          url: /query_language_align_function.html
-          output: web
-
-        - title: Holt-Winters Predictive Analysis
-          url: /query_language_hw_function.html
-          output: web
-
-        - title: Use Case Videos
-          url: /wavefront_use_cases.html
+        - title: Detecting Anomalies
+          url: /query_language_statistical_functions_anomalies.html
           output: web
 
   - title: "Distributed Tracing"
@@ -288,6 +276,10 @@ entries:
 
     - title: Creating Embedded Charts
       url: /charts_embedding.html
+      output: web
+
+    - title: Finding Slow Queries
+      url: /dashboards_slow_queries.html
       output: web
 
   - title: "Alerts & Events"
