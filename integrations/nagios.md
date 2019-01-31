@@ -10,26 +10,90 @@ Nagios is a popular open source computer system and network monitoring applicati
 
 This integration configures Nagios to send notifications from hosts and services to Wavefront as events.
 
-## Nagios Setup
+# Nagios Setup
+
+## Metrics
 
 ### Prepare the Wavefront script
 
 On your Nagios server:
 
-1. Download the [nagios-wf.py](https://github.com/wavefrontHQ/integrations/raw/master/nagios/nagios-wf.py) script.
-2. Give the script permission to run for the Nagios user: `chmod u+x nagios-wf.py`
-3. Test the script execution by typing this: `./nagios-wf.py`.
+1. Install [Wavefront Core Python SDK](https://github.com/wavefrontHQ/wavefront-sdk-python): `pip install wavefront-sdk-python`
+1. Download the [nagios-metrics-wf.py](https://github.com/wavefrontHQ/integrations/raw/master/nagios/nagios-metrics-wf.py) script.
+1. Give the script permission to run for the Nagios user: `chmod u+x nagios-metrics-wf.py`
+1. Test the script execution by typing this: `./nagios-metrics-wf.py`.
+
+You should get something like this:
+{% raw %}
+```
+usage: nagios-metrics-wf.py [-h] [--service] [--test] [--wf_server SERVER]
+                            [--wf_token TOKEN] [--wf_proxy_addr ADDR]
+                            [--wf_proxy_port PORT]
+                            file
+nagios-metrics-wf.py: error: the following arguments are required: file
+```
+
+### Configure Your Nagios Instance
+
+On your Nagios configuration files:
+
+1. Add this lines to your `nagios.conf` file, and replace `[PATH_PERFDATA]` for an absolute path:
+
+```
+service_perfdata_file=[PATH_PERFDATA]/service-perfdata
+service_perfdata_file_template=DATATYPE::SERVICEPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tSERVICEDESC::$SERVICEDESC$\tSERVICEPERFDATA::$SERVICEPERFDATA$\tSERVICECHECKCOMMAND::$SERVICECHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$\tSERVICESTATE::$SERVICESTATE$\tSERVICESTATETYPE::$SERVICESTATETYPE$
+
+service_perfdata_file_mode=a
+service_perfdata_file_processing_interval=15
+service_perfdata_file_processing_command=wavefront_perf_service
+
+host_perfdata_file=[PATH_PERFDATA]/host-perfdata
+host_perfdata_file_template=DATATYPE::HOSTPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tHOSTPERFDATA::$HOSTPERFDATA$\tHOSTCHECKCOMMAND::$HOSTCHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$
+
+host_perfdata_file_mode=a
+host_perfdata_file_processing_interval=15
+host_perfdata_file_processing_command=wavefront_perf_host
+```
+
+2. Create these two new commands:
+
+```
+define command {
+    command_name  wavefront_perf_host
+    command_line  /opt/nagios/etc/wf/nagios-metrics-wf.py [PATH_PERFDATA]/host-perfdata \
+                                                           --wf_proxy_addr [WAVEFRONT_PROXY_ADR] \
+                                                           --wf_proxy_port [WAVEFRONT_PROXY_PORT]
+}
+
+define command {
+    command_name  wavefront_perf_service
+    command_line  /opt/nagios/etc/wf/nagios-metrics-wf.py [PATH_PERFDATA]/service-perfdata \
+                                                          --service \
+                                                          --wf_server https://YOUR_CLUSTER.wavefront.com \
+                                                          --wf_token YOUR_API_TOKEN
+}
+```
+
+## Events
+
+### Prepare the Wavefront script
+
+On your Nagios server:
+
+1. Download the [nagios-events-wf.py](https://github.com/wavefrontHQ/integrations/raw/master/nagios/nagios-events-wf.py) script.
+2. Give the script permission to run for the Nagios user: `chmod u+x nagios-events-wf.py`
+3. Test the script execution by typing this: `./nagios-events-wf.py`.
 
 
   You should get something like this:
 
-{% raw %}
+
 ```
-  usage: nagios-wf.py [-h] [-S] [--type TYPE] [--host HOST]
+  usage: nagios-events-wf.py [-h] [-S] [--type TYPE] [--host HOST]
                     [--service [SERVICE]] [--time TIME] [--msg MSG]
                     server token
 
-  nagios-wf.py: error: too few arguments
+  nagios-events-wf.py: error: too few arguments
 ```
 
 ### Configure Your Nagios Instance
@@ -42,12 +106,12 @@ On your Nagios configuration files:
 ```
   define command{
   	command_name nagios-to-wavefront-service
-  	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+  	command_line /opt/nagios/etc/wf/nagios-events-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
   }
 
   define command{
   	command_name nagios-to-wavefront-host
-  	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+  	command_line /opt/nagios/etc/wf/nagios-events-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
   }
 ```
 
@@ -98,12 +162,12 @@ define contactgroup{
 
 define command{
 	command_name nagios-to-wavefront-service
-	command_line /opt/nagios/etc/wf/nagios-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+	command_line /opt/nagios/etc/wf/nagios-events-wf.py -S --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --service '$SERVICEDISPLAYNAME$' --time '$TIMET$' --msg '$SERVICEOUTPUT$\n$NOTIFICATIONAUTHOR$\n$NOTIFICATIONCOMMENT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
 }
 
 define command{
 	command_name nagios-to-wavefront-host
-	command_line /opt/nagios/etc/wf/nagios-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
+	command_line /opt/nagios/etc/wf/nagios-events-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
 }
 ```
 {% endraw %}
