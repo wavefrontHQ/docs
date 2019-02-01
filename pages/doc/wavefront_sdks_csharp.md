@@ -27,7 +27,7 @@ Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-applicatio
 </colgroup>
 <tbody>
 <thead>
-<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
+<tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
 <td markdown="span">[]()</td>
@@ -51,7 +51,7 @@ Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operat
 </colgroup>
 <tbody>
 <thead>
-<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
+<tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 
 <tr>
@@ -80,7 +80,7 @@ The [core SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) 
 </colgroup>
 <tbody>
 <thead>
-<tr><th>SDK</th><th>Description</th><th>Observability Data</th></tr>
+<tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
 <td markdown="span">[Metrics, histograms, trace data](https://github.com/wavefrontHQ/wavefront-sdk-csharp)</td>

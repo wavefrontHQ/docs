@@ -82,7 +82,7 @@ An application must be _instrumented for tracing_ before it can produce and send
 
 ### Use Cases
 
-If you have already instrumented your code with a 3rd party distributed tracing system such as [Jaeger](jaeger.html), [Zipkin](zipkin.html), or [Envoy](envoy.html) you can set up an integration to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
+If you have already instrumented your code with a 3rd party distributed tracing system such as [Jaeger](jaeger.html) or [Zipkin](zipkin.html) you can set up a [tracing-system integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
 If you have not yet instrumented your code, you can do so by using one or more Wavefront observability SDKs:
 
@@ -100,12 +100,12 @@ Wavefront enables you to [query](trace_data_query.html) and visualize the trace 
 
 ### Start From Metrics That Provide Context
 
-You can view trace data by starting with the RED metrics that Wavefront collects for each microservice in an instrumented application. RED metrics are the Rate (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces.
+You can view trace data by starting with the RED metrics that Wavefront collects for each microservice in an instrumented application. RED metrics are measures of Requests (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces.
 
 To start from the RED metrics for your application's microservices:
 1. Select **Applications > Inventory** in the task bar, and find your application.
 2. Click on a service that you are interested in viewing traces from.
-3. Scroll the service's page to find the framework or component you are interested in.
+3. Scroll the page for the service until you find the framework or component you are interested in.
 4. Select an operation to display the **Traces** page for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
 ### Start by Submitting a Trace Query

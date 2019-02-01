@@ -226,6 +226,10 @@ entries:
       url: /tracing_instrumenting_frameworks.html
       output: web
       
+    - title: Obtaining 3rd Party Traces
+      url: /trace_integrations.html
+      output: web
+      
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web

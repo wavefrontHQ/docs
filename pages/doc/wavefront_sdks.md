@@ -103,7 +103,7 @@ Each custom-level SDK is a Wavefront implementation of a particular metrics or t
 </tbody>
 </table>
 
-Custom-level SDKs require some code changes in addition to setting up the usual helper objects in your microservice. In particular, you'll need to instantiate objects for the different types of metric or trace data you want to collect, and use these objects to instrument the business operations of interest.
+Custom-level SDKs require some code changes in addition to setting up helper objects in your microservice. In particular, you'll need to instantiate objects for the different types of metric or trace data you want to collect, and use these objects to instrument the business operations of interest.
 
 For example, suppose you have a Java microservice with a critical backend operation that writes to a proprietary database. Even though you've instrumented other aspects of the microservice (the HTTP and RPC calls) with framework-level SDKs, you'd also like to track how many critical writes are performed, and you'd like to see how long these operations take. You can use a custom-level SDK for metrics support to augment your write operation to maintain a count, and you can use a custom-level SDK for OpenTracing to augment your write operation to add spans to the microservice's traces. 
 

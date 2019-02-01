@@ -12,7 +12,7 @@ You instrument your application so that [trace data](tracing_basics.html) from d
 After instrumentation, you can use our tracing UI to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover where it might be failing.
 
 You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). You choose these SDKs based on:
-* The frameworks (components) you use in the microservice -- for example, Java Dropwizard Jersey
+* The frameworks (components) you use in the microservice -- for example, Dropwizard
 * The kind of data you want to collect -- metrics, histograms, trace data, or all 3 
 * Whether you want to collect out-of-the-box metrics and trace data, custom business metrics and trace data, or both
 
