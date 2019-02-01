@@ -67,14 +67,14 @@ Identify the microservices in your application and the components you use in eac
 
 ### Option 1. Quickstart - Use Config Files 
 
-Use Option 1 to instrument a cloud-native Java application with RESTful microservices that are based on one of the following Jersey-compliant frameworks: 
-* **Dropwizard Jersey** 
+Use Option 1 to instrument a cloud-native Java application with RESTful microservices that are built using one of the following Jersey-compliant frameworks: 
+* **Dropwizard** 
 * **Spring Boot**
 
 These steps use configuration files and minimal code changes: 
 
 1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
-2. For each Dropwizard or Spring Boot microservice, follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart) in the `README` file for the SDK.  
+2. For each microservice that is built using Dropwizard or Spring Boot, follow the [quickstart steps](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java#quickstart) in the `README` file for the SDK.  
 
     For an overview of what these steps automatically add to your microservice, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
 3. After your recompiled application starts running, click **Applications > Inventory** in the task bar to start exploring the metrics, histograms, and trace data that are sent from the framework's operations and from the JVM that runs them.
