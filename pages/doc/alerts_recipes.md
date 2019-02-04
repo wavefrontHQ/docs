@@ -4,10 +4,12 @@ keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alert_recipes.html
-summary: Queries for commonly used alert conditions
+summary: Queries for common alert scenarios
 ---
 
-The Wavefront Customers Success team has found certain kinds of alerts are used frequently by customers. For example, customers might want to alert on point rate drops or on threshold. This page gives some recipes. You can generate several of these recipes interactively using the [Query Wizard](query_language_query_wizard.html).
+The Wavefront Customers Success team has found that customers use certain alerts frequently. For example, customers want to alert on point rate drops or on threshold.
+
+This page gives some recipes. You can generate several of these recipes interactively using the [Query Wizard](query_language_query_wizard.html).
 
 ## Alert on Point Rate Drops
 
@@ -15,7 +17,10 @@ Define an alert that compares the number of data points reported in the last tim
 
 The following example query can be used in an alert that fires if the number of processes for `app-5` drops by 5% in a 30 minute time window.
 
-`mcount(30m, (ts(~sample.process.num, source="app-5"))) < mcount(30m, lag(30m,(ts(~sample.process.num, source="app-5")))) * 5/100`
+```
+mcount(30m, (ts(~sample.process.num, source="app-5"))) <
+mcount(30m,lag(30m,(ts(~sample.process.num, source="app-5")))) * 5/100
+```
 
 ## Alert on Missing Data
 
@@ -23,7 +28,9 @@ Define an alert that compares the number of data points reported in the last tim
 
 The following example query can be used in an alert that fires if app-2 sent bytes more than 30 seconds ago, but stopped sending bytes in the last 30 seconds.
 
-`mcount(30s, (ts(~sample.network.bytes.sent, source=app-2))) = 0 and mcount(30s,lag(30s,(ts(~sample.network.bytes.sent, source=app-2)))) != 0`
+```
+mcount(30s, (ts(~sample.network.bytes.sent, source=app-2))) = 0 and mcount(30s,lag(30s,(ts(~sample.network.bytes.sent, source=app-2)))) != 0
+```
 
 ## Alert on Exceeding a Threshold
 
@@ -38,9 +45,13 @@ The following example query can be used in an alert that fires if the number of 
 
 Define an alert that fires only between pre-specified times.
 
-The following example query uses a threshold alert, but specifies that the alert should fire only on Monday between 8 and 5 PST.
+The following example query uses a threshold alert, but specifies that the alert should fire only on Thursdays between 8 and 5 PST.
 
-`(ts(~sample.process.num, source="app-5")) > 100 and between(hour("US/Pacific"),8,5) and between(weekday("US/Pacific"),1,1)`
+~~~
+(ts(~sample.process.num, source="app-5")) > 100
+and between(hour("US/Pacific"),8,5)
+and between(weekday("US/Pacific"),4,4)
+~~~
 
 The following diagram shows how Query Wizard makes it easy to set up an alert like this:
 
@@ -52,5 +63,4 @@ Define an alert when there are more than a specified number of points in a presp
 
 The following example query can be used in an alert that fires if the number of sample processes for app-5 is more than 100 in a 30 minute time window.
 
-`mcount(30m, (ts(~sample.process.num, source="app-5"))) > 100
-Alerts when there are at least X points in a time window`
+`mcount(30m, (ts(~sample.process.num, source="app-5"))) > 100`

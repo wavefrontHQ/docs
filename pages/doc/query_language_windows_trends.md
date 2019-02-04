@@ -66,7 +66,7 @@ We can use tumbling windows to get the average daily rate.
 
 We use the `hour()` function to sample the average every day at midnight. This results in the average for 24 hours, and we can display this average across the day using the missing data function `next()`.
 
-In the chart below, the green circles show the sampled data. We use `next()` to display the information for the entire day, as in the following queries. The corresponding chart is immediately below.
+In the chart below, we show the data point sampled at midnight. the green circles show the sampled data. We use `next()` to display the information for the entire day, as in the following queries. The corresponding chart is immediately below.
 
 |Rate| `sum(rate(ts(~agent.points.2878.received)))`|
 
@@ -74,11 +74,11 @@ In the chart below, the green circles show the sampled data. We use `next()` to 
 
 |Sampled at midnight| `if (hour("US/Pacific") = 0,${mavg})`|
 
-|Daily avg| `next(24h,if(hour("US/Pacific") = 0,${mavg})`|
-
 ![sample_moving_window](images/sample_moving_window.png)
 
-You can use missing data functions to display the result across tumbling windows.
+Finally, we can display the daily average like this:
+
+|Daily avg| `next(24h,if(hour("US/Pacific")=0,${mavg})`|
 
 ![missing_data_fnc](images/missing_data_fcn_tumbling_window.png)
 
