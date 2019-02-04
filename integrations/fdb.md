@@ -114,6 +114,7 @@ Enter the following snippet in all the servers belongs to the FoundationDB clust
 
       # Read stats about given file(s)
       [[inputs.filestat]]
+        name_prefix = "fdb."
        ## Files to gather stats about.
        ## These accept standard unix glob matching rules, but with the addition of
        ## ** as a "super asterisk". ie:
