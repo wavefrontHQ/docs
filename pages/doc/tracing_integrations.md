@@ -7,9 +7,9 @@ permalink: trace_integrations.html
 summary: Learn about ways to send trace data to Wavefront from a 3rd party distributed tracing system.
 ---
 
-You can collect [traces](tracing_basics.html#wavefront_trace_data) with a 3rd party distributed tracing system, and send the trace data to Wavefront. Wavefront provides managed, highly scalable storage for your trace data, as well as RED metrics that are derived from the spans.
+You can collect [traces](tracing_basics.html#wavefront_trace_data) with a 3rd party distributed tracing system, and send the [trace data](tracing_basics.html) to Wavefront. Wavefront provides managed, highly scalable storage for your trace data, as well as RED metrics that are derived from the spans.
 
-For example, suppose you have already instrumented your application using a 3rd party distributed tracing system. You can continue using that system for application development, and then switch to a Wavefront proxy in production by changing a few configuration settings. 
+For example, suppose you have already instrumented your application using a 3rd party distributed tracing system such as Jaeger or Zipkin. You can continue using that system for application development, and then switch to a Wavefront proxy in production by changing a few configuration settings. 
 
 **Note:** If you have not yet [instrumented your application for tracing](tracing_instrumenting_frameworks.html), consider doing so with one or more [Wavefront observability SDKs](wavefront_sdks.html).
 
@@ -19,17 +19,17 @@ Wavefront provides integrations with several popular 3rd party distributed traci
 * [Jaeger](jaeger.html)  
 * [Zipkin](zipkin.html)
 
-A Wavefront tracing-system integration causes your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html). The proxy, in turn, processes the data and sends it to your Wavefront service. Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
+A Wavefront integration configures your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html). The proxy, in turn, processes the data and sends it to your Wavefront service. Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
 
-**Note:** An [alternative to using a tracing-system integration](#alternatives-to-using-a-tracing-integration) might be appropriate for certain use cases.
+Using an integration is the simplest way - but not the only way - to send trace data to Wavefront from a 3rd part tracing system. See [Integration Alternatives](#integration-alternatives) some other possibilities.
 
 ## Trace Data from an Integration
 
-When you use a tracing-system integration, the Wavefront proxy receives the trace data that your application emits. If you configured your distributed tracing system to perform sampling, the proxy receives just the subset of the spans that sampling has accepted. 
+When you use a tracing-system integration, the Wavefront proxy receives the trace data that your application emits. If you configured your distributed tracing system to perform sampling, the proxy receives only the spans that the 3rd party sampler has allowed. 
 
 The Wavefront proxy:
-* Ensures that each span has the span tags that are required by Wavefront.
-* Derives RED metrics from the received spans.
+* Checks for [required span tags](#required-span-tags) on each received span, and adds them if needed.
+* Derives [RED metrics](#derived-red-metrics) from the received spans.
 
 ### Required Span Tags
 
@@ -60,12 +60,12 @@ The Wavefront proxy checks for these tags on each span it receives from your dis
 </table>
 
 
-**Note:** The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a more meaningful application name.
+**Note:** The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
 
 
 ### Derived RED Metrics
 
-When you use a tracing-system integration, Wavefront derives RED metrics from the spans that are sent from each instrumented service in your application. You can use these metrics to help you find the traces in which problems occur.
+When you use a tracing-system integration, Wavefront derives RED metrics from the spans that are sent from the instrumented application services. You can use these metrics to help you find the traces in which problems occur.
 
 RED metrics are measures of: 
 
@@ -73,10 +73,11 @@ RED metrics are measures of:
 * Errors -- the number of failed requests per second
 * Duration -- per-minute histogram distributions of the amount of time that each request takes
 
-In addition to the RED metrics, we list the most frequently invoked operations, the operations with the most errors, and the slowest operations.
+In addition to the RED metrics, we provide charts listing the "top" operations each category: the most frequently invoked operations, the operations with the most errors, and the slowest operations.
 
-Wavefront stores the RED metrics along with the spans from which they were derived. Wavefront uses the tag values from the input spans to organize the RED metrics by application and service.  
+Wavefront stores the RED metrics along with the spans from which they were derived. Wavefront uses the [required span tags](#required_span_tags) to organize the RED metrics by application and service. 
 
+**Note:** The completeness of the RED metrics depend on whether/how you have configured sampling. See [Trace Sampling and Derived RED Metrics](#trace-sampling-and-derived-red-metrics), below.
 
 ## Visualizing Trace Data from an Integration
 
@@ -95,12 +96,17 @@ If you want to view trace data directly, you can start with [a trace query](trac
 
 ## Trace Sampling and Derived RED Metrics
 
-When you use a 3rd party distributed tracing system, you normally configure it to perform sampling. Doing so means that the Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset.
+When you use a 3rd party distributed tracing system, you normally configure it to perform sampling. Doing so means that sampling occurs first, before the Wavefront proxy derives the RED metrics. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset.
 
-For more accurate RED metrics, you can consider setting up sampling through the Wavefront proxy instead of using the 3rd party sampling. The Wavefront proxy derives the RED metrics before it performs sampling. You need proxy version 4.36 or later.
+For more accurate RED metrics, you can consider disabling the 3rd party sampling, and choosing one of the following options instead:
+
+* Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-sampling-through-the-proxy). You need proxy version 4.36 or later.
+* [Swap in a Wavefront Tracer](#swapping-in-a-wavefront-tracer) and configuring it to perform sampling. 
+
+The Wavefront proxy or Wavefront Tracer will derive the RED metrics first, and then perform the sampling.
 
 
-## Alternatives to Using a Tracing-System integration
+## Integration Alternatives
 
 ### Swapping In a Wavefront Tracer
 If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can substitute a Wavefront Tracer for the Jaeger Tracer. 

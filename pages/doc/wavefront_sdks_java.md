@@ -30,32 +30,32 @@ Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-applicatio
 </thead>
 
 <tr>
-<td markdown="span">[Dropwizard Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Sends observability data from HTTP requests and responses.</td>
+<td markdown="span">[Dropwizard SDK for Java](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)</td>
+<td markdown="span">Instruments Dropwizard, a framework for building RESTful Web services. Instruments libraries such as Jetty. Use with the [Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java). <br> Sends observability data from HTTP requests and responses. </td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>
 
 <tr>
 <td markdown="span">[gRPC SDK for Java](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java)</td>
-<td>Instruments gRPC, a framework for building services that communicate through remote procedure calls. Sends observability data from gRPC requests and responses.</td>
+<td>Instruments gRPC, a framework for building services that communicate through remote procedure calls. <br> Sends observability data from gRPC requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>
 
 <tr>
 <td markdown="span">[JAX-RS SDK for Java](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)</td>
-<td>Instruments a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Sends observability data from HTTP requests and responses.</td>
+<td>Instruments a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. <br> Sends observability data from HTTP requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>
 
 <tr>
 <td markdown="span">[JVM SDK](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
-<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Sends observability data for CPU usage, disk usage, and so on.</td>
+<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. <br> Sends observability data for CPU usage, disk usage, and so on.</td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 
 <tr>
-<td markdown="span">[Spring Boot Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
-<td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Sends observability data from HTTP requests and responses.</td>
+<td markdown="span">[Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td>Instruments the Jersey-compliant libraries of frameworks for building RESTful Web services, e.g., the Dropwizard and Spring Boot frameworks. <br> Sends observability data from HTTP requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>
 

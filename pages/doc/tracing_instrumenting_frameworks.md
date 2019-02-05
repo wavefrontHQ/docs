@@ -119,8 +119,8 @@ These SDKs automatically collect metric data for request rates, error rates, lat
 
 <table id = "sdks" width="100%">
 <colgroup>
-<col width="25%" />
-<col width="30%" />
+<col width="22%" />
+<col width="32%" />
 <col width="45%" />
 </colgroup>
 <tbody>
@@ -130,7 +130,7 @@ These SDKs automatically collect metric data for request rates, error rates, lat
 
 <tr>
 <td>Dropwizard</td>
-<td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
+<td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) <br> [`wavefront-dropwizard-sdk-java`](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)</td>
 <td>Instruments Dropwizard, a Jersey-compliant framework for building RESTful Web services. Sends metrics, histograms and trace data from HTTP requests and responses.</td></tr>
 
 <tr>

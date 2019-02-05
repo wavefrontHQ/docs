@@ -14,7 +14,6 @@ Well-chosen sampling strategies can give you a good idea of how your application
 * Reducing the amount of storage required for trace data, and lowering your monthly costs.
 * Filtering out "noise" traces so you can see what's important.
 
-<!--- need links from proxy setup page --->
 
 ## Wavefront Sampling Strategies
 
@@ -73,20 +72,20 @@ You can set up a sampling strategy using either of the following methods:
 * [Configure sampling on a Wavefront proxy](#setting-up-sampling-through-the-proxy).  
 * [Configure sampling in your instrumented application code](#setting-up-sampling-in-your-code).  
 
-Choose the Wavefront proxy for sampling when you want to:
+Choose the [Wavefront proxy](proxies_installing.html) for sampling when you want to:
 * Use a single sampling strategy to coordinate the sampling for all applications that use the same proxy. 
 * Configure sampling with minimal effort.
 * Improve the likelihood of ingesting complete traces. 
 
 Choose sampling in your instrumented code when you want to:
 * Reduce the performance impact of span reporting on your application. 
-* Use direct ingestion (so no proxy).
+* Use [direct ingestion](direct_ingestion.html) (so no proxy).
 * Configure sampling on a per-process basis, for example, when you expect spans from the services in different processes to have different characteristics.
 
 
 ## Setting Up Sampling Through the Proxy
 
-You can set up sampling strategies through a Wavefront proxy by adding the sampling properties to the proxy's configuration file.
+You can set up sampling strategies through a [Wavefront proxy](proxies_installing.html) by adding the sampling properties to the proxy's configuration file.
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 2. In the `wavefront.conf` file, add one or both of the following properties. For example, the following properties set up a sampling rate of 10% and a sampling duration of 45 milliseconds:
@@ -103,9 +102,12 @@ You can set up sampling strategies through a Wavefront proxy by adding the sampl
 
 ## Setting Up Sampling in Your Code
 
-You can set up sampling strategies in application code that is built with the Wavefront OpenTracing SDK, or with any Wavefront observability SDK that depends on the Wavefront OpenTracing SDK.
+You can set up sampling strategies in application code that is built with one of the following [Wavefront observability SDKs](wavefront_sdks.html):
 
-You set up a sampling strategy by configuring a WavefrontTracer with a Sampler object. You create one Sampler for each sampling strategy. See the README file for the Wavefront observability SDK you are using.  
+* The Wavefront OpenTracing SDK
+* Any Wavefront observability SDK that depends on the Wavefront OpenTracing SDK
+
+You set up a sampling strategy by configuring a Wavefront Tracer with a Sampler object. You create one Sampler for each sampling strategy. See the README file for the Wavefront observability SDK you are using.  
 
 
 <!---
