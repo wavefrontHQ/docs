@@ -59,8 +59,8 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
 #    See https://github.com/denisenkom/go-mssqldb for detailed connection parameters.
 
 servers = [
-"Server=<servername>;Port=1433;User Id=telegraf;Password=<'mystrongpassword' from step 2>;app name=telegraf;log=1;",
-"Server=<servername>;Port=1433;User Id=telegraf;Password=<'mystrongpassword' from step 2>;app name=telegraf;log=1;"
+"Server=<servername>;Port=1433;User Id=telegraf;Password=<mystrongpassword from step 2>;app name=telegraf;log=1;",
+"Server=<servername>;Port=1433;User Id=telegraf;Password=<mystrongpassword from step 2>;app name=telegraf;log=1;"
 ]
 query_version = 2
 name_prefix = "MSSQL2."
