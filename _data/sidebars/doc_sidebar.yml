@@ -241,6 +241,10 @@ entries:
     - title: spans() Queries
       url: /spans_queries.html
       output: web
+      
+    - title: Traces, Spans, and Metrics
+      url: /trace_data_details.html
+      output: web
 
   - title: "Charts & Dashboards"
     output: web

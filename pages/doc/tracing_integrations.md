@@ -54,7 +54,7 @@ The Wavefront proxy checks for these tags on each span it receives from your dis
 <tr>
 <td markdown="span">`service`</td>
 <td markdown="span">Name that identifies the microservice that emitted the span. </td>
-<td markdown="span">The service name you specified to your distributed tracing system.</td>
+<td markdown="span">The service name that you specified to your distributed tracing system.</td>
 </tr>
 </tbody>
 </table>

@@ -71,7 +71,9 @@ the Styling service's `makeShirts` span has two child spans (`printShirts` and `
 
 You can think of the trace itself as the top-level parent in a tree of related spans. We refer to a trace by the service and operation of its first (root) span. Because the first operation in our sample trace is Shopping service's `orderShirts`, we use that operation to refer to the trace. 
 
-Many traces can begin with the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called. Each trace has a unique trace id, which is shared by each member span. The trace in our example is just one of potentially thousands of similar traces, which might have different start times or durations. 
+Many traces can begin with the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called. Each trace has a unique trace ID, which is shared by each member span. The trace in our example is just one of potentially thousands of similar traces, which might have different start times or durations. 
+
+For more details about trace data, see [Traces, Spans, and Metrics](trace_data_details.html). 
 
 
 ## Ways to Send Trace Data to Wavefront
