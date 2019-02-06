@@ -22,8 +22,7 @@ You can divide two time series to produce one series that's the ratio of the two
 
 The following sample query gets the ration between the bytes sent and the bytes received for `app-1`.
 ```
-(ts(~sample.network.bytes.sent, source="app-1"))/
-(ts(~sample.network.bytes.recv, source="app-1"))
+(ts(~sample.network.bytes.sent, source="app-1"))/(ts(~sample.network.bytes.recv, source="app-1"))
 ```
 
 ### Correlate Time Series with Different Scale
@@ -32,10 +31,10 @@ If you want to see shape correlations between data lines of very different scale
 
 The following sample query allows you to see whether there's a relationship between the CPU load and the bytes that are sent:
 ```
-(ts(~sample.network.bytes.sent, source="app-5"))/(ts(~sample.cpu.loadavg.1m,, source="app-5"))
+(ts(~sample.network.bytes.sent, source="app-5"))/(ts(~sample.cpu.loadavg.1m, source="app-5"))
 ```
 
-### Predict Intersection
+### Predict the Intersection of Two Time Series
 
 If one time series is increasing and another is decreasing, you can predict the intersection using a function like the following:
 
@@ -53,7 +52,7 @@ if(abs((ts(~sample.network.bytes.sent, env="dev")) - (ts(~sample.network.bytes.r
 ## Queries with a Time Focus
 
 You can calculate continuous aggregation:
-* Over a sliding time window using one of the moving window functions. For example, the average for the last 24 hours.
+* Over a sliding time window using one of the [moving window functions](query_language_reference.html#moving-window-time-functions). For example, the average for the last 24 hours.
 * Over a fixed-size time window, for example, the average for each day (e.g. Jan 3, Jan 4, etc.)
 
 You can learn about [Using Moving and Tumbling Time Windows to Highlight Trends](query_language_windows_trends.html). The focus of this section is on examples.
@@ -66,7 +65,7 @@ The following simple example shows the counter resets for network bytes sent for
 
 `flapping(5m, (ts(~sample.network.bytes.sent, source=app-2)))`
 
-### Sum of Values over X Time
+### Sum of Values Over X Time
 Use `msum` to plot the sum of values over last 24 hours.
 
 The following query shows the sum of the bytes received for `app-2`and `app-20`.
@@ -74,7 +73,9 @@ The following query shows the sum of the bytes received for `app-2`and `app-20`.
 `msum(24h, ts(~sample.network.bytes.recv, source="app-2*"))`
 
 ### Last Data Point During X Time
-At times, you might need the last data point in the past week or past day. That information can be useful when comparing time series. Use a query like the following, which returns the last number of bytes received for `app-2` during the last week.
+At times, you might need the last data point in the past week or past day. That information can be useful when comparing time series.
+
+For example, the following returns the last number of bytes received for `app-2` during the last week.
 
 `at("now",last(1w, ts(~sample.network.bytes.recv, source="app-2")))`
 
@@ -90,7 +91,7 @@ For more details, see [Display Daily Average](query_language_windows_trends.html
 
 ## Data Pipeline Queries
 
-Data pipeline queries allow you to determine whether data is flowing to the proxies or to the Wavefront service. You can also examine the point rate and potentially set an alert.
+Data pipeline queries allow you to determine whether data is flowing to the proxies or to the Wavefront service. You can also examine the point rate and potentially set an alert if data is larger than a threshold.
 
 ### Point Rate for All Proxies
 
@@ -158,7 +159,7 @@ If you're interested in, for example, the top 3 time series or the bottom 3 time
 
 `bottomk(30000,(ts(~sample.network.bytes.sent, source="app-10")))`
 
-Wavefront v2 dashboards include a chart to visualize the top series. The new [read-only integration dashboards](2018.42.x_release_notes.html#aws-dashboards-preview)
+Wavefront v2 dashboards include a chart to visualize the top series. Currently topk charts are available only in our [read-only integration dashboards](2018.42.x_release_notes.html#aws-dashboards-preview).
 
 ![topk chart](/images/topk_chart.png)
 
@@ -169,8 +170,7 @@ Use `lag()` to enable comparison of an expression with its own past behavior. In
 The following example compares the bytes sent with the bytes sent 15 minutes ago:
 
 ~~~
-(ts(~sample.network.bytes.sent, env="dev"))
-/ lag(15m, (ts(~sample.network.bytes.sent, env="dev")))
+(ts(~sample.network.bytes.sent, env="dev"))/lag(15m, (ts(~sample.network.bytes.sent, env="dev")))
 ~~~
 
 ## Queries for Standard Deviation and IQR.
