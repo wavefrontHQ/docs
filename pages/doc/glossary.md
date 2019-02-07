@@ -167,7 +167,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Operation**](tracing_basics.html#wavefront-trace-data)</td>
-<td>An operation is a distinct segment of work that a microservice performs. An operation's name is typically the name of a function, method, or procedure that the microservice invokes. An operation might be part of a higher-level request or transaction, and might invoke other, lower-level operations. When you instrument a microservice for distributed tracing, a typical operation is represented as hierarchy of spans that belong to a trace.
+<td>An operation is a distinct segment of work that a microservice performs. An operation's name is typically the name of a function, method, or procedure that the microservice invokes. An operation might be part of a higher-level request or transaction, and might invoke other, lower-level operations. When you instrument an operation for distributed tracing, each invocation of the operation emits a span.
 </td>
 </tr>
 <tr>
@@ -229,7 +229,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Span**](tracing_basics.html#wavefront-trace-data)</td>
-<td>A span is a named, timed operation that represents a contiguous segment of work in a trace.  </td>
+<td>A span is a named, timed representation of a contiguous segment of work in a trace. Every span corresponds to a unique invocation of an operation in an instrumented application, and belongs to exactly one trace.    </td>
 </tr>
 <tr>
 <td><strong><big>T</big></strong></td>
@@ -238,7 +238,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Tag**](tags_overview.html)</td>
-<td>Tags allows you to group and filter information or UI objects. Wavefront includes several types of tags for filtering metrics, sources, and events, supressing alerts during maingenance windows, and customizing your display. <strong>See also:</strong> Point tag, Source tag. </td>
+<td>Tags allows you to group and filter information or UI objects. Wavefront includes several types of tags for filtering metrics, sources, and events, supressing alerts during maintenance windows, and customizing your display. <strong>See also:</strong> Point tag, Source tag. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
