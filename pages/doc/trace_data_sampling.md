@@ -7,7 +7,7 @@ permalink: trace_data_sampling.html
 summary: Learn how to set up sampling for Wavefront trace data.
 ---
 
-A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront_trace_data). You can set up sampling strategies to reduce the volume of generated trace data. 
+A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront_trace_data). You can set up sampling strategies to reduce the volume of ingested trace data. 
 
 Well-chosen sampling strategies can give you a good idea of how your application is behaving, while: 
 * Limiting the performance impact on network bandwidth and application response times.

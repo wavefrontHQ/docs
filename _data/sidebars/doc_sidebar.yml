@@ -227,7 +227,7 @@ entries:
       output: web
       
     - title: Obtaining 3rd Party Traces
-      url: /trace_integrations.html
+      url: /tracing_integrations.html
       output: web
       
     - title: Trace Sampling

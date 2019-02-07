@@ -107,8 +107,8 @@ You can view trace data by starting with the RED metrics that Wavefront collects
 To start from the RED metrics for your application's microservices:
 1. Select **Applications > Inventory** in the task bar, and find your application.
 2. Click on a service that you are interested in viewing traces from.
-3. Scroll the page for the service until you find the framework or component you are interested in.
-4. Select an operation to display the **Traces** page for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
+3. Scroll the service's page until you find the framework or component you are interested in.
+4. Select an operation from one of the charts to examine the traces for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
 ### Start by Submitting a Trace Query
 
