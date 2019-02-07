@@ -135,11 +135,11 @@ Wavefront customer support engineers have found the following metrics especially
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.valid, ~collector.histograms.valid</td>
-<td markdown="span">Valid metric points or histogram points received by the collector.</td></tr>
+<td markdown="span">Valid metric points or histogram points received by the collector. If the points received by the collector are valid, they are sent to the Wavefront service.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.batches, ~collector.histograms.batches</td>
-<td markdown="span">Number of batches of points or histogram points received by the collector, either via the proxy or via the direct ingestion API</td></tr>
+<td markdown="span">Number of batches of points or histogram points received by the collector, either via the proxy or via the direct ingestion API. In the histogram context a batch is the number of HTTP POST requests.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable, ~collector.histograms.undecodable</td>
@@ -179,8 +179,15 @@ Each metric includes the metric name, customer, any tags, and the source or host
 * `~metric.new_string_ids` shows point tags that Wavefront hasn't seen before, as strings.
 * `~metric.new_host_ids` shows hosts, that is, the sources for the metrics, that Wavefront hasn't seen before.
 
+### Understanding ~collector Metrics for Histograms
 
-### Find Users Who Caused Bottlenecks
+The ~collector metrics are especially useful when monitoring histogram ingestion. Whenever a distribution is sent to the collector `~collector.histograms.reported` is incremented. When using one of the [aggregation ports](proxies_histograms.html#histogram-proxy-ports) (min, hour, day), all data points received within the aggregation interval are used to compute the distribution for that interval.
+For example, if you are using the minute aggregation interval, all points received within a minute, e.g. 12:00-12:00:59 are part of the distribution for that minute. This is based on the timestamp, if specified; otherwise, based on arrival time at the proxy.
+If, after 12:09:59, a point is received with a timestamp between 12:00-12:00:59, the proxy builds another distribution because the default flush interval for minute aggregation is 70 sec.
+The proxy will essentially send two distributions to the WF collector with the time interval of 12:00-12:00:59. On the backend, these two distributions are merged together so that when queried, they will behave as one distribution. However, the collector will still have seen two distributions arrive.
+
+
+### Finding Users Who Caused Bottlenecks
 
  `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users unintentionally send many queries to Wavefront, especially if they use the API for the queries. The results can become difficult to interpret, and system performance might suffer.
 
