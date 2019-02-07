@@ -1,8 +1,8 @@
 ---
-title: Amazon Cloud Search Integration
+title: AWS IAM Integration
 tags: [integrations list]
-permalink: amazon_cloudsearch.html
-summary: Learn about the Wavefront Amazon Cloud Search Integration.
+permalink: amazon_keyage.html
+summary: Learn about the Wavefront AWS IAM Integration.
 ---
 ## Amazon Web Services Integration
 
