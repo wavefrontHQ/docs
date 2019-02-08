@@ -3,7 +3,7 @@ title: Monitoring Wavefront
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
-summary: Learn how to monitor and troubleshoot the health of your Wavefront instance.
+summary: Monitor and troubleshoot the health of your Wavefront instance.
 ---
 
 If system performance seems to be deteriorating, you can examine your Wavefront instance and Wavefront proxy with the Wavefront system dashboard, and look at internal metrics to investigate the problem.
@@ -181,10 +181,11 @@ Each metric includes the metric name, customer, any tags, and the source or host
 
 ### Understanding ~collector Metrics for Histograms
 
-The ~collector metrics are especially useful when monitoring histogram ingestion. Whenever a distribution is sent to the collector `~collector.histograms.reported` is incremented. When using one of the [aggregation ports](proxies_histograms.html#histogram-proxy-ports) (min, hour, day), all data points received within the aggregation interval are used to compute the distribution for that interval.
+The ~collector metrics are especially useful when monitoring histogram ingestion. Whenever a distribution is sent to the collector, `~collector.histograms.reported` is incremented. When using one of the [aggregation ports](proxies_histograms.html#histogram-proxy-ports) (min, hour, day), all data points received within the aggregation interval are used to compute the distribution for that interval.
+
 For example, if you are using the minute aggregation interval, all points received within a minute, e.g. 12:00-12:00:59 are part of the distribution for that minute. This is based on the timestamp, if specified; otherwise, based on arrival time at the proxy.
-If, after 12:09:59, a point is received with a timestamp between 12:00-12:00:59, the proxy builds another distribution because the default flush interval for minute aggregation is 70 sec.
-The proxy will essentially send two distributions to the WF collector with the time interval of 12:00-12:00:59. On the backend, these two distributions are merged together so that when queried, they will behave as one distribution. However, the collector will still have seen two distributions arrive.
+If, after 12:07:59, a point is received with a timestamp between 12:00-12:00:59, the proxy builds another distribution because the default flush interval for minute aggregation is 70 sec.
+The proxy will essentially send two distributions to the Wavefront collector for the time interval of 12:00-12:00:59. On the backend, these two distributions are merged together so that when queried, they will behave as one distribution. However, the collector will still have seen two distributions arrive.
 
 
 ### Finding Users Who Caused Bottlenecks
