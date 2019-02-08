@@ -65,7 +65,7 @@ Mustache supports several variations in each case, but this example shows the mo
 
 ### Template Functions
 
-Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailoring-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limiting-list-sizes), and [assisting with JSON or XML formatting](utility-functions-for-readability).
+Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailoring-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limiting-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
 
 The following snippet shows the basic [Mustache](https://mustache.github.io/) syntax for two functions:
 
