@@ -48,7 +48,7 @@ This chart shows live data for 8 days. `dayOfYear("America/Chicago")` returns 16
 **Example 2: Defining an Alert that Fires on Particular Days**
 
 Here we include `(dayOfYear("America/Chicago") = 163)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on the 163rd day of the year.
-![dayOfYear alert](images/ts_dayOfYear_alert.png)
+![dayOfYear alert](images/ts_dayOfYear_Alert.png)
 
 ## See Also
 [`weekday()` Function](ts_weekday.html)

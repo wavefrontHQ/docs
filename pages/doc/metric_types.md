@@ -38,7 +38,7 @@ The following table gives an overview of metric types. We introduce each type in
 <tr>
 <td>Histogram</td>
 <td>Supports computing, storing, and using distributions of metrics.</td>
-<td>Useful for very high frequency data. See the <a href="proxies_histogram.html">discussion of histograms</a>. </td>
+<td>Useful for very high frequency data. See the <a href="proxies_histograms.html">discussion of histograms</a>. </td>
 </tr>
 </tbody>
 </table>

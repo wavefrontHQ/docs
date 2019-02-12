@@ -52,7 +52,7 @@ Wavefront lets you set up many integrations directly from the product. For other
 </tr>
 <tr>
 <td>Data Collector Integrations</td>
-<td markdown="span">[AppDynamics](integrations_appdynamics.html), [JMX](integrations_jmx.html), [NewRelic](integrations_newrelic.html), [External links](external_links_managing.html), [R](integrations_r.html)
+<td markdown="span">[AppDynamics](integrations_appdynamics.html), [NewRelic](integrations_newrelic.html), [External links](external_links_managing.html), [R](integrations_r.html)
 </td>
 </tr>
 <tr>
