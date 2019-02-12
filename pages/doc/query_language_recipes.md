@@ -191,7 +191,7 @@ Display the number of standard deviations that each series varies from its histo
 
 ### Standard Deviation from All Series
 
-Displays the number of standard deviations from the group of series. (Standard deviation from the mean) RK>>don't understand this.
+Displays the number of standard deviations from the group of series. (Standard deviation from the mean). 
 
 ```
 (ts(~sample.network.bytes.sent, env="dev"))
