@@ -197,7 +197,7 @@ RED metrics are measures of:
 
 * Requests – the number of requests (spans) being served per second
 * Errors – the number of failed requests (spans) per second
-* Duration – per-minute histogram distributions of the amount of time that each request (spans) takes
+* Duration – per-minute histogram distributions of the amount of time that each request (span) takes
 
 ### Auto-Generated Charts
 Wavefront automatically generates charts to display the auto-derived RED metrics and histograms. To view these charts:
