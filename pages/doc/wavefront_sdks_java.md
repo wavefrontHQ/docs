@@ -16,7 +16,7 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 
 ## Framework-level Java SDKs
 
-Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-application-frameworks) collects observability data from a particular Java framework or component, with minimal code setup.
+Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-instrumentation) collects observability data from a particular Java framework or component, with minimal code setup.
 
 <table id = "framework-java" width="100%">
 <colgroup>
@@ -48,12 +48,6 @@ Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-applicatio
 </tr>
 
 <tr>
-<td markdown="span">[JVM SDK](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
-<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. <br> Sends observability data for CPU usage, disk usage, and so on.</td>
-<td markdown="span">Metrics, histograms</td>
-</tr>
-
-<tr>
 <td markdown="span">[Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments the Jersey-compliant libraries of frameworks for building RESTful Web services, e.g., the Dropwizard and Spring Boot frameworks. <br> Sends observability data from HTTP requests and responses.</td>
 <td markdown="span">Metrics, histograms, trace data</td>
@@ -62,9 +56,9 @@ Each [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-applicatio
 </tbody>
 </table>
 
-## Custom-level Java SDKs
+## General-Purpose Java SDKs
 
-Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operations) enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. You'll need to add some code to each operation that is to report observability data.
+Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) enables you to instrument critical business methods that are not handled by any instrumented framework. You'll need to add some code to each method to be instrumented.
 
 <table id = "custom-java" width="100%">
 <colgroup>
@@ -78,20 +72,25 @@ Each [custom-level SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operat
 </thead>
 <tr>
 <td markdown="span">[Dropwizard Metrics SDK for Java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Implements Dropwizard Metrics, so you can instrument custom business operations to collect and send metrics and histograms to Wavefront. </td>
+<td>Implements Dropwizard Metrics, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 <tr>
 <td markdown="span">[OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument custom business operations to collect and send traces and spans to Wavefront. </td>
+<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
 <td markdown="span">Trace data</td>
+</tr>
+<tr>
+<td markdown="span">[JVM SDK](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
+<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. <br> Sends observability data for CPU usage, disk usage, and so on.</td>
+<td markdown="span">Metrics, histograms</td>
 </tr>
 </tbody>
 </table>
 
 ## Core Java SDK
 
-The [core SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+The [core (Level 1) SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
 <table id = "core-java" width="100%">
 <colgroup>

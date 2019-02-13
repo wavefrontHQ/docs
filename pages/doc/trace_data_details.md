@@ -17,7 +17,7 @@ Spans are the fundamental units of trace data in Wavefront. This page provides d
 A well-formed Wavefront span consists of fields and span tags that capture various attributes. These attributes enable Wavefront to identify and describe the span, organize it (possibly with other spans) into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront. 
 
 Most use cases do not require you to know exactly how Wavefront expects a span to be formatted:
-* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operations) or a [framework-level SDK](wavefront_sdks.html#sdks-for-instrumenting-application-frameworks), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
+* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) or a [framework-level SDK](wavefront_sdks.html#sdks-for-framework-instrumentation), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
 * When you instrument your application with a [Wavefront core SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters. 
 * When you instrument your application with a 3rd party distributed tracing system, your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up. 
 
@@ -175,7 +175,7 @@ The following table lists span tags that describe the architecture of the instru
 </tbody>
 </table>
 
-**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-level observability SDKs](wavefront_sdks#sdks-for-instrumenting-application-frameworks) associate span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
+**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-level observability SDKs](wavefront_sdks#sdks-for-framework-instrumentation) associate span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
 
 <!---
 Because of operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
@@ -191,7 +191,7 @@ Histogram distributions for D. Query with hs(), see all percentiles
 Order of derivation vs. sampling and why you care. 
 --->
 
-When you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-instrumenting-custom-operations), Wavefront derives RED metrics from the spans that are sent from the instrumented application. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can use these metrics as context to help you discover problem traces.
+When you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation), Wavefront derives RED metrics from the spans that are sent from the instrumented application. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can use these metrics as context to help you discover problem traces.
 
 RED metrics are measures of:
 

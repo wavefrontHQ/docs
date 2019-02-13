@@ -166,6 +166,11 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td>&nbsp;</td>
+<td markdown="span">Observability data</td>
+<td>Refers to all data you can store and analyze with the Wavefront observability platform. Metrics (including delta counters), histograms, and tracing spans are collectively described as observability data. (Sometimes called telemetry data.)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
 <td markdown="span">[**Operation**](tracing_basics.html#wavefront-trace-data)</td>
 <td>An operation is a distinct segment of work that a microservice performs. An operation's name is typically the name of a function, method, or procedure that the microservice invokes. An operation might be part of a higher-level request or transaction, and might invoke other, lower-level operations. When you instrument an operation for distributed tracing, each invocation of the operation emits a span.
 </td>
@@ -213,8 +218,8 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**SDK**](wavefront_sdks.html)</td>
-<td markdown="span">An SDK (software development kit) is a library that you can include with your application code. Wavefront supports a variety of observability SDKs in various programming languages to enable you to instrument applications to report telemetry data to Wavefront. [Framework-level observability SDKs](wavefront_sdks.html#sdks-for-instrumenting-application-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. [Custom-level observability SDKs](wavefront_sdks.html#sdks-for-instrumenting-custom-operations) enable you to define, collect, and report your own types of telemetry data from your business operations.
-[Core observability SDKs](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw telemetry data to Wavefront. </td>
+<td markdown="span">An SDK (software development kit) is a library that you can include with your application code. Wavefront supports a variety of observability SDKs in various programming languages to enable you to instrument applications to report telemetry data to Wavefront. [Framework-level observability SDKs](wavefront_sdks.html#sdks-for-framework-instrumentation) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. [General-purpose observability SDKs](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) enable you to define, collect, and report your own types of observability data from your application code.
+[Core observability SDKs](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -243,7 +248,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Telemetry data</td>
-<td>Refers to all data you can store and analyze with the Wavefront observability platform. Metrics (including delta counters), histograms, and tracing spans are collectively described as telemetry data.</td>
+<td>See Observability data.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>

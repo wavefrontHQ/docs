@@ -90,7 +90,7 @@ If you have not yet instrumented your code, you can do so by using one or more W
 
 * If your application is built with various popular application frameworks, you can obtain trace data from each supported framework by setting up a corresponding framework-level observability SDK. This is the simplest approach, because a framework-level SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App for Tracing](tracing_instrumenting_frameworks.html) for a list of supported frameworks and for information about setting up the SDKs.
 
-* If your application includes critical operations that are not based on any supported framework, you can use the Wavefront OpenTracing SDK to obtain trace data from these custom operations. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
+* If your application includes critical methods that are not handled by any supported framework, you can use the Wavefront OpenTracing SDK to obtain trace data from them. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
 
 The Wavefront observability SDKs let you to choose whether to send trace data through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
  

@@ -85,7 +85,7 @@ These steps use configuration files and minimal code changes:
 
 Use Option 2:
 * For any microservice that is not based on a framework listed for [Option 1](#option-1-quickstart---use-config-files). 
-* For instrumenting critical-path custom business operations that are not based directly on any framework API. 
+* For instrumenting critical business methods that are not handled by any instrumented framework. 
 * For control over every configurable feature, such as tuning [the data reporting interval](#wavefront-reporters).
 
 These steps involve instantiating [helper objects](#a-closer-look-at-an-instrumented-microservice) directly in your code:
@@ -158,9 +158,9 @@ These SDKs automatically collect metric data for request rates, error rates, lat
 
 ### Instrument Custom Java Code
 
-Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
+Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
 
-Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting individual business methods with SDK operations.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -175,12 +175,12 @@ Setup consists of configuring and instantiating several helper objects in your m
 <tr>
 <td>Metrics and histograms</td>
 <td markdown="span">[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Implements Dropwizard Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
+<td>Implements Dropwizard Metrics, so you can instrument your application code to send custom business metrics and histograms to Wavefront. </td></tr>
 
 <tr>
 <td>Trace data</td>
 <td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
+<td>Implements OpenTracing, so you can instrument your application code to send custom traces and spans to Wavefront. </td></tr>
 </tbody>
 </table>
 
@@ -191,10 +191,9 @@ This section lists the available Wavefront observability SDKs for collecting met
 
 ### Instrument Custom .NET/C# Code
 
-Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
+Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
 
-Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
-
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting individual business methods with SDK operations.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -209,12 +208,12 @@ Setup consists of configuring and instantiating several helper objects in your m
 <tr>
 <td>Metrics and histograms</td>
 <td markdown="span">[wavefront-appmetrics-sdk-csharp](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)</td>
-<td>Implements App Metrics, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
+<td>Implements App Metrics, so you can instrument your application code to send custom metrics and histograms to Wavefront. </td></tr>
 
 <tr>
 <td>Trace data</td>
 <td markdown="span">[wavefront-opentracing-sdk-csharp](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-<td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
+<td>Implements OpenTracing, so you can instrument your application code to send custom traces and spans to Wavefront. </td></tr>
 </tbody>
 </table>
 
@@ -224,10 +223,9 @@ This section lists the available Wavefront observability SDKs for collecting met
 
 ### Instrument Custom Python Code
 
-Each SDK enables you to instrument critical-path, proprietary business operations that are not based on an instrumented framework. 
+Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
 
-Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting the individual business operations with calls to SDK methods.
-
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting individual business methods with SDK operations.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -243,12 +241,12 @@ Setup consists of configuring and instantiating several helper objects in your m
 <tr>
 <td>Metrics and histograms</td>
 <td markdown="span">[wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
-<td>Implements PyFormance, so you can instrument custom business operations to send metrics and histograms to Wavefront. </td></tr>
+<td>Implements PyFormance, so you can instrument your application code to send custom metrics and histograms to Wavefront. </td></tr>
 --->
 <tr>
 <td>Trace data</td>
 <td markdown="span">[wavefront-opentracing-sdk-python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
-<td>Implements OpenTracing, so you can instrument custom business operations to send traces and spans to Wavefront. </td></tr>
+<td>Implements OpenTracing, so you can instrument your application code to send custom traces and spans to Wavefront. </td></tr>
 </tbody>
 </table>
 
