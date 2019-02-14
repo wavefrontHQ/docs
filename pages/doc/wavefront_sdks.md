@@ -34,33 +34,37 @@ The higher-level SDKs involve the least amount of work, with the most gain. A be
 <table id="SDKlevels" style="width: 100%">
 <colgroup>
 <col width="20%"/>
-<col width="60%"/>
+<col width="10%"/>
+<col width="50%"/>
 <col width="20%"/>
 </colgroup>
 <thead>
-<tr><th>Use This <br> Level of Support</th><th>To Do This</th><th>In These Languages</th></tr>
+<tr><th>SDKs</th><th colspan="2">Level of Instrumentation Support </th><th>Languages</th></tr>
 </thead>
 <tbody>
 <tr>
-<td markdown="span">[Framework-level SDKs](#sdks-for-framework-instrumentation) <br> (Level 3) </td>
-<td markdown="span">Instrument application frameworks, typically in microservices. <br>
-These SDKs are the easiest way to collect predefined traces, metrics, and histograms from your application, with very few code changes.</td>
+<td markdown="span">[Framework-level SDKs](#sdks-for-framework-instrumentation) </td>
+<td markdown="span">Level 3 </td>
+<td markdown="span">Instrument framework APIs, typically used in microservices. <br>
+Easiest way to collect predefined traces, metrics, and histograms from your application, with very few code changes.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#framework-level-java-sdks) 
 <!--- [Python](wavefront_sdks_python.html#framework-level-python-sdks) --->
 <!--- [.NET/C#](wavefront_sdks_csharp.html#framework-level-netc-sdks) --->  </td>
 </tr>
 <tr>
-<td markdown="span">[General-purpose SDKs](#general-purpose-sdks-for-custom-and-runtime-instrumentation)  <br> (Level 2)</td>
-<td markdown="span">Instrument general application code, along with the language runtime system. 
+<td markdown="span">[General-purpose SDKs](#general-purpose-sdks-for-custom-and-runtime-instrumentation)</td>
+<td markdown="span">Level 2 </td>
+<td markdown="span">Instrument general application code, and the language runtime. 
 <br> 
-These SDKs let you define, collect, and report custom business metrics or traces, and can be used alone or in combination with Level 3 SDKs.  </td> 
+Define, collect, and report custom business metrics or traces. Can be used alone or in combination with Level 3 SDKs.  </td> 
 <td markdown="span">[Java](wavefront_sdks_java.html#general-purpose-java-sdks) [Python](wavefront_sdks_python.html#general-purpose-python-sdks)
 [.NET/C#](wavefront_sdks_csharp.html#general-purpose-netc-sdks)</td>
 </tr>
 <tr>
-<td markdown="span">[Core SDKs](#core-sdks-for-sending-raw-data-to-wavefront)  <br> (Level 1) </td>
+<td markdown="span">[Core SDKs](#core-sdks-for-sending-raw-data-to-wavefront)  </td>
+<td markdown="span">Level 1 </td>
 <td markdown="span">Send raw metric, histogram, or trace values to Wavefront. <br> 
-These SDKs implement the core mechanisms for sending data to Wavefront. Good for writing utilities to transfer existing data into Wavefront.</td>
+Expose core mechanisms for sending data to Wavefront. Good for utilities that transfer existing data into Wavefront.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#core-java-sdk) [Python](wavefront_sdks_python.html#core-python-sdk) 
 [.NET/C#](wavefront_sdks_csharp.html#core-netc-sdk) [C++](wavefront_sdks_cpp.html#core-cpp-sdk)</td>
 </tr>
@@ -71,13 +75,13 @@ These SDKs implement the core mechanisms for sending data to Wavefront. Good for
 
 ## SDKs for Framework Instrumentation
 
-Framework-level (Level 3) SDKs instrument the operations of popular component frameworks of a microservice. Each SDK in this group instruments a particular framework in a particular programming language. Wavefront provides SDKs for many common microservices frameworks, so you can collect observability data from the inbound requests and outbound responses of each microservice in a cloud-based application, with minimal code changes. [SDK languages.](#SDKlevels)
+Framework-level SDKs (Level 3 SDKs) instrument the operations of popular component frameworks of a microservice. Each SDK in this group instruments a particular framework in a particular programming language. Wavefront provides SDKs for many common microservices frameworks, so you can collect observability data from the inbound requests and outbound responses of each microservice in a cloud-based application, with minimal code changes. [SDK languages.](#SDKlevels)
 
 Framework-level SDKs are a good place to start if you are new to instrumentation because these SDKs are simple to use: 
 * Depending on the SDK, you might edit a configuration file or instantiate a few helper objects in your code. No further coding is required.
 * When you recompile and deploy your application, the SDK automatically collects predefined metrics, histograms, and trace data from the framework's operations, and then sends the data to Wavefront, where you can visualize it.
 
-For example, suppose you have a Java microservice that uses a Jersey-compatible framework for building RESTful web services. The following screen shows predefined metrics and histograms from that microservice, after you have instrumented it with the Wavefront observability SDK for the Jersey framework. These metrics support the RED methodology for monitoring a microservice's Rate (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). SDKs for other frameworks might collect latencies, payload sizes, runtime information, and so on. 
+For example, suppose you have a Java microservice that uses a Jersey-compatible framework for building RESTful web services. The following screen shows predefined metrics and histograms from that microservice, after you have instrumented it with the Wavefront observability SDK for the Jersey framework. You can view RED metrics that measure the microservice's Request rate, Error rate, and Duration. SDKs for other frameworks might collect latencies, payload sizes, runtime information, and so on. 
 
 ![tracing fmwk sdk](images/tracing_framework_sdk.png)
 
@@ -86,7 +90,7 @@ If you need deeper instrumentation, you can later augment specific function call
 
 ## General-Purpose SDKs for Custom and Runtime Instrumentation  
 
-General-purpose (Level 2) SDKs enable you to instrument critical areas in your code to send custom business metrics, histograms, and trace data to Wavefront. These SDKs are suitable for instrumenting entire applications, or for supplementing one or more framework-level SDKs in a microservice, where you might need to instrument functions that are not handled by any instrumented framework. [SDK languages.](#SDKlevels)
+General-purpose SDKs (Level 2 SDKs) enable you to instrument critical areas in your code to send custom business metrics, histograms, and trace data to Wavefront. These SDKs are suitable for instrumenting entire applications, or for supplementing one or more framework-level SDKs in a microservice, where you might need to instrument functions that are not handled by any instrumented framework. [SDK languages.](#SDKlevels)
 
 Wavefront provides separate SDKs for 3 different areas of instrumentation. You can use any of these SDKs alone (for example, tracing only), or in combination with others (tracing, custom metrics, and runtime metrics):
 
@@ -122,7 +126,7 @@ For example, suppose you have a Java microservice with a critical backend operat
 
 ## Core SDKs for Sending Raw Data to Wavefront
 
-The core (Level 1) SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. A core SDK is especially useful for creating utilities that obtain existing values from a data store and send them as observability data to Wavefront. [SDK languages.](#SDKlevels)
+The core SDKs (Level 1 SDKs) enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. A core SDK is especially useful for creating utilities that obtain existing values from a data store and send them as observability data to Wavefront. [SDK languages.](#SDKlevels)
 
 A core SDK enables an application to communicate with Wavefront in one of two ways:
 * Send data directly to the Wavefront service ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.

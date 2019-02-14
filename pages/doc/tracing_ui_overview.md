@@ -15,17 +15,17 @@ To navigate to the tracing UI:
 1. Log in to your Wavefront cluster.
 2. From the task bar:
 
-   - Select **Applications > Inventory** to view all application services and drill down from there. Use this option if you've instrumented your app with one of our SDKs.
-   - Select **Applications > Traces** to view traces and drill down from there. Use this option if your app uses Jaeger or Zipkin but you haven't explicitly instrumented it.
+   - Select **Applications > Inventory** to view all application services and drill down from there. 
+   - Select **Applications > Traces** to start by querying for traces and drill down from there. 
 
 ![tracing menu](images/tracing_menu.png)
 
 ## Get Started: Application Services
 
-The Application Services page is your enty point for examining your application.
+The Application Services page is your entry point for examining your application.
 * Select an application from the **Jump To** pulldown.
 * Search for a service.
-* Click inside the service box to go to the dashboard for that service.
+* Click inside a service box to go to the dashboard for that service.
 
 ![app services](images/tracing_app_services.png)
 
@@ -37,8 +37,8 @@ When you select a service, you can examine the corresponding metrics and potenti
 
 * In the task bar, select the time, timezone, and other chart attributes. These selections are the same as for other dashboards.
 * Use the **Jump To** pulldown to:
-  - Select Overall for RED metrics derived from all trace data.
-  - Select an individual component to examine metrics for just that component (inside the selected service). A component could be an instrumented framework or the runtime environment.
+  - Select Overall for RED metrics derived from all trace data emitted by the selected service.
+  - Select an individual component to examine metrics for just that component inside the selected service. A component could be an instrumented framework or the runtime system.
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Select **See All Traces** or click one of the bars in a TopK chart to go to the Traces page.

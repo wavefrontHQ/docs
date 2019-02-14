@@ -234,6 +234,10 @@ entries:
       url: /trace_data_sampling.html
       output: web
       
+    - title: Visualizing Traces, Spans, and Metrics
+      url: /tracing_ui_overview.html
+      output: web
+      
     - title: Querying Trace Data
       url: /trace_data_query.html
       output: web
