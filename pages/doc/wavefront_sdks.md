@@ -25,61 +25,59 @@ Watch this video to listen to our Co-founder Clement Pang talk about how Wavefro
 
 ## Levels of Support for Instrumenting Applications
 
-Wavefront organizes its observability SDKs into 3 groups, which correspond to different levels of support for instrumenting your applications. SDKs for each level are available in popular programming languages. (The levels are sometimes numbered for convenient reference.)
-
-The higher-level SDKs involve the least amount of work, with the most gain. A best practice is to use the higher-level SDKs wherever possible, and then use the lower-level SDKs to augment any areas of your code that might not be covered.
+Wavefront organizes its observability SDKs into 3 groups, which correspond to different levels of support for instrumenting your applications. SDKs for each level are available in popular programming languages. The levels are numbered for convenient reference.
 
 <!--- Give or Link to an example? --->
 
 <table id="SDKlevels" style="width: 100%">
 <colgroup>
+<col width="8%"/>
 <col width="20%"/>
-<col width="10%"/>
-<col width="50%"/>
+<col width="52%"/>
 <col width="20%"/>
 </colgroup>
 <thead>
-<tr><th>SDKs</th><th colspan="2">Level of Instrumentation Support </th><th>Languages</th></tr>
+<tr><th colspan="2">SDK Level</th><th>Capabilities </th><th>Languages</th></tr>
 </thead>
 <tbody>
 <tr>
-<td markdown="span">[Framework-level SDKs](#sdks-for-framework-instrumentation) </td>
 <td markdown="span">Level 3 </td>
-<td markdown="span">Instrument framework APIs, typically used in microservices. <br>
-Easiest way to collect predefined traces, metrics, and histograms from your application, with very few code changes.</td>
+<td markdown="span">[Framework-level SDKs](#sdks-for-framework-instrumentation) </td>
+<td markdown="span">Instruments framework APIs, typically in a microservice. <br>
+Easiest way to collect predefined traces, metrics, and histograms, with very few code changes.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#framework-level-java-sdks) 
 <!--- [Python](wavefront_sdks_python.html#framework-level-python-sdks) --->
 <!--- [.NET/C#](wavefront_sdks_csharp.html#framework-level-netc-sdks) --->  </td>
 </tr>
 <tr>
-<td markdown="span">[General-purpose SDKs](#general-purpose-sdks-for-custom-and-runtime-instrumentation)</td>
 <td markdown="span">Level 2 </td>
-<td markdown="span">Instrument general application code, and the language runtime. 
+<td markdown="span">[General-purpose SDKs](#general-purpose-sdks-for-custom-and-runtime-instrumentation)</td>
+<td markdown="span">Instruments general application code, and the language runtime. 
 <br> 
-Define, collect, and report custom business metrics or traces. Can be used alone or in combination with Level 3 SDKs.  </td> 
+Lets you define, collect, and report custom business metrics or traces. Can be used alone or combined with Level 3 SDKs.  </td> 
 <td markdown="span">[Java](wavefront_sdks_java.html#general-purpose-java-sdks) [Python](wavefront_sdks_python.html#general-purpose-python-sdks)
 [.NET/C#](wavefront_sdks_csharp.html#general-purpose-netc-sdks)</td>
 </tr>
 <tr>
-<td markdown="span">[Core SDKs](#core-sdks-for-sending-raw-data-to-wavefront)  </td>
 <td markdown="span">Level 1 </td>
-<td markdown="span">Send raw metric, histogram, or trace values to Wavefront. <br> 
-Expose core mechanisms for sending data to Wavefront. Good for utilities that transfer existing data into Wavefront.</td>
+<td markdown="span">[Core SDKs](#core-sdks-for-sending-raw-data-to-wavefront)  </td>
+<td markdown="span">Transfers raw values to Wavefront for storage as metrics, histograms, or traces. <br> 
+Lets you configure how to send data to Wavefront. </td>
 <td markdown="span">[Java](wavefront_sdks_java.html#core-java-sdk) [Python](wavefront_sdks_python.html#core-python-sdk) 
 [.NET/C#](wavefront_sdks_csharp.html#core-netc-sdk) [C++](wavefront_sdks_cpp.html#core-cpp-sdk)</td>
 </tr>
 </tbody>
 </table>
 
-
+The Level 3 SDKs involve the least amount of work, with the most gain. A best practice is to use the Level 3 SDKs wherever possible, and then use Level 2 SDKs to augment any areas of your code that might not be covered. 
 
 ## SDKs for Framework Instrumentation
 
-Framework-level SDKs (Level 3 SDKs) instrument the operations of popular component frameworks of a microservice. Each SDK in this group instruments a particular framework in a particular programming language. Wavefront provides SDKs for many common microservices frameworks, so you can collect observability data from the inbound requests and outbound responses of each microservice in a cloud-based application, with minimal code changes. [SDK languages.](#SDKlevels)
+Framework-level SDKs (Level 3 SDKs) instrument the APIs of popular frameworks for building microservices in a cloud-based application. Each SDK in this group instruments a particular framework in a particular programming language. Wavefront provides SDKs for many common microservices frameworks, so you can collect observability data from the inbound requests and outbound responses of every microservice in your application, with minimal code changes. See above for [supported SDK languages](#SDKlevels).
 
 Framework-level SDKs are a good place to start if you are new to instrumentation because these SDKs are simple to use: 
 * Depending on the SDK, you might edit a configuration file or instantiate a few helper objects in your code. No further coding is required.
-* When you recompile and deploy your application, the SDK automatically collects predefined metrics, histograms, and trace data from the framework's operations, and then sends the data to Wavefront, where you can visualize it.
+* When you recompile and deploy your application, the SDK automatically collects predefined metrics, histograms, and trace data from the framework's operations, and then sends the data to Wavefront, where you can visualize it in predefined dashboards.
 
 For example, suppose you have a Java microservice that uses a Jersey-compatible framework for building RESTful web services. The following screen shows predefined metrics and histograms from that microservice, after you have instrumented it with the Wavefront observability SDK for the Jersey framework. You can view RED metrics that measure the microservice's Request rate, Error rate, and Duration. SDKs for other frameworks might collect latencies, payload sizes, runtime information, and so on. 
 
@@ -90,7 +88,7 @@ If you need deeper instrumentation, you can later augment specific function call
 
 ## General-Purpose SDKs for Custom and Runtime Instrumentation  
 
-General-purpose SDKs (Level 2 SDKs) enable you to instrument critical areas in your code to send custom business metrics, histograms, and trace data to Wavefront. These SDKs are suitable for instrumenting entire applications, or for supplementing one or more framework-level SDKs in a microservice, where you might need to instrument functions that are not handled by any instrumented framework. [SDK languages.](#SDKlevels)
+General-purpose SDKs (Level 2 SDKs) enable you to instrument critical areas in your code to send custom business metrics, histograms, and trace data to Wavefront. These SDKs are suitable for instrumenting entire applications, or for supplementing one or more framework-level SDKs in a microservice, where you might need to instrument functions that are not handled by any instrumented framework. See above for [supported SDK languages](#SDKlevels).
 
 Wavefront provides separate SDKs for 3 different areas of instrumentation. You can use any of these SDKs alone (for example, tracing only), or in combination with others (tracing, custom metrics, and runtime metrics):
 
@@ -126,13 +124,12 @@ For example, suppose you have a Java microservice with a critical backend operat
 
 ## Core SDKs for Sending Raw Data to Wavefront
 
-The core SDKs (Level 1 SDKs) enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. A core SDK is especially useful for creating utilities that obtain existing values from a data store and send them as observability data to Wavefront. [SDK languages.](#SDKlevels)
+The core SDKs (Level 1 SDKs) enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. A core SDK is especially useful for creating utilities that obtain existing values from a data store and send them as observability data to Wavefront. See above for [supported SDK languages](#SDKlevels).
 
-A core SDK enables an application to communicate with Wavefront in one of two ways:
+A core SDK is built into each of the other observability SDKs to enable applications to communicate with Wavefront in one of two ways:
 * Send data directly to the Wavefront service ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.
 * Send data to a [Wavefront proxy](proxies_installing.html), which then forwards the data to the Wavefront service. This technique is recommended for large-scale deployments, because the proxy provides resilience to internet outages, control over data queuing and filtering, and more.
 
-**Note:** A core SDK is built into each of the other observability SDKs to provide a uniform way of communicating with Wavefront.
 
 <!---
 **Note:** An alternative approach, without using an SDK, is to configure a Wavefront proxy to transform existing values into a data format that Wavefront recognizes.
