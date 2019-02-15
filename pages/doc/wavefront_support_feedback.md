@@ -11,19 +11,18 @@ summary: Get help with Wavefront and give feedback.
 Get in touch using **Slack**: [Wavefront public Slack channel](https://wavefront-public.slack.com)
 
 ## Support
+Get in touch with Wavefront by VMware Support from inside the product.
 
-Email or get in touch with Wavefront by VMware Support from inside the product.
-
-<table>
+<table style="width: 100%;">
 <tbody>
 <thead>
 <tr><th width="50"> </th><th width="50%"> </th></tr>
 </thead>
 <tr><td>
-<ul>
-<li>Email support@wavefront.com </li>
-<li>Log in to Wavefront, and select <strong>Support</strong> from the gear icon. </li>
-</ul>
+<ol>
+<li>Log in to Wavefront. </li>
+<li>Select <strong>Support</strong> from the gear icon. </li>
+</ol>
 </td>
 <td>
 <img src="/images/get_support.png" alt="support menu item">
