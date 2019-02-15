@@ -65,14 +65,14 @@ Wavefront provides assistance for constructing and submitting a trace query:
 To enable the level of query assistance you want: 
 
 1. Display the **Traces** page.
-2. Click this icon to toggle between the Query Builder and the Query Editor. 
+2. Click this icon to toggle between Query Builder and Query Editor. 
     ![tracing query toggle](images/tracing_query_toggle.png)
 
 ## Building a Trace Query
 
-The Query Builder lets you use menus for selecting values that describe the spans you want to see. Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
+Query Builder lets you use menus for selecting values that describe the spans you want to see. Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
 
-1. Display the **Traces** page and make sure the Query Builder is displayed. (It is displayed by default.)
+1. Display the **Traces** page and make sure Query Builder is displayed. (It is displayed by default.)
 2. Select a value from one or more of the menus. At a minimum you must select an application from the Operation menu. 
 
     <table>
@@ -140,13 +140,13 @@ Suppose you want to find traces that contain spans for an operation called `disp
 
 ### Viewing the Trace Query
 
-The Query Builder generates a query that includes the [`spans()` function](spans_queries.html) and one or more [spans filtering functions](spans_queries.html#spans-filtering-functions). For example, you can: 
+Query Builder generates a query that includes the [`spans()` function](spans_queries.html) and one or more [spans filtering functions](spans_queries.html#spans-filtering-functions). For example, you can: 
 
-1. Construct a query with the Query Builder as shown [above](#example).
+1. Construct a query with Query Builder as shown [above](#example).
 2. [Toggle to the Query Editor](#submitting-trace-queries) to see what the corresponding functions look like. 
     ![tracing query editor from builder](images/tracing_query_editor_from_builder.png)
 
-At this point, you can either continue to edit the query directly, or toggle back to the Query Builder. **Note:** If you change a query using the Query Editor, you cannot go back to the Query Builder.
+At this point, you can either continue to edit the query directly, or toggle back to Query Builder. **Note:** If you change a query using the Query Editor, you cannot go back to Query Builder.
 
 ## Sorting the Result Set
 

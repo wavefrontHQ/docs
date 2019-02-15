@@ -92,14 +92,14 @@ The metrics used in this section are:
 
 ## Using Internal Metrics to Optimize Performance
 
-A small set of internal metrics can help you optimize performance. This section highlights some things to look for - the exact steps depend on how you're using Wavefront and on the characteristics of your environment.
+A small set of internal metrics can help you optimize performance and monitor your costs. This section highlights some things to look for - the exact steps depend on how you're using Wavefront and on the characteristics of your environment.
 
 Wavefront customer support engineers have found the following metrics especially useful.
 
 <table>
 <tbody>
 <thead>
-<tr><th width="20%">Type</th><th width="30%">Metric</th><th width="50%">Description</th></tr>
+<tr><th width="15%">Type</th><th width="40%">Metric</th><th width="45%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">~query</td>
@@ -130,20 +130,21 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.</td></tr>
 <tr>
 <td markdown="span">~collector(*)</td>
-<td markdown="span">~collector.points.reported, ~collector.histograms.reported</td>
-<td markdown="span">Valid metric points or histogram points reported from the collector to Wavefront. This is the billing metric that customers can look up on their system dashboard. </td></tr>
+<td markdown="span">~collector.points.reported, <br> ~collector.histograms.reported, <br>~collector.tracing.spans.reported, <br>
+~collector.direct-ingestion.tracing.spans.reported</td>
+<td markdown="span">Valid metric points, histogram points, or [trace data (spans)](tracing_basics.html#trace-sampling-and-storage) that the collector reports to Wavefront. This is the billing metric that customers can look up on their system dashboard. </td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.valid, ~collector.histograms.valid</td>
-<td markdown="span">Valid metric points or histogram points received by the collector.</td></tr>
+<td markdown="span">Valid metric points or histogram points that the collector receives.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.batches, ~collector.histograms.batches</td>
-<td markdown="span">Number of batches of points or histogram points received by the collector, either via the proxy or via the direct ingestion API</td></tr>
+<td markdown="span">Number of batches of points or histogram points that the collector receives, either via the proxy or via the direct ingestion API</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable, ~collector.histograms.undecodable</td>
-<td markdown="span">Points or histogram points that the collector receives but that the collector cannot report to Wavefront because the points are not in the right format.</td></tr>
+<td markdown="span">Points or histogram points that the collector receives but cannot report to Wavefront because the points are not in the right format.</td></tr>
 
 </tbody>
 </table>

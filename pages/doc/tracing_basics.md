@@ -4,7 +4,7 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_basics.html
-summary: Learn about Wavefront support for trace data, and how visualizing traces can help you pinpoint errors and bottlenecks in your app.
+summary: Learn how Wavefront helps you collect and visualize trace data from your applications.
 ---
 
 Distributed tracing enables you to track the flow of work that is performed by an application as it processes a user request. In an application that consists of multiple services, a typical user request starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into an entire request across services, even when those services are running in different environments. This visibility can help you find errors and performance problems in your code. 
@@ -29,20 +29,20 @@ Watch this video to listen to our Co-founder Clement Pang introduce distributed 
 
 Wavefront follows the [OpenTracing](https://opentracing.io/) standard for representing and manipulating trace data. This means:
 
-* Wavefront represents an individual workflow in an application as a trace. A trace shows you how a particular request propagates throughout your application or among a set of services. 
+* Wavefront represents an individual workflow in an application as a trace. A trace shows you how a particular request propagates through your application or among a set of services. 
 
-* A Wavefront trace consists of one or more spans, which are the individual segments of work in the trace. Each span represents time spent by an operation in a service. 
+* A Wavefront trace consists of one or more spans, which are the individual segments of work in the trace. Each span represents time spent by an operation in a service (often a microservice). 
 
 Because requests normally consist of other requests, a trace actually consists of a tree of spans. 
 
 ### Sample Application
 <!--- Revise with final names and inventory of services and operations. Styling vs. Designer. --->
 
-Let's look at an example. Here we see a simple Java application for ordering beach shirts. 
+Let's look at an example. Here's how the different services (black) interact in a simple Java application for ordering beach shirts. 
 
 ![tracing beachShirts](images/tracing_beachshirts_app.png)
 
-This BeachShirts application has multiple services for processing different parts of a customer order. The diagram shows how these services collaborate by sending requests and responses:
+Each service processes a different part of a customer order. The diagram shows how these services collaborate by sending requests (red) and responses:
 * The customer clicks a button on the browser to trigger a request (Order Shirts) to the Shopping service.
 * The Shopping service sends the customer's shirt-selection data in a request to the Styling service. 
 * The Styling service performs its operations, which include sending requests to the Printing and Packaging services. Each of these services performs its operations and returns a response to Styling.
@@ -58,27 +58,31 @@ These services run on different hosts, and are implemented using frameworks (lik
 
 Now let's look at how traces and spans represent an end-to-end request. 
 
-In this diagram, we see a trace for a particular request that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. This trace consists of 8 member spans, one for each operation performed in the request.
+This diagram illustrates a trace for a particular request that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request. 
 
 ![tracing trace spans](images/tracing_trace_spans.png)
 
+This trace consists of 9 member spans, one for each operation performed in the request. The span for the first request (namely, the Shopping service's `orderShirts` span) is the root span of the trace. 
+
 ### A Closer Look at Traces and Spans
 
-As is typical, several of the spans in our sample trace have parent-child relationships to other spans in the trace. For example,
+Several of the spans in our sample trace have parent-child relationships to other spans in the trace. For example,
 the Styling service's `makeShirts` span has two child spans (`printShirts` and `wrapShirts`), and each of these spans has a child span of its own. 
 * A parent-child relationship exists between two spans when one operation passes data or control to another, either in the same service or in a different one. 
 * A parent span with multiple children represents a request that invokes multiple operations, either serially or in parallel. 
 
-You can think of the trace itself as the top-level parent in a tree of related spans. We refer to a trace by the service and operation of its first (root) span. Because the first operation in our sample trace is Shopping service's `orderShirts`, we use that operation to refer to the trace. 
+You can think of the trace as a tree of related spans. The trace has a unique trace ID, which is shared by each member span in the tree. 
 
-Many traces can begin with the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called. Each trace has a unique trace ID, which is shared by each member span. The trace in our example is just one of potentially thousands of similar traces, which might have different start times or durations. 
+Trace IDs are not normally displayed because they are long and hard to remember. For convenience, we refer to a trace by the service and operation of its root span. This means we use `shopping: orderShirts` as the label for the entire trace, as well as for its root span. 
 
-For more details about trace data, see [Traces, Spans, and Metrics](trace_data_details.html). 
+Different traces have the same label if they represent different calls to the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called.  The trace in our example is just one of potentially thousands of traces that start with a call to `orderShirts`. Each such trace has a unique trace ID, and normally has a different start time and duration.
+
+[See Traces, Spans, and Metrics for details.](trace_data_details.html)
 
 
 ## Ways to Send Trace Data to Wavefront
 
-An application must be _instrumented for tracing_ before it can produce and send trace data to Wavefront. Wavefront supports several options to choose from, depending on your use case. Here's the big picture:
+An application must be _instrumented for tracing_ before it can send trace data to Wavefront. Wavefront supports several options. Here's the big picture:
 
 ![tracing architecture](images/tracing_architecture.png) 
 
@@ -86,11 +90,11 @@ An application must be _instrumented for tracing_ before it can produce and send
 
 If you have already instrumented your code with a 3rd party distributed tracing system such as [Jaeger](jaeger.html) or [Zipkin](zipkin.html) you can set up a [tracing-system integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
-If you have not yet instrumented your code, you can do so by using one or more Wavefront observability SDKs:
+If you have not yet instrumented your code, you can do so by using Wavefront observability SDKs:
 
-* If your application is built with various popular application frameworks, you can obtain trace data from each supported framework by setting up a corresponding framework-level observability SDK. This is the simplest approach, because a framework-level SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App for Tracing](tracing_instrumenting_frameworks.html) for a list of supported frameworks and for information about setting up the SDKs.
+* If your application is built with a supported application framework, you can obtain trace data by setting up a corresponding framework-level observability SDK. This is the simplest approach, because a framework-level SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App for Tracing](tracing_instrumenting_frameworks.html).
 
-* If your application includes critical methods that are not handled by any supported framework, you can use the Wavefront OpenTracing SDK to obtain trace data from them. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
+* If your application includes critical methods that are not handled by any supported framework, you can use the Wavefront OpenTracing SDK to obtain trace data. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
 
 The Wavefront observability SDKs let you to choose whether to send trace data through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
  
@@ -98,23 +102,23 @@ The Wavefront observability SDKs let you to choose whether to send trace data th
 ## How to See Trace Data in Wavefront
 <!--- Revise if/when a top-level menu/button replaces Browse menu for Tracing. --->
 
-Wavefront enables you to [query](trace_data_query.html) and visualize the trace data it collects from your instrumented application. There are several starting points. 
+You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application. There are several starting points. 
 
-### Start From Metrics That Provide Context
+### Start With Metrics That Provide Context
 
-You can view trace data by starting with the RED metrics that Wavefront collects for each microservice in an instrumented application. RED metrics are measures of Requests (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces.
+You can start with the RED metrics that Wavefront collects for each microservice in an instrumented application. RED metrics are measures of Requests (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces and spans.
 
-To start from the RED metrics for your application's microservices:
-1. Select **Applications > Inventory** in the task bar, and find your application.
-2. Click on a service that you are interested in viewing traces from.
+To start examining your application's microservices from the RED metrics:
+1. Select **Applications > Inventory** in the task bar and find your application.
+2. Click on a service that you are interested in.
 3. Scroll the service's page until you find the framework or component you are interested in.
-4. Select an operation from one of the charts to examine the traces for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
+4. Select an operation from one of the charts to examine traces. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
 ### Start by Submitting a Trace Query
 
 You can view trace data by [submitting a trace query](trace_data_query.html). A trace query describes one or more spans to be matched, and then displays the traces that contain the matched spans:
 1. Select **Applications > Traces** in the task bar.
-2. In the **Traces** page, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans to be matched. 
+2. On the **Traces** page, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans to be matched. 
 
 <!--- In Hotspots topic - mention that specified span could be anywhere in result trace. Might but need not be first. ---> 
 <!---  In Hotspots topic -  mention and link to spans() function ---> 
@@ -127,13 +131,13 @@ limit(20, spans(orderShirts, application=beachshirts and service=shopping))
 
 ## Trace Sampling and Storage
 
-A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  You normally limit the volume of trace data by specifying a [sampling strategy](trace_data_sampling.html). 
+A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  You normally limit the volume of trace data using a [sampling strategy](trace_data_sampling.html). 
 
-A sampling strategy helps you keep the volume of trace data manageable, and can help to reduce your costs. Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days. 
+A sampling strategy helps you keep the volume of trace data manageable, and can help reduce costs. Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days. 
 
-Wavefront supports several [ways to set up sampling](trace_data_sampling.html#ways-to-set-up-sampling). You can choose the way the best fits your use case. 
+Wavefront supports several [ways to specify sampling strategies](trace_data_sampling.html#ways-to-set-up-sampling). You can choose the way the best fits your use case. 
 
-You can [monitor](wavefront_monitoring.html) your span storage by checking the following metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place:
+You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) your span storage by checking the following internal metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place:
 <table width="100%">
 <colgroup>
 <col width="50%"/>

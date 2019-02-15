@@ -41,7 +41,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 The `spans()` function finds spans that match the description you specify, and then returns the set of traces that contain one or more of these spans. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match. For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
 
 You submit a `spans()` function using the [Query Editor on the **Traces** page](trace_data_query.html#submitting-trace-queries). 
-You can use autocompletion to discover the span filters available for your query. Using the `spans()` function is a "power-user alternative" to using the menus provided by the Query Builder.  
+You can use autocompletion to discover the span filters available for your query. Using the `spans()` function is a "power-user alternative" to using the menus provided by Query Builder.  
 
 <!--- Because trace data is generated the ordering of matched spans is unpredictable, running the same `spans()` query twice normally returns a different set of traces.--->
 
