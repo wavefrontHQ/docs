@@ -108,13 +108,15 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
 
 ## Java Observability SDKs
 
-Wavefront supports observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Java application. For each SDK, click on the link to see the detailed setup steps. **Note** Be sure to use the latest version of the SDK on Github.
+Wavefront supports observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Java application. For each SDK, click on the link to see the detailed setup steps. 
 
-### Instrument Java Application Frameworks
+**Note:** Be sure to use the latest version of the SDK on Github.
 
-Each SDK collects metrics, histograms, and trace data from a particular Java framework or component. Setup consists of configuring and instantiating several helper objects in your microservice. No other code changes are needed.
+### Instrument Java Frameworks 
 
-These SDKs automatically collect metric data for request rates, error rates, latencies, payload sizes, runtime information, and so on. Click on the link for an SDK to find a list of these predefined metrics and histograms.
+Each SDK collects metrics, histograms, and trace data from a particular Java framework. Setup consists of configuring and instantiating several helper objects in your microservice. No other code changes are needed.
+
+These SDKs automatically collect metric data for request rates, error rates, latencies, payload sizes, and so on. Click on the link for an SDK to find a list of these predefined metrics and histograms.
 
 <table id = "sdks" width="100%">
 <colgroup>
@@ -143,11 +145,6 @@ These SDKs automatically collect metric data for request rates, error rates, lat
 <td>Instruments a JAX-RS (JSR 311: The Java API for RESTful Web Services) implementation for building RESTful Web services. Sends metrics, histograms and trace data from HTTP requests and responses.</td></tr>
 
 <tr>
-<td>JVM</td>
-<td markdown="span">[`wavefront-runtime-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
-<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Sends metrics and histograms for CPU usage, disk usage, and so on.</td></tr>
-
-<tr>
 <td>Spring Boot</td>
 <td markdown="span">[`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)</td>
 <td>Instruments Spring Boot, a Jersey-compliant framework for building RESTful Web services. Sends metrics, histograms and trace data from HTTP requests and responses.</td></tr>
@@ -155,7 +152,7 @@ These SDKs automatically collect metric data for request rates, error rates, lat
 </tbody>
 </table>
 
-### Instrument Custom Java Code
+### General Java Instrumentation
 
 Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
 
@@ -180,15 +177,23 @@ Setup consists of configuring and instantiating several helper objects in your m
 <td>Trace data</td>
 <td markdown="span">[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
 <td>Implements OpenTracing, so you can instrument your application code to send custom traces and spans to Wavefront. </td></tr>
+
+<tr>
+<td>JVM metrics</td>
+<td markdown="span">[`wavefront-runtime-sdk-jvm`](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
+<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. Sends metrics and histograms for CPU usage, disk usage, and so on.</td></tr>
+
 </tbody>
 </table>
 
 
 ## .NET/C# Observability SDKs
 
-Wavefront supports  the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. For each SDK, click on the link to see the detailed setup steps. **Note** Be sure to use the latest version of the SDK on Github.
+Wavefront supports  the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a .NET/C# application. For each SDK, click on the link to see the detailed setup steps. 
 
-### Instrument Custom .NET/C# Code
+**Note:** Be sure to use the latest version of the SDK on Github.
+
+### General .NET/C# Instrumentation 
 
 Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
 
@@ -218,9 +223,11 @@ Setup consists of configuring and instantiating several helper objects in your m
 
 ## Python Observability SDKs
 
-Wavefront supports the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Python application. For each SDK, click on the link to see the detailed setup steps. **Note** Be sure to use the latest version of the SDK on Github.
+Wavefront supports the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Python application. For each SDK, click on the link to see the detailed setup steps. 
 
-### Instrument Custom Python Code
+**Note:** Be sure to use the latest version of the SDK on Github.
+
+### General Python Instrumentation 
 
 Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
 
