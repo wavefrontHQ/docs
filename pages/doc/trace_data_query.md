@@ -7,13 +7,13 @@ permalink: trace_data_query.html
 summary: Learn how to query for Wavefront trace data.
 ---
 
-After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can query that data from the **Traces** page. With a trace query, you find the traces that you're interested in by describing the spans they must contain.
+After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can examine that data from the **Traces** page. By fine-tuning the trace query on the **Traces** page, you find the traces that you're interested in by describing the spans they must contain.
 
 ## Understanding Trace Queries
 
-You query for traces by describing the spans they must contain. A trace query can specify various span characteristics, such as an operation name, duration thresholds, and values for the tags that you set up when you instrumented your application. 
+You query for traces by describing the spans they must contain. A trace query can specify span characteristics, such as an operation name, duration thresholds, and values for the tags that you set up when you instrumented your application. 
 
-When you submit a trace query, it:
+A trace query:
 1. Finds the spans that match the description you specify.
 2. Returns the traces that contain one or more qualifying spans. 
 
@@ -27,13 +27,16 @@ A returned trace might contain other spans that do not meet these criteria.
 
 ### Graphic Representation of a Returned Trace
 
-Each returned trace is shown graphically as a bar. The bar's length represents the trace's duration. The bar's color indicates whether the trace has an error in one or more spans (red) or has no reported errors (blue):
+Wavefront displays a bar for each trace that contains at least one span that meets the criteria. The bar's length represents the trace's duration. The bar's color indicates whether the trace has an error in one or more spans (red) or has no reported errors (blue):
 
 ![tracing query results](images/tracing_query_results.png)
 
 ### How Wavefront Labels a Returned Trace
 
-Each bar that is returned by a query represents a unique trace that has a unique trace ID. For readability, we label each trace using the operation that its root span represents. The root span is the first span in the trace.  For example, each of the two returned traces shown above has a root span that represents the work done by the `orderShirts` operation in the `shopping` service, so the label for each of these traces is **shopping: orderShirts**. Although these root spans have the same operation name, they represent distinct executions of the `orderShirts` operation, with different start times.
+Each bar that is returned by a query represents a unique trace that has a unique trace ID. For readability, we label each trace by its root span, which is the first span in the trace. The trace's label is the name of the operation that the root span represents.
+
+For example, the two returned traces shown above both have the label **shopping: orderShirts**. This is because both traces have a root span
+that represents the work done by the `orderShirts` operation in the `shopping` service. However, these root spans represent different executions of the `orderShirts` operation, with different start times. Consequently, although these two root spans have the same operation name, they mark the beginning of two different traces.
 
 **Note:** A label such as **shopping: orderShirts** refers to the root span of a trace, which may be different from the span that was specified in the query. For example, suppose you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain one or more `dispatch` spans. 
 
@@ -52,8 +55,6 @@ To navigate to **Traces** directly:
 
 * Click **Applications > Traces** in the task bar.
 
-  **Note:** Alternatively, you can navigate to the **Traces** page from any page that displays metrics for a service.
-
 Wavefront provides assistance for constructing and submitting a trace query:
 * Query Builder: Use menus to select tag values for filtering spans.
     ![tracing query builder](images/tracing_query_builder.png)
@@ -62,10 +63,10 @@ Wavefront provides assistance for constructing and submitting a trace query:
     ![tracing query editor](images/tracing_query_editor.png) 
 
 
-To enable the level of query assistance you want: 
+To toggle between Query Builder and Query Editor: 
 
 1. Display the **Traces** page.
-2. Click this icon to toggle between Query Builder and Query Editor. 
+2. Click this icon: 
     ![tracing query toggle](images/tracing_query_toggle.png)
 
 ## Building a Trace Query

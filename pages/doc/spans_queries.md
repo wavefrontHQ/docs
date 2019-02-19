@@ -10,11 +10,11 @@ summary: Learn how to write spans() queries.
 ## Summary
 
 ```
-spans("<operationName>" [and|or|not "<filterName>"="<filterValue>"])
+spans("<operationName>" [and|or|not <filterName>="<filterValue>"])
 
-spans("<filterName>"="<filterValue>" [and|or|not "<filterName>"="<filterValue>"])
+spans(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
 ```
-Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified description. You normally limit the results by combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
+Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. You normally limit the results by combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
 ### Parameters
 
@@ -41,7 +41,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 The `spans()` function finds spans that match the description you specify, and then returns the set of traces that contain one or more of these spans. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match. For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
 
 You submit a `spans()` function using the [Query Editor on the **Traces** page](trace_data_query.html#submitting-trace-queries). 
-You can use autocompletion to discover the span filters available for your query. Using the `spans()` function is a "power-user alternative" to using the menus provided by Query Builder.  
+You can use autocompletion to discover the span filters available for your query. Using the `spans()` function is a power-user alternative to using Query Builder.  
 
 <!--- Because trace data is generated the ordering of matched spans is unpredictable, running the same `spans()` query twice normally returns a different set of traces.--->
 
@@ -66,9 +66,9 @@ To display the traces that include spans for any operation in the `beachshirts` 
 
 ## Span Filters
 
-Span filters allow you to limit which spans to return traces for. Span filters are key/value pairs associated with spans. Developers define the available span filters (also called *application tags*) as part of instrumenting the application code for tracing. Even if you did not instrument the code yourself, you can use autocompletion in the query editor to discover the available span filters.
+Span filters allow you to limit which spans to return traces for. Span filters are key/value pairs associated with spans. Developers define the available span filters (also called *application tags*) as part of instrumenting the application code for tracing. Even if you did not instrument the code yourself, you can use autocompletion in the Query Editor to discover the available span filters.
 
-The general format for a span filter is `"filterName"="filterValue"`. (You can think of `"<operationName>"` as special case, where you only need to specify the filter value.) You can omit the quotation marks around `<filterName>`.
+The general format for a span filter is `<filterName>="filterValue"`.
 
 
 <table style="width: 100%;">
@@ -93,7 +93,7 @@ The general format for a span filter is `"filterName"="filterValue"`. (You can t
 </tr>
 <tr>
 <td>cluster</td>
-<td markdown="span">Name of a group of related hosts that serves as a cluster or region in which an instrumented application runs, for example, `us-west-2`. Matches the spans that represent operations that are exeucted on the specified cluster.</td>
+<td markdown="span">Name of a group of related hosts that serves as a cluster or region in which an instrumented application runs, for example, `us-west-2`. Matches the spans that represent operations that are executed on the specified cluster.</td>
 <td><code>spans(cluster="us-west-2")</code></td>
 </tr>
 <tr>
@@ -143,7 +143,7 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 <tr>
 <td>limit(<strong>&lt;numberOfSpans&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
 <td markdown="span">Limits the set of spans that are matched by **spansExpression** to the specified **numberOfSpans**.  <br>
-**Note:** Because the ordering of matched spans is unpredictable, you cannot use `limit()` to page through a set of results to obtain the traces that contain the "next" group of spans. <br><br>
+**Note:** Because the ordering of matched spans is unpredictable, you cannot use `limit()` to page through a set of results to obtain the traces that contain the next group of spans. <br><br>
 
 **Example:** Limit the set of qualifying spans to 15, and return just the traces that contain the spans from that limited set:<br>
 `limit(15, spans("makeShirts", application="beachshirts"))` <br>

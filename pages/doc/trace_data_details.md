@@ -9,19 +9,18 @@ summary: Learn about the format for Wavefront spans, and naming conventions for 
 
 A [trace](tracing_basics.html#wavefront-trace-data) shows you how a particular request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request. 
 
-Spans are the fundamental units of trace data in Wavefront. This page provides details about the Wavefront format of a span, as well as the RED metrics that Wavefront automatically derives from spans.
-
+Spans are the fundamental units of trace data in Wavefront. This page provides details about the Wavefront format of a span, as well as the RED metrics that Wavefront automatically derives from spans. These details are mainly useful for developers who need to perform advanced customization.
 
 ## Wavefront Span Format
 
-A well-formed Wavefront span consists of fields and span tags that capture various attributes. These attributes enable Wavefront to identify and describe the span, organize it (possibly with other spans) into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront. 
+A well-formed Wavefront span consists of fields and span tags that capture span attributes. These attributes enable Wavefront to identify and describe the span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront. 
 
 Most use cases do not require you to know exactly how Wavefront expects a span to be formatted:
 * When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) or a [framework-level SDK](wavefront_sdks.html#sdks-for-framework-instrumentation), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
 * When you instrument your application with a [Wavefront core SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters. 
 * When you instrument your application with a 3rd party distributed tracing system, your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up. 
 
-It is, however, possible to manually construct a well-formed span and send it either directly to the Wavefront service or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system that Wavefront does not provide an integration for. 
+It is, however, possible to manually construct a well-formed span and send it either directly to the Wavefront service or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system. 
 
 ### Span Syntax
 
@@ -89,7 +88,7 @@ For example:
 
 ### Span Tags
 
-Span tags are special tags associated with a span. Many of these span tags are required for a span to be valid. An application can be instrumented to include custom span tags as well. Custom tags should not use the reserved span tag keys listed in the following tables. 
+Span tags are special tags associated with a span. Many of these span tags are required for a span to be valid. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names listed in the following tables. 
 
 **Note:** The maximum allowed length for a combination of a span tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the span is rejected.
 
@@ -104,7 +103,7 @@ The following table lists span tags that contain information about the span's id
 <col width="15%" />
 </colgroup>
 <thead>
-<tr><th>Span Tags for Identity</th><th>Required</th><th>Description</th><th>Value</th></tr>
+<tr><th>Span Tags <br>(Span Identity)</th><th>Required</th><th>Description</th><th>Type</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -145,7 +144,7 @@ The following table lists span tags that describe the architecture of the instru
 <col width="15%" />
 </colgroup>
 <thead>
-<tr><th>Span Tags for Filtering</th><th>Required</th><th>Description</th><th>Value</th></tr>
+<tr><th>Span Tags <br> (Span Filtering)</th><th>Required</th><th>Description</th><th>Type</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -175,7 +174,7 @@ The following table lists span tags that describe the architecture of the instru
 </tbody>
 </table>
 
-**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-level observability SDKs](wavefront_sdks#sdks-for-framework-instrumentation) associate span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
+**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-level observability SDKs](wavefront_sdks#sdks-for-framework-instrumentation) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
 
 <!---
 Because of operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
@@ -245,13 +244,13 @@ Wavefront constructs the names of the auto-derived RED metrics as shown in the f
 
 Wavefront associates each auto-derived RED metric with point tags `application`, `service`, and `operationName`. Wavefront assigns the corresponding span values to these point tags. The span values are assigned without being modified. 
 
-Knowing the names of the auto-derived RED metrics lets you query and visualize these metrics just as you would any other metrics in Wavefront. For example, you can use the Duration metric in a [histogram query](proxies_histograms.html#querying-histogram-metrics) to obtain percentiles other than the one (P95) displayed in the auto-generated chart.
+Knowing the names of the auto-derived RED metrics lets you query and visualize these metrics just as you would any other metrics in Wavefront. For example, you can use the Duration metric in a [histogram query](proxies_histograms.html#querying-histogram-metrics) to obtain percentiles other than the one displayed in the auto-generated chart.
 
-**Note:** Because the point tags preserve exact span values (and metric names might not), we recommend that you query for the auto-derived RED metrics using the point tags instead of metric names. 
+**Note:** We recommend that you query for the auto-derived RED metrics using the point tags instead of metric names. The point tags preserve exact span values (and metric names might not).
 
 ### Trace Sampling and Auto-Derived RED Metrics
 
-If you have instrumented your application with a Wavefront observability SDK, Wavefront always derives the RED metrics _before_ any sampling is performed. This is true regardless of whether the sampling is performed by the SDK or a Wavefront proxy. Consequently, Wavefront derives the RED metrics from a complete set of generated spans, so the metrics provide a highly accurate picture of your application's behavior. However, if you click through an auto-generated chart to inspect a particular trace, you might discover that the trace has not actually been ingested in Wavefront. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
+If you have instrumented your application with a Wavefront observability SDK, Wavefront always derives the RED metrics _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, Wavefront derives the RED metrics from a complete set of generated spans, so the metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested in Wavefront. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
 
 If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the auto-derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations#trace-sampling-and-red-metrics-from-an-integration).
 
