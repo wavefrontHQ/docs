@@ -24,7 +24,7 @@ Before you begin the installation process, [test connectivity](proxies_manual_in
 
 If your system accepts incoming traffic, you can download the proxy file as follows:
 
-1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](packagecloud.io/wavefront/proxy)
+1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](http://packagecloud.io/wavefront/proxy)
 2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`
 
    **Note:** If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`
@@ -102,7 +102,7 @@ Some Wavefront customers want to run the proxy on a host with limited network ac
 ### Prerequisites
 
 - **Networking:** The minimum requirement is an outbound HTTPS connection to the Wavefront service so the proxy can send metrics to the Wavefront service.
-  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](configuring-proxy-ports-for-metrics-histograms-and-traces) for histograms and traces.
+  For metrics, the proxy uses port 2878 by default. You change that and you can configure [additional proxy ports](proxies_installing.html#configuring-proxy-ports-for-metrics-histograms-and-traces) for histograms and traces.
 
   You can use an [HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy) for the connection.
 

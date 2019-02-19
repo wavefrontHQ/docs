@@ -79,6 +79,7 @@ The following functions always return continuous time series, even when they ope
 * [Moving time windows](#moving-window-time-functions) except [`integral()`](ts_integral.html).
 * Missing data functions: [`default()`](ts_default.html), [`last()`](ts_last.html), [`next()`](ts_next.html), [`interpolate()`](ts_interpolate.html)
 * `if()` function, when `expression` is not a constant time series.
-* [`between()`](ts_between.html), [`ongoing()`](ts_ongoing.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.
+* [`between()`](ts_between.html), [`exists()`](ts_exists.html), and [`random()`](ts_random.html) functions.
+* [`ongoing()` events function](events_queries_advanced.html#event-set-to-time-series-conversion-functions).
 * Calendar/clock standard time functions: [`year()`](ts_year.html), [`month()`](ts_month.html), [`dayOfYear()`](ts_dayOfYear.html), [`day()`](ts_day.html), [`weekday()`](ts_weekday.html), [`hour()`](ts_hour.html), [`time()`](ts_time.html)
 * Constant time series functions and expressions: [`at()`](ts_at.html), [`top()`](ts_top.html), [`bottom()`](ts_bottom.html), `<number>`

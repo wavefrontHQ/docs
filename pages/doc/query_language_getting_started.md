@@ -98,7 +98,12 @@ This doc set includes videos and explanations from the engineering team that hel
 <tr>
 <td>How can I improve query performance?</td>
 <td>Consider <a href="https://docs.wavefront.com/query_language_align_function.html">bucketing with align()</a>.
-Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">slow queries</a>.</td><td> </td></tr>
+Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">slow queries</a>.</td> <td> </td></tr>
+
+</tbody>
+</table>
+
+<!---
 <tr>
 <td>How do time windows work?</td>
 <td markdown=span>Wavefront supports [moving time window functions](). </a>.
@@ -109,5 +114,4 @@ Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">sl
 <tr>
 <td>How do I calculate over a specified of time (e.g. daily average)?</td>
 <td markdown=span>Use a tumbling time window. See [Tumbling Windows Examples](query_language_windows_trends.html#tumbling-window-examples).</td><td> </td></tr>
-</tbody>
-</table>
+--->

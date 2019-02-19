@@ -49,6 +49,7 @@ Edit `4-collector-deployment.yaml` as follows:
 
 * Replace `clusterName=k8s-cluster` to uniquely identify your Kubernetes cluster.
 * If RBAC is disabled in your Kubernetes cluster, comment out `serviceAccountName: wavefront-collector`.
+* If the read-only kubelet port is disabled, replace the kubernetes source as described [here](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/configuration.md#kubernetes-source).
 
 Run `kubectl create -f </path/to/wavefront-collector-dir>/` to deploy the collector on your cluster.
 
@@ -61,4 +62,3 @@ Wavefront provides a HPA adapter for autoscaling your pods based on any metrics 
 
 ### Openshift Monitoring
 This collector supports monitoring of Openshift Origin clusters. See [openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md) for detailed installation instructions.
-

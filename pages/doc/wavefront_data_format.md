@@ -10,8 +10,8 @@ The Wavefront data format is supported by [Wavefront proxies](proxies.html) and 
 
 Wavefront proxies support the following additional data formats:
 
-- [Graphite data format (plaintext and  pickle)](http://graphite.readthedocs.io/en/latest/feeding-carbon.html)
-- [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing.html)
+- [Graphite data format (plaintext and  pickle)](https://graphite.readthedocs.io/en/latest/feeding-carbon.html)
+- [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing/)
 
 ## Wavefront Data Format Syntax
 

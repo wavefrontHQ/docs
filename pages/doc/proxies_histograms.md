@@ -474,3 +474,8 @@ To view histograms:
    * We display the median for histogram metrics by default. You can use  `percentile(<value>, hs(<expression>))` to retrieve other percentiles.
 
    ![histogram_chart](images/histogram_chart.png)
+
+## Monitoring Histogram Points
+
+You can use `~collector` metrics to monitor histogram ingestion. See [Understanding ~collector Metrics for Histograms](wavefront_monitoring.html#understanding-collector-metrics-for-histograms).
+  
