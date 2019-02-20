@@ -34,10 +34,12 @@ Wavefront organizes its observability SDKs into 3 groups, which correspond to di
 <col width="8%"/>
 <col width="20%"/>
 <col width="52%"/>
-<col width="20%"/>
+<col width="7%"/>
+<col width="7%"/>
+<col width="6%"/>
 </colgroup>
 <thead>
-<tr><th colspan="2">SDK Level</th><th>Capabilities </th><th>Languages</th></tr>
+<tr><th colspan="2">SDK Level</th><th>Capabilities </th><th colspan="3">Languages</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -48,23 +50,35 @@ Easiest way to collect predefined traces, metrics, and histograms, with very few
 <td markdown="span">[Java](wavefront_sdks_java.html#framework-level-java-sdks) 
 <!--- [Python](wavefront_sdks_python.html#framework-level-python-sdks) --->
 <!--- [.NET/C#](wavefront_sdks_csharp.html#framework-level-netc-sdks) --->  </td>
+<td markdown="span"> </td>
+<td markdown="span"> </td>
 </tr>
+
 <tr>
 <td markdown="span">Level 2 </td>
 <td markdown="span">[General-purpose SDKs](#general-purpose-sdks-for-custom-and-runtime-instrumentation)</td>
-<td markdown="span">Instruments general application code, and the language runtime. 
+<td markdown="span">Instruments application code and the language runtime. 
 <br> 
 Lets you define, collect, and report custom business metrics or traces. Can be used alone or combined with Level 3 SDKs.  </td> 
-<td markdown="span">[Java](wavefront_sdks_java.html#general-purpose-java-sdks) [Python](wavefront_sdks_python.html#general-purpose-python-sdks)
-[.NET/C#](wavefront_sdks_csharp.html#general-purpose-netc-sdks)</td>
+
+<td markdown="span">[Go](wavefront_sdks_go.html#general-purpose-go-sdks) <br>
+                    [Python](wavefront_sdks_python.html#general-purpose-python-sdks)</td>
+<td markdown="span">[Java](wavefront_sdks_java.html#general-purpose-java-sdks)</td>
+<td markdown="span">[.NET/C#](wavefront_sdks_csharp.html#general-purpose-netc-sdks)</td>
 </tr>
+
 <tr>
 <td markdown="span">Level 1 </td>
 <td markdown="span">[Core SDKs](#core-sdks-for-sending-raw-data-to-wavefront)  </td>
 <td markdown="span">Transfers raw values to Wavefront for storage as metrics, histograms, or traces. <br> 
 Lets you configure how to send data to Wavefront. </td>
-<td markdown="span">[Java](wavefront_sdks_java.html#core-java-sdk) [Python](wavefront_sdks_python.html#core-python-sdk) 
-[.NET/C#](wavefront_sdks_csharp.html#core-netc-sdk) [C++](wavefront_sdks_cpp.html#core-cpp-sdk)</td>
+<td markdown="span">[Go](wavefront_sdks_go.html#general-purpose-go-sdks) <br>
+                    [Python](wavefront_sdks_python.html#general-purpose-python-sdks)</td>
+
+<td markdown="span">[Java](wavefront_sdks_java.html#general-purpose-java-sdks) <br>
+                   [C++](wavefront_sdks_cpp.html#core-cpp-sdk)</td>
+
+<td markdown="span">[.NET/C#](wavefront_sdks_csharp.html#general-purpose-netc-sdks) </td>
 </tr>
 </tbody>
 </table>
@@ -118,8 +132,8 @@ Wavefront provides separate SDKs for 3 different areas of instrumentation. You c
 The SDKs for collecting custom metrics and trace data require some code changes beyond setting up helper objects in your microservice. In particular, you'll need to instantiate objects for each type of data you want to collect, and modify each function of interest.
 
 For example, suppose you have a Java microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-level SDK to instrument the RESTful APIs of the microservice, you'd also like to track how many critical writes are performed, and you'd like to see how long these operations take. You can:
-* Use an SDK for custom business metrics to instrument the write operation to maintain a count.
-* Use an SDK for OpenTracing to instrument the write operation to add spans to the microservice's traces. 
+* Use a Wavefront SDK for custom business metrics to instrument the write operation to maintain a count.
+* Use a Wavefront OpenTracing SDK to instrument the write operation to add spans to the microservice's traces. 
 
 
 ## Core SDKs for Sending Raw Data to Wavefront

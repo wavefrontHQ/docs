@@ -98,6 +98,8 @@ These steps involve instantiating [helper objects](#a-closer-look-at-an-instrume
           | [Java SDKs](#java-observability-sdks) |  
           | [C# SDKs](#netc-observability-sdks) |
           | [Python SDKs](#python-observability-sdks) | 
+          | [Go SDKs](#go-observability-sdks) | 
+
 
     3. Follow the setup steps in the `README` file. If a `README` file offers Custom Setup steps, choose those. 
     4. Repeat for each instrumentable framework or component in the microservice. 
@@ -256,7 +258,34 @@ Setup consists of configuring and instantiating several helper objects in your m
 </tbody>
 </table>
 
+## Go Observability SDKs
 
+Wavefront supports the available Wavefront observability SDKs for collecting metrics, histograms, and trace data from the microservices in a Go application. For each SDK, click on the link to see the detailed setup steps. 
+
+**Note:** Be sure to use the latest version of the SDK on Github.
+
+### General Go Instrumentation 
+
+Each SDK enables you to instrument critical business methods that are not handled by any instrumented framework.
+
+Setup consists of configuring and instantiating several helper objects in your microservice, defining the particular types of data to be collected, and augmenting individual business methods with SDK operations.
+
+<table id = "sdks" width="100%">
+<colgroup>
+<col width="25%" />
+<col width="30%" />
+<col width="45%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>To Collect This Type of Data</th><th>Use This Wavefront SDK</th><th>Description</th></tr>
+</thead>
+<tr>
+<td>Trace data</td>
+<td markdown="span">[wavefront-opentracing-sdk-go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
+<td>Implements OpenTracing, so you can instrument your application code to send custom traces and spans to Wavefront. </td></tr>
+</tbody>
+</table>
 
 ## A Closer Look at an Instrumented Microservice
 
