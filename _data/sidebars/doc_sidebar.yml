@@ -202,6 +202,10 @@ entries:
         output: web
         subfolderitems:
 
+        - title: Query Language Recipes
+          url: /query_language_recipes.html
+          output: web
+
         - title: Aggregating Time Series
           url: /query_language_aggregate_functions.html
           output: web
@@ -229,27 +233,27 @@ entries:
     - title: Instrumenting Your App for Tracing
       url: /tracing_instrumenting_frameworks.html
       output: web
-      
+
     - title: Obtaining 3rd Party Traces
       url: /tracing_integrations.html
       output: web
-      
+
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
-      
+
     - title: Visualizing Traces, Spans, and Metrics
       url: /tracing_ui_overview.html
       output: web
-      
+
     - title: Querying Trace Data
       url: /trace_data_query.html
       output: web
-      
+
     - title: spans() Queries
       url: /spans_queries.html
       output: web
-      
+
     - title: Traces, Spans, and Metrics
       url: /trace_data_details.html
       output: web
@@ -330,6 +334,10 @@ entries:
       - title: Alerts Tips and Tricks
         output: web
         subfolderitems:
+
+        - title: Alert Recipes
+          url: /alerts_recipes.html
+          output: web
 
         - title: Managing Alert Dependencies
           url: /alerts_dependencies.html

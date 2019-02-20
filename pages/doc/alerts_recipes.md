@@ -3,7 +3,7 @@ title: Alert Recipes
 keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar
-permalink: alert_recipes.html
+permalink: alerts_recipes.html
 summary: Queries for common alert scenarios
 ---
 
