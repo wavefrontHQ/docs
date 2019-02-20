@@ -174,7 +174,7 @@ The following table lists span tags that describe the architecture of the instru
 </tbody>
 </table>
 
-**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-level observability SDKs](wavefront_sdks#sdks-for-framework-instrumentation) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
+**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-level observability SDKs](wavefront_sdks.html#sdks-for-framework-instrumentation) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
 
 <!---
 Because of operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
@@ -252,7 +252,7 @@ Knowing the names of the auto-derived RED metrics lets you query and visualize t
 
 If you have instrumented your application with a Wavefront observability SDK, Wavefront always derives the RED metrics _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, Wavefront derives the RED metrics from a complete set of generated spans, so the metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested in Wavefront. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
 
-If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the auto-derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations#trace-sampling-and-red-metrics-from-an-integration).
+If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the auto-derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
 
 <!---
