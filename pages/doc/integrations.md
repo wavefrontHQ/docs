@@ -36,8 +36,8 @@ Wavefront lets you set up many integrations directly from the product. For other
 
 - **Custom** integrations provide installation and configuration instructions in this documentation.
 
-This table provides links to the documentation pages for many of the custom and customizable integrations: 
- 
+This table provides links to the documentation pages for many of the custom and customizable integrations:
+
 <table width="100%">
 <colgroup>
 <col width="30%" />
@@ -54,7 +54,7 @@ This table provides links to the documentation pages for many of the custom and 
 </tr>
 <tr>
 <td>Custom integrations - Data Collector</td>
-<td markdown="span">[AppDynamics](integrations_appdynamics.html), [JMX](integrations_jmx.html), [NewRelic](integrations_newrelic.html), [External links](external_links_managing.html), [R](integrations_r.html)
+<td markdown="span">[AppDynamics](integrations_appdynamics.html), [NewRelic](integrations_newrelic.html), [External links](external_links_managing.html), [R](integrations_r.html)
 </td>
 </tr>
 <tr>

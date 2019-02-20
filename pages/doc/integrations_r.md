@@ -175,4 +175,4 @@ If you're just getting started with R, there are a few resources to help you out
 
 - [Introducting R](http://data.princeton.edu/R/default.html), Princeton: Very gentle introduction to the basic workspace, broken into a few easy-to-digest sections
 - [An Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.html), CRAN: A longer tutorial for R in terms of syntax and basic analysis/visualization
-- [The R Book](https://archive.org/download/TheRBook/The_R_Book-Crawley.pdf), Michael Cawley: The best overall view of R as a mathematical/statistical tool, though at 1000+ pages, more of a reference than a tutorial.
+- [The R Book](https://archive.org/details/TheRBook_Crawley), Michael Cawley: The best overall view of R as a mathematical/statistical tool, though at 1000+ pages, more of a reference than a tutorial.
