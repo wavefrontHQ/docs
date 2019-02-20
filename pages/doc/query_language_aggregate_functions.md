@@ -9,8 +9,9 @@ summary: How to aggregate points from multiple time series with or without inter
 
 You can combine points from multiple time series using an [**aggregation function**](query_language_reference.html#aggregation-functions) such as `sum()`, `avg()`, `min()`, `count()`, `percentile()` etc.  An aggregation function returns a series of points whose values are calculated from corresponding points in two or more input time series. Wavefront supports aggregation with interpolation or without interpolation:
 
-* Standard aggregation functions (e.g. `sum()`, `avg()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series.
+* Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
 * Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.
+* [Moving window functions](query_language_windows_trends.html) (e.g. `msum()`, `mavg()` and `mmax()` aggregate series horizontally across a chart by time. They take each individual series and aggregate its own prior behavior across the timeWindow. For example, you can get the maximum value for each series in the specified time window. 
 
 In the following video, Wavefrount co-founder Clement Pang explains how interpolation works:
 
@@ -149,7 +150,7 @@ When there is at least 1 true data value reported at a given interval, standard 
 
 The data values in the charts above are typically reported once a minute. In the chart that shows the 3 time series, we see that:
 * Between 9:15a and 9:21a, the orange series reports once a minute, on the minute, while the other two series do not. Because the orange series reports at least 1 true data value during this time, Wavefront interpolates the values for the blue and green series before calculating the `sum()` value.
-* Between 9:36a and 9:42a the green and orange series report data values every minute, but the blue series does not not. Wavefront does interpolation before aggregation. 
+* Between 9:36a and 9:42a the green and orange series report data values every minute, but the blue series does not not. Wavefront does interpolation before aggregation.
 
 **Example: Raw Aggregation Function**
 

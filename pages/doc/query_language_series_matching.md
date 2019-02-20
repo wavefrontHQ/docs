@@ -18,10 +18,10 @@ Wavefront performs series matching when you apply certain operators and function
 - Filter functions (highpass, lowpass, min, max)
 - Exponential and trigonometric functions
 
-### Series Matching Examples
+
 In the examples below, the results listed to the right of = represents the set of series that would be displayed.
 
-#### Series Matching Occurs
+### Series Matching Occurs
 
 The following examples show when series matching occurs:
 <table style="width: 100%;">
@@ -41,7 +41,7 @@ The following examples show when series matching occurs:
 </tbody>
 </table>
 
-#### Series Matching Does Not Occur
+### Series Matching Does Not Occur
 
 The following examples show when series matching does not occur:
 <table style="width: 100%;">
@@ -64,7 +64,7 @@ The following examples show when series matching does not occur:
 </tbody>
 </table>
 
-### Series Matching Basics
+## Series Matching Basics
 
 Assume you enter the following ts() expression
 
@@ -110,6 +110,13 @@ There are cases when you apply functions to expressions, but no series matching 
 
 For example, if you replaced `tag="east"` with `source="app-4"`, then the value associated with `app-4` in the second expression at each time slice is subtracted from each represented source in the first expression at each time slice. If you still want series matching to occur in the previous example, then you can wrap the operator or function with an inner join (i.e. `[+]`).
 
+## Series Matching Example
+
+Here's a simple example where the Wavefront UI displays a message that informs you that some of the series are not included in all queries.
+
+![series matching example](images/series_matching_example.png)
+
+The reason we get this message is that some expressions limit the environment to `env=dev` and other expressions don't use the filter. When part of a query uses a filter, but another part doesn't, then the whole query uses the filter. In this example, all queries will be limited to `env=dev`
 
 <a name="point_tags"></a>
 
