@@ -7,21 +7,21 @@ permalink: derived_metrics.html
 summary: Learn how to save a query so it runs once a minute, and how to use the derived metric elsewhere.
 ---
 
-The derived metrics functionality allows you to run a query and ingest it back into Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.
+Derived metrics allow you to run a query and ingest it back into Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.
 
-<div markdown="span" class="alert alert-info">You must have [Derived Metrics Management permissions](permissions_overview.html) to create and manage derived metrics.</div>
+<div markdown="span" class="alert alert-info">You must have [Derived Metrics permissions](permissions_overview.html) to create and manage derived metrics.</div>
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 
 ## Use Cases
 
-Our customers have asked us to be able to register and ingest a query so they can have instantly available metrics (derived metrics). Here are some use cases.
+Our customers wanted to register and ingest a query so they can have instantly available metrics (derived metrics). Here are some use cases.
 
 ### Simplify User Experience
 
 Many queries are complex and intimidating for non-expert users. If you create a derived metric, the corresponding query runs in the background. All users can then use the result of the complex query -- the derived metric -- in other queries.
 
-The screenshot below shows how you can create a derived metric from a complex query. You use `aliasMetric` and can call the metric by that metric name in a new query. In this example, we can use `test.billing.metric` the next time we need the result of the query.
+The screenshot below shows how you can create a derived metric from a complex query. This query tracks employees who are required to perform onboarding. You use `aliasMetric` and can call the metric by that metric name in a new query. In this example, we can use `employee-onboarding-time-left` the next time we need the result of the query.
 
 ![registered query](images/registered_query.png)
 
