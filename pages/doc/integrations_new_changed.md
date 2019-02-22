@@ -6,11 +6,11 @@ sidebar: doc_sidebar
 permalink: integrations_new_changed.html
 summary: New and changed Wavefront integrations in 2019.
 ---
-Wavefront continuously adds new integrations to the existing set, and improves available integrations.
+Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-This document lists new and changed integrations for 2019.
-* We have a separate document for [New and Changed Integrations in 2018](integrations_new_changed.html).
-* We update our [list of all integrations](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
+## All 2018 Integrations
+
+We have a separate document for [New and Changed Integrations in 2018](integrations_new_changed_2018.html).
 
 ## January - March 2019
 
