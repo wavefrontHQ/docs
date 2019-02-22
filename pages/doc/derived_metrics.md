@@ -31,7 +31,7 @@ Other examples might include:
 
 ### Performance Improvements
 
-Improve performance by pre-processing expensive queries and saving the results as a new metric. Expensive might mean a large volume of data is accessed, many calculations are done, many metrics are use, and so on. Derived are especially useful if the query result is needed by several other queries or even by several users. The expensive operation is performed once a minute (or less frequently) and the new derived metric is accessible.
+Improve performance by pre-processing expensive queries and saving the results as a new metric. Expensive might mean a large volume of data is accessed, many calculations are done, many metrics are use, and so on. Derived metrics are especially useful if the query result is needed by several other queries or even by several users. The expensive operation is performed once a minute (or less frequently) and the new derived metric is accessible.
 
 #### Example 1: Idle CPU
 
