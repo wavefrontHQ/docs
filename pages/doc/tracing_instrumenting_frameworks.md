@@ -54,7 +54,7 @@ _[[video that describes how to set up BeachShirts app]]_
 
 Your cloud-native application might consist of many microservices. Choose a microservice to instrument.
 
-Is this microservice built with one or more application frameworks?
+Is this microservice built with one or more Java application frameworks?
 
 * Yes: Start by [instrumenting a framework](#instrument-a-framework).
 * No: Start by [instrumenting with OpenTracing](#instrument-with-opentracing).
@@ -65,7 +65,7 @@ Is this microservice built with one or more application frameworks?
 Follow these steps to use a Wavefront SDK that instruments an application framework for handling RESTful web services or RPC connections. Each such SDK collects predefined traces, metrics and histograms automatically, so you can get up and running with minimal effort. 
 
 1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
-2. If your microservice uses one of the frameworks in this list, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub.
+2. If your microservice uses one of the Java frameworks in this list, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub.
 
     | Dropwizard | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) | 
     | gRPC | [`wavefront-grpc-sdk-java`](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java) |
