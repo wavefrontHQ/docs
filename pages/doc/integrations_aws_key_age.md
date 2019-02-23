@@ -1,5 +1,5 @@
 ---
-title: AWS IAM Access Key Age Integration
+title: AWS IAM Access Key Age Integration Details
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar

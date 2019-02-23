@@ -411,6 +411,10 @@ entries:
             url: /integrations_aws_lambda.html
             output: web
 
+          - title: AWS IAM Access Key Age Integration
+            url: /integrations_aws_key_age.html
+            output: web
+            
           - title: VMware PKS Integration
             url: /integrations_pks.html
             output: web
