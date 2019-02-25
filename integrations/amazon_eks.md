@@ -22,6 +22,12 @@ Here's a preview of some of the charts from kube-state-metrics dashboard.
 
 **Note:** This integration provides updated setup instructions and dashboard for Kubernetes. For the previous setup instructions, see the **Kubernetes (Archived)** integration in the **Archived** section.
 
+### Openshift Monitoring
+This collector supports monitoring of Openshift Origin clusters. See [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+
+### Kubernetes Monitoring
+Follow the instructions below to set up Kubernetes monitoring.
+
 ### Step 1. Deploy a Wavefront Proxy in Kubernetes
 
 Download [wavefront.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/wavefront-proxy/wavefront.yaml) to your system. Edit the file and set `WAVEFRONT_URL` to `https://YOUR_CLUSTER.wavefront.com/api/` and `WAVEFRONT_TOKEN` to `YOUR_API_TOKEN`.
@@ -60,5 +66,3 @@ If you do not see metrics in the Kubernetes dashboard, check the logs from the c
 ### Horizontal Pod Autoscaling (HPA)
 Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See  [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
 
-### Openshift Monitoring
-This collector supports monitoring of Openshift Origin clusters. See [openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md) for detailed installation instructions.
