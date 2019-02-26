@@ -71,7 +71,7 @@ The chart includes information about the alert associated with the event, and ab
 
 ## Creating a User Event
 
-To create a user event:
+Wavefront creates many events for you, but you can also create an event explicitly. Watch the [Creating an Event video](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true) or follow these steps: 
 
 1. Do one of the following:
    - Select **Browse > Events** and click the <strong>Create Event</strong> button at the top of the filter bar.

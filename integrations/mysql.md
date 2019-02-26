@@ -52,43 +52,43 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
       table_schema_databases                    = []
       #
       ## gather metrics from INFORMATION_SCHEMA.TABLES for databases provided above list
-      gather_table_schema                       = false
+      # gather_table_schema                       = false
       #
       ## gather thread state counts from INFORMATION_SCHEMA.PROCESSLIST
       gather_process_list                       = true
       #
       ## gather thread state counts from INFORMATION_SCHEMA.USER_STATISTICS
-      gather_user_statistics                    = true
+      # gather_user_statistics                    = true
       #
       ## gather auto_increment columns and max values from information schema
-      gather_info_schema_auto_inc               = true
+      # gather_info_schema_auto_inc               = true
       #
       ## gather metrics from INFORMATION_SCHEMA.INNODB_METRICS
-      gather_innodb_metrics                     = true
+      # gather_innodb_metrics                     = true
       #
       ## gather metrics from SHOW SLAVE STATUS command output
-      gather_slave_status                       = true
+      # gather_slave_status                       = true
       #
       ## gather metrics from SHOW BINARY LOGS command output
-      gather_binary_logs                        = false
+      # gather_binary_logs                        = false
       #
       ## gather metrics from PERFORMANCE_SCHEMA.TABLE_IO_WAITS_SUMMARY_BY_TABLE
-      gather_table_io_waits                     = false
+      gather_table_io_waits                     = true
       #
       ## gather metrics from PERFORMANCE_SCHEMA.TABLE_LOCK_WAITS
-      gather_table_lock_waits                   = false
+      gather_table_lock_waits                   = true
       #
       ## gather metrics from PERFORMANCE_SCHEMA.TABLE_IO_WAITS_SUMMARY_BY_INDEX_USAGE
-      gather_index_io_waits                     = false
+      gather_index_io_waits                     = true
       #
       ## gather metrics from PERFORMANCE_SCHEMA.EVENT_WAITS
-      gather_event_waits                        = false
+      gather_event_waits                        = true
       #
       ## gather metrics from PERFORMANCE_SCHEMA.FILE_SUMMARY_BY_EVENT_NAME
-      gather_file_events_stats                  = false
+      gather_file_events_stats                  = true
       #
       ## gather metrics from PERFORMANCE_SCHEMA.EVENTS_STATEMENTS_SUMMARY_BY_DIGEST
-      gather_perf_events_statements             = false
+      gather_perf_events_statements             = true
       #
       ## Some queries we may want to run less often (such as SHOW GLOBAL VARIABLES)
       interval_slow                             = "30m"

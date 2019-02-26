@@ -178,6 +178,29 @@ Linux| `sudo apt-get update && sudo apt-get install wavefront-proxy`
 Linux (RPM)|`yum update wavefront-proxy`
 Mac OS|`brew update && brew upgrade wfproxy`
 
+### Uninstalling a Proxy
+
+When you upgrade a proxy, we uninstall the older version for you. You can also uninstall a proxy explicitly. The process is different for different operating systems.
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">OS</th><th width="80%">Instructions</th></tr>
+</thead>
+<tr>
+<td markdown="span">Windows</td>
+<td markdown="span"> Follow [this process](windows.html#uninstall-the-wavefront-proxy-and-telegraf-agent).</td></tr>
+<tr><td>Linux</td>
+<td><code>sudo apt-get remove wavefront-proxy
+sudo apt-get remove telegraf</code></td></tr>
+<tr><td>Linux (RPM)</td>
+<td><code>sudo yum remove wavefront-proxy
+sudo yum remove telegraf</code></td></tr>
+<tr><td>Mac OS</td>
+<td markdown="span">`bash -c "$(curl -s https://raw.githubusercontent.com/wavefrontHQ/homebrew-wavefront/master/sh/uninstall.sh)" `</td></tr>
+</tbody>
+</table>
+
 
 ## Proxy Troubleshooting
 
