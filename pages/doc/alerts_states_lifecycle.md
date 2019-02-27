@@ -12,7 +12,7 @@ Here's a video to get you started:
 
 ## Alert Lifecycle Basics
 
-The alert lifecycle determines which events the alert triggers, and which alert targets get notifications. Classic and threshold alerts are exactly the same in terms of events. However, when notifications are sent to which target differs for classic alerts and for threshold alerts.
+The alert lifecycle determines which events the alert triggers, and which alert targets get notifications. Classic and multi-threshold alerts are exactly the same in terms of events. However, when notifications are sent to which target differs for classic alerts and for multi-threshold alerts.
 
 ### When Classic Alerts Notify Targets
 
@@ -21,9 +21,9 @@ Classic alerts notify all targets at the same time when the alert changes state:
 2. When the alert fires, Wavefront sends alert notifications to the alert target(s) specified for the alert, using the severity that's prespecified for the alert.
 3. When the alert resolves or is snoozed, Wavefront sends additional notification to the alert target(s).
 
-### When Threshold Alerts Notify Targets
+### When Multi-Threshold Alerts Notify Targets
 
-A threshold alert supports multiple severities with different alert targets. Let's look at an example:
+A multi-threshold alert supports multiple severities with different alert targets. Let's look at an example:
 
 |ts expression |`ts(cpu.loadavg.1m)`|
 |operator | >|
@@ -31,7 +31,7 @@ A threshold alert supports multiple severities with different alert targets. Let
 |WARN   | 5000  |
 |SMOKE  | 4000  |
 
-This threshold alert notifies targets like this:
+This multi-threshold alert notifies targets like this:
 1. Wavefront monitors the alert condition.
 2. If at least one of the thresholds is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
 3. Notifications are always sent to all alert targets equal and below the severity that the alert fires. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the current value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
@@ -134,7 +134,7 @@ In the example shown in the screen shot below, the threshold for the alert is se
 
 ## Viewing Firing Alerts
 
-The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) shows the number of alerts firing and their severity. The filter bar at the left of the Alerts page shows the number of firing alerts by severity. For threshold alerts, we list each alert only for the highest severity even if lower severity conditions are also met.
+The alerts icon in the task bar ![number of alerts](images/alerts.png#inline) shows the number of alerts firing and their severity. The filter bar at the left of the Alerts page shows the number of firing alerts by severity. For multi-threshold alerts, we list each alert only for the highest severity even if lower severity conditions are also met.
 
 You can click the FIRING facet to filter the list of alerts:
 
