@@ -8,10 +8,14 @@ summary: Learn about new features and changes in different Wavefront proxy versi
 ---
 This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 
+<!---
+## Version 4.36
+* Generate RED metrics from tracing spans.
+--->
+
 ## Version 4.35
 * First class integration for Zipkin. Anyone using Zipkin can substitute a Wavefront proxy for the Zipkin HTTP collector to send data to Wavefront. 
-* Generate RED metrics from tracing spans.
-* Fixes issue with Jaeger integration.
+* Fixes minor Jaeger integration issues.
 
 ## Version 4.34
 * Support for trace sampling. 

@@ -192,7 +192,7 @@ RED metrics are measures of:
 * Errors – the number of failed requests (spans) per second
 * Duration – per-minute histogram distributions of the amount of time that each request (span) takes
 
-**Note:** RED metrics are also collected and sent by [framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). In this case, however, the SDK does not derive the RED metrics from spans, but instead collects and sends them directly from the instrumented framework APIs. (The SDK might send other metrics and histograms in addition to RED metrics.)
+**Note:** RED metrics are also collected and sent by the [framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
 
 ### Auto-Generated Charts
 Wavefront automatically generates charts to display the auto-derived RED metrics and histograms. To view these charts:
