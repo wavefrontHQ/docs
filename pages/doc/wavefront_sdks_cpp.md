@@ -15,9 +15,9 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 * **Note:** Be sure to use the latest version of the SDK.
 
 <!---
-## Framework-level C++ SDKs
+## C++ SDKs for Instrumenting Frameworks
 
-Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-instrumentation) collects observability data from a particular C++ framework or component, with minimal code setup.
+Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular C++ framework or component, with minimal code setup.
 
 <table id = "framework-cpp" width="100%">
 <colgroup>
@@ -39,15 +39,14 @@ Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-inst
 </table>
 
 
-## General-Purpose C++ SDKs
+## C++ SDKs for Collecting Metrics
 
-Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) enables you to instrument critical business methods that are not handled by any instrumented framework. You'll need to add some code to each method to be instrumented.
+A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
 
-
-<table id = "custom-cpp" width="100%">
+<table id = "metrics-cpp" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -61,6 +60,24 @@ Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-fo
 <td markdown="span">Metrics, histograms</td>
 </tr>
 
+</tbody>
+</table>
+
+## C++ SDK for Collecting Trace Data
+
+The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) enables you to instrument critical business methods to collect and send custom trace data. You'll need to add some code to each method to be instrumented.
+
+<table id = "opentracing-cpp" width="100%">
+<colgroup>
+<col width="30%" />
+<col width="50%" />
+<col width="20%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
+</thead>
+
 <tr>
 <td markdown="span">[OpenTracing SDK for C++](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-cpp)</td>
 <td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
@@ -68,16 +85,17 @@ Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-fo
 </tr>
 </tbody>
 </table>
+
 --->
 
-## Core C++ SDK
+## C++ SDK for Sending Raw Data
 
-The [core (Level 1)  SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+The [sender  SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
 <table id = "core-cpp" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -85,7 +103,7 @@ The [core (Level 1)  SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-
 <tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
-<td markdown="span">[Core SDK for C++](https://github.com/wavefrontHQ/wavefront-sdk-cpp)</td>
+<td markdown="span">[Sender SDK for C++](https://github.com/wavefrontHQ/wavefront-sdk-cpp)</td>
 <td>Sends raw data values either directly to the Wavefront service or to a Wavefront proxy. </td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>

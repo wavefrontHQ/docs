@@ -15,9 +15,9 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 * **Note:** Be sure to use the latest version of the SDK.
 
 <!---
-## Framework-level Go SDKs
+## Go SDKs for Instrumenting Frameworks
 
-Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-instrumentation) collects observability data from a particular Go framework or component, with minimal code setup.
+Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Go framework or component, with minimal code setup.
 
 <table id = "framework-go" width="100%">
 <colgroup>
@@ -39,11 +39,13 @@ Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-inst
 </table>
 --->
 
-## General-Purpose Go SDKs
+<!---
 
-Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) enables you to instrument critical business methods that are not handled by any instrumented framework. You'll need to add some code to each method to be instrumented.
+## Go SDKs for Collecting Metrics
 
-<table id = "general-purpose-go" width="100%">
+A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
+
+<table id = "metrics-go" width="100%">
 <colgroup>
 <col width="20%" />
 <col width="60%" />
@@ -53,13 +55,11 @@ Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-fo
 <thead>
 <tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
-<!---
 <tr>
-<td markdown="span">[PyFormance SDK for Go](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
-<td>Implements PyFormance, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
+<td markdown="span">[XXX SDK for Go](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
+<td>Implements XXX, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
---->
 <tr>
 <td markdown="span">[OpenTracing SDK for Go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
 <td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
@@ -69,16 +69,15 @@ Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-fo
 </tbody>
 </table>
 
+--->
+## Go SDK for Collecting Trace Data
 
+The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) enables you to instrument critical business methods to collect and send custom trace data. You'll need to add some code to each method to be instrumented.
 
-## Core Go SDK
-
-The [core (Level 1)  SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
-
-<table id = "core-go" width="100%">
+<table id = "opentracing-go" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -86,7 +85,30 @@ The [core (Level 1)  SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-
 <tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
-<td markdown="span">[Core SDK for Go](https://github.com/wavefrontHQ/wavefront-sdk-go)</td>
+<td markdown="span">[OpenTracing SDK for Go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
+<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
+<td markdown="span">Trace data</td>
+</tr>
+
+</tbody>
+</table>
+
+## Go SDK for Sending Raw Data
+
+The [sender  SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+
+<table id = "core-go" width="100%">
+<colgroup>
+<col width="30%" />
+<col width="50%" />
+<col width="20%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
+</thead>
+<tr>
+<td markdown="span">[Sender SDK for Go](https://github.com/wavefrontHQ/wavefront-sdk-go)</td>
 <td>Sends raw data values either directly to the Wavefront service or to a Wavefront proxy. </td>
 <td markdown="span">Metrics, histograms, trace data</td>
 

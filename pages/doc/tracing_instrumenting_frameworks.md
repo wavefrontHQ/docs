@@ -56,7 +56,7 @@ Your cloud-native application might consist of many microservices. Choose a micr
 
 Is this microservice built with one or more Java application frameworks?
 
-* Yes: Start by [instrumenting a framework](#instrument-a-framework).
+* Yes: Start by [instrumenting a Java application framework](#instrument-a-framework).
 * No: Start by [instrumenting with OpenTracing](#instrument-with-opentracing).
 
 

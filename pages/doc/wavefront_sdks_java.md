@@ -14,14 +14,14 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 
 * **Note:** Be sure to use the latest version of the SDK.
 
-## Framework-level Java SDKs
+## Java SDKs for Instrumenting Frameworks
 
-Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-instrumentation) collects observability data from a particular Java framework or component, with minimal code setup.
+A [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Java framework or component, with minimal code setup.
 
 <table id = "framework-java" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -56,14 +56,14 @@ Each [framework-level (Level 3) SDK](wavefront_sdks.html#sdks-for-framework-inst
 </tbody>
 </table>
 
-## General-Purpose Java SDKs
+## Java SDKs for Collecting Metrics
 
-Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) enables you to instrument critical business methods that are not handled by any instrumented framework. You'll need to add some code to each method to be instrumented.
+A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
 
-<table id = "custom-java" width="100%">
+<table id = "metrics-java" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -76,11 +76,6 @@ Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-fo
 <td markdown="span">Metrics, histograms</td>
 </tr>
 <tr>
-<td markdown="span">[OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
-<td markdown="span">Trace data</td>
-</tr>
-<tr>
 <td markdown="span">[JVM SDK](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
 <td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. <br> Sends observability data for CPU usage, disk usage, and so on.</td>
 <td markdown="span">Metrics, histograms</td>
@@ -88,14 +83,15 @@ Each [general-purpose (Level 2) SDK](wavefront_sdks.html#general-purpose-sdks-fo
 </tbody>
 </table>
 
-## Core Java SDK
 
-The [core (Level 1) SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+## Java SDK for Collecting Trace Data
 
-<table id = "core-java" width="100%">
+The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) enables you to instrument critical business methods to collect and send custom trace data. You'll need to add some code to each method to be instrumented.
+
+<table id = "opentracing-java" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -103,7 +99,30 @@ The [core (Level 1) SDK](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-w
 <tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
-<td markdown="span">[Core SDK for Java](https://github.com/wavefrontHQ/wavefront-sdk-java)</td>
+<td markdown="span">[OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
+<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
+<td markdown="span">Trace data</td>
+</tr>
+</tbody>
+</table>
+
+
+## Java SDK for Sending Raw Data
+
+The [sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
+
+<table id = "core-java" width="100%">
+<colgroup>
+<col width="30%" />
+<col width="50%" />
+<col width="20%" />
+</colgroup>
+<tbody>
+<thead>
+<tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
+</thead>
+<tr>
+<td markdown="span">[Sender SDK for Java](https://github.com/wavefrontHQ/wavefront-sdk-java)</td>
 <td>Sends raw data values either directly to the Wavefront service or to a Wavefront proxy. </td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>
