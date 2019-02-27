@@ -200,30 +200,3 @@ You can shift the time window of a single chart by shifting the X-axis.
   You can move the time window into the future, however, unless you are using one of the [predictive functions](query_language_reference.html#predictive-functions), the data you see won't be predictive.
 
 To shift the time windows of all charts on a dashboard, hold down the **Shift** key while dragging.
-
-### Propagating and Resetting Time Windows
-
-Whenever you adjust the time window of a single chart, you can easily propagate that window to every other chart on the dashboard or reset the individual chart to match all of the other time windows.
-
-To propagate a chart time window to all other charts on the dashboard, click the share icon <i class="fa fa-share-square-o" /> that appears directly under the chart name in the top right corner of the chart box.
-
-To reset the individual chart window to match all other charts, click **RESET**: ![reset time window](images/reset_time_window.png#inline)
-
-
-## Activating Chart Display Modes
-Charts support a few modes for controlling how data displays. You can display data in full precision mode, hide the hover legend, and display a fish-eye view. These features are enabled using  Shift, Ctrl, and Alt or Option hot keys.
-
-### Full-Precision Mode
-To display data in full-precision mode in the hover legend, hold down the **Shift** key and hover over any chart:
-
-![full precision](images/full_precision.png)
-
-### Hide Hover Legend
-To hide the hover legend when hovering over a chart, hold down the **Ctrl** key. For charts that include a hover legend by default, you can permanently disable the hover legend under the Legend tab in the individual chart view.
-
-### Fish-Eye View
-When data streams are populated very densely, it can be hard to tell the exact value of each series. The fish-eye view expands the chart in the neighborhood of the cursor. To enable fish-eye view, hold down the **Alt** or **Option** key while you hover over a chart.
-
-![fish eye](images/fish_eye.png)
-
-When using this feature, the vertical and horizontal lines are preserved.
