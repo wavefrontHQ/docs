@@ -16,12 +16,10 @@ Because Wavefront integrates trace data with metrics, you can use Wavefront char
 * Troubleshoot and analyze reported errors. 
 * Pinpoint the specific operations that bottlenecks occur in.
 
-<!---
 Watch this video to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront:
 
-<p><a href=""><img src="/images/v_tracing.png" style="width: 700px;" alt="distributed tracing"/></a>
+<p><a href="https://youtu.be/Z7mf_oZfcSE"><img src="/images/v_tracing.png" style="width: 700px;" alt="distributed tracing"/></a>
 </p>
---->
 
 <!--- This page gives basic concepts. You can go straight to Instrumenting [link]--->
 
@@ -92,7 +90,7 @@ If you have already instrumented your code with a 3rd party distributed tracing 
 
 If you have not yet instrumented your code, you can do so by using Wavefront observability SDKs:
 
-* If your application is built with a supported application framework, you can obtain trace data by setting up a corresponding framework-level observability SDK. This is the simplest approach, because a framework-level SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App for Tracing](tracing_instrumenting_frameworks.html).
+* If your application is built with a supported application framework, you can obtain trace data by setting up the corresponding observability SDK for that framework. This is the simplest approach, because a framework-instrumentation SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App for Tracing](tracing_instrumenting_frameworks.html).
 
 * If your application includes critical methods that are not handled by any supported framework, you can use the Wavefront OpenTracing SDK to obtain trace data. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
 

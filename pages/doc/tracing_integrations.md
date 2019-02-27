@@ -109,9 +109,9 @@ See the Wavefront OpenTracing SDK for your programming language:
 * [.NET/C#](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)
 
 ### Sending Raw Trace Data
-If Wavefront does not support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a core SDK to send raw trace data to Wavefront. With a core SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](). The core SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service. 
+If Wavefront does not support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a sender SDK to send raw trace data to Wavefront. With a sender SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](trace_data_details.html#wavefront-span-format). The sender SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service. 
 
-For SDK setup details, see the Wavefront core SDK for your your programming language:
+For SDK setup details, see the Wavefront sender SDK for your your programming language:
 
 * [Java](https://github.com/wavefrontHQ/wavefront-sdk-java) 
 * [Python](https://github.com/wavefrontHQ/wavefront-sdk-python)

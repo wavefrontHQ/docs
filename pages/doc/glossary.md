@@ -218,8 +218,13 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**SDK**](wavefront_sdks.html)</td>
-<td markdown="span">An SDK (software development kit) is a library that you can include with your application code. Wavefront supports a variety of observability SDKs in various programming languages to enable you to instrument applications to report telemetry data to Wavefront. [Framework-level observability SDKs](wavefront_sdks.html#sdks-for-framework-instrumentation) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. [General-purpose observability SDKs](wavefront_sdks.html#general-purpose-sdks-for-custom-and-runtime-instrumentation) enable you to define, collect, and report your own types of observability data from your application code.
-[Core observability SDKs](wavefront_sdks.html#core-sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront. </td>
+<td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports observability SDKs in different programming languages to enable you to instrument applications to report telemetry data to Wavefront. 
+
+<ul>
+<li markdown="span">[Framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. </li>
+<li markdown="span">[Wavefront OpenTracing SDKs](wavefront_sdks.html#sdks-for-collecting-trace-data) and [metrics-collection SDKs](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enable you to define, collect, and report your own types of observability data from your application code.</li>
+<li markdown="span">[Wavefront sender SDKs](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront.</li>
+</ul> </td>
 </tr>
 <tr>
 <td>&nbsp;</td>

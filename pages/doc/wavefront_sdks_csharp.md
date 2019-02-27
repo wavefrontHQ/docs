@@ -15,7 +15,7 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 * **Note:** Be sure to use the latest version of the SDK.
 
 <!---
-## .NET/C# SDKs for for Instrumenting Frameworks
+## .NET/C# SDKs That Instrument Frameworks
 
 Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular .NET/C# framework or component, with minimal code setup.
 
@@ -80,9 +80,9 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 
 <tr>
 <td markdown="span">[OpenTracing SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
-<td markdown="span">Trace data</td>
-</tr>
+<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
+<br>Automatically reports [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that describe the reported spans.</td>
+<td markdown="span">Trace data and derived RED metrics</td></tr>
 </tbody>
 </table>
 
@@ -91,7 +91,7 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 
 The [sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
-<table id = "core-csharp" width="100%">
+<table id = "raw-csharp" width="100%">
 <colgroup>
 <col width="30%" />
 <col width="50%" />
