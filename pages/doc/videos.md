@@ -46,6 +46,16 @@ In the following lighboard videos, Wavefront co-founder Clement Pang explains:
 </tbody>
 </table>
 
+## Distributed Tracing and SDKs
+<table style="width: 100%;">
+<tbody>
+<tr><td width="33%"><a href="https://youtu.be/Z7mf_oZfcSE" target="_blank"><img src="/images/v_tracing.png"  alt="Distributed tracing in Wavefront"/></a></td>
+<td width="33%"><a href="https://youtu.be/56Ql2OQ2NLQ" target="_blank"><img src="/images/v_app_monitoring.png"  alt="Application monitoring with Wavefront"/></a></td>
+<td width="33%"><a href="https://youtu.be/OI75w0dFs-U" target="_blank"><img src="/images/v_tracing_howto.png" alt="Distributed tracing how-to"/></a></td></tr>
+</tbody>
+</table>
+
+
 ## Authorization: Permissions and Access Control
 
 <table style="width: 100%;">
