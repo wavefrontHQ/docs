@@ -18,7 +18,7 @@ An alert defines:
 * One or more targets to notify when the condition evaluates to true or false for a specified period of time.
 * Optionally, information about the alert notification format.
 
-Wavefront supports classic alerts, where each alert has one preset severity, and threshold alerts, where an alert can have different severities for different threshold values.
+Wavefront supports classic alerts, where each alert has one preset severity, and multi-threshold alerts, where an alert can have different severities for different threshold values.
 
 ### Alert Condition
 
@@ -28,13 +28,13 @@ The alert condition is a ts() expression that defines the threshold for an alert
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
 * A **classic alert** send a notification with the specified severity to all specified targets.
-* A **threshold alert** allows you to specify multiple severities and a different target for each severity.
+* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity.
 
 ### Alert Target
 
 Each alert is associated with one or more alert targets. The alert target specifies who to notify when the alert changes state.
 * For classic alerts, you specify a severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
-* For threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
+* For multi-threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
 
 ## Alert Basics Videos
 In this video, Clement explains how classic alerts work:
@@ -50,7 +50,7 @@ In this video, Jason explains classic alerts while he's showing them in the UI:
 
 ## Creating an Alert
 
-You can create a classic alert with a single severity level (e.g. SEVERE) or a threshold alert, which allows you to customize alert behavior for different thresholds. For each threshold, you select a corresponding severity and one or more targets to notify in case the threshold is met.
+You can create a classic alert with a single severity level (e.g. SEVERE) or a multi-threshold alert, which allows you to customize alert behavior for different thresholds. For each threshold, you select a corresponding severity and one or more targets to notify in case the threshold is met.
 
 
 ### Creating a Classic Alert
@@ -188,17 +188,17 @@ This video shows how Jason creates a classic alert:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6a27a841-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_alerts_creating.png" style="width: 700px;"/></a>
 </p>
 
-### Creating a Threshold Alert
+### Creating a Multi-Threshold Alert
 
-Required fields for a threshold alert are:
+Required fields for a multi-threshold alert are:
 * Alert name (defaults to New Alert)
 * Alert condition and operator (e.g. greater than>)
 * At least one severity and corresponding threshold value.
 For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Only custom alert targets are supported, but you can initially create the alert without specifying a target.
 
-In contrast to classic alerts, Wavefront creates a display expression for a threshold alert. The expression shows the alert condition.
+In contrast to classic alerts, Wavefront creates a display expression for a multi-threshold alert. The expression shows the alert condition.
 
-To create a threshold alert:
+To create a multi-threshold alert:
 
 <ol>
 
@@ -237,7 +237,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Severity</strong></td>
-<td>For threshold alerts, specify more than one severity - or create a Classic alert. Associate a threshold value with each severity. The order must match the operator. For example, you can specify a Operator =>, SEVERE 6000, and WARN 5000, but you can't specify SEVERE 5000, and WARN 6000 with that operator.
+<td>For multi-threshold alerts, specify more than one severity - or create a Classic alert. Associate a threshold value with each severity. The order must match the operator. For example, you can specify a Operator =>, SEVERE 6000, and WARN 5000, but you can't specify SEVERE 5000, and WARN 6000 with that operator.
 </td>
 </tr>
 </tbody>
@@ -246,7 +246,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 
 <li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity, but you can use each target only for one severity. Use commas to separate targets.
 
-For threshold alerts, you have to specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You cannot specify an email address or PagerDuty key.
+For multi-threshold alerts, you have to specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You cannot specify an email address or PagerDuty key.
 </li>
 
 <li>
@@ -291,6 +291,13 @@ For threshold alerts, you have to specify names of <a href="webhooks_alert_notif
 <li>Click <strong>Save</strong>.</li>
 </ol>
 
+### Video: Creating a Multi-Threshold Alert
+
+This video shows how to create a multi-threshold alert:
+
+<p><a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a>
+</p>
+
 
 ## Cloning or Deleting an Alert
 
@@ -301,7 +308,7 @@ If you want to make copies of an existing alert, then change the copy slightly, 
    ![Alert cloning](images/clone_alert.png)
 
    * To clone an alert, click **Clone**, make changes when prompted, and click **Save**.
-   * To delete an alert, click **Delete** and confirm the deletion. 
+   * To delete an alert, click **Delete** and confirm the deletion.
 
 ## Viewing Alerts and Alert History
 
