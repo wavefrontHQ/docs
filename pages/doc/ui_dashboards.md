@@ -1,5 +1,5 @@
 ---
-title: Create and Custome Dashboards
+title: Create and Customize Dashboards
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_dashboards.html
@@ -10,10 +10,9 @@ Wavefront dashboards allow you to organize charts into sections, perform global 
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_dashboards_intro.png" style="width: 700px;" alt="introduction to dashboards"/></a>
 </p>
 
-{% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
+While every Wavefront user can view dashboards, you must have Dashboard permission to save changes you make to dashboards.
 
-
-## Creating a Dashboard
+## Create a Dashboard
 
 You can create a dashboard from the All Dashboards page, from a chart, from the Metrics browser, or by cloning an existing dashboard.
 
@@ -21,7 +20,7 @@ You can create a dashboard from the All Dashboards page, from a chart, from the 
    <table style="width: 100%;">
    <tbody>
    <thead>
-   <tr><th width="20%">If you start with...</th><th width="80%">Process</th></tr>
+   <tr><th width="20%">First...</th><th width="80%">Then...</th></tr>
    </thead>
    <tr><td markdown="span">Click **Browse > All Dashboards**</td>
    <td markdown="span">Click the **Create Dashboard** button on the filter bar.</td></tr>
@@ -38,9 +37,9 @@ You can create a dashboard from the All Dashboards page, from a chart, from the 
 
 **Note:** Many Wavefront customers use existing dashboards as templates, and store dashboard templates as well as dashboards generated from scratch in a a repository such as GitHub.
 
-## Working with Sections
+## Organize Dashboards with Sections
 
-Dashboard [sections](dashboards_managing.html#configuring-dashboard-sections) allow you to group saved charts. Every dashboard has at least one section. The section link bar is located directly below the time bar.
+Dashboard sections allow you to group saved charts. Every dashboard has at least one section. The section link bar is located directly below the time bar.
 
 ![section toc](images/section_links.png)
 
@@ -61,7 +60,7 @@ Here's how you can organize your charts with sections:
 <td markdown="span">Clicking the resize icons <img src="images/row_resize.png#inline"  alt="resize rows"/> on the left of each row. Resizing a row resizes every chart in that row.</td></tr></tbody>
 </table>
 
-## Adding a Chart to a Dashboard
+## Add a Chart to a Dashboard
 
 You can add newly-created charts and existing charts to a dashboard.
 * When you create a chart, you can save it to an existing dashboard or select **Save to New Dashboard**
@@ -72,35 +71,33 @@ You can add newly-created charts and existing charts to a dashboard.
     ![chart_title](images/chart_title.png)
 
 1. Scroll down to the Save To section and click **Choose Dashboard**.
-1. Start entering the name of the target dashboard and select a dashboard from the dropdown list of matching dashboards and click **Insert**.
-   The selected dashboard opens in edit mode and the chart you selected displays at the top of the dashboard under a section titled Incoming Chart.
-1. Click and drag the cloned chart to the section and row of your choice and click **Save** at the top of the dashboard.
+1. Start entering the dashboard name and select the target dashboard from the dropdown list and click **Insert**.
+   The selected dashboard opens in edit mode and the chart you selected displays at the top of the dashboard in an **Incoming Chart** section.
+1. Click and drag the chart to the location of your choice and click **Save** at the top of the dashboard browser.
 
-## Cloning a Dashboard
+## Clone a Dashboard
 
 1. To clone a dashboard:
   -   From the All Dashboards page, locate the dashboard, click the three dots, and select Clone.
   ![clone dashboard](images/dashboard_clone.png)
   -   From a dashboard, click the pencil icon on the right side below the task bar, and select **Clone**.
-1. Specify a new URL.
-1. Optionally edit the dashboard name.
+1. Specify a new URL. The URL field supports letters, numbers, underscores, and dashes. Do not include `https://`
+1.(Optional) Edit the dashboard name.
 1. Click **Clone**.
 
-## Editing a Dashboard
+## Edit a Dashboard
 
 {% include shared/system_dashboard.html %}
 
-When editing a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboards_variables.html), sections, and charts.
+When you edit a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboards_variables.html), sections, and charts.
 
-1. To edit a dashboard:
+1. Put the dashboard into Edito mode:
 -   From the All Dashboards page, locate the dashboard, click the three dots on the left and and select **Edit**.
 ![edit dashboard](images/dashboard_edit.png)
 -   From a dashboard, click the pencil icon on the right side below the task bar, and select **Edit**.
-
-   The dashboard displays in edit mode.
 1. Edit the dashboard.
 
-   When editing a dashboard, you may make several changes at a time. To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current edit mode session.
+   When you edit a dashboard, you may make several changes at a time. To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current edit mode session.
 2. To save configuration changes, click the  **Save** button in the top right.
 
    ![save dashboard](images/save_dashboard.png)

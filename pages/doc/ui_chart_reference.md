@@ -443,7 +443,7 @@ A Single Stat chart supports the following options:
 <tr>
 <td>Value/Text Mapping</td>
 <td>A string to append to the single stat.
-</td>
+</td> 
 </tr>
 </tbody>
 </table>
