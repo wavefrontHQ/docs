@@ -11,30 +11,30 @@ You instrument your application so that [trace data](tracing_basics.html) from d
 
 You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page helps you choose the SDK(s), directs you to the setup steps for each SDK, and provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
 
-**Note:** If you have already instrumented your application for tracing using a 3rd party solution such as Jaeger or Zipkin, you can simply set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront. 
+**Note:** If you have already instrumented your application for tracing using a 3rd party solution such as Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront. 
 
 <!---
 ## Sample Setup
 
-Watch this video to see how to set up a sample application to send out-of-the-box metrics and traces. (You can read about the steps [below](#quickstart).)
+Watch this video to see how to set up a sample application to send out-of-the-box metrics and traces. (You can read about the steps [below](#XX).)
 
 _[[video that describes how to set up BeachShirts app]]_
 --->
 
 ## Step 1. Prepare to Send Data to Wavefront
 
-**Choose** one of the following ways to send metrics, histograms, and trace data from your application to the Wavefront service:
-* The simplest way is to use direct ingestion to send data directly to the Wavefront service. This gets you up and running with minimal preparation.  
+Choose one of the following ways to send metrics, histograms, and trace data from your application to the Wavefront service:
+* To get up and running quickly, use direct ingestion to send data directly to the Wavefront service.  
 * For large-scale deployments, you'll need a Wavefront proxy to forward data from your application to the Wavefront service. Using a proxy provides resilience to internet outages, control over data queuing and filtering, and more. 
 
 **To prepare for direct ingestion:** 
 
-1. Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://virunga.wavefront.com`.
+1. Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://mywavefront.wavefront.com`.
 2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
 
 **To prepare a Wavefront proxy:** 
 
-1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). If you already have a proxy installed, you may need to upgrade it. You need Version 4.36 or later. 
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need Version 4.36 or later. 
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS. 
 3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#configuring-listener-ports-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
     ```
@@ -51,19 +51,21 @@ _[[video that describes how to set up BeachShirts app]]_
 
 ## Step 2. Instrument Your Application
 
-Your cloud-native application might consist of many microservices. Choose a microservice to instrument.
+Your cloud-native application might consist of many microservices. 
 
-Is this microservice built with one or more Java application frameworks?
+1. Choose a microservice to instrument.
 
-* Yes: Start by [instrumenting a Java application framework](#instrument-a-framework).
-* No: Start by [instrumenting with OpenTracing](#instrument-with-opentracing).
+2. Is this microservice written in Java and built with a framework?
+
+    * Yes: Start by [instrumenting the framework](#instrument-a-framework).
+    * No: Start by [instrumenting with OpenTracing](#instrument-with-opentracing).
 
 
 ### Instrument a Framework
 
 Follow these steps to use a Wavefront SDK that instruments an application framework for handling RESTful web services or RPC connections. Each such SDK collects predefined traces, metrics and histograms automatically, so you can get up and running with minimal effort. 
 
-1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
+1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above). 
 2. If your microservice uses one of the Java frameworks in this list, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub.
 
     | Dropwizard | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) | 
@@ -86,7 +88,7 @@ Does your microservice have business methods that need custom instrumentation? C
 
 Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io) specification in many languages. You can use a Wavefront OpenTracing SDK to collect custom trace data that you define for your service, for example, to augment an auto-instrumented framework or to replace a 3rd party OpenTracing-compliant library. 
 
-1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront). 
+1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above). 
 
 2. Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to its `README` file on GitHub.
       
@@ -96,9 +98,9 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
     | Go | [wavefront-opentracing-sdk-go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)| 
 
 
-3. Follow the setup steps in the `README` file. You will need to instantiate several helper objects, and augment individual business methods with OpenTracing operations. 
+3. Follow the setup steps in the `README` file. You instantiate several helper objects, and augment individual business methods with OpenTracing operations. 
 
-4. After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) along with the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
+4. After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
 
 
 
@@ -115,15 +117,15 @@ The following diagram shows the Wavefront helper objects in a Java microservice 
 
 ![sdk objects](images/sdk_objects.svg)
 
-The actual set of helper objects in a particular microservice depends on which SDKs you set up. A typical set of helper objects includes some or all of the following:
+The actual helper objects in a microservice depends on the SDKs you set up. A typical set of helper objects includes some or all of the following:
 
 * An [ApplicationTags](#application-tags) object that describes your application to Wavefront. 
 * One or more framework-specific objects that collect metrics and histograms. (In the diagram, these are the Java `WavefrontJerseyFilter` and `WavefrontJaxrsClientFilter` objects).
 * [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects that create and propagate trace data.
 * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
-* A [WavefrontSender](#wavefrontsender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
+* A [WavefrontSender](#wavefront-sender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
 
-**Note:** When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects will belong to exactly one SDK, and other helper objects will be shared.
+**Note:** When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared.
 
 <!---
 Passing contexts between operations for trace data.
@@ -133,7 +135,7 @@ Passing contexts between operations for trace data.
 
 Wavefront requires tags that describe the architecture of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront. 
 
-Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code. You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. Because the tags describe the application's architecture and the way it is deployed, your code typically obtains tag values from a configuration file, either through the [quickstart setup steps](#option-1-quickstart---use-config-files), or through a custom mechanism implemented by your application.
+Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code. You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. The tags include information about the way your application is structured and deployed, so your code normally obtains tag values from a configuration file at runtime. The configuration file might be provided by the Wavefront SDK, or it might be part of a custom configuration mechanism that is implemented by your application. (Only SDKs with quickstart setup steps provide a configuration file.)
 
 **Note:** You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data.
 
@@ -163,33 +165,33 @@ Wavefront uses application tags to aggregate and filter data at different levels
 ## Helper Objects That Collect and Transfer Data
 
 
+### Wavefront Sender
 
-### WavefrontSender
-
-Part of instrumenting an application is to choose and set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. You can choose between:
+When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. Choose between:
 
 * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service. 
 
-Your choice is represented in your microservice's code as an object of type `WavefrontSender`. This object encapsulates the settings you supply when you instrument your microservice, either through the [quickstart setup steps](#option-1-quickstart---use-config-files) or the [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly). The settings in your microservice must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. 
+Your choice is represented in your code as an object called a "Wavefront sender".
+(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. 
 
-**Note:** The [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly) enable you to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can optionally change the defaults for batching up the data to be sent. 
+**Note:** You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent. 
 
 <!--- change links when proxy/dir ing decision is in a single section --->
 
-### Wavefront Reporters
+### Wavefront Reporter Objects
 
-Wavefront uses one or more Reporter objects to gather metrics and histograms and forward that data to the `WavefrontSender`. Different Wavefront Reporters gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data obtained from the JVM.
+Wavefront uses one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Wavefront reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
 
-A Wavefront Reporter specifies: 
-* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the `WavefrontSender` and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
+A Wavefront reporter object specifies: 
+* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
 
-* The source of the reported metrics and histograms, typically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All Reporters for a particular microservice must specify the same source.
+* The source of the reported metrics and histograms, typically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All reporter objects for a particular microservice must specify the same source.
 
-**Note:** The [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly) enable you to set a nondefault reporting interval.
+**Note:** You can use a Wavefront sender to set a nondefault reporting interval.
 
 <!---
-**Note:** For guidelines, see _[[link to reporting interval topic on another page]]_.
+**Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.
 --->
 
 ### WavefrontTracer and WavefrontSpanReporter
@@ -197,11 +199,11 @@ A Wavefront Reporter specifies:
 Wavefront uses a pair of objects to create and report trace data: 
 
 * A `WavefrontTracer` creates spans and traces. 
-* A `WavefrontSpanReporter` forwards the trace data to the `WavefrontSender`. 
+* A `WavefrontSpanReporter` forwards the trace data to the Wavefront sender. 
  
-Whereas metric data reporting occurs at the interval you specify, trace data reporting occurs automatically whenever spans are complete. 
+Metric data reporting occurs at the interval you specify. Trace data reporting occurs automatically whenever spans are complete. 
 
-**Note:** The [custom setup steps](#option-2-custom-setup---instantiate-helper-objects-directly) enable you to set up a reporter that sends trace data to your console for debugging, too.
+**Note:** You can set up a reporter that sends trace data to your console for debugging, too.
 
 <!---
 ### Instrumenting Multiple Frameworks in the Same Service 

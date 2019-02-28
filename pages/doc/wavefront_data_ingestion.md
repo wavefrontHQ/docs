@@ -73,7 +73,7 @@ For use cases that center around infrastructure data like CPU, memory, or databa
 
 For use cases that involve metrics from proprietary applications, you can instrument your custom code and get data into Wavefront using one of the following techniques:
 
-* Use a Wavefront application instrumentation integration. Wavefront supports instrumentation libraries for several popular programming languages. For example, you can create a Java Wavefront Reporter to use DropWizard metrics.
+* Use a Wavefront application instrumentation integration. Wavefront supports instrumentation libraries for several popular programming languages. For example, you can create a Java Wavefront reporter object to use DropWizard metrics.
 
   1. Click **Integrations** and search for **Application Integration** to display the available application instrumentation integrations.
   2. Choose the integration that best suits your use case.
