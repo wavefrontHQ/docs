@@ -32,7 +32,7 @@ A [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frame
 <tr>
 <td markdown="span">[Dropwizard SDK for Java](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)</td>
 <td markdown="span">Instruments Dropwizard, a framework for building RESTful Web services. Instruments libraries such as Jetty. Use with the [Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java). <br> Sends observability data from HTTP requests and responses. </td>
-<td markdown="span">Metrics, histograms, trace data</td>
+<td markdown="span">Metrics</td>
 </tr>
 
 <tr>
