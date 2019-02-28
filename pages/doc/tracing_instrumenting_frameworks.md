@@ -9,11 +9,10 @@ summary: Learn how to set up your application to send metrics, histograms, and t
 
 You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack can be sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
 
-You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page helps you choose the SDK(s), and directs you to the setup steps for each SDK. 
+You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page helps you choose the SDK(s), directs you to the setup steps for each SDK, and provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
 
-**Note:** For an overview of what instrumentation adds to your microservices, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice), below.
+**Note:** If you have already instrumented your application for tracing using a 3rd party solution such as Jaeger or Zipkin, you can simply set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront. 
 
- 
 <!---
 ## Sample Setup
 

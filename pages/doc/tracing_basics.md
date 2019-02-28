@@ -86,15 +86,15 @@ An application must be _instrumented for tracing_ before it can send trace data 
 
 ### Use Cases
 
-If you have already instrumented your code with a 3rd party distributed tracing system such as [Jaeger](jaeger.html) or [Zipkin](zipkin.html) you can set up a [tracing-system integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
+**If you have already instrumented your code** with a 3rd party distributed tracing system such as [Jaeger](jaeger.html) or [Zipkin](zipkin.html) you can set up a [tracing-system integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
-If you have not yet instrumented your code, you can do so by using Wavefront observability SDKs:
+**If you have not yet instrumented your code,** you can add instrumentation by using [Wavefront observability SDKs](wavefront_sdks.html):
 
-* If your application is built with a supported application framework, you can obtain trace data by setting up the corresponding observability SDK for that framework. This is the simplest approach, because a framework-instrumentation SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. See [Instrumenting Your App for Tracing](tracing_instrumenting_frameworks.html).
+* If your application is built with a supported application framework, you can [instrument that framework](tracing_instrumenting_frameworks.html#instrument-a-framework) by setting up the corresponding Wavefront observability SDK. This is the simplest approach, because a framework-instrumentation SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework. 
 
-* If your application includes critical methods that are not handled by any supported framework, you can use the Wavefront OpenTracing SDK to obtain trace data. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
+* If your application includes critical methods that are not handled by any supported framework, you can [instrument those methods](tracing_instrumenting_frameworks.html#instrument-with-opentracing) with a Wavefront OpenTracing SDK. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
 
-The Wavefront observability SDKs let you to choose whether to send trace data through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
+The Wavefront observability SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
  
 
 ## How to See Trace Data in Wavefront

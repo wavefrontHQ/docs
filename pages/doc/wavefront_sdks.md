@@ -9,9 +9,6 @@ summary: Learn about Wavefront SDKs that enable applications to report metrics, 
 
 Wavefront supports a suite of SDKs that developers can use to instrument applications for observability. Instrumenting an application enables it to collect and send metrics, histograms, and/or trace data to Wavefront for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub. 
 
-**Note:** If you have already used a 3rd party solution such as Jaeger or Zipkin to instrument your application for tracing, you can simply set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront.
-
-
 Watch this video to listen to our Co-founder Clement Pang talk about how Wavefront expands application monitoring with its observability SDKs:
 
 <p><a href="https://youtu.be/56Ql2OQ2NLQ"><img src="/images/v_app_monitoring.png" style="width: 700px;" alt="application monitoring"/></a>
