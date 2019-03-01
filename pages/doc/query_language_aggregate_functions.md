@@ -109,7 +109,7 @@ Each aggregation function accepts a 'group by' parameter that allows you to subd
 
 <tr>
 <td markdown="span">**sourceTags**</td>
-<td markdown="span">Group the series that are reported from sources with the same source tag names. A source tag is used only if it is explicitly specified in the ts() expression, such as `prod` and `db`.</td>
+<td markdown="span">Group the series that are reported from sources with the same source tag names. A source tag is used only if it is explicitly specified in the ts() expression.</td>
 <td markdown="span">`sum(ts(cpu.loadavg.1m, tag=prod or tag=db),sourceTags)`</td>
 </tr>
 
@@ -126,6 +126,27 @@ Each aggregation function accepts a 'group by' parameter that allows you to subd
 </tr>
 </tbody>
 </table>
+
+### A Closer Look at the `sourceTags` Parameter
+
+The `sourceTags` parameter behaves a little differently from the other grouping parameters. `sourceTags` produces a subgroup that corresponds to each source tag that is explicitly specified in the ts() expression. No other source tags are taken into account. 
+
+For example, suppose you added 3 source tags (`prod`, `db`, and `highPriority`) to the metric `cpu.loadavg.1m`, and now you want to use the `sourceTags` parameter with `sum()` to return subtotals based on the source tags. 
+
+* The following query returns only 2 subtotals - one for the group with the source tag `prod` and one for the group with the source tag `db`:
+
+    ```
+    sum(ts(cpu.loadavg.1m, tag=prod or tag=db),sourceTags)
+    ```
+
+* The following query returns 3 subtotals, one for each source tag:
+    ```
+    sum(ts(cpu.loadavg.1m, tag=prod or tag=db or tag=highPriority),sourceTags)
+    ```
+
+
+In contrast, a 'group by' parameter like `pointTags` produces a separate aggregate corresponding to every point tag that is associated with the specified time series, even if the ts() expression does not explicitly specify any point tags as filters.
+
 
 ## Aggregation Example
 
