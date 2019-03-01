@@ -8,7 +8,9 @@ summary: Examine data with dashboards and charts
 
 If your environment is set up with data flowing and dashboards with preconfigured dashboards and charts, you can examine data, set dashboard preferences, zoom in and out, and perform other customizations.
 
-All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through [access control](access.html). All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.
+{% include shared/badge.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through [access control](access.html). All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission." %}
+
+
 
 ## Get Started
 
@@ -107,6 +109,10 @@ You can move the time window into the future, however, unless you are using one 
 <td markdown="span">To reset an individual chart window to match the time window in all other charts, do something inside the chart and click **RESET**: <img src="/images/reset_time_window.png#inline"  alt="reset time window"/></td></tr>
 </tbody>
 </table>
+
+Here's a video that illustrates chart time windows:
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
+</p>
 
 ## Display Events on Charts
 

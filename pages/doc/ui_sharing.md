@@ -1,5 +1,5 @@
 ---
-title: Sharing Dashboards and Charts
+title: Share Dashboards and Charts
 tags: [dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_sharing.html
@@ -12,7 +12,7 @@ You can
 
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 
-## Sharing a Link to a Dashboard or Chart
+## Share a Link to a Dashboard or Chart
 
 Wavefront allows you to share dashboards and charts with other authorized users of your environment. We support two options:
 * Live view -- Changes as you make changes to the dashboard.
@@ -29,7 +29,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
    | Share link to the LIVE display | The link recipient will see, at any time, what you see. As you make changes, the other user can see them. The time window associated with your live view URL link is based on your selection on the time bar. For example, if you select 10m, the result is a live view URL link with a 10 minute view.|
    |  Share link to the CURRENT display | The link recipient sees what you're seeing right now. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link. |
 
-## Sharing Access to Dashboards and Charts
+## Share Access to Dashboards and Charts
 
 If the **Security** system [preference is set](access.html#changing-the-access-control-default) to allow access to new objects to **Creator**, the following users can share dashboard access with other users and groups:
 * The dashboard creator
@@ -47,7 +47,7 @@ If the **Security** system [preference is set](access.html#changing-the-access-c
    3. Click **Update**
 4. To revoke access, delete the group or user and click **Update**.
 
-## Embedding a Chart in Other UIs
+## Embed a Chart in Other UIs
 
 Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [Embed Charts Permission](permissions_overview.html#embed-charts-permission) to create embedded charts.
 
