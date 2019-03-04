@@ -283,7 +283,7 @@ entries:
       output: web
 
     - title: Dashboard Variables
-      url: /dashboard_variables.html
+      url: /dashboards_variables.html
       output: web
 
   - title: "Alerts & Events"

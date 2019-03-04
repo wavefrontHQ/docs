@@ -25,11 +25,13 @@ If your environment is set up with data flowing and dashboards with preconfigure
 
 ## Set Dashboard Display Preferences
 
-To set the dashboard display preferences:
+For each dashboard, you can customize display preferences.
+
+**To set the dashboard display preferences**:
 
 1. Click the wrench icon at the top right of the dashboard.
 1. Set the preferences, which include:
-   -   Whether to display the [section link bar](#sections) and [dashboard variables](dashboards_variables.html) by default.
+   -   Whether to display the section link bar and [dashboard variables](dashboards_variables.html) by default.
    -   A global [events() query](events_queries.html) controlled by the [Show Events](charts_events_displaying.html#controlling-events-overlays) dropdown.
    -   Default time window.
 1. Click **Save**.
@@ -54,13 +56,15 @@ To change the dashboard time window:
 
 ## Find a Dashboard
 
-Many Wavefront users work in environments with many dashboards. To find a dashboard, you have two options:
+Many Wavefront users work in environments with many dashboards.
+
+**To find a dashboard**, you have two options:
 * From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
 * From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
 ## Isolate Sources or Series
 
-You focus on a particular source or series in the dashboard view or the single-chart view.
+You can focus on a particular source or series in the dashboard view or the single-chart view. The selected source(s) or series show up at the bottom of the browser window.
 
 **To isolate sources and aggregated series** you can click a series in a chart:
 
@@ -69,8 +73,7 @@ You focus on a particular source or series in the dashboard view or the single-c
 
 ![isolated series](images/isolated_series.png)
 
-**To isolate multiple series on all charts**
-Hold down the **Windows** or **Command** key and repeat.
+**To isolate multiple series on all charts**, hold down the **Windows** or **Command** key and repeat.
    - If a series is related to a single source, it appears in the **Sources:** list. When you isolate a source, every series in the dashboard containing that source is isolated.
    - If a series represents an aggregation of sources, it appears in the **Series:** list.  When you isolate a series, the query field name displays in the isolation bar and every series in the dashboard with that query field name is isolated.
 
@@ -126,4 +129,4 @@ See [Displaying Event Overlays in Charts](charts_events_displaying.html#controll
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc, you can also
 * View [histogram metrics in charts](proxies_histograms.html#viewing-histogram-metrics)
-* Look at tracing data with our distributed tracing UI
+* Look at tracing data with our [distributed tracing UI](tracing_ui_overview.html)

@@ -3,7 +3,6 @@ title: Chart Reference
 keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar
-toc_level: 2
 permalink: ui_chart_reference.html
 summary: Configuration options for each chart type.
 ---
@@ -15,7 +14,8 @@ Wavefront supports a rich set of chart types and chart configuration options.
 * You add [Wavefront Query Language](query_language_getting_started.html) queries to the chart to view and perform operations on metrics.
 * You configure chart options to show what's important to you.
 
-While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts.
+{% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
+
 
 ## Common Options
 
@@ -126,7 +126,7 @@ The specified unit is merely a label and <em>does not</em> change the unit of me
 </tbody>
 </table>
 
-For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](charts_customizing.html#units_in_chart_axes_and_legends).
+For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](ui_charts.html#units-in-chart-axes-and-legends).
 
 ### Style
 
@@ -443,7 +443,7 @@ A Single Stat chart supports the following options:
 <tr>
 <td>Value/Text Mapping</td>
 <td>A string to append to the single stat.
-</td> 
+</td>
 </tr>
 </tbody>
 </table>

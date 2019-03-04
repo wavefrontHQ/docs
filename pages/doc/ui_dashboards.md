@@ -37,6 +37,10 @@ You can create a dashboard from the All Dashboards page, from a chart, from the 
 
 **Note:** Many Wavefront customers use existing dashboards as templates, and store dashboard templates as well as dashboards generated from scratch in a a repository such as GitHub.
 
+Here are the main areas of a dashboard:
+
+![dashboard elements](images/dashboard_elements.png)
+
 ## Organize Dashboards with Sections
 
 Dashboard sections allow you to group saved charts. Every dashboard has at least one section. The section link bar is located directly below the time bar.
@@ -52,8 +56,6 @@ Here's how you can organize your charts with sections:
 </thead>
 <tr><td markdown="span">Create a section</td>
 <td markdown="span">Click **New Section** below the time bar. </td></tr>
-<tr><td markdown="span">Change the section name</td>
-<td markdown="span"> </td></tr>
 <tr><td markdown="span">Jump to a section</td>
 <td markdown="span">Clicking the link in the section bar. If the section link bar is not displayed, turn it on in the Dashboard Display Preferences.</td></tr>
 <tr><td markdown="span">Resize rows</td>
