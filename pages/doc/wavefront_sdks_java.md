@@ -14,7 +14,7 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 
 * **Note:** Be sure to use the latest version of the SDK.
 
-## Java SDKs for Instrumenting Frameworks
+## Java SDKs That Instrument Frameworks
 
 A [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Java framework or component, with minimal code setup.
 
@@ -32,7 +32,7 @@ A [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frame
 <tr>
 <td markdown="span">[Dropwizard SDK for Java](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)</td>
 <td markdown="span">Instruments Dropwizard, a framework for building RESTful Web services. Instruments libraries such as Jetty. Use with the [Jersey SDK for Java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java). <br> Sends observability data from HTTP requests and responses. </td>
-<td markdown="span">Metrics, histograms, trace data</td>
+<td markdown="span">Metrics</td>
 </tr>
 
 <tr>
@@ -72,12 +72,12 @@ A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-h
 </thead>
 <tr>
 <td markdown="span">[Dropwizard Metrics SDK for Java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)</td>
-<td>Implements Dropwizard Metrics, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
+<td>Implementation of the standard Dropwizard Metrics library, so you can send metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 <tr>
 <td markdown="span">[JVM SDK](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)</td>
-<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. <br> Sends observability data for CPU usage, disk usage, and so on.</td>
+<td>Instruments the Java Virtual Machine to send runtime metrics and histograms to Wavefront. <br> Sends observability data for CPU usage, memory and garbage collection, disk usage, and so on.</td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 </tbody>
@@ -100,8 +100,9 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 </thead>
 <tr>
 <td markdown="span">[OpenTracing SDK for Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. </td>
-<td markdown="span">Trace data</td>
+<td markdown="span">Implementation of the [OpenTracing](https://www.opentracing.io) specification, so you can send custom traces and spans to Wavefront. 
+<br>Automatically reports [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that describe the reported spans.</td>
+<td markdown="span">Trace data and derived RED metrics</td>
 </tr>
 </tbody>
 </table>
@@ -111,7 +112,7 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 
 The [sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enables you send raw values to Wavefront for ingestion as metrics, histograms, or trace data. 
 
-<table id = "core-java" width="100%">
+<table id = "raw-java" width="100%">
 <colgroup>
 <col width="30%" />
 <col width="50%" />

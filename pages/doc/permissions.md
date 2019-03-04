@@ -6,7 +6,10 @@ sidebar: doc_sidebar
 permalink: permissions.html
 summary: Learn how to manage permissions.
 ---
-All new users can perform a basic set of tasks when they are invited to Wavefront. In addition, all users have the permissions of the Default New User Group, and any permissions that they are assigned explicitly.
+All new users can perform a basic set of tasks when they are invited to Wavefront. In addition:
+* All users have the permissions of any group they belong to.
+* All users also have any permissions that are assigned explicitly.
+That is, a user has the union of group and explicit permissions. Even if the user is removed from a group, that user keeps any explicit permissions.
 
 Users with Users & Groups permission can set the default user group and can assign [permissions](permissions_overview.html) or revoke permissions at the group level or for individual users.
 
@@ -14,7 +17,7 @@ Users with Users & Groups permission can set the default user group and can assi
 
 ## Permissions Basics
 
-Permissions determine which tasks a Wavefront user can perform. All new users can perform all new user tasks. In addition, administrators can grant and revoke permissions for users and for groups.
+Permissions determine which tasks a Wavefront user can perform. All new users can perform all new user tasks such as viewing dashboards and charts. In addition, administrators can grant and revoke permissions for users and for groups.
 
 This video shows how you find out the permissions you have, and how to manage permissions for users and groups.
 

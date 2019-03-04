@@ -222,41 +222,7 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-  - title: "Distributed Tracing"
-    output: web
-    folderitems:
 
-    - title: Distributed Tracing Basics
-      url: /tracing_basics.html
-      output: web
-
-    - title: Instrumenting Your App for Tracing
-      url: /tracing_instrumenting_frameworks.html
-      output: web
-
-    - title: Obtaining 3rd Party Traces
-      url: /tracing_integrations.html
-      output: web
-
-    - title: Trace Sampling
-      url: /trace_data_sampling.html
-      output: web
-
-    - title: Visualizing Traces, Spans, and Metrics
-      url: /tracing_ui_overview.html
-      output: web
-
-    - title: Querying Trace Data
-      url: /trace_data_query.html
-      output: web
-
-    - title: spans() Queries
-      url: /spans_queries.html
-      output: web
-
-    - title: Traces, Spans, and Metrics
-      url: /trace_data_details.html
-      output: web
 
   - title: "Charts & Dashboards"
     output: web
@@ -489,6 +455,42 @@ entries:
 
     - title: Searching Wavefront
       url: /wavefront_searching.html
+      output: web
+      
+  - title: "Distributed Tracing"
+    output: web
+    folderitems:
+
+    - title: Distributed Tracing Basics
+      url: /tracing_basics.html
+      output: web
+
+    - title: Instrumenting Your App for Tracing
+      url: /tracing_instrumenting_frameworks.html
+      output: web
+
+    - title: Obtaining 3rd Party Traces
+      url: /tracing_integrations.html
+      output: web
+
+    - title: Trace Sampling
+      url: /trace_data_sampling.html
+      output: web
+
+    - title: Visualizing Traces, Spans, and Metrics
+      url: /tracing_ui_overview.html
+      output: web
+
+    - title: Querying Trace Data
+      url: /trace_data_query.html
+      output: web
+
+    - title: spans() Queries
+      url: /spans_queries.html
+      output: web
+
+    - title: Traces, Spans, and Metrics
+      url: /trace_data_details.html
       output: web
 
   - title: API, SDKs, and CLI
