@@ -41,7 +41,9 @@ In your user profile, you can configure several preferences, for example, select
 
 ## Examining Groups and Permissions
 
-If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html). You can check the permissions you have and see which groups you belong to from your account page.
+If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html). Permissions are additive: You have the permissions from all groups you belong to, plus any permissions individually assigned to you.
+
+You can check the permissions you have and see which groups you belong to from your account page.
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
 2. Click the **Groups & Permissions** tab to display the groups you belong to and the permissions you have.
 ![groups and permissions](images/groups_and_permissions.png)
