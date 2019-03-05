@@ -45,11 +45,6 @@ Fields must be space separated and each line must be terminated with the newline
 <ul>
 <li markdown="span">Points with invalid characters in metricName are rejected and [logged by the Wavefront proxy](proxies_configuring.html#blocked-point-log). For information on how to configure the proxy to rewrite invalid metric names, see [​Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).</li>
 <li>Metric searches are case sensitive; ts("my.metric") does not find a metric "my.Metric".</li>
-</ul>
-Metric naming hierarchy recommendations:
-<ul>
-<li>Partition the top level of the metric hierarchy by including at least one dot.</li>
-<li>Organize metric names in a meaningful hierarchy from <em>most general to most specific</em> (i.e. system.cpu0.loadavg.1m <em>instead of</em> 1m.loadavg.cpu0.system).</li>
 </ul></td>
 </tr>
 <tr>
@@ -78,11 +73,11 @@ Metric naming hierarchy recommendations:
 Point tags cannot be empty, i.e. <code>tagKey=""</code> and <code>tagKey=</code> are invalid. Point tags must also satisfy these constraints:
 <ul>
 <li><strong>Key</strong> - Valid characters: alphanumeric, hyphen ("-"), underscore ("_"), dot (".")</li>
-<li><strong>Value</strong> - We recommend enclosing tag values with double quotes (" "). If you surround the value with double quotes, any character is allowed, including spaces. To include a double quote, escape it with a backslash, for example, `\"`. A backslash cannot be the last character in the tag value.</li>
+<li><strong>Value</strong> - Enclose tag values with double quotes (" "). If you surround the value with double quotes, any character is allowed, including spaces. To include a double quote, escape it with a backslash, for example, `\"`. A backslash cannot be the last character in the tag value.</li>
 </ul>
 Maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the point is rejected and logged.
 
-Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. </td>
+Keep the number of distinct time series per metric and host to under 1000. </td>
 </tr>
 </tbody>
 </table>
@@ -93,6 +88,18 @@ Watch the following video for an introduction to point tags and source tags:
 
 <p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
 </p>
+
+## Data Format Best Practices
+
+Follow best practices for improved query execution speed and meaningful results.
+
+* Make the metrics the most stable part of your data:
+  - Do not include source names in the metric name. Wavefront captures sources separately.
+  - Do not include data or timestamps in the metric name. Each point has an associated time stamp.
+* Aim for a metric hierarchy:
+  - Partition the top level of the metric hierarchy by including at least one dot.
+  - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`).
+
 
 ## Valid and Invalid Metrics Examples
 
