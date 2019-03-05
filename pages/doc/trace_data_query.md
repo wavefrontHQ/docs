@@ -15,7 +15,7 @@ You query for traces by describing the spans they must contain. A trace query ca
 
 A trace query:
 1. Finds the spans that match the description you specify.
-2. Returns the traces that contain one or more qualifying spans. 
+2. Returns the traces that contain a qualifying span. 
 
 For example, you can use a trace query to return traces that contain at least one span that meets all of the following criteria: 
 * Is longer than 45 milliseconds.
@@ -44,8 +44,9 @@ that represents the work done by the `orderShirts` operation in the `shopping` s
 
 To prevent a trace query from taking a long time, you normally specify a limit on the number of spans that can be matched. After reaching the limit, the query stops looking for more matching spans. 
 
+<!---
 **Note:** The limit applies to the number of spans that a query matches, and not to the number of traces that the query returns. For example, say you limit a query to 20 spans. If 2 or more qualified spans belong to the same trace, that trace is shown only once, and you will see fewer than 20 traces in the result set.
-
+--->
 
 ## Submitting Trace Queries
 
@@ -155,7 +156,7 @@ You can sort a set of returned traces by selecting a sort order from the **Sort 
 * You can choose **Most Recent** to start with the traces that have the most recent start times.
 * You can choose **Most Spans** to start with the traces that contain the largest number of spans.
 
-Sorting always applies after the result set has been limited. For example, suppose you limit the query to 20 matching spans, and sort the returned traces from shortest to longest. The sorted list includes only the traces that contain one or more of the 20 matching spans. We do not first sort all traces containing a matching span, and then display the 20 shortest traces.
+Sorting always applies after the result set has been limited. For example, suppose you limit the query to 20 matching spans, and sort the returned traces from shortest to longest. The sorted list includes only the traces that contain one of the 20 matching spans. We do not first sort all traces containing a matching span, and then display the 20 shortest traces.
  
 **Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
 

@@ -16,10 +16,14 @@ Because Wavefront integrates trace data with metrics, you can use Wavefront char
 * Troubleshoot and analyze reported errors. 
 * Pinpoint the specific operations that bottlenecks occur in.
 
+
 Watch this video to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront:
 
 <p><a href="https://youtu.be/Z7mf_oZfcSE"><img src="/images/v_tracing.png" style="width: 700px;" alt="distributed tracing"/></a>
 </p>
+
+{% include shared/badge.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to Wavefront." %}
+
 
 <!--- This page gives basic concepts. You can go straight to Instrumenting [link]--->
 
