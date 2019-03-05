@@ -104,7 +104,7 @@ Follow best practices for improved query execution speed and meaningful results.
   - Partition the top level of the metric hierarchy by including at least one dot.
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`).
 
-See [Wavefront Data Naming] for a more detailed discussion.
+See [Wavefront Data Naming](wavefront_data_naming.html) for a more detailed discussion.
 
 
 ## Valid and Invalid Metrics Examples
