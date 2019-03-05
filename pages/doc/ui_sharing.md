@@ -10,7 +10,7 @@ You can
 * Share access to a dashboard if the user is not in a group that has access to that specific dashboard.
 * Embed an interactive chart outside Wavefront.
 
-{% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
+{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to share a link to a dashboard or chart." %}
 
 ## Share a Link to a Dashboard or Chart
 
@@ -18,7 +18,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 * Live view -- Changes as you make changes to the dashboard.
 * Current view -- Links to a snapshot of what you're looking at right now.
 
-**Note:** If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to [share access](dashboards_interacting.html#sharing-access-to-dashboards-and-charts) before you share the link.
+**Note:** If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to share access before you share the link.
 
 **To share a dashboard using a link**
 1. Navigate to the dashboard and click the Share Dashboard icon.
@@ -31,7 +31,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 
 ## Share Access to Dashboards and Charts
 
-If the **Security** system [preference is set](access.html#changing-the-access-control-default) to allow access to new objects to **Creator**, the following users can share dashboard access with other users and groups:
+If the **Security** system [preference is set](access.html#changing-the-access-control-default) to allow access to new objects only to **Creator**, the following users can share dashboard access with other users and groups:
 * The dashboard creator
 * Super Admin
 * Any user who has View & Modify access because someone already shared access to the dashboard with that user.
@@ -43,8 +43,7 @@ If the **Security** system [preference is set](access.html#changing-the-access-c
 2. Click **Users & Groups**
 3. To grant access:
    1. Start typing in the **View Dashboard** or **View & Modify Dashboard** field.
-   2. Select the group or user to give access to.
-   3. Click **Update**
+   2. Select the group or user to give access to and click **Update**
 4. To revoke access, delete the group or user and click **Update**.
 
 ## Embed a Chart in Other UIs

@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: ui_charts.html
 summary: Organize charts into dashboards.
 ---
-One of the first tasks a new Wavefront user wants to perform is data visualization.  Wavefront makes chart creation an easy process. You can create charts from several places in the application.
+To visualize your data, you create Wavefront charts and fine-tune them. You can specify one or more related queries in each chart, set the chart time window, use variables, and select from many different visualization options (line, point plot, topk, etc.).
 
 {% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, UI menu selections and buttons required to perform the task are not visible." %}
 
@@ -14,7 +14,7 @@ One of the first tasks a new Wavefront user wants to perform is data visualizati
 To create a chart:
 1. Select **Dashboards > Create Chart**.
 2. Add one or more Wavefront Query Language queries in the Queries section of the chart.
-   * New users prefer [Query Builder](query_builder.html).
+   * New users prefer [Query Builder](query_language_query_builder.html).
    * Advanced users prefer the query editor, where you enter queries directly.
 
 Watch this video for details:
@@ -25,8 +25,6 @@ Watch this video for details:
 ## Construct Queries
 
 You can construct queries with Query Builder or Query Editor.
-* Query Builder
-* Query Editor
 
 ### Query Builder
 
@@ -62,13 +60,13 @@ When you construct a query, you can use functions such as `sum()`, `highpass()`,
 
 ## Customize the Chart
 
-All users can perform customizations such as [setting the time window]() and [isolating sources and series](). You can further customize your charts to suit your needs precisely. The chart [configuration options](charts.html) are in the Chart section:
+All users can perform chart customizations such as [setting the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolating sources and series](ui_examine_data.html#isolate-sources-or-series). You can further customize your charts to suit your needs precisely. The [chart configuration options](charts.html) are in the Chart section:
 
 ![chart_section](images/chart_section.png)
 
 The configuration tabs (General, Axis, Style, etc.) and options depend on the chart type you choose.
 
-The Wavefront UI uses SI and IEC/Binary notations to represent metric values on charts. See [Units in Chart Axes and Legends](charts_customizing.html#units_in_chart_axes_and_legends). In the chart below, the values you see (5M , 10M, 15M) etc are mega (M) values (ex: 5 M = 5 * 1000^2 = 5000000).
+The Wavefront UI uses SI and IEC/Binary notations to represent metric values on charts. See **Units in Chart Axes and Legends** below. For example, in the following chart, the values 5M , 10M, 15M  etc. are mega (M) values (ex: 5 M = 5 * 1000^2 = 5000000).
 
 ![SI_notation](images/SI_notation.png)
 
@@ -116,11 +114,11 @@ Here is a series of charts with increasing time window for the _same_ display re
 
 The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, Wavefront would first align the values into 15 minute buckets, and then take two aligned values and summarize those based on the Summarize By method.
 
-{% include note.html content="In order to improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
+{% include note.html content="To improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
 
 ## Units in Chart Axes and Legends
 
-You can control how units display in chart axes and legends.  All of these option affect only the display of data and do not change the underlying stored data values, or the results of queries made directly against the API.  Any constants used in queries, including thresholds, also continue to use the underlying raw data without unit scaling.
+You can control how units display in chart axes and legends.  The options affect *only the display* of data and do not change the underlying stored data values, or the results of queries made directly against the API.  Any constants used in queries, including thresholds, also continue to use the underlying raw data without unit scaling.
 
 ### Unit Prefixes
 Charts support these unit prefixes:
@@ -129,22 +127,26 @@ Charts support these unit prefixes:
 
 To display data in axes and legends with IEC/Binary unit prefixes, select the **IEC/Binary Unit Prefixes** checkbox. A data point with value 1024 x 1024 = 1,048,576 displays as "1.000Mi", instead of "1.049M".
 
-Options to show the underlying raw data are not affected by the unit prefix. Legend displays when holding down the shift button while moving the mouse and Tabular View charts with the **Show Raw Values** option selected continue to display raw data without any prefixes.
+Options to show the underlying raw data are not affected by the unit prefix. The legends displayed when you hold down the shift button while moving the mouse and the Tabular View charts with the **Show Raw Values** option selected display raw data without prefixes.
 
 ### Dynamic Units
 Dynamic units automatically adjust the scaling prefixes and units assigned to displayed data to favor clearer display.  When enabled, dynamic units result in these changes:
 
-- When an axis is labeled with a unit that starts with one of the SI or IEC/Binary prefixes, the display logic first normalizes the data value with the labeled prefix before assigning a new prefix and adjusting the unit as appropriate.
+- When an axis is labeled with a unit that starts with one of the SI or IEC/Binary prefixes, the display logic
+    1. First normalizes the data value with the labeled prefix.
+    2. Then assigns a new prefix and adjusting the unit.
 
-  For example, if an axis is labeled "MPPS" (Mega PPS, or 1 million PPS), and the underlying data has a value of 2000, the displayed value with "Dynamic units" enabled would be "2.000B PPS", rather than "2.000k MPPS".
+  For example, if an axis is labeled `MPPS` (Mega PPS, or 1 million PPS), and the underlying data has a value of 2000, the displayed value with `Dynamic units` enabled is `2.000B PPS` and not `2.000k MPPS`.
 
-  Options to show the underlying raw data are not affected, so the above example displays "2000 MPPS" if, e.g., the shift key is held down while a legend is rendered.
+  Options to show the underlying raw data are not affected, so the above example displays `2000 MPPS` if, for example, you hold down the Shift key while a legend is rendered.
 
-- When an axis is labeled with a unit that exactly matches one of the time units, (ys, zs, as, fs, ps, ns, us, ms, s, min, hr, day, wk, mo, yr), the display logic for axes and legends automatically first normalizes the underlying data to seconds.  Then it displays the data using units ys through s if the normalized data magnitude is < 60, or automatically scales the data using larger time unit if the magnitude is > 60, with the goal of keeping the magnitude as small as possible.
+- When an axis is labeled with a unit that exactly matches one of the time units, (ys, zs, as, fs, ps, ns, us, ms, s, min, hr, day, wk, mo, yr), the display logic for axes and legends keeps the magnitute as small as possible. As a result, we:
+  1. First normalize the underlying data to seconds.
+  2. Then display the data using units ys through s if the normalized data magnitude is < 60, or automatically scales the data using larger time unit if the magnitude is > 60.
 
-  For example, if the underlying data is 60,000 and the axis is labeled with ms (milliseconds), this results in a display of "1.000 min".  If data is still 60,000 and the axis is labeled with "s", then the display is "16.67 hr".  If the underlying data is again 60,000 and the axis is labeled with us (microseconds), it displays "60.00m s".
+  For example, if the underlying data is 60,000 and the axis is labeled with ms (milliseconds), this results in a display of `1.000 min`.  If data is still 60,000 and the axis is labeled with `s`, then the display is `16.67 hr`.  If the underlying data is again 60,000 and the axis is labeled with us (microseconds), it displays `60.00m s`.
 
-  Options to show the underlying raw data are not affected, so the above example displays "60000" with whatever unit label is specified when you specify raw data display.
+  Options to show the underlying raw data are not affected. When you specify raw data display, the example above displays `60000` with the specified unit label.
 
 ### Chart Unit Example
 
@@ -163,3 +165,9 @@ Turn on dynamic units:
 The same chart with the millisecond values in the hundred thousands displays as minutes on the Y-axis:
 
   ![minute_view](images/example_with_minutes.png)
+
+## Do More!
+
+* Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details on options.
+* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront. 

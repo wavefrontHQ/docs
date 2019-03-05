@@ -87,7 +87,7 @@ You can add newly-created charts and existing charts to a dashboard.
 1.(Optional) Edit the dashboard name.
 1. Click **Clone**.
 
-## Edit a Dashboard
+## Edit and Save a Dashboard
 
 {% include shared/system_dashboard.html %}
 

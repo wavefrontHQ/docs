@@ -345,7 +345,7 @@ A **single stat** chart plots a single series on a chart and displays a summariz
 
 In addition to general options, a Single Stat chart supports Sparkline options and Single Stat options:
 
-#### Sparkline Options
+### Sparkline Options
 
 A sparkline is a small graph that summarizes the series displays. You can customize the sparkline with these options:
 
@@ -387,12 +387,12 @@ Position of the sparkline. The options are:
 </tbody>
 </table>
 
-#### Value/Color Mapping Example:
+### Value/Color Mapping Example:
 In the following example the single stat is green if its value is less than 150, yellow when the value is between 150 and 200, and orange when the value is greater than 200:
 
 ![value_color](images/value_color.png)
 
-#### Single Stat Options
+### Single Stat Options
 
 A Single Stat chart supports the following options:
 
@@ -448,7 +448,7 @@ A Single Stat chart supports the following options:
 </tbody>
 </table>
 
-#### Value/Text Mapping Example
+### Value/Text Mapping Example
 
 In the following example:
 
