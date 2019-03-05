@@ -15,15 +15,15 @@ You query for traces by describing the spans they must contain. A trace query ca
 
 A trace query:
 1. Finds the spans that match the description you specify.
-2. Returns the traces that contain one or more qualifying spans. 
+2. Returns the traces that contain a qualifying span. 
 
-For example, you can use a trace query to return traces that contain at least one span that meets all of the following criteria: 
+For example, you can use a trace query to return traces that contain a span that meets all of the following criteria: 
 * Is longer than 45 milliseconds.
 * Represents an operation called `dispatch` that is performed by a service called `delivery`.
 * Represents work done on a cluster called `us-west-2`.
 * Is associated with a custom tag `env=production`.
 
-A returned trace might contain other spans that do not meet these criteria. 
+A returned trace normally contains other spans that do not meet these criteria. 
 
 ### Graphic Representation of a Returned Trace
 
@@ -38,14 +38,17 @@ Each bar that is returned by a query represents a unique trace that has a unique
 For example, the two returned traces shown above both have the label **shopping: orderShirts**. This is because both traces have a root span
 that represents the work done by the `orderShirts` operation in the `shopping` service. However, these root spans represent different executions of the `orderShirts` operation, with different start times. Consequently, although these two root spans have the same operation name, they mark the beginning of two different traces.
 
-**Note:** A label such as **shopping: orderShirts** refers to the root span of a trace, which may be different from the span that was specified in the query. For example, suppose you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain one or more `dispatch` spans. 
+**Note:** A label such as **shopping: orderShirts** refers to the root span of a trace, which may be different from the span that was specified in the query. For example, suppose you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain a `dispatch` span. 
 
 ### Limiting the Result Set
 
-To prevent a trace query from taking a long time, you normally specify a limit on the number of spans that can be matched. After reaching the limit, the query stops looking for more matching spans. 
+To prevent a trace query from taking a long time, you normally specify a limit on the number of spans that can be matched. The trace query starts by matching the most recent spans.  After reaching the limit, the query stops looking for more matching spans. 
 
+**Note:** The current time window for the **Traces** page also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start within the current time window.
+
+<!---
 **Note:** The limit applies to the number of spans that a query matches, and not to the number of traces that the query returns. For example, say you limit a query to 20 spans. If 2 or more qualified spans belong to the same trace, that trace is shown only once, and you will see fewer than 20 traces in the result set.
-
+--->
 
 ## Submitting Trace Queries
 
@@ -155,7 +158,7 @@ You can sort a set of returned traces by selecting a sort order from the **Sort 
 * You can choose **Most Recent** to start with the traces that have the most recent start times.
 * You can choose **Most Spans** to start with the traces that contain the largest number of spans.
 
-Sorting always applies after the result set has been limited. For example, suppose you limit the query to 20 matching spans, and sort the returned traces from shortest to longest. The sorted list includes only the traces that contain one or more of the 20 matching spans. We do not first sort all traces containing a matching span, and then display the 20 shortest traces.
+Sorting always applies after the result set has been limited. For example, suppose you limit the query to 20 matching spans, and sort the returned traces from shortest to longest. The sorted list includes only the traces that contain one of the 20 matching spans. We do not first sort all traces containing a matching span, and then display the 20 shortest traces.
  
 **Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
 

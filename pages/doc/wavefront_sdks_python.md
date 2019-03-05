@@ -39,7 +39,6 @@ Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-fr
 </table>
 --->
 
-<!---
 
 ## Python SDKs for Collecting Metrics
 
@@ -47,8 +46,8 @@ A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-h
 
 <table id = "metrics-python" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -57,14 +56,13 @@ A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-h
 </thead>
 <tr>
 <td markdown="span">[PyFormance SDK for Python](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
-<td>Implements PyFormance, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
+<td>Implementation of the PyFormance library, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 
 </tbody>
 </table>
 
---->
 
 ## Python SDK for Collecting Trace Data
 
@@ -83,7 +81,7 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 
 <tr>
 <td markdown="span">[OpenTracing SDK for Python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
+<td markdown="span">Implementation of the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
 <br>Automatically reports [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that describe the reported spans.</td>
 <td markdown="span">Trace data and derived RED metrics</td>
 </tr>

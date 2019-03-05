@@ -57,7 +57,7 @@ A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-h
 </thead>
 <tr>
 <td markdown="span">[XXX SDK for Go](https://github.com/wavefrontHQ/wavefront-pyformance)</td>
-<td>Implements XXX, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
+<td>Implementation of the XXX library, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 <tr>
@@ -86,7 +86,7 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 </thead>
 <tr>
 <td markdown="span">[OpenTracing SDK for Go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
+<td markdown="span">Implementation of the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
 <br>Automatically reports [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that describe the reported spans.</td>
 <td markdown="span">Trace data and derived RED metrics</td>
 </tr>
