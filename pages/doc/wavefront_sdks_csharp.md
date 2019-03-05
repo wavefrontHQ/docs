@@ -56,7 +56,7 @@ A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-h
 
 <tr>
 <td markdown="span">[App Metrics SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)</td>
-<td>Implements App Metrics, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
+<td>Implementation of the App Metrics library, so you can instrument your application code to collect and send custom metrics and histograms to Wavefront. </td>
 <td markdown="span">Metrics, histograms</td>
 </tr>
 
@@ -80,7 +80,7 @@ The [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-da
 
 <tr>
 <td markdown="span">[OpenTracing SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-<td markdown="span">Implements the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
+<td markdown="span">Implementation of the [OpenTracing](https://www.opentracing.io) specification, so you can instrument your application code to collect and send custom traces and spans to Wavefront. 
 <br>Automatically reports [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that describe the reported spans.</td>
 <td markdown="span">Trace data and derived RED metrics</td></tr>
 </tbody>
