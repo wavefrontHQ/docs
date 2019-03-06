@@ -3,12 +3,12 @@ title: Monitoring Wavefront
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
-summary: Monitor and troubleshoot the health of your Wavefront instance.
+summary: Monitor and troubleshoot your Wavefront instance and examine version information.
 ---
 
 If system performance seems to be deteriorating, you can examine your Wavefront instance and Wavefront proxy with the Wavefront system dashboard, and look at internal metrics to investigate the problem.
 
-This page discusses monitoring your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy issues.
+This page discusses monitoring your Wavefront instance. It includes a section about examining versions of dashboards and alerts. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy issues.
 
 ## Wavefront Internal Metrics Overview
 
@@ -291,3 +291,19 @@ For example, if you have a Wavefront instance named `ex1`, you can use the follo
 
 </tbody>
 </table>
+
+## Examining Versions of Dashboards and Alerts
+
+Wavefront stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change.
+
+You can examine dashboard and alert versions from the UI or using the REST API.
+
+**To examine versions of a dashboard:**
+
+1. Select **Browse > All Dashboards**
+2. Click the three vertical dots to the left of the dashboard you're interested in and select **Versions**.
+3. You can review the changes to the dashboard, revert to a previous version, or clone a previous version.
+
+![dashboard versions](images/dashboard_versions.png)
+
+The process is the same for alerts.
