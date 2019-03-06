@@ -131,7 +131,7 @@ Query Builder lets you use menus for selecting values that describe the spans yo
     </tbody>
     </table>
     
-4. Choose a **Limit** to specify the maximum number of qualifying spans to display traces for. The default limit is 20.
+4. Choose a **Limit** to specify the maximum number of qualifying spans to display traces for. 
 
 ### Example
 
@@ -158,7 +158,7 @@ You can sort a set of returned traces by selecting a sort order from the **Sort 
 * You can choose **Most Recent** to start with the traces that have the most recent start times.
 * You can choose **Most Spans** to start with the traces that contain the largest number of spans.
 
-Sorting always applies after the result set has been limited. For example, suppose you limit the query to 20 matching spans, and sort the returned traces from shortest to longest. The sorted list includes only the traces that contain one of the 20 matching spans. We do not first sort all traces containing a matching span, and then display the 20 shortest traces.
+Sorting always applies after the result set has been limited. For example, suppose you limit the query to 50 matching spans, and sort the returned traces from shortest to longest. The sorted list includes only the traces that contain one of the 50 matching spans. We do not first sort all traces containing a matching span, and then display the 50 shortest traces.
  
 **Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
 
