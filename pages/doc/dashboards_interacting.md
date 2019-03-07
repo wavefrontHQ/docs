@@ -4,6 +4,7 @@ keywords: dashboards
 tags: [dashboards, charts, getting started, videos]
 sidebar: doc_sidebar
 permalink: dashboards_interacting.html
+published: false
 summary: Customize dashboards and charts to see what's relevant.
 
 ---
@@ -56,7 +57,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 * Live view -- Changes as you make changes to the dashboard.
 * Current view -- Links to a snapshot of what you're looking at right now.
 
-**Note:** If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to [share access](dashboards_interacting.html#sharing-access-to-dashboards-and-charts) before you share the link.
+**Note:** If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to [share access](ui_sharing.html#share-access-to-dashboards-and-charts) before you share the link.
 
 **To share a dashboard using a link**
 1. Navigate to the dashboard and click the Share Dashboard icon.

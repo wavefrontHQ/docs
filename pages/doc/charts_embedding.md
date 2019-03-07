@@ -3,11 +3,12 @@ title: Creating Embedded Charts
 keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar
+published: false
 permalink: charts_embedding.html
 summary: Learn how to embed a Wavefront chart outside Wavefront.
 ---
 
-Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [Embed Charts Permission](permissions_overview.html#embed-charts-permission) to create embedded charts. 
+Wavefront supports the ability to embed an interactive chart outside of Wavefront. You must have [Embed Charts Permission](permissions_overview.html#embed-charts-permission) to create embedded charts.
 
 To embed a chart:
 

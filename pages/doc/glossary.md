@@ -49,7 +49,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Bucket size</td>
-<td markdown="span">In Wavefront charts, point buckets represent data that have been summarized over a certain length of time. [**Chart resolution**](charts_customizing.html#chart-resolution) is the bucket time interval, and it displays in the Horizontal Scale field in the lower-left corner of a chart.</td>
+<td markdown="span">In Wavefront charts, point buckets represent data that have been summarized over a certain length of time. [**Chart resolution**](ui_charts.html#chart-resolution) is the bucket time interval, and it displays in the Horizontal Scale field in the lower-left corner of a chart.</td>
 </tr>
 <tr>
 <td><strong><big>C</big></strong></td>
@@ -110,7 +110,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Embedded chart**](charts_embedding.html)</td>
+<td markdown="span">[**Embedded chart**](ui_sharing.html#embed-a-chart-in-other-uis)</td>
 <td>You can embed an interactive chart outside of Wavefront. When you use the UI, we generate an HTML code snippet and you can adjust the width and height.</td>
 </tr>
 <tr>
@@ -218,7 +218,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**SDK**](wavefront_sdks.html)</td>
-<td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports observability SDKs in different programming languages to enable you to instrument applications to report telemetry data to Wavefront. 
+<td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports observability SDKs in different programming languages to enable you to instrument applications to report telemetry data to Wavefront.
 
 <ul>
 <li markdown="span">[Framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. </li>

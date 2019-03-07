@@ -4,6 +4,7 @@ keywords: getting started
 tags: [charts, videos]
 sidebar: doc_sidebar
 permalink: charts_creating.html
+published: false
 summary: Learn how to create a Wavefront chart and save it to a dashboard.
 ---
 One of the first tasks a new Wavefront user wants to perform is data visualization.  Wavefront makes chart creation an easy process. You can create charts from several places in the application. This topic explains how to create a chart using **Dashboards > Create Chart**.
@@ -68,7 +69,7 @@ The chart name appears in the top right corner of the chart:
 
 ![chart_name_corner](images/chart_name_corner.png)
 
-The Wavefront UI uses SI and IEC/Binary notations to represent metric values on charts. See [Units in Chart Axes and Legends](charts_customizing.html#units_in_chart_axes_and_legends). In the chart below, the values you see (5M , 10M, 15M) etc are mega (M) values (ex: 5 M = 5 * 1000^2 = 5000000).
+The Wavefront UI uses SI and IEC/Binary notations to represent metric values on charts. See [Units in Chart Axes and Legends](ui_charts.html#units_in_chart_axes_and_legends). In the chart below, the values you see (5M , 10M, 15M) etc are mega (M) values (ex: 5 M = 5 * 1000^2 = 5000000).
 
 ![SI_notation](images/SI_notation.png)
 

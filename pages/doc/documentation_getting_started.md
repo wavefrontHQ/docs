@@ -64,9 +64,9 @@ You can find most videos on our [videos](videos.html) page. We've also included 
 
 Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video help you learn how to create and use charts and dashboards in Wavefront.
 
-- [Creating a Chart](charts_creating.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Interacting with Dashboards and Charts](dashboards_interacting.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Customizing Charts](charts_customizing.html)
+- [Examine Telemetry Data](ui_examine_data.html)
+- [Creating a Chart](ui_charts.html) <i class="fa-check-circle fa" style="color: green;"/>
+- [Customizing a charts](ui_charts.html#customize-a-chart)
 
 ### Query Language
 

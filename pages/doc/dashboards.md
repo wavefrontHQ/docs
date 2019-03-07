@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: dashboards.html
 summary: Learn about Wavefront dashboards.
 ---
-Each [chart](charts.html) is a window into your company's data - and you can prioritize and group charts using dashboards. All users can search and [interact](dashboards_interacting.html) with dashboards.
+Each [chart](charts.html) is a window into your company's data - and you can prioritize and group charts using dashboards. All users can search and interact with dashboards.
 
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
 

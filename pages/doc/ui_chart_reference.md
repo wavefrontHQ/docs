@@ -16,7 +16,6 @@ Wavefront supports a rich set of chart types and chart configuration options.
 
 {% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
 
-
 ## Common Options
 
 Common Options are available for all chart types. They include Query, General, Axis, Unit, Style, Description, and Legend.

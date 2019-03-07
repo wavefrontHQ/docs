@@ -56,9 +56,7 @@ When you construct a query, you can use functions such as `sum()`, `highpass()`,
 
    ![chart variable](images/chart_variable.png)
 
-
-
-## Customize the Chart
+## Customize a Chart
 
 All users can perform chart customizations such as [setting the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolating sources and series](ui_examine_data.html#isolate-sources-or-series). You can further customize your charts to suit your needs precisely. The [chart configuration options](charts.html) are in the Chart section:
 
@@ -170,4 +168,4 @@ The same chart with the millisecond values in the hundred thousands displays as 
 
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details on options.
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront. 
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.

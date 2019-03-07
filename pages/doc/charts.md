@@ -124,7 +124,7 @@ The specified unit is merely a label and <em>does not</em> change the unit of me
 </tbody>
 </table>
 
-For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](charts_customizing.html#units_in_chart_axes_and_legends).
+For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](ui_charts.html#units_in_chart_axes_and_legends).
 
 ### Style
 

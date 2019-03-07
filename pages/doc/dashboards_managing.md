@@ -54,7 +54,7 @@ To set the dashboard preferences:
        - [Dashboard variables](dashboards_variables.html)
    -   A global [events() query](events_queries.html) controlled by the [Show Events](charts_events_displaying.html#controlling-events-overlays) dropdown.
    -   Chart title display properties
-   -   Default [time window](dashboards_interacting.html#time_window)
+   -   Default time window. 
 1. Click **Save**.
 
 ## Cloning a Dashboard
@@ -189,6 +189,6 @@ To move a chart:
 1. Left-click your mouse and hold. The cursor changes to <i class="fa-arrows fa"/>.
 1. Drag the chart to a new position on the dashboard. You can move the chart to an existing row or to a new row by dragging a chart over an <i class="fa-plus-circle fa"/> Add New Chart box.
 
-   You can place up to four charts in a row. More charts in a row means smaller charts. Smaller charts means fewer point buckets and a larger the amount of time represented by each point bucket. See [Chart Resolution](charts_customizing.html#units_in_chart_axes_and_legends).
+   You can place up to four charts in a row. More charts in a row means smaller charts. Smaller charts means fewer point buckets and a larger the amount of time represented by each point bucket. See [Chart Resolution](ui_charts.html#chart-resolution).
 
 1. Release the mouse button to move the chart.

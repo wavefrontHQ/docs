@@ -1,14 +1,18 @@
 ---
-title: Understanding Slow Queries
+title: Examining Slow Queries
 keywords: getting started
 tags: [query language, dashboards, best practice]
 sidebar: doc_sidebar
 permalink: dashboards_slow_queries.html
-summary: Learn how to use Slow Query dashboards to understand which queries take a long time to complete.
+published: false
+summary: Use the Slow Query dashboards to see queries that take a long time to complete.
 ---
-## Displaying the Slow Query Dashboard
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select your username.
-1. Click the **Slow Query Dashboard** link in the left panel.
+
+
+## Display the Slow Query Dashboard
+
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar.
+1. Click the **Slow Query Dashboard** option in the menu.
 
 ## Slow Query Dashboard Links
 
