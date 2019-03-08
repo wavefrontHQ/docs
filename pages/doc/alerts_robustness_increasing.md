@@ -13,7 +13,7 @@ Because each environment is different, Wavefront supports fine-grained customiza
 ## Account for Delayed Data Points
 
 Network delays or slow processing of application metrics at the backend can negatively impact alert processing -- and that can lead to false triggers. These false triggers (false positives) happen if the alerting mechanism is too sensitive.
-If backtesting shows that the alert should have fired, delayed points are often the reason.
+If backtesting shows that the alert should not have fired, delayed points are often the reason.
 
 You can resolve this problem like this:
 

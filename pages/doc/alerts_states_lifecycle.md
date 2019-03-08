@@ -144,22 +144,22 @@ You can click the FIRING facet to filter the list of alerts:
 
 Sometimes an alert fires even though it looks like it shouldn't have fired. This can occur in the following situations:
 
-- Late data values are reported after the alert fired. When this occurs, the alert check initially sees one true value and no false values within the **Alert fires** window at the time of firing, but the late data values that are reported change a true value to a false value. In these cases, the alert fires correctly but it's possible that the chart associated with the alert, which you view 5 or 10 minutes later, does not show the value that the alerting check originally saw.
+- Late data values are reported after the alert fired. When this occurs, the alert check initially sees one true value and no false values within the **Alert fires** window at the time of firing, but the late data values that are reported change the times with no data to times with false values. In these cases, the alert fires correctly but it's possible that the chart associated with the alert, which you view 5 or 10 minutes later, does not show the values that the alerting check originally saw.
 - An aggregate function is used in the alert query and missing data was present for one or more underlying series at the time the alert fired. This tends to make up the majority of misfiring alerts. If there is at least one truly reported data value present at a given time window for one of the underlying series, then Wavefront attempts to apply an interpolated value for all underlying series that did not report a value at that given moment in time. For example, suppose you are aggregating data for `app-1`, `app-2`, and `app-3` using the `sum()` aggregate function. `app-1` and `app-3` reported values at 1:00:00pm and 1:03:00pm, while `app-2` reported values at 1:00:00pm, 1:01:00pm, and 1:03:00pm. In this case, an interpolated value is applied for `app-1` and `app-3` at 1:01:00pm because `app-2` reported a value at that moment in time.
 
   Now assume that the end of the alerting check time window is 1:02:00pm. To apply accurate interpolated values, a reported value must exist before and after the moment of interpolation. Because `app-1` and `app-3` don't report a value until 1:03:00pm, it's impossible to interpolate a value for them at 1:02:00pm. At 1:03:00pm, the data values for `app-1` and `app-3` are reported and therefore interpolated values are retroactively applied to 1:02:00pm for these sources. If the alerting check evaluates the data before the interpolated values are applied, then it's possible that the interactive chart you view 5 or 10 minutes later does not show the value that the alerting check originally saw.
 
-If an alert appears to have misfired, you can gain insight into the situation by checking the alert notification for a [chart image](alerts.html#chart-images-in-alert-notifications) that shows the state of the data at the time the alert fired.
+If an alert appears to have misfired, you can gain insight into the situation by checking the alert notification for a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) that shows the state of the data at the time the alert fired.
 
 ## When Alerts Resolve
 
-An alert resolves when there are either no true values present within the given **Alert resolves** time window, or when the **Alert resolves** time window contains no data. If the **Alert resolves** property is not set, the property defaults to the **Alert fires** value.
+An alert resolves when there are either no true values present within the given **Alert resolves** time window, or when the **Alert resolves** time window contains no data. If the **Alert resolves** property is not set, the property defaults to the **Alert fires** value. You normally set the  **Alert resolves** property to a value that is >= the **Alert fires** value. 
 
-In general, you should set the  **Alert resolves** property to a value that is >= the **Alert fires** value. Setting **Alert resolves** to a value that is less than **Alert fires** can result in  multiple resolve-fire cycles under certain circumstances. For example, assume the following scenario:
- 1. The alert condition is `ts(metric.name) > 0`, **Alert fires** = 10, and **Alert resolves** = 5.
- 1. `metric.name` normally reports 0, but starts reporting 1.
- 1. After 10 minutes, the alert fires (because `metric.name` has been 1)
- 1. At 10:30, `metric.name` returns to 0 and stops reporting new messages.
- 1. At 10:36, the alert resolves because the value was 0 for the last 5 minutes.
- 1. At 10:37, the alert fires again because there were 1 values in the last 10 minutes.
- 1. Then the alert resolves again and fires again, until 10:41 when it finally resolves.
+For example:
+ 1. The alert condition is `ts(metric.name) > 0`, **Alert fires** = 5, and **Alert resolves** = 10.
+ 1. `metric.name` normally reports 0, but starts reporting 1 at 10:21.
+ 1. At 10:26, the alert fires, because `metric.name` has been 1 for 5 whole minutes prior to the check (from 10:21 to 10:25).
+ 1. At 10:26, `metric.name` starts reporting 0 again.
+ 1. At 10:36, the alert resolves, because the value was 0 for 10 whole minutes prior to the check (from 10:26 to 10:35).
+
+![alerts_basic_fire_resolve](images/alerts_basic_fire_resolve.png)

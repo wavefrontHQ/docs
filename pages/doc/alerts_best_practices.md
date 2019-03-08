@@ -35,7 +35,7 @@ For metrics that do not report at a fixed interval, alerts are only useful if y
 
 * You can base the query condition on the last value reported, the sum of the values, or the average of the values depending on what nuance you want your query to capture.
 
-* Wavefront evaluates alerts roughly once per minute by default. The **Checking Frequency** in the Alert page's **Advanced Settings** allows you to change the default (minimum is 1 minute).
+* Wavefront evaluates alerts once per minute by default. The **Checking Frequency** in the Alert page's **Advanced Settings** allows you to change the default (minimum is 1 minute).
 
 **Example 1**: Suppose you have a metric that reports the number of failures since server restart. If the metric reports 25 failures at 1:24, and 25 failures at 1:25, that could mean nothing has changed. However, it could also mean that within a minute, 10 failures resolved and 10 new failures appeared. It could even mean that within a minute, total failures dropped to 2, jumped up to 100, and came back down to 25. For this use case, your alert can't just check the number of failures once a minute. Instead, the alert has to look at a metric that captures the total number of failures that happened over time.
 
@@ -118,7 +118,6 @@ In both cases, but especially when you create the query from scratch, it's impor
 
 Consider carefully which values are best suited for the settings you specify in the **Alerts** UI.
 
-- **Minutes to Resolve** - If your data have gaps, don't set **Minutes to Resolve** to less than **Minutes to Fire**. Otherwise, your alert might trigger multiple times.  
 - **Minutes to Fire** - Alerts with very short **Minutes to Fire** time windows can jump over a problem spot and not fire. This might happen in case of delays in the metric pipeline or if **Alert Check Frequency** is higher than **Minutes to Fire**.
   For example, if **Minutes to Fire** is  5m, and the **Checking Frequency** is 10m, data might meet the condition within the 5 minute time interval, but the alert never fires because the checking frequency is too high.
 
