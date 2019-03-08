@@ -3,7 +3,7 @@ title: Create and Customize Dashboards
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_dashboards.html
-summary: Organize charts into dashboards.
+summary: Create dashboards, add charts, and customize dashboard layout.
 ---
 Wavefront dashboards allow you to organize charts into sections, perform global operations such as [setting the dashboard time window](ui_examine_data.html#set-the-dashboard-time-window) and use [dashboard variables](dashboards_variables.html). Watch this video for an introduction to dashboards:
 
@@ -65,7 +65,7 @@ Here's how you can organize your charts with sections:
 ## Add a Chart to a Dashboard
 
 You can add newly-created charts and existing charts to a dashboard.
-* When you create a chart, you can save it to an existing dashboard or select **Save to New Dashboard**
+* When you [create a chart](ui_charts.html#create-a-chart), the chart editor lets you to save the chart to an existing dashboard or select **Save to New Dashboard**
 * You can also add existing charts to a dashboard. You can build your own dashboards by reusing charts from other dashbords. You can do that by cloning a chart and adding it to a new dashboard. We don't remove the selected chart from its current dashboard, add the clone to the new or existing dashboard:
 
 1. Click the chart name in the upper-right corner of the chart you want to add.

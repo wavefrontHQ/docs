@@ -1,5 +1,5 @@
 ---
-title: Chart Reference
+title: Chart Types and Options
 keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar

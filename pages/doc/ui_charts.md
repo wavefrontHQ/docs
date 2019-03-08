@@ -3,7 +3,7 @@ title: Create and Customize Charts
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_charts.html
-summary: Organize charts into dashboards.
+summary: Create charts, add and manage queries, and customize the chart. 
 ---
 To visualize your data, you create Wavefront charts and fine-tune them. You can specify one or more related queries in each chart, set the chart time window, use variables, and select from many different visualization options (line, point plot, topk, etc.).
 

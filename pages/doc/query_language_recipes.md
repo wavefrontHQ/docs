@@ -8,7 +8,7 @@ summary: Recipes for Common Queries
 ---
 The Wavefront Customer Success team has found that customers want certain information from their data. For example, customers are interested in the point rate received or queued, or in the moving average or moving median.
 
-This page gives some recipes. You can generate several of these recipes interactively using the [Query Wizard](query_language_query_wizard.html). We have a separate set of [Alert Recipes](alert_recipes.html) but you can use many of queries in the recipes here in alerts.
+This page gives some recipes. You can generate several of these recipes interactively using the [Query Wizard](query_language_query_wizard.html). We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use many of queries in the recipes here in alerts.
 
 **Note:** For improved legibility, we've included line breaks in some of the examples.
 
@@ -191,7 +191,7 @@ Display the number of standard deviations that each series varies from its histo
 
 ### Standard Deviation from All Series
 
-Displays the number of standard deviations from the group of series. (Standard deviation from the mean). 
+Displays the number of standard deviations from the group of series. (Standard deviation from the mean).
 
 ```
 (ts(~sample.network.bytes.sent, env="dev"))
@@ -222,3 +222,15 @@ abs(ts(~sample.network.bytes.sent, env="dev")
 / percentile(75, (ts(~sample.network.bytes.sent, env="dev"))
 - percentile(25, (ts(~sample.network.bytes.sent, env="dev")))))
 ```
+
+## Aggregated Result from Multiple Sources by Tag
+
+Assume you have a metric that gives the time in seconds for multiple clusters, for example:
+
+`ts(nginx.ingress.controller.ssl.expire.time.seconds)`
+
+You can average the results by tag like this:
+
+`avg(ts(...), <myrtag)`
+
+See [Point Tags in Queries](query_language_point_tags.html) for details. 

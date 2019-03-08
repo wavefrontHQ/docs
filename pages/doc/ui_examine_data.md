@@ -1,5 +1,5 @@
 ---
-title: Examine Telemetry Data
+title: Examine Data with Dashboards and Charts
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_examine_data.html
@@ -104,10 +104,8 @@ You can select the time window for a chart in a few different ways.
 <td markdown="span">Shift the time window</td>
 <td markdown="span">Place the cursor over the X-axis. When the cursor changes to a 4-way arrow <i class="fa fa-arrows" />, hold and drag to the left or right. To shift the time windows of all charts on a dashboard, hold down the **Shift** key while dragging.<br />
 You can move the time window into the future, however, unless you are using one of the [predictive functions](query_language_reference.html#predictive-functions), the data you see won't be predictive.</td></tr>
-<tr><td markdown="span">Propagate to all charts</td>
-<td markdown="span">To propagate a chart time window to all other charts on the dashboard, click the share icon <i class="fa fa-share-square-o" /> directly under the chart name in the top right corner of the chart box.</td></tr>
 <tr><td markdown="span">Propagate time to all charts</td>
-<td markdown="span">To propagate a chart time window to all other charts on the dashboard, do something inside the chart and then click the share icon <i class="fa fa-share-square-o" /> directly under the chart name in the top right corner of the chart box.</td></tr>
+<td markdown="span">To propagate a chart time window to all other charts on the dashboard, do something inside the chart and then click the sync icon <i class="fa fa-share-square-o" /> directly under the chart name in the top right corner of the chart box.</td></tr>
 <tr><td markdown="span">Reset chart time</td>
 <td markdown="span">To reset an individual chart window to match the time window in all other charts, do something inside the chart and click **RESET**: <img src="/images/reset_time_window.png#inline"  alt="reset time window"/></td></tr>
 </tbody>

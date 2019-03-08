@@ -3,12 +3,13 @@ title: Wavefront Security
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_security.html
+published: false
 summary: Understand how Wavefront secures your data and helps you fine-tune security for your cluster.
 ---
 
 Wavefront by VMware uses an inherently secure environment that protects your data and includes facilities for you to customize authentication and authorization.
 
-This page gives a summary. For a detailed discussion of all aspects of security, download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/). 
+This page gives a summary. For a detailed discussion of all aspects of security, download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/).
 
 ## VMware Security Development Lifecycle
 
@@ -50,7 +51,7 @@ Applications send data to the Wavefront service using either the [Wavefront prox
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy).
 
-* Use proxy [configuration properties](general-proxy-properties-and-examples) to set ports, connect times, and more.
+* Use proxy [configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) to set ports, connect times, and more.
 
 * Use a [whitelist regx or blacklist regx](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
 
