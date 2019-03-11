@@ -1,10 +1,10 @@
 ---
-title: Chart Types and Options
+title: Chart Reference
 keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar
 permalink: ui_chart_reference.html
-summary: Configuration options for each chart type.
+summary: Chart types and configuration options for each chart type.
 ---
 
 Charts allow you to view and examine your metrics. You can [interact directly with charts](ui_examine_data.html)--zoom in, zoom out, change the time window, and so on. You don't receive a static image of your data but you can work with your charts in real time, asking questions and receiving answers.

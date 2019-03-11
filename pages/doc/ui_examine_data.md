@@ -54,6 +54,14 @@ To change the dashboard time window:
 - Click **Live Data** to see up-to-date data on the charts. When Live Data is selected, you can click a time window interval to quickly increase or decrease the amount of live data displayed within each chart.
 - Click **Custom Date** to look at past data. When Custom Date is selected, you can click an interval to adjust the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, the start time is adjusted to 3:00 AM.
 
+## Filter with Dashboard Variables
+
+If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts. Dashboard variables are below the section bar.
+
+![dashboard variables example](images/variables_example.png)
+
+In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboard_variables.html) to any dashboard. 
+
 ## Find a Dashboard
 
 Many Wavefront users work in environments with many dashboards.
