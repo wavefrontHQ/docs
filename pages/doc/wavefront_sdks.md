@@ -31,8 +31,9 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </thead>
 <tbody>
 <tr>
-<td markdown="span">[Telemetry from <br>framework APIs](#sdks-that-instrument-frameworks) </td>
-<td markdown="span">Automatically collects predefined traces, metrics, and histograms from the APIs of a supported app framework, with very few code changes.</td>
+<td markdown="span">[Out-of-the-box <br>framework telemetry](#sdks-that-instrument-frameworks) </td>
+<td markdown="span">Reports predefined traces, metrics, and histograms from the APIs of a supported app framework. 
+<br> Lets you get started quickly with minimal code changes.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks) 
 <!--- [.NET/C#](wavefront_sdks_csharp.html#netc-sdks-that-instrument-frameworks), --->  
 <!--- [Python](wavefront_sdks_python.html#python-sdks-that-instrument-frameworks) --->
@@ -48,8 +49,8 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tr>
 
 <tr>
-<td markdown="span">[Trace data and <br>derived RED metrics](#sdks-for-collecting-trace-data)</td>
-<td markdown="span">Implements the OpenTracing specification. <br> Lets you define, collect, and report custom trace data from any part of your application code. Automatically reports RED metrics that describe the reported spans. </td> 
+<td markdown="span">[Trace data](#sdks-for-collecting-trace-data)</td>
+<td markdown="span">Implements the OpenTracing specification. <br> Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td> 
 
 <td markdown="span">
 [Go](wavefront_sdks_go.html#go-sdk-for-collecting-trace-data), 
@@ -59,8 +60,9 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tr>
 
 <tr>
-<td markdown="span">[Raw data](#sdks-for-sending-raw-data-to-wavefront)  </td>
-<td markdown="span">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces. </td>
+<td markdown="span">[Raw telemetry values](#sdks-for-sending-raw-data-to-wavefront)  </td>
+<td markdown="span">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront. 
+</td>
 <td markdown="span">
 [C++](wavefront_sdks_cpp.html#c-sdk-for-sending-raw-data), 
 [Go](wavefront_sdks_go.html#go-sdk-for-sending-raw-data), 
@@ -143,7 +145,7 @@ Sample use cases:
 
 ## SDKs for Sending Raw Data to Wavefront
 
-Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store and sends those values to Wavefront. 
+Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Wavefront. 
 
 <!---Wavefront provides sender SDKs in these [supported languages](#SDKlevels).--->
 
