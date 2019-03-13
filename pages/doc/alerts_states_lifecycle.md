@@ -100,10 +100,10 @@ For example, say 5 data values are reported between 12:11:00pm and 12:11:59pm. T
 
 The time window that we evaluate at each checking frequency interval depends on the state of the alert:
 
-- When an alert is currently not firing, the **Alert fires** property determines the time window that is evaluated. For example, if the **Alert fires** property is set to 3 minutes, we evaluate the data values that occur within a 3 minute time window.
+- When an alert is currently not firing, the **Alert fires** property determines the time window that is evaluated. For example, if the **Alert fires** property is set to 3 minutes, we evaluate the data values that occur during a 3 minute time window.
 - When an alert is currently firing, the **Alert resolves** property determines the time window that is evaluated.
 
-The last data point to be evaluated within a given alert check time window is determined by the following formula:
+The last data point to be evaluated during an alert check time window is determined by the following formula:
 
  ```
  alert check time (rounded down to nearest minute) - 1 minute
@@ -116,7 +116,7 @@ For example, suppose the **Alert fires** property is set to 5 minutes. If the al
 
 An alert fires when its [condition](#alert-conditions) evaluates to at least one true value and zero false values present within the given **Alert fires** time window.
 
-**Example 1**
+**Example**
 
 Consider the following alert query: `ts(cpu.loadavg.1m) > 4`. The corresponding alert fires:
 - If the series has one reported data value of 5 in the last X minutes, and no other points (no data), the alert fires.
@@ -126,11 +126,6 @@ Consider the following alert query: `ts(cpu.loadavg.1m) > 4`. The corresponding 
 
 Alert checks are based on data summarized every minute.  This means that if you have a series of 9, 9, 9, 3, 9 in the _same minute_ for the alert condition, then the condition evaluates to true for that particular minute although there is a value of 3 reported. All alert queries are checked according to the **Checking Frequency** property.
 
-**Example 2**
-
-In the example shown in the screen shot below, the threshold for the alert is set to 50%. The event window from 09:34-09:35 identifies the interval during which the metric crossed the threshold going up. The event window from 09:39-09:40 identifies the interval during with the metric crossed the threshold going down. The settings for the alert were **Alert fires** = 2 minutes, **Alert resolves** = 2 minutes, and **Checking Frequency** = 1 minute. The alert fires around 09:37:09 and resolves at 09:41:59.
-
-![Alert fires](images/alert_fire.png)
 
 ## Viewing Firing Alerts
 
@@ -153,13 +148,38 @@ If an alert appears to have misfired, you can gain insight into the situation by
 
 ## When Alerts Resolve
 
-An alert resolves when there are either no true values present within the given **Alert resolves** time window, or when the **Alert resolves** time window contains no data. If the **Alert resolves** property is not set, the property defaults to the **Alert fires** value. You normally set the  **Alert resolves** property to a value that is >= the **Alert fires** value. 
+An alert resolves when there are either no true values present within the given **Alert resolves** time window, or when the **Alert resolves** time window contains no data. By default, the **Alert resolves** time window is the same length as the **Alert fires** time window. 
 
-For example:
- 1. The alert condition is `ts(metric.name) > 0`, **Alert fires** = 5, and **Alert resolves** = 10.
+**Example 1**
+Suppose you define an alert with the following properties:
+* The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute.
+* The [Checking Frequency interval](#when-alerts-are-checked) = 1 minute (the default).
+* **Alert fires** = 5 minutes. 
+* **Alert resolves** = 10 minutes. 
+
+The following events show how the alert might fire and then resolve:
+
  1. `metric.name` normally reports 0, but starts reporting 1 at 10:21.
- 1. At 10:26, the alert fires, because `metric.name` has been 1 for 5 whole minutes prior to the check (from 10:21 to 10:25).
- 1. At 10:26, `metric.name` starts reporting 0 again.
- 1. At 10:36, the alert resolves, because the value was 0 for 10 whole minutes prior to the check (from 10:26 to 10:35).
+ 1. At 10:26, the alert fires, because `metric.name` has reported 1 during the 5 whole minutes (from 10:21 to 10:25) immediately before the alert check at 10:26.
+ 1. At 10:26, `metric.name` starts reporting 0 again. It stops reporting for a few minutes of no data, and then continues reporting 0.
+ 1. At 10:36, the alert resolves, because `metric.name` has reported 0 during the 10 whole minutes (from 10:26 to 10:35) immediately before the alert check at 10:36.
 
 ![alerts_basic_fire_resolve](images/alerts_basic_fire_resolve.png)
+
+**Example 2**
+
+In the example shown in the screen shot below, the threshold for the alert is set to 50%. The event window from 09:34-09:35 identifies the interval during which the metric crossed the threshold going up. The event window from 09:39-09:40 identifies the interval during with the metric crossed the threshold going down. The settings for the alert were **Alert fires** = 2 minutes, **Alert resolves** = 2 minutes, and **Checking Frequency** = 1 minute. The alert fires around 09:37:09 and resolves at 09:41:59.
+
+![Alert fires](images/alert_fire.png)
+
+<!---  combine this with best practices
+
+### Picking Alert Time Window Values
+
+You pick time window values according to your use case:
+* For a fast fire, slow-resolve alert, you can set **Alert fires** < **Alert resolves**.
+* For a slow-fire, fast-resolve alert, you can set **Alert fires** > **Alert resolves**. 
+* 
+
+When **Alert fires** > **Alert resolves**, Wavefront adjusts the firing rules to require at least one true value during the **Alert resolves** window before the alert can fire again. This adjustment prevents successive **Alert fires** windows from overlapping with previous ones, which would result in unwanted firings immediately after a resolve window in which no data is reported.
+--->
