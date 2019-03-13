@@ -254,6 +254,12 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <td>Positive integer.</td>
 </tr>
 <tr>
+<td> histogramMaxReceivedLength</td>
+<td>Maximum line length for received histogram points. Default: 65536.</td>
+<td>Positive integer.</td>
+</tr>
+
+<tr>
 <td>histogramReceiveBufferFlushInterval</td>
 <td>Sets maximum time in milliseconds that incoming points can stay in the receive buffer when incoming traffic volume is very low. Default: 100.</td>
 <td>Positive integer.</td>

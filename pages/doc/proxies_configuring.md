@@ -124,12 +124,13 @@ This section lists general proxy configuration properties and metrics proxy conf
 <div>Ex: 2003</div>
 <div>Ex: 2003, 2004 </div></td>
 <td> </td>
-</tr>
+</tr> 
 <tr>
-<td>histogramMaxReceivedLength</td>
-<td>Maximum line length for received histogram points. Default: 65536.
+<td markdown="span">[Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties)</td>
+<td>
+Properties specific to histogram distributions.
 </td>
-<td>Positive integer</td>
+<td></td>
 <td>4.31 </td>
 </tr>
 <tr>
