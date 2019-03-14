@@ -456,7 +456,7 @@ entries:
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
-      
+
   - title: "Distributed Tracing"
     output: web
     folderitems:
@@ -556,6 +556,38 @@ entries:
 
       - title: Monitoring Wavefront Proxies
         url: /monitoring_proxies.html
+        output: web
+
+  - title: Videos
+    output: web
+    folderitems:
+
+      - title: Intro Videos
+        url: /videos_quickstart.html
+        output: web
+
+      - title: Metrics Videos
+        url: /videos_data.html
+        output: web
+
+      - title: Visualization Videos
+        url: /videos_dashboards_charts.html
+        output: web
+
+      - title: Tags & Searches Videos
+        url: /videos_tags_searches.html
+        output: web
+
+      - title: Alerts Videos
+        url: /videos_alerts.html
+        output: web
+
+      - title: Events Videos
+        url: /videos_events.html
+        output: web
+
+      - title: Administration Videos
+        url: /videos_administration.html
         output: web
 
   - title: Misc.

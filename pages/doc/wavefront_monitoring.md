@@ -292,7 +292,6 @@ For example, if you have a Wavefront instance named `ex1`, you can use the follo
 </tbody>
 </table>
 
-<<<<<<< HEAD
 ## Examine Slow Queries
 
 You can examine slow queries to troubleshoot performace issues.
@@ -330,7 +329,7 @@ The three tabs in the display give you the following information.
 </table>
 
 If several slow queries are executed within the selected time window the Slow Query page can become long. Section links at the top left allow you to select a section. *The links display only after you have scrolled down the page.*
-=======
+
 ## Examining Versions of Dashboards and Alerts
 
 Wavefront stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change.
@@ -346,4 +345,3 @@ You can examine dashboard and alert versions from the UI or using the REST API.
 ![dashboard versions](images/dashboard_versions.png)
 
 The process is the same for alerts.
->>>>>>> master
