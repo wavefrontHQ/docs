@@ -1,5 +1,5 @@
 ---
-title: Point Tags in Queries
+title: Fine Tune Queries with Point Tags
 keywords: query language, point tags
 tags: [query language]
 sidebar: doc_sidebar

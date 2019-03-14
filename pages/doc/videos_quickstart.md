@@ -1,5 +1,5 @@
 ---
-title: Get Started with Videos
+title: Intro Videos
 keywords: videos
 tags: [videos]
 sidebar: doc_sidebar

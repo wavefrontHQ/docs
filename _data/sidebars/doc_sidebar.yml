@@ -27,12 +27,17 @@ entries:
       url: /documentation_getting_started.html
       output: web
 
-    - title: "Videos"
-      url: /videos.html
+    - title: Searching Wavefront
+      url: /wavefront_searching.html
       output: web
+
 
     - title: Your Wavefront Account
       url: /users_account_managing.html
+      output: web
+
+    - title: "Intro Videos"
+      url: /videos_quickstart.html
       output: web
 
 
@@ -102,6 +107,14 @@ entries:
 
     - title: Hiding and Unhiding Metrics
       url: /metrics_managing.html
+      output: web
+
+    - title: Organizing with Tags
+      url: /tags_overview.html
+      output: web
+
+    - title: Managing Source Tags
+      url: /source_tags.html
       output: web
 
       subfolders:
@@ -178,6 +191,10 @@ entries:
           url: /query_language_series_matching.html
           output: web
 
+        - title: Point Tags in Queries
+          url: /query_language_point_tags.html
+          output: web
+
         - title: Use Case Videos
           url: /wavefront_use_cases.html
           output: web
@@ -202,8 +219,8 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Query Language Recipes
-          url: /query_language_recipes.html
+        - title: Fine-Tune Queries with Point Tags
+          url: /query_language_point_tags.html
           output: web
 
         - title: Aggregating Time Series
@@ -222,7 +239,9 @@ entries:
           url: /query_language_statistical_functions_anomalies.html
           output: web
 
-
+        - title: Query Language Recipes
+          url: /query_language_recipes.html
+          output: web  
 
   - title: "Charts & Dashboards"
     output: web
@@ -437,25 +456,6 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
 
-  - title: Tags & Searches
-    output: web
-    folderitems:
-
-    - title: Organizing with Tags
-      url: /tags_overview.html
-      output: web
-
-    - title: Point Tags in Queries
-      url: /query_language_point_tags.html
-      output: web
-
-    - title: Managing Source Tags
-      url: /source_tags.html
-      output: web
-
-    - title: Searching Wavefront
-      url: /wavefront_searching.html
-      output: web
 
   - title: "Distributed Tracing"
     output: web
