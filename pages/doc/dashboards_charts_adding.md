@@ -4,6 +4,7 @@ keywords: dashboards
 tags: [dashboards, charts, getting started]
 sidebar: doc_sidebar
 permalink: dashboards_charts_adding.html
+published: false
 summary: Learn how to add charts to dashboards.
 ---
 {% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}

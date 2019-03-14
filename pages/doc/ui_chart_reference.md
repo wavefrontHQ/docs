@@ -1,19 +1,20 @@
 ---
-title: Charts
+title: Chart Reference
 keywords: getting started
-tags: [getting started, charts]
+tags: [charts]
 sidebar: doc_sidebar
-toc_level: 2
-permalink: charts.html
-summary: Learn about Wavefront chart types and chart configuration options.
+permalink: ui_chart_reference.html
+summary: Chart types and configuration options for each chart type.
 ---
 
-Charts allow you to view and examine your metrics. You can interact directly with charts--zoom in, zoom out, change the time window, and so on. You don't receive a static image of your data but you can work with your charts in real time, asking questions and receiving answers.
+Charts allow you to view and examine your metrics. You can [interact directly with charts](ui_examine_data.html)--zoom in, zoom out, change the time window, and so on. You don't receive a static image of your data but you can work with your charts in real time, asking questions and receiving answers.
 
 Wavefront supports a rich set of chart types and chart configuration options.
 
 * You add [Wavefront Query Language](query_language_getting_started.html) queries to the chart to view and perform operations on metrics.
 * You configure chart options to show what's important to you.
+
+{% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
 
 ## Common Options
 
@@ -124,7 +125,7 @@ The specified unit is merely a label and <em>does not</em> change the unit of me
 </tbody>
 </table>
 
-For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](ui_charts.html#units_in_chart_axes_and_legends).
+For information on unit prefixes and dynamic units, see [Units in Chart Axes and Legends](ui_charts.html#units-in-chart-axes-and-legends).
 
 ### Style
 
@@ -343,7 +344,7 @@ A **single stat** chart plots a single series on a chart and displays a summariz
 
 In addition to general options, a Single Stat chart supports Sparkline options and Single Stat options:
 
-#### Sparkline Options
+### Sparkline Options
 
 A sparkline is a small graph that summarizes the series displays. You can customize the sparkline with these options:
 
@@ -385,12 +386,12 @@ Position of the sparkline. The options are:
 </tbody>
 </table>
 
-#### Value/Color Mapping Example:
+### Value/Color Mapping Example:
 In the following example the single stat is green if its value is less than 150, yellow when the value is between 150 and 200, and orange when the value is greater than 200:
 
 ![value_color](images/value_color.png)
 
-#### Single Stat Options
+### Single Stat Options
 
 A Single Stat chart supports the following options:
 
@@ -446,7 +447,7 @@ A Single Stat chart supports the following options:
 </tbody>
 </table>
 
-#### Value/Text Mapping Example
+### Value/Text Mapping Example
 
 In the following example:
 

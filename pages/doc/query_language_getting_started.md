@@ -97,8 +97,8 @@ This doc set includes videos and explanations from the engineering team that hel
 <li><a href="https://youtu.be/I-Z9d94Zi7Y">Anomaly Detection with Functions</a></li></ul> </td></tr>
 <tr>
 <td>How can I improve query performance?</td>
-<td>Consider <a href="https://docs.wavefront.com/query_language_align_function.html">bucketing with align()</a>.
-Investigate <a href="https://docs.wavefront.com/dashboards_slow_queries.html">slow queries</a>.</td> <td> </td></tr>
+<td markdown="span">Consider [bucketing with align()](query_language_align_function.html).
+Investigate [slow queries](wavefront_monitoring.html#examine-slow-queries).</td> <td> </td></tr>
 
 </tbody>
 </table>

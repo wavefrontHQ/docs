@@ -4,6 +4,7 @@ keywords: getting started
 tags: [getting started, charts, best practice, videos]
 sidebar: doc_sidebar
 permalink: charts_customizing.html
+published: false
 summary: Learn about the Wavefront chart time window and display resolution, and how to configure the units displayed in chart axes and legends.
 ---
 Here's a video to get you started with time windows:
@@ -20,7 +21,7 @@ Chart resolution is the bucket time interval, and it displays in the **Horizonta
 
 ### Factors Affecting Chart Resolution
 
-Chart resolution is determined by the chart [time window](dashboards_interacting.html#selecting-chart-time-windows) and the dedicated display resolution. Consider the following chart time window and display resolution examples, and the bucket size they typically have:
+Chart resolution is determined by the chart [time window](ui_examine_data.html#select-the-chart-time-window) and the dedicated display resolution. Consider the following chart time window and display resolution examples, and the bucket size they typically have:
 
 ```
 10 minute time window + 1280px display = ~1 second buckets (best resolution)

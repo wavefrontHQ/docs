@@ -228,44 +228,28 @@ entries:
     output: web
     folderitems:
 
-    - title: "Wavefront Charts"
-      url: /charts.html
+    - title: "Examine Data"
+      url: /ui_examine_data.html
       output: web
 
-    - title: Creating a Chart
-      url: /charts_creating.html
+    - title: Create and Customize Dashboards
+      url: /ui_dashboards.html
       output: web
 
-    - title: Chart Resolution and Units
-      url: /charts_customizing.html
+    - title: Create and Customize Charts
+      url: /ui_charts.html
       output: web
 
-    - title: "Wavefront Dashboards"
-      url: /dashboards.html
+    - title: Share Charts and Dashboards
+      url: /ui_sharing.html
       output: web
 
-    - title: Interacting with Dashboards and Charts
-      url: /dashboards_interacting.html
-      output: web
-
-    - title: Adding a Chart to a Dashboard
-      url: /dashboards_charts_adding.html
-      output: web
-
-    - title: Managing Dashboards
-      url: /dashboards_managing.html
+    - title: Chart Reference
+      url: /ui_chart_reference.html
       output: web
 
     - title: Dashboard Variables
       url: /dashboards_variables.html
-      output: web
-
-    - title: Creating Embedded Charts
-      url: /charts_embedding.html
-      output: web
-
-    - title: Finding Slow Queries
-      url: /dashboards_slow_queries.html
       output: web
 
   - title: "Alerts & Events"

@@ -292,6 +292,45 @@ For example, if you have a Wavefront instance named `ex1`, you can use the follo
 </tbody>
 </table>
 
+<<<<<<< HEAD
+## Examine Slow Queries
+
+You can examine slow queries to troubleshoot performace issues.
+
+**To bring up the Slow Queries page**
+
+1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar.
+1. Click the **Slow Query Dashboard** option in the menu.
+2. Use the buttons at the top right to choose the time window.
+
+The three tabs in the display give you the following information.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="25%">Tab</th><th width="75%">Description</th></tr>
+</thead>
+<tr>
+<td>Overview</td>
+<td>Slow queries in the system.
+<div>Shows the context of the query (Alerts/API or streaming) and which slow queries failed to complete vs. which queries took a long time but eventually completed. Also shows the number of slow queries by user.</div>
+</td>
+</tr>
+<tr>
+<td>Top Slow Queries </td>
+<td>Lists details about the top slow queries including the time taken, points scanned, and CPU seconds.
+</td>
+</tr>
+<tr>
+<td>Resource Consumption</td>
+<td>Displays users that ran slow queries and includes time spent, total points scanned, and total CPU consumed.
+</td>
+</tr>
+</tbody>
+</table>
+
+If several slow queries are executed within the selected time window the Slow Query page can become long. Section links at the top left allow you to select a section. *The links display only after you have scrolled down the page.*
+=======
 ## Examining Versions of Dashboards and Alerts
 
 Wavefront stores details about each version of each dashboard and each alert. That means you have an audit trail of changes. When someone saves changes to a dashboard or alert, we create a new version and track the changes, including details about the change and the user who made the change.
@@ -307,3 +346,4 @@ You can examine dashboard and alert versions from the UI or using the REST API.
 ![dashboard versions](images/dashboard_versions.png)
 
 The process is the same for alerts.
+>>>>>>> master

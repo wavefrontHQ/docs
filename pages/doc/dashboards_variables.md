@@ -8,7 +8,7 @@ summary: Learn how to use dashboard variables.
 ---
 When you use a dashboard variable, you change that variable in all queries on all charts that use the variable. As a result, users can update many charts at once, for example, to change to a different environment or a different customer. Developers can set up the variables so users only have to pick items from a list.
 
-{% include shared/permissions.html entity="dashboards" entitymgmt="Dashboard" %}
+{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save changes you make to dashboards." %}
 
 All Wavefront users can select and temporarily alter the value of a dashboard variable.
 
@@ -28,11 +28,11 @@ Different types of dashboard variables can help in different ways:
   ![Variable Name.png](images/db_var_name.png)
 - **Dynamic**: Use a dynamic variable to show choices that interactively change your dashboard based on the source, metric, point tag, and other options.
 
-## Accessing Dashboard Variables
+## Access Dashboard Variables
 
 To access the variables associated with a dashboard, click the icon to the left of the pen in the top right corner of the task bar ![db_actions.png](images/db_actions.png#inline).
 
-## Creating a Dashboard Variable
+## Create a Dashboard Variable
 
 To create a dashboard variable:
 
@@ -48,7 +48,7 @@ To create a dashboard variable:
 3.  In the Variable Details dialog box, specify the variable name and label, and select the Variable Type. Fill in remaining fields depending on the variable type: [simple](#simple), [list](#list), and [dynamic](#dynamic).
 4.  To make your dashboard variable non-viewable/non-changeable when the dashboard is not in edit mode, click **Hide from non-editors**. The dashboard variable can still be used in ts() expressions and is visible when you put the dashboard into edit mode.
 
-## Using Dashboard Variables in Queries
+## Use Dashboard Variables in Queries
 
 You reference a variable in a ts() expression using the syntax `${variableName}`. For example:
 1. Define a variable `az` and give it the value `tag=az-3 or source=app-3`.
@@ -136,7 +136,7 @@ If you define a dynamic dashboard variable named **var2** that refers to a sourc
 -   **Source Tag** - `ts(<metricName>, tag=${var2})`
 -   **Point Tag** - `ts(<metricName>, \<pointTagKey\>=${var2})`. Here, `pointTagKey` must match the key you set up when you created the dynamic dashboard variable.
 
-### Creating a Dynamic Dashboard Variable
+### Create a Dynamic Dashboard Variable
 
 To create a dynamic variable:
 1. Put the dashboard into edit mode and add or edit a variable.

@@ -27,4 +27,4 @@ Users with Direct Data Ingestion permission have the ability to directly ingest 
 
 ## Embed Charts Permission
 
-While every Wavefront user can access charts and make temporary changes to chart parameters, Embed Charts permission gives you the ability to embed an interactive chart outside of Wavefront. Embedded chart URLs are associated with a specific user account, so if a user embeds a chart and later has their Wavefront account removed, that embedded chart will no longer work. For instructions, see [Embedding a Chart](charts_embedding.html).
+While every Wavefront user can access charts and make temporary changes to chart parameters, Embed Charts permission gives you the ability to embed an interactive chart outside of Wavefront. Embedded chart URLs are associated with a specific user account, so if a user embeds a chart and later has their Wavefront account removed, that embedded chart will no longer work. For instructions, see [Embedding a Chart](ui_sharing.html#embed-a-chart-in-other-uis).
