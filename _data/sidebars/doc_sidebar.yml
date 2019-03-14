@@ -241,7 +241,7 @@ entries:
 
         - title: Query Language Recipes
           url: /query_language_recipes.html
-          output: web  
+          output: web
 
   - title: "Charts & Dashboards"
     output: web
@@ -588,6 +588,10 @@ entries:
 
       - title: Administration Videos
         url: /videos_administration.html
+        output: web
+
+      - title: Tracing Videos
+        url: /videos_tracing.html
         output: web
 
   - title: Misc.
