@@ -10,11 +10,11 @@ summary: Reference to the aliasMetric() function
 ## Summary
 
 ```
-aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}, <newPointTagKey>},]
+aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}],
          [<zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
 aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearchPattern>”,
-         “<replacementPattern>” | "<replacementString>"])
+         “<replacementPattern>” | "<replacementString>")
 ```
 
 
