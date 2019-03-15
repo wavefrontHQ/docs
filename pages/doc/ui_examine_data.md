@@ -60,7 +60,7 @@ If a dashboard has preconfigured dashboard variables, you can use them to filter
 
 ![dashboard variables example](images/variables_example.png)
 
-In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboard_variables.html) to any dashboard. 
+In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard. 
 
 ## Find a Dashboard
 
