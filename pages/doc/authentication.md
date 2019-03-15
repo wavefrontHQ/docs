@@ -38,7 +38,7 @@ Multi-tenancy is set up jointly by the Wavefront administrator at the customer s
 1. The administrator decides on the multi-tenancy mode (see below), that is, sandbox or strict multi-tenant mode.
 1. The administrator requests a multi-tenant setup from Wavefront, providing the following information:
    * Name of the tenants to create (one tenant per team).
-   * Email addresses of the administrators of reach team.
+   * Email addresses of the administrators of each team.
    * IDP details.
    * Sandbox mode or strict mode (see below).
 1. The Wavefront team sets up the multi-tenant environment based on the request:
