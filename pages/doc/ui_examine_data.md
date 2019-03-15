@@ -23,20 +23,6 @@ If your environment is set up with data flowing and dashboards with preconfigure
 
 ![dashboard browser annotated](images/dashboard_browser.png)
 
-## Set Dashboard Display Preferences
-
-For each dashboard, you can customize display preferences.
-
-**To set the dashboard display preferences**:
-
-1. Click the wrench icon at the top right of the dashboard.
-1. Set the preferences, which include:
-   -   Whether to display the section link bar and [dashboard variables](dashboards_variables.html) by default.
-   -   A global [events() query](events_queries.html) controlled by the [Show Events](charts_events_displaying.html#controlling-events-overlays) dropdown.
-   -   Default time window.
-1. Click **Save**.
-
-
 ## Set the Dashboard Time Window
 
 By default dashboards display charts with a two-hour time window with real-time data flowing in. Charts are updated every 30s. The Live Data control displays the state of the update cycle:
@@ -60,7 +46,7 @@ If a dashboard has preconfigured dashboard variables, you can use them to filter
 
 ![dashboard variables example](images/variables_example.png)
 
-In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard. 
+In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
 
 ## Find a Dashboard
 

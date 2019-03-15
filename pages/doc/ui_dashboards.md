@@ -41,6 +41,19 @@ Here are the main areas of a dashboard:
 
 ![dashboard elements](images/dashboard_elements.png)
 
+## Set Dashboard Display Preferences
+
+For each dashboard, you can customize display preferences.
+
+**To set the dashboard display preferences**:
+
+1. Click the wrench icon at the top right of the dashboard.
+1. Set the preferences, which include:
+   -   Whether to display the section link bar and [dashboard variables](dashboards_variables.html) by default.
+   -   A global [events() query](events_queries.html) controlled by the [Show Events](charts_events_displaying.html#controlling-events-overlays) dropdown.
+   -   Default time window.
+1. Click **Save**.
+
 ## Organize Dashboards with Sections
 
 Dashboard sections allow you to group saved charts. Every dashboard has at least one section. The section link bar is located directly below the time bar.
