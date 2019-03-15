@@ -6,7 +6,8 @@ sidebar: doc_sidebar
 permalink: videos_dashboards_charts.html
 summary: Visualize data with dashboards and charts.
 ---
-The following videos introduce dashboards and charts and show off some tricks.
+Learn about visualizing your metrics with dashboards and charts, and how to customize time windows, add legends, configure dashboard variables, and more!
+
 
 <table style="width: 100%;">
 <tbody>
@@ -45,7 +46,7 @@ The following videos introduce dashboards and charts and show off some tricks.
 <p>Jason demonstrates how to customize charts to suit your needs:
 <ul><li> Align the axis to more easily see the trend associated with data.</li>
 <li>Show or hide obsolete metrics (older than 4 weeks).</li>
-<li>Use bucketing and summarization shows display exactly what you need.</li>
+<li>Use bucketing and summarization to display exactly what you need.</li>
 <li>And more!</li></ul></p>
 </td>
 </tr>
@@ -66,7 +67,7 @@ Jason shows how you change the time window:
 <td><strong><font color="blue">Sharing Interactive Content</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5bbbd068-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_share_content.png" alt="sharing content"/></a></td>
 <td><br>
-Jason explains how to use a shortened URL to share dashboard browser status, alert browser status, and chart status. </p>
+<p>Jason explains how to use a shortened URL to share dashboard browser status, alert browser status, and chart status. </p>
 While this information still applies, we now have additional options for <a href="ui_sharing.html"> sharing dashboards and charts</a>.
 </td>
 </tr>

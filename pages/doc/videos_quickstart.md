@@ -4,31 +4,29 @@ keywords: videos
 tags: [videos]
 sidebar: doc_sidebar
 permalink: videos_quickstart.html
-summary: Get an introduction to getting data into Wavefront, view your data with charts, and use alerts in case of anomalous behavior.
+summary: Learn about how to get data into Wavefront, view your data with charts, and use alerts.
 ---
 
-This page is for users who learn best watching videos.
-
-In the Getting Started videos, Wavefront co-founder Clement Pang explains how things work, and Customer Success engineer Jason Goocher (with Wavefront since 20??) shows how it looks in Wavefront.
+In the Getting Started videos, Wavefront co-founder Clement Pang explains how things work, and Wavefront's first Customer Success engineer, Jason Goocher, demos an alert in the Wavefront UI.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="30%"><strong><font color="blue">Getting Data Into Wavefront</font></strong><br> <a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
-<td width="70%"><br><p>Wavefront can give you observability into both your cloud environment and packaged applications. Use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion, then add dashboards to monitor exactly what you need.</p> </td>
+<td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
 <td><strong><font color="blue">What is a Chart?</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/cms.do?view=olplayer&id=57f60938-dc7a-11e7-a6ac-0cc47a352510" target="_blank"><img src="/images/v_what_is_chart.png" alt="what is a chart?"/></a></td>
 <td><br>
-<p>Charts help you visualize data and find problems. Jason shows how you pick a chart type and how you configure a chart to view exactly the information you need. A stacked area chart shows the total requests from all environments but also each environment individually. Charts show the data, and you use query language functions to customize what you can see. </p>
+<p>Charts help you visualize data and find problems. Jason shows how to pick a chart type and how to configure a chart so it shows exactly what you need. For example, a stacked area chart shows the total requests from all environments but also each environment individually. You use query language functions to further customize what you see. </p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Alerting in Wavefront</font></strong><br>
 <a href="https://www.youtube.com/watch?v=VjmWExKiYYg&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1" target="_blank"><img src="/images/v_alerting_clement.png"  alt="Alerting With Wavefront"/></a></td>
 <td><br>
-<p>Wavefront supports sophisticated alerts that go far beyond traditional alerting systems. Clement explains how alerts work using the example of a simple threshold alert. The alert fires when the threshold any of the time series being monitored exceeds the threshold for 10 minutes. Wavefront then sends an alert notification to a specified alert target. when the alert fires and again when the alert is resolved for each time series. Additional examples are shown in other videos. </p>
+<p>Wavefront supports sophisticated alerts that go far beyond traditional alerting systems. Clement explains how alerts work using the example of a simple threshold alert. The alert fires when any monitored time series exceeds the threshold for 10 minutes. Wavefront then sends an alert notification to all specified alert target. When the alert is resolved, notifications are sent to the targets again. Additional examples are shown in [other videos](videos_alerts).</p>
 </td>
 </tr>
 <tr>

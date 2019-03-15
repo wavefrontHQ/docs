@@ -4,6 +4,7 @@ keywords: getting started
 tags: [getting started, dashboards]
 sidebar: doc_sidebar
 permalink: dashboards.html
+published: false
 summary: Learn about Wavefront dashboards.
 ---
 Each [chart](charts.html) is a window into your company's data - and you can prioritize and group charts using dashboards. All users can search and interact with dashboards.

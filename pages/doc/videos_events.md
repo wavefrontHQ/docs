@@ -11,7 +11,7 @@ The following videos explain how alerts work and how to configure them.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="30%"><strong><font color="blue">Introduction to Events (Jason)</font></strong><br><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_events_intro.png" alt="intro to events"/></a></td>
+<td width="30%"><strong><font color="blue">Introduction to Events</font></strong><br><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6f470b3e-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_events_intro.png" alt="intro to events"/></a></td>
 <td width="70%"><br><p>Events let you know that something important just happened. Jason shows the Events page and discusses the 3 types of event sources: System, Alert, and User. He then uses filters to drill down on certain events. </p> </td>
 </tr>
 <tr>

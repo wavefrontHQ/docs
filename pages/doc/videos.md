@@ -1,9 +1,9 @@
 ---
 title: Learn with Videos
 keywords: videos
-tags: [videos]
 sidebar: doc_sidebar
 permalink: videos.html
+published: false
 summary: Learn how things work and how to do things by watching videos.
 ---
 

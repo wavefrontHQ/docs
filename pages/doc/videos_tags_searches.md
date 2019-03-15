@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: videos_tags_searches.html
 summary: Use tags and searches to quickly find what you need.
 ---
-Clement's video explains the basics of tagging in Wavefront. In the other videos, Jason shows how you use tags and searches in the UI to find what you need.
+Jason's videos show how you use tags and searches in the UI to find what you need. Clement's video explains how to use tagging in Wavefront.
 
 <table style="width: 100%;">
 <tbody>
@@ -25,14 +25,14 @@ Clement's video explains the basics of tagging in Wavefront. In the other videos
 <td><strong><font color="blue">Organizing with Tags</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_organize_tags.png" /></a></td>
 <td><br>
-<p>Tags make it easy to organize information. Jason shows an example of assigning a tag (e.g. training) to several dashboards, and shows how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag hierachies are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
+<p>Tags make it easy to organize information. Jason shows an example of assigning a tag (e.g. training) to several dashboards, and shows how the tag can be used for filtering. He then uses additional tags in a hierarchy of tags (e.g. training.attendee and training.trainer) to support more fine-grained filtering using tag paths. Tag paths are available for dashboards, alerts, and events. Finally, for sources, Jason shows you can add source tags and filter directly from a query. </p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Tagging Your Data with Wavefront </font></strong><br>
 <a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
 <td><br>
-<p>By default data include the metric name and host. With cloud integrations, we include additional dimensions e.g. the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need.</p>
+<p>By default, data include the metric name and the source. With cloud integrations, we include additional dimensions, e.g. the AWS region, as point tags. You can add point tags to any data source from the UI or the API. Source tags allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need.</p>
 </td>
 </tr>
 </tbody>

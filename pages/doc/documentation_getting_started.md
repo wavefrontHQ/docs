@@ -58,7 +58,7 @@ Here are some links to popular docs and videos. You can also search this doc set
 
 ### Videos
 
-You can find most videos on our [videos](videos.html) page. We've also included those  videos on pages where they're most useful.
+You can find most videos on our [videos](label_videos.html) page. We've also included those videos on pages where they're most useful.
 
 ### Charts and Dashboards
 

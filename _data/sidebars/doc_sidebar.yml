@@ -195,9 +195,6 @@ entries:
           url: /query_language_point_tags.html
           output: web
 
-        - title: Use Case Videos
-          url: /wavefront_use_cases.html
-          output: web
 
       - title: Interacting with WQL
         output: web
@@ -593,6 +590,10 @@ entries:
       - title: Tracing Videos
         url: /videos_tracing.html
         output: web
+
+      - title: Use Case Videos
+        url: /wavefront_use_cases.html
+        output: web  
 
   - title: Misc.
     output: web
