@@ -67,3 +67,15 @@ Define an alert when there are more than a specified number of points in a speci
 For example, here's the query for an alert that fires if the number of sample processes for `app-5` is more than 100 in a 30 minute time window.
 
 `mcount(30m, (ts(~sample.process.num, source="app-5"))) > 100`
+
+## Alert on Wavefront Proxy
+
+The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront proxy and the proxy pushes the data to the Wavefront collector service. Make sure that the proxy checks in with Wavefront and that data is being pushed to the collector. You can set up the following alert to monitor the proxy:
+
+```
+mcount(5m,sum(rate(ts(~agent.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~agent.check-in)), sources)) !=0
+```
+
+This query uses the `~agent.check-in` metric to verify that the agents are reporting. By applying a second argument to the alert query, you capture any time series that reported at least 1 value  in the last hour and that stopped reporting in the last 5 minutes.
+
+Examine the Wavefront System Usage dashboard for your instance for proxy monitoring examples.

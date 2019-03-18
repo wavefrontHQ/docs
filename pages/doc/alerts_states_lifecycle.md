@@ -87,12 +87,12 @@ The exact time of the check for a particular alert is not fixed and can vary sli
 
 The data granularity for alert checking is 1 minute. The alert checking process:
 
-1. Evaluates the reported data values according to the query you specified as the alert condition.
-1. Implicitly aligns the alert condition's results by grouping them into 1-minute buckets.
-1. Summarizes the values within each group by averaging them.
+1. Evaluates the query you specified as the alert condition.
+1. Implicitly aligns the query's result values by grouping them into 1-minute buckets.
+1. Summarizes the result values within each group by averaging them.
 1. Tests each average value (1 per minute) to see whether it is 0 or non-zero.
 
-For example, say 5 data values are reported between 12:11:00pm and 12:11:59pm. The alert checking process evaluates these data values against the alert condition to produce a series of result values, also between 12:11:00pm and 12:11:59pm. The average of these 5 result values is then returned as a summarization data point at 12:11:00pm.
+For example, say 5 data values are reported by a metric between 12:11:00pm and 12:11:59pm. The alert checking process evaluates these data values against the alert condition to produce a series of result values, also between 12:11:00pm and 12:11:59pm. The average of these 5 result values is then returned as a summarization data point at 12:11:00pm.
 
 **Note** If you want a different summarization strategy, then you can use the [`align()`](ts_align.html) function in your query, with parameters specifying a 1-minute time window and your preferred summarization method.
 
@@ -103,7 +103,7 @@ The time window that we evaluate at each checking frequency interval depends on 
 - When an alert is currently not firing, the **Alert fires** property determines the time window that is evaluated. 
 - When an alert is currently firing, the **Alert resolves** property determines the time window that is evaluated.
 
-The data points that are evaluated during a check time window are the [1-minute summarizations](#data-granularity-for-alert-checking) of the actual reported data values, as described above. 
+The data points that are evaluated during a check time window are the [1-minute summarizations](#data-granularity-for-alert-checking) of the data values that are returned by the alert condition, as described above. 
 E.g., if the **Alert fires** property is set to 3 minutes, then the alert check evaluates 3 summarization data points, one for each minute in the check time window.
 
 The last summarization data point to be evaluated in an alert check time window is determined by the following formula:
@@ -115,8 +115,8 @@ The last summarization data point to be evaluated in an alert check time window 
 We use this formula to ensure that the alert has a full minute's worth of reported data to summarize and evaluate.
 
 For example, suppose the **Alert fires** property is set to 5 minutes, and the alert check time is 1:09:32pm: 
-* The last summarization data point to be evaluated is at 1:08:00pm `((1:09:32 - 0:00:32) - 0:01:00)`. This point is the average of the actual values that were reported from 1:08:00pm to 1:08:59pm. 
-* The 5-minute time window includes the 5 summarization data points from 1:04 - 1:08. These points represent the actual reported data points that were reported from 1:04:00pm through 1:08:59pm.
+* The last summarization data point to be evaluated is at 1:08:00pm `((1:09:32 - 0:00:32) - 0:01:00)`. This point is the average of the actual values that were returned by the alert condition from 1:08:00pm to 1:08:59pm. 
+* The 5-minute time window includes the 5 summarization data points from 1:04 - 1:08. These points represent the values that were returned by the alert condition from 1:04:00pm through 1:08:59pm.
 
 ## When Alerts Fire
 
@@ -141,16 +141,6 @@ You can click the FIRING facet to filter the list of alerts:
 
 ![Tag path](images/alerts_filter.png)
 
-## Misfiring Alerts
-
-Sometimes an alert fires even though it looks like it shouldn't have fired. This can occur in the following situations:
-
-- Late data values are reported after the alert fired. When this occurs, the alert check initially sees one true value and no false values within the **Alert fires** window at the time of firing, but the late data values that are reported change the times with no data to times with false values. In these cases, the alert fires correctly but it's possible that the chart associated with the alert, which you view 5 or 10 minutes later, does not show the values that the alerting check originally saw.
-- An aggregate function is used in the alert query and missing data was present for one or more underlying series at the time the alert fired. This tends to make up the majority of misfiring alerts. If there is at least one truly reported data value present at a given time window for one of the underlying series, then Wavefront attempts to apply an interpolated value for all underlying series that did not report a value at that given moment in time. For example, suppose you are aggregating data for `app-1`, `app-2`, and `app-3` using the `sum()` aggregate function. `app-1` and `app-3` reported values at 1:00:00pm and 1:03:00pm, while `app-2` reported values at 1:00:00pm, 1:01:00pm, and 1:03:00pm. In this case, an interpolated value is applied for `app-1` and `app-3` at 1:01:00pm because `app-2` reported a value at that moment in time.
-
-  Now assume that the end of the alerting check time window is 1:02:00pm. To apply accurate interpolated values, a reported value must exist before and after the moment of interpolation. Because `app-1` and `app-3` don't report a value until 1:03:00pm, it's impossible to interpolate a value for them at 1:02:00pm. At 1:03:00pm, the data values for `app-1` and `app-3` are reported and therefore interpolated values are retroactively applied to 1:02:00pm for these sources. If the alerting check evaluates the data before the interpolated values are applied, then it's possible that the interactive chart you view 5 or 10 minutes later does not show the value that the alerting check originally saw.
-
-If an alert appears to have misfired, you can gain insight into the situation by checking the alert notification for a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) that shows the state of the data at the time the alert fired.
 
 ## When Alerts Resolve
 
@@ -175,7 +165,7 @@ The following events show how the alert might fire and then resolve:
 
 ## Alert Lifecycle Example
 
-Suppose the threshold for the alert is set to 50%, and so a true value is > 50% and a false value is <= 50%.
+Suppose the threshold for the alert is set to 50%, and so a reported value > 50% is true, and a reported value <= 50% is false.
 Settings for the alert are **Alert fires** = 2 minutes, **Alert resolves** = 2 minutes, and **Checking Frequency** = 1 minute. 
 
 In the chart below: 
@@ -186,14 +176,39 @@ In the chart below:
 ![Alert fires](images/alert_fire.png)
 
 Why does the alert fire when it does?
-* An alert check occurs at 09:37:09, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:35 and 09:36. The value of each summarization data point is true, because it is the average of actual reported values that are all > 50%. 
-* The alert check causes the alert to fire, because it finds at least one true value and no false values among the summarization data points in the time window.
+* An alert check occurs at 09:37:09, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:35 and 09:36. The value of each summarization data point is true, because it is the average of all true values (all > 50%). 
+* The alert check causes the alert to fire, because it finds two true values and no false values among the summarization data points in the time window.
 
 Why does the alert resolve when it does?
 * An alert check occurs at 09:41:59, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:39 and 09:40. The value of each summarization data point is false: 
-  - The point at 09:40 is the average of the values (all <= 50%) that were reported from 09:40 to 09:40:59.
-  - The point at 09:39 is the average of the values (some > 50%, some <= 50%) that were reported from 09:39 to 09:39:59. The resulting average is < 50%.
+  - The summarization point at 09:40 is the average of the false values (all <= 50%) that were reported from 09:40 to 09:40:59.
+  - The summarization point at 09:39 is the average of the true and false values (some > 50%, some <= 50%) that were reported from 09:39 to 09:39:59. The resulting average is false.
 * Because the alert check finds at no true values among the summarization data points in the time window, it causes the alert to resolve.
+
+## Did My Alert Misfire?
+
+The alert checking process bases its decisions on the values that are actually present at the time of the alert check. If all metrics report their data points on time, then alert checking decisions are based on a complete picture of your metrics. Sometimes, however, an alert checking decision is based on a temporarily partial picture of your data, and this can cause an alert to fire, even though, in retrospect, it looks like it shouldn't have fired. 
+
+A temporary, partial picture of your data commonly occurs when one or more metrics report their data points after a delay. Delays can be:
+* Predictable - for example, a known pipeline delay due to processing done before data is sent to Wavefront.
+* Unpredictable - for example, an unexpected network slowdown or outage. 
+
+When the delay is over and the data points finally arrive, Wavefront backfills the delayed points into the time series. Each backfilled point is stored with the timestamp that reflects when it was reported, not when it was actually received. 
+
+If values are delayed at the time of the alert check, their absence can affect the decision to fire or resolve an alert:
+
+* Absent values could affect the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be higher or lower than it would be if all the expected data were present.
+* Absent values could cause interpolated values to be used instead of actual values in an alert condition that aggregates values across multiple time series. The resulting aggregated values might be higher or lower than they would be if all the actual data were present. 
+* Absent values could eliminate one or more summarization data points entirely, so the alert check would see No Data for those minutes.
+
+In these cases, the decision to fire or resolve the alert is correct, but it is based on the partial set of data points that are present at the alert check time. If alert checking had had the complete set of data points, it might have made a different decision.
+
+Suppose a data delay causes the alert condition to be met at the time of alert checking. The alert fires at this time, and you receive an alert  notification. You investigate a short time later by inspecting the chart that is associated with the alert. What you see in the chart depends on whether the delayed data values have been backfilled:
+* If you view the chart before the backfilling, you will see the same conditions that led to the alert.
+* If you view the chart after backfilling, you will see the complete set of data points instead of the points that the alerting check originally saw.  
+
+
+If an alert appears to have misfired, you can gain insight into the situation by checking the alert notification for a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) that is a snapshot of the data at the time the alert fired.
 
 
 <!---  combine this with best practices
@@ -206,4 +221,11 @@ You pick time window values according to your use case:
 * 
 
 When **Alert fires** > **Alert resolves**, Wavefront adjusts the firing rules to require at least one true value during the **Alert resolves** window before the alert can fire again. This adjustment prevents successive **Alert fires** windows from overlapping with previous ones, which would result in unwanted firings immediately after a resolve window in which no data is reported.
+--->
+
+<!---
+- An aggregate function is used in the alert query and missing data was present for one or more underlying series at the time the alert fired. This tends to make up the majority of misfiring alerts. If there is at least one truly reported data value present at a given time window for one of the underlying series, then Wavefront attempts to apply an interpolated value for all underlying series that did not report a value at that given moment in time. For example, suppose you are aggregating data for `app-1`, `app-2`, and `app-3` using the `sum()` aggregate function. `app-1` and `app-3` reported values at 1:00:00pm and 1:03:00pm, while `app-2` reported values at 1:00:00pm, 1:01:00pm, and 1:03:00pm. In this case, an interpolated value is applied for `app-1` and `app-3` at 1:01:00pm because `app-2` reported a value at that moment in time.
+
+  Now assume that the end of the alerting check time window is 1:02:00pm. To apply accurate interpolated values, a reported value must exist before and after the moment of interpolation. Because `app-1` and `app-3` don't report a value until 1:03:00pm, it's impossible to interpolate a value for them at 1:02:00pm. At 1:03:00pm, the data values for `app-1` and `app-3` are reported and therefore interpolated values are retroactively applied to 1:02:00pm for these sources. If the alerting check evaluates the data before the interpolated values are applied, then it's possible that the interactive chart you view 5 or 10 minutes later does not show the value that the alerting check originally saw.
+
 --->

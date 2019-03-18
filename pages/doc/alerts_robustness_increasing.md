@@ -1,5 +1,5 @@
 ---
-title: Three Tips for Increasing Alert Robustness
+title: Tips for Increasing Alert Robustness
 keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar
@@ -10,22 +10,43 @@ Monitoring a production environment can be a challenging task. But if you have t
 
 Because each environment is different, Wavefront supports fine-grained customization.  Here are some tips to help you improve alert robustness and prevent false positives.
 
-## Account for Delayed Data Points
+## Correcting for Delayed Data
 
 Network delays or slow processing of application metrics at the backend can negatively impact alert processing -- and that can lead to false triggers. These false triggers (false positives) happen if the alerting mechanism is too sensitive.
 If backtesting shows that the alert should not have fired, delayed points are often the reason.
 
-You can resolve this problem like this:
+You can reduce the impact of delayed data points by using the `lag()` function in the alert condition. This function enables alert checking to evaluate data values from an earlier moment in time. Looking back to the earlier time improves the chances of evaluating the complete set of data, including any data points that arrived later and were backfilled.
 
-* Set the **Alert fires** threshold higher than the default 2 minutes. This setting depends on how often data points arrive, and it accounts for any delays in the application metrics delivery pipeline. Changing **Alert fires** can compensate for external delays of metrics.
+**Example**
 
-* Adjust the alert query to account for delayed metric data points. Use the `lag()` function, as follows:
+Suppose you want to compare a recent total request count to the value that was measured one week ago, to determine whether the request count has dropped below 30%. You could use the following alert condition, which uses the current request count in the comparison:
 
-  ```
-  lag(30m, sum(ts("aws.elb.requestcount"))) < 0.3 * lag(1w, sum(ts("aws.elb.requestcount")))
-  ```
+```
+sum(ts("aws.elb.requestcount")) < 0.3 * lag(1w, sum(ts("aws.elb.requestcount")))
+```
 
-  The example above analyzes a single value of the `aws.elb.requestcount` metric that was reported 30 minutes ago. The example compares the value with the value that was measured one week ago, and determines whether the request count dropped below 30%. The example alert query looks at a value reported 30-minutes ago -- which allows delayed data points to catch up. The example also looks at the overall trend of the data. As a result, delayed metric points do not falsely trigger the alert.
+But you know that preprocessing in the data pipeline normally causes a 15-minute reporting delay, so some recent values will be missing at the time of alert checking. If these missing values cause the current request count to fall below the threshold, the alert will fire. 
+
+You correct for the delay by applying `lag()` to the current request count, as in the following alert condition. 
+
+```
+lag(15m, sum(ts("aws.elb.requestcount"))) < 0.3 * lag(1w, sum(ts("aws.elb.requestcount")))
+```
+
+By setting the time window to `15m`, you enable alert checking to consider the complete set of values after they have been received and backfilled. When this alert condition is met, the firing alert is likely to indicate a real problem, and not just a temporary data delay.
+
+**Alternative Technique**
+
+Another way to reduce the impact of delayed data points is to increase the **Alert fires** time window. A longer **Alert fires** window enables alert checking to look back at earlier time that might contain backfilled data. 
+
+For example, suppose you want your alert to fire 1 true value followed by a predictable 15-minute reporting delay. You can 
+
+
+<!--- 
+
+This setting depends on how often data points arrive, and it accounts for any delays in the application metrics delivery pipeline. 
+Changing **Alert fires** can compensate for external delays of metrics. --->
+
 
 ## Account for Missing Data Points
 
@@ -57,18 +78,9 @@ The example below shows how `mcount` fills in gaps and continues reporting value
 
 If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`.
 
-## Alert on Wavefront Proxy
 
-The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront proxy and the proxy pushes the data to the Wavefront collector service. Make sure that the proxy checks in with Wavefront and that data is being pushed to the collector. You can set up the following alert to monitor the proxy:
-
-```
-mcount(5m,sum(rate(ts(~agent.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~agent.check-in)), sources)) !=0
-```
-
-This query uses the `~agent.check-in` metric to verify that the agents are reporting. By applying a second argument to the alert query, you capture any time series that reported at least 1 value  in the last hour and that stopped reporting in the last 5 minutes.
-
-Examine the Wavefront System Usage dashboard for your instance for proxy monitoring examples.
-
+<!---
 ## More Info
 
 For more tips, see our blog post [Intelligent Alert Design: Three Simple Tips for Increasing Alert Robustness](https://www.wavefront.com/intelligent-alert-design-three-simple-tips-increasing-alert-robustness/){:target="_blank" rel="noopenner noreferrer"}
+--->
