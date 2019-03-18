@@ -36,7 +36,7 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <td><strong><font color="blue">Editing Dashboards</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5e39c586-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_dashboards_editing.png" alt="editing dashboards"/></a></td>
 <td><br>
-<p>Jason explains the difference between sections and charts, then puts a dashboard into edit mode adds a new section to organize the charts in the dashboard. He uses the section bar to move to a section and demonstrates collapsing and expanding a section. He shows how to undo or save changes in your dashboard. He makes changes to the dashboard JSON directly and saves those changes. Finally, he uses the dashboard version menu item to revert to a previous version of the dashboard. </p>
+<p>Jason explains the difference between sections and charts, and then puts a dashboard into edit mode adds a new section to organize the charts. He uses the section bar to move to a section and demonstrates collapsing and expanding a section. He shows how to undo or save changes in your dashboard. He makes changes to the dashboard JSON directly and saves those changes. Finally, he uses the dashboard version menu item to revert to a previous version of the dashboard. </p>
 </td>
 </tr>
 <tr>
@@ -58,8 +58,8 @@ Jason shows how you change the time window:
 <ul>
 <li>Click <strong>Live Data</strong> and select the time frame (1h, 2h, etc.)</li>
 <li>Click <strong>Custom Date</strong> and pick a custom time window. You can go back in time.</li>
-<li>Adjust the time windows for an individual charts, and use a chart's push icon to update each chart to use that time window.</li>
-<li>Use shift-drag on one chart in a dashboard to change the start time for all charts.</li>
+<li>Adjust the time windows for an individual charts, and use a chart's push icon to update each chart in the dashboard to use that time window.</li>
+<li>Use shift-drag on one chart in a dashboard to change the start time for all charts in that dashboard.</li>
 </ul>
 </td>
 </tr>

@@ -12,7 +12,7 @@ The following videos, available from  VMware Learning Zone, discuss the Wavefron
 <tbody>
 <tr>
 <td width="35%"><strong><font color="blue">Intro to Wavefront Query Language</font></strong><br> <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=60b992dc-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_ql_intro.png" alt="introduction to query language"/></a></td>
-<td width="65%"><br><p>Query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and correlation() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to only show true failures in a chart. </p> </td>
+<td width="65%"><br><p>Wavefront query language allows you to shape the data you see in your dashboards. Jason first shows an example of an environment where a single switch in a customer environment had a problem. The example uses the advanced functions if() at() and corr() to find other switches with the same behavior and prevent further problems. Jason then uses the highpass() function on other data to show only true failures in a chart. </p> </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Query Language Basics</font></strong><br>
@@ -25,11 +25,11 @@ The following videos, available from  VMware Learning Zone, discuss the Wavefron
 <td><strong><font color="blue">Advanced Query Language Functions</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6601e213-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_ql_advanced.png" alt="advanced functions"/></a></td>
 <td><br>
-<p>Jason demos explores query language functions using the following examples:
+<p>Jason explores query language functions using the following examples:
 <ul>
-<li>Use the percentile() function in 3 queries to show different percentiles for a query.</li>
-<li>Use the moving percentile mpercentile() over a 30 minute window.</li>
-<li>Uses a chart variable in a query that shows the standard deviation.</li>
+<li>The percentile() function in 3 queries shows different percentiles for a query.</li>
+<li>The mpercentile() (moving percentile) function displays percentile over a 30 minute window.</li>
+<li>A chart variable in a query that shows the standard deviation.</li>
 </ul></p>
 </td>
 </tr>

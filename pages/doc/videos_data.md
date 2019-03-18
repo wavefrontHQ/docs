@@ -19,7 +19,7 @@ Learn about getting data into Wavefront and get background info on time series a
 <td><strong><font color="blue">Time Series and Interpolation</font></strong><br>
 <a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
 <td><br>
-<p>Interpolation means that Wavefront creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series--e.g. sum()--Wavefront . Wavefront performs automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw<em>X</em>() functions include only actual data points--no automatic interpolation is performed. </p>
+<p>Interpolation means that Wavefront creates pseudo data points if data are reported at different intervals. To support aggregation of multiple series--e.g. sum()--Wavefront . Wavefront performs automatic alignment data for very large intervals using mean(), but you can select the summarization function. The raw aggregation function include only actual data points--no automatic interpolation is performed. </p>
 </td>
 </tr>
 <tr>
@@ -33,13 +33,13 @@ Learn about getting data into Wavefront and get background info on time series a
 <td><strong><font color="blue">Tagging Your Data with Wavefront</font></strong><br>
 <a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_tagging_clement.png"  alt="Tagging in Wavefront"/></a></td>
 <td><br>
-<p>By default, data include the metric name and host. With cloud integrations, we include additional dimensions e.g. the AWS region, as point tags. You can add explicitly point tags to any data source from the UI or the API. Source tags allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need. </p>
+<p>By default, data include the metric name and host. With cloud integrations, data include additional dimensions, such as the AWS region, as point tags. You can add point tags explicitly to any data source from the UI or the API. Source tags are different - they allow you to group machines, for example, into db machines and web machines. You can then customize your queries to pull out just the data you need. </p>
 </td>
 </tr>
 <tr>
 <td><strong><font color="blue">Browsing Metrics</font></strong><br><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=633ceb73-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_browse_metrics.png" alt="browsing metrics"/></a></td>
 <td><br>
-<p>Jason shows how you can use the Metrics browser to view metrics that you can query for. He explains why we obsolete metrics, and then drills down into a metric. He displays the sources for a metric, and then visualizes the metric in a chart. He also searches for metrics, and then explores how to use Hide Metrics to remove metrics from view.</p>
+<p>Jason shows how you can use the Metrics browser to view metrics that you can query for. He explains why Wavefront obsoletes metrics, and then drills down into a metric. He displays the sources for a metric, and then visualizes the metric in a chart. He also searches for metrics, and then explores how to use Hide Metrics to remove metrics from view.</p>
 </td>
 </tr>
 <tr>

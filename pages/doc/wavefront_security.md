@@ -3,17 +3,22 @@ title: Wavefront Security
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_security.html
-published: false
 summary: Understand how Wavefront secures your data and helps you fine-tune security for your cluster.
 ---
 
 Wavefront by VMware uses an inherently secure environment that protects your data and includes facilities for you to customize authentication and authorization.
 
-This page gives a summary. For a detailed discussion of all aspects of security, download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/).
+This page gives a summary. For a detailed discussion of many aspects of security, download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/).
 
-## VMware Security Development Lifecycle
+## Certifications
 
-VMware has an industry-leading [Security Development Lifecycle process](https://www.vmware.com/security/sdl.html) and a VMware Cloud Services Security organization that focuses on ensuring that VMware cloud services implement industry standard operational and security controls.
+Wavefront has successfully completed all requirements for the following certifications:
+
+*	ISO 27001/27017/27018
+*	SOC 2 Type 1
+*	GDPR Type 1 attestation
+*	CSA STAR Level 1
+
 
 ## Data Protection
 
@@ -22,31 +27,32 @@ Wavefront currently uses AWS to run the Wavefront service and to store customer 
 Wavefront customer environments are isolated from each other. Data is stored on encrypted data volumes.
 
 The AWS data centers incorporate physical protection against environmental risks. To
-access the AWS ISO27001 report, see https://aws.amazon.com/compliance/. For more information:
+access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://aws.amazon.com/compliance/). For more information:
 * On AWS controls, visit:
-https://cloudsecurityalliance.org/star-registrant/amazon-aws/
-* On data centers https://aws.amazon.com/compliance/datacenter/data-centers/
+[https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
+* On data centers [https://aws.amazon.com/compliance/datacenter/data-centers/](https://aws.amazon.com/compliance/datacenter/data-centers/)
 
-Development, QA, and production use separate equipment and
+Wavefront development, QA, and production use separate equipment and
 environments and are managed by separate teams.
-Customers retain control and ownership of their Customer
-Content which does not get replicated without the explicit
-actions of the tenant administrator.
+Customers retain control and ownership of their content. We do not replicate customer cuntent unless the customer asks for it explicitly.
 
 ## High Availability
 
-Wavefront by VMware is architected to be highly available. In
-the event of a hardware failure, this unique cloud service is
-configured to automatically migrate to, or restart workloads
+Wavefront is architected to be highly available. In
+the event of a hardware failure, we automatically migrate to, or restart workloads
 on, another host machine in the cluster and automatically
 restart the failed host. If the host machine fails to restart, or
 the performance of the restarted host is degraded, the service
 is capable of replacing the failed host in a cluster with an
 entirely new host within minutes.
 
+## Disaster Recovery
+
+Wavefront supports the option of DR across regions for customers. Contact your Wavefront representative for details.
+
 ## Networking
 
-Applications send data to the Wavefront service using either the [Wavefront proxy] or direct ingestion[direct_ingestion.html]. We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Wavefront service, we recommend TLS 1.2 connections.
+Applications send data to the Wavefront service using either the [Wavefront proxy](proxies.html) or [direct ingestion](direct_ingestion.html). We protect all data traffic with TLS (Transport Layer Security) and HTTPS. If you send data directly to the Wavefront service, we recommend TLS 1.2 connections.
 
 The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Perform a manual install and place the Wavefront proxy [behind an HTTP proxy](proxies_manual_install.html#connecting-to-wavefront-through-an-http-proxy).
@@ -54,6 +60,8 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 * Use proxy [configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) to set ports, connect times, and more.
 
 * Use a [whitelist regx or blacklist regx](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
+
+
 
 
 ## Authentication
@@ -65,21 +73,19 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 
 ## Authorization
 
-Wavefront supports multi-level access management for both users and groups.
-* [Global permissions](permissions.html) determine which users can manage which objects or perform certain tasks. For example, you could assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission to a Developers group and only Dashboard permission to a Novice group.
-* [Access control](access.html) applies to individual dashboards. Privileged users can revoke grant access to individual groups or users.
-
-![dashboard access](images/dashboard_access.png)
+Wavefront supports multi-level access management:
+* [Global permissions](permissions.html) determine which groups or users can manage which objects or perform certain tasks. For example, you could assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission to a Developers group and only Dashboard permission to a Novice group.
+* [Access control](access.html) applies to individual dashboards. Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_groups.html#who-is-the-super-admin-user) user.
 
 Wavefront supports a [high security mode](access.html#changing-the-access-control-preference) where only the dashboard creator and Super Admin users can view and modify new dashboards.
 
-Users of the REST API must pass in an API token and must also have the necessary permissions to perform the task, for example, Dashboard permissions to modify dashboards.
+If you use the REST API, you must pass in an API token and must also have the necessary permissions to perform the task, for example, Dashboard permissions to modify dashboards.
+
+If you use [direct ingestion](direct_ingestion.html) you are required to pass in an API token and most also have the Direct Data Ingestion permission.
 
 ## Audit Trail
 
-You can view changes that were made to dashboards, alerts, etc. by using the Version feature. XX link here
-
-![alert versions](images/alert_versions.png)
+You can view changes that were made to dashboards, alerts, etc. by using [versions](wavefront_monitoring.html#examining-versions-of-dashboards-and-alerts) of charts and dashboards.
 
 ## Integrations
 
@@ -87,10 +93,6 @@ Cloud integrations support monitoring data from different cloud providers using 
 1. You open the integration.
 2. You give Wavefront [global read-only access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) or [limited access](integrations_aws_metrics.html#giving-wavefront-limited-access).
 
-Other Integrations
+## VMware Security Development Lifecycle
 
-Security of other integrations depends on the integration.
-??Do we use TLS 1.2 in our integrations?
-
-Container Integrations
-What can we say here? Any advice?
+VMware has an industry-leading [Security Development Lifecycle process](https://www.vmware.com/security/sdl.html) and a VMware Cloud Services Security organization that focuses on ensuring that VMware cloud services implement industry standard operational and security controls.

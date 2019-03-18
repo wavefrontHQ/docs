@@ -14,7 +14,7 @@ The following videos explain how alerts work and how to configure them.
 <td width="30%"><strong><font color="blue">Monitoring with Alerts</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alerts_monitoring.png" alt="monitoring with alerts"/></a></td>
 <td width="70%"><br>
-<p>Jason explains first why intelligent alerts are so useful. He then explores the Alerts page, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts page.</p>
+<p>Jason explains first why intelligent alerts are so useful. He then explores the Alerts browser, which gives alert details such recent changes or which alerts are firing. He also shows different filtering options on the Alerts browser.</p>
 </td>
 </tr>
 <tr>
@@ -42,7 +42,7 @@ The following videos explain how alerts work and how to configure them.
 <td><strong><font color="blue">Alert Severity Levels</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6df8dd92-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alert_severity.png"/></a></td>
 <td><br>
-<p>You can use severity levels to classify alerts. Jason shows the levels (Severe, Warn, Smoke, and Info) in the Alerts browser. Severity levels have no impact on how or when the alert fires, but makes it easy to see urgent problems at a glance and enables filtering by severity.
+<p>You can use severity levels to classify alerts. Jason shows the levels (Severe, Warn, Smoke, and Info) in the Alerts browser. Severity levels have no impact on how or when the alert fires, but make it easy to see urgent problems at a glance and enables filtering by severity.
  </p>
 </td>
 </tr>
@@ -50,7 +50,7 @@ The following videos explain how alerts work and how to configure them.
 <td><strong><font color="blue">Creating a Maintenance Window</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_maintenance.png"/></a></td>
 <td><br>
-<p>Maintenance window stop alerts from firing, reducing distraction for recipients and resulting an faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications if you're in the process of doing an upgrade or solving a problem. </p>
+<p>Maintenance windows stop alerts from firing, reducing distraction for recipients and resulting an faster problem resolution. Watch Jason set a maintenance window so that an alert won't send notifications when you're in the process of doing an upgrade or solving a problem. </p>
 </td>
 </tr>
 </tbody>

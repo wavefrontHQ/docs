@@ -563,11 +563,11 @@ entries:
         url: /videos_quickstart.html
         output: web
 
-      - title: Metrics Videos
+      - title: Wavefront and Data Videos
         url: /videos_data.html
         output: web
 
-      - title: Visualization Videos
+      - title: Dashboards & Charts Videos
         url: /videos_dashboards_charts.html
         output: web
 
@@ -583,6 +583,10 @@ entries:
         url: /videos_events.html
         output: web
 
+      - title: Query Language Videos
+        url: /videos_query_language.html
+        output: web
+
       - title: Administration Videos
         url: /videos_administration.html
         output: web
@@ -593,7 +597,7 @@ entries:
 
       - title: Use Case Videos
         url: /wavefront_use_cases.html
-        output: web  
+        output: web
 
   - title: Misc.
     output: web
