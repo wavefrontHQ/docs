@@ -39,9 +39,9 @@ For example:
 
 <table id = "spanfields">
 <colgroup>
-<col width="20%" />
+<col width="25%" />
 <col width="10%" />
-<col width="40%" />
+<col width="35%" />
 <col width="30%" />
 </colgroup>
 <thead>
@@ -75,13 +75,13 @@ For example:
 <td markdown="span">`start_milliseconds`</td>
 <td>Yes</td>
 <td>Start time of the span, expressed as epoch time elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970. </td>
-<td markdown="span">Whole number of epoch milliseconds [or other units (see below)](#time-values-in-spans). </td>
+<td markdown="span">Whole number of epoch milliseconds [or other units (see below)](#time-value-precision-in-spans). </td>
 </tr>
 <tr>
 <td markdown="span">`duration_milliseconds`</td>
 <td>Yes</td>
 <td>Duration of the span.</td>
-<td markdown="span">Whole number of milliseconds [or other units (see below)](#time-values-in-spans). Must be greater than or equal to 0. </td>
+<td markdown="span">Whole number of milliseconds [or other units (see below)](#time-value-precision-in-spans). Must be greater than or equal to 0. </td>
 </tr>
 </tbody>
 </table>
@@ -182,11 +182,11 @@ Specify <strong>cluster=none</strong> to indicate a span that does not use this 
 Because operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
 --->
 
-### Time Values in Spans
+### Time-Value Precision in Spans
 
-Every span has a [`start_milliseconds` field and a `duration_milliseconds` field](#spanfields). As these 2 field names imply, we recommend that you express the start time and duration of a span as a number of milliseconds, because those are the units that Wavefront uses for storage and visualization. 
+A span has two time-value [fields](#spanfields) for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). We recommend that you express these values as in milliseconds, because those are the units that Wavefront uses for span storage and visualization. 
 
-For convenience, Wavefront accepts time values in other units, and converts these values to milliseconds, and shown in the following table. 
+For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds, as follows: 
 
 <table>
 <colgroup>
@@ -197,7 +197,7 @@ For convenience, Wavefront accepts time values in other units, and converts thes
 <col width="15%" />
 </colgroup>
 <thead>
-<tr><th>Time Value <br>Unit</th><th>Number Format</th><th>Sample Value</th><th>Stored As <br>Milliseconds</th><th>Conversion<br>Method</th></tr>
+<tr><th>Unit for <br>Time Values</th><th>Number Format</th><th>Sample Value</th><th>Stored As <br>Milliseconds</th><th>Conversion<br>Method</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -205,40 +205,38 @@ For convenience, Wavefront accepts time values in other units, and converts thes
 <td markdown="span">Fewer than 13 digits</td>
 <td markdown="span">`1533529977`</td>
 <td markdown="span">`1533529977000`</td>
-<td markdown="span">Multiply by 1000</td>
+<td markdown="span">Multiplied by 1000</td>
 </tr>
 <tr>
-<td markdown="span">Milliseconds  <br>Thousandths of a second</td>
+<td markdown="span">Milliseconds  <br>(Thousandths of a second)</td>
 <td markdown="span">13 to 15 digits</td>
 <td markdown="span">`1533529977627`</td>
 <td markdown="span">`1533529977627`</td>
 <td markdown="span"> -- </td>
 </tr>
 <tr>
-<td markdown="span">Microseconds <br>Millionths of a second</td>
+<td markdown="span">Microseconds <br>(Millionths of a second)</td>
 <td markdown="span">16 to 18 digits</td>
 <td markdown="span">`1533529977627992`</td>
 <td markdown="span">`1533529977627`</td>
-<td markdown="span">Truncate</td>
+<td markdown="span">Truncated</td>
 </tr>
 <tr>
-<td markdown="span">Nanoseconds <br>Billionths of a second</td>
+<td markdown="span">Nanoseconds <br>(Billionths of a second)</td>
 <td markdown="span">19 or more digits</td>
 <td markdown="span">`1533529977627992726`</td>
 <td markdown="span">`1533529977627`</td>
-<td markdown="span">Truncate</td>
+<td markdown="span">Truncated</td>
 </tr>
 
 </tbody>
 </table>
 
 <!---{% include shared/badge.html content="Note: Both `start_milliseconds` and `duration_milliseconds` must use the same time-value units." %}--->
-**Note:** You must use the same time-value units for the `start_milliseconds` and `duration_milliseconds` values. Wavefront identifies the time-value unit used for `start_milliseconds`, and applies the same unit to the `duration_milliseconds` value. Consequently, if you need to change the unit for one value, you should adjust the other value.
+**Note:** You must use the same units for _both_ time values. Wavefront identifies the unit implied by the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. When specifying a span in Wavefront span format, make sure you adjust values as necessary. For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Wavefront span format, you could specify either of the following pairs of time values:
 
-| 1533529977 | 3 | Seconds|
-| 1533529977000 | 3000 | Milliseconds|
-| 1533529977000000 | 3000000 | Microseconds|
-| 1533529977000000000 | 3000000000 | Nanoseconds|
+| `1533529978` | `3` | (both values in seconds) |
+| `1533529977627` | `3000` | (both values in milliseconds) |
 
 
 
