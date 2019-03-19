@@ -117,6 +117,10 @@ entries:
       url: /source_tags.html
       output: web
 
+    - title: Managing Sources
+      url: /sources_managing.html
+      output: web
+
       subfolders:
       - title: Proxies
         output: web
@@ -543,8 +547,8 @@ entries:
             url: /access.html
             output: web
 
-      - title: Managing Sources
-        url: /sources_managing.html
+      - title: Wavefront Security
+        url: /wavefront_security.html
         output: web
 
       - title: Monitoring Wavefront

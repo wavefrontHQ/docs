@@ -3,7 +3,7 @@ title: Wavefront Security
 tags: [administration]
 sidebar: doc_sidebar
 permalink: wavefront_security.html
-summary: Understand how Wavefront secures your data and helps you fine-tune security for your cluster.
+summary: Understand how Wavefront secures your data and supports fine-tuning security for your cluster.
 ---
 
 Wavefront by VMware uses an inherently secure environment that protects your data and includes facilities for you to customize authentication and authorization.
@@ -34,7 +34,7 @@ access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://
 
 Wavefront development, QA, and production use separate equipment and
 environments and are managed by separate teams.
-Customers retain control and ownership of their content. We do not replicate customer cuntent unless the customer asks for it explicitly.
+Customers retain control and ownership of their content. We do not replicate customer content unless the customer asks for it explicitly.
 
 ## High Availability
 
