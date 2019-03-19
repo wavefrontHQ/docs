@@ -30,6 +30,6 @@ You can monitor the system clock of a source if it has a metric for sending its 
 The `time.seconds` metric in this example can be created for Macintosh and Linux hosts via [direct data ingestion](direct_ingestion.html). You can set up a `cron` job to generate and send data points directly to the Wavefront service, where each point has the metric name `time.seconds` and a value produced by the host's `date` utility. After opening your `cron` table for editing (`crontab -e`), enter:
 
 ```
-* * * * * echo "time.seconds $(date +\%s) source=$(hostname)" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://<<domain>>.wavefront.com/report
+* * * * * echo "time.seconds $(date +\%s) source=$(hostname)" | curl -H "Authorization: Bearer <TOKEN>" --data @- https://mydomain.wavefront.com/report
 ```
 You'll need to supply your own API token and domain, as described in [Example Commands](direct_ingestion.html#example-commands).
