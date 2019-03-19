@@ -184,9 +184,9 @@ Because operations are normally composed of other operations, each span is norma
 
 ### Time-Value Precision in Spans
 
-A span has two time-value [fields](#spanfields) for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). We recommend that you express these values as in milliseconds, because those are the units that Wavefront uses for span storage and visualization. 
+A span has two time-value [fields](#spanfields) for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). We recommend that you express these values as in milliseconds, because those are the units that Wavefront uses for span storage and visualization. For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds. 
 
-For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds, as follows: 
+Wavefront requires that you use the same precision for _both_ time values. Wavefront identifies the precision of the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. The following table shows how to indicate the start-time precision:
 
 <table>
 <colgroup>
@@ -197,7 +197,7 @@ For convenience, you can specify time values in other units. Wavefront converts 
 <col width="15%" />
 </colgroup>
 <thead>
-<tr><th>Unit for <br>Time Values</th><th>Number Format</th><th>Sample Value</th><th>Stored As <br>Milliseconds</th><th>Conversion<br>Method</th></tr>
+<tr><th>Precision for <br>Start Time Values</th><th>Number Format</th><th>Sample <br>Start Value</th><th>Stored As <br>Milliseconds</th><th>Conversion<br>Method</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -232,8 +232,7 @@ For convenience, you can specify time values in other units. Wavefront converts 
 </tbody>
 </table>
 
-<!---{% include shared/badge.html content="Note: Both `start_milliseconds` and `duration_milliseconds` must use the same time-value units." %}--->
-**Note:** You must use the same units for _both_ time values. Wavefront identifies the unit implied by the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. When specifying a span in Wavefront span format, make sure you adjust values as necessary. For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Wavefront span format, you could specify either of the following pairs of time values:
+**Note:** When specifying a span in Wavefront span format, make sure you adjust values as necessary so that the units match. For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Wavefront span format, you could specify either of the following pairs of time values:
 
 | `1533529978` | `3` | (both values in seconds) |
 | `1533529977627` | `3000` | (both values in milliseconds) |
