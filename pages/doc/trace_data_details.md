@@ -234,7 +234,7 @@ Wavefront requires that you use the same precision for _both_ time values. Wavef
 
 **Note:** When specifying a span in Wavefront span format, make sure you adjust values as necessary so that the units match. For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Wavefront span format, you could specify either of the following pairs of time values:
 
-| `1533529978` | `3` | (both values in seconds) |
+| `1533529977` | `3` | (both values in seconds) |
 | `1533529977627` | `3000` | (both values in milliseconds) |
 
 
