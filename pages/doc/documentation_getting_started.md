@@ -46,8 +46,8 @@ The following docs are great for learning what Wavefront is, how to get data int
 - [Permissions Overview](permissions_overview.html)
 - [Organizing with Tags](tags_overview.html)
 - [Searching Wavefront](wavefront_searching.html)
-- [Charts](charts.html)
-- [Dashboards](dashboards.html)
+- [Charts](ui_charts.html)
+- [Dashboards](ui_dashboards.html)
 - [Alerts](alerts.html)
 - [Events](events.html)
 - [Integrations](integrations.html)
@@ -58,7 +58,7 @@ Here are some links to popular docs and videos. You can also search this doc set
 
 ### Videos
 
-You can find most videos on our [videos](videos.html) page. We've also included those  videos on pages where they're most useful.
+You can find most videos on our [videos](label_videos.html) page. We've also included those videos on pages where they're most useful.
 
 ### Charts and Dashboards
 

@@ -20,7 +20,7 @@ Most use cases do not require you to know exactly how Wavefront expects a span t
 * When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters. 
 * When you instrument your application with a 3rd party distributed tracing system, your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up. 
 
-It is, however, possible to manually construct a well-formed span and send it either directly to the Wavefront service or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system. 
+It is, however, possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system. 
 
 ### Span Syntax
 
@@ -31,17 +31,17 @@ Fields must be space separated and each line must be terminated with the newline
 
 For example:
 ```
-"getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId=0313bafe-9457-11e8-9eb6-529269fb1459 parent=2f64e538-9457-11e8-9eb6-529269fb1459 application=Wavefront service=auth http.method=GET 1533529977 343500"
+"getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId=0313bafe-9457-11e8-9eb6-529269fb1459 parent=2f64e538-9457-11e8-9eb6-529269fb1459 application=Wavefront service=auth cluster=us-west-2 shard=secondary http.method=GET 1552949776000 343"
 ```
 
 
 ### Span Fields
 
-<table>
+<table id = "spanfields">
 <colgroup>
-<col width="20%" />
+<col width="25%" />
 <col width="10%" />
-<col width="40%" />
+<col width="35%" />
 <col width="30%" />
 </colgroup>
 <thead>
@@ -68,20 +68,20 @@ For example:
 <tr>
 <td markdown="span">`spanTags`</td>
 <td>Yes</td>
-<td markdown="span">See [below](#span-tags). </td>
+<td markdown="span">See [Span Tags](#span-tags), below. </td>
 <td></td>
 </tr>
 <tr>
 <td markdown="span">`start_milliseconds`</td>
 <td>Yes</td>
-<td>Start time of the span. </td>
-<td>Whole number of epoch milliseconds, which is the number of milliseconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970.</td>
+<td>Start time of the span, expressed as epoch time elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970. </td>
+<td markdown="span">Whole number of epoch milliseconds [or other units (see below)](#time-value-precision-in-spans). </td>
 </tr>
 <tr>
 <td markdown="span">`duration_milliseconds`</td>
 <td>Yes</td>
-<td>Duration of the span, in milliseconds.</td>
-<td>Whole number greater than or equal to 0.</td>
+<td>Duration of the span.</td>
+<td markdown="span">Whole number of milliseconds [or other units (see below)](#time-value-precision-in-spans). Must be greater than or equal to 0. </td>
 </tr>
 </tbody>
 </table>
@@ -103,7 +103,7 @@ The following table lists span tags that contain information about the span's id
 <col width="15%" />
 </colgroup>
 <thead>
-<tr><th>Span Tags <br>(Span Identity)</th><th>Required</th><th>Description</th><th>Type</th></tr>
+<tr><th>Span Tags <br>for Identity</th><th>Required</th><th>Description</th><th>Type</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -128,7 +128,7 @@ A span without the `parent` or `followsFrom` tag is the root (first) span of a t
 <tr>
 <td markdown="span">`followsFrom`</td>
 <td markdown="span">No</td>
-<td markdown="span">Identifier of the span's non-dependent parent, if it has one. This tag is populated as the result of an OpenTracing `FollowsFrom` relationship. Wavefrong ignores spans with this tag when calculating the critical path through a trace. A span without the `parent` or `followsFrom` tag is the root (first) span of a trace. </td>
+<td markdown="span">Identifier of the span's non-dependent parent, if it has one. This tag is populated as the result of an OpenTracing `FollowsFrom` relationship. Wavefront ignores spans with this tag when calculating the critical path through a trace. A span without the `parent` or `followsFrom` tag is the root (first) span of a trace. </td>
 <td markdown="span">UUID</td>
 </tr>
 </tbody>
@@ -144,7 +144,7 @@ The following table lists span tags that describe the architecture of the instru
 <col width="15%" />
 </colgroup>
 <thead>
-<tr><th>Span Tags <br> (Span Filtering)</th><th>Required</th><th>Description</th><th>Type</th></tr>
+<tr><th>Span Tags <br>for Filtering</th><th>Required</th><th>Description</th><th>Type</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -161,14 +161,16 @@ The following table lists span tags that describe the architecture of the instru
 </tr>
 <tr>
 <td markdown="span">`cluster`</td>
-<td markdown="span">No</td>
-<td markdown="span">Name of a group of related hosts that serves as a cluster or region in which the instrumented application runs.</td>
+<td markdown="span">Yes</td>
+<td markdown="span">Name of a group of related hosts that serves as a cluster or region in which the instrumented application runs. <br>
+Specify <strong>cluster=none</strong> to indicate a span that does not use this tag.</td>
 <td markdown="span">String</td>
 </tr>
 <tr>
 <td markdown="span">`shard`</td>
-<td markdown="span">No</td>
-<td markdown="span">Name of a subgroup of hosts within the cluster.</td>
+<td markdown="span">Yes</td>
+<td markdown="span">Name of a subgroup of hosts within the cluster. 
+<br>Specify <strong>shard=none</strong> to indicate a span that does not use this tag.</td>
 <td markdown="span">String</td>
 </tr>
 </tbody>
@@ -179,6 +181,61 @@ The following table lists span tags that describe the architecture of the instru
 <!---
 Because operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
 --->
+
+### Time-Value Precision in Spans
+
+A span has two time-value [fields](#spanfields) for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). We recommend that you express these values as in milliseconds, because those are the units that Wavefront uses for span storage and visualization. For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds. 
+
+Wavefront requires that you use the same precision for _both_ time values. Wavefront identifies the precision of the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. The following table shows how to indicate the start-time precision:
+
+<table>
+<colgroup>
+<col width="25%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr><th>Precision for <br>Start Time Values</th><th>Number Format</th><th>Sample <br>Start Value</th><th>Stored As <br>Milliseconds</th><th>Conversion<br>Method</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">Seconds</td>
+<td markdown="span">Fewer than 13 digits</td>
+<td markdown="span">`1533529977`</td>
+<td markdown="span">`1533529977000`</td>
+<td markdown="span">Multiplied by 1000</td>
+</tr>
+<tr>
+<td markdown="span">Milliseconds  <br>(Thousandths of a second)</td>
+<td markdown="span">13 to 15 digits</td>
+<td markdown="span">`1533529977627`</td>
+<td markdown="span">`1533529977627`</td>
+<td markdown="span"> -- </td>
+</tr>
+<tr>
+<td markdown="span">Microseconds <br>(Millionths of a second)</td>
+<td markdown="span">16 to 18 digits</td>
+<td markdown="span">`1533529977627992`</td>
+<td markdown="span">`1533529977627`</td>
+<td markdown="span">Truncated</td>
+</tr>
+<tr>
+<td markdown="span">Nanoseconds <br>(Billionths of a second)</td>
+<td markdown="span">19 or more digits</td>
+<td markdown="span">`1533529977627992726`</td>
+<td markdown="span">`1533529977627`</td>
+<td markdown="span">Truncated</td>
+</tr>
+
+</tbody>
+</table>
+
+**Note:** When specifying a span in Wavefront span format, make sure you adjust values as necessary so that the units match. For example, suppose you know a span started at `1533529977627` epoch milliseconds, and lasted for `3` seconds. In Wavefront span format, you could specify either of the following pairs of time values:
+
+| `1533529977` | `3` | (both values in seconds) |
+| `1533529977627` | `3000` | (both values in milliseconds) |
 
 
 

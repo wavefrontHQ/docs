@@ -55,7 +55,7 @@ The `options` field allows you to get granular metrics from node level data. How
 
 ## Dashboard
 
-You can [deploy](dashboards_managing.html#deploying-a-dashboard) the AppDynamics dashboard to begin monitoring your server metrics from AppDynamics in Wavefront:
+You can deploy the AppDynamics dashboard to begin monitoring your server metrics from AppDynamics in Wavefront:
 
 ![db_appdynamics application](images/db_appdynamics_application.png)
 ![db_appdynamics backend](images/db_appdynamics_backend.png)

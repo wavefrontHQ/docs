@@ -62,7 +62,7 @@ You can [create additional alerts](alerts.html#creating-an-alert) using the Wave
 
 ## VMware PKS Monitoring Dashboards
 
-Wavefront includes several predefined dashboards for monitoring PKS. You can use these dashboards as is, or [clone and customize them](dashboards_managing.html).
+Wavefront includes several predefined dashboards for monitoring PKS. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
 
 We support dashboards for major functionality including:
 * PKS Home dashboard

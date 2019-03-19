@@ -57,7 +57,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Chart**](charts.html)</td>
+<td markdown="span">[**Chart**](ui_charts.html)</td>
 <td markdown="span">Charts allow you to view and examine your telemetry data. Wavefront supports a rich set of chart types and chart configuration options. You can interact directly with charts–-zoom in, zoom out, change the time window, and so on, and share a link to the chart. </td>
 </tr>
 <tr>
@@ -76,7 +76,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Dashboard**](dashboards.html)</td>
+<td markdown="span">[**Dashboard**](ui_dashboards.html)</td>
 <td>Dashboards allow you to group and prioritize a set of charts. All charts in a dashboard share certain display preferences and dashboard variables. All Wavefront users have permission to search and interact with dashboards. </td>
 </tr>
 <tr>

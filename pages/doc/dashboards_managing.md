@@ -4,6 +4,7 @@ keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
 permalink: dashboards_managing.html
+published: false
 summary: Learn how to manage dashboards.
 ---
 
@@ -54,7 +55,7 @@ To set the dashboard preferences:
        - [Dashboard variables](dashboards_variables.html)
    -   A global [events() query](events_queries.html) controlled by the [Show Events](charts_events_displaying.html#controlling-events-overlays) dropdown.
    -   Chart title display properties
-   -   Default time window. 
+   -   Default time window.
 1. Click **Save**.
 
 ## Cloning a Dashboard

@@ -44,7 +44,7 @@ For individual charts, you can:
 - Add an [events() query](events_queries.html) to the chart. An `events()` query cannot be the only query on a chart. At least one `ts()` query must be enabled on the chart so that the `events()` query results display.
 
 For all charts in a dashboard, you can:
-  - Set an [events() query](events_queries.html) in [dashboard preferences](dashboards_managing.html#prefs), which you can access from the wrench icon in the right corner of the time bar.
+  - Set an [events() query](events_queries.html) in [dashboard preferences](ui_dashboards.html#set-dashboard-display-preferences), which you can access from the wrench icon in the right corner of the time bar.
   - Select an option in the dashboard **Show Events** dropdown in the middle of the time bar:
 
   ![time window](images/time_bar.png)
