@@ -22,7 +22,7 @@ Because some customers told us they'd like to send data directly to the Wavefron
 ## Example Commands
 
 The following examples illustrate how to send data to Wavefront.
-* An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<<TOKEN>>` in the examples.
+* An [API token](wavefront_api.html#generating-an-api-token) is required. Referred to as `<TOKEN>` in the examples.
 * You must know your Wavefront domain name. These examples use `mydomain.wavefront.com`.
 * Currently, we support only [Wavefront Data Format](wavefront_data_format.html), which is named `wavefront`. If you don't specify `f=wavefront`, we still use that format.
 
@@ -31,14 +31,14 @@ The following examples illustrate how to send data to Wavefront.
 Assume `wavefront.txt` contains 1 or more lines in the Wavefront data format. You can send it to Wavefront like this:
 
 ```
-cat wavefront.txt | curl -H "Authorization: Bearer <<TOKEN>>" -F file=@- https://mydomain.wavefront.com/report
+cat wavefront.txt | curl -H "Authorization: Bearer <TOKEN>" -F file=@- https://mydomain.wavefront.com/report
 ```
 
 ### Single Data Point
 
 You can send a single data point like this:
 ```
-echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report
+echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <TOKEN>" --data @- https://mydomain.wavefront.com/report
 ```
 
 ### Histogram Distribution
@@ -47,13 +47,29 @@ You can perform direct ingestion of [histogram distributions](proxies_histograms
 
 Here's a simple example:
 ```
-echo '!M #20 30 #10 5 request.latency source=appServer1 region=us-west' | curl -H "Authorization: Bearer <<TOKEN>>" --data @- https://mydomain.wavefront.com/report?f=histogram
+echo '!M #20 30 #10 5 request.latency source=appServer1 region=us-west' | curl -H "Authorization: Bearer <TOKEN>" --data @- https://mydomain.wavefront.com/report?f=histogram
 ```
 
-Note that:
-* The histogram feature requires a separate license and is not enabled on your cluster by default.
-* You enclose the distribution in single quotes and use the [histogram distribution format](proxies_histograms.html#sending-histogram-distributions).
-* You must include `f=histogram` to ensure the input is treated as a histogram distribution.
+Notes:
+* Enclose the distribution in single quotes for compatibility with the `!M` syntax. 
+* Specify the distribution using the [histogram distribution format](proxies_histograms.html#sending-histogram-distributions).
+* Include `f=histogram` at the end of the `--data` argument to ensure the input is treated as a histogram distribution.
+
+### Trace Data (Spans)
+You can perform direct ingestion of [trace data](tracing_basics.html#wavefront-trace-data) in Wavefront span format.
+
+Here's a simple example:
+```
+echo "getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId=0313bafe-9457-11e8-9eb6-529269fb1459 parent=2f64e538-9457-11e8-9eb6-529269fb1459 application=Wavefront service=istio cluster=none shard=none http.method=GET <start_milliseconds> <duration_milliseconds>" | curl -H "Authorization: Bearer <TOKEN>" --data @- https://mydomain.wavefront.com/report?f=trace
+```
+
+Notes:
+* Specify the span using [Wavefront span format](trace_data_details.html#wavefront-span-format).
+* Include `f=trace` at the end of the `--data` argument to ensure the input is treated as trace data.
+* Include `cluster=none` and `shard=none` for a span that does not have values for the `cluster` and `shard` span tags.
+* Replace `<start_milliseconds>` and `<duration_milliseconds>` with numbers indicating the span's start time and duration.
+
+
 
 ## Comparing Proxy and Direct Ingestion
 
