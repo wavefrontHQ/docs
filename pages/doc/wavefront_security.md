@@ -6,7 +6,7 @@ permalink: wavefront_security.html
 summary: Understand how Wavefront secures your data and supports fine-tuning security for your cluster.
 ---
 
-Wavefront by VMware uses an inherently secure environment that protects your data and includes facilities for you to customize authentication and authorization.
+Wavefront by VMware protects your data and includes facilities for you to customize authentication and authorization.
 
 This page gives a summary. For a detailed discussion of many aspects of security, download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/).
 
