@@ -45,6 +45,8 @@ To see a list of the metrics for this integration, select the integration from <
 vSphere metrics can be extensive. We recommend that you use a dedicated VM that will collect data using Telegraf.  
 This VM needs network connectivity to your vCenter Server. It can be from a VM deployed within your vCenter environment. Installing the Wavefront proxy on the same VM as Telegraf is not required.
 
+**Note**: Do not install the vSphere integration components on your vCenter Server instance. 
+
 See [vSphere Integration Details](https://docs.wavefront.com/integrations_vsphere.html) for guidance on optimizing performance, e.g. separating real-time and historical metrics.
 
 ### Step 1. Install the Telegraf Agent

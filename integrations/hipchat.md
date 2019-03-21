@@ -16,6 +16,8 @@ See the Setup tab for the templates that generated these messages.
 
 
 
+**Note**: Atlassian will be discontinuing [HipChat](https://www.atlassian.com/partnerships/slack) in favor of Slack. If you migrate to Slack, please use our [Slack integration](../slack/overview).
+
 ### Step 1. Build Custom Integration for your HipChat Room
 
 1. In HipChat, click the Room actions button on the top right hand of your room window and select **Integrations...**.
@@ -26,13 +28,13 @@ See the Setup tab for the templates that generated these messages.
 1. Click **Create**.
 1. Copy the notification URL.
 1. Click **Save** to save the custom integration.
- 
+
 ### Step 2. Create a HipChat Alert Target
 
 {% include webhooks_create.md %}
 1. In the Content Type field, select the following content type:
    - **application/json** - The request payload must be valid JSON with body parameter fields as described in [HipChat documentation](https://www.hipchat.com/docs/apiv2/method/send_room_notification).
-   
+
 1. Select **Alert Target POST Body Template > TEMPLATE > HipChat**.
 1. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
  Here is the sample message template:
@@ -54,5 +56,3 @@ See the Setup tab for the templates that generated these messages.
 
 {% include alerts.md %}
 {% include webhooks_select.md %}
-
-
