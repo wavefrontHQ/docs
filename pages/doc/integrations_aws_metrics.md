@@ -10,7 +10,7 @@ Amazon Web Services (AWS), is a collection of cloud-computing services that prov
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
-## Supported AWS Integratios
+## Supported AWS Integrations
 
 The AWS integration ingests data from the following products:
 
