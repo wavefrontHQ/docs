@@ -92,11 +92,18 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 1. Summarizes the values within each bucket by averaging them.
 1. Tests each average value (1 per minute) against the alert condition to see whether it evaluates to 0 (false) or non-zero (true).
 
-**Example**
-
-Suppose your alert condition is `ts(my.metric) > 4`, and `my.metric` reports 5 data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm. The alert checking process averages these 5 values to produce a single summarization data point at 12:11:00pm. The value of this summarization point (7.8) evaluates to true (7.8 > 4).
+If the ts() expression returns a single data value per minute, the summarization values and the returned values are the same.
 
 **Note:** If you want a different summarization strategy, then you can explicitly use the [`align()`](ts_align.html) function in your alert condition, with parameters specifying a 1-minute time window and your preferred summarization method.
+
+**Example 1**
+
+Suppose your alert condition is `ts(my.metric) > 4`, and `my.metric` reports 5 data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm. The alert checking process averages these 5 values to produce a single summarization data point at 12:11:00pm. The value of this summarization point (7.8) evaluates to true because 7.8 > 4.
+
+**Example 2**
+
+Suppose you want to know whether any single value within the minute would evaluate as false, even if all the other values would be true. You can explicitly bucket the values by changing your alert condition: `align(1m, min, ts(my.metric) > 4)`. When `my.metric` reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the `align` function returns the minimum value (3) as the single value at 12:11:00pm. The alert checking process evaluates this value to false, because 3 < 4.
+
 
 ## Alert Check Time Window
 
@@ -134,7 +141,7 @@ Suppose the alert condition is `ts(my.metric) > 4` and the **Alert fires** windo
 - If the metric reports many points in the last 2 minutes, all of which are <= 4, the alert does not fire.
 - If the metric reports many points in the last 2 minutes, all of which are > 4, the alert fires.
 
-Alert checks are based on data that is summarized every minute.  Consequently, if `ts(my.metric)` reports 5, 5, and 3 in the same minute, the summarized value (4.33) evaluates to true (4.33 > 4) for that minute, even though 3 by itself evaluates to false. All alert queries are checked according to the **Checking Frequency** property.
+Alert checks are based on data that is summarized every minute.  Consequently, if `ts(my.metric)` returns 5, 5, and 3 in the same minute, the summarized value (4.33) evaluates to true for that minute because 4.33 > 4, even though 3 by itself would evaluate to false. All alert queries are checked according to the **Checking Frequency** property.
 
 
 ## Viewing Firing Alerts
@@ -153,7 +160,7 @@ An alert resolves when there are either no true values present within the given 
 **Example**
 
 Suppose you define an alert with the following properties:
-* The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute.
+* The alert condition is `ts(metric.name) > 0`, where `metric.name` reports once a minute. (The summarization values are therefore the same as the reported values.)
 * The [Checking Frequency interval](#when-alerts-are-checked) = 1 minute (the default).
 * **Alert fires** = 5 minutes. 
 * **Alert resolves** = 10 minutes. 
@@ -180,40 +187,29 @@ In the chart below:
 ![Alert fires](images/alert_fire.png)
 
 Why does the alert fire when it does?
-* An alert check occurs at 09:37:09, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:35 and 09:36. The value of each summarization data point is true, because it is the average of values that are all > 50%. 
+* An alert check occurs at 09:37:09, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:35 and 09:36. Each summarization data point evaluates to true, because it is the average of values that are all > 50%. 
 * The alert fires because the alert check finds two true values and no false values among the summarization data points in the time window.
 
 Why does the alert resolve when it does?
-* An alert check occurs at 09:41:59, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:39 and 09:40. The value of each summarization data point is false: 
-  - The summarization point at 09:40 is the average of values that were reported from 09:40 to 09:40:59. These values are all <= 50%, so the summarization value is false.
+* An alert check occurs at 09:41:59, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:39 and 09:40. Each summarization data point evaluates to false: 
+  - The summarization point at 09:40 is the average of values (all <= 50%) that were reported from 09:40 to 09:40:59.
   - The summarization point at 09:39 is the average of the values (some > 50%, some <= 50%) that were reported from 09:39 to 09:39:59. The resulting average is 44%, which makes the summarization value false (44% <= 50%).
 * The alert resolves because the alert check finds at no true values among the summarization data points in the time window.
 
 ## Did My Alert Misfire?
 
-The alert checking process bases its decisions on the values that are actually present at the time of the alert check. If all metrics report their data points on time, then alert checking decisions are based on a complete picture of your metrics. Sometimes, however, an alert checking decision is based on a temporarily partial picture of your data, and this can cause an alert to fire, even though, in retrospect, it looks like it shouldn't have fired. 
+The alert checking process bases its decisions on the values that are actually present at the time of the alert check. If all metrics report their data points on time, then alert checking bases its decisions on a complete picture of your metrics. Sometimes, however, the alert checking process must evaluate temporarily incomplete data when deciding whether or not to fire or resolve. The resulting alert decision might produce:
+* An apparent false positive, e.g., an alert that fires, but later looks like it shouldn’t have.
+* An apparent false  negative, e.g., an alert doesn't fire, but later looks like it should have.
 
-A temporary, partial picture of your data commonly occurs when one or more metrics report their data points after a delay. Delays can be:
-* Predictable - for example, a known pipeline delay due to processing done before data is sent to Wavefront.
-* Unpredictable - for example, an unexpected network slowdown or outage. 
-
-When the delay is over and the data points finally arrive, Wavefront backfills the delayed points into the time series. Each backfilled point is stored with the timestamp that reflects when it was reported, not when it was actually received. 
-
-If values are delayed at the time of the alert check, their absence can affect the decision to fire or resolve an alert:
-
-* Absent values could affect the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be higher or lower than it would be if all the expected data were present.
-* Absent values could cause interpolated values to be used instead of actual values in an alert condition that aggregates values across multiple time series. The resulting aggregated values might be higher or lower than they would be if all the actual data were present. 
-* Absent values could eliminate one or more summarization data points entirely, so the alert check would see No Data for those minutes.
-
-In these cases, the decision to fire or resolve the alert is correct, but it is based on the partial set of data points that are present at the alert check time. If alert checking had had the complete set of data points, it might have made a different decision.
-
-Suppose a data delay causes the alert condition to be met at the time of alert checking. The alert fires at this time, and you receive an alert  notification. You investigate a short time later by inspecting the chart that is associated with the alert. What you see in the chart depends on whether the delayed data values have been backfilled:
-* If you view the chart before the backfilling, you will see the same conditions that led to the alert.
-* If you view the chart after backfilling, you will see the complete set of data points instead of the points that the alerting check originally saw.  
+If you suspect an apparent false positive or negative, you can: 
+* Check for [delayed data reporting](alerts_delayed_data.html).
+* Adjust your alert condition to prevent the alert from responding until data reporting is complete.
 
 
+<!---
 If an alert appears to have misfired, you can gain insight into the situation by checking the alert notification for a [chart image](alerts_notifications.html#chart-images-in-alert-notifications) that is a snapshot of the data at the time the alert fired.
-
+--->
 
 <!---  combine this with best practices
 

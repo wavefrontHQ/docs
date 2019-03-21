@@ -313,8 +313,8 @@ entries:
           url: /alerts_dependencies.html
           output: web
 
-        - title: Increasing Alert Robustness
-          url: /alerts_robustness_increasing.html
+        - title: Alerts and Delayed Data
+          url: /alerts_delayed_data.html
           output: web
 
         - title: Preventing Alerts from Firing

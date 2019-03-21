@@ -72,4 +72,6 @@ Notice how the red points are around 180 until the yellow points stop reporting.
 
 [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
 
-[Account for Missing Data Points](alerts_robustness_increasing.html#account-for-missing-data-points)
+<!---
+[Account for Missing Data Points](.html#account-for-missing-data-points)
+--->
