@@ -47,11 +47,11 @@ If backfilling does not occur,  we call it missing data – i.e., a permanent fa
 
 ### Two Views of the Same Time Window
 
-The process of backfilling data values causes Wavefront to revise the affected time series. In effect, Wavefront creates a second view of the time window in which the delay occurred: 
-* The original view shows the data values before backfilling takes place. (This view shows the data values that caused the alert to respond.) 
-* The revised view shows the data values after backfilling takes place. (This view might obscure the reason for the alert’s response.)
+The process of backfilling data values causes Wavefront to revise the affected time series. In effect, Wavefront creates a new view of the time window in which the delay occurred: 
+* The original view contains the data values before backfilling takes place. (These are the data values that caused the alert to respond.) 
+* The revised view contains the data values after backfilling takes place. (This view has the complete set of data values but might obscure the reason for the alert’s response.)
 
-Once backfilling takes place, you can see only the revised view through an interactive Wavefront chart.
+After backfilling takes place, Wavefront charts show only the revised view.
 
 ### Did a Data Delay Affect My Alert?
 
@@ -59,14 +59,19 @@ You can use an [alert notification](alerts_notifications.html#chart-images-in-al
 
 1. Find an alert notification that was triggered by the alert. 
 2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
-3. Use the alert notification to display an [interactive chart for the query that was used in the alert condition](alerts_notifications.html#interactive-charts-linked-by-alert-notifications). By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window. 
+3. Use the alert notification to display an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window. 
 4. Compare the chart image and the interactive chart.
-  * If the image and the interactive chart are different, you can infer that a data delay occurred, followed by backfilling, and the interactive chart is showing the revised view.
-  * If the image and the interactive chart both show the same data, but seem to indicate that the alert condition was not met, then it's possible that a data delay occurred, but backfilling has not yet taken place.
+  * If a data delay and backfilling have occurred, the chart image and the interactive chart are different, because the interactive chart now shows the revised view.
 
+<!---
+  * If the image and the interactive chart are identical, then it's possible that a data delay occurred, but backfilling has not yet taken place.
+--->
 
-**Note:** Without a chart image, there is no straightforward way to determine whether a data delay occurred in an alert check time window. If, for example, you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for possible clues.
+**Note:** Without a chart image, there is no straightforward way to determine whether a data delay occurred in an alert check time window. If, for example, you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for possible clues. 
 
+<!---
+You can also try adjusting your alert condition to limit the impact of data delays, and see if that makes a difference.
+--->
 
 ## Limiting the Impact of Data Delays on Alerts
 
