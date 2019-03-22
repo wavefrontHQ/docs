@@ -7,9 +7,9 @@ permalink: alerts_delayed_data.html
 summary: Diagnose and avoid spurious alerts and other effects of delayed data reporting.
 ---
 
-An alert fires or resolves based on the data values that are present during an alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to a false positive (the alert fires when you don't expect it) or a false negative (the alert does not fire as expected).
+An alert fires or resolves based on the data values that are present during an alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
 
-This page can help you understand, diagnose, and prevent the impact of delayed data reporting on alerts. Preventing false positives, in particular, can help you reduce alert noise, and enable your teams to respond to real problems in a timely fashion. 
+This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Preventing false positives, in particular, can help you reduce alert noise, and enable your teams to focus on real problems in a timely fashion. 
 
 ## A Sample Scenario
 
@@ -23,17 +23,52 @@ Suppose you need to monitor the total number of users that are sharded across 3 
 
 * You are surprised to see that the chart shows a total of about 105 users during the alert check window. 
 
-It appears that the alert fired at 9:30:02, even though its condition was not met. If you were not aware that `app-3` experience a reporting delay, you might conclude that the alert was a false positive. 
+It appears that the alert fired even though its condition was not met at 9:30:02. Should you conclude that the alert misfired? 
 
-You can proceed by: 
-* Checking whether a reporting delay caused the alert. 
-* Adjusting your alert condition to minimize the impact of reporting delays.
+You can proceed by:
+* Looking for evidence of a data delay that caused the alert to fire. 
+* Adjust your alert condition to minimize the impact of data delays.
 
-## Checking for a Reporting Delay
+## Checking for a Data Delay
 
-in most cases, alert fired correctly, and the false positive is only apparent.
+If you think an alert has fired or resolved without meeting the alert condition, you can look for evidence that a data delay occurred during the alert check time window. A data delay can change the set of data values that the alert checking process bases its decisions on.
 
-## Limiting the Impact of Reporting Delays on Alerts
+### What is a Data Delay?
+
+A data delay is a noticeable latency between the time that a source collects a data value and the time that Wavefront receives that value. Data delays can occur anywhere in the data pipeline and can be:
+* Predictable - for example, when a source preprocesses or batches up the data values before sending them to Wavefront.
+* Unpredictable - for example, when an sudden network slowdown or outage interferes with the flow of data. 
+
+When the delayed data points finally arrive, Wavefront backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when Wavefront actually received it. 
+
+<!---
+If backfilling does not occur,  we call it missing data – i.e., a permanent failure to report – and handle it differently.
+--->
+
+### Two Views of the Same Time Window
+
+The process of backfilling data values causes Wavefront to revise the affected time series. In effect, Wavefront creates a second view of the time window in which the delay occurred: 
+* The original view shows the data values before backfilling takes place. (This view shows the data values that caused the alert to respond.) 
+* The revised view shows the data values after backfilling takes place. (This view might obscure the reason for the alert’s response.)
+
+Once backfilling takes place, you can see only the revised view through an interactive Wavefront chart.
+
+### Did a Data Delay Affect My Alert?
+
+You can use an [alert notification](alerts_notifications.html#chart-images-in-alert-notifications) to help you determine whether a data delay has caused an alert to fire: 
+
+1. Find an alert notification that was triggered by the alert. 
+2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
+3. Use the alert notification to display an [interactive chart for the query that was used in the alert condition](alerts_notifications.html#interactive-charts-linked-by-alert-notifications). By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window. 
+4. Compare the chart image and the interactive chart.
+  * If the image and the interactive chart are different, you can infer that a data delay occurred, followed by backfilling, and the interactive chart is showing the revised view.
+  * If the image and the interactive chart both show the same data, but seem to indicate that the alert condition was not met, then it's possible that a data delay occurred, but backfilling has not yet taken place.
+
+
+**Note:** Without a chart image, there is no straightforward way to determine whether a data delay occurred in an alert check time window. If, for example, you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for possible clues.
+
+
+## Limiting the Impact of Data Delays on Alerts
 
 Network delays or slow processing of application metrics at the backend can negatively impact alert processing -- and that can lead to false triggers. These false triggers (false positives) happen if the alerting mechanism is too sensitive.
 If backtesting shows that the alert should not have fired, delayed points are often the reason.
@@ -64,22 +99,12 @@ By setting the time window to `15m`, you enable alert checking to consider the c
 
 Another way to reduce the impact of delayed data points is to increase the **Alert fires** time window. A longer **Alert fires** window enables alert checking to look back at earlier time that might contain backfilled data. 
 
-## How Reporting Delays Affect Alerts
+## How Data Delays Affect Alerts
 
 Metrics from one or more sources might report their data points to Wavefront after a noticeable time delay.
 
-delay queue
+A data delay can change the set of data values that the alert checking process bases its decisions on.
 
-Delays can occur for a variety of reasons at any point in the data pipeline. 
-
-Delays can be:
-Predictable - for example, a known pipeline delay due to processing done before data is sent to Wavefront.
-Unpredictable - for example, an unexpected network slowdown or outage. Load balancing issues.
-
-Delays are temporary. 
-When the delay is over and the data points finally arrive, Wavefront backfills the delayed points into the time series. 
-Each backfilled point is stored with the timestamp that reflects when it was reported, not when it was actually received. 
-If delay is not temporary, we call it missing data – i.e., a permanent failure to report – and handle it differently.
 
 
 <!--- 
