@@ -14,15 +14,15 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 
 * **Note:** Be sure to use the latest version of the SDK.
 
-<!---
+
 ## .NET/C# SDKs That Instrument Frameworks
 
 Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular .NET/C# framework or component, with minimal code setup.
 
 <table id = "framework-csharp" width="100%">
 <colgroup>
-<col width="20%" />
-<col width="60%" />
+<col width="30%" />
+<col width="50%" />
 <col width="20%" />
 </colgroup>
 <tbody>
@@ -30,18 +30,19 @@ Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-fr
 <tr><th>Wavefront SDK</th><th>Description</th><th>Observability Data</th></tr>
 </thead>
 <tr>
-<td markdown="span">[]()</td>
-<td> </td>
+<td markdown="span">[ASP.NET Core SDK for .NET/C#](https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp)</td>
+<td>Instruments ASP.NET Core, a cross-platform framework for building cloud-based web applications.
+Sends observability data from HTTP requests and responses. </td>
 <td markdown="span">Metrics, histograms, trace data</td>
 </tr>
 
 </tbody>
 </table>
---->
+
 
 ## .NET/C# SDKs for Collecting Metrics
 
-A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
+A [metrics SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
 
 <table id = "metrics-csharp" width="100%">
 <colgroup>

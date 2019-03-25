@@ -17,21 +17,25 @@ Watch this video to listen to our co-founder Clement Pang talk about how Wavefro
 ## What Do You Want to Collect?
 
 Wavefront observability SDKs let you instrument your application to collect and send different kinds of observability data. 
+For the most gain with the least amount of work: 
+* Start with Wavefront SDKs for instrumenting frameworks, if your application uses any of the supported frameworks.  
+* Introduce other Wavefront SDKs to augment areas of your code that are not be handled by a supported framework. 
+
 
 <!--- Writer note: If you add any languages to this table, add links in the corresponding sections below. --->
 
 <table id="SDKlevels" style="width: 100%">
 <colgroup>
-<col width="20%"/>
-<col width="60%"/>
+<col width="25%"/>
+<col width="55%"/>
 <col width="20%"/>
 </colgroup>
 <thead>
-<tr><th>To Collect </th><th>SDK Description </th><th>Supported Languages</th></tr>
+<tr><th>SDK Type</th><th>SDK Description </th><th>Supported Languages</th></tr>
 </thead>
 <tbody>
 <tr>
-<td markdown="span">[Out-of-the-box <br>framework telemetry](#sdks-that-instrument-frameworks) </td>
+<td markdown="span">[Framework-instrumentation SDK](#sdks-that-instrument-frameworks) </td>
 <td markdown="span">Reports predefined traces, metrics, and histograms from the APIs of a supported app framework. 
 <br> Lets you get started quickly with minimal code changes.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks) 
@@ -41,7 +45,7 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tr>
 
 <tr>
-<td markdown="span">[Metrics and histograms](#sdks-for-collecting-metrics-and-histograms)</td>
+<td markdown="span">[Metrics SDK](#sdks-for-collecting-metrics-and-histograms)</td>
 <td markdown="span">Implements a standard metrics library. <br> Lets you define, collect, and report custom business metrics and histograms from any part of your application code.   </td> 
 <td markdown="span">
 [Java](wavefront_sdks_java.html#java-sdks-for-collecting-metrics), 
@@ -49,7 +53,7 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tr>
 
 <tr>
-<td markdown="span">[Trace data](#sdks-for-collecting-trace-data)</td>
+<td markdown="span">[OpenTracing SDK](#sdks-for-collecting-trace-data)</td>
 <td markdown="span">Implements the OpenTracing specification. <br> Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td> 
 
 <td markdown="span">
@@ -60,7 +64,7 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tr>
 
 <tr>
-<td markdown="span">[Raw telemetry values](#sdks-for-sending-raw-data-to-wavefront)  </td>
+<td markdown="span">[Sender SDK](#sdks-for-sending-raw-data-to-wavefront)  </td>
 <td markdown="span">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront. 
 </td>
 <td markdown="span">
@@ -75,9 +79,6 @@ Wavefront observability SDKs let you instrument your application to collect and 
 </tbody>
 </table>
 
-For the most gain with the least amount of work: 
-* Start with Wavefront SDKS that collect telemetry data from framework APIs.  
-* Introduce other Wavefront SDKs as needed to augment areas of your code that might not be handled by a supported framework. 
 
 ## SDKs That Instrument Frameworks
 
@@ -104,20 +105,20 @@ Sample use case:
 ## SDKs For Collecting Metrics and Histograms
 
 Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics and histograms to Wavefront: 
-* You can use a metrics-collection SDK alone, to instrument an entire application to report the metrics of your choice. 
-* You can use a metrics-collection SDK and a framework-instrumentation SDK to instrument any functions that are not handled by the instrumented framework. 
+* You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice. 
+* You can use a metrics SDK and a framework-instrumentation SDK to instrument any functions that are not handled by the instrumented framework. 
 
 <!---Wavefront provides SDKs for collecting metrics in these [supported languages](#SDKlevels).--->
-Wavefront provides metrics-collection SDKs for:
+Wavefront provides metrics SDKs for:
 * [Java](wavefront_sdks_java.html#java-sdks-for-collecting-metrics), 
 [.NET/C#](wavefront_sdks_csharp.html#netc-sdks-for-collecting-metrics)
 
-Different metrics-collection SDKs provide different capabilities:
+Different metrics SDKs provide different capabilities:
 * Some SDKs let you instrument functions with counters, delta counters, meters, gauges, timers, and histograms. These SDKs require some code changes beyond setting up helper objects. In particular, you'll need to instantiate objects for each type of metric you want to collect, and modify each function of interest.
 * Some SDKs automatically collect and report metrics and histograms from your application's runtime system. The specific metrics depend on the programming language.
 
 Sample use case:
-* Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs, you'd also like to track how many database writes are performed. You can use a metrics-collection SDK to instrument the write operation with a counter.
+* Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs, you'd also like to track how many database writes are performed. You can use a metrics SDK to instrument the write operation with a counter.
 
 
 ## SDKs For Collecting Trace Data

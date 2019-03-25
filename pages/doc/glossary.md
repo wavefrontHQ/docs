@@ -222,8 +222,8 @@ You can manage authorization with user-level permissions or user and group-level
 
 <ul>
 <li markdown="span">[Framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. </li>
-<li markdown="span">[Wavefront OpenTracing SDKs](wavefront_sdks.html#sdks-for-collecting-trace-data) and [metrics-collection SDKs](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enable you to define, collect, and report your own types of observability data from your application code.</li>
-<li markdown="span">[Wavefront sender SDKs](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront.</li>
+<li markdown="span">[OpenTracing SDKs](wavefront_sdks.html#sdks-for-collecting-trace-data) and [metrics SDKs](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enable you to define, collect, and report your own types of observability data from your application code.</li>
+<li markdown="span">[Sender SDKs](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront.</li>
 </ul> </td>
 </tr>
 <tr>

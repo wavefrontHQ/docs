@@ -41,7 +41,7 @@ Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-fr
 
 ## C++ SDKs for Collecting Metrics
 
-A [metrics-collection SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
+A [metrics SDK](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enables you to instrument critical business methods to collect and send custom metrics and histograms. You'll need to add some code to each method to be instrumented.
 
 <table id = "metrics-cpp" width="100%">
 <colgroup>
