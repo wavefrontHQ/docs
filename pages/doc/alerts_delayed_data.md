@@ -26,8 +26,8 @@ Suppose you need to monitor the total number of users that are sharded across 3 
 It appears that the alert fired even though its condition was not met at 9:30:02. Should you conclude that the alert misfired? 
 
 You can proceed by:
-* [Looking for evidence of a data delay](#checking-for-a-data-delay) that caused the alert to fire. 
-* Adjust your alert condition to [minimize the impact of data delays](#minimizing-the-impact-of-data-delays-on-alerts).
+* [Checking whether a data delay](#checking-for-a-data-delay) caused the alert to fire. 
+* Taking steps to [minimize the impact of data delays](#minimizing-the-impact-of-data-delays-on-alerts).
 
 ## Checking for a Data Delay
 
@@ -48,8 +48,8 @@ If backfilling does not occur,  we call it missing data – i.e., a permanent fa
 ### Two Views of the Same Time Window
 
 The process of backfilling data values causes Wavefront to revise the affected time series. In effect, there are now two views of the time window in which the delay occurred: 
-* The original view exists before backfilling takes place. This view consists of the data values that caused the alert to respond. 
-* The revised view exists after backfilling takes place. This view consists of the complete set of data values, which might obscure the reason for the alert’s response.
+* The original view, which exists before backfilling takes place. This view consists of the data values that caused the alert to respond. 
+* The revised view, which exists after backfilling takes place. This view consists of the complete set of reported data values, but might obscure the reason for the alert’s response.
 
 After backfilling takes place, you can see only the revised view in a Wavefront chart. 
 
@@ -59,16 +59,15 @@ If an alert has fired when you don't expect it, you can use an [alert notificati
 
 1. Obtain an alert notification that was triggered by the alert. 
 2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
-3. Use the alert notification to display an [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window. 
+3. Use the alert notification to display a current, [interactive chart](alerts_notifications.html#interactive-charts-linked-by-alert-notifications) for the query that was used in the alert condition. By default, you can click a **View Alert** button to display the chart with a custom date that includes the alert time check window. 
 4. Compare the chart image and the interactive chart.
-  * A difference indicates that backfilling has occurred after a data delay, so the interactive chart now shows the revised view.
+  * A difference indicates that a data delay and backfilling have occurred, so the interactive chart now shows a revised view.
 
 <!---
   * If the image and the interactive chart are identical, then it's possible that a data delay occurred, but backfilling has not yet taken place.
 --->
 
-**Note:** Comparing a chart image to a current interactive chart is the only direct way to determine whether a data delay has occurred in an alert check time window. If your alert notifications do not include chart images, or if you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for clues that might point to a data delay. 
-
+**Note:** Comparing a chart image to a current interactive chart is the most direct way to determine whether a data delay has occurred in an alert check time window. If your alert notifications do not include chart images, or if you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for clues that might point to a data delay. You can also try techniques for [minimizing the impact of data delays (below)](#minimizing-the-impact-of-data-delays-on-alerts) to see if that helps prevent further false positives or negatives.
 
 <!---
 You can also try adjusting your alert condition to limit the impact of data delays, and see if that makes a difference.
@@ -76,18 +75,22 @@ You can also try adjusting your alert condition to limit the impact of data dela
 
 ## Minimizing the Impact of Data Delays on Alerts
 
-You can minimize the impact of data delays by evaluating data from an earlier time window. Doing so improves the chances that the alert checker will base its decisions on a view of the data that was revised to include backfilled values.
+You can minimize the impact of data delays by evaluating data from an earlier time window. Doing so improves the chances that the alert checker will base its decisions on data that has been backfilled and is therefore complete.
 
 You can use either of the following techniques (or a combination of them):
 * Use the `lag()` function in the alert condition. 
-* Specify a longer alert check time window.
+* Increase the length of the alert check time window.
 
 
 ### Use the `lag()` Function
 
-You can use the [`lag()`](ts_lag.html) function in an alert condition to evaluate data values from an earlier time window, instead of evaluating the data values that arrive immediately before alert checking occurs.
+You can use the [`lag()`](ts_lag.html) function in an alert condition to shift the alert check time window back in time. You pick a time window that is old enough to contain backfilled values, but recent enough to be useful. Without `lag()`, the alert check time window ends immediately before alert checking occurs, which is too soon for backfilling to occur.
 
-Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000. You start with the following alert condition, which compares the current request count to 1000:
+**Example**
+
+Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000 for 2 minutes, so you set **Alert fires** to 2. 
+
+You start by considering the following alert condition, which compares the current request count to 1000:
 
 ```
 sum(ts("aws.elb.requestcount")) < 1000
@@ -101,30 +104,35 @@ You can correct for the data delay by applying `lag()` to the current request co
 lag(15m, sum(ts("aws.elb.requestcount"))) < 1000
 ```
 
-By setting the time window to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The 15 minute lag gives Wavefront a chance to receive and backfill the delayed values into the alert check time window so the values returned by the alert condition are likely to be complete.
+By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15 minute lag gives Wavefront a chance to receive and backfill the delayed values into the alert check time window.
 
-**Note:** The alert condition in this example returns true whenever a delay lasts longer than 15 minutes, which might indicate a real problem, and not a predictable data delay.
+**Note:** If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place.  You can consider increasing the lag time, or you can allow the alert to fire if you think a longer-than-usual delay indicates a real problem.
 
-### Adjust the Alert Check Time Window
+### Lengthen the Alert Check Time Window
 
-You can increase the **Alert fires** or **Alert resolves** time window so that the window's duration is longer than the usual data delay. This allows the alert checker to consider data values that are old enough to include backfilled data. 
+You can increase the **Alert fires** or **Alert resolves** time window so that the window is longer than the usual data delay. This allows the alert checker to consider data values that are old enough to include backfilled data. A good estimate is:
+```  (Number of minutes in delay) + (Number of minutes you want to test) ```
+
+**Example**
 
 Suppose you want to monitor the number of requests per second sharded across 10 machines. You'd like to know if the total number of requests drops below 1000 for 2 minutes. If all series report on time, you can set **Alert fires** to 2.
 
-Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Alert fires** is 2, the alert will never fire, because the alert check time window will always contain No Data, which is neither true nor false. The solution is to increase the **Alert fires** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
+Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Alert fires** is 2, the alert will never fire, because the alert check time window will always contain No Data, which is neither true nor false. 
+
+The solution is to increase the **Alert fires** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
 
 ## How Data Delays Affect Alerts
 
-Metrics from one or more sources might report their data points to Wavefront after a noticeable time delay. If the delayed values are temporarily absent at the time of an alert check, their absence can affect the decision to fire or resolve an alert. 
+When delayed data values are temporarily absent at the time of an alert check, their absence can affect the decision to fire or resolve an alert. 
 
 Here are several general ways that delayed data can affect the alert decision:
 
 * Absent values could eliminate one or more summarization data points entirely, so the alert check would see No Data for those minutes.
 * Absent values could affect the values of the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be lower than it would be if all the expected data were present.
 
-Here are several specific ways that delayed data can affect the results of an alert condition that uses an aggregation function to combine values across multiple time series:
-* Absent values could cause interpolated values to be used in their place. The results of the aggregation function might therefore be higher or lower than they would be if all the actual data values were present. 
-* Absent values could prevent a value from being interpolated. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The resulting aggregated value might be higher or lower than it would be if the interpolated value was present. 
+Here are several specific ways that delayed data can affect the alert decision when the alert condition uses an aggregation function:
+* The aggregation function might interpolate values in place of the expected, but absent, reported values. The results of the aggregation function might therefore be higher or lower than they would be if all the actual data values were present. 
+* The aggregation function might be prevented from interpolating values in some cases. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The result without the interpolated value might be No Data, or an aggregated value that is higher or lower than it would be if the interpolated value was present. 
 
 
 <!--- 
@@ -136,35 +144,49 @@ This setting depends on how often data points arrive, and it accounts for any de
 Changing **Alert fires** can compensate for external delays of metrics. --->
 
 
-## Account for Missing Data Points
+## Detecting Missing Data 
 
-Using `mcount()` can help you account for missing data points. `mcount()` shows you the number of points reported in a specified moving time window.
+Sometimes data points are missing because a time series stopped reporting them, possibly because a source has failed at least temporarily. Unlike delayed data, missing data points are not backfilled later. Alerting on missing data can help you resolve the problem before too much data is lost. 
 
-A general query with `mcount()` might be:
-`mcount(5m, ts(my.metric)) = 0`.
+The main technique for detecting missing data is to use [`mcount()`](ts_mcount.html) in the alert condition. `mcount()` returns a moving count of the number of points reported by a time series. A moving count is the number of data points reported by a time series over a shifting time window of a specified duration.
 
-You can tweak a few things:
+* If you’d like to know when data reporting has stopped, you can configure an alert to fire if the moving count drops to 0.
+* If you’d like to know when data reporting continues but not consistently, you can configure an alert to fire if the moving count drops below some threshold. 
 
-- Ensure that the time interval associated with `mcount()` is appropriate for your set of data. For example, if you expect that data will arrive once a minute, using `mcount(30s)` is not a good approach. If you want to avoid false positives, `mcount(1m)` won't work either because even a slight delay can affect the alert. However, `mcount(5m)` works well -- it triggers after 5 minutes of NO DATA.
-- You can also tweak the = 0 clause in the query.
-    - If you want to know when no data at all was reported, then using = 0 is the right approach.
-    - However, if you expect data to be reported once a minute, and you'd like to know when data are not consistently reported, then `mcount(5m, ts(my.metric)) <= 3` works better. With that query, you trigger the alert if there are 2 or more missing data points in the last 5 minutes.
+The shifting time window you specify to `mcount()` should be greater than the data-reporting interval of the metric, to ensure that there is at least one reported value in each moving count.
 
-The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data. The example below shows how `mcount(10m, ...)` reports a decreasing value for 10 minutes, then a value of 0 for 10 more minutes, and then stops reporting.
+**Examples** 
 
-![mcount_demo-2](images/mcount_demo-2.png)
+Suppose `my.metric` normally reports one data point per minute. 
+* The following alert condition returns true if `my.metric` reported no data points at all over the last 3 minutes:
 
-`mcount(5m, ts(metric2))` stops reporting values after 10 minutes when the time series stops. In the example below, reporting stops after 8:30.
+  ```mcount(3m, ts(my.metric)) = 0```
 
-![mcount_demo-1](images/mcount_demo-1.png)
+* The following alert condition returns true if `my.metric` reported 2 or more data points over the last 5 minutes:
 
-but it fills in 0 values for all previous gaps, even if the gaps were much larger than 10 minutes. That means if metric2 reports 1 value every hour, then  `mcount(5m, ts(metric2))` stops reporting values after 10 minutes -- but if a new value comes in after 50 more minutes, `mcount` will backfill the entire hour.
+  ```mcount(5m, ts(my.metric)) <= 3```
 
-The example below shows how `mcount` fills in gaps and continues reporting values.
+* The following alert condition (with a 1-minute time interval for the moving count) is likely to be too sensitive, because even a slight delay can lead to a false positive:
 
-![mcount_demo-4](images/mcount_demo-4.png)
+  ```mcount(1m, ts(my.metric)) <= 3```
+
+If you're using this technique to detect when a series stopped reporting, you should be aware that mcount will stop reporting, too. This will cause your alert to resolve after awhile, even if your data is still not reporting.  The alert will resolve on its own, because mcount stops reporting after 2x the time window duration. You might want this or you might not. But you should know it's happening.
+
+For example, if alert fires = 2, and alert resolves = 10. mcount(10m). TS stops reporting at 8:30 and mcount declines for 10 min til 8:40, then reports 0 for 10 min til 8:50. Alert will fire at 8:42 or 43 (after 2 min of 0 values), and then mcount reports 0 for the next 8 minutes, then reports no data from 8:50 on. After 10 min of no data (i.e., at 9:00), the alert resolves, because there have been no false values for 10 min.  
+
+If you don't want the alert to resolve when mcount stops reporting, wrap it in last(), which keeps the last value reporting even beyond when it would have stopped,  and causes the alert to keep firing.
+
+
+The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data. 
+
+Suppose `mcount(10m, ...)` reports a decreasing value for 10 minutes, then a value of 0 for 10 more minutes, and then stops reporting.
 
 If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`.
+
+<!---
+![mcount_demo-2](images/mcount_demo-2.png)
+--->
+
 
 
 <!---

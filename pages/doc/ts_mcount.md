@@ -48,7 +48,9 @@ Here's how to select your counting/summing function:
 
 Common use cases include finding missing data points. Because of that, `mcount()` is often used with alerts. 
 
-## Example
+## Examples
+
+**Example 1** 
 
 The following example queries the ambient air temperature in a vehicle using this query:
 
@@ -64,9 +66,23 @@ To see more clearly what's happening, we can use `mcount()`. The chart below sho
 
 ![chart_with_mcount](images/mcount_2.png)
 
-The query says: Show me points that represent the number of points that `weather.humidity` reported in the last 5 minutes.
+The query says: Show me points that represent the number of points that `vehicle.ambient_air_temp` reported in the last 5 minutes.
 
-Notice how the red points are around 180 until the yellow points stop reporting. Then the red line drops slowly to 0 as fewer and fewer points reported `weather.humidity` in the last 5 minutes. You can see that 2.5 minutes after the yellow line stops, the red line shows that 90 points were reported in the last 5 minutes.
+Notice how the red points are around 180 until the yellow points stop reporting. Then the red line drops slowly to 0 as fewer and fewer points reported `vehicle.ambient_air_temp` in the last 5 minutes. You can see that 2.5 minutes after the yellow line stops, the red line shows that 90 points were reported in the last 5 minutes.
+
+**Example 2** 
+
+The chart below shows that, when `my.metric` stops reporting at 8:30, `mcount(10m, my.metric)` reports a decreasing value for 10 minutes until 8:40am, then a value of 0 for 10 more minutes, and then stops reporting at 8:50am.
+
+![mcount_demo-2](images/mcount_demo-2.png)
+
+
+Now consider what happens if `my.metric` starts reporting again at, say 9:01am. The chart below shows that `mcount()` picks up where it left off, by backfilling 0's from 8:50am to 9:00am. `mcount()` includes these 0's in the moving count, which rises with each successive minute that `my.metric` reports.
+
+![mcount_demo-4](images/mcount_demo-4.png)
+
+**Note:** In this example, `my.metric` started up 10 minutes after `mcount()` stopped reporting, but this interval could have been longer or shorter.
+
 
 ## See Also
 
