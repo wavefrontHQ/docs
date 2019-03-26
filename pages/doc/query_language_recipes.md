@@ -157,9 +157,9 @@ To find out how how volatile your data is, use `variance()`.
 
 If you're interested in, for example, the top 3 time series or the bottom 3 time series, evaluated at the current time, use the `topk()` and `bottomk()` functions.
 
-`topk(70000,(ts(~sample.network.bytes.sent, source="app-10")))`
+`topk(3,(ts(~sample.network.bytes.sent, source="app-10")))`
 
-`bottomk(30000,(ts(~sample.network.bytes.sent, source="app-10")))`
+`bottomk(3,(ts(~sample.network.bytes.sent, source="app-10")))`
 
 Wavefront v2 dashboards include a chart to visualize the top series. Currently topk charts are available only in our [read-only integration dashboards](2018.42.x_release_notes.html#aws-dashboards-preview).
 
@@ -233,4 +233,4 @@ You can average the results by tag like this:
 
 `avg(ts(...), <myrtag)`
 
-See [Point Tags in Queries](query_language_point_tags.html) for details. 
+See [Point Tags in Queries](query_language_point_tags.html) for details.
