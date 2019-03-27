@@ -203,8 +203,8 @@ The alert checking process bases its decisions on the values that are actually p
 * An apparent false  negative, e.g., an alert doesn't fire, but later looks like it should have.
 
 If you suspect an apparent false positive or negative, you can: 
-* Check for [delayed data reporting](alerts_delayed_data.html#checking-for-a-data-delay).
-* Adjust your alert condition to prevent the alert from responding until data reporting is complete.
+* Check for [delayed data reporting](alerts_delayed_data.html#check-for-a-data-delay).
+* [Adjust your alert condition](#minimizing-the-impact-of-data-delays-on-alerts) to prevent the alert from responding until data reporting is complete.
 
 
 

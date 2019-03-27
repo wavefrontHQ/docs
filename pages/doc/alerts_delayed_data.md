@@ -29,7 +29,7 @@ You can proceed by:
 * [Checking whether a data delay](#checking-for-a-data-delay) caused the alert to fire. 
 * Taking steps to [minimize the impact of data delays](#minimizing-the-impact-of-data-delays-on-alerts).
 
-## Checking for a Data Delay
+## Check for a Data Delay
 
 If you think an alert has fired or resolved without meeting the alert condition, you can look for evidence that a data delay occurred during the alert check time window. A data delay can change the set of data values that the alert checking process bases its decisions on.
 
@@ -73,7 +73,7 @@ If an alert has fired when you don't expect it, you can use an [alert notificati
 You can also try adjusting your alert condition to limit the impact of data delays, and see if that makes a difference.
 --->
 
-## Minimizing the Impact of Data Delays on Alerts
+## Minimize the Impact of Data Delays on Alerts
 
 You can minimize the impact of data delays by evaluating data from an earlier time window. Doing so improves the chances that the alert checker will base its decisions on data that has been backfilled and is therefore complete.
 
@@ -144,16 +144,18 @@ This setting depends on how often data points arrive, and it accounts for any de
 Changing **Alert fires** can compensate for external delays of metrics. --->
 
 
-## Detecting Missing Data 
+## Alerts and Missing Data Points
 
-Sometimes data points are missing because a time series stopped reporting them, possibly because a source has failed at least temporarily. Unlike delayed data, missing data points are not backfilled later. Alerting on missing data can help you resolve the problem before too much data is lost. 
+Sometimes a time series stops reporting data points, often because the source of the metric has failed. Unlike delayed data, unreported data forms a permanent gap in the time series that is not backfilled later. Alerting on missing data can help you identify potential failures and resolve them before too much data is lost. 
 
-The main technique for detecting missing data is to use [`mcount()`](ts_mcount.html) in the alert condition. `mcount()` returns a moving count of the number of points reported by a time series. A moving count is the number of data points reported by a time series over a shifting time window of a specified duration.
+### Use the `mcount()` Function
 
-* If you’d like to know when data reporting has stopped, you can configure an alert to fire if the moving count drops to 0.
-* If you’d like to know when data reporting continues but not consistently, you can configure an alert to fire if the moving count drops below some threshold. 
+You can use the [`mcount()`](ts_mcount.html) function in an alert condition to detect data gaps in a time series. `mcount()` returns a moving count of the points reported by a time series. A moving count is the number of reported data points that occur in a shifting time window of a particular duration.
 
-The shifting time window you specify to `mcount()` should be greater than the data-reporting interval of the metric, to ensure that there is at least one reported value in each moving count.
+* To find out whether a time series has stopped reporting, you can configure an alert to fire whenever the moving count drops to 0.
+* To find out whether a time series is reporting inconsistently, you can configure an alert to fire whenever the moving count drops below some threshold. 
+
+You must pick a shifting time window that is longer than the data-reporting interval of the time series, to avoid false positives.
 
 **Examples** 
 
@@ -162,13 +164,23 @@ Suppose `my.metric` normally reports one data point per minute.
 
   ```mcount(3m, ts(my.metric)) = 0```
 
-* The following alert condition returns true if `my.metric` reported 2 or more data points over the last 5 minutes:
+* The following alert condition returns true if there are 2 or more missing data points over the last 5 minutes:
 
   ```mcount(5m, ts(my.metric)) <= 3```
 
-* The following alert condition (with a 1-minute time interval for the moving count) is likely to be too sensitive, because even a slight delay can lead to a false positive:
+* The following alert condition is likely to be too sensitive, because even a slight delay can lead to a false positive:
 
   ```mcount(1m, ts(my.metric)) <= 3```
+  
+* In the following alert condition, `mcount()` returns 0 for 30 seconds between every pair of reported values, which are 1 minute apart. This causes the alert condition to intermittently return true even when the metric is reporting normally. 
+
+  ```mcount(30s, ts(my.metric)) <= 3```
+
+### Responding to Long Reporting Gaps
+
+When you use `mcount()` in an alert condition to detect reporting gaps, you need to decide what you want your alert to do if your metric stops for longer than 2x the duration of the moving time window. You can arrange for the alert to 
+
+* You could set up the alert condition so that the alert will continue for as long as the metric has stopped.
 
 If you're using this technique to detect when a series stopped reporting, you should be aware that mcount will stop reporting, too. This will cause your alert to resolve after awhile, even if your data is still not reporting.  The alert will resolve on its own, because mcount stops reporting after 2x the time window duration. You might want this or you might not. But you should know it's happening.
 
