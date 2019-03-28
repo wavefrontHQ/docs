@@ -12,12 +12,13 @@ Sometimes a time series stops reporting data points, for example, because the so
 
 ## What is Missing Data?
 
-When a time series stops reporting data points, a gap occurs where we otherwise expect data points to be. These expected but unreported data points are referred to as missing data. 
+When a time series stops reporting data points, a gap of NO DATA occurs where we otherwise expect data points to be. These expected but unreported data points are referred to as missing data. 
 
-A time series might stop reporting for any number of reasons.
+A time series might stop reporting for any number of reasons. 
 
+temporary (resolve on their own) or permanent 
+brief insignificant interruption that resolves on its own, or a longer significant downtime
 
-produce a gap of NO DATA in the time series. 
 
 Delayed data points produce a temporary gap that is eventually backfilled.
 Missing data points correspond to a permanent gap that is not backfilled later.
@@ -52,22 +53,44 @@ Suppose `my.metric` normally reports one data point per minute.
 
 ## Responding to Long Data Gaps
 
-When you use `mcount()` in an alert condition to detect reporting gaps, you need to decide what you want your alert to do if your metric stops for longer than 2x the duration of the moving time window. You can arrange for the alert to 
+When you use `mcount()` in an alert condition to detect gaps in a time series, you need to decide what you want your alert to do if a time series stops for longer than 2x the duration of the moving time window. 
 
-* You could set up the alert condition so that the alert will continue for as long as the metric has stopped.
+You can:
+* Allow the alert to resolve after an **Alert resolves** time window of no data. 
+* Configure the alert to continue firing as long as the time series has stopped reporting.
 
-If you're using this technique to detect when a series stopped reporting, you should be aware that mcount will stop reporting, too. This will cause your alert to resolve after awhile, even if your data is still not reporting.  The alert will resolve on its own, because mcount stops reporting after 2x the time window duration. You might want this or you might not. But you should know it's happening.
+### Allow the Alert to Resolve
 
-For example, if alert fires = 2, and alert resolves = 10. mcount(10m). TS stops reporting at 8:30 and mcount declines for 10 min til 8:40, then reports 0 for 10 min til 8:50. Alert will fire at 8:42 or 43 (after 2 min of 0 values), and then mcount reports 0 for the next 8 minutes, then reports no data from 8:50 on. After 10 min of no data (i.e., at 9:00), the alert resolves, because there have been no false values for 10 min.  
+The `mcount()` function returns the number of data points for 2x the duration of the time window, after the time series stops reporting data. At this point, `mcount()` also stops reporting, and the alert will resolve after detecting NO DATA for the **Alert resolves** time window.
+
+**Example**
+
+Suppose: 
+* An alert is configured with **Alert fires** = 2 minutes and **Alert resolves** = 2 minutes. The alert condition tests whether the reporting rate falls to 0 using a rate-testing window of 3 minutes: `mcount(3m, ts(my.metric))=0`
+* The time series `my.metric` normally reports once a minute, and stops reporting at 10:30. 
+
+`mcount()` declines over the next 3 min til 10:33, then reports 0 for another 3 minutes, then stops reporting.
+
+The alert fires at 10:35 after 2 minutes of 0 values. After 2 min of no data (i.e., at 10:38), the alert resolves, because there have been no false values for 2 minutes.  
+
+
+![Alert mcount](images/alerts_mcount_fire_resolve.png)
+
+
 
 If you don't want the alert to resolve when mcount stops reporting, wrap it in last(), which keeps the last value reporting even beyond when it would have stopped,  and causes the alert to keep firing.
 
 
+
+
+### Configure the Alert to Continue Firing
+
 The `mcount()` function returns the number of data points for 2x the duration of `timeWindow` after `expression` stops reporting data. 
 
-Suppose `mcount(10m, ...)` reports a decreasing value for 10 minutes, then a value of 0 for 10 more minutes, and then stops reporting.
 
 If your use case requires `mcount()` to report a value beyond the 2x time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`.
+
+
 
 <!---
 ![mcount_demo-2](images/mcount_demo-2.png)
