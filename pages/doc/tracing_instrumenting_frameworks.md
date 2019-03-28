@@ -40,7 +40,7 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
     ```
     pushListenerPorts=2878
     ...
-    histogramDistListenerPorts=40000
+    histogramDistListenerPorts=2878
     ...
     traceListenerPorts=30000
     ```
