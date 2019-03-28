@@ -33,7 +33,7 @@ a 95th percentile from a variety of sources) does not yield an accurate and vali
 
 To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user can:
 * Send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the normal metrics port (2878).
-  Starting with Wavefront proxy 4.29, you can send histograms in distribution format to port 2828.
+  Starting with Wavefront proxy 4.29, send histograms in distribution format to port 2828.
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
 The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-naming), which you can query with a set of [functions](#histogram-functions).
@@ -472,7 +472,7 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 
 ## Viewing Histogram Metrics
 
-Starting with release 2018.42, you can view histograms in the Histogram browser if your cluster is licensed for that feature.
+You can view histograms in the Histogram browser.
 
 To view histograms:
 1. Click **Browse > Histograms** and start typing the histogram metric name.
