@@ -317,6 +317,10 @@ entries:
           url: /alerts_delayed_data.html
           output: web
 
+        - title: Alerts and Missing Data
+          url: /alerts_missing_data.html
+          output: web
+
         - title: Preventing Alerts from Firing
           url: /maintenance_windows_managing.html
           output: web
