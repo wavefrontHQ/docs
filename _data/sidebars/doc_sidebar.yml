@@ -313,7 +313,7 @@ entries:
           url: /alerts_missing_data.html
           output: web
 
-        - title: Buffering Against Delayed Data
+        - title: Limiting the Impact of Data Delays
           url: /alerts_delayed_data.html
           output: web
 

@@ -1,5 +1,5 @@
 ---
-title: Buffering Alerts Against Delayed Data
+title: Limiting the Impact of Data Delays
 keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar

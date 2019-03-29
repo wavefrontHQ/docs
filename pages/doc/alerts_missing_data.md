@@ -7,29 +7,27 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-Part of alert planning is to design alerts that let you know about machine or application faults. From a monitoring point of view, the main symptom of a crashed machine or application is that data from that source is no longer reported to Wavefront. In effect, the data we expect from that source is "missing".
+Part of monitoring a system is to configure alerts to let you know about machine or application faults. When a machine or application crashes, it stops reporting data to Wavefront. In effect, the data we expect from that source is "missing".
 
 This page can help you understand how to configure alerts to detect missing data, so you can identify potential failures and resolve them before too much data is lost. 
 
 
 ## What is Missing Data?
 
-Sometimes a time series stops reporting data points. When this happens, a gap of NO DATA occurs where we otherwise expect data points to be. These expected but unreported data points are referred to as missing data. 
+Whenever a time series stops reporting data points, a gap of NO DATA occurs where we normally expect data points to be. These expected but unreported data points are referred to as missing data. 
 
-A time series might stop reporting for any number of reasons. The most common reason is that the source of the series -- an application, service, or host machine -- has crashed and can no longer send data points to Wavefront. (Sometimes network interruptions cause data loss, although more typically, the result is a data delay.) 
+Missing data might result from:  
 
-A time series might 
+* Serious faults that require intervention to correct. For example, a time series might stop reporting data because the source of the series -- an application, service, or host machine -- has crashed and can no longer generate data points or send them to Wavefront. 
+ 
+* Brief interruptions that resolve on their own. For example, a time series might skip a few data points here and there because a minor network problem has dropped a few packets.
 
-Minor network problems might cause a packet 
+You normally alert on missing data to discover any serious faults that might occur. That is, you want to configure your alerts to be:  
 
+* Sensitive enough to detect missing data in time to avoid significant downtime.
+* Robust enough to ignore brief, insignificant interruptions.
 
-temporary (resolve on their own) or permanent 
-brief insignificant interruption that resolves on its own, or a longer significant downtime
-
-
-Delayed data points produce a temporary gap that is eventually backfilled.
-Missing data points correspond to a permanent gap that is not backfilled later.
-
+**Note:** Sometimes a gap of NO DATA in a time series means that data reporting is delayed, but not stopped. Whereas a gap of missing data is permanent, a gap from a data delay is temporary and is eventually backfilled. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts).
 
 
 ## Detecting Missing Data
