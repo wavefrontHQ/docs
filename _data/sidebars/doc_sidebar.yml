@@ -309,16 +309,16 @@ entries:
           url: /alerts_recipes.html
           output: web
 
-        - title: Managing Alert Dependencies
-          url: /alerts_dependencies.html
+        - title: Alerting on Missing Data
+          url: /alerts_missing_data.html
           output: web
 
-        - title: Alerts and Delayed Data
+        - title: Buffering Against Delayed Data
           url: /alerts_delayed_data.html
           output: web
 
-        - title: Alerts and Missing Data
-          url: /alerts_missing_data.html
+        - title: Building Linked Alerts
+          url: /alerts_dependencies.html
           output: web
 
         - title: Preventing Alerts from Firing

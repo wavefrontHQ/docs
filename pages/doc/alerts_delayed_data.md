@@ -1,15 +1,15 @@
 ---
-title: Alerts and Delayed Data Points
+title: Buffering Alerts Against Delayed Data
 keywords: alerts
 tags: [alerts, best practice]
 sidebar: doc_sidebar
 permalink: alerts_delayed_data.html
-summary: Diagnose and avoid spurious alerts and other effects of delayed data reporting.
+summary: Diagnose and avoid spurious alerts due to delayed data reporting.
 ---
 
 An alert fires or resolves based on the data values that are present during an alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
 
-This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Preventing false positives, in particular, can help you reduce alert noise, and enable your teams to focus on real problems in a timely fashion. 
+This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Buffering alerts against false positives, in particular, can help you reduce alert noise, and enable your teams to focus on real problems in a timely fashion. 
 
 ## A Sample Scenario
 
@@ -125,12 +125,12 @@ The solution is to increase the **Alert fires** window to 15 + 2 = 17 minutes. T
 
 When delayed data values are temporarily absent at the time of an alert check, their absence can affect the decision to fire or resolve an alert. 
 
-Here are several general ways that delayed data can affect the alert decision:
+Here are several ways that delayed data can affect the alert decision for any alert condition:
 
 * Absent values could eliminate one or more summarization data points entirely, so the alert check would see No Data for those minutes.
 * Absent values could affect the values of the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be lower than it would be if all the expected data were present.
 
-Here are several specific ways that delayed data can affect the alert decision when the alert condition uses an aggregation function:
+Here are several ways that delayed data can affect the alert decision when the alert condition uses an aggregation function:
 * The aggregation function might interpolate values in place of the expected, but absent, reported values. The results of the aggregation function might therefore be higher or lower than they would be if all the actual data values were present. 
 * The aggregation function might be prevented from interpolating values in some cases. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The result without the interpolated value might be No Data, or an aggregated value that is higher or lower than it would be if the interpolated value was present. 
 

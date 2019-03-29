@@ -7,14 +7,21 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-Sometimes a time series stops reporting data points, for example, because the source of the metric has failed. Alerting on missing data can help you identify potential failures and resolve them before too much data is lost. 
+Part of alert planning is to design alerts that let you know about machine or application faults. From a monitoring point of view, the main symptom of a crashed machine or application is that data from that source is no longer reported to Wavefront. In effect, the data we expect from that source is "missing".
+
+This page can help you understand how to configure alerts to detect missing data, so you can identify potential failures and resolve them before too much data is lost. 
 
 
 ## What is Missing Data?
 
-When a time series stops reporting data points, a gap of NO DATA occurs where we otherwise expect data points to be. These expected but unreported data points are referred to as missing data. 
+Sometimes a time series stops reporting data points. When this happens, a gap of NO DATA occurs where we otherwise expect data points to be. These expected but unreported data points are referred to as missing data. 
 
-A time series might stop reporting for any number of reasons. 
+A time series might stop reporting for any number of reasons. The most common reason is that the source of the series -- an application, service, or host machine -- has crashed and can no longer send data points to Wavefront. (Sometimes network interruptions cause data loss, although more typically, the result is a data delay.) 
+
+A time series might 
+
+Minor network problems might cause a packet 
+
 
 temporary (resolve on their own) or permanent 
 brief insignificant interruption that resolves on its own, or a longer significant downtime
