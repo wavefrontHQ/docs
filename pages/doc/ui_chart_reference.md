@@ -440,7 +440,7 @@ A Single Stat chart supports the following options:
 </td>
 </tr>
 <tr>
-<td>Value/Text Mapping</td>
+<td>Postfix</td>
 <td>A string to append to the single stat.
 </td>
 </tr>
