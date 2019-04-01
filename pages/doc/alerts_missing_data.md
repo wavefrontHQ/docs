@@ -14,11 +14,11 @@ This page can help you understand how to configure alerts to detect missing data
 
 ## What is Missing Data?
 
-Whenever a time series stops reporting data points, a gap of NO DATA occurs where we normally expect data points to be. These expected but unreported data points are referred to as missing data. 
+Whenever a time series stops reporting data points, a gap of NO DATA occurs where we normally expect data points to be. We refer to these expected but unreported data points as missing data. 
 
 Missing data might result from:  
 
-* Serious faults that require intervention to correct. For example, a time series might stop reporting data because the source of the series -- an application, service, or host machine -- has crashed and can no longer generate data points or send them to Wavefront. 
+* Serious faults that require intervention to correct. For example, a time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Wavefront. Or an application might malfunction intermittently so that it stops sending points for short periods of time before resuming.
  
 * Brief interruptions that resolve on their own. For example, a time series might skip a few data points here and there because a minor network problem has dropped a few packets.
 
@@ -27,22 +27,36 @@ You normally alert on missing data to discover any serious faults that might occ
 * Sensitive enough to detect missing data in time to avoid significant downtime.
 * Robust enough to ignore brief, insignificant interruptions.
 
-**Note:** Sometimes a gap of NO DATA in a time series means that data reporting is delayed, but not stopped. Whereas a gap of missing data is permanent, a gap from a data delay is temporary and is eventually backfilled. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts).
+The sections below describe 2 main techniques for alerting on missing data: 
+* [Alerting on an entire group of time series that fail together.](#alerting-on-time-series-that-fail-together)
+* [Alerting on one or more individual time series within a group.](#alerting-on-missing-data-in-individual-time-series)
 
+**Note:** Sometimes a gap of NO DATA in a time series means that data reporting has been delayed, but not completely stopped. Whereas a gap of missing data is permanent, a gap from a data delay is temporary and is eventually backfilled. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts).
 
-## Detecting Missing Data
+## Alerting on Time Series that Fail Together
 
-You can use the [`mcount()`](ts_mcount.html) function in an alert condition to detect data gaps in a time series. `mcount()` returns a moving count of the points reported by a time series. A moving count is the number of reported data points that occur in a shifting time window of a particular duration.
+You can configure an alert to fire and notify you when a group of time series all stop reporting data. To do so, you create a [custom alert target](webhooks_alert_notification.html#creating-a-custom-alert-target) with the trigger set to **Alert Has No Data**. 
+
+**Example**
+
+Suppose you are collecting a metric `my.metric` from 2 copies of a service that are each running on a different host machine (`app-1`, `app-2`). You aren't concerned if either `app-1` or `app-2` fails by itself, but you need to know if both sources fail concurrently. 
+
+1. Create a custom alert target whose trigger is set to **Alert Has No Data**. 
+2. Create the alert with **Condition** set to `ts(my.metric)`, and **Alert Target** set to the custom target. 
+
+## Alerting on Missing Data in Individual Time Series
+
+You can configure an alert to fire when at least one individual time series in a group stops reporting data. To do so, you use the [`mcount()`](ts_mcount.html) function in the alert condition to detect missing data in each time series you specify. `mcount()` measures the number of data points reported by a time series, relative to a chosen time interval, and returns the number (the "moving count") once per second. 
 
 * To find out whether a time series has stopped reporting, you can configure an alert to fire whenever the moving count drops to 0.
 * To find out whether a time series is reporting inconsistently, you can configure an alert to fire whenever the moving count drops below some threshold. 
 
-You must pick a shifting time window that is longer than the data-reporting interval of the time series, to avoid false positives.
+We recommend that you pick a shifting time window that is longer than the data-reporting interval of the time series.
 
 **Examples** 
 
 Suppose `my.metric` normally reports one data point per minute. 
-* The following alert condition returns true if `my.metric` reported no data points at all over the last 3 minutes:
+* The following alert condition returns true if `my.metric` reported no data points at all for 3 minutes:
 
   ```mcount(3m, ts(my.metric)) = 0```
 
@@ -54,6 +68,7 @@ Suppose `my.metric` normally reports one data point per minute.
 
   ```mcount(1m, ts(my.metric)) < 1```
   
+![Alert mcount](images/alerts_mcount_fire.png)
 
 
 ## Responding to Long Data Gaps
