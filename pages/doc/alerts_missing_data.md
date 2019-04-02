@@ -99,13 +99,16 @@ Now consider what happens if `my.metric` reports regularly once a minute until 1
 3. When the alert condition compares each summarization value to 0, the result is false until 10:33. 
 4. The alert fires at 10:35, based on 2 minutes' worth (10:33 and 10:34) of true values and no false values. 
 
+The total elapsed time between the last reported data point and the alert firing is 5 minutes, which is the sum of the shifting time window and the **Alert fires** time window.
+
 ![Alert mcount](images/alerts_mcount_fire.png)
 
-Here are some guidelines for picking a shifting time window for `mcount()`: 
-* Make the shifting time window longer than the data-reporting interval of the time series.
-* Balance the following trade-offs:
-  - If the shifting time window is too long, the alert might wait too long before firing, and you might miss a lot of data.
-  - If the shifting time window is too short, the alert might produce false positives because it is too sensitive to insignificant variations in reporting times, or to transient reporting gaps. 
+
+When you choose a shifting time window for `mcount()`, you make a trade-off between the alert's timeliness and its sensitivity to insignificant reporting gaps. A shifting time window should be:
+* Short enough so that you don't wait too long for the alert to fire after the time series stops reporting.
+* Long enough so that the alert can ignore slight variations in reporting times or extremely brief reporting gaps.
+
+**Note:** We recommend that you always make the shifting time window longer than the data-reporting interval of the time series.
 
 <!---
 For example, a one-minute shifting time window is likely to be too sensitive for a time series that reports once a minute, because even a slight variation in reporting time might lead to a false positive:
@@ -115,20 +118,24 @@ For example, a one-minute shifting time window is likely to be too sensitive for
 
 ### Resolve or Keep Firing?
 
-The `mcount()` function stops returning values after 2x the duration of the shifting time window. When you use `mcount()` in an alert condition to detect missing data in a time series, you need to decide what you want your alert to do if a time series stops for longer than 2x the duration of the shifting time window. 
+When you use `mcount()` in an alert condition to detect missing data, you need to decide what you want your alert to do if the time series stops reporting for a long time. `mcount()` declines for 1x the length of the shifting time window, reports 0 for 1x the length of the shifting time window, and then reports NO DATA after that.
 
-You can:
-* Allow the alert to resolve after an **Alert resolves** time window of no data. 
-* Configure the alert to continue firing as long as the time series has stopped reporting.
+You can choose the alert response that best fits your use case:
+* Let the alert resolve after `mcount()` starts reporting NO DATA. 
+* Configure the alert to continue firing until the time series starts reporting again. 
 
 ### Option 1: Let the Alert Resolve
 
-The `mcount()` function returns the number of data points for 2x the duration of the time window, after the time series stops reporting data. At this point, `mcount()` also stops reporting, and the alert will resolve after detecting NO DATA for the **Alert resolves** time window.
+An alert will automatically resolve if it detects NO DATA for the duration of the **Alert resolves** time window. This might be the most convenient outcome for the alert, particularly if it is unlikely that the time series will start reporting again without explicit intervention.
 
 **Example**
 
-Suppose: 
-* An alert is configured with **Alert fires** = 2 minutes and **Alert resolves** = 2 minutes. The alert condition tests whether the reporting rate falls to 0 using a rate-testing window of 3 minutes: `mcount(3m, ts(my.metric))=0`
+Consider the alert that is described [above](#control-alert-responsiveness):
+* The alert condition is `mcount(3m, ts(my.metric)) = 0`, so the shifting time window is 3 minutes.
+* **Alert fires** time window is 2 minutes.
+* **Alert resolves** time window is 2 minutes. 
+
+The alert condition tests whether the reporting rate falls to 0 using a rate-testing window of 3 minutes: `mcount(3m, ts(my.metric))=0`
 * The time series `my.metric` normally reports once a minute, and stops reporting at 10:30. 
 
 `mcount()` declines over the next 3 min til 10:33, then reports 0 for another 3 minutes, then stops reporting.
