@@ -27,7 +27,7 @@ You normally alert on missing data to discover any serious faults that might occ
 * Sensitive enough to detect missing data in time to avoid significant downtime.
 * Robust enough to ignore brief, insignificant interruptions.
 
-The sections below describe 2 main techniques for alerting on missing data: 
+This page describes 2 main techniques for alerting on missing data: 
 * [Alerting on an entire group of time series that fail together.](#alerting-on-time-series-that-fail-together)
 * [Alerting on one or more individual time series within a group.](#alerting-on-missing-data-in-individual-time-series)
 
@@ -48,44 +48,50 @@ If both time series stop reporting, the alert does not actually fire, but enters
 
 ## Alerting on Missing Data in Individual Time Series
 
-You can configure an alert to fire when at least one individual time series in a group stops reporting data. To do so, you set up an alert condition that detects missing data in the specified time series by:
-* Using the [`mcount()`](ts_mcount.html) function to measure the number of reported data points, relative to a chosen time window. 
-* Comparing the count to 0 (or some other threshold).
+You can configure an alert to fire when at least one individual time series in a group stops reporting data. To do so, you set up an alert condition that detects missing data in the specified time series as follows:
+* Use the [`mcount()`](ts_mcount.html) function to measure the number of reported data points, relative to a chosen time window. 
+* Compare the count to 0 (or some other threshold).
 
 The `mcount()` function updates its count continuously by shifting the time window forward in time and then counting the number of data points that were reported in the now re-positioned window. The process of returning an updated "moving count" is repeated once a second, regardless of how frequently the time series reports its data points. 
 
 **Example** 
 
-Suppose you are collecting a metric `my.metric` from each of 4 services that are running on different host machines (`app-1`, `app-2`, `app-4`, `app-4`). You want to know if any one of these hosts fails, even if the services on the other hosts keep reporting data.
+Suppose you are collecting a metric `my.metric` from each of 4 services that are running on different host machines (`app-1`, `app-2`, `app-4`, `app-4`). You want to know if any one of these hosts fails, even if the services on the other hosts keep reporting data. To accomplish this, you create an alert with an alert condition such as the following:
 
-* Create an alert with an alert condition such as the following:
+```
+mcount(3m, ts(my.metric)) = 0
+```
 
-  ```mcount(3m, ts(my.metric)) = 0```
+This alert condition returns true if `my.metric` does not report any data points for 3 minutes on at least one source.
 
-This condition returns true if `my.metric` does not report any data points for 3 minutes on at least one source.
-
-### Detect Complete vs. Intermittent Faults
+### Detecting Complete vs. Intermittent Faults
 
 Different amounts of missing data can indicate the severity of a fault. In general, a complete failure to report data is more severe than an intermittent failure. You can detect different amounts of missing data by picking different comparison counts for your alert condition.
 
 * To find out whether a time series has stopped reporting completely, compare the result of `mcount()` to 0:
 
-  ```mcount(3m, ts(my.metric)) = 0```
+  ```
+  mcount(3m, ts(my.metric)) = 0
+  ```
 
 * To find out whether a time series is reporting intermittently, compare the result of `mcount()` to some threshold. For example, if `my.metric` normally reports 1 data point per minute, the following alert condition returns true when 2 or more data points are missing in a 5-minute window:
 
-  ```mcount(5m, ts(my.metric)) <= 3```
+  ```
+  mcount(5m, ts(my.metric)) <= 3
+  ```
 
   **Note:** You base the threshold on the number of points you expect the time series to report in the chosen interval. The expected count is easiest to estimate for a time series that reports regularly, such as once a minute or once every 20 seconds.  
 
 * To find out whether a time series is reporting fewer and fewer points over time, compare the current moving count to a moving count from an earlier part of the same time series. See [Alert on Point Rate Drop](alerts_recipes.html#alert-on-point-rate-drop) on the recipes page.
 
 
-### Control Alert Responsiveness 
+### Controlling Alert Responsiveness 
 
-When you use `mcount()` in an alert condition, the length of the function's shifting time window affects how quickly the alert responds to a time series that stops reporting. This factor is independent of the length of the **Alert fires** time window. The number of minutes between the last reported data point and the alert's firing time is given by the following formula:
+When you use `mcount()` in an alert condition, the length of the function's shifting time window affects how quickly the alert responds to a time series that stops reporting. This factor is independent of the length of the **Alert fires** time window. The maximum number of minutes between the last reported data point and the alert's firing time is given by the following formula:
 
-```(mcount's shifting time window) + (Alert fires time window)```
+```
+mcount's shifting time window  +  Alert fires time window
+```
 
 **Example**
 
@@ -93,13 +99,13 @@ Suppose you configure an alert with the following properties:
 * The alert condition is `mcount(3m, ts(my.metric)) = 0`, so the shifting time window is 3 minutes.
 * **Alert fires** time window is 2 minutes.
 
-Now consider what happens if `my.metric` reports regularly once a minute until 10:30 and then stops. 
+Now consider what happens if `my.metric` reports regularly once a minute until 10:30 and then stops: 
 1. `mcount()` counts 3 points in every 3-minute shifting window through 10:30:59. Then the moving counts decrease over the next 3 minutes: 2 points through 10:31:59, 1 point through 10:32:59, and finally, 0 points at 10:33 and beyond. 
 2. The alert checking system combines the per-second moving counts into summarization points: 3 at 10:30, 2 at 10:31, 1 at 10:32, and 0 at 10:33, 10:34, and so on.
 3. When the alert condition compares each summarization value to 0, the result is false until 10:33. 
-4. The alert fires at 10:35, based on 2 minutes' worth (10:33 and 10:34) of true values and no false values. 
+4. The alert fires at 10:35, based on 2 minutes' worth (10:33 and 10:34) of true values and no false values. The total elapsed time between the last reported data point and the alert firing is 3+2 = 5 minutes. 
 
-The total elapsed time between the last reported data point and the alert firing is 5 minutes, which is the sum of the shifting time window and the **Alert fires** time window.
+    **Note:** The elapsed time will be shorter for an alert condition such as `mcount(3m, ts(my.metric)) < 3`, when the **Alert fires** time window can overlap the shifting time window.
 
 ![Alert mcount](images/alerts_mcount_fire.png)
 
@@ -116,32 +122,30 @@ For example, a one-minute shifting time window is likely to be too sensitive for
   ```mcount(1m, ts(my.metric)) = 0```
 --->
 
-### Resolve or Keep Firing?
+### Should the Alert Resolve or Keep Firing?
 
-When you use `mcount()` in an alert condition to detect missing data, you need to decide what you want your alert to do if the time series stops reporting for a long time. `mcount()` declines for 1x the length of the shifting time window, reports 0 for 1x the length of the shifting time window, and then reports NO DATA after that.
+When you use `mcount()` in an alert condition to detect missing data, you need to decide what you want your alert to do if the time series stops reporting for a long time. `mcount()` returns decreasing values for 1x the length of the shifting time window, then reports 0 for 1x the length of the shifting time window, and then reports NO DATA after that.
 
 You can choose the alert response that best fits your use case:
-* Let the alert resolve after `mcount()` starts reporting NO DATA. 
-* Configure the alert to continue firing until the time series starts reporting again. 
+* [Let the alert resolve](#option-1-let-the-alert-resolve) after `mcount()` starts reporting NO DATA. 
+* [Configure the alert to continue firing](#option-2-configure-the-alert-to-keep-firing) until the time series starts reporting again. 
 
 ### Option 1: Let the Alert Resolve
 
-An alert will automatically resolve if it detects NO DATA for the duration of the **Alert resolves** time window. This might be the most convenient outcome for the alert, particularly if it is unlikely that the time series will start reporting again without explicit intervention.
+An alert will automatically resolve if it detects NO DATA for the duration of the **Alert resolves** time window. Letting the alert resolve might be the most convenient outcome, particularly if it is unlikely that the time series will start reporting again without explicit intervention.  
 
 **Example**
 
-Consider the alert that is described [above](#control-alert-responsiveness):
+Consider the alert that we described [above](#controlling-alert-responsiveness):
 * The alert condition is `mcount(3m, ts(my.metric)) = 0`, so the shifting time window is 3 minutes.
 * **Alert fires** time window is 2 minutes.
 * **Alert resolves** time window is 2 minutes. 
+* The time series `my.metric` reports regularly once a minute. 
 
-The alert condition tests whether the reporting rate falls to 0 using a rate-testing window of 3 minutes: `mcount(3m, ts(my.metric))=0`
-* The time series `my.metric` normally reports once a minute, and stops reporting at 10:30. 
-
-`mcount()` declines over the next 3 min til 10:33, then reports 0 for another 3 minutes, then stops reporting.
-
-The alert fires at 10:35 after 2 minutes of 0 values. After 2 minutes of no data (i.e., at 10:38), the alert resolves, because there have been no false values for 2 minutes.  
-
+Now consider what happens if the time series stops reporting at 10:30 (and does not restart):
+* The alert fires at 10:35.
+* `mcount()` stops returning values after 6 minutes (2x the length of the shifting time window).
+* After 2 minutes of NO DATA, the alert resolves at 10:38, because there have been no false values for the length of the **Alert resolves** time window.  **Note:** Do not interpret the resolved alert as an indication that the time series has started reporting again!
 
 ![Alert mcount](images/alerts_mcount_fire_resolve.png)
 
@@ -149,16 +153,21 @@ The alert fires at 10:35 after 2 minutes of 0 values. After 2 minutes of no data
 
 ### Option 2: Configure the Alert to Keep Firing
 
-If your use case requires `mcount()` to report a value beyond the 2x shifting time window, we recommend wrapping the `mcount()` function in `last()`, for example: `last(1h, mcount(5m, ts(my.metric)))`. `last()` keeps the last value reporting even beyond when it would have stopped,  and causes the alert to keep firing.
+You can configure the alert to prevent it from resolving unless the time series starts reporting normally again. 
+
+**Example** 
+
+Consider the alert that we described [above](#controlling-alert-responsiveness). Suppose you want this alert to keep firing until `my.metric` starts reporting data points again, and you think that is likely to happen within an hour. You modify the alert condition by wrapping [`last()`](ts_last.html) around `mcount()`: 
+
+```
+last(1h, mcount(3m, ts(my.metric))) = 0
+``` 
+
+`last()` causes `mcount()` to continue returning its last value (0) instead of reporting NO DATA. Consequently, the alert condition continues to evaluate to true, and the alert continues to fire. This example extends the 0 value for 1 hour. If there is no change to `my.metric` when the hour is up, `mcount()` will stop returning 0, and the alert will resolve after 2 minutes of NO DATA. 
+
+
+
 
 <!---
-![mcount_demo-2](images/mcount_demo-2.png)
---->
-
-
-
-<!---
-## More Info
-
 For more tips, see our blog post [Intelligent Alert Design: Three Simple Tips for Increasing Alert Robustness](https://www.wavefront.com/intelligent-alert-design-three-simple-tips-increasing-alert-robustness/){:target="_blank" rel="noopenner noreferrer"}
 --->
