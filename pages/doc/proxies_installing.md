@@ -144,8 +144,8 @@ The proxy listens on different ports for different kinds of data. These ports ar
 You set the following properties to configure proxy ports:
 
 * For **metrics**, set `pushListenerPorts`. Required only if you want to change to a port other than 2878.
-* For **histograms**, set `histogramDistListenerPorts` for data in histogram format. The recommended port number is 40,000. See [Histogram Proxy Ports](proxies_histograms.html#histogram-proxy-ports) for port numbers for histograms in Wavefront data format.
-* For **trace data**, set `traceListenerPorts`.  The recommended port number is 30,000.
+* For **histograms**, set `histogramDistListenerPorts` for data in histogram format. The recommended port number is 2878 (proxy 4.29 and later) or 40000 (earlier proxy versions). See [Histogram Proxy Ports](proxies_histograms.html#histogram-proxy-ports) for port numbers for histograms in Wavefront data format.
+* For **trace data**, set `traceListenerPorts`.  The recommended port number is 30000.
 
 **Note:** If you are instrumenting your application with a Wavefront SDK to send data to the proxy, make sure the proxy's port settings match the port numbers you specify during SDK setup.
 

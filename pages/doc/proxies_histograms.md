@@ -31,11 +31,12 @@ timestamp, and source. Using "normal" metrics, we can't measure this because, ra
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
 a 95th percentile from a variety of sources) does not yield an accurate and valid percentile with high velocity metrics. That might mean that even though you have an outlier in some of the source data, it becomes obscured by all the other data.
 
-To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user must either:
+To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user can:
 * Send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the normal metrics port (2878).
+  Starting with Wavefront proxy 4.29, send histograms in distribution format to port 2828.
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
-The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-names), which you can query with a set of [functions](#histogram-functions).
+The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-naming), which you can query with a set of [functions](#histogram-functions).
 
 ## Wavefront Histogram Distributions
 
@@ -122,7 +123,9 @@ Suppose you want to send the following points to the Wavefront proxy:
 
 10, 20, 20, 30, 40, 100, 100
 
-If you want an hourly aggregation, you can send those points as a distribution to the histogram distribution listener port (by default 40000):
+If you want an hourly aggregation, you can send those points as a distribution to the histogram distribution listener port:
+* By default port 2878 for proxy 4.29 and later.
+* By default 40000 for earlier proxy versions.
 
 `!H <timestamp> #1 10 #2 20 #1 30 #2 100 my.metric source=s1`
 
@@ -159,14 +162,17 @@ Histograms are supported by Wavefront proxy 4.12 and later. To use histograms, e
 
 ### Histogram Proxy Ports
 
-To indicate that you are sending histogram data, send the metrics to one of the histogram proxy ports. You can use 40000 for sending a distribution or select one of the other ports to sending an aggregation interval. For example:
+To indicate that you are sending histogram data, send the metrics to one of the histogram proxy ports. You can use:
+* Port 2878 for proxy 4.29 and later for histogram distributions.
+* Port 40000 for earlier proxy versions for histogram distributions.
+* The other ports for other formats.
 
 <table>
 <colgroup>
-<col width="30%" />
-<col width="30%" />
-<col width="15%" />
 <col width="25%" />
+<col width="30%" />
+<col width="25%" />
+<col width="20%" />
 </colgroup>
 <thead>
 <tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
@@ -175,7 +181,8 @@ To indicate that you are sending histogram data, send the metrics to one of the 
 <tr>
 <td>distribution</td>
 <td>histogramDistListenerPorts</td>
-<td>40000</td>
+<td>2878 (proxy 4.29 and later)<br>
+40000 (earlier proxy versions)</td>
 <td><a href="#sending-histogram-distributions">Distribution data format</a></td>
 </tr>
 <tr>
@@ -200,8 +207,6 @@ To indicate that you are sending histogram data, send the metrics to one of the 
 </table>
 
 You can send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
-* If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged.
-* If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics.
 
 You can send [**distribution data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront distribution data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
 
@@ -393,7 +398,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 
 <tr>
 <td>histogramDistListenerPorts</td>
-<td>TCP ports to listen on for ingesting histogram distributions. Default: 40000.</td>
+<td>TCP ports to listen on for ingesting histogram distributions. Default: 2878 (proxy 4.29 and later) 40000 (earlier proxy versions).</td>
 <td>Comma-separated list of ports. Can be a single port.</td>
 </tr>
 <tr>
@@ -467,7 +472,7 @@ You can apply the following functions to the returned data&mdash; `percentile`, 
 
 ## Viewing Histogram Metrics
 
-Starting with release 2018.42, you can view histograms in the Histogram browser if your cluster is licensed for that feature.
+You can view histograms in the Histogram browser.
 
 To view histograms:
 1. Click **Browse > Histograms** and start typing the histogram metric name.
@@ -484,4 +489,3 @@ To view histograms:
 ## Monitoring Histogram Points
 
 You can use `~collector` metrics to monitor histogram ingestion. See [Understanding ~collector Metrics for Histograms](wavefront_monitoring.html#understanding-collector-metrics-for-histograms).
-  
