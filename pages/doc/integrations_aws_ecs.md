@@ -1,5 +1,5 @@
 ---
-title: AWS ECS Integration
+title: AWS ECS Integration Details
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
@@ -14,20 +14,22 @@ that supports Docker containers and allows you to easily run applications on a m
 Amazon EC2 instances.
 ```
 
-Wavefront supports an Amazon Web Services built-in integration that allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API, but that's only part of your setup.
+Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html) that allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API, but that's only part of your setup.
+
+## Getting Started
 
 This guide provides detailed steps on how to install and configure the Wavefront ECS integration. After you complete these steps, the integration provides:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
 - Monitoring of detailed metrics about individual containers, services, and clusters running in your AWS ECS environment.
 
-## Requirements
+### Prerequisites
 
 - Access to Amazon Web Services.
 - Access to a [Wavefront proxy](proxies_installing.html) - Preferably running in AWS or a place accessible to your ECS instances.
 - Wavefront AWS integration - Parts of the ECS integration use CloudWatch metrics, which can be acquired by configuring the Wavefront AWS integration.
 
-## Configure AWS Integration
+### Configure the AWS Integration
 
 Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API.
 
