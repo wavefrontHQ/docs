@@ -17,7 +17,7 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 <!---
 ## Go SDKs That Instrument Frameworks
 
-Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Go framework or component, with minimal code setup.
+Each [framework SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Go framework or component, with minimal code setup.
 
 <table id = "framework-go" width="100%">
 <colgroup>
