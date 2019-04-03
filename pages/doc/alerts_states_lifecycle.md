@@ -89,7 +89,7 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 
 1. Evaluates the ts() expression you specified in the alert condition.
 1. Implicitly aligns the returned values by grouping them into 1-minute buckets.
-1. Summarizes the values within each bucket by averaging them.
+1. Summarizes the values within each bucket by averaging them, and aligns each result at the beginning of the minute that contains the summarized values.
 1. Tests each average value (1 per minute) against the alert condition to see whether it evaluates to 0 (false) or non-zero (true).
 
 If the ts() expression returns a single data value per minute, the summarization values and the returned values are the same.
@@ -136,10 +136,10 @@ An alert fires when its [condition](#alert-conditions) evaluates to at least one
 **Example**
 
 Suppose the alert condition is `ts(my.metric) > 4` and the **Alert fires** window is 2 minutes:
-- If the metric reports exactly one data value (5) in the last 2 minutes, and no other points (no data), the alert fires.
-- If the metric reports exactly two data values (5 and 3), anywhere in the last 2 minutes, the alert does not fire.
-- If the metric reports many points in the last 2 minutes, all of which are <= 4, the alert does not fire.
-- If the metric reports many points in the last 2 minutes, all of which are > 4, the alert fires.
+- If the metric reports exactly one data value (5) in the last 2 minutes, and no other points (no data), the alert fires. <br> Reason: The **Alert fires** window contains one true summarization value (5 > 4) and no false values.
+- If the metric reports many points in the last 2 minutes, all of which are <= 4, the alert does not fire. <br> Reason: The **Alert fires** window contains two false summarization values, because the averages of values that are <= 4 are also <= 4.
+- If the metric reports many points in the last 2 minutes, all of which are > 4, the alert fires. <br> Reason: The **Alert fires** window contains two true summarization values and no false values, because the averages of values that are > 4 are also > 4.
+- If the metric reports exactly two data values (5 and 3), anywhere in the last 2 minutes, the alert does not fire. <br> Reason: The **Alert fires** window contains one false summarization value. If each data value is in a different minute, then one of the summarization values is 3, which evaluates to false. If both data values are in the same minute, then their average (4) evaluates to false (4 > 4 is false).
 
 Alert checks are based on data that is summarized every minute.  Consequently, if `ts(my.metric)` returns 5, 5, and 3 in the same minute, the summarized value (4.33) evaluates to true for that minute because 4.33 > 4, even though 3 by itself would evaluate to false. All alert queries are checked according to the **Checking Frequency** property.
 
@@ -165,7 +165,7 @@ Suppose you define an alert with the following properties:
 * **Alert fires** = 5 minutes. 
 * **Alert resolves** = 10 minutes. 
 
-The following events show how the alert might fire and then resolve:
+Here's how the alert might fire, and then resolve:
 
  1. `metric.name` normally reports 0, but starts reporting 1 at 10:21.
  1. At 10:26, the alert fires, because `metric.name` has reported 1 during the 5 whole minutes (from 10:21 to 10:25) immediately before the alert check at 10:26.
@@ -187,11 +187,11 @@ In the chart below:
 ![Alert fires](images/alert_fire.png)
 
 Why does the alert fire when it does?
-* An alert check occurs at 09:37:09, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:35 and 09:36. Each summarization data point evaluates to true, because it is the average of values that are all > 50%. 
+* An alert check occurs at 09:37:09, and takes into account the 2 summarization data points at 09:35 and 09:36. Each summarization data point evaluates to true, because it is the average of values that are all > 50%. 
 * The alert fires because the alert check finds two true values and no false values among the summarization data points in the time window.
 
 Why does the alert resolve when it does?
-* An alert check occurs at 09:41:59, and takes into account the 2 [summarization data points](#data-granularity-for-alert-checking) at 09:39 and 09:40. Each summarization data point evaluates to false: 
+* An alert check occurs at 09:41:59, and takes into account the 2 summarization data points at 09:39 and 09:40. Each summarization data point evaluates to false: 
   - The summarization point at 09:40 is the average of values (all <= 50%) that were reported from 09:40 to 09:40:59.
   - The summarization point at 09:39 is the average of the values (some > 50%, some <= 50%) that were reported from 09:39 to 09:39:59. The resulting average is 44%, which makes the summarization value false (44% <= 50%).
 * The alert resolves because the alert check finds at no true values among the summarization data points in the time window.

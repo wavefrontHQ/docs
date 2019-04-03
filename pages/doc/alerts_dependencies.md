@@ -7,13 +7,13 @@ permalink: alerts_dependencies.html
 summary: Use alert metrics to build alerts that depend on other alerts.
 ---
 
-In any environment metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host. If you have a series of different alerts that all depend, in part, on one common underlying metric, you would have to repeat the code for that common metric in every one of the "parent" alerts, which quickly becomes a maintenance burden.
+Metrics can be related in a dependency hierarchy. For example, a login application service is dependent on a user database, and that database is dependent on a hardware host. If you have a series of different alerts that all depend, in part, on one common underlying metric, you would have to repeat the code for that common metric in each alert in the chain, which quickly becomes a maintenance burden.
 
-The mechanism that Wavefront provides for expressing alert dependencies are _alert metrics_. To create an alert based on underlying conditions, you reference one or more alert metrics in the alert's Condition field. For example, the alert for a metric that depends on 2 underlying sources can reference the corresponding alert metrics for those sources in its condition and fire on the combination of those alert metrics.
+Wavefront generates _alert metrics_ for each alert, and you can use the metrics from one alert as part of another alert's condition.
 
 ## Alert Metrics
 
-An alert generates three metrics (**isfiring**, **summary**, **firing**), with the following syntax:
+An alert generates three metrics (**isfiring**, **summary**, **firing**):
 
 - **isfiring** - `~alert.isfiring.<alertID>`. Returns a single time series indicating whether the alert is firing. The value is 1 if the alert is firing, 0 otherwise.
   - `alertID` - The alert ID. The field accepts the wildcard `*`. See [Referencing Alert Metrics](#referencing-alert-metrics).
@@ -37,12 +37,22 @@ An alert generates three metrics (**isfiring**, **summary**, **firing**), with t
 
 
 
-**Example Metrics**
+### Example Metrics
 
 - `~alert.summary.1484772362710.WARN.sourcesFiring`
 - `~alert.summary.1484772362710.WARN.seriesFiring`
 - `~alert.firing.1484772362710.WARN.jvm.thread-states.blocked`
 - `~alert.isfiring.1484772362710`
+
+### Alert Metric Source Field
+
+The alert metrics `~alert.firing.*` and `~alert.isfiring.*` have a `source` field that is set to the source involved in the alert. If the source is empty, the `source` field is set to `unknown`. 
+
+You can filter for alerts that are firing from specific sources by specifying `source=<source>`, as shown in [Example 1](#example-1-alert-on-an-alert-that-fires-from-specific-sources), below.
+
+**Note:** The `source` field of the `~alert.summary.*` metrics is set to `wavefront`.
+
+
 
 ## Building a Chain of Alerts with isFiring
 
@@ -64,36 +74,31 @@ If you decide to change the thresholds for any of the conditions in alerts B or 
 
 ## Alerting on Other Alerts
 
-### Example 1: Alert if another alert is firing, but only for specific source(s)
+### Example 1: Alert On an Alert that Fires from Specific Sources
 
 Suppose you want to write an alert, Alert A, that only fires when specific sources from Alert B fires.
 
 - Alert A: `last(ts(~alert.firing.*, source="app-10" and alertName="B"))`
 
-In this case, Alert A would only fire if `app-10` was firing from Alert B.
+In this case, Alert A fires only if `app-10` was firing from Alert B.
 
-### Example 2: Alert if more than X sources are firing from another alert
+### Example 2: Alert On an Alert that Fires from a Given Number of Sources 
 
 Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing.
 
 - Alert A: `last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
-Suppose you want to write an alert, Alert A, that only fires when Alert B has more than 5 sources firing AND the metric `mem.available` is less than 2.
+Suppose you want to write an alert, Alert A, that fires when Alert B has more than 5 sources firing AND the metric `mem.available` is less than 2.
 
 - Alert A: `ts(mem.available) < 2 and last(ts(~alert.summary.*.sourcesFiring, alertName="B")) > 5`
 
-### Example 3: Alert if 2 separate alerts each have at least one firing source
+### Example 3: Alert When 2 Alerts Each Have a Firing Source
 
-The example below is an alert condition that depends on 2 separate alerts generating the `sourcesFiring` metrics. In this case, both alerts that this alert depends on must have at least 1 source firing in order to make this alert fire.
+The example below is an alert condition that depends on 2 separate alerts generating the `sourcesFiring` metrics. In this case, both alerts that this alert depends on must have at least 1 source firing to make this alert fire.
 
 ```
 last(ts(~alert.summary.1493407920928.WARN.sourcesFiring)) > 0 and last(ts(~alert.summary.1493407943926.WARN.sourcesFiring)) > 0
 ```
-
-### Alert Metric Source Field
-
-- The `source` field of the `~alert.summary.*` metrics is set to `wavefront`.
-- The `source` field of the `~alert.*firing.*` metrics is the source involved in the alert. If the source is empty, the `source` is set to `unknown`. You can filter the `~alert.*firing.*` metrics by specifying `source=<source>`.
 
 
 ## Referencing Alert Metrics

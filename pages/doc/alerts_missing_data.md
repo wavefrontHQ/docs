@@ -7,31 +7,33 @@ permalink: alerts_missing_data.html
 summary: Configure an alert to fire when a time series stops reporting.
 ---
 
-Part of monitoring a system is to configure alerts to let you know about machine or application faults. When a machine or application crashes, it stops reporting data to Wavefront. In effect, the data we expect from that source is "missing".
+Part of monitoring a system is to configure alerts to let you know about machine or application faults. When a machine or application crashes, it stops reporting data to Wavefront. In effect, the data we expect from that source is missing.
 
 This page can help you understand how to configure alerts to detect missing data, so you can identify potential failures and resolve them before too much data is lost. 
 
 
-## What is Missing Data?
+## What Is Missing Data?
 
-Whenever a time series stops reporting data points, a gap of NO DATA occurs where we normally expect data points to be. We refer to these expected but unreported data points as missing data. 
+When a time series stops reporting, we see NO DATA where we expect to see data points. We refer to these expected but unreported data points as missing data. 
 
 Missing data might result from:  
 
-* Serious faults that require intervention to correct. For example, a time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Wavefront. Or an application might malfunction intermittently so that it stops sending points for short periods of time before resuming.
+* Serious faults that require intervention to correct. For example: 
+  - A time series might stop reporting data because the source of the series (an application, service, or host machine) has crashed and can no longer generate data points or send them to Wavefront. 
+  - An application might malfunction intermittently so that it repeatedly stops sending points for short periods of time before resuming.
  
-* Brief interruptions that resolve on their own. For example, a time series might skip a few data points here and there because a minor network problem has dropped a few packets.
+* Brief interruptions that resolve on their own. For example, a time series might skip data points because a minor network problem has dropped a few packets.
 
-You normally alert on missing data to discover any serious faults that might occur. That is, you want to configure your alerts to be:  
+You normally alert on missing data to discover any serious faults that might occur. Configure your alerts to be:  
 
 * Sensitive enough to detect missing data in time to avoid significant downtime.
 * Robust enough to ignore brief, insignificant interruptions.
 
-This page describes 2 main techniques for alerting on missing data: 
+This page describes 2 techniques for alerting on missing data: 
 * [Alerting on an entire group of time series that fail together.](#alerting-on-time-series-that-fail-together)
 * [Alerting on one or more individual time series within a group.](#alerting-on-missing-data-in-individual-time-series)
 
-**Note:** Sometimes a gap of NO DATA in a time series means that data reporting has been delayed, but not completely stopped. Whereas a gap of missing data is permanent, a gap from a data delay is temporary and is eventually backfilled. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts).
+**Note:** Sometimes a gap of NO DATA in a time series means that data reporting has been delayed, but not completely stopped. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts).
 
 ## Alerting on Time Series that Fail Together
 
@@ -44,19 +46,19 @@ Suppose you are collecting a metric `my.metric` from 2 copies of a service that 
 1. Create a custom alert target whose trigger is set to **Alert Has No Data**. 
 2. Create the alert with **Condition** set to `ts(my.metric)`, and **Alert Target** set to the custom target. 
 
-If both time series stop reporting, the alert does not actually fire, but enters a NO DATA state instead. The custom alert target causes this state to trigger a notification.
+If both time series stop reporting, the alert does not fire, but enters a NO DATA state. As a result, we send a notification to the custom alert target.
 
 ## Alerting on Missing Data in Individual Time Series
 
-You can configure an alert to fire when at least one individual time series in a group stops reporting data. To do so, you set up an alert condition that detects missing data in the specified time series as follows:
+You can configure an alert to fire when at least one time series in a group stops reporting. To do so, you set up an alert condition that detects missing data in the specified time series as follows:
 * Use the [`mcount()`](ts_mcount.html) function to measure the number of reported data points, relative to a chosen time window. 
 * Compare the count to 0 (or some other threshold).
 
-The `mcount()` function updates its count continuously by shifting the time window forward in time and then counting the number of data points that were reported in the now re-positioned window. The process of returning an updated "moving count" is repeated once a second, regardless of how frequently the time series reports its data points. 
+The `mcount()` function updates its count continuously by shifting the time window forward in time and then counting the number of data points that were reported in the now re-positioned window. The process of returning an updated moving count is repeated once a second, regardless of how frequently the time series reports its data points. 
 
 **Example** 
 
-Suppose you are collecting a metric `my.metric` from each of 4 services that are running on different host machines (`app-1`, `app-2`, `app-4`, `app-4`). You want to know if any one of these hosts fails, even if the services on the other hosts keep reporting data. To accomplish this, you create an alert with an alert condition such as the following:
+Suppose you are collecting a metric `my.metric` from each of 4 services that are running on different host machines (`app-1`, `app-2`, `app-3`, `app-4`). You want to know if any one of these hosts fails, even if the services on the other hosts keep reporting data. To accomplish this, you create an alert with an alert condition such as the following:
 
 ```
 mcount(3m, ts(my.metric)) = 0
@@ -64,7 +66,7 @@ mcount(3m, ts(my.metric)) = 0
 
 This alert condition returns true if `my.metric` does not report any data points for 3 minutes on at least one source.
 
-### Detecting Complete vs. Intermittent Faults
+### Detecting Complete Faults and Intermittent Faults
 
 Different amounts of missing data can indicate the severity of a fault. In general, a complete failure to report data is more severe than an intermittent failure. You can detect different amounts of missing data by picking different comparison counts for your alert condition.
 
@@ -114,7 +116,7 @@ When you choose a shifting time window for `mcount()`, you make a trade-off betw
 * Short enough so that you don't wait too long for the alert to fire after the time series stops reporting.
 * Long enough so that the alert can ignore slight variations in reporting times or extremely brief reporting gaps.
 
-**Note:** We recommend that you always make the shifting time window longer than the data-reporting interval of the time series.
+**Note:** Always make the shifting time window longer than the data-reporting interval of the time series.
 
 <!---
 For example, a one-minute shifting time window is likely to be too sensitive for a time series that reports once a minute, because even a slight variation in reporting time might lead to a false positive:
@@ -122,7 +124,7 @@ For example, a one-minute shifting time window is likely to be too sensitive for
   ```mcount(1m, ts(my.metric)) = 0```
 --->
 
-### Should the Alert Resolve or Keep Firing?
+### Options for Responding to Long Data Gaps
 
 When you use `mcount()` in an alert condition to detect missing data, you need to decide what you want your alert to do if the time series stops reporting for a long time. `mcount()` returns decreasing values for 1x the length of the shifting time window, then reports 0 for 1x the length of the shifting time window, and then reports NO DATA after that.
 
@@ -132,7 +134,7 @@ You can choose the alert response that best fits your use case:
 
 ### Option 1: Let the Alert Resolve
 
-An alert will automatically resolve if it detects NO DATA for the duration of the **Alert resolves** time window. Letting the alert resolve might be the most convenient outcome, particularly if it is unlikely that the time series will start reporting again without explicit intervention.  
+An alert will automatically resolve if it detects NO DATA for the duration of the **Alert resolves** time window. Letting the alert resolve makes sense if the time series is unlikely to start reporting again without explicit intervention.  
 
 **Example**
 
@@ -153,7 +155,7 @@ Now consider what happens if the time series stops reporting at 10:30 (and does 
 
 ### Option 2: Configure the Alert to Keep Firing
 
-You can configure the alert to prevent it from resolving unless the time series starts reporting normally again. 
+You can configure the alert so it continues to fire unless the time series starts reporting normally again. 
 
 **Example** 
 

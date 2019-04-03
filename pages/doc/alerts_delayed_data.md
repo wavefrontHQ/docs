@@ -9,13 +9,13 @@ summary: Diagnose and avoid spurious alerts due to delayed data reporting.
 
 An alert fires or resolves based on the data values that are present during an alert checking time window. If data reporting is delayed, an alert checking decision might be made on a temporarily incomplete set of data values. This can lead to an apparent false positive (the alert fires when you don't expect it) or false negative (the alert does not fire as expected).
 
-This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Buffering alerts against false positives, in particular, can help you reduce alert noise, and enable your teams to focus on real problems in a timely fashion. 
+This page can help you understand, diagnose, and prevent the impact of data delays on alerts. Buffering alerts against false positives, in particular, can help you reduce alert noise. 
 
 ## A Sample Scenario
 
 Suppose you need to monitor the total number of users that are sharded across 3 sources (`app-1`, `app-2`, `app-3`). You know that each source has about 35 users, so the sum is normally higher than 100. You set up an alert to notify you if the total number of users drops below 100 for 2 minutes. Now consider what happens:
 
-* An alert check time occurs at 9:30:02, and for the preceding 2 minutes, only 2 sources (`app-1` and `app-2`) have reported any data. This brings the average number of users to about 70 for each of these minutes, so the alert fires. 
+* An alert check occurs at 9:30:02. For the preceding 2 minutes, only 2 sources (`app-1` and `app-2`) have reported any data. The average number of users is about 70 for each of these minutes, so the alert fires. 
 
 * At about 9:35, `app-3` finally sends its data points, and these delayed points are backfilled into the time series. 
 
@@ -31,31 +31,29 @@ You can proceed by:
 
 ## Check for a Data Delay
 
-If you think an alert has fired or resolved without meeting the alert condition, you can look for evidence that a data delay occurred during the alert check time window. A data delay can change the set of data values that the alert checking process bases its decisions on.
+If you think an alert has fired or resolved by mistake, it's possible that a data delay occurred during the alert check time window. A data delay can change the set of data values that the alert checking process bases its decisions on.
 
 ### What is a Data Delay?
 
 A data delay is a noticeable latency between the time that a source collects a data value and the time that Wavefront receives that value. Data delays can occur anywhere in the data pipeline. Data delays can be:
-* Predictable - for example, when a source preprocesses or batches up the data values before sending them to Wavefront.
-* Unpredictable - for example, when an sudden network slowdown or outage interferes with the flow of data. 
+* Predictable - for example, when a source preprocesses or batches the data values before sending them to Wavefront.
+* Unpredictable - for example, when a sudden network slowdown or outage interferes with the flow of data. 
 
-When the delayed data points finally arrive, Wavefront backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when Wavefront actually received it. 
+When delayed data points arrive, Wavefront backfills them into their time series. Each backfilled point is stored with the timestamp that reflects when the source collected it, not when Wavefront received it. 
 
 <!---
 If backfilling does not occur,  we call it missing data – i.e., a permanent failure to report – and handle it differently.
 --->
 
-### Two Views of the Same Time Window
+### Did a Data Delay Affect My Alert?
 
 The process of backfilling data values causes Wavefront to revise the affected time series. In effect, there are now two views of the time window in which the delay occurred: 
-* The original view, which exists before backfilling takes place. This view consists of the data values that caused the alert to respond. 
-* The revised view, which exists after backfilling takes place. This view consists of the complete set of reported data values, but might obscure the reason for the alert’s response.
+* The original view, which exists before backfilling takes place.  
+* The revised view, which exists after backfilling takes place. This view consists of the complete set of reported data values.
 
 After backfilling takes place, you can see only the revised view in a Wavefront chart. 
 
-### Did a Data Delay Affect My Alert?
-
-If an alert has fired when you don't expect it, you can use an [alert notification](alerts_notifications.html#chart-images-in-alert-notifications) to help you determine whether a data delay was the cause: 
+If an alert has fired when you did't expect it, you can examine an alert notification to help you determine whether a data delay was the cause: 
 
 1. Obtain an alert notification that was triggered by the alert. 
 2. Check whether the alert notification includes a [chart image](alerts_notifications.html#chart-images-in-alert-notifications). A chart image shows the original view of the data at the time the alert fired.
@@ -75,22 +73,22 @@ You can also try adjusting your alert condition to limit the impact of data dela
 
 ## Minimize the Impact of Data Delays on Alerts
 
-You can minimize the impact of data delays by evaluating data from an earlier time window. Doing so improves the chances that the alert checker will base its decisions on data that has been backfilled and is therefore complete.
+You can minimize the impact of data delays by evaluating data from an earlier time window. Doing so improves the chances that the alert checker will base its decisions on data that has been backfilled.
 
-You can use either of the following techniques (or a combination of them):
+You can use either of the following techniques (or both):
 * Use the `lag()` function in the alert condition. 
 * Increase the length of the alert check time window.
 
 
 ### Adjust the Alert Condition
 
-You can use the [`lag()`](ts_lag.html) function in an alert condition to shift the alert check time window back in time. You pick a time window that is old enough to contain backfilled values, but recent enough to be useful. Without `lag()`, the alert check time window ends immediately before alert checking occurs, which is too soon for backfilling to occur.
+You can use the [`lag()`](ts_lag.html) function in an alert condition to shift the alert check time window back in time. Pick a time window that you think might be old enough to contain backfilled values. Without `lag()`, the alert check time window ends immediately before alert checking occurs, which is too soon for backfilling to occur.
 
 **Example**
 
 Suppose you want to monitor the number of requests per second, and these requests are sharded across 10 machines. Each machine should be running about 150 requests/second, so the total should add up to more than 1000. You'd like to know if the total drops below 1000 for 2 minutes, so you set **Alert fires** to 2. 
 
-You start by considering the following alert condition, which compares the current request count to 1000:
+The following alert condition compares the current request count to 1000:
 
 ```
 sum(ts("aws.elb.requestcount")) < 1000
@@ -104,9 +102,9 @@ You can correct for the data delay by applying `lag()` to the current request co
 lag(15m, sum(ts("aws.elb.requestcount"))) < 1000
 ```
 
-By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15 minute lag gives Wavefront a chance to receive and backfill the delayed values into the alert check time window.
+By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15 minute lag gives Wavefront a chance to backfill the delayed values into the alert check time window.
 
-**Note:** If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place.  You can consider increasing the lag time, or you can allow the alert to fire if you think a longer-than-usual delay indicates a real problem.
+**Note:** If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place. 
 
 ### Lengthen the Alert Check Time Window
 
@@ -117,7 +115,7 @@ You can increase the **Alert fires** or **Alert resolves** time window so that t
 
 Suppose you want to monitor the number of requests per second sharded across 10 machines. You'd like to know if the total number of requests drops below 1000 for 2 minutes. If all series report on time, you can set **Alert fires** to 2.
 
-Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Alert fires** is 2, the alert will never fire, because the alert check time window will always contain No Data, which is neither true nor false. 
+Now suppose you know that the series on all 10 machines experience a predictable 15-minute reporting delay. If **Alert fires** is 2, the alert will never fire, because the alert check time window will always contain NO DATA, which is neither true nor false. 
 
 The solution is to increase the **Alert fires** window to 15 + 2 = 17 minutes. The oldest 2 minutes in the alert check time window will have actual data values backfilled. If both of those minutes have a summarization point < 1000, the alert fires.
 
@@ -127,12 +125,12 @@ When delayed data values are temporarily absent at the time of an alert check, t
 
 Here are several ways that delayed data can affect the alert decision for any alert condition:
 
-* Absent values could eliminate one or more summarization data points entirely, so the alert check would see No Data for those minutes.
+* Absent values could eliminate one or more summarization data points entirely, so the alert check would see NO DATA for those minutes.
 * Absent values could affect the values of the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be lower than it would be if all the expected data were present.
 
 Here are several ways that delayed data can affect the alert decision when the alert condition uses an aggregation function:
 * The aggregation function might interpolate values in place of the expected, but absent, reported values. The results of the aggregation function might therefore be higher or lower than they would be if all the actual data values were present. 
-* The aggregation function might be prevented from interpolating values in some cases. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The result without the interpolated value might be No Data, or an aggregated value that is higher or lower than it would be if the interpolated value was present. 
+* The aggregation function might be prevented from interpolating values in some cases. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The result without the interpolated value might be NO DATA, or an aggregated value that is higher or lower than it would be if the interpolated value was present. 
 
 
 <!--- 
