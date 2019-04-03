@@ -204,7 +204,7 @@ The alert checking process bases its decisions on the values that are actually p
 
 If you suspect an apparent false positive or negative, you can: 
 * Check for [delayed data reporting](alerts_delayed_data.html#check-for-a-data-delay).
-* [Adjust your alert condition](#minimizing-the-impact-of-data-delays-on-alerts) to prevent the alert from responding until data reporting is complete.
+* [Adjust your alert condition](#minimize-the-impact-of-data-delays-on-alerts) to prevent the alert from responding until data reporting is complete.
 
 
 

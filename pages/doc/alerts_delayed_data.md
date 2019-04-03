@@ -27,7 +27,7 @@ It appears that the alert fired even though its condition was not met at 9:30:02
 
 You can proceed by:
 * [Checking whether a data delay](#checking-for-a-data-delay) caused the alert to fire. 
-* Taking steps to [minimize the impact of data delays](#minimizing-the-impact-of-data-delays-on-alerts).
+* Taking steps to [minimize the impact of data delays](#minimize-the-impact-of-data-delays-on-alerts).
 
 ## Check for a Data Delay
 
@@ -67,7 +67,7 @@ If an alert has fired when you don't expect it, you can use an [alert notificati
   * If the image and the interactive chart are identical, then it's possible that a data delay occurred, but backfilling has not yet taken place.
 --->
 
-**Note:** Comparing a chart image to a current interactive chart is the most direct way to determine whether a data delay has occurred in an alert check time window. If your alert notifications do not include chart images, or if you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for clues that might point to a data delay. You can also try techniques for [minimizing the impact of data delays (below)](#minimizing-the-impact-of-data-delays-on-alerts) to see if that helps prevent further false positives or negatives.
+**Note:** Comparing a chart image to a current interactive chart is the most direct way to determine whether a data delay has occurred in an alert check time window. If your alert notifications do not include chart images, or if you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for clues that might point to a data delay. You can also try techniques for [minimizing the impact of data delays (below)](#minimize-the-impact-of-data-delays-on-alerts) to see if that helps prevent further false positives or negatives.
 
 <!---
 You can also try adjusting your alert condition to limit the impact of data delays, and see if that makes a difference.

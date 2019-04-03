@@ -34,6 +34,8 @@ For example, here's the query for an alert that fires if `app-2` sent bytes more
 mcount(30s, (ts(~sample.network.bytes.sent, source=app-2))) = 0 and mcount(30s,lag(30s,(ts(~sample.network.bytes.sent, source=app-2)))) != 0
 ```
 
+**See Also:** [Alerting on Missing Data](alerts_missing_data.html)
+
 ## Alert on Exceeding a Threshold
 
 Define an alert that fires when data exceeds a threshold.

@@ -88,6 +88,8 @@ Now consider what happens if `my.metric` starts reporting again at, say 9:01am. 
 
 [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
 
+[Alerting on Missing Data](alerts_missing_data.html)
+
 <!---
 [Account for Missing Data Points](.html#account-for-missing-data-points)
 --->
