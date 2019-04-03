@@ -16,7 +16,7 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 
 ## Java SDKs That Instrument Frameworks
 
-A [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Java framework or component, with minimal code setup.
+A [framework SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Java framework or component, with minimal code setup.
 
 <table id = "framework-java" width="100%">
 <colgroup>

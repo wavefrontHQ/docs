@@ -221,7 +221,7 @@ You can manage authorization with user-level permissions or user and group-level
 <td>An SDK (software development kit) is a library that you can include with your application code. Wavefront supports observability SDKs in different programming languages to enable you to instrument applications to report telemetry data to Wavefront.
 
 <ul>
-<li markdown="span">[Framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. </li>
+<li markdown="span">[Framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) collect and report predefined metrics, histograms, and trace data from specific frameworks used in your application. </li>
 <li markdown="span">[OpenTracing SDKs](wavefront_sdks.html#sdks-for-collecting-trace-data) and [metrics SDKs](wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms) enable you to define, collect, and report your own types of observability data from your application code.</li>
 <li markdown="span">[Sender SDKs](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) enable you to instrument your application by sending raw observability data to Wavefront.</li>
 </ul> </td>

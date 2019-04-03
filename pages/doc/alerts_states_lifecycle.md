@@ -33,8 +33,8 @@ A multi-threshold alert supports multiple severities with different alert target
 
 This multi-threshold alert notifies targets like this:
 1. Wavefront monitors the alert condition.
-2. If at least one of the thresholds is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
-3. Notifications are always sent to all alert targets equal and below the severity that the alert fires. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the current value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
+2. If at least one of the threshold values is met for the specified amount of time, for example, if `cpu.loadavg.1m` is greater than 6000, the alert fires.
+3. Notifications are always sent to all alert targets that are equal to or below the severity that triggers the alert. For example, if `cpu.loadavg.1m` is greater than 6000 for 5 minutes, alert targets for SEVERE, WARN, and SMOKE are notified because the condition is satisfied for all. If the current value of `cpu.loadavg.1m` satisfies the WARN but not the SEVERE condition, then only alert targets in WARN and SMOKE will be notified.
 4. Wavefront continues checking the alert condition at the specified interval (1 minute by default). If the alert condition for the higher level is no longer met, but a lower-level condition is met, then the higher-level alert target gets an Alert Resolved notification, and the lower-level alert targets get an Alert Updated notification.
 
 ![alert multi concept](images/alert_multi_concept.png)
@@ -50,11 +50,11 @@ An alert can be in one of the following states:
 </thead>
 <tr>
 <td><strong>CHECKING</strong></td>
-<td>The alert is being checked whether the <strong>Condition</strong> and <strong>Alert fires</strong> properties are being met.
-Alerts can't be in the CHECKING and the FIRING state at the same time even though firing alerts are being checked to determine if firing conditions are still being met.  An alert resolves (transitions back to CHECKING) when no true values are present within the time window, or when the time window contains no data.</td></tr>
+<td>We check whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Alert fires</strong> property.
+Alerts can't be in the CHECKING and the FIRING state at the same time even though firing alerts are being checked to determine if firing conditions are still being met.  An alert resolves and transitions back to CHECKING when no true values are present within the time window, or when the time window contains no data.</td></tr>
 <tr>
 <td><strong>FIRING</strong></td>
-<td>The alert is meeting the <strong>Condition</strong> and <strong>Alert fires</strong> properties. An alert transitions to FIRING when the condition evaluates to at least one true value and no false values during a fixed time window.</td>
+<td>The alert is meeting the <strong>Condition</strong> for the amount of time specified by the <strong>Alert fires</strong> property. An alert transitions to FIRING when the condition evaluates to at least one true value and no false values during a fixed time window.</td>
 </tr>
 <tr>
 <td><strong>NO DATA</strong></td>

@@ -35,7 +35,7 @@ For the most gain with the least amount of work:
 </thead>
 <tbody>
 <tr>
-<td markdown="span">[Framework-instrumentation SDK](#sdks-that-instrument-frameworks) </td>
+<td markdown="span">[Framework SDK](#sdks-that-instrument-frameworks) </td>
 <td markdown="span">Reports predefined traces, metrics, and histograms from the APIs of a supported app framework. 
 <br> Lets you get started quickly with minimal code changes.</td>
 <td markdown="span">[Java](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks) 
@@ -88,7 +88,7 @@ Most cloud-based applications consist of microservices that are built with compo
 Wavefront provides SDKs that instrument: 
 * [Java frameworks](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks)
 
-A framework-instrumentation SDK gets you up and running with minimal effort: 
+A framework SDK gets you up and running with minimal effort: 
 * Setup is simple. You either edit a configuration file or instantiate a few helper objects in your code. No further coding is required.
 * The SDK automatically defines the metrics, histograms, and trace data to be collected. You simply run the recompiled application to start the flow of telemetry data to Wavefront. 
 * Wavefront provides predefined charts and dashboards to help you visualize and drill down through the telemetry data.
@@ -106,7 +106,7 @@ Sample use case:
 
 Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics and histograms to Wavefront: 
 * You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice. 
-* You can use a metrics SDK and a framework-instrumentation SDK to instrument any functions that are not handled by the instrumented framework. 
+* You can use a metrics SDK and a framework SDK to instrument any functions that are not handled by the instrumented framework. 
 
 <!---Wavefront provides SDKs for collecting metrics in these [supported languages](#SDKlevels).--->
 Wavefront provides metrics SDKs for:
@@ -125,7 +125,7 @@ Sample use case:
 
 Wavefront provides SDKs that implement the [OpenTracing](https://www.opentracing.io) specification for creating, sampling, and reporting spans and traces. You use these SDKs to instrument critical areas in your code to send custom trace data to Wavefront:
 * You can use a Wavefront OpenTracing SDK alone, to instrument an entire application. 
-* You can use a Wavefront OpenTracing SDK along with a framework-instrumentation SDK, to instrument any functions that are not handled by the instrumented framework. 
+* You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework. 
 
 <!--- Wavefront provides OpenTracing SDKs in these [supported languages](#SDKlevels). --->
 

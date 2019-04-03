@@ -17,7 +17,7 @@ To obtain an SDK, click on the link and follow the setup steps on GitHub.
 <!---
 ## Python SDKs That Instrument Frameworks
 
-Each [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Python framework or component, with minimal code setup.
+Each [framework SDK](wavefront_sdks.html#sdks-that-instrument-frameworks) collects observability data from a particular Python framework or component, with minimal code setup.
 
 <table id = "framework-python" width="100%">
 <colgroup>

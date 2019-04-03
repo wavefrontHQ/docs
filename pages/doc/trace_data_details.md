@@ -16,7 +16,7 @@ Spans are the fundamental units of trace data in Wavefront. This page provides d
 A well-formed Wavefront span consists of fields and span tags that capture span attributes. These attributes enable Wavefront to identify and describe the span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront. 
 
 Most use cases do not require you to know exactly how Wavefront expects a span to be formatted:
-* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) or a [framework-instrumentation SDK](wavefront_sdks.html#sdks-that-instrument-frameworks), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
+* When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) or a [framework SDK](wavefront_sdks.html#sdks-that-instrument-frameworks), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
 * When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters. 
 * When you instrument your application with a 3rd party distributed tracing system, your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up. 
 
@@ -176,7 +176,7 @@ Specify <strong>cluster=none</strong> to indicate a span that does not use this 
 </tbody>
 </table>
 
-**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
+**Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the the SDK on GitHub.
 
 <!---
 Because operations are normally composed of other operations, each span is normally related to other spans -  a parent span and children spans.
@@ -249,7 +249,7 @@ RED metrics are measures of:
 * Errors – the number of failed requests (spans) per second
 * Duration – per-minute histogram distributions of the amount of time that each request (span) takes
 
-**Note:** RED metrics are also collected and sent by the [framework-instrumentation SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
+**Note:** RED metrics are also collected and sent by the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
 
 ### Auto-Generated Charts
 Wavefront automatically generates charts to display the auto-derived RED metrics and histograms. To view these charts:
