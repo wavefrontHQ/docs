@@ -44,7 +44,7 @@ Groups make it easy to make changes for many users. More importantly, if you cha
 
 **Note:** Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
-**What's the Everyone Group?**
+### What's the Everyone Group?
 
 All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
 Here's what you need to know:
