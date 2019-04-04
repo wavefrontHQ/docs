@@ -37,7 +37,15 @@ Default is mean (average).</td>
 
 ## Description
 
-The `align()` function adjusts the display of each time series described by the expression, by grouping the data values into buckets of the specified duration and then returning a single displayed value for each bucket. By default, each returned value is the mean (average) of the values that were reported in a bucket. You can specify a different summarization method if you want the bucketed values to be aggregated in some other way (e.g. counted, summed, etc.). For example, if your time series reports data once a minute, but you want the data values to be displayed every 30 minutes (and summarized by median over that time window), use `align(30m, median, ts(my.metric))`.
+The `align()` function adjusts the display of each time series described by the expression, by grouping the data values into buckets of the specified duration and then returning a single displayed value for each bucket. 
+
+By default, each returned value is the mean (average) of the values that were reported in a bucket. You can specify a different summarization method if you want the bucketed values to be aggregated in some other way (e.g. counted, summed, etc.). For example, if your time series reports data once a minute, but you want the data values to be displayed every 30 minutes (and summarized by median over that time window), use `align(30m, median, ts(my.metric))`.
+
+`align()` returns values at intervals that start at the beginning of epoch time (Jan 1, 1970).
+For example, `align(2d, ts(my.metric))` produces a value at every 48-hour interval starting with `1970-01-01T00:00:00Z`.
+
+`align()` returns each value at the beginning of the interval that contains the data values it summarizes. 
+For example, suppose `align(1m, sum, ts(my.metric))` returns a value at 10:05:00pm. This returned value is the sum of the values reported by `my.metric` from 10:05:00pm to 10:05:59pm.
 
 Metrics are automatically pre-aligned for performance reasons when more than 100 time series are used in an aggregation function. You might see a pre-align warning even if you're not using the `align()` function. You can ignore the warning in most cases, for instance, if a metric reflects a parameter changing over time.
 
