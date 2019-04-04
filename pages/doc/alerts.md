@@ -204,7 +204,7 @@ To create a multi-threshold alert:
 
 <li>Do one of the following:
 <ul>
-<li markdown="span"><strong>Alerts browser</strong> - Select <strong>Alerts</strong> and click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
+<li markdown="span"><strong>Alerts browser</strong> - Click the <strong>Alerts</strong> button, then click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
 <li markdown="span">**Chart** - Hover over a query field and click the **Create Alert** link below the query field.
 ![create_alert](images/create_alert.png)</li>
 </ul></li>
@@ -302,7 +302,7 @@ This video shows how to create a multi-threshold alert:
 ## Cloning or Deleting an Alert
 
 If you want to make copies of an existing alert, then change the copy slightly, you can clone the alert.
-1. Select **Browse > Alerts** to display the Alerts page.
+1. Cick the **Alerts** button to display the Alerts page.
 2. Click the 3 dots to the left of the alert.
 
    ![Alert cloning](images/clone_alert.png)
@@ -312,7 +312,7 @@ If you want to make copies of an existing alert, then change the copy slightly, 
 
 ## Viewing Alerts and Alert History
 
-To view alerts, click the **Alerts** button or select **Browse > Alerts**. A list of alerts displays. Here's an example that shows when the alert fires that is described in [Tutorial: Getting Started](tutorial_getting_started.html#create-an-alert):
+To view alerts, click the **Alerts** button. A list of alerts displays. Here's an example that shows when the alert fires that is described in [Tutorial: Getting Started](tutorial_getting_started.html#create-an-alert):
 
 ![Alert firing](images/alert_firing.png)
 
@@ -339,7 +339,7 @@ You can also see at a glance [all firing alerts](alerts_states_lifecycle.html#vi
 
 You can change an alert at any time.
 
-1. Click the **Alerts** button or select **Browse > Alerts** to display the Alerts page.
+1. Click the **Alerts** button to display the Alerts page.
 2. Click the name of the alert you want to change to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
