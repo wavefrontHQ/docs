@@ -14,9 +14,9 @@ This page discusses monitoring your Wavefront instance. It includes a section ab
 
 Wavefront collects several categories of internal metrics. These categories have the following prefixes:
 
-- `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance. See [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics)
+- `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance. 
 - `~collector` - metrics processed at the collector gateway to the Wavefront instance.
-- `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source. [Troubleshooting Your Wavefront Instance with Internal Metrics](wavefront_monitoring.html#troubleshooting-your-wavefront-instance-with-internal-metrics) discusses a set of `~metric.new*` metrics.
+- `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source. 
 - `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor.
   {% include note.html content="Proxy metrics historically had the prefix `~agent` and queries support both `~proxy` and `~agent`. Query errors still refer to the `~agent` prefix. For example - `No metrics matching - [~agent.points.*.received]`." %}
   See [Monitoring Wavefront Proxies](monitoring_proxies.html).
@@ -102,21 +102,6 @@ Wavefront customer support engineers have found the following metrics especially
 <tr><th width="15%">Type</th><th width="40%">Metric</th><th width="45%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">~query</td>
-<td>~query.requests</td><td>Counter tracking the number of queries a user made.</td></tr>
-<tr>
-<td markdown="span">~metric</td>
-<td>~metric.new_host_ids</td>
-<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to Wavefront.</td></tr>
-<tr>
-<td markdown="span">~metric</td>
-<td>~metric.new_metric_ids</td>
-<td markdown="span">Counter that increments when a new metric name is sent to Wavefront.</td></tr>
-<tr>
-<td markdown="span">~metric</td>
-<td>~metric.new_string_ids</td>
-<td markdown="span">Counter that increments when a new point tag value is sent to Wavefront.</td></tr>
-<tr>
 <td markdown="span">~alert</td>
 <td markdown="span">~alert.query_time.&lt;alert_id&gt;</td>
 <td markdown="span">Tracks the average time, in ms, that a specified alert took to run in the past hour.</td></tr>
@@ -145,7 +130,21 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable, ~collector.histograms.undecodable</td>
 <td markdown="span">Points or histogram points that the collector receives but cannot report to Wavefront because the points are not in the right format.</td></tr>
-
+<tr>
+<td markdown="span">~metric</td>
+<td>~metric.new_host_ids</td>
+<td markdown="span">Counter that increments when a new `source=` or `host=` is sent to Wavefront.</td></tr>
+<tr>
+<td markdown="span">~metric</td>
+<td>~metric.new_metric_ids</td>
+<td markdown="span">Counter that increments when a new metric name is sent to Wavefront.</td></tr>
+<tr>
+<td markdown="span">~metric</td>
+<td>~metric.new_string_ids</td>
+<td markdown="span">Counter that increments when a new point tag value is sent to Wavefront.</td></tr>
+<tr>
+<td markdown="span">~query</td>
+<td>~query.requests</td><td>Counter tracking the number of queries a user made.</td></tr>
 </tbody>
 </table>
 
@@ -169,7 +168,7 @@ The `~alert` metrics allow you to examine your alerts and understand which alert
 
 For example, you can set up an alert that monitors existing alerts that have high points scanned rates. You can then catch badly written alerts and tune them to improve performance.
 
-See [Alert Dependencies](/alerts_dependencies.html) for additional information on fine-tuning your alerts using internal metrics.
+See [Building Linked Alerts](alerts_dependencies.html) for additional information about using internal alert metrics.
 
 ### Understanding System Activity
 
@@ -189,7 +188,7 @@ If, after 12:07:59, a point is received with a timestamp between 12:00-12:00:59,
 The proxy will essentially send two distributions to the Wavefront collector for the time interval of 12:00-12:00:59. On the backend, these two distributions are merged together so that when queried, they will behave as one distribution. However, the collector will still have seen two distributions arrive.
 
 
-### Finding Users Who Caused Bottlenecks
+### Finding Query Users Who Caused Bottlenecks
 
  `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users unintentionally send many queries to Wavefront, especially if they use the API for the queries. The results can become difficult to interpret, and system performance might suffer.
 
