@@ -8,7 +8,7 @@ summary: Learn how to manage users and groups.
 ---
 You can secure your Wavefront environment by:
 * Granting and revoking (global) permissions for users and groups.
-* Granting and revoking access to individual objects (initially dashboard access) for users and groups
+* Granting and revoking access to individual objects (initially dashboards and alerts) for users and groups
 
 You must have Users & Groups permission to view and manage users, groups, and permissions in Wavefront. If you don't have Users & Groups permission, the UI menu selections, buttons, and links that you use to view users and permissions are not visible.
 
@@ -28,7 +28,7 @@ When you invite a user to Wavefront, what that new user can do depends on severa
   * Share links to dashboards and charts with other users
   * Access the user profile from the gear icon
 
-  **Note:** It's possible that [access to dashboards](access.html#how-access-control-works) is limited.
+  **Note:** It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited.
 
 - **New User Permissions:** Users with Users & Groups permission can view and modify new user default permissions [from the gear icon](users_groups.html#setting-default-permissions-for-new-users).
 - **Default User Groups:** Administrators can set up a [default user group](users_groups.html#setting-the-default-group-for-new-users). All new users get all permissions assigned to the default user groups.
@@ -36,7 +36,7 @@ When you invite a user to Wavefront, what that new user can do depends on severa
 
 ### Who is the Super Admin User?
 
-When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions, has access to all dashboards, can [restore orphan dashboards](access.html#making-orphan-dashboards-visible), and can invite other Super Admin users.
+When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user has all permissions, has access to all dashboards and alerts, can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible), and can invite other Super Admin users.
 
 ### Why Groups?
 
@@ -53,10 +53,10 @@ Here's what you need to know:
 * You cannot delete the Everyone group.
 * You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means users can browse data but cannot modify anything.
 * **Warning** If you change the permissions assigned to the Everyone group, you change the permissions for each user in your environment.
-* If you use access control in your environment, you can share a dashboard with the Everyone group to:
-  - Give View & Modify access to users who have Dashboard permissions
-  - Give View access to users who don't have Dashboard permissions
-  You can also remove the Everyone group from a dashboard to limit access to the dashboard.
+* If you use access control in your environment, you can share a dashboard or alert with the Everyone group to:
+  - Give View & Modify access to users who have Dashboard (or Alert) permissions
+  - Give View access to users who don't have Dashboard (or Alert) permissions
+  You can remove the Everyone group from a dashboard or alert to limit access to that object.
 
 <!---
 #### What is the Ingest Only Group?
@@ -104,7 +104,7 @@ Users with Users & Groups permissions can manage users.
 ## Adding a Super Admin
 
 New Wavefront customers specify Super Admin users during account setup. Any existing Super Admin user can add other Super Admin users.
- 
+
 To add a Super Admin user:
 1. Click the gear icon and select **Super Admin**.
 2. Enter the user name of a user you want to add as Super Admin.
