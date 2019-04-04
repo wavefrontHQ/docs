@@ -208,7 +208,7 @@ To create a multi-threshold alert:
 <li markdown="span">**Chart** - Hover over a query field and click the **Create Alert** link below the query field.
 ![create_alert](images/create_alert.png)</li>
 </ul></li>
-<li>Next to **Type**, click **Threshold**.
+<li markdown="span">Next to **Type**, click **Threshold**.
 </li>
 <li>Fill in the following required alert properties.
 <table id="alert-properties">
