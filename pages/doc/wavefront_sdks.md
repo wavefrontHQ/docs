@@ -38,8 +38,8 @@ For the most gain with the least amount of work:
 <td markdown="span">[Framework SDK](#sdks-that-instrument-frameworks) </td>
 <td markdown="span">Reports predefined traces, metrics, and histograms from the APIs of a supported app framework. 
 <br> Lets you get started quickly with minimal code changes.</td>
-<td markdown="span">[Java](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks) 
-<!--- [.NET/C#](wavefront_sdks_csharp.html#netc-sdks-that-instrument-frameworks), --->  
+<td markdown="span">[Java](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks), 
+[.NET/C#](wavefront_sdks_csharp.html#netc-sdks-that-instrument-frameworks) 
 <!--- [Python](wavefront_sdks_python.html#python-sdks-that-instrument-frameworks) --->
 </td>
 </tr>
@@ -49,7 +49,8 @@ For the most gain with the least amount of work:
 <td markdown="span">Implements a standard metrics library. <br> Lets you define, collect, and report custom business metrics and histograms from any part of your application code.   </td> 
 <td markdown="span">
 [Java](wavefront_sdks_java.html#java-sdks-for-collecting-metrics), 
-[.NET/C#](wavefront_sdks_csharp.html#netc-sdks-for-collecting-metrics)</td>
+[.NET/C#](wavefront_sdks_csharp.html#netc-sdks-for-collecting-metrics),
+[Python](wavefront_sdks_python.html#python-sdk-for-collecting-metrics)</td>
 </tr>
 
 <tr>

@@ -12,7 +12,7 @@ You can create and edit alerts, view alert history, and snooze and unsnooze aler
 
 For details about how alerts work in Wavefront, see [Alert States and Lifecycle](alerts_states_lifecycle.html).
 
-To view and manage alerts, click the **Alerts** button or select **Browse > Alerts**.
+To view and manage alerts, click the **Alerts** button.
 
 
 {% include shared/permissions.html entity="alerts" entitymgmt="Alert" %}
@@ -24,7 +24,7 @@ To create an alert:
 <ol>
 <li>Do one of the following:
 <ul>
-<li markdown="span"><strong>Alerts browser</strong> - Select <strong>Alerts</strong> and click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
+<li markdown="span"><strong>Alerts browser</strong> - Click the <strong>Alerts</strong> button, then click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
 <li markdown="span"><strong>Chart</strong> - Hover over a query field and click the <strong>Create Alert</strong> link below the query field. ![create_alert_chart](images/create_alert_chart.png)<br />The ts() expression in the selected query field populates the alert's Condition field.</li>
 </ul></li>
 <li>Fill in the alert properties.
