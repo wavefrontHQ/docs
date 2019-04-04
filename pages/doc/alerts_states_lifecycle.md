@@ -102,7 +102,7 @@ Suppose your alert condition is `ts(my.metric) > 4`, and `my.metric` reports 5 d
 
 **Example 2**
 
-Suppose you want to know whether any single value within the minute would evaluate as false, even if all the other values would be true. You can explicitly bucket the values by changing your alert condition: `align(1m, min, ts(my.metric) > 4)`. When `my.metric` reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the `align` function returns the minimum value (3) as the single value at 12:11:00pm. The alert checking process evaluates this value to false, because 3 < 4.
+Suppose you want to know whether any single value within the minute will evaluate as false, even if all the other values will be true. You can explicitly bucket the values by changing your alert condition: `align(1m, min, ts(my.metric) > 4)`. When `my.metric` reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the `align` function returns the minimum value (3) as the single value at 12:11:00pm. The alert checking process evaluates this value to false, because 3 < 4.
 
 
 ## Alert Check Time Window
@@ -141,7 +141,7 @@ Suppose the alert condition is `ts(my.metric) > 4` and the **Alert fires** windo
 - If the metric reports many points in the last 2 minutes, all of which are > 4, the alert fires. <br> Reason: The **Alert fires** window contains two true summarization values and no false values, because the averages of values that are > 4 are also > 4.
 - If the metric reports exactly two data values (5 and 3), anywhere in the last 2 minutes, the alert does not fire. <br> Reason: The **Alert fires** window contains one false summarization value. If each data value is in a different minute, then one of the summarization values is 3, which evaluates to false. If both data values are in the same minute, then their average (4) evaluates to false (4 > 4 is false).
 
-Alert checks are based on data that is summarized every minute.  Consequently, if `ts(my.metric)` returns 5, 5, and 3 in the same minute, the summarized value (4.33) evaluates to true for that minute because 4.33 > 4, even though 3 by itself would evaluate to false. All alert queries are checked according to the **Checking Frequency** property.
+Alert checks are based on data that is summarized every minute.  Consequently, if `ts(my.metric)` returns 5, 5, and 3 in the same minute, the summarized value (4.33) evaluates to true for that minute because 4.33 > 4, even though 3 by itself evaluates to false. All alert queries are checked according to the **Checking Frequency** property.
 
 
 ## Viewing Firing Alerts
@@ -217,7 +217,7 @@ You pick time window values according to your use case:
 * For a slow-fire, fast-resolve alert, you can set **Alert fires** > **Alert resolves**. 
 * 
 
-When **Alert fires** > **Alert resolves**, Wavefront adjusts the firing rules to require at least one true value during the **Alert resolves** window before the alert can fire again. This adjustment prevents successive **Alert fires** windows from overlapping with previous ones, which would result in unwanted firings immediately after a resolve window in which no data is reported.
+When **Alert fires** > **Alert resolves**, Wavefront adjusts the firing rules to require at least one true value during the **Alert resolves** window before the alert can fire again. This adjustment prevents successive **Alert fires** windows from overlapping with previous ones, which results in unwanted firings immediately after a resolve window in which no data is reported.
 --->
 
 <!---
