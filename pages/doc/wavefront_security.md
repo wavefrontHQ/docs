@@ -30,7 +30,7 @@ The AWS data centers incorporate physical protection against environmental risks
 access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://aws.amazon.com/compliance/). For more information:
 * On AWS controls, visit:
 [https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
-* On data centers [https://aws.amazon.com/compliance/datacenter/data-centers/](https://aws.amazon.com/compliance/datacenter/data-centers/)
+
 
 Wavefront development, QA, and production use separate equipment and
 environments and are managed by separate teams.

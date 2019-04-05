@@ -11,7 +11,6 @@ Anomalies can indicate that something's about to go wrong in your environment. I
 <p><a href="https://youtu.be/I-Z9d94Zi7Y"><img src="/images/v_anomaly.png" style="width: 700px;"/></a>
 </p>
 
-**Note:** Consider using [query wizard](query_language_query_wizard.html) for a recipe-based approach to queries that use mean and median.
 
 ## Functions for Anomaly Detection
 
