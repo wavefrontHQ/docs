@@ -3,6 +3,7 @@ title: Query Wizard
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
+published: false
 permalink: query_language_query_wizard.html
 summary: Learn how to create Wavefront Query Language expressions using Query Wizard.
 ---

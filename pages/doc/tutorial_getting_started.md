@@ -91,7 +91,7 @@ create  a dashboard starting with one of the charts in this tour dashboard and a
 In this section you create an alert that fires when the request latency metric reaches a certain threshold. In Wavefront, one way to create an alert is directly from a chart.
 
 1. In App Server Dashboard, click the **Request Latencies** chart title to open the chart.
-1. Hover over the Query Wizard / Query Builder toggle. The Create Alert link displays.
+1. Hover over the query builder toggle. The **Create Alert** link displays.
 
    ![create_alert](images/create_alert.png)
 

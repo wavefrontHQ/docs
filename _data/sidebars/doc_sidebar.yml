@@ -208,10 +208,6 @@ entries:
           url: /ai_genie.html
           output: web
 
-        - title: Query Wizard
-          url: /query_language_query_wizard.html
-          output: web
-
       - title: Query Language Tips and Tricks
         output: web
         subfolderitems:
