@@ -15,6 +15,8 @@ aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}],
 
 aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearchPattern>”,
          “<replacementPattern>” | "<replacementString>")
+
+aliasMetric (<expression>, "<newMetricName>")
 ```
 
 
@@ -39,27 +41,34 @@ Here are some sample scenarios:
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from. This node is then used to rename one or more metrics.
+<td>The set of data to extract the new metric name from.
 <ul>
-<li>Use &#123;tagk, &lt;pointTagKey&gt; &#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
-<li>If you don't specify metric, source, or tagk, this parameter defaults to <code>source</code>.</li></ul> </td>
+<li>Use &#123;tagk, &lt;pointTagKey&gt;&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
+<li>If you don't specify (<code>metric</code>, <code>source</code>, or <code>tagk</code>), this parameter defaults to <code>metric</code>.</li>
+</ul>
+</td>
 </tr>
 <tr>
-<td>zeroBasedNodeIndex</td>
-<td>The node to extract from the selected source name(s), metric name(s), or point tag value(s). This node is then used to rename one or more metric(s). You either use a zeroBasedNodeIndex or a regx to specify the node. </td>
-</tr>
-<tr>
-<td>"delimiterDefinition" </td>
-<td>Use this optional parameter to specify a delimiter other than period ("."). For example, to extract <code>total_environment</code> from <code>disk.space-total_environment</code>, set <code>zeroBasedNodeIndex</code> to 2 and <code>"delimiterDefinition"</code> to ".-". If no <code>"delimiterDefinition"</code> is specified, then only periods (".") are considered delimiters.</td>
+<td>zeroBasedNodeIndex, "delimiterDefinition"</td>
+<td>Use these parameters if you want to extract a single node from an existing source name, metric name, or point tag value and use it as the new metric name.
+<ul>
+<li><code>zeroBasedNodeIndex</code> - Node to extract from the selected source name, metric name, or point tag value. This node is then used as the new metric name. </li>
+<li><code>delimiterDefinition</code> - Use this optional parameter to specify a delimiter other than period ("."). For example, to extract <code>total_environment</code> from <code>disk.space-total_environment</code>, set <code>zeroBasedNodeIndex</code> to 2 and <code>"delimiterDefinition"</code> to "-". If no <code>"delimiterDefinition"</code> is specified, then only periods (".") are considered delimiters.</li>
+</ul>
+</td>
 </tr>
 <tr>
 <td>"regexSearchPattern", "replacementPattern"</td>
-<td>Use these parameters to use a regular expression to specify the node that you want to extract with <code>aliasMetric()</code>.
+<td>Use these parameters if you want to use regular expression search and replacement patterns from an existing source name, metric name, or point tag value as the new metric name.
 <ul>
-<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the extraction node specified above (metric is the default).</li>
-<li><code>"replacementPattern"</code> - The replacement string. If capturing groups are used in regexSearchPattern, they can be referred to as $1, $2, etc.
-</li>
-</ul> </td>
+<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the source name, metric name or point tag value.</li>
+<li><code>"replacementPattern"</code> - The replacement string. If capturing groups are used in regexSearchPattern, they can be referred to as $1, $2, etc.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>"newMetricName"</td>
+<td>Use this parameter to specify a new static value to use as the new metric name.</td>
 </tr>
 </tbody>
 </table>

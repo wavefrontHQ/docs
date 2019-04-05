@@ -11,9 +11,12 @@ summary: Reference to the taggify() function
 
 ```
 taggify (<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
-         [<zeroBasedNodeIndex> [,<delimiterDefinition>])
+         [<zeroBasedNodeIndex> [,"<delimiterDefinition>"])
 
-taggify (<expression>, metric|source|{tagk, <pointTagKey>}, “<regexSearchPattern>”, “<replacementPattern>”])
+taggify (<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
+		 “<regexSearchPattern>”, “<replacementPattern>”)
+
+taggify (<expression>, <newPointTagKey>, "<newPointTagValue>")
 ```
 
 Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
@@ -26,24 +29,39 @@ Lets you extract a string from an existing metric name, source name, or point ta
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
-<td>The <code>ts()</code> expression to extract a piece of information from.</td>
+<td>expression</td>
+<td>The <code>ts()</code> expression to extract a string from.</td>
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
-<td>The set of data to extract a node from for the purpose of creating a synthetic point tag. Use <strong>&#123;tagk, &lt;pointTagKey&gt;&#125;</strong> if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key associated with the point tag value. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to create a synthetic point tag based on the 1st zeroBasedNodeIndex, that is, <code>west</code>, then you specify <code>tagk, Region</code> in the query and set <code>zeroBasedNodeIndex</code> to 1. In this example, you also have to use the <code>delimiterDefinition</code> parameter to specify a hyphen (“-“) as a delimiter.</div></td></tr>
+<td>The set of data to extract the new metric name from. Use &#123;tagk, &lt;pointTagKey&gt;&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key. For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.
+</td>
+</tr>
 <tr>
-<td>&lt;newPointTagKey&gt;, zeroBasedNodeIndex, delimiterDefinition</td>
-<td>Use these parameters to create a point tag using a zeroBasedNodeIndex approach. You use that approach if you want to  extract a single node from an existing source name, metric name, or point tag value and use it as the point tag value.
+<td>newPointTagKey</td>
+<td>Key that will be used for the new synthetic point tag.</td>
+</tr>
+<tr>
+<td>zeroBasedNodeIndex, "delimiterDefinition"</td>
+<td>Use these parameters if you want to extract a single node from an existing source name, metric name, or point tag value and use it as the new point tag value.
 <ul>
-<li><emphasis><code>newPointTagKey</code></emphasis> - New point tag key.</li>
-<li><code>zeroBasedNodeIndex</code> - Node to extract from the selected source name(s), metric name(s), or point tag value(s). <code>taggify()</code> uses that node to create a new synthetic point tag key-value. Required.</li>
-<li><code>delimiterDefinition</code> - Use this optional parameter to specify a delimiter other than period ("."). For example, to extract <code>total_environment</code> from <code>disk.space-total_environment</code>, set <code>zeroBasedNodeIndex</code> to 2 and <code>"delimiterDefinition"</code> to ".-". If no <code>"delimiterDefinition"</code> is specified, then only periods (".") are considered delimiters.</li>
-</ul> </td>
+<li><code>zeroBasedNodeIndex</code> - Node to extract from the selected source name, metric name, or point tag value. This node is then used as the new point tag value. </li>
+<li><code>delimiterDefinition</code> - Use this optional parameter to specify a delimiter other than period ("."). For example, to extract <code>total_environment</code> from <code>disk.space-total_environment</code>, set <code>zeroBasedNodeIndex</code> to 2 and <code>"delimiterDefinition"</code> to "-". If no <code>"delimiterDefinition"</code> is specified, then only periods (".") are considered delimiters.</li>
+</ul>
+</td>
 </tr>
 <tr>
 <td>"regexSearchPattern", "replacementPattern"</td>
-<td>Use this option to create a point tag using the regEx approach. You use the regEx approach if you already know the source name that you want to replace and the replacement pattern. </td>
+<td>Use these parameters if you want to use regular expression search and replacement patterns from an existing source name, metric name, or point tag value as the new point tag value.
+<ul>
+<li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the source name, metric name or point tag value.</li>
+<li><code>"replacementPattern"</code> - The replacement string. If capturing groups are used in regexSearchPattern, they can be referred to as $1, $2, etc.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>"newPointTagValue"</td>
+<td>Use this parameter to specify a new static value to use as the new point tag value.</td>
 </tr>
 </tbody>
 </table>
