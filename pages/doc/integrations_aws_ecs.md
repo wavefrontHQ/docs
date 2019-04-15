@@ -34,7 +34,7 @@ This page provides detailed steps on how to install and configure the Wavefront 
 
 Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API.
 
-**Note:** To ensure that dashboards display correctly, use the default EC2 instance name for the ECS cluster. 
+**Note:** To ensure that dashboards display correctly, use only the default EC2 instance name for the ECS cluster. 
 
 ## Create Wavefront cAdvisor Task Definition
 
