@@ -7,7 +7,7 @@ permalink: trace_data_query.html
 summary: Learn how to query for Wavefront trace data.
 ---
 
-After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can examine that data from the **Traces** page. By fine-tuning the trace query on the **Traces** page, you find the traces that you're interested in by describing the spans they must contain.
+After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can examine that data in the Traces browser. By fine-tuning the trace query in the Traces browser, you find the traces that you're interested in by describing the spans they must contain.
 
 ## Understanding Trace Queries
 
@@ -44,7 +44,7 @@ that represents the work done by the `orderShirts` operation in the `shopping` s
 
 To prevent a trace query from taking a long time, you normally specify a limit on the number of spans that can be matched. The trace query starts by matching the most recent spans.  After reaching the limit, the query stops looking for more matching spans. 
 
-**Note:** The current time window for the **Traces** page also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start within the current time window.
+**Note:** The current time window for the Traces browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start within the current time window.
 
 <!---
 **Note:** The limit applies to the number of spans that a query matches, and not to the number of traces that the query returns. For example, say you limit a query to 20 spans. If 2 or more qualified spans belong to the same trace, that trace is shown only once, and you will see fewer than 20 traces in the result set.
@@ -52,9 +52,9 @@ To prevent a trace query from taking a long time, you normally specify a limit o
 
 ## Submitting Trace Queries
 
-You submit queries and view the results on the **Traces** page. 
+You submit queries and view the results in the Traces browser. 
 
-To navigate to **Traces** directly:
+To navigate to the Traces browser directly:
 
 * Click **Applications > Traces** in the task bar.
 
@@ -62,13 +62,13 @@ Wavefront provides assistance for constructing and submitting a trace query:
 * Query Builder: Use menus to select tag values for filtering spans.
     ![tracing query builder](images/tracing_query_builder.png)
 
-* Query Editor: Type a [`spans()` query](spans_queries.html), and take advantage of syntax completion for selecting tags and their values. 
+* Query Editor: Type a [`traces()` query](traces_function.html), and take advantage of syntax completion for selecting tags and their values. 
     ![tracing query editor](images/tracing_query_editor.png) 
 
 
 To toggle between Query Builder and Query Editor: 
 
-1. Display the **Traces** page.
+1. Display the Traces browser.
 2. Click this icon: 
     ![tracing query toggle](images/tracing_query_toggle.png)
 
@@ -76,7 +76,7 @@ To toggle between Query Builder and Query Editor:
 
 Query Builder lets you use menus for selecting values that describe the spans you want to see. Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
 
-1. Display the **Traces** page and make sure Query Builder is displayed. (It is displayed by default.)
+1. Display the Traces browser and make sure Query Builder is displayed. (It is displayed by default.)
 2. Select a value from one or more of the menus. At a minimum you must select an application from the Operation menu. 
 
     <table>
@@ -144,7 +144,7 @@ Suppose you want to find traces that contain spans for an operation called `disp
 
 ### Viewing the Trace Query
 
-Query Builder generates a query that includes the [`spans()` function](spans_queries.html) and one or more [spans filtering functions](spans_queries.html#spans-filtering-functions). For example, you can: 
+Query Builder generates a query that includes the [`traces()` function](traces_function.html) and one or more [filtering functions](traces_function.html#filtering-functions). For example, you can: 
 
 1. Construct a query with Query Builder as shown [above](#example).
 2. [Toggle to the Query Editor](#submitting-trace-queries) to see what the corresponding functions look like. 

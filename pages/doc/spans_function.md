@@ -1,9 +1,9 @@
 ---
-title: spans() Queries
+title: spans() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: spans_queries.html
+permalink: spans_function.html
 summary: Learn how to write spans() queries.
 ---
 
@@ -40,7 +40,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 ## Description
 The `spans()` function finds spans that match the description you specify, and then returns the set of traces that contain one or more of these spans. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match. For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
 
-You submit a `spans()` function using the [Query Editor on the **Traces** page](trace_data_query.html#submitting-trace-queries). 
+You submit a `spans()` function using the [Query Editor in the Traces browser](trace_data_query.html#submitting-trace-queries). 
 You can use autocompletion to discover the span filters available for your query. Using the `spans()` function is a power-user alternative to using Query Builder.  
 
 <!--- Because trace data is generated the ordering of matched spans is unpredictable, running the same `spans()` query twice normally returns a different set of traces.--->
@@ -54,13 +54,13 @@ Assume your team has instrumented an application called `beachshirts` for tracin
 **Note:** To keep query execution manageable, these examples use `spans()` with the `limit()` function.
 
 To display the traces that include spans for calls to `makeShirt`, run the following query:
-- `limit(20, spans("makeShirts" and application="beachshirts" and service="styling"))`
+- `limit(100, spans("makeShirts" and application="beachshirts" and service="styling"))`
 
 To display the traces that include spans for any operation in the `styling` service, run the following query:
-- `limit(20, spans(application="beachshirts" and service="styling"))`
+- `limit(100, spans(application="beachshirts" and service="styling"))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts, run the following query:
-- `limit(20, spans(application="beachshirts" and source=prod-app1 or source=prod-app10))`
+- `limit(100, spans(application="beachshirts" and source=prod-app1 or source=prod-app10))`
 
 <a name="filters"></a>
 
@@ -126,9 +126,9 @@ You can use spans filtering functions to provide additional levels of filtering 
 
 **Note:** To keep query execution manageable, it is highly recommended that you combine `spans()` with at least the `limit()` function.
 
-Each spans filtering function has a **spansExpression** parameter, which can be a `spans()` function or one of the other spans filtering functions. For example, to return traces for up to 20 qualifying spans that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `spans()` functions as follows:
+Each spans filtering function has a **spansExpression** parameter, which can be a `spans()` function or one of the other spans filtering functions. For example, to return traces for up to 100 qualifying spans that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `spans()` functions as follows:
 
-* `limit(20, highpass(30ms, spans("dispatch", application="beachshirts" and service="delivery")))`
+* `limit(100, highpass(30ms, spans("dispatch", application="beachshirts" and service="delivery")))`
 
 
 <table style="width: 100%;">
@@ -145,8 +145,8 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 <td markdown="span">Limits the set of spans that are matched by **spansExpression** to the specified **numberOfSpans**.  <br>
 **Note:** Because the ordering of matched spans is unpredictable, you cannot use `limit()` to page through a set of results to obtain the traces that contain the next group of spans. <br><br>
 
-**Example:** Limit the set of qualifying spans to 15, and return just the traces that contain the spans from that limited set:<br>
-`limit(15, spans("makeShirts", application="beachshirts"))` <br>
+**Example:** Limit the set of qualifying spans to 50, and return just the traces that contain the spans from that limited set:<br>
+`limit(50, spans("makeShirts", application="beachshirts"))` <br>
 </td>
 </tr>
 <tr>

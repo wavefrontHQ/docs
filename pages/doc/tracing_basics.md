@@ -123,14 +123,14 @@ To start examining your application's microservices from the RED metrics:
 
 You can view trace data by [submitting a trace query](trace_data_query.html). A trace query describes one or more spans to be matched, and then displays the traces that contain the matched spans:
 1. Select **Applications > Traces** in the task bar.
-2. On the **Traces** page, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans to be matched. 
+2. In the Traces browser, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans to be matched. 
 
 <!--- In Hotspots topic - mention that specified span could be anywhere in result trace. Might but need not be first. ---> 
-<!---  In Hotspots topic -  mention and link to spans() function ---> 
-<!--- You can use the `spans()` function in the Wavefront Query Language to describe the spans you want to match.
+<!---  In Hotspots topic -  mention and link to traces() function ---> 
+<!--- You can use the `traces()` function in the Wavefront Query Language to describe the spans you want to match.
 
 ```
-limit(20, spans(orderShirts, application=beachshirts and service=shopping))
+limit(100, traces("orderShirts", application=beachshirts and service=shopping))
 ```
 --->
 

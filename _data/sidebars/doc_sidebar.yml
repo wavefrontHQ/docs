@@ -482,8 +482,8 @@ entries:
       url: /trace_data_query.html
       output: web
 
-    - title: spans() Queries
-      url: /spans_queries.html
+    - title: traces() Function
+      url: /traces_function.html
       output: web
 
     - title: Traces, Spans, and Metrics

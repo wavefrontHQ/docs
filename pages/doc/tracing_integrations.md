@@ -81,7 +81,7 @@ If you want context for identifying problem traces, you can start by viewing the
 
 If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html): 
 1. Select **Applications > Traces** in the task bar.
-2. In the **Traces** page, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans of interest. At a minimum, you must select the application (by default, `Jaeger` or `Zipkin`) from the Operation menu. 
+2. In the Traces browser, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans of interest. At a minimum, you must select the application (by default, `Jaeger` or `Zipkin`) from the Operation menu. 
 
 
 ## Trace Sampling and RED Metrics from an Integration

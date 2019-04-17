@@ -38,7 +38,7 @@ On the Application Services page, you can:
 
 ## Examine Service Metrics and Drill Down
 
-When you select a service, you can examine the corresponding metrics and potential hot spots in detail, and then drill down to the **Traces** page. 
+When you select a service, you can examine the corresponding metrics and potential hot spots in detail, and then drill down to the Traces browser. 
 
 ![examine services](images/tracing_services.png)
 
@@ -52,23 +52,23 @@ On the page for a particular service, you can:
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this service component.
-* Navigate to the **Traces** page:
+* Navigate to the Traces browser:
   - Select **See All Traces** to display all traces that include a span from this service component. 
   - Click one of the bars in a TopK chart to display only traces that include a span for the selected operation.
 
 
 ## Explore Traces
 
-On the **Traces** page, you can view the traces that include spans for particular operations, and you can drill down to get trace details. 
+In the Traces browser, you can view the traces that include spans for particular operations, and you can drill down to get trace details. 
 
-The way you access the **Traces** page determines its initial content: 
+The way you access the Traces browser determines its initial content: 
 
 * Navigate from the Service page to automatically display traces for operations you selected.
 * Select **Applications > Traces** from the task bar for an empty page that you populate by [querying](trace_data_query.html).
 
 ![explore trace page](images/tracing_traces_page.png)
 
-On the **Traces** page, you can:
+In the Traces browser, you can:
 * Apply filters and selectively narrow down the scope of the trace query.
 * Use the query editor to limit the scope even further (advanced users).
 * Examine the scatter plot to clearly see the duration of each trace over time, and to see traces with errors (red circles).
