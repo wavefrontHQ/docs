@@ -29,7 +29,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters separated by the Boolean operators (`and`, `or`, `not`).</td></tr>
+<td markdown="span"> A [span filter](#filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>
@@ -90,32 +90,32 @@ The general format for a span filter is `<filterName>="filterValue"`.
 <tbody>
 <tr>
 <td>application</td>
-<td markdown="span">Name that identifies an instrumented application, for example, `beachshirts`. Qualifies a span if it represents an operation that is performed by the specified application.</td>
+<td markdown="span">Name that identifies an instrumented application, for example, `beachshirts`. Matches spans that represent operations that are performed by the specified application.</td>
 <td><code>traces(application="beachshirts")</code></td>
 </tr>
 <tr>
 <td>service</td>
-<td markdown="span">Name that identifies an instrumented microservice, for example, `delivery`. Qualifies a span if it represents an operation that is  performed by the specified microservice.</td>
+<td markdown="span">Name that identifies an instrumented microservice, for example, `delivery`. Matches spans that represent operations that are performed by the specified microservice.</td>
 <td><code>traces(service="delivery")</code></td>
 </tr>
 <tr>
 <td>cluster</td>
-<td markdown="span">Name of a group of related hosts that serves as a cluster or region in which an instrumented application runs, for example, `us-west-2`. Qualifies a span if it represents an operation that is executed on the specified cluster.</td>
+<td markdown="span">Name of a group of related hosts that serves as a cluster or region in which an instrumented application runs, for example, `us-west-2`. Matches spans that represent operations that are executed on the specified cluster.</td>
 <td><code>traces(cluster="us-west-2")</code></td>
 </tr>
 <tr>
 <td>shard</td>
-<td markdown="span">Name of a subgroup of hosts within a cluster, for example, `secondary`. Qualifies a span if it represents an operation that is executed on the specified shard.</td>
+<td markdown="span">Name of a subgroup of hosts within a cluster, for example, `secondary`. Matches spans that represent operations that are executed on the specified shard.</td>
 <td><code>traces(shard="secondary")</code></td>
 </tr>
 <tr>
 <td>source</td>
-<td markdown="span">Host or container that an instrumented application is running on. Qualifies a span if it represents an operation that is executed on the specified source.</td>
+<td markdown="span">Host or container that an instrumented application is running on. Matches spans that represent operations that are executed on the specified source.</td>
 <td><code>traces(source="prod-app1")</code></td>
 </tr>
 <tr>
 <td>&lt;spanTag&gt;</td>
-<td>Custom tag defined in your application code. Qualifies a span that is associated with the specified custom span tag.</td>
+<td>Custom tag defined in your application code. Matches spans that are associated with the specified custom span tag.</td>
 <td><code>traces(environment="production")</code></td>
 </tr>
 
@@ -134,7 +134,7 @@ The general format for a span filter is `<filterName>="filterValue"`.
 
 You can use filtering functions to provide additional levels of filtering for the results of the `traces()` function. 
 
-**Note:** To keep query execution manageable, it is highly recommended that you combine `traces()` with at least the `limit()` function.
+**Note:** To keep query execution manageable, combine `traces()` with at least the `limit()` function.
 
 Each filtering function has a **tracesExpression** parameter, which can be a `traces()` function or one of the other filtering functions. For example, to return up to 100 traces that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `traces()` functions as follows:
 
@@ -152,7 +152,7 @@ Each filtering function has a **tracesExpression** parameter, which can be a `tr
 <tbody>
 <tr>
 <td>limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of traces that are returned by **tracesExpression** to the specified **numberOfTraces**.  <br>
+<td markdown="span">Limits the results of **tracesExpression** to include the specified **numberOfTraces**.  <br>
 **Note:** Because the ordering of traces is unpredictable, you cannot use `limit()` to page through a set of results to obtain the next group of traces. <br><br>
 
 **Example:** Limit the set of returned traces to 50:<br>
@@ -161,15 +161,15 @@ Each filtering function has a **tracesExpression** parameter, which can be a `tr
 </tr>
 <tr>
 <td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of traces that are returned by **tracesExpression** to include only traces that are longer than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
-**Example:** Limit the results to returned traces that are longer than 3 seconds: <br>
+<td markdown="span">Filters the results of **tracesExpression** to include only traces that are longer than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
+**Example:** Limit the result set to include traces that are longer than 3 seconds: <br>
 `highpass(3s, traces("makeShirts", application="beachshirts"))`
 </td>
 </tr>
 <tr>
 <td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of traces that are returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
-**Example:** Limit the results to returned traces that are shorter than 10 milliseconds: <br>
+<td markdown="span">Filters the results of **tracesExpression** to include only traces that are shorter than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
+**Example:** Limit the result set to include traces that are shorter than 10 milliseconds: <br>
 `lowpass(10ms, traces("makeShirts", application="beachshirts"))`
 </td>
 </tr>
