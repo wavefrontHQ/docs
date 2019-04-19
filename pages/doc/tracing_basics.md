@@ -69,7 +69,7 @@ This trace consists of 9 member spans, one for each operation performed in the r
 ### A Closer Look at Traces and Spans
 
 Several of the spans in our sample trace have parent-child relationships to other spans in the trace. For example,
-the Styling service's `makeShirts` span has two child spans (`printShirts` and `wrapShirts`), and each of these spans has a child span of its own. 
+the Styling service's `makeShirts` span has two child spans (`printShirts` and `giftWrap`), and each of these spans has a child span of its own. 
 * A parent-child relationship exists between two spans when one operation passes data or control to another, either in the same service or in a different one. 
 * A parent span with multiple children represents a request that invokes multiple operations, either serially or in parallel. 
 
@@ -103,11 +103,14 @@ The Wavefront observability SDKs let you to [choose how to send trace data to Wa
 
 ## How to See Trace Data in Wavefront
 
-You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application. Watch this video to see how visualizing trace data can help you find hot spots in your applications:
+You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application. 
+
+<!---
+Watch this video to see how visualizing trace data can help you find hot spots in your applications:
 
 <p><a href="https://youtu.be/OI75w0dFs-U"><img src="/images/v_tracing_howto.png" style="width: 700px;" alt="introduction to tracing"/></a>
 </p>
-
+--->
 
 ### Start With Metrics That Provide Context
 

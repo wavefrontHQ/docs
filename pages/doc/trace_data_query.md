@@ -11,7 +11,7 @@ After your application sends [trace data](tracing_basics.html#wavefront_trace_da
 
 ## Submitting Trace Queries
 
-You query for traces by describing the spans they must contain. You can optionally specify duration thresholds that the traces must satisfy. 
+You query for traces by describing the spans they must contain. You can optionally specify duration thresholds that the returned traces must satisfy. 
 
 You submit queries and [view the results](#understanding-trace-query-results) in the Traces browser. 
 
@@ -120,7 +120,7 @@ A trace query:
 2. Finds the traces that contain at least one qualifying span.
 3. Uses duration thresholds (if you specified any) to filter the set of returned traces.  
 
-For example, you can query for traces that each have a member span that meets all of the following criteria: 
+For example, you can query for traces that each have at least one member span that meets all of the following criteria: 
 * Represents an operation called `dispatch` that is performed by a service called `delivery`.
 * Represents work done on a cluster called `us-west-2`.
 * Is associated with a custom tag `env=production`.
