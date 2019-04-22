@@ -75,7 +75,7 @@ You can use the different panels in the Traces browser to:
 
 **Note:** You can toggle the size of the traces list, service map, or trace details. 
 
-## View Trace Query Results
+## Query for a List of Traces
 
 In the Traces browser, you can [query](trace_data_query.html) for the traces that include spans for a particular operation, and you can view the results in a traces list.
 
@@ -85,21 +85,21 @@ You can:
 
 * Use Query Builder to apply filters from menus and selectively narrow down the scope of the trace query.
 * Use Query Editor to limit the scope even further (advanced users).
-* Sort traces with matching spans using different criteria.
+* Sort the returned traces according to different criteria.
 * Click any trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) or its details in the [trace details panel](#examine-trace-details).
 
 ## Investigate the Service Map for a Trace
 
-In the Traces browser, you can investigate the services that have spans in a selected trace. 
+In the Traces browser, you can investigate the services that have spans in a selected trace. The services are shown as nodes in a service map.
 
 ![explore service map](images/tracing_traces_browser_service_map.png)
 
 In the service map panel, you can:
 * Investigate the flow of control between the services that contribute to a trace.
-* Select a service to see a summary of its RED metrics, and click the link to the service's dashboard for more detail.
+* Click on a service to see a summary of its RED metrics and a link to its dashboard.
 * Scroll the call graph to zoom in or out, and then click the icon to re-center it.
 
-Note: A service is grayed out if it does not contribute any spans to the selected trace. (The service is part of at least one other trace in the traces list.)
+**Note:** A service is grayed out if it participates in at least one trace in the traces list, but does not contribute any spans to the currently selected trace. 
 
 ## Examine Trace Details
 

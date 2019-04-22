@@ -33,11 +33,13 @@ You submit queries and [view the results](#understanding-trace-query-results) in
 
 ## Trace Query Menus and Fields
 
-Query Builder lets you use menus and fields to specify the traces you want to display. **Note:** Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
+Query Builder lets you use menus and fields to specify the traces you want to display. 
+
+**Note:** Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
 
 1. Display the Traces browser and make sure Query Builder is displayed. (It is displayed by default.)
-2. Select a value from one or more menus that specify span characteristics. These characteristics must be matched by at least one span in each returned trace.  <br> **Note:** At a minimum you must select an application and a service from the Operation menu. 
-    <table>
+2. Select values from these menus to describe the logical characteristics that spans must match. 
+    <table style="width: 100%">
     <colgroup>
     <col width="20%"/>
     <col width="80%"/>
@@ -54,8 +56,26 @@ Query Builder lets you use menus and fields to specify the traces you want to di
       <li> All operations in a selected service and application.</li>
       <li> A selected operation in a selected service and application.</li>
       </ul>
+      <strong>Note:</strong> At a minimum you must select an application and a service.
     </td>
     </tr>
+    <tr>
+    <td markdown="span">**Filters**</td>
+    <td markdown="span">Match spans from a selected source (host). If you instrumented the code with custom tags, this menu cascades so you can find spans associated with custom tags. Wavefront populates this menu based on the selection you made from the **Operation** menu.</td>
+    </tr>
+    </tbody>
+    </table>
+
+2. Optional. Select values from these menus to specify the physical characteristics that spans must match.
+    <table style="width: 100%">
+    <colgroup>
+    <col width="20%"/>
+    <col width="80%"/>
+    </colgroup>
+    <thead>
+    <tr><th>Menu</th><th>Description</th></tr>
+    </thead>
+    <tbody>
     <tr>
     <td markdown="span">**Cluster**</td>
     <td markdown="span">Match spans from the selected cluster. A cluster is a named group of host machines. Wavefront populates this menu based on the selection you made from the **Operation** menu.</td>
@@ -64,15 +84,11 @@ Query Builder lets you use menus and fields to specify the traces you want to di
     <td markdown="span">**Shard**</td>
     <td markdown="span">Match spans from a selected shard. A shard is a named subgroup of the hosts in a particular cluster. Wavefront populates this menu based on the selection you made from the **Operation** menu.</td>
     </tr>
-    <tr>
-    <td markdown="span">**Filters**</td>
-    <td markdown="span">Match spans from a selected source (host). If you instrumented the code with custom tags, this menu cascades so you can find spans associated with custom tags. Wavefront populates this menu based on the selection you made from the **Operation** menu.</td>
-    </tr>
     </tbody>
     </table>
     
 3. Optional. Fill in one or both of these fields to return only traces of a minimum or maximum length:  
-    <table>
+    <table style="width: 100%">
     <colgroup>
     <col width="20%"/>
     <col width="80%"/>

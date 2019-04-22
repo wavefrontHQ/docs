@@ -118,17 +118,15 @@ The general format for a span filter is `<filterName>="filterValue"`.
 <td>Custom tag defined in your application code. Matches spans that are associated with the specified custom span tag.</td>
 <td><code>traces(environment="production")</code></td>
 </tr>
+<tr>
+<td>traceId</td>
+<td markdown="span">Unique identifier for a trace. Returns the specified trace.</td>
+<td><code>traces(traceId="5b309723-fb83-4c9c-afb6-f0dc4b2bff13")</code></td>
+</tr>
 
 </tbody>
 </table>
 
-<!---  Reinstate?
-<tr>
-<td>traceId</td>
-<td markdown="span">Unique identifier for a trace. Matches all spans that belong to the specified trace.</td>
-<td><code>traces(traceId="5b309723-fb83-4c9c-afb6-f0dc4b2bff13")</code></td>
-</tr>
---->
 
 ## Filtering Functions
 
