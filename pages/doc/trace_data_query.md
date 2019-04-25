@@ -38,7 +38,7 @@ Query Builder lets you use menus and fields to specify the traces you want to di
 **Note:** Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
 
 1. Display the Traces browser and make sure Query Builder is displayed. (It is displayed by default.)
-2. Select values from these menus to describe the logical characteristics that spans must match. 
+2. Select values from these menus to describe the logical characteristics that spans must match: 
     <table style="width: 100%">
     <colgroup>
     <col width="20%"/>
@@ -52,7 +52,7 @@ Query Builder lets you use menus and fields to specify the traces you want to di
     <td markdown="span">**Operation**</td>
     <td>Match spans that represent work done by the selected operation. If you instrumented the code with application tags, this menu cascades so you can match spans that represent the work done by:
       <ul>
-      <li> All operations in all services in a selected application.</li>
+      <!---<li> All operations in all services in a selected application.</li>--->
       <li> All operations in a selected service and application.</li>
       <li> A selected operation in a selected service and application.</li>
       </ul>
@@ -66,7 +66,7 @@ Query Builder lets you use menus and fields to specify the traces you want to di
     </tbody>
     </table>
 
-2. Optional. Select values from these menus to specify the physical characteristics that spans must match.
+2. Select values from these menus to specify the physical characteristics that spans must match:
     <table style="width: 100%">
     <colgroup>
     <col width="20%"/>
@@ -87,7 +87,7 @@ Query Builder lets you use menus and fields to specify the traces you want to di
     </tbody>
     </table>
     
-3. Optional. Fill in one or both of these fields to return only traces of a minimum or maximum length:  
+3. Fill in one or both of these fields to return only traces of a minimum or maximum length:  
     <table style="width: 100%">
     <colgroup>
     <col width="20%"/>

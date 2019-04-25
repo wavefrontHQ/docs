@@ -139,7 +139,7 @@ Wavefront provides OpenTracing SDKs for:
 [Python](wavefront_sdks_python.html#python-sdk-for-collecting-trace-data)
 
 
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the Request rate, Error rate, and Duration of the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics in [auto-generated charts](trace_data_details.html#auto-generated-charts). 
+A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the Request rate, Error rate, and Duration of the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts). 
 
 Sample use cases:
 * Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.

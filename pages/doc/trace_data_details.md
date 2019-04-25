@@ -237,69 +237,145 @@ Wavefront requires that you use the same precision for _both_ time values. Wavef
 | `1533529977` | `3` | (both values in seconds) |
 | `1533529977627` | `3000` | (both values in milliseconds) |
 
+### Indexed and Unindexed Span Tags
+
+Wavefront uses indexes to optimize the performance of queries that filter on certain span tags. For example, Wavefront indexes the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. In addition to the application tags, Wavefront indexes certain built-in span tags that conform to the OpenTracing standard, such as `span.kind`, `component`, and `http.method`.
+
+For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
+
+**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in frequent queries, you can contact Wavefront support to explicitly request indexing for that span tag. 
+
 
 
 ## RED Metrics Derived From Spans
 
 If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can use these metrics as context to help you discover problem traces.
 
-RED metrics are measures of:
+In general, RED metrics are measures of:
 
-* Requests – the number of requests (spans) being served per second
-* Errors – the number of failed requests (spans) per second
-* Duration – per-minute histogram distributions of the amount of time that each request (span) takes
+* Requests – the number of requests being served
+* Errors – the number of failed requests
+* Duration – per-minute histogram distributions of the amount of time that each request takes
 
-**Note:** RED metrics are also collected and sent by the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
+### Kinds of RED Metrics
 
-### Auto-Generated Charts
-Wavefront automatically generates charts to display the auto-derived RED metrics and histograms. To view these charts:
+Wavefront uses ingested spans to derive RED metrics for two kinds of request:
+* Operation-level RED metrics measure individually invoked operations, typically within a single service. For example, the following operation-level metric returns the number of calls to the `dispatch` operation in the `delivery` service:
+
+  ```tracing.derived.beachshirts.delivery.dispatch.invocation.count```
+
+  Wavefront derives these metrics from the spans that represent distinct calls to different operations, and uses these metrics as the basis for the [predefined charts](#predefined-charts) on a service page. You can also [query for these metrics](#querying-for-red-metrics) in your own charts.
+
+* Trace-level RED metrics are measures of traces that start with a given operation. For example, the following trace-level metric returns the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service:
+
+  ```tracing.root.derived.beachshirts.shopping.orderShirts.invocation.count```
+
+  Wavefront derives these metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You can [query for these metrics](#querying-for-red-metrics) in your own charts.
+  
+**Note:** Trace-level RED metrics are useful for traces that have at least one asynchronous member span. For other traces, these metrics are equivalent to the corresponding operation-level RED metrics for the same root operation. 
+
+
+
+### Predefined Charts
+Wavefront automatically generates charts to display the auto-derived RED metrics and histograms for a particular service. To view these charts:
 
 1. Select **Applications > Inventory** in the Wavefront task bar. If necessary, scroll to find your application and its services.
 2. Click on the service you want to see metrics for. 
-3. If you instrumented your application with a Wavefront SDK, look for the charts in the **Overall** section. (If you used a tracing-system integration, the charts are in the only section on the page.)
+3. If you instrumented your application with a Wavefront SDK, look for the charts in the **Overview** section. (If you used a tracing-system integration, the charts are in the only section on the page.)
 
-The auto-generated charts let you view the Request Rate, Error Rate, and Duration (P95) for the service, as well as the "top" operations each category: the most frequently invoked operations, the operations with the most errors, and the slowest operations. You can click on an operation in one of these charts to view the just the traces that contain that operation. 
+The predefined charts let you view:
+* The per-minute Request Rate, per-minute Error Rate, and Duration (P95) for all requests that are processed by the service.
+* The "top" operations each category: the most frequently invoked operations, the operations with the most errors, and the slowest operations. You can click on an operation in one of these charts to view the just the traces that contain spans for that operation. 
 
-![tracing overall RED metrics](images/tracing_overall_RED_metrics.png)
+![tracing overview RED metrics](images/tracing_overview_RED_metrics.png)
 
+**Note:** A service page also displays RED metrics that are collected and sent by the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
 
 ### RED Metric Names
-Wavefront constructs the names of the auto-derived RED metrics as shown in the following table. The name components `<application>`, `<service>`, and `<operationName>`) are string values that Wavefront obtains from the corresponding spans. If necessary, Wavefront modifies these strings to comply with Wavefront's [metric name format](wavefront_data_format.html#wavefront-data-format-fields).
+
+Wavefront constructs the names of the RED metrics as shown in the following tables. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the corresponding spans. If necessary, Wavefront modifies these strings to comply with Wavefront's [metric name format](wavefront_data_format.html#wavefront-data-format-fields).
 
 <table>
 <colgroup>
-<col width="50%"/>
+<col width="45%"/>
 <col width="15%"/>
-<col width="35%"/>
+<col width="40%"/>
 </colgroup>
 <thead>
-<tr><th>Metric Name</th><th>Metric Type</th><th>Description</th></tr>
+<tr><th markdown="span">Operation-Level RED Metric</th><th>Metric Type</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.invocation.count`  </td>
 <td markdown="span">Counter</td>
-<td markdown="span">The number of times that the operation is invoked. Used in the Request Rate chart. </td>
+<td markdown="span">The number of times that the specified operation is invoked. <br>Used in the Request Rate chart that is generated for a service. </td>
 </tr>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.error.count`   </td>
 <td markdown="span">Counter</td>
-<td markdown="span">The number of invocations that are errors (i.e., spans with `error=true`). Used in the Error Rate chart. </td>
+<td markdown="span">The number of invoked operations that have errors (i.e., spans with `error=true`). <br>Used in the Error Rate chart that is generated for a service. </td>
 </tr>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.duration.micros.m`  </td>
 <td markdown="span">Wavefront histogram</td>
-<td markdown="span">The duration of each operation invocation, in microseconds, aggregated in one-minute intervals. Used in the Duration chart. </td>
+<td markdown="span">The duration of each invoked operation, in microseconds, aggregated in one-minute intervals. <br>Used in the Duration chart that is generated for a service. </td>
 </tr>
 </tbody>
 </table>
 
 
-Wavefront associates each auto-derived RED metric with point tags `application`, `service`, and `operationName`. Wavefront assigns the corresponding span values to these point tags. The span values are assigned without being modified. 
+<table>
+<colgroup>
+<col width="45%"/>
+<col width="15%"/>
+<col width="40%"/>
+</colgroup>
+<thead>
+<tr><th>Trace-Level RED Metric</th><th>Metric Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.invocation.count`  </td>
+<td markdown="span">Counter</td>
+<td markdown="span">The number of traces that start with the specified root operation. </td>
+</tr>
+<tr>
+<td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.error.count`   </td>
+<td markdown="span">Counter</td>
+<td markdown="span">The number of traces that start with the root operation, and contain one or more spans with errors 
+(i.e., spans with `error=true`). </td>
+</tr>
+<tr>
+<td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.duration.millis.m`  </td>
+<td markdown="span">Wavefront histogram</td>
+<td markdown="span">The duration of each trace, in milliseconds, aggregated in one-minute intervals. Duration is measured from the start of the earliest root span to the end of the last span in a trace.</td>
+</tr>
+</tbody>
+</table>
 
-Knowing the names of the auto-derived RED metrics lets you query and visualize these metrics just as you would any other metrics in Wavefront. For example, you can use the Duration metric in a [histogram query](proxies_histograms.html#querying-histogram-metrics) to obtain percentiles other than the one displayed in the auto-generated chart.
+{% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the auto-derived RED metrics, and prevent these metrics from appearing in your UI, e.g., in [predefined charts](#predefined-charts)." %}
 
-**Note:** We recommend that you query for the auto-derived RED metrics using the point tags instead of metric names. The point tags preserve exact span values (and metric names might not).
+
+### Querying for RED Metrics
+
+You can query for auto-derived RED metrics and visualize the results just as you would any other metrics in Wavefront. For example, a [histogram query](proxies_histograms.html#querying-histogram-metrics) such as the following lets you to look at any percentile for the duration of operations in a service. (The predefined charts display only the 95th percentile.)
+
+```
+percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.m))
+```
+
+Wavefront supports 2 alternatives for specifying the RED metric names.
+
+This is useful when the names of RED metrics are constructed from modified string values `<application>`, `<service>`, and `<operationName>` obtained from spans. 
+
+Wavefront associates each auto-derived RED metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span values to these point tags. The span values are assigned without being modified. 
+
+You can use the point tags in a query instead of metric names, if you want to use exact span values. (The metric names might contain a modified version of those values.)
+
+```
+ts(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
+```
+
 
 ### Trace Sampling and Auto-Derived RED Metrics
 
