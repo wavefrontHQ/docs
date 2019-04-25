@@ -251,7 +251,7 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can use these metrics as context to help you discover problem traces.
 
-In general, RED metrics are measures of:
+RED metrics are measures of:
 
 * Requests – the number of requests being served
 * Errors – the number of failed requests
@@ -260,19 +260,19 @@ In general, RED metrics are measures of:
 ### Kinds of RED Metrics
 
 Wavefront uses ingested spans to derive RED metrics for two kinds of request:
-* Operation-level RED metrics measure individually invoked operations, typically within a single service. For example, the following operation-level metric returns the number of calls to the `dispatch` operation in the `delivery` service:
+* Operation-level RED metrics measure individual operations, typically within a single service. For example, the following operation-level metric returns the number of calls to the `dispatch` operation in the `delivery` service:
 
   ```tracing.derived.beachshirts.delivery.dispatch.invocation.count```
 
-  Wavefront derives these metrics from the spans that represent distinct calls to different operations, and uses these metrics as the basis for the [predefined charts](#predefined-charts) on a service page. You can also [query for these metrics](#querying-for-red-metrics) in your own charts.
+  Wavefront aggregates these metrics from the spans for each operation, and uses these metrics as the basis for the [predefined charts](#predefined-charts) shown below. The operation-level RED metrics [are listed below](#oplevelredmetrics).
 
 * Trace-level RED metrics are measures of traces that start with a given operation. For example, the following trace-level metric returns the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service:
 
   ```tracing.root.derived.beachshirts.shopping.orderShirts.invocation.count```
 
-  Wavefront derives these metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You can [query for these metrics](#querying-for-red-metrics) in your own charts.
-  
-**Note:** Trace-level RED metrics are useful for traces that have at least one asynchronous member span. For other traces, these metrics are equivalent to the corresponding operation-level RED metrics for the same root operation. 
+  Wavefront derives these metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) The trace-level RED metrics [are listed below](#tracelevelredmetrics).
+
+**Note:** Trace-level RED metrics are more accurate for measuring the duration of traces that have asynchronous member spans. For traces that consist of synchronous spans, trace-level RED metrics are equivalent to operation-level RED metrics for the same root operation. 
 
 
 
@@ -293,9 +293,13 @@ The predefined charts let you view:
 
 ### RED Metric Names
 
-Wavefront constructs the names of the RED metrics as shown in the following tables. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the corresponding spans. If necessary, Wavefront modifies these strings to comply with Wavefront's [metric name format](wavefront_data_format.html#wavefront-data-format-fields).
+Wavefront constructs the names of the RED metrics as shown in the following tables. You can use these names in [queries](#querying-for-red-metrics).
 
-<table>
+The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each auto-derived RED metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span values to these point tags. The span values are assigned without being modified. 
+
+{% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the auto-derived RED metrics, and prevent these metrics from appearing in the Wavefront UI, e.g., in [predefined charts](#predefined-charts)." %}
+
+<table id = "oplevelredmetrics">
 <colgroup>
 <col width="45%"/>
 <col width="15%"/>
@@ -324,7 +328,7 @@ Wavefront constructs the names of the RED metrics as shown in the following tabl
 </table>
 
 
-<table>
+<table id = "tracelevelredmetrics">
 <colgroup>
 <col width="45%"/>
 <col width="15%"/>
@@ -353,28 +357,28 @@ Wavefront constructs the names of the RED metrics as shown in the following tabl
 </tbody>
 </table>
 
-{% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the auto-derived RED metrics, and prevent these metrics from appearing in your UI, e.g., in [predefined charts](#predefined-charts)." %}
 
 
 ### Querying for RED Metrics
 
-You can query for auto-derived RED metrics and visualize the results just as you would any other metrics in Wavefront. For example, a [histogram query](proxies_histograms.html#querying-histogram-metrics) such as the following lets you to look at any percentile for the duration of operations in a service. (The predefined charts display only the 95th percentile.)
+You can use the [RED metric names](#red-metric-names) above to query for the auto-derived RED metrics and visualize the results in custom charts, just as you would any other metrics in Wavefront. For example, a [histogram query](proxies_histograms.html#querying-histogram-metrics) such as the following lets you to look at any percentile for the duration of operations in a service. (The predefined charts display only the 95th percentile.)
 
 ```
 percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.m))
 ```
 
-Wavefront supports 2 alternatives for specifying the RED metric names.
+Wavefront supports 2 alternative techniques for specifying the RED metrics in a query: 
+* Specify a RED metric by name, for example:
+  ```
+  ts(tracing.derived.beachshirts.delivery.dispatch.error.count)
+  ```
+* Specify a RED metric using the point tags `application`, `service`, and `operationName` that Wavefront automatically associates with it, for example:
+  ```
+  ts(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
+  ```
 
-This is useful when the names of RED metrics are constructed from modified string values `<application>`, `<service>`, and `<operationName>` obtained from spans. 
+The point tag technique is useful when the name of a RED metric contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always correspond exactly to the span tag values.
 
-Wavefront associates each auto-derived RED metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span values to these point tags. The span values are assigned without being modified. 
-
-You can use the point tags in a query instead of metric names, if you want to use exact span values. (The metric names might contain a modified version of those values.)
-
-```
-ts(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
-```
 
 
 ### Trace Sampling and Auto-Derived RED Metrics

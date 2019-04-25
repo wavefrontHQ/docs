@@ -48,13 +48,13 @@ On the page for a particular service, you can:
 * Select the time and timezone in the task bar to customize the chart display. These selections are the same as for other dashboards.
 * Use the **Jump To** pulldown to select a dashboard section:
   - Select Overview to examine the RED metrics that are derived from all of the spans for the service.
-  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework or the runtime system.
+  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., `Jersey`) or the runtime system (e.g., `JVM`).
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
-* Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this service component.
+* Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
 * Navigate to the Traces browser:
   - Select **See All ... Traces** to display all traces that include a span from this service component. 
-  - Click one of the bars in a TopK chart to display only traces that include a span for the selected operation.
+  - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
 
 
 ## Explore Traces
@@ -70,10 +70,10 @@ The way you access the Traces browser determines its initial content:
 
 You can use the different panels in the Traces browser to:
 * Query for traces and view the query results in the [traces list](#view-trace-query-results).
-* Select a trace and investigate its context in the [service map panel](#investigate-the-service-map-for-a-trace).
-* Select a trace and examine its spans in the [trace details panel](#examine-trace-details). 
+* Select a trace from the list and investigate its service-level context in the [service map panel](#investigate-the-service-map-for-a-trace).
+* Select a trace from the list and examine its spans in the [trace details panel](#examine-trace-details). 
 
-**Note:** You can toggle the size of the traces list, service map, or trace details. 
+**Note:** You can toggle the panel size for the traces list, service map, or trace details. 
 
 ## Query for a List of Traces
 
@@ -90,14 +90,17 @@ You can:
 
 ## Investigate the Service Map for a Trace
 
-In the Traces browser, you can investigate the services that have spans in a selected trace. The services are shown as nodes in a service map.
+In the Traces browser, you can investigate the services that have spans in a selected trace. The services are shown as nodes in the service map.
 
 ![explore service map](images/tracing_traces_browser_service_map.png)
 
 In the service map panel, you can:
-* Investigate the flow of control between the services that contribute to a trace.
-* Click on a service to see a summary of its RED metrics and a link to its dashboard.
-* Scroll the call graph to zoom in or out, and then click the icon to re-center it.
+* Investigate the real-time traffic flow among the services that contribute to a trace.
+* Click on a service to display: 
+  - A link to the service's dashboard.
+  - A summary of the service's RED metrics, which aggregate spans from all operations in the service. 
+  - A set of line charts that show the general contour for each of the summarized RED metrics.
+* Scroll the service map to zoom in or out, and then click the icon to re-center it.
 
 **Note:** A service is grayed out if it participates in at least one trace in the traces list, but does not contribute any spans to the currently selected trace. 
 
