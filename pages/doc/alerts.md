@@ -194,7 +194,10 @@ Required fields for a multi-threshold alert are:
 * Alert name (defaults to New Alert)
 * Alert condition and operator (e.g. greater than>)
 * At least one severity and corresponding threshold value.
+
 For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Only custom alert targets are supported, but you can initially create the alert without specifying a target.
+
+**Note:** You cannot associate an alert target with more than one severity.
 
 In contrast to classic alerts, Wavefront creates a display expression for a multi-threshold alert. The expression shows the alert condition.
 
@@ -244,9 +247,10 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </table>
 </li>
 
-<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity, but you can use each target only for one severity. Use commas to separate targets.
+<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity. Use commas to separate targets. You cannot specify an email address or PagerDuty key. Instead, you specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. <br/>
+<br/>
+<strong>Note:</strong> You can associate each alert target only with one severity.
 
-For multi-threshold alerts, you have to specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You cannot specify an email address or PagerDuty key.
 </li>
 
 <li>
