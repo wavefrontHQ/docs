@@ -34,7 +34,7 @@ When an account is created in Wavefront, the user can perform the following task
 * Share links to dashboards and charts with other users
 * Access the user profile from the gear icon
 
-**Note:** If a dashboards is protected by [access control](access.html), new users can see it only after it's been shared explicitly.
+**Note:** If a dashboard or alert is protected by [access control](access.html), new users can see it only after it's been shared explicitly unless they belong to a group that has access.
 
 ### New User Permissions
 

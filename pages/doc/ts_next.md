@@ -37,7 +37,7 @@ By default, `next()` applies the next reported data value to gaps of missing dat
 
 ## Examples
 
-In the following example, we've zoomed in on ~sample.request.failures.num and see missing data.
+In the following example, we've zoomed in on `~sample.request.failures.num` and see missing data.
 
 ![ts_last before](images/ts_last_next_before.png)
 

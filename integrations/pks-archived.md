@@ -1,12 +1,14 @@
 ---
-title: VMware PKS Integration
+title: VMware PKS (Archived) Integration
 tags: [integrations list]
-permalink: pks.html
-summary: Learn about the Wavefront VMware PKS Integration.
+permalink: pks-archived.html
+summary: Learn about the Wavefront VMware PKS (Archived) Integration.
 ---
 ## VMware PKS Integration
 
-VMware PKS enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters. This integration uses [wavefront-kubernetes-collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector), a collector agent that runs natively in Kubernetes and [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics), a simple service that listens to the Kubernetes API server and generates metrics. The integration collects detailed metrics about the containers, namespaces, nodes, pods, deployments, services and the cluster itself. See [VMware PKS Integration Details](https://docs.wavefront.com/integrations_pks.html) for a list of predefined alerts, an architecture overview, and troubleshooting info.
+For latest version, please refer to [VMware PKS Integration](../pks/overview)
+
+VMware PKS enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters on Pivotal Cloud Foundry (PCF). This integration uses [Heapster](https://github.com/kubernetes/heapster), a collector agent that runs natively in Kubernetes and [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics), a simple service that listens to the Kubernetes API server and generates metrics. The integration collects detailed metrics about the containers, namespaces, nodes, pods, deployments, services and the cluster itself and sends them to a Wavefront. See [VMware PKS Integration Details](https://docs.wavefront.com/integrations_pks.html) for a list of predefined alerts, an architecture overview, and troubleshooting info. 
 
 This integration explains how to configure VMware PKS monitoring with Wavefront from the PKS tile present in PCF Ops Manager. After you've completed the integration setup, you can use Wavefront to monitor the VMware PKS cluster.
 
@@ -16,9 +18,9 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ## VMware PKS Setup
 
-  Supported Version: VMware PKS 1.4 and later. See the [Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
+  Supported Version: VMware PKS 1.1, 1.2 and 1.3. See the [Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
 
-  **Note:** For VMware PKS 1.1, 1.2 and 1.3 versions, see the [VMware PKS (Archived)](../pks-archived/overview) integration in the **Archived** section.
+  **Note:** For VMware PKS 1.4 and later versions, see the [VMware PKS](../pks/overview) integration.
 
 ### Configuring the Wavefront Account
 

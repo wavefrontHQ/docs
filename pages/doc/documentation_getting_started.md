@@ -75,9 +75,8 @@ The Wavefront Query Language is the foundation of charts and alerts in Wavefront
 - [Getting Started with Wavefront Query Language](query_language_getting_started.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Query Builder](query_language_query_builder.html) <i class="fa-check-circle fa" style="color: green;"/>
 - [Wavefront Query Language Quick Reference](query_language_reference.html)
-- [Query Wizard](query_language_query_wizard.html)
-- [Series Matching](query_language_series_matching.html)
-- [Point Tags in Queries](query_language_point_tags.html)
+- [When Multiple Series Match (Or Not)](query_language_series_matching.html)
+- [Fine Tune Queries With Point Tags](query_language_point_tags.html)
 
 We also have a complete list of [Query Language Reference Pages](label_reference%20page.html).
 

@@ -4,12 +4,12 @@ keywords: release notes
 tags: [administration]
 sidebar: doc_sidebar
 permalink: authorization.html
-summary: Learn about authorization of Wavefront users.
+summary: Learn about authorization of Wavefront groups and users.
 ---
 
 Wavefront supports several levels of authorization to support customers with different authorization needs. The basic level is based on [permissions](permissions_overview.html) assigned to individual users.  If you're an administrator who wants more control over who can do what, you can perform some additional setup tasks.
 
-**Note:** We support several levels of authorization. If you need more than basic permissions, you can add user groups. If that's not enough, you can add access control, which applies to users and groups.
+**Note:** If you need more than global permissions for users, you can give permissions to groups. For example, you could give the Engineering group Dashboard permission to allow them to manage all dashboards. If that's not enough, you can add access control, which revokes or grants access for individual dashboards and alerts.
 
 Watch this video for an overview of the different authorization features.
 
@@ -19,10 +19,10 @@ Watch this video for an overview of the different authorization features.
 ## More Control, More Effort
 
 With additional setup, you gain finer-grained control:
-* **Permissions for users** -- You can initially use the simple model in which each user has access based on [permissions](permissions_overview.html).
+* **Permissions for users** -- You can initially use the model in which each user has access based on [permissions](permissions_overview.html). Permissions are global. For example, if you have Dashboard permission, you can manage *all* dashboards.
 * **Permissions for groups** -- Using permissions with groups is faster and less error prone than using permissions with users. It's easy keep permissions consistent.
-* **Access control on objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards).
-* **Security preference for new dashboards** -- In high security environments, administrator can set a security preference so all new dashboards are accessible only to the creator and to Super Admin users.
+* **Access control on objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
+* **Security preference for new objects** -- In high security environments, administrator can set a security preference so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.
 
   ![control setup](images/security_levels.svg)
 
@@ -39,51 +39,52 @@ Level 1 authorization allows adminstrators to assign permissions to individual u
 ## Level 2: Permissions for Groups and Users
 
 Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent.
-* Assign permissions to a group. For example, assign Dashboard permission to allow group members to manage all dashboards.
-* Use access control for objects to restrict access to individual dashboards (see Level 3 below).
+* Assign permissions to a group. For example, assign Dashboard permission to allow each group member to manage all dashboards.
+* In conjunction with access control (see Level 3 below), grant or revoke access to individual dashboards or alerts to a group.
 
 As an administrator, you manage groups and permissions like this:
-* You create one or more groups and assign permissions. For example, you can create an Admin group that includes User Management permission.
+* You create one or more groups and assign permissions. For example, you can create an Admin group that includes Users & Groups permission.
 * When you invite a new user, you can add the user to one or more groups. The UI makes it easy to see where a permission comes from.
-* You can manage permissions on a per-group basis. For example, assume that Marketing group has User Management permission. If you remove the permission, all members of the Marketing group no longer have it.
-* You can still manage individual permissions. For the example above, after you're removed User Managerment permission from the Marketing group, you can give the permission explicitly to a few members of the group.
+* You can manage permissions on a per-group basis. For example, assume that the Marketing group has Users and Groups permission. If you remove the permission from the group, all members of the Marketing group no longer have it.
+* You can still manage individual permissions. For the example above, after you've removed Users & Groups permission from the Marketing group, you can give the permission explicitly to a few members of the group.
 * A user who belongs to more than one group gets permissions from both groups (addition).
 
 Wavefront does not currently integrate with the groups of your identity manager (Active Directory or LDAP).
 
 ## Level 3: Access Control for Objects
 
-Starting with Release 2018.46.x, Wavefront supports object-level access control in addition to global permissions. Initially, we support access control only for dashboards.
+Starting with Release 2018.46.x, Wavefront supports object-level access control in addition to global permissions. Initially, we support access control for dashboards and for alerts.
 
 ### Basic Access Control
 
-All users with Dashboard permission can view and modify all dashboards. Those users can also [change access to individual dashboards](access.html#change-access-for-one-or-more-dashboards) from the dashboard browsers.
+All users with Dashboard permission can view and modify all dashboards. Those users can also [change access to individual dashboards](access.html#change-access-for-one-or-more-dashboards) from the Dashboard browser.
 
 ![dashboard access](images/dashboard_access.png)
 
-**Note:** Do not remove the Everyone group from a dashboard's access list unless other users or groups have access.
+**Note:** Do not remove the Everyone group from an object's access list unless other users or groups have access. If you remove the Everyone group, you create an orphan object. Only Super Admin users can restore orphan objects
 
 
 ### Security Preference for New Objects
 
-In high-security environments, an administrator can [change the default Security preference](access.html#changing-the-access-control-preference) to grant access for *new* dashboards only to the dashboard creator. After the preference change, only the dashboard creator and Super Admin users can access new dashboards initially. Those users can share the dashboard with user groups or individual users. Users with View & Modify access can then share the dashboard with more users.
+In high-security environments, an administrator can [change the default Security preference](access.html#changing-the-access-control-preference) to grant access for *new* objects (dashboards and alerts) only to the object creator. After the preference change, only the object creator and Super Admin users can access new objects initially. Those users can share the dashboard with user groups or individual users. Users with View & Modify access can then share the dashboard with more users.
 
 When the preference is set, access control works like this:
 
-* Initially, all users in the Everyone group--that is, all users--have View & Modify access to all dashboards.
+* Initially, all users in the Everyone group--that is, all users--have View & Modify access to all objects.
 * When an administrator changes the default Security system preference, access control starts:
-  - Modify access is granted only to the creator of new objects (dashboards in the first release), to Super Admin, and to users that creator or Super Admin granted View & Modify access.
-  - Other users initially cannot view and cannot modify any *new* dashboards.
-* To allow access, a privileged user has to share the dashboard. Privileged users are:
+  - Modify access is granted only to the creator of new objects (dashboards and alerts), to Super Admin.
+  - Those users can grant View or View & Modify access to the object.
+  - Other users initially cannot view and cannot modify any *new* dashboard or alert.
+* To allow access, a privileged user has to share the object. Privileged users are:
   - Super Admin
   - Dashboard creator
   - Users who were granted View & Modify access
-* Users in the Everyone group continue to have View & Modify access to dashboards that existed before the switch -- and all users in the Everyone group can remove the Everyone group from the dashboard's access list and add other users or groups.
-* If the administrator changes the Security system preference back so that Everyone has access to new dashboards, then dashboards that were created while the setting was Creator only continue to be protected by access control.
+* Users in the Everyone group continue to have View & Modify access to objects that existed before the switch -- and all users in the Everyone group can remove the Everyone group from the dashboard's access list and add other users or groups.
+* If the administrator changes the Security system preference back so that Everyone has access to new dashboards, then objects that were created while the setting was Creator only continue to be protected by access control.
 
-**Note:** This security setting affects new dashboards only.
+**Note:** This security setting affects new objects only.
 * If you change the Security preference to give modify access only to the dashboard creator  (strict access), then you affect any new dashboards for the customer or tenant (team).
-* If change the Security preference to Everyone, then all dashboards that were created during strict access remain protected by the access control list.
+* If you change the Security preference to Everyone, then all dashboards that were created during strict access remain protected by the access control list.
 
 ## Example: Can Dana View or Modify Dashboard X?
 

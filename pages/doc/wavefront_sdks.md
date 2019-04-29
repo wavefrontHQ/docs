@@ -88,6 +88,7 @@ Most cloud-based applications consist of microservices that are built with compo
 <!---Wavefront provides SDKs that instrument frameworks in these [supported languages](#SDKlevels).--->
 Wavefront provides SDKs that instrument: 
 * [Java frameworks](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks)
+* [.NET/C# frameworks](wavefront_sdks_csharp.html#netc-sdks-that-instrument-frameworks)
 
 A framework SDK gets you up and running with minimal effort: 
 * Setup is simple. You either edit a configuration file or instantiate a few helper objects in your code. No further coding is required.
@@ -112,7 +113,8 @@ Wavefront provides SDKs that implement standard metrics libraries in popular pro
 <!---Wavefront provides SDKs for collecting metrics in these [supported languages](#SDKlevels).--->
 Wavefront provides metrics SDKs for:
 * [Java](wavefront_sdks_java.html#java-sdks-for-collecting-metrics), 
-[.NET/C#](wavefront_sdks_csharp.html#netc-sdks-for-collecting-metrics)
+[.NET/C#](wavefront_sdks_csharp.html#netc-sdks-for-collecting-metrics),
+[Python](wavefront_sdks_python.html#python-sdks-for-collecting-metrics)
 
 Different metrics SDKs provide different capabilities:
 * Some SDKs let you instrument functions with counters, delta counters, meters, gauges, timers, and histograms. These SDKs require some code changes beyond setting up helper objects. In particular, you'll need to instantiate objects for each type of metric you want to collect, and modify each function of interest.

@@ -16,7 +16,7 @@ See the Setup tab for the templates that generated these messages.
 
 
 
-**Note**: Atlassian will be discontinuing [HipChat](https://www.atlassian.com/partnerships/slack) in favor of Slack. If you migrate to Slack, please use our [Slack integration](../slack/overview).
+**Note**: Atlassian will be discontinuing [HipChat](https://www.atlassian.com/partnerships/slack) in favor of Slack. If you migrate to Slack, please use our [Slack integration](https://docs.wavefront.com/slack.html).
 
 ### Step 1. Build Custom Integration for your HipChat Room
 

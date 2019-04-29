@@ -60,14 +60,15 @@ Charts for metrics also support the following types of queries:
 
 A separate set of interfaces is available for developers who are interested in traces and spans.
 
-### Docs & Wizards
+### Docs, Videos, and Wizards
 
-Wavefront documentation includes tutorials, reference, and guides on the query language.
+Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
 
-- **[Query builder](query_language_query_builder.html)** and **[query wizard](query_language_query_wizard.html)** can help you come up to speed quickly while using the product.
+- **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
+- **[Query builder](query_language_query_builder.html)** can help you come up to speed quickly while using the product.
 - Log in to Wavefront and learn with our Tutorial and  Tour. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
 - [Wavefront Query Language Quick Reference](query_language_reference.html). gives an overview of the different types of functions that can be used in a query. Each function names is a link to a reference page for the function.
-- For in-depth discussions and examples, see some of the [advanced function guides](label_query%20language.html).
+- For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 
 ## FAQ
 

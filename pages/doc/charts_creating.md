@@ -29,7 +29,6 @@ Watch this video for details:
 Wavefront supports several methods for constructing query language queries:
 * Query Builder
 * Query Editor
-* Query Wizard
 
 ### Query Builder
 

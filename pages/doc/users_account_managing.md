@@ -50,7 +50,7 @@ You can check the permissions you have and see which groups you belong to from y
 
 3. Hover over any group to see the permissions you have because you belong to that group. Permissions are additive.
 
-**Note:** It's possible that you can't modify a dashboard even if you have Dashboard permission. In that case,  the [Security system preference](access.html) is set to allow access to new dashboards only to the creator. Ask the dashboard creator to share the dashboard with you.
+**Note:** It's possible that you can't modify a dashboard or an alert even if you have Dashboard or Alert permission. This happens if access is restricted explicitly for that dashboard or alert, or if the [Security system preference](access.html) is set to allow access to new objects only to the creator. Ask the dashboard or alert creator to share the object with you.
 
 ## Generating an API Token
 

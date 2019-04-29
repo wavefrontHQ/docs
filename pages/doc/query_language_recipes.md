@@ -8,7 +8,7 @@ summary: Recipes for Common Queries
 ---
 The Wavefront Customer Success team has found that customers want certain information from their data. For example, customers are interested in the point rate received or queued, or in the moving average or moving median.
 
-This page gives some recipes. You can generate several of these recipes interactively using the [Query Wizard](query_language_query_wizard.html). We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use many of queries in the recipes here in alerts.
+We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use many of queries in the recipes here in alerts.
 
 **Note:** For improved legibility, we've included line breaks in some of the examples.
 
