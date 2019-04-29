@@ -48,8 +48,12 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
 ### Step 4. Configure Github Webhooks Services
 
 To capture metrics from Github you should configure your Organization's Webhooks to point at the webhooks service. To do this:
-
-1. Go to github.com/{my_organization} and click **Settings > Webhooks > Add webhook.**
-2. Set **Payload URL** to `http://hostIP:1619/github`
-3. Set **Content type** to `application/json`.
-4. Select **Send me everything**.
+1. Sign in, then select the related repository you own.
+2. Click on **Settings** on the right panel.
+3. Then click on **Webhooks** on the left panel.
+4. Click on the **Add Webhook** button.
+5. Set **Payload URL** to `http://hostIP:1619/github`
+6. Set **Content type** to `application/json`.
+7. Select **Send me everything**.
+8. Leave the **Active** checkbox checked.
+9. Click on **Add webhook** to save the webhook.

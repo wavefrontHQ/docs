@@ -249,7 +249,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 
 <li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity. Use commas to separate targets. You cannot specify an email address or PagerDuty key. Instead, you specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. <br/>
 <br/>
-<strong>Note:</strong> You can associate each alert target only with one severity.
+<strong>Note:</strong> You can associate each alert target only with one severity. For example, suppose you set up an alert to notify target T1 for the SEVERE severity. You cannot specify target T1 for any other severity in that alert.
 
 </li>
 
