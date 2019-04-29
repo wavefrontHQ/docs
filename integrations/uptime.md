@@ -6,9 +6,9 @@ summary: Learn about the Wavefront Uptime Integration.
 ---
 # Uptime.com Integration
 
-Uptime.com is a monitoring system that simplifies monitoring website uptime and generating server performance reports. It also sends alerts by SMS, phone call, or email if the website is down.
+Uptime.com provides website downtime alerts by SMS, phone call and/or email if your website is down. Uptime.com checks your website availability at 1-minute intervals from 30 different locations across 6 continents.
  
-This integration explains how to configure Uptime.com so you can see Uptime.com metrics in Wavefront. After you've completed the integration setup, you can use Wavefront to receive events and response time metrics for the websites that are being monitored by Uptime.com. In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a section of a dashboard displaying response time metrics:
+This integration explains how to configure Uptime.com to push response time metrics and alerts to Wavefront. After you've completed the integration setup, you can view response time metrics and alerts for the websites that are being monitored by Uptime.com in Wavefront. In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a section of a dashboard displaying response time metrics:
 
 {% include image.md src="images/uptime_dashboard.png" width="80" %}
 
@@ -19,7 +19,10 @@ This integration explains how to configure Uptime.com so you can see Uptime.com 
 3. In the **Add Integration Profile** screen, provide the Wavefront account information:  
    * Select **Wavefront** as the **Provider Type**.
    * Provide integration details:
+   * **Name**: Give your preferred name for this integration.
    * **Wavefront URL**: `https://YOUR_CLUSTER.wavefront.com`
    * **API Token**: `YOUR_API_TOKEN`
-4. In the left pane, click **Notifications>Contacts>New Contact**. Within the **New Contact** screen select **Wavefront** from the Push Notifications field.
-6. Now add this new contact to your **Check** as one of the **Contacts** to be notified of a downtime event.
+4. In the left pane, click **Notifications>Contacts>New Contact**, or you may **Edit** existing contact. In the **Contacts* screen select **Wavefront** from the push notifications field.
+5. From the Uptime.com **Contacts** screen, click **Actions>Test** to send a test event to Wavefront and confirm the integration is working.
+6. Now edit the required check from the **Checks** list and add this new contact as one of the contacts to be notified of a downtime event.
+7. After you have assigned your integration to a contact in Uptime.com, you will receive Uptime.com metrics from checks. Initially, the metric data may take up to 30 minutes to appear in Wavefront.
