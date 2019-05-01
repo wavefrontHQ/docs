@@ -24,10 +24,10 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
 </p> </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Distributed Tracing How To</font></strong><br>
+<td><strong><font color="blue">Distributed Tracing How To (Beta)</font></strong><br>
 <a href="https://youtu.be/OI75w0dFs-U" target="_blank"><img src="/images/v_tracing_howto.png" alt="Distributed tracing how-to"/></a></td>
 <td><br>
-<p>This short demo illustrates how you find a problem with our tracing UI. You start looking at services, and then drill down to charts that show, for example, the slowest operations. You can select potential problems in the chart, and then select a trace and examine individual calls from there.  </p>
+<p>This short demo of the Beta version of the feature illustrates how you find a problem with our tracing UI. You start looking at services, and then drill down to charts that show, for example, the slowest operations. You can select potential problems in the chart, and then select a trace and examine individual calls from there. We're continuously improving the UI and will post new videos over time.  </p>
 </td>
 </tr>
 </tbody>
