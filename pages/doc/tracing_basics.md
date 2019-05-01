@@ -110,7 +110,9 @@ Watch this video to see how visualizing trace data can help you find hot spots i
 
 <p><a href="https://youtu.be/OI75w0dFs-U"><img src="/images/v_tracing_howto.png" style="width: 700px;" alt="introduction to tracing"/></a>
 </p>
+
 --->
+
 
 ### Start With Metrics That Provide Context
 
