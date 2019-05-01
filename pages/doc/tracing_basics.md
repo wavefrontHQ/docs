@@ -114,7 +114,7 @@ Watch this video to see how visualizing trace data can help you find hot spots i
 
 ### Start With Metrics That Provide Context
 
-You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each microservice in an instrumented application. RED metrics are measures of Requests (number of requests being served), Errors (number of failed requests), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces and spans.
+You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each microservice in an instrumented application. RED metrics measure the request Rate (number of requests being served per minute), Errors (number of failed requests per minute), and Duration (histogram distributions of the amount of time each request takes). These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces and spans.
 
 To start examining your application's microservices from the RED metrics:
 1. Select **Applications > Inventory** in the task bar and find your application.

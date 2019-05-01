@@ -63,7 +63,7 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 
 ### Auto-Derived RED Metrics
 
-When you use a tracing-system integration, Wavefront automatically derives RED metrics from the spans that are sent from the instrumented application services. RED metrics are measures of the Request rate, Error rate, and Duration of the operations represented by your spans. You can use these metrics as context to help you discover problem traces.
+When you use a tracing-system integration, Wavefront automatically derives RED metrics from the spans that are sent from the instrumented application services. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
 
 Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics Derived From Spans](trace_data_details.html#red-metrics-derived-from-spans).
 

@@ -157,7 +157,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 * **Optional tags** enable you to use the physical topology of your application to further filter your data:
   - `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run, for example, `us-west-2`. 
-  - `shard` - Name of a subgroup of hosts within a cluster, for example, `secondary`.
+  - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `secondary`.
 
   ![tracing service filter](images/tracing_service_filter_page.png)
 

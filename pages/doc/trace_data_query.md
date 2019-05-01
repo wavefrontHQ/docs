@@ -18,14 +18,14 @@ You submit queries and [view the results](#understanding-trace-query-results) in
 
 ### Use Query Builder
 
-1. Display the Traces browser, for example, by clicking **Applications > Traces** in the task bar. <br> Query Builder is displayed by default.
+1. Select **Applications > Traces** in the task bar to display the Traces browser. <br> Query Builder is displayed by default.
 2. Use the [trace query menus and fields](#trace-query-menus-and-fields) to specify the characteristics to be matched. Each selection you make updates the list of traces.
 
     ![tracing query builder](images/tracing_query_builder.png)
 
 ### Use Query Editor 
 
-1. Display the Traces browser, for example, by clicking **Applications > Traces** in the task bar.
+1. Select **Applications > Traces** in the task bar to display the Traces browser.
 2. Click the icon to toggle to Query Editor:  
     ![tracing query toggle](images/tracing_query_toggle.png)
 3. Type a query that includes the [`traces()` function](traces_function.html): <!---and take advantage of syntax completion for selecting tags and their values.---> 
@@ -82,7 +82,7 @@ Query Builder lets you use menus and fields to specify the traces you want to di
     </tr>
     <tr>
     <td markdown="span">**Shard**</td>
-    <td markdown="span">Match spans from a selected shard. A shard is a named subgroup of the hosts in a particular cluster. Wavefront populates this menu based on the selection you made from the **Operation** menu.</td>
+    <td markdown="span">Match spans from a selected shard. A shard is a named subgroup of the hosts in a particular cluster, for example, a mirror. Wavefront populates this menu based on the selection you made from the **Operation** menu.</td>
     </tr>
     </tbody>
     </table>
@@ -145,35 +145,33 @@ If you also specified a minimum (or maximum) duration, the query filters out any
 
 ### Graphic Representation of a Returned Trace
 
-Wavefront displays a bar for each trace that is returned by a trace query. The bar's length represents the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies. A green circle indicates a trace with no reported errors, and a red circle indicates with an error in one or more spans:
+Wavefront displays a bar for each trace that is returned by a trace query. The bar's length corresponds to the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
 
 ![tracing query results](images/tracing_query_results.png)
 
 ### How Wavefront Labels a Returned Trace
-<!--- UPDATE to match GRAPHIC --->
 Each bar that is returned by a query represents a unique trace that has a unique trace ID. For readability, we label each trace by its root span, which is the first span in the trace. The trace's label is the name of the operation that the root span represents.
 
 For example, the two returned traces shown above both have the label **shopping: orderShirts**. This is because both traces have a root span
-that represents the work done by the `orderShirts` operation in the `shopping` service. However, these root spans represent different executions of the `orderShirts` operation, with different start times. Consequently, although these two root spans have the same operation name, they mark the beginning of two different traces.
+that represents the work done by the `orderShirts` operation in the `shopping` service. However, these root spans represent different executions of the `orderShirts` operation, with different start times. Although these two root spans have the same operation name, they mark the beginning of two different traces.
 
 **Note:** A label such as **shopping: orderShirts** refers to the root span of a trace, which may be different from the span that was specified in the query. For example, suppose you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain a `dispatch` span. 
 
-### Limiting the Result Set
+## Limiting the Result Set
 
-To prevent a trace query from taking a long time, you normally specify a limit on the number of returned traces. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces. 
+You can limit the number of returned traces to make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces. 
 
 **Note:** The current time window for the Traces browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start within the current time window.
-
-
 
 
 ## Sorting the Result Set
 
 You can sort a set of returned traces by selecting a sort order from the **Sort By** menu. For example: 
-* You can choose **Most Recent** to start with the traces that have the most recent start times.
-* You can choose **Most Spans** to start with the traces that contain the largest number of spans.
+* Choose **Most Recent** to start with the traces that have the most recent start times.
+* Choose **Longest First** to start with the longest traces.
+* Choose **Most Spans** to start with the traces that contain the largest number of spans.
 
-Sorting always applies after the result set has been limited. For example, suppose you limit the number of returned traces to 50, and then sort the result set from shortest to longest. The sorted list includes only the 50 traces that were originally returned by the query. We do not first sort all traces containing a matching span, and then display the 50 shortest traces.
+If you both limit and sort the query results, sorting applies after limiting. For example, suppose you limit the number of returned traces to 50, and then sort the result set from shortest to longest. The sorted list includes only the 50 traces that were originally returned by the query. We do not first sort all traces containing a matching span, and then display the 50 shortest traces.
  
 **Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
 

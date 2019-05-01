@@ -38,7 +38,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 
 
 ## Description
-The `traces()` function returns a set of traces that each contains at least one qualifying member span. A span qualifies if it matches the description you specify, which might consist of an operation name, one or more [span filters](#span-filters), or a combination of these. 
+The `traces()` function returns a set of traces, where each trace contains at least one qualifying member span. A span qualifies if it matches the description you specify, which might consist of an operation name, one or more [span filters](#span-filters), or a combination of these. 
 
 You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#submitting-trace-queries). 
 Using the `traces()` function is a power-user alternative to using Query Builder.  
@@ -105,7 +105,7 @@ The general format for a span filter is `<filterName>="filterValue"`.
 </tr>
 <tr>
 <td>shard</td>
-<td markdown="span">Name of a subgroup of hosts within a cluster, for example, `secondary`. Matches spans that represent operations that are executed on the specified shard.</td>
+<td markdown="span">Name of a mirror or other subgroup of hosts within a cluster, for example, `secondary`. Matches spans that represent operations that are executed on the specified shard.</td>
 <td><code>traces(shard="secondary")</code></td>
 </tr>
 <tr>
