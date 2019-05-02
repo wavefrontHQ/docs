@@ -32,7 +32,7 @@ Here's a preview of the Cloud Controller dashboard:
 
 
 
-Supported Version(s): PCF v1.11, v1.12 and v2.0.
+Supported Version(s): PCF v2.2 and above.
 
 ### Install Wavefront by VMware Nozzle for PCF tile
 
@@ -43,19 +43,6 @@ See the [documentation](http://docs.pivotal.io/partners/wavefront-nozzle/install
 Use the following Wavefront instance URL and API token for configuring the [Wavefront proxy](http://docs.pivotal.io/partners/wavefront-nozzle/installing.html#install):   
 Wavefront Instance URL: `https://YOUR_CLUSTER.wavefront.com/api`  
 Wavefront API Token: `YOUR_API_TOKEN`
-
-### Install Bosh Health Metrics Forwarder tile for PCF v1.x
-
-**Note:** This step is not required for PCF v2.0 and later.
-
-To get PCF VM health metrics, install the Bosh Health Metrics Forwarder:
-
-1. Download the [HM Forwarder tile v0.9.0](https://s3-us-west-2.amazonaws.com/wavefront-cdn/pcf/bosh-hm-forwarder-0.9.0.pivotal) and install it using the PCF Ops Manager interface.
-**Note:** Download the [HM Forwarder tile v0.9.2](https://s3-us-west-2.amazonaws.com/wavefront-cdn/pcf/bosh-hm-forwarder-0.9.2.pivotal) for PCF v1.12.
-2. Open the deployed **HM Forwarder** tile in the Ops Manager UI, go to the **Status** tab, and make note of the IP address of the **hm-forwarder** job.
-3. Go to the Ops Manager Director tile, enter the IP address noted above into the **Bosh HM Forwarder IP Address** field in the **Director Config** section, and save your changes.
-4. Go back to the Installation Dashboard and click **Apply Changes**.
-5. Verify the Bosh VM health metrics are available in the **PCF: Summary** dashboard.
 
 ### Send App Metrics
 
