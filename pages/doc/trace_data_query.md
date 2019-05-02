@@ -7,7 +7,7 @@ permalink: trace_data_query.html
 summary: Learn how to query for Wavefront trace data.
 ---
 
-After your application sends [trace data](tracing_basics.html#wavefront_trace_data) to Wavefront, you can examine that data in the Traces browser. By fine-tuning the trace query in the Traces browser, you find the traces that you're interested in by describing the spans they must contain.
+After your application sends [trace data](tracing_basics.html#wavefront-trace-data) to Wavefront, you can examine that data in the Traces browser. By fine-tuning the trace query in the Traces browser, you find the traces that you're interested in by describing the spans they must contain.
 
 ## Submitting Trace Queries
 

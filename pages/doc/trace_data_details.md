@@ -265,7 +265,7 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
 
 * Trace-level RED metrics measure traces that start with a given root operation. For example, a trace-level metric might measure the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service.
 
-  Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#querying-for-red-metrics) to visualize them.
+  Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#custom-red-metrics-queries) to visualize them.
 
 **Note:** For traces that consist entirely of synchronous member spans, trace-level RED metrics are equivalent to the corresponding operation-level RED metrics. For traces that have asynchronous member spans, trace-level RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span. 
 

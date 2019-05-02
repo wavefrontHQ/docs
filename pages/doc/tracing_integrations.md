@@ -7,13 +7,13 @@ permalink: tracing_integrations.html
 summary: Learn about ways to send trace data to Wavefront from a 3rd party distributed tracing system.
 ---
 
-You can collect [traces](tracing_basics.html#wavefront_trace_data) with a 3rd party distributed tracing system, and send the [trace data](tracing_basics.html) to Wavefront. Wavefront provides managed, highly scalable storage for your trace data, as well as RED metrics that are derived from the spans.
+You can collect [traces](tracing_basics.html#wavefront-trace-data) with a 3rd party distributed tracing system, and send the [trace data](tracing_basics.html) to Wavefront. Wavefront provides managed, highly scalable storage for your trace data, as well as RED metrics that are derived from the spans.
 
 Suppose you have already instrumented your application using a 3rd party distributed tracing system such as Jaeger or Zipkin. You can continue using that system for application development, and then switch to a Wavefront proxy in production by changing a few configuration settings. 
 
 **Note:** If you have not yet [instrumented your application for tracing](tracing_instrumenting_frameworks.html), consider doing so with one or more [Wavefront observability SDKs](wavefront_sdks.html).
 
-## Tracing-System Integrations
+## Tracing-System Integrations and Exporters
 
 Wavefront provides integrations with several popular 3rd party distributed tracing systems:
 * [Jaeger](jaeger.html)  
@@ -21,7 +21,7 @@ Wavefront provides integrations with several popular 3rd party distributed traci
 
 The Wavefront integration configures your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html). The proxy, in turn, processes the data and sends it to your Wavefront service. Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
 
-Using an integration is the simplest way - [but not the only way](#integration-alternatives) - to send trace data to Wavefront from a 3rd part tracing system. 
+Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system. 
 
 ## Trace Data from an Integration
 
@@ -91,35 +91,30 @@ When you use a 3rd party distributed tracing system, you normally configure it t
 For more accurate RED metrics, you can disable the 3rd party sampling, and choose one of the following options instead:
 
 * Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-sampling-through-the-proxy). You need proxy version 4.36 or later.
-* [Swap in a Wavefront Tracer](#swapping-in-a-wavefront-tracer) and configure it to perform sampling. 
+* [Swap in a Wavefront Tracer](#swap-in-a-wavefront-tracer) and configure it to perform sampling. 
 
 The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, and then perform the sampling.
 
 
-## Integration Alternatives
+## Alternatives to Integrations
 
-### Swapping In a Wavefront Tracer
+### Swap In a Wavefront Tracer
 If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer. 
 
 Swapping Tracers enables Wavefront to derive the RED metrics from the entire set of generated spans. In contrast, using the Jaeger integration causes the auto-derived RED metrics to reflect just the subset of spans that are admitted by the Jaeger sampling.
 
-See the Wavefront OpenTracing SDK for your programming language:
-* [Java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) 
-* [Python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)
-* [.NET/C#](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)
+For setup details, see the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) for your programming language.
 
-### Sending Raw Trace Data
+### Send Raw Trace Data
 If Wavefront does not support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a sender SDK to send raw trace data to Wavefront. With a sender SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](trace_data_details.html#wavefront-span-format). The sender SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service. 
 
-For SDK setup details, see the Wavefront sender SDK for your your programming language:
-
-* [Java](https://github.com/wavefrontHQ/wavefront-sdk-java) 
-* [Python](https://github.com/wavefrontHQ/wavefront-sdk-python)
-* [.NET/C#](https://github.com/wavefrontHQ/wavefront-sdk-csharp)
+For SDK setup details, see the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for your programming language.
 
 **Note:** This technique does not automatically derive RED metrics from the spans.
 
+### Use the Wavefront OpenCensus Go Exporter
 
+If you have instrumented your Go application with OpenCensus, you can use the [Wavefront OpenCensus Go Exporter](https://opencensus.io/exporters/supported-exporters/go/wavefront/) to push metrics, histograms, and traces into Wavefront. This exporter is built on the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for Go. 
 
 
 
