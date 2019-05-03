@@ -29,7 +29,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
+<td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>

@@ -67,7 +67,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td markdown="span">&nbsp;</td>
-<td markdown="span">[**Continuous time series**](query_language_reference.html#discrete-versus-continuous-time-series)</td>
+<td markdown="span">[**Continuous time series**](query_language_discrete_continuous.html)</td>
 <td>A time series that contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value for each moment in time that can be represented on the X-axis of a chart. <strong>See also:</strong> Discrete time series.</td>
 </tr>
 <tr>
@@ -101,7 +101,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">[**Discrete time series**](query_language_reference.html#discrete-versus-continuous-time-series)</td>
+<td markdown="span">[**Discrete time series**](query_language_discrete_continuous.html)</td>
 <td>A time series whose data points are separated by time intervals that are greater than one second. These longer intervals may be due to reporting that is infrequent, irregular, or interrupted. <strong>See also:</strong> Continuous time series.</td>
 </tr>
 <tr>
