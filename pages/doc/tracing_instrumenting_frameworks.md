@@ -193,7 +193,7 @@ A Wavefront reporter object specifies:
 
 * The source of the reported metrics and histograms, typically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All reporter objects for a particular microservice must specify the same source.
 
-**Note:** You can use a Wavefront sender to set a nondefault reporting interval.
+**Note:** You can use a Wavefront reporter object to set a nondefault reporting interval.
 
 <!---
 **Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.
@@ -208,7 +208,7 @@ Wavefront uses a pair of objects to create and report trace data:
  
 Metric data reporting occurs at the interval you specify. Trace data reporting occurs automatically whenever spans are complete. 
 
-**Note:** You can set up a reporter that sends trace data to your console for debugging, too.
+**Note:** If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console.
 
 <!---
 ### Instrumenting Multiple Frameworks in the Same Service 
