@@ -34,7 +34,16 @@ This task produces a SAML claim in the following format:
 urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified
 ```
 
-The rule contains an identifier pull from Active Directory. Wavefront sends an email to this identifier value, so it should be a valid email address. The screenshots below show how to form this identifier from the 1st email address for the user stored in Active Directory.
+Here is an example of the resulting rule:
+
+```
+c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = c.Value, ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties /format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified");
+```
+{% endraw %}
+
+The rule contains an identifier pull from Active Directory. Wavefront sends an email to this identifier value, so it should be a valid email address. 
+
+The screenshots below show to form this identifier from the 1st email address for the user stored in Active Directory.
 
 {% include image.md src="images/sso_adfs_10.png" width="65" %}
 
@@ -42,12 +51,6 @@ The rule sends an email address claim in the SAML response. The new rule transfo
 
 {% include image.md src="images/sso_adfs_11.png" width="65" %}
 
-Here is the resulting rule:
-
-```
-c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = c.Value, ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties /format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified");
-```
-{% endraw %}
 
 ### Step 3. Download Identity Provider Metadata and Send to Wavefront
 
