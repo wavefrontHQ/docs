@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: events_queries.html
 summary: Learn how to write events() queries.
 ---
-You use `events()` queries to [customize how events display in charts](charts_events_displaying.html). An `events()` query cannot be the only query on the chart. At least one `ts()` query must also be enabled on the chart.
+You use `events()` queries to [customize how events display in charts](charts_events_displaying.html). You can specify just an `events()` query for a chart, or combine an `events()` query with certain other functions. 
 
 ## Event Query Syntax
 

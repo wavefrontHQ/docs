@@ -1,18 +1,18 @@
 ---
-title: VMware PKS Integration Details
+title: VMware Enterprise PKS Integration Details
 keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
 permalink: integrations_pks.html
-summary: Learn about predefined alerts, code examples, and other PKS details
+summary: Learn about predefined alerts, code examples, and more
 ---
-The Wavefront [VMware PKS integration](pks.html) includes an overview and setup instructions.
+The Wavefront [VMware Enterprise PKS integration](pks.html) includes an overview and setup instructions.
 
 On this page, we list predefined alerts and give other details about the integration.
 
-## Predefined Alerts for the VMware PKS Integration
+## Predefined Alerts for the Integration
 
-The PKS integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts.
+The VMware Enterprise PKS integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Wavefront UI.
 
 <table>
 <tbody>
@@ -58,9 +58,8 @@ The PKS integration provides the following monitoring alerts for PKS. These aler
 </tbody>
 </table>
 
-You can [create additional alerts](alerts.html#creating-an-alert) using the Wavefront UI.
 
-## VMware PKS Monitoring Dashboards
+## VMware EnterprisePKS Monitoring Dashboards
 
 Wavefront includes several predefined dashboards for monitoring PKS. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
 
@@ -73,33 +72,18 @@ We support dashboards for major functionality including:
 * Pod containers dashboard
 * Services and Replication Sets dashboard
 
-The screenshots below show some examples. To see the full set of dashboards, sign in your Wavefront instance -- or sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}.
+To see the full set of dashboards, sign in your Wavefront instance -- or sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}.
 
-**Nodes Dashboard**
-![pks nodes](images/pks-04-nodes.png)
-
-**Deployments Dashboard**
-![pks namespaces](images/pks-06-deployments.png)
-
-**Pods Dashboard**
-![pks pods](images/pks-07-pods.png)
-
-**Pods Containers Dashboard**
-![pks containers](images/pks-08-pod-containers.png)
 
 ## Architecture
 
 The Wavefront proxy pod includes four containers.
-* Heapster monitors your worker kubelets and sends the result to the proxy.
+* The [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector)  monitors your worker kubelets and sends the result to the proxy.
 * Telegraf receives metrics about the node, pod, and container status from kube-state-metrics, and sends those metrics to the Wavefront proxy as well.
 
-![pks-arch](images/pks-architecture.png)
+![pks-arch](images/pks-architecture-rev.png)
 
-Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster.
-
-![pks-proxy](images/pks-13-proxy.png)
-
-There are four containers within the Wavefront proxy pod:
+Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster. There are four containers within the Wavefront proxy pod.
 
 
 ## Troubleshooting the VMware PKS Integration
