@@ -265,7 +265,7 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
 
 * Trace-level RED metrics measure traces that start with a given root operation. For example, a trace-level metric might measure the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service.
 
-  Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#custom-red-metrics-queries) to visualize them.
+  Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#red-metrics-queries-for-charts-and-alerts) to visualize them.
 
 **Note:** For traces that consist entirely of synchronous member spans, trace-level RED metrics are equivalent to the corresponding operation-level RED metrics. For traces that have asynchronous member spans, trace-level RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span. 
 
@@ -286,7 +286,7 @@ The predefined charts let you view:
 
 ### RED Metric Counters and Histograms
 
-The types of RED metrics that we show in the [predefined charts](#predefined-charts) are rates and 95th percentile distributions. These metrics are themselves based on underlying counters and histograms that Wavefront automatically derives from spans. You can use these underlying counters and histograms in [custom RED metrics queries](#custom-red-metrics-queries).
+The types of RED metrics that we show in the [predefined charts](#predefined-charts) are rates and 95th percentile distributions. These metrics are themselves based on underlying counters and histograms that Wavefront automatically derives from spans. You can use these underlying counters and histograms in [RED metrics queries](#red-metrics-queries-for-charts-and-alerts), for example, to create alerts on trace data.
 
 Wavefront constructs the names of the underlying counters and histograms as shown in the tables below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification. 
 
@@ -352,9 +352,9 @@ Wavefront constructs the names of the underlying counters and histograms as show
 
 
 
-### Custom RED Metrics Queries
+### RED Metrics Queries for Charts and Alerts
 
-You can perform custom queries over [RED metric counters and histograms](#red-metric-counters-and-histograms) and visualize the results in your own charts, just as you would do for any other metrics in Wavefront. 
+You can perform queries over [RED metric counters and histograms](#red-metric-counters-and-histograms) and visualize the results in your own charts, just as you would do for any other metrics in Wavefront. You can create [alerts](alerts.html) on trace data by using RED metrics queries in alert conditions.
 
 **Examples**
 
