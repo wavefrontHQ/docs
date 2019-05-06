@@ -256,6 +256,9 @@ RED metrics are measures of:
 * Errors – the number of failed requests per minute
 * Duration – per-minute histogram distributions of the amount of time that each request takes
 
+The derived RED metrics are operation-level, which means that they measure individual operations, and not whole traces. For example, an operation-level metric might measure then number of calls per minute to the `dispatch` operation in the `delivery` service, where each call to `dispatch` might correspond to one of many spans in a trace.
+
+<!--- In 33.x -- Add this section back in (and remove previous paragraph)
 ### Operation-level and Trace-level RED Metrics
 
 Wavefront uses ingested spans to derive RED metrics for two kinds of request:
@@ -268,6 +271,7 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
   Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#red-metrics-queries-for-charts-and-alerts) to visualize them.
 
 **Note:** For traces that consist entirely of synchronous member spans, trace-level RED metrics are equivalent to the corresponding operation-level RED metrics. For traces that have asynchronous member spans, trace-level RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span. 
+--->
 
 ### Predefined Charts
 Wavefront automatically generates charts to display the auto-derived RED metrics for a particular service. To view these charts:
@@ -282,13 +286,14 @@ The predefined charts let you view:
 
 ![tracing overview RED metrics](images/tracing_overview_RED_metrics.png)
 
+
 **Note:** A service page also displays RED metrics that are collected and sent by the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
 
 ### RED Metric Counters and Histograms
 
 The types of RED metrics that we show in the [predefined charts](#predefined-charts) are rates and 95th percentile distributions. These metrics are themselves based on underlying counters and histograms that Wavefront automatically derives from spans. You can use these underlying counters and histograms in [RED metrics queries](#red-metrics-queries-for-charts-and-alerts), for example, to create alerts on trace data.
 
-Wavefront constructs the names of the underlying counters and histograms as shown in the tables below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification. 
+Wavefront constructs the names of the underlying counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification. 
 
 {% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the RED metric counters and histograms, and prevent these metrics from appearing in the Wavefront UI, e.g., in [predefined charts](#predefined-charts)." %}
 
@@ -320,7 +325,7 @@ Wavefront constructs the names of the underlying counters and histograms as show
 </tbody>
 </table>
 
-
+<!--- In 33.x -- add this table back in
 <table id = "tracelevelredmetrics">
 <colgroup>
 <col width="45%"/>
@@ -350,7 +355,7 @@ Wavefront constructs the names of the underlying counters and histograms as show
 </tbody>
 </table>
 
-
+--->
 
 ### RED Metrics Queries for Charts and Alerts
 
@@ -363,12 +368,13 @@ Find at the per-minute error rate for a specific operation executing on a specif
 ```
 rate(ts(tracing.derived.beachshirts.shopping.orderShirts.error.count and cluster=us-east-1)) * 60
 ```
-
+<!--- In 33.x -- add this example back in
 Find the per-minute error rate for traces that begin with a specific operation:
 
 ```
 rate(ts(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)) * 60
 ```
+--->
 
 Use a [histogram query](proxies_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
 
