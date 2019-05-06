@@ -1,7 +1,7 @@
 ---
-title: ADFS Integration Setup
+title: ADFS Integration
 tags: [integrations list]
-permalink: adfs.html
+permalink: adfs_rev.html
 summary: Learn about the Wavefront ADFS Integration.
 ---
 ## ADFS Integration
