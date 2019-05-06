@@ -1,5 +1,5 @@
 ---
-title: ADFS Integration Setup
+title: ADFS Integration
 tags: [integrations list]
 permalink: adfs.html
 summary: Learn about the Wavefront ADFS Integration.
@@ -29,12 +29,10 @@ To add the ADFS integration to Wavefront, follow these steps:
 ### Step 2. Set up Claim Rules
 
 This task produces a SAML claim in the following format:
-
 {% raw %}
 ```
 urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified
 ```
-{% endraw %}
 
 The rule contains an identifier pull from Active Directory. Wavefront sends an email to this identifier value, so it should be a valid email address. The screenshots below show how to form this identifier from the 1st email address for the user stored in Active Directory.
 
@@ -46,7 +44,6 @@ The rule sends an email address claim in the SAML response. The new rule transfo
 
 Here is the resulting rule:
 
-{% raw %}
 ```
 c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = c.Value, ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties /format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified");
 ```
