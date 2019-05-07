@@ -103,7 +103,7 @@ To close, edit, or delete a single maintenance window, select the three dots on 
 
 You can assign source tags to specific sources and then set up the alert condition to filter on those source tags. Doing so prevents the metrics on the tagged sources from triggering the alert. This technique is especially useful if your alert condition renames the sources using the `aliasSource()` function, which will prevent a maintenance window from referring to them.
 
-Suppose an alert condition tests the metrics that flow from sources `app-1`, `app-2`, ..., `app-10`. You decide to decommission `app-2` and replace it with a new `app-11`. The following steps accomplish this:
+Suppose an alert condition tests the metrics that flow from sources `app-1`, `app-2`, ..., `app-10`. You decide to decommission `app-2` and replace it with a new `app-11`. The following steps cause the alert to filter out the metrics from the decommissioned source:
 
 1. [Add a source tag](source_tags.html) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
