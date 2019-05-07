@@ -10,7 +10,11 @@ summary: Learn how snooze an alert, and how to use maintenance windows to preven
 You can disable alert checking:
 
 * To disable alert checking, you can snooze an alert.
-* To disable alerts from firing for a set of sources or alerts during a custom time window you can create a maintenance window.
+* To disable alerts from firing for a set of sources or alerts during a custom time window, you can create a maintenance window.
+
+<!---
+* To prevent alerts from firing for a set of sources that might be renamed, you can use source tags to identify and filter out the sources. 
+--->
 
 Watch this video for an introduction to maintenance windows:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_maintenance.png" style="width: 700px;"/></a>
@@ -93,3 +97,14 @@ You can extend the duration of a maintenance window or close the window before i
 To extend the duration of a single maintenance window, select **Extend > Duration**.
 
 To close, edit, or delete a single maintenance window, select the three dots on the left and click **Close**, **Edit**, or **Delete**.
+
+
+## Using Source Tags
+
+You can assign source tags to specific sources and then set up the alert condition to filter on those source tags. Doing so prevents the metrics on the tagged sources from triggering the alert. This technique is especially useful if your alert condition renames the sources using the `aliasSource()` function, which will prevent a maintenance window from referring to them.
+
+Suppose an alert condition tests the metrics that flow from sources `app-1`, `app-2`, ..., `app-10`. You decide to decommission `app-2` and replace it with a new `app-11`. The following steps accomplish this:
+
+1. [Add a source tag](source_tags.html) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
+2. Modify the alert condition to include `and not tag=decommissioned`, for example:
+  ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```
