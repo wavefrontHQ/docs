@@ -316,22 +316,34 @@ If you want to make copies of an existing alert, then change the copy slightly, 
 
 ## Viewing Alerts and Alert History
 
-To view alerts, click the **Alerts** button. A list of alerts displays. Here's an example that shows when the alert fires that is described in [Tutorial: Getting Started](tutorial_getting_started.html#create-an-alert):
+To view alerts click the **Alerts** button to display the Alerts browser. You can [search](wavefront_searching.html) for a particular alert by name or by alert tag. 
+
+For example, here is an alert that is firing:
 
 ![Alert firing](images/alert_firing.png)
 
-To view alert details, click the chart icon in the State column. A chart displays with two queries:
+The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
-- **&lt;Alert name&gt;** - the alert condition.
+### View Alert Details
+
+To view alert details, click the chart icon in the State column in the Alerts browser. A chart displays with these queries:
+
+- **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
 
 For example, for the alert shown above, the chart displays:
 
 ![Alert queries](images/alert_queries.png)
 
-The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
-Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert on the Alerts page and click **Versions**. Alert history shows:
+### View Alert History
+
+Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert in the Alerts browser and click **Versions**: 
+
+![Alert queries](images/alert_history.png)
+
+
+Alert history shows:
 * Which user made the changes.
 * The date and time the changes were made.
 * A description of the changes.
@@ -343,9 +355,24 @@ You can also see at a glance [all firing alerts](alerts_states_lifecycle.html#vi
 
 You can change an alert at any time.
 
-1. Click the **Alerts** button to display the Alerts page.
+1. Click the **Alerts** button to display the Alerts browser.
 2. Click the name of the alert you want to change to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
+
+## Organizing Related Alerts
+
+You can use alert tags to organize related alerts into categories, so you can easily: 
+* Filter the Alerts browser to view a category of alerts. 
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html). 
+* [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression. 
+
+You can add a new or existing tag to an alert by setting the **Tags** property when you create or edit the alert. If you are viewing the alert in the Alerts browser, you can add a tag by clicking the `+` icon at the bottom of an alert entry. You can add or remove alert tags at any time.
+
+<!---
+**Note** In simple use cases, you can organize related alerts by assigning them names that contain a common string. You can view just the related alerts by typing the common string in the search field. For example, searching for the string `Latency` might let you view alerts named `Latency Alert`, `Latency Dev Alert`, `Realtime latency`, and so on. 
+--->
+
+
 
 
 ## Alert Events
