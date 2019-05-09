@@ -9,102 +9,132 @@ summary: Explore your apps and services from a browser.
 
 The Wavefront tracing UI enables exploration of your apps and services. Once your application is instrumented for tracing, you can examine traces, spans, and RED metrics, moving easily from one browser page to the next. This doc page gives an overview of the different UI pages. 
 
-<!---
-Exploring Traces, Spans, and Metrics gives more detail.
---->
 
-## Navigate to the Tracing UI
 
-To navigate to the tracing UI:
-1. Log in to your Wavefront cluster.
+## Choose Your Starting Point
+
+To choose your starting point for visualizing traces:
+1. In your web browser, go to your Wavefront cluster and log in.
 2. From the task bar:
 
-    - Select **Applications > Inventory** to view all application services and drill down from there. 
-    - Select **Applications > Traces** to start by querying for traces and drill down from there. 
+    - Select **Applications > Inventory** to [view all application services](#view-application-services) and drill down from there. 
+    - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there. 
 
     ![tracing menu](images/tracing_menu.png)
 
-## Get Started: Application Services
+## View Application Services
 
-The Application Services page is your entry point for examining your application. 
+Go to the Application Services page for a top-level overview of your instrumented applications. 
 
 ![app services](images/tracing_app_services.png)
 
 On the Application Services page, you can:
-* Select an application from the **Jump To** pulldown.
-* Search for a service.
+* Select an application from the **Jump To** pulldown, or search for a service or application.
+* Examine the inventory of services in your application.
+* View the inventory of component frameworks that each service is built on. 
 * Click inside a service box to go to the dashboard for that service.
-
 
 ## Examine Service Metrics and Drill Down
 
-When you select a service, you can examine the corresponding metrics and potential hot spots in detail, and then drill down to the **Traces** page. 
+When you select a service, you can examine the corresponding metrics to identify potential hot spots, and then drill down to the Traces browser. 
 
 ![examine services](images/tracing_services.png)
 
 **Note:** The charts on this dashboard are read only.
 
 On the page for a particular service, you can:
-* Select the time, timezone, and other chart attributes in the task bar to customize the chart display. These selections are the same as for other dashboards.
+* Select the time and timezone in the task bar to customize the chart display. These selections are the same as for other dashboards.
 * Use the **Jump To** pulldown to select a dashboard section:
-  - Select Overall to examine the RED metrics that are derived from all of the spans for the service.
-  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework or the runtime system.
+  - Select Overview to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
+  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., `Jersey`) or the runtime system (e.g., `JVM`).
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
-* Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this service component.
-* Navigate to the **Traces** page:
-  - Select **See All Traces** to display all traces that include a span from this service component. 
-  - Click one of the bars in a TopK chart to display only traces that include a span for the selected operation.
+* Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
+* Navigate to the Traces browser:
+  - Select **See All ... Traces** to display all traces that include a span from this service component. 
+  - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
 
 
 ## Explore Traces
 
-On the **Traces** page, you can view the traces that include spans for particular operations, and you can drill down to get trace details. 
+In the Traces browser, you can explore the context and the details of your application's traces.
 
-The way you access the **Traces** page determines its initial content: 
+* Navigate from the service's page to display traces for operations you selected.
+* Select **Applications > Traces** from the task bar to display an empty page that you populate by [querying](trace_data_query.html).
 
-* Navigate from the Service page to automatically display traces for operations you selected.
-* Select **Applications > Traces** from the task bar for an empty page that you populate by [querying](trace_data_query.html).
+![explore trace browser](images/tracing_traces_browser.png)
 
-![explore trace page](images/tracing_traces_page.png)
+From the Traces browser, you can:
+* Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
+* Select a trace in the list and:
+  - Use the [service map panel](#investigate-the-service-flow-for-a-trace) to investigate the microservices that contribute spans to the trace.
+  - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace. 
 
-On the **Traces** page, you can:
-* Apply filters and selectively narrow down the scope of the trace query.
-* Use the query editor to limit the scope even further (advanced users).
-* Examine the scatter plot to clearly see the duration of each trace over time, and to see traces with errors (red circles).
-* Sort traces with matching spans using different criteria.
-* Click any trace to display a pop-up that shows trace details.
+You can toggle the panel size for the traces list, service map, or trace details. 
 
+## Query for a List of Traces
+
+In the Traces browser, you can [query](trace_data_query.html) for the traces that include spans for a particular operation, and you can view the results in a traces list.
+
+![explore traces list](images/tracing_traces_browser_traces_list.png)
+
+You can:
+
+* Use Query Builder to apply filters and narrow down the scope of the trace query.
+* Use Query Editor to limit the scope even further (advanced users).
+* Sort the returned traces according to different criteria.
+* Click a trace to view its context in the [service map panel](#investigate-the-service-flow-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
+
+## Investigate the Service Flow for a Trace 
+
+In the Traces browser, use the service map to investigate the services that contribute spans to a selected trace. 
+
+![explore service map](images/tracing_traces_browser_service_map.png)
+
+In the service map panel, you can:
+* View the service dependencies, and follow the flow of request calls from service to service.
+* Select a service to display: 
+  - The RED metrics that reflect the health of the service.
+  - Line charts that indicate the general contour of the RED metrics.
+* Navigate to the selected service's dashboard for more service details.
+* Scroll the service map to zoom in or out, and re-center the service map.
+* Look for nodes that are grayed out. These represent services that contribute spans to at least one trace in the list, but not to the trace that is currently selected. 
+
+Watch this video to see how a service map can help you pinpoint a performance bottleneck in a microservices architecture:
+
+<p><a href="https://youtu.be/7F1TTmSKN7g"><img src="/images/v_tracing_service_map.png" style="width: 700px;" alt="introduction to service maps"/></a>
+</p>
 
 
 ## Examine Trace Details
 
-On a trace details pop-up, you can examine the spans that belong to a single trace. Some of these spans may represent operations executed by other services.
+In the Traces browser, use the trace details panel to examine the spans that belong to a selected trace. Some of these spans may represent operations executed by other services.
 
-![trace pop-up](images/trace_popup_simple.png)
+![trace details](images/tracing_traces_browser_trace_details.png)
 
-On a trace details pop-up, you can:
-* Move the edges of the overview panel to zoom in on a narrower time window. 
-* Examine the call hierarchy.
+In the trace details panel, you can:
+* Examine the call hierarchy for a selected trace.
 * Click any span to expand and see more detail.
-* Explore the trace’s [critical path](#a-closer-look-at-critical-paths). This is an end-to-end combination of spans that are the most blocking.
+* Explore the trace’s [critical path](#a-closer-look-at-critical-paths). This is an end-to-end sequence of blocking spans, where each blocking span must complete before the trace can complete.
 
 
-## Drill Down Into Traces and View Related Metrics
+## Drill Down Into Spans and View Related Metrics
 
-You can click any span in a trace details pop-up to view details about that span. If that span came from another service, you can navigate to the dashboard for that service.
+In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
-![trace pop-up expanded](images/trace_popup_expanded.png)
+![trace span details](images/tracing_traces_browser_span_details.png)
 
 Span details include:
-* Application tags. These are the application, service, cluster, and shard, as selected on the Services page.
+* Application tags. These are the application, service, cluster, and shard, as selected by the trace query.
 * Other tags including the trace ID.
 * A clickable link to the corresponding dashboard that lets you examine the metrics associated with the call.
 
 
 ## A Closer Look at Critical Paths
 
-A [trace details pop-up](#examine-trace-details) uses an orange line to show the critical path through a trace. You can think of the critical path as an end-to-end combination of spans that are the most blocking. This is the combination of spans that determines the minimum length of the trace they belong to.
+The [trace details panel](#examine-trace-details) uses an orange line to show the critical path through a trace. You can think of the critical path as the end-to-end combination of spans that are the most blocking. These spans represent the sequence of operations that must complete before the trace itself can complete.
+
+Analyzing the critical path of a trace can help you determine which operations took the most time, and can help you decide which operations to try to optimize.
 
 We use the following rules to determine which spans to include in a critical path (in order of applicability):
 1. Ignore asynchronous spans (spans tagged with `followFrom`). 

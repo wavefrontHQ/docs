@@ -53,6 +53,10 @@ entries:
       url: /proxies_versions.html
       output: web
 
+    - title: 2019-14.x Release Notes
+      url: /2019.14.x_release_notes.html
+      output: web
+
     - title: 2019-10.x Release Notes
       url: /2019.10.x_release_notes.html
       output: web
@@ -482,8 +486,8 @@ entries:
       url: /trace_data_query.html
       output: web
 
-    - title: spans() Queries
-      url: /spans_queries.html
+    - title: traces() Function
+      url: /traces_function.html
       output: web
 
     - title: Traces, Spans, and Metrics

@@ -12,7 +12,7 @@ The Wavefront Query Language allows you to extract the information you need from
 * [Detecting Anomalies](query_language_statistical_functions_anomalies.html)
 * [Bucketing with align()](query_language_align_function.html)
 
-**Note:** This page summarizes queries that apply to time series data and events. For queries that apply to distributed tracing, see [Querying Trace Data](trace_data_query.html) and [spans() Queries](spans_queries.html).
+**Note:** This page summarizes queries that apply to time series data and events. For queries that apply to distributed tracing, see [Querying Trace Data](trace_data_query.html) and [traces() Function](traces_function.html).
 
 ## Query Elements
 <table style="width: 100%;">

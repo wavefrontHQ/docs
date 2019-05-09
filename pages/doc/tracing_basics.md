@@ -69,7 +69,7 @@ This trace consists of 9 member spans, one for each operation performed in the r
 ### A Closer Look at Traces and Spans
 
 Several of the spans in our sample trace have parent-child relationships to other spans in the trace. For example,
-the Styling service's `makeShirts` span has two child spans (`printShirts` and `wrapShirts`), and each of these spans has a child span of its own. 
+the Styling service's `makeShirts` span has two child spans (`printShirts` and `giftWrap`), and each of these spans has a child span of its own. 
 * A parent-child relationship exists between two spans when one operation passes data or control to another, either in the same service or in a different one. 
 * A parent span with multiple children represents a request that invokes multiple operations, either serially or in parallel. 
 
@@ -103,15 +103,20 @@ The Wavefront observability SDKs let you to [choose how to send trace data to Wa
 
 ## How to See Trace Data in Wavefront
 
-You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application. Watch this video to see how visualizing trace data can help you find hot spots in your applications:
+You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application. 
+
+<!---
+Watch this video to see how visualizing trace data can help you find hot spots in your applications:
 
 <p><a href="https://youtu.be/OI75w0dFs-U"><img src="/images/v_tracing_howto.png" style="width: 700px;" alt="introduction to tracing"/></a>
 </p>
 
+--->
+
 
 ### Start With Metrics That Provide Context
 
-You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each microservice in an instrumented application. RED metrics are measures of Requests (number of requests being served per second), Errors (number of failed requests per second), and Duration (histogram distributions of the amount of time each request takes). You can use these metrics as context to help you discover problem traces and spans.
+You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each microservice in an instrumented application. RED metrics measure the request Rate (number of requests being served per minute), Errors (number of failed requests per minute), and Duration (histogram distributions of the amount of time each request takes). These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces and spans.
 
 To start examining your application's microservices from the RED metrics:
 1. Select **Applications > Inventory** in the task bar and find your application.
@@ -123,14 +128,14 @@ To start examining your application's microservices from the RED metrics:
 
 You can view trace data by [submitting a trace query](trace_data_query.html). A trace query describes one or more spans to be matched, and then displays the traces that contain the matched spans:
 1. Select **Applications > Traces** in the task bar.
-2. On the **Traces** page, [build a trace query](trace_data_query.html#building-a-trace-query) by selecting the filters that describe the spans to be matched. 
+2. In the Traces browser, by select the filters that describe the spans to be matched. 
 
 <!--- In Hotspots topic - mention that specified span could be anywhere in result trace. Might but need not be first. ---> 
-<!---  In Hotspots topic -  mention and link to spans() function ---> 
-<!--- You can use the `spans()` function in the Wavefront Query Language to describe the spans you want to match.
+<!---  In Hotspots topic -  mention and link to traces() function ---> 
+<!--- You can use the `traces()` function in the Wavefront Query Language to describe the spans you want to match.
 
 ```
-limit(20, spans(orderShirts, application=beachshirts and service=shopping))
+limit(100, traces("orderShirts", application=beachshirts and service=shopping))
 ```
 --->
 

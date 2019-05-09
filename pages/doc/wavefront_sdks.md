@@ -85,7 +85,6 @@ For the most gain with the least amount of work:
 
 Most cloud-based applications consist of microservices that are built with component frameworks for managing inbound requests and outbound responses. Wavefront provides SDKs that instrument the APIs of many common microservices frameworks. If your application is built with a supported framework, you can use the corresponding Wavefront SDK to collect telemetry data from the framework's APIs, with minimal code changes. 
 
-<!---Wavefront provides SDKs that instrument frameworks in these [supported languages](#SDKlevels).--->
 Wavefront provides SDKs that instrument: 
 * [Java frameworks](wavefront_sdks_java.html#java-sdks-that-instrument-frameworks)
 * [.NET/C# frameworks](wavefront_sdks_csharp.html#netc-sdks-that-instrument-frameworks)
@@ -97,7 +96,7 @@ A framework SDK gets you up and running with minimal effort:
 
 Sample use case:
 
-* Suppose you have a Java microservice that uses a Jersey-compatible framework for building RESTful web services. After you instrument your microservice with the Wavefront SDK for Jersey, your application collects predefined metrics, histograms, and trace data from the Jersey-compatible framework and sends the data to Wavefront. You can then use the following charts to view RED metrics, which measure the microservice's Request rate, Error rate, and Duration. (SDKs for other frameworks might collect latencies, payload sizes, runtime information, and so on.) 
+* Suppose you have a Java microservice that uses a Jersey-compatible framework for building RESTful web services. After you instrument your microservice with the Wavefront SDK for Jersey, your application collects predefined metrics, histograms, and trace data from the Jersey-compatible framework and sends the data to Wavefront. You can then use the following charts to view RED metrics, which measure the microservice's request Rate, number of Errors, and Duration. (SDKs for other frameworks might collect latencies, payload sizes, runtime information, and so on.) 
 
 ![tracing fmwk sdk](images/tracing_framework_sdk.png)
 
@@ -110,7 +109,6 @@ Wavefront provides SDKs that implement standard metrics libraries in popular pro
 * You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice. 
 * You can use a metrics SDK and a framework SDK to instrument any functions that are not handled by the instrumented framework. 
 
-<!---Wavefront provides SDKs for collecting metrics in these [supported languages](#SDKlevels).--->
 Wavefront provides metrics SDKs for:
 * [Java](wavefront_sdks_java.html#java-sdks-for-collecting-metrics), 
 [.NET/C#](wavefront_sdks_csharp.html#netc-sdks-for-collecting-metrics),
@@ -130,7 +128,6 @@ Wavefront provides SDKs that implement the [OpenTracing](https://www.opentracing
 * You can use a Wavefront OpenTracing SDK alone, to instrument an entire application. 
 * You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework. 
 
-<!--- Wavefront provides OpenTracing SDKs in these [supported languages](#SDKlevels). --->
 
 Wavefront provides OpenTracing SDKs for:
 * [Go](wavefront_sdks_go.html#go-sdk-for-collecting-trace-data), 
@@ -139,7 +136,7 @@ Wavefront provides OpenTracing SDKs for:
 [Python](wavefront_sdks_python.html#python-sdk-for-collecting-trace-data)
 
 
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the Request rate, Error rate, and Duration of the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics in [auto-generated charts](trace_data_details.html#auto-generated-charts). 
+A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts). 
 
 Sample use cases:
 * Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.
@@ -151,7 +148,6 @@ Sample use cases:
 
 Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Wavefront. 
 
-<!---Wavefront provides sender SDKs in these [supported languages](#SDKlevels).--->
 
 Wavefront provides sender SDKs for:
 * [C++](wavefront_sdks_cpp.html#c-sdk-for-sending-raw-data), 

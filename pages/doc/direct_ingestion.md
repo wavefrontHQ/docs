@@ -64,11 +64,12 @@ echo "getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 
 ```
 
 Notes:
-* Specify the span using [Wavefront span format](trace_data_details.html#wavefront-span-format).
-* Include `f=trace` at the end of the `--data` argument to ensure the input is treated as trace data.
-* Include `cluster=none` and `shard=none` for a span that does not have values for the `cluster` and `shard` span tags.
-* Replace `<start_milliseconds>` and `<duration_milliseconds>` with numbers indicating the span's start time and duration.
-
+* In the example, you:
+  - Specify the span using [Wavefront span format](trace_data_details.html#wavefront-span-format).
+  - Include `f=trace` at the end of the `--data` argument to ensure the input is treated as trace data.
+  - Include `cluster=none` and `shard=none` for a span that does not have values for the `cluster` and `shard` span tags.
+  - Replace `<start_milliseconds>` and `<duration_milliseconds>` with numbers indicating the span's start time and duration.
+* If you ingest spans using a direct ingestion command such the example above, you are limited to using [Query Editor](trace_data_query.html#use-query-editor) when you want to query for traces containing those spans. ([Query Builder](trace_data_query.html#use-query-builder) cannot find spans ingested in this way).
 
 
 ## Comparing Proxy and Direct Ingestion

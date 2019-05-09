@@ -66,14 +66,17 @@ Your cloud-native application might consist of many microservices.
 Follow these steps to use a Wavefront SDK that instruments an application framework for handling RESTful web services or RPC connections. Each such SDK collects predefined traces, metrics and histograms automatically, so you can get up and running with minimal effort. 
 
 1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above). 
-2. If your microservice uses one of the Java frameworks in this list, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub.
+2. If your microservice uses one of the frameworks in this table, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub:
 
-    | Dropwizard | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) | 
-    | gRPC | [`wavefront-grpc-sdk-java`](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java) |
-    | JAX-RS | [`wavefront-jaxrs-sdk-java`](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)  |
-    | Spring Boot | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) |  
+    | Language | Framework | README File |
+    | --- | --- | --- |
+    | Java | Dropwizard | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) |
+    |  | gRPC | [`wavefront-grpc-sdk-java`](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java) |
+    |  | JAX-RS | [`wavefront-jaxrs-sdk-java`](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)  |
+    |  | Spring Boot | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) |
+    | .NET/C# | ASP.NET Core | [`wavefront-aspnetcore-sdk-csharp`](https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp) |
 
-    **Note:** If your framework is not in this list, you can [instrument your code with a Wavefront OpenTracing SDK](#instrument-with-opentracing).
+    **Note:** If your framework is not listed here, you can [instrument your code with a Wavefront OpenTracing SDK](#instrument-with-opentracing).
     
 3. Follow the setup steps in the `README` file. These steps create several helper objects in your microservice. No other code changes are needed. For an overview of these helper objects, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice).
 
@@ -90,8 +93,10 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 
 1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above). 
 
-2. Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to its `README` file on GitHub.
-      
+2. Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
+    
+    | Language | README File |
+    | --- | --- |
     | Java | [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) |  
     | C# | [wavefront-opentracing-sdk-csharp](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp) |
     | Python | [wavefront-opentracing-sdk-python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python) | 
@@ -152,7 +157,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 * **Optional tags** enable you to use the physical topology of your application to further filter your data:
   - `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run, for example, `us-west-2`. 
-  - `shard` - Name of a subgroup of hosts within a cluster, for example, `secondary`.
+  - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `secondary`.
 
   ![tracing service filter](images/tracing_service_filter_page.png)
 
@@ -188,7 +193,7 @@ A Wavefront reporter object specifies:
 
 * The source of the reported metrics and histograms, typically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All reporter objects for a particular microservice must specify the same source.
 
-**Note:** You can use a Wavefront sender to set a nondefault reporting interval.
+**Note:** You can use a Wavefront reporter object to set a nondefault reporting interval.
 
 <!---
 **Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.
@@ -203,7 +208,7 @@ Wavefront uses a pair of objects to create and report trace data:
  
 Metric data reporting occurs at the interval you specify. Trace data reporting occurs automatically whenever spans are complete. 
 
-**Note:** You can set up a reporter that sends trace data to your console for debugging, too.
+**Note:** If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console.
 
 <!---
 ### Instrumenting Multiple Frameworks in the Same Service 
