@@ -22,7 +22,7 @@ This integration explains how to configure Uptime.com to push response time metr
    * **Name**: Give your preferred name for this integration.
    * **Wavefront URL**: `https://YOUR_CLUSTER.wavefront.com`
    * **API Token**: `YOUR_API_TOKEN`
-4. In the left pane, click **Notifications>Contacts>New Contact**, or you may **Edit** existing contact. In the **Contacts* screen select **Wavefront** from the push notifications field.
+4. In the left pane, click **Notifications>Contacts>New Contact**, or you may **Edit** existing contact. In the **Contacts** screen select **Wavefront** from the push notifications field.
 5. From the Uptime.com **Contacts** screen, click **Actions>Test** to send a test event to Wavefront and confirm the integration is working.
 6. Now edit the required check from the **Checks** list and add this new contact as one of the contacts to be notified of a downtime event.
 7. After you have assigned your integration to a contact in Uptime.com, you will receive Uptime.com metrics from checks. Initially, the metric data may take up to 30 minutes to appear in Wavefront.
