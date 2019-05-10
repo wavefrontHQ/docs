@@ -153,7 +153,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts.html). </td>
 </tr>
 </tbody>
 </table>
@@ -266,7 +266,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts.html). </td>
 </tr>
 </tbody>
 </table>
@@ -316,13 +316,16 @@ If you want to make copies of an existing alert, then change the copy slightly, 
 
 ## Viewing Alerts and Alert History
 
-To view alerts click the **Alerts** button to display the Alerts browser. You can [search](wavefront_searching.html) for a particular alert by name or by alert tag. 
+To view alerts click the **Alerts** button to display the Alerts browser. You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE. 
 
-For example, here is an alert that is firing:
+### View an Alert
+The Alert browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
 ![Alert firing](images/alert_firing.png)
 
+<!---
 The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
+--->
 
 ### View Alert Details
 
@@ -361,12 +364,29 @@ You can change an alert at any time.
 
 ## Organizing Related Alerts
 
-You can use alert tags to organize related alerts into categories, so you can easily: 
-* Filter the Alerts browser to view a category of alerts. 
+You can use alert tags to organize related alerts into categories. Alert tags are one of several kinds of [object tags](tags_overview.html) that Wavefront supports. Alert tags let you: 
+* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts. 
 * Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html). 
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression. 
 
-You can add a new or existing tag to an alert by setting the **Tags** property when you create or edit the alert. If you are viewing the alert in the Alerts browser, you can add a tag by clicking the `+` icon at the bottom of an alert entry. You can add or remove alert tags at any time.
+You can add a new or existing alert tag at any time:
+* When you create or edit the alert, set the **Tags** property. 
+* When you view the alert in the Alerts browser, click **+** at the bottom (next to existing alert tags, if any). 
+
+You can use alert tags to establish the categories that are meaningful for your use cases. For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast` to indicate that an alert is maintained by the Network Operations team, is still experimental, and obtains metrics from a particular geographic region. You can search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
+
+You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and: 
+* Within the demo group, some alerts monitor network activity, while others monitor request latency. 
+* Within each subgroup, some alerts monitor production applications, while others monitor development applications. 
+
+To help you manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts browser below shows the tag paths as a hierarchy under **Tag Paths** in the filter bar on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
+
+![Alert tag path](images/alert_tag_path.png)
+
+In tasks such as creating a maintenance window, you can use a wildcard to match tag path components:
+* `example.*.*` matches the entire group of demo alerts.
+* `example.latency.*` matches all of the alerts that monitor request latency.
+* `example.*.prod` matches all of the production alerts.
 
 <!---
 **Note** In simple use cases, you can organize related alerts by assigning them names that contain a common string. You can view just the related alerts by typing the common string in the search field. For example, searching for the string `Latency` might let you view alerts named `Latency Alert`, `Latency Dev Alert`, `Realtime latency`, and so on. 

@@ -51,9 +51,7 @@ Most filter bars contain a set of commonly used saved searches (e.g. Favorites, 
 
 Once you press **Return** or **Enter** after typing a search string, the icons ![search icons](images/searchicons.png#inline) display at the top right, allowing you to share a link to, save, and clear the search. Your saved searches appear below the commonly used searches, and have a dropdown menu for renaming, cloning, and deleting the search.
 
-The following Alerts browser filter demonstrates filtering alerts by the tag path **Microservice.App4**. This filters the view to show all alerts with the tag path **MicroService.App4** and all its children (for example, **MicroService.App4.Auth**). Of the matching alerts, 1 is firing.
 
-![Tag path](images/MicroService.App4_firing.png)
 
 
 ## Other Actions
