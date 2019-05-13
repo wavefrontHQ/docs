@@ -7,15 +7,13 @@ permalink: maintenance_windows_managing.html
 summary: Learn how snooze an alert, and how to use maintenance windows to prevent alerts from firing when systems are undergoing maintenance.
 ---
 
-You can disable alert checking:
+You can prevent alerts from firing by using one of the following techniques:
 
-* To disable alert checking, you can snooze an alert.
+* To disable alert checking immediately, you can snooze an alert.
 * To disable alerts from firing for a set of sources or alerts during a custom time window, you can create a maintenance window.
-* To prevent an alert from firing for a set of sources, you can configure the alert condition to exclude those sources. 
+* To prevent an alert from ever firing for a set of sources, you can configure the alert condition to exclude those sources. 
+* To prevent an alert from firing outside of certain hours, you can [alert only between specific times](alerts_recipes.html#alert-only-between-specific-times).
 
-Watch this video for an introduction to maintenance windows:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_maintenance.png" style="width: 700px;"/></a>
-</p>
 
 ## Snoozing and Unsnoozing Alerts
 
@@ -41,6 +39,10 @@ You can close (end) maintenance windows early or you can make them longer.
 To view and manage maintenance windows, select **Browse > Maintenance Windows**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view maintenance windows, you must have [Alert Management permission](permissions_overview.html) to [manage](maintenance_windows_managing.html) maintenance windows. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+
+Watch this video for an introduction to maintenance windows:
+<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=6b704f39-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_maintenance.png" style="width: 700px;"/></a>
+</p>
 
 ### Creating a Maintenance Window
 
@@ -75,11 +77,39 @@ To create a maintenance window:
     </tr>
     <tr>
     <td>Affected Alerts and Sources</td>
-    <td>The alerts and sources to suppress during the maintenance window. All alerts that have tags in the <strong>Alert Tags</strong> field are suppressed. An alert is suppressed if at least one of sources identified by the <strong>Source Tags</strong> and <strong>Sources</strong> fields causes the alert condition to be met. You must configure at least one alert tag, source, or source tag.</td>
+    <td>The alerts to be suppressed during the maintenance window. You must specify at least one alert tag, source, or source tag. 
+    <ul>
+    <li>Specify one or more alert tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Alert Tags</strong> field to suppress any alert that has a matching alert tag.</li>
+    <li>Specify one or more source tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Source Tags</strong> field to suppress any alert that would have met its alert condition on a source that has a matching source tag. </li> 
+    <li>Specify one or more source names in the <strong>Affected Sources</strong> field to suppress any alert that would have met its alert condition on a matching source.  </li>
+    </ul>
+    You can omit alert tags to prevent any alert from firing on a specified source.
+    You can combine alert tags with source names and/or source tags to prevent any alert with a specified tag from firing on a specified source.
+    </td>
     </tr>
     </tbody>
     </table>
 1. Click **Save**.
+
+### Example
+
+Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#organizing-related-alerts) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on. 
+
+To suppress the example alerts, you create a maintenance window as shown above, and fill in `Affected Alerts and Sources` according to your use case:
+
+* To suppress all of the example alerts from firing on any source:
+  - In **Affected Alert Tags**, specify the tag path `example.*`. 
+
+* To suppress just the example production alerts from firing on the source named `app-1`:
+  - In **Affected Alert Tags**, specify the tag path `example.*.prod`.
+  - In **Affected Sources**, specify `app-1`.
+
+* To suppress just the example latency alerts from firing either on a source that has the source tag `EastCoastSources` or on the source named `app-1`:
+  - In **Affected Alert Tags**, specify the tag path `example.latency.*`.
+  - In **Affected Source Tags**, specify the source tag `EastCoastSources`.
+  - In **Affected Sources**, specify `app-1`.
+  - **Note:** If you wanted to suppress the alerts from firing on `app-1` only if that source also has the source tag `EastCoastSources`, you can click on **OR** and select **AND**.
+
 
 
 ### Managing Maintenance Windows

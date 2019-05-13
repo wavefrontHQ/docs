@@ -100,9 +100,9 @@ In the UI you operate on tag paths by selecting a component at a specific node i
 * Select all Wavefront dashboards by clicking **wavefront**
 * Select only tutorial dashboards by expanding the **wavefront** node and then selecting **tutorial**.
 
-In queries, you achieve the same effect by specifying a tag path with trailing wildcards `".\*"`. For example, enter `alertTagPath.\*` to match alerts named `alertTagPath.tpc1`, `alertTagPath.tpc1.tpc11`, and so on.
+In queries, you achieve the same effect by specifying a tag path with trailing wildcards `".*"`. For example, enter `alertTagPath.*` to match alerts named `alertTagPath.tpc1`, `alertTagPath.tpc1.tpc11`, and so on.
 
-When you create maintenance windows, you can use tag paths and wildcards to put a group of of alerts in maintenance.
+When you create maintenance windows, you can use tag paths and wildcards to put a group of alerts in maintenance.
 
 
 <a name="entity_tags"></a>
