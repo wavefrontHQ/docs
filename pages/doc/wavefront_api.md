@@ -71,15 +71,17 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 
 **Note:** Using the default Swagger configuration settings might result in errors. Create your own configuration file instead, as in the following example for generating a Java client:
 
-1. Create a file `swagger-config.json`:
+1. Create a file `swagger-config.json`. Here's an example:
 ```
 {
-    "modelPackage": "com.wavefront.rest.models",
-    "apiPackage": "com.wavefront.rest.api.client",
-    "groupId": "com.wavefront.rest.api.client",
-    "artifactId": "wf-java-sdk",
-    "artifactVersion": "5.0-SNAPSHOT",
-    "sourceFolder": "src/main"
+"modelPackage": "com.wavefront.rest.models",
+"apiPackage": "com.wavefront.rest.api.client",
+"groupId": "com.wavefront.rest.api.client",
+"artifactId": "wavefront-java-sdk",
+"artifactVersion": "19.10",
+"sourceFolder": "src/main/java",
+"java8": true,
+"dateLibrary": "java8"
 }
 ```
 2. Generate the client, for example:
