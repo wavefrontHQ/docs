@@ -114,6 +114,6 @@ kubectl describe pod wavefront-proxy-pod-name -n kube-system
 Check wavefront-proxy pod logs:
 ```
 kubectl logs wavefront-proxy-pod-name -n kube-system -c wavefront-proxy
-kubectl logs wavefront-proxy-pod-name -n kube-system -c heapster
+kubectl logs wavefront-proxy-pod-name -n kube-system -c wavefront-collector
 kubectl logs wavefront-proxy-pod-name -n kube-system -c kube-state-metrics
 ```
