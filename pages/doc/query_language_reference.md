@@ -760,20 +760,20 @@ You can query histogram functions using `hs()` queries and apply a set of functi
 <td>Returns a histogram metric, which you can query with certain other query language functions. </td>
 </tr>
 <tr>
-<td>percentile(<strong>&lt;percentile&gt;</strong>, hs<strong>&lt;histogramMetricName&gt;.m</strong> )</td>
+<td>percentile(<strong>&lt;percentile&gt;</strong>, hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
 <td>Returns the specified histogram for the specified percentile, aggregated over a minute.</td>
 </tr>
 <tr>
-<td>max(hs<strong>&lt;histogramMetricName&gt;.m</strong>)</td>
+<td>max(hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
 <td>Returns the largest value in the specified histogram.</td>
 </tr>
 <tr>
-<td>median(hs<strong>&lt;histogramMetricName&gt;.m</strong>)</td>
+<td>median(hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
 <td>Returns the median value in the specified histogram.</td>
 </tr>
 <tr>
-<td>merge(hs<strong>&lt;histogramMetricName&gt;.m</strong>)</td>
-<td>Merges the centroids and counts of each series and returns the aggregated result <strong>histogramMetricName</strong>. Because this is an aggregation function, you can also group by point tags, for example, <strong>merge(hs(&lt;histogramMetricName&gt;.m, key)</strong>, where <strong>key</strong> is a point tag name.</td>
+<td>merge(hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
+<td>Merges the centroids and counts of each series and returns the aggregated result <strong>histogramMetricName</strong>. Because this is an aggregation function, you can also group by point tags, for example, <strong>merge(hs(&lt;histogramMetricName&gt;.m), key)</strong>, where <strong>key</strong> is a point tag name.</td>
 </tr>
 <tr>
 <td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>, &lt;histogramMetricName&gt;.m</strong>))</td>
