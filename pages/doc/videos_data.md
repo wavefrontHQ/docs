@@ -24,9 +24,9 @@ Learn about getting data into Wavefront and get background info on time series a
 </tr>
 <tr>
 <td><strong><font color="blue">Integrations</font></strong><br>
-<a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=534a1003-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_integrations_intro.png" alt="intro to integrations"/></a></td>
+<a href="https://bcove.video/2JTvMgW" target="_blank"><img src="/images/v_integrations_v2.png" alt="new intro to integrations"/></a></td>
 <td><br>
-<p>Jason shows how any user with Integrations permission can browse existing integrations and use the instructions in the Setup tab to get data flowing. He uses the Amazon Web Services example to illustrate setup, and then explores some predefined AWS dashboards.</p>
+<p>Jason shows how any user with Integrations permission can browse existing integrations and use the instructions in the Setup tab to get data flowing.</p>
 </td>
 </tr>
 <tr>
