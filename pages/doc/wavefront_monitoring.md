@@ -195,8 +195,8 @@ The proxy will essentially send two distributions to the Wavefront collector for
 ## Examining Sample Point Ingestion and New IDs
 
 Your Wavefront instance includes an HTTP endpoint that allows you to answer questions like the following:
-* Show me metrics ingested that starts with X
-* What is the pps for hosts under prefix Y
+* Show me ingested metrics with names that start with X
+* What is the pps for hosts with names that start with prefix Y
 * What are metrics that are tagged with K=V
 * Show me new metrics (metrics that the system hasn't seen before)
 * Show me new sources
@@ -211,24 +211,35 @@ Note: Direct Data Ingestion permission is required to use these endpoints.
 To examine the sample points ingested, go to    `https://<cluster>.wavefront.com/api/spy/points`
 
 The page displays:
-* A header that details what is being examined.
+* A header that details what is being examined
 * A divider
 * The results in close to real time (as soon as they are available)
 
 You can use the following parameters in the request:
 
-|**Parameter**|**Description**|
-|metric| Display only a metric line with a metric matching the given prefix|
-|host| Display only a metric line with a host matching the given prefix  |
-|pointTagKey|Display only a metric line with a point tag key (this can be repeated multiple times on the query, e.g. `points?pointTagKey=env&pointTagKey=colo)`
-|sampling|0 to 1, with 0.01 being 1%|
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+</thead>
+<tr><td markdown="span">metric</td>
+<td>Display only a metric line with a metric matching the given prefix.</td></tr>
+<tr><td markdown="span">host</td>
+<td>Display only a metric line with a host matching the given prefix. </td></tr>
+<tr><td markdown="span">pointTagKey</td>
+<td markdown="span">Display only a metric line with a point tag key (this can be repeated multiple times on the query, e.g. `points?pointTagKey=env&pointTagKey=colo)` </td></tr>
+<tr><td markdown="span">sampling</td>
+<td markdown="span">0 to 1, with 0.01 being 1% </td></tr>
+</tbody>
+</table>
+
 
 For example, if you have a Wavefront instance named `ex1`, you can use the following query URLs.
 
-<table>
+<table width="100%">
 <tbody>
 <thead>
-<tr><th width="25%">Ingestion Metric of Interest</th><th width="75%">Query</th></tr>
+<tr><th width="25%">Ingested Metrics to Show</th><th width="75%">Query</th></tr>
 </thead>
 <tr>
 <td>Show all ingested metrics that begin with <code>cpu</code>.</td>
@@ -254,36 +265,46 @@ For example, if you have a Wavefront instance named `ex1`, you can use the follo
 ID assignments happen each time the system sees a metric, a host, or the entire <code>key=value</code> string of a point tag. To examine new IDs created by the system, go to `https://<cluster>.wavefront.com/api/spy/ids`
 
 The page displays:
-* A header that details what is being examined.
-* A divider.
+* A header that details what is being examined
+* A divider
 * The results in close to real time (as soon as they are available)
 
 You can use the following parameters in the request:
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+</thead>
+<tr><td markdown="span">type</td>
+<td markdown="span">METRIC, HOST, or STRING. STRING shows point tags. Each point tag (e.g. `env=prod`) is a single string.</td></tr>
+<tr><td markdown="span">name</td>
+<td>Prefix for the item that you are interested in. </td></tr>
+<tr><td markdown="span">sampling</td>
+<td markdown="span">0 to 1, with 0.01 being 1% </td></tr>
+</tbody>
+</table>
 
-|Parameter| Description|
-|type|  METRIC, HOST, or STRING. STRING shows point tags. Each point tag, e.g. `env=prod` is a single string. |
-|name| Prefix for the item that you are interested in|
-|sampling| 0 to 1, with 0.01 being 1%|
+
 
 For example, if you have a Wavefront instance named `ex1`, you can use the following query URLs.
 
-<table>
+<table width="100%">
 <tbody>
 <thead>
-<tr><th width="35%">Ingestion Metric of Interest</th><th width="65%">Query</th></tr>
+<tr><th width="35%">ID Assignments to Show</th><th width="65%">Query</th></tr>
 </thead>
 <tr>
-<td>See ID assignments for metrics prefixed by <code>cpu</code>.</td>
+<td>Show ID assignments for metrics prefixed by <code>cpu</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=METRIC&name=cpu</code>
 </td>
 </tr>
 <tr>
-<td>See ID assignments for point tag key and values prefixed by <code>loc=palo</code>. </td>
+<td>Show ID assignments for point tag key and values prefixed by <code>loc=palo</code>. </td>
 <td><pre>http://ex1.wavefront.com/api/spy/ids?type=&name=loc%3Dpalo</pre>
 </td>
 </tr>
 <tr>
-<td>See ID assignments for hosts prefixed by <code>web1</code>.</td>
+<td>Show ID assignments for hosts prefixed by <code>web1</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=HOST&name=web1</code>
 </td>
 </tr>
