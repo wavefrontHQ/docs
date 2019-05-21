@@ -744,8 +744,8 @@ You can query histogram functions using `hs()` queries and apply a set of functi
 
 In the syntax summaries below:
 
--**hsMetric** is the name of the histogram metric.
--**hsTime** is the time. The time defaults to m (minutes) but can be h (hours) or d (days).
+- **hsMetric** is the name of the histogram metric.
+- **hsTime** is the time. The time defaults to m (minutes) but can be h (hours) or d (days).
 
 <table style="width: 100%;">
 <colgroup>
@@ -783,7 +783,7 @@ Because this is an aggregation function, you can group, for example, call <stron
 </tr>
 <tr>
 <td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.&lt;hsTime&gt;</strong>))</td>
-<td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;hsMetric&gt;.&lt;hsTime&gt;)) </strong> to output hourly buckets on a minute histogram.</td>
+<td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;hsMetric&gt;.&lt;hsTime&gt;)) </strong> to output hourly buckets for a minute histogram.</td>
 </tr>
 <tr>
 <td>count(hs(<strong>, &lt;hsMetric&gt;.&lt;hsTime&gt;</strong>))</td>
