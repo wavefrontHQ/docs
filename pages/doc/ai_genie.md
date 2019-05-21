@@ -20,6 +20,8 @@ Wavefront chief architect and co-founder talks about AI Genie in the following t
 </tbody>
 </table>
 
+**Note:** With release 2019.18, Wavefront introduced a different algorithm to perform forecasting and we now use this algorithm for forecasting in AI Genie. You can also call the corresponding [nnforecast](ts_nnforecast.html) function explicitly.
+
 ## AI Genie Use Cases
 
 AI Genie offers an alternate view of your chart data that is focused on anomaly detection and forecasting and that supports two main use cases, anomaly detection and forecasting.
@@ -37,10 +39,14 @@ Assume that SRE Robin has received an alert that an application is slow.
 
 Assume that Jo, an application developer, works on the backend database technology. In the company environment, each instance of the application is dedicated to a different customer, so the instances can be sized independently depending on customer usage.
 
-1. Jo needs to know several weeks ahead of time when the instance has to be expanded, and uses Wavefront to look at a chart that shows usage of the service over the last few weeks.
-2. Next, Jo switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict what saturation levels will look like for the next four weeks.
-3. Jo adjusts the historic sample size to 5 weeks, and selects a conservative confidence factor. Even with conservative forecasting, saturation will be above 90% in 25 days.
-4. Jo initiates a change request to scale the cluster during the next change window. Jo also saves the chart to a new dashboard -- that dashboard will be useful later for exploration of other metrics associated with the same change window.
+1. Jo needs to know several weeks ahead of time when the instance has to be expanded, and uses Wavefront to look at a chart that shows usage of a service over the last few weeks.
+2. Next, Jo switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict what saturation levels will look like for the next week.
+
+![forecasting](images/ai_genie_forecast.png)
+3. Jo can adjust the forecast period to 1 month or 3 month, and select a conservative confidence factor.
+4. When a service looks as if it will no longer meet customer requirements, Jo can initiate a change request to scale the cluster during the next change window. Jo can also save the chart to a new dashboard -- that dashboard will be useful later for exploration of other metrics associated with the same change window.
+
+
 
 ## How to Use AI Genie
 
@@ -51,10 +57,14 @@ To access AI Genie:
 
    ![open genie](images/open_ai_genie.png)
    AI Genie opens in a new browser tab, with Anomaly Detection selected initially.
-2. With Anomaly Detection selected, you can customize the Display Settings, Historical Sample Size, and Sensitivity. You can focus on individual time series just as you do for other charts.
+2. With **Anomaly Detection** selected, you can customize the Display Settings, Historical Sample Size, and Sensitivity. You can focus on individual time series just as you do for other charts.
    For sensitivity, **High** means that there's a 67% chance that the data is anomalous, **Medium** means there's a 95% chance, and **Low** means there's a 99% chance.
 3. Click **Save To > Save as New Alert** to save the anomaly query as an alert.
    When the Create Alert page displays, you see that the `anomalous` function is part of the query. You do some alert customization, but several settings are optimized for anomaly detection.
 
    ![anomaly alert](images/anomaly_save_as_alertpng.png)
-3. Select **Forecasting** to explore forecasting for the current set of time series. You can customize the historical sample size and confidence. If you display confidence bands, they change as you select a different confidence factor.
+3. Select **Forecasting** to explore forecasting for the current set of time series. You can customize the forecast period and confidence.
+   - The selected forecast period determines the time window that the chart displays. We reserve 1/3 of the chart for the forecast, and two thirds of the chart for the history of the metric.
+   - If you display confidence bands, they change as you select a different confidence factor.
+
+If Wavefront cannot find enough historical data to produce a forecast for the requested period, then AI Genie shows no results.
