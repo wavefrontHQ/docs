@@ -439,11 +439,8 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tbody>
 </table>
 
-## Querying Histogram Metrics
 
-Wavefront follows specific naming conventions for histogram metrics and defines functions to query and summarize histogram metrics.
-
-### Histogram Metric Naming
+## Histogram Metric Naming
 
 You send metrics using the standard [Wavefront data format](wavefront_data_format.html):
 
@@ -455,22 +452,16 @@ For example, `request.latency 20 1484877771 source=<source>`.
 
 Wavefront adds the suffixes `.m`, `.h`, or `.d` to the metric name according to the aggregation interval. For example, if the metric `request.latency` is aggregated over an hour, the metric will be named: `request.latency.h`.
 
-### Histogram Functions
+## Querying Histogram Metrics
 
 To query histogram metrics, use `hs()` queries.
+* Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram format, three metrics result. If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
+* To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
 
-You can apply the following functions to the returned data&mdash; `percentile`,  `max`, `min`, `median`, `merge`,  `align`, and `count`. For example:
+By default, we wrap a `median()` function around the result, but you can instead display percentile, max, or count.
 
-* `percentile(<percentile>, hs(<histogramMetricName>.m))`-- Returns `<histogramMetricName>` for the `<percentile>` percentile aggregated over a minute.
-* `max(hs(<histogramMetricName>.m))` -- Returns the largest value in `<histogramMetricName>`
-* `median(hs(<histogramMetricName>.m))` -- Returns the median of `<histogramMetricName>`
-* `merge(hs(<histogramMetricName>.m))` -- Merges the centroids and counts of each series and returns the aggregated result `<histogramMetricName>`. Because this is an aggregation function, you can also group by point tags. ie: `merge(hs(<histogramMetricName>.m),key)` where `key` is a point tag name.
-* `align(<timeWindow>,hs(<histogramMetricName>.m))` -- Allows the user to merge histograms across time buckets. For example, use `align(1h, hs(<histogramMetricName>.m))` to output hourly buckets on a minutely histogram.
-* `count(hs(<histogramMetricName>.m))` –- Returns the number of values in a distribution.
 
-{% include note.html content="Direct histogram visualization in charts is not currently supported. By default, charts display `median(hs(...))`. You can change the displayed function by explicitly wrapping the `hs()` function with one of the supported functions listed above, for example, `max(hs(...))`." %}
-
-## Viewing Histogram Metrics
+## Viewing Histograms in the Histogram Browser
 
 You can view histograms in the Histogram browser.
 
