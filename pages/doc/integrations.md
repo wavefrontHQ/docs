@@ -11,9 +11,16 @@ Integrations are one easy way to get data from external systems into Wavefront. 
 
 We update our list of [new and updated built-in integrations](integrations_new_changed.html) monthly.
 
+## Watch a Video
+
+In this video, Jason talks about the different integrations we have, and how you can use them to get your data into Wavefront.
+
+<p><a href="https://bcove.video/2JTvMgW"><img src="/images/v_integrations_v2.png" style="width: 700px;" alt="new intro to integratons"/></a>
+</p>
+
 ## Try an Integration!
 
-Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product.
+Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product. 
 
 Here's a sample of what you see when you select one of the Wavefront integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
