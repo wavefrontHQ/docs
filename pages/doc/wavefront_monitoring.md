@@ -12,15 +12,16 @@ This page discusses monitoring your Wavefront instance. It includes a section ab
 
 ## Wavefront Internal Metrics Overview
 
-Wavefront collects several categories of internal metrics. These categories have the following prefixes:
+Wavefront collects several categories of internal metrics. This section gives an overview, see [Using Internal Metrics to Optimize Performance ](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) below for details.
 
-- `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance. 
+- `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance.
 - `~collector` - metrics processed at the collector gateway to the Wavefront instance.
-- `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source. 
+- `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source.
 - `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor.
   {% include note.html content="Proxy metrics historically had the prefix `~agent` and queries support both `~proxy` and `~agent`. Query errors still refer to the `~agent` prefix. For example - `No metrics matching - [~agent.points.*.received]`." %}
   See [Monitoring Wavefront Proxies](monitoring_proxies.html).
 - `~wavefront` - set of gauges that track metrics about your use of Wavefront.
+- `~http.api` - namespace for looking at API request metrics.
 
 If you have an [AWS integration](integrations_aws_metrics.html), metrics with the following prefix are available:
 
@@ -99,7 +100,7 @@ Wavefront customer support engineers have found the following metrics especially
 <table>
 <tbody>
 <thead>
-<tr><th width="15%">Type</th><th width="40%">Metric</th><th width="45%">Description</th></tr>
+<tr><th width="12%">Type</th><th width="33%">Metric</th><th width="55%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">~alert</td>
@@ -114,10 +115,10 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">~alert.checking_frequency.&lt;alert_id&gt;</td>
 <td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.</td></tr>
 <tr>
-<td markdown="span">~collector(*)</td>
+<td markdown="span">~collector</td>
 <td markdown="span">~collector.points.reported, <br> ~collector.histograms.reported, <br>~collector.tracing.spans.reported, <br>
-~collector.direct-ingestion.tracing.spans.reported</td>
-<td markdown="span">Valid metric points, histogram points, or [trace data (spans)](tracing_basics.html#trace-sampling-and-storage) that the collector reports to Wavefront. This is the billing metric that customers can look up on their system dashboard. </td></tr>
+~collector.direct-ingestion.tracing. spans.reported</td>
+<td markdown="span">Valid metric points, histogram points, or [trace data (spans)](tracing_basics.html#trace-sampling-and-storage) that the collector reports to Wavefront. This is the billing metric that you can look up on their system dashboard. The collector is in the Wavefront cloud and comes after the agents and proxies.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.valid, ~collector.histograms.valid</td>
@@ -145,10 +146,16 @@ Wavefront customer support engineers have found the following metrics especially
 <tr>
 <td markdown="span">~query</td>
 <td>~query.requests</td><td>Counter tracking the number of queries a user made.</td></tr>
+<tr>
+<td markdown="span">~http.api</td>
+<td markdown="span">~http.api.v2.*</td>
+<td>Monotonic counter, without tags, that can be aligned with the API endpoints and allows you to examine API request metrics.<br>
+For example: <strong>ts(~http.api.v2.alert.{id}.GET.200.count)</strong> aligns with the <strong>GET /api/v2/alert/{id}</strong> API endpoint.<br>
+Examine the <strong>~http.api.v2.</strong> namespace to see the counters for specific API endpoints.</td></tr>
 </tbody>
 </table>
 
-(*) The collector is in the Wavefront cloud and comes after the agents and proxies.
+
 
 
 ### Viewing Internal Metrics
