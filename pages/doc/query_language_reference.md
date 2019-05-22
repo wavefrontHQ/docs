@@ -705,6 +705,66 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 </tbody>
 </table>
 
+## String Functions
+
+We support 3 groups of string manipulation functions.
+* The first group takes only an expression as an argument, for example, `length(ts(my.metric))`.
+* The second group takes a string and an expression arguments. Use those functions, for example, to see whether a specified string is found in an expression.
+* The third group takes a number and allows you for example, to find the character at a certain location a ts expression.
+<table style="width: 100%;">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>length(<strong>&lt;expression&gt;</strong>)<br/> isEmpty(<strong>&lt;expression&gt;</strong>)<br/> toLowerCase(<strong>&lt;expression&gt;</strong>)<br/>
+toUpperCase(<strong>&lt;expression&gt;</strong>)<br/> trim(<strong>&lt;expression&gt;</strong>)<br/>
+strip(<strong>&lt;expression&gt;</strong>)<br/>
+stripLeading(<strong>&lt;expression&gt;</strong>)<br/>
+stripTrailing(<strong>&lt;expression&gt;</strong>)<br/> isBlank(<strong>&lt;expression&gt;</strong>)<br/></td>
+<td>String function to examine or modify a specified expression. For example, call</td>
+</tr>
+<tr>
+<td>
+equals(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+equalsIgnoreCase(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+startsWith(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+endsWith(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+indexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+lastIndexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+concat(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+matches(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+contains(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/></td>
+<td>String function to compare an expression to a specified string. For example, call</td>
+</tr>
+<tr>
+<td>
+charAt(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+substring(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+repeat(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+</td>
+<td>String functions that take an integer as an argument.
+<ul><li>strong>charAt</strong> returns the character at the location specified by the integer. </li>
+<li><strong>substring</strong> starts at the location specified by the integer and returns all characters in the expression.</li>
+<li><strong>repeat</strong>repeats</li></ul>. For example, call</td>
+</tr>
+<tr>
+<td>
+substring(<strong>&lt;integer1&gt;, &lt;integer2&gt;, &lt;expression&gt;</strong>)<br/>
+</td>
+<td>String function that take two integers as an argument and returns the string that starts with &lt;integer1&gt; and ends with &lt;integer2&gt;.</td>
+</tr>
+</tbody>
+</table>
+
+
 ## Predictive Functions
 
 <table style="width: 100%;">
@@ -788,6 +848,14 @@ Because this is an aggregation function, you can group, for example, call <stron
 <tr>
 <td>count(hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the number of values in a distribution.</td>
+</tr>
+<tr>
+<td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns a distribution summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+</tr>
+<tr>
+<td>mergedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns a merged summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>mergedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>
 </table>
