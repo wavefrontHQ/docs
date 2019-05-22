@@ -192,9 +192,9 @@ The proxy will essentially send two distributions to the Wavefront collector for
 
  `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users unintentionally send many queries to Wavefront, especially if they use the API for the queries. The results can become difficult to interpret, and system performance might suffer.
 
-## Examine Ingested Data Points
+## Examine Ingested Metric Points
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested data points that have specified characteristics. You can use the returned list of points (typically as input to a script that you write) to answer questions like the following:
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested metric points that have specified characteristics. You can use the returned list of points to help you answer questions like:
 
 * Show me some ingested points with metric names that start with the prefix `Cust`.
 * How many pps come from hosts with names that start with the prefix `web`?
@@ -265,7 +265,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Examine Ingested Spans
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans (typically as input to a script that you write) to answer questions like the following:
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans to help you answer questions like:
 
 * Show me some ingested spans with names that start with the prefix `order`.
 * How many spans-per-second come from hosts with names that start with the prefix `web`?
@@ -273,7 +273,7 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of ing
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use the endpoint." %}
 
-**Note:** You can [examine a sample of ingested points](#examine-ingested-points) by using a different endpoint.
+**Note:** You can [examine a sample of ingested points](#examine-ingested-metric-points) by using a different endpoint.
 
 ### Endpoint and Parameters for Requesting Spans
 
@@ -339,9 +339,9 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Examine New IDs
 
-During ingestion, Wavefront assigns a unique ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. 
+During ingestion, Wavefront assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. 
 
-Your Wavefront instance includes an HTTP endpoint that provides a short window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront system hasn't seen yet.
+Your Wavefront instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront system hasn't seen yet.
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use the endpoint." %}
 
@@ -364,16 +364,16 @@ To get ID assignments for a specific type of new item, add one or more of the fo
 <td>
 Type of new items you want to see ID assignments for: 
 <ul><li>
-METRIC - Each new metric name
+METRIC - Metric names
 </li>
 <li>
-SPAN - Each new span name
+SPAN - Span names
 </li>
 <li>
-HOST - Each new source name
+HOST - Source names
 </li>
 <li>
-STRING - Each new point tag or span tag, represented as a single string containing a unique key-value pair, e.g. `env=prod`, `env=dev`, etc.
+STRING - Point tags or span tags, represented as a single string containing a unique key-value pair, e.g. `env=prod`, `env=dev`, etc.
 </li>
 </ul>
 
@@ -397,32 +397,32 @@ Suppose you have a Wavefront instance named `ex1`.
 <tr><th width="35%">To Get ID Assignments <br>For These Items</th><th width="65%">Use This Request</th></tr>
 </thead>
 <tr>
-<td>All new metric names, span names, source names, and tags.</td>
+<td>All metric names, span names, source names, and tags.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids</code>
 </td>
 </tr>
 <tr>
-<td>All new metric names.</td>
+<td>All metric names.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=METRIC</code>
 </td>
 </tr>
 <tr>
-<td>New metric names that start with <code>cpu</code>.</td>
+<td>Metric names that start with <code>cpu</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=METRIC&name=cpu</code>
 </td>
 </tr>
 <tr>
-<td>New key-value pairs with keys that start with <code>comp</code>. </td>
+<td>Key-value pairs with keys that start with <code>comp</code>. </td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=STRING&name=comp</code>
 </td>
 </tr>
 <tr>
-<td>New key-value pairs of the form <code>loc=palo</code>. </td>
+<td>Key-value pairs of the form <code>loc=palo</code>. </td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=STRING&name=loc%3Dpalo</code>
 </td>
 </tr>
 <tr>
-<td>New source names that start with <code>web1</code>.</td>
+<td>Source names that start with <code>web1</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=HOST&name=web1</code>
 </td>
 </tr>
