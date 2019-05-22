@@ -40,12 +40,11 @@ Assume that SRE Robin has received an alert that an application is slow.
 Assume that Jo, an application developer, works on the backend database technology. In the company environment, each instance of the application is dedicated to a different customer, so the instances can be sized independently depending on customer usage.
 
 1. Jo needs to know several weeks ahead of time when the instance has to be expanded, and uses Wavefront to look at a chart that shows usage of a service over the last few weeks.
-2. Next, Jo switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict what saturation levels will look like for the next week.
+2. Next, Jo switches to AI Genie and selects **Forecasting** to see how the Wavefront AI algorithms predict usage levels for the next week.
+3. Jo can adjust the forecast period to 1 month or 3 month, and select a conservative or aggressive confidence factor.
+4. When a service looks as if it will no longer meet customer requirements in the future, Jo can initiate a change request to scale the cluster during the next change window. Jo can also save the chart with the metric to a new dashboard -- that dashboard will be useful later for exploration of other metrics associated with the same change window.
 
 ![forecasting](images/ai_genie_forecast.png)
-3. Jo can adjust the forecast period to 1 month or 3 month, and select a conservative confidence factor.
-4. When a service looks as if it will no longer meet customer requirements, Jo can initiate a change request to scale the cluster during the next change window. Jo can also save the chart to a new dashboard -- that dashboard will be useful later for exploration of other metrics associated with the same change window.
-
 
 
 ## How to Use AI Genie
@@ -63,8 +62,8 @@ To access AI Genie:
    When the Create Alert page displays, you see that the `anomalous` function is part of the query. You do some alert customization, but several settings are optimized for anomaly detection.
 
    ![anomaly alert](images/anomaly_save_as_alertpng.png)
-3. Select **Forecasting** to explore forecasting for the current set of time series. You can customize the forecast period and confidence.
+4. Select **Forecasting** to explore forecasting for the current set of time series. You can customize the forecast period and confidence.
    - The selected forecast period determines the time window that the chart displays. We reserve 1/3 of the chart for the forecast, and two thirds of the chart for the history of the metric.
    - If you display confidence bands, they change as you select a different confidence factor.
 
-If Wavefront cannot find enough historical data to produce a forecast for the requested period, then AI Genie shows no results.
+   If Wavefront cannot find enough historical data to produce a forecast for the requested period, then AI Genie shows no results.
