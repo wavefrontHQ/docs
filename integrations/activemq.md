@@ -29,7 +29,7 @@ First, create a file called `activemq.conf` in `/etc/telegraf/telegraf.d` and en
 {% raw %}
 ```
 [[inputs.jolokia2_agent]]
-urls = ["http://10.152.24.99:8161/api/jolokia"]
+urls = ["http://localhost:8161/api/jolokia"]
 name_prefix = "activemq."
 username = "admin"
 password = "admin"
@@ -95,7 +95,7 @@ password = [password]
 ```
 Example:
 ```
-urls = ["http://10.152.24.99:8161/api/jolokia"]
+urls = ["http://localhost:8161/api/jolokia"]
 username = "admin"
 password = "admin"
 ```
