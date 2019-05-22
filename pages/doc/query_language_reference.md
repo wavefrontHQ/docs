@@ -742,6 +742,11 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 
 You can query histogram functions using `hs()` queries and apply a set of functions to the returned data. See [Wavefront Histograms](proxies_histograms.html) for background.
 
+In the syntax summaries below:
+
+- **`hsMetric`** is the name of the histogram metric.
+- **`m|h|d`** is the [histogram integration interval](proxies_histograms.html#histogram-metric-aggregation-intervals). The interval can be m (minutes), h (hours), or d (days).
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -755,32 +760,33 @@ You can query histogram functions using `hs()` queries and apply a set of functi
 </thead>
 <tbody>
 <tr>
-<td>hs(<strong>&lt;histogram_metric&gt;</strong>)
+<td>hs(<strong>&lt;hsMetric&gt;</strong>)
 </td>
 <td>Returns a histogram metric, which you can query with certain other query language functions. </td>
 </tr>
 <tr>
-<td>percentile(<strong>&lt;percentile&gt;</strong>, hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
+<td>percentile(<strong>&lt;percentile&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the specified histogram for the specified percentile, aggregated over a minute.</td>
 </tr>
 <tr>
-<td>max(hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
-<td>Returns the largest value in the specified histogram.</td>
+<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the largest value in the specified histogram. </td>
 </tr>
 <tr>
-<td>median(hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
+<td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the median value in the specified histogram.</td>
 </tr>
 <tr>
-<td>merge(hs(<strong>&lt;histogramMetricName&gt;.m</strong>))</td>
-<td>Merges the centroids and counts of each series and returns the aggregated result <strong>histogramMetricName</strong>. Because this is an aggregation function, you can also group by point tags, for example, <strong>merge(hs(&lt;histogramMetricName&gt;.m), key)</strong>, where <strong>key</strong> is a point tag name.</td>
+<td>merge(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>)&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
+<td>Merges the centroids and counts of each series and returns the aggregated result <strong>hsMetric</strong>. <br>
+Because this is an aggregation function, you can group, for example, call <strong>merge(hs(&lt;hsMetric&gt;.m), myKey)</strong>, where <strong>myKey</strong> is a point tag name. </td>
 </tr>
 <tr>
-<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>, &lt;histogramMetricName&gt;.m</strong>))</td>
-<td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;histogramMetricName&gt;.m)) </strong> to output hourly buckets on a minute histogram.</td>
+<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;hsMetric&gt;.m)) </strong> to output hourly buckets for a minute histogram.</td>
 </tr>
 <tr>
-<td>count(hs(<strong>, &lt;histogramMetricName&gt;.m</strong>))</td>
+<td>count(hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the number of values in a distribution.</td>
 </tr>
 </tbody>
