@@ -192,30 +192,27 @@ The proxy will essentially send two distributions to the Wavefront collector for
 
  `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users unintentionally send many queries to Wavefront, especially if they use the API for the queries. The results can become difficult to interpret, and system performance might suffer.
 
-## Examining Sample Point Ingestion and New IDs
+## Examine Ingested Data Points
 
-Your Wavefront instance includes an HTTP endpoint that allows you to answer questions like the following:
-* Show me ingested metrics with names that start with X
-* What is the pps for hosts with names that start with prefix Y
-* What are metrics that are tagged with K=V
-* Show me new metrics (metrics that the system hasn't seen before)
-* Show me new sources
-* Show me new point tags (K=V)
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested data points that have specified characteristics. You can use the returned list of points (typically as input to a script that you write) to answer questions like the following:
 
-Because the endpoint hits a single back-end, the call returns only what a single ingestion shard sees, even with 100% sampling.
+* Show me some ingested points with metric names that start with the prefix `Cust`.
+* How many pps come from hosts with names that start with the prefix `web`?
+* What are some points that are tagged with `env=prod`?
 
-Note: Direct Data Ingestion permission is required to use these endpoints.
+{% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use the endpoint." %}
 
-### Examining Points
+**Note:** You can [examine a sample of ingested spans](#examine-ingested-spans) by using a different endpoint.
 
-To examine the sample points ingested, go to    `https://<cluster>.wavefront.com/api/spy/points`
+### Endpoint and Parameters for Requesting Points
 
-The page displays:
-* A header that details what is being examined
-* A divider
-* The results in close to real time (as soon as they are available)
+To get a sampling of ingested data points, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-You can use the following parameters in the request:
+  ```https://<cluster>.wavefront.com/api/spy/points``` 
+
+The page displays a header that describes your request and lists the results, if any, in close to real time (as soon as they are available). Each point is listed on a separate line.
+
+To get a sampling of points with specific characteristics, add one or more of the following parameters:
 
 <table width="100%">
 <tbody>
@@ -223,94 +220,217 @@ You can use the following parameters in the request:
 <tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
 </thead>
 <tr><td markdown="span">metric</td>
-<td>Display only a metric line with a metric matching the given prefix.</td></tr>
+<td markdown="span">List a point only if its metric name starts with the specified case-sensitive prefix. <br> E.g., `metric=Cust` matches metrics named `Customer`, `Customers`, `Customer.alerts`, but not `customer`.</td></tr>
 <tr><td markdown="span">host</td>
-<td>Display only a metric line with a host matching the given prefix. </td></tr>
+<td>List a point only if its source name starts with the specified case-sensitive prefix. </td></tr>
 <tr><td markdown="span">pointTagKey</td>
-<td markdown="span">Display only a metric line with a point tag key (this can be repeated multiple times on the query, e.g. `points?pointTagKey=env&pointTagKey=colo)` </td></tr>
+<td markdown="span">List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., `pointTagKey=env&pointTagKey=datacenter` </td></tr>
 <tr><td markdown="span">sampling</td>
-<td markdown="span">0 to 1, with 0.01 being 1% </td></tr>
+<td markdown="span">0 to 1, with 0.01 being 1%. <br> **Note:** Because the endpoint connects to a single Wavefront back-end, data is returned from only a single ingestion shard, even when you request 100% sampling.  </td></tr>
 </tbody>
 </table>
 
 
-For example, if you have a Wavefront instance named `ex1`, you can use the following query URLs.
+### Example Requests for Points
+
+Suppose you have a Wavefront instance named `ex1`.
 
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="25%">Ingested Metrics to Show</th><th width="75%">Query</th></tr>
+<tr><th width="30%">To List a Sample of<br>These Points</th><th width="70%">Use This Query URL</th></tr>
 </thead>
 <tr>
-<td>Show all ingested metrics that begin with <code>cpu</code>.</td>
-<td><code>http://ex1.wavefront.com/api/spy/points?metric=cpu</code>
+<td markdown="span">Ingested points for any metric. </td>
+<td><code>http://ex1.wavefront.com/api/spy/points</code>
 </td>
 </tr>
 <tr>
-<td>Show all metrics with the point tag <code>env</code> and <code>loc</code>.</td>
-<td><pre>http://ex1.wavefront.com/api/spy/points?pointTagKey=env&pointTagKey=loc</pre>
+<td markdown="span">Ingested points with metric names that start with `Cust`. </td>
+<td><code>http://ex1.wavefront.com/api/spy/points?metric=Cust</code>
 </td>
 </tr>
 <tr>
-<td>Show all ingested metrics for a host prefixed <code>web1</code>.</td>
+<td>Ingested points that have point tags named <code>env</code> and <code>loc</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/points?pointTagKey=env&pointTagKey=loc</code>
+</td>
+</tr>
+<tr>
+<td>Ingested points from a source whose name starts with <code>web1</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/points?host=web1</code>
 </td>
 </tr>
 </tbody>
 </table>
 
+## Examine Ingested Spans
 
-### Examining New IDs
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans (typically as input to a script that you write) to answer questions like the following:
 
-ID assignments happen each time the system sees a metric, a host, or the entire <code>key=value</code> string of a point tag. To examine new IDs created by the system, go to `https://<cluster>.wavefront.com/api/spy/ids`
+* Show me some ingested spans with names that start with the prefix `order`.
+* How many spans-per-second come from hosts with names that start with the prefix `web`?
+* What are some spans that are tagged with `cluster` or `shard`?
 
-The page displays:
-* A header that details what is being examined
-* A divider
-* The results in close to real time (as soon as they are available)
+{% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use the endpoint." %}
 
-You can use the following parameters in the request:
+**Note:** You can [examine a sample of ingested points](#examine-ingested-points) by using a different endpoint.
+
+### Endpoint and Parameters for Requesting Spans
+
+To get a sampling of ingested spans, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+
+  ```https://<cluster>.wavefront.com/api/spy/spans```
+
+
+The page displays a header that describes your request, and lists the results, if any, in close to real time (as soon as they are available). Each span is listed on a separate line.
+
+To get a sampling of spans with specific characteristics, add one or more of the following parameters:
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+</thead>
+<tr><td markdown="span">name</td>
+<td markdown="span">List a span only if its operation name starts with the specified case-sensitive prefix. <br> E.g., `name=orderShirt` matches spans named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
+<tr><td markdown="span">host</td>
+<td>List a span only if the name of its source starts with the specified case-sensitive prefix. </td></tr>
+<tr><td markdown="span">spanTagKey</td>
+<td markdown="span">List a span only if it has the specified span tag key. Add this parameter multiple times to specify multiple span tags, e.g. `spanTagKey=cluster&spanTagKey=shard` </td></tr>
+<tr><td markdown="span">sampling</td>
+<td markdown="span">0 to 1, with 0.01 being 1%. <br> **Note:** Because the endpoint connects to a single Wavefront back-end, data is returned from only a single ingestion shard, even when you request 100% sampling. 
+ </td></tr>
+</tbody>
+</table>
+
+
+### Example Requests for Spans
+
+Suppose you have a Wavefront instance named `ex1`.
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="30%">To Get a Sample of <br>These Spans</th><th width="70%">Use This Request</th></tr>
+</thead>
+<tr>
+<td>Ingested spans representing any operation.</td>
+<td><code>http://ex1.wavefront.com/api/spy/spans</code>
+</td>
+</tr>
+<tr>
+<td>Ingested spans with names that begin with <code>orderShirts</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/spans?name=orderShirts</code>
+</td>
+</tr>
+<tr>
+<td>Ingested spans that have span tags <code>cluster</code> and <code>shard</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/spans?spanTagKey=cluster&spanTagKey=shard</code>
+</td>
+</tr>
+<tr>
+<td>Ingested spans from a host whose name starts with <code>web1</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/spans?host=web1</code>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+## Examine New IDs
+
+During ingestion, Wavefront assigns a unique ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. 
+
+Your Wavefront instance includes an HTTP endpoint that provides a short window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront system hasn't seen yet.
+
+{% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use the endpoint." %}
+
+### Endpoint and Parameters for Requesting ID Assignments
+
+To get a list of new ID assignments, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance: 
+
+  ```https://<cluster>.wavefront.com/api/spy/ids```
+
+The page displays a header that describes your request, and lists the results, if any, in close to real time (as soon as they are available). Each ID assignment is listed on a separate line.
+
+To get ID assignments for a specific type of new item, add one or more of the following parameters:
+
 <table width="100%">
 <tbody>
 <thead>
 <tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
 </thead>
 <tr><td markdown="span">type</td>
-<td markdown="span">METRIC, HOST, or STRING. STRING shows point tags. Each point tag (e.g. `env=prod`) is a single string.</td></tr>
+<td>
+Type of new items you want to see ID assignments for: 
+<ul><li>
+METRIC - Each new metric name
+</li>
+<li>
+SPAN - Each new span name
+</li>
+<li>
+HOST - Each new source name
+</li>
+<li>
+STRING - Each new point tag or span tag, represented as a single string containing a unique key-value pair, e.g. `env=prod`, `env=dev`, etc.
+</li>
+</ul>
+
+</td></tr>
 <tr><td markdown="span">name</td>
-<td>Prefix for the item that you are interested in. </td></tr>
+<td>Case-sensitive prefix for the items that you are interested in. </td></tr>
 <tr><td markdown="span">sampling</td>
-<td markdown="span">0 to 1, with 0.01 being 1% </td></tr>
+<td markdown="span">0 to 1, with 0.01 being 1% <br> **Note:** Because the endpoint connects to a single Wavefront back-end, data is returned from only a single ingestion shard, even when you request 100% sampling. </td></tr>
 </tbody>
 </table>
 
 
 
-For example, if you have a Wavefront instance named `ex1`, you can use the following query URLs.
+### Example Requests for New IDs
+
+Suppose you have a Wavefront instance named `ex1`.
 
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="35%">ID Assignments to Show</th><th width="65%">Query</th></tr>
+<tr><th width="35%">To Get ID Assignments <br>For These Items</th><th width="65%">Use This Request</th></tr>
 </thead>
 <tr>
-<td>Show ID assignments for metrics prefixed by <code>cpu</code>.</td>
+<td>All new metric names, span names, source names, and tags.</td>
+<td><code>http://ex1.wavefront.com/api/spy/ids</code>
+</td>
+</tr>
+<tr>
+<td>All new metric names.</td>
+<td><code>http://ex1.wavefront.com/api/spy/ids?type=METRIC</code>
+</td>
+</tr>
+<tr>
+<td>New metric names that start with <code>cpu</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=METRIC&name=cpu</code>
 </td>
 </tr>
 <tr>
-<td>Show ID assignments for point tag key and values prefixed by <code>loc=palo</code>. </td>
-<td><pre>http://ex1.wavefront.com/api/spy/ids?type=&name=loc%3Dpalo</pre>
+<td>New key-value pairs with keys that start with <code>comp</code>. </td>
+<td><code>http://ex1.wavefront.com/api/spy/ids?type=STRING&name=comp</code>
 </td>
 </tr>
 <tr>
-<td>Show ID assignments for hosts prefixed by <code>web1</code>.</td>
+<td>New key-value pairs of the form <code>loc=palo</code>. </td>
+<td><code>http://ex1.wavefront.com/api/spy/ids?type=STRING&name=loc%3Dpalo</code>
+</td>
+</tr>
+<tr>
+<td>New source names that start with <code>web1</code>.</td>
 <td><code>http://ex1.wavefront.com/api/spy/ids?type=HOST&name=web1</code>
 </td>
 </tr>
-
 </tbody>
 </table>
+
+
+
 
 ## Examine Slow Queries
 
