@@ -729,7 +729,7 @@ toUpperCase(<strong>&lt;expression&gt;</strong>)<br/> trim(<strong>&lt;expressio
 strip(<strong>&lt;expression&gt;</strong>)<br/>
 stripLeading(<strong>&lt;expression&gt;</strong>)<br/>
 stripTrailing(<strong>&lt;expression&gt;</strong>)<br/> isBlank(<strong>&lt;expression&gt;</strong>)<br/></td>
-<td>String function to examine or modify a specified expression. For example, call</td>
+<td>String function to examine or modify a specified expression. </td>
 </tr>
 <tr>
 <td>
@@ -742,7 +742,7 @@ lastIndexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
 concat(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
 matches(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
 contains(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/></td>
-<td>String function to compare an expression to a specified string. For example, call</td>
+<td>String function to compare an expression to a specified string.</td>
 </tr>
 <tr>
 <td>
@@ -751,15 +751,15 @@ substring(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
 repeat(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
 </td>
 <td>String functions that take an integer as an argument.
-<ul><li>strong>charAt</strong> returns the character at the location specified by the integer. </li>
+<ul><li><strong>charAt</strong> returns the character at the location specified by the integer. </li>
 <li><strong>substring</strong> starts at the location specified by the integer and returns all characters in the expression.</li>
-<li><strong>repeat</strong>repeats</li></ul>. For example, call</td>
+<li><strong>repeat</strong> repeats</li></ul>.</td>
 </tr>
 <tr>
 <td>
 substring(<strong>&lt;integer1&gt;, &lt;integer2&gt;, &lt;expression&gt;</strong>)<br/>
 </td>
-<td>String function that take two integers as an argument and returns the string that starts with &lt;integer1&gt; and ends with &lt;integer2&gt;.</td>
+<td>String function that takes two integers as an argument and returns the string that starts at position &lt;integer1&gt; and ends at position &lt;integer2&gt;.</td>
 </tr>
 </tbody>
 </table>

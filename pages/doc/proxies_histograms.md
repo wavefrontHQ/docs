@@ -452,16 +452,43 @@ For example, `request.latency 20 1484877771 source=<source>`.
 
 Wavefront adds the suffixes `.m`, `.h`, or `.d` to the metric name according to the aggregation interval. For example, if the metric `request.latency` is aggregated over an hour, the metric will be named: `request.latency.h`.
 
-## Querying Histogram Metrics
+## Querying and Viewing Histogram Metrics
 
-To query histogram metrics, use `hs()` queries.
-* Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram format, three metrics result. If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
-* To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
+You can display time series metrics in Wavefront charts using `ts()` queries. To display histograms, you use `hs()` queries in conjunction with histogram functions, or the histogram browser.
 
-By default, we wrap a `median()` function around the result, but you can instead display percentile, max, or count.
+### Histogram Query Basics
 
+You can query histogram metrics with `hs()` queries. Each histogram metric has an extension .d, .h, or .m.
+* If you sent a metric in histogram format, three metrics result.
+* If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
 
-## Viewing Histograms in the Histogram Browser
+When you add a histogram query to a chart, we To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
+
+By default, we wrap a `median()` function around the result and display the median:
+
+![default histogram](images/hs_median.png)
+
+You can explicitly wrap another [histogram functions](query_language_reference.html#histogram-functions) around the result to see other information.
+
+### Using summary() and alignedSummary() for Histogram Visualization
+
+Users often need more information about a histogram than the median or any of the supported functions make available. To make histogram displays more meaningful, release 2019.18 introduced two new functions, `summary()` and `alignedSummary`.
+
+By default, each function wraps the histogram data with max, P999, P99, P90, P75, avg, median (P50), P25, and min.
+
+The following diagram shows the information you get for the metric shown above if you use `summary()`. The diagram includes the legend to illustrate the information you can now get from your histogram data.
+
+![histogram summary](images/hs_summary.png)
+
+The `alignedSummary()` function returnes an aligned summary of the histogram with the same defaults.
+
+![histogram aligned summary](images/hs_alignedsummary.png)
+
+For both functions, you can instead specify the percentiles that you are interested in, by calling the function with an optional list of percentiles as the first argument. For example, the following function returns the 25th and 10th percentile of the orderShirts histogram:
+
+`summary((25, 10), hs(orderShirts.m))`
+
+### Viewing Histograms in the Histogram Browser
 
 You can view histograms in the Histogram browser.
 
