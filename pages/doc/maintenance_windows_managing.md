@@ -49,7 +49,7 @@ Watch this video for an introduction to maintenance windows:
 To create a maintenance window:
 
 1. Click **Alerts** or **Browse > Maintenance Windows**.
-1. Click the **Create Maintenance Window** button located at the top of the filter bar.
+1. Click the **Create Maintenance Window** button at the top of the filter bar.
 1. Fill in the maintenance window properties:
 
     <table>
@@ -93,7 +93,7 @@ To create a maintenance window:
 
 ### Example
 
-Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#organizing-related-alerts) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on. 
+Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#organizing-related-alerts-with-alert-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on. 
 
 To suppress the example alerts, you create a maintenance window as shown above, and fill in `Affected Alerts and Sources` according to your use case:
 
@@ -112,19 +112,31 @@ To suppress the example alerts, you create a maintenance window as shown above, 
 
 
 
-### Managing Maintenance Windows
+### Extending a Maintenance Window
 
-You can extend the duration of a maintenance window or close the window before it is scheduled to finish. To extend or close one or more maintenance windows:
+You can extend the duration of a maintenance window. To extend one or more maintenance windows:
 
 1. Select **Browse > Maintenance Windows**.
-1. Check the checkboxes next to the maintenance windows.
-1. Click the **Extend** dropdown and select the desired duration or click the **Close** button.
+1. Check the checkboxes next to the maintenance windows to be extended.
+1. Click the **Extend** dropdown and select the desired duration.
 1. Click the confirmation.
 
-To extend the duration of a single maintenance window, select **Extend > Duration**.
+To extend a single maintenance window, select the three dots on the left, click **Extend** and select the desired duration.
 
-To close, edit, or delete a single maintenance window, select the three dots on the left and click **Close**, **Edit**, or **Delete**.
+### Closing a Maintenance Window
 
+You can close the window before it is scheduled to finish. To close one or more maintenance windows:
+
+1. Select **Browse > Maintenance Windows**.
+1. Check the checkboxes next to the maintenance windows to be closed.
+1. Click the **Close** button.
+1. Click the confirmation.
+
+To close a single maintenance window, select the three dots on the left, and click **Close**.
+
+### Editing or Deleting a Maintenance Window
+
+To edit or delete a maintenance window, select the three dots on the left and click **Edit** or **Delete**.
 
 ## Excluding Sources from an Alert
 

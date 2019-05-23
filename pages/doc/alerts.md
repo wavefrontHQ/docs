@@ -153,7 +153,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts-with-alert-tags.html). </td>
 </tr>
 </tbody>
 </table>
@@ -266,7 +266,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts-with-alert-tags.html). </td>
 </tr>
 </tbody>
 </table>
@@ -362,24 +362,26 @@ You can change an alert at any time.
 2. Click the name of the alert you want to change to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
 
-## Organizing Related Alerts
+## Organizing Related Alerts With Alert Tags
 
-You can use alert tags to organize related alerts into categories. Alert tags are one of several kinds of [object tags](tags_overview.html) that Wavefront supports. Alert tags let you: 
+You can use alert tags to organize related alerts into categories. Alert tags let you: 
 * [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts. 
 * Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html). 
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression. 
 
 You can add a new or existing alert tag at any time:
-* When you create or edit the alert, set the **Tags** property. 
-* When you view the alert in the Alerts browser, click **+** at the bottom (next to existing alert tags, if any). 
+* Set the **Tags** property when you create or edit the alert. 
+* Click **+** at the bottom of the alert when you view it in the Alerts browser. 
 
-You can use alert tags to establish the categories that are meaningful for your use cases. For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast` to indicate that an alert is maintained by the Network Operations team, is still experimental, and obtains metrics from a particular geographic region. You can search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
+For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast`. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
+
+### Multi-Level Alert Tags
 
 You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and: 
 * Within the demo group, some alerts monitor network activity, while others monitor request latency. 
 * Within each subgroup, some alerts monitor production applications, while others monitor development applications. 
 
-To help you manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts browser below shows the tag paths as a hierarchy under **Tag Paths** in the filter bar on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
+To help you manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
 
 ![Alert tag path](images/alert_tag_path.png)
 
