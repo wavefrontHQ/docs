@@ -42,6 +42,6 @@ Edit the alert and set the alert target.
 
 {% include alerts.md %}
 1. Configure the target with a PagerDuty API integration key or email address:
-   - PagerDuty API integration key - Type **pd:** into the Targets field and paste the API integration key after **pd:**. You will be unable to save the alert if **pd:** does not precede the key or the key is incomplete.
-   - PagerDuty email address - Paste the email address into the Targets field.
+   - PagerDuty API integration key - Paste the API integration key into the Targets field and press Enter.
+   - PagerDuty email address - Paste the email address into the Targets field and press Enter.
 1. Click **Save**.
