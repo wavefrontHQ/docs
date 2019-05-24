@@ -710,7 +710,7 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 We support 3 groups of string manipulation functions.
 * The first group takes only an expression as an argument, for example, `length(ts(my.metric))`.
 * The second group takes a string and an expression arguments. Use those functions, for example, to see whether a specified string is found in an expression.
-* The third group takes a number and allows you for example, to find the character at a certain location a ts expression.
+* The third group takes one or two numbers and allows you for example, to find the character at a certain location or from a start location to an end location.
 <table style="width: 100%;">
 <colgroup>
 <col width="45%" />
@@ -854,8 +854,8 @@ Because this is an aggregation function, you can group, for example, call <stron
 <td>Returns a distribution summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 <tr>
-<td>mergedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns a merged summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>mergedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns a summary of the specified histogram merged across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>mergedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>
 </table>

@@ -486,7 +486,7 @@ The `alignedSummary()` function returnes an aligned summary of the histogram wit
 
 For both functions, you can instead specify the percentiles that you are interested in, by calling the function with an optional list of percentiles as the first argument. For example, the following function returns the 25th and 10th percentile of the orderShirts histogram:
 
-`summary((25, 10), hs(orderShirts.m))`
+`summary((77.77, 65), hs(orderShirts.m))`
 
 ### Viewing Histograms in the Histogram Browser
 
