@@ -1,24 +1,26 @@
 ---
-title: Examining Data With Spy
+title: Getting Data Samples With Spy
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring_spy.html
-summary: Use HTTP endpoints to obtain a sampling of ingested data or examine ID allocations from your Wavefront instance.
+summary: Use HTTP endpoints to get samples of the metric points, spans, or ID allocations from your Wavefront instance.
 ---
 
-Your Wavefront instance includes HTTP endpoints for returning a sampling of the following kinds of data from your Wavefront instance:
+Your Wavefront instance includes HTTP endpoints that return samples of new or ingested data from your Wavefront instance.
+You can analyze the returned samples to look for patterns in:
 * Ingested metric data points
 * Ingested tracing spans 
 * IDs that correspond to any newly added metrics, sources, spans, or tags
 
-Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each data item (point, span, or ID) is listed on a separate line.
+
+Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each data item (point, span, or ID) is listed on a separate line. 
 
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
  **Note:** Because these endpoints connect to a single Wavefront back-end, data is returned from only a single ingestion shard, even when you request 100% sampling.
 
-## Examine Ingested Metric Points
+## Getting Ingested Metric Points
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested metric points that have specified characteristics. You can use the returned list of points to help you answer questions like:
 
@@ -26,7 +28,7 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of the
 * How many pps come from hosts with names that start with the prefix `web`?
 * What are some points that are tagged with `env=prod`?
 
-### Endpoint and Parameters for Requesting Points
+### Endpoint and Parameters for Metric Points
 
 To get a sampling of ingested data points, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
@@ -51,7 +53,7 @@ To get a sampling of points with specific characteristics, add one or more of th
 </table>
 
 
-### Example Requests for Points
+### Example Requests for Metric Points
 
 Suppose you have a Wavefront instance named `ex1`.
 
@@ -83,7 +85,7 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
-## Examine Ingested Spans
+## Getting Ingested Spans
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans to help you answer questions like:
 
@@ -92,7 +94,7 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of ing
 * What are some spans that are tagged with `cluster` or `shard`?
 
 
-### Endpoint and Parameters for Requesting Spans
+### Endpoint and Parameters for Spans
 
 To get a sampling of ingested spans, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
@@ -152,13 +154,13 @@ Suppose you have a Wavefront instance named `ex1`.
 </table>
 
 
-## Examine New IDs
+## Getting New ID Assignments
 
 During ingestion, Wavefront assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. 
 
 Your Wavefront instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront system hasn't seen yet.
 
-### Endpoint and Parameters for Requesting ID Assignments
+### Endpoint and Parameters for New ID Assignments
 
 To get a list of new ID assignments, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance: 
 
