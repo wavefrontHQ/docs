@@ -379,7 +379,7 @@ SPAN - Span names
 <li>
 HOST - Source names
 </li>
-<li>
+<li markdown="span">
 STRING - Point tags or span tags, represented as a single string containing a unique key-value pair, e.g. `env=prod`, `env=dev`, etc.
 </li>
 </ul>
