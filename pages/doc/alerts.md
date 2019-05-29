@@ -153,7 +153,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts-with-alert-tags.html). </td>
 </tr>
 </tbody>
 </table>
@@ -266,7 +266,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing with Tags](tags_overview.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts-with-alert-tags.html). </td>
 </tr>
 </tbody>
 </table>
@@ -316,22 +316,37 @@ If you want to make copies of an existing alert, then change the copy slightly, 
 
 ## Viewing Alerts and Alert History
 
-To view alerts, click the **Alerts** button. A list of alerts displays. Here's an example that shows when the alert fires that is described in [Tutorial: Getting Started](tutorial_getting_started.html#create-an-alert):
+To view alerts click the **Alerts** button to display the Alerts browser. You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE. 
+
+### View an Alert
+The Alert browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
 ![Alert firing](images/alert_firing.png)
 
-To view alert details, click the chart icon in the State column. A chart displays with two queries:
+<!---
+The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
+--->
 
-- **&lt;Alert name&gt;** - the alert condition.
+### View Alert Details
+
+To view alert details, click the chart icon in the State column in the Alerts browser. A chart displays with these queries:
+
+- **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
 
 For example, for the alert shown above, the chart displays:
 
 ![Alert queries](images/alert_queries.png)
 
-The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
 
-Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert on the Alerts page and click **Versions**. Alert history shows:
+### View Alert History
+
+Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert in the Alerts browser and click **Versions**: 
+
+![Alert queries](images/alert_history.png)
+
+
+Alert history shows:
 * Which user made the changes.
 * The date and time the changes were made.
 * A description of the changes.
@@ -343,9 +358,43 @@ You can also see at a glance [all firing alerts](alerts_states_lifecycle.html#vi
 
 You can change an alert at any time.
 
-1. Click the **Alerts** button to display the Alerts page.
+1. Click the **Alerts** button to display the Alerts browser.
 2. Click the name of the alert you want to change to display the Edit Alert page.
 3. Update the properties you want to change, and click **Save**.
+
+## Organizing Related Alerts With Alert Tags
+
+You can use alert tags to organize related alerts into categories. Alert tags let you: 
+* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts. 
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html). 
+* [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression. 
+
+You can add a new or existing alert tag at any time:
+* Set the **Tags** property when you create or edit the alert. 
+* Click **+** at the bottom of the alert when you view it in the Alerts browser. 
+
+For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast`. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
+
+### Multi-Level Alert Tags
+
+You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and: 
+* Within the demo group, some alerts monitor network activity, while others monitor request latency. 
+* Within each subgroup, some alerts monitor production applications, while others monitor development applications. 
+
+To help you manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
+
+![Alert tag path](images/alert_tag_path.png)
+
+In tasks such as creating a maintenance window, you can use a wildcard to match tag path components:
+* `example.*.*` matches the entire group of demo alerts.
+* `example.latency.*` matches all of the alerts that monitor request latency.
+* `example.*.prod` matches all of the production alerts.
+
+<!---
+**Note** In simple use cases, you can organize related alerts by assigning them names that contain a common string. You can view just the related alerts by typing the common string in the search field. For example, searching for the string `Latency` might let you view alerts named `Latency Alert`, `Latency Dev Alert`, `Realtime latency`, and so on. 
+--->
+
+
 
 
 ## Alert Events
