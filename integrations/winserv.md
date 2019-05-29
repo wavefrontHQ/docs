@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Windows Service Integration.
 ---
 ## Windows Services
 
-Microsoft Windows services are programs that are running in the background on a Windows system.
+Microsoft Windows Services are programs that are long running in the background on a Windows system. Services can be configured to kick-start when the system boots, or to be triggered by an event or manually. This integration explains how to install and configure Telegraf to collect Windows Services status data and send it into Wavefront.
 
 ### Metrics
 
