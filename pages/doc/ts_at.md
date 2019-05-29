@@ -53,7 +53,7 @@ You designate the data value of interest by specifying the time it was reported.
 
 ### Live Data Updates
 
-When live data is reported, `at()` adjusts the returned value as necessary to reflect any changes in the data reported by the time series. Adjustments can occur whenever the chart is updated (every 30 seconds). For example, consider a time series that reports a different value every 2 minutes. If you run a query with `at()` at 8:00am to return the value reported 2 hours ago (at 6:00am), the result is automatically adjusted around 8:02am to show the value that was reported at 6:02am.
+When live data is reported, `at()` adjusts the returned value as necessary to reflect any changes in the data reported by the time series. Adjustments can occur whenever the chart is updated (every 30 seconds in most cases). For example, consider a time series that reports a different value every 2 minutes. If you run a query with `at()` at 8:00am to return the value reported 2 hours ago (at 6:00am), the result is automatically adjusted around 8:02am to show the value that was reported at 6:02am.
 
 ### Lookback Period 
 
