@@ -32,12 +32,22 @@ Jaeger [deployments](https://www.jaegertracing.io/docs/1.8/architecture/#compone
 
 ### Configure the Jaeger Agent to Send Data to the Wavefront Proxy
 
+#### Host based Jaeger Installation
 On your hosts running the Jaeger agent, configure the agent with the following property:
 
 ```
 --reporter.tchannel.host-port=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
 ```
+Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_proxy_jaeger_port>` with the port you entered above for `traceJaegerListenerPorts`.
+
+#### Docker based Jaeger Installation
+When running Jaeger agents using docker, add the following to the docker run command:
+```
+-e REPORTER_TCHANNEL_HOST_PORT=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
+```
 {% endraw %}
-**Note**: Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_proxy_jaeger_port>` with the port you entered above for `traceJaegerListenerPorts`.
+Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_proxy_jaeger_port>` with the port you entered above for `traceJaegerListenerPorts`.
+
+**Note:** Replace `<wf_proxy_hostname>` with the IP address of the docker host if the proxy is running on the same host.
 
 The Wavefront proxy will receive Jaeger trace data once the Jaeger agent has been started with the above property enabled.
