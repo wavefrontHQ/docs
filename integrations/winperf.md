@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Windows Performance Counters Integration.
 ---
 ## Windows performance counters
 
-Performance counters help you explore how well the operating system, a service, or a driver is performing. You can use performance counter data to find bottlenecks and fine tune system and application performance.
+Performance counters help you explore how well the operating system is performing. You can use performance counter data to find bottlenecks and fine tune system and application performance. This integration explains how to install and configure Telegraf to collect performance counter data and send it into Wavefront.
 
 ### Step 1: Set up the Wavefront Proxy
 

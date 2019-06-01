@@ -125,12 +125,12 @@ When delayed data values are temporarily absent at the time of an alert check, t
 
 Here are several ways that delayed data can affect the alert decision for any alert condition:
 
-* Absent values could eliminate one or more summarization data points entirely, so the alert check would see NO DATA for those minutes.
-* Absent values could affect the values of the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be lower than it would be if all the expected data were present.
+* Absent values might eliminate one or more summarization data points entirely, so the alert check will see NO DATA for those minutes.
+* Absent values might affect the values of the summarization of data points in the alert check time window. When fewer actual values are present within a given minute, the resulting average for that minute might be lower than if all the expected data were present.
 
 Here are several ways that delayed data can affect the alert decision when the alert condition uses an aggregation function:
-* The aggregation function might interpolate values in place of the expected, but absent, reported values. The results of the aggregation function might therefore be higher or lower than they would be if all the actual data values were present. 
-* The aggregation function might be prevented from interpolating values in some cases. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The result without the interpolated value might be NO DATA, or an aggregated value that is higher or lower than it would be if the interpolated value was present. 
+* The aggregation function might interpolate values in place of the expected, but absent, reported values. The results of the aggregation function might therefore be higher or lower than if all the actual data values were present. 
+* The aggregation function might be prevented from interpolating values in some cases. Interpolation can occur only between 2 actual reported values. If the second such value is delayed and therefore absent, the expected interpolation might not occur in time for the alert check. The result without the interpolated value might be NO DATA, or an aggregated value that is higher or lower than if the interpolated value was present. 
 
 
 <!--- 
