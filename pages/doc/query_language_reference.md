@@ -374,7 +374,7 @@ The results are computed from real reported data values only, with no interpolat
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>&rbrack;, <strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>,&rbrack; <strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns the per-second change of the time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values over regular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
@@ -394,7 +394,7 @@ The results are computed from real reported data values only, with no interpolat
 <td>Returns later data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own subsequent or forecasted behavior. </td>
 </tr>
 <tr>
-<td><a href="ts_at.html">at(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_at.html">at(<strong>&lt;atTime&gt;</strong>, &lbrack;<strong>&lt;lookbackWindow&gt;</strong>,&rbrack; <strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns a data value reported at a particular time by the time series described by <strong>expression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
 </tr>
 <tr>
