@@ -555,6 +555,10 @@ entries:
         url: /wavefront_monitoring.html
         output: web
 
+      - title: Getting Data Samples With Spy
+        url: /wavefront_monitoring_spy.html
+        output: web
+
       - title: Monitoring Wavefront Proxies
         url: /monitoring_proxies.html
         output: web
