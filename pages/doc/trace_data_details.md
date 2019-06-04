@@ -239,7 +239,7 @@ Wavefront requires that you use the same precision for _both_ time values. Wavef
 
 ### Indexed and Unindexed Span Tags
 
-Wavefront uses indexes to optimize the performance of queries that filter on certain span tags. For example, Wavefront indexes the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. In addition to the application tags, Wavefront indexes certain built-in span tags that conform to the OpenTracing standard, such as `span.kind`, `component`, and `http.method`.
+Wavefront uses indexes to optimize the performance of queries that filter on certain span tags. For example, Wavefront indexes the application tags (`application`, `service`, `cluster`, `shard`) so you can quickly query for spans that represent operations from a particular application, service, cluster, or shard. In addition to the application tags, Wavefront indexes certain built-in span tags that conform to the OpenTracing standard, such as `span.kind`, `component`, `http.method`, and `error`.
 
 For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
