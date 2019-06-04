@@ -180,13 +180,13 @@ The OpenTracing standard requires that you choose names for the spans that your 
 
 ### Guidelines for Choosing Span Names
 
-* When you name a span Use the name of the operation or method being invoked as the span name. 
+* When you name a span, use the name of the operation or method being invoked as the span name. 
 * Adopt naming conventions so that you’ll end up with no more than 1000 unique span-source pairs. 
 * Add extra detail as span tags, instead of incorporating that detail into the span name.
 * **Example:** Suppose you are instrumenting a call to `getShoppingMenu(menu_id=123)`.  
   - A good choice for the span name is `getShoppingMenu`. You might add a custom span tag `menu_id=123` to preserve the menu ID detail.
 
-  - A poor choice for the span name is `getShoppingMenu_123`. If you incorporate the menu ID detail directly into the span names, you might end up with a very large number of unique span names (`getShoppingMenu_122`, `getShoppingMenu_123`, `getShoppingMenu_124`, `getShoppingMenu_125`, ...) that all represent calls to the same piece of code.
+  - A poor choice for the span name is `getShoppingMenu_123`. If you incorporate the menu ID detail directly into the span names, you might end up with unique span names like `getShoppingMenu_122`, `getShoppingMenu_123`, `getShoppingMenu_124`, ... `getShoppingMenu_nnn`, which all represent calls to the same piece of code. The result is a cardinality explosion!
 
 
 ## Custom Span Tags Best Practices
@@ -213,7 +213,7 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 1. **Go wide:** Produce end-to-end traces across all microservices.
   * Focus on the entry/exit points of your microservices. Instrument each inbound and outbound request to report spans. 
 
-2. **Go deep:** Produce traces that contain a deep hierarchy of spans.
+2. **Go deep:** Produce traces that contain a deep, meaningful hierarchy of spans.
   * Identify the classes and methods that implement significant operations within each microservice, and instrument those methods.
 
 ### When Using Wavefront Observability SDKs
