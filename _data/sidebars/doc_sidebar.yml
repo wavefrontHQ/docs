@@ -478,6 +478,10 @@ entries:
       url: /tracing_integrations.html
       output: web
 
+    - title: Tracing Best Practices
+      url: /tracing_best_practices.html
+      output: web
+
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
