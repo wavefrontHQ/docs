@@ -138,9 +138,7 @@ Wavefront automatically assigns standard application names, service names, and c
 
 A source is a host, container, instance, or any other unique source of application code that is sending a span to Wavefront. 
 
-Wavefront requires that you choose unique names for the sources that send spans. Wavefront uses source names:
-* As the values of a span tag called `source`
-* To filter traces and to aggregate RED metrics
+Wavefront requires that you choose unique names for the sources that send spans. Wavefront uses source names as the values of a span tag called `source`, and to filter traces and to aggregate RED metrics.
 
 
 ### Guidelines for Choosing Source Names
@@ -177,10 +175,7 @@ Wavefront requires that you choose unique names for the sources that send spans.
 
 Spans are the building blocks of traces. Each span corresponds to a particular invocation of an operation. For example, a span might represent a specific method call such as `getShoppingMenu(menu_id=123)`.
 
-The OpenTracing standard requires that you choose names for the spans that your instrumented application creates and sends. Wavefront uses span names:
-* As part of the data format of each span
-* To filter traces
-* To aggregate operation-level RED metrics in a service, for example, to report the number of calls to the `getShoppingMenu`  method per minute
+The OpenTracing standard requires that you choose names for the spans that your instrumented application creates and sends. Wavefront uses span names as part of the data format of each span, to filter traces, and to aggregate operation-level RED metrics in a service, for example, to report the number of calls to the `getShoppingMenu`  method per minute.
 
 
 ### Guidelines for Choosing Span Names
@@ -215,11 +210,11 @@ Wavefront uses [indexing](trace_data_details.html#indexed-and-unindexed-span-tag
 
 The goal of instrumentation is to instrument enough methods to produce traces that can help you troubleshoot errors or pinpoint bottlenecks. You usually do this in successive passes.
 
-* “Go wide”: Produce end-to-end traces across all microservices.
-  - Focus on the entry/exit points of your microservices. Instrument each inbound and outbound request to report spans. 
+1. **Go wide:** Produce end-to-end traces across all microservices.
+  * Focus on the entry/exit points of your microservices. Instrument each inbound and outbound request to report spans. 
 
-* “Go deep”: Produce traces that contain a deep hierarchy of spans.
-  - Identify the classes and methods that implement significant operations within each microservice, and instrument those methods.
+2. **Go deep:** Produce traces that contain a deep hierarchy of spans.
+  * Identify the classes and methods that implement significant operations within each microservice, and instrument those methods.
 
 ### When Using Wavefront Observability SDKs
 
