@@ -7,13 +7,11 @@ permalink: tracing_best_practices.html
 summary: Best practices for collecting and sending trace data from an application to Wavefront.
 ---
 
-Wavefront supports various techniques for instrumenting your applications to collect and send trace data to Wavefront. The best practices on this page will help you get optimal results from whichever technique you choose.
+The best practices on this page help you get optimal results from instrumenting your application for tracing.
 
 ## Planning for Tracing
 
-1. Learn about trace data. 
-* Traces represent end-to-end requests across microservices, and are composed of spans, which represent calls to individual operations. Traces can help you troubleshoot errors or pinpoint performance bottlenecks in your code.
-* See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentracing.io](https://opentracing.io/) for comprehensive discussion and details. 
+1. Learn about traces and spans. Traces represent end-to-end requests across microservices, and consist of spans, which represent calls to individual operations. See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentracing.io](https://opentracing.io/) for comprehensive discussion and details. 
 
 2. Inventory your application to answer these questions:
 * Which microservices belong to your application? Which ones participate in the most critical requests?
@@ -21,19 +19,19 @@ Wavefront supports various techniques for instrumenting your applications to col
 * Are any microservices built with open-source component frameworks? Which frameworks?
 
 3. Choose your Wavefront instrumentation support. 
-* Instrument each microservice with the [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) in the microservice's language. 
-  - Get a head start by using any [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) that are available for your microservice's language and frameworks. Augment the framework SDKs with the Wavefront OpenTracing SDK.
-* If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, use a [Wavefront integration](tracing_integrations.html). 
-* Use consistent intrumentation (either Wavefront SDKs or a 3rd party tracing system) for all microservices that participate in the same trace. Otherwise, spans cannot link to each other across microservice boundaries. (You can intermix different Wavefront SDKs in different programming languages.)
+* Instrument each microservice with the [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) in the microservice's language.  Get a head start by using any [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) that are available for your microservice's language and frameworks. Augment the framework SDKs with the Wavefront OpenTracing SDK.
+* If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, set up a [Wavefront integration](tracing_integrations.html). 
+* Use consistent instrumentation, either Wavefront SDKs or a 3rd party tracing systemm for all microservices that participate in the same trace. Otherwise, spans cannot link to each other across microservice boundaries. You can intermix different Wavefront SDKs in different programming languages.
 
 ## Best Practices for Sending Trace Data to Wavefront
 
-Large-scale applications should use a Wavefront proxy to send trace data to Wavefront. (A proxy is required with the Jaeger and Zipkin integrations.)
+Large-scale applications should use a Wavefront proxy to send trace data to Wavefront. A proxy is required with the Jaeger and Zipkin integrations.
 
-### When Using Wavefront Observability SDKs
+### Best Practices for Wavefront Observability SDKs
 
 1. [Install and configure the Wavefront proxy](tracing_instrumenting_frameworks.html#to-prepare-a-wavefront-proxy) with listener ports for metrics, histograms, and trace data. 
-* Be sure to configure the proxy with the `histogramDistListener=` property. You might overlook this property if you are already using a proxy that is configured for metrics.
+
+    **Note:** Be sure to configure the proxy with the `histogramDistListener=` property. You might overlook this property if you are already using a proxy that is configured for metrics.
 
 2. Configure your application code to send data via the Wavefront proxy: 
 * Set up a [Wavefront sender](tracing_instrumenting_frameworks.html#wavefront-sender) that can find the Wavefront proxy host.
@@ -54,15 +52,15 @@ Large-scale applications should use a Wavefront proxy to send trace data to Wave
   WavefrontSender wavefrontSender = wfProxyClientBuilder.build();
 ```
 
-**Note:** Complete setup steps are in the [README file on GitHub for your Wavefront SDK](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).
+**Note:** Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).
 
-### When Using 3rd Party Tracing Systems
+### Best Practices for 3rd Party Tracing Systems
 
 Follow the integration's setup steps to configure the Wavefront proxy with a special port for the integration. The integration implicitly instantiates and configures an internal Wavefront sender for you.
 
 ## Application Inventory Best Practices 
 
-Think of your instrumented application as a hierarchic inventory of constructs. Wavefront requires that you assign a name to the constructs at each level. 
+Think of your instrumented application as a hierarchic inventory of constructs. Wavefront requires that you assign a name to the constructs at each level. Consider this example: 
 
 <table>
 <colgroup>
@@ -77,7 +75,7 @@ Think of your instrumented application as a hierarchic inventory of constructs. 
 <tr>
 <td markdown="span">Application</td>
 <td markdown="span">`beachshirts`</td>
-<td markdown="span">Top level construct that identifies a set of interacting microservices. </td>
+<td markdown="span">Top-level construct that identifies a set of interacting microservices. </td>
 </tr>
 <tr>
 <td markdown="span">Microservice</td>
@@ -92,7 +90,7 @@ Think of your instrumented application as a hierarchic inventory of constructs. 
 </tbody>
 </table>
 
-Wavefront uses the names you choose as the values of span tags, to filter traces and aggregate RED metrics, as labels [in the UI](tracing_instrumenting_frameworks.html#how-wavefront-uses-application-tags), as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`. 
+Wavefront uses the names you choose as the values of span tags, to filter traces and aggregate RED metrics, and as labels [in the UI](tracing_instrumenting_frameworks.html#how-wavefront-uses-application-tags), as qualifiers for operation names, for example, `beachshirts.delivery.dispatch`. 
 
 ### Guidelines for Choosing Application Construct Names
  
@@ -101,9 +99,9 @@ Wavefront uses the names you choose as the values of span tags, to filter traces
   - **Note:** Duplicate application, service, or component names might result in incorrect RED metrics.
 * Choose logical names that clearly map to your applications and services. Logical names might be simpler, more readable versions of code identifiers. 
 
-### When Using Wavefront Observability SDKs
+### Best Practices for Wavefront Observability SDKs
 
-* Set up an [Application tags object](tracing_instrumenting_frameworks.html#application-tags) in each microservice to define your logical names for the application constructs. 
+* Set up an [Application tags object](tracing_instrumenting_frameworks.html#application-tags) in each microservice to define logical names for the application constructs. 
   - Specify the logical application and service names that apply to the microservice. Optionally include logical cluster and shard names, if you want to use the physical topology to filter your data.
   - Define a custom tag called `component` if you are using the Wavefront OpenTracing SDK. <br> **Note:** Other Wavefront SDKs automatically define `component` for you.
 * **Java example:** Instantiate `ApplicationTags` for the `delivery` service
@@ -127,10 +125,10 @@ Wavefront uses the names you choose as the values of span tags, to filter traces
       build();
 ```
 
-**Note:** Complete setup steps are in the [README file on GitHub for your Wavefront SDK](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).
+**Note:** Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).
 
 
-### When Using 3rd Party Tracing Systems
+### Best Practices for 3rd Party Tracing Systems
 
 Wavefront automatically assigns standard application names, service names, and component names, based on the tags that are set for your 3rd party distributed tracing system.
 
@@ -148,11 +146,10 @@ Wavefront requires that you choose unique names for the sources that send spans.
   - If you use a machine's host name (the default), make sure all machines have unique host names. Use logical names to distinguish machines with the same host names in different data centers. 
   - **Note:** Duplicate source names might result in incorrect RED metrics.
 
-* Limit the total number of source names you will use, so that the `source` tag will have low cardinality.  
 * See also the guidelines for choosing [source names for metric data and histograms](wavefront_data_naming.html#source-names-best-practices).
 
 
-### When Using Wavefront Observability SDKs
+### Best Practices for Wavefront Observability SDKs
 
 * Set up a [WavefrontSpanReporter object](tracing_instrumenting_frameworks.html#wavefronttracer-and-wavefrontspanreporter) to define a source name:
   - Specify the source name explicitly, or leave it unspecified to automatically use the host name. Make sure the host name is unique. 
@@ -168,7 +165,7 @@ Wavefront requires that you choose unique names for the sources that send spans.
     build(wavefrontSender);
 ```
 
-**Note:** Complete setup steps are in the [README file on GitHub for your Wavefront SDK](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).
+**Note:** Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).
 
 
 ## Span Names Best Practices
@@ -216,7 +213,7 @@ The goal of instrumentation is to instrument enough methods to produce traces th
 2. **Go deep:** Produce traces that contain a deep, meaningful hierarchy of spans.
   * Identify the classes and methods that implement significant operations within each microservice, and instrument those methods.
 
-### When Using Wavefront Observability SDKs
+### Best Practices for Wavefront Observability SDKs
 
 * Automate as much as possible by using [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks), if any exist for your languages and framework. Then use a [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) to instrument operations that are not handled by a framework SDK.
 
