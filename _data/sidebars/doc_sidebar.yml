@@ -482,7 +482,7 @@ entries:
       url: /trace_data_sampling.html
       output: web
 
-    - title: Visualizing Traces, Spans, and RED Metrics
+    - title: Visualizing Trace Data
       url: /tracing_ui_overview.html
       output: web
 

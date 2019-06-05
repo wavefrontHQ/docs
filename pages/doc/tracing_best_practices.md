@@ -187,7 +187,7 @@ The OpenTracing standard requires that you choose names for the spans that your 
 
 ### Best Practices for 3rd Party Tracing Systems
 
-If you are using Jaeger, verify that number of generated span names will result in fewer than 1000 unique span-source pairs. If necessary, arrange for Jaeger to reduce the number of span names it generates.
+If you are using Jaeger, verify that the number of generated span names will result in fewer than 1000 unique span-source pairs. If necessary, fix Jaeger instrumentation to produce fewer span names.
 
 ## Custom Span Tags Best Practices
 
