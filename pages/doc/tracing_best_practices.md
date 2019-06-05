@@ -134,7 +134,7 @@ Wavefront automatically assigns standard application names, service names, and c
 
 ## Source Names Best Practices
 
-A source is a host, container, instance, port, or any other unique origination point for application code that is sending a span to Wavefront. 
+A source is a host, container, Kubernetes pod, instance, or any other unique origination point for application code that is sending a span to Wavefront. 
 
 Wavefront requires that you choose unique names for the sources that send spans. Wavefront uses source names to filter traces and to define RED metrics.
 
@@ -142,7 +142,7 @@ Wavefront requires that you choose unique names for the sources that send spans.
 ### Guidelines for Choosing Source Names
 
 * Choose a unique string name for every source that will send spans to Wavefront.
-  - For example, use a machine's IP address, a port name, or a descriptive logical name.
+  - For example, use a machine's IP address or a descriptive logical name.
   - If you use a machine's host name (the default), make sure all machines have unique host names. Use logical names to distinguish machines with the same host names in different data centers. 
   - **Note:** Duplicate source names might result in incorrect RED metrics.
 
