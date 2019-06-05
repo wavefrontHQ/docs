@@ -27,12 +27,13 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
 * To get up and running quickly, use direct ingestion to send data directly to the Wavefront service.  
 * For large-scale deployments, you'll need a Wavefront proxy to forward data from your application to the Wavefront service. Using a proxy provides resilience to internet outages, control over data queuing and filtering, and more. 
 
-**To prepare for direct ingestion:** 
+### To prepare for direct ingestion
 
 1. Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://mywavefront.wavefront.com`.
 2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
 
-**To prepare a Wavefront proxy:** 
+
+### To prepare a Wavefront proxy
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need Version 4.36 or later. 
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS. 
@@ -125,8 +126,8 @@ The following diagram shows the Wavefront helper objects in a Java microservice 
 The actual helper objects in a microservice depends on the SDKs you set up. A typical set of helper objects includes some or all of the following:
 
 * An [ApplicationTags](#application-tags) object that describes your application to Wavefront. 
-* One or more framework-specific objects that collect metrics and histograms. (In the diagram, these are the Java `WavefrontJerseyFilter` and `WavefrontJaxrsClientFilter` objects).
 * [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects that create and propagate trace data.
+* One or more framework-specific objects that collect metrics and histograms. (In the diagram, these are the Java `WavefrontJerseyFilter` and `WavefrontJaxrsClientFilter` objects).
 * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
 * A [WavefrontSender](#wavefront-sender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
 
@@ -138,7 +139,7 @@ Passing contexts between operations for trace data.
 
 ## Application Tags
 
-Wavefront requires tags that describe the architecture of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront. 
+Wavefront requires tags that describe the structure of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront. 
 
 Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code. You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. The tags include information about the way your application is structured and deployed, so your code normally obtains tag values from a configuration file at runtime. The configuration file might be provided by the Wavefront SDK, or it might be part of a custom configuration mechanism that is implemented by your application. (Only SDKs with quickstart setup steps provide a configuration file.)
 
@@ -184,20 +185,7 @@ Your choice is represented in your code as an object called a "Wavefront sender"
 
 <!--- change links when proxy/dir ing decision is in a single section --->
 
-### Wavefront Reporter Objects
 
-Wavefront uses one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Wavefront reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
-
-A Wavefront reporter object specifies: 
-* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
-
-* The source of the reported metrics and histograms, typically the host that the code is running on. You can specify a more meaningful name explicitly during setup. All reporter objects for a particular microservice must specify the same source.
-
-**Note:** You can use a Wavefront reporter object to set a nondefault reporting interval.
-
-<!---
-**Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.
---->
 
 ### WavefrontTracer and WavefrontSpanReporter
 
@@ -205,10 +193,27 @@ Wavefront uses a pair of objects to create and report trace data:
 
 * A `WavefrontTracer` creates spans and traces. 
 * A `WavefrontSpanReporter` forwards the trace data to the Wavefront sender. 
+
+A `WavefrontSpanReporter` specifies the source of the reported trace data -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
  
-Metric data reporting occurs at the interval you specify. Trace data reporting occurs automatically whenever spans are complete. 
+Trace data is reported automatically whenever spans are complete, so a `WavefrontSpanReporter` does not specify a reporting interval. 
 
 **Note:** If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console.
+
+### Wavefront Metrics Reporter Objects
+
+Wavefront uses one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Wavefront reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
+
+A Wavefront reporter object specifies: 
+* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
+
+* The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
+
+**Note:** You can use a Wavefront reporter object to set a nondefault reporting interval.
+
+<!---
+**Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.
+--->
 
 <!---
 ### Instrumenting Multiple Frameworks in the Same Service 

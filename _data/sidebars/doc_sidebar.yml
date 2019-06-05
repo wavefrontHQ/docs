@@ -478,11 +478,15 @@ entries:
       url: /tracing_integrations.html
       output: web
 
+    - title: Tracing Best Practices
+      url: /tracing_best_practices.html
+      output: web
+
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
 
-    - title: Visualizing Traces, Spans, and Metrics
+    - title: Visualizing Trace Data
       url: /tracing_ui_overview.html
       output: web
 
@@ -494,7 +498,7 @@ entries:
       url: /traces_function.html
       output: web
 
-    - title: Traces, Spans, and Metrics
+    - title: Traces, Spans, and RED Metrics
       url: /trace_data_details.html
       output: web
 

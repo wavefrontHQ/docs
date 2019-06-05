@@ -17,7 +17,7 @@ Well-chosen sampling strategies can give you a good idea of how your application
 
 ## Wavefront Sampling Strategies
 
-A sampling strategy is a mechanism for selecting which traces to forward to Wavefront. Wavefront lets you set up either or both of the following sampling strategies: 
+A sampling strategy is a mechanism for selecting which traces to forward to Wavefront. Wavefront supports the following sampling strategies: 
 
 <table>
 <colgroup>
@@ -30,16 +30,18 @@ A sampling strategy is a mechanism for selecting which traces to forward to Wave
 <tbody>
 <tr>
 <td markdown="span">Rate-based sampling</td>
-<td markdown="span">Sends N percent of the generated traces to Wavefront. For example, a sampling rate of 10% causes 1 out of 10 traces to be sent and ingested.</td>
+<td markdown="span">Sends N percent of the generated traces to Wavefront. Sometimes called "probabilistic sampling". For example, a sampling rate of 10% causes 1 out of 10 traces to be sent and ingested.</td>
 </tr>
 <tr>
 <td markdown="span">Duration-based sampling</td>
 <td markdown="span"> Sends spans to Wavefront only if they are longer than N milliseconds. For example, a sampling duration of 45 sends spans to Wavefront only if they are longer than 45 milliseconds.</td>
 </tr>
+<tr>
+<td markdown="span">Error-based sampling</td>
+<td markdown="span"> Sends a span to Wavefront if it contains an error. A span contains an error if it is associated with the span tag `error=true`. </td>
+</tr>
 </tbody>
 </table>
-
-A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. (A span contains an error if it is associated with the span tag `error=true`.)
 
 **Note:** You can query and visualize only the traces and spans that Wavefront has actually received and ingested. If you set up a sampling strategy that severely reduces the volume of ingested trace data, you could end up with queries that produce no results.
 
@@ -65,6 +67,9 @@ For example, suppose you set the sampling rate to 20% and the sampling duration 
 * Any additional spans outside of that 20% that are longer than 45ms. 
 
 As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
+
+**Note:** A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. 
+
 
 ## Ways to Set Up Sampling
 You can set up a sampling strategy using either of the following methods:
