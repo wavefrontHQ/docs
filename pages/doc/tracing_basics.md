@@ -79,7 +79,7 @@ Trace IDs are not normally displayed because they are long and hard to remember.
 
 Different traces have the same label if they represent different calls to the same operation. For example, a new, separate trace begins every time the Shopping service's `orderShirts` API is called.  The trace in our example is just one of potentially thousands of traces that start with a call to `orderShirts`. Each such trace has a unique trace ID, and normally has a different start time and duration.
 
-[See Traces, Spans, and Metrics for details.](trace_data_details.html)
+[See Traces, Spans, and RED Metrics for details.](trace_data_details.html)
 
 
 ## Ways to Send Trace Data to Wavefront

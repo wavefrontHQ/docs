@@ -1,5 +1,5 @@
 ---
-title: Visualizing Traces, Spans, and Metrics
+title: Visualizing Traces, Spans, and RED Metrics
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
@@ -67,7 +67,7 @@ In the Traces browser, you can explore the context and the details of your appli
 From the Traces browser, you can:
 * Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
 * Select a trace in the list and:
-  - Use the [service map panel](#investigate-the-service-flow-for-a-trace) to investigate the microservices that contribute spans to the trace.
+  - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the microservices that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace. 
 
 You can toggle the panel size for the traces list, service map, or trace details. 
@@ -83,9 +83,9 @@ You can:
 * Use Query Builder to apply filters and narrow down the scope of the trace query.
 * Use Query Editor to limit the scope even further (advanced users).
 * Sort the returned traces according to different criteria.
-* Click a trace to view its context in the [service map panel](#investigate-the-service-flow-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
+* Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
 
-## Investigate the Service Flow for a Trace 
+## Investigate the Service Map for a Trace 
 
 In the Traces browser, use the service map to investigate the services that contribute spans to a selected trace. 
 
