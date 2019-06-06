@@ -87,7 +87,7 @@ Line plots with more than one line look similar to v1 line plots, though we've m
 
 ### Q: What happened to my Single Stats chart?
 
-A: We changed the sparkline to show in the background by default. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**.
+A: We changed the sparkline to show in the background by default. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart. 
 
 ### Q: How does the new time picker work?
 
