@@ -7,6 +7,8 @@ summary: Main improvements in the v2 UI and some FAQs.
 ---
 If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page lists some questions we've heard from users who're migrating and give answers.
 
+TBD: New Chart Builder. No More Scatter Plot. 
+
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save dashboards and charts." %}
 
 ## Main Improvements
@@ -87,7 +89,7 @@ Line plots with more than one line look similar to v1 line plots, though we've m
 
 ### Q: What happened to my Single Stats chart?
 
-A: We changed the sparkline to show in the background by default. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart. 
+A: We changed the sparkline to show in the background by default. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
 
 ### Q: How does the new time picker work?
 

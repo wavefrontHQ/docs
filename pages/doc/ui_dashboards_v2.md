@@ -19,6 +19,8 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 </tbody>
 </table>
 
+[Examine Data with Dashboards and Charts](ui_examine_data_v2) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more. 
+
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save changes you make to dashboards." %}
 
 ## Create a Dashboard
@@ -73,16 +75,16 @@ Scroll up to the Variables bar and select one or more variables.</td>
 </tbody>
 </table>
 
-### Hide Variables Bar
+### Hide the Variables Bar
 
 With the dashboard in View mode, you can temporarily hide the variables bar.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
-Scroll up to the Variables bar and select the up or down double ^.</td>
 <td width="60%">
-<img src="images/v2_hide_variables.png" alt="hide variables"></td>
+Scroll up to the Variables bar and select the up or down double ^.</td>
+<td width="40%">
+<img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide variables"></td>
 </tr>
 </tbody>
 </table>
@@ -91,6 +93,8 @@ Scroll up to the Variables bar and select the up or down double ^.</td>
 ## Make Changes to a Dashboard in Edit Mode
 
 When you create a dashboard or when you edit a dashboard, the dashboard is in Edit mode. In Edit mode, you can make several changes at a time, then save all changes to layout or charts.
+
+{% include shared/system_dashboard.html %}
 
 To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current Edit mode session.
 
