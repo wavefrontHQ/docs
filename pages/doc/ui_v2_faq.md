@@ -7,7 +7,6 @@ summary: Main improvements in the v2 UI and some FAQs.
 ---
 If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page lists some questions we've heard from users who're migrating and give answers.
 
-TBD: New Chart Builder. No More Scatter Plot. 
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save dashboards and charts." %}
 
@@ -69,6 +68,17 @@ Easier to select (users).</td>
 </tbody>
 </table>
 
+## Where's the Doc for the New UI?
+
+We've prepared the following doc pages for the new UI. These pages are not yet in the Table of Contents because most Wavefront users are still using the v1 UI but you can access them using the following links:
+[Examine Data with Dashboards and Charts](ui_examine_data_v2.html)
+[Creating and Customizing Dashboards](ui_dashboards_v2.html)
+[Creating and Customizing Charts](ui_charts_v2.html)
+[Chart Reference](ui_chart_reference_v2.html)
+[Query Builder](query_builder_v2.html)
+[Query Editor](query_editor.html)
+
+
 
 ## Chart FAQs
 
@@ -78,18 +88,16 @@ A: Open the chart, click the **Queries** tab, and select **Create Alert** from t
 ![v2 Create Alert](images/v2_create_alert.png)
 
 
-### Q: What happened to my Line Plot?
+### Q: Some of my charts look different. What can I do?
 
-A: Line plots that multiple lines haven't changed much, but the single-line line plot uses highlighting to make the highs and lows stand out more. Here's a v2 single line chart:
+A: The goal of this UI revision is parity, but we made a few changes:
+* **Scatter plots** are obsolete. Change scatter plot to a different chart type before you go to v2.
+* **Line plots** that multiple lines haven't changed much, but the single-line line plot uses highlighting to make the highs and lows stand out more. Here's a v2 single line chart:
 
-![v2 Line plot](images/v2_linechart_single.png)
+  ![v2 Line plot](images/v2_linechart_single.png)
 
-Line plots with more than one line look similar to v1 line plots, though we've made the lines slighty thicker for improved accessibility.
-
-
-### Q: What happened to my Single Stats chart?
-
-A: We changed the sparkline to show in the background by default. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
+  Line plots with more than one line look similar to v1 line plots, though we've made the lines slighty thicker for improved accessibility.
+* **Single Stats** charts with sparklines have a changed look. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
 
 ### Q: How does the new time picker work?
 
