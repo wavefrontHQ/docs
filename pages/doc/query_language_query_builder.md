@@ -12,18 +12,6 @@ The Wavefront Query Builder is an easy-to-use interface that makes Wavefront acc
 
 See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete reference - each function links to a reference page.
 
-## Toggling Query Builder User Preferences
-
-Query builder is enabled by default. You can toggle query builder settings in your [user preferences](users_account_managing.html#configuring-user-preferences).
-* If **Enable Query Builder** and **Always Open the Query Builder** are both checked, then query builder always displays when you navigate to a blank chart or new alert.
-* If **Always Open the Query Builder** is not checked, then the query editor displays by default. Query builder displays only if you click the query builder toggle.
-
-To switch from query builder to query editor, click the toggle.
-
-![Query builder new](images/query_builder_new.png)
-
-**Warning:** If you switch to query editor and make changes to the query there, you can't return to query builder.
-
 ## Constructing Queries
 
 You use query builder to construct a query from its building blocks:
