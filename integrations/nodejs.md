@@ -68,8 +68,15 @@ const registry = new metrics.Registry();
 
 // Counter with metric level tags
 let c = new metrics.Counter();
-registry.addTaggedMetric("http.requests", c, {"key1":"val1"});
+registry.addTaggedMetric("request.counter", c, {"key1":"val1"});
 c.inc();
+
+// Gauge with metric level tags
+// Note that you can only pass in a function to a Gauge.
+var g = new metrics.Gauge(() => { 
+  return 2 + Math.random(5);
+});
+registry.addTaggedMetric("request.gauge", g, {"key1":"val1"});
 
 // Histogram with metric level tags
 let h = new metrics.Histogram();
@@ -83,7 +90,7 @@ m.mark(1);
 
 // Timer with metric level tags
 let t = new metrics.Timer();
-registry.addTaggedMetric("request.timer", m, {"key1":"val1"});
+registry.addTaggedMetric("request.timer", t, {"key1":"val1"});
 t.update(50);
 ```
 {% endraw %}
