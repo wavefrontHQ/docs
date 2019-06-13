@@ -36,7 +36,7 @@ A few more advanced functions, such as chart variables, are available only in th
 
 You use query builder to construct a query from its building blocks:
 
-## Select Metrics
+### Select Metrics
 
 <table style="width: 100%;">
 <tbody>
@@ -83,6 +83,63 @@ You use query builder to construct a query from its building blocks:
 The following picture shows first the original metric, then the sum, and then the sum grouped by the `env` point tag.
 
 ![query builder results](images/query_builder_results.png)
+
+## Combine Query Builder Elements
+
+Chart builder lets you:
+* Replace metrics.
+* Add chart lines - and hide or show selected lines in the chart.
+* Add and remove filters.
+* Add, remove functions, or change function order.
+
+### Add Chart Lines
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">To add a chart line, click <strong>Add</strong> below the last query.  </td>
+<td width="60%">
+<img src="/images/add_chart_line.png" alt="add a chart line"></td>
+</tr>
+<tr>
+<td width="40%">To hide or show the results of a chart line, click the <strong>Hide/Show</strong> button. The chart no longer shows the result of that line.</td>
+<td width="60%">
+<img src="/images/v2_hide_show.png" alt="show/hide button"></td>
+</tr>
+</tbody>
+</table>
+
+### Add or Remove Filters
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">To add a filter, click the + next to the filter. To remove a filter, click the x on the filter bubble. </td>
+<td width="60%">
+<img src="/images/v2_add_filter.png" alt="show/hide button"></td>
+</tr>
+</tbody>
+</table>
+
+### Add, Remove, or Reorder Functions
+
+You can add, remove, or reordering functions. Reordering might become necessary because, for example, first applying `sum()` and then `deriv()` yields a different result than first applying `deriv()` and then applying `sum()`.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">To add a function, click the + next to the function. To remove a function, click the x on the function bubble.   </td>
+<td width="60%">
+<img src="/images/add_chart_line.png" alt="add a chart line"></td>
+</tr>
+<tr>
+<td width="40%">To reorder functions, hover the cursor over the drag icon until the mouse changes shape, and then drag the function to the place you want it. </td>
+<td width="60%">
+<img src="/images/v2_reorder_functions.png" alt="reorder functions"></td>
+</tr>
+</tbody>
+</table>
+
 
 
 ## More Info
