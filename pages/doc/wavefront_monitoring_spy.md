@@ -6,19 +6,39 @@ permalink: wavefront_monitoring_spy.html
 summary: Use HTTP endpoints to get samples of the metric points, spans, or ID allocations from your Wavefront instance.
 ---
 
-Your Wavefront instance includes HTTP endpoints that return samples of new or ingested data from your Wavefront instance.
-You can analyze the returned samples to look for patterns in:
-* Ingested metric data points
-* Ingested tracing spans 
-* IDs that correspond to any newly added metrics, sources, spans, or tags
-
-
-Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each data item (point, span, or ID) is listed on a separate line. 
-
+Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting.
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
- **Note:** Because these endpoints connect to a single Wavefront back-end, data is returned from only a single ingestion shard, even when you request 100% sampling.
+**Note:** You specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is always taken from the data that is ingested on a single shard, even when you request 100% sampling.
+
+
+## Why `spy`?
+
+The Wavefront `spy` endpoints can provide insight into new data that is being ingested by your Wavefront instance. For example, you might analyze `spy` results to:
+* Verify that your Wavefront instance is ingesting the data points that you expect.
+* Troubleshoot a sudden change in the rate at which new data is ingested. 
+
+Wavefront supports the `spy` endpoints shown in the following table:
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th markdown="span" width="45%">Spy Endpoint</th><th width="55%">Description</th></tr>
+</thead>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
+<td markdown="span">[Gets new metric data points](#getting-ingested-metric-points) that are added to existing time series.</td></tr>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/spans`</td>
+<td markdown="span">[Gets new spans](#getting-ingested-spans) with existing source names and span tags.</td></tr>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/ids`</td>
+<td markdown="span">[Gets newly allocated IDs](#getting-new-id-assignments) that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.</td></tr>
+
+</tbody>
+</table>
+
+Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line. 
+
+
 
 ## Getting Ingested Metric Points
 
@@ -156,7 +176,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Getting New ID Assignments
 
-During ingestion, Wavefront assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. 
+During ingestion, Wavefront assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
 
 Your Wavefront instance includes an HTTP endpoint that provides a window into the current stream of new ID assignments. You can use the returned list of ID assignments to see if the data that is currently being ingested has introduced any metrics, sources, spans, or tags that your Wavefront system hasn't seen yet.
 
