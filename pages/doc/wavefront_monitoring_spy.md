@@ -10,8 +10,7 @@ Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
-**Note:** You specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is always taken from the data that is ingested on a single shard, even when you request 100% sampling.
-
+**Note:** For an interactive alternative to the `spy` endpoints, use Wavefront Top (`wftop`), which is an [open source tool](https://github.com/wavefrontHQ/wftop).
 
 ## Why `spy`?
 
@@ -38,6 +37,7 @@ Wavefront supports the `spy` endpoints shown in the following table:
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line. 
 
+**Note:** A `spy` endpoint returns a sample of the requested data, and you specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is taken from just the data that is ingested on a single shard, even when you request 100% sampling.
 
 
 ## Getting Ingested Metric Points
