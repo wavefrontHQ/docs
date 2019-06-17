@@ -1,5 +1,5 @@
 ---
-title: Query Builder
+title: Chart Builder
 keywords: query language
 tags: [query language, getting started]
 sidebar: doc_sidebar
@@ -14,8 +14,8 @@ summary: Learn how to create Wavefront Query Language expressions using Query Bu
 <ul>
 <li>Construct queries from building blocks</li>
 <li>Show or hide individual queries</li>
-<li>Clone or delete a query</li>
-<li>Create alerts from a query or open AI Genie for forecasting or anomaly detection. </li></ul></td>
+<li>Clone or delete a line</li>
+<li>Create alerts or open AI Genie for forecasting or anomaly detection. </li></ul></td>
 <td width="20%"><a href="query_language_query_builder.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>
@@ -24,17 +24,18 @@ summary: Learn how to create Wavefront Query Language expressions using Query Bu
 
 ## Get Started
 
-To get started:
+To open query builder:
+
 * Select **Dashboards > Create Chart** to create a new chart.
 * Click the chart name of a chart you want to edit.
 
 ![query builder tasks](images/query_builder_collage.png)
 
-A few more advanced functions, such as chart variables, are available only in the Query Editor. Query Editor expect that you type the query using the elements of the query language. You can switch to Query Editor to use those functions. You cannot switch from Query Editor to Query Builder.
+A few more advanced functions, such as chart variables, are available only in the Query Editor. Query Editor expect that you type the query using the elements of the query language. You can switch to Query Editor to use those functions. You cannot switch from Query Editor to Chart Builder.
 
-## Construct a Query
+## Select Metrics and Refine Your Chart
 
-You use query builder to construct a query from its building blocks:
+You always start by selecting a metric, and can then refine what's visible in the chart with filters and functions.
 
 ### Select Metrics
 
@@ -84,20 +85,20 @@ The following picture shows first the original metric, then the sum, and then th
 
 ![query builder results](images/query_builder_results.png)
 
-## Combine Query Builder Elements
+## Combine Chart Builder Elements
 
-Chart builder lets you:
+Chart Builder lets you:
 * Replace metrics.
 * Add chart lines - and hide or show selected lines in the chart.
 * Add and remove filters.
-* Add, remove functions, or change function order.
+* Add or remove functions, or change function order.
 
 ### Add Chart Lines
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">To add a chart line, click <strong>Add</strong> below the last query.  </td>
+<td width="40%">To add a chart line, click <strong>Add</strong> below the last line.  </td>
 <td width="60%">
 <img src="/images/add_chart_line.png" alt="add a chart line"></td>
 </tr>

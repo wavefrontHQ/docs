@@ -71,14 +71,12 @@ Easier to select (users).</td>
 ## Where's the Doc for the New UI?
 
 We've prepared the following doc pages for the new UI. These pages are not yet in the Table of Contents because most Wavefront users are still using the v1 UI but you can access them using the following links:
-[Examine Data with Dashboards and Charts](ui_examine_data_v2.html)
-[Create and Customize Dashboards](ui_dashboards_v2.html)
-[Create and Customize Charts](ui_charts_v2.html)
-[Chart Reference](ui_chart_reference_v2.html)
-[Query Builder](query_builder_v2.html)
-[Query Editor](query_editor.html)
 
-
+* [Examine Data with Dashboards and Charts](ui_examine_data_v2.html)
+* [Create and Customize Dashboards](ui_dashboards_v2.html)
+* [Create and Customize Charts](ui_charts_v2.html)
+* [Chart Reference](ui_chart_reference_v2.html)
+* [Chart Builder](query_builder_v2.html)
 
 ## Chart FAQs
 

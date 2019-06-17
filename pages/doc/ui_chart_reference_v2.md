@@ -7,12 +7,23 @@ permalink: ui_chart_reference_v2.html
 summary: Chart types and configuration options for each chart type.
 ---
 
-Charts allow you to view and examine your metrics. You can [interact directly with charts](ui_examine_data.html)--zoom in, zoom out, change the time window, and so on. You can work with your charts in real time, and create an alert or invoke AI Genie directly from a chart.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="80%">
+Charts allow you to view and examine your metrics. You can <a href="ui_examine_data.html">interact directly with charts in real time</a>--zoom in, zoom out, change the time window, and so on.
+<br>
 
-Wavefront supports a rich set of chart types and chart configuration options.
-
-* When you create a new dashboard, you're prompted to add a chart, and can select a chart type.
-* You can add charts to dashboards and customize both the chart type and formatting options such as the legend.
+Users with dashboard permission can:
+<ul>
+<li>Create an alert or invoke AI Genie directly from a chart.</li>
+<li>When you create a new dashboard, you're prompted to add a chart, and can select a chart type.</li>
+<li>You can add charts to dashboards and customize both the chart type and formatting options such as the legend.</li>
+<li>Use chart variables, set the time window, create alerts, and much more!</li></ul></td>
+<td width="20%"><a href="ui_chart_reference.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+</tr>
+</tbody>
+</table>
 
 {% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
 
@@ -497,8 +508,7 @@ A table chart doesn't have a legend but allows fine-grained customization in the
 </thead>
 <tr>
 <td>Summarization</td>
-<td>TBD
-</td>
+<td>TBD</td></tr>
 <tr>
 <td>Point Tag Columns to Display</td>
 <td>Allows you to show all point tags, only a selected number, or only metrics with a certain tag key. TBD better explanation.
