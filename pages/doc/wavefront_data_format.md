@@ -67,7 +67,7 @@ Fields must be space separated and each line must be terminated with the newline
 <td>source</td>
 <td>Yes</td>
 <td>Name of an application, host, container, instance, or any other unique source that is sending the metric to Wavefront.</td>
-<td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). The length of the source field should be less than 1024 characters. Using <strong>host=</strong> instead of <strong>source=</strong> is supported for backward compatibility but not recommended.</td>
+<td>Valid characters are: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). The length of the source field should be no more than 128 characters. Using <strong>host=</strong> instead of <strong>source=</strong> is supported for backward compatibility but not recommended.</td>
 </tr>
 <tr>
 <td>pointTags</td>
