@@ -18,14 +18,13 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td><strong><big>A</big></strong></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td></tr>
-<!--
+
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">**Access management**</td>
+<td markdown="span">**[Access management]**(access.html)</td>
 <td>By default, Wavefront users can access objects based on their permissions. Wavefront allows administrators to limit access to Wavefront objects (initially dashboards). With this strict security setting, only the creator (e.g. dashboard creator) and invited users/groups have access to new objects.
 </td>
 </tr>
--->
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Alert**](alerts.html)</td>
@@ -152,6 +151,11 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td>&nbsp;</td>
+<td markdown="span">**Metric**</td>
+<td>Metrics are data points that measure the same thing over time. They are well suited for gaining a real-time and historical understanding of system health and trends. </td>
+</tr>
+<tr>
+<td>&nbsp;</td>
 <td markdown="span">[**Multi-tenant SSO**](authentication.html#multi-tenant-authentication)</td>
 <td>If a Wavefront customers uses an Identity Provider (IP), all users authenticate with that IP and see the same information by default. Multi-tenant SSO allows customers to request multiple tenants, each with a tenant administrator. Tenant administrators can invite other users. Users who authenticate to the IP can then access the tenant(s) to which they have been invited. </td>
 </tr>
@@ -183,10 +187,8 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td>
 <td markdown="span">[**Permission**](permissions_overview.html)</td>
 <td>Wavefront permissions determine the tasks that a user can perform.</td></tr>
-<!--
 You can manage authorization with user-level permissions or user and group-level permission. For more fine-grained authorization control, you can perform access management for objects such as dashboards.</td>
 </tr>
--->
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Point tag**](query_language_point_tags.html)</td>
