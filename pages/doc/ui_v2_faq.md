@@ -139,3 +139,5 @@ A: We've move the warning icon from the bottom right of a chart to the top left 
 ![v2 warnings](images/v2_warning.png)
 
 Wavefront currently doesn't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc, we default to m (minutes) and show a warning. Expect an update in an upcoming release.
+
+### Q: Dashboard variables have changed. Where do I find out more?
