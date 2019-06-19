@@ -7,20 +7,20 @@ permalink: trace_data_details.html
 summary: Learn about the format for Wavefront spans, and naming conventions for the RED metrics derived from them.
 ---
 
-A [trace](tracing_basics.html#wavefront-trace-data) shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request. 
+A [trace](tracing_basics.html#wavefront-trace-data) shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request.
 
 Spans are the fundamental units of trace data. This page provides details about the Wavefront format of a span, as well as the RED metrics that Wavefront automatically derives from spans. These details are mainly useful for developers who need to perform advanced customization.
 
 ## Wavefront Span Format
 
-A well-formed Wavefront span consists of fields and span tags that capture span attributes. These attributes enable Wavefront to identify and describe the span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront. 
+A well-formed Wavefront span consists of fields and span tags that capture span attributes. These attributes enable Wavefront to identify and describe the span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront.
 
 Most use cases do not require you to know exactly how Wavefront expects a span to be formatted:
 * When you instrument your application with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) or a [framework SDK](wavefront_sdks.html#sdks-that-instrument-frameworks), your application emits spans that are automatically constructed by the Wavefront Tracer. (You supply some of the attributes when you instantiate the [ApplicationTags](tracing_instrumenting_frameworks.html#application-tags) object required by the SDK.)
-* When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters. 
-* When you instrument your application with a 3rd party distributed tracing system, your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up. 
+* When you instrument your application with a [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront), your application emits spans that are automatically constructed from raw data you pass as parameters.
+* When you instrument your application with a 3rd party distributed tracing system, your application emits spans that are automatically transformed by the [integration](tracing_integrations.html#tracing-system-integrations) you set up.
 
-It is possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system. 
+It is possible to manually construct a well-formed span and send it either [directly to the Wavefront service](direct_ingestion.html#trace-data-spans) or to a TCP port that the Wavefront proxy is listening on for trace data. You might want to do this if you instrumented your application with a proprietary distributed tracing system.
 
 ### Span Syntax
 
@@ -88,12 +88,12 @@ getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId
 
 ### Span Tags
 
-Span tags are special tags associated with a span. Many of these span tags are required for a span to be valid. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names listed in the following tables. 
+Span tags are special tags associated with a span. Many of these span tags are required for a span to be valid. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names listed in the following tables.
 
 **Note:** The maximum allowed length for a combination of a span tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the span is rejected.
 
 
-The following table lists span tags that contain information about the span's identity and relationships. 
+The following table lists span tags that contain information about the span's identity and relationships.
 
 <table>
 <colgroup>
@@ -134,7 +134,7 @@ A span without the `parent` or `followsFrom` tag is the root (first) span of a t
 </tbody>
 </table>
 
-The following table lists span tags that describe the architecture of the instrumented application that emitted the span. Wavefront uses these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](tracing_instrumenting_frameworks.html#how-wavefront-uses-application-tags) you set through a Wavefront observability SDK. 
+The following table lists span tags that describe the architecture of the instrumented application that emitted the span. Wavefront uses these tags to aggregate and filter trace data at different levels of granularity. These tags correspond to the [application tags](tracing_instrumenting_frameworks.html#how-wavefront-uses-application-tags) you set through a Wavefront observability SDK.
 
 <table>
 <colgroup>
@@ -169,7 +169,7 @@ Specify <strong>cluster=none</strong> to indicate a span that does not use this 
 <tr>
 <td markdown="span">`shard`</td>
 <td markdown="span">Yes</td>
-<td markdown="span">Name of a subgroup of hosts within the cluster, for example, a mirror. 
+<td markdown="span">Name of a subgroup of hosts within the cluster, for example, a mirror.
 <br>Specify <strong>shard=none</strong> to indicate a span that does not use this tag.</td>
 <td markdown="span">String</td>
 </tr>
@@ -184,7 +184,7 @@ Because operations are normally composed of other operations, each span is norma
 
 ### Time-Value Precision in Spans
 
-A span has two time-value [fields](#spanfields) for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). Express these values in milliseconds, because Wavefront uses milliseconds for span storage and visualization. For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds. 
+A span has two time-value [fields](#spanfields) for specifying the start time (`start_milliseconds`) and duration (`duration_milliseconds`). Express these values in milliseconds, because Wavefront uses milliseconds for span storage and visualization. For convenience, you can specify time values in other units. Wavefront converts the values to milliseconds.
 
 Wavefront requires that you use the same precision for _both_ time values. Wavefront identifies the precision of the `start_milliseconds` value, and interprets the `duration_milliseconds` value using the same unit. The following table shows how to indicate the start-time precision:
 
@@ -243,7 +243,7 @@ Wavefront uses indexes to optimize the performance of queries that filter on cer
 
 For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
-**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag. 
+**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
 
 
 ## RED Metrics Derived From Spans
@@ -256,33 +256,32 @@ RED metrics are measures of:
 * Errors – the number of failed requests per minute
 * Duration – per-minute histogram distributions of the amount of time that each request takes
 
+
 The derived RED metrics are operation-level, which means that they measure individual operations, and not whole traces. For example, an operation-level metric might measure then number of calls per minute to the `dispatch` operation in the `delivery` service, where each call to `dispatch` might correspond to one of many spans in a trace.
 
-<!--- In 33.x -- Add this section back in (and remove previous paragraph)
 ### Operation-level and Trace-level RED Metrics
 
 Wavefront uses ingested spans to derive RED metrics for two kinds of request:
-* Operation-level RED metrics measure individual operations, typically within a single service. For example, an operation-level metric might measure number of calls per minute to the `dispatch` operation in the `delivery` service. 
+* Operation-level RED metrics measure individual operations, typically within a single service. For example, an operation-level metric might measure number of calls per minute to the `dispatch` operation in the `delivery` service.
 
-  Wavefront uses operation-level metrics as the basis for the [predefined charts](#predefined-charts) shown below. 
+  Wavefront uses operation-level metrics as the basis for the [predefined charts](#predefined-charts) shown below.
 
 * Trace-level RED metrics measure traces that start with a given root operation. For example, a trace-level metric might measure the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service.
 
   Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#red-metrics-queries-for-charts-and-alerts) to visualize them.
 
-**Note:** For traces that consist entirely of synchronous member spans, trace-level RED metrics are equivalent to the corresponding operation-level RED metrics. For traces that have asynchronous member spans, trace-level RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span. 
---->
+**Note:** For traces that consist entirely of synchronous member spans, trace-level RED metrics are equivalent to the corresponding operation-level RED metrics. For traces that have asynchronous member spans, trace-level RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span.
 
 ### Predefined Charts
 Wavefront automatically generates charts to display the auto-derived RED metrics for a particular service. To view these charts:
 
 1. Select **Applications > Inventory** in the Wavefront task bar. If necessary, scroll to find your application and its services.
-2. Click on the service you want to see metrics for. 
+2. Click on the service you want to see metrics for.
 3. If you instrumented your application with a Wavefront SDK, look for the charts in the **Overview** section. (If you used a tracing-system integration, the charts are in the only section on the page.)
 
 The predefined charts let you view:
 * The per-minute Request Rate, per-minute Error Rate, and Duration (P95) for all requests that are processed by the service.
-* The "top" operations each category: the most frequently invoked operations, the operations with the most errors, and the slowest operations. You can click on an operation in one of these charts to view the just the traces that contain spans for that operation. 
+* The "top" operations each category: the most frequently invoked operations, the operations with the most errors, and the slowest operations. You can click on an operation in one of these charts to view the just the traces that contain spans for that operation.
 
 ![tracing overview RED metrics](images/tracing_overview_RED_metrics.png)
 
@@ -293,7 +292,7 @@ The predefined charts let you view:
 
 The types of RED metrics that we show in the [predefined charts](#predefined-charts) are rates and 95th percentile distributions. These metrics are themselves based on underlying counters and histograms that Wavefront automatically derives from spans. You can use these underlying counters and histograms in [RED metrics queries](#red-metrics-queries-for-charts-and-alerts), for example, to create alerts on trace data.
 
-Wavefront constructs the names of the underlying counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification. 
+Wavefront constructs the names of the underlying counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
 
 {% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the RED metric counters and histograms, and prevent these metrics from appearing in the Wavefront UI, e.g., in [predefined charts](#predefined-charts)." %}
 
@@ -325,7 +324,7 @@ Wavefront constructs the names of the underlying counters and histograms as show
 </tbody>
 </table>
 
-<!--- In 33.x -- add this table back in
+
 <table id = "tracelevelredmetrics">
 <colgroup>
 <col width="45%"/>
@@ -344,7 +343,7 @@ Wavefront constructs the names of the underlying counters and histograms as show
 <tr>
 <td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.error.count`   </td>
 <td markdown="span">Counter</td>
-<td markdown="span">The number of traces that start with the root operation, and contain one or more spans with errors 
+<td markdown="span">The number of traces that start with the root operation, and contain one or more spans with errors
 (i.e., spans with `error=true`). </td>
 </tr>
 <tr>
@@ -354,8 +353,6 @@ Wavefront constructs the names of the underlying counters and histograms as show
 </tr>
 </tbody>
 </table>
-
---->
 
 ### RED Metrics Queries for Charts and Alerts
 
@@ -368,13 +365,12 @@ Find at the per-minute error rate for a specific operation executing on a specif
 ```
 rate(ts(tracing.derived.beachshirts.shopping.orderShirts.error.count and cluster=us-east-1)) * 60
 ```
-<!--- In 33.x -- add this example back in
+
 Find the per-minute error rate for traces that begin with a specific operation:
 
 ```
 rate(ts(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)) * 60
 ```
---->
 
 Use a [histogram query](proxies_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
 
@@ -384,7 +380,7 @@ percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.
 
 **Syntax Alternatives**
 
-Wavefront supports 2 alternatives for specifying the RED metric counters and histograms in a query: 
+Wavefront supports 2 alternatives for specifying the RED metric counters and histograms in a query:
 * Use the metric name, for example:
   ```
   ts(tracing.derived.beachshirts.delivery.dispatch.error.count)
