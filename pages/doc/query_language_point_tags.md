@@ -16,7 +16,7 @@ Point tags offer a powerful way of labeling data so that you can slice and dice 
 
 Many of our cloud integrations generate point tags automatically to help you filter metrics. You add point tags explicitly using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
-**Note:** For best performance, keep the number of distinct time series per metric and host to under 1000. See Best Practices for Point Tags below.
+### Example
 
 Suppose you send the following points, all from a single source `cache1`, over a 5 minute period:
 
@@ -41,6 +41,13 @@ The orange line is associated with the point tag `clientService=web`, while the 
 If you have multiple point tags on a point, you'll see all the point tags. For this example, the points in the green line contain three point tags: `clientService`, `clientApp`, and `hw`. Note that they are all visible in the legend:
 
 ![Three lines](images/three_lines.png)
+
+### Point Tag Limitations
+
+For most clusters, the number of point tags you can define is 20. Our experience has shown that a larger number of point tags does not improve the user experience, and can lead to performance problems.
+
+**Note:** If the number of point tags exceeds 20, then we drop the metrics that have those point tags. 
+
 
 ## Filtering Queries Using Point Tags
 

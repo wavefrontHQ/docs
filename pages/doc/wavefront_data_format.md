@@ -102,7 +102,8 @@ Follow best practices for improved query execution speed and meaningful results.
   - Do not include data or timestamps in the metric name. Each point has an associated time stamp.
 * Aim for a metric hierarchy:
   - Partition the top level of the metric hierarchy by including at least one dot.
-  - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`).
+  - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
+* For best performance, keep the number of distinct time series per metric and host to under 1000.
 
 See [Wavefront Data Naming](wavefront_data_naming.html) for a more detailed discussion.
 
