@@ -250,4 +250,4 @@ First, we create the dynamic variable:
 After we've saved the dynamic dashboard variable, we can use the variable in queries. :
 1. Create a chart with the following query:
    `ts(~sample.cpu.loadav.1m, source={$source})`
-2. When users change the value of the **Source** variable in the dashboard, the query uses the selected value. 
+2. When users change the value of the **Source** variable in the dashboard, the query uses the selected value.
