@@ -52,13 +52,15 @@ A User event can be in the Pending, Ongoing, or Ended state. A User event with a
 
 Here's an example of 3 user events that are created by 3 `events()` queries:
 
-![event states](images/event_states.png)
-
-* The `Computer turned on` event has a start and end time. It's in the Ongoing state between the start and end time, and then in the Ended state.
-* The `high wattage usage` event is instantaneous, it starts and ends at 7. 
+* The `Computer turned on` event is instantaneous, it starts and ends at the same time.
+* The `high wattage usage` event has a start and end time. It's in the Ongoing state between the start and end time, and then in the Ended state.
 * The `Computer turned off` event is an Ongoing event -- it stays in that state.
 
-To improve event performance, we close events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing events queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
+The example does not include an event that's in the Pending state.
+
+![event states](images/event_states.png)
+
+To improve event performance, Wavefront closes events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing events queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
 
 **Note:** You cannot have more than 1000 ongoing events on your cluster. Use the `~events.num-ongoing-events` internal metric to monitor the number of ongoing events.
 
