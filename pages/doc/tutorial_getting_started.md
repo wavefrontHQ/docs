@@ -19,7 +19,7 @@ The tutorial uses the sample metrics preloaded in your Wavefront account.
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes a set of [Getting Started Dashboards](documentation_getting_started.html#getting-started-dashboards) built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes tutorial and tour dashboards that we built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
 
 1. Log in to Wavefront.
 1. Select **Dashboards > All Dashboards**.
@@ -117,6 +117,47 @@ In this section you create an alert that fires when the request latency metric r
     As alerts fire and resolve, events are created in Wavefront. You can add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying.html) that are added to the Request Latencies chart's X-axis:
 
     ![event icons](images/event_icons.png)
+
+## Videos and Docs
+
+Here are some links to popular videos and docs. You can also search this doc set (top right) to find what you need.
+
+### Videos
+
+In our videos, Wavefront engineers show how to perform certain tasks, or explain some features from the ground up. You can find most videos using the link in the TOC on the left. Many users start with our [intro videos](videos_quickstart.html).
+
+### Charts and Dashboards
+
+Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video help you learn how to create and use charts and dashboards in Wavefront.
+
+- [Examine Telemetry Data](ui_examine_data.html)
+- [Creating a Chart](ui_charts.html)
+
+### Query Language
+
+Wavefront Query Language is the foundation of charts and alerts in Wavefront. Here are some topics thathelp you learn the query language.
+
+- [Getting Started with Wavefront Query Language](query_language_getting_started.html)
+- [Query Builder](query_language_query_builder.html)
+- [Wavefront Query Language Quick Reference](query_language_reference.html)
+- [When Multiple Series Match (Or Not)](query_language_series_matching.html)
+- [Fine Tune Queries With Point Tags](query_language_point_tags.html)
+
+We have a complete list of [Query Language Reference Pages](label_reference%20page.html).
+
+### Alerts and Events
+
+Alerts and events make it possible to track critical changes in your environment. The following topics help you learn about alerts and events in Wavefront.
+
+- [Alerting States and Lifecycle](alerts_states_lifecycle.html)
+- [Creating an Alert](alerts.html#creating-an-alert)
+- [Displaying Events in Charts](charts_events_displaying.html)
+
+### Release Notes
+
+Release notes summarize the features added to each release and changes to existing features.
+
+- [Wavefront Release Notes](wavefront_release_notes.html)
 
 ## Next Steps
 

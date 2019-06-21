@@ -18,10 +18,6 @@ entries:
       url: /tutorial_getting_started.html
       output: web
 
-    - title: "Docs & Dashboards"
-      url: /documentation_getting_started.html
-      output: web
-
     - title: Searching Wavefront
       url: /wavefront_searching.html
       output: web
@@ -82,7 +78,7 @@ entries:
 
     - title: Wavefront Proxy Release Notes
       url: /proxies_versions.html
-      output: web  
+      output: web
 
     - title: Wavefront Obsolescence Policy
       url: /wavefront_obsolescence_policy.html
