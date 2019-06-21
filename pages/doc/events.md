@@ -39,13 +39,28 @@ Events have types and subtypes, which are typically used in [events queries](eve
 ## Event States
 
 Event states differ for system and user generated events:
-* A System/Alert and a System event can be in the Ongoing or Ended state.
-  - The events are Ongoing until all corresponding alert sources are recovered and the alert is resolved.
-  - Then the state changes to Ended.
 
-* A User event can be in the Pending, Ongoing, or Ended state. A User event with a start time in the future has the state Pending.
+### System Event States
 
-To improve event performance, we close events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing events queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
+A System/Alert and a System event can be in the Ongoing or Ended state.
+- The events are Ongoing until all corresponding alert sources are recovered and the alert is resolved.
+- Then the state changes to Ended.
+
+### User Event States
+
+A User event can be in the Pending, Ongoing, or Ended state. A User event with a start time in the future has the state Pending.
+
+Here's an example of 3 user events that are created by 3 `events()` queries:
+
+* The `Computer turned on` event is instantaneous, it starts and ends at the same time.
+* The `high wattage usage` event has a start and end time. It's in the Ongoing state between the start and end time, and then in the Ended state.
+* The `Computer turned off` event is an Ongoing event -- it stays in that state.
+
+The example does not include an event that's in the Pending state.
+
+![event states](images/event_states.png)
+
+To improve event performance, Wavefront closes events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing events queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
 
 **Note:** You cannot have more than 1000 ongoing events on your cluster. Use the `~events.num-ongoing-events` internal metric to monitor the number of ongoing events.
 
@@ -71,7 +86,7 @@ The chart includes information about the alert associated with the event, and ab
 
 ## Creating a User Event
 
-Wavefront creates many events for you, but you can also create an event explicitly. Watch the [Creating an Event video](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true) or follow these steps: 
+Wavefront creates many events for you, but you can also create an event explicitly. Watch the [Creating an Event video](https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=709ca1a8-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true) or follow these steps:
 
 1. Do one of the following:
    - Select **Browse > Events** and click the <strong>Create Event</strong> button at the top of the filter bar.
