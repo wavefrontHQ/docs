@@ -1,8 +1,8 @@
 ---
-title: Microsoft Azure Virtual Machine Integration
+title: Microsoft Azure SQL Datawarehouse Integration
 tags: [integrations list]
-permalink: azure_vm.html
-summary: Learn about the Wavefront Microsoft Azure Virtual Machine Integration.
+permalink: azure_sql_datawarehouse.html
+summary: Learn about the Wavefront Microsoft Azure SQL Datawarehouse Integration.
 ---
 ## Microsoft Azure Integration
 

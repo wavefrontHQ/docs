@@ -27,6 +27,7 @@ Wavefront provides Microsoft Azure dashboards for the following services:
 - Azure: Redis Caches
 - Azure: Storage Accounts
 - Azure: SQL Databases
+- Azure: SQL Datawarehouse
 - Azure: Virtual Machine
 - Azure: Virtual Machine Scale Set
 
