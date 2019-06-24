@@ -12,7 +12,7 @@ summary: Define dashboard variables to allow easy switches between different dat
 <td width="80%">
 Dashboard variables are an excellent way of focusing the metrics that a dashboard displays.
 <ul>
-<li>A person with Dashboard permissions can add or edit variables for a dasbhoard.  </li>
+<li>A user with Dashboard permissions can add or edit variables for a dasbhoard and save the changes.  </li>
 <li>Afterwards, everyone can select the variable for the dashboard, and we change the variable in all charts in all dashboards.</li>
 <li> It's also possible to use dashboard variables in queries. The query uses the current vale of the variable.</li>
 </ul>
@@ -22,16 +22,12 @@ Dashboard variables are an excellent way of focusing the metrics that a dashboar
 </tbody>
 </table>
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save changes you make to dashboards." %}
-
-All Wavefront users can select and temporarily alter the value of a dashboard variable.
-
 ## Dashboard Variable Use Cases
 
 Dashboard variables make it easy for all users to refocus what a dashboard displays. For example:
 
-* Dashboard editors can define the clusters or environments a dashboard is monitoring, and use variables in the charts that refer to the clusters. Users can then select the cluster or environment from a pull-down menu.
-* Assume an environment that has a growing fleet of machines. You tag that fleet with `tag=prod`. You can then use a dynamic variable that refers to that tag, and a query that includes `tag=prod` will pick up all machines that are currently part of the fleet.
+* An environment includes a tag `env` that can be `prod` or `dev`. You can use a list variable to allow users to pick one - and you can define a label that makes it easy for users to make the choice.
+* An environment that has a growing fleet of machines. You can use a dynamic variable that accesses the `source` to allow users to choose from currently available sources.
 
 ## How All Users Can Show and Change Variables
 
@@ -40,9 +36,9 @@ All users can show or hide the variables bar and can select from the predefined 
 ![select variable](images/select_variable.png)
 
 
-## How Dashboard Editor Users Can Create and Customize Variables
+## How Dashboard Editor Users Can Create and Save Variables
 
-Users with Dashboard permissions can create variables and use them in queries. After the dashboard has been saved, the variable shows up in the dashboard bar and all users can make selections.
+Users with Dashboard permissions can create variables, use them in queries, and save the dashboard. After the dashboard has been saved, the variable shows up in the dashboard bar and all users can make selections.
 
 ### Dashboard Variable Scope
 
@@ -165,8 +161,6 @@ All users can set the value of the list variable:
 
    ![Varible list.png](images/db_var_list.png)
 
-Users with Dashboard permission can use the variable in queries. The results of all queries in the dashboard that use the variable change when the variable value changes.
-
 
 ### List Dashboard Variable Example
 
@@ -184,9 +178,7 @@ Users with Dashboard permission can use the variable in queries. The results of 
 
 ## Dynamic Dashboard Variables
 
-The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is environment or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
-
-**Note** Dynamic dashboard variables allow you to specify only a single metric name, source, source tag, or point tag at a time. Use simple or list dashboard variables if you want to use wildcards that return more than 1 metric name, source, source tag, or point tag.
+The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
 ### Dynamic Dashboard Variable Field Options
 

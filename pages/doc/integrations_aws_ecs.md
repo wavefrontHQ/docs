@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 permalink: integrations_aws_ecs.html
-summary: Learn how to send AWS ECS data to Wavefront.
+summary: Send AWS ECS data to Wavefront using cAdvisor or AWS Fargate.
 ---
 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) is Amazon's Docker container orchestration system. From the Amazon ECS website:
 
@@ -18,7 +18,7 @@ Wavefront supports an Amazon Web Services [built-in integration](amazon_ecs.html
 
 The integration basics are covered in our [AWS ECS Integration](amazon_ecs.html) page.
 
-This page provides detailed steps on how to install and configure the Wavefront ECS integration. After you complete these steps, the integration provides:
+This page provides detailed steps on how to install and configure the Wavefront ECS integration either by creating a cAdvisor task definition or by creating an AWS Fargate task definition. After you complete these steps, the integration provides:
 
 - Monitoring of important CloudWatch metrics related to Amazon ECS.
 - Monitoring of detailed metrics about individual containers, services, and clusters running in your AWS ECS environment.
@@ -34,9 +34,36 @@ This page provides detailed steps on how to install and configure the Wavefront 
 
 Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefront to collect useful high-level metrics about ECS using the AWS CloudWatch API.
 
-**Note:** To ensure that dashboards display correctly, use only the default EC2 instance name for the ECS cluster. 
+**Note:** To ensure that dashboards display correctly, use only the default EC2 instance name for the ECS cluster.
 
-## Create Wavefront cAdvisor Task Definition
+## Create AWS Fargate Task Definition for Wavefront
+
+Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
+
+1. Within AWS Services, navigate to **ECS**.
+1. Click **Task Definitions**, then **Create new Task Definition**.
+  ![create task def](images/create_new_task_definition.png)
+1. Select the Fargate launch type and click **Next Step**.
+![fargate launch type](images/aws_fargate.png)
+
+1. Scroll to the bottom of the new Task Definition form and click **Configure via JSON**.
+  1. Delete the content and paste the following snippet into the JSON form field:
+     ![fargate json example](images/fargate_json_example.png)
+  2. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address and port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
+1. Click **Create** at the bottom of the Task Definition form.
+2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information.
+
+|| **Field** | **Value** |
+|| Cluster | Select the cluster on which your task has to run.|
+|| Number of tasks | Select a number (minimum 1).  |
+||Task Group | (Optional) Task group name for identifying a set of related tasks. |
+
+
+   ![run task](images/aws_fargate_run_task.png)
+1. Click **Run Task**.
+
+
+## Create cAdvisor Task Definition for Wavefront
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
 
