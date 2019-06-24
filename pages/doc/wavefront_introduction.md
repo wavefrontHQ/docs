@@ -41,6 +41,19 @@ We'll send an alert notifications that include details and a chart image. See th
 </tbody>
 </table>
 
+### Queries
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="50%">The <a href="label_reference%20page.html"><strong>Wavefront query language</strong></a> allows you to extract exactly the information you need. With filters and functions you can customize your charts so the signal becomes visible in the noise. <br>
+<br>
+You can work with Chart Builder or, for access to all supported functions, use Query Editor.
+</td>
+<td width="50%"><img src="/images/chart_builder.png" alt="chart builder"/></td>
+</tr>
+</tbody>
+</table>
+
 ### Anomaly Detection and Forecasting
 
 <table style="width: 100%;">
@@ -66,7 +79,7 @@ We'll send an alert notifications that include details and a chart image. See th
 
 ## How Can I Get My Data Into Wavefront
 
-Wavefront works with time-series (metric) data, traces and spans, or histograms from diverse sources.wh
+Wavefront works with time-series (metric) data, traces and spans, or histograms from diverse sources.
 * **Cloud:** Perform minimal setup to let Wavefront to access the data in your cloud environment. The result is direct ingestion of cloud services data such as Amazon Web Services or Google Cloud Platform.
 * **Integrations:** For other data sources, we support over 200 integrations. You modify a simple configuration file and you’re good to go.
 * **Start Where You Are:** If your environment already has a metrics infrastructure, you can do some pre-processing on the data so they correspond to the Wavefront Data Format, and send them directly to the Wavefront proxy.
@@ -90,11 +103,15 @@ Different users interact with Wavefront in different ways:
 
 ## What's the Architecture?
 
-Wavefront has these main components:
-* The **Wavefront service** runs the metrics collection engine.
-* The **Wavefront proxy** forwards data to the Wavefront service in a secure, fast, and reliable way.
-  - A **collector agent** such as Telegraf can send data to the proxy or
-  - You can send your metrics directly to the proxy -- as long as the data is in one of the supported data formats. For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
+The Wavefront Service runs the metrics collection engine. The service runs in the cloud and accepts data from the Wavefront proxy or through direct ingestion.
+
+* If you have a custom application, you can send your metrics to the proxy or directly to the service  -- as long as the data is in one of the supported data formats.
+   For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
+* With cloud services, Wavefront pulls the data from your cloud provider (after minimal setup). We support all major cloud providers.
+* If you're interested in on-prem telemetry you have several options:
+  - Send data from your application code to the proxy using a **metrics library**. This works well both for metrics and for traces and spans.
+  - Set up a **collector** agent such as Telegraf, collects data from you host or infrastructure and sends those data to the proxy.
   - The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
+
 
 ![Wavefront architecture](images/wavefront_architecture.svg)
