@@ -20,7 +20,7 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 <ul>
 <li>Use filters and functions to see exactly what you’re interested in. For example, combine multiple time series using aggregation functions such as sum() or avg().</li>
 <li>Combine functions, and show or hide some of the information - or use dashboard variables to change the focus of a dashboard. For example, a variable might allow you to show the production or development environment.</li>
-<li>Select one of several **chart types** (line plot, point plot, table, etc.)</ul></td>
+<li>Select one of several <strong>chart types</strong> (line plot, point plot, table, etc.)</li></ul></td>
 <td width="50%"><img src="/images/intro_query.png" alt="simple v1 chart"/></td>
 </tr>
 </tbody>
@@ -31,8 +31,8 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 <table style="width: 100%;">
 <tbody>
 <tr><td width="50%">To detect problems, You can <a href="alerts.html"> <strong>create alerts</strong></a> directly from charts and specify
+<p>For example, assume in your environment you need to know:</p>
 <ul>
-<li>For example, assume in your environment you need to know:
 <li>When the CPU reaches a certain threshold. </li>
 <li>Who should be notified and how (email, Pagerduty, etc). </li>
 <li>What the alert severity is, and when the alert resolves</li>
@@ -48,8 +48,7 @@ After you've set up an alert with that information, we'll send an alert notifica
 <table style="width: 100%;">
 <tbody>
 <tr><td width="50%">The <a href="label_reference%20page.html"><strong>Wavefront query language</strong></a> allows you to extract exactly the information you need. With filters and functions you can customize your charts so the signal becomes visible in the noise. <br>
-<br>
-You can work with Chart Builder (shown on the right) or, for access to all supported functions, use Query Editor.
+<br>Users of our v2 UI, currently in Beta, can use Chart Builder (shown on the right). All other users can use Query Builder. Advanced users work with Query Editor.
 </td>
 <td width="50%"><img src="/images/chart_builder.png" alt="chart builder"/></td>
 </tr>
@@ -99,7 +98,7 @@ For an introduction, watch this video by Wavefront co-founder Clement Pang.
 Different users interact with Wavefront in different ways:
 
 * Most users access the **graphical user interface** (GUI) from a browser. You log in to the Wavefront UI from a standard web browser, in many cases using an SSO solution.  The UI supports different time windows -- even an entire year. Wavefront supports Chrome, Firefox, and Safari.
-* The Chart Builder and Query Builder interfaces to the query language allow you to fine-tune your charts and alerts. Start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
+* The Chart Builder (v2) and Query Builder (v2) interfaces and the Query Editor allow you to fine-tune your charts and alerts. Access function documentation from the UI or start with the [Query Language Reference](query_language_reference.html) and click any function on that page for details and examples.
 * The [Wavefront REST API](wavefront_api.html) allows you to perform UI actions programmatically. The API is based on Swagger, so you can generate the client of your choice.
 * For **Distributed Tracing**, we make a large sets of SDKs available in Github.
 
