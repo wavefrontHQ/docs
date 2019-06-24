@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_managing.html
-published: false 
+published: false
 summary: Learn how to add and remove users, grant and revoke permissions, and set default permissions for new users.
 ---
 {% include shared/permissions_view.html entity="users and permissions" entitymgmt="User" %}
@@ -68,4 +68,4 @@ You can create a set of default permissions that are assigned to every new user 
 
 ## Setting Customer-Wide Preferences
 
-You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder.html) by default, the default dashboard, and whether to display the [Getting Started tutorial](documentation_getting_started.html#getting-started-tutorial).
+You can specify a couple of default settings for all new users. Click the **Customer-Wide Preferences** link and choose whether to enable the [Query Builder](query_language_query_builder.html) by default, the default dashboard, and whether to display the **Getting Started** onboarding flow.

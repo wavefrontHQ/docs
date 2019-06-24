@@ -9,7 +9,7 @@ permalink: index.html
 
 Welcome to the Wavefront documentation site!
 
-* New users usually start with [What is Wavefront?](wavefront_introduction.html) or [Docs and Dashboards Overview](documentation_getting_started.html).
+* New users usually start with [What is Wavefront?](wavefront_introduction.html).
 * Even if you don't usually read docs, have a look at the [Wavefront Query Language Quick Reference](query_language_reference.html) or look at [individual reference pages](label_reference%20page.html)
 * Ready to try for yourself? Sign up for a [free trial](https://www.wavefront.com/sign-up/?utm_source=Website&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}!
 

@@ -25,8 +25,8 @@ Wavefront has two types of dashboards: system and user.
 
 System dashboards are installed by [Integrations](integrations.html) and include:
 
-- [Tour dashboards](documentation_getting_started.html#tour-dashboards)
-- [Tutorial dashboards](documentation_getting_started.html#tutorial-dashboards)
+- Tour dashboards
+- Tutorial dashboards
 - [Wavefront System dashboard](wavefront_monitoring.html)
 
 {% include shared/system_dashboard.html %}
