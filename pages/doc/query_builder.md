@@ -1,9 +1,9 @@
 ---
-title: Chart Builder
+title: Chart Builder (v2 Beta)
 keywords: query language
 tags: [query language, getting started]
 sidebar: doc_sidebar
-permalink: query_builder_v2.html
+permalink: chart_builder.html
 summary: Learn how to create Wavefront Query Language expressions using Query Builder.
 ---
 

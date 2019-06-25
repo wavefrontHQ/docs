@@ -35,6 +35,28 @@ entries:
       output: web
       type: homepage
 
+      subfolders:
+      - title: Misc.
+        output: web
+        subfolderitems:
+
+        - title: Wavefront Glossary
+          url: /glossary.html
+          output: web
+
+        - title: Getting Help and Giving Feedback
+          url: /wavefront_support_feedback.html
+          output: web
+
+        - title: Terms of Service
+          url: /terms_of_service.html
+          output: web
+
+        - title: Wavefront Privacy Policy
+          url: /privacy.html
+          output: web
+
+
 
   - title: Release Notes
     output: web
@@ -169,6 +191,34 @@ entries:
           url: /delta_counters.html
           output: web
 
+  - title: "Charts & Dashboards"
+    output: web
+    folderitems:
+
+    - title: "Examine Data"
+      url: /ui_examine_data.html
+      output: web
+
+    - title: Create and Customize Dashboards
+      url: /ui_dashboards.html
+      output: web
+
+    - title: Create and Customize Charts
+      url: /ui_charts.html
+      output: web
+
+    - title: Share Charts and Dashboards
+      url: /ui_sharing.html
+      output: web
+
+    - title: Chart Reference
+      url: /ui_chart_reference.html
+      output: web
+
+    - title: Dashboard Variables
+      url: /dashboards_variables.html
+      output: web
+
   - title: Query Language
     output: web
     folderitems:
@@ -239,33 +289,6 @@ entries:
           url: /query_language_recipes.html
           output: web
 
-  - title: "Charts & Dashboards"
-    output: web
-    folderitems:
-
-    - title: "Examine Data"
-      url: /ui_examine_data.html
-      output: web
-
-    - title: Create and Customize Dashboards
-      url: /ui_dashboards.html
-      output: web
-
-    - title: Create and Customize Charts
-      url: /ui_charts.html
-      output: web
-
-    - title: Share Charts and Dashboards
-      url: /ui_sharing.html
-      output: web
-
-    - title: Chart Reference
-      url: /ui_chart_reference.html
-      output: web
-
-    - title: Dashboard Variables
-      url: /dashboards_variables.html
-      output: web
 
   - title: "Alerts & Events"
     output: web
@@ -610,22 +633,38 @@ entries:
         url: /wavefront_use_cases.html
         output: web
 
-  - title: Misc.
+  - title: "Charts and Dashboards v2 Beta"
     output: web
     folderitems:
 
-      - title: Wavefront Glossary
-        url: /glossary.html
-        output: web
+    - title: "What's New in v2 Beta"
+      url: /ui_v2_faq.html
+      output: web
 
-      - title: Getting Help and Giving Feedback
-        url: /wavefront_support_feedback.html
-        output: web
+    - title: "Chart Builder"
+      url: /chart_builder.html
+      output: web
 
-      - title: Terms of Service
-        url: /terms_of_service.html
-        output: web
+    - title: "Examine Data"
+      url: /ui_examine_data_v2.html
+      output: web
 
-      - title: Wavefront Privacy Policy
-        url: /privacy.html
-        output: web
+    - title: "Create and Customize Dashboards"
+      url: /ui_dashboards_v2.html
+      output: web
+
+    - title: "Create and Customize Charts"
+      url: /ui_charts_v2.html
+      output: web
+
+    - title: "Share Charts and Dashboards"
+      url: /ui_sharing_v2.html
+      output: web
+
+    - title: "Chart Reference"
+      url: /ui_chart_reference_v2.html
+      output: web
+
+    - title: "Dashboard Variables"
+      url: /dashboards_variables_v2.html
+      output: web

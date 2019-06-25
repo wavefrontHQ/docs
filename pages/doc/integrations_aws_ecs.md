@@ -48,7 +48,48 @@ Wavefront maintains an image of cAdvisor that includes a Wavefront storage drive
 
 1. Scroll to the bottom of the new Task Definition form and click **Configure via JSON**.
   1. Delete the content and paste the following snippet into the JSON form field:
-     ![fargate json example](images/fargate_json_example.png)
+  ```
+  {
+        "family": "wavefront-task-def",
+        "networkMode": "awsvpc",
+        "containerDefinitions": [
+            {
+                "name": "tomcat-example",
+                "image": "tomcat:latest",
+                "essential": true,
+				"portMappings": [
+					{
+					  "hostPort": 8080,
+					  "protocol": "tcp",
+					  "containerPort": 8080
+					}
+				]
+            },
+			{
+                "name": "fargate-metrics-collector",
+                "image": "wavefronthq/wavefront-fargate-collector:latest",
+                "essential": true,
+                "environment": [],
+				"portMappings": [
+					{
+					  "hostPort": 8000,
+					  "protocol": "tcp",
+					  "containerPort": 8000
+					}
+				],
+				"command": [
+					"-port=8000",
+					"-storage_driver=wavefront",
+					"-storage_driver_options=storage_driver_wf_proxy_host=YOUR_PROXY_ADDRESS storage_driver_wf_metric_prefix=aws.fargate.ecs."
+				]
+			}
+        ],
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "cpu": "256",
+        "memory": "512"
+   ```
   2. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address and port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
 2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information.
@@ -63,7 +104,7 @@ Wavefront maintains an image of cAdvisor that includes a Wavefront storage drive
 1. Click **Run Task**.
 
 
-## Create cAdvisor Task Definition for Wavefront
+## Create AWS ECS EC2 Task Definition for Wavefront
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
 
