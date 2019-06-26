@@ -132,8 +132,8 @@ Wavefront maintains an image of cAdvisor that includes a Wavefront storage drive
 
 You can view the ECS Container metrics on the dashboards we set up for the two different options.
 
-Here's a screenshot of the AWS ECS dashboard. 
+Here's a screenshot of the AWS ECS dashboard.
 ![db aws ecs](images/db_aws_ecs.png)
 
 Here's a screenshot of the AWS ECS Fargate dashboard.
-![ecs fargate](images/aws_ecs_fargate)
+![ecs fargate](images/aws_ecs_fargate.png)
