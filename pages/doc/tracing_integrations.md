@@ -9,23 +9,85 @@ summary: Learn about ways to send trace data to Wavefront from a 3rd party distr
 
 You can collect [traces](tracing_basics.html#wavefront-trace-data) with a 3rd party distributed tracing system, and send the [trace data](tracing_basics.html) to Wavefront. Wavefront provides managed, highly scalable storage for your trace data, as well as RED metrics that are derived from the spans.
 
-Suppose you have already instrumented your application using a 3rd party distributed tracing system such as Jaeger or Zipkin. You can continue using that system for application development, and then switch to a Wavefront proxy in production by changing a few configuration settings. 
+Suppose you have already instrumented your application using a 3rd party distributed tracing system such as Jaeger or Zipkin. You can continue using that system for application development, and then switch to a Wavefront proxy in production by changing a few configuration settings.
 
 **Note:** If you have not yet [instrumented your application for tracing](tracing_instrumenting_frameworks.html), consider doing so with one or more [Wavefront observability SDKs](wavefront_sdks.html).
 
 ## Tracing-System Integrations and Exporters
 
-Wavefront provides integrations with several popular 3rd party distributed tracing systems:
-* [Jaeger](jaeger.html)  
+Wavefront supports integrations and also lets you specify custom tags.
+
+
+### Integrations
+
+Wavefront provides integrations with popular 3rd party distributed tracing systems:
+* [Jaeger](jaeger.html)
 * [Zipkin](zipkin.html)
+
+Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system.
 
 The Wavefront integration configures your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html). The proxy, in turn, processes the data and sends it to your Wavefront service. Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
 
-Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system. 
+### RED Metrics Tags
+
+You can include custom trace-derived RED metrics using custom tags for Jaeger and Zipkin.
+
+Add traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys> to `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+
+Wavefront doesn’t allow point tags with empty values. We will drop span tags with empty values for Jaeger and Zipkin integrations.
+
+#### Jaeger
+
+**To set custom tags for Jaeger:**
+
+1. Add `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`` to `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+2. Specify the tags at the level you need, like this:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="20%">Span-level tag</td>
+<td width="80%">Add tag <strong>application</strong> to all spans</td>
+</tr><tr>
+<td width="20%">Process-level tag</td>
+<td width="80%">Add tag <strong>application</strong> as Jaeger tracer tag, that is, a <a href="https://www.jaegertracing.io/docs/1.12/client-features/"> process tag</a></td>
+</tr>
+<tr>
+<td width="20%">Proxy-level tag</td>
+<td width="80%">Add <code>traceJaegerApplicationName=&lt;enter-application-name&gt;</code> in the proxy configuration at <code>/etc/wavefront/wavefront-proxy/wavefront.conf</code>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.
+<p><strong>Note</strong>: If you use a proxy level tag, then you are limited to one application per Wavefront Proxy deployment. </p></td>
+</tr>
+</tbody>
+</table>
+
+
+#### Zipkin
+
+**To set custom tags for Zipkin:**
+
+1. Add `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`` to `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+2. Specify the tags at the level you need, like this:
+
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="20%">Span-level tag</td>
+<td width="80%">Add tag <strong>application</strong> to all spans</td>
+</tr>
+<tr><td width="20%">Proxy-level tag</td>
+<td width="80%">Add <code>traceZipkinApplicationName=&lt;enter-application-name&gt;</code> in the proxy configuration file at <code>/etc/wavefront/wavefront-proxy/wavefront.conf</code>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.
+<p><strong>Note</strong>: If you use a proxy level tag, then you are limited to one application per Wavefront Proxy deployment. </p></td>
+</tr>
+</tbody>
+</table>
+
+
+
 
 ## Trace Data from an Integration
 
-When you use a tracing-system integration, the Wavefront proxy receives the trace data that your application emits. If you configured your distributed tracing system to perform sampling, the proxy receives only the spans that the 3rd party sampler has allowed. 
+When you use a tracing-system integration, the Wavefront proxy receives the trace data that your application emits. If you configured your distributed tracing system to perform sampling, the proxy receives only the spans that the 3rd party sampler has allowed.
 
 The Wavefront proxy:
 * Checks for required span tags on each received span, and adds them if needed.
@@ -33,7 +95,7 @@ The Wavefront proxy:
 
 ### Required Span Tags
 
-Wavefront requires various [span tags](trace_data_details.html#span-tags) on well-formed spans. The following spans tags enable you to filter and visualize trace data from the different services in your instrumented application: 
+Wavefront requires various [span tags](trace_data_details.html#span-tags) on well-formed spans. The following spans tags enable you to filter and visualize trace data from the different services in your instrumented application:
 <table>
 <colgroup>
 <col width="20%"/>
@@ -71,17 +133,17 @@ Wavefront stores the RED metrics along with the spans they are based on. For mor
 
 ## Visualizing Trace Data from an Integration
 
-You view trace data from an integration using [Wavefront charts and queries](tracing_ui_overview.html). 
+You view trace data from an integration using [Wavefront charts and queries](tracing_ui_overview.html).
 
 If you want context for identifying problem traces, you can start by viewing the [auto-derived RED metrics](#auto-derived-red-metrics):
 
 1. Select **Applications > Inventory** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
-2. Click on the service whose auto-derived RED metrics you want to see. 
+2. Click on the service whose auto-derived RED metrics you want to see.
 3. Select an operation from one of the charts to examine the traces for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
 
-If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html): 
+If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html):
 1. Select **Applications > Traces** in the task bar.
-2. In the Traces browser, [submit a trace query](trace_data_query.html) by selecting the filters that describe the spans of interest. At a minimum, you must select the application (by default, `Jaeger` or `Zipkin`) from the Operation menu. 
+2. In the Traces browser, [submit a trace query](trace_data_query.html) by selecting the filters that describe the spans of interest. At a minimum, you must select the application (by default, `Jaeger` or `Zipkin`) from the Operation menu.
 
 
 ## Trace Sampling and RED Metrics from an Integration
@@ -91,7 +153,7 @@ When you use a 3rd party distributed tracing system, you normally configure it t
 For more accurate RED metrics, you can disable the 3rd party sampling, and choose one of the following options instead:
 
 * Set up [sampling through the Wavefront proxy](trace_data_sampling.html#setting-up-sampling-through-the-proxy). You need proxy version 4.36 or later.
-* [Swap in a Wavefront Tracer](#swap-in-a-wavefront-tracer) and configure it to perform sampling. 
+* [Swap in a Wavefront Tracer](#swap-in-a-wavefront-tracer) and configure it to perform sampling.
 
 The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, and then perform the sampling.
 
@@ -99,14 +161,14 @@ The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, 
 ## Alternatives to Integrations
 
 ### Swap In a Wavefront Tracer
-If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer. 
+If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer.
 
 Swapping Tracers enables Wavefront to derive the RED metrics from the entire set of generated spans. In contrast, using the Jaeger integration causes the auto-derived RED metrics to reflect just the subset of spans that are admitted by the Jaeger sampling.
 
 For setup details, see the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) for your programming language.
 
 ### Send Raw Trace Data
-If Wavefront does not support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a sender SDK to send raw trace data to Wavefront. With a sender SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](trace_data_details.html#wavefront-span-format). The sender SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service. 
+If Wavefront does not support an integration for your distributed tracing system, or if you are using your own proprietary tracing system, you can use a sender SDK to send raw trace data to Wavefront. With a sender SDK, you can write code that obtains the component values from your spans, and assembles those values into the [Wavefront span format](trace_data_details.html#wavefront-span-format). The sender SDK also lets you configure your application to send the trace data to a Wavefront proxy or directly to the Wavefront service.
 
 For SDK setup details, see the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for your programming language.
 
@@ -114,7 +176,7 @@ For SDK setup details, see the [Wavefront sender SDK](wavefront_sdks.html#sdks-f
 
 ### Use the Wavefront OpenCensus Go Exporter
 
-If you have instrumented your Go application with OpenCensus, you can use the [Wavefront OpenCensus Go Exporter](https://opencensus.io/exporters/supported-exporters/go/wavefront/) to push metrics, histograms, and traces into Wavefront. This exporter is built on the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for Go. 
+If you have instrumented your Go application with OpenCensus, you can use the [Wavefront OpenCensus Go Exporter](https://opencensus.io/exporters/supported-exporters/go/wavefront/) to push metrics, histograms, and traces into Wavefront. This exporter is built on the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for Go.
 
 
 
