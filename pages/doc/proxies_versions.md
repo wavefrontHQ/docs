@@ -4,16 +4,16 @@ keywords:
 tags: [proxies, release notes]
 sidebar: doc_sidebar
 permalink: proxies_versions.html
-summary: Learn about new features and changes in different Wavefront proxy versions.
+summary: Release Notes for different Wavefront proxy versions.
 ---
 This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 
 ## Version 4.38
 
-* Added the following configuration options for supporting custom trace derived RED metrics tags for Jaeger and Zipkin:
-  - traceJaegerApplicationName
-  - traceZipkinApplicationName
-  - traceDerivedCustomTagKeys
+* Added the following custom configurations for Jaeger and Zipkin integrations:
+- Set custom applications names by adding `traceJaegerApplicationName` or `traceZipkinApplicationName` to the proxy config file.
+- Set custom tags for derived RED metrics by adding `traceDerivedCustomTagKeys` to the proxy config file.
+
 See [Tracing Properties and Examples](proxies_configuring.html#tracing-proxy-properties-and-examples)
 
 ## Version 4.36

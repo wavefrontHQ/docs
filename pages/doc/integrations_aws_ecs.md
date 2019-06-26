@@ -136,4 +136,5 @@ Here's a screenshot of the AWS ECS dashboard.
 ![db aws ecs](images/db_aws_ecs.png)
 
 Here's a screenshot of the AWS ECS Fargate dashboard.
+
 ![ecs fargate](images/aws_ecs_fargate.png)

@@ -17,72 +17,17 @@ Suppose you have already instrumented your application using a 3rd party distrib
 
 Wavefront supports integrations and also lets you specify custom tags.
 
-
-### Integrations
-
-Wavefront provides integrations with popular 3rd party distributed tracing systems:
-* [Jaeger](jaeger.html)
-* [Zipkin](zipkin.html)
+Wavefront provides integrations with popular 3rd party distributed tracing systems. To get data flowing:
+* Follow setup steps for the [Jaeger integration](jaeger.html)
+* Follow setup steps for the [Zipkin integration](zipkin.html)
 
 Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system.
 
-The Wavefront integration configures your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html). The proxy, in turn, processes the data and sends it to your Wavefront service. Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
+The Wavefront integration
+1. Configures your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html).
+2. The proxy processes the data and sends it to your Wavefront service.
 
-### RED Metrics Tags
-
-You can include custom trace-derived RED metrics using custom tags for Jaeger and Zipkin.
-
-Add traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys> to `/etc/wavefront/wavefront-proxy/wavefront.conf`.
-
-Wavefront doesn’t allow point tags with empty values. We will drop span tags with empty values for Jaeger and Zipkin integrations.
-
-#### Jaeger
-
-**To set custom tags for Jaeger:**
-
-1. Add `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`` to `/etc/wavefront/wavefront-proxy/wavefront.conf`.
-2. Specify the tags at the level you need, like this:
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="20%">Span-level tag</td>
-<td width="80%">Add tag <strong>application</strong> to all spans</td>
-</tr><tr>
-<td width="20%">Process-level tag</td>
-<td width="80%">Add tag <strong>application</strong> as Jaeger tracer tag, that is, a <a href="https://www.jaegertracing.io/docs/1.12/client-features/"> process tag</a></td>
-</tr>
-<tr>
-<td width="20%">Proxy-level tag</td>
-<td width="80%">Add <code>traceJaegerApplicationName=&lt;enter-application-name&gt;</code> in the proxy configuration at <code>/etc/wavefront/wavefront-proxy/wavefront.conf</code>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.
-<p><strong>Note</strong>: If you use a proxy level tag, then you are limited to one application per Wavefront Proxy deployment. </p></td>
-</tr>
-</tbody>
-</table>
-
-
-#### Zipkin
-
-**To set custom tags for Zipkin:**
-
-1. Add `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`` to `/etc/wavefront/wavefront-proxy/wavefront.conf`.
-2. Specify the tags at the level you need, like this:
-
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="20%">Span-level tag</td>
-<td width="80%">Add tag <strong>application</strong> to all spans</td>
-</tr>
-<tr><td width="20%">Proxy-level tag</td>
-<td width="80%">Add <code>traceZipkinApplicationName=&lt;enter-application-name&gt;</code> in the proxy configuration file at <code>/etc/wavefront/wavefront-proxy/wavefront.conf</code>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.
-<p><strong>Note</strong>: If you use a proxy level tag, then you are limited to one application per Wavefront Proxy deployment. </p></td>
-</tr>
-</tbody>
-</table>
-
-
+Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
 
 
 ## Trace Data from an Integration
@@ -120,7 +65,9 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 </table>
 
 
-**Note:** The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
+The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
+
+**Note:** Wavefront doesn’t allow span tags with empty values. We will drop span tags with empty values for Jaeger and Zipkin integrations.
 
 
 ### Auto-Derived RED Metrics
@@ -130,6 +77,63 @@ When you use a tracing-system integration, Wavefront automatically derives RED m
 Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics Derived From Spans](trace_data_details.html#red-metrics-derived-from-spans).
 
 **Note:** The level of detail for the RED metrics is affected by any sampling that is done by your 3rd party distributed tracing system. See [Trace Sampling and RED Metrics from an Integration](#trace-sampling-and-red-metrics-from-an-integration), below.
+
+### Custom Trace-Derived RED Metrics
+
+To include custom tags for trace-derived RED metrics, you specify the keys you want to use in the proxy configuration file:
+
+Add
+   `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`
+to
+   `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+
+Wavefront generates point tags for the specified keys at the proxy.
+
+### Custom Application Names
+
+The process for setting up custom application names differs for Jaeger and Zipkin. See the instructions below.
+
+
+#### Custom Application Names for Jaeger
+
+You can specify custom application names at the level you need, like this:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="20%">Span-level tag</td>
+<td width="80%">Add tag <strong>application</strong> to all spans</td>
+</tr><tr>
+<td width="20%">Process-level tag</td>
+<td width="80%">Add tag <strong>application</strong> as Jaeger tracer tag, that is, a <a href="https://www.jaegertracing.io/docs/1.12/client-features/"> process tag</a></td>
+</tr>
+<tr>
+<td width="20%">Proxy-level tag</td>
+<td width="80%">Add <strong>traceJaegerApplicationName=&lt;enter-application-name&gt;</strong> in the proxy configuration at <strong>/etc/wavefront/wavefront-proxy/wavefront.conf</strong>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.</td>
+</tr>
+</tbody>
+</table>
+
+The order of precedence is span level > process level > proxy level
+
+
+#### Custom Application Names for Zipkin
+
+You can specify custom application names at the level you need, like this:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="20%">Span-level tag</td>
+<td width="80%">Add tag <strong>application</strong> to all spans</td>
+</tr>
+<tr><td width="20%">Proxy-level tag</td>
+<td width="80%">Add <strong>traceZipkinApplicationName=&lt;enter-application-name&gt;</strong> in the proxy configuration file at <strong>/etc/wavefront/wavefront-proxy/wavefront.conf</strong>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.</td>
+</tr>
+</tbody>
+</table>
+
+The order of precedence is span level > proxy level
 
 ## Visualizing Trace Data from an Integration
 

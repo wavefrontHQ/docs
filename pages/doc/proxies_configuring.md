@@ -464,19 +464,19 @@ Ex: 0 </td>
 <tr>
 <td>traceJaegerApplicationName</td>
 <td>Custom application name for traces received on Jaeger's traceJaegerListenerPorts.</td>
-<td>traceJaegerApplicationName=My_Jae</td>
+<td>traceJaegerApplicationName=MyJaeDemo</td>
 <td>4.38</td>
 </tr>
 <tr>
 <td>traceZipkinApplicationName</td>
 <td>Custom application name for traces received on Zipkin's traceZipkinListenerPorts. </td>
-<td>traceZipkinApplicationName=My_Zip</td>
+<td>traceZipkinApplicationName=MyZipDemo</td>
 <td>4.38 </td>
 </tr>
 <tr>
 <td>traceDerivedCustomTagKeys</td>
 <td>Comma separated list of custom tag keys to include as metric tags for the derived RED(Request, Error, Duration) metrics. Applicable to Jaeger and Zipkin integration only.</td>
-<td>Comma-separated list of tags.</td>
+<td>traceDerivedCustomTagKeys=tenant, env, location</td>
 <td>4.38 </td>
 </tr>
 </tbody>
