@@ -51,3 +51,5 @@ Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_
 **Note:** Replace `<wf_proxy_hostname>` with the IP address of the docker host if the proxy is running on the same host.
 
 The Wavefront proxy will receive Jaeger trace data once the Jaeger agent has been started with the above property enabled.
+
+See the [documentation](https://docs.wavefront.com/tracing_integrations.html) for info on customizing the Jaeger integration.
