@@ -36,7 +36,7 @@ Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefro
 
 **Note:** To ensure that dashboards display correctly, use only the default EC2 instance name for the ECS cluster.
 
-## Create AWS Fargate Task Definition for Wavefront
+## Create AWS ECS Fargate Task Definition for Wavefront
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
 
@@ -115,10 +115,7 @@ Wavefront maintains an image of cAdvisor that includes a Wavefront storage drive
 
    ![select launch type](images/select_launch_type.png)
 1. Scroll to the bottom of the new Task Definition form and click the **Configure via JSON** button.
-   1. Delete the content and paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field:
-
-      ![paste json](images/paste_json.png)
-
+   1. Delete the content and paste the [JSON example](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/aws-ecs/example-task-definition.json) into the JSON form field.
    1. In the JSON form, set the `-storage_driver_wf_proxy_host` property  to `<wavefront_proxy_ip_address>:<port>` and click **Save**.
 1. Click the **Create** button at the bottom of the Task Definition form.
 1. Select **Actions > Run Task** and specify the task information:
@@ -133,6 +130,10 @@ Wavefront maintains an image of cAdvisor that includes a Wavefront storage drive
 
 ## View ECS Container Metrics
 
-View the [AWS ECS dashboard](integrations_aws_metrics.html#aws-dashboards)
+You can view the ECS Container metrics on the dashboards we set up for the two different options.
 
+Here's a screenshot of the AWS ECS dashboard. 
 ![db aws ecs](images/db_aws_ecs.png)
+
+Here's a screenshot of the AWS ECS Fargate dashboard.
+![ecs fargate](images/aws_ecs_fargate)
