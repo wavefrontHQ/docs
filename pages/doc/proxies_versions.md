@@ -8,15 +8,23 @@ summary: Learn about new features and changes in different Wavefront proxy versi
 ---
 This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 
+## Version 4.38
+
+* Added the following configuration options for supporting custom trace derived RED metrics tags for Jaeger and Zipkin:
+  - traceJaegerApplicationName
+  - traceZipkinApplicationName
+  - traceDerivedCustomTagKeys
+See [Tracing Properties and Examples](proxies_configuring.html#tracing-proxy-properties-and-examples)
+
 ## Version 4.36
-* Generate RED metrics from tracing spans. 
+* Generate RED metrics from tracing spans.
 
 ## Version 4.35
-* First class integration for Zipkin. Anyone using Zipkin can substitute a Wavefront proxy for the Zipkin HTTP collector to send data to Wavefront. 
+* First class integration for Zipkin. Anyone using Zipkin can substitute a Wavefront proxy for the Zipkin HTTP collector to send data to Wavefront.
 * Fixes minor Jaeger integration issues.
 
 ## Version 4.34
-* Support for trace sampling. 
+* Support for trace sampling.
 
 ## Version 4.33
 * First class integration for Jaeger. Anyone using Jaeger can point their agent to the Wavefront proxy instead of the Jaeger collector to send data to Wavefront.
