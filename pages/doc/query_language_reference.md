@@ -705,16 +705,18 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 </tbody>
 </table>
 
-## String Functions
+## String Manipulation Functions
 
-We support 3 groups of string manipulation functions.
-* The first group takes only an expression as an argument, for example, `length(ts(my.metric))`.
-* The second group takes a string and an expression arguments. Use those functions, for example, to see whether a specified string is found in an expression.
-* The third group takes one or two numbers and allows you for example, to find the character at a certain location or from a start location to an end location.
+We support 3 groups of string manipulation functions. For each group:
+* The first argument is a metric, source, or point tag to manipulate.
+* Additional arguments depend on the group:
+  - The first group takes an expression as the second argument, for example, `length(service, ${ts})`.
+  - The second group takes a string and an expression arguments, for example, `startsWith(service, "newV", ${ts})` Use those functions, for example, to see whether a specified string is found in an expression.
+  - The third group takes one or two numbers and allows you for example, to find the character at a certain location, for example, `charAt(service, 3, ${ts})`.
 <table style="width: 100%;">
 <colgroup>
-<col width="45%" />
 <col width="55%" />
+<col width="45%" />
 </colgroup>
 <thead>
 <tr>
@@ -724,40 +726,41 @@ We support 3 groups of string manipulation functions.
 </thead>
 <tbody>
 <tr>
-<td>length(<strong>&lt;expression&gt;</strong>)<br/> isEmpty(<strong>&lt;expression&gt;</strong>)<br/> toLowerCase(<strong>&lt;expression&gt;</strong>)<br/>
-toUpperCase(<strong>&lt;expression&gt;</strong>)<br/> trim(<strong>&lt;expression&gt;</strong>)<br/>
-strip(<strong>&lt;expression&gt;</strong>)<br/>
-stripLeading(<strong>&lt;expression&gt;</strong>)<br/>
-stripTrailing(<strong>&lt;expression&gt;</strong>)<br/> isBlank(<strong>&lt;expression&gt;</strong>)<br/></td>
+<td>length(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/> isEmpty(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/>
+toLowerCase(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/>
+toUpperCase(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/> trim(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/>
+strip(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/>
+stripLeading(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/>
+stripTrailing(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/> isBlank(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;expression&gt;</strong>)<br/></td>
 <td>String function to examine or modify a specified expression. </td>
 </tr>
 <tr>
 <td>
-equals(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-equalsIgnoreCase(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-startsWith(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-endsWith(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-indexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-lastIndexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-concat(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-matches(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-contains(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/></td>
+equals(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+equalsIgnoreCase(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+startsWith(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+endsWith(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+indexOf(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+lastIndexOf(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+concat(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+matches(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
+contains(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/></td>
 <td>String function to compare an expression to a specified string.</td>
 </tr>
 <tr>
 <td>
-charAt(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
-substring(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
-repeat(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+charAt(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+substring(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+repeat(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
 </td>
 <td>String functions that take an integer as an argument.
 <ul><li><strong>charAt</strong> returns the character at the location specified by the integer. </li>
 <li><strong>substring</strong> starts at the location specified by the integer and returns all characters in the expression.</li>
-<li><strong>repeat</strong> repeats</li></ul>.</td>
+<li><strong>repeat</strong> repeats the string that specifies a metric, source, or point tag. </li></ul>.</td>
 </tr>
 <tr>
 <td>
-substring(<strong>&lt;integer1&gt;, &lt;integer2&gt;, &lt;expression&gt;</strong>)<br/>
+substring(<strong>&lt;metric|source|tagk&gt;</strong>, <strong>&lt;integer1&gt;, &lt;integer2&gt;, &lt;expression&gt;</strong>)<br/>
 </td>
 <td>String function that takes two integers as an argument and returns the string that starts at position &lt;integer1&gt; and ends at position &lt;integer2&gt;.</td>
 </tr>
