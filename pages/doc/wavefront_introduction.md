@@ -106,12 +106,13 @@ Different users interact with Wavefront in different ways:
 
 The Wavefront Service runs the metrics collection engine. The service runs in the cloud and accepts data from the Wavefront proxy or through direct ingestion.
 
-* If you have a custom application, you can send your metrics to the proxy or directly to the service  -- as long as the data is in one of the supported data formats.
-   For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
-* If you're interested in on-prem telemetry you have several options:
-  - Send data from your application code to the proxy using a **metrics library**. This works well both for metrics and for traces and spans.
-  - Set up a **collector** agent such as Telegraf, collects data from you host or infrastructure and sends those data to the proxy.
-  - The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
 * With cloud services, Wavefront pulls the data from your cloud provider (after minimal setup). We support all major cloud providers.
+* For on-prem telemetry you have several options:
+  - Set up a **collector** agent such as Telegraf, collects data from you host or infrastructure and sends those data to the proxy.
+  - Send data from your application code to the proxy using a **metrics library**. This works well both for metrics and for traces and spans.
+* If you have a custom application, you can send your metrics to the proxy or directly to the service  -- as long as the data is in one of the supported data formats.
+  For example, if your environment already includes a metrics collection infrastructure, you can do some pre-processing on the data and send them to the proxy.
+* The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
 
-![Wavefront architecture](images/wavefront_architecture.svg)
+
+![Wavefront architecture](images/wavefront_architecture_new.svg)
