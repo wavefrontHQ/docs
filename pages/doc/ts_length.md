@@ -7,7 +7,7 @@ summary: Reference to the length() string manipulation function
 ---
 ## Summary
 ```
-length(<metric|source|tagk>, <expression>)
+length(<metric|source|PointTag>, <expression>)
 ```
 Returns the length of a string.
 
@@ -18,7 +18,7 @@ Returns the length of a string.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"><metric|source|tagk></td>
+<td markdown="span">metric|source|PointTag</td>
 <td>The metric, source, or point tag for which you need the string length.</td></tr><tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>

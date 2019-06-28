@@ -3,16 +3,18 @@ title: isBlank and isEmpty Functions
 keywords: query language reference
 tags: [reference page]
 permalink: ts_isblank.html
-summary: Reference to the isEmpty() and isBlank() string manipulation functions
+summary: Reference to the isBlank() and isEmpty() string manipulation functions
 ---
 ## Summary
 ```
-isEmpty(<metric|source|tagk>, <expression>)
-isBlank(<metric|source|tagk>, <expression>)
+isBlank(<metric|source|PointTag>, <expression>)
+isEmpty(<metric|source|PointTag>, <expression>)
 ```
-The isEmpty() function returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.
 
 The isBlank() function returns true if the value of the metric, source, or point tag string is a blank character (`" "`), and returns false otherwise.
+
+The isEmpty() function returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.
+
 
 ## Parameters
 <table style="width: 100%;">
@@ -21,7 +23,7 @@ The isBlank() function returns true if the value of the metric, source, or point
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"><metric|source|tagk></td>
+<td markdown="span">metric|source|pointTag</td>
 <td>The metric, source, or point tag for which you want to know whether it corresponds to an empty or blank string.</td></tr><tr>
 <td markdown="span"> [expression](query_language_reference.html#expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
