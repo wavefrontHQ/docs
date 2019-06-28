@@ -20,7 +20,7 @@ The isEmpty() function returns true if the value of the metric, source, or point
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">metric|source|pointTag</td>
@@ -35,16 +35,16 @@ The isEmpty() function returns true if the value of the metric, source, or point
 
 The following example illustrates how `isBlank()` works:
 
-In the screenshot on the left, we use `isBlank()` to see whether the string `"newPointTagValue"` is blank. The query returns false.
+* In the screenshot on the left, we use `isBlank()` to see whether the string `"newPointTagValue"` is blank. The query returns false.
 
-`isBlank(service, ${ts})`
+   `isBlank(service, ${ts})`
 
-In the screenshot on the right, we use `isBlank()` to see whether the string `" "` is blank.
+* In the screenshot on the right, we use `isBlank()` to see whether the string `" "` is blank.
 
-`isBlank(service, ${ts_b})`
+   `isBlank(service, ${ts_b})`
 
 
 Because the string this query uses is the empty string (`" "`), this query returns true.
 
 
-![ts isBlank](images/ts_isBlank.png)
+![ts isBlank](images/ts_is_blank.png)
