@@ -35,6 +35,6 @@ The equalsIgnoreCase() function compares a string extracted from an expression t
 
 ## Example
 
-The following example extracts the `service` point tag from an expression and replaces it with the string `newPointTagValue`. Then the example checks whether the string that `taggify()` returns is equal to `newPointTagValue` (true) or to `dataingester` (false).
+The following example checks whether the string `newPointTagValue` is equal to the string `newPointTagValue` (true) or to the string `dataingester` (false).
 
 ![ts equals](images/ts_equals.png)

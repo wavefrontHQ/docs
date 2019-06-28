@@ -35,17 +35,11 @@ The isEmpty() function returns true if the value of the metric, source, or point
 
 The following example illustrates how `isBlank()` works:
 
-In the screenshot on the left, we've enabled the following queries:
-
-`taggify(avg(rate(ts(dataingester.report-points, source=mon*))), service, "newPointTagValue")`
+In the screenshot on the left, we use `isBlank()` to see whether the string `"newPointTagValue"` is blank. The query returns false.
 
 `isBlank(service, ${ts})`
 
-Because the string "newPointTagValue" is not empty, the isBlank() query returns false.
-
-In the screenshot on the right, we've enabled the following queries:
-
-`taggify(avg(rate(ts(dataingester.report-points, source=mon*))), service, " ")`
+In the screenshot on the right, we use `isBlank()` to see whether the string `" "` is blank.
 
 `isBlank(service, ${ts_b})`
 

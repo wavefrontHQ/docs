@@ -35,9 +35,9 @@ The contains() function compares a string extracted from an expression to a spec
 
 ## Example
 
-The following example extracts the `service` point tag from an expression and replaces it with the string `newPointTagValue`. Then the example checks
+The following example checks
 
-* Whether the string that `taggify()` returns contains `newV` (false)
-* Whether the string that `taggify()` returns contains `newP` (true)
+* Whether `newPointTagValue` contains `newV` (false)
+* Whether `newPointTagValue` contains `newP` (true)
 
 ![ts contains](images/ts_contains.png)

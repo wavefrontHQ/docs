@@ -3,7 +3,7 @@ title: trim, strip, stripLeading, and stripTrailing Functions
 keywords: query language reference
 tags: [reference page]
 permalink: ts_trim.html
-summary: Reference to the length() string manipulation function
+summary: Reference to the trim, strip, stripLeading, and stripTrailing string manipulation function
 ---
 ## Summary
 ```
@@ -19,7 +19,7 @@ Functions for stripping white space (blank) from a string.
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">metric|source|PointTag</td>

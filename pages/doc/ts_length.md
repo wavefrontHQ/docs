@@ -28,8 +28,6 @@ Returns the length of a string.
 
 ## Example
 
-The following example:
-1. Uses `taggify()` for replacing the point tag `service` with the string `newPointTagValue`
-2. Returns the length of the string (16 characters).
+The following example returns the length of the string `newPointTagValue` (16 characters). 
 
 ![ts length](images/ts_length.png)

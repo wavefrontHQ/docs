@@ -39,6 +39,6 @@ The startsWith() and endsWith() functions allow you to check whether a string st
 
 ## Example
 
-In the example below, we're replacing the service point tag key with the string `newPointTagValue`. Then we check whether that string starts with `newV` (false) or with `newP` (true)
+In the example below, we check whether the string `newPointTagValue` starts with `newV` (false) or with `newP` (true)
 
 ![ts starts with](images/ts_starts_with.png)

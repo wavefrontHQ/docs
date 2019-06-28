@@ -18,7 +18,7 @@ The toUpperCase() function converts all lower case function in the string extrac
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span"><metric|source|PointTag></td>
@@ -31,7 +31,7 @@ The toUpperCase() function converts all lower case function in the string extrac
 
 ## Example
 
-The following example extracts the `service` point tag from an expression and replaces it with the string `newPointTagValue`. Then `toUpperCase()` converts all lower case functions, resulting in `NEWPOINTTAGVALUE` as shown in the screen shot below.
+The following example uses `toUpperCase()` to convert all lower-case characters in `newPointTagValue` to upper case, resulting in `NEWPOINTTAGVALUE` as shown in the screen shot below.
 
 
 ![ts toLowerCase](images/ts_to_upper_case.png)

@@ -33,9 +33,7 @@ The concat() function lets you concatenate a specified string with a extracted f
 
 ## Example
 
-The following example extracts the `service` point tag from an expression and replaces it with the string `newPointTagValue`.
-
-Then we concatenate `service` with `_newStr`. The result is `newPointTagValue_newStr`.
+The following example concatenates `newPointTagValue` with `_newStr`. The result is `newPointTagValue_newStr`.
 
 
 ![ts concat example](images/ts_concat.png)

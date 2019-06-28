@@ -35,10 +35,8 @@ The lastIndexOf() function compares a string extracted from an expression to a s
 
 ## Example
 
-The following example extracts the `service` point tag from an expression and replaces it with the string `newPointTagValue`.
-
-Then we use `lastIndexOf()`
-* To check the position of `Tag` from the back, which is 8 (`tTag` would be 7).
-* To check the position of `newP` from the back, which is 0.
+The following example uses `lastIndexOf()` to look at the string `newPointTagValue`.
+* We check the position of `Tag` from the back, which is 8 (`tTag` would be 7).
+* We check the position of `newP` from the back, which is 0.
 
 ![ts lastIndexOf](images/ts_last_index_of.png)

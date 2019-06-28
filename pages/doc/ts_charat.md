@@ -16,7 +16,7 @@ The charAt() function retrieves the character at the position specified by an in
 <table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">metric|source|PointTag</td>
@@ -32,7 +32,11 @@ The charAt() function retrieves the character at the position specified by an in
 
 ## Example
 
-In the example below, we're replacing the service point tag key with the string `newPointTagValue`. Then we check the character at position 4 (o) and the character at position 8 (T). The returned characters are case sensitive.
+In the example below, we use `charAt()` to extract:
+* The character at position 4 in `newPointTagValue` (o)
+* The character at position 8 in `newPointTagValue` (T).
+
+The returned characters are case sensitive.
 
 
 ![ts charAt](images/ts_char_at.png)
