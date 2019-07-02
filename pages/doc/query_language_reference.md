@@ -887,7 +887,7 @@ Because this is an aggregation function, you can group, for example, call <stron
 </tr>
 <tr>
 <td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns a summary of the specified histogram merged across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>mergedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+<td>Returns a summary of the specified histogram aligned across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>
 </table>
