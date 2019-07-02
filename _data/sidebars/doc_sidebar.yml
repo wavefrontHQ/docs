@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2019-22.x Release Notes
+      url: /2019.22.x_release_notes.html
+      output: web
+
     - title: 2019-18.x Release Notes
       url: /2019.18.x_release_notes.html
       output: web
