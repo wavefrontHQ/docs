@@ -22,6 +22,7 @@ Wavefront provides Microsoft Azure dashboards for the following services:
 - Azure: Container Instances
 - Azure: Event Hub
 - Azure: Functions
+- Azure: HDInsight Cluster
 - Azure: Kubernetes Services
 - Azure: Load Balancers
 - Azure: Redis Caches

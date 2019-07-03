@@ -28,3 +28,5 @@ Zipkin [deployments](https://zipkin.io/pages/architecture.html) consist of a Zip
 4. [Restart the proxy](https://docs.wavefront.com/proxies_installing.html#starting-and-stopping-a-proxy).
 
 Wavefront will now receive Zipkin trace data on the specified proxy port.
+
+See the [documentation](https://docs.wavefront.com/tracing_integrations.html) for info on customizing the Zipkin integration.

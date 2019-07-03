@@ -705,16 +705,18 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 </tbody>
 </table>
 
-## String Functions
+## String Manipulation Functions
 
-We support 3 groups of string manipulation functions.
-* The first group takes only an expression as an argument, for example, `length(ts(my.metric))`.
-* The second group takes a string and an expression arguments. Use those functions, for example, to see whether a specified string is found in an expression.
-* The third group takes one or two numbers and allows you for example, to find the character at a certain location or from a start location to an end location.
+We support 3 groups of string manipulation functions. For each group:
+* The first argument is a metric, source, or point tag to manipulate.
+* Additional arguments depend on the group:
+  - The first group takes an expression as the second argument, for example, `length(service, ${ts})`.
+  - The second group takes a string and an expression arguments, for example, `startsWith(service, "newV", ${ts})` Use those functions, for example, to see whether a specified string is found in an expression.
+  - The third group takes one or two numbers and allows you for example, to find the character at a certain location, for example, `charAt(service, 3, ${ts})`.
 <table style="width: 100%;">
 <colgroup>
-<col width="45%" />
-<col width="55%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr>
@@ -723,44 +725,74 @@ We support 3 groups of string manipulation functions.
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>length(<strong>&lt;expression&gt;</strong>)<br/> isEmpty(<strong>&lt;expression&gt;</strong>)<br/> toLowerCase(<strong>&lt;expression&gt;</strong>)<br/>
-toUpperCase(<strong>&lt;expression&gt;</strong>)<br/> trim(<strong>&lt;expression&gt;</strong>)<br/>
-strip(<strong>&lt;expression&gt;</strong>)<br/>
-stripLeading(<strong>&lt;expression&gt;</strong>)<br/>
-stripTrailing(<strong>&lt;expression&gt;</strong>)<br/> isBlank(<strong>&lt;expression&gt;</strong>)<br/></td>
-<td>String function to examine or modify a specified expression. </td>
+<tr><td><a href="ts_length.html">length(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Returns the length of a string</td>
 </tr>
-<tr>
-<td>
-equals(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-equalsIgnoreCase(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-startsWith(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-endsWith(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-indexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-lastIndexOf(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-concat(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-matches(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/>
-contains(<strong>&lt;string&gt;, &lt;expression&gt;</strong>)<br/></td>
-<td>String function to compare an expression to a specified string.</td>
+<tr><td><a href="ts_isblank.html">isEmpty(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.</td>
 </tr>
-<tr>
-<td>
-charAt(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
-substring(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
-repeat(<strong>&lt;integer&gt;, &lt;expression&gt;</strong>)<br/>
+<tr><td><a href="ts_isblank.html">isBlank(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Returns true if the value of the metric, source, or point tag string is a blank character (<strong>" "</strong>), and returns false otherwise.</td>
+</tr>
+<tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Converts all upper case function in the string extracted from the expression to lower case. </td>
+</tr>
+
+<tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Converts all upper case function in the string extracted from the expression to lower case.</td>
+</tr>
+
+<tr><td><a href="ts_trim.html">trim(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Removes a single leading white space and/or a single trailing white space, but does not remove multiple leading or trailing white spaces.  </td>
+</tr>
+<tr><td><a href="ts_trim.html">strip(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Removes both leading and trailing white spaces from a string.</td>
+</tr>
+<tr><td><a href="ts_trim.html">stripLeading(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Removes leading white spaces from a string.</td>
+</tr>
+<tr><td><a href="ts_trim.html">stripTrailing(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Removes trailing white spaces from a string. </td>
+</tr>
+<tr><td><a href="ts_equals.html">equals(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string.  </td>
+</tr>
+<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string and ignores case. With this function `string` is equal to `StRiNg` </td>
+</tr>
+<tr><td><a href="ts_startswith.html">startsWith(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Lets you check whether a string extracted from an expression starts with a specified string.
+ </td>
+</tr>
+<tr><td><a href="ts_startswith.html">endsWith(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Lets you check whether a string extracted from an expression starts with a specified string.  </td>
+</tr>
+<tr><td><a href="ts_indexof.html">indexOf(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string and returns where the specified string starts in the extracted string.</td>
+</tr>
+<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string starting at the back and returns where the specified string starts in the extracted string. </td>
+</tr>
+<tr><td><a href="ts_concat.html">concat(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string. </td>
+</tr>
+<tr><td><a href="ts_matches.html">matches(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string, and returns 1 if the two strings match exactly and 0 otherwise.
 </td>
-<td>String functions that take an integer as an argument.
-<ul><li><strong>charAt</strong> returns the character at the location specified by the integer. </li>
-<li><strong>substring</strong> starts at the location specified by the integer and returns all characters in the expression.</li>
-<li><strong>repeat</strong> repeats</li></ul>.</td>
 </tr>
-<tr>
-<td>
-substring(<strong>&lt;integer1&gt;, &lt;integer2&gt;, &lt;expression&gt;</strong>)<br/>
-</td>
-<td>String function that takes two integers as an argument and returns the string that starts at position &lt;integer1&gt; and ends at position &lt;integer2&gt;.</td>
+<tr><td><a href="ts_matches.html">contains(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string, and returns 1 if the extracted string contains the specified string and 0 otherwise.  </td>
 </tr>
+<tr><td><a href="ts_charat.html">charAt(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Retrieves the character at the position specified by an integer from a string extracted from an expression. </td>
+</tr>
+<tr><td><a href="ts_substring.html">substring(<strong>&lt;metric|source|PointTag&gt;</strong>,&lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Extracts a substring from a string extracted from an expression.</td>
+</tr>
+<tr><td><a href="ts_repeat.html">repeat(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Repeats a string extracted from an expression the specified number of times. </td>
+</tr>
+
 </tbody>
 </table>
 
@@ -791,9 +823,9 @@ substring(<strong>&lt;integer1&gt;, &lt;integer2&gt;, &lt;expression&gt;</strong
 <td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>
 <tr>
-<td>forecast(<strong>&lt;expression&gt;</strong>)
+<td><a href="ts_nnforecast.html"><strong>nnforecast(&lt;forecastPeriod&gt;, [&lt;confidenceFactor&gt;,] &lt;expression&gt;, [with_bounds])</strong></a>
 </td>
-<td>Forecasts future data values for each time series described by the expression. The chart's bucket size affects how the amount of data used in the predictions. A larger bucket size produces faster, but less detailed, results. </td>
+<td>Forecasts future data values for each time series described by the expression. It uses hypothesis testing and neural networks for prediction. </td>
 </tr>
 </tbody>
 </table>
@@ -855,7 +887,7 @@ Because this is an aggregation function, you can group, for example, call <stron
 </tr>
 <tr>
 <td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns a summary of the specified histogram merged across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>mergedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+<td>Returns a summary of the specified histogram aligned across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>
 </table>
