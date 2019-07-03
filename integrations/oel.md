@@ -17,6 +17,10 @@ In addition to setting up the metrics flow, this integration also installs a das
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
 ## Linux Host Setup
 
-**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](https://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
+This integration uses various Telegraf input plugins and offers several setup options
+
+* Use a proxy already running in your environment (preferred) or create a new proxy. 
+* Install the Wavefront proxy and Telegraf agent on the same host or on separate hosts. 
+* Choose automatic installation or manual installation and configuration.
 
 {% include telegraf.md %}
