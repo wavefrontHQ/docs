@@ -53,6 +53,8 @@ On the page for a particular service, you can:
 * Navigate to the Traces browser:
   - Select **See All ... Traces** to display all traces that include a span from this service component.
   - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
+* If your environment uses Telegraf, view system metrics such as CPU usage, memory usages, and disk usage in the **System** section.
+  ![system metrics](images/system_metrics.png)
 
 
 ## Explore Traces
@@ -85,7 +87,7 @@ You can:
 * Use Query Editor to limit the scope even further (advanced users).
 * Sort the returned traces according to different criteria.
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
-* See the relationship of a trace to similar traces in the percentile indicator -- and potentially find outliers. 
+* See the relationship of a trace to similar traces in the percentile indicator -- and potentially find outliers.
 
 ## Investigate the Service Map for a Trace
 
