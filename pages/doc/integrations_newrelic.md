@@ -3,7 +3,8 @@ title: New Relic Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
-permalink: integrations_newrelic.html
+published: false
+permalink: integrations_newrelic_v1.html
 summary: Learn how to send data emitted by New Relic to Wavefront.
 ---
 [New Relic](https://www.newrelic.com/) is a popular APM solution for monitoring applications. The Wavefront collector supports pulling metrics from New Relic at least every minute. Application summary data can be polled every 30s, but is not guaranteed by New Relic to be updated that often.
@@ -299,5 +300,3 @@ This section describes how to contact the Wavefront proxy.
   - Gets the application summary every 30s (no details are retrieved so the summary metrics can be updated more frequently)
 - `details.conf`
   - Gets the application (host) details and delays 5m between each run.
-
-
