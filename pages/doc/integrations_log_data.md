@@ -33,14 +33,14 @@ In your Wavefront proxy [configuration file](proxies_configuring.html), add thes
 
 ```conf
 filebeatPort=5044
-rawLogsPort=5055
+rawLogsPort=5045
 logsIngestionConfigFile=<wavefront_config_path>/logsIngestion.yaml
 ```
 
 These entries instruct the Wavefront proxy to listen for log data:
 
 * on port 5044 it listens using the [Lumberjack protocol](http://github.com/elastic/logstash-forwarder/blob/master/PROTOCOL.md), which works with [Filebeat](http://www.elastic.co/products/beats/filebeat)
-* on port 5055 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others).
+* on port 5045 it listens for raw logs data over a TCP socket as a UTF-8 encoded string (which works with Splunk, and many others).
 
 ### Configuring the Wavefront Proxy to Add Structure to Log Data
 
@@ -225,7 +225,7 @@ These instructions are tailored for Splunk integration, but you can send any new
 [tcpout]
 
 [tcpout:fastlane]
-server = <wavefront_proxy_ip_address>:5055
+server = <wavefront_proxy_ip_address>:5045
 sendCookedData = false
 ```
 
