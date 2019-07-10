@@ -3,7 +3,7 @@ title: "Tutorial: Getting Started (v2 Beta)"
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started_v2.html
-summary: Build dashboards and chart with sample data, create an alert, and learn navigation basics.
+summary: Build dashboards and charts with sample data, create an alert, and learn navigation basics.
 ---
 
 This tutorial uses Wavefront sample data to get you started:
