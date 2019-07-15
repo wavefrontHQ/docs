@@ -3,6 +3,7 @@ title: New Relic Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
+published: false
 permalink: integrations_newrelic.html
 summary: Learn how to send data emitted by New Relic to Wavefront.
 ---
@@ -299,5 +300,3 @@ This section describes how to contact the Wavefront proxy.
   - Gets the application summary every 30s (no details are retrieved so the summary metrics can be updated more frequently)
 - `details.conf`
   - Gets the application (host) details and delays 5m between each run.
-
-
