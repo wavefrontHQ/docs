@@ -419,20 +419,12 @@ entries:
             url: /integrations_log_data.html
             output: web
 
-          - title: Monitor and Scale Kubernetes
-            url: /wavefront_kubernetes.html
-            output: web
-
       - title: Custom Integrations Setup
         output: web
         subfolderitems:
 
           - title: AppDynamics Integration
             url: /integrations_appdynamics.html
-            output: web
-
-          - title: New Relic Integration
-            url: /integrations_newrelic.html
             output: web
 
           - title: Managing External Links

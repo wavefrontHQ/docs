@@ -1,18 +1,18 @@
 ---
-title: Tour Pro Integration
+title: Wavefront Tour Integration
 tags: [integrations list]
 permalink: tour.html
-summary: Learn about the Wavefront Tour Pro Integration.
+summary: Learn about the Wavefront Wavefront Tour Integration.
 ---
-## Tour Pro Integration
+## Tour Integration
 
-The Tour Pro integration is a set of dashboards that show some typical customer use cases and let you explore Wavefront capabilities.
+The Tour integration is a set of dashboards that give an overview of capabilities and how to use those capabilities to solve typical monitoring use cases:
 
- - Welcome - Learn about Wavefront capabilities and benefits.
- - The Needle in a Haystack - See a correlation function in action. 
- - Anomaly Detection - Use historical data to establish a pattern and capture when a problem occurred. 
- - The Perfect Alert - Prevent false alarms with intelligent alerting. 
- - Spike or Anomaly? - Pull a signal from the noise and compare time windows. 
- - Cluster Metrics Exploration - An example dashboard using sample data that provide visibility into cluster-level KPI. 
- - Single-Host Health Exploration - An example dashboard using sample data that provide visibility into a single host.
+- Tour: Welcome - overview of benefits and capabilities.
+- Tour: Anomaly Detection: Finding a Needle in a Haystack - how to find an anomalous event.
+- Tour: Intelligent Alerting: Creating the Perfect Alert - how to create an alert that does not fire spuriously.
+- Tour: Data Exploration: Analyzing an Event's Impact - how to discover the affect of a code push on metrics.
+- Tour: Exploration and Capacity Planning - how to correlate metrics.
+- Tour: Anomaly Detection: Using Weekly Patterns - how to use historical data to establish a pattern and capture precisely when a service issue occurred.
 
+These dashboards use sample real-time and historical metrics that have been automatically pre-populated in your instance.
