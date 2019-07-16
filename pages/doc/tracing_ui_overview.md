@@ -81,10 +81,15 @@ In the Traces browser, you can [query](trace_data_query.html) for the traces tha
 
 ![explore traces list](images/tracing_traces_browser_traces_list_rev.png)
 
-You can:
+Here's how to get started:
+1. Start typing in the Operations field and select an operation (or type a name in the search box).
+2. Click **Add Filter** and specify a filter to limit the results.
+3. (Optional) Advanced users can use Query Editor to limit the scope even further.
 
-* Use Query Builder to apply filters and narrow down the scope of the trace query.
-* Use Query Editor to limit the scope even further (advanced users).
+
+
+You can then use the trace list to:
+
 * Sort the returned traces according to different criteria.
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
 * See the relationship of a trace to similar traces in the percentile indicator -- and potentially find outliers.

@@ -86,7 +86,7 @@ Different traces have the same label if they represent different calls to the sa
 
 An application must be _instrumented for tracing_ before it can send trace data to Wavefront. Wavefront supports several options. Here's the big picture:
 
-![tracing architecture](images/tracing_architecture.png)
+![tracing architecture](images/tracing_architecture_small.png)
 
 ### Use Cases
 
