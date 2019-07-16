@@ -1,24 +1,34 @@
 ---
-title: Managing Users and Groups
+title: Managing Accounts and Groups
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_groups.html
-summary: Learn how to manage users and groups.
+summary: Learn about User Accounts, Service Accounts, and Groups
 ---
 You can secure your Wavefront environment by:
-* Granting and revoking (global) permissions for users and groups.
-* Granting and revoking access to individual objects (initially dashboards and alerts) for users and groups
+* Granting and revoking (global) permissions for accounts and groups.
+* Granting and revoking access to individual objects (initially dashboards and alerts) for accounts and groups
 
-You must have Users & Groups permission to view and manage users, groups, and permissions in Wavefront. If you don't have Users & Groups permission, the UI menu selections, buttons, and links that you use to view users and permissions are not visible.
+Accounts can be user accounts or service accounts.
 
-## Users and Groups Basics
+**Note**: You must have Users & Groups permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have Users & Groups permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible.
 
-Before you start with users and groups, here's what you need to know.
+## Accounts and Groups Basics
+
+Before you start with accounts and groups, here's what you need to know.
+
+### What's the Difference Between User Accounts and Service Accounts?
+
+Startin in summer 2019, Wavefront supports two account types:
+* User accounts are for the users who work with Wavefront. A user account authenticates with a user name and password.
+* [Service accounts](service_accounts.html) use a **token** to authenticate. Service accounts:
+  - Don't have **default permissions** (unless the Everyone group has default permissions).
+  - Can't perform the **UI operations** that user accounts can perform by default.
 
 ### What Can a New User Do?
 
-When you invite a user to Wavefront, what that new user can do depends on several factors.
+When you invite a (human) user to Wavefront, what that new user can do depends on several factors.
 
 - **New User Tasks:** All Wavefront users can perform the following tasks:
   * View the dashboards, alerts, metrics, sources, events, maintenance windows, and alert notification pages
@@ -30,8 +40,8 @@ When you invite a user to Wavefront, what that new user can do depends on severa
 
   **Note:** It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited.
 
-- **New User Permissions:** Users with Users & Groups permission can view and modify new user default permissions [from the gear icon](users_groups.html#setting-default-permissions-for-new-users).
-- **Default User Groups:** Administrators can set up a [default user group](users_groups.html#setting-the-default-group-for-new-users). All new users get all permissions assigned to the default user groups.
+- **New User Permissions:** Users with Users & Groups permission can view and modify new user default permissions [from the gear icon](users_groups.html#setting-default-permissions-for-new-users). These permissions do not apply to service accounts.
+- **Default User Groups:** Administrators can set up a [default user group](users_groups.html#setting-the-default-group-for-new-users). All new accounts get all permissions assigned to the default user groups.
 
 
 ### Who is the Super Admin User?
@@ -40,55 +50,47 @@ When your company signs up with Wavefront, we ask you which user(s) you want to 
 
 ### Why Groups?
 
-Groups make it easy to make changes for many users. More importantly, if you change permissions or access settings, you're less likely to forget something if you take advantage of groups. For example, you can grant additional permissions to a group of users or share a dashboard with a group.
+Groups make it easy to make changes for many accounts. More importantly, if you change permissions or access settings, you're less likely to forget something if you take advantage of groups. For example, you can grant additional permissions to a group of accounts or share a dashboard with a group.
 
 **Note:** Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
 ### What's the Everyone Group?
 
-All users in Wavefront are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
+All accounts (users and service accounts) are members of the Everyone group, which was created when Wavefront enabled the more fine-grained access model that includes groups and ACLs.
+
 Here's what you need to know:
 
-* You cannot remove users from the Everyone group. All users, including Super Admin, are always in the Everyone group.
+* You cannot remove accounts from the Everyone group. All accounts, including Super Admin, are always in the Everyone group.
 * You cannot delete the Everyone group.
-* You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means users can browse data but cannot modify anything.
-* **Warning** If you change the permissions assigned to the Everyone group, you change the permissions for each user in your environment.
+* You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means human users can browse data but cannot modify anything.
+* **Warning** If you change the permissions assigned to the Everyone group, you change the permissions for each account in your environment, including service accounts.
 * If you use access control in your environment, you can share a dashboard or alert with the Everyone group to:
-  - Give View & Modify access to users who have Dashboard (or Alert) permissions
-  - Give View access to users who don't have Dashboard (or Alert) permissions
+  - Give View & Modify access to accounts who have Dashboard (or Alert) permissions
+  - Give View access to accounts who don't have Dashboard (or Alert) permissions
   You can remove the Everyone group from a dashboard or alert to limit access to that object.
-
-<!---
-#### What is the Ingest Only Group?
-
-The Ingest Only group is created when Wavefront enables groups. The group is meant for service accounts and it has only the **Direct Data Ingestion** permission by default.
-
-When you invite a service account, add this group to the User Groups field.
-
-You can delete and rename this group, and you can change the permissions assigned to this group.--->
 
 
 ## Managing Groups
 
-Users who have Users & Groups permission can create groups, change groups by adding and removing users, and grant and revoke permissions.
+Users who have Users & Groups permission can create groups, change groups by adding and removing accounts, and grant and revoke permissions.
 
 1. Click the gear icon and select **User Group Management**.
 2. To create a group:
    1. Click **New Group**, and specify the group name.
    2. Add group members (optional). You can add and remove group members later.
    3. Select the initial set of permissions for the group and click **Create**.
-3. To change a group's users or permission:
+3. To change a group's accounts or permission:
    2. Select the group you want to change.
    3. Select **+User**, **-User**, **+Permission**, or **-Permission**.
 
-   **Note:** If you revoke permission for a group, all users in that group no longer have the permission unless they belong to another group with that permission or they have the individual permission.
+   **Note:** If you revoke permission for a group, all accounts in that group no longer have the permission unless they belong to another group with that permission or they have the individual permission.
 
-## Managing Users
+## Managing User Accounts
 
-Users with Users & Groups permissions can manage users.
+Users with Users & Groups permissions can manage accounts. This section discusses user account management. We discuss [service accounts](service_accounts.html) separately.
 
 1. Click the gear icon and select **User Management**.
-2. To add a user:
+2. To add an account:
    1. Click **Invite New Users**, and specify a comma-separated list of email addresses.
    2. Specify user groups. You cannot remove users from the Everyone group.
    3. If you want to manage individual user permissions, click **Advanced** and specify permissions. We recommend managing permissions at the group level.

@@ -7,10 +7,12 @@ permalink: service_accounts.html
 summary: Create and manage service accounts.
 ---
 
-A service account is for services that use the Wavefront API to perform certain tasks. Service accounts:
-* Use a **token** to authenticate.
-* Don't have **default permissions** (unless the Everyone group has default permissions).
-* Can't perform the **UI operations** that user accounts can [perform by default](users_groups.html#what-can-a-new-user-do).
+A service account is for services that use the Wavefront API to perform certain tasks.
+* A service account use a **token** to authenticate.
+* Service accounts do not get any **individual permission** by default
+  - Each account is automatically added to the **Everyone**  group and inherits the Everyone group permissions (if any)
+  - Service account can be added to any group to get that groups permissions.
+* A service account can't perform the **UI operations** that user accounts can [perform by default](users_groups.html#what-can-a-new-user-do).
 
 ## Service Accounts: The Basics
 
@@ -21,7 +23,7 @@ If you build a service or tool that manages proxies or ingests data, then that t
 
    The tool authenticates seamlessly to the API without embedding any secret keys or user credentials in your instance, image, or application code.
 
-Service accounts can perform modification and deletion **only** if they have the necessary permissions. You can disable a service account if you temporarily don't need it, or delete it permanently.
+Service accounts can perform get, modify, and delete tasks **only** if they have the necessary permissions. You can disable a service account if you temporarily don't need it, or delete it permanently.
 
 ## Create a Service Account
 
@@ -93,7 +95,7 @@ To grant or revoke permissions <strong>Edit Service Account</strong> page:
 
 ## Deactivate or Activate a Service Account
 
-You can permanently revoke individual tokens for a service account or temporarily (or permanently) deactivate a service account.
+You can temporarily (or permanently) deactivate a service account. When an account is deactivated, none of the corresponding tokens work. 
 
 You can activate or deactivate a service account from the **Service Accounts** page or from the **Edit Service Account** page.
 

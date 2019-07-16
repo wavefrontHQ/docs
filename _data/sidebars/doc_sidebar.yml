@@ -223,6 +223,42 @@ entries:
       url: /dashboards_variables.html
       output: web
 
+  - title: "Charts and Dashboards v2 Beta"
+    output: web
+    folderitems:
+
+    - title: "What's New in v2 Beta"
+      url: /ui_v2_faq.html
+      output: web
+
+    - title: "Chart Builder v2 Beta"
+      url: /chart_builder.html
+      output: web
+
+    - title: "Examine Data v2 Beta"
+      url: /ui_examine_data_v2.html
+      output: web
+
+    - title: "Create and Customize Dashboards v2 Beta"
+      url: /ui_dashboards_v2.html
+      output: web
+
+    - title: "Create and Customize Charts v2 Beta"
+      url: /ui_charts_v2.html
+      output: web
+
+    - title: "Share Charts and Dashboards v2 Beta"
+      url: /ui_sharing_v2.html
+      output: web
+
+    - title: "Chart Reference v2 Beta"
+      url: /ui_chart_reference_v2.html
+      output: web
+
+    - title: "Dashboard Variables v2 Beta"
+      url: /dashboards_variables_v2.html
+      output: web
+
   - title: Query Language
     output: web
     folderitems:
@@ -553,8 +589,12 @@ entries:
             url: /authorization.html
             output: web
 
-          - title: Managing Users and Groups
+          - title: Managing Accounts and Groups
             url: /users_groups.html
+            output: web
+
+          - title: Managing Service Accounts
+            url: /service_accounts.html
             output: web
 
           - title: Managing Permissions
@@ -628,39 +668,3 @@ entries:
       - title: Use Case Videos
         url: /wavefront_use_cases.html
         output: web
-
-  - title: "Charts and Dashboards v2 Beta"
-    output: web
-    folderitems:
-
-    - title: "What's New in v2 Beta"
-      url: /ui_v2_faq.html
-      output: web
-
-    - title: "Chart Builder"
-      url: /chart_builder.html
-      output: web
-
-    - title: "Examine Data"
-      url: /ui_examine_data_v2.html
-      output: web
-
-    - title: "Create and Customize Dashboards"
-      url: /ui_dashboards_v2.html
-      output: web
-
-    - title: "Create and Customize Charts"
-      url: /ui_charts_v2.html
-      output: web
-
-    - title: "Share Charts and Dashboards"
-      url: /ui_sharing_v2.html
-      output: web
-
-    - title: "Chart Reference"
-      url: /ui_chart_reference_v2.html
-      output: web
-
-    - title: "Dashboard Variables"
-      url: /dashboards_variables_v2.html
-      output: web
