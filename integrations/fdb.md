@@ -45,8 +45,9 @@ enter the following snippet to set the cluster name:{% raw %}
       [global_tags]
         cluster = <FoundationDB-Cluster-Name>
    ```
+{% endraw %}
 Enter the following snippet in one of the server where you have configured the FoundationDB metrics collector:
-
+{% raw %}
    ```
       # # Read metrics from fdb
       [[inputs.exec]]
@@ -62,8 +63,9 @@ Enter the following snippet in one of the server where you have configured the F
         ## Data format to consume.
         data_format = "influx"
    ```
+{% endraw %}
 Enter the following snippet in all the servers belongs to the FoundationDB cluster to collect the host-specific metrics:
-
+{% raw %}
    ```
       # Get kernel statistics from /proc/stat
       [[inputs.kernel]]

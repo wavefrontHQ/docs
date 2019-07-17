@@ -41,6 +41,7 @@ http {
 }
 ...
 ```
+{% endraw %}
 
 For details, see [Module ngx_http_status_module docs](http://nginx.org/en/docs/http/ngx_http_status_module.html).
 
@@ -53,7 +54,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 ### Step 3. Enable the NGINX Plus input plugin
 
 Create a file called `nginxplus.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
    ```
    # Read Nginx Plus full status information (ngx_http_status_module)
    [[inputs.nginx_plus]]
@@ -66,11 +67,12 @@ Create a file called `nginxplus.conf` in `/etc/telegraf/telegraf.d` and enter th
      response_timeout = "5s"
 
    ```
+{% endraw %}
 
 You may need to update `http://localhost/status` if you've configured the `ngx_http_status_module` on a different path.
 
 A single Telegraf agent can poll multiple NGINX Plus instances for status information. Specify the addresses of the NGINX instances in the `urls` parameter:
-
+{% raw %}
 ```
 urls = ["http://server1/status","http://server2/status","http://server3/status"]
 ```

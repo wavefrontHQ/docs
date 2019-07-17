@@ -43,17 +43,19 @@ If you are using Maven, add the following:
   <version>LATEST</version>
 </dependency>
 ```
+{% endraw %}
 
 #### build.gradle
 If you are using Gradle, add the following:
-
+{% raw %}
 ```
 compile 'io.micrometer:micrometer-registry-wavefront:latest.release'
 ```
+{% endraw %}
 
 ### Step 3. Wavefront Configurations
 
-#### Configuration Using the Wavefront Proxy
+#### Configuration Using the Wavefront Proxy{% raw %}
 ```
 WavefrontConfig config = new WavefrontConfig() {
     @Override
@@ -73,10 +75,11 @@ WavefrontConfig config = new WavefrontConfig() {
 };
 MeterRegistry registry = new WavefrontMeterRegistry(config, Clock.SYSTEM);
 ```
+{% endraw %}
   1. For URI, use the format `proxy://HOST:PORT`.
   2. Accept the defaults for other fields.
 
-#### Configuration for Sending Data Directly to Wavefront
+#### Configuration for Sending Data Directly to Wavefront{% raw %}
 ```
 WavefrontConfig config = new WavefrontConfig() {
     @Override
@@ -101,6 +104,7 @@ WavefrontConfig config = new WavefrontConfig() {
 };
 MeterRegistry registry = new WavefrontMeterRegistry(config, Clock.SYSTEM);
 ```
+{% endraw %}
   1. This configuration file uses `https://YOUR_CLUSTER.wavefront.com`, which is the Wavefront instance that is going to receive data.
   2. API token is the token that you can use to access the Wavefront API. Details can be found [here](https://docs.wavefront.com/wavefront_api.html#invoking-the-api).
   3. Accept the defaults for other fields.
@@ -113,7 +117,7 @@ The following code fragment creates a Wavefront registry that emits data every 1
 - Data that should appear with the source `app-1.company.com`
 - Reporter-level point tags named `dc` and `service`
 - A counter metric `micrometer.counter`
-
+{% raw %}
 ```
 import io.micrometer.core.instrument.Clock
 import io.micrometer.core.instrument.Counter;
@@ -189,11 +193,12 @@ public class SimpleWavefrontProxyTest extends Thread {
     }
 }
 ```
+{% endraw %}
 
 #### JVM Metrics
 
 Micrometer provides several binders for monitoring the JVM.
-
+{% raw %}
 ```
 new ClassLoaderMetrics().bindTo(registry); (1)
 new JvmMemoryMetrics().bindTo(registry); (2)

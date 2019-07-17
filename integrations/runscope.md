@@ -35,15 +35,17 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 ```
    python runscope.py -h
 ```
+{% endraw %}
 
    You should get a response similar to this:
-
+{% raw %}
 ```
    usage: runscope.py [-h] token
 
       positional arguments:
       token       Runscope token.
 ```
+{% endraw %}
  
 ### Step 3: Create an Application for Wavefront In Runscope
 
@@ -61,7 +63,7 @@ To get an access token that this integration's Python script can use to poll the
 ### Step 4: Enable the Exec Input Plugin
 
 Create a file called `runscope.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 ## Get Test Results from Runscope. 
 [[inputs.exec]]

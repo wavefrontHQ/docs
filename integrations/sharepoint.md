@@ -118,11 +118,12 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
      Instances = ["_total"]
      Measurement = "sharepoint.FoundationSearchGathererDatabases"
 ```
+{% endraw %}
 
 ### Step 4: Restart the Telegraf service
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

@@ -50,6 +50,7 @@ func main() {
   go wavefront.WavefrontProxy(metrics.DefaultRegistry, 1*time.Second, hostTags, "some.prefix", addr)
 }
 ```
+{% endraw %}
 
 ### Option 2. Create a Wavefront Direct Reporter
 
@@ -57,7 +58,7 @@ You can send metrics directly to a Wavefront service, discussed next. Option 1 a
 
 Tags passed to the direct reporter are applied to every metric.
 
-
+{% raw %}
 ```
 import (
   "github.com/rcrowley/go-metrics"
@@ -76,11 +77,12 @@ func main() {
   go wavefront.WavefrontDirect(metrics.DefaultRegistry, 5*time.Second, hostTags, "direct.prefix", server, token)
 }
 ```
+{% endraw %}
 
 ### Adding Metric-level Tags
 
 You can add tags to individual metrics. `wavefront.RegisterMetric()` has the same affect as go-metrics' `metrics.Register()` except that it accepts tags in the form of a string map. The tags are then used by the Wavefront reporter at flush time. The tags become part of the key for a metric within go-metrics' registry. Every unique combination of metric name+tags is a unique series. You can pass your tags in any order to the Register and Get functions. The Wavefront plugin ensures the tags are always encoded in the same order within the registry to ensure no duplication of metric series.
-
+{% raw %}
 ```
 import (
   "github.com/rcrowley/go-metrics"
@@ -98,9 +100,10 @@ func main() {
   c.Inc(47)
 }
 ```
+{% endraw %}
 
 ### Extended Example
-
+{% raw %}
 ```
 package main
 

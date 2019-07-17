@@ -133,10 +133,11 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
      Instances = ["_Total"]
      Measurement = "hyperv.host.process"
    ```
+{% endraw %}
 ### Step 4. Restart Telegraf
 
 Restart Telegraf from the Windows Services Management Console or run the following commands from the command prompt:
-
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

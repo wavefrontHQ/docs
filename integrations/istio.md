@@ -49,8 +49,9 @@ params:
     address: YOUR-PROXY-IP:YOUR-PROXY-PORT
   source: your-cluster-or-application
 ```
+{% endraw %}
 
-Option 2. Send metrics directly to a Wavefront service
+Option 2. Send metrics directly to a Wavefront service{% raw %}
 ```
 params:
   direct:

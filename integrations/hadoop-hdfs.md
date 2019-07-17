@@ -35,17 +35,19 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
     export HDFS_NAMENODE_OPTS="-javaagent:${JOLOKIAJAR}=port=7777,host=localhost"
     export HDFS_DATANODE_OPTS="-javaagent:${JOLOKIAJAR}=port=7778,host=localhost"
     ```
+{% endraw %}
 4. Verify the Jolokia agent installation on each node by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
-The result looks similar to this:
+The result looks similar to this:{% raw %}
 ```
 {"request":{"type":"version"},"value":{"agent":"1.3.7","protocol":"7.2","config":{"maxCollectionSize":"0","agentId":"10.152.24.99-29844-172f5788-servlet","debug":"false","agentType":"servlet","serializeException":"false","detectorOptions":"{}","dispatcherClasses":"org.jolokia.jsr160.Jsr160RequestDispatcher","maxDepth":"15","discoveryEnabled":"false","canonicalNaming":"true","historyMaxEntries":"10","includeStackTrace":"true","maxObjects":"0","debugMaxEntries":"100"},"info":{"product":"tomcat","vendor":"Apache","version":"8.5.23"}},"timestamp":1509955465,"status":200}
 ```
+{% endraw %}
 
 ### Step 3. Configure Telegraf Jolokia Input Plugin
 
 First create a file called `hadoop-hdfs.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 ################
 # NAMENODE     #
@@ -133,19 +135,22 @@ paths      = ["Usage", "PeakUsage", "CollectionUsage"]
 tag_keys   = ["name"]
 tag_prefix = "pool_"
 ```
+{% endraw %}
 
 Then replace the `urls` value on the `NAMENODE` section with your NameNodes URLs specified on `HDFS_NAMENODE_OPTS`, and the `urls` value on the `DATANODE` section with your DataNodes URLs specified on `HDFS_DATANODE_OPTS`
 
-Format:
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/<jolokia contex>"]
 ```
-Example:
+{% endraw %}
+Example:{% raw %}
 ```
 urls = ["http://10.152.24.99:7777/jolokia"]
 ```
+{% endraw %}
 
-To monitor multiple name or data nodes, add `urls` entries:
+To monitor multiple name or data nodes, add `urls` entries:{% raw %}
 ```
 urls = ["http://datanode.foo.com:7778/jolokia","http://datanode2.foo.com:7778/jolokia","http://datanode3.foo.com:7778/jolokia"]
 ```

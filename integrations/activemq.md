@@ -84,16 +84,18 @@ mbean    = "org.apache.activemq:brokerName=*,type=Broker"
 paths    = ["TotalConsumerCount","TotalMessageCount","TotalEnqueueCount","TotalDequeueCount","MemoryLimit","MemoryPercentUsage","StoreLimit","StorePercentUsage","TempPercentUsage","TempLimit"]
 tag_keys = ["brokerName"]
 ```
+{% endraw %}
 
 Then, replace the `urls`,` username` and `password` values with your ActiveMQ server values. Specify your servers with URL matching.
 
-Format:
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/api/jolokia"]
 username = [username]
 password = [password]
 ```
-Example:
+{% endraw %}
+Example:{% raw %}
 ```
 urls = ["http://localhost:8161/api/jolokia"]
 username = "admin"

@@ -62,6 +62,7 @@ spec:
         securityContext:
           privileged: false
 ```
+{% endraw %}
 
 Run `kubectl create -f </path/to>/proxy.yaml`. The Wavefront proxy should now be running in Kubernetes.
 
@@ -70,7 +71,7 @@ Run `kubectl create -f </path/to>/proxy.yaml`. The Wavefront proxy should now be
 Create a proxy service to expose the Wavefront proxy internally to your Kubernetes cluster.
 
 Copy and save the following yaml to a file named `proxy-service.yaml`.
-
+{% raw %}
 ```
 apiVersion: v1
 kind: Service
@@ -86,12 +87,13 @@ spec:
   selector:
     k8s-app: wavefront-proxy
 ```
+{% endraw %}
 
 Run `kubectl create -f </path/to>/proxy-service.yaml`. A `wavefront-proxy` service should now be running on your cluster.
 
 ### Step 3. Deploy Heapster
 
-If RBAC is enabled on your Kubernetes cluster, copy and save the following yaml to your system as `heapster-rbac.yaml`:
+If RBAC is enabled on your Kubernetes cluster, copy and save the following yaml to your system as `heapster-rbac.yaml`:{% raw %}
 ```
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -112,10 +114,11 @@ metadata:
   name: heapster
   namespace: kube-system
 ```
+{% endraw %}
 Run `kubectl create -f heapster-rbac.yaml`.
 
 Copy and save the following yaml to your system as `heapster.yaml`:
-
+{% raw %}
 ```
 apiVersion: v1
 kind: ReplicationController
@@ -158,6 +161,7 @@ spec:
         hostPath:
           path: /etc/ssl/certs
 ```
+{% endraw %}
 Replace the `clusterName=k8s-cluster` above to uniquely identify your Kubernetes cluster.
 
 If RBAC is disabled, comment out `serviceAccount: "heapster"` from `heapster.yaml`.
@@ -172,7 +176,7 @@ To collect **kube-state metrics** from your Kubernetes cluster, follow Step 4 & 
 ### Step 4. Deploy the kube-state-metrics service
 
 Copy and save the following yaml to your system as `kube-state.yaml`:
-
+{% raw %}
 ```
 apiVersion: rbac.authorization.k8s.io/v1
 # kubernetes versions before 1.8.0 should use rbac.authorization.k8s.io/v1beta1
@@ -357,12 +361,13 @@ spec:
           - --deployment=kube-state-metrics
 
 ```
+{% endraw %}
 Run `kubectl create -f </path/to>/kube-state.yaml`. A `kube-state-metrics` service should now be running on your cluster.
 
 ### Step 5. Deploy Telegraf to Collect kube-state-metrics
 
 Copy and save the following yaml to your system as `telegraf.yaml`:
-
+{% raw %}
 ```
 apiVersion: apps/v1
 # Kubernetes versions after 1.9.0 should use apps/v1

@@ -49,10 +49,11 @@ Create a file called `couchbase.conf` in `/etc/telegraf/telegraf.d` and enter th
 ## If no port is specified, 8091 is used.
 servers = ["http://<username>:<password>@<your.couchbase.server>:8091"]
 ```
+{% endraw %}
 Replace `your.couchbase.server` with the IP of your Couchbase instance. Replace `username` and `password` with your instance's username and password.
 
 To monitor multiple Couchbase server instances, configure the `servers` parameter with address of your Couchbase servers.
-
+{% raw %}
 ```
  servers = ["http://<username>:<password>@<your.couchbase.sever1>:8091", "http://<username>:<password>@<your.couchbase.sever2>:8091"]
 ```

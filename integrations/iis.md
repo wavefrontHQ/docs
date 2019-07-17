@@ -23,6 +23,7 @@ Supported IIS Version(s): IIS 6.0 & later{% raw %}
 ```
 This integration is supported only on Windows.
 ```
+{% endraw %}
 **Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](https://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
 
 ### Step 1: Set up a Wavefront Proxy
@@ -36,7 +37,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 ### Step 3: Configure the IIS Input Plugin
 
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
-
+{% raw %}
    ```
    [[inputs.win_perf_counters]]
      [[inputs.win_perf_counters.object]]
@@ -111,6 +112,7 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
        Measurement = "iis.http.queues"
        #IncludeTotal=false #Set to true to include _Total instance when querying for all (*).
    ```
+{% endraw %}
    
 **Note:** On `IIS` dashboard, the **System Performance** section uses Windows system metrics configured by default in Telegraf. 
 
@@ -119,7 +121,7 @@ To see data in the **Avg Disk Latency** chart, make sure the following propertie
 * `IncludeTotal = true`.
 
 Example:
-
+{% raw %}
 ```
 [[inputs.win_perf_counters.object]]
 ObjectName = "LogicalDisk"
@@ -128,11 +130,12 @@ Counters = ["% Disk Read Time", "% Disk Write Time", "% Free Space", "% Idle Tim
 Measurement = "win.disk"
 IncludeTotal = true
 ```
+{% endraw %}
 
 ### Step 4: Restart the Telegraf service
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

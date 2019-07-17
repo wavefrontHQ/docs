@@ -93,14 +93,16 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
       ## Some queries we may want to run less often (such as SHOW GLOBAL VARIABLES)
       interval_slow                             = "30m"
     ```
+{% endraw %}
 
 1. Replace the `servers` value with your MySQL server URL. Specify your servers with URL matching.
     
-    Format:
+    Format:{% raw %}
     ```
     servers = [username[:password]@][protocol[(address)]]/[?tls=[true|false|skip-verify]]
     ```
-    Example:
+{% endraw %}
+    Example:{% raw %}
     ```
     servers = ["user:password@tcp(your_mysql_server:3306)/"]
     ```

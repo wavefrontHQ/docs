@@ -35,17 +35,19 @@ Jolokia is a JVM agent that exposes JMX data as JSON on an HTTP port (8778 by de
     export RMI_HOSTNAME=KAFKA_SERVER_IP_ADDRESS
     export KAFKA_JMX_OPTS="-javaagent:/opt/kafka/libs/jolokia-jvm-*-agent.jar  -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=$RMI_HOSTNAME -Dcom.sun.management.jmxremote.rmi.port=$JMX_PORT"
     ```
+{% endraw %}
     1. Restart the Kafka broker node.
-    1. Verify that you can access Jolokia on port 8778 by running:
+    1. Verify that you can access Jolokia on port 8778 by running:{% raw %}
     ```
     curl http://KAFKA_SERVER_IP_ADDRESS:8778/jolokia/version
     ```
+{% endraw %}
     Jolokia is working if you receive a non-empty JSON response with the Kafka metrics.
 
 ### Step 3. Configure Jolokia Input Plugin
 
 Create a file called `jolokia-kafka.conf` in `/etc/telegraf/telegraf.d` and enter the following:
-
+{% raw %}
 ```
 ## Read JMX metrics through Jolokia
  [[inputs.jolokia2_agent]]
@@ -185,9 +187,10 @@ Create a file called `jolokia-kafka.conf` in `/etc/telegraf/telegraf.d` and ente
      mbean  = "kafka.server:type=SessionExpireListener,name=ZooKeeperExpiresPerSec"
      paths = ["Count","OneMinuteRate","FiveMinuteRate","FifteenMinuteRate","MeanRate"]
 ```
+{% endraw %}
 **Note:** Replace `KAFKA_SERVER_IP_ADDRESS` with the Kafka server IP address.
 
-To monitor multiple Kafka brokers, add additional `[[inputs.jolokia.servers]]` entries:
+To monitor multiple Kafka brokers, add additional `[[inputs.jolokia.servers]]` entries:{% raw %}
 ```
 [[inputs.jolokia.servers]]
   name = "kafka-server-1"

@@ -127,13 +127,14 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
     Instances = ["*"]
     Measurement = "dotnet.thread"
    ```
+{% endraw %}
 **Note:** In the `Overview` section of the dashboard, the `Process Working Set` chart lists all Windows process metrics by default. To show only processes related to .NET, add `Instances = ["w3wp"]` for ObjectName `Process`. 
 
 
 ### Step 4: Restart the Telegraf service
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

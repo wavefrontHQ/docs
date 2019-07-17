@@ -31,35 +31,40 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
   GRANT select_catalog_role TO wavefront;
   GRANT CREATE SESSION TO wavefront;
 ```
+{% endraw %}
 
 ### Step 3. Install Python
 
 1. Make sure python 3.6 or higher is installed on the Telegraf agent server.
-2. Install python package cx_Oracle. Use the following snippet.
+2. Install python package cx_Oracle. Use the following snippet.{% raw %}
   ```
     python -m pip install cx_Oracle --upgrade
   ```
+{% endraw %}
 
 ### Step 4. Create a Script to Gather Oracle RDBMS Metrics
 
 1. Download [wavefront_oracle_metrics.py](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/oracle/wavefront_oracle_metrics.py) onto your Telegraf agent server.
-2. Test the script execution using this command:
+2. Test the script execution using this command:{% raw %}
     ```
     python wavefront_oracle_metrics.py
     ```
-    You should get a response similar to this:
+{% endraw %}
+    You should get a response similar to this:{% raw %}
     ```
     usage: wavefront_oracle_metrics.py [-h] -u USER -p PASSWD -s SID
     wavefront_oracle_metrics.py: error: the following arguments are required: -u/--user, -p/--passwd, -s/--sid
     ```
+{% endraw %}
     If the script is not executing, adjust the file permission and the Python path.
 3. Download [exec_oracle_python.sh](https://raw.githubusercontent.com/wavefrontHQ/integrations/master/oracle/exec_oracle_python.sh) onto your Telegraf agent server.
 4. Edit the script to change the environment variables, and  python execution path for your Telegraf agent server. 
-5. Change the ``wavefront password`` & ``sid`` parameters in exec_oracle_python.sh file. 
+5. Change the ``wavefront password`` & ``sid`` parameters in exec_oracle_python.sh file. {% raw %}
 ```
    # Example.
    /usr/bin/python "/home/oracle/Documents/wavefront_oracle_metrics.py" -u "wavefront" -p "wavefront123" -s "orcl"
 ```
+{% endraw %}
 6. Note down the full paths for files downloaded and saved from steps 1 & 3 above.
 
 ### Step 5. Configure Telegraf Exec Input Plugin
@@ -67,19 +72,20 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 For Linux Telegraf agent server.
 
 Create a file called `oracle.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 [[inputs.exec]]
    commands = ["/home/oracle/Documents/exec_oracle_python.sh"]
    timeout = "5s"
    data_format = "influx"
 ```
+{% endraw %}
 **NOTE:** use the path of the exec_oracle_python.sh.
 
 For Windows Telegraf agent server.
 
 Edit the `telegraf.conf` file located at `Program Files\Telegraf` and enter the following snippet:
-
+{% raw %}
 ```
 [[inputs.exec]]
    commands = [
@@ -88,6 +94,7 @@ Edit the `telegraf.conf` file located at `Program Files\Telegraf` and enter the 
    timeout = "5s"
    data_format = "influx"
 ```
+{% endraw %}
 Change the ``password`` and ``sid`` in the code snippet.
 
 **NOTE:** use the path of the wavefront_oracle_metrics.py.
@@ -101,7 +108,7 @@ Run `sudo service telegraf restart` to restart your Telegraf agent.
 For Windows
 
 Restart the Telegraf service using the Windows Services Management Console or from the command prompt:
-
+{% raw %}
 ```
   net stop telegraf
   net start telegraf

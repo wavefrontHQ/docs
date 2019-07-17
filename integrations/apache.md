@@ -40,35 +40,40 @@ This integration requires the [Apache HTTP Server "mod_status"](https://httpd.ap
     SetHandler server-status
 </Location>
 ```
+{% endraw %}
 
 ### Step 3. Configure the Telegraf Apache Input Plugin
 
 Create a file called apache.conf in `/etc/telegraf/telegraf.d`. 
 
-To specify one or more urls to gather metrics from, use `urls`: 
+To specify one or more urls to gather metrics from, use `urls`: {% raw %}
 ```
 [[inputs.apache]]
   urls = ["http://<ip>:<port>/server-status?auto"]
 ```
+{% endraw %}
 
-`urls` is an array of URLs. Default is `http://localhost/server-status?auto`. Example: 
+`urls` is an array of URLs. Default is `http://localhost/server-status?auto`. Example: {% raw %}
 ```
   urls = ["http://localhost/server-status?auto",
           "http://localhost:8080/server-status?auto"]
 ```
+{% endraw %}
 
-To use credentials for basic HTTP authentication use `username` and `password`.Example:
+To use credentials for basic HTTP authentication use `username` and `password`.Example:{% raw %}
 ```
 username = <user>
 password = <password>
 ```
+{% endraw %}
 
-To change the maximum time to receive a response use `response_timeout`. Example:
+To change the maximum time to receive a response use `response_timeout`. Example:{% raw %}
 ```
 response_timeout = "<time>s"
 ```
+{% endraw %}
 
-To use optional SSL configuration parameters, use the properties in the following example: 
+To use optional SSL configuration parameters, use the properties in the following example: {% raw %}
 ```
 ssl_ca = "/etc/telegraf/ca.pem"
 ssl_cert = "/etc/telegraf/cert.pem"

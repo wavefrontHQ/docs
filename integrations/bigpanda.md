@@ -30,8 +30,9 @@ Follow this [link](https://docs.bigpanda.io/reference#integrating-monitoring-sys
 ```
 Authorization - Bearer {Bearer Token from Step 1}
 ```
+{% endraw %}
 1. Select **Generic Webhook Template** in **Alert Target POST Body Template**.
-1. Customize the template, as follows:
+1. Customize the template, as follows:{% raw %}
 ```
 {
   "app_key": "{AppKey from Step 1}",

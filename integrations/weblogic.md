@@ -38,11 +38,12 @@ The result looks similar to this:{% raw %}
 ```
 {"request":{"type":"version"},"value":{"agent":"1.3.7","protocol":"7.2","config":{"maxCollectionSize":"0","agentId":"10.152.24.99-29844-172f5788-servlet","debug":"false","agentType":"servlet","serializeException":"false","detectorOptions":"{}","dispatcherClasses":"org.jolokia.jsr160.Jsr160RequestDispatcher","maxDepth":"15","discoveryEnabled":"false","canonicalNaming":"true","historyMaxEntries":"10","includeStackTrace":"true","maxObjects":"0","debugMaxEntries":"100"},"info":{"product":"tomcat","vendor":"Apache","version":"8.5.23"}},"timestamp":1509955465,"status":200}
 ```
+{% endraw %}
 
 ### Step 3. Configure the Telegraf Jolokia Input Plugin
 
 First create a file called `weblogic.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 [[inputs.jolokia2_agent]]
 urls = ["http://SERVER_URL:PORT/jolokia"]
@@ -105,19 +106,22 @@ paths      = ["ConnectionsCurrentCount","ConnectionsHighCount","ConnectionsTotal
 tag_keys   = ["name","ServerRuntime"]
 tag_prefix = "wls_"
 ```
+{% endraw %}
 
 Then replace the `urls` value with your WebLogic Server URL. Specify your servers with URL matching.
 
-Format:
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/<jolokia context>"]
 ```
-Example:
+{% endraw %}
+Example:{% raw %}
 ```
 urls = ["http://wls.foo.com:8080/jolokia"]
 ```
+{% endraw %}
 
-To monitor multiple WebLogic Servers, add additional `urls` entries:
+To monitor multiple WebLogic Servers, add additional `urls` entries:{% raw %}
 ```
 urls = ["http://wls.foo.com:8080/jolokia","http://webapp1.foo.com:8080/jolokia","http://wbapp2.foo.com:8080/jolokia"]
 ```

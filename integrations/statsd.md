@@ -38,6 +38,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
   allowed_pending_messages = 10000
   percentile_limit = 1000
 ```
+{% endraw %}
 
 ### Step 3. Restart Telegraf
 
@@ -46,27 +47,29 @@ Run `sudo service telegraf restart` to restart your agent.
 ### Step 4. Send Test Metrics
  
 The easiest and quickest way to send test metrics to StatsD is to use `netcat`:
-
+{% raw %}
 ```shell
 $ echo "foo.bar.test1:+1|g" | nc -u localhost 8125
 ```
+{% endraw %}
 
 This command creates and increments a gauge named **foo.bar.test1**. After running this command open a chart and enter the query **ts("foo.bar.test1")**. Run the command a few more times and you should see the line increase in value as the gauge is incremented.
  
 #### Set Point Tags on Metrics
  
 The Telegraf StatsD plugin has built-in support for point tags. Add any tags you want applied to the end of the metric name:
-
+{% raw %}
 ```shell
 $ echo "foo.bar.test2,tag1=val1:+1|g" | nc -u localhost 8125
 ```
+{% endraw %}
 
 This command creates and increment a gauge named **foo.bar.test2** with a tag named **tag1** with value **val1**. You can add multiple tags to your metrics (separated by commas).
  
 #### Override the Metric Source
  
 By default, Telegraf uses the hostname of the machine running StatsD as the source of the metric. If you have remote applications sending metrics into your StatsD service, you may want to override the source with the hostname of your application. To do this, pass the **hostname** point tag to StatsD with the name of the host running your application.
-
+{% raw %}
 ```shell
 $ echo "foo.bar.test3,hostname=mycustomsource:+1|g" | nc -u localhost 8125
 ```

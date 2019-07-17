@@ -31,20 +31,22 @@ In addition to setting up the metrics flow, this integration also installs a das
    graphiteFormat = 2
    graphiteDelimiters = _
    ```
+{% endraw %}
 Here, `hostname` represents the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
-6. Start the Wavefront proxy service:
+6. Start the Wavefront proxy service:{% raw %}
    ```
    sudo java -cp ./proxy-4.26-uber.jar \
    -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
    -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
    ```
+{% endraw %}
 7. On the Proxies page, verify that the proxy has registered with the Wavefront server.
 
 ### Step 2: Install and Configure the Collectd Daemon Manually
 
 1. Download the Collectd package from a package source suitable for [your NetBSD OS version](http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/sysutils/collectd/README.html).
 2. Run the command `pkg_add -fD collectd*.tgz` to install the Collectd package.
-3. Open the `/usr/pkg/etc/collectd.conf` file for edit, add the following information and save the file.
+3. Open the `/usr/pkg/etc/collectd.conf` file for edit, add the following information and save the file.{% raw %}
    ```
    # Global settings for the daemon.
    Hostname    "NETBSD_HOSTNAME"

@@ -26,6 +26,7 @@ Jaeger [deployments](https://www.jaegertracing.io/docs/1.8/architecture/#compone
    ```
    traceJaegerListenerPorts=<enter-available-port>
    ```
+{% endraw %}
    **Note:** See the [documentation](https://docs.wavefront.com/proxies_configuring.html#paths) for the config file location for other platforms.
 3. Save and close `wavefront.conf`.
 4. [Restart the proxy](https://docs.wavefront.com/proxies_installing.html#starting-and-stopping-a-proxy).
@@ -34,14 +35,15 @@ Jaeger [deployments](https://www.jaegertracing.io/docs/1.8/architecture/#compone
 
 #### Host based Jaeger Installation
 On your hosts running the Jaeger agent, configure the agent with the following property:
-
+{% raw %}
 ```
 --reporter.tchannel.host-port=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
 ```
+{% endraw %}
 Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_proxy_jaeger_port>` with the port you entered above for `traceJaegerListenerPorts`.
 
 #### Docker based Jaeger Installation
-When running Jaeger agents using docker, add the following to the docker run command:
+When running Jaeger agents using docker, add the following to the docker run command:{% raw %}
 ```
 -e REPORTER_TCHANNEL_HOST_PORT=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
 ```
