@@ -9,7 +9,7 @@ summary: Learn about Wavefront permissions.
 
 Permissions allow administrators to control access to Wavefront feature sets. Administrators can manage permissions for groups or for users.
 
-{% include shared/badge.html content="Every Wavefront user can [perform certain tasks](users_groups.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
+{% include shared/badge.html content="Every Wavefront user can [perform certain tasks](user_accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
 The following list gives an overview of permissions. To learn more click the link.
 

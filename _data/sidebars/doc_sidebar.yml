@@ -130,7 +130,7 @@ entries:
       url: /metric_types.html
       output: web
 
-    - title: Hiding and Unhiding Metrics
+    - title: Hide and Unhide Metrics
       url: /metrics_managing.html
       output: web
 
@@ -138,11 +138,11 @@ entries:
       url: /tags_overview.html
       output: web
 
-    - title: Managing Source Tags
+    - title: Manage Source Tags
       url: /source_tags.html
       output: web
 
-    - title: Managing Sources
+    - title: Manage Sources
       url: /sources_managing.html
       output: web
 
@@ -155,11 +155,11 @@ entries:
           url: /proxies.html
           output: web
 
-        - title: Installing and Managing Proxies
+        - title: Install and Manage Proxies
           url: /proxies_installing.html
           output: web
 
-        - title: Installing a Proxy Manually
+        - title: Install a Proxy Manually
           url: /proxies_manual_install.html
           output: web
 
@@ -463,15 +463,15 @@ entries:
             url: /integrations_appdynamics.html
             output: web
 
-          - title: Managing External Links
+          - title: Manage External Links
             url: /external_links_managing.html
             output: web
 
-          - title: Visualizing Metrics with R
+          - title: Visualize Metrics with R
             url: /integrations_r.html
             output: web
 
-          - title:  Visualizing Metrics with Python
+          - title:  Visualize Metrics with Python
             url: /integrations_python.html
             output: web
 
@@ -589,23 +589,23 @@ entries:
             url: /authorization.html
             output: web
 
-          - title: Managing Accounts and Groups
+          - title: Accounts, Groups, and Permissions
             url: /users_groups.html
             output: web
 
-          - title: Managing Service Accounts
-            url: /service_accounts.html
+          - title: Manage User Accounts
+            url: /user_accounts.html
             output: web
 
-          - title: Managing Permissions
-            url: /permissions.html
+          - title: Manage Service Accounts
+            url: /service_accounts.html
             output: web
 
           - title: Permissions Reference
             url: /permissions_overview.html
             output: web
 
-          - title: Managing Access
+          - title: Manage Access
             url: /access.html
             output: web
 
