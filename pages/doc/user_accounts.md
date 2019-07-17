@@ -1,5 +1,5 @@
 ---
-title: Managing User Accounts
+title: Manage User Accounts
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
@@ -20,7 +20,7 @@ Accounts can be user accounts or [service accounts](service_accounts.html). User
 * All authenticated users can perform certain tasks such as viewing dashboards and charts or sharing links to charts.
 * **Permissions** determine what users can do globally. For example, a user with **Dashboard** permissions can view and manage all dashboards. Users with Accounts & Groups permission grant permissions to other users.
 * **Default permissions** can be set via New Default Groups (preferred) or New User Permissions.
-* **[Access(access.html)]** applies to individual objects. For example, some users don't have access to a dashboard with financial data. Users who have modify access for a dashboard or alert can grant or revoke access for that object.
+* **[Access](access.html)** applies to individual objects. For example, some users don't have access to a dashboard with financial data. Users who have modify access for a dashboard or alert can grant or revoke access for that object.
 
 ## Create and Manage User Accounts
 
@@ -40,9 +40,9 @@ Users with Accounts & Groups permissions can manage accounts. This section discu
 
    If you delete a user, you remove that user's access to Wavefront.
 
-New users can browse data and might have additional permissions. Each invited user receives an email with an account activation link that is valid for 24 hours.
+Each invited user receives an email with an account activation link that is valid for 24 hours. New users can browse data and might have additional permissions.
 
-### What Can a New User Do?
+## What Can a New User Do?
 
 When you invite a (human) user to Wavefront, what that new user can do depends on several factors.
 

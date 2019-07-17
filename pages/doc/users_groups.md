@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_groups.html
-summary: Manage authorization for user Accounts and service accounts
+summary: Manage authorization for user accounts and service accounts
 ---
 
 You can manage authorization in your Wavefront environment by:
@@ -27,8 +27,8 @@ Before you start with accounts and groups, here's what you need to know.
 ### What's the Difference Between User Accounts and Service Accounts?
 
 Starting in summer 2019, Wavefront supports two account types:
-* **User accounts** are for the users who work with Wavefront. A user account authenticates with a user name and password.
-* **[Service accounts](service_accounts.html)** are for API operations and use a **token** to authenticate. Service accounts:
+* **[User accounts](user_accounts.html)** are for  users who work with Wavefront. A user account authenticates with a user name and password.
+* **[Service accounts](service_accounts.html)** are for services that interact with Wavfront through an API and use a **token** to authenticate. Service accounts:
   - Don't have **default permissions** (unless the Everyone group has default permissions).
   - Can't perform the **UI operations** that user accounts can perform by default.
 
@@ -87,7 +87,7 @@ New Wavefront customers specify Super Admin users during account setup. Any exis
 
 Going forward, that user can perform Super Admin tasks.
 
-## Grant or Revoke Permissions
+## Grant or Revoke Account Permissions
 
 The process of granting permissions is the same for users and for service accounts
 
