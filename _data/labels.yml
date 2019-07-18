@@ -6,11 +6,7 @@ dashboards: "Learn how to organize your charts in dashboards."
 data: "Learn how to get data into Wavefront and about data formats and naming."
 events: "Learn about events and how to display events in charts."
 getting_started: "We've labeled these pages Getting Started because they'll help you get data into Wavefront, visualize them, and learn more!"
-<<<<<<< HEAD
-integrations: "Learn how to get data in and out of Wavefront and integrate with external systems."
-=======
 integrations: "A script creates a doc page for each integration, usually from the Overview and Setup tab. Below are the links to a page for each integration. "
->>>>>>> master
 proxies: "Learn how to manage data ingestion with Wavefront proxies."
 query_language: "Learn how to query your data through tutorials, reference, guides, and videos."
 release_notes: "Learn about the features added and updated in each Wavefront release."

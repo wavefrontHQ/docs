@@ -7,23 +7,29 @@ permalink: service_accounts.html
 summary: Create and manage service accounts.
 ---
 
-A service account is for services that use the Wavefront API to perform certain tasks.
-* A service account use a **token** to authenticate.
-* Service accounts do not get any **individual permission** by default
+A service account can be used to automate management of objects like dashboard, alerts, etc.
+
+* A service account uses a **token** to authenticate.
+* A service account must have **permissions** to perform tasks. For dashboards and alerts, the service account must also have access.
+* By default, service accounts do not get any **individual permission** by default
   - Each account is automatically added to the **Everyone**  group and inherits the Everyone group permissions (if any)
   - Service account can be added to any group to get that groups permissions.
-* A service account can't perform the **UI operations** that user accounts can [perform by default](user_accounts.html#what-can-a-new-user-do).
+* A service account can't perform the **UI operations** that user accounts can [perform by default](user_accounts.html#what-can-a-new-user-do).  Service Accounts can be used to automate management of objects like Dashboard, Alerts, etc. If a user wants to automate the process of managing certain objects then they can assign Dashboard management permission or Alert management permission to a Service Account and add it to the ACL for the objects that the user wants to manage automatically through a Service Account
 
 ## Service Accounts Basics
 
 If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Wavefront API. Service accounts support this type of authentication.
+
 1. Create a service account from the Wavefront UI.
+
+   **Note**: The service account name must be unique.
 2. Give the account the permissions it needs.
 2. Configure your tool to pass the service account credentials (API token) to the Wavefront API.
 
    The tool authenticates seamlessly to the API without embedding any secret keys or user credentials in your instance, image, or application code.
 
 Service accounts can perform get, modify, and delete tasks **only** if they have the necessary permissions. You can disable a service account if you temporarily don't need it, or delete it permanently.
+
 
 ## Create a Service Account
 
@@ -41,7 +47,7 @@ Creating a service account is different from creating a user account.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong></td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Wavefront converts service account ID to lower case. Users can type upper case or lower case -- this helps avoid duplicates.  </td>
 </tr>
 <tr>
 <td>
@@ -65,7 +71,7 @@ Permissions</td>
 </tbody>
 </table>
 
-You can now [grant or revoke permissions](users_groups.html#grant-or-revoke-account-permissions), which is the same for user accounts and service accounts, and you can deactivate or activate a service account. 
+You can now [grant or revoke permissions](users_groups.html#grant-or-revoke-account-permissions), which is the same for user accounts and service accounts, and you can deactivate or activate a service account.
 
 
 ## Deactivate or Activate a Service Account
