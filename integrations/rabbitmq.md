@@ -36,23 +36,25 @@ To enable the management plugin:{% raw %}
 ```
 rabbitmq-plugins enable rabbitmq_management
 ```
+{% endraw %}
 
 ### Step 3. Configure RabbitMQ Input Plugin
 
 Create a file called `rabbitmq.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
  [[inputs.rabbitmq]]
   url = "http://your.rabbitmq.server:15672"
   username = "guest"
   password = "guest"
 ```
+{% endraw %}
 
 Modify the `url`, `username` and `password` properties appropriately.
 
 **Note:** The RabbitMQ Management API is accessed over port `15672` by default. Modify the port in the `url` if different.
 
-To monitor specific nodes, include the `nodes` property. For example:
+To monitor specific nodes, include the `nodes` property. For example:{% raw %}
 ```
   nodes = ["rabbit@node1", "rabbit@node2"]
 ```

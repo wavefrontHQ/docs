@@ -35,8 +35,9 @@ Create a file called `etcd.conf` in `/etc/telegraf/telegraf.d` and enter the fol
 [[inputs.prometheus]]
   urls = ["http://<Host-IP>:2379/metrics"]
 ```
+{% endraw %}
 Configure global tags in the `telegraf.conf` file to group etcd nodes into clusters, as in the following snippet:
-
+{% raw %}
 ```
 [global_tags]
   #Setting environment tags like prod, dev, perf, and test

@@ -37,11 +37,12 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
     port 24220
   </source>
   ```
+{% endraw %}
 
 ### Step 3: Configure the Fluentd Input Plugin on Telegraf
 
   Create a `fluentd.conf` file in `/etc/telegraf/telegraf.d` and enter the Fluentd plugin configuration as in the following example snippet:
-
+{% raw %}
    ```
 # Read metrics exposed by fluentd monitor_agent plugin
 [[inputs.fluentd]]

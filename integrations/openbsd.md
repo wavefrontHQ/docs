@@ -28,21 +28,23 @@ In addition to setting up the metrics flow, this integration also installs a das
    graphiteFormat = 2
    graphiteDelimiters = _
    ```
+{% endraw %}
 Here, `hostname` represents the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
 3. If Java is not installed, run the command `pkg_add -v jdk` to install Java and set the path.
-4. Start the Wavefront proxy service:
+4. Start the Wavefront proxy service:{% raw %}
    ```
    sudo java -cp ./proxy-4.26-uber.jar \
    -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
    -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
    ```
+{% endraw %}
 5. On the Proxies page, verify that the proxy has registered with the Wavefront server.
 
 
 ### Step 2: Install and Configure the Collectd Daemon Manually
 
 1. Run the command `pkg_add -v collectd` to install the Collectd package.
-2. Open the `/etc/collectd.conf` file for edit, add the following information, and save the file.
+2. Open the `/etc/collectd.conf` file for edit, add the following information, and save the file.{% raw %}
    ```
    # Global settings for the daemon.
    Hostname    "OPENBSD_HOSTNAME"

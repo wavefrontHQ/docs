@@ -39,6 +39,7 @@ Add the Dropwizard `metrics-core`, Wavefront `dropwizard-metrics`, and `org.slf4
   <version>1.7.16</version>
 </dependency>       
 ```
+{% endraw %}
 
 Versions `3.1.x`, `3.2.x` and `4.0.x` of `metrics-core` also work.
 
@@ -76,7 +77,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 #### Step 2. Create a Wavefront Proxy Reporter and Register Metrics
 
-To create a reporter which will emit data to a Wavefront proxy every 5 seconds:
+To create a reporter which will emit data to a Wavefront proxy every 5 seconds:{% raw %}
 ```
 import com.wavefront.integrations.metrics.WavefrontReporter;
 import com.codahale.metrics.Counter;
@@ -95,13 +96,14 @@ WavefrontReporter reporter = WavefrontReporter.forRegistry(registry).
     build(hostname, port);
 reporter.start(5, TimeUnit.SECONDS);
 ```
+{% endraw %}
 
 ### Option 2. Create a Wavefront Direct Reporter and Register Metrics
 
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
 
 To create a reporter which will emit data to a Wavefront service every 5 seconds:
-
+{% raw %}
 ```
 import com.wavefront.integrations.metrics.WavefrontReporter;
 import com.codahale.metrics.Counter;
@@ -120,11 +122,12 @@ WavefrontReporter reporter = WavefrontReporter.forRegistry(registry).
     buildDirect(server, token);
 reporter.start(5, TimeUnit.SECONDS);
 ```
+{% endraw %}
 
 ### JVM Metrics
 
 To add default JVM metrics to the `MetricsRegistry`, call `.withJvmMetrics()` when you create the reporter. If you call `.withJvmMetrics()`, the following metrics are added to the registry:
-
+{% raw %}
 ```
 registry.register("jvm.uptime", new Gauge<Long>() {
     @Override

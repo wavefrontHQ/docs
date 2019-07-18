@@ -18,31 +18,35 @@ On a Chef client that is set up to push to your Chef server, run the following c
 knife cookbook site download wavefront
 tar xvf wavefront-0.1.1.tar.gz
 ```
+{% endraw %}
 
 ### Step 2. Modify attributes.rb to include your API key
 
-
+{% raw %}
 ```
 cd wavefront/attributes
 sed -i 's/<YOUR_API_KEY>/YOUR_API_TOKEN/g' wavefront/attributes/default.rb
 ```
+{% endraw %}
 
 ### Step 3. Upload the Wavefront cookbook
-
+{% raw %}
 ```
 knife cookbook upload wavefront
 ```
+{% endraw %}
 
 ### Step 4. Add the cookbook to your client's run list
 
 This needs to be executed only once per client.
-
+{% raw %}
 ```
 knife node run_list add NODE_NAME wavefront
 ```
+{% endraw %}
 
 ### Step 5. Run the cookbook
-
+{% raw %}
 ```
 sudo chef-client
 ```

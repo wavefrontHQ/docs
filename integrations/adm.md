@@ -28,9 +28,10 @@ This integration uses the Wavefront REST API for ADM. ADM will invoke the API wh
 ```
 	sum(ts(system.load1)) > 0
 ```
+{% endraw %}
 3. Encode the query using an encoder such as [dencoder](https://meyerweb.com/eric/tools/dencoder/). You'll use the encoded query below.
 
-4. In the JSON snippet below, fill in the values for `MaxElasticDuration`, `healthyStateDuration`, `encoded_query` and specify the name of your Wavefront cluster without the `.wavefront.com` extension. The JSON has pre-populated values for `authtoken`, `uri` for health monitor and `response code`.
+4. In the JSON snippet below, fill in the values for `MaxElasticDuration`, `healthyStateDuration`, `encoded_query` and specify the name of your Wavefront cluster without the `.wavefront.com` extension. The JSON has pre-populated values for `authtoken`, `uri` for health monitor and `response code`.{% raw %}
 ```
 	"properties": {  
 	   "stepType":"healthCheck",
@@ -63,11 +64,12 @@ This integration uses the Wavefront REST API for ADM. ADM will invoke the API wh
 	   }
 	}
 ```
+{% endraw %}
 5. Update your ADM rollout template with the updated JSON.
 
 ### Verification
 
-1. You can use the curl command to verify the output. For example:
+1. You can use the curl command to verify the output. For example:{% raw %}
 ```
 curl -X GET --header "Accept: application/json" --header "Authorization: YOUR_API_TOKEN" "https://adm.wavefront.com/api/v1/query?c=<cluster>&q=<encoded_query>"
 ```

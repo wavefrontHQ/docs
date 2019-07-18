@@ -68,6 +68,7 @@ Determine what type of agent you wish to use from: [https://jolokia.org/agent.ht
    </custom-agent>
 </mule>
 ```
+{% endraw %}
 4. Start or restart your Mule ESB.
 5. Verify the Jolokia agent installation by accessing this URL: `http://<address>:<port>/jolokia/version`.
 
@@ -75,23 +76,25 @@ Determine what type of agent you wish to use from: [https://jolokia.org/agent.ht
 
 1. Download the latest version of the JVM Agent file from: [https://jolokia.org/download.html](https://jolokia.org/download.html).
 2. Rename the file from `jolokia-jvm-<version>-agent.jar` to `agent.jar`.
-3. When running the java application, provide the following argument to java application:
+3. When running the java application, provide the following argument to java application:{% raw %}
 ```
 -javaagent:/path/to/agent.jar
 ```
+{% endraw %}
 4. Verify the Jolokia agent installation by accessing this URL: `http://<address>:8778/jolokia/version`.
 
-Regardless of the type of agent, the result will look similar to this:
+Regardless of the type of agent, the result will look similar to this:{% raw %}
 ```
 {"request":{"type":"version"},"value":{"agent":"1.3.7","protocol":"7.2","config":{"maxCollectionSize":"0","agentId":"10.152.24.99-29844-172f5788-servlet","debug":"false","agentType":"servlet","serializeException":"false","detectorOptions":"{}","dispatcherClasses":"org.jolokia.jsr160.Jsr160RequestDispatcher","maxDepth":"15","discoveryEnabled":"false","canonicalNaming":"true","historyMaxEntries":"10","includeStackTrace":"true","maxObjects":"0","debugMaxEntries":"100"},"info":{"product":"tomcat","vendor":"Apache","version":"8.5.23"}},"timestamp":1509955465,"status":200}
 ```
+{% endraw %}
 
 Refer to [https://jolokia.org/reference/html/agents.html](https://jolokia.org/reference/html/agents.html) for more information about how to configure each agent.
 
 ### Step 4. Configure the Telegraf Jolokia Input Plugin
 
 First, create a file called `jmx.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet.
-
+{% raw %}
 ```
 [[inputs.jolokia2_agent]]
   # Prefix to attach to the measurement name
@@ -152,14 +155,16 @@ First, create a file called `jmx.conf` in `/etc/telegraf/telegraf.d` and enter t
     mbean      = "java.lang:type=Threading"
     paths      = ["TotalStartedThreadCount", "PeakThreadCount", "CurrentThreadCpuTime", "ThreadCount", "DaemonThreadCount"]
 ```
+{% endraw %}
 
 Then, replace the `urls` value according to your agent type and configuration. Specify your servers with URL matching.
 
-Format:
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/<jolokia contex>"]
 ```
-Example:
+{% endraw %}
+Example:{% raw %}
 ```
 urls = ["http://10.152.24.99:8080/jolokia"]
 ```

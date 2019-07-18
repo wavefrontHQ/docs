@@ -23,7 +23,8 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
   ```
   sudo yum install mysql-connector-python
   ```
-- **Ubuntu**
+{% endraw %}
+- **Ubuntu**{% raw %}
   ```
   sudo apt-get install python-mysql.connector
   ```

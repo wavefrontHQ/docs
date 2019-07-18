@@ -78,19 +78,21 @@ Edit the telegraf.conf file located in the Telegraf install directory and enter 
   pid_finder = "native"
 
 ```
+{% endraw %}
 
 ### Step 3. Restart Telegraf
 
-Run the below command to restart the Telegraf agent
+Run the below command to restart the Telegraf agent{% raw %}
 ```
 sudo service telegraf restart
 ```
+{% endraw %}
 
 ### Step 4. Configure Hashicorp Vault to Send Telemetry Data to Telegraf
 
 Edit the Hashicorp Vault configuration file located in the Vault install directory and enter the following snippet:
 Replace <HOSTNAME> with the name of the host where the Telegraf instance is running.
-
+{% raw %}
 ```
 telemetry {
   dogstatsd_addr = "<HOSTNAME>:8125"

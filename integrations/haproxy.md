@@ -37,12 +37,14 @@ If the stats page is already enabled, skip to Step 2.
         #The user/pass you want to use. Change this password!
         stats auth username:password
     ```
+{% endraw %}
 
     This enables HAProxy's statistics report page at:
-
+{% raw %}
     ```
     http://[your_haproxy_server]:8181/haproxy?stats
     ```
+{% endraw %}
     
 1. Restart HAProxy.
  
@@ -55,7 +57,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 ### Step 3. Configure HAProxy Input Plugin
 
 Create a file called `haproxy.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 [[inputs.haproxy]]
   ## An array of address to gather stats about. Specify an ip on hostname
@@ -83,14 +85,16 @@ Create a file called `haproxy.conf` in `/etc/telegraf/telegraf.d` and enter the 
   ## Use SSL but skip chain & host verification
   # insecure_skip_verify = false
 ```
+{% endraw %}
 
 Replace the servers field with your HAProxy server address.
-
+{% raw %}
 ```
 servers = ["http://[username[:password]]@[your_haproxy_server]:8181/haproxy?stats"]
 ```
+{% endraw %}
 
-Or your socket location.
+Or your socket location.{% raw %}
 ```
 servers = ["socket:/run/haproxy/admin.sock"]
 ```

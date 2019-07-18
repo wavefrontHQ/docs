@@ -53,13 +53,14 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the 
   ]
 
 ```
+{% endraw %}
 
 Use `service_names` to specify the names of the services to monitor. Leave `service_names` empty to monitor all available services on the host.
 You can find the list of services using the Windows Service Management console.
 
 ### Step 4. Restart Telegraf
 
-After any changes restart your Telegraf agent service.
+After any changes restart your Telegraf agent service.{% raw %}
 ```
 net stop telegraf
 net start telegraf

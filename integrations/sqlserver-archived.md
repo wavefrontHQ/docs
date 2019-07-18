@@ -46,9 +46,10 @@ GRANT VIEW ANY DEFINITION TO [telegraf];
 GO
 
 ```
+{% endraw %}
 Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the following snippet:
 
-
+{% raw %}
 ```
 [[inputs.sqlserver]]
 # Specify instances to monitor with a list of connection strings.
@@ -66,12 +67,13 @@ servers = [
 ]
 name_prefix = "MSSQL."
 ```
+{% endraw %}
 
 
 ### Step 4. Restart Telegraf
 
 Use the `Windows Services Management Console` or execute the following from the command prompt:
-
+{% raw %}
 ```
 net stop telegraf
 net start telegraf

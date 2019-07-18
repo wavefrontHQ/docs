@@ -52,12 +52,14 @@ Create a file called `prometheus.conf` in `/etc/telegraf/telegraf.d` and enter t
   ## Use SSL but skip chain & host verification
   # insecure_skip_verify = false
 ```
+{% endraw %}
 
 Replace the `urls` property with your server address:
-
+{% raw %}
 ```
 urls = ["http://[your_server_address]/metrics"]
 ```
+{% endraw %}
 
 ### Step 3. Restart Telegraf
 
@@ -100,7 +102,7 @@ To deploy the Prometheus Storage Adapter:
 Run `kubectl apply -f adapter.yaml`. The `prometheus-storage-adapter` pod and `storage-adapter-service` should now be running on your cluster.
 
 #### Step 3. Integrating with Prometheus
-To integrate the storage adapter with Prometheus, add these two lines to the end of the `prometheus.yml` file:
+To integrate the storage adapter with Prometheus, add these two lines to the end of the `prometheus.yml` file:{% raw %}
 ```
 remote_write:
   - url: "http://storage-adapter-service.default.svc.cluster.local/receive"

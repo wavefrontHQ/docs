@@ -39,6 +39,7 @@ Create a file called `nvidia.conf` in `/etc/telegraf/telegraf.d` and enter the f
 
   timeout = "1s"
 ```
+{% endraw %}
 **Note:** On windows, `telegraf.conf` is located at `C:\Program Files\Telegraf\telegraf.conf`.
 
 Save the file and restart Telegraf as given below.
@@ -46,13 +47,14 @@ Save the file and restart Telegraf as given below.
 
 ### Step 3. Restart Telegraf
 
-*Linux*:
+*Linux*:{% raw %}
 ```
 sudo service telegraf restart
 ```
+{% endraw %}
 
 *Windows*:
-
+{% raw %}
 ```
 net stop telegraf
 net start telegraf

@@ -35,15 +35,17 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
       host = "WAVEFRONT_PROXY_HOSTNAME"
       port = 2878
    ```
+{% endraw %}
 5. In the agent configuration section configure `hostname`:
-
+{% raw %}
    ```
    [[agent]]
       hostname = "<hostname>"
    ```
+{% endraw %}
 
 6. Add the snippet `name_prefix = "coreos."` to the following inputs:
-
+{% raw %}
    ```
    [[inputs.cpu]]
    [[inputs.disk]]
@@ -55,9 +57,10 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
    [[inputs.system]]
    [[inputs.net]]
    ```
+{% endraw %}
 
 7. Enable the Docker input plugin by adding the following snippet:
-
+{% raw %}
 ```
 [[inputs.docker]]
 
@@ -106,10 +109,11 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
   # insecure_skip_verify = false
   name_prefix = "coreos."
 ```
+{% endraw %}
 
 ### Step 3. Start the Telegraf Docker container
 
-Run the following command to start the Docker container: 
+Run the following command to start the Docker container: {% raw %}
 ```
 docker run -d=true --rm -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc/:/host/proc/:ro -v /cgroup/:/host/sys/fs/cgroup:ro -v $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro telegraf
 ```

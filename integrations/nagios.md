@@ -32,13 +32,14 @@ usage: nagios-metrics-wf.py [-h] [--service] [--test] [--wf_server SERVER]
                             file
 nagios-metrics-wf.py: error: the following arguments are required: file
 ```
+{% endraw %}
 
 ### Configure Your Nagios Instance
 
 On your Nagios configuration files:
 
 1. Add this lines to your `nagios.conf` file, and replace `[PATH_PERFDATA]` for an absolute path:
-
+{% raw %}
 ```
 service_perfdata_file=[PATH_PERFDATA]/service-perfdata
 service_perfdata_file_template=DATATYPE::SERVICEPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tSERVICEDESC::$SERVICEDESC$\tSERVICEPERFDATA::$SERVICEPERFDATA$\tSERVICECHECKCOMMAND::$SERVICECHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$\tSERVICESTATE::$SERVICESTATE$\tSERVICESTATETYPE::$SERVICESTATETYPE$
@@ -54,9 +55,10 @@ host_perfdata_file_mode=a
 host_perfdata_file_processing_interval=15
 host_perfdata_file_processing_command=wavefront_perf_host
 ```
+{% endraw %}
 
 2. Create these two new commands:
-
+{% raw %}
 ```
 define command {
     command_name  wavefront_perf_host
@@ -73,6 +75,7 @@ define command {
                                                           --wf_token YOUR_API_TOKEN
 }
 ```
+{% endraw %}
 
 ## Events
 
@@ -87,7 +90,7 @@ On your Nagios server:
 
   You should get something like this:
 
-
+{% raw %}
 ```
   usage: nagios-events-wf.py [-h] [-S] [--type TYPE] [--host HOST]
                     [--service [SERVICE]] [--time TIME] [--msg MSG]
@@ -95,6 +98,7 @@ On your Nagios server:
 
   nagios-events-wf.py: error: too few arguments
 ```
+{% endraw %}
 
 ### Configure Your Nagios Instance
 
@@ -102,7 +106,7 @@ On your Nagios configuration files:
 
 1. Create these two new commands:
 
-
+{% raw %}
 ```
   define command{
   	command_name nagios-to-wavefront-service
@@ -114,10 +118,11 @@ On your Nagios configuration files:
   	command_line /opt/nagios/etc/wf/nagios-events-wf.py --type '$NOTIFICATIONTYPE$' --host '$HOSTNAME$' --time '$TIMET$' --msg '$HOSTOUTPUT$' https://YOUR_CLUSTER.wavefront.com YOUR_API_TOKEN
   }
 ```
+{% endraw %}
 
 2. Add the two new commands to the contact associated with your resources.
 
-
+{% raw %}
 ```
   define contact{
     ...
@@ -126,12 +131,13 @@ On your Nagios configuration files:
     ...
   }
 ```
+{% endraw %}
 
 ### Configuration Sample
 
 Here's a complete configuration example:
 
-
+{% raw %}
 ```
 define contact{
   name                            wf-generic-contact

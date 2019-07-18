@@ -36,16 +36,18 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
    ```
    python kudu.py
    ```
-   You should receive a response similar to the following:
+{% endraw %}
+   You should receive a response similar to the following:{% raw %}
    ```
    usage: kudu.py [-h] [server [server ...]]
    kudu.py: error: Must specify at least one server address
    ```
+{% endraw %}
 
 ### Step 3. Configure the Telegraf Exec Input Plugin
 
 Create a file called `kudu.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
    ```
    [[inputs.exec]]
      commands = ["python <script location> <Kudu tablet server address>:8050 <Kudu master server address>:8051"]

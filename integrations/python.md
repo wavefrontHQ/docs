@@ -19,6 +19,7 @@ The Wavefront plugin for [PyFormance](https://github.com/omergertel/pyformance) 
 ```
 pip install wavefront_pyformance
 ```
+{% endraw %}
 
 ### Option 1. Create a Wavefront Proxy Reporter and Register Metrics
 
@@ -32,7 +33,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 #### Step 2. Create the Wavefront Proxy Reporter and Register Metrics
 Tags passed to the proxy reporter are applied to every metric.
 
-
+{% raw %}
 ```
 from pyformance import MetricsRegistry
 from wavefront_pyformance.wavefront_reporter import WavefrontProxyReporter
@@ -49,6 +50,7 @@ wf_proxy_reporter = WavefrontProxyReporter(host=host, port=2878, registry=reg,
                                            reporting_interval=10)
 wf_proxy_reporter.start()
 ```
+{% endraw %}
 
 
 ### Option 2. Create a Wavefront Direct Reporter and Register Metrics
@@ -57,7 +59,7 @@ You can send metrics directly to a Wavefront service, discussed next. Option 1 a
 
 Tags passed to the direct reporter are applied to every metric.
 
-
+{% raw %}
 ```
 from pyformance import MetricsRegistry
 from wavefront_pyformance.wavefront_reporter import WavefrontDirectReporter

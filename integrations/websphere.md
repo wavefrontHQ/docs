@@ -33,11 +33,12 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
     ```
     {"websphere.version": "8.5.5.12", "wasmonitor.version": "1.0"}
     ```
+{% endraw %}
 
 ### Step 3. Configure the Telegraf httpjson Input Plugin
 
 First, create a file called `websphere.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 [[inputs.httpjson]]
   servers = ["http://10.152.24.97:9080/wasmonitor/stats"]
@@ -47,14 +48,16 @@ First, create a file called `websphere.conf` in `/etc/telegraf/telegraf.d` and e
   [inputs.httpjson.headers]
     Authorization = "Basic [Basic Authorization Base64 Sting]"
 ```
+{% endraw %}
 
 Then, replace the `urls` value with your WebSphere server URL(s). Specify your servers with URL matching.
 
-Format:
+Format:{% raw %}
 ```
 urls = ["http://<address>:<port>/wasmonitor/stats"]
 ```
-Example:
+{% endraw %}
+Example:{% raw %}
 ```
 urls = ["http://10.152.24.99:8080/wasmonitor/stats"]
 ```

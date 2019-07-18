@@ -33,9 +33,10 @@ This task produces a SAML claim in the following format:
 ```
 urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified
 ```
+{% endraw %}
 
 Here is an example of the resulting rule:
-
+{% raw %}
 ```
 c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = c.Value, ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties /format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified");
 ```

@@ -20,7 +20,7 @@ In this video, Jason talks about the different integrations we have, and how you
 
 ## Try an Integration!
 
-Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product. 
+Sign up for a Wavefront trial to try integrations. Detailed setup steps for each integration are in the product.
 
 Here's a sample of what you see when you select one of the Wavefront integrations:
 * The **Overview** tab explains how the integration works and what's included, often a sample dashboard with commonly used charts.
@@ -72,6 +72,30 @@ This table provides links to the documentation pages for many of the custom and 
 </tbody>
 </table>
 
+## External (Open Source) Integrations
+
+Wavefront customers have started to make Open Source integrations available on GitHub.
+
+Our first external integration sends Alertsite monitoring results to Wavefront and is available at [https://github.com/secureworks/AlertSite2Wavefront](https://github.com/secureworks/AlertSite2Wavefront).
+
+We're excited about this contribution and hope to see more soon!
+
+
+## Installing and Uninstalling Integration Dashboards
+
+You can install and uninstall dashboards from Featured and Data Collector integrations.
+
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have permission, buttons to perform these tasks are not visible.</div>
+
+1. Click **Integrations**.
+1. Click the integration tile.
+1. Click the **Content** tab.
+1. Click **\[Install \| Uninstall\] Dashboards**.
+
+## Cloning and Customizing Dashboards
+
+You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) icon, select **Clone**, and provide a URL string that's just the name (e.g. `mydashboard`) and not the URL (e.g. `http://mydashboard`). You can then customize the clone to suit your needs.
+
 ## Integration States
 
 The Integrations page reports integration state depending on two factors:
@@ -121,21 +145,6 @@ When you hover over an integration, Wavefront colors the integration border and 
 For example, the following integration is in the Error state because metrics have reported within the last 7 days but have stopped reporting in the past 2 hours and content is installed.
 
 ![integration state](images/integration_state.png)
-
-## Installing and Uninstalling Integration Dashboards
-
-You can install and uninstall dashboards from Featured and Data Collector integrations.
-
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view integrations, you must have [Integration Management permission](permissions_overview.html) to install and uninstall integration dashboards. If you do not have permission, buttons to perform these tasks are not visible.</div>
-
-1. Click **Integrations**.
-1. Click the integration tile.
-1. Click the **Content** tab.
-1. Click **\[Install \| Uninstall\] Dashboards**.
-
-## Cloning and Customizing Dashboards
-
-You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) icon, select **Clone**, and provide a URL string that's just the name (e.g. `mydashboard`) and not the URL (e.g. `http://mydashboard`). You can then customize the clone to suit your needs.
 
 ## More Info
 

@@ -62,9 +62,10 @@ Create a file called `jenkins.conf` in `/etc/telegraf/telegraf.d` and enter the 
   # insecure_skip_verify = false
 
    ```
+{% endraw %}
 Update `$JENKINS_URL` with the URL of the Jenkins server.
 
-A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter:
+A single Telegraf agent can poll multiple Jenkins servers for status information. Specify the addresses of the Jenkins server in the `urls` parameter:{% raw %}
 ```
 urls = [
    "$JENKINS_URL_1/prometheus/",

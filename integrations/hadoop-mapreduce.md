@@ -32,17 +32,19 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
     ```
     python mapreduce.py
     ```
-    You should get a response similar to this:
+{% endraw %}
+    You should get a response similar to this:{% raw %}
     ```
     usage: mapreduce.py [-h] [--username [USERNAME]] [--password [PASSWORD]] [server]
     mapreduce.py: error: server must be provided
     ```
+{% endraw %}
     If the script is not executing, adjust the file permission and the Python path.
 
 ### Step 3. Configure Telegraf EXEC Input Plugin
 
 First create a file called `hadoop-mapreduce.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 [[inputs.exec]]
   commands = [ "python <script location> <RM web UI address>:8088"]
@@ -51,15 +53,17 @@ First create a file called `hadoop-mapreduce.conf` in `/etc/telegraf/telegraf.d`
   name_override = "hadoop.mapreduce"
   data_format = "json"
 ```
+{% endraw %}
 
 In the `commands` option, specify the location of the Python binary (if necessary), the location of the mapreduce.py script, and the address of the YARN ResourceManager web application (8088 is the default port).
 
-Example:
+Example:{% raw %}
 ```
 commands = [ "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarn1.foo.com:8088"]
 ```
+{% endraw %}
 
-To monitor multiple Yarn servers, add entries within `commands`:
+To monitor multiple Yarn servers, add entries within `commands`:{% raw %}
 ```
 commands = [
   "/usr/bin/python /home/telegraf/hadoop/mapreduce.py http://yarn1.foo.com:8088",

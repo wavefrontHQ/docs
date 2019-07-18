@@ -21,6 +21,7 @@ This Node.js integration provides Wavefront reporters for the Node.js [metrics](
 ```
 npm install wavefrontmetrics
 ```
+{% endraw %}
 
 ### Option 1. Create a Wavefront Proxy Reporter
 
@@ -33,7 +34,7 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 #### Step 2. Create the Wavefront Proxy Reporter
 Tags passed to the proxy reporter are applied to every metric.
-
+{% raw %}
 ```
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
@@ -42,13 +43,14 @@ const prefix = "wavefront.nodejs.proxy";
 const proxyReporter = new metrics.WavefrontProxyReporter(registry, prefix, "localhost", 2878, { 'tag0': "default", 'source': "wavefront-nodejs-example"});
 proxyReporter.start(5000);
 ```
+{% endraw %}
 
 ### Option 2. Create a Wavefront Direct Reporter
 
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
 
 Tags passed to the direct reporter are applied to every metric.
-
+{% raw %}
 ```
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();
@@ -57,11 +59,12 @@ const prefix = "wavefront.nodejs.direct";
 const directReporter = new metrics.WavefrontDirectReporter(registry, prefix,  "<cluster>.wavefront.com", "<wavefront_api_token>", { 'tag0': "default", 'source': "wavefront-nodejs-example"});
 directReporter.start(5000);
 ```
+{% endraw %}
 
 ### Register Metrics with Metric-level Tags
 
 You can add tags to individual metrics. The tags are included by the Wavefront reporter at report time.
-
+{% raw %}
 ```
 const metrics = require('wavefrontmetrics');
 const registry = new metrics.Registry();

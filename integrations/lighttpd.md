@@ -36,13 +36,14 @@ server.modules = ( ..., "mod_status", ... )
 status.status-url = "/server-status"
 ...
 ```
+{% endraw %}
 
 For details, see the docs for the Lighttpd [mod_status Module](https://redmine.lighttpd.net/projects/1/wiki/Docs_ModStatus).
 
 ### Step 3. Enable the Apache Input Plugin
 
 Create a file called `lighttpd.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
    ```
     # Read Lighttpd status information (mod_status)
     [[inputs.apache]]
@@ -69,11 +70,12 @@ Create a file called `lighttpd.conf` in `/etc/telegraf/telegraf.d` and enter the
       # insecure_skip_verify = false
 
    ```
+{% endraw %}
 
 You may need to update `http://localhost/server-status?auto` if you've configured the `mod_status` on a different path.
 
 A single Telegraf agent can poll multiple Lighttpd instances for status information if you configure the `urls` parameter with the addresses of the Lighttpd instances:
-
+{% raw %}
 ```
 urls = ["http://server1/server-status?auto","http://server2/server-status?auto","http://server3/server-status?auto"]
 ```

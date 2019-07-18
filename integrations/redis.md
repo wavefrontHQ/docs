@@ -41,8 +41,9 @@ Create a file called `redis.conf` in `/etc/telegraf/telegraf.d` and enter the fo
   ## If no port is specified, 6379 is used
   servers = ["tcp://your.redis.server:6379"]
 ```
+{% endraw %}
 
-To monitor multiple Redis instances, configure the `servers` parameter with the addresses of the Redis instances:
+To monitor multiple Redis instances, configure the `servers` parameter with the addresses of the Redis instances:{% raw %}
 ```
   servers = ["tcp://your.redis.server1:6379","tcp://your.redis.server2:6379","tcp://your.redis.server2_slave:6379"]
 ```

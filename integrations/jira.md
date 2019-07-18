@@ -42,8 +42,9 @@ The Jira API uses Basic Authorization, a Base64 encoded string, for the user and
 Authorization - Basic {base64 encoded API Token from Step 2}
 Accept - application/json
 ```
+{% endraw %}
 1. Select **TEMPLATE** in **Alert Target POST Body Template**.
-1. The [template](https://docs.wavefront.com/alert_target_customizing.html) can be customized as below:
+1. The [template](https://docs.wavefront.com/alert_target_customizing.html) can be customized as below:{% raw %}
 ```
 {
 	"fields": {

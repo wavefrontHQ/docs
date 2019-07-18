@@ -29,34 +29,39 @@ To see a list of the metrics for this integration, select the integration from <
    ```
    sudo curl -o /usr/share/java/jolokia-jvm-1.6.0-agent.jar -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar
    ```
+{% endraw %}
 
 1. Enable Jolokia agent in Cassandra
 
     1. Modify /etc/default/cassandra
-
+{% raw %}
        ```
        echo "export JVM_EXTRA_OPTS=\"-javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost\"" | sudo tee -a /etc/default/cassandra
        ```
+{% endraw %}
 
     1. Alternatively, one can also enable the agent by modifying cassandra-env.sh
 
        Include the following line at the bottom of the your cassandra-env.sh
-
+{% raw %}
        ```
        JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
        ```
+{% endraw %}
 
 1. Restart cassandra
-
+{% raw %}
    ```
    sudo service cassandra restart
    ```
+{% endraw %}
 
 1. Verify that you can access Jolokia on port 8778 by running:
-
+{% raw %}
    ```
    curl http://localhost:8778/jolokia/
    ```
+{% endraw %}
 
 ### Step 2. Install the Telegraf Agent
 
@@ -67,7 +72,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 ### Step 3. Configure Cassandra Input Plugin
 
 Create a file called `cassandra.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
-
+{% raw %}
 ```
 # Cassandra
 [[inputs.jolokia2_agent]]

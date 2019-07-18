@@ -39,10 +39,11 @@ Create a file called `riak.conf` in `/etc/telegraf/telegraf.d` and enter the fol
   servers = ["http://<Host-IP>:8098"]
 
 ```
+{% endraw %}
 Where Host-IP is the value of the `listener.http.internal` property in `/etc/riak/riak.conf`.
 
 Configure global tags in the `telegraf.conf` file to group Riak nodes into clusters, as in the snippet below:
-
+{% raw %}
 ```
 [global_tags]
   #Setting environment tags like prod, dev, perf, and test

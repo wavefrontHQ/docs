@@ -48,10 +48,11 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf\` and enter the
   Instances = ["------"]
   Measurement = "ad.security.statistics"   
    ```
+{% endraw %}
 ### Step 4: Restart the Telegraf service
 
 Restart the Telegraf service from the `Windows Services Management Console` or execute the following commands from the command prompt:
-
+{% raw %}
    ```
    net stop telegraf
    net start telegraf

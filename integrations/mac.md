@@ -44,6 +44,7 @@ To run the Wavefront proxy on a host:
    server=https://YOUR_CLUSTER.wavefront.com/api/
    token=YOUR_API_TOKEN
    ```
+{% endraw %}
 1. Run `brew services restart wfproxy`.
 1. Check `/usr/local/var/log/wavefront/wavefront.log` to verify the installation.
 
@@ -52,7 +53,7 @@ To run the Wavefront proxy on a host:
 To run the Telegraf agent on a host:
 
 1. Run `brew install telegraf`.
-1. Create a file called `10-wavefront.conf` in `/usr/local/etc/telegraf.d` and enter the following, configuring the `host` property:
+1. Create a file called `10-wavefront.conf` in `/usr/local/etc/telegraf.d` and enter the following, configuring the `host` property:{% raw %}
    ```
    [[outputs.wavefront]]
       host = "WAVEFRONT_PROXY_ADDRESS"
@@ -61,8 +62,9 @@ To run the Telegraf agent on a host:
       source_override = ["hostname", "agent_host", "node_host", "server"]
       convert_paths = true
    ```
+{% endraw %}
    where WAVEFRONT_PROXY_ADDRESS is the IP address or hostname where your Wavefront proxy has been installed.
-1. Edit the `telegraf.conf` file in `/usr/local/etc/` and enter the snippet `name_prefix = "mac."` to the following inputs:
+1. Edit the `telegraf.conf` file in `/usr/local/etc/` and enter the snippet `name_prefix = "mac."` to the following inputs:{% raw %}
    ```
    [[inputs.cpu]]
    [[inputs.disk]]
@@ -74,6 +76,7 @@ To run the Telegraf agent on a host:
    [[inputs.swap]]
    [[inputs.system]]
    ```
+{% endraw %}
 1. Run `brew services restart telegraf`.
 1. Check `/usr/local/var/log/telegraf.log` to verify the installation.
 
@@ -85,7 +88,7 @@ Once installed, to upgrade the Wavefront Proxy and Telegeraf to the latest versi
 
 ### Uninstall the Wavefront Proxy and Telegraf Agent
 
-To uninstall the Wavefront proxy and Telegraf agent, run:
+To uninstall the Wavefront proxy and Telegraf agent, run:{% raw %}
 ```
 bash -c "$(curl -s https://raw.githubusercontent.com/wavefrontHQ/homebrew-wavefront/master/sh/uninstall.sh)"
 ```

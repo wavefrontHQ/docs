@@ -24,14 +24,16 @@ In addition to setting up the metrics flow, this integration also installs a das
    server = https://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN
    hostname = HOSTNAME
-   ``` 
+   ```
+{% endraw %} 
    Here, the `hostname` field is for the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
-5. Start the Wavefront proxy service:
+5. Start the Wavefront proxy service:{% raw %}
    ```
    sudo java -cp ./proxy-4.26-uber.jar \
    -XX:+AggressiveHeap -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
    -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
    ```
+{% endraw %}
 **NOTE:** If Java is not installed, run `pkg install openjdk8`.
 6. Verify that the proxy has registered with the Wavefront server.
 
@@ -40,7 +42,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 1. Download the Telegraf package: [amd64](https://dl.influxdata.com/telegraf/releases/telegraf-1.5.2_freebsd_amd64.tar.gz) / [i386](https://dl.influxdata.com/telegraf/releases/telegraf-1.5.2_freebsd_i386.tar.gz)
 2. Extract the `telegraf-*.tar.gz` file and change the working directory to the extracted directory:
    `cd telegraf`
-3. Open the `./etc/telegraf/telegraf.conf` file for edit, add the following information and save the file.
+3. Open the `./etc/telegraf/telegraf.conf` file for edit, add the following information and save the file.{% raw %}
    ```
    [[outputs.wavefront]]
      host = "WAVEFRONT_PROXY_ADDRESS"
@@ -52,7 +54,8 @@ In addition to setting up the metrics flow, this integration also installs a das
    # Enable net plugin
    [[inputs.net]]
    ```
-4. Start the Telegraf agent
+{% endraw %}
+4. Start the Telegraf agent{% raw %}
    ```
    ./usr/bin/telegraf --config ./etc/telegraf/telegraf.conf
    ```
