@@ -10,11 +10,17 @@ This page gives an overview of important changes for Wavefront proxy releases. F
 
 ## Version 4.38
 
+<<<<<<< HEAD
 * Added the following custom configurations for Jaeger and Zipkin integrations:
   - Set custom applications names by adding `traceJaegerApplicationName` or `traceZipkinApplicationName` to the proxy config file.
   - Set custom tags for derived RED metrics by adding `traceDerivedCustomTagKeys` to the proxy config file.
 
 See [Tracing Properties and Examples](proxies_configuring.html#tracing-proxy-properties-and-examples)
+=======
+* Wavefront histogram support for log ingestion
+* Support HTTP payloads for raw log ingestion
+* Miscellaneous bug fixes
+>>>>>>> master
 
 ## Version 4.36
 * Generate RED metrics from tracing spans.
