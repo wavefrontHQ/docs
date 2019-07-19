@@ -223,7 +223,7 @@ entries:
       url: /dashboards_variables.html
       output: web
 
-  - title: "Charts and Dashboards v2 Beta"
+  - title: "Charts and Dashboards (v2 Beta)"
     output: web
     folderitems:
 
@@ -245,10 +245,6 @@ entries:
 
     - title: "Create and Customize Charts v2 Beta"
       url: /ui_charts_v2.html
-      output: web
-
-    - title: "Share Charts and Dashboards v2 Beta"
-      url: /ui_sharing_v2.html
       output: web
 
     - title: "Chart Reference v2 Beta"

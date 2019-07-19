@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: ui_v2_faq.html
 summary: Main improvements in the v2 UI and some FAQs.
 ---
-If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page lists some questions we've heard from users who're migrating and give answers.
+If you're migrating from v1 dashboards and charts to v2, you'll find most of the changes intuitive. This page highlights new features and has some FAQs.
 
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save dashboards and charts." %}
@@ -19,10 +19,11 @@ Our revamped UI for charts and dashboards includes the following main features:
 <tbody>
 <tr>
 <td width="40%">
-<ol><li>Create a dashboard</li>
+Simple workflow for dashboards with multiple charts.
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong></li>
 <li>Drag in a widget to create a chart (from integration or chart type)</li>
 <li>Customize chart and save dashboard.</li></ol></td>
-<td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+<td width="60%"><img src="/images/dashboard_123.png" alt="create dashboard"></td>
 </tr>
 </tbody>
 </table>
@@ -33,8 +34,8 @@ Our revamped UI for charts and dashboards includes the following main features:
 <tbody>
 <tr>
 <td width="40%">
-Complete redesign with easy metric selection<br>
-Intuitive grouping, filtering, and function selection. <br>
+Complete redesign. <a href="chart_builder.html">Chart Builder</a> helps you visualize exactly what you need.<br>
+We support easy metric selection and intuitive grouping, filtering, and functions. <br>
 Switch to Query Editor only for advanced tasks.</td>
 <td width="60%"><img src="images/v2_chart_builder_cropped.png" alt="create dashboard"></td>
 </tr>
@@ -47,9 +48,8 @@ Switch to Query Editor only for advanced tasks.</td>
 <tbody>
 <tr>
 <td width="40%">
-<strong>Queries</strong> is one of the chart customization tabs.
-Usability improvements for each chart type.
-Delete, clone, create alert from icon bar.</td>
+You can now specify the data you want to look at in the <strong>Data</strong> tab and use other tabs for customization. We made usability improvements for each chart type.
+Use delete, clone, create alert from icon bar.</td>
 <td width="60%"><img src="images/v2_chart_builder_select.png" alt="create dashboard"></td>
 </tr>
 </tbody>
@@ -57,12 +57,13 @@ Delete, clone, create alert from icon bar.</td>
 
 ### Dashboard Variables Redesign
 
+[Dashboard variables](dashboards_variables_v2.html) are now easier to configure and easier to use.
+
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
-Easier to add and configure (dashboard developers).
-Easier to select (users).</td>
+We've streamlined configuration options for developers and we now support easy reorganization of configured variables.</td>
 <td width="60%"><img src="images/v2_dashboard_variables.png" alt="dashboard variables"></td>
 </tr>
 </tbody>
@@ -81,16 +82,16 @@ We've prepared the following doc pages for the new UI. These pages are not yet i
 ## Chart FAQs
 
 ### Q: How do I add an alert from a chart?
-A: Open the chart, click the **Queries** tab, and select **Create Alert** from the menu on the right.
+A: Open the chart, click the **Data** tab, and select **Create Alert** from the ellipsis menu on the far right.
 
 ![v2 Create Alert](images/v2_create_alert.png)
 
 
 ### Q: Some of my charts look different. What can I do?
 
-A: The goal of this UI revision is parity, but we made a few changes:
+A: The goal of this UI revision is parity, but we've made a few changes:
 * **Scatter plots** are obsolete. Change scatter plot to a different chart type before you go to v2.
-* **Line plots** that multiple lines haven't changed much, but the single-line line plot uses highlighting to make the highs and lows stand out more. Here's a v2 single line chart:
+* **Line plots** changed. Single-line line plots now use highlighting to make the highs and lows stand out more:
 
   ![v2 Line plot](images/v2_linechart_single.png)
 
@@ -99,13 +100,13 @@ A: The goal of this UI revision is parity, but we made a few changes:
 
 ### Q: How does the new time picker work?
 
-A: Our new time picker supports a selection of preset times or you can specify a custome time frame. 4 weeks is not the same as 1 month -- use the custom time picker to select a full month.
+A: Our new time picker supports a selection of preset times, or you can specify a custome time frame. 4 weeks is not the same as 1 month -- use the custom time picker to select a full month.
 
 ![v2 time picker](images/v2_time_picker.png)
 
 ### Q: How do I clone or delete a chart?
 
-A: Open the chart, click the **Queries** tab, and select an icon on the right.
+A: Open the chart, click the **Data** tab, and select an icon on the right.
 
 ![v2 Clone Query](images/v2_clone.png)
 
@@ -141,3 +142,5 @@ A: We've move the warning icon from the bottom right of a chart to the top left 
 Wavefront currently doesn't distinguish between warnings and info messages. For example, if a query specifies a time window but doesn't specify d, m, s, etc, we default to m (minutes) and show a warning. Expect an update in an upcoming release.
 
 ### Q: Dashboard variables have changed. Where do I find out more?
+
+A: We have [new documentation](dashboards_variables_v2.html) for dashboard variables. 

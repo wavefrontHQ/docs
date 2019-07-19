@@ -9,7 +9,7 @@ summary: Examine data with dashboards and charts
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="80%"> Dashboards and charts, you can examine data, set dashboard preferences, zoom in and out, and perform other customizations.
+<td width="80%"> Dashboards and charts, you can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 <br>
 <strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
 <td width="20%"><a href="ui_examine_data.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
@@ -22,35 +22,17 @@ summary: Examine data with dashboards and charts
 1. Log in to Wavefront.
 2. Select **Dashboards > All Dashboards**
 3. In the dashboards browser:
-    * Use the options on the left to find a dashboard.
+    * Use the search bar at the top to find a dasbhoard.
+    * Use the options on the left to narrow down which options the dashboard browser displays.
     * Use the three horizontal dots for dashboard management.
     * Add new or existing tags to make finding dashboards easier.
 
 ![dashboard browser annotated](images/dashboard_browser.png)
 
-## Set Display Preferences for a Dashboard
-
-For each dashboard, you can customize display preferences.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-<strong>To set the dashboard display preferences</strong>:
-<ol><li>Display a dashboard and select <strong>Edit</strong>. </li>
-<li>Click <strong>Settings</strong></li>
-<li>Make selections in the dialog, click <strong>Accept</strong>, and click <strong>Save</strong> </li></ol></td>
-<td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
-</tr>
-</tbody>
-</table>
-
-**Note** To use the dark theme with your dashboard and all other Wavefront UI components, set your preferences [from the gear icon](users_account_managing.html#configuring-user-preferences).
-
 
 ## Set the Dashboard Time Window
 
-By default dashboards display charts with a two-hour time window with real-time (live) data flowing in. Charts are updated every 30s. You can configure the default time window as part of the Dashboard Display Preferences.
+By default dashboards display charts with a two-hour time window with real-time (live) data flowing in. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards_v2.html#set-dashboard-display-preferences).
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
@@ -58,6 +40,7 @@ You can select a larger or smaller time window or view past data instead of real
 
 - Click the **Live** toggle to on (green) to see up-to-date data on the charts.
 - Click the **Live** toggle to off to look at past data.
+
 Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time.
 
 ![time bar](images/time_bar_v2.png)
@@ -68,7 +51,7 @@ If a dashboard has preconfigured dashboard variables, you can use them to filter
 
 ![dashboard variables example](images/variables_example.png)
 
-In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
+In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined for this dashboard. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
 
 ## Find a Dashboard
 
@@ -87,15 +70,13 @@ You can focus on a particular source or series in the dashboard view or the sing
 1. Hover over the series you want to isolate. The series you hover over displays as saturated and all other series are dimmed.
 1. Click the series.  An isolation bar appears at the bottom of the browser window.
 
-![isolated series](images/isolated_series.png)
+![isolated series](images/isolated_series_v2.png)
 
 **To isolate multiple series on all charts**, hold down the **Windows** or **Command** key and repeat.
    - If a series is related to a single source, it appears in the **Sources:** list. When you isolate a source, every series in the dashboard containing that source is isolated.
    - If a series represents an aggregation of sources, it appears in the **Series:** list.  When you isolate a series, the query field name displays in the isolation bar and every series in the dashboard with that query field name is isolated.
 
-**To remove a single isolation**, click the **X** icon next to the series at the bottom of the browser window.
-
-**To remove all isolated sources or series** click the **X** icon next to the list label.
+**To remove an isolation**, click the **X** icon next to the series at the bottom of the browser window.
 
 ## Select the Chart Time Window
 
@@ -127,7 +108,7 @@ You can move the time window into the future, however, unless you are using one 
 </tbody>
 </table>
 
-Here's a video that illustrates chart time windows:
+Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
 </p>
 

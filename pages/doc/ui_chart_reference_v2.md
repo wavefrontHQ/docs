@@ -28,13 +28,13 @@ Users with dashboard permission can:
 {% include shared/badge.html content="While every Wavefront user can view charts and make temporary changes, you must have [Dashboard permission](permissions_overview.html) to save changes you make to charts." %}
 
 
-## Queries Tab (All Charts)
+## Data Tab (All Charts)
 
 For each chart (with the exception of a Markdown chart) you specify one or more queries.
 
-When you select **Queries**, you can:
+When you select **Data**, you can:
 * View queries for the chart or add queries.
-* Use Query Builder or Query Editor.
+* Use Chart Builder or Query Editor.
 * Clone, delete, or hide one or more queries.
 * Bring up AI Genie for anomaly detection and forecasting.
 

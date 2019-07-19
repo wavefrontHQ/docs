@@ -187,6 +187,24 @@ When you create a chart using **Dashboards > Create Chart**, you're prompted to 
 </tbody>
 </table>
 
+### Set Dashboard Display Preferences
+
+For each dashboard, you can customize display preferences.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<strong>To set the dashboard display preferences</strong>:
+<ol><li>Display a dashboard and select <strong>Edit</strong>. </li>
+<li>Click <strong>Settings</strong></li>
+<li>Make selections in the dialog, click <strong>Accept</strong>, and click <strong>Save</strong> </li></ol></td>
+<td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
+</tr>
+</tbody>
+</table>
+
+**Note** To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences).
 
 
 {% include shared/system_dashboard.html %}

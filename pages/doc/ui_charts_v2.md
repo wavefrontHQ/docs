@@ -52,11 +52,11 @@ You can create a chart from a dashboard or from the task bar.
 ![create chart](/images/v2_create_chart.png)
 
 
-## Fine-Tune Chart Metrics from the Queries Tab
+## Fine-Tune Chart Metrics from the Data Tab
 
-From the Queries tab, every chart lets you fine-time the metrics that come in and apply filters and functions.
+From the Data tab, every chart lets you fine-time the metrics that come in and apply filters and functions.
 
-**Note:** Your user preferences determine whether the Queries tab shows Chart Builder or the more advanced Query Editor. However, if you look at a query that was built with Query Builder, you'll see that.
+**Note:** Your user preferences determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default.
 
 ### Chart Builder
 
@@ -83,7 +83,7 @@ Many Wavefront users start with Chart Builder as the default, and set their defa
 
 ## Hide, Clone, or Delete Queries
 
-You can easily hide, clone, or delete queries from the Queries tab.
+You can easily hide, clone, or delete queries from the Data tab.
 
 <table style="width: 100%;">
 <tbody>
