@@ -13,7 +13,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 <ul>
 <li>Organize charts into sections</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
-<li>Use dashboard variables.s</li></ul></td>
+<li>Use dashboard variables.</li></ul></td>
 <td width="20%"><a href="ui_dashboards.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>
@@ -42,14 +42,14 @@ You can also create a dashboard from the Dashboard browser (**Dashboards > All D
 
 ## Examine Metrics in View Mode
 
-You can examine metrics and make several temporary changes to your dashboard in View Mode
+You can examine metrics and make several temporary changes to your dashboard in View Mode.
 
-You can make many changes to dashboards while in View mode. Even users who don't have dashboard permissions can make those changes, for example, set the time window, change variables, or clone or edit the dashboard.
+You can make temporary changes to dashboards while in View mode. Even users who don't have dashboard permissions can make those changes, for example, set the time window, change variables, or clone or edit the dashboard.
 
 ![dashboard elements](images/v2_dashboard_elements.png)
 
 ### Use the Jump To Menu to Find a Section
-Most dashboards have several sections. They're easy to access.
+Most dashboards have several sections. They're easy to access from the Jump To menu.
 
 <table style="width: 100%;">
 <tbody>
@@ -63,7 +63,7 @@ Use the <strong>Jump To</strong> menu to go to a section</td>
 
 ### Select Variables
 
-Unless your administrator has removed variables from view, you can select variables, for example, for different environment, to examine exactly what you need.
+Unless your administrator has removed variables from view, you can select variables to examine exactly what you need (for example select the environment).
 <table style="width: 100%;">
 <tbody>
 <tr>
@@ -92,7 +92,7 @@ Scroll up to the Variables bar and select the up or down double ^.</td>
 
 ## Make Changes to a Dashboard in Edit Mode
 
-When you create a dashboard or when you edit a dashboard, the dashboard is in Edit mode. In Edit mode, you can make several changes at a time, then save all changes to layout or charts.
+When you create a dashboard or when you edit a dashboard, the dashboard is in Edit mode. In Edit mode, you can make several changes at a time, then save all changes to dashboard layout or to charts.
 
 {% include shared/system_dashboard.html %}
 
@@ -106,7 +106,7 @@ To remove a change, click the revert icon to the left of **Edit JSON** on the ta
 <tbody>
 <tr>
 <td width="50%">
-<ol><li>With the dashboard in Edit mode, drag and drop widgets onto the dashboard canvas </li>
+<ol><li>Drag and drop widgets onto the dashboard canvas </li>
 <li>(Optional) Select metrics, filters, and functions.  </li>
 <li>Scroll up and select <strong>Save</strong></li>
 </ol></td>
@@ -125,7 +125,7 @@ Editing a chart is different in View mode and in Edit mode:
 <tbody>
 <tr>
 <td width="50%">
-<ol><li>With the dashboard in Edit mode, place the cursor inside a chart. </li>
+<ol><li>Place the cursor inside a chart. </li>
 <li>Select one of the icons and follow the prompts. </li>
 </ol>
 </td>
@@ -144,7 +144,7 @@ With the dashboard in Edit mode:
 <ol>
 <li>Scroll up to the Variables bar.  </li>
 <li>Click the Edit icon to edit a variable.</li>
-<li>Click the Add button to add a variable.</li>
+<li>Click the Add button to <a href="dashboard_variables_v2.html">add a variable</a>.</li>
 </ol>
 </td>
 <td width="50%">

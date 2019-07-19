@@ -137,6 +137,19 @@ taggify(expression, metric|source|{tagk, <pointTagKey>}, version,
    "regexSearchPattern", "replacementPattern")
 ```
 
+### Improving Readability by Manipulating the Output
+
+All metadata functions support composite values, that is you can manipulate the output.
+
+For example:
+
+<code>
+aliasSource(ts(aws.instance.price), "&lbrace;&lbrace;Region&rbrace;&rbrace;-&lbrace;&lbrace;source&rbrace;&rbrace;")
+</code>
+
+Adds the region and a hyphen to the source.
+
+That means `mycluster-2c-ha2-i-00e421d1bef7fb88e` is converted to `us-west-2-mycluster-2c-ha2-i-00e421d1bef7fb88e` if the source is `us-west-2`.
 
 ## Examples
 

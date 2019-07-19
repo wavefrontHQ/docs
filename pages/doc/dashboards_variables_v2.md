@@ -29,14 +29,14 @@ Dashboard variables make it easy for all users to refocus what a dashboard displ
 * An environment includes a tag `env` that can be `prod` or `dev`. You can use a list variable to allow users to pick one - and you can define a label that makes it easy for users to make the choice.
 * An environment that has a growing fleet of machines. You can use a dynamic variable that accesses the `source` to allow users to choose from currently available sources.
 
-## How All Users Can Show and Change Variables
+## Change and Show/Hide Variables (View Mode)
 
 All users can show or hide the variables bar and can select from the predefined variables once the bar is visible. If no variables are defined for the dashboard, the show/hide icon is not visible.
 
 ![select variable](images/select_variable.png)
 
 
-## How Dashboard Editor Users Can Create and Save Variables
+## Create, Modify, and Save Variables (Edit Mode)
 
 Users with Dashboard permissions can create variables, use them in queries, and save the dashboard. After the dashboard has been saved, the variable shows up in the dashboard bar and all users can make selections.
 
@@ -61,7 +61,7 @@ Dashboard variables can contain:
 
 To create a dashboard variable:
 
-1. Put your dashboard into Edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
 2. Click the **Add** icon in the variables bar.
 3. In the Add Variable dialog box, specify
    1. Specify the **Variable Name** -- Name you can use in queries that use the variable. Keep this name short.
@@ -76,7 +76,7 @@ To create a dashboard variable:
 
 Editing a dashboard variable is similar to creating a dashboard variable.
 
-1. Put your dashboard into Edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
 2. Click the **Edit** icon in the variables bar and select **Edit**.
 
    ![edit_or_reorder variables](images/edit_variable_v2.png)
@@ -87,7 +87,7 @@ Editing a dashboard variable is similar to creating a dashboard variable.
       * [Simple variable](#simple)
       * [List variable](#list)
       * [Dynamic variable](#dynamic)
-4. To make a dashboard variable invisible when the dashboard is not in Edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
+4. To make a dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
 
 ### Clone or Delete a Dashboard Variable
 

@@ -276,7 +276,7 @@ Larger time windows and lower display resolutions result in lower chart resoluti
 ### Chart Resolution Example
 
 Here is a series of charts with increasing time window for the _same_ display resolution (1280px).
-* When the time window increases from 10 minutes to 2 hours (12 fold), the bucket size increases proportionately from 1 sec to 12 sec and the number of buckets remains the same.
+* When the time window increases from 10 minutes to 2 hours (12 fold), the bucket size increases from 1 sec to 12 sec and the number of buckets remains the same.
 * In contrast, when the time window increases from 2 to 6 hours (3 fold), the bucket intervals increase from 12 to 60 sec (5 fold) and the number of buckets is reduced proportionately: 600 * 3/5 = 360.
 
   - 10-minute window: 600 point buckets across, with ~1 sec buckets
