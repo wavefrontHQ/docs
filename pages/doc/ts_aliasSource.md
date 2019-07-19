@@ -80,7 +80,7 @@ cpu.loadavg-customerB.5m
 
 The set of metrics is being reported by 1 source (e.g. `source1`) -- what if you wanted to aggregate the data and group by customer? You could create two separate ts() expressions, or you could instead use `aliasSource()` to update the `<source1>` name to `customerA` or `customerB`. You could then group by source and get the answer you need from a single expression.
 
-Starting with release 2018.22, source names are converted to lowercase to maintain consistent behavior for series matching. When you use `aliasSource()` with a static string (e.g. `aliasSource(ts(<metric.name>), "Source.Test")`, source names retain their original case. 
+Starting with release 2018.22, source names are converted to lowercase to maintain consistent behavior for series matching. When you use `aliasSource()` with a static string (e.g. `aliasSource(ts(<metric.name>), "Source.Test")`, source names retain their original case.
 
 The `aliasSource()` function supports several ways of replacing source names in a ts() expression: zeroBasedNodeIndex, regular expression replacement, simple string replacement.
 
@@ -124,6 +124,20 @@ See the examples below for details.
 ### Regex Approach
 
 You can also use a regular expression with `aliasSource()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything that matches `regexSearchPattern` is replaced with `replacementPattern`. See the examples below for details.
+
+### Improving Readability by Manipulating the Output
+
+All metadata functions support inserting the value of the metric, source or tags in replacement strings via the `<entity>` syntax.
+
+For example:
+
+<code>
+aliasSource(ts(aws.instance.price), "&lbrace;&lbrace;Region&rbrace;&rbrace;-&lbrace;&lbrace;source&rbrace;&rbrace;")
+</code>
+
+Adds the value of the `region` tag and a hyphen to the original source.
+
+That means `mycluster-2c-ha2-i-00e421d1bef7fb88e` is converted to `us-west-2-mycluster-2c-ha2-i-00e421d1bef7fb88e` if the source is `us-west-2`.
 
 
 ## Examples

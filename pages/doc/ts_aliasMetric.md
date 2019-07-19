@@ -115,6 +115,20 @@ See the examples below for details.
 
 You can also use a regular expression with `aliasMetric()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything that matches `regexSearchPattern` is replaced with `replacementPattern`. See the examples below for details.
 
+### Improving Readability by Manipulating the Output
+
+All metadata functions support inserting the value of the metric, source or tags in replacement strings via the `<entity>` syntax.
+
+For example:
+
+<code>
+aliasSource(ts(aws.instance.price), "&lbrace;&lbrace;Region&rbrace;&rbrace;-&lbrace;&lbrace;source&rbrace;&rbrace;")
+</code>
+
+Adds the value of the `region` tag and a hyphen to the original source.
+
+That means `mycluster-2c-ha2-i-00e421d1bef7fb88e` is converted to `us-west-2-mycluster-2c-ha2-i-00e421d1bef7fb88e` if the source is `us-west-2`.
+
 
 ## Examples
 
