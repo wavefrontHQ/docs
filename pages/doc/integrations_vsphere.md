@@ -6,9 +6,9 @@ sidebar: doc_sidebar
 permalink: integrations_vsphere.html
 summary: Learn details about the vSphere integration
 ---
-The Wavefront [vSphere integration](vsphere.html) offers predefined dashboards and predifined alert conditions.
+The Wavefront [vSphere integration](vsphere.html) offers predefined dashboards and predifined alert conditions. The integration is designed for high performance data collection and has been tested with over 7000 virtual machines. This page gives some recommendations for achieving maximum performance.
 
-The vSphere plugin for Telegraf is designed for high performance data collection and has been tested with over 7000 virtual machines. This page gives some recommendations for achieving maximum performance.
+**Note**: For details on some customization aspects, see the [Telegraf plugin info on Github](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere)
 
 ## Separating Real-time and Historical Metrics
 vCenter Server provides real-time and historical metrics:

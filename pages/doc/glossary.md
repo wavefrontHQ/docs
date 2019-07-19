@@ -21,7 +21,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 
 <tr>
 <td>&nbsp;</td>
-<td markdown="span">**[Access management]**(access.html)</td>
+<td markdown="span">[**Access management**](access.html)</td>
 <td>By default, Wavefront users can access objects based on their permissions. Wavefront allows administrators to limit access to Wavefront objects (initially dashboards). With this strict security setting, only the creator (e.g. dashboard creator) and invited users/groups have access to new objects.
 </td>
 </tr>
