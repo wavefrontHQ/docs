@@ -6,14 +6,11 @@ permalink: tutorial_getting_started_v2.html
 summary: Build dashboards and charts with sample data, create an alert, and learn navigation basics.
 ---
 
-This tutorial uses Wavefront sample data to get you started:
-* Navigate Wavefront
-* Build Wavefront dashboards and charts
-* Create an alert
+This tutorial uses Wavefront sample data to get you started.
 
-To complete these tasks you need access to a Wavefront instance. If your company doesn't have one, sign up for a [free trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"}!
-
-You also need the [Dashboard and Alert permissions](permissions_overview.html). Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.
+To complete these tasks you need:
+* **Access to a Wavefront instance**. If your company doesn't have one, sign up for a [free trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"}!
+* **Dashboard permission and Alert permission**. Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.
 
 
 ## Review Sample Dashboards and Metrics
@@ -34,7 +31,7 @@ Your Wavefront instance includes tutorial and tour dashboards that we built usin
 </tr>
 </tbody>
 </table>
-![click chart title to select a chart](/images/select_chart.png)
+![click chart title to select a chart](/images/select_chart_v2.png)
 
 <table style="width: 100%;">
 <tbody>
@@ -162,40 +159,135 @@ In this section you create an alert that fires when the request latency metric r
 
     ![event icons](images/event_icons.png)
 
-## Videos and Docs
+## Videos
 
-Here are some links to popular videos and docs. You can also search this doc set (top right) to find what you need.
+Our doc set includes concept videos, how-to videos, and more! The green bar in each tile links to popular videos.
 
-### Videos
+<div class="row">
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-video-camera fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="videos_quickstart.html" class="btn btn-primary btn-block">Quickstart</a></p>
+             <p>Our most popular videos. </p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-arrow-right fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="videos_data.html" class="btn btn-primary btn-block">Data</a></p>
+             <p>Get telemetry data and histograms into Wavefront.  </p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="videos_alerts.html" class="btn btn-primary btn-block">Alerts</a></p>
+             <p>Alerts&mdash;From simple to multi-threshold. </p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="/videos_administration.html" class="btn btn-primary btn-block">Administration</a></p>
+             <p>Authentication and authorization. </p>
+         </div>
+     </div>
+ </div>
+</div>
 
-In our videos, Wavefront engineers show how to perform certain tasks, or explain some features from the ground up. You can find most videos using the link in the TOC on the left. Many users start with our [intro videos](videos_quickstart.html).
+## Docs
 
-### Charts and Dashboards
+Search this doc set at the top right -- or look at some of the most popular docs in the set.
 
-Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video help you learn how to create and use charts and dashboards in Wavefront.
+### Getting Started Docs
 
-- [Examine Telemetry Data](ui_examine_data.html)
-- [Creating a Chart](ui_charts.html)
+Click a tile for doc about integrating with Wavefront, visualizing your data, refining what you see with queries, and alerting with Wavefront.
 
-### Query Language
-
-Wavefront Query Language is the foundation of charts and alerts in Wavefront. Here are some topics thathelp you learn the query language.
-
-- [Getting Started with Wavefront Query Language](query_language_getting_started.html)
-- [Query Builder](query_language_query_builder.html)
-- [Wavefront Query Language Quick Reference](query_language_reference.html)
-- [When Multiple Series Match (Or Not)](query_language_series_matching.html)
-- [Fine Tune Queries With Point Tags](query_language_point_tags.html)
-
-We have a complete list of [Query Language Reference Pages](label_reference%20page.html).
-
-### Alerts and Events
-
-Alerts and events make it possible to track critical changes in your environment. The following topics help you learn about alerts and events in Wavefront.
-
-- [Alerting States and Lifecycle](alerts_states_lifecycle.html)
-- [Creating an Alert](alerts.html#creating-an-alert)
-- [Displaying Events in Charts](charts_events_displaying.html)
+<div class="row">
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-rocket fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_integrations%20list.html" class="btn btn-primary btn-block">Integrate</a></p>
+             <p>Explore our integrations</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="ui_examine_data.html" class="btn btn-primary btn-block">Visualize</a></p>
+             <p>Get started with charts and dashboards</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="query_language_reference.html" class="btn btn-primary btn-block">Query</a></p>
+             <p>Understand Wavefront Query Language</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="/alerts.html" class="btn btn-primary btn-block">Alert</a></p>
+             <p>Get started with alerting. </p>
+         </div>
+     </div>
+ </div>
+</div>
 
 ### Release Notes
 
@@ -203,16 +295,105 @@ Release notes summarize the features added to each release and changes to existi
 
 - [Wavefront Release Notes](wavefront_release_notes.html)
 
+### Query Language Docs
+
+[Wavefront Chart Builder](chart_builder.html) offers an easy select-and-refine interface that lets you fine-tune what your charts display.
+
+![chart builder](images/v2_chart_builder_simple.png)
+
+Advanced users further refine charts and alerts with Wavefront Query Language. Click on a tile for a query language page.
+
+<div class="row">
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="query_language_reference.html" class="btn btn-primary btn-block">Reference</a></p>
+             <p>One line for each function + links. </p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+                   <i class="fa fa-circle fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="query_language_discrete_continuous.html" class="btn btn-primary btn-block">Foundation</a></p>
+             <p>Explains concepts like discrete, continuous, and interpolation. </p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-lightbulb-o fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="query_language_point_tags.html" class="btn btn-primary btn-block">Tips & Tricks</a></p>
+             <p>Fine tune queries, perform aggregation, and more.  </p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-list-ol fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="/query_language_recipes.html" class="btn btn-primary btn-block">QL Recipes</a></p>
+             <p>Sample queries for common tasks.</p>
+         </div>
+     </div>
+ </div>
+</div>
+
 ## Next Steps
 
 Wavefront offers an onboarding (**Getting Started**) workflow, tutorial and tour dashboards, in-product help, videos, docs, and other resources.
 
-* The **Getting Started** onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. All trial users go through this flow before they can continue using Wavefront.
-* The tutorial dashboards get you started. The Tour shows more advanced users some example use cases of the query language. Both dashboards use sample data, so you don't have to use your own data.
-* The in-product help on the right of each screen introduces what you're looking at -- e.g. charts or alerts -- and has links to more info.
-* This doc set (docs.wavefront.com) has in-depth information about many different aspects of the product. Use the TOC on the left, the Search bar in the top right or the tiles to find what you're looking for.
-* Developers like the Interactive Query Language Exporer dashboard to learn about all functions by looking at an example.
-
-  ![query language tutorial](images/ql_dashbrd.png)
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+The <strong>Getting Started</strong> onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. All trial users go through this flow before they can continue using Wavefront.</td>
+<td width="50%"><img src="/images/getting_started_flow.png" alt="Sample Cluster"/></td>
+</tr>
+<tr>
+<td width="50%">
+The in-product <strong>Tutorial</strong> dashboards get you started. You explore dashboards and charts that show sample metrics and make temporary modifications. More advanced users can explore the Tour Pro. Here, we're showing how to solve problems such as finding anomalous events. The tour uses sample data but is based on actual customer problems. </td>
+<td width="50%"><img src="/images/tutorial_v1.png" alt="Sample Cluster"/></td>
+</tr>
+<tr>
+<td width="50%">
+The <strong>in-product help</strong> on the right of each screen introduces what you're looking at -- e.g. charts or alerts -- and has links to more info.</td>
+<td width="50%"><img src="/images/in_product_help.png" alt="Sample Cluster"/></td>
+</tr>
+<tr>
+<td width="50%">
+This doc set (docs.wavefront.com) has in-depth information about many different aspects of the product. Use the TOC on the left, the Search bar in the top right or the tiles to find what you're looking for.</td>
+<td width="50%"><img src="/images/doc_set.png" alt="screenshot of top left corner of doc set."/></td>
+</tr>
+<tr>
+<td width="50%">
+Developers like the Interactive Query Language Exporer dashboard to learn about all functions by looking at an example.</td>
+<td width="50%"><img src="/images/ql_dashbrd.png" alt="query language explorer"/></td>
+</tr>
+</tbody>
+</table>
 
 Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your exciting journey!
