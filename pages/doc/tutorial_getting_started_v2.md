@@ -57,10 +57,11 @@ This example uses a chart from our Tour Pro, which is a set of dashboards for ex
 
 
 <table style="width: 100%;">
+<thead><tr><th width="50%">Step 1: Open the Sample Cluster Metrics dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
 <tbody>
 <tr>
 <td width="50%">
-Step 1: Open the Sample Cluster Metrics dashboard.
 <ol>
 <li>Log in to Wavefront.</li>
 <li>Select <strong>Dashboards > All Dashboards</strong>.</li>
@@ -72,92 +73,110 @@ Step 1: Open the Sample Cluster Metrics dashboard.
 </table>
 
 <table style="width: 100%;">
+<thead><tr><th width="50%">Step 2: Open a chart in the dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
 <tbody>
 <tr>
 <td width="50%">
-Step 2: Open a chart in the dashboard.
 <ol>
 <li>Select <strong>Jump To &gt; App Servers</strong> to go to the App Servers section. </li>
 <li>Click the <strong>Requests</strong> chart title.</li></ol>
 <p>The stacked area chart opens in the chart editor. This chart displays the query:<br> <code>last(ts("~sample.requests.total.num", az=${az}, env=${env}))</code></p>
-The query returns the total number of requests (<strong>~sample.requests.total.num</strong>) metric, filtered by availability zone and environment. The <strong>last()</strong> function fills in any gaps in data with the last known value of the metric. </p></td>
+<p>The query returns the total number of requests (<strong>~sample.requests.total.num</strong>) metric, filtered by availability zone and environment. The <strong>last()</strong> function fills in any gaps in data with the last known value of the metric. </p></td>
 <td width="50%"><img src="/images/app_servers.png" alt="Sample Cluster"/></td>
 </tr>
 </tbody>
 </table>
 
 <table style="width: 100%;">
+<thead><tr><th width="50%">Step 3: Add the chart to a new dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
 <tbody>
 <tr>
 <td width="50%">
-Step 3: Add the chart to a new dashboard:
 <ol>
-<li>Select <strong>Jump To &gt; App Servers</strong> to go to the App Servers section. </li>
-<li>Click the <strong>Requests</strong> chart title.</li></ol>
-<p>The stacked area chart opens in the chart editor. This chart displays the query:<br> <code>last(ts("~sample.requests.total.num", az=${az}, env=${env}))</code></p>
-The query returns the total number of requests (<strong>~sample.requests.total.num</strong>) metric, filtered by availability zone and environment. The <strong>last()</strong> function fills in any gaps in data with the last known value of the metric. </p></td>
-<td width="50%"><img src="/images/app_servers.png" alt="Sample Cluster"/></td>
+<li>With the chart still in the chart editor, click <strong>Save</strong> in the top right corner. </li>
+<li>Select <strong>Save to a New Dashboard</strong> and specify a dashboard url.  </li></ol>
+The new dashboard is created, with a clone of the chart in the chart editor. </td>
+<td width="50%"><img src="/images/save_to_new_v2.png" alt="save to new dashboard"/></td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 4: Edit the chart in the cloned dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<p>The chart is currently using variables to determine what to display. Let's simplify the chart to show only metrics for the dev environment, and experiment with chart types.</p>
+<ol>
+<li>With the chart still in Edit mode, select the variables and replace them with <strong>env=dev</strong>. Auto-complete offers options as you type.</li>
+<li>Experiment with some of the chart types available from the pull-down menu on the left. </li></ol>
+<p>For an introduction, see the <a href="chart_builder.html"> Chart Builder page</a>.</p> </td>
+<td width="50%"><img src="/images/select_env.png" alt="select environment"/>
+<img src="/images/v2_chart_builder_select.png" alt="select chart type"/></td>
+</tr>
+</tbody>
+</table>
+
+## Create an Alert
+
+In this section you create an alert that fires when the request latency metric reaches a certain threshold. One way to create an alert is directly from a chart.
+
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 1: Create the alert.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>In the App Server section of the dashboard, click the <strong>Request Latencies</strong> chart title to open the chart.  </li>
+<li>Select <strong>Create Alert</strong> from the menu on the far right. </li></ol>
+The <strong>Create Alert</strong> page displays. </td>
+<td width="50%"><img src="/images/v2_create_alert.png" alt="Create Alert menu item"/></td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 2: Customize the alert.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>In the Name field, replace <strong>New Alert</strong> with <strong>Latency Alert</strong>.</li>
+<li>At the end of the Condition field, type <strong>&gt; 210</strong>. We're deliberately setting this alert threshold low so you can see the alert fire after a few minutes. In normal practice, you would set the threshold to an anomalous value.</li>
+<li>In the <strong>Alert fires</strong> field, change the value to <strong>2</strong> and press <strong>Enter</strong>. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes.</li>
+<li>Click <strong>Backtesting</strong> to see when alerts would have been generated in the past, then deselect that option.</li>
+<li>In the <strong>Targets</strong> field, type your email address.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+</td>
+<td width="50%"><img src="/images/create_latency_alert.png" alt="create latency alert"/></td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 3: Observe and snooze the alert.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Do this <strong>New Alert</strong> </li>
+<li>Do this <strong>New Alert</strong></li>
+</ol>
+ </td>
+<td width="50%"><img src="/images/alert_checking.png" alt="create latency alert"/>
+<img src="/images/snooze_alert.png" alt="snooze alert"/></td>
 </tr>
 </tbody>
 </table>
 
 
-
-1.  Add the chart to a new dashboard:
-    1. Scroll to the bottom of the chart page.
-    1. Click **Save to New Dashboard**.
-    1. In the URL field, type **app-server-dashboard**.
-    1. In the Name field, type **App Server Dashboard**.
-    1. Click **Create**. You have now created your first dashboard and are placed in edit mode. The variables have also been included in your new dashboard because they are used in the chart.
-1.  Edit the App Server Dashboard:
-    1. Click the <i class="fa fa-superscript" /> icon at the top right to close the dashboard variables editor.
-    1. Click **Incoming Chart** at the top left and type **Request Metrics**.
-1.  Edit the Requests chart to limit the number of sources being displayed:
-    1. Click the **Requests** title at the top right of the chart.
-    1. In the Requests query field delete **az=${az}, env=${env}** and type **env**.
-    1. Select **env=** and then **production** from the autocomplete dropdown.
-    1. Press **Enter**. The chart now displays only _production_ application servers in all availability zones.
-    1. Click **Accept**.
-1.  Now let's create a chart from scratch:
-    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts.html#line-plot) chart is created.
-    1. In the New Query field, type **ts**. The system adds parentheses.
-    1. Type **~sample.requests**.
-    1. Choose **latency** from the autocomplete dropdown and press **Enter**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
-    1. Type **", env=production"** (without the quotes) after latency. This filter selects sources in the _production_ environment.
-    1. Type **"mmax(10m, "** (without the quotes) before ts and type a closing parenthesis **)** at the end. This function sets the value to the maximum of the metric over a 10 minute window, reducing noise and focusing attention on the more interesting metric _maximum latency_. This is an example of the one of the many functions available in Wavefront to analyze your metrics.
-    1. In the Name field, replace New Chart with **Request Latencies**.
-    1. Click **Accept**.
-1.  Make sure that Edit JSON is still selected in the top right, hover over the chart, and press and hold the left mouse button. When the cursor changes to <i class="fa fa-arrows"/>,  drag the chart to the right of the Requests chart and release the mouse button. The two charts now share the same row.
-1. At the top right of the dashboard, click **Save**.
-
-   ![request_metrics](images/request_metrics.png)
-
-## Create an Alert
-
-In this section you create an alert that fires when the request latency metric reaches a certain threshold. In Wavefront, one way to create an alert is directly from a chart.
-
-1. In App Server Dashboard, click the **Request Latencies** chart title to open the chart.
-1. Hover over the query builder toggle. The **Create Alert** link displays.
-
-   ![create_alert](images/create_alert.png)
-
-1.  Click the **Create Alert** link. The Create Alert page displays with the Condition field filled in with the request latencies query.
-    1. In the Name field, replace **New Alert** with **Latency Alert**.
-    1. At the end of the Condition field, type **> 210**. The alert threshold is deliberately set low so you can see the alert fire after a few minutes. In normal practice the threshold would be set to an anomalous value.
-    1. In the **Alert fires** field, change the value to **2** and press **Return** or **Enter**. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes. You can see when alerts would have been generated in the **Backtesting** option of the Events Display chart.
-    1. In the Targets field, type your email address.
-    1. Click **Save**.
-1.  Click **Alerts** in the task bar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
-
-    ![firing alert](images/tutorial_get_started_alert_firing.png)
-
-     and you receive an email like the following:
-
-    ![alert_email](images/tutorial_get_started_alert_email.png)
-
-    As alerts fire and resolve, events are created in Wavefront. You can add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying.html) that are added to the Request Latencies chart's X-axis:
-
-    ![event icons](images/event_icons.png)
 
 ## Videos
 
