@@ -38,7 +38,9 @@ Set up the [AWS integration](integrations_aws_metrics.html). This allows Wavefro
 
 ## Create AWS ECS Fargate Task Definition for Wavefront
 
-Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
+You can set up Wavefront to collect the data from AWS Fargate containers. These steps create an ECS task definition that ensures the Wavefront Collector automatically runs on each Fargate instance in your ECS cluster.
+
+After you've performed the setup, you can view and examine the data in our AWS Fargate dashboard in your Wavefront instance. See the screenshot at the bottom of this page.
 
 1. Within AWS Services, navigate to **ECS**.
 1. Click **Task Definitions**, then **Create new Task Definition**.
@@ -89,24 +91,25 @@ Wavefront maintains an image of cAdvisor that includes a Wavefront storage drive
         ],
         "cpu": "256",
         "memory": "512"
+  }
    ```
   2. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address and port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
-2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information.
-
-|| **Field** | **Value** |
-|| Cluster | Select the cluster on which your task has to run.|
-|| Number of tasks | Select a number (minimum 1).  |
-||Task Group | (Optional) Task group name for identifying a set of related tasks. |
-
+2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information. Most fields are self-evident, here are a few.
+  * **Cluster**--Select the cluster on which your task has to run.
+  * **Number of tasks**--Select a number (minimum 1).
+  * **Task Group** (Optional)--Task group name for identifying a set of related tasks.
+  * **Launch Type**--Fargate
 
    ![run task](images/aws_fargate_run_task.png)
-1. Click **Run Task**.
+9. Click **Run Task**.
 
 
 ## Create AWS ECS EC2 Task Definition for Wavefront
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
+
+After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard and the AWS Fargate dashboard. 
 
 1. Within AWS Services, navigate to **ECS**.
 1. Click **Task Definitions**, then **Create new Task Definition**.
