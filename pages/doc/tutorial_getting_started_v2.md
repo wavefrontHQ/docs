@@ -166,8 +166,17 @@ The <strong>Create Alert</strong> page displays. </td>
 <tr>
 <td width="50%">
 <ol>
-<li>Do this <strong>New Alert</strong> </li>
-<li>Do this <strong>New Alert</strong></li>
+<li>To watch the alert fire, click <strong>Alerts</strong> in the task bar.
+<br>
+<br>
+Because your alert was the most recently created, you should see it with the state CHECKING.
+<br>
+<br>
+Watch the state change to FIRING and check your email. </li>
+<li>Select the alert's check box, click <strong>Snooze</strong> and select <strong>Forever</strong>.
+<br>
+<br>
+You'll receive a second email that the alert was snoozed. </li>
 </ol>
  </td>
 <td width="50%"><img src="/images/alert_checking.png" alt="create latency alert"/>
@@ -182,64 +191,28 @@ The <strong>Create Alert</strong> page displays. </td>
 
 Our doc set includes concept videos, how-to videos, and more! The green bar in each tile links to popular videos.
 
-<div class="row">
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-video-camera fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="videos_quickstart.html" class="btn btn-primary btn-block">Quickstart</a></p>
-             <p>Our most popular videos. </p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-                   <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                   <i class="fa fa-arrow-right fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="videos_data.html" class="btn btn-primary btn-block">Data</a></p>
-             <p>Get telemetry data and histograms into Wavefront.  </p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-             <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="videos_alerts.html" class="btn btn-primary btn-block">Alerts</a></p>
-             <p>Alerts&mdash;From simple to multi-threshold. </p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-             <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="/videos_administration.html" class="btn btn-primary btn-block">Administration</a></p>
-             <p>Authentication and authorization. </p>
-         </div>
-     </div>
- </div>
-</div>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%"><p><strong>Intro Videos</strong></p><p>Our intro videos explain how to get data into Wavefront, how alerting works, and more!</p> </td>
+<td width="50%"><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
+</tr>
+<tr>
+<td width="50%"><p><strong>Alerts Videos</strong></p><p>Our Alerts videos give important background and best practices info and a lot of practical advice on how to configure classic alerts and multi-threshold alerts.  </p> </td>
+<td width="50%"><a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a></td>
+</tr>
+<tr>
+<td width="50%"><p><strong>Wavefront and Data Videos</strong></p><p>Thess videos explain important concepts such as interpolation and tagging, and explain how to use histograms. </p> </td>
+<td width="50%"><a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
+</tr>
+<tr>
+<td width="50%"><p><strong>Administration Videos</strong></p><p>Administration videos help you understand how permissions and access control work in Wavefront, and show how to set up permissions and access control. </p> </td>
+<td width="50%"><a href="https://youtu.be/45E4pkann0E" target="_blank"><img src="images/v_access.png" alt="Wavefront access control"/></a></td>
+</tr>
+
+</tbody>
+</table>
+
 
 ## Docs
 
