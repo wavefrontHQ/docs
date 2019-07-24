@@ -218,9 +218,38 @@ Many vCenter environments use self-signed certificates. Be sure to update the bo
 values for all applicable SSL Config settings that apply in your vSphere environment. In some environments, setting `insecure_skip_verify = true` will be
 necessary when the SSL certificates are not available.
 
-Detailed instructions on how to configure the vSphere plugin can be found [here](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere)
+To ensure consistent collection in larger vSphere environments you may need to increase concurrency for the plugin. Use the `collect_concurrency` setting to control concurrency.
 
-### Step 3. Restart Telegraf
+Set `collect_concurrency` to the number of virtual machines divided by 1500 and rounded up to the nearest integer. For example, for 1200 VMs use 1 and for 2300 VMs use 2.
+
+If you don't want to collect instance information, such as CPU per core, use the `vm_instances` setting to control this collection. The setting defaults to `true`.
+
+See [VMware vSphere Integration Details](https://docs.wavefront.com/integrations_vsphere.html) for other recommendations.
+
+### Step 3. Setup Telegraf internal plugin
+
+This step is optional, but highly recommended to monitor the health of Telegraf as it collects vSphere metrics at scale.  Follow the instructions to 
+setup the Telegraf internal plugin.
+
+### Step 4. Restart Telegraf
+
+Run `sudo service telegraf restart` to restart your Telegraf agent.
+
+### Step 5. Tune Telegraf settings
+
+After data is flowing into Wavefront, you may need to further tune Telegraf settings for buffer and batch sizes. This plugin is capable to
+collect hundreds of thousands of metrics per cycle and can overwhelm default Telegraf agent settings.
+
+If you setup the Telegraf internal plugin (step 3), use this chart query 
+to see how many metrics per cycle Telegraf is collecting:
+`rate(ts("telegraf.internal.gather.metrics.gathered", input="vsphere")) * 60`  
+
+Edit the `/etc/telegraf/telegraf.conf` to modify Telegraf agent level settings:  
+1. Set `metric_buffer_limit` to be slightly larger than the # of metrics collected by the plugin as determined by the above query.  
+2. Set `metric_batch_size` to 3000
+3. Set `flush_interval` to 5s
+
+### Step 6.  Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 

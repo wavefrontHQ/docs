@@ -1,8 +1,8 @@
 ---
-title: NGINX Plus Integration
+title: NGINX Plus (Archived) Integration
 tags: [integrations list]
-permalink: nginxplus.html
-summary: Learn about the Wavefront NGINX Plus Integration.
+permalink: nginxplus-archived.html
+summary: Learn about the Wavefront NGINX Plus (Archived) Integration.
 ---
 ## NGINX Plus Integration
 
@@ -12,7 +12,11 @@ This integration installs and configures Telegraf to send NGINX Plus server metr
 
 In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of some charts in the NGINX Plus dashboard.
 
-{% include image.md src="images/nginxp_dashboard.png" width="80" %}
+{% include image.md src="images/nginxp_dashboard1.png" width="80" %}
+{% include image.md src="images/nginxp_dashboard2.png" width="80" %}
+{% include image.md src="images/nginxp_dashboard3.png" width="80" %}
+{% include image.md src="images/nginxp_dashboard4.png" width="80" %}
+{% include image.md src="images/nginxp_dashboard5.png" width="80" %}
 
 
 To see a list of the metrics for this integration, select the integration from <https://github.com/influxdata/telegraf/tree/master/plugins/inputs>.
@@ -20,19 +24,19 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
-**Note:** This integration provides updated setup instructions and dashboard for NGINX Plus. For the previous setup instructions, see the **NGINX Plus (Archived)** integration in the **Archived** section.
+**Note:** This integration provides the previous setup instructions and dashboard for NGINX Plus. For the current setup instructions, see the **NGINX Plus** integration in the **Web** section.
 
-### Step 1. Ensure the HTTP API Module is Enabled
+### Step 1. Ensure the HTTP Status Module is Enabled
 
-On each of your NGINX Plus hosts, make sure the `ngx_http_api_module` is enabled. In `/etc/nginx/nginx.conf` specify:
+On each of your NGINX Plus hosts, make sure the `ngx_http_status_module` is enabled. In `/etc/nginx/nginx.conf` specify:
 {% raw %}
 ```
 ...
 http {
 ...
   server {
-    location /api {
-      api write=on;
+    location /status {
+      status;
     }
   }
 ...
@@ -41,7 +45,7 @@ http {
 ```
 {% endraw %}
 
-For details, see [Module ngx_http_api_module docs](http://nginx.org/en/docs/http/ngx_http_api_module.html).
+For details, see [Module ngx_http_status_module docs](http://nginx.org/en/docs/http/ngx_http_status_module.html).
 
 ### Step 2. Install the Telegraf Agent
 
@@ -54,24 +58,25 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 Create a file called `nginxplus.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
    ```
-   # Read Nginx Plus full API information (ngx_http_api_module)
-   [[inputs.nginx_plus_api]]
+   # Read Nginx Plus full status information (ngx_http_status_module)
+   [[inputs.nginx_plus]]
      # Prefix to attach to the measurement name
      name_prefix = "nxp."
-     # An array of Nginx API URLs to gather stats.
-     urls = ["http://localhost/api"]
+     ## An array of ngx_http_status_module or status URI to gather stats.
+     urls = ["http://localhost/status"]
+
      # HTTP response timeout (default: 5s)
      response_timeout = "5s"
 
    ```
 {% endraw %}
 
-You may need to update `http://localhost/api` if you've configured the `ngx_http_api_module` on a different path.
+You may need to update `http://localhost/status` if you've configured the `ngx_http_status_module` on a different path.
 
-A single Telegraf agent can poll multiple NGINX Plus instances for API information. Specify the addresses of the NGINX instances in the `urls` parameter:
+A single Telegraf agent can poll multiple NGINX Plus instances for status information. Specify the addresses of the NGINX instances in the `urls` parameter:
 {% raw %}
 ```
-urls = ["http://server1/api","http://server2/api","http://server3/api"]
+urls = ["http://server1/status","http://server2/status","http://server3/status"]
 ```
 {% endraw %}
 
