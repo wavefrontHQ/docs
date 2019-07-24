@@ -18,22 +18,25 @@ You submit queries and [view the results](#understanding-trace-query-results) in
 
 ### Use Query Builder
 
-1. Select **Applications > Traces** in the task bar to display the Traces browser. <br> Query Builder is displayed by default.
-2. Use the [trace query menus and fields](#trace-query-menus-and-fields) to specify the characteristics to be matched. Each selection you make updates the list of traces.
+1. Select **Applications > Traces** in the task bar to display the Traces browser. Query Builder is displayed by default.
+2. Use the [Operation menu and filters](#operation-menu-and-filters) to specify the characteristics to be matched. 
+![tracing query builder](images/tracing_query_builder.png)
+3. Click **Search** in the query bar to update the list of traces.
 
-    ![tracing query builder](images/tracing_query_builder.png)
 
 ### Use Query Editor 
 
 1. Select **Applications > Traces** in the task bar to display the Traces browser.
 2. Click the icon to toggle to Query Editor:  
     ![tracing query toggle](images/tracing_query_toggle.png)
-3. Type a query that includes the [`traces()` function](traces_function.html): <!---and take advantage of syntax completion for selecting tags and their values.---> 
-    ![tracing query editor](images/tracing_query_editor_populated.png) 
+3. Type a query that includes the [`traces()` function](traces_function.html):  
+![tracing query editor](images/tracing_query_editor_populated.png) 
+4. Click **Search** in the query bar to update the list of traces.
 
-## Trace Query Menus and Fields
 
-Query Builder lets you use menus and fields to specify the traces you want to display. 
+## Operation Menu and Filters
+
+Query Builder provides a menu and filters to specify the traces you want to display. 
 
 **Note:** Certain menus correspond to tags that a developer specified while instrumenting the application code. An empty menu means that the code was instrumented without the corresponding tags.
 
