@@ -31,11 +31,13 @@ When you create a new chart or edit an existing chart, we open Chart Builder:
 
 ![query builder tasks](images/query_builder_collage.png)
 
-We open query builder only if:
+We open Chart Builder only if:
 * Chart Builder is the default in your [user preferences](users_account_managing.html).
 * A chart that you open for edit wasn't open in Query Editor before.
 
-A few more advanced functions, such as chart variables, are available only in the Query Editor. Query Editor expects that you type the query using the elements of the query language. * Switch from Chart Builder to Query Editor to use those advanced functions.
+A few more advanced functions, such as chart variables, are available only in the Query Editor. Query Editor expects that you type the query using the elements of the query language.
+
+* Switch from Chart Builder to Query Editor to use those advanced functions.
 * You **cannot** switch from Query Editor to Chart Builder.
 
 ## Select Metrics and Refine Your Chart

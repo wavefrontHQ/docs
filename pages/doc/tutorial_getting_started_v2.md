@@ -3,7 +3,7 @@ title: "Tutorial: Getting Started (v2 Beta)"
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started_v2.html
-summary: Build dashboards and charts with sample data, create an alert, and learn navigation basics.
+summary: Build dashboards and charts with sample data, create an alert, and get pointers to more info.
 ---
 
 This tutorial uses Wavefront sample data to get you started.
@@ -15,7 +15,7 @@ To complete these tasks you need:
 
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes tutorial and tour dashboards that we built using the sample metrics. Let's have a look at a tutorial dashboard.
+Your Wavefront instance includes tutorial and tour dashboards that we built using sample metrics. Let's have a look at a tutorial dashboard.
 
 <table style="width: 100%;">
 <tbody>
@@ -49,12 +49,15 @@ Next, let's have a look at some metrics in the Metrics browser.
 
 ## Create Dashboards and Charts With the Dashboard Builder
 
+Use our [Dashboard Builder drag-and-drop interface](ui_dashboards_v2.html#create-a-dashboard) to quickly create a dashboard from your metrics. Start with an integration or browse all metrics, and create one or multiple charts.
+
+![create dashboard with builder](images/v2_create_dashboard.png)
+
 ## Create Dashboards and Charts by Saving a Chart to a New Dashboard
 
-Another easy way to create a new dashboard is by saving an existing chart to a new dashboard. We create a copy of the chart, and a new dashboard.
+Saving an existing chart to a new dashboard is another easy way to create a dashboard. We create a copy of the chart, and create new dashboard with the name and URL you specify.
 
-This example uses a chart from our Tour Pro, which is a set of dashboards for exploring typical customer uses case. Tour Pro also includes a dashboard that monitors a sample cluster and one that monitors a single host.
-
+This example uses a chart from our Tour Pro, which is a set of dashboards for exploring typical customer use cases. Tour Pro also includes a dashboard that monitors a sample cluster and one dashboard that monitors a single host.
 
 <table style="width: 100%;">
 <thead><tr><th width="50%">Step 1: Open the Sample Cluster Metrics dashboard.</th><th width="50%">&nbsp;</th></tr>
@@ -149,7 +152,6 @@ The <strong>Create Alert</strong> page displays. </td>
 <li>In the Name field, replace <strong>New Alert</strong> with <strong>Latency Alert</strong>.</li>
 <li>At the end of the Condition field, type <strong>&gt; 210</strong>. We're deliberately setting this alert threshold low so you can see the alert fire after a few minutes. In normal practice, you would set the threshold to an anomalous value.</li>
 <li>In the <strong>Alert fires</strong> field, change the value to <strong>2</strong> and press <strong>Enter</strong>. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes.</li>
-<li>Click <strong>Backtesting</strong> to see when alerts would have been generated in the past, then deselect that option.</li>
 <li>In the <strong>Targets</strong> field, type your email address.</li>
 <li>Click <strong>Save</strong>.</li>
 </ol>
@@ -189,7 +191,7 @@ You'll receive a second email that the alert was snoozed. </li>
 
 ## Videos
 
-Our doc set includes concept videos, how-to videos, and more! The green bar in each tile links to popular videos.
+Our doc set includes concept videos, how-to videos, and more!
 
 <table style="width: 100%;">
 <tbody>
@@ -216,7 +218,7 @@ Our doc set includes concept videos, how-to videos, and more! The green bar in e
 
 ## Docs
 
-Search this doc set at the top right -- or look at some of the most popular docs in the set.
+Use the search box in the top right -- or look at some of the most popular docs in the set.
 
 ### Getting Started Docs
 
@@ -289,11 +291,11 @@ Release notes summarize the features added to each release and changes to existi
 
 ### Query Language Docs
 
-[Wavefront Chart Builder](chart_builder.html) offers an easy select-and-refine interface that lets you fine-tune what your charts display.
+[Wavefront Chart Builder](chart_builder.html) offers an easy select-and-refine interface that lets you fine tune what your charts display.
 
 ![chart builder](images/v2_chart_builder_simple.png)
 
-Advanced users further refine charts and alerts with Wavefront Query Language. Click on a tile for a query language page.
+Advanced users further refine charts and alerts with Wavefront Query Language. Click on the green bar in a tile for a query language page.
 
 <div class="row">
  <div class="col-md-3 col-sm-6">
@@ -372,7 +374,7 @@ The in-product <strong>Tutorial</strong> dashboards get you started. You explore
 </tr>
 <tr>
 <td width="50%">
-The <strong>in-product help</strong> on the right of each screen introduces what you're looking at -- e.g. charts or alerts -- and has links to more info.</td>
+The <strong>in-product help</strong> on the right of each screen introduces what you're looking at (e.g. charts or alerts) and has links to more info.</td>
 <td width="50%"><img src="/images/in_product_help.png" alt="Sample Cluster"/></td>
 </tr>
 <tr>
@@ -388,4 +390,4 @@ Developers like the Interactive Query Language Exporer dashboard to learn about 
 </tbody>
 </table>
 
-Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your exciting journey!
+Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your journey!
