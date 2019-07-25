@@ -69,7 +69,7 @@ The following examples show when series matching does not occur:
 Assume you enter the following ts() expression
 
 ```
-ts("stats.servers.MemTotal", source="dc1") - ts("stats.servers.MemFree", source="east")
+ts("stats.servers.MemTotal", tag="dc1") - ts("stats.servers.MemFree", tag="east")
 ```
 
 Wavefront determines which time series match up and subtracts the value for `stats.servers.MemTotal` from `stats.servers.MemFree` for each matching series.
