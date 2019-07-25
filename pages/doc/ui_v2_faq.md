@@ -48,9 +48,13 @@ Switch to Query Editor only for advanced tasks.</td>
 <tbody>
 <tr>
 <td width="40%">
-You can now specify the data you want to look at in the <strong>Data</strong> tab and use other tabs for customization. We made usability improvements for each chart type.
-Use delete, clone, create alert from icon bar.</td>
+You can now specify the data you want to display in the <strong>Data</strong> tab and use other tabs for customization. </td>
 <td width="60%"><img src="images/v2_chart_builder_select.png" alt="create dashboard"></td>
+</tr>
+<tr>
+<td width="40%">
+We made usability improvements for each chart type--and you can use delete, clone, create alert from icon bar.</td>
+<td width="60%"><img src="images/v2_create_alert.png" alt="create an alert from the ellipsis menu"></td>
 </tr>
 </tbody>
 </table>
@@ -63,7 +67,7 @@ Use delete, clone, create alert from icon bar.</td>
 <tbody>
 <tr>
 <td width="40%">
-We've streamlined configuration options for developers and we now support easy reorganization of configured variables.</td>
+We've streamlined variable configuration for developers. We've made setting variables easier for all users.</td>
 <td width="60%"><img src="images/v2_dashboard_variables.png" alt="dashboard variables"></td>
 </tr>
 </tbody>
@@ -133,7 +137,7 @@ A: We've consolidated the UI for customizing dashboards.
 
 ![v2 dashboard preferences](images/v2_dashboard_settings.png)
 
-### Q: A lot of my charts now have warnings. What's going on?
+### Q:Several of my charts now have warnings. What's going on?
 
 A: We've move the warning icon from the bottom right of a chart to the top left to make it more visible. Here's an example with v2 on the left and the same chart in v1 on the right:
 
