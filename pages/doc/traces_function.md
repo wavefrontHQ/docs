@@ -14,7 +14,7 @@ traces("<operationName>" [and|or|not <filterName>="<filterValue>"])
 
 traces(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
 ```
-Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor). Can be combined with one or more [filtering functions](#filtering-functions).
+Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
 ### Parameters
 
@@ -40,7 +40,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 ## Description
 The `traces()` function returns a set of traces, where each trace contains at least one qualifying member span. A span qualifies if it matches the description you specify, which might consist of an operation name, one or more [span filters](#span-filters), or a combination of these. 
 
-You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor). 
+You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). 
 Using the `traces()` function is a power-user alternative to using Query Builder.  
 
 `traces()` returns a trace if it contains a member span that matches the _entire_ specified description. If the description is a Boolean expression that combines multiple span filters, then the same span must satisfy all of the filters in the expression. For example, the result set for  `traces(service=shopping and source=web1)` includes any trace that has at least one member span that is associated with _both_ of the tags `service=shopping` and `source=web1`. The result set does not include, e.g., a trace that has one member span with `service=shopping` and a different member span with `source=web1`.
