@@ -98,12 +98,14 @@ To send histogram data as a distribution to the Wavefront proxy:
 
   ```
   {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
-   <metricName> source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
+   <metricName> source=<source>
+   [<pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>]
   ```
 
   where
   * `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution
   * `points` is the number of points.
+  * all elements not enclosed in square brackets, including the source, are required elements. 
 
   For example:
 
