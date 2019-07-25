@@ -255,6 +255,10 @@ entries:
       url: /dashboards_variables_v2.html
       output: web
 
+    - title: "Getting Started with Wavefront v2 Beta"
+      url: /tutorial_getting_started_v2.html
+      output: web
+
   - title: Query Language
     output: web
     folderitems:
