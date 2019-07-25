@@ -10,7 +10,7 @@ summary: Learn how to write traces() queries.
 ## Summary
 
 ```
-traces("<operationName>" [and|or|not <filterName>="<filterValue>"])
+traces("<fullOperationName>" [and|or|not <filterName>="<filterValue>"])
 
 traces(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
 ```
@@ -24,8 +24,8 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>operationName</td>
-<td markdown="span">Name of the operation that a qualifying span must represent. For example, specify `"dispatch"` to match the spans that represent calls to an operation named `dispatch`. Omit this parameter to match spans for any operation.</td>
+<td>fullOperationName</td>
+<td markdown="span">Full name of the operation that a qualifying span must represent. For example, specify `"beachshirts.delivery.dispatch"` to match the spans that represent calls to an operation named `dispatch` in the `delivery` service of the `beachshirts` application. <br> The general format of a `fullOperationName` is `<application>.<service>.<operationName>`, where each component consists of one or more period-delimited components. Replace `operationName` or `serviceName` with an asterisk `*` to match spans for any operation in any service.</td>
 </tr>
 <tr>
 <td>filterName</td>
@@ -61,13 +61,13 @@ Assume your team has instrumented an application called `beachshirts` for tracin
 **Note:** To keep query execution manageable, these examples use `traces()` with the `limit()` function.
 
 To display the traces that include spans for calls to `makeShirt`:
-- `limit(100, traces("makeShirts" and application="beachshirts" and service="styling"))`
+- `limit(100, traces("beachshirts.styling.makeShirts"))`
 
 To display the traces that include spans for any operation in the `styling` service:
-- `limit(100, traces(application="beachshirts" and service="styling"))`
+- `limit(100, traces("beachshirts.styling.*"))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces(application="beachshirts" and source=prod-app1 or source=prod-app10))`
+- `limit(100, traces("beachshirts.*.*" and source=prod-app1 or source=prod-app10))`
 
 <a name="filters"></a>
 
@@ -136,7 +136,7 @@ You can use filtering functions to provide additional levels of filtering for th
 
 Each filtering function has a **tracesExpression** parameter, which can be a `traces()` function or one of the other filtering functions. For example, to return up to 100 traces that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `traces()` functions as follows:
 
-* `limit(100, highpass(30ms, traces("dispatch", application="beachshirts" and service="delivery")))`
+* `limit(100, highpass(30ms, traces("beachshirts.delivery.dispatch")))`
 
 
 <table style="width: 100%;">
@@ -154,21 +154,21 @@ Each filtering function has a **tracesExpression** parameter, which can be a `tr
 **Note:** Because the ordering of traces is unpredictable, you cannot use `limit()` to page through a set of results to obtain the next group of traces. <br><br>
 
 **Example:** Limit the set of returned traces to 50:<br>
-`limit(50, traces("makeShirts", application="beachshirts"))` <br>
+`limit(50, traces("beachshirts.styling.makeShirts"))` <br>
 </td>
 </tr>
 <tr>
 <td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
 <td markdown="span">Filters the results of **tracesExpression** to include only traces that are longer than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
 **Example:** Limit the result set to include traces that are longer than 3 seconds: <br>
-`highpass(3s, traces("makeShirts", application="beachshirts"))`
+`highpass(3s, traces("beachshirts.styling.makeShirts"))`
 </td>
 </tr>
 <tr>
 <td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
 <td markdown="span">Filters the results of **tracesExpression** to include only traces that are shorter than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
 **Example:** Limit the result set to include traces that are shorter than 10 milliseconds: <br>
-`lowpass(10ms, traces("makeShirts", application="beachshirts"))`
+`lowpass(10ms, traces("beachshirts.styling.makeShirts"))`
 </td>
 </tr>
 

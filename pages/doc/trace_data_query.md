@@ -46,52 +46,52 @@ You select an operation to display traces with at least one span that represents
 After you have selected an operation, you can optionally add filters to further describe the traces you want to see. You can add different types of filters in any order.
 
 1. Select an operation if you have not already done so.
-2. Click **Add Filter**. 
-3. Select a filter type and setting: 
-    <table style="width: 100%">
-    <colgroup>
-    <col width="15%"/>
-    <col width="30%"/>
-    <col width="65%"/>
-    </colgroup>
-    <thead>
-    <tr><th>Filter Type</th><th>Returns</th><th>Filter Settings</th></tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td markdown="span">**Tags**</td>
-    <td markdown="span">Traces that contain at least one span with a selected span tag or from a selected source (host)</td>
-    <td markdown="span">Cascading menu of span tags that are used by your application and indexed by Wavefront. Typically includes `cluster`, `shard`, and `component`, among others. Select `source` to match spans from a given source. 
-    </td>
-    </tr>
-    <tr>
-    <td markdown="span">**RawTags**</td>
-    <td markdown="span">Traces that contain at least one span with a specified span tag</td>
-    <td markdown="span">Fields for entering the key and value of a custom span tag, for example, `env="prod"`. Use this type for unindexed span tags. </td>
-    </tr>
-    <tr>
-    <td markdown="span">**Duration**</td>
-    <td markdown="span">Traces that have a min or max length</td>
-    <td markdown="span">Fill in one or both fields to return traces of a minimum or maximum duration (in milliseconds). </td>
-    </tr>
-    <tr>
-    <td markdown="span">**Limit**</td>
-    <td markdown="span">A limited number of traces</td>
-    <td markdown="span">Select the maximum number of traces to return.  </td>
-    </tr>
-    <tr>
-    <td markdown="span">**Error**</td>
-    <td markdown="span">Traces that contain at least one span with an error</td>
-    <td markdown="span">True returns traces that contain one or more spans with `error=true`.  </td>
-    </tr>
-    </tbody>
-    </table>
-
-3. Add another filter or click **Search**.
+2. Click **Add Filter** and select a filter type. 
+![tracing query builder filter type menu](images/tracing_query_builder_filter_type_menu.png) 
 
 
 
+4. Click next to the filter type and specify the filter setting. Depending on the filter type:
+  * Select settings from menus.
+  * Type one or more settings in fields.
 
+5. Click **Add Filter** to add another filter, or click **Search**.
+
+<table style="width: 100%">
+<colgroup>
+<col width="25%"/>
+<col width="75%"/>
+</colgroup>
+<thead>
+<tr><th>Choose This Filter Type</th><th>To Return</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">**Tags**</td>
+<td markdown="span">Traces with at least one span that is associated with a selected tag, or that was emitted from a selected source (host).
+Use this type for indexed tags that your application uses, typically `cluster`, `shard`, `component`, `source`, and so on.</td>
+</tr>
+<tr>
+<td markdown="span">**RawTags**</td>
+<td markdown="span">Traces with at least one span that is associated with a specified tag, for example, `env="prod"`. Use this type for custom or unindexed span tags.</td>
+</tr>
+<tr>
+<td markdown="span">**Duration**</td>
+<td markdown="span">Traces that have a specified minimum and/or maximum length (in milliseconds).</td>
+</tr>
+<tr>
+<td markdown="span">**Limit**</td>
+<td markdown="span">Up to a specified number of traces.</td>
+</tr>
+<tr>
+<td markdown="span">**Error**</td>
+<td markdown="span">Traces with at least one span with an error (`error=true`).</td>
+</tr>
+</tbody>
+</table>
+
+
+<!---  Show multiple tags, plus duration or limit
 ## Example
 
 Suppose you want to find traces that contain spans for an operation called `dispatch`, which is called from the `delivery` service of the `beachshirts` application. You're interested only in traces that are longer than 30 milliseconds.  
@@ -111,6 +111,8 @@ Query Builder generates a query that includes the [`traces()` function](traces_f
 
 At this point, you can either continue to edit the query directly, or toggle back to Query Builder. **Note:** If you change a query using Query Editor, you cannot go back to Query Builder.
 
+--->
+
 ## Understand Trace Query Results
 
 A trace query:
@@ -125,6 +127,7 @@ For example, you can query for traces that each have at least one member span th
 
 If you also specified a minimum (or maximum) duration, the query filters out any traces that are shorter (longer) than the threshold you specified.
 
+<!--- Revise
 ### Graphic Representation of a Returned Trace
 
 Wavefront displays a bar for each trace that is returned by a trace query. The bar's length corresponds to the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
@@ -139,18 +142,21 @@ that represents the work done by the `orderShirts` operation in the `shopping` s
 
 **Note:** A label such as **shopping: orderShirts** refers to the root span of a trace, which may be different from the span that was specified in the query. For example, suppose you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain a `dispatch` span. 
 
-## Limiting the Result Set
+---> 
+## Limited Result Set
 
-You can limit the number of returned traces to make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces. 
+Using the **Limit** filter to limit the number of returned traces can make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces. 
 
 **Note:** The current time window for the Traces browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start within the current time window.
 
 
-## Sorting the Result Set
+
+## Sort the Result Set
 
 You can sort a set of returned traces by selecting a sort order from the **Sort By** menu. For example: 
 * Choose **Most Recent** to start with the traces that have the most recent start times.
 * Choose **Longest First** to start with the longest traces.
+* Choose **Outliers** to start with the traces whose duration is unusually long or unusually short.
 * Choose **Most Spans** to start with the traces that contain the largest number of spans.
 
 If you both limit and sort the query results, sorting applies after limiting. For example, suppose you limit the number of returned traces to 50, and then sort the result set from shortest to longest. The sorted list includes only the 50 traces that were originally returned by the query. We do not first sort all traces containing a matching span, and then display the 50 shortest traces.
@@ -218,5 +224,47 @@ If you both limit and sort the query results, sorting applies after limiting. Fo
 </tr>
 </tbody>
 </table>
+
+
+<table style="width: 100%">
+<colgroup>
+<col width="15%"/>
+<col width="30%"/>
+<col width="65%"/>
+</colgroup>
+<thead>
+<tr><th>Filter Type</th><th>Returns</th><th>Filter Settings</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">**Tags**</td>
+<td markdown="span">Traces that contain at least one span with a selected span tag or from a selected source (host)</td>
+<td markdown="span">Cascading menu of span tags that are used by your application and indexed by Wavefront. Typically includes `cluster`, `shard`, and `component`, among others. Select `source` to match spans from a given source. 
+</td>
+</tr>
+<tr>
+<td markdown="span">**RawTags**</td>
+<td markdown="span">Traces that contain at least one span with a specified span tag</td>
+<td markdown="span">Fields for entering the key and value of a custom span tag, for example, `env="prod"`. Use this type for unindexed span tags. </td>
+</tr>
+<tr>
+<td markdown="span">**Duration**</td>
+<td markdown="span">Traces that have a min or max length</td>
+<td markdown="span">Fill in one or both fields to return traces of a minimum or maximum duration (in milliseconds). </td>
+</tr>
+<tr>
+<td markdown="span">**Limit**</td>
+<td markdown="span">A limited number of traces</td>
+<td markdown="span">Select the maximum number of traces to return.  </td>
+</tr>
+<tr>
+<td markdown="span">**Error**</td>
+<td markdown="span">Traces that contain at least one span with an error</td>
+<td markdown="span">True returns traces that contain one or more spans with `error=true`.  </td>
+</tr>
+</tbody>
+</table>
+
+
 
 --->
