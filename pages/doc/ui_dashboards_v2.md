@@ -21,7 +21,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 [Examine Data with Dashboards and Charts](ui_examine_data_v2) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save changes you make to dashboards." %}
+{% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have Dashboard permission and Modify access to save changes you make to dashboards." %}
 
 ## Create a Dashboard
 
@@ -96,7 +96,8 @@ When you create a dashboard or when you edit a dashboard, the dashboard is in Ed
 
 {% include shared/system_dashboard.html %}
 
-To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backwards. You can remove only changes made in the current Edit mode session.
+<!---
+To remove a change, click the revert icon to the left of **Edit JSON** on the task bar. The revert icon removes changes starting with the most recent and works backward. You can remove only changes made in the current Edit mode session.--->
 
 ![dashboard in edit mode](images/v2_dashboard_edit.png)
 

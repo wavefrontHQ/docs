@@ -61,38 +61,42 @@ Dashboard variables can contain:
 
 To create a dashboard variable:
 
-1. Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 2. Click the **Add** icon in the variables bar.
-3. In the Add Variable dialog box, specify
+
+   ![edit_or_reorder variables](images/edit_variable_v2.png)
+3. In the Add Variable dialog box:
    1. Specify the **Variable Name** -- Name you can use in queries that use the variable. Keep this name short.
    2. Select the Variable Type.
-   3. Fill in remaining fields depending on the variable type (discussed below):
+   3. Specify the **Display Name**.
+   5. To make your dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
+   6. Fill in remaining fields depending on the variable type (discussed below):
       * [Simple variable](#simple)
       * [List variable](#list)
       * [Dynamic variable](#dynamic)
-4. To make your dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
 
 ### Edit a Dashboard Variable
 
 Editing a dashboard variable is similar to creating a dashboard variable.
 
-1. Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 2. Click the **Edit** icon in the variables bar and select **Edit**.
 
    ![edit_or_reorder variables](images/edit_variable_v2.png)
-3. In the Add Variable dialog box, specify
+3. In the Add Variable dialog box:
    1. Specify the **Variable Name** -- Name you can use in queries that use the variable. Keep this name short.
    2. Select the Variable Type.
+   3. Specify the **Display Name**.
+   5. To make your dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
    3. Fill in remaining fields depending on the variable type (discussed below):
       * [Simple variable](#simple)
       * [List variable](#list)
       * [Dynamic variable](#dynamic)
-4. To make a dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
 
 ### Clone or Delete a Dashboard Variable
 
 To clone or delete a dashboard variable:
-1. Put your dashboard into Edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 2. Select **Clone** or **Delete** from the pencil icon pull-down menu.
 
 ## Use Dashboard Variables in Queries
@@ -120,7 +124,7 @@ A simple dashboard variable maps a single variable to a single value. Simple var
 
 ### Create a Simple Dashboard Variable
 
-1. Put your dashboard into Edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
 1. Enter a variable name (case sensitive). Keep the name short - this is what you'll use in queries.
 1. Select **Simple** from the pull-down menu.
@@ -144,7 +148,7 @@ A list dashboard variable allows users to pick a value from a list.
 
 ### Create a List Dashboard Variable
 
-1. Put your dashboard into Edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
 1. Enter a variable name (case sensitive). Keep the name short - this is what you'll use in queries.
 2. Select **Variable Type > List**. Each row lets you specify a display name and variable value. When the user selects the item from the menu, we use the specified value in all queries that use the variable.
@@ -202,7 +206,7 @@ If you define a dynamic dashboard variable named **var2** that refers to a sourc
 
 The following example uses the
 
-1. Put your dashboard into Edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
 2. Specify the Variable Type **Dynamic**.
 3. In the Field pulldown menu, select one of the options, for example, **Source**.
@@ -210,7 +214,7 @@ The following example uses the
 6. Select a default value and click **Accept**.
 4. Click **Save** in the top right to save your dashboard and the dashboard variable.
 
-![dynamic with field options.png](images/db_var_dynamic_with_field_options.png)
+![create_dynamic_variable.png](images/create_dynamic_variable.png)
 
 
 ### Use the Dynamic Variable
@@ -243,3 +247,7 @@ After we've saved the dynamic dashboard variable, we can use the variable in que
 1. Create a chart with the following query:
    `ts(~sample.cpu.loadav.1m, source={$source})`
 2. When users change the value of the **Source** variable in the dashboard, the query uses the selected value.
+
+Users can select the variable value from the menu - here, users can select one of many sources. As additional sources become available or are removed, the menu items change.
+
+![select dynamic variable](/images/select_dynamic_variable_v2.png)

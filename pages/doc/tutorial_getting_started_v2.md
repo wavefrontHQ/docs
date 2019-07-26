@@ -68,7 +68,7 @@ This example uses a chart from our Tour Pro, which is a set of dashboards for ex
 <ol>
 <li>Log in to Wavefront.</li>
 <li>Select <strong>Dashboards > All Dashboards</strong>.</li>
-<li>In the Search field at the top, type <strong>Sample Cluster</strong>and press <strong>Enter</strong>.</li>
+<li>In the Search field at the top, type <strong>Sample Cluster</strong> and press <strong>Enter</strong>.</li>
 <li>Click the <strong>Sample Cluster Metrics</strong> dashboard link.</li></ol></td>
 <td width="50%"><img src="/images/sample_cluster.png" alt="Sample Cluster"/></td>
 </tr>

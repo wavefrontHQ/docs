@@ -103,7 +103,7 @@ To clone a query, click the Clone icon. A copy of the query appears below the qu
 
 ## Customize How the Chart Looks
 
-All users [set the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolate sources and series](ui_examine_data.html#isolate-sources-or-series) without editing the chart.
+All users can [set the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolate sources and series](ui_examine_data.html#isolate-sources-or-series) without editing the chart.
 
 Users with Dashboard permissions can make many other changes such as selecting the chart type or customizing the axes and colors. Here are some tasks you can perform. In many cases, they're possible only for certain chart types.
 
