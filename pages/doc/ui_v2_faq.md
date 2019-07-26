@@ -102,9 +102,9 @@ A: The goal of this UI revision is parity, but we've made a few changes:
   Line plots with more than one line look similar to v1 line plots though the colors are different.
 * **Single Stats** charts with sparklines have a changed look. You can experiment with sparkline position by selecting **Sparkline > Show Sparkline**. Change **Minimum** to 0 for a chart that looks like the v1 chart.
 
-### Q: How does the new time picker work?
+### Q: How does the new time window selector work?
 
-A: Our new time picker supports a selection of preset times, or you can specify a custome time frame. 4 weeks is not the same as 1 month -- use the custom time picker to select a full month.
+A: Our new time window selector supports a selection of preset times, or you can specify a custome time frame. 4 weeks is not the same as 1 month -- use the custom time window selector to select a full month.
 
 ![v2 time picker](images/v2_time_picker.png)
 

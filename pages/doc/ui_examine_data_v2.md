@@ -91,13 +91,10 @@ You can select the time window for a chart in a few different ways.
 <tr><td markdown="span">Time Bar</td>
 <td markdown="span">Click the chart time bar chart time bar in the upper-right corner of a chart. Use the magnifying lenses to quickly increase or decrease the time window.
 <img src="images/chart_time_bar_v2.png#inline"  alt="chart time bar v2"/></td></tr>
-<tr><td markdown="span">Live Data </td>
-<td markdown="span">If the chart is not displaying live data, click the <span style="color:#8B0000">GO LIVE</span> <i class="fa fa-play-circle" style="color:#8B0000"/> link that displays to the left of the time bar.
-</td></tr>
 <tr>
 <td markdown="span">Zoom in</td>
 <td>Place your cursor at the beginning of the time window you want, and click and drag. Hold the Shift key to zoom in on all charts in a dashboard.
-<div><img src="/images/drag_zoom.png"  alt="drag and zoom"/> </div></td></tr>
+<div><img src="/images/drag_zoom_v2.png"  alt="drag and zoom"/> </div></td></tr>
 <tr>
 <td markdown="span">Shift the time window</td>
 <td markdown="span">Place the cursor over the X-axis. When the cursor changes to a 4-way arrow <i class="fa fa-arrows" />, hold and drag to the left or right. To shift the time windows of all charts on a dashboard, hold down the **Shift** key while dragging.<br />
@@ -105,7 +102,7 @@ You can move the time window into the future, however, unless you are using one 
 <tr><td markdown="span">Propagate time to all charts</td>
 <td markdown="span">To propagate a chart time window to all other charts on the dashboard, do something inside the chart and then click the sync icon <i class="fa fa-share-square-o" /> directly under the chart name in the top right corner of the chart box.</td></tr>
 <tr><td markdown="span">Reset chart time</td>
-<td markdown="span">To reset an individual chart window to match the time window in all other charts, do something inside the chart and click **RESET**: <img src="/images/reset_time_window.png#inline"  alt="reset time window"/></td></tr>
+<td markdown="span">To reset an individual chart window to match the time window in all other charts, do something inside the chart and click **RESET**: <img src="/images/reset_time_window_v2.png#inline"  alt="reset time window"/></td></tr>
 </tbody>
 </table>
 
@@ -117,7 +114,7 @@ Here's a video that illustrates chart time windows. The video uses the v1 UI, bu
 
 The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
 
-![time window](images/time_bar.png)
+![time window](images/display_events_v2.png)
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
 
