@@ -9,7 +9,7 @@ summary: Create charts, add and manage queries, and customize the chart.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="80%">Wavefront charts allow you to examine what you need to know about your environment.
+<td width="80%">Wavefront charts allow you to examine what visualize metrics, create alerts, and more!
 <ul>
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
 <li>Customize chart appearance.</li>
@@ -43,7 +43,7 @@ You can create a chart from a dashboard or from the task bar.
 
 ### Create a Chart from the Task Bar
 
-**To create a chart from the task bar:**
+
 1. Select **Dashboards > Create Chart**.
 2. (Optional) In the top left, specify a chart name.
 2. Select a metric and an optional filter and function.
@@ -54,9 +54,9 @@ You can create a chart from a dashboard or from the task bar.
 
 ## Fine-Tune Chart Metrics from the Data Tab
 
-From the Data tab, every chart lets you fine-time the metrics that come in and apply filters and functions.
+From the Data tab, every chart lets you fine-tune the metrics that come in and apply filters and functions.
 
-**Note:** Your user preferences determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default.
+**Note:** Your user preferences and the last used UI determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default.
 
 ### Chart Builder
 
@@ -71,7 +71,7 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 ### Query Editor
 
-Instead of using Chart Builder, you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
+Instead of using [Chart Builder](query_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
 **Note**: After you switch, to Query Editor, you cannot return to Query Builder.
 
@@ -148,7 +148,7 @@ For details, see the [Chart Reference](ui_chart_reverence_v2.html).
 
 ### Include Metrics That Stopped Reporting Over 4 Weeks Ago
 
-To speed up the display, Wavefront does not display metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
+For optimal rendering of displayed results, Wavefront does not include metrics metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
 
 **To include obsolete metrics**
 1. Open the chart for edit.
