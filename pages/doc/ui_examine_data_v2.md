@@ -9,7 +9,7 @@ summary: Examine data with dashboards and charts
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="80%"> Dashboards and charts, you can examine data, set dashboard time window, zoom in and out, and perform other customizations.
+<td width="80%"> With dashboards and charts, you can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 <br>
 <strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
 <td width="20%"><a href="ui_examine_data.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
@@ -57,8 +57,9 @@ In the example above, you can select all AWS regions (wildcard character) or one
 
 Many Wavefront users work in environments with many dashboards.
 
-**To find a dashboard**, you have two options:
+**To find a dashboard**, you have these options:
 * From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
 * From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
 ## Isolate Sources or Series
@@ -89,7 +90,7 @@ You can select the time window for a chart in a few different ways.
 </thead>
 <tr><td markdown="span">Time Bar</td>
 <td markdown="span">Click the chart time bar chart time bar in the upper-right corner of a chart. Use the magnifying lenses to quickly increase or decrease the time window.
-<img src="images/chart_time_bar.png#inline"  alt="chart time bar"/></td></tr>
+<img src="images/chart_time_bar_v2.png#inline"  alt="chart time bar v2"/></td></tr>
 <tr><td markdown="span">Live Data </td>
 <td markdown="span">If the chart is not displaying live data, click the <span style="color:#8B0000">GO LIVE</span> <i class="fa fa-play-circle" style="color:#8B0000"/> link that displays to the left of the time bar.
 </td></tr>

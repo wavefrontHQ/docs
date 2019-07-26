@@ -148,7 +148,7 @@ Chart Builder lets you:
 
 ### Add, Remove, or Reorder Functions
 
-You can add, remove, or reordering functions. Reordering might become necessary because, for example, first applying `sum()` and then `deriv()` yields a different result than first applying `deriv()` and then applying `sum()`.
+You can add, remove, or reorder functions. Reordering might become necessary because, for example, first applying `sum()` and then `deriv()` yields a different result than first applying `deriv()` and then applying `sum()`.
 
 <table style="width: 100%;">
 <tbody>

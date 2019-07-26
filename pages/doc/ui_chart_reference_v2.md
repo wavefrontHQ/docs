@@ -35,6 +35,8 @@ When you select **Data**, you can:
 
 ## Line Plot Chart
 
+![line plot](images/line_plot_v2.png)
+
 Line plots are well suited both for single time series and multiple time series. You can customize many aspects of your line plots.
 
 A **line plot** represents interpolated point buckets. The X axis represents the amount of time in your time window and the Y axis represents the value associated with the data based on that time.
@@ -190,6 +192,8 @@ Chart description. The description shows up as hover text when you place the mou
 
 ## Point Plot Chart
 
+![point plot](images/point_plot_v2.png)
+
 A **point plot** chart displays point buckets *without* any interpolation. Like a line chart, the X-axis represents the amount of time in your time window, and the Y-axis represents the value associated with the data during that time window.
 
 ### Format Tab
@@ -338,7 +342,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 ## Stacked Area Chart
 
-![stacked area](images/stacked_area.png)
+![stacked area](images/stacked_area_v2.png)
 
 A **stacked area** chart is a line chart but each line is filled in as a solid block with blocks stacked top of each other. With the default Stack Type of zero, the peak of the chart at any time is the sum of the magnitudes of all  sources at that time.
 
@@ -395,12 +399,165 @@ The following stack types are supported.
 </table>
 
 
-Here's an example that uses the  **Center the Stream** stack type:
 
-![center stream](images/center_stream.png)
+### Axis Tab
 
-Here's an example that uses the **Stacked Columns** stack type resembles a bar chart:
-![stacked columns](images/stacked_columns.png)
+The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="15%">Option</th><th width="85%">Description</th></tr>
+</thead>
+<tr>
+<td>Y-Axis</td>
+<td>Scale of the Y-axis: linear or logarithmic. Default is linear. In most cases, linear is sufficient as long as there is not a large difference in measurement between the reported data points. If there's a large difference in measurement scale, use the logarithmic scale. By default, the logarithmic scale is set to the power of 10. You can configure the scale in the adjacent text field.
+</td>
+</tr>
+<tr>
+<td>Min/Max</td>
+<td>Minimum and maximum value on the Y-axis. If you are using a double Y-axis, you can specify min/max values for each Y-axis (By default, set to auto).</td>
+</tr>
+<tr>
+<td>Unit</td>
+<td>Unit of measurement to assign to the label that appears along the Y-axis. This unit <em>does not</em> change the unit of measurement. If you are using a double Y-axis, you can specify a unit for each Y-axis.
+<p>Supported units are:</p>
+<ul>
+<li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
+<li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps</li>
+<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+</ul>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+### Legend Tab
+
+Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
+
+When you look at the chart, you can also control the legend with these keyboard shortcuts:
+* **Shift-P** -- Pin the legend.
+* **Shift** -- Show detailed units in the legend.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Options</td>
+<td>Supports these options:
+<ul>
+<li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarize By</strong> setting. </li>
+<li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>Position of the fixed legend.</td>
+</tr>
+<tr>
+<td>Display</td>
+<td>The values and statistics to display in the legend: current, mean, median, sum, min, max, and count.
+</td>
+</tr>
+<tr>
+<td>Filter</td>
+<td>The value and number of metrics displayed in the legend. Specify:
+<ul>
+<li>Top or Bottom</li>
+<li>Number of metrics</li>
+<li>Value or statistic</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Point Tag Display Options </td>
+<td>The point tags to display in the legend. </td>
+</tr>
+</tbody>
+</table>
+
+### Description Tab
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+### Advanced Tab
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+<tr><td>Interpolate points</td>
+<td>Check to interpolate points that exist only in the past or future into the current time window. </td></tr>
+</tbody>
+</table>
+
+
+## Stacked Column Chart
+
+![stacked column](images/stacked_column.png)
+
+A **stacked column** chart resembles a bar chart and lets you view your data in columns.
+
+This chart supports the same tabs and options as the Stacked Area Chart discussed above but does not allow you to specify a Stack Type in the Format tab.
+
+### Format Tab
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Summarization</td>
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+
+<ul>
+<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
+<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
+<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
+<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
+<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
+<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
+<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
+<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
+</ul>
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+</tr>
+<tr>
+<td>Display Source Events</td>
+<td>If checked, displays events that were generated by alerts associated with any source displayed on the chart.
+You can also use events() queries to <a href="charts_events_displaying.html">Display events in charts</a>.</td>
+</tr>
+<tr>
+<td>Gap Threshold</td>
+<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. Data considered missing based on the threshold are shown as dotted lines.
+</td></tr>
+</tbody>
+</table>
+
+
 
 ### Axis Tab
 
@@ -514,6 +671,8 @@ Chart description. The description shows up as hover text when you place the mou
 </table>
 
 ## Table Chart
+
+![table chart](images/table_chart_v2.png)
 
 A table chart doesn't support changes to the legend but allows fine-grained customization in the Format tab.
 
