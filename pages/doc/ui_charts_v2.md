@@ -1,5 +1,5 @@
 ---
-title: Create and Customize Charts
+title: Create and Customize Charts (v2 Beta)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_charts_v2.html

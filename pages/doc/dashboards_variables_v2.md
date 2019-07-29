@@ -1,5 +1,5 @@
 ---
-title: Dashboard Variables
+title: Dashboard Variables (v2 Beta)
 keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
