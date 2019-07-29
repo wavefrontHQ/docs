@@ -7,47 +7,51 @@ published: false
 permalink: wavefront_kubernetes.html
 summary: Learn about using Wavefront with Kubernetes
 ---
-Wavefront allows you to monitor the Kubernetes metrics and the application metrics in your Kubernetes environment. You can also set up Wavefront so the metrics available in Wavefront are used to scale your Kubernetes environment through the Kubernetes Horizontal Pod Autoscaler.
+Monitor and scale your Kubernetes environment with Wavefront.
 
-In the following video, Pierre Tessier discusses different approaches to monitor and scale Kubernetes.
+* Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from Wavefront dashboards.
+* Automatically get metrics from all applications that support Telegraf from Wavefront.
+* Get Prometheus metrics.
+* Use the Wavefront Horizontal Autoscaler Adapter to scales your Kubernetes environment based on data Wavefront knows about.
 
-<p><a href="https://www.youtube.com/watch?v=uqknhOpUEqU&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_kubernetes_pierre.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
+In the following video, Pierre Tessier explains how this works.
+
+<p><a href="XX"><img src="/images/v_kubernetes_pierre_2.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
 </p>
 
-## Kubernetes and Wavefront
+## Kubernetes and Wavefront: Overview
 
-The architecture and the tools you use for monitoring Kubernetes differ for core monitoring and for monitoring applications.
+Our new Wavefront Kubernetes Collector is [available on github](https://github.com/wavefrontHQ/wavefront-kubernetes-collector). Our Kubernetes integration is an easy way to get started - it includes basic setup instructions and predefined dashboards.
 
-* **Core monitoring:** Monitor performance of the Kubernetes cluster and the state of the objects within the cluster using a metrics collector such as the [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector).
-* **Application monitoring:** Monitor applications such as NGNIX, Redis, or MySQL that run in your Kubernetes cluster. To monitor applications, you might use a Telegraf sidecar or Telegraf in a standalone container which can also be used for Prometheus scraping.
+We support automatic annotation and configuration based on auto discovery on pods and services.
 
-Our [Monitoring VMware Kubernetes Engine and Application Metrics with Wavefront](https://www.wavefront.com/monitoring-vmware-kubernetes-engine-and-application-metrics-with-wavefront/) blog discusses that special use case.
+* **Kubernetes infrastructure monitoring:** Monitor performance of the Kubernetes cluster and the state of the objects (pods, containers, etc) within the cluster using [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector).
+* **Application monitoring:** For any applications in your Kubernetes environment that support Telegraf, we set up monitoring. You can customize the frequency and which metrics we collect.
 
-Visit the [wavefront-kubernetes Github repository](https://www.github.com/wavefrontHQ/wavefront-kubernetes) to find sample deployment definitions and container images used for core and application monitoring.
+You can set up scaling with the Wavefront Horizontal Autoscaler Adapter based on any metrics available in Wavefront. That means if an application needs more (or fewer) resources, Wavefront can tell the Kubernetes Autoscaler to adjust the environment.
 
-## Core Monitoring
 
-Core monitoring retrieves metrics using a cluster monitoring service such as the [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) -- and through kube-state-metrics.
-* The cluster monitoring service provides CPU, memory, filesystem, and network/IO usage for the cluster and all nodes, pods, namespaces, and containers.
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) provides the current state of Kubernetes resources such as deployments, replica sets, pods, etc.
 
-Monitoring data are sent to a Wavefront proxy and from there to the Wavefront service.
+## Kubernetes Environment Monitoring
+
+The [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector)
+collects metrics to give comprehensive insight into all layers of your Kubernetes environment (nodes, pods, services, config maps, etc).
+
+Depending on the selected setup, metrics are sent to a Wavefront proxy and from there to the Wavefront service, or directly to the Wavefront service using direct ingestion.
 
 ![kubernetes core monitoring](/images/kubernetes_core.svg)
 
+As part of environment we use the daemonset and we support leader election to ensure all Kubernetes metrics become available from Wavefront.
+
+## Host-Level Monitoring
+
+The Wavefront Kubernetes collector supports automatic monitoring of host-level metrics and host-level systemd metrics. When you set up the collector in your environment, it auto-discovers pods and services and starts collecting metrics for all services that support Telegraf.
+
+To make this possible, we support daemonset mode. Furthermore, you can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to Wavefront.
+
 ## Application Monitoring
 
-How you perform application monitoring depends on the type of application. You have these choices.
-* For many self-contained services such as Redis you can use a Telegraf sidecar container. Each deployment of the pod will have the core container and all sidecar containers defined.
 
-  A sidecar enhances or extends the capability of an existing container and is deployed within the same Kubernetes pod. The pod wraps these containers and their storage resources into a single entity. No changes to the existing container image are necessary.
-
-* To monitor a service deployed as a cluster, for example, a MySQL cluster, you deploy your Telegraf agent in a standalone container. This container can live in the same node as the cluster you monitor, or even in a different node.
-* You can also use a standalone Telegraf agent to do Prometheus scraping. You deploy a container with Telegraf, and the Telegraf Prometheus plugin can scrape Prometheus endpoints for metrics.
-
-  An pod that contains multiple and dynamic replicas can be exposed using a headless service. This service is used by the Telegraf Prometheus plugin to scrape metrics from each individual pod/endpoint.
-
-  As in the other cases, Telegraf sends the metrics that it collects to the Wavefront proxy.
 
 ![kubernetes application monitoring](/images/kubernetes_apps.svg)
 
@@ -57,13 +61,17 @@ The Kubernetes infrastructure includes the [Horizontal Pod Autoscaler](https://k
 
 Wavefront allows you to scale based on other metrics.
 
-* The [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) allows you to collect additional metrics, such as memory or other information from your Kubernetes environment, and provide them to the Horizontal Pod Autoscaler. The Horizontal Pod Autoscaler can then use that information to scale the environment.
-
-* In addition to other Kubernetes environment metrics, the Wavefront Horizontal Pod Autoscaler Adapter can also allow any metric and query within Wavefront to be the driving factor for scale. As a result, you can scale Kubernetes pods on any metric, including custom application metrics or even metrics external to your Kubernetes environment.
+* The Kubernetes Horizontal Pod Autoscaler uses CPU and memory information to optimize your Kubernetes environment.
+* With the [Wavefront Horizontal Pod Autoscaler Adapter](https://www.github.com/wavefrontHQ/wavefront-kubernetes-adapter) you can scale the environment based on any metrics that Wavefront knows about. You can scale the environment based on application metrics external to your environment, and you can used the disk or metrics information from your pods to compute the correct scaling.
 
 ![kubernetes scaling](/images/kubernetes_scaling.svg)
 
-In the following video, two Wavefront systems engineers discuss container monitoring best practices.
 
-<p><a href="https://www.youtube.com/watch?v=_XYr1hlQqfI&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1"><img src="/images/v_container_monitoring.png" style="width: 700px;" alt="container monitoring best practice"/></a>
-</p>
+## Wavefront Github Repositories for Kubernetes
+
+We support the following open-source Github repositories:
+
+-  **[wavefront-kubernetes-collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector)** Second-generation Kubernetes monitoring. Supports auto-discovery, scaling using daemonset, filtering, and more.
+- **[wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter)**
+- **[wavefront-kubernetes](https://github.com/wavefrontHQ/wavefront-kubernetes)** First-generation Kubernetes monitoring. Contains definitions and templates for monitoring Kubernetes using Wavefront. Supports only sending data to the Wavefront proxy (no direct ingestion support).
+- **[prometheus-storage-adapter](https://github.com/wavefrontHQ/prometheus-storage-adapter)** -- Usually used with our first-generation Kubernetes monitoring solution. The adapter forwards data it receives to a Wavefront proxy. It is useful when you want some control on how data collected by Prometheus are made available in  Wavefront. Our second-generation solution, the Wavefront Kubernetes Collector, automatically collects Prometheus metrics.

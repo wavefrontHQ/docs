@@ -120,6 +120,10 @@ A. Use the eye icon on the right to deselect (hide) or show the results of a que
 
 ![v2 Hide or show query](images/v2_hide_show.png)
 
+### Q: How can I create an embedded chart in v2?
+
+[Embedded charts](ui_sharing.html#embed-a-chart-in-other-uis) allow you to make a chart available outside Wavefront. We currently don't support this functionality for v2, but all your existing embedded charts will continue to work. 
+
 ## Dashboard FAQ
 
 ### Q: Where are my sections?
