@@ -24,6 +24,7 @@ Wavefront provides Amazon Web Services overview dashboards **Summary**, **Pricin
 - AWS: EBS
 - AWS: EC2
 - AWS: ECS
+- AWS: ECS (Fargate)
 - AWS: EFS
 - AWS: ELB
 - AWS: EMR
