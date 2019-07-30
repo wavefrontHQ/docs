@@ -1,8 +1,8 @@
 ---
-title: AWS IAM Integration
+title: Amazon ECS (Fargate) Integration
 tags: [integrations list]
-permalink: amazon_keyage.html
-summary: Learn about the Wavefront AWS IAM Integration.
+permalink: amazon_ecs_fargate.html
+summary: Learn about the Wavefront Amazon ECS (Fargate) Integration.
 ---
 ## Amazon Web Services Integration
 
