@@ -2,17 +2,19 @@
 title: Monitor and Scale Kubernetes with Wavefront
 keywords: containers, kubernetes
 tags: [containers]
-sidebar: doc_sidebar
-published: false
+sidebar: doc_sidebarwavefront
 permalink: wavefront_kubernetes.html
-summary: Learn about using Wavefront with Kubernetes
+summary: Monitor Kubernetes infrastructure and applications. Scale the Kubernetes deployment based on Wavefront metrics.
 ---
-Monitor and scale your Kubernetes environment with Wavefront.
+Wavefront Kubernetes Collector lets you *monitor* your Kubernetes environment at the infrastructure level and at the applications level.
 
 * Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from Wavefront dashboards.
-* Automatically get metrics from all applications that support Telegraf from Wavefront.
-* Get Prometheus metrics.
-* Use the Wavefront Horizontal Autoscaler Adapter to scales your Kubernetes environment based on data Wavefront knows about.
+* Automatically get metrics from many applications that support Telegraf.
+* Integrate with other applications that support Telegraf.
+* Automatically get metrics from Prometheus scraping.
+
+Wavefront Horizontal Pod Autoscaler Adapter lets you *scale* your Kubernetes environment based on any metrics that are collected and available in Wavefront.
+
 
 In the following video, Pierre Tessier explains how this works.
 
@@ -21,11 +23,15 @@ In the following video, Pierre Tessier explains how this works.
 
 ## Kubernetes and Wavefront: Overview
 
-Our new Wavefront Kubernetes Collector is [available on github](https://github.com/wavefrontHQ/wavefront-kubernetes-collector). Our Kubernetes integration is an easy way to get started - it includes basic setup instructions and predefined dashboards.
+Take advantage of our open-source collector in Github or the in-product integration:
+* The **Wavefront Kubernetes Collector** is [available on github](https://github.com/wavefrontHQ/wavefront-kubernetes-collector). The collector is highly customizable and includes [docs on Github](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/tree/master/docs)and examples for different use cases.
+
+* The Wavefront **Kubernetes integration** is available in your Wavefront instance and you can [preview the documentation here.](kubernetes.html). The integration is a simple example for getting started and includes predefined dashboards for commonly used metrics.
 
 We support automatic annotation and configuration based on auto discovery on pods and services.
 
 * **Kubernetes infrastructure monitoring:** Monitor performance of the Kubernetes cluster and the state of the objects (pods, containers, etc) within the cluster using [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector).
+* **Host-level monitoring** Monitor the host or VM layer to
 * **Application monitoring:** For any applications in your Kubernetes environment that support Telegraf, we set up monitoring. You can customize the frequency and which metrics we collect.
 
 You can set up scaling with the Wavefront Horizontal Autoscaler Adapter based on any metrics available in Wavefront. That means if an application needs more (or fewer) resources, Wavefront can tell the Kubernetes Autoscaler to adjust the environment.

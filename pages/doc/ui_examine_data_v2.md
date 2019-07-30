@@ -89,7 +89,7 @@ You can select the time window for a chart in a few different ways.
 <tr><th width="20%">Process</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span">Time Bar</td>
-<td markdown="span">Click the chart time bar chart time bar in the upper-right corner of a chart. Use the magnifying lenses to quickly increase or decrease the time window.
+<td markdown="span">Click the chart time bar in the upper-right corner of a chart. Use the magnifying lenses to quickly increase or decrease the time window.
 <img src="images/chart_time_bar_v2.png#inline"  alt="chart time bar v2"/></td></tr>
 <tr>
 <td markdown="span">Zoom in</td>

@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
-Advanced proxy configuration includes use of configuration propertie  and performing advanced installation management such as installing proxies in a container.
+Advanced proxy configuration includes use of configuration properties  and performing advanced installation management such as installing proxies in a container.
 
 
 ## Proxy Configuration Properties
