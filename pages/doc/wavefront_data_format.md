@@ -20,21 +20,28 @@ The Wavefront data format is supported by Wavefront proxies and by direct ingest
 
 ## Wavefront Data Format Syntax
 
+The syntax differs for metrics, histograms, and spans. This page is primarily about metrics.
+
+### Metrics
+
 Here's the Wavefront data format for metrics.
 
 `<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]`
 
-Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A).
+Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A). See the table below for details about each parameter. 
 
-**Note:** The format for other types of data is different:
+### Histograms
 
-* [Histograms](proxies_histograms.html#sending-histogram-distributions) have port requirements and use the following format:
+[Histograms](proxies_histograms.html#sending-histogram-distributions) have port requirements and use the following format:
 
 ```
 {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
  <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>]
 ```
-* [The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
+
+### Spans
+
+[The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
 
 ```
 <operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
