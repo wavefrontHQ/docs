@@ -1,79 +1,48 @@
 ---
-title: Pairing Up Matching Series
+title: Combining Time Series With join()
 keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
-permalink: query_language_series_matching.html
-summary: Learn how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags. 
+permalink: query_language_series_joining.html
+summary: Use relationships among your time series to build full stack correlations.
 ---
 
-Certain operators and functions apply to pairs of time series. When you specify two ts() expressions as parameters, Wavefront implicitly performs series matching across these expressions to identify meaningful pairs of individual time series to operate on. For example, implicit series matching in the following operation causes Wavefront to compare metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
+You can use the `join()` function to: 
+* Compare two or more time series together and find matches, or, conversely, find the time series that do not match. 
+* Combine the values of any matching time series to produce a new synthetic time series with point tags from one or both of the input series.
 
-```ts(~sample.disk.bytes.read) > ts(~sample.disk.bytes.written)```
+<!--- Short list of simple why-you-care examples? --> 
+<!--- Modelled after SQL --> 
 
-Implicit series matching also determines whether these operators and functions return any result at all. For example, when you try to subtract one time series from another, Wavefront can't perform the operation if none of the sources match.
+## Wavefront Join Basics
 
-<!---
-Note: This page describes implicit syntax for inner joins, and is suitable for straightforward cases. Use explicit series matching with join() to match up series whose sources and point tags do not correspond exactly.
---->
-
-## When Wavefront Performs Implicit Series Matching
-
-Wavefront performs series matching when you apply certain operators and functions to two or more unique ts() expressions, each representing two or more unique metric\|source\|point tag value tuples. The following operators and functions result in series matching:
-
-- Arithmetic operators (+, -, /, *)
-- Boolean operators (and, or)
-- Comparison operators (>, <, =, >=, <=, !=)
-- Filter functions (highpass, lowpass, min, max)
-- Exponential and trigonometric functions
+<!--- Modelled after SQL -- table operations, inner/outer venn diagram, --> 
+<!--- Time series identified by metadata (unique combination of metric name, source name, pt tag values, assoc with timestamped values) --> 
+<!--- WF join: Each time series = a row in a table with columns metric, source, tagKey1, ... tagKeyN, values --> 
+<!--- Syntax is inspired by SQL FROM clause, SELECT clause, keywords AS, INNER, OUTER --> 
+<!--- When values from diff series are combined, they are interpolated. --> 
 
 
-In the examples below, the results listed to the right of = represents the set of series that would be displayed.
 
-### Series Matching Occurs
+## Inner Join Example
 
-The following examples show when series matching occurs:
-<table style="width: 100%;">
-<tbody>
-<thead>
-<tr><th width="20%">Query</th><th width="20%">Result</th><th width="60%">Reason</th></tr>
-</thead>
-<tr>
-<td> (A,B,C) * (B,C,D)</td>
-<td>(B,C)</td> <td>Only series B and C match up</td></tr>
-<tr>
-<td> (A,B,C) and (X,Y,Z)</td>
-<td>NO DATA</td> <td>No series match up which results in no data </td></tr>
-<tr>
-<td> (A,B,C) [>] (A)</td>
-<td>(A)</td> <td> With the second argument being A only there would be no series matching, but the inner join around > forces series matching. As a result, we'll have a join on A only, resulting in 1 series instead of 3. </td></tr>
-</tbody>
-</table>
+Suppose you want to divide CPU usage by the request rate per second on each source that runs a production environment. You can perform an inner join to: 
+* Look at all the time series for `CPU.usage` and for `transaction.rate`.
+* Identify any pairs of series that are emitted from the same source and that share the `env=prod` point tag. 
+* Combine the values for each such pair using the division operator.
+* Return the results as a new, synthetic metric called `CPU.perRequest` with a point tag called `env`.
 
-### Series Matching Does Not Occur
+```
+join(
+  ts(CPU.usage) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, env), 
+  metric='CPU.perRequest', source=ts1.source, env=ts1.env,
+  ts1/ts2
+  )
+```
 
-The following examples show when series matching does not occur:
-<table style="width: 100%;">
-<tbody>
-<thead>
-<tr><th width="20%">Query</th><th width="20%">Result</th><th width="60%">Reason</th></tr>
-</thead>
-<tr>
-<td> (A,B,C) / 3</td>
-<td>(A,B,C)</td>
-<td>The number 3 is a single constant value and is applied to A, B, and C</td></tr>
-<tr>
-<td> (D) * (A,B,C)</td>
-<td>(A,B,C)</td>
-<td>D is a single series value and is applied to A, B, and C. </td></tr>
-<tr>
-<td>(B,D,F) + sum(A,B,C)</td>
-<td>(B,D,F)</td>
-<td>While B is the only series in both arguments, A, B, and C are aggregated into a single value with sum() and applied to B, D, and F.</td></tr>
-</tbody>
-</table>
 
-## Series Matching Basics
+
+## Wavefront Join Basics
 
 Assume you enter the following ts() expression
 
@@ -268,7 +237,3 @@ With this addition, the query returns the following 6 series, joined with the el
 </tr>
 </tbody>
 </table>
-
-## Automatic Query Flip
-
-Wavefront automatically flips the query to have the more detailed side of the join be the driver. In the example above, that is the `cpu.idle` part of the query.

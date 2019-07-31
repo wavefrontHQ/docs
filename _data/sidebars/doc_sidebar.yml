@@ -190,10 +190,10 @@ entries:
           url: /query_language_discrete_continuous.html
           output: web
 
-        - title: When Multiple Series Match
+        - title: Pairing Up Matching Series
           url: /query_language_series_matching.html
           output: web
-
+          
         - title: Point Tags in Queries
           url: /query_language_point_tags.html
           output: web
@@ -215,16 +215,16 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Fine-Tune Queries with Point Tags
-          url: /query_language_point_tags.html
-          output: web
-
         - title: Aggregating Time Series
           url: /query_language_aggregate_functions.html
           output: web
 
         - title: Bucketing with align()
           url: /query_language_align_function.html
+          output: web
+
+        - title: Combining Series With join()
+          url: /query_language_series_joining.html
           output: web
 
         - title: Highlighting Trends
