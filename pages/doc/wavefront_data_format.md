@@ -8,7 +8,8 @@ summary: Syntax and parameters of the Wavefront native data format.
 ---
 The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This is a reference to the Wavefront data format. See [Wavefront Data Naming](wavefront_data_naming.html) for additional best practices.
 
-## Supported Data Formats
+## Supported Data Formats for Metrics
+
 [Direct ingestion](direct_ingestion.html) supports only the Wavefront data format.
 
 [Wavefront proxies](proxies.html) support:
@@ -19,9 +20,26 @@ The Wavefront data format is supported by Wavefront proxies and by direct ingest
 
 ## Wavefront Data Format Syntax
 
+Here's the Wavefront data format for metrics.
+
 `<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]`
 
 Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A).
+
+**Note:** The format for other types of data is different:
+
+* [Histograms](proxies_histograms.html#sending-histogram-distributions) have port requirements and use the following format:
+
+```
+{!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
+ <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>]
+```
+* [The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
+
+```
+<operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
+```
+
 
 ## Wavefront Data Format Fields
 
