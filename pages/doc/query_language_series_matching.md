@@ -243,28 +243,28 @@ With this addition, the query returns the following 6 series, joined with the el
 <tr><th width="60%">Series</th><th width="40%">Joined With</th></tr>
 </thead>
 <tr>
-<td><code>cpu.idle host=”host-1” dc=Oregon stage=prod</code></td>
-<td><code>build.version host=”host-1” stage=prod</code></td>
+<td><code>cpu.idle host="host-1" dc=Oregon stage=prod</code></td>
+<td><code>build.version host="host-1" stage=prod</code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-2” dc=Oregon stage=prod</code></td>
-<td><code>build.version host=”host-2” stage=prod</code></td>
+<td><code>cpu.idle host="host-2" dc=Oregon stage=prod</code></td>
+<td><code>build.version host="host-2" stage=prod</code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-3” dc=Oregon stage=test</code></td>
-<td><code>build.version host=”host-3” stage=test</code></td>
+<td><code>cpu.idle host="host-3" dc=Oregon stage=test</code></td>
+<td><code>build.version host="host-3" stage=test</code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-1” dc=ny stage=prod </code></td>
-<td><code>build.version host=”host-1” stage=prod </code></td>
+<td><code>cpu.idle host="host-1" dc=ny stage=prod </code></td>
+<td><code>build.version host="host-1" stage=prod </code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-2” dc=ny stage=prod </code></td>
-<td><code>build.version host=”host-2” stage=prod </code></td>
+<td><code>cpu.idle host="host-2" dc=ny stage=prod </code></td>
+<td><code>build.version host="host-2" stage=prod </code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host=”host-3” dc=ny stage=test</code></td>
-<td><code>build.version host=”host-3” stage=test</code></td>
+<td><code>cpu.idle host="host-3" dc=ny stage=test</code></td>
+<td><code>build.version host="host-3" stage=test</code></td>
 </tr>
 </tbody>
 </table>
