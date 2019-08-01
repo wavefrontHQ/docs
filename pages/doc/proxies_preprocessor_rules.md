@@ -4,13 +4,27 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_preprocessor_rules.html
-summary: Learn how to configure Wavefront proxy preprocessor rules.
+summary: Configure Wavefront proxy preprocessor rules.
 ---
-Starting with version 4.1, the Wavefront proxy includes a preprocessor that applies various user-defined point filtering and altering rules before data is sent to Wavefront. One of the main goals of this functionality is to allow addressing correctable data quality issues within the existing data flow, when fixing the problem at the emitting source is not feasible. An example of such rule would be "before the point line is parsed, replace invalid characters with underscores", which allows points that would normally be rejected to flow into the system.
+Starting with version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined point filtering and altering rules before data is sent to Wavefront.
+
+The Wavefront proxy is open source and is available in Java on Github. An [example proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default#L137) is available.
+
+We also have [an example yaml file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default) that includes examples for all preprocessor rules.
+
+## Benefits
+
+The preprocessor rule allows you to address a variety of potential issues such as:
+* Confidential data arrives at the proxy and you want to filter it.
+* Invalid characters are part of the data and you have to replace them before they arrive at the proxy. For example, you could replace invalid characters with underscores to allow points that would normally be rejected to flow into the system.
 
 ## Rule Configuration File
 
-You define the proxy preprocessor rules in a separate file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify the file in your [proxy configuration](proxies_configuring.html#proxy-configuration). An example rule file could look like:
+You define the proxy preprocessor rules in a separate file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify the file in your [proxy configuration](proxies_configuring.html#proxy-configuration).
+
+A full example is [available on Github](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default).
+
+An example rule file could look like this:
 
 ```yaml
 # rules for port 2878
@@ -42,7 +56,7 @@ You define the proxy preprocessor rules in a separate file, usually `<wavefront_
   ...
 ```
 
-For greater flexibility, you can define rules separately for each listening port.  The example above defines 3 rules, 2 for port 2878 and 1 for port 4242.
+You can define separate rules for each listening port.  The example above defines 3 rules, 2 for port 2878 and 1 for port 4242.
 
 Every rule must have a `rule` parameter that contains the rule ID and an `action` parameter that contains the action to perform.
 

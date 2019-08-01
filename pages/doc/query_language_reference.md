@@ -892,6 +892,34 @@ Because this is an aggregation function, you can group, for example, call <stron
 </tbody>
 </table>
 
+## Tracing Functions
+
+We support a function for `traces()` queries and a `spans()` function.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="traces_function.html">traces(<strong>&lt;operationName&gt;</strong> &lbrack;and|or|not &lt;filterName&gt;="&lt;filterValue&gt;"&rbrack;)</a></td>
+<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the <a href="/trace_data_query.html#use-query-editor"> Query Editor in the Traces browser</a>. Can be combined with one or more <a href="traces_function.html#filtering-functions">filtering functions</a>.
+</td></tr>
+<tr>
+<td><a href="spans_function.html">spans(<strong>&lt;operationName&gt;</strong> &lbrack;and|or|not &lt;filterName&gt;="&lt;filterValue&gt;"&rbrack;)</a></td>
+<td>Returns the spans that match the specified operation and filters. You normally limit the results by combining spans() with one or more spans filtering functions.
+</td>
+</tr>
+</tbody>
+</table>
+
 ## Event Functions
 
 You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. Some `events()` functions return synthetic events. These events are displayed by the query, but not stored in Wavefront.

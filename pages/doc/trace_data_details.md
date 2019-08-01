@@ -248,9 +248,9 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 ## RED Metrics Derived From Spans
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. These metrics are key indicators of the health of your services, and you can use them to help you discover problem traces.
+If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically provides the corresponding span RED metrics and trace RED metrics for the spans with no additional configuration or instrumentation on your part. 
 
-RED metrics are measures of:
+RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
 * Rate of requests – the number of requests being served per minute
 * Errors – the number of failed requests per minute
