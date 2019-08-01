@@ -40,7 +40,7 @@ Returns the spans that match the specified operation and filters. You normally l
 ## Description
 The `spans()` function finds spans that match the description you specify. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match.
 
-You submit a `spans()` function using the [Query Editor in the Traces browser](trace_data_query.html#submitting-trace-queries). 
+You submit a `spans()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). 
 You can use autocompletion to discover the span filters available for your query. 
 
 <!--- Explain how spans() result is different from traces() result.--->

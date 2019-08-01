@@ -4,7 +4,7 @@ keywords:
 tags: [integrations]
 sidebar: doc_sidebar
 published: false
-permalink: integrations_newrelic.html
+permalink: integrations_newrelic_v1.html
 summary: Learn how to send data emitted by New Relic to Wavefront.
 ---
 [New Relic](https://www.newrelic.com/) is a popular APM solution for monitoring applications. The Wavefront collector supports pulling metrics from New Relic at least every minute. Application summary data can be polled every 30s, but is not guaranteed by New Relic to be updated that often.

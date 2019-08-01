@@ -45,7 +45,7 @@ Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_
 #### Docker based Jaeger Installation
 When running Jaeger agents using docker, add the following to the docker run command:{% raw %}
 ```
--e REPORTER_TCHANNEL_HOST_PORT=<wf_proxy_hostname>:<wf_proxy_jaeger_port>
+-e REPORTER_TCHANNEL_HOST_PORT=<wf_proxy_hostname>:<wf_proxy_jaeger_port> -e REPORTER_TYPE=tchannel
 ```
 {% endraw %}
 Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_proxy_jaeger_port>` with the port you entered above for `traceJaegerListenerPorts`.

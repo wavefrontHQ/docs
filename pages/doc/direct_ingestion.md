@@ -69,7 +69,7 @@ Notes:
   - Include `f=trace` at the end of the `--data` argument to ensure the input is treated as trace data.
   - Include `cluster=none` and `shard=none` for a span that does not have values for the `cluster` and `shard` span tags.
   - Replace `<start_milliseconds>` and `<duration_milliseconds>` with numbers indicating the span's start time and duration.
-* If you ingest spans using a direct ingestion command such the example above, you are limited to using [Query Editor](trace_data_query.html#use-query-editor) when you want to query for traces containing those spans. ([Query Builder](trace_data_query.html#use-query-builder) cannot find spans ingested in this way).
+* If you ingest spans using a direct ingestion command such the example above, you are limited to using [Query Editor](trace_data_query.html#use-query-editor-power-users) when you want to query for traces containing those spans. (Query Builder cannot find spans ingested in this way).
 
 
 ## Comparing Proxy and Direct Ingestion

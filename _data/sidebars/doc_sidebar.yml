@@ -35,6 +35,28 @@ entries:
       output: web
       type: homepage
 
+      subfolders:
+      - title: Misc.
+        output: web
+        subfolderitems:
+
+        - title: Wavefront Glossary
+          url: /glossary.html
+          output: web
+
+        - title: Getting Help and Giving Feedback
+          url: /wavefront_support_feedback.html
+          output: web
+
+        - title: Terms of Service
+          url: /terms_of_service.html
+          output: web
+
+        - title: Wavefront Privacy Policy
+          url: /privacy.html
+          output: web
+
+
 
   - title: Release Notes
     output: web
@@ -42,6 +64,10 @@ entries:
 
     - title: Wavefront Release Notes
       url: /wavefront_release_notes.html
+      output: web
+
+    - title: 2019-26.x Release Notes
+      url: /2019.26.x_release_notes.html
       output: web
 
     - title: 2019-18.x Release Notes
@@ -104,7 +130,7 @@ entries:
       url: /metric_types.html
       output: web
 
-    - title: Hiding and Unhiding Metrics
+    - title: Hide and Unhide Metrics
       url: /metrics_managing.html
       output: web
 
@@ -112,11 +138,11 @@ entries:
       url: /tags_overview.html
       output: web
 
-    - title: Managing Source Tags
+    - title: Manage Source Tags
       url: /source_tags.html
       output: web
 
-    - title: Managing Sources
+    - title: Manage Sources
       url: /sources_managing.html
       output: web
 
@@ -129,11 +155,11 @@ entries:
           url: /proxies.html
           output: web
 
-        - title: Installing and Managing Proxies
+        - title: Install and Manage Proxies
           url: /proxies_installing.html
           output: web
 
-        - title: Installing a Proxy Manually
+        - title: Install a Proxy Manually
           url: /proxies_manual_install.html
           output: web
 
@@ -168,6 +194,70 @@ entries:
         - title: Delta Counters
           url: /delta_counters.html
           output: web
+
+  - title: "Charts & Dashboards"
+    output: web
+    folderitems:
+
+    - title: "Examine Data"
+      url: /ui_examine_data.html
+      output: web
+
+    - title: Create and Customize Dashboards
+      url: /ui_dashboards.html
+      output: web
+
+    - title: Create and Customize Charts
+      url: /ui_charts.html
+      output: web
+
+    - title: Share Charts and Dashboards
+      url: /ui_sharing.html
+      output: web
+
+    - title: Chart Reference
+      url: /ui_chart_reference.html
+      output: web
+
+    - title: Dashboard Variables
+      url: /dashboards_variables.html
+      output: web
+
+  - title: "Charts and Dashboards (v2 Beta)"
+    output: web
+    folderitems:
+
+    - title: "What's New in v2 Beta"
+      url: /ui_v2_faq.html
+      output: web
+
+    - title: "Chart Builder v2 Beta"
+      url: /chart_builder.html
+      output: web
+
+    - title: "Examine Data v2 Beta"
+      url: /ui_examine_data_v2.html
+      output: web
+
+    - title: "Create and Customize Dashboards v2 Beta"
+      url: /ui_dashboards_v2.html
+      output: web
+
+    - title: "Create and Customize Charts v2 Beta"
+      url: /ui_charts_v2.html
+      output: web
+
+    - title: "Chart Reference v2 Beta"
+      url: /ui_chart_reference_v2.html
+      output: web
+
+    - title: "Dashboard Variables v2 Beta"
+      url: /dashboards_variables_v2.html
+      output: web
+
+    - title: "Getting Started with Wavefront v2 Beta"
+      url: /tutorial_getting_started_v2.html
+      output: web
 
   - title: Query Language
     output: web
@@ -239,33 +329,6 @@ entries:
           url: /query_language_recipes.html
           output: web
 
-  - title: "Charts & Dashboards"
-    output: web
-    folderitems:
-
-    - title: "Examine Data"
-      url: /ui_examine_data.html
-      output: web
-
-    - title: Create and Customize Dashboards
-      url: /ui_dashboards.html
-      output: web
-
-    - title: Create and Customize Charts
-      url: /ui_charts.html
-      output: web
-
-    - title: Share Charts and Dashboards
-      url: /ui_sharing.html
-      output: web
-
-    - title: Chart Reference
-      url: /ui_chart_reference.html
-      output: web
-
-    - title: Dashboard Variables
-      url: /dashboards_variables.html
-      output: web
 
   - title: "Alerts & Events"
     output: web
@@ -400,15 +463,15 @@ entries:
             url: /integrations_appdynamics.html
             output: web
 
-          - title: Managing External Links
+          - title: Manage External Links
             url: /external_links_managing.html
             output: web
 
-          - title: Visualizing Metrics with R
+          - title: Visualize Metrics with R
             url: /integrations_r.html
             output: web
 
-          - title:  Visualizing Metrics with Python
+          - title:  Visualize Metrics with Python
             url: /integrations_python.html
             output: web
 
@@ -526,19 +589,23 @@ entries:
             url: /authorization.html
             output: web
 
-          - title: Managing Users and Groups
+          - title: Accounts, Groups, and Permissions
             url: /users_groups.html
             output: web
 
-          - title: Managing Permissions
-            url: /permissions.html
+          - title: Manage User Accounts
+            url: /user_accounts.html
+            output: web
+
+          - title: Manage Service Accounts
+            url: /service_accounts.html
             output: web
 
           - title: Permissions Reference
             url: /permissions_overview.html
             output: web
 
-          - title: Managing Access
+          - title: Manage Access
             url: /access.html
             output: web
 
@@ -600,24 +667,4 @@ entries:
 
       - title: Use Case Videos
         url: /wavefront_use_cases.html
-        output: web
-
-  - title: Misc.
-    output: web
-    folderitems:
-
-      - title: Wavefront Glossary
-        url: /glossary.html
-        output: web
-
-      - title: Getting Help and Giving Feedback
-        url: /wavefront_support_feedback.html
-        output: web
-
-      - title: Terms of Service
-        url: /terms_of_service.html
-        output: web
-
-      - title: Wavefront Privacy Policy
-        url: /privacy.html
         output: web

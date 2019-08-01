@@ -4,7 +4,7 @@ keywords:
 tags: [proxies, release notes]
 sidebar: doc_sidebar
 permalink: proxies_versions.html
-summary: Learn about new features and changes in different Wavefront proxy versions.
+summary: Release Notes for different Wavefront proxy versions.
 ---
 This page gives an overview of important changes for Wavefront proxy releases. For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 

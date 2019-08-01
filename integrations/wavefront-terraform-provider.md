@@ -2,6 +2,7 @@
 title: Terraform Provider Integration
 tags: [integrations list]
 permalink: wavefront-terraform-provider.html
+published: false
 summary: Learn about the Wavefront Terraform Provider Integration.
 ---
 # Wavefront Terraform Provider
@@ -22,7 +23,7 @@ This setup is an reiteration of [terraform-provider-wavefront](https://github.co
 ### Step 1.  Download and Customize the Plugin
 
 You can download the plugin from this [git repository](https://github.com/spaceapegames/terraform-provider-wavefront/releases).
-Latest releases include darwin and linux amd64 packages. 
+Latest releases include darwin and linux amd64 packages.
 If you need a different architecture or OS, you can build the plugin from source.
 Go to [terraform-provider-wavefront](https://github.com/spaceapegames/terraform-provider-wavefront) for details.
 
@@ -68,9 +69,9 @@ when creating alerts with the Wavefront API.
 - Run `terraform init` to load your provider.
 
 - Run `terraform plan` to show the plan.
- 
+
 - Run `terraform apply` to apply the test configuration and then check the results in Wavefront.
- 
+
 - Update main.tf to change a value, the run plan and apply again to check that updates work.
 
 - Run `terraform destroy` to test deleting resources.

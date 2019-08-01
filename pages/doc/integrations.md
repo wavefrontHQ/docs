@@ -96,6 +96,15 @@ You can install and uninstall dashboards from Featured and Data Collector integr
 
 You cannot modify Wavefront system dashboards. Instead, click the Edit (pen) icon, select **Clone**, and provide a URL string that's just the name (e.g. `mydashboard`) and not the URL (e.g. `http://mydashboard`). You can then customize the clone to suit your needs.
 
+=======
+Wavefront customers have started to make Open Source integrations available on GitHub!
+
+Our first external integration sends Alertsite monitoring results to Wavefront and is available at https://github.com/secureworks/AlertSite2Wavefront.
+
+We're excited about this contribution and hope to see more soon.
+
+
+
 ## Integration States
 
 The Integrations page reports integration state depending on two factors:

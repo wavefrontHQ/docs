@@ -39,7 +39,7 @@ You have several ways to control when and how event overlays display in charts:
 
 For individual charts, you can:
 
-- Select the **Display Source Events** check box in the chart configuration [General options](charts.html#general) to display events related to alerts that fired for sources that display in the chart.
+- Select the **Display Source Events** check box in the chart configuration [General options](ui_chart_reference.html#general) to display events related to alerts that fired for sources that display in the chart.
 
 - Add an [events() query](events_queries.html) to the chart. An `events()` query cannot be the only query on a chart. At least one `ts()` query must be enabled on the chart so that the `events()` query results display.
 

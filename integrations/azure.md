@@ -21,6 +21,7 @@ Wavefront provides Microsoft Azure dashboards for the following services:
 - Azure: App Service
 - Azure: Container Instances
 - Azure: Event Hub
+- Azure: Files
 - Azure: Functions
 - Azure: HDInsight Cluster
 - Azure: Kubernetes Services

@@ -3,6 +3,7 @@ title: "Docs & Dashboards Overview"
 keywords: dashboards
 tags: [dashboards, getting started]
 sidebar: doc_sidebar
+published: false
 permalink: documentation_getting_started.html
 summary: Learn about the docs and in-product docs that can help get you up to speed.
 ---
