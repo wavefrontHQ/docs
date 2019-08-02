@@ -3,6 +3,7 @@ title: Monitor and Scale Kubernetes with Wavefront
 keywords: containers, kubernetes
 tags: [containers]
 sidebar: doc_sidebarwavefront
+published: false
 permalink: wavefront_kubernetes.html
 summary: Monitor Kubernetes infrastructure and applications. Scale the Kubernetes deployment based on Wavefront metrics.
 ---
