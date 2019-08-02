@@ -160,7 +160,7 @@ Like SQL JOIN, the Wavefront `join()` function examines rows from two time-serie
 For example, consider the following `join()` function, which correlates rows from the two tables above:
 
 ```
-join(ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2 USING(source, stage, service), metric='LoadToLatency', source=ts1.source, service=ts1.service, ts1)
+join(ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2 USING(source, stage, service), metric='LoadToLatency', source=ts1.source, service=ts1.service, ts1/ts2)
 ```
 
 Let's split out the `join()` parameters into separate expressions to see what they do:
@@ -173,7 +173,7 @@ join(
 
   metric='LoadToLatency', source=ts1.source, service=ts1.service,            <== Output Metadata
 
-  ts1/ts2                                                                     <== Output Data Expression
+  ts1/ts2                                                                    <== Output Data Expression
   )
 ```
 
