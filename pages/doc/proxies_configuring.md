@@ -8,6 +8,8 @@ summary: Learn how to configure a Wavefront proxy.
 ---
 Advanced proxy configuration includes use of configuration properties  and performing advanced installation management such as installing proxies in a container.
 
+In addition to the proxy configuration properties discussed here you can also use [proxy preprocessor rules](proxies_preprocessor_rules.html). These rules allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters.
+
 
 ## Proxy Configuration Properties
 
@@ -34,7 +36,12 @@ In this section, file paths use the following conventions and values:
 
 ### General Proxy Properties and Examples
 
-This section lists general proxy configuration properties and metrics proxy configuration properties. See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions.
+This section lists:
+* General proxy configuration properties
+* Metrics proxy configuration properties
+* Tracing proxy configuration properties
+
+See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions.
 
 <table>
 <thead>
@@ -345,7 +352,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>server</td>
-<td>The API URL of the Wavefront server in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
+<td>The API URL of the Wavefront server in the format <code>https://&lt;wf_instance&gt;.wavefront.com/api/</code>.</td>
 <td> </td>
 <td> </td>
 </tr>
