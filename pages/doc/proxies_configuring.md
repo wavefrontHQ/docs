@@ -8,6 +8,8 @@ summary: Learn how to configure a Wavefront proxy.
 ---
 Advanced proxy configuration includes use of configuration propertie  and performing advanced installation management such as installing proxies in a container.
 
+In addition to the proxy configuration properties discussed here you can also use [proxy preprocessor rules](proxies_preprocessor_rules.html). These rules allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters.
+
 
 ## Proxy Configuration Properties
 
@@ -34,7 +36,12 @@ In this section, file paths use the following conventions and values:
 
 ### General Proxy Properties and Examples
 
-This section lists general proxy configuration properties and metrics proxy configuration properties. See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions.
+This section lists:
+* General proxy configuration properties
+* Metrics proxy configuration properties
+* Tracing proxy configuration properties
+
+See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions.
 
 <table>
 <thead>
@@ -124,7 +131,7 @@ This section lists general proxy configuration properties and metrics proxy conf
 <div>Ex: 2003</div>
 <div>Ex: 2003, 2004 </div></td>
 <td> </td>
-</tr> 
+</tr>
 <tr>
 <td markdown="span">[Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties)</td>
 <td>
@@ -345,7 +352,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 </tr>
 <tr>
 <td>server</td>
-<td>The API URL of the Wavefront server in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
+<td>The API URL of the Wavefront server in the format <code>https://&lt;wf_instance&gt;.wavefront.com/api/</code>.</td>
 <td> </td>
 <td> </td>
 </tr>
@@ -372,7 +379,7 @@ Ex: 0 </td>
 <tr>
 <td>traceListenerPorts</td>
 <td markdown="span">TCP ports to listen on for incoming [trace data](tracing_basics.html). Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port. 
+<td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 30000</div>
 <div>Ex: 30000, 30001</div></td>
 <td>4.31 </td>
@@ -380,14 +387,14 @@ Ex: 0 </td>
 <tr>
 <td>traceSamplingDuration</td>
 <td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). Default: 0 (send all generated spans). </td>
-<td>Number of milliseconds. 
+<td>Number of milliseconds.
 <div>Ex: 45</div> </td>
 <td>4.34</td>
 </tr>
 <tr>
 <td>traceSamplingRate</td>
 <td markdown="span">Percentage of all generated spans to send to Wavefront for [trace data sampling](trace_data_sampling.html). Default: 1.0 (send all generated spans). </td>
-<td>Number from 0.0 to 1.0. 
+<td>Number from 0.0 to 1.0.
 <div>Ex: .1</div></td>
 <td>4.34</td>
 </tr>
