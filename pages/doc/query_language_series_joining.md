@@ -14,13 +14,11 @@ You can use the `join()` function to:
 <!--- Short list of simple why-you-care examples? --> 
 <!--- Shortcut for simple cases: see series matching --> 
 
-## Wavefront Join Basics
-
 The Wavefront `join()` function is modeled after the SQL JOIN operation, which correlates rows of data across 2 or more input tables, and then forms new tables by joining selected portions of the correlated rows. If you are familiar with SQL, then you will recognize many of the Wavefront `join()` keywords and concepts.
 
-### Time Series as Tables 
+## Time Series as Tables 
 
-Every Wavefront time series is a sequence of timestamped points that is identified by a unique combination of metadata:
+A Wavefront time series is a sequence of timestamped points that is identified by a unique combination of metadata:
 * A metric name, for example, `cpu.load` 
 * A source name, for example, `host-1`
 * 0 or more point tags (key value pairs), for example, `dc=Oregon stage=prod service=shopping`
@@ -28,43 +26,43 @@ Every Wavefront time series is a sequence of timestamped points that is identifi
 A `join()` operation views every time series as a row in a table that has a column for each metadata value. We have a separate table for each metric name. Below is a table showing 6 time series for a metric called `cpu.load`. (We've added a row # so we can easily refer to individual time series in later examples.)
 <table>
 <colgroup>
-<col width="5%" />
+<col width="8%" />
 <col width="15%" />
 <col width="10%" />
 <col width="15%" />
 <col width="15%" />
-<col width="20%" />
+<col width="17%" />
 <col width="20%" />
 </colgroup>
 <thead>
-<tr><th markdown="span">_Row #_</th><th>Metric<br>Name</th><th>Source Name</th><th>Datacenter</th><th>Stage</th><th>Service</th><th>Data Points</th></tr>
+<tr><th markdown="span">_Row #_</th><th>metric</th><th>source</th><th markdown="span">dc=</th><th markdown="span">stage=</th><th markdown="span">service=</th><th markdown="span">_Data Points_</th></tr>
 </thead>
 <tbody>
 <tr>
 <td markdown="span">L1</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-1</td>
-<td markdown="span">dc=Oregon</td>
-<td markdown="span">stage=prod</td>
-<td markdown="span">service=shopping</td>
+<td markdown="span">Oregon</td>
+<td markdown="span">prod</td>
+<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">L2</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-2</td>
-<td markdown="span">dc=Oregon</td>
-<td markdown="span">stage=dev</td>
-<td markdown="span">service=shopping</td>
+<td markdown="span">Oregon</td>
+<td markdown="span">dev</td>
+<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">L3</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-3</td>
-<td markdown="span">dc=Oregon</td>
-<td markdown="span">stage=prod</td>
-<td markdown="span">service=checkout</td>
+<td markdown="span">Oregon</td>
+<td markdown="span">prod</td>
+<td markdown="span">checkout</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 
@@ -72,9 +70,9 @@ A `join()` operation views every time series as a row in a table that has a colu
 <td markdown="span">L4</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-1</td>
-<td markdown="span">dc=NY</td>
-<td markdown="span">stage=prod</td>
-<td markdown="span">service=shopping</td>
+<td markdown="span">NY</td>
+<td markdown="span">prod</td>
+<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 
@@ -82,18 +80,18 @@ A `join()` operation views every time series as a row in a table that has a colu
 <td markdown="span">L5</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-2</td>
-<td markdown="span">dc=NY</td>
-<td markdown="span">stage=dev</td>
-<td markdown="span">service=shopping</td>
+<td markdown="span">NY</td>
+<td markdown="span">dev</td>
+<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">L6</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-3</td>
-<td markdown="span">dc=NY</td>
-<td markdown="span">stage=prod</td>
-<td markdown="span">service=checkout</td>
+<td markdown="span">NY</td>
+<td markdown="span">prod</td>
+<td markdown="span">checkout</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 </tbody>
@@ -104,39 +102,39 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 
 <table>
 <colgroup>
-<col width="5%" />
+<col width="8%" />
 <col width="15%" />
 <col width="10%" />
 <col width="15%" />
-<col width="20%" />
+<col width="17%" />
 <col width="25%" />
 </colgroup>
 <thead>
-<tr><th markdown="span">_Row #_</th><th>Metric<br>Name</th><th>Source Name</th><th>Stage</th><th>Service</th><th>Data Points</th></tr>
+<tr><th markdown="span">_Row #_</th><th>metric</th><th>source</th><th markdown="span">stage=</th><th markdown="span">service=</th><th markdown="span">_Data Points_</th></tr>
 </thead>
 <tbody>
 <tr>
 <td markdown="span">R1</td>
 <td markdown="span">request.latency</td>
 <td markdown="span">host-1</td>
-<td markdown="span">stage=prod</td>
-<td markdown="span">service=shopping</td>
+<td markdown="span">prod</td>
+<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">R2</td>
 <td markdown="span">request.latency</td>
 <td markdown="span">host-2</td>
-<td markdown="span">stage=dev</td>
-<td markdown="span">service=shopping</td>
+<td markdown="span">dev</td>
+<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">R3</td>
 <td markdown="span">request.latency</td>
 <td markdown="span">host-3</td>
-<td markdown="span">stage=prod</td>
-<td markdown="span">service=checkout</td>
+<td markdown="span">prod</td>
+<td markdown="span">checkout</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 
@@ -144,8 +142,8 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 <td markdown="span">R4</td>
 <td markdown="span">request.latency</td>
 <td markdown="span">host-4</td>
-<td markdown="span">stage=test</td>
-<td markdown="span">service=checkout</td>
+<td markdown="span">test</td>
+<td markdown="span">checkout</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 
@@ -155,60 +153,98 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 **Note:** The informal notation in the Data Points column indicates that a time series' data points is an array of timestamped values.
 
 
-### Wavefront Join Operation
+## join() Syntax Overview
 
-Like SQL JOIN, the Wavefront `join()` function examines the rows (time series) from two input tables (a left-hand table and a right-hand table), and determines whether any row (time series) from the left-hand table correlates with any row (time series) from the right-hand table. Two rows are correlated if they both satisfy a join condition -- that is, if they both have matching  values in some combination of source and point-tag columns. For example, if the join condition is to match values for Source name and Stage, then L1 in the `cpu.load` table correlates to R1 in the `request.latency` table.  
+Like SQL JOIN, the Wavefront `join()` function examines rows from two time-series tables, and determines whether any row from one table correlates with any row from the other. Two rows correlate if they both satisfy a join condition. `join()` combines the correlated rows into new rows in a new table, and then returns a new time series with metadata and data from each new row.
 
-When `join()` finds a pair of correlating rows, they are combined into a new row. 
-In Wavefront, combining 2 rows into a new row means creating a new time series that has:
-* A new metric name
-* Some or all of the the metadata of the two input rows
-* Data points that are derived from the data points of one or both input rows
+For example, consider the following `join()` function, which correlates rows from the two tables above:
+
+```
+join(ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2 USING(source, stage, service), metric='LoadToLatency', source=ts1.source, service=ts1.service, ts1)
+```
+
+Let's split out the `join()` parameters into separate expressions to see what they do:
+
+```
+join(
+  ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2                  <== Join Input and Type
+  
+  USING(source, stage, service),                                             <== Join Condition
+
+  metric='LoadToLatency', source=ts1.source, service=ts1.service,            <== Output Metadata
+
+  ts1/ts2                                                                     <== Output Data Expression
+  )
+```
+
+### Join Input and Type
+
+```ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2```
+
+* Like SQL `FROM`. 
+* Use ts() expressions to specify the time series in a left-hand table (e.g., `ts(cpu.load)`) and a right-hand table (e.g., `ts(request.latency)`). 
+* Can include filters in either or both ts() expressions, similar to SQL `WHERE`. 
+* Use `AS` to assign an alias to each table. For example, `ts1` is the alias for `ts(cpu.load)`. 
+* Join type (e.g., `INNER JOIN`) controls which rows are tested against the join condition.
+
+### Join Condition
+
+```USING(source, stage, service),```
+
+* Specifies the columns to use when testing for correlated rows. Rows satisfy the condition if they share a common value in each listed column. For example, two rows match if they both have `source=host-1`, `stage=prod`, and `service=shopping`.
+* Alternative syntax with alias-qualified column names: `ON ts1.source=ts2.source, ts1.stage=ts2.stage, ts1.service=ts2.service,`
+* `ON` clause supports other kinds of condition expressions, e.g, `ON ts1.source!=web*` 
+
+### Output Metadata Expression
+
+```metric='LoadToLatency', source=ts1.source, service=ts1.service,```
+
+* Like SQL `SELECT`. 
+* List of columns and values to include from either or both rows. Use `metric=` to specify the metric name for the new time series. Use table aliases to qualify column names.
+* Determines the metadata for the new time series.
+<!---* Can omit all metadata to let a `_discriminant` column differentiate the resulting time series.-->
+
+### Output Data Expression
+
+```ts1/ts2 ```
+
+<!--- Need to change example to include {ts2 | 1} to make left/right joins work ok. Or better yet, don't do division and use {ts2 | 0}---> 
+* Derives the data points for the new time series from the data points of matching input rows. 
+* Can include operators `+ - / *` or functions `max()`, `min()`, `avg()`, `median()`, `sum()`, `count()`.  
+* Interpolates values if their timestamps do not line up.
+
+## Join Types 
+
+Like SQL JOIN, the Wavefront `join()` function supports different types of join operation. Each join type has a different rule for including rows (time series) in the result table. 
 
 
-### Types of Join Operation 
-
-Like SQL JOIN, the Wavefront `join()` function supports different types of join operation. Each join type has a slightly different rule for including time series in the result set. 
-
-
-
-Row that have matching column values satisfy the join condition. 
-
-that satisfy a specified join condition.
-
-
-Different types of join operation specify how to correlate series from one table with series in another. 
-
-Correlation is based on a join condition = common values for a specified combination of point tags. I.e., series A correlates to series B, D because they are all emitted from source=host-1 and are associated with service=shopping 
-
-<!---  INNER, OUTER Venn diagrams--> 
 <table>
 <colgroup>
 <col width="30%" />
 <col width="70%" />
 </colgroup>
 <thead>
-<tr><th>Join Type</th><th>Result</th></tr>
+<tr><th>Join Type</th><th>Results</th></tr>
 </thead>
 <tbody>
 <tr>
 <td markdown="span">![inner join](images/ts_join_venn_inner.png)</td>
-<td markdown="span" style="vertical-align:middle">Include rows from both tables, if they both satisfy a specified join condition. 
+<td markdown="span" style="vertical-align:middle">Include rows from both tables, if they both satisfy a specified join condition. <br><br>Keywords: JOIN | INNER JOIN
 </td>
 </tr>
 <tr>
 <td markdown="span">![left join](images/ts_join_venn_left_outer.png)</td>
-<td markdown="span" style="vertical-align:middle">Include all rows from Left-hand Table, and rows from Right-hand Table only if they satisfy a specified join condition. 
+<td markdown="span" style="vertical-align:middle">Include all rows from Left-hand Table, and include rows from Right-hand Table only if they satisfy a specified join condition. <br><br>Keywords: LEFT JOIN | LEFT OUTER JOIN
 </td>
 </tr>
 <tr>
 <td markdown="span">![right join](images/ts_join_venn_right_outer.png)</td>
-<td markdown="span" style="vertical-align:middle">Include all rows from Right-hand Table, and rows from Left-hand Table only if they satisfy a specified join condition. 
+<td markdown="span" style="vertical-align:middle">Include all rows from Right-hand Table, and include rows from Left-hand Table only if they satisfy a specified join condition. <br><br>Keywords: RIGHT JOIN | RIGHT OUTER JOIN
 </td>
 </tr>
 <tr>
 <td markdown="span">![full join](images/ts_join_venn_full.png)</td>
-<td markdown="span" style="vertical-align:middle">Include all rows from both tables, regardless of whether the specified join condition is met or not. 
+<td markdown="span" style="vertical-align:middle">Include all rows from both tables, regardless of whether the specified join condition is met or not. <br><br>Keywords: FULL JOIN | FULL OUTER JOIN
 </td>
 </tr>
 
@@ -216,31 +252,17 @@ Correlation is based on a join condition = common values for a specified combina
 </tbody>
 </table>
 
-### join() Syntax Overview
-
-The `join()` function 
-
-<!--- join() parameters divide into 3 groups: Input clause (Think FROM clause: input expression aliases, join type, join condition), Output metadata (Think SELECT clause: metric=, source=, etc), Output data. Each ts() expression populates a table  --> 
-
-
-### How join() Combines Data Points in a Result Series 
-<!--- When values from diff series are combined, they are interpolated. --> 
-
 
 
 ## Inner Join Example
 
-Suppose you want to divide CPU usage by the request rate per second on each source that runs a production environment. You can perform an inner join to: 
-* Look at all the time series for `cpu.usage` and for `request.rate`.
-* Identify any pairs of series that are emitted from the same source and that share the `env=prod` point tag. 
-* Combine the values for each such pair using the division operator.
-* Return the results as a new, synthetic metric called `cpu.perRequest` with a point tag called `env`.
+Suppose you want to divide CPU load by the request latency on each source that runs a production service. You perform an inner join to identify any pairs of series that are both emitted from the same source and that both share the `stage=prod` point tag. 
 
 ```
 join(
-  ts(cpu.usage) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, env),    <== Input clause
-  metric='cpu.perRequest', source=ts1.source, env=ts1.env,                       <== Output metadata
-  ts1/ts2                                                                        <== Output data
+  ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2 USING(source, stage), 
+  metric='cpuToLatency', source=ts1.source, stage=ts1.stage, 
+  ts1/ts2                           
   )
 ```
 
