@@ -1,12 +1,13 @@
 ---
-title: Advanced Proxy Configuration
+title: Advanced Proxy Configuration and Installation
 keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_configuring.html
 summary: Learn how to configure a Wavefront proxy.
 ---
-Advanced proxy configuration includes use of configuration properties  and performing advanced installation management such as installing proxies in a container.
+
+You can configure proxies using a configuration file, and you can performing advanced installation management such as installing proxies in a container.
 
 In addition to the proxy configuration properties discussed here you can also use [proxy preprocessor rules](proxies_preprocessor_rules.html). These rules allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters.
 
