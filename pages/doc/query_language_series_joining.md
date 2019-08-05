@@ -23,7 +23,7 @@ A Wavefront time series is a sequence of timestamped points that is identified b
 * A source name, for example, `host-1`
 * 0 or more point tags (key value pairs), for example, `dc=Oregon stage=prod service=shopping`
  
-A `join()` operation views every time series as a row in a table that has a column for each metadata value. We have a separate table for each metric name. Below is a table showing 6 time series for a metric called `cpu.load`. (We've added a row # so we can easily refer to individual time series in later examples.)
+A `join()` operation views every time series as a row in a table that has a column for each metadata value. We have a separate table for each metric name. Below is a table showing 6 time series for a metric called `cpu.load`. (In the doc, we added a row # so we can easily refer to individual time series in later examples.)
 <table>
 <colgroup>
 <col width="8%" />
@@ -98,7 +98,7 @@ A `join()` operation views every time series as a row in a table that has a colu
 </table>
 
 
-The time series for `request.latency` do not use the `dc` point tag, so the table does not have a column for it:
+The time series for `request.rate` do not use the `dc` point tag, so the table does not have a column for it:
 
 <table>
 <colgroup>
@@ -115,7 +115,7 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 <tbody>
 <tr>
 <td markdown="span">R1</td>
-<td markdown="span">request.latency</td>
+<td markdown="span">request.rate</td>
 <td markdown="span">host-1</td>
 <td markdown="span">prod</td>
 <td markdown="span">shopping</td>
@@ -123,7 +123,7 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 </tr>
 <tr>
 <td markdown="span">R2</td>
-<td markdown="span">request.latency</td>
+<td markdown="span">request.rate</td>
 <td markdown="span">host-2</td>
 <td markdown="span">dev</td>
 <td markdown="span">shopping</td>
@@ -131,7 +131,7 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 </tr>
 <tr>
 <td markdown="span">R3</td>
-<td markdown="span">request.latency</td>
+<td markdown="span">request.rate</td>
 <td markdown="span">host-3</td>
 <td markdown="span">prod</td>
 <td markdown="span">checkout</td>
@@ -140,7 +140,7 @@ The time series for `request.latency` do not use the `dc` point tag, so the tabl
 
 <tr>
 <td markdown="span">R4</td>
-<td markdown="span">request.latency</td>
+<td markdown="span">request.rate</td>
 <td markdown="span">host-4</td>
 <td markdown="span">test</td>
 <td markdown="span">checkout</td>
@@ -160,32 +160,32 @@ Like SQL JOIN, the Wavefront `join()` function examines rows from two time-serie
 For example, consider the following `join()` function, which correlates rows from the two tables above:
 
 ```
-join(ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2 USING(source, stage, service), metric='LoadToLatency', source=ts1.source, service=ts1.service, ts1/ts2)
+join(ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, stage, service), metric='cpuPerRequest', source=ts1.source, service=ts1.service, ts1/ts2)
 ```
 
 Let's split out the `join()` parameters into separate expressions to see what they do:
 
 ```
 join(
-  ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2                  <== Join Input and Type
+  ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2                  <== Join Input and Type
   
-  USING(source, stage, service),                                             <== Join Condition
+  USING(source, stage, service),                                          <== Join Condition
 
-  metric='LoadToLatency', source=ts1.source, service=ts1.service,            <== Output Metadata
+  metric='cpuPerRequest', source=ts1.source, service=ts1.service,         <== Output Metadata
 
-  ts1/ts2                                                                    <== Output Data Expression
+  ts1/ts2                                                                 <== Output Data Expression
   )
 ```
 
 ### Join Input and Type
 
-```ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2```
+```ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2```
 
 * Like SQL `FROM`. 
-* Use ts() expressions to specify the time series in a left-hand table (e.g., `ts(cpu.load)`) and a right-hand table (e.g., `ts(request.latency)`). 
-* Can include filters in either or both ts() expressions, similar to SQL `WHERE`. 
-* Use `AS` to assign an alias to each table. For example, `ts1` is the alias for `ts(cpu.load)`. 
-* Join type (e.g., `INNER JOIN`) controls which rows are tested against the join condition.
+* ts() expressions specify the time series in a left-hand table (e.g., `ts(cpu.load)`) and a right-hand table (e.g., `ts(request.rate)`). 
+* Either or both ts() expressions can include filters, equivalent to SQL `WHERE`. For example, `ts(cpu.load, dc!=Texas)`
+* `AS` keyword assigns an alias to each table. For example, `ts1` is the alias for `ts(cpu.load)`. 
+* The join type (e.g., `INNER JOIN`) controls which rows are tested against the join condition.
 
 ### Join Condition
 
@@ -197,7 +197,7 @@ join(
 
 ### Output Metadata Expression
 
-```metric='LoadToLatency', source=ts1.source, service=ts1.service,```
+```metric='cpuPerRequest', source=ts1.source, service=ts1.service,```
 
 * Like SQL `SELECT`. 
 * List of columns and values to include from either or both rows. Use `metric=` to specify the metric name for the new time series. Use table aliases to qualify column names.
@@ -256,12 +256,12 @@ Like SQL JOIN, the Wavefront `join()` function supports different types of join 
 
 ## Inner Join Example
 
-Suppose you want to divide CPU load by the request latency on each source that runs a production service. You perform an inner join to identify any pairs of series that are both emitted from the same source and that both share the `stage=prod` point tag. 
+Suppose you want to divide CPU load by the number of requests per second on each source that runs a production service. You perform an inner join to identify any pairs of series that are both emitted from the same source and that both share the `stage=prod` point tag. 
 
 ```
 join(
-  ts(cpu.load) AS ts1 INNER JOIN ts(request.latency) AS ts2 USING(source, stage), 
-  metric='cpuToLatency', source=ts1.source, stage=ts1.stage, 
+  ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, stage), 
+  metric='cpuPerRequest', source=ts1.source, stage=ts1.stage, 
   ts1/ts2                           
   )
 ```
