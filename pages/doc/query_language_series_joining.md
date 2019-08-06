@@ -21,48 +21,44 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, which c
 A Wavefront time series is a sequence of timestamped points that is identified by a unique combination of metadata:
 * A metric name, for example, `cpu.load` 
 * A source name, for example, `host-1`
-* 0 or more point tags (key value pairs), for example, `dc=Oregon stage=prod service=shopping`
+* 0 or more point tags (key value pairs), for example, `env=prod dc=Oregon`
  
 A `join()` operation views every time series as a row in a table that has a column for each metadata value. We have a separate table for each metric name. Below is a table showing 6 time series for a metric called `cpu.load`. (In the doc, we added a row # so we can easily refer to individual time series in later examples.)
 <table>
 <colgroup>
 <col width="8%" />
 <col width="15%" />
+<col width="15%" />
 <col width="10%" />
-<col width="15%" />
-<col width="15%" />
 <col width="17%" />
-<col width="20%" />
+<col width="25%" />
 </colgroup>
 <thead>
-<tr><th markdown="span">_Row #_</th><th>metric</th><th>source</th><th markdown="span">dc=</th><th markdown="span">stage=</th><th markdown="span">service=</th><th markdown="span">_Data Points_</th></tr>
+<tr><th markdown="span">_Row #_</th><th>metric</th><th>source</th><th markdown="span">env=</th><th markdown="span">dc=</th><th markdown="span">_Data Points_</th></tr>
 </thead>
 <tbody>
 <tr>
 <td markdown="span">L1</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-1</td>
-<td markdown="span">Oregon</td>
 <td markdown="span">prod</td>
-<td markdown="span">shopping</td>
+<td markdown="span">Oregon</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">L2</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-2</td>
-<td markdown="span">Oregon</td>
 <td markdown="span">dev</td>
-<td markdown="span">shopping</td>
+<td markdown="span">Oregon</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">L3</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-3</td>
-<td markdown="span">Oregon</td>
 <td markdown="span">prod</td>
-<td markdown="span">checkout</td>
+<td markdown="span">Oregon</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 
@@ -70,9 +66,8 @@ A `join()` operation views every time series as a row in a table that has a colu
 <td markdown="span">L4</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-1</td>
-<td markdown="span">NY</td>
 <td markdown="span">prod</td>
-<td markdown="span">shopping</td>
+<td markdown="span">NY</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 
@@ -80,18 +75,16 @@ A `join()` operation views every time series as a row in a table that has a colu
 <td markdown="span">L5</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-2</td>
+<td markdown="span">test</td>
 <td markdown="span">NY</td>
-<td markdown="span">dev</td>
-<td markdown="span">shopping</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 <tr>
 <td markdown="span">L6</td>
 <td markdown="span">cpu.load</td>
 <td markdown="span">host-3</td>
-<td markdown="span">NY</td>
 <td markdown="span">prod</td>
-<td markdown="span">checkout</td>
+<td markdown="span">NY</td>
 <td markdown="span">(timestamp:value, ...)</td>
 </tr>
 </tbody>
@@ -104,13 +97,13 @@ The time series for `request.rate` do not use the `dc` point tag, so the table d
 <colgroup>
 <col width="8%" />
 <col width="15%" />
-<col width="10%" />
 <col width="15%" />
+<col width="10%" />
 <col width="17%" />
 <col width="25%" />
 </colgroup>
 <thead>
-<tr><th markdown="span">_Row #_</th><th>metric</th><th>source</th><th markdown="span">stage=</th><th markdown="span">service=</th><th markdown="span">_Data Points_</th></tr>
+<tr><th markdown="span">_Row #_</th><th>metric</th><th>source</th><th markdown="span">env=</th><th markdown="span">service=</th><th markdown="span">_Data Points_</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -160,7 +153,7 @@ Like SQL JOIN, the Wavefront `join()` function examines rows from two time-serie
 For example, consider the following `join()` function, which correlates rows from the two tables above:
 
 ```
-join(ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, stage, service), metric='cpuPerRequest', source=ts1.source, service=ts1.service, ts1/ts2)
+join(ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, env), metric='cpuPerRequest', source=ts1.source, env=ts1.env, ts1/ts2)
 ```
 
 Let's split out the `join()` parameters into separate expressions to see what they do:
@@ -169,9 +162,9 @@ Let's split out the `join()` parameters into separate expressions to see what th
 join(
   ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2                  <== Join Input and Type
   
-  USING(source, stage, service),                                          <== Join Condition
+  USING(source, env),                                                     <== Join Condition
 
-  metric='cpuPerRequest', source=ts1.source, service=ts1.service,         <== Output Metadata
+  metric='cpuPerRequest', source=ts1.source, env=ts1.env,                 <== Output Metadata
 
   ts1/ts2                                                                 <== Output Data Expression
   )
@@ -185,30 +178,31 @@ join(
 * ts() expressions specify the time series in a left-hand table (e.g., `ts(cpu.load)`) and a right-hand table (e.g., `ts(request.rate)`). 
 * Either or both ts() expressions can include filters, equivalent to SQL `WHERE`. For example, `ts(cpu.load, dc!=Texas)`
 * `AS` keyword assigns an alias to each table. For example, `ts1` is the alias for `ts(cpu.load)`. 
-* The join type (e.g., `INNER JOIN`) controls which rows are tested against the join condition.
+* `INNER JOIN` is one of 4 [join types](#join-types). The join type determines which rows are tested against the join condition.
 
 ### Join Condition
 
-```USING(source, stage, service),```
+```USING(source, env),```
 
-* Specifies the columns to use when testing for correlated rows. Rows satisfy the condition if they share a common value in each listed column. For example, two rows match if they both have `source=host-1`, `stage=prod`, and `service=shopping`.
-* Alternative syntax with alias-qualified column names: `ON ts1.source=ts2.source, ts1.stage=ts2.stage, ts1.service=ts2.service,`
+* Specifies the columns to use when testing for correlated rows. Rows satisfy the condition if they share a common value in each listed column. For example, two rows match if they both have `source=host-1` and `env=prod`.
+* Alternative syntax with alias-qualified column names: `ON ts1.source=ts2.source, ts1.env=ts2.env`
 * `ON` clause supports other kinds of condition expressions, e.g, `ON ts1.source!=web*` 
 
 ### Output Metadata Expression
 
-```metric='cpuPerRequest', source=ts1.source, service=ts1.service,```
+```metric='cpuPerRequest', source=ts1.source, env=ts1.env,```
 
 * Like SQL `SELECT`. 
-* List of columns and values to include from either or both rows. Use `metric=` to specify the metric name for the new time series. Use table aliases to qualify column names.
-* Determines the metadata for the new time series.
+* Specifies the metadata for the new time series. Includes expressions that specify column names, and that select values from the correlated rows. For example:
+  - `metric=cpuPerRequest` specifies the metric name for the new time series. 
+  - `env=ts1.env` adds a point tag called `env` and assigns it the value of `ts1.env`. 
+* Table aliases indicate where point-tag values come from. For example, `ts1.env` obtains the `env` value from rows in the left-hand table.
 <!---* Can omit all metadata to let a `_discriminant` column differentiate the resulting time series.-->
 
 ### Output Data Expression
 
 ```ts1/ts2 ```
 
-<!--- Need to change example to include {ts2 | 1} to make left/right joins work ok. Or better yet, don't do division and use {ts2 | 0}---> 
 * Derives the data points for the new time series from the data points of matching input rows. 
 * Can include operators `+ - / *` or functions `max()`, `min()`, `avg()`, `median()`, `sum()`, `count()`.  
 * Interpolates values if their timestamps do not line up.
@@ -256,18 +250,67 @@ Like SQL JOIN, the Wavefront `join()` function supports different types of join 
 
 ## Inner Join Example
 
-Suppose you want to divide CPU load by the number of requests per second on each source that runs a production service. You perform an inner join to identify any pairs of series that are both emitted from the same source and that both share the `stage=prod` point tag. 
+Suppose you want to divide CPU load by the number of requests per second on each source that runs a production service. You perform an inner join to identify any pairs of series that are both emitted from the same source and that are in the same env (`prod` or `dev`). 
 
 ```
 join(
-  ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, stage), 
-  metric='cpuPerRequest', source=ts1.source, stage=ts1.stage, 
+  ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, env), 
+  metric='cpuPerRequest', source=ts1.source, env=ts1.env, 
   ts1/ts2                           
   )
 ```
+<table width="100%">
+<colgroup>
+<col width="5%" />
+<col width="40%" />
+<col width="50%" />
+<col width="5%" />
+</colgroup>
 
+<thead>
+<tr><th markdown="span">_Row #_</th><th>Series</th><th>Joined With</th><th markdown="span">_Row #_</th></tr>
+</thead>
+<tbody>
+
+<tr>
+<td markdown="span">L1</td>
+<td><code>cpu.load host=host-1 env=prod dc=Oregon </code></td>
+<td><code>request.rate host=host-1 env=prod service=shopping</code></td>
+<td markdown="span">R1</td>
+</tr>
+<tr>
+<td markdown="span">L2</td>
+<td><code>cpu.load host=host-2 env=dev dc=Oregon</code></td>
+<td><code>request.rate host=host-2 env=dev service=shopping</code></td>
+<td markdown="span">R2</td>
+</tr>
+<tr>
+<td markdown="span">L3</td>
+<td><code>cpu.load host=host-3 env=prod dc=Oregon</code></td>
+<td><code>request.rate host=host-3 env=prod service=checkout</code></td>
+<td markdown="span">R3</td>
+</tr>
+<tr>
+<td markdown="span">L4</td>
+<td><code>cpu.load host=host-1 env=prod dc=NY</code></td>
+<td><code>request.rate host=host-1 env=prod service=shopping</code></td>
+<td markdown="span">R1</td>
+</tr>
+
+<tr>
+<td markdown="span">L6</td>
+<td><code>cpu.load host=host-3 env=prod dc=NY</code></td>
+<td><code>request.rate host=host-3 env=prod service=checkout</code></td>
+<td markdown="span">R3</td>
+</tr>
+</tbody>
+</table>
 
 <!---  
+## Left Join Example
+
+Need to change example to include {ts2 | 1} to make left/right joins work ok. 
+
 
 Assume you enter the following ts() expression
 
@@ -350,38 +393,38 @@ The following series are returned by the first part of the query, `(cpu.idle) > 
 <table>
 <tbody>
 <thead>
-<tr><th width="30%">Source</th><th width="35%">Datacenter</th><th width="35%">Stage</th></tr>
+<tr><th width="30%">Source</th><th width="35%">Datacenter</th><th width="35%">env</th></tr>
 </thead>
 <tr>
 <td>host-1</td>
 <td>&lbrack;dc=Oregon&rbrack;</td>
-<td>&lbrack;stage=prod&rbrack;</td>
+<td>&lbrack;env=prod&rbrack;</td>
 </tr>
 <tr>
 <td>host-2</td>
 <td>&lbrack;dc=Oregon&rbrack;</td>
-<td>&lbrack;stage=prod&rbrack;</td>
+<td>&lbrack;env=prod&rbrack;</td>
 </tr>
 <tr>
 <td>host-3</td>
 <td>&lbrack;dc=Oregon&rbrack;</td>
-<td>&lbrack;stage=test&rbrack;</td>
+<td>&lbrack;env=test&rbrack;</td>
 </tr>
 <tr>&nbsp;</tr>
 <tr>
 <td>host-1</td>
 <td>&lbrack;dc=NY&rbrack;</td>
-<td>&lbrack;stage=prod&rbrack;</td>
+<td>&lbrack;env=prod&rbrack;</td>
 </tr>
 <tr>
 <td>host-2</td>
 <td>&lbrack;dc=NY&rbrack;</td>
-<td>&lbrack;stage=prod&rbrack;</td>
+<td>&lbrack;env=prod&rbrack;</td>
 </tr>
 <tr>
 <td>host-3</td>
 <td>&lbrack;dc=NY&rbrack;</td>
-<td>&lbrack;stage=test&rbrack;</td>
+<td>&lbrack;env=test&rbrack;</td>
 </tr>
 </tbody>
 </table>
@@ -391,32 +434,32 @@ The following series are returned by the second part of the query, `(build.versi
 <table>
 <tbody>
 <thead>
-<tr><th width="50%">Source</th><th width="50%">Stage</th></tr>
+<tr><th width="50%">Source</th><th width="50%">env</th></tr>
 </thead>
 <tr>
 <td>host-1</td>
-<td>&lbrack;stage=prod&rbrack;</td>
+<td>&lbrack;env=prod&rbrack;</td>
 </tr>
 <tr>
 <td>host-1</td>
-<td>&lbrack;stage=dev&rbrack;</td>
+<td>&lbrack;env=dev&rbrack;</td>
 </tr>
 <tr>
 <td>host-2</td>
-<td>&lbrack;stage=prod&rbrack;</td>
+<td>&lbrack;env=prod&rbrack;</td>
 </tr>
 <tr>&nbsp;</tr>
 <tr>
 <td>host-2</td>
-<td>&lbrack;stage=dev&rbrack;</td>
+<td>&lbrack;env=dev&rbrack;</td>
 </tr>
 <tr>
 <td>host-3</td>
-<td>&lbrack;stage=test&rbrack;</td>
+<td>&lbrack;env=test&rbrack;</td>
 </tr>
 <tr>
 <td>host-3</td>
-<td>&lbrack;stage=dev&rbrack;</td>
+<td>&lbrack;env=dev&rbrack;</td>
 </tr>
 </tbody>
 </table>
@@ -427,7 +470,7 @@ In this example, while there is a host-1 on both sides of the operation, the fir
 
 You can use the `by` query language keyword to specify the point tag(s) to map by. For the example above, you can expand the query as follows:
 
-`(ts(cpu.idle) > 50) and by (stage, source) (ts(build.version) = 10000)`
+`(ts(cpu.idle) > 50) and by (env, source) (ts(build.version) = 10000)`
 
 With this addition, the query returns the following 6 series, joined with the elements on the right.
 
@@ -437,28 +480,28 @@ With this addition, the query returns the following 6 series, joined with the el
 <tr><th width="60%">Series</th><th width="40%">Joined With</th></tr>
 </thead>
 <tr>
-<td><code>cpu.idle host="host-1" dc=Oregon stage=prod</code></td>
-<td><code>build.version host="host-1" stage=prod</code></td>
+<td><code>cpu.idle host="host-1" dc=Oregon env=prod</code></td>
+<td><code>build.version host="host-1" env=prod</code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host="host-2" dc=Oregon stage=prod</code></td>
-<td><code>build.version host="host-2" stage=prod</code></td>
+<td><code>cpu.idle host="host-2" dc=Oregon env=prod</code></td>
+<td><code>build.version host="host-2" env=prod</code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host="host-3" dc=Oregon stage=test</code></td>
-<td><code>build.version host="host-3" stage=test</code></td>
+<td><code>cpu.idle host="host-3" dc=Oregon env=test</code></td>
+<td><code>build.version host="host-3" env=test</code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host="host-1" dc=ny stage=prod </code></td>
-<td><code>build.version host="host-1" stage=prod </code></td>
+<td><code>cpu.idle host="host-1" dc=ny env=prod </code></td>
+<td><code>build.version host="host-1" env=prod </code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host="host-2" dc=ny stage=prod </code></td>
-<td><code>build.version host="host-2" stage=prod </code></td>
+<td><code>cpu.idle host="host-2" dc=ny env=prod </code></td>
+<td><code>build.version host="host-2" env=prod </code></td>
 </tr>
 <tr>
-<td><code>cpu.idle host="host-3" dc=ny stage=test</code></td>
-<td><code>build.version host="host-3" stage=test</code></td>
+<td><code>cpu.idle host="host-3" dc=ny env=test</code></td>
+<td><code>build.version host="host-3" env=test</code></td>
 </tr>
 </tbody>
 </table>
