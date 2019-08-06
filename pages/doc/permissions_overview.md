@@ -23,7 +23,7 @@ The following list gives an overview of permissions. To learn more click the lin
 - **[Events](events.html)** - Users with Events permission can create, manage, and close user events and manage event tags.
 - **[External Links](external_links_managing.html)** - Users with External Links permission can create, update, and delete external links.
 - **[Integration](integrations.html)** - Users with Integration permission can install and uninstall integration dashboards, alerts, etc.
-- **[Metrics](metrics_managing.html)** - Users with Metrics permission can manually hide and unhide metrics and metric prefixes. Hidden metrics are no longer displayed in the Metrics browser and in the query autocomplete dropdown.
+- **[Metrics](metric_types.html)** - Users with Metrics permission can manually hide and unhide metrics and metric prefixes. Hidden metrics are no longer displayed in the Metrics browser and in the query autocomplete dropdown.
 - **[Proxies](proxies_installing.html#managing-proxy-services)** - Users with Proxies permission can view, create, and manage proxies and set up external integrations with AWS and other cloud services.
 - **[Derived Metrics](derived_metrics.html)** - Users with Derived Metrics permission can create and manage registered queries. Derived metrics support reingesting a query.
 - **[Source Tags](sources_managing.html)** - Users with Source Tag permission can manage sources and source tags.

@@ -18,7 +18,7 @@ See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and
 
 You use tags in several ways:
 * **[Point tags](query_language_point_tags.html)** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
-* **[Source tags](source_tags.html)** -- Group your sources. For example, examine only production hosts but not development hosts.
+* **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
   **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
 * **Alert tags** -- Find [alerts](alerts.html) or exclude tagged alerts from a maintenance window.
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
@@ -52,7 +52,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <tr>
 <td>source tag</td>
 <td>Filter sources.</td>
-<td markdown="span">[Add source tags ](source_tags.html) using API, CLI, or UI. </td>
+<td markdown="span">Add source tags using API, CLI, or UI (discussed below). </td>
 <td markdown="span">[Select only tagged sources](query_language_reference.html#tags-in-queries) in your query.</td>
 </tr>
 <tr>

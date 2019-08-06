@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_format.html
 summary: Syntax and parameters of the Wavefront native data format.
 ---
-The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This is a reference to the Wavefront data format. See [Wavefront Data Naming](wavefront_data_naming.html) for additional best practices.
+The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This page is a reference to the Wavefront data format. See [Wavefront Data Naming](wavefront_data_naming.html) for best practices.
 
 ## Supported Data Formats for Metrics
 
@@ -28,7 +28,7 @@ Here's the Wavefront data format for metrics.
 
 `<metricName> <metricValue> [<timestamp>] source=<source> [pointTags]`
 
-Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A). See the table below for details about each parameter. 
+Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A). See the **Data Format Fields** table below for details about each parameter.
 
 ### Histograms
 
@@ -124,13 +124,13 @@ Follow best practices for improved query execution speed and meaningful results.
 
 * Make the metrics the most stable part of your data:
   - Do not include source names in the metric name. Wavefront captures sources separately.
-  - Do not include data or timestamps in the metric name. Each point has an associated time stamp.
+  - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
 * Aim for a metric hierarchy:
   - Partition the top level of the metric hierarchy by including at least one dot.
   - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
 * For best performance, keep the number of distinct time series per metric and host to under 1000.
 
-See [Wavefront Data Naming](wavefront_data_naming.html) for a more detailed discussion.
+See [Wavefront Data Naming](wavefront_data_naming.html) for a more best practices.
 
 
 ## Valid and Invalid Metrics Examples

@@ -81,7 +81,7 @@ We've prepared the following doc pages for the new UI. These pages are not yet i
 * [Create and Customize Dashboards](ui_dashboards_v2.html)
 * [Create and Customize Charts](ui_charts_v2.html)
 * [Chart Reference](ui_chart_reference_v2.html)
-* [Chart Builder](query_builder_v2.html)
+* [Chart Builder](chart_builder.html)
 
 ## Chart FAQs
 
@@ -122,7 +122,7 @@ A. Use the eye icon on the right to deselect (hide) or show the results of a que
 
 ### Q: How can I create an embedded chart in v2?
 
-[Embedded charts](ui_sharing.html#embed-a-chart-in-other-uis) allow you to make a chart available outside Wavefront. We currently don't support this functionality for v2, but all your existing embedded charts will continue to work. 
+[Embedded charts](ui_sharing.html#embed-a-chart-in-other-uis) allow you to make a chart available outside Wavefront. We currently don't support this functionality for v2, but all your existing embedded charts will continue to work.
 
 ## Dashboard FAQ
 

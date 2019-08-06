@@ -11,7 +11,7 @@ You can prevent alerts from firing by using one of the following techniques:
 
 * To disable alert checking immediately, you can snooze an alert.
 * To disable alerts from firing for a set of sources or alerts during a custom time window, you can create a maintenance window.
-* To prevent an alert from ever firing for a set of sources, you can configure the alert condition to exclude those sources. 
+* To prevent an alert from ever firing for a set of sources, you can configure the alert condition to exclude those sources.
 * To prevent an alert from firing outside of certain hours, you can [alert only between specific times](alerts_recipes.html#alert-only-between-specific-times).
 
 
@@ -77,10 +77,10 @@ To create a maintenance window:
     </tr>
     <tr>
     <td>Affected Alerts and Sources</td>
-    <td>The alerts to be suppressed during the maintenance window. You must specify at least one alert tag, source, or source tag. 
+    <td>The alerts to be suppressed during the maintenance window. You must specify at least one alert tag, source, or source tag.
     <ul>
     <li>Specify one or more alert tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Alert Tags</strong> field to suppress any alert that has a matching alert tag.</li>
-    <li>Specify one or more source tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Source Tags</strong> field to suppress any alert that would have met its alert condition on a source that has a matching source tag. </li> 
+    <li>Specify one or more source tags or <a href="tags_overview.html">tag paths</a> in the <strong>Affected Source Tags</strong> field to suppress any alert that would have met its alert condition on a source that has a matching source tag. </li>
     <li>Specify one or more source names in the <strong>Affected Sources</strong> field to suppress any alert that would have met its alert condition on a matching source.  </li>
     </ul>
     You can omit alert tags to prevent any alert from firing on a specified source.
@@ -93,12 +93,12 @@ To create a maintenance window:
 
 ### Example
 
-Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#organizing-related-alerts-with-alert-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on. 
+Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#organizing-related-alerts-with-alert-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
 
 To suppress the example alerts, you create a maintenance window as shown above, and fill in `Affected Alerts and Sources` according to your use case:
 
 * To suppress all of the example alerts from firing on any source:
-  - In **Affected Alert Tags**, specify the tag path `example.*`. 
+  - In **Affected Alert Tags**, specify the tag path `example.*`.
 
 * To suppress just the example production alerts from firing on the source named `app-1`:
   - In **Affected Alert Tags**, specify the tag path `example.*.prod`.
@@ -140,10 +140,10 @@ To edit or delete a maintenance window, select the three dots on the left and cl
 
 ## Excluding Sources from an Alert
 
-You can exclude sources from an alert by configuring the alert condition so that it filters out source tags that are associated with the sources to be skipped. Doing so prevents the metrics on the source from triggering the alert. 
+You can exclude sources from an alert by configuring the alert condition so that it filters out source tags that are associated with the sources to be skipped. Doing so prevents the metrics on the source from triggering the alert.
 
 Suppose an alert condition tests the metrics that flow from sources `app-1`, `app-2`, ..., `app-10`. You decide to decommission `app-2` and replace it with a new `app-11`. The following steps cause the alert to filter out the metrics from the decommissioned source:
 
-1. [Add a source tag](source_tags.html) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
+1. [Add a source tag](tags_overview.html#add-source-tags) such as `decommissioned` to `app-2` when you are ready to take that source out of service.
 2. Modify the alert condition to include `and not tag=decommissioned`, for example:
   ```ts(~sample.cpu.usage.percentage, source=app-* and not tag=decommissioned) > .5 ```

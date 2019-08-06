@@ -25,12 +25,12 @@ You can view and manage sources from the source browser. It is possible to hide 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To browse and manage source</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong></li>
+<li>Select <strong>Browse > Sources</strong>.</li>
 <li>Use the options on the left to narrow down your search.</li></ol></td>
-<td width="60%"><img src="/images/browse_sources.png" alt="browse sources"></td>
+<td width="50%"><img src="/images/browse_sources.png" alt="browse sources"></td>
 </tr>
 </tbody>
 </table>
@@ -42,14 +42,14 @@ Source descriptions are a great way to add details, such as the role, availabili
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
-<strong>To add or edit a source description</strong>
+<td width="50%">
+<strong>To add or edit a source description:</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong></li>
-<li>Select a source</li>
-<li>Click <strong>Add a Description</strong></li></ol>
+<li>Select <strong>Browse > Sources</strong>.</li>
+<li>Select a source.</li>
+<li>Click <strong>Add a Description</strong>.</li></ol>
 All users can now view the description. </td>
-<td width="60%"><img src="/images/add_source_description.png" alt="add a source description"></td>
+<td width="50%"><img src="/images/add_source_description.png" alt="add a source description"></td>
 </tr>
 </tbody>
 </table>
@@ -64,12 +64,12 @@ With more and more companies using dynamic services such as AWS, it's typical to
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To hide one or more sources:</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong></li>
-<li>Select one or more sources and click <strong>Hide</strong></li></ol> </td>
-<td width="60%"><img src="/images/hide_sources.png" alt="hide sources"></td>
+<li>Select <strong>Browse > Sources</strong>.</li>
+<li>Select one or more sources and click <strong>Hide</strong>.</li></ol> </td>
+<td width="50%"><img src="/images/hide_sources.png" alt="hide sources"></td>
 </tr>
 </tbody>
 </table>
@@ -77,12 +77,12 @@ With more and more companies using dynamic services such as AWS, it's typical to
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="50%">
 <strong>To view hidden sources</strong>
 <ol>
-<li>Select <strong>Browse > Sources</strong></li>
+<li>Select <strong>Browse > Sources</strong>.</li>
 <li>Use the toggle in the top right of the Sources browser.</li></ol> </td>
-<td width="60%"><img src="/images/show_hidden_sources.png" alt="add a source description"></td>
+<td width="50%"><img src="/images/show_hidden_sources.png" alt="show hidden sources"></td>
 </tr>
 </tbody>
 </table>

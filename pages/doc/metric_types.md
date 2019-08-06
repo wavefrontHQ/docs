@@ -9,10 +9,10 @@ summary: Learn about the types of data Wavefront works with and where they're us
 
 Wavefront supports monitoring time series, histograms, and traces.
 * Each **time series** consists of numeric data points for a metric, for example, CPU load or failed network connections. Time series can use one of the [supported data formats](wavefront_data_format.html#supported-data-formats-for-metrics).
-   The type of data that you’re collecting determines the type of metric. Wavefront supports several metric types: gauges, counters, and delta counters.
+   The type of data that you’re collecting determines the type of metric. Wavefront supports gauges, counters, delta counters, and more.
 
-* **[Wavefront histograms](proxies_histograms.html)** let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure–-particularly those gathered across many distributed sources.
-* **[Distribued tracing](tracing_basics.html)** enables you to track the flow of work that is performed by an application as it processes a user request. We support the OpenTracing standard, and you can either visualize traces coming from a 3rd-party system such as Jaeger or Zipkin, or instrument your application for tracing using one of our SDKs.
+* **[Wavefront histograms](proxies_histograms.html)** let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure–-particularly metrics that are gathered across many distributed sources.
+* **[Distributed tracing](tracing_basics.html)** enables you to track the flow of work that is performed by an application as it processes a user request. We support the OpenTracing standard. You can either visualize and examine traces coming from a 3rd-party system such as Jaeger or Zipkin, or instrument your application for tracing using one of our SDKs.
 
 ## Summary of Metric Types
 
@@ -51,7 +51,7 @@ The following table gives an overview of metric types. We introduce each type in
 <tr>
 <td>Span</td>
 <td>Spans are the fundamental units of trace data. Each span corresponds to a distinct invocation of an operation that executes as part of the request.</td>
-<td> </td>
+<td>For example, in our BeachShirts sample application, we have the <code>beachshirts.shopping</code> operation, which includes many invocations of the <code>Printing.getAvailableColors</code> span. </td>
 </tr>
 
 </tbody>
@@ -91,7 +91,7 @@ The following illustration compares a counter and a delta counter.
 
 Wavefront can receive and store metrics at 1 point per second per unique source. However, some scenarios generate metrics even more frequently. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric, timestamp, and source. Using "normal” metrics, we can’t measure this.
 
-To address high frequency data, Wavefront supports histograms – a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy. Histograms are supported by Wavefront proxy 4.12 and later. To indicate that metrics should be treated as histogram data, the user must send the metrics to a histogram proxy port instead of the normal metrics port (2878).
+To address high frequency data, Wavefront supports histograms – a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy. Histograms are supported by Wavefront proxy 4.12 and later. [Wavefront Histograms](proxies_histograms.html) describes the histogram format, histogram ports, and some examples.
 
 ![histogram](images/histogram.png)
 
@@ -112,12 +112,12 @@ Use the Metrics Browser to see which metrics are available in your environment a
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="60%">
 <strong>To view, hide, and redisplay metrics</strong>
 <ol>
 <li>Select <strong>Browse > Metrics</strong></li>
 <li>Use the options on the left to narrow down your search.</li></ol></td>
-<td width="60%"><img src="/images/browse_metrics.png" alt="browse metrics"></td>
+<td width="40%"><img src="/images/browse_metrics.png" alt="browse metrics"></td>
 </tr>
 </tbody>
 </table>
@@ -135,7 +135,7 @@ You can _manually_ hide metrics from the Metrics browser and in the autocomplete
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="60%">
 <strong>To hide one or more metrics:</strong>
 <ol>
 <li>Select <strong>Browse > Metrics</strong></li>
@@ -149,7 +149,7 @@ You can _manually_ hide metrics from the Metrics browser and in the autocomplete
 </ul></li>
 <li>Press Enter to add the metric(s) to the list and click <strong>Save</strong>.</li>
 </ol> </td>
-<td width="60%"><img src="/images/viewing_hidden_metrics.png" alt="view hidden metrics"></td>
+<td width="40%"><img src="/images/hide_metrics.png" alt="hide metrics"></td>
 </tr>
 </tbody>
 </table>
@@ -157,15 +157,15 @@ You can _manually_ hide metrics from the Metrics browser and in the autocomplete
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">
+<td width="60%">
 <strong>To view hidden metrics:</strong>
 <ol>
 <li>Select <strong>Browse > Metrics</strong></li>
 <li>Click the <strong>Manage Hidden Metrics</strong> button.</li>
-<li>Click the <strong>Unhide</strong> button to the right of the metric or metric prefix to unhide.</li>
-<li>Click <strong>Save</strong>.</li>
-</ol> The selected metrics and metric prefixes appear again as long as they have had at least 1 reported data value in the last 4 weeks. Otherwise, these metric/metric prefixes are considered obsolete metrics and Wavefront hides them. You can show obsolete metrics for individual charts or alerts. </td>
-<td width="60%"><img src="images/viewing_hidden_metrics.png" alt="view hidden metrics"></td>
+<li>Click the <strong>Unhide</strong> button to the right of the metric or metric prefix to unhide and click <strong>Save</strong>.</li>
+</ol>
+The selected metrics and metric prefixes appear again as long as they have had at least 1 reported data value in the last 4 weeks. Otherwise, these metric/metric prefixes are considered obsolete metrics and Wavefront hides them. You can show obsolete metrics for individual charts or alerts. </td>
+<td width="40%"><img src="images/viewing_hidden_metrics.png" alt="view hidden metrics"></td>
 </tr>
 </tbody>
 </table>
