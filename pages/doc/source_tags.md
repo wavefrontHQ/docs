@@ -3,6 +3,7 @@ title: Managing Source Tags
 keywords:
 tags: [data, proxies]
 sidebar: doc_sidebar
+published: false
 permalink: source_tags.html
 summary: Learn about adding source tags from the UI, API, or CLI.
 ---
@@ -41,7 +42,7 @@ To add a source tag from the UI:
 1. Click **Browse>Sources**.
 2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
 
-## Adding Source Tags and Source Descriptions 
+## Adding Source Tags and Source Descriptions
 
 You can use the `SourceTag` and `SourceDescription` properties to add source tags and source descriptions before the metrics reach Wavefront. Starting with proxy version 4.24, you send these properties to the same listening port as regular metrics (`pushListenerPorts` setting, 2878 by default).
 

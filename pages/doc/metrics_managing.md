@@ -2,6 +2,7 @@
 title: Hiding and Unhiding Metrics
 keywords: metrics
 tags: [administration]
+published: false
 sidebar: doc_sidebar
 permalink: metrics_managing.html
 summary: Learn how to hide and redisplay metrics.

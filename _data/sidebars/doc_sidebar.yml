@@ -118,32 +118,34 @@ entries:
       url: /wavefront_data_ingestion.html
       output: web
 
-    - title: Wavefront Data Format
-      url: /wavefront_data_format.html
-      output: web
+      subfolders:
+      - title: Data Format and Elements
+        output: web
+        subfolderitems:
+
+        - title: Wavefront Data Format
+          url: /wavefront_data_format.html
+          output: web
+
+        - title: Metrics
+          url: /metric_types.html
+          output: web
+
+        - title: Sources
+          url: /sources_managing.html
+          output: web
+
+        - title: Tags
+          url: /tags_overview.html
+          output: web
+
 
     - title: Wavefront Data Naming Best Practices
       url: /wavefront_data_naming.html
       output: web
 
-    - title: Wavefront Metric Types
-      url: /metric_types.html
-      output: web
-
-    - title: Hide and Unhide Metrics
-      url: /metrics_managing.html
-      output: web
-
-    - title: Organizing with Tags
-      url: /tags_overview.html
-      output: web
-
-    - title: Manage Source Tags
-      url: /source_tags.html
-      output: web
-
-    - title: Manage Sources
-      url: /sources_managing.html
+    - title: Wavefront Histograms
+      url: /proxies_histograms.html
       output: web
 
       subfolders:
@@ -185,10 +187,6 @@ entries:
 
         - title: Derived Metrics
           url: /derived_metrics.html
-          output: web
-
-        - title: Wavefront Histograms
-          url: /proxies_histograms.html
           output: web
 
         - title: Delta Counters
