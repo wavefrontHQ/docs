@@ -4,14 +4,12 @@ keywords: containers, kubernetes
 tags: [containers]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes.html
-summary: Monitor Kubernetes infrastructure and applications. Scale the Kubernetes deployment based on Wavefront metrics.
+summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in Wavefront.
 ---
 *Monitor* your Kubernetes environment at the infrastructure level and at the applications level with Wavefront Kubernetes Collector.
 
 * Monitor Kubernetes infrastructure metrics (containers, pods, etc.) from Wavefront dashboards -- and create alerts from those dashboards.
-* Automatically get metrics from many applications that support Telegraf.
-* Integrate with other applications that support Telegraf.
-* Automatically get metrics from Prometheus scraping.
+* Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
 
 *Scale* your Kubernetes environment based on any metrics that are available in Wavefront with the Wavefront Horizontal Pod Autoscaler Adapter.
 
@@ -23,24 +21,22 @@ In the following video, Pierre Tessier explains how this works.
 
 ## Kubernetes and Wavefront: Overview
 
-You can take advantage of our open-source collector in Github or the in-product integration:
-* The **Wavefront Kubernetes Collector** is [available on github](https://github.com/wavefrontHQ/wavefront-kubernetes-collector). The collector is highly customizable and includes [docs on Github](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/tree/master/docs)and examples for different use cases.
+You can use our open-source collector or the in-product integration:
+* The **Wavefront Kubernetes Collector** is [available on GitHub](https://github.com/wavefrontHQ/wavefront-kubernetes-collector). The collector is highly customizable and includes [docs on GitHub](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/tree/master/docs)and examples for different use cases.
 
-* The Wavefront **Kubernetes integration** is available in your Wavefront instance. You can [preview the setup steps here.](kubernetes.html). The integration is  a great way to get your data flowing and includes predefined dashboards for commonly used metrics. For further customization, you can use the files in the Github repository.
+* The Wavefront **Kubernetes integration** is available in your Wavefront instance. You can [preview the setup steps here.](kubernetes.html). The integration is a great way to get data flowing and includes predefined dashboards for commonly used metrics. For further customization, you can use the files in the GitHub repository.
 
-The Wavefront Kubernetes solution supports automatic annotation and configuration based on auto discovery of pods and services. The collector runs as a daemonset and supports leader election.
+The Wavefront Kubernetes solution supports autodiscovery of pods and services based on annotations and configuration rules. The collector runs as a daemonset for high scalability and supports leader election for monitoring cluster-level resources.
 
 * **Kubernetes infrastructure monitoring:** Monitor performance of the Kubernetes cluster and the state of the objects (pods, containers, etc) within the cluster using [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector).
 * **Host-level monitoring** Below the kubernetes infrastructure is the host or VM layer. The Wavefront Kubernetes Collector monitors that layer as well.
-* **Application monitoring:** The collector integrates with Telegraf, and automatically sets up monitoring for several popular applications. We also perform Kubernetes scraping for applications that use Kubernetes. You can customize the frequency and which metrics we collect.
+* **Application monitoring:** The collector integrates with Telegraf, and automatically sets up monitoring for several popular applications. We also get metrics from Prometheus endpoints. You can customize the Wavefront Kubernetes Collector with a [configuration file](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/configuration.md). For example, you can set collection frequency.
 
-**TBD: How do I know what we collect automatically? How do I customize frequency and what we collect? **
-
-You can set up scaling with the Wavefront Horizontal Autoscaler Adapter based on any metrics available in Wavefront. That means if your environment needs more (or fewer) resources, Wavefront can tell the Kubernetes Autoscaler to adjust the environment.
+To set up scaling based on any metrics available in Wavefront, use the Wavefront Horizontal Autoscaler Adapter. If your environment needs more (or fewer) resources, Wavefront can tell the Kubernetes Autoscaler to [adjust the environment].
 
 ## Kubernetes Monitoring with Wavefront
 
-The Wavefront Kubernetes Collector monitors your Kubernetes infrastructure at all levels of the stack. Much of the monitoring happens automatically after you've set up the integration - and fine-tuning and customizing the solution is straightforward.
+The Wavefront Kubernetes Collector monitors your Kubernetes infrastructure at all levels of the stack. Much of the monitoring happens automatically after you've set up the integration -- and fine-tuning and customizing the solution is straightforward.
 
 ### Kubernetes Infrastructure Monitoring
 
@@ -51,13 +47,13 @@ Depending on the selected setup, metrics are sent to a Wavefront proxy and from 
 
 ![kubernetes core monitoring](/images/kubernetes_core.png)
 
-As part of environment we use the daemonset and we support leader election to ensure all Kubernetes metrics become available from Wavefront.
+The collector runs as a daemonset for high scalability and supports leader election for monitoring cluster-level resources.
 
 ### Host-Level Monitoring
 
-The Wavefront Kubernetes collector supports automatic monitoring of host-level metrics and host-level systemd metrics. When you set up the collector in your environment, it auto-discovers pods and services and starts collecting host-level metrics from Telegraf.
+The Wavefront Kubernetes collector supports automatic monitoring of host-level metrics and host-level systemd metrics. When you set up the collector, it auto-discovers pods and services  in your environment and starts collecting host-level metrics.
 
-To make this possible, we support daemonset mode. Furthermore, you can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to Wavefront.
+You can [filter the metrics](https://github.com/wavefrontHQ/wavefront-kubernetes-collector/blob/master/docs/filtering.md) before they are reported to Wavefront.
 
 ### Application Monitoring
 
@@ -81,6 +77,6 @@ For example, you could scale based on networking or disk metrics, or any applica
 We support the following open-source Github repositories:
 
 -  **[wavefront-kubernetes-collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector)** Second-generation Kubernetes monitoring. Supports auto-discovery, scaling using daemonset, filtering, and more.
-- **[wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter)**
+- **[wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter)** Wavefront Kubernetes HPA (Horizontal Pod Autoscaler) adapter that implements the custom metrics (custom.metrics.k8s.io/v1beta1) and external metrics (external.metrics.k8s.io/v1beta1) APIs. The adapter can be used with the autoscaling/v2 HPA in Kubernetes 1.9+ to perform scaling based on any metrics available in Wavefront.
 - **[wavefront-kubernetes](https://github.com/wavefrontHQ/wavefront-kubernetes)** First-generation Kubernetes monitoring. Contains definitions and templates for monitoring Kubernetes using Wavefront. Supports only sending data to the Wavefront proxy (no direct ingestion support).
 - **[prometheus-storage-adapter](https://github.com/wavefrontHQ/prometheus-storage-adapter)** -- Usually used with our first-generation Kubernetes monitoring solution. The adapter forwards data it receives to a Wavefront proxy. It is useful when you want some control on how data collected by Prometheus are made available in  Wavefront. Our second-generation solution, the Wavefront Kubernetes Collector, automatically collects Prometheus metrics.
