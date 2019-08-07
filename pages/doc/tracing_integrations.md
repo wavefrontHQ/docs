@@ -89,7 +89,7 @@ to
 
 Wavefront generates custom tags for the specified keys at the proxy.
 
-**Note:** Be sure to index all custom tags. Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. 
+**Note:** For faster performance, index low-cardinality custom span tags (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See Indexed and Unindexed span tags for details. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
 
 ### Custom Application Names
 
