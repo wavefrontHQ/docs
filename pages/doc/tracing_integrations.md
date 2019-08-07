@@ -90,7 +90,9 @@ to
 
    `/etc/wavefront/wavefront-proxy/wavefront.conf`.
 
-Wavefront generates point tags for the specified keys at the proxy.
+Wavefront generates custom tags for the specified keys at the proxy.
+
+**Note:** Be sure to index all custom tags. Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. 
 
 ### Custom Application Names
 
