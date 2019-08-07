@@ -21,6 +21,7 @@ You use tags in several ways:
 * **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
   **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
 * **Alert tags** -- Find [alerts](alerts.html) or exclude tagged alerts from a maintenance window.
+* **Event Tags** -- Add event tags from the Events browser or when you [create a user event](events.html#creating-a-user-event) to make it easier to filter events. 
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
 
 You can use tags to filter alerts, dashboards, events, and sources from the Wavefront UI or with the REST API.
