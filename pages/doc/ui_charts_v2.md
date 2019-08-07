@@ -60,7 +60,7 @@ From the Data tab, every chart lets you fine-tune the metrics that come in and a
 
 ### Chart Builder
 
-[Wavefront Chart Builder](query_builder.html) lets you
+[Wavefront Chart Builder](chart_builder.html) lets you
 * Create a chart by selecting metrics or a chart type.
 * Select one or more metrics directly or start with an integration.
 * Specify filters and functions, e.g., to aggregate multiple time series.
@@ -71,7 +71,7 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 ### Query Editor
 
-Instead of using [Chart Builder](query_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
+Instead of using [Chart Builder](chart_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
 **Note**: After you switch, to Query Editor, you cannot return to Query Builder.
 
@@ -144,7 +144,7 @@ You have many options to make the legend display easy to find and understand.
 </tbody>
 </table>
 
-For details, see the [Chart Reference](ui_chart_reverence_v2.html).
+For details, see the [Chart Reference](ui_chart_reference_v2.html).
 
 ### Include Metrics That Stopped Reporting Over 4 Weeks Ago
 

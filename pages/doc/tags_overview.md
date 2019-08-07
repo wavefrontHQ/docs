@@ -12,13 +12,13 @@ Watch the following video for an introduction to point tags and source tags:
 <p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
 </p>
 
-See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming. 
+See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming.
 
 ## Why Tags?
 
 You use tags in several ways:
 * **[Point tags](query_language_point_tags.html)** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
-* **[Source tags](source_tags.html)** -- Group your sources. For example, examine only production hosts but not development hosts.
+* **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
   **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
 * **Alert tags** -- Find [alerts](alerts.html) or exclude tagged alerts from a maintenance window.
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
@@ -52,7 +52,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <tr>
 <td>source tag</td>
 <td>Filter sources.</td>
-<td markdown="span">[Add source tags ](source_tags.html) using API, CLI, or UI. </td>
+<td markdown="span">Add source tags using API, CLI, or UI (discussed below). </td>
 <td markdown="span">[Select only tagged sources](query_language_reference.html#tags-in-queries) in your query.</td>
 </tr>
 <tr>
@@ -90,11 +90,11 @@ In ts() and events() queries, you can filter:
 
 ## Tag Paths
 
-All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot (`.`), for example, `MyService.MyApp`. 
+All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot (`.`), for example, `MyService.MyApp`.
 
 Dashboards provided by Wavefront start with a tilde at the beginning of the tag, for example, `~welcome.`, `~integration.`, and `~system.`. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
 
-### Selecting and Searching Tag Paths
+### Select and Search Tag Paths
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example:
 * Select all Wavefront dashboards by clicking **wavefront**
@@ -106,13 +106,13 @@ When you create maintenance windows, you can use tag paths and wildcards to put 
 
 
 <a name="entity_tags"></a>
-## Managing Object Tags
+## Manage Object Tags
 
 Object tags apply to Wavefront objects: alerts, dashboards, events, and sources.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-### Adding Object Tags
+### Manage Object Tags
 
 To add tags to one or more objects:
 
@@ -129,18 +129,84 @@ To add tags to one or more objects:
 4. Type a tag name. Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (\_), and colon (:) characters. Tag names are *case sensitive*. For example, the tags `MyApp` and `myapp` are stored as distinct tags. However, mixed case tag paths are collapsed into one path; `MyService.myapp` and `myservice.myapp` are collapsed into `Myservice.myapp`.
 5. Click **Add**.
 
-### Searching for Object Tags
+### Search for Object Tags
 
 When you have many tags in your environment, you can search for tags by typing tag names in the Search box below the **Tags** heading in the filter bar on the left. As you type, the list of tags is filtered by the search string.
 
 **Note** When you search for tags, the search process is *case insensitive*. For example, searching for the tag `myapp` returns `MyApp` and `myapp`.
 
-### Filtering by Object Tags
+### Filter by Object Tags
 
 To filter by a tag, click a tag icon. You can click the icon in the filter bar on the left or below an object in an object browser.
 
-## Video: Organizing with Tags
+## Add Source Tags
 
-For an overview of how tags can help you organize your data and improve searches, watch this video:
-<p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=56c1fc0d-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_organize_tags.png" style="width: 700px;"/></a>
-</p>
+You can add source tags explicitly from the UI, CLI, or API.
+
+Here's some background info:
+* Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help.
+* Point tags are key-value pairs, in contrast, source tags are just strings -- you can only choose the value.
+* Your use case determines how to use source tags:
+  - Use a source tag hierarchy, that is, have source tags dot-delimited, for example `env.cluster.role.role1`.
+  In that case, your query might include `... and tag=env.cluster.role.*`
+  - Use source tags as intersection sets, that is, use multiple tags (e.g. `env`, `cluster`, `role`, etc).
+  In that case, your query might include`... and tag=env and tag=cluster`.
+
+
+### Add Source Tags from the API
+
+You can add source tags using the [Wavefront REST API](wavefront_api.html).  The API supports getting and setting source tag values.
+
+For details about the APIs, click the gear icon in your Wavefront instance and select **API Documentation**.
+
+### Add Source Tags from the UI
+
+To add a source tag from the UI:
+1. Click **Browse>Sources**.
+2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
+
+### Add SourceTag and SourceDescription Properties to Metrics
+
+You can use the `SourceTag` and `SourceDescription` properties to add source tags and source descriptions before the metrics reach Wavefront. Starting with proxy version 4.24, you send these properties to the same listening port as regular metrics (`pushListenerPorts` setting, 2878 by default).
+
+To send a source tag or source description to a proxy, you can include commands like a following:
+
+```
+@SourceTag action=save source=app-1 highPriority
+```
+
+<table>
+<thead>
+<tr>
+<th width="15%">Property</th>
+<th width="40%">Purpose</th>
+<th width="45%">Example </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SourceTag</td>
+<td>Save or delete a source tag. For example, you use this property to inject a source tag into a database on a host. Use <code>SourceTag</code> with <code>action=</code> and <code>source=</code> arguments.  NOTE: Use quotes if any of the values includes spaces or special characters.
+<ul>
+<li><code>action</code> is either save or delete.</li>
+<li><code>source</code> takes the source name as the first value, followed by a source tag to save or delete.</li>
+</ul>
+</td>
+<td>Ex:<code> &#64;SourceTag action=save source=host_42 db1</code>
+<div>Ex:<code> &#64;SourceTag action=delete source=host_42 sourceTag1</code></div>
+</td>
+</tr>
+<tr>
+<td>SourceDescription</td>
+<td>Save or delete a description on the specified source. You can use this property to add a description or delete an existing description. Use `SourceDescription` with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments. NOTE: Use quotes if any of the values includes spaces or special characters.
+<ul>
+<li><code>action</code> is either save or delete.</li>
+<li><code>source</code> takes the source as the first value, followed by a descriptor.</li>
+<li><code>description</code> allows you to specify a description for the tag.</li>
+</ul>
+</td>
+<td>Ex:<code>&#64;SourceDescription action=save source="sourceId" description=A Description</code>
+<div>Ex:<code>&#64;SourceDescription action=delete source="sourceId"</code></div></td>
+</tr>
+</tbody>
+</table>
