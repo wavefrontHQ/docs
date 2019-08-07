@@ -70,9 +70,9 @@ The `kube-state-metrics` service should now be running on your cluster.
   * [4-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/4-collector-daemonset.yaml)
 
 2. Edit `4-collector-daemonset.yaml` as follows:
-  1. Replace `clusterName=k8s-cluster` to uniquely identify your Kubernetes cluster.
-  2. If RBAC is disabled in your Kubernetes cluster, comment out `serviceAccountName: wavefront-collector`.
-  3. If the read-only kubelet port is disabled, replace the kubernetes source as follows:
+    1. Replace `clusterName=k8s-cluster` to uniquely identify your Kubernetes cluster.
+    2. If RBAC is disabled in your Kubernetes cluster, comment out `serviceAccountName: wavefront-collector`.
+    3. If the read-only kubelet port is disabled, replace the kubernetes source as follows:
 {% raw %}
 ```
 --source=kubernetes.summary_api:https://kubernetes.default.svc?useServiceAccount=true&kubeletHttps=true&kubeletPort=10250&insecure=true
