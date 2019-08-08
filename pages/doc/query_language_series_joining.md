@@ -211,10 +211,11 @@ join(
 
 * Derives the data points for each new time series from the data points of matching input rows. 
   - Table aliases indicate where the input data points come from. For example, `ts1` refers to the data points from a row in the left-hand table.
-  - Supports operators `+ - / *` or functions `max()`, `min()` to combine data points from both tables. For example, `ts1 / ts2` divides each value from a left-hand row by the corresponding value from the matching right-hand row. 
-  - Supports functions `max()`, `min()`, `avg()`, `median()`, `sum()`, `count()` to transform data points.  
-  - Interpolates values if their timestamps do not line up.
-* Requires special syntax for the output of outer join types. For example, `ts1 / {ts2|1}` says to divide by `1` when there is no matching row (and therefore no data points) from the right-hand table.
+* Supports operators `+ - / *` and functions `max()`, `min()`, `avg()`, `median()`, `sum()`, `count()` to combine data points from both tables. For example:
+  - `ts1 / ts2` divides each value from a left-hand row by the corresponding value from the matching right-hand row. 
+  - `avg(ts1, ts2)` averages each value from a left hand row with the corresponding value from the matching right-hand row.
+  - Values are interpolated if the timestamps do not line up.
+* Special syntax `{<alias> | N}` specifies the numeric constant to use in place of missing input data points. Required for outer joins. For example, `ts1 / {ts2|1}` says to divide by `1` when there is no matching row (and therefore no data points) from the right-hand table.
 
 ## Join Types 
 
