@@ -8,7 +8,7 @@ summary: Use relationships among your time series to build full stack correlatio
 ---
 
 You can use the `join()` function to: 
-* Compare two or more time series together and find matches, or, conversely, find the time series that do not match. 
+* Compare two or more time series and find matches, or, conversely, find the time series that do not match. 
 * Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
 
 <!--- Short list of simple why-you-care examples? --> 
@@ -23,7 +23,15 @@ A Wavefront `join()` views time series as tables and then operates on those tabl
 * A source name, for example, `host-1`
 * 0 or more point tags (key value pairs), for example, `env=prod dc=Oregon`
  
-A `join()` operation views every time series as a row in a table that has a column for each metadata value. We have a separate table for each metric name. The following table shows 6 time series for a metric called `cpu.load`. (**Note:** The doc shows row indicators like _L1_ so we can refer to specific time series in later examples. They're not part of the data!)
+A `join()` operation views every time series as a row in a table that has a column for each metadata value. In this model, we use a separate table for each metric name. 
+
+### Sample Time-Series Tables
+
+Suppose you are running services on several sources, and you want to use a Wavefront `join()` to correlate the CPU load with the number of service requests per second on each source. You identify the time series you want to correlate, and refer to them using the ts() expressions `ts(cpu.load)` and `ts(request.rate)`. Each ts() expression stands for a group of time series with different sources and point-tag values, and you want to use `join()` to identify any pairs of series that both flow from the same source, and share certain point-tag values.
+
+We represent the time series for each metric as rows in separate tables, which we will use for the various `join()` examples on this page. (**Note:** The doc uses row indicators like _L1_ so we can refer to specific time series in later examples. They're not part of the data!)
+
+The first table shows 6 time series that are described by `ts(cpu.load)`. Each series is a unique combination of metric name, source, and values for point tags `env` and `dc`: 
 
 <table id = "left-hand-table" width="100%">
 <colgroup>
@@ -92,7 +100,7 @@ A `join()` operation views every time series as a row in a table that has a colu
 </table>
 
 
-The following table shows 4 time series for a metric called `request.rate`. The points in these series are not associated with the `dc` point tag, so the table does not have a column for it. Instead, the table indicates that these series have a `service` point tag:
+The second table shows 4 time series that are described by `ts(request.rate)`. These series do not have the `dc` point tag, so the table does not have a column for it. Instead, these series have a `service` point tag:
 
 <table id = "right-hand-table" width="100%">
 <colgroup>
@@ -144,18 +152,19 @@ The following table shows 4 time series for a metric called `request.rate`. The 
 </tbody>
 </table>
 
-**Note:** The informal notation in the _Data Points_ column indicates that a time series' data points is an array of timestamped values.
+**Note:** The informal notation in the _Data Points_ column indicates that a time series' data points are an array of timestamped values.
 
 
 ## join() Syntax Overview
 
 Like SQL JOIN, the Wavefront `join()` function examines rows from two time-series tables, and determines whether any row from one table correlates with any row from the other. Two rows correlate if they both satisfy a join condition. All `join()` operations combine the correlated rows into new rows in a new table, and then return a new time series corresponding to each new row. (Some `join()` types also return time series for the non-correlated rows in one or both tables.)
 
-For example, consider the following `join()` function, which correlates rows from the two tables above:
+For example, suppose you want to divide the CPU load by the number of service requests per second on each production, development, or test source. The following `join()` function accomplishes this by correlating rows from [the two tables above](#sample-time-series-tables):
 
 ```
 join(ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2 USING(source, env), metric='cpuPerRequest', source=ts1.source, env=ts1.env, ts1 / ts2)
 ```
+
 
 Let's split out the `join()` parameters into separate expressions to see what they do:
 
@@ -172,15 +181,17 @@ join(
   )
 ```
 
+**Note:** For readability, we write the keywords in all caps, but that's not required.
+
 ### Join Input and Join Type
 
 ```ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2```
 
 * Like SQL `FROM`. 
-* ts() expressions specify the time series in a left-hand table (e.g., `ts(cpu.load)`) and a right-hand table (e.g., `ts(request.rate)`). 
+* ts() expressions specify the time series in a left table (e.g., `ts(cpu.load)`) and a right table (e.g., `ts(request.rate)`). 
 * Either or both ts() expressions can include filters, analogous to SQL `WHERE`. For example, `ts(cpu.load, dc!=Texas)`
 * `AS` assigns an alias to each table (required). For example, `ts1` is the alias for `ts(cpu.load)`. 
-* `INNER JOIN` is one of 4 [join types](#join-types). The join type provides rules for including rows in the result table.
+* `INNER JOIN` is one of 4 [join types](#join-types). The join type determines whether and how rows are included in the result table.
 
 ### Join Condition
 
@@ -189,9 +200,9 @@ join(
 
 * Syntax alternatives:  `USING` or `ON` 
 * `USING` lists the columns to use when testing for correlated rows: `USING(source, env)`
-  - Rows satisfy the condition if they share a common value in each listed column. For example, two rows match if they both have `source="host-1"` and `env="prod"`.
+  - Rows satisfy the condition if they share a common value in _each_ listed column. For example, two rows match if they both have `source="host-1"` and `env="prod"`.
 * `ON` specifies explicit condition predicates: `ON ts1.source=ts2.source, ts1.env=ts2.env`
-  - Predicates use table aliases to qualify column names. For example, `ts1.env=ts2.env` compares `env` values from the left-hand table to `env` values from the right-hand table.
+  - Predicates use table aliases to qualify column names. For example, `ts1.env=ts2.env` compares `env` values from the left table to `env` values from the right table.
   - Predicates can include pattern matches, negation, parentheses, and constants. For example, `ON ts1.source!="web*"` 
 
 ### Output Metadata
@@ -202,20 +213,20 @@ join(
 * Optional list of expressions that specify the metadata for the result time series. Metadata expressions name the columns in the result table, and assign values to them. For example:
   - `metric=cpuPerRequest` specifies the metric name. 
   - `env=ts1.env` adds a column for a point tag called `env` and assigns it the value of `ts1.env`. 
-* Table aliases indicate where point-tag values come from. For example, `ts1.env` gets `env` values from rows in the left-hand table.
-* Omitting these expressions introduces a column called `_discriminant` to differentiate the resulting time series.
+* Table aliases indicate where point-tag values come from. For example, `ts1.env` gets `env` values from rows in the left table.
+* Omitting these expressions introduces a column for a point tag called `_discriminant` to differentiate the resulting time series.
 
 ### Output Data Expression
 
 ```ts1 / ts2 ```
 
 * Derives the data points for each new time series from the data points of matching input rows. 
-  - Table aliases indicate where the input data points come from. For example, `ts1` refers to the data points from a row in the left-hand table.
+  - Table aliases indicate where the input data points come from. For example, `ts1` refers to the data points from a row in the left table.
 * Supports operators `+ - / *` and functions `max()`, `min()`, `avg()`, `median()`, `sum()`, `count()` to combine data points from both tables. For example:
   - `ts1 / ts2` divides each value from a left-hand row by the corresponding value from the matching right-hand row. 
-  - `avg(ts1, ts2)` averages each value from a left hand row with the corresponding value from the matching right-hand row.
+  - `avg(ts1, ts2)` averages each value from a left-hand row with the corresponding value from the matching right-hand row.
   - Values are interpolated if the timestamps do not line up.
-* Special syntax `{<alias> | N}` specifies the numeric constant to use in place of missing input data points. Required for outer joins. For example, `ts1 / {ts2|1}` says to divide by `1` when there is no matching row (and therefore no data points) from the right-hand table.
+* Special syntax `{<alias> | N}` specifies the numeric constant to use in place of missing input data points. Required for outer joins. For example, `ts1 / {ts2|1}` says to divide by `1` when there is no matching row (and therefore no data points) from the right table.
 
 ## Join Types 
 
@@ -238,12 +249,12 @@ Like SQL JOIN, the Wavefront `join()` function supports different types of join 
 </tr>
 <tr>
 <td markdown="span">![left join](images/ts_join_venn_left_outer.png)</td>
-<td markdown="span" style="vertical-align:middle">Include all rows from the left-hand table, and include rows from the right-hand table only if they satisfy a specified join condition. <br><br>Keywords: LEFT JOIN | LEFT OUTER JOIN
+<td markdown="span" style="vertical-align:middle">Include all rows from the left table, and include rows from the right table only if they satisfy a specified join condition. <br><br>Keywords: LEFT JOIN | LEFT OUTER JOIN
 </td>
 </tr>
 <tr>
 <td markdown="span">![right join](images/ts_join_venn_right_outer.png)</td>
-<td markdown="span" style="vertical-align:middle">Include all rows from the right-hand table, and include rows from left-hand table only if they satisfy a specified join condition. <br><br>Keywords: RIGHT JOIN | RIGHT OUTER JOIN
+<td markdown="span" style="vertical-align:middle">Include all rows from the right table, and include rows from left table only if they satisfy a specified join condition. <br><br>Keywords: RIGHT JOIN | RIGHT OUTER JOIN
 </td>
 </tr>
 <tr>
@@ -260,7 +271,7 @@ Like SQL JOIN, the Wavefront `join()` function supports different types of join 
 
 ## Inner Join Example
 
-Suppose you have the time series in the [tables above](#time-series-as-tables), and you want to divide the CPU load by the number of service requests per second on each production, development, or test source. You perform an inner join to identify any pairs of series that both flow from the same source and run in the same environment. 
+Suppose you have the time series in the [tables above](#sample-time-series-tables), and you want to divide the CPU load by the number of service requests per second on each production, development, or test source. You perform an inner join to identify any pairs of series that both flow from the same source and run in the same environment. 
 
 ```
 join(
@@ -274,7 +285,7 @@ join(
 <br>
 **Row Selection**
 
-The inner join matches rows (time series) from the [left-hand table](#left-hand-table) and [right-hand table](#right-hand-table) above, based on the values for the `source` and `env` columns. The following table shows the particular rows that match up. 
+The inner join matches rows (time series) from the [left table](#left-hand-table) and [right table](#right-hand-table) above, based on the values for the `source` and `env` columns. The following table shows the particular rows that match up. 
 
 
 <table width="100%">
@@ -324,13 +335,13 @@ The inner join matches rows (time series) from the [left-hand table](#left-hand-
 </tbody>
 </table>
 
-**Note:** Rows _L5_ and _R4_ do not appear in this table because an inner join returns only the rows that satisfy the the join condition. So we ignore any series from one table that is not matched by a series in the other table.  
+**Note:** Rows _L5_ and _R4_ do not appear in this table because an inner join returns only the rows that satisfy the join condition. So we ignore any series from one table that is not matched by a series in the other table.  
 
 <!--- ### Selected Rows are Input for the Result Series --->
 <br>
 **Metadata from Input Rows**
 
-Each pair of matching rows in the previous table is the input for constructing a new time series to be returned by the inner join. The following table has a row representing the metadata for each new time series, as specified by the output metadata expressions in the function. For example, row _A4_ corresponds to a new series that has the metric name `cpuPerRequest`, `source` and `env` values from _L4_, and the `service` value from _R1_. 
+Each pair of matching rows in the previous table is the input for a new time series to be returned by the inner join. The following table shows the metadata for each new time series as a separate row, with columns that are specified by the function's output metadata expressions. For example, row _A4_ corresponds to a new series that has the metric name `cpuPerRequest`, `source` and `env` values from _L4_, and the `service` value from _R1_. 
 
 <table id = "result-inner-join-table" width="100%">
 <colgroup>
@@ -401,19 +412,20 @@ Each pair of matching rows in the previous table is the input for constructing a
 
 <!--- ### Result Series Have Data Points Derived from Input Rows --->
 <br>
-<a name="derived_data_inner">
+<a id="derived_data_inner"></a>
+
 **Data Derived from Input Rows**
-</a>
+
 
 The data points of each result series are derived from the data points of the matching input series. In this example, the output data expression `ts1 / ts2` says to divide the values of a left-hand series by the values of the matching right-hand series. (For simplicity in this example, we assume that all right-hand values are nonzero.) 
 
 Wavefront accomplishes this by dividing each value of the left-hand series by the value with the corresponding timestamp from the right-hand series. So, for example, the result series corresponding to row _A5_ has points that are derived by dividing each value from _L6_ by the corresponding value from _R3_.
 
-**Note:** If the timestamps do not line up between the 2 input series, Wavefront interpolates values before combining them. 
+**Note:** If the timestamps for the 2 input series do not line up, Wavefront interpolates values before combining them. 
 
 ## Left Outer Join Example
 
-Suppose you have the time series in the [tables above](#time-series-as-tables), and you want to: 
+Suppose you have the time series in the [tables above](#sample-time-series-tables), and you want to: 
 * Divide the CPU load by the number of service requests per second on each production, development, or test source. 
 * See the sources (if any) that are reporting CPU loads, but are not running a monitored service.
 
@@ -431,7 +443,7 @@ join(
 <br>
 **Row Selection**
 
-The left outer join selects all rows (time series) from the [left-hand table](#left-hand-table), plus any row from the [right-hand table](#right-hand-table) that matches a left-hand row, based on the values for the `source` and `env` columns. The following table shows the selected rows: 
+The left outer join selects all rows (time series) from the [left table](#left-hand-table), plus any row from the [right table](#right-hand-table) that matches a left-hand row, based on the values for the `source` and `env` columns. The following table shows the selected rows: 
 
 <table width="100%">
 <colgroup>
@@ -491,7 +503,7 @@ In contrast, row _R4_ (a right-hand series) is omitted entirely because it would
 <br>
 **Metadata from Input Rows**
 
-The rows in the previous table serve as input for constructing the new time series to be returned by the left outer join. In the following table, each row shows the metadata for a new time series, as specified by the output metadata expressions in the function. For example, row _B4_ corresponds to a new series that has the metric name `cpuPerRequest`, `source` and `env` values from _L4_, and the `service` value from _R1_. 
+The rows in the previous table serve as input for constructing the new time series to be returned by the left outer join. The following table shows the metadata for each new time series as a separate row, with columns that are specified by the function's output metadata expressions. For example, row _B4_ corresponds to a new series that has the metric name `cpuPerRequest`, `source` and `env` values from _L4_, and the `service` value from _R1_. 
 
 <table id = "result-left-join-table" width="100%">
 <colgroup>
@@ -568,7 +580,7 @@ The rows in the previous table serve as input for constructing the new time seri
 </tbody>
 </table>
 
-From this table, we see that the left outer join returns the same set of time series as the inner join above, plus an additional time series with the metadata given in row _B5_. This additional series has no `service` point tag, because there was no right-hand input row to contribute a value for it.
+From this table, we see that the left outer join returns the same set of time series as the [inner join above](#result-inner-join-table), plus an additional time series with the metadata given in row _B5_. This additional series has no `service` point tag, because there was no right-hand input row to contribute a value for it.
 
 <br>
 **Data Derived from Input Rows**
@@ -583,7 +595,7 @@ You can use the special syntax to provide whatever alternate value makes sense f
 
 ## Right Outer Join Example
 
-Suppose you have the time series in the [tables above](#time-series-as-tables), and you want to: 
+Suppose you have the time series in the [tables above](#sample-time-series-tables), and you want to: 
 * Divide the CPU load by the number of service requests per second on each production, development, or test source. 
 * See the services (if any) that are reporting rates, but are not on a source that is also reporting CPU loads.
 
@@ -601,7 +613,7 @@ join(
 <br>
 **Row Selection**
 
-The right outer join selects all rows (time series) from the [right-hand table](#right-hand-table), plus any row from the [left-hand table](#left-hand-table) that matches a right-hand row, based on the values for the `source` and `env` columns. The following table shows the selected rows: 
+The right outer join selects all rows (time series) from the [right table](#right-hand-table), plus any row from the [left table](#left-hand-table) that matches a right-hand row, based on the values for the `source` and `env` columns. The following table shows the selected rows: 
 
 <table width="100%">
 <colgroup>
@@ -664,7 +676,7 @@ In contrast, row _L5_ (a left-hand series) is omitted entirely because it would 
 <br>
 **Metadata from Input Rows**
 
-The rows in the previous table serve as input for constructing the new time series to be returned by the right outer join. In the following table, each row shows the metadata for a new time series, as specified by the output metadata expressions in the function. For example, row _C5_ corresponds to a new series that has the metric name `cpuPerRequest`, `source` and `env` values from _L6_, and the `service` value from _R3_. 
+The rows in the previous table serve as input for constructing the new time series to be returned by the right outer join. The following table shows the metadata for each new time series as a separate row, with columns that are specified by the function's output metadata expressions. For example, row _C5_ corresponds to a new series that has the metric name `cpuPerRequest`, `source` and `env` values from _L6_, and the `service` value from _R3_. 
 
 <table id = "result-left-join-table" width="100%">
 <colgroup>
@@ -743,7 +755,7 @@ The rows in the previous table serve as input for constructing the new time seri
 </tbody>
 </table>
 
-From this table, we see that the right outer join returns the same set of time series as the inner join above, plus an additional time series with the metadata given in row _C6_. This additional series has no `source` and `env` point tag, because there was no left-hand input row to contribute values for them.
+From this table, we see that the right outer join returns the same set of time series as the [inner join above](#result-inner-join-table), plus an additional time series with the metadata given in row _C6_. This additional series has no `source` and `env` point tag, because there was no left-hand input row to contribute values for them.
 
 <br>
 **Data Derived from Input Rows**
