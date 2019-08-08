@@ -13,6 +13,7 @@ Click the **Setup** tab for instructions on:
 * Enabling the Wavefront proxy to support the Jaeger Thrift data format.
 * Understanding configuration requirements for Jaeger agents that send trace data to the Wavefront proxy.
 
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
 ## Jaeger Integration Setup
 
 Jaeger [deployments](https://www.jaegertracing.io/docs/1.8/architecture/#components) consist of Collectors and [Jaeger Agents](https://www.jaegertracing.io/docs/1.8/deployment/#agent). The agents can be configured to send trace data to the Wavefront proxy.
@@ -54,4 +55,5 @@ Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_
 
 The Wavefront proxy will receive Jaeger trace data once the Jaeger agent has been started with the above property enabled.
 
-See the [documentation](https://docs.wavefront.com/tracing_integrations.html) for info on customizing the Jaeger integration.
+### Customize Jaeger Integration:
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
