@@ -67,6 +67,9 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 
 The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
 
+Wavefront does not the above mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
+For Ex: A span with two span tags `service=notify` and `service=backend` is invalid.
+
 **Note:** Wavefront will ignore span tags with empty values.
 
 
