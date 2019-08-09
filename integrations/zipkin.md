@@ -10,6 +10,8 @@ Zipkin is a popular open-source distributed tracing system. The [Wavefront proxy
 
 Click the **Setup** tab for instructions on enabling the Wavefront proxy to consume Zipkin traces.
 
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
+
 ## Zipkin Integration Setup
 
 Zipkin [deployments](https://zipkin.io/pages/architecture.html) consist of a Zipkin collector which consumes Zipkin spans. The Wavefront proxy mimics a Zipkin HTTP Collector and consumes Zipkin spans by listening on the specified port.
@@ -29,4 +31,5 @@ Zipkin [deployments](https://zipkin.io/pages/architecture.html) consist of a Zip
 
 Wavefront will now receive Zipkin trace data on the specified proxy port.
 
-See the [documentation](https://docs.wavefront.com/tracing_integrations.html) for info on customizing the Zipkin integration.
+### Customize Zipkin Integration:
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
