@@ -54,7 +54,7 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 <tr>
 <td markdown="span">`application`</td>
 <td markdown="span">Name that identifies the application that emitted the span. </td>
-<td markdown="span">By default, the name of your distributed tracing system ()`Jaeger` or `Zipkin`).</td>
+<td markdown="span">By default, the name of your distributed tracing system, for example,`Jaeger` or `Zipkin`.</td>
 </tr>
 <tr>
 <td markdown="span">`service`</td>
@@ -80,19 +80,21 @@ Wavefront stores the RED metrics along with the spans they are based on. For mor
 
 ### Custom Tags for RED Metrics
 
-Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. Specify the keys you want to use in the proxy configuration file:
+Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. To do so, add: 
 
-Add
+```traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>``` 
 
-   `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`
-
-to
-
-   `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+to the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
 Wavefront generates custom tags for the specified keys at the proxy.
 
-**Note:** For faster performance, index low-cardinality custom span tags (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See Indexed and Unindexed span tags for details. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
+For example, adding the following property causes the Wavefront proxy to generate 3 custom tags:
+
+```traceDerivedCustomTagKeys=tenant, env, location```
+
+
+
+**Note:** For faster performance, index only low-cardinality custom span tags. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
 
 ### Custom Application Names
 
@@ -103,8 +105,8 @@ Starting with Wavefront proxy version 4.38, you can set up custom application na
 
 You can specify custom application names at the level you need, like this:
 
-- **Span-level tag**: Add tag `application` to all spans
-- **Process-level tag**: Add tag `application` as Jaeger tracer tag, that is, a [process tag](https://www.jaegertracing.io/docs/1.12/client-features/)
+- **Span-level tag**: Add the `application` tag to all spans.
+- **Process-level tag**: Add the `application` tag as a Jaeger tracer tag, that is, a [process tag](https://www.jaegertracing.io/docs/1.12/client-features/).
 - **Proxy-level tag**: Add `traceJaegerApplicationName=<application-name>` in the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
 The order of precedence is span level > process level > proxy level.
