@@ -372,64 +372,6 @@ Ex: 0 </td>
 <td> </td>
 </tr>
 <tr>
-<td>traceJaegerListenerPorts</td>
-<td>TCP ports to listen on for Jaeger Thrift formatted data. Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>4.31 </td>
-</tr>
-<tr>
-<td>traceJaegerApplicationName</td>
-<td>Custom application name for traces received on the traceJaegerListenerPorts.</td>
-<td>String</td>
-<td>4.38 </td>
-</tr>
-<tr>
-<td>traceListenerPorts</td>
-<td markdown="span">TCP ports to listen on for incoming [trace data](tracing_basics.html). Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.
-<div>Ex: 30000</div>
-<div>Ex: 30000, 30001</div></td>
-<td>4.31 </td>
-</tr>
-<tr>
-<td>traceAlwaysSampleErrors</td>
-<td markdown="span">Always sample spans with an error tag (set to true) ignoring other sampling configuration. Default: true.</td>
-<td>true or false</td>
-<td>4.38 </td>
-</tr>
-<tr>
-<td>traceSamplingDuration</td>
-<td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). Default: 0 (send all generated spans). </td>
-<td>Number of milliseconds.
-<div>Ex: 45</div> </td>
-<td>4.34</td>
-</tr>
-<tr>
-<td>traceSamplingRate</td>
-<td markdown="span">Percentage of all generated spans to send to Wavefront for [trace data sampling](trace_data_sampling.html). Default: 1.0 (send all generated spans). </td>
-<td>Number from 0.0 to 1.0.
-<div>Ex: .1</div></td>
-<td>4.34</td>
-</tr>
-<tr>
-<td>traceDerivedCustomTagKeys</td>
-<td markdown="span">Comma-separated list of custom tag keys to include as metric tags for the derived RED (Request, Error, Duration) metrics. Applicable only with Jaeger and Zipkin.</td>
-<td>tenant, env, location</td>
-<td>4.38</td>
-</tr>
-<tr>
-<td>traceZipkinListenerPorts</td>
-<td>TCP ports to listen on for Zipkin formatted data. Recommended: The default Zipkin Collector port (9411). Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>4.35 </td>
-</tr>
-<tr>
-<td>traceZipkinApplicationName</td>
-<td>Custom application name for traces received on the traceZipkinListenerPorts.</td>
-<td>String</td>
-<td>4.38 </td>
-</tr>
-<tr>
 <td>whitelistRegex</td>
 <td>Regex pattern (java.util.regex). Input lines are checked against the pattern as they come in and before the prefix is prepended. Only input lines that match are accepted. </td>
 <td>Valid regex pattern.

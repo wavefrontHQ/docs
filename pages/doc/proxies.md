@@ -6,6 +6,8 @@ sidebar: doc_sidebar
 permalink: proxies.html
 summary: Learn about Wavefront proxies.
 ---
+You can send data to the Wavefront service directly using [direct ingestions](direct_ingestion.html) -- but most customers and the Wavefront DevOps team use proxies.
+
 A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. After you install a proxy in your environment, it can handle thousands of simultaneous clients. Your data collection agents or custom code send data to the proxy, which consolidates points into configurable batches and sends the data to the Wavefront service.
 
 ## Proxy Benefits
@@ -19,11 +21,13 @@ Having a proxy be part of the Wavefront architecture has benefits:
 ## Proxy Deployment Options
 
 Wavefront lets you choose a deployment option:
-* As part of the in-product Getting Started workflow, trial users install their first integration - in most cases, an integration with the local host. In that case, the data source, the agent, and the proxy all run on the same host and the proxy forwards metrics to the Wavefront service.
+* Initially, as part of the in-product Getting Started workflow, trial users install their first integration - often an integration with the local host. In that case, the data source, the agent, and the proxy all run on the same host and the proxy forwards metrics to the Wavefront service.
 * As your environment grows, you place the proxy on a dedicated host. Different agents and other data sources can send metrics to the proxy, and the proxy forwards the metrics to the Wavefront service. Agents can run either on the same host as the data source or on a different host.
-*  In production environments, you usually place two proxies behind a load balancer for optimal performance and high availability. In that case, each proxy must have a unique name.
+*  In production environments, you can place two proxies or a fleet of proxies behind a load balancer for optimal performance and high availability. In that case, each proxy must have a unique name. Your fleet of proxies does not run on the same host as your data sources.
 
-### Setting Up Your First Agent and Proxy
+**Note**: It's not a good idea to install a proxy on each host you're monitoring. First, you lose the benefit of protection against data loss -- the proxy can buffer your metrics. Second, you only need a small number of proxies even in production environments.
+
+### Learning Environment: One Host
 
 Users who set up their first integration -- usually as part of the Getting Started workflow --  often choose to monitor their local host. This first integration installs both the proxy and a Telegraf agent on the same host by default.
 
@@ -35,7 +39,7 @@ When you set up an integration, the Setup page lets you pick a proxy –- or off
 
 **Note** If you don't see a suitable integration, you might be able to use a code instrumentation integration (Java, Go, etc), or you can send data directly to the proxy -- as long as you use one of the [Supported Data Formats](proxies.html#supported-data-formats).
 
-### Shared Proxy Deployment
+### Development Environment: Shared Proxy Deployment
 
 A proxy can accept metrics from multiple collector agents and forward those metrics to the Wavefront service. Having just one proxy means that you don't need to open multiple firewall ports: The proxy is the only component that needs a firewall port opened, simplifying configuration.
 
@@ -45,17 +49,17 @@ Wavefront supports a rich set of custom collector integrations. You can follow t
 
 ![Agents and metrics collection](/images/proxy_deployment_complex.svg)
 
-### Highly Available and Scalable Deployment
+### Production Environment: Team of Proxies & Load Balancer
 
 To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies, as shown below.
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.svg)
 
-**Note:**In environments with more than one proxy, each proxy must have a unique name.
+**Note:** In environments with more than one proxy, each proxy must have a unique name.
 
 ## Proxy Configuration
 
-No matter which of the deployment options you choose, you can modify proxy behavior in several ways:
+You can modify proxy behavior in several ways:
 
 - **Configuration file**: The proxy processes data according to a configuration file. You can modify configuration properties -- for example, to whitelist and blacklist regex patterns, specify information about certain data formats, and much more. See [Configuring Wavefront Proxies](proxies_configuring.html).
 - **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Sending source Tags and Source Descriptions Through the Wavefront Proxy](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy).
@@ -67,4 +71,4 @@ No matter which of the deployment options you choose, you can modify proxy behav
 
 If your environment already has a metrics collection engine, it's easy to send those metrics to Wavefront -- as long as they use a supported data format.
 
-{% include shared/data_formats.html %}
+Wavefront proxies support different data formats for time-series metrics, histograms, and traces/spans. See [Wavefront Data Format](wavefront_data_format.html) for details. 

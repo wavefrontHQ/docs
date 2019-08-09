@@ -153,11 +153,11 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Wavefront Proxies
+        - title: Proxies Overview
           url: /proxies.html
           output: web
 
-        - title: Install and Manage Proxies
+        - title: Install & Manage Proxies
           url: /proxies_installing.html
           output: web
 
@@ -165,11 +165,11 @@ entries:
           url: /proxies_manual_install.html
           output: web
 
-        - title: Advanced Proxy Configuration
+        - title: Proxy Configuration
           url: /proxies_configuring.html
           output: web
 
-        - title: Wavefront Proxy Preprocessor Rules
+        - title: Proxy Preprocessor Rules
           url: /proxies_preprocessor_rules.html
           output: web
 

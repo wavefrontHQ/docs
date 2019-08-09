@@ -1,6 +1,5 @@
 ---
 title: Install and Manage Wavefront Proxies
-keywords: Ansible
 tags: [proxies, best practice]
 sidebar: doc_sidebar
 permalink: proxies_installing.html
@@ -8,15 +7,19 @@ summary: Learn how to install and manage Wavefront proxies.
 ---
 In most cases, a Wavefront proxy must be running in your installation before metrics begin streaming to Wavefront from a host or application.
 
+We offer several [deployment options](proxies.html#proxy-deployment-options). During development, a single proxy is often sufficient for all data sources. In production, place a team of proxies behind a load balancer.
+
 ## Scripted and Manual Install
 
 You can install a proxy:
-* As part of an integrations. Many integrations send data to a Wavefront proxy. You're prompted to select a proxy that already exists in your enviornment or add a proxy.
+* As part of an integration. Many integrations send data to a Wavefront proxy. You're prompted to select a proxy that already exists in your enviornment or add a proxy.
 * Explicitly from the UI, discussed below.
 * Explicitly as a package install. [Installing a proxy manually](proxies_manual_install.html) gives steps for different use cases, including install on hosts with limited network connectivity.
 * If you install a proxy into a container, you might have to [customize your setup](proxies_configuring.html#configuring-a-proxy-in-a-container).
 
-If you don't use the Wavefront UI to install the proxy, the installation procedures might require a Wavefront API URL `<wavefront_api_url>` in the format `https://<wavefront_instance>.wavefront.com/api/` and an API token. To get an API token, see [Generating an API Token](wavefront_api.html#generating-an-api-token).
+If you don't use the Wavefront UI to install the proxy, the installation procedures might require:
+* A Wavefront API URL in the format `https://<wavefront_instance>.wavefront.com/api/`
+* An [API token](wavefront_api.html#generating-an-api-token), which you generate for your instance.
 
 {% include shared/permissions_view.html entity="proxies" entitymgmt="Proxy" %}
 
@@ -24,7 +27,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
 - Networking - For **metrics**, the proxy uses port 2878 by default. If you want to change this default, or if you want to set up ports for histograms or trace data, see [Configuring Listener Ports for Metrics, Histograms, and Traces](proxies_installing.html#configure-listener-ports-for-metrics-histograms-and-traces).
-- Memory - you don't need a dedicated host for running the Wavefront proxy. The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
+- Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux: We've tested the proxy with the following versions.
     - Ubuntu 14.04, 16.04, 18.04
@@ -41,11 +44,12 @@ You can also run a proxy in a [Docker or Kubernetes container](proxies_configuri
 
 ## Proxy Installation
 
-If we don't install a proxy for you as part of integration setup, you can install a proxy explicitly. You can script installation on Linux and Mac OS. You can also run a proxy in a Docker container.
+Many users install a proxy when they set up an integration. For other situation, we support several installation options.
 
 **Note**: In development, many customers use only one proxy that receives data from many applications and sends those data to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
 
-### Install a Proxy on a Single Host
+### Install a Proxy from the UI
+
 To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker container on a host:
 
 1. Open the Wavefront application UI.
@@ -59,7 +63,14 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
 1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
 1. Click **Done** and verify that your proxy is listed on the Proxies page. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to start the proxy is running.
 
-If you want to run a proxy in a Kubernetes container, log in to Wavefront, click **Integrations**, click Kubernetes, click the **Setup** tab, and follow the instructions to deploy a Wavefront proxy in Kubernetes, create a proxy service, and deploy Wavefront Kubernetes Collector.
+### Install a Proxy on a Kubernetes Container
+
+If you set up the Kubernetes integration, adding a proxy is part of the setup:
+1. Log in to your Wavefront instance.
+2. Click **Integrations** and click Kubernetes.
+3. Click the **Setup** tab and follow the instructions to deploy a Wavefront proxy in Kubernetes and deploy Wavefront Kubernetes Collector.
+
+Depending on your environment, you might have to [customize proxy settings](proxies_configuring.html#configuring-a-proxy-in-a-container) for best performance.  
 
 ### Scripted Proxy Installation
 
