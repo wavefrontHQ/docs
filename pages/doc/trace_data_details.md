@@ -176,8 +176,8 @@ Specify <strong>cluster=none</strong> to indicate a span that does not use this 
 </tbody>
 </table>
 
-Wavefront does not the above mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
-For Ex: A span with two span tags `service=notify` and `service=backend` is invalid.
+Wavefront does not allow the mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
+For example, a span with two span tags `service=notify` and `service=backend` is invalid.
 
 **Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the SDK on GitHub.
 
@@ -251,7 +251,7 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 ## RED Metrics Derived From Spans
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically provides the corresponding span RED metrics and trace RED metrics for the spans with no additional configuration or instrumentation on your part. 
+If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically provides the corresponding span RED metrics and trace RED metrics for the spans with no additional configuration or instrumentation on your part.
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
