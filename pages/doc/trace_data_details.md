@@ -176,6 +176,9 @@ Specify <strong>cluster=none</strong> to indicate a span that does not use this 
 </tbody>
 </table>
 
+Wavefront does not the above mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
+For Ex: A span with two span tags `service=notify` and `service=backend` is invalid.
+
 **Note:** Additional span tags may be present, depending on how you instrumented your application. For example, the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) automatically use span tags like `component`, `http.method`, and so on. You can find out about these tags in the README file for the SDK on GitHub.
 
 <!---
