@@ -54,7 +54,7 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 <tr>
 <td markdown="span">`application`</td>
 <td markdown="span">Name that identifies the application that emitted the span. </td>
-<td markdown="span">By default, the name of your distributed tracing system, i.e., `Jaeger` or `Zipkin`.</td>
+<td markdown="span">By default, the name of your distributed tracing system, for example,`Jaeger` or `Zipkin`.</td>
 </tr>
 <tr>
 <td markdown="span">`service`</td>
@@ -72,70 +72,54 @@ The proxy preserves any tags that you assigned through your distributed tracing 
 
 ### Auto-Derived RED Metrics
 
-When you use a tracing-system integration, Wavefront automatically derives RED metrics from the spans that are sent from the instrumented application services. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
+For spans sent from the instrumented application services, Wavefront automatically provides the corresponding span RED metrics and trace RED metrics. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
 
 Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics Derived From Spans](trace_data_details.html#red-metrics-derived-from-spans).
 
 **Note:** The level of detail for the RED metrics is affected by any sampling that is done by your 3rd party distributed tracing system. See [Trace Sampling and RED Metrics from an Integration](#trace-sampling-and-red-metrics-from-an-integration), below.
 
-### Custom Trace-Derived RED Metrics
+### Custom Tags for RED Metrics
 
-To include custom tags for trace-derived RED metrics, you specify the keys you want to use in the proxy configuration file:
+Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. To do so, add:
 
-Add
-   `traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>`
-to
-   `/etc/wavefront/wavefront-proxy/wavefront.conf`.
+```traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>```
+
+to the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
 Wavefront generates custom tags for the specified keys at the proxy.
 
-**Note:** For faster performance, index low-cardinality custom span tags (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See Indexed and Unindexed span tags for details. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
+For example, adding the following property causes the Wavefront proxy to generate 3 custom tags:
+
+```traceDerivedCustomTagKeys=tenant, env, location```
+
+
+
+**Note:** For faster performance, index only low-cardinality custom span tags. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
 
 ### Custom Application Names
 
-The process for setting up custom application names differs for Jaeger and Zipkin. See the instructions below.
+Starting with Wavefront proxy version 4.38, you can set up custom application names for Jaeger and Zipkin. The process differs depending on your source, as follows.
 
 
 #### Custom Application Names for Jaeger
 
 You can specify custom application names at the level you need, like this:
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="20%">Span-level tag</td>
-<td width="80%">Add tag <strong>application</strong> to all spans</td>
-</tr><tr>
-<td width="20%">Process-level tag</td>
-<td width="80%">Add tag <strong>application</strong> as Jaeger tracer tag, that is, a <a href="https://www.jaegertracing.io/docs/1.12/client-features/"> process tag</a></td>
-</tr>
-<tr>
-<td width="20%">Proxy-level tag</td>
-<td width="80%">Add <strong>traceJaegerApplicationName=&lt;enter-application-name&gt;</strong> in the proxy configuration at <strong>/etc/wavefront/wavefront-proxy/wavefront.conf</strong>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.</td>
-</tr>
-</tbody>
-</table>
+- **Span-level tag**: Add the `application` tag to all spans.
+- **Process-level tag**: Add the `application` tag as a Jaeger tracer tag, that is, a [process tag](https://www.jaegertracing.io/docs/1.12/client-features/).
+- **Proxy-level tag**: Add `traceJaegerApplicationName=<application-name>` in the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
-The order of precedence is span level > process level > proxy level
+The order of precedence is span level > process level > proxy level.
 
 
 #### Custom Application Names for Zipkin
 
 You can specify custom application names at the level you need, like this:
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="20%">Span-level tag</td>
-<td width="80%">Add tag <strong>application</strong> to all spans</td>
-</tr>
-<tr><td width="20%">Proxy-level tag</td>
-<td width="80%">Add <strong>traceZipkinApplicationName=&lt;enter-application-name&gt;</strong> in the proxy configuration file at <strong>/etc/wavefront/wavefront-proxy/wavefront.conf</strong>.  See <a href="proxies_configuring.html#paths"> Proxy Configuration Paths</a> for details on the config file location.</td>
-</tr>
-</tbody>
-</table>
+- **Span-level tag**: Add tag `application` to all spans.
+- **Proxy-level tag**: Add `traceZipkinApplicationName=<application-name>` in the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
-The order of precedence is span level > proxy level
+The order of precedence is span level > proxy level.
 
 ## Visualizing Trace Data from an Integration
 
