@@ -16,7 +16,7 @@ summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes wo
 
 In the following video, Pierre Tessier explains how this works.
 
-<p><a href="XX"><img src="/images/v_kubernetes_pierre_2.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
+<p><a href="https://youtu.be/nZnbdNHFNyU"><img src="/images/v_kubernetes_pierre_2.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
 </p>
 
 ## Kubernetes and Wavefront: Overview
