@@ -8,7 +8,9 @@ summary: Learn about the Wavefront Java Integration.
 
 You can use the Dropwizard metrics library and the Wavefront reporters to send Java application metrics to Wavefront. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). You can assign point tags at the reporter level for fine-grained filtering.
 
-This is a custom integration. You can send your own metrics and create your own dashboards.
+In addition to setting up the metrics flow, this integration also sets up a dashboard. For example, here's a screenshot of a dashboard with metrics collected from JVM.
+
+{% include image.md src="images/dropwizard-dashboard.png" width="80" %}
 
 ## Java Setup
 
