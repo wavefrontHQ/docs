@@ -67,8 +67,8 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 
 The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
 
-Wavefront does not the above mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
-For Ex: A span with two span tags `service=notify` and `service=backend` is invalid.
+Wavefront does not allow the mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
+For example, a span with two span tags `service=notify` and `service=backend` is invalid.
 
 **Note:** Wavefront will ignore span tags with empty values.
 
@@ -83,9 +83,9 @@ Wavefront stores the RED metrics along with the spans they are based on. For mor
 
 ### Custom Tags for RED Metrics
 
-Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. To do so, add: 
+Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. To do so, add:
 
-```traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>``` 
+```traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>```
 
 to the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
