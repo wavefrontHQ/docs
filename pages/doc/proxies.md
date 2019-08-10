@@ -69,6 +69,8 @@ You can modify proxy behavior in several ways:
 
 ## Supported Data Formats
 
-If your environment already has a metrics collection engine, it's easy to send those metrics to Wavefront -- as long as they use a supported data format.
-
-Wavefront proxies support different data formats for time-series metrics, histograms, and traces/spans. See [Wavefront Data Format](wavefront_data_format.html) for details. 
+Wavefront proxies support:
+* Time-series metrics
+* Histograms
+* Traces/spans
+Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links. 
