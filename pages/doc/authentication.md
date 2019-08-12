@@ -11,6 +11,8 @@ Wavefront supports authentication through your identity provider (IDP). For seve
 
 Most Wavefront customers use single-tenant authentication. If your company wants to set up a different tenant for different teams, a multi-tenant setup might make sense.
 
+**Note:** Switching tenants in multi-tenant environments requires extra steps listed below. 
+
 
 ## Single-Tenant Authentication
 
@@ -75,3 +77,10 @@ If your environment is set up to support multi-tenant SSO, you log in to Wavefro
    **Note:** You can have different sets of permissions on different tenants because each tenant administrator controls the permissions for that tenant for each user.
 
    * When you log out, the logout applies to *all* tenants.
+
+## Switching Tenants in Multi-Tenant Environments
+
+Administrators sometimes have to switch tenants in multi-tenant environments.
+
+1. Delete the `.wavefront_id` file. The precise name of the file might differ. It's `/usr/local/etc/wavefront/wavefront-proxy/.wavefront_id` in a Mac environment with no customizations.
+2. [Restart the Wavefront proxy](proxies_installing.html#starting-and-stopping-a-proxy).
