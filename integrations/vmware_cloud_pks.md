@@ -74,17 +74,12 @@ The `kube-state-metrics` service should now be running on your cluster.
 2. Edit `4-collector-daemonset.yaml` as follows:
     1. Replace `clusterName=k8s-cluster` to uniquely identify your Kubernetes cluster.
     2. If RBAC is disabled in your Kubernetes cluster, comment out `serviceAccountName: wavefront-collector`.
-    3. If the read-only kubelet port is disabled, replace the kubernetes source as follows:
-{% raw %}
-```
---source=kubernetes.summary_api:https://kubernetes.default.svc?useServiceAccount=true&kubeletHttps=true&kubeletPort=10250&insecure=true
-```
-{% endraw %}
 
 3. Run `kubectl create -f </path/to/wavefront-collector-dir>/` to deploy the collector on your cluster.
 
 To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
 
+### Troubleshooting
 If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
 
 ### Horizontal Pod Autoscaling (HPA)
