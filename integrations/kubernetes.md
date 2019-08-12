@@ -41,7 +41,9 @@ Here's a preview of some of the charts from kube-state-metrics dashboard:
 **Note:** This integration provides updated setup instructions and dashboard for Kubernetes. For the previous setup instructions, see the **Kubernetes (Archived)** integration in the **Archived** section.
 
 ### Monitor Openshift
-The collector supports monitoring of Openshift Origin clusters. Follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+The collector supports monitoring of Openshift clusters:
+  * To monitor Openshift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+  * To monitor Openshift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on Openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
 
 ### Monitor Kubernetes
 Follow the instructions below to set up Kubernetes monitoring.
