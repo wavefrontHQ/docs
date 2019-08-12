@@ -97,7 +97,7 @@ For example, adding the following property causes the Wavefront proxy to generat
 
 
 
-**Note:** For faster performance, index only low-cardinality custom span tags(A tag with low cardinality has comparatively few unique values that can be assigned to it). See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
+**Note:** For faster performance, index only low-cardinality custom span tags. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
 
 ### Custom Application Names
 
