@@ -22,7 +22,7 @@ This integration uses the Wavefront REST API for ADM. ADM will invoke the API wh
 This integration uses the Wavefront REST API for ADM. ADM will invoke the API while executing the health check step as a part of its workflow.
 
 ### Azure Deployment Manager Health Check Configuration Setup
-1. Use the [metrics](https://YOUR_CLUSTER.wavefront.com/metrics) browser to identify the metric to use as a health metric.
+1. Use the Metrics browser to identify the metric to use as a health metric. Click **Browse > Metrics** in your Wavefront instance to access the Metrics browser.
 
 2. Create a query that returns `1` or `0` using the health metric. Example:{% raw %}
 ```
@@ -74,7 +74,7 @@ This integration uses the Wavefront REST API for ADM. ADM will invoke the API wh
 curl -X GET --header "Accept: application/json" --header "Authorization: YOUR_API_TOKEN" "https://adm.wavefront.com/api/v1/query?c=<cluster>&q=<encoded_query>"
 ```
 {% endraw %}
-2. To fine tune your query, go to the [queryApi](https://YOUR_CLUSTER.wavefront.com/api-docs/ui/#!/Query/queryApi) and:
+2. To fine tune your query, go to the query API. In your Wavefront instance, select **API Documentation** from the gear icon in the top right and go to the Query API. Then:
   1. Fill in the parameter **q** with the plain query
   1. Fill in the parameter **s** with start time in epoch milliseconds
   1. Click on **Try it out!** button to see the results
