@@ -65,7 +65,7 @@ You can modify proxy behavior in several ways:
 - **Source Tags**: If you specify source tags and descriptions in the metric source, the proxy can use that information to filter the incoming metrics. See [Sending source Tags and Source Descriptions Through the Wavefront Proxy](proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy).
 - **Preprocessor Rules**: Starting with proxy version 4.1, the Wavefront proxy includes a preprocessor that applies user-defined rules before data is sent to the Wavefront service. You can use preprocessor rules to correct certain data quality issues when you can't fix the problem at the emitting source. See [Configuring Wavefront Proxy Preprocessor Rules](proxies_preprocessor_rules.html).
 
-![Proxy configuration options](/images/proxy_config_options.svg)
+![Proxy configuration options](/images/proxy_config_options_rev.png)
 
 ## Supported Data Formats
 
@@ -73,4 +73,4 @@ Wavefront proxies support:
 * Time-series metrics
 * Histograms
 * Traces/spans
-Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links. 
+Each type of data uses a different data format. See [Wavefront Data Format](wavefront_data_format.html) for details and links.
