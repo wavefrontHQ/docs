@@ -16,21 +16,28 @@ Wavefront has successfully completed all requirements for the following certific
 
 *	ISO 27001/27017/27018
 *	SOC 2 Type 1
-*	GDPR Type 1 attestation
 *	CSA STAR Level 1
 
+## Privacy
+
+Wavefront is used for monitoring applications. Wavefront securely stores username/password information but does not collect information about individual users. We do not install agents that collect user information.
+
+If a customer needs usage information for individuals or groups, Wavefront provides the hooks to set that up, but Wavefront does not use that information internally.
 
 ## Data Protection
 
-Wavefront currently uses AWS to run the Wavefront service and to store customer data. The service is served from a single AWS region spread across multiple availability zones for failover. Using AWS also means that we can take advantage of other AWS security features such as encryption at rest and system backups that use asymmetric encryption.
+Wavefront currently uses AWS to run the Wavefront service and to store customer application data.
 
-Wavefront customer environments are isolated from each other. Data is stored on encrypted data volumes.
+* The service is served from a single AWS region spread across multiple availability zones for failover.
+* All incoming and outgoing traffic is encrypted.
+* We take advantage of other AWS security features such as encryption at rest and system backups that use asymmetric encryption.
+* Wavefront customer environments are isolated from each other. Data is stored on encrypted data volumes.
 
 The AWS data centers incorporate physical protection against environmental risks. To
-access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://aws.amazon.com/compliance/). For more information:
-* On AWS controls, visit:
-[https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
+access the AWS ISO27001 report, see [https://aws.amazon.com/compliance](https://aws.amazon.com/compliance/).
 
+For more information on AWS controls, visit:
+[https://cloudsecurityalliance.org/star-registrant/amazon-aws/](https://cloudsecurityalliance.org/star-registrant/amazon-aws/)
 
 Wavefront development, QA, and production use separate equipment and
 environments and are managed by separate teams.
@@ -68,6 +75,8 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 All Wavefront users [must be authenticated](authentication.html) to log in. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integration. We support several authentication solutions including AzureAD, Google ID, and Okta.
 
+If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
+
 Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Users in different teams inside the company can authenticate to different tenants and cannot access the other tenant's data.
 
 
@@ -92,6 +101,8 @@ You can view changes that were made to dashboards, alerts, etc. by using [versio
 Cloud integrations support monitoring data from different cloud providers using Wavefront. The process is like this:
 1. You open the integration.
 2. You give Wavefront [global read-only access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) or [limited access](integrations_aws_metrics.html#giving-wavefront-limited-access).
+
+For details, see the individual integration. 
 
 ## VMware Security Development Lifecycle
 
