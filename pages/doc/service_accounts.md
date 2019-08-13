@@ -47,7 +47,7 @@ Creating a service account is different from creating a user account.
 <tr>
 <td>
 Account ID</td>
-<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Wavefront converts service account ID to lower case. Users can type upper case or lower case -- this helps avoid duplicates.  </td>
+<td>ID of the account. We prefix this ID with <strong>sa::</strong>. <p>A service account name must be unique. Wavefront converts service account ID to lower case. Users can type upper case or lower case -- this helps avoid duplicates. </p> </td>
 </tr>
 <tr>
 <td>
