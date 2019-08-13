@@ -7,13 +7,13 @@ summary: Learn how to manage your passwords and preferences.
 ---
 You manage your Wavefront account from the gear icon in the top right corner. From there, all users can manage passwords and configure preferences. Users in a [multi-tenant environment](authentication.html#multi-tenant-authentication) who have been invited to more than one tenant can also switch tenants from the gear icon.
 
-## Managing Your Password
+## Manage Your Password
 
 You can change your password. You can reset a forgotten password if your account is managed by Wavefront, for example, during a trial.
 
 {% include note.html content="If your company has an [SSO integration](integrations_authentication.html) enabled, you cannot update your password following these instructions. To update your password, contact your account administrator." %}
 
-### Changing Your Password
+### Change Your Password
 
 To change your password:
 
@@ -21,7 +21,7 @@ To change your password:
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
 2. Click the **User Information** tab, click the **Change Password** link, and make the change.
 
-### Resetting a Forgotten Password
+### Reset a Forgotten Password
 
 To reset a forgotten password:
 
@@ -29,7 +29,7 @@ To reset a forgotten password:
 2. Follow the prompts to reset the password.
 
 
-## Configuring User Preferences
+## Configure User Preferences
 
 In your user profile, you can configure several preferences, for example, select our dark theme or chart title size.
 
@@ -39,7 +39,17 @@ In your user profile, you can configure several preferences, for example, select
 
 {% include note.html content="Some preferences are preset for all users in an account by a user with [Users and Groups permission](permissions_overview.html)." %}
 
-## Examining Groups and Permissions
+## Switch Between UI Versions
+
+If your environment has been set up to offer the v2 Beta UI option, you can easily switch between UI versions.
+
+1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
+1. Select the UI Version that you want to work in.
+
+   ![select UI version](/images/ui_version_menu.png)
+
+
+## Examine Groups and Permissions
 
 If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html). Permissions are additive: You have the permissions from all groups you belong to, plus any permissions individually assigned to you.
 

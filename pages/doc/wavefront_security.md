@@ -22,7 +22,7 @@ Wavefront has successfully completed all requirements for the following certific
 
 Wavefront is used for monitoring applications. Wavefront securely stores username/password information but does not collect information about individual users. We do not install agents that collect user information.
 
-If a customer needs usage information for individuals or groups, Wavefront provides the hooks to set that up, but Wavefront does not use that information internally.
+None of the built-in integrations collect user information. However, customers can set up Wavefront to collect any type of information they want.
 
 ## Data Protection
 
@@ -102,7 +102,7 @@ Cloud integrations support monitoring data from different cloud providers using 
 1. You open the integration.
 2. You give Wavefront [global read-only access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) or [limited access](integrations_aws_metrics.html#giving-wavefront-limited-access).
 
-For details, see the individual integration. 
+For details, see the individual integration.
 
 ## VMware Security Development Lifecycle
 
