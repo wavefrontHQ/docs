@@ -13,13 +13,11 @@ Certain operators and functions apply to pairs of time series. When you specify 
 
 Implicit series matching also determines whether these operators and functions return any result at all. For example, when you try to subtract one time series from another, Wavefront can't perform the operation if none of the sources match.
 
-<!---
-Note: This page describes implicit syntax for inner joins, and is suitable for straightforward cases. Use explicit series matching with join() to match up series whose sources and point tags do not correspond exactly.
---->
+**Note:** This page describes implicit series matching, which works well for time series that all have the same set of source tags and point tags. Consider using [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose sources and point tags do not correspond exactly.
 
 ## When Wavefront Performs Implicit Series Matching
 
-Wavefront performs series matching when you apply certain operators and functions to two or more unique ts() expressions, each representing two or more unique metric\|source\|point tag value tuples. The following operators and functions result in series matching:
+Wavefront performs series matching implicitly when you apply certain operators and functions to two or more ts() expressions, where each expression  represents two or more unique metric\|source\|point tag value tuples. The following operators and functions automatically perform series matching:
 
 - Arithmetic operators (+, -, /, *)
 - Boolean operators (and, or)
@@ -27,8 +25,6 @@ Wavefront performs series matching when you apply certain operators and function
 - Filter functions (highpass, lowpass, min, max)
 - Exponential and trigonometric functions
 
-
-In the examples below, the results listed to the right of = represents the set of series that would be displayed.
 
 ### Series Matching Occurs
 
@@ -75,7 +71,7 @@ The following examples show when series matching does not occur:
 
 ## Series Matching Basics
 
-Assume you enter the following ts() expression
+Suppose you enter the following ts() expression:
 
 ```
 ts("stats.servers.MemTotal", tag="dc1") - ts("stats.servers.MemFree", tag="east")
@@ -83,7 +79,7 @@ ts("stats.servers.MemTotal", tag="dc1") - ts("stats.servers.MemFree", tag="east"
 
 Wavefront determines which time series match up and subtracts the value for `stats.servers.MemTotal` from `stats.servers.MemFree` for each matching series.
 
-Assume that the source tags `dc1` and `east` have three sources that match up (`app-3`, `app-4`, `app-5`), and four sources that don't (`app-1`, `app-2`, `app-6`, `app-7`). As a result, the chart displays only data associated with `app-3`, `app-4`, and `app-5`. Data for `app-1`, `app-2`, `app-6`, and `app-7` are discarded.
+Assume that the source tags `dc1` and `east` have three sources that match up (`app-3`, `app-4`, `app-5`), and four sources that don't (`app-1`, `app-2`, `app-6`, `app-7`). As a result, the chart displays only data associated with `app-3`, `app-4`, and `app-5`. The data for `app-1`, `app-2`, `app-6`, and `app-7` are ignored.
 
 <table>
 <tbody>
@@ -117,11 +113,11 @@ app-7</td>
 
 There are cases when you apply functions to expressions, but no series matching occurs. This happens when one of the evaluated ts() expression is a constant value, such as 1, or represents a single time series, such as a single source or aggregated data with no "group by".
 
-For example, if you replaced `tag="east"` with `source="app-4"`, then the value associated with `app-4` in the second expression at each time slice is subtracted from each represented source in the first expression at each time slice. If you still want series matching to occur in the previous example, then you can wrap the operator or function with an inner join (i.e. `[+]`).
+For example, if you replaced `tag="east"` with `source="app-4"`, then the value associated with `app-4` in the second expression at each time slice is subtracted from each represented source in the first expression at each time slice. If you still want series matching to occur in the previous example, then you can wrap the operator or function with strict inner join (i.e. `[+]`).
 
 ## Series Matching Example
 
-Here's a simple example where the Wavefront UI displays a message that informs you that some of the series are not included in all queries.
+Here's an example where the Wavefront UI displays a message that informs you that some of the series are not included in all queries.
 
 ![series matching example](images/series_matching_example.png)
 
@@ -143,11 +139,9 @@ Series matching occurs only for exact matches. This also means that if two serie
 
 ## Series Matching with the "by" Construct
 
-In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. You can use the `by` construct to perform matching using the element of your choice to get results for those series.
+In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. You can use the `by` construct to perform matching using the element of your choice to get results for those series. (**Note:** As an alternative, you can use [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose point tags do not correspond exactly.)
 
-Consider the following example:
-
-You’re interested in the set of hosts that have a `cpu.idle` of more than 50 and a `build.version` equal to 1000. You start with a set of hosts and run the following query:
+Suppose you’re interested in the set of hosts that have a `cpu.idle` of more than 50 and a `build.version` equal to 1000. You start with a set of hosts and run the following query:
 
 `(ts(cpu.idle) > 50) and (ts(build.version) = 1000)`
 

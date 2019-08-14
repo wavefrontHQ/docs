@@ -660,6 +660,18 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
   - Original: `max(ts(customer.alerts.active), metrics)`
   - Renamed: `aliasMetric(${original}, "Total Number Of Alerts")`, replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
+## Join Function
+
+See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
+
+The `join()` function enables you to: 
+* Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
+* Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
+
+The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
+
+**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
 <colgroup>

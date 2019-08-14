@@ -16,6 +16,9 @@ You can use the `join()` function to:
 
 The Wavefront `join()` function is modeled after the SQL JOIN operation, which correlates rows of data across 2 or more input tables, and then forms new tables by joining selected portions of the correlated rows. If you are familiar with SQL, then you will recognize many of the Wavefront `join()` keywords and concepts.
 
+**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+
+
 ## Time Series as Tables 
 
 A Wavefront `join()` views time series as tables and then operates on those tables. A time series is a sequence of timestamped points that is identified by a unique combination of metadata:
