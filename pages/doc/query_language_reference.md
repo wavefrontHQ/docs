@@ -6,13 +6,12 @@ sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.
 ---
-The Wavefront Query Language allows you to extract the information you need from time series data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples. For some background information, see:
+The Wavefront Query Language allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples. For some background information, see:
 * [Aggregation Functions](query_language_aggregate_functions.html)
 * [Discrete and Continuous Time Series](query_language_discrete_continuous.html)
 * [Detecting Anomalies](query_language_statistical_functions_anomalies.html)
 * [Bucketing with align()](query_language_align_function.html)
 
-**Note:** This page summarizes queries that apply to time series data and events. For queries that apply to distributed tracing, see [Querying Trace Data](trace_data_query.html) and [traces() Function](traces_function.html).
 
 ## Query Elements
 <table style="width: 100%;">
@@ -980,6 +979,50 @@ The following example shows a query you could use to filter the events in your c
 events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ```
 See [Event Filters](events_queries.html#event-filters) for details on filters.
+
+## <span id="traceFunctions"></span>Trace Functions
+
+You use trace functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+
+**Note:** Some trace functions are [filtering functions](traces_function.html#filtering-functions), which filter the results of `traces()` or another filtering function wrapped around `traces()`.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
+</td>
+<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and filters.</td>
+</tr>
+<tr>
+<td>
+limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td markdown="span">Limits the traces returned by **tracesExpression** to include the specified **numberOfTraces**.  
+</td>
+</tr>
+
+<tr>
+<td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are longer than **traceDuration**. 
+</td>
+</tr>
+<tr>
+<td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.  
+</td>
+</tr>
+</tbody>
+</table>
 
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">
