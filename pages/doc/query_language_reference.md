@@ -992,11 +992,11 @@ events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ```
 See [Event Filters](events_queries.html#event-filters) for details on filters.
 
-## <span id="traceFunctions"></span>Trace Functions
+## <span id="traceFunctions"></span>Trace-Data Functions
 
-You use trace functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use trace-data functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace-data functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
-**Note:** Some trace functions are [filtering functions](traces_function.html#filtering-functions), which filter the results of `traces()` or another filtering function wrapped around `traces()`.
+**Note:** Some trace-data functions are [filtering functions](ts_traces.html#filtering-functions), which filter the results of `traces()`, `spans()` or another filtering function wrapped around `traces()` or `spans()`.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1012,7 +1012,7 @@ You use trace functions to find and filter any [trace data](tracing_basics.html#
 <tbody>
 <tr>
 <td>
-<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
+<a href="ts_traces.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
 </td>
 <td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and filters.</td>
 </tr>
@@ -1031,6 +1031,22 @@ limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;<
 <tr>
 <td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
 <td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.  
+</td>
+</tr>
+<tr>
+<td>
+<a href="ts_spans.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
+</td>
+<td>Returns the spans that match the specified <strong>fullOperationName</strong> and filters. Used as an argument to <strong>traces()</strong>.</td>
+</tr>
+<tr>
+<td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
+<td markdown="span">Filters the spans returned by **spansExpression** to include only spans that are longer than **spanDuration**. 
+</td>
+</tr>
+<tr>
+<td>lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
+<td markdown="span">Filters the spans returned by **spansExpression** to include only spans that are shorter than **spanDuration**.  
 </td>
 </tr>
 </tbody>

@@ -3,18 +3,18 @@ title: spans() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: spans_function.html
+permalink: ts_spans.html
 summary: Learn how to write spans() queries.
 ---
 
 ## Summary
 
 ```
-spans("<operationName>" [and|or|not <filterName>="<filterValue>"])
+spans("<fullOperationName>" [and|or|not <filterName>="<filterValue>"])
 
 spans(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
 ```
-Returns the spans that match the specified operation and filters. You normally limit the results by combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
+Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](ts_traces.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
 ### Parameters
 
@@ -24,8 +24,10 @@ Returns the spans that match the specified operation and filters. You normally l
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>operationName</td>
-<td markdown="span">Name of the operation that each matching span must represent. For example, specify `"dispatch"` to match the spans that represent calls to an operation named `dispatch`. Omit this parameter to find the spans that represent calls to any operation.</td>
+<td>fullOperationName</td>
+<td markdown="span">
+Full name of the operation that each matching span must represent. For example, specify `"beachshirts.delivery.dispatch"` to match the spans that represent calls to an operation named `dispatch` in the `delivery` service of the `beachshirts` application. <br> The general format of a `fullOperationName` is `<application>.<service>.<operationName>`, where each component consists of one or more period-delimited components. Replace `operationName` or `serviceName` with an asterisk `*` to match spans for any operation in any service.
+</td>
 </tr>
 <tr>
 <td>filterName</td>
@@ -38,29 +40,44 @@ Returns the spans that match the specified operation and filters. You normally l
 
 
 ## Description
-The `spans()` function finds spans that match the description you specify. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics the spans must match.
+The `spans()` function finds spans that match the description you specify. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics that the spans must match.
 
-You submit a `spans()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). 
-You can use autocompletion to discover the span filters available for your query. 
+You use `spans()` by including it as a parameter of the [`traces()`](ts_traces.html) function. Doing so allows you to filter traces according to the duration of a particular span. For example, the following query returns a trace only if it has at least one span that both represents a `makeShirts` operation and lasts longer than 11 seconds: 
 
-<!--- Explain how spans() result is different from traces() result.--->
+```
+limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))
+```
 
-**Note:** To keep query execution manageable, combine `spans()` with a [spans filtering function](#spans-filtering-functions) such as `limit()` in the same query. 
+This is different from a query that wraps `highpass` around `traces()`. For example, the following query returns a trace only if the entire end-to-end trace is longer than 11 seconds.
+
+```
+limit(100, highpass(11s, traces(spans("beachshirts.styling.makeShirts"))))
+```
+ 
+
+**Note:** the following two queries are equivalent:
+
+```
+limit(100, traces("beachshirts.styling.makeShirts"))          //  spans() is implicit
+limit(100, traces(spans("beachshirts.styling.makeShirts")))   //  spans() is explicit
+```
+
 
 ## Examples
 
 Assume your team has instrumented an application called `beachshirts` for tracing. This application has a service called `styling` that executes an operation called `makeShirts`. The application is deployed on several hosts in each of several clusters.
 
-**Note:** To keep query execution manageable, these examples use `spans()` with the `limit()` function.
+**Note:** To keep query execution manageable, these examples use `traces()` with the `limit()` function.
 
-To return the spans for calls to `makeShirt:
-- `limit(100, spans("makeShirts" and application="beachshirts" and service="styling"))`
+To display the traces that include long spans for calls to `makeShirt`:
+- `limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))`
 
-To return the spans for any operation in the `styling` service:
-- `limit(100, spans(application="beachshirts" and service="styling"))`
+To display the traces that include short spans for any operation in the `styling` service:
+- `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.*"))))`
 
-To return the spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, spans(application="beachshirts" and source=prod-app1 or source=prod-app10))`
+To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
+- `limit(100, traces(spans("beachshirts.*.*" and source=prod-app1 or source=prod-app10)))`
+
 
 <a name="filters"></a>
 
@@ -124,11 +141,7 @@ The general format for a span filter is `<filterName>="filterValue"`.
 
 You can use spans filtering functions to provide additional levels of filtering for the set of spans that are matched by the `spans()` function. 
 
-**Note:** To keep query execution manageable, it is highly recommended that you combine `spans()` with at least the `limit()` function.
-
-Each spans filtering function has a **spansExpression** parameter, which can be a `spans()` function or one of the other spans filtering functions. For example, to return traces for up to 100 qualifying spans that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `spans()` functions as follows:
-
-* `limit(100, highpass(30ms, spans("dispatch", application="beachshirts" and service="delivery")))`
+Each spans filtering function has a **spansExpression** parameter, which can be a `spans()` function or one of the other spans filtering functions. 
 
 
 <table style="width: 100%;">
@@ -140,15 +153,7 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 <tr><th>Spans Filtering Function</th><th>Description and Example</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>limit(<strong>&lt;numberOfSpans&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to the specified **numberOfSpans**.  <br>
-**Note:** Because the ordering of matched spans is unpredictable, you cannot use `limit()` to page through a set of results to obtain the traces that contain the next group of spans. <br><br>
 
-**Example:** Limit the set of qualifying spans to 50:<br>
-`limit(50, spans("makeShirts", application="beachshirts"))` <br>
-</td>
-</tr>
 <tr>
 <td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
 <td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
@@ -167,7 +172,16 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 </tbody>
 </table>
 
+<!--- May include eventually. Currently traces(limit(spans())) is equivalent to limit(traces(spans())), but works less well.
+<tr>
+<td>limit(<strong>&lt;numberOfSpans&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to the specified **numberOfSpans**.  <br>
+**Note:** Because the ordering of matched spans is unpredictable, you cannot use `limit()` to page through a set of results to obtain the traces that contain the next group of spans. 
+</td>
+</tr>
+--->
 <!--- May include eventually. Currently internal only, with no compelling use case for users.
+
 <tr>
 <td>rootsOnly(<strong>&lt;spansExpression&gt;</strong>)</td>
 <td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are the root spans of a trace, i.e., spans without any ancestor. <br><br>
