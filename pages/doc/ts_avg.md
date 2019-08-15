@@ -39,10 +39,10 @@ By default, `avg()` produces a single series of averages by aggregating values a
 
 If any time series has data gaps, `avg()` fills them in by interpolation whenever possible. 
 
-The `avg()`, `mavg()` and `median()` functions can help you understand the tendency of the data.
+The `avg()`, `mavg()` and `mmedian()` functions can help you understand the tendency of the data.
 
 * Use `avg()` or `mavg()` to get the mean (average), that is, the number in the middle of a set of values.
-* Use `median()` to be less sensitive to outliers. Even a single outlier can affect the result of `avg()` and `mavg()`. Use `mpercentile()` with a percentile of 50 to get the moving median.
+* Use `mmedian()` to be less sensitive to outliers. Even a single outlier can affect the result of `avg()` and `mavg()`. Use `mpercentile()` with a percentile of 50 to get the moving median.
 
 
 ### Grouping

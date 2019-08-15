@@ -6,13 +6,12 @@ sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.
 ---
-The Wavefront Query Language allows you to extract the information you need from time series data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples. For some background information, see:
+The Wavefront Query Language allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples. For some background information, see:
 * [Aggregation Functions](query_language_aggregate_functions.html)
 * [Discrete and Continuous Time Series](query_language_discrete_continuous.html)
 * [Detecting Anomalies](query_language_statistical_functions_anomalies.html)
 * [Bucketing with align()](query_language_align_function.html)
 
-**Note:** This page summarizes queries that apply to time series data and events. For queries that apply to distributed tracing, see [Querying Trace Data](trace_data_query.html) and [traces() Function](traces_function.html).
 
 ## Query Elements
 <table style="width: 100%;">
@@ -660,6 +659,18 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
   - Original: `max(ts(customer.alerts.active), metrics)`
   - Renamed: `aliasMetric(${original}, "Total Number Of Alerts")`, replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
+## Join Function
+
+See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
+
+The `join()` function enables you to: 
+* Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
+* Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
+
+The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
+
+**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
 <colgroup>
@@ -861,12 +872,20 @@ In the syntax summaries below:
 <td>Returns the specified histogram for the specified percentile, aggregated over a minute.</td>
 </tr>
 <tr>
-<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
-<td>Returns the largest value in the specified histogram. </td>
-</tr>
-<tr>
 <td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the median value in the specified histogram.</td>
+</tr>
+<tr>
+<td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns the average value in the specified histogram.</td>
+</tr>
+<tr>
+<td>min(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the smallest value in the specified histogram. </td>
+</tr>
+<tr>
+<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the largest value in the specified histogram. </td>
 </tr>
 <tr>
 <td>merge(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>)&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
@@ -874,23 +893,24 @@ In the syntax summaries below:
 Because this is an aggregation function, you can group, for example, call <strong>merge(hs(&lt;hsMetric&gt;.m), myKey)</strong>, where <strong>myKey</strong> is a point tag name. </td>
 </tr>
 <tr>
-<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;hsMetric&gt;.m)) </strong> to output hourly buckets for a minute histogram.</td>
 </tr>
 <tr>
-<td>count(hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>count(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the number of values in a distribution.</td>
 </tr>
 <tr>
-<td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns a distribution summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 <tr>
-<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns a summary of the specified histogram aligned across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>
 </table>
+
 
 ## Event Functions
 
@@ -971,6 +991,50 @@ The following example shows a query you could use to filter the events in your c
 events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
 ```
 See [Event Filters](events_queries.html#event-filters) for details on filters.
+
+## <span id="traceFunctions"></span>Trace Functions
+
+You use trace functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+
+**Note:** Some trace functions are [filtering functions](traces_function.html#filtering-functions), which filter the results of `traces()` or another filtering function wrapped around `traces()`.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
+</td>
+<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and filters.</td>
+</tr>
+<tr>
+<td>
+limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td markdown="span">Limits the traces returned by **tracesExpression** to include the specified **numberOfTraces**.  
+</td>
+</tr>
+
+<tr>
+<td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are longer than **traceDuration**. 
+</td>
+</tr>
+<tr>
+<td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.  
+</td>
+</tr>
+</tbody>
+</table>
 
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">

@@ -41,7 +41,7 @@ Here's how to select your averaging function:
 
 * Use `mavg()` to see the moving average in a specified time window.
 * Use `avg()` to see the average (the mean).
-* Use `median()` to see the median. Using `median()` is preferred if there are a lot of outliers.
+* Use `mmedian()` to see the median. Using `mmedian()` is preferred if there are a lot of outliers.
 * Use `mpercentile()` with a percentile of 50 to see the moving median.
 
 

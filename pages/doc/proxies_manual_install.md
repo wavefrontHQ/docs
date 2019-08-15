@@ -1,5 +1,5 @@
 ---
-title: Installing a Wavefront Proxy Manually
+title: Manual Wavefront Proxy Install on Linux
 keywords: Ansible
 tags: [proxies, best practice]
 sidebar: doc_sidebar
