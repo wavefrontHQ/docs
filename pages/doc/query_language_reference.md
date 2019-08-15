@@ -861,12 +861,20 @@ In the syntax summaries below:
 <td>Returns the specified histogram for the specified percentile, aggregated over a minute.</td>
 </tr>
 <tr>
-<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
-<td>Returns the largest value in the specified histogram. </td>
-</tr>
-<tr>
 <td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the median value in the specified histogram.</td>
+</tr>
+<tr>
+<td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns the average value in the specified histogram.</td>
+</tr>
+<tr>
+<td>min(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the smallest value in the specified histogram. </td>
+</tr>
+<tr>
+<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the largest value in the specified histogram. </td>
 </tr>
 <tr>
 <td>merge(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>)&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
@@ -891,6 +899,7 @@ Because this is an aggregation function, you can group, for example, call <stron
 </tr>
 </tbody>
 </table>
+
 
 ## Event Functions
 

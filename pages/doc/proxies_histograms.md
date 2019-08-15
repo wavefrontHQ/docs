@@ -464,14 +464,15 @@ You can query histogram metrics with `hs()` queries. Each histogram metric has a
 * If you sent the data using Wavefront histogram format, the histogram metric extension depends on the aggregation interval you specified (`!M`, `!H`, or `!D`).
 * If you sent the data using Wavefront data format, the histogram metric extension depends on the histogram port that you used.
 
-<!--- When you add a histogram query to a chart, we --->
+
+<!---When you add a histogram query to a chart, we --->
 To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
 
 By default, we wrap a `median()` function around the result and display the median:
 
 ![default histogram](images/hs_median.png)
 
-You can explicitly wrap another [histogram functions](query_language_reference.html#histogram-functions) around the result to see other information.
+You can explicitly wrap another [histogram function](query_language_reference.html#histogram-functions) around the result to see other information.
 
 ### Using summary() and alignedSummary() for Histogram Visualization
 
