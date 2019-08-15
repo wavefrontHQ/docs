@@ -874,19 +874,19 @@ In the syntax summaries below:
 Because this is an aggregation function, you can group, for example, call <strong>merge(hs(&lt;hsMetric&gt;.m), myKey)</strong>, where <strong>myKey</strong> is a point tag name. </td>
 </tr>
 <tr>
-<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;hsMetric&gt;.m)) </strong> to output hourly buckets for a minute histogram.</td>
 </tr>
 <tr>
-<td>count(hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>count(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns the number of values in a distribution.</td>
 </tr>
 <tr>
-<td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns a distribution summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 <tr>
-<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>, &lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>Returns a summary of the specified histogram aligned across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>

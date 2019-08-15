@@ -460,11 +460,12 @@ You can display time series metrics in Wavefront charts using `ts()` queries. To
 
 ### Histogram Query Basics
 
-You can query histogram metrics with `hs()` queries. Each histogram metric has an extension .d, .h, or .m.
-* If you sent a metric in histogram format, three metrics result.
-* If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
+You can query histogram metrics with `hs()` queries. Each histogram metric has an extension `.m`, `.h`, or `.d`.
+* If you sent the data using Wavefront histogram format, the histogram metric extension depends on the aggregation interval you specified (`!M`, `!H`, or `!D`).
+* If you sent the data using Wavefront data format, the histogram metric extension depends on the histogram port that you used.
 
-When you add a histogram query to a chart, we To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
+<!--- When you add a histogram query to a chart, we --->
+To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
 
 By default, we wrap a `median()` function around the result and display the median:
 
@@ -502,7 +503,7 @@ To view histograms:
    ![select_histogram_chart](images/histogram_select_chart.png)
 3. Examine the chart.
    * The query is an `hs()` query, not a `ts()` query.
-   * We display the median for histogram metrics by default. You can use  `percentile(<value>, hs(<expression>))` to retrieve other percentiles.
+   * We display the median for histogram metrics by default. You can use  `percentile(<value>, <histograms>))` to retrieve other percentiles.
 
    ![histogram_chart](images/histogram_chart.png)
 
