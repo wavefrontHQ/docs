@@ -12,6 +12,7 @@ Starting with version 4.1, the Wavefront proxy includes a preprocessor that appl
 * Span filtering rules (new in proxy 4.38)
 * Span altering rules (new in proxy 4.38)
 
+
 The rules make it possible to address data quality issues in the data flow when fixing the problem at the source is not possible. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
 
 ## Rule Configuration File
