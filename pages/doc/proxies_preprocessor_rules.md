@@ -13,7 +13,7 @@ Starting with version 4.1, the Wavefront proxy includes a preprocessor that appl
 * Span altering rules (new in proxy 4.38)
 
 
-The rules make it possible to address data quality issues in the data flow when fixing the problem at the source is not possible. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
+The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
 
 ## Rule Configuration File
 
@@ -51,11 +51,8 @@ You define the proxy preprocessor rules in a rule configuration file, usually `<
 
 You can define separate rules for each listening port.  The example above defines 2 rules for port 2878 and 1 rule for port 4242.
 
-## Rule Syntax and Parameters
 
-All rules have required parameters listed for each rule below.
-
-### Parameters
+### Rule Parameters
 
 Every rule must have
 * A `rule` parameter that contains the rule ID. Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the `drop-az-tag` rule is defined with the same identifier for both ports, 2878 and 4242.
@@ -63,6 +60,7 @@ Every rule must have
 
 Additional parameters depend on the rule you're defining, for example, a `whitelistregex` rule must have a `scope` and a `match` parameter.
 
+<!---
 ### Scope for Metrics
 
 If a rule for metrics has a `scope` parameter, the preprocessor applies the rule to metrics as follows:
@@ -80,6 +78,7 @@ If a rule for spans has a `scope` or `source` parameter, the preprocessor applie
 * `spanName` -- Rule applies only to *span name* of the span.
 * `sourceName` -- Rule applies only to the *source name* of span.
 * tag -- If you specify any other value for the `scope` parameter the rule applies to span annotations/tag keys.
+--->
 
 
 
@@ -92,16 +91,16 @@ If a rule for spans has a `scope` or `source` parameter, the preprocessor applie
 ## Enabling the Preprocessor
 
 To enable the preprocessor:
-1. Add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring.html)
+1. Add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring.html).
 2. Set `preprocessorConfigFile` to a valid path to the rules configuration file.
 
 ### Validation
 
-The rules file is validated when the proxy starts and the start-up process is aborted if any of the rules are not valid. A detailed error message is provided for every rule that fails validation.
+The rules file is validated when the proxy starts. The proxy aborts the start-up process if any of the rules is not valid. We provide a detailed error message for every rule that fails validation.
 
 ### Metrics for Rules
 
-For every rule the Wavefront proxy reports a counter metric  that shows how often the rule has been successfully applied. The rule ID becomes part of the proxy metric `~agent.preprocessor.<ruleID>.count`, for example, `~agent.preprocessor.replace-badchars.count`. For information on proxy metrics, see [Monitoring Wavefront Proxies](monitoring_proxies.html).
+For every rule the Wavefront proxy reports a counter metric  that shows how often the rule has been successfully applied. The rule ID becomes part of the proxy metric `~agent.preprocessor.<ruleID>.count`, for example, `~agent.preprocessor.replace-badchars.count`. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details.
 
 ## Point Filtering Rules
 
@@ -127,16 +126,16 @@ Defines a regex that points must match to be filtered out.
 <tbody>
 <tr>
 <td>action</td>
-<td>blacklistRegex. Required. </td>
+<td>blacklistRegex. </td>
 </tr>
 <tr>
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only) </li>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
+<li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -184,16 +183,16 @@ Points must match the `whitelistRegex` to be accepted. Multiple `whitelistRegex`
 <tbody>
 <tr>
 <td>action</td>
-<td>whitelistRegex. Required.</td>
+<td>whitelistRegex. </td>
 </tr>
 <tr>
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only) </li>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
+<li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -250,21 +249,21 @@ Replaces arbitrary text in the point line or any of its components:
 <tbody>
 <tr>
 <td>action</td>
-<td>replaceRegex. Required.</td>
+<td>replaceRegex.</td>
 </tr>
 <tr>
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only) </li>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
+<li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
 <td>search</td>
-<td>Search pattern. All substrings matching this pattern are replaced with the replacement string.</td>
+<td>Search pattern. All substrings that match this pattern are replaced with the replacement string.</td>
 </tr>
 <tr>
 <td>replace</td>
@@ -272,7 +271,7 @@ Replaces arbitrary text in the point line or any of its components:
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, extract the tag only if &quot;scope&quot; (point line, source name, metric name or point tag value) matches this regular expression.</td>
+<td>Regular expression. If specified, extract the tag only if the point line, source name, metric name or point tag value matches this regular expression.</td>
 </tr>
 </tbody>
 </table>
@@ -297,9 +296,11 @@ Replaces arbitrary text in the point line or any of its components:
   replace : "_"
 ```
 
-### addTag
+### addTag and addTagIfNotExists
 
-Adds a point tag with the specified value to all points. If the point tag already exists, its existing value is replaced with the new value.
+Adds a point tag with the specified value.
+* For `addTag`, if the point tag already exists, its existing value is replaced with the new value.
+* For `addTagIfNotExists`, if the point tag already exists, its existing value is preserved.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -317,7 +318,8 @@ Adds a point tag with the specified value to all points. If the point tag alread
 <tbody>
 <tr>
 <td>action</td>
-<td>addTag. Required. </td>
+<td>addTag<br>
+addTagIfNotExists </td>
 </tr>
 <tr>
 <td>tag</td>
@@ -339,54 +341,13 @@ Adds a point tag with the specified value to all points. If the point tag alread
     action  : addTag
     tag     : env
     value   : "prod"
-```
 
-### addTagIfNotExists
-
-Adds a point tag with the specified value to all points. If the point tag already exists, its existing value is preserved.
-
-<font size="3"><strong>Parameters</strong></font>
-
-<table width="100%">
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>action</td>
-<td>addTagIfNotExists</td>
-<td></td>
-</tr>
-<tr>
-<td>tag</td>
-<td>&lt;new point tag key&gt;</td>
-<td>New point tag name.</td>
-</tr>
-<tr>
-<td>value</td>
-<td>&lt;new value&gt;</td>
-<td>New point tag value.</td>
-</tr>
-</tbody>
-</table>
-
-<font size="3"><strong>Example</strong></font>
-
-```yaml
-  # add "env=prod" point tag to all metrics sent through this port unless already tagged with "env"
-  ################################################################
-  - rule    : tag-all-metrics
-    action  : addTagIfNotExists
-    tag     : env
-    value   : "prod"
+    # add "env=prod" point tag to all metrics sent through this port unless already tagged with "env"
+    ################################################################
+    - rule    : tag-all-metrics
+      action  : addTagIfNotExists
+      tag     : env
+      value   : "prod"
 ```
 
 ### dropTag
@@ -409,7 +370,7 @@ Removes a point tag.
 <tbody>
 <tr>
 <td>action</td>
-<td>dropTag. Required.</td>
+<td>dropTag.</td>
 </tr>
 <tr>
 <td>tag</td>
@@ -417,7 +378,7 @@ Removes a point tag.
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
+<td>Regular expression. If specified, remove a tag only if its value matches this regular expression.</td>
 </tr>
 </tbody>
 </table>
@@ -439,9 +400,11 @@ Removes a point tag.
     match   : dev.*
 ```
 
-### extractTag
+### extractTag and extractTagIfNotExists
 
-Creates a new point tag based on a metric name, source name, or another point tag value.
+Extracts a string from the metric name, source name, or point tag value and creates a new point tag from it.
+* For `extractTag` create the new point tag.
+* For `extractTagIfNotExists` create the new point tag but do not replace the existing value with the new value if the tag already exists.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -460,20 +423,22 @@ Creates a new point tag based on a metric name, source name, or another point ta
 <tbody>
 <tr>
 <td>action</td>
-<td>extractTag. Required.</td>
+<td>extractTag <br>
+extractTagIfNotExists</td>
 </tr>
 <tr>
 <td>source</td>
 <td>Any of the following:
 <ul>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
+<li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
 <td>tag</td>
-<td>New name for the point tag.</td>
+<td>Name of the new point tag.</td>
 </tr>
 <tr>
 <td>search</td>
@@ -481,7 +446,7 @@ Creates a new point tag based on a metric name, source name, or another point ta
 </tr>
 <tr>
 <td>replace</td>
-<td>Replacement string or pattern (empty string is allowed) that will be used as a value for the new point tag. To refer to a capturing group in &quot;search&quot; regex by its number, use &quot;$1&quot;.</td>
+<td>Replacement string or pattern that will be used as a value for the new point tag. Empty string is allowed. To refer to a capturing group in &quot;search&quot; regex by its number, use &quot;$1&quot;.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -524,7 +489,7 @@ Renames a point tag, preserving its value.
 <tbody>
 <tr>
 <td>action</td>
-<td>renameTag. Required</td>
+<td>renameTag</td>
 </tr>
 <tr>
 <td>tag</td>
@@ -562,7 +527,7 @@ Renames a point tag, preserving its value.
 
 ### forceLowercase
 
-Convert a point's component (metric name, source, point tag value) to lowercase.
+Converts metric name, source name, or point tag value to lowercase.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -586,15 +551,15 @@ Convert a point's component (metric name, source, point tag value) to lowercase.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only) </li>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
+<li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
+<td>Regular expression. If specified, convert a tag to lower case only if its value matches this regular expression.</td>
 </tr>
 </tbody>
 </table>
@@ -612,7 +577,7 @@ Convert a point's component (metric name, source, point tag value) to lowercase.
 
 ### limitLength
 
-Enforces custom string length limits for data point components (metric name, source, point tag value). Available action sub-types are `truncate`, `truncateWithEllipsis`, and `drop`.
+Enforces string length limits for a metric name, source name, or point tag value. Available action sub-types are `truncate`, `truncateWithEllipsis`, and `drop`.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -636,10 +601,10 @@ Enforces custom string length limits for data point components (metric name, sou
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only) </li>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
+<li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
+<li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
+<li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -653,11 +618,11 @@ Enforces custom string length limits for data point components (metric name, sou
 </tr>
 <tr>
 <td>maxLength</td>
-<td>The maximum length of the input metricName, sourceName, or pointTag. The length of the input must be greater than maxLength for rule to be applied.</td>
+<td>The maximum length of the input metric name, source name, or point tag. Only if the length of the input is  greater than maxLength, the rule is applied.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
+<td>Regular expression. If specified, limitLength applies only to tags with a value that matches this regular expression.RK>>Tags with a value or tags??</td>
 </tr>
 </tbody>
 </table>
@@ -680,9 +645,9 @@ Enforces custom string length limits for data point components (metric name, sou
 
 Span filtering rules allow you to specify a black list or white list.
 
-### blacklistRegex
+### spanBlacklistRegex
 
-Defines a regex that points must match to be filtered out. In the example below, we don't allow spans with a sourceName that matches `qa-service`.
+Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that matches `qa-service`.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -700,20 +665,20 @@ Defines a regex that points must match to be filtered out. In the example below,
 <tbody>
 <tr>
 <td>action</td>
-<td>blacklistRegex. </td>
+<td>blacklistRegex </td>
 </tr>
 <tr>
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>spanName&mdash;Rule applies only to span name of the span.</li>
-<li>sourceName&mdash;Rule applies only to the source name after the span is parsed</li>
-<li>&lt;span tag&gt;&mdash;If you specify any other value for scope, the rule applies to span tags (annotations).</li>
+<li>spanName&mdash;Rule applies only to span name.</li>
+<li>sourceName&mdash;Rule applies only to the source name.</li>
+<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
 </ul></td>
 </tr>
 <tr>
 <td>match</td>
-<td>A regex pattern that input lines must match to be filtered out.</td>
+<td>A regex pattern. If the input matches this regex, it is filtered out.</td>
 </tr>
 </tbody>
 </table>
@@ -731,7 +696,7 @@ Defines a regex that points must match to be filtered out. In the example below,
 
 ### spanWhitelistRegex
 
-Points must match the `whitelistRegex` to be accepted. Multiple `spanWhitelistRegex` rules are allowed. A point must match all rules.
+Points must match the `spanWhitelistRegex` to be accepted. Multiple `spanWhitelistRegex` rules are allowed. A point must match all rules.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -749,15 +714,15 @@ Points must match the `whitelistRegex` to be accepted. Multiple `spanWhitelistRe
 <tbody>
 <tr>
 <td>action</td>
-<td>spanWhitelistRegex. Required.</td>
+<td>spanWhitelistRegex. </td>
 </tr>
 <tr>
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>spanName&mdash;Rule applies only to span name of the span.</li>
-<li>sourceName&mdash;Rule applies only to the source name after the span is parsed</li>
-<li>&lt;span tag&gt;&mdash;If you specify any other value for scope, the rule applies to span tags (annotations).</li>
+<li>spanName&mdash;Rule applies only to the span name.</li>
+<li>sourceName&mdash;Rule applies only to the source name. </li>
+<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
 </ul></td>
 </tr>
 <tr>
@@ -780,17 +745,11 @@ Points must match the `whitelistRegex` to be accepted. Multiple `spanWhitelistRe
 
 ## Span Altering Rules
 
-
-Span altering rules allow you to:
-* Replace text in the span line. The span line uses the span input format:
-  `<operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>`
-
-RK>>I don't see span line as an argument anywhere. why??
-* Add, remove, or update span tags.
+Span altering rules allow you to add, remove, or update span tags.
 
 ### spanReplaceRegex
 
-Replaces arbitrary text in the span line or any of its components.
+Replaces arbitrary text in the span name, span source name, or a span tag.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -814,19 +773,9 @@ Replaces arbitrary text in the span line or any of its components.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>pointLine&mdash;Applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only) </li>
-<li>metricName&mdash;Applies only to the metric name after the point is parsed</li>
-<li>sourceName&mdash;Applies only to the source name after the point is parsed</li>
-<li>&lt;point tag&gt;&mdash;Any other value of the &quot;scope&quot; parameter applies to the value of a point tag with this name, after the point is parsed.</li>
-</ul></td>
-</tr>
-<tr>
-<td>scope</td>
-<td>Any of the following:
-<ul>
-<li>spanName&mdash;Rule applies only to span name of the span.</li>
-<li>sourceName&mdash;Rule applies only to the source name after the span is parsed</li>
-<li>&lt;point tag&gt;&mdash;If you specify any other value for scope, the rule applies to span tags (annotations).</li>
+<li>spanName&mdash;Rule applies only to the span name.</li>
+<li>sourceName&mdash;Rule applies only to the source name.</li>
+<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
 </ul></td>
 </tr>
 <tr>
@@ -839,11 +788,11 @@ Replaces arbitrary text in the span line or any of its components.
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, extract the tag only if &quot;scope&quot; (spanName, sourceName, or span tag) matches this regular expression.</td>
+<td>Regular expression. If specified, extract the tag only if the span name, source name, or span tag matches this regular expression.</td>
 </tr>
 <tr>
 <td>iterations (optional)</td>
-<td>Number of iterations. Recursively check and replace recursively if output string contains the search string until no. of iterations are reached or search string is not found in the output.</td>
+<td>Number of iterations. Recursively check and recursively replace if the output string contains the search string until the number of iterations is reached.</td>
 </tr>
 <tr>
 <td>firstMatchOnly</td>
@@ -857,7 +806,7 @@ Replaces arbitrary text in the span line or any of its components.
 
 ```yaml
 # replace special characters ("&", "$", "!") with underscores in the
-# entire span name string i.e. from "span.service!frontend" to
+# entire span name string e.g. replace "span.service!frontend" with
 # "span.service_frontend"
 ################################################################
 - rule    : example-span-replace-badchars
@@ -871,7 +820,7 @@ Replaces arbitrary text in the span line or any of its components.
 
 ### spanForceLowercase
 
-Convert a span's component (span name, source, span tag value) to lowercase.
+Convert a span name, source name, or span tag name to lowercase.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -895,14 +844,18 @@ Convert a span's component (span name, source, span tag value) to lowercase.
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>spanName&mdash;Rule applies only to span name of the span.</li>
-<li>sourceName&mdash;Rule applies only to the source name after the span is parsed</li>
-<li>&lt;point tag&gt;&mdash;If you specify any other value for scope, the rule applies to span tags (annotations).</li>
+<li>spanName&mdash;Rule applies only to the span name.</li>
+<li>sourceName&mdash;Rule applies only to the source name.</li>
+<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
 </ul></td>
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
+<td>Regular expression. If specified, force lower case only if the value matches this regular expression.</td>
+<tr>
+<td>firstMatchOnly</td>
+<td>If set to true, change only the first occurrence to lower case. Default is false.</td>
+</tr>
 </tr>
 </tbody>
 </table>
@@ -919,9 +872,11 @@ Convert a span's component (span name, source, span tag value) to lowercase.
   firstMatchOnly : false
 ```
 
-### spanAddTag
+### spanAddTag and spanAddTagIfNotExists
 
-Add a span tag with the specified value to all spans. If the tag already exists, its existing value is replaced with the new value.
+Add a span tag to all spans.
+* For `spanAddTag`, if the tag already exists, its existing value is replaced with the new value.
+* For `spanAddTagIfNotExists`, do not replace the value of an existing tag.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -939,7 +894,8 @@ Add a span tag with the specified value to all spans. If the tag already exist
 <tbody>
 <tr>
 <td>action</td>
-<td>spanAddTag</td>
+<td>spanAddTag <br>
+spanAddTagIfNotExists</td>
 </tr>
 <tr>
 <td>key</td>
@@ -961,56 +917,20 @@ Add a span tag with the specified value to all spans. If the tag already exist
     action  : spanAddTag
     tag     : env
     value   : "prod"
-```
 
-### spanAddTagIfNotExists
-
-Add a span annotation with the specified value to all spans. If the annotation already exists, its existing value is preserved.
-
-<font size="3"><strong>Parameters</strong></font>
-
-<table width="100%">
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>action</td>
-<td>spanAddTagIfNotExists</td>
-</tr>
-<tr>
-<td>key</td>
-<td>New span tag name.</td>
-</tr>
-<tr>
-<td>value</td>
-<td>New span tag value.</td>
-</tr>
-</tbody>
-</table>
-
-<font size="3"><strong>Example</strong></font>
-
-```yaml
-# add "env=prod" point tag to all spans sent through this port
-# unless already tagged with "env"
-################################################################
+  # add "env=prod" point tag to all spans sent through this port
+  # unless already tagged with "env"
+  ################################################################
   - rule    : example-span-tag-all-metrics-if-not-exists
     action  : spanAddTagIfNotExists
     tag     : env
     value   : "prod"
 ```
 
+
 ### spanDropTag
 
-Removes a span annotation matching a regex string.
+Removes a span tag that matches a regex string.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -1032,7 +952,7 @@ Removes a span annotation matching a regex string.
 </tr>
 <tr>
 <td>key</td>
-<td>Span tag key (or a regex matching the tag key).</td>
+<td>Span tag name (or a regex matching the tag name).</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -1040,7 +960,7 @@ Removes a span annotation matching a regex string.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, drops only the first occurrence of the search string. Default is false.</td>
+<td>If set to true, remove only the first occurrence of the search string. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1060,7 +980,7 @@ Removes a span annotation matching a regex string.
 
 ### spanExtractTag and spanExtractTagIfNotExists
 
-Create a new span tag based on a span name, source name, or another span value.
+Extract a string from a span name, source name, or a span tag value and create a new span tag from that string.
 * For `spanExtractTag`, create the new span.
 * For `spanExtractTagIfNotExists`, do not replace the existing value with the new value if the tag already exists.
 
@@ -1092,9 +1012,9 @@ Create a new span tag based on a span name, source name, or another span value.
 <td>input</td>
 <td>Any of the following:
 <ul>
-<li>spanName&mdash;Rule applies only to span name of the span.</li>
-<li>sourceName&mdash;Rule applies only to the source name after the span is parsed</li>
-<li>&lt;span tag&gt;&mdash;If you specify any other value for the input, the rule applies to span tags (annotations).</li>
+<li>spanName&mdash;Rule applies only to the span name.</li>
+<li>sourceName&mdash;Rule applies only to the source name.</li>
+<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
 </ul></td>
 </tr>
 <tr>
@@ -1107,7 +1027,7 @@ Create a new span tag based on a span name, source name, or another span value.
 </tr>
 <tr>
 <td>replace</td>
-<td>String or pattern (empty string is allowed) that will be used as a value for the new span tag. To refer to a capturing group in &quot;search&quot; regex by its number, use &quot;$1&quot;. RK>>WHY REPLACE? This function is extract. </td>
+<td>String or pattern that will be used as a value for the new span tag. Empty string is allowed. To refer to a capturing group in the &quot;search&quot; regex by its number, use &quot;$1&quot;. </td>
 </tr>
 <tr>
 <td>replaceInput (Optional)</td>
@@ -1115,7 +1035,7 @@ Create a new span tag based on a span name, source name, or another span value.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, replaces only the first occurrence of the search string with replacement string. Default is false.</td>
+<td>If set to true, replaces only the first occurrence of the search string with a replacement string. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1160,7 +1080,7 @@ Create a new span tag based on a span name, source name, or another span value.
 
 Truncate the span name or source name to the given length. Truncate or drop span tags if tag value length exceeds the limit.
 
-Available action sub-types are `truncate`, `truncateWithEllipsis`, and `drop`.
+Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -1178,15 +1098,15 @@ Available action sub-types are `truncate`, `truncateWithEllipsis`, and `drop`.
 <tbody>
 <tr>
 <td>action</td>
-<td>spanlimitLength. </td>
+<td>spanlimitLength </td>
 </tr>
 <tr>
 <td>scope</td>
 <td>Any of the following:
 <ul>
-<li>spanName&mdash;Rule applies only to span name of the span.</li>
-<li>sourceName&mdash;Rule applies only to the source name after the span is parsed</li>
-<li>&lt;span tag&gt;&mdash;If you specify any other value for scope, the rule applies to span tags (annotations).</li>
+<li>spanName&mdash;Rule applies only to the span name of the span.</li>
+<li>sourceName&mdash;Rule applies only to the source name of the span.</li>
+<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
 </ul></td>
 </tr>
 <tr>
@@ -1200,7 +1120,7 @@ Available action sub-types are `truncate`, `truncateWithEllipsis`, and `drop`.
 </tr>
 <tr>
 <td>maxLength</td>
-<td>The maximum length of the input spanName, sourceName, or span tag. The length of the input must be greater than maxLength for rule to be applied.</td>
+<td>The maximum length of the input span name, source name, or span tag. The length of the input must be greater than maxLength for rule to be applied.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
