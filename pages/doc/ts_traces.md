@@ -3,7 +3,7 @@ title: traces() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: traces_function.html
+permalink: ts_traces.html
 summary: Learn how to write traces() queries.
 ---
 
@@ -25,7 +25,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 </thead>
 <tr>
 <td>fullOperationName</td>
-<td markdown="span">Full name of the operation that a qualifying span must represent. For example, specify `"beachshirts.delivery.dispatch"` to match the spans that represent calls to an operation named `dispatch` in the `delivery` service of the `beachshirts` application. <br> The general format of a `fullOperationName` is `<application>.<service>.<operationName>`, where each component consists of one or more period-delimited components. Replace `operationName` or `serviceName` with an asterisk `*` to match spans for any operation in any service.</td>
+<td markdown="span">Full name of the operation that a qualifying span must represent. For example, specify `"beachshirts.delivery.dispatch"` to match the spans that represent calls to an operation named `dispatch` in the `delivery` service of the `beachshirts` application. <br> The general format of a `fullOperationName` is `<application>.<service>.<operationName>`, where each component consists of one or more period-delimited components. Replace `operationName` or `serviceName` with an asterisk `*` to match spans for any operation in any service. </td>
 </tr>
 <tr>
 <td>filterName</td>
@@ -52,7 +52,9 @@ MONIT-13913 - You can use autocompletion to discover the span filters available 
 For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
 --->
 
-**Note:** To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query. 
+To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query. 
+
+You can specify the length of the qualifying spans by including a [`spans()`](ts_spans.html) expression as the `fullOperationName` parameter.
 
 ## Examples
 

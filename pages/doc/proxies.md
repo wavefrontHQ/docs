@@ -18,6 +18,13 @@ Having a proxy be part of the Wavefront architecture has benefits:
 - **Enrich or filter data** -- You can set up the preprocessor to filter data before it's sent to Wavefront.
 -  **Examine bottlenecks** -- Each proxy generates its own metrics, so you can check whether data comes in and whether data is sent to the Wavefront service.
 
+In this video, Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience.
+
+<p><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_proxy_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+</p>
+
+
+
 ## Proxy Deployment Options
 
 Wavefront lets you choose a deployment option:
