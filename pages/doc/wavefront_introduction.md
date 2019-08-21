@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about Wavefront, its architecture, and its interfaces.
 ---
-Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. Wavefront is unique because it can scale to very high data ingestion rates and query loads. That means you can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
 
 ## What Can Wavefront Do?
 
@@ -77,6 +77,13 @@ After you've set up an alert with that information, we'll send an alert notifica
 </tbody>
 </table>
 
+### Video: Introduction to Wavefront
+
+In this video, Wavefront co-founder Clement Pang gives an introduction to Wavefront: How you get data into Wavefront, how dashboards, charts, and alerts allow you to monitor your environment, and how our histogram and tracing features can give you the full picture of what's going on.
+
+<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+</p>
+
 
 ## How Can I Get Data Into Wavefront?
 
@@ -88,7 +95,7 @@ Wavefront works with time-series (metric) data, and also with traces and spans, 
 * **Histograms:** For high-velocity metrics, [Wavefront histograms](proxies_histograms.html) might be the best solution.
 * **Traces and Spans:** For traces, we support Jaeger and Zipkin or any applications that are instrumented with the OpenTracing library. You can also send custom traces using one of our SDKs.
 
-For an introduction, watch this video by Wavefront co-founder Clement Pang.
+### Video: Getting Data Into Wavefront
 
 <p><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_data_into_wavefront.png" style="width: 700px;" alt="getting data into wavefront"/></a>
 </p>
