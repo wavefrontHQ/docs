@@ -16,6 +16,10 @@ Learn about getting data into Wavefront and get background info on time series a
 <td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
+<td width="30%"><strong><font color="blue">Wavefront Proxy</font></strong><br> <a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_proxy_clement.png " alt="Wavefront proxy video"/></a></td>
+<td width="70%"><br><p>Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience. </p> </td>
+</tr>
+<tr>
 <td><strong><font color="blue">Time Series and Interpolation</font></strong><br>
 <a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
 <td><br>
