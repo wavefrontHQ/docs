@@ -43,7 +43,7 @@ echo "hello.world 1 source=<myhost>" | curl -H "Authorization: Bearer <TOKEN>" -
 
 ### Histogram Distribution
 
-You can perform direct ingestion of [histogram distributions](proxies_histograms.html#sending-histogram-distributions) in histogram distribution format. You cannot perform direct ingestion of histogram data in Wavefront data format.
+You can perform direct ingestion of [histogram distributions](proxies_histograms.html#sending-histogram-distributions) in histogram data format. You cannot perform direct ingestion of histogram data in Wavefront data format.
 
 Here's a simple example:
 ```
@@ -52,7 +52,7 @@ echo '!M #20 30 #10 5 request.latency source=appServer1 region=us-west' | curl -
 
 Notes:
 * Enclose the distribution in single quotes for compatibility with the `!M` syntax. 
-* Specify the distribution using the [histogram distribution format](proxies_histograms.html#sending-histogram-distributions).
+* Specify the distribution using the [histogram data format](proxies_histograms.html#sending-histogram-distributions).
 * Include `f=histogram` at the end of the `--data` argument to ensure the input is treated as a histogram distribution.
 
 ### Trace Data (Spans)
