@@ -500,7 +500,7 @@ To view histograms:
    ![select_histogram_chart](images/histogram_select_chart.png)
 3. Examine the chart.
    * The query is an `hs()` query, not a `ts()` query.
-   * We display the median for histogram metrics by default. You can use  `percentile(<value>, <histograms>))` to retrieve other percentiles.
+   * We display the median for histogram metrics by default. You can use  `percentile(<value>, hs(<expression>))` to retrieve other percentiles.
 
    ![histogram_chart](images/histogram_chart.png)
 

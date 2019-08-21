@@ -11,14 +11,11 @@ summary: Reference to the max() function
 max(<expression1>, <expression2>)
 max(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
-max(<histograms>)
 ```
 
 When used as a comparison function, returns the higher of the two values in `expression1` and `expression2`.
 
 When used as an aggregation function, returns the highest value across the set of time series described by `expression`. The results might be computed from real reported values and interpolated values. Use [`rawmax()`](ts_rawmax.html) if you don't need interpolation.
-
-When used as a histogram function, returns the largest value in the specified histogram.
 
 ## Parameters
 
@@ -57,6 +54,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 </tbody>
 </table>
 
+<!-- 
 ### Histogram Function
 <table>
 <tbody>
@@ -69,6 +67,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 </td></tr>
 </tbody>
 </table>
+--->
 
 ## Description
 
