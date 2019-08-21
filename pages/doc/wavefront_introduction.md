@@ -5,7 +5,7 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about Wavefront, its architecture, and its interfaces.
 ---
-Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. Wavefront is unique because it can scale to very high data ingestion rates and query loads. That means you can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
 
 ## What Can Wavefront Do?
 
