@@ -32,8 +32,7 @@ One approach to dealing with high frequency data is to calculate an aggregate st
 a 95th percentile from a variety of sources) does not yield an accurate and valid percentile with high velocity metrics. That might mean that even though you have an outlier in some of the source data, it becomes obscured by all the other data.
 
 To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user can:
-* Send the metrics to a [histogram proxy port](#histogram-proxy-ports) instead of the normal metrics port (2878).
-  Starting with Wavefront proxy 4.29, send histograms in distribution format to port 2878.
+* Send the metrics to a [histogram proxy port](#histogram-proxy-ports) -- either 2878 (Wavefront proxy 4.29 or later) or 40000 (earlier proxy versions).
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
 The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-naming), which you can query with a set of [functions](#histogram-functions).
@@ -88,9 +87,9 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
 
 ## Sending Histogram Distributions
 
-A distribution allows you to send multiple points with a single value.
+A histogram distribution allows you to send multiple points with a single value.
 
-To send histogram data as a distribution to the Wavefront proxy:
+To send a histogram distribution to the Wavefront proxy:
 
 - Send to the **distribution** port listed in the table in [Histogram Proxy Ports](#histogram-proxy-ports).
 
@@ -99,7 +98,7 @@ To send histogram data as a distribution to the Wavefront proxy:
   ```
   {!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
    <metricName> source=<source>
-   [<pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>]
+   [<pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>]
   ```
 
   where
@@ -113,11 +112,11 @@ To send histogram data as a distribution to the Wavefront proxy:
   !M 1493773500 #20 30 #10 5 request.latency source=appServer1 region=us-west
   ```
 
-  is a distribution that sends 20 points of the metric `request.latency` with value 30 and 10 points with value 5, that have been aggregated into minute intervals.
+  is a distribution that sends 20 points of the metric `request.latency` with value 30, and 10 points with value 5, that have been aggregated into minute intervals.
 
   {% include note.html content="Unlike the Wavefront data format, which is `<metricName> <metricValue> <timestamp>`, histogram data format inverts the ordering of components in a data point: `<timestamp> #<points> <metricValue> <metricName>`." %}
 
-You can also send a histogram distribution using [direct ingestion](direct_ingestion.html#histogram-distribution). In that case, you must include `f=histogram` or your data are treated as metrics even if you use histogram format.
+You can also send a histogram distribution using [direct ingestion](direct_ingestion.html#histogram-distribution). In that case, you must include `f=histogram` or your data are treated as metrics even if you use histogram data format.
 
 ## Histogram Example
 
@@ -126,15 +125,15 @@ Suppose you want to send the following points to the Wavefront proxy:
 10, 20, 20, 30, 40, 100, 100
 
 If you want an hourly aggregation, you can send those points as a distribution to the histogram distribution listener port:
-* By default port 2878 for proxy 4.29 and later.
-* By default 40000 for earlier proxy versions.
+* By default, port 2878 for proxy 4.29 and later.
+* By default, 40000 for earlier proxy versions.
 
 `!H <timestamp> #1 10 #2 20 #1 30 #2 100 my.metric source=s1`
 
 Here, you specify:
 * the interval, in this case hours (!H)
 * timestamp (optional)
-* a set of sequences. Each sequence starts with #, followed by the number of points and the value of the points. In this example, we have 2 for 20 and 100 because we’re sending that point twice.
+* a set of sequences. Each sequence starts with #, followed by the number of points and the value of the points. In this example, we have 2 for 20 because we’re sending 2 points with the value 20.
 * metric name
 * source
 * optional point tag keys and values
@@ -159,7 +158,7 @@ You can now apply other functions to the histogram, for example, you can try to 
 
 ## Histogram Configuration
 
-Histograms are supported by Wavefront proxy 4.12 and later. To use histograms, ensure that your data is in histogram format, and set the [histogram proxy port](#histogram-proxy-ports) to send to. Different ports accept different data formats, as shown in the table below. For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
+Histograms are supported by Wavefront proxy 4.12 and later. To use histograms, ensure that your data is in histogram data format, and set the [histogram proxy port](#histogram-proxy-ports) to send to. Different ports accept different data formats, as shown in the table below. For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
 
 
 ### Histogram Proxy Ports
@@ -185,7 +184,7 @@ To indicate that you are sending histogram data, send the metrics to one of the 
 <td>histogramDistListenerPorts</td>
 <td>2878 (proxy 4.29 and later)<br>
 40000 (earlier proxy versions)</td>
-<td><a href="#sending-histogram-distributions">Distribution data format</a></td>
+<td><a href="#sending-histogram-distributions">Histogram data format</a></td>
 </tr>
 <tr>
 <td>minute</td>
@@ -210,7 +209,7 @@ To indicate that you are sending histogram data, send the metrics to one of the 
 
 You can send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
 
-You can send [**distribution data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront distribution data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
+You can send [**histogram data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront histogram data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
 
 ### Histogram Configuration Properties
 
@@ -447,7 +446,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 You send metrics using the standard [Wavefront data format](wavefront_data_format.html):
 
 ```html
-<metricName> <metricValue> [<timestamp>] source=<source> <pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>
+<metricName> <metricValue> [<timestamp>] source=<source> <pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>
 ```
 
 For example, `request.latency 20 1484877771 source=<source>`.
@@ -460,9 +459,9 @@ You can display time series metrics in Wavefront charts using `ts()` queries. To
 
 ### Histogram Query Basics
 
-You can query histogram metrics with `hs()` queries. Each histogram metric has an extension .d, .h, or .m.
-* If you sent a metric in histogram format, three metrics result.
-* If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
+You can query histogram metrics with `hs()` queries. Each histogram metric has an extension `.m`, `.h`, or `.d`.
+* If you sent a distribution in histogram data format, the histogram metric extension depends on the interval you specified (`!M`, `!H`, or `!D`).
+* If you sent a metric using Wavefront data format, the histogram metric extension depends on the histogram port that you used.
 
 <!---When you add a histogram query to a chart, we --->
 To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
@@ -475,19 +474,17 @@ You can explicitly wrap another [histogram function](query_language_reference.ht
 
 ### Using summary() and alignedSummary() for Histogram Visualization
 
-Users often need more information about a histogram than the median or any of the supported functions make available. To make histogram displays more meaningful, release 2019.18 introduced two new functions, `summary()` and `alignedSummary`.
+Sometimes it is useful to see more information about a histogram than just the median or any single percentile. You can use `summary()` or `alignedSummary` to display the following values from the histogram data: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min.
 
-By default, each function wraps the histogram data with max, P999, P99, P90, P75, avg, median (P50), P25, and min.
-
-The following diagram shows the information you get for the metric shown above if you use `summary()`. The diagram includes the legend to illustrate the information you can now get from your histogram data.
+The following diagram shows the information you get for the metric shown above if you wrap it with `summary()`. The legend lists the series that are extracted from the histogram data by default.
 
 ![histogram summary](images/hs_summary.png)
 
-The `alignedSummary()` function returnes an aligned summary of the histogram with the same defaults.
+The `alignedSummary()` function returns an aligned summary of the histogram.
 
 ![histogram aligned summary](images/hs_alignedsummary.png)
 
-For both functions, you can instead specify the percentiles that you are interested in, by calling the function with an optional list of percentiles as the first argument. For example, the following function returns the 25th and 10th percentile of the orderShirts histogram:
+For both functions, you can extract just the percentiles that you are interested in, by calling the function with an optional list of percentiles as the first argument. For example, the following function returns the 25th and 10th percentile of the orderShirts histogram:
 
 `summary((77.77, 65), hs(orderShirts.m))`
 
@@ -497,7 +494,7 @@ You can view histograms in the Histogram browser.
 
 To view histograms:
 1. Click **Browse > Histograms** and start typing the histogram metric name.
-  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram format, three metrics result. If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
+  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram data format, three metrics result. If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
 2. Select the metric you're interested in.
 
    ![select_histogram_chart](images/histogram_select_chart.png)
