@@ -890,28 +890,29 @@ If you use this function as a top-level query for a time-series chart, just the 
 </td>
 </tr>
 <tr>
-<td>percentile(<strong>&lt;percentage&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution.</td>
-</tr>
-<tr>
 <td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the median value from each distribution in a specified histogram.</td>
+<td>Returns the median value from each distribution in a specified histogram. The values are returned as time series.</td>
 </tr>
 <tr>
 <td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the average value from each distribution in a specified histogram.</td>
+<td>Returns the average value from each distribution in a specified histogram. The values are returned as time series.
+</td>
 </tr>
 <tr>
 <td>min(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
-<td>Returns the smallest value from each distribution in a specified histogram. </td>
+<td>Returns the smallest value from each distribution in a specified histogram. The values are returned as time series.</td>
 </tr>
 <tr>
 <td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
-<td>Returns the largest value from each distribution in a specified histogram. </td>
+<td>Returns the largest value from each distribution in a specified histogram. The values are returned as time series.</td>
+</tr>
+<tr>
+<td>percentile(<strong>&lt;percentage&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution. <br>The values are returned as time series.</td>
 </tr>
 <tr>
 <td>count(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the number of values in each distribution in a specified histogram.</td>
+<td>Returns the number of values in each distribution in a specified histogram. The counts are returned as time series.</td>
 </tr>
 <tr>
 <td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
