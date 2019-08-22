@@ -877,25 +877,25 @@ If you use this function as a top-level query for a time-series chart, just the 
 </tr>
 <tr>
 <td>merge(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>)&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
-<td>Merges the centroids and counts across multiple series of histogram distributions, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(&lt;hsMetric&gt;.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
+<td>Merges the centroids and counts across multiple series of histogram distributions, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(my.hsMetric.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
 You can specify this function as input to other histogram query functions. 
 If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
 </td>
 </tr>
 <tr>
 <td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Adjusts the granularity of a series of histogram distributions, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(&lt;hsMetric&gt;.m))</strong> merges successive groups of per-minute distributions to produce hourly distributions.<br>
+<td>Adjusts the granularity of a series of histogram distributions, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(my.hsMetric.m))</strong> merges groups of per-minute distributions to produce hourly distributions.<br>
 You can specify this function as input to other histogram query functions. 
 If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
 </td>
 </tr>
 <tr>
 <td>percentile(<strong>&lt;percentage&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(hsMetric.m))</strong> returns the 75th percentile value from each distribution.</td>
+<td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution.</td>
 </tr>
 <tr>
 <td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the median value from each distribution in the specified histogram.</td>
+<td>Returns the median value from each distribution in a specified histogram.</td>
 </tr>
 <tr>
 <td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
@@ -915,13 +915,13 @@ If you use this function as a top-level query for a time-series chart, just the 
 </tr>
 <tr>
 <td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Summarizes a series of histogram distributions by returning the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+<td>Summarizes a series of histogram distributions by returning the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
 </tr>
 <tr>
 <td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
 <td>
 Merges a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. 
-By default, the summary includes a separate constant time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+By default, the summary includes a separate constant time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>alignedSummary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
 </tr>
 </tbody>
 </table>
