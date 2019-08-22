@@ -846,17 +846,17 @@ We support 3 groups of string manipulation functions. For each group:
 
 ## Histogram Functions
 
-You can query histogram functions using `hs()` queries and apply a set of functions to the returned data. See [Wavefront Histograms](proxies_histograms.html) for background.
+You use histogram functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
 
 In the syntax summaries below:
 
-- **`hsMetric`** is the name of the histogram metric.
-- **`m|h|d`** is the [histogram integration interval](proxies_histograms.html#histogram-metric-aggregation-intervals). The interval can be m (minutes), h (hours), or d (days).
+- **`<hsMetric>`** is the name of a metric from which histogram distributions have been computed. You can include a wildcard `*` to match multiple histogram metric names.
+- **`m|h|d`** is the [histogram aggregation interval](proxies_histograms.html#histogram-metric-aggregation-intervals). The interval can be m (minutes), h (hours), or d (days).
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -866,50 +866,62 @@ In the syntax summaries below:
 </thead>
 <tbody>
 <tr>
-<td>hs(<strong>&lt;hsMetric&gt;</strong>)
+<td>hs(<strong>&lt;hsMetric&gt;.m|h|d</strong> &lbrack;, <strong>source=</strong>&lt;sourceName&gt;&rbrack; &lbrack;and|or&rbrack;
+&lbrack;<strong>tag</strong>=&lt;sourceTagName&gt;&rbrack; <br>&lbrack;and|or&rbrack;
+&lbrack;&lt;<strong>pointTagKey1</strong>&gt;=&lt;pointTagValue1&gt; &lbrack;and|or&rbrack; ... &lt;<strong>pointTagKeyN</strong>&gt;=&lt;pointTagValueN&gt;&rbrack;)
 </td>
-<td>Returns a histogram metric, which you can query with certain other query language functions. </td>
-</tr>
-<tr>
-<td>percentile(<strong>&lt;percentile&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the specified histogram for the specified percentile, aggregated over a minute.</td>
-</tr>
-<tr>
-<td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the median value in the specified histogram.</td>
-</tr>
-<tr>
-<td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the average value in the specified histogram.</td>
-</tr>
-<tr>
-<td>min(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
-<td>Returns the smallest value in the specified histogram. </td>
-</tr>
-<tr>
-<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
-<td>Returns the largest value in the specified histogram. </td>
+<td>Returns the series of histogram distributions for <strong>&lt;hsMetric&gt;</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's aggregation interval (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
+You can specify this function as input to other histogram query functions. 
+If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
+</td>
 </tr>
 <tr>
 <td>merge(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>)&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
-<td>Merges the centroids and counts of each series and returns the aggregated result <strong>hsMetric</strong>. <br>
-Because this is an aggregation function, you can group, for example, call <strong>merge(hs(&lt;hsMetric&gt;.m), myKey)</strong>, where <strong>myKey</strong> is a point tag name. </td>
+<td>Merges the centroids and counts across multiple series of histogram distributions, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(&lt;hsMetric&gt;.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
+You can specify this function as input to other histogram query functions. 
+If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
+</td>
 </tr>
 <tr>
 <td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Allows users to merge histograms across time buckets. For example, use <strong>align(1h, hs(&lt;hsMetric&gt;.m)) </strong> to output hourly buckets for a minute histogram.</td>
+<td>Adjusts the granularity of a series of histogram distributions, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(&lt;hsMetric&gt;.m))</strong> merges successive groups of per-minute distributions to produce hourly distributions.<br>
+You can specify this function as input to other histogram query functions. 
+If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
+</td>
+</tr>
+<tr>
+<td>percentile(<strong>&lt;percentage&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(hsMetric.m))</strong> returns the 75th percentile value from each distribution.</td>
+</tr>
+<tr>
+<td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns the median value from each distribution in the specified histogram.</td>
+</tr>
+<tr>
+<td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>Returns the average value from each distribution in a specified histogram.</td>
+</tr>
+<tr>
+<td>min(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the smallest value from each distribution in a specified histogram. </td>
+</tr>
+<tr>
+<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>Returns the largest value from each distribution in a specified histogram. </td>
 </tr>
 <tr>
 <td>count(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns the number of values in a distribution.</td>
+<td>Returns the number of values in each distribution in a specified histogram.</td>
 </tr>
 <tr>
 <td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns a distribution summary of the specified histogram. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+<td>Summarizes a series of histogram distributions by returning the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 <tr>
 <td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
-<td>Returns a summary of the specified histogram aligned across time buckets. By default, the summary includes max, P999, P99, P90, P75, avg, median (P50), P25, and min. You can instead specify an optional percentile list, for example, by calling <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
+<td>
+Merges a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. 
+By default, the summary includes a separate constant time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>alignedSummary(85, 77.777, 99.999, hs(orderShirts.m))</strong>. </td>
 </tr>
 </tbody>
 </table>
