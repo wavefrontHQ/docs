@@ -184,7 +184,16 @@ The process for creating an alert target is similar for the different types of t
       </table>
 1. If you want to send notifications to different targets for different point tags, you can specify them under **Recipients**.
   * The **Default Recipients** field specifies recipients that get all alerts.
-  * The **Routing** field allows you to specify point tag and point tag value pairs and specify the target for each pair.
+  * The **Routing** field allows you to specify the following key/value pairs:
+
+        |**key**|**value**|
+        |source|&lt;source name&gt; |
+        |metric|&lt;metric name&gt;|
+        |&lt;point tag name&gt;|&lt;point tag value&gt;|
+
+  **Note:** You must specify either default recipients or recipients determined by routing.
+
+  The screenshot below shows this for alert targets of type email.
   ![alert route example](images/alert_route_example.png)
 1. Optionally customize the **Body Template** using the variables and functions described in [Customizing Alert Target Templates](alert_target_customizing.html).
 1. Click **Save** to add the alert target and make it visible on the Alert Targets page.
@@ -230,6 +239,34 @@ Each custom alert target has a unique ID that the system generates when you firs
 1. In the Name column, note the ID of the alert target under the description.
 
    ![webhook ID](images/webhook_id.png)
+
+## Add Custom Alert Routes
+
+By default, an alert notification is sent to all recipients that are specified in the alert target. It's possible to customize an alert target, for example:
+* If source=host1, send an email to userA and userB.
+* If source=host2, send an email to userX
+
+You can customize for each target type, and can route the notification based on `metric`, `source`, or a point tag key. See Step 6 in **Create an Alert Target** above.
+
+### Content of Routed Notifications
+
+Routed notifications differ from non-routed notifications:
+
+* If you don't use routing, all recipients receive a notification that starts when the triggering condition was met.
+
+* If you use alert routing, each recipient receives a notification when the triggering condition for that route was met, but the notification points to the whole alert.
+
+Consider this example:
+1. An alert monitors CPU in a dev environment and a prod environment.
+2. You specify two alert targets:
+   * Target 1 sends a notification to mngr@example.com when the alert is triggered, that is, when CPU on either dev or prod goes above the threshold.
+   * Target 2 sends a notification to usr@example.com when `env=dev`, that is, when CPU goes above the threshold on any hosts in the dev environment.
+3. When the prod environment goes above the threshold, mngr@example.com receives a notification.
+4. When the dev environment goes above the threshold, usr@example.com receives a notification, and the notification window starts when the alert fired, that is, when the CPU went above the threshold for prod.
+
+  It's easy to find the information for dev in the chart associated with the notification because there's a second event that shows when the alert was updated.
+
+
 
 
 ## Query Responses of Webhook Alert Targets
