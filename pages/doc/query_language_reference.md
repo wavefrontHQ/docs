@@ -623,8 +623,8 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 
 <table style="width: 100%;">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="55%" />
+<col width="45%" />
 </colgroup>
 <thead>
 <tr>
@@ -634,16 +634,19 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;&lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"&lt;regexSearchPattern&gt;", "&lt;replacementPattern&gt;" | "&lt;replacementString&gt;")</strong>&rbrack;</a></td>
+<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;expression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
+<strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
 <td markdown="span">Extracts a string from an existing metric name, source name, or point tag value and renames the metric in the expression with that string. If you don't specify the <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong> parameter, it defaults to <strong>source</strong>. </td>
 </tr>
 <tr>
-<td><a href="ts_aliasSource.html"> aliasSource(<strong>expression</strong>&lbrack;,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a></td>
+<td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;expression&gt;</strong>, 
+&lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
+<strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
 <td markdown="span">Replaces one or more source names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).
 </td>
 </tr>
 <tr>
-<td><a href="ts_taggify.html"> taggify(<strong>expression</strong>,<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&lt;newPointTagKey&gt;, &lbrack;zeroBasedNodeIndex&lbrack; delimiterDefinition&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong>&rbrack;</a>
+<td><a href="ts_taggify.html"> taggify(<strong>&lt;expression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
 </td>
 <td markdown="span">Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
 </td>
