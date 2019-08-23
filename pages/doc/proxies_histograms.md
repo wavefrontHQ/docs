@@ -460,7 +460,7 @@ You can display time series metrics in Wavefront charts using `ts()` queries. To
 ### Histogram Query Basics
 
 You can query histogram metrics with `hs()` queries. Each histogram metric has an extension `.m`, `.h`, or `.d`.
-* If you sent a distribution in histogram data format, the histogram metric extension depends on the interval you specified (`!M`, `!H`, or `!D`).
+* If you sent a distribution in histogram data format, the histogram metric extension corresponds to the interval you specified (`!M`, `!H`, or `!D`).
 * If you sent a metric using Wavefront data format, the histogram metric extension depends on the histogram port that you used.
 
 <!---When you add a histogram query to a chart, we --->
@@ -494,7 +494,7 @@ You can view histograms in the Histogram browser.
 
 To view histograms:
 1. Click **Browse > Histograms** and start typing the histogram metric name.
-  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram data format, three metrics result. If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
+  Each histogram metric has an extension .d, .h, or .m. If you sent a metric in histogram data format, the extension corresponds to the interval you specified (`!M`, `!H`, or `!D`). If you sent a metric using Wavefront data format, the extension depends on the histogram port that you used.
 2. Select the metric you're interested in.
 
    ![select_histogram_chart](images/histogram_select_chart.png)

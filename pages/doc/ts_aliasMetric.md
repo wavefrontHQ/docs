@@ -11,10 +11,10 @@ summary: Reference to the aliasMetric() function
 
 ```
 aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}],
-         [<zeroBasedNodeIndex> [, "<delimiterDefinition>"])
+         <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], “<regexSearchPattern>”,
-         “<replacementPattern>” | "<replacementString>")
+aliasMetric (<expression>, [metric|source|{tagk, <pointTagKey>}], "<regexSearchPattern>",
+         "<replacementPattern>" | "<replacementString>")
 
 aliasMetric (<expression>, "<newMetricName>")
 ```
@@ -24,9 +24,9 @@ Extract a string from an existing metric name, source name, or point tag value a
 
 Here are some sample scenarios:
 * You want to group by a given parameter that is only found within a metric, source, or point tag value.
-* You want to clean up the view of the Tabular View chart columns
+* You want to clean up the view of the Tabular View chart columns.
 * The complexity of your metric name is too much for the end users and you want to make it easier for them to digest what is being captured.
-* You use [derived metrics](derived_metrics.html)
+* You use [derived metrics](derived_metrics.html).
 
 ## Parameters
 
@@ -113,7 +113,7 @@ See the examples below for details.
 
 ### Regex Approach
 
-You can also use a regular expression with `aliasMetric()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything that matches `regexSearchPattern` is replaced with `replacementPattern`. See the examples below for details.
+You can also use a regular expression with `aliasMetric()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything that matches `regexSearchPattern` is replaced with `replacementPattern`. For similar examples, see the [aliasSource](ts_aliasSource.html) page.
 
 ### Improving Readability by Manipulating the Output
 
