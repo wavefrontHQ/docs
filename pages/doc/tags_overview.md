@@ -146,7 +146,8 @@ You can add source tags explicitly from the UI, CLI, or API.
 
 Here's some background info:
 * Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help.
-* Point tags are key-value pairs, in contrast, source tags are just strings -- you can only choose the value.
+* Source tags are just strings -- you can only choose the value. (In contrast, point tags are key-value pairs.)
+* Source tags let you to group sources. For example, if you have two sources, `appServer15` and `appServer16` you can add the source tag `app` to both sources to specify that both are app servers.  You can then query `ts(cpu.load.metric, tag=app)` instead of `ts(cpu.load.metric, source=appServer15 or source=appServer16)`
 * Your use case determines how to use source tags:
   - Use a source tag hierarchy, that is, have source tags dot-delimited, for example `env.cluster.role.role1`.
   In that case, your query might include `... and tag=env.cluster.role.*`

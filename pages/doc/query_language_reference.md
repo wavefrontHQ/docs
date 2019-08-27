@@ -13,64 +13,9 @@ The Wavefront Query Language allows you to extract the information you need from
 * [Bucketing with align()](query_language_align_function.html)
 
 
-## Query Elements
-<table style="width: 100%;">
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead>
-<tr>
-<th>Term</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">metric</span></td>
-<td>The name of a metric. For example: <code>cpu.load.metric</code>
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">source</span></td>
-<td>Source (usually host) that emitted the metric. Specify source names with the keyword <strong><code>source</code></strong>.
-For example:
-<pre>source=appServer15</pre>
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">source tag</span></td>
-<td>A type of source metadata. Specify source tags with the keyword <strong><code>tag</code></strong>.
-For example: <pre>tag=app.*</pre>
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">point tag</span></td>
-<td>A type of custom metric metadata. Point tags have keys and values.
-For example: <pre>region=us-west-2b</pre>
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">timeWindow</span></td>
-<td>A measure of time, expressed as an integer number of units. You can specify:
-<ul>
-<li>Seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). For example, <strong>3h</strong> specifies 3 hours.</li>
-<li> Time relative to the window length of the chart you are currently looking at (1vw).
-If you are looking at a 30 minute window, <strong>1vw</strong> is one view-window length, and therefore equivalent to <strong>30m</strong>. </li>
-<li>Time relative to the bucket size of the chart (1bw). Wavefront calculates bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
-</ul>
-The default unit is minutes if the unit is not specified.
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">expression</span></td>
-<td>An expression consisting of a ts() expression, constant, or combination of ts() expressions and constants. See
- <a href="#expressions">Expressions</a>.
-</td></tr>
-</tbody>
-</table>
 
-See [Organizing with Tags](tags_overview.html) for information on the different types of tags and how to use them.
-
-**Note**: Do not use names of functions such as `default` or `sum` or other query language elements to name a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
-
-## Expressions
-An <span style="color:#3a0699;font-weight:bold">expression</span> may be a ts() expression, a constant, or an arithmetic or Boolean combination of a ts() expressions and constants.
+## Query Expressions
+An <span style="color:#3a0699;font-weight:bold">expression</span> may be a ts() expression, a constant, or an arithmetic or Boolean combination of ts() expressions and constants.
 <table style="width: 100%;">
 <colgroup>
 <col width="15%" />
@@ -96,7 +41,6 @@ Syntax:
   [&lt;<strong>pointTagKey1</strong>&gt;=&lt;pointTagValue1&gt;[and|or] ... &lt;<strong>pointTagKeyN</strong>&gt;=&lt;pointTagValueN&gt;])
 </pre>
 </li>
-<li markdown="span">For metric, source, source tag, and point tag naming conventions, see [Wavefront Data Format](wavefront_data_format.html).</li>
 <li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <strong>my.metric</strong> metric, specify ts(<strong>my.metric</strong>).</li>
 </ul>
 </td>
@@ -132,6 +76,91 @@ Matches strings in metric names, source names, alert names, source tags, alert t
 </tbody>
 </table>
 
+## Names and Values
+
+Expressions use names and values to describe the data of interest. 
+ 
+<table style="width: 100%;">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;metricName&gt;</span></td>
+<td>The name of a metric that describes one or more time series in a <strong>tsExpression</strong>. For example: 
+<pre>cpu.load.metric</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;hsMetricName&gt;.m|h|d</span></td>
+<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. For example: 
+<pre>users.settings.numberOfTokens.m</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;sourceName&gt;</span></td>
+<td>The name of the data source (usually host) that emitted a metric. Specify source names with the <strong>source</strong> keyword.
+For example:
+<pre>source=appServer15</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;sourceTagName&gt;</span></td>
+<td>The name of a source tag, which is a type of metadata for identifying a group of data sources. Specify source tags with the <strong>tag</strong> keyword.
+For example: <pre>tag=app.*</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;<br>&lt;pointTagValue&gt;</span></td>
+<td>The name of a point tag, which is a type of custom metadata (key-value pair) that can be associated with time series and histogram data.
+Specify both the point tag key and value.
+For example: 
+<pre>region="us-west-2a" or region="us-west-2b"</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;eventTagName&gt;</span></td>
+<td>The name of an event tag, which is a type of custom metadata that you can associate with events.  Specify event tags with the <strong>eventTag</strong> keyword in an <strong>eventsExpression</strong>.
+For example: 
+<pre>eventTag="codepushes"</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;alertTagName&gt;</span></td>
+<td>The name of an alert tag, which is a type of metadata that you can associate with alerts. Specify alert tags with the <strong>alertTag</strong> keyword in an <strong>eventsExpression</strong>.
+For example: 
+<pre>alertTag="ops"</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;spanTagKey&gt;<br>&lt;spanTagValue&gt;</span></td>
+<td>The name of a span tag, which is a type of metadata (key-value pair) that can be associated with trace data. Span tags with certain keys are required. Specify both the span tag key and value in a <strong>tracesExpression</strong> or <strong>spansExpression</strong>.
+For example: 
+<pre>service="shopping" and environment="production"</pre>
+</td></tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;timeWindow&gt;</span></td>
+<td>A measure of time, expressed as an integer number of units. You can specify:
+<ul>
+<li>Seconds, minutes, hours, days or weeks (1s, 1m, 1h, 1d, 1w). For example, <strong>3h</strong> specifies 3 hours.</li>
+<li> Time relative to the window length of the chart you are currently looking at (1vw).
+If you are looking at a 30 minute window, <strong>1vw</strong> is one view-window length, and therefore equivalent to <strong>30m</strong>. </li>
+<li>Time relative to the bucket size of the chart (1bw). Wavefront calculates bucket size based on the view window length and screen resolution. You can see bucket size at the bottom left of each chart.</li>
+</ul>
+The default unit is minutes if the unit is not specified.
+</td></tr>
+</tbody>
+</table>
+
+**Note:** See [Organizing with Tags](tags_overview.html) for information on the different types of tags and how to use them.
+
+### Naming Conventions
+
+* Rules for well-formed names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
+
+* Do not use names of functions such as `default` or `sum` or other query language elements as the name of a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
+
+
 ## Operators
 
 All operations between expressions are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​. The result is always interpolated.
@@ -158,11 +187,7 @@ All operations between expressions are subject to the matching processes describ
 </ul>
 </ul>
 
-## Tags in Queries
-Tags can help you organize your data and filter them, either in the UI or in a query. Here's an overview. See [Organizing with Tags](tags_overview.html) for details.
-* Source tags allow you to group sources. For example, if you have two sources, `appServer15` and `appServer16` you can add the source tag `app` to both sources to specify that both are app servers.  You can then query `ts(cpu.load.metric, tag=app)` instead of `ts(cpu.load.metric, source=appServer15 or source=appServer16)`
-* Point tags are an additional way to describe metrics. For example, assume your data include the point tag `region` with value `us-west-2a` and `us-west-2b`.
-* Alert tags allow you to group alerts.
+
 
 ## Variables in Queries
 We support variables in several ways:
