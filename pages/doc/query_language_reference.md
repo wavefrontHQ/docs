@@ -20,8 +20,8 @@ A query expression describes data of a particular type: time series, histogram s
 
 <table style="width: 100%;">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col width="20%" />
+<col width="80%" />
 </colgroup>
 <thead>
 <tr>
@@ -37,7 +37,7 @@ A query expression describes data of a particular type: time series, histogram s
 Describes one or more time series. A  time series is a sequence of data points that each consist of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. A <strong>tsExpression</strong> may be:
 
 <ul>
-<li>A ts() function or constant</li>
+<li>A <strong>ts()</strong> function or a constant</li>
 <li>An <a href="#operators">operator expression</a> that combines ts() expressions and constants</li>
 <li>A query function that returns a time series, either by transforming input time series or by converting input data of another type.</li> 
 </ul>
@@ -50,10 +50,10 @@ Returns all points that match a metric name, filtered by source names, source ta
 <ul>
 <li>
 Syntax:
-<pre>ts(&lt;metricName&gt;,
-  [<strong>source=</strong>&lt;sourceName&gt;] [and|or]
-  [<strong>tag</strong>=&lt;sourceTag&gt;] [and|or]
-  [&lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt; [and|or] ... ])
+<pre>ts(&lt;metricName&gt;
+  [,|and|or source=&lt;sourceName&gt;] ...
+  [,|and|or tag=&lt;sourceTag&gt;] ...
+  [,|and|or &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
 </li>
 <li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <strong>my.metric</strong> metric, specify <strong>ts(my.metric)</strong>.</li>
@@ -79,8 +79,8 @@ A number such as <code>5.01</code>, <code>10000</code>, or <code>40</code>. Cons
 Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be:
 
 <ul>
-<li>An hs() function</li>
-<li>A query function that returns a histogram series, typically by transforming an input histogram series</li> 
+<li>An <strong>hs()</strong> function</li>
+<li>A <a href="#histogram-functions">query function that returns a histogram series</a>, typically by transforming an input histogram series</li> 
 </ul>
 </td></tr>
 
@@ -91,10 +91,10 @@ Returns all distributions that match a histogram metric name, filtered by source
 <ul>
 <li>
 Syntax:
-<pre>hs(&lt;hsMetricName&gt;,
-  [<strong>source=</strong>&lt;sourceName&gt;] [and|or]
-  [<strong>tag</strong>=&lt;sourceTag&gt;] [and|or]
-  [&lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt; [and|or] ... ])
+<pre>hs(&lt;hsMetricName&gt;
+  [,|and|or source=&lt;sourceName&gt;] ...
+  [,|and|or tag=&lt;sourceTag&gt;] ...
+  [,|and|or &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
 </li>
 <li>Sources, source tags, and point tags are optional. For example, to return distributions from all sources sending the <strong>my.metric.m</strong> histogram metric, specify <strong>hs(my.metric.m)</strong>.</li>
@@ -108,26 +108,53 @@ Syntax:
 Describes a set of events.  An <strong>eventsExpression</strong> may be:
 
 <ul>
-<li>An events() function</li>
-<li>A query function that returns set of events, by filtering an input event set or by transforming a set of events into a set of synthetic events</li> 
-<li>An events operator expression that combines eventsExpressions </li> 
+<li>An <strong>events()</strong> function</li>
+<li>A <a href="#event-functions">query function that returns a set of events</a> by filtering or transforming an input event set</li> 
+<li>An <a href="events_queries_advanced.html">events operator expression</a> that combines eventsExpressions </li> 
 </ul>
 </td></tr>
 
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">events() function</span></td>
 <td>
-Returns all events that match the specified <a href="events_queries.html#event-filters">events filters</a>. 
+Returns all events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
 <ul>
 <li>
 Syntax:
-<pre>events("&lt;filterName&gt;=&lt;filterValue&gt;", [and|or|not] [<strong>filterName</strong>=&lt;filterValue&gt;]... )
+<pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
+  [,|and|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
 </li>
-<li>Specify at least one filter.</li>
 </ul>
 </td>
 </tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;tracesExpression&gt;</span></td>
+<td>
+Describes a set of traces.  An <strong>tracesExpression</strong> may be:
+
+<ul>
+<li>A <strong>traces()</strong> function</li>
+<li>A <a href="#trace-data-functions">query function that returns a list of traces</a> by filtering an input list of traces</li> 
+</ul>
+</td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">traces() function</span></td>
+<td>
+Returns all traces that contain at least one qualifying span, where a qualifying span represents the specified operation and matches the specified <a href="ts_traces.html#span-filters">span filters</a>. 
+<ul>
+<li>
+Syntax:
+<pre>traces("&lt;fullOperationName&gt;" 
+  [,|and[ not]|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
+</pre>
+</li>
+</ul>
+</td>
+</tr>
+
 </tbody>
 </table>
 
@@ -229,23 +256,24 @@ Matches strings or components in a name or a value.
 <ul>
 <li>Use a <strong>"&#42;"</strong> character to indicate where to match strings. Wavefront supports no other wildcard characters. </li>
 </ul>
+Examples:
+<ul>
+<li> <strong>ts(~sample.cpu.usage.&#42;)</strong> matches metric names <code>~sample.cpu.usage.user.percentage</code> and <code>~sample.cpu.usage.percentage</code>.
+ </li>
 
-Example. When filtering metric names, match <code>~sample.cpu.usage.user.percentage</code> and <code>~sample.cpu.usage.percentage</code>:
-<pre>ts(~sample.cpu.usage.&#42;)</pre> 
-
-Example. When filtering histogram metric names, match the duration metrics for all operations of all services of the beachshirts application: 
-<pre>hs(tracing.derived.&#42;.duration.micros.m, application=beachshirts)</pre> 
+<li><strong>hs(tracing.derived.&#42;.duration.micros.m, application=beachshirts)</strong> matches histogram duration metric names for all operations of all services of the <code>beachshirts</code> application.
+</li>
 
 
-Example. When filtering sources, match all sources starting with <code>"app-1"</code> (namely, <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, and so on):
-<pre>source=app-1&#42;</pre> 
+<li><strong>source=app-1&#42;</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
+ </li>
 
-Example. When filtering point tags, match the time series that have <code>&lt;pointTagKey&gt;</code> with any value, and filter out any time series without <code>&lt;pointTagKey&gt;</code>:
-<pre>&lt;pointTagKey&gt;="&#42;"</pre> 
-Example. When filtering point tags, find any time series that do not have the specified point tag.
-<pre>not &lt;pointTagKey&gt;="&#42;"</pre>
-</td>
-</tr>
+<li><strong>region="&#42;"</strong> matches the time series that have the <code>region</code> point tag with any value, and filter out any time series without a <code>region</code> point tag.
+ </li>
+
+<li><strong>not region="&#42;"</strong> finds any time series that do not have the <code>region</code> point tag.</li>
+</ul>
+</td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">Query line variable</span></td>
 <td>Lets one query line refer to another for the same chart. 
@@ -313,7 +341,7 @@ All operations between expressions are subject to the matching processes describ
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
-<li markdown="span">`not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
+<li markdown="span">`and not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 <li>Arithmetic operators</li>
 <ul><li markdown="span">`+`, `-`, `*`, `/`: Match metric, source, and point tag combinations on both sides of an <span style="color:#3a0699;font-weight:bold">expression</span>. If either side of the <span style="color:#3a0699;font-weight:bold">expression</span> is a 'singleton' -- that is, a single metric, source, or point tag combination--it automatically matches up with every element on the other side of the <span style="color:#3a0699;font-weight:bold">expression</span>.</li>
@@ -1023,9 +1051,9 @@ You use histogram functions to access the histogram distributions that Wavefront
 <tbody>
 <tr>
 <td>hs(<strong>&lt;hsMetric&gt;.m|h|d</strong> 
-<br>&lbrack;, <strong>source=</strong>&lt;sourceName&gt;&rbrack; &lbrack;and|or&rbrack;
-&lbrack;<strong>tag</strong>=&lt;sourceTag&gt;&rbrack; <br>&lbrack;and|or&rbrack;
-&lbrack;&lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt; ... &rbrack;)
+<br>&lbrack;,|and|or <strong>source=</strong>&lt;sourceName&gt;&rbrack;
+<br>&lbrack;,|and|or <strong>tag</strong>=&lt;sourceTag&gt;&rbrack;
+<br>&lbrack;,|and|or &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;&rbrack; ...)
 </td>
 <td>Returns the series of histogram distributions for <strong>&lt;hsMetric&gt;</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's <a href="proxies_histograms.html#histogram-metric-aggregation-intervals">aggregation interval</a> (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
 You can specify this function as input to other histogram query functions. 
@@ -1087,15 +1115,15 @@ By default, the summary includes a separate constant time series for each signif
 
 ## Event Functions
 
-You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. Some `events()` functions return synthetic events. These events are displayed by the query, but not stored in Wavefront.
+You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. Some `events()` functions return synthetic events, which are displayed by the query, but not stored in Wavefront.
 
 See [Basic events() Queries](events_queries.html). See [Advanced events() Queries](events_queries_advanced.html) for details about the different kinds of `events()` functions.
 
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr>
@@ -1105,8 +1133,10 @@ See [Basic events() Queries](events_queries.html). See [Advanced events() Querie
 </thead>
 <tbody>
 <tr>
-<td>events(<strong>&lt;filters&gt;</strong>)</td>
-<td>Returns the set of events that match <strong>&lt;filters&gt;</strong>. See <a href="events_queries.html#event-filters">Event Filters</a> for a list of available filters. The returned set of events can be passed as an argument to functions that accept events. When passed to a chart query, displays the events. The chart must contain at least 1 ts() expression for events to display.</td></tr>
+<td>events(<strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"] ...)</td>
+<td >Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
+<br>You can specify this function as input to other events query functions. You can use this function as a top-level query for a time-series chart to display a set of events in that chart, for example: <br>
+<code>events(type=alert, name="disk space is low", alertTag=App1.*)</code> </td></tr>
 <tr>
 <td>count(<strong>&lt;events&gt;</strong>)</td>
 <td>Converts <strong>&lt;events&gt;</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
@@ -1158,23 +1188,17 @@ See [Basic events() Queries](events_queries.html). See [Advanced events() Querie
 </tbody>
 </table>
 
-The following example shows a query you could use to filter the events in your charts.
 
-```
-events(type=alert, name="disk space is low", alertTag=MicroService.App1.*)
-```
-See [Event Filters](events_queries.html#event-filters) for details on filters.
 
 ## <span id="traceFunctions"></span>Trace-Data Functions
 
 You use trace-data functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace-data functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
-**Note:** Some trace-data functions are [filtering functions](ts_traces.html#filtering-functions), which filter the results of `traces()`, `spans()` or another filtering function wrapped around `traces()` or `spans()`.
 
 <table style="width: 100%;">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -1185,32 +1209,37 @@ You use trace-data functions to find and filter any [trace data](tracing_basics.
 <tbody>
 <tr>
 <td>
-<a href="ts_traces.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
+<a href="ts_traces.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
+<br> [,|and|or <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and filters.</td>
+<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="ts_traces.html#span-filters">span filters</a>.</td>
 </tr>
 <tr>
 <td>
 limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Limits the traces returned by **tracesExpression** to include the specified **numberOfTraces**.  
+<td markdown="span">Limits the traces returned by **tracesExpression** to include the specified **numberOfTraces**. 
+For example:<br> <code>limit(50, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
 
 <tr>
 <td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
 <td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are longer than **traceDuration**. 
+For example:<br> <code>highpass(3s, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
 <tr>
 <td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.  
+<td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.
+For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
 <tr>
 <td>
-<a href="ts_spans.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>, &lsqb;and|or|not <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"&rsqb;)</a>
+<a href="ts_spans.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
+<br> [,|and|or <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>Returns the spans that match the specified <strong>fullOperationName</strong> and filters. Used as an argument to <strong>traces()</strong>.</td>
+<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="ts_traces.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
 </tr>
 <tr>
 <td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>

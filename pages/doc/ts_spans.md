@@ -10,9 +10,9 @@ summary: Learn how to write spans() queries.
 ## Summary
 
 ```
-spans("<fullOperationName>" [and|or|not <filterName>="<filterValue>"])
+spans("<fullOperationName>" [,|and|or <filterName>="<filterValue>"] ...)
 
-spans(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
+spans(<filterName>="<filterValue>" [,|and|or <filterName>="<filterValue>"] ...)
 ```
 Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](ts_traces.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
@@ -31,7 +31,7 @@ Full name of the operation that each matching span must represent. For example, 
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#filters) that each matching span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters separated by the Boolean operators (and, or, not).</td></tr>
+<td markdown="span"> A [span filter](#filters) that each matching span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `and not`, `or`).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>
