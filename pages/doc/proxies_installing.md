@@ -68,7 +68,7 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
 If you set up the Kubernetes integration, adding a proxy is part of the setup:
 1. Log in to your Wavefront instance.
 2. Click **Integrations** and click Kubernetes.
-3. Click the **Setup** tab and follow the instructions to deploy a Wavefront proxy in Kubernetes and deploy Wavefront Kubernetes Collector.
+3. Click the **Setup** tab and follow the instructions to deploy a Wavefront proxy in Kubernetes and deploy Wavefront Collector for Kubernetes.
 
 Depending on your environment, you might have to [customize proxy settings](proxies_configuring.html#configuring-a-proxy-in-a-container) for best performance.
 
