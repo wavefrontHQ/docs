@@ -15,7 +15,9 @@ The Wavefront Query Language allows you to extract the information you need from
 
 
 ## Query Expressions
-An <span style="color:#3a0699;font-weight:bold">expression</span> may be a ts() expression, a constant, or an arithmetic or Boolean combination of ts() expressions and constants.
+
+A query expression describes data of a particular type: time series, histogram series, events, trace or spans.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="15%" />
@@ -28,20 +30,33 @@ An <span style="color:#3a0699;font-weight:bold">expression</span> may be a ts() 
 </tr>
 </thead>
 <tbody>
+
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">ts() expression</span></td>
+<td><span style="color:#3a0699;font-weight:bold">&lt;tsExpression&gt;</span></td>
 <td>
-Returns all points that match a metric name, filtered by source names, alert names, source tags, alert tags, and point tags.
+Describes one or more time series. A  time series is a sequence of data points that each consist of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. A <strong>tsExpression</strong> may be:
+
+<ul>
+<li>A ts() function or constant</li>
+<li>An <a href="#operators">operator expression</a> that combines ts() expressions and constants</li>
+<li>A query function that returns a time series, either by transforming input time series or by converting input data of another type.</li> 
+</ul>
+</td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">ts() function</span></td>
+<td>
+Returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
 <ul>
 <li>
 Syntax:
 <pre>ts(&lt;metricName&gt;,
   [<strong>source=</strong>&lt;sourceName&gt;] [and|or]
-  [<strong>tag</strong>=&lt;sourceTagName&gt;] [and|or]
-  [&lt;<strong>pointTagKey1</strong>&gt;=&lt;pointTagValue1&gt;[and|or] ... &lt;<strong>pointTagKeyN</strong>&gt;=&lt;pointTagValueN&gt;])
+  [<strong>tag</strong>=&lt;sourceTag&gt;] [and|or]
+  [&lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt; [and|or] ... ])
 </pre>
 </li>
-<li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <strong>my.metric</strong> metric, specify ts(<strong>my.metric</strong>).</li>
+<li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <strong>my.metric</strong> metric, specify <strong>ts(my.metric)</strong>.</li>
 </ul>
 </td>
 </tr>
@@ -59,31 +74,73 @@ A number such as <code>5.01</code>, <code>10000</code>, or <code>40</code>. Cons
 </tr>
 
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
+<td><span style="color:#3a0699;font-weight:bold">&lt;hsExpression&gt;</span></td>
 <td>
-Matches strings in metric names, source names, alert names, source tags, alert tags, and point tags.
+Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be:
+
 <ul>
-<li>A wildcard is represented with a <strong>"&#42;"</strong> character. Wavefront supports no other wildcard characters. </li>
-<li>Example. When filtering sources, match all sources starting with <code>"app-1"</code> (namely, <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, and so on):
-<pre>source=app-1&#42;</pre> </li>
-<li>Example. When filtering point tags, match the time series that have <code>&lt;pointTagKey&gt;</code> with any value, and filter out any time series without <code>&lt;pointTagKey&gt;</code>:
-<pre>&lt;pointTagKey&gt;="&#42;"</pre> </li>
-<li>Example. When filtering point tags, find any time series that do not have the specified point tag.
-<pre>not &lt;pointTagKey&gt;="&#42;"</pre></li>
+<li>An hs() function</li>
+<li>A query function that returns a histogram series, typically by transforming an input histogram series</li> 
+</ul>
+</td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">hs() function</span></td>
+<td>
+Returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
+<ul>
+<li>
+Syntax:
+<pre>hs(&lt;hsMetricName&gt;,
+  [<strong>source=</strong>&lt;sourceName&gt;] [and|or]
+  [<strong>tag</strong>=&lt;sourceTag&gt;] [and|or]
+  [&lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt; [and|or] ... ])
+</pre>
+</li>
+<li>Sources, source tags, and point tags are optional. For example, to return distributions from all sources sending the <strong>my.metric.m</strong> histogram metric, specify <strong>hs(my.metric.m)</strong>.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;eventsExpression&gt;</span></td>
+<td>
+Describes a set of events.  An <strong>eventsExpression</strong> may be:
+
+<ul>
+<li>An events() function</li>
+<li>A query function that returns set of events, by filtering an input event set or by transforming a set of events into a set of synthetic events</li> 
+<li>An events operator expression that combines eventsExpressions </li> 
+</ul>
+</td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">events() function</span></td>
+<td>
+Returns all events that match the specified <a href="events_queries.html#event-filters">events filters</a>. 
+<ul>
+<li>
+Syntax:
+<pre>events("&lt;filterName&gt;=&lt;filterValue&gt;", [and|or|not] [<strong>filterName</strong>=&lt;filterValue&gt;]... )
+</pre>
+</li>
+<li>Specify at least one filter.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 
+
+
 ## Names and Values
 
-Expressions use names and values to describe the data of interest. 
+Expressions use names and values to specify the data of interest. You can use [wildcards](#wildcards-and-variables) to match multiple names or values.
  
 <table style="width: 100%;">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col width="20%" />
+<col width="80%" />
 </colgroup>
 <thead>
 <tr>
@@ -98,46 +155,33 @@ Expressions use names and values to describe the data of interest.
 <pre>cpu.load.metric</pre>
 </td></tr>
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;hsMetricName&gt;.m|h|d</span></td>
-<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. For example: 
+<td><span style="color:#3a0699;font-weight:bold">&lt;hsMetricName&gt;</span></td>
+<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). For example: 
 <pre>users.settings.numberOfTokens.m</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceName&gt;</span></td>
-<td>The name of the data source (usually host) that emitted a metric. Specify source names with the <strong>source</strong> keyword.
+<td>The name of a source, such as a host or container, that emits the data of interest (time series, histogram series, or trace data). Specify a source name with the <strong>source</strong> keyword.
 For example:
 <pre>source=appServer15</pre>
 </td></tr>
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;sourceTagName&gt;</span></td>
-<td>The name of a source tag, which is a type of metadata for identifying a group of data sources. Specify source tags with the <strong>tag</strong> keyword.
+<td><span style="color:#3a0699;font-weight:bold">&lt;sourceTag&gt;</span></td>
+<td>A source tag that is assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
 For example: <pre>tag=app.*</pre>
 </td></tr>
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;<br>&lt;pointTagValue&gt;</span></td>
-<td>The name of a point tag, which is a type of custom metadata (key-value pair) that can be associated with time series and histogram data.
-Specify both the point tag key and value.
+<td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span></td>
+<td>The key and value of a point tag that is associated with the data of interest.
 For example: 
 <pre>region="us-west-2a" or region="us-west-2b"</pre>
+
+<strong>Note:</strong> Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series. Event tags, alert tags, and span tags exist for identifying other types of data. See <a href="tags_overview.html" >Organizing with Tags</a>  for information on the different types of tags and how to use them. 
+
+<!--- link to event filters, alert tags, span filters? --->
+
 </td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;eventTagName&gt;</span></td>
-<td>The name of an event tag, which is a type of custom metadata that you can associate with events.  Specify event tags with the <strong>eventTag</strong> keyword in an <strong>eventsExpression</strong>.
-For example: 
-<pre>eventTag="codepushes"</pre>
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;alertTagName&gt;</span></td>
-<td>The name of an alert tag, which is a type of metadata that you can associate with alerts. Specify alert tags with the <strong>alertTag</strong> keyword in an <strong>eventsExpression</strong>.
-For example: 
-<pre>alertTag="ops"</pre>
-</td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;spanTagKey&gt;<br>&lt;spanTagValue&gt;</span></td>
-<td>The name of a span tag, which is a type of metadata (key-value pair) that can be associated with trace data. Span tags with certain keys are required. Specify both the span tag key and value in a <strong>tracesExpression</strong> or <strong>spansExpression</strong>.
-For example: 
-<pre>service="shopping" and environment="production"</pre>
-</td></tr>
+
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;timeWindow&gt;</span></td>
 <td>A measure of time, expressed as an integer number of units. You can specify:
@@ -152,13 +196,112 @@ The default unit is minutes if the unit is not specified.
 </tbody>
 </table>
 
-**Note:** See [Organizing with Tags](tags_overview.html) for information on the different types of tags and how to use them.
 
-### Naming Conventions
+**Note:**
 
-* Rules for well-formed names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
+* Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 
 * Do not use names of functions such as `default` or `sum` or other query language elements as the name of a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
+
+## Wildcards and Variables
+
+You can use wildcards as shortcuts for specifying multiple names or values. 
+You can use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
+
+You can combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
+<td>
+Matches strings or components in a name or a value. 
+<ul>
+<li>Use a <strong>"&#42;"</strong> character to indicate where to match strings. Wavefront supports no other wildcard characters. </li>
+</ul>
+
+Example. When filtering metric names, match <code>~sample.cpu.usage.user.percentage</code> and <code>~sample.cpu.usage.percentage</code>:
+<pre>ts(~sample.cpu.usage.&#42;)</pre> 
+
+Example. When filtering histogram metric names, match the duration metrics for all operations of all services of the beachshirts application: 
+<pre>hs(tracing.derived.&#42;.duration.micros.m, application=beachshirts)</pre> 
+
+
+Example. When filtering sources, match all sources starting with <code>"app-1"</code> (namely, <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, and so on):
+<pre>source=app-1&#42;</pre> 
+
+Example. When filtering point tags, match the time series that have <code>&lt;pointTagKey&gt;</code> with any value, and filter out any time series without <code>&lt;pointTagKey&gt;</code>:
+<pre>&lt;pointTagKey&gt;="&#42;"</pre> 
+Example. When filtering point tags, find any time series that do not have the specified point tag.
+<pre>not &lt;pointTagKey&gt;="&#42;"</pre>
+</td>
+</tr>
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">Query line variable</span></td>
+<td>Lets one query line refer to another for the same chart. 
+The referenced query line must be named, and must contain a complete <strong>tsExpression</strong>.
+<ul>
+<li>Use the chart UI to name a query: <strong>myQuery</strong> </li>
+<li>Use this syntax to reference the named query in another query: <strong>${myQuery}</strong></li>
+</ul>
+Example. Suppose you assign a name to a long or complex query:
+<pre>latency       ts(requests.latency, source=app-1* or source=app2*, env=dev)</pre>
+
+You can reference the named query in another query as follows:
+<pre>newQuery      max(${latency})</pre>
+
+<strong>Note:</strong> If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable.
+</td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">Alias</span></td>
+<td>Defines a convenient name for referring to a <strong>tsExpression</strong> any number of times in a query.  
+<ul>
+<li>Use this syntax to define an alias within a query: <strong>&lt;tsExpression&gt; as &lt;aliasName&gt;</strong></li>
+<li>Use this syntax to reference the alias in the same query: <strong>$aliasName</strong></li>
+</ul>
+Example:
+<pre>if(ts(requests.latency, source=app-1*) as nonzero, $nonzero)</pre>
+
+<strong>Notes:</strong>
+<ul>
+<li>Use alias names that are three letters or longer.</li>
+<li>Don't use the SI prefixes (such as k, G, or T) as alias names.</li>
+<li markdown="span">Put any numeric characters at the end of the alias name. `$test123` is ok, but `$1test` and `$test4test` are not.</li>
+<li>You can define multiple aliases in the same query.</li>
+</ul>
+</td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">Dashboard variable</span></td>
+<td>Defines a convenient name that expands to a particular string of text in any query line of any chart of a dashboard. 
+<ul>
+<li>Use the dashboard UI to <a href="dashboards_variables.html">define a dashboard variable</a>: <strong>myDashVar</strong></li>
+<li>Use this syntax to refer to the dashboard variable in a query: <strong>${myDashVar}</strong></li>
+</ul>
+
+Example. Suppose a dashboard variable <strong>az</strong> has the value <strong>"tag=az-3 or tag=az-4"</strong>. You can use the dashboard variable as follows:
+<pre>ts(requests.latency, ${az})</pre>
+
+This is equivalent to typing in:
+<pre>ts(requests.latency, tag=az-3 or tag=az-4)</pre>
+<strong>Note: </strong> A dashboard variable can expand to any text string, unlike query line variables and aliases, which must be complete tsExpressions.
+</td></tr>
+</tbody>
+</table>
+
+<!---You can even use the same variable name for a dashboard and an alias (though we don't recommend it). --->
+
 
 
 ## Operators
@@ -189,14 +332,6 @@ All operations between expressions are subject to the matching processes describ
 
 
 
-## Variables in Queries
-We support variables in several ways:
-* A *query line variable* allows you to refer to a query line as a variable in another query field within the same chart. The query line variable name is the same as the query line name and is referenced in another query field with the syntax `${queryLineName}`. For example, if you have a query line named `queryLine1` with `ts(requests.latency)` as the expression, you can enter `${queryLine1}` in a another query field to reference `ts(requests.latency)`. The query line being referenced must be a complete expression. If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable.
-* An *alias* defines any ts() expression as an alias within that single query line using a SQL-style "as" expression. The syntax of an alias is: expression as `<aliasName>`. If you specify expression as `myAlias`, you reference the alias as `$myAlias`. You can use `$myAlias` multiple times in that query line, and define multiple aliases within a query line.
-  - Use names that are three letters or longer.
-  - You can't use the SI prefixes (such as k, G, or T) as alias names.
-  - Numeric characters are allowed only at the end of the alias name (`$test123` is ok, but `$1test` or `$test4test` is not).
-* A *dashboard variable* can be used within any query line in every chart contained in a specific dashboard. A dashboard variable can replace any string of text--in contrast, a query line variable and alias must be a complete expression. If you define `dashvar` in a dashboard, you refer to `${dashvar}` within any query line. You can use aliases, query line variables, and dashboard variables in the same query line. You can even use the same variable name for a dashboard and an alias (though we don't recommend it). See [Dashboard Variables](dashboards_variables.html).
 
 <span id="aggregate"></span>
 
@@ -349,15 +484,15 @@ The results are computed from real reported data values only, with no interpolat
 <td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, &lt;metric&gt;|source=|tagk=]</strong>)</a></td>
+<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, &lt;metricName&gt;| source=&lt;sourceName&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
 <td>Retains only the time series in  <strong>expression</strong> that match the specified metric, source, or point tag. No key is required to filter a time series. <strong>filter()</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, &lt;metric&gt;|source=|tag=|tagk=]</strong>)</a></td>
+<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
 <td>Retains only the time series in <strong>expression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a time series. </td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, &lt;metric&gt;|source=|tag=|tagk=]</strong>)</a></td>
+<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
 <td>Suppresses any time series in <strong>expression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a time series.
 </td>
 </tr>
@@ -470,8 +605,8 @@ These functions output continuous time series, with the exception of `integral()
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr>
@@ -513,7 +648,7 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong>. </td>
 </tr>
 <tr>
-<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,&lt;metrics&gt; |sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
+<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
 <td>Returns the aggregated number of series reporting during the specified time window. </td>
 </tr>
 <tr>
@@ -873,10 +1008,6 @@ We support 3 groups of string manipulation functions. For each group:
 
 You use histogram functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
 
-In the syntax summaries below:
-
-- **`<hsMetric>`** is the name of a metric from which histogram distributions have been computed. You can include a wildcard `*` to match multiple histogram metric names.
-- **`m|h|d`** is the [histogram aggregation interval](proxies_histograms.html#histogram-metric-aggregation-intervals). The interval can be m (minutes), h (hours), or d (days).
 
 <table style="width: 100%;">
 <colgroup>
@@ -891,11 +1022,12 @@ In the syntax summaries below:
 </thead>
 <tbody>
 <tr>
-<td>hs(<strong>&lt;hsMetric&gt;.m|h|d</strong> &lbrack;, <strong>source=</strong>&lt;sourceName&gt;&rbrack; &lbrack;and|or&rbrack;
-&lbrack;<strong>tag</strong>=&lt;sourceTagName&gt;&rbrack; <br>&lbrack;and|or&rbrack;
-&lbrack;&lt;<strong>pointTagKey1</strong>&gt;=&lt;pointTagValue1&gt; &lbrack;and|or&rbrack; ... &lt;<strong>pointTagKeyN</strong>&gt;=&lt;pointTagValueN&gt;&rbrack;)
+<td>hs(<strong>&lt;hsMetric&gt;.m|h|d</strong> 
+<br>&lbrack;, <strong>source=</strong>&lt;sourceName&gt;&rbrack; &lbrack;and|or&rbrack;
+&lbrack;<strong>tag</strong>=&lt;sourceTag&gt;&rbrack; <br>&lbrack;and|or&rbrack;
+&lbrack;&lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt; ... &rbrack;)
 </td>
-<td>Returns the series of histogram distributions for <strong>&lt;hsMetric&gt;</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's aggregation interval (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
+<td>Returns the series of histogram distributions for <strong>&lt;hsMetric&gt;</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's <a href="proxies_histograms.html#histogram-metric-aggregation-intervals">aggregation interval</a> (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
 You can specify this function as input to other histogram query functions. 
 If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
 </td>

@@ -9,7 +9,7 @@ summary: Reference to the removeSeries() function
 
 ## Summary
 ```
-removeSeries(<expression> [, <metric>|source=<s>|tag=<st>|tagk=<pointTagKey>])
+removeSeries(<expression> [, <metricName>|source=<sourceName>|tag=<sourceTag>|tagk=<pointTagKey>])
 ```
 <!---should that be metric inside angles?-->
 
@@ -28,7 +28,7 @@ Filters the expression to display only the time series that do <em>not</em> matc
 <td>Expression that you want to filter.</td>
 </tr>
 <tr>
-<td>metric&vert;source=&vert;tag=&vert;tagk=</td>
+<td>&lt;metricName&gt;&vert;source=&vert;tag=&vert;tagk=</td>
 <td markdown="span">The metric, source, source tag, or point tag to filter by. See [filter() Function](ts_filter.html) for an in-depth discussion of source tags, point tags, and when to use them. </td></tr>
 </tbody>
 </table>
