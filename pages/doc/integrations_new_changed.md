@@ -19,7 +19,7 @@ We added the following integrations in January - March 2019:
 
 We made made improvements to the following integrations in January - March 2019
 
-* Kubernetes integration: Added dashboard for monitoring Wavefront Kubernetes Collector
+* Kubernetes integration: Added dashboard for monitoring Wavefront Collector for Kubernetes
 * Amazon RDS integration: Dashboard filtering improvements
 * Azure SQL Database integration: Dashboard improvments
 * vSphere integration: Dashboard improvements

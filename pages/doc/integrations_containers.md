@@ -25,7 +25,7 @@ Wavefront has a native storage driver for cAdvisor. As it collects resource metr
 </tr>
 <tr>
 <td style="text-align: center;vertical-align: bottom; font-weight:bold"><a href="integrations.html#in-product-integrations"><img src="images/kubernetes.png"/></a><br /><a href="integrations.html#in-product-integrations">Kubernetes</a></td>
-<td style="vertical-align:middle">Wavefront Kubernetes Collector collects and aggregates resource metrics at every level of a Kubernetes (also referred to as k8s) cluster. Wavefront has a native storage driver for Wavefront Kubernetes Collector.  Kubernetes labels are applied as point tags to resource metrics.
+<td style="vertical-align:middle">Wavefront Collector for Kubernetes collects and aggregates resource metrics at every level of a Kubernetes (also referred to as k8s) cluster. Wavefront has a native storage driver for Wavefront Collector for Kubernetes.  Kubernetes labels are applied as point tags to resource metrics.
 </td>
 </tr>
 </tbody>
