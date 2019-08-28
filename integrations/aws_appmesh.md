@@ -23,7 +23,7 @@ This integration also installs a dashboard. Here's a preview of the AWS App Mesh
 
 
 
-This integration uses the [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to send metrics. The collector can send metrics to Wavefront using either the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
+This integration uses the [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to send metrics. The collector can send metrics to Wavefront using either the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 The following instructions are for reporting metrics. To report traces, use the AWS App Mesh tracing setup instructions below.
 
@@ -31,7 +31,7 @@ The following instructions are for reporting metrics. To report traces, use the 
 Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefront-proxy-required) to deploy a Wavefront proxy. If you plan on sending metrics directly to the Wavefront service, this step is not required. If you plan to send traces, use the proxy set up instructions in the tracing section below.
 
 
-### Step 2. Deploy and Configure the Wavefront Kubernetes Collector
+### Step 2. Deploy and Configure the Wavefront Collector for Kubernetes
 
 You can deploy the collector using `kubectl`. To send metrics to Wavefront, set up the collector with Auto Discovery.
 
