@@ -4,7 +4,7 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_instrumenting_frameworks.html
-summary: Learn how to set up your application to send metrics, histograms, and trace data to Wavefront.
+summary: Set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
 You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack can be sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
@@ -161,6 +161,30 @@ Wavefront uses application tags to aggregate and filter data at different levels
   - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `secondary`.
 
   ![tracing service filter](images/tracing_service_filter_page.png)
+
+## Span Logs
+
+The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
+
+Here's one example expands [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
+
+```
+try {
+  //app logic
+} catch (Exception e) {
+  // handle exception logic
+  Tags.ERROR.set(span, true);
+  span.log(new HashMap<String, String>() {{
+    put(Fields.EVENT, "error");
+    put(Fields.ERROR_KIND, e.getClass().getName());
+    put(Fields.STACK, ExceptionUtils.getStackTrace(e));
+  }});
+} finally {
+  span.finish();
+}
+```
+
+Span logs are especially useful for recording which spans have errors.
 
 
 
