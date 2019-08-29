@@ -182,7 +182,7 @@ The process for creating an alert target is similar for the different types of t
       </tr>
       </tbody>
       </table>
-<a name="alert_route"></a>      
+<a name="alert_route"></a>
 1. If you want to send notifications to different targets for different point tags, you can specify them under **Recipients**.
   * The **Default Recipients** field specifies recipients that get all alerts.
   * The **Routing** field allows you to specify the following key/value pairs:
@@ -247,7 +247,7 @@ By default, an alert notification is sent to all recipients that are specified i
 * If source=host1, send an email to userA and userB.
 * If source=host2, send an email to userX
 
-You can customize for each target type, and can route the notification based on `metric`, `source`, or a point tag key. See Step 6 in **Create an Alert Target** above.
+You can customize for each target type, and can route the notification based on `metric`, `source`, or a point tag key. See [Step 6](#alert_route) in **Create an Alert Target** above.
 
 ### Content of Routed Notifications
 
