@@ -13,7 +13,7 @@ Click the **Setup** tab for instructions on:
 * Enabling the Wavefront proxy to support the Jaeger Thrift data format.
 * Understanding configuration requirements for Jaeger agents that send trace data to the Wavefront proxy.
 
-The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains integration requirements, how to specify custom tags for RED metrics, custom application names and more.
 ## Jaeger Integration Setup
 
 Jaeger [deployments](https://www.jaegertracing.io/docs/1.8/architecture/#components) consist of Collectors and [Jaeger Agents](https://www.jaegertracing.io/docs/1.8/deployment/#agent). The agents can be configured to send trace data to the Wavefront proxy.
@@ -56,4 +56,15 @@ Replace `<wf_proxy_hostname>` with the hostname of the Wavefront proxy and `<wf_
 The Wavefront proxy will receive Jaeger trace data once the Jaeger agent has been started with the above property enabled.
 
 ### Customize Jaeger Integration:
-The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
+
+#### Custom Application Names for Jaeger
+You can specify custom application names at the level you need, like this:
+
+1. Span-level tag: Add the application span tag to all spans.
+2. Process-level tag: Add the application tag as a Jaeger tracer tag, that is, a process tag.
+3. Proxy-level tag: Add traceJaegerApplicationName=<application-name> in the proxy configuration at /etc/wavefront/wavefront-proxy/wavefront.conf.
+ See [Proxy Configuration Paths](https://docs.wavefront.com/proxies_configuring.html#paths) for details on the config file location.
+
+The order of precedence is span level > process level > proxy level.
+
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains integration requirements, how to specify custom tags for RED metrics and more.
