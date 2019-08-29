@@ -25,7 +25,7 @@ Displays only `numberOfTimeSeries` time series.
 <td>offsetNumber</td>
 <td markdown="span"> Specifies the index to start with.  </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression that you want to filter.</td>
 </tr>
 </tbody>

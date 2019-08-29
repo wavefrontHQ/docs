@@ -25,7 +25,7 @@ The charAt() function retrieves the character at the position specified by an in
 <td markdown="span">integer</td>
 <td>The location of the character that you want to extract.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

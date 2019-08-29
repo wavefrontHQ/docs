@@ -24,7 +24,7 @@ For example, `hideBefore(10m)` hides data that’s older than 10 minutes. The fu
 <td>timeWindow</td>
 <td>Amount of time for which you want to keep data. For example, <code>hideBefore(10m)</code> hides data that’s older than 10 minutes. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression that you want to filter.</td>
 </tr>
 </tbody>

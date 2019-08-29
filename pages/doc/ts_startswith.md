@@ -28,7 +28,7 @@ The endsWith() function lets you check whether a string extracted from an expres
 <td markdown="span"><string></td>
 <td>The string you want to check for.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

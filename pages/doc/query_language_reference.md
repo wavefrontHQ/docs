@@ -31,138 +31,132 @@ A query expression describes data of a particular type: time series, histogram s
 </thead>
 <tbody>
 
+<!--- tsExpression ----------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tsExpression&gt;</span></td>
 <td>
 Describes one or more time series. A  time series is a sequence of data points that each consist of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. A <strong>tsExpression</strong> may be:
 
 <ul>
-<li>A <strong>ts()</strong> function or a constant</li>
-<li>An <a href="#operators">operator expression</a> that combines ts() expressions and constants</li>
-<li>A query function that returns a time series, either by transforming input time series or by converting input data of another type.</li> 
-</ul>
-</td></tr>
-
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">ts() function</span></td>
-<td>
-Returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
-<ul>
-<li>
-Syntax:
+<li>A <strong>ts() function</strong>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
 <pre>ts(&lt;metricName&gt;
   [,|and|or source=&lt;sourceName&gt;] ...
   [,|and|or tag=&lt;sourceTag&gt;] ...
   [,|and|or &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
+<strong>ts(~sample.disk.bytes.written, source=app-1 or source=app-2 and env=dev)</strong>
 </li>
-<li>Sources, source tags, alert names, alert tags, and point tags are optional. For example, to return points from all sources sending the <strong>my.metric</strong> metric, specify <strong>ts(my.metric)</strong>.</li>
+<li>A <strong>constant</strong>, which returns a constant value for each data point. 
+Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefixes</a> (k, M, G, T, P, E, Z, Y) to scale by multiples of 1000: 
+<br><strong>5.01</strong>
+<br><strong>40</strong>
+<br><strong>1M</strong> (or <strong>1000000</strong>) 
+<br><strong>7.2k</strong> (or <strong>7200</strong>) 
+</li>
+<li>An <a href="#operators">operator expression</a> that combines ts() expressions and constants:
+<br><strong>
+(ts(disk.space.total) - ts(disk.space.used)) * 2
+</strong>
+</li>
+<li>A query function that returns time series by transforming other input time series: 
+<br><strong>
+msum(10m, ts(~sample.requests.latency, source=app-14))
+</strong>
+</li> 
+<li>A query function that returns time series by converting input data of another type:
+<br><strong>
+avg(hs(users.settings.numberOfApiTokens.m))
+</strong>
+</li> 
 </ul>
-</td>
-</tr>
+</td></tr>
 
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">constant</span></td>
-<td>
-A number such as <code>5.01</code>, <code>10000</code>, or <code>40</code>. Constants can be plotted by themselves and composed in <strong>expressions</strong> using arithmetic operators.
-<ul>
-<li markdown="span"> You can use [SI prefixes](https://en.wikipedia.org/wiki/Metric_prefix)(k, M, G, T, P, E, Z, Y) to scale constants by multiples of 1000.  G (billion) and T (trillion) are useful when working with network and I/O metrics. </li>
-<li>Example. Typing <code>1M</code> is equivalent to typing <code>1000000</code></li>
-<li>Example. Typing <code>7.2k</code> is equivalent to typing <code>7200</code></li>
-</ul>
-</td>
-</tr>
-
+<!--- hsExpression ------------------>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsExpression&gt;</span></td>
 <td>
 Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be:
-
 <ul>
-<li>An <strong>hs()</strong> function</li>
-<li>A <a href="#histogram-functions">query function that returns a histogram series</a>, typically by transforming an input histogram series</li> 
-</ul>
-</td></tr>
-
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">hs() function</span></td>
-<td>
-Returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
-<ul>
-<li>
-Syntax:
+<li>An <strong>hs() function</strong>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
 <pre>hs(&lt;hsMetricName&gt;
   [,|and|or source=&lt;sourceName&gt;] ...
   [,|and|or tag=&lt;sourceTag&gt;] ...
   [,|and|or &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
+<strong>
+hs(users.settings.numberOfApiTokens.m, source="host1" and customer="qa")
+</strong>
 </li>
-<li>Sources, source tags, and point tags are optional. For example, to return distributions from all sources sending the <strong>my.metric.m</strong> histogram metric, specify <strong>hs(my.metric.m)</strong>.</li>
+<li>A <a href="#histogram-functions">query function that returns histogram series</a> by transforming other input histogram series: 
+<br><strong>
+align(10m, hs(users.settings.numberOfApiTokens.m))
+</strong>
+</li> 
 </ul>
-</td>
-</tr>
+</td></tr>
 
+<!--- eventsExpression --------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;eventsExpression&gt;</span></td>
 <td>
 Describes a set of events.  An <strong>eventsExpression</strong> may be:
 
 <ul>
-<li>An <strong>events()</strong> function</li>
-<li>A <a href="#event-functions">query function that returns a set of events</a> by filtering or transforming an input event set</li> 
-<li>An <a href="events_queries_advanced.html">events operator expression</a> that combines eventsExpressions </li> 
-</ul>
-</td></tr>
-
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">events() function</span></td>
-<td>
-Returns all events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
-<ul>
-<li>
-Syntax:
+<li>An <strong>events()</strong> function, which returns all events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
 <pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
   [,|and|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
+<strong>
+events(type=alert, name="disk space is low", alertTag=App1.*)
+</strong>
 </li>
-</ul>
-</td>
-</tr>
 
+<li>A <a href="#event-functions">query function that returns a set of events</a> from an input event set:
+<br><strong>
+closed(events(type=alert, name="disk space is low", alertTag=App1.*))
+</strong>
+</li> 
+<li>An <a href="events_queries_advanced.html">events operator expression</a> that combines eventsExpressions:
+<br><strong>
+events(type=maintenanceWindow) intersect events(name="test")
+</strong>
+</li> 
+</ul>
+</td></tr>
+
+<!--- tracesExpression ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tracesExpression&gt;</span></td>
 <td>
 Describes a set of traces.  An <strong>tracesExpression</strong> may be:
 
 <ul>
-<li>A <strong>traces()</strong> function</li>
-<li>A <a href="#trace-data-functions">query function that returns a list of traces</a> by filtering an input list of traces</li> 
-</ul>
-</td></tr>
-
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">traces() function</span></td>
-<td>
-Returns all traces that contain at least one qualifying span, where a qualifying span represents the specified operation and matches the specified <a href="ts_traces.html#span-filters">span filters</a>. 
-<ul>
-<li>
-Syntax:
+<li>A <strong>traces()</strong> function, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="ts_traces.html#span-filters">span filters</a>. 
 <pre>traces("&lt;fullOperationName&gt;" 
   [,|and[ not]|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
+<strong>
+traces("beachshirts.styling.makeShirts")
+</strong>
+
 </li>
+<li>A <a href="#trace-data-functions">query function that returns a list of traces</a> by filtering an input list of traces:
+
+<br><strong>
+lowpass(12ms, traces("beachshirts.styling.makeShirts"))
+</strong>
+</li> 
 </ul>
-</td>
-</tr>
+</td></tr>
 
 </tbody>
 </table>
 
 
 
-## Names and Values
+## Common Parameters
 
-Expressions use names and values to specify the data of interest. You can use [wildcards](#wildcards-and-variables) to match multiple names or values.
+Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-and-variables) to match multiple names or values.
  
 <table style="width: 100%;">
 <colgroup>
@@ -178,29 +172,29 @@ Expressions use names and values to specify the data of interest. You can use [w
 <tbody>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;metricName&gt;</span></td>
-<td>The name of a metric that describes one or more time series in a <strong>tsExpression</strong>. For example: 
+<td>The name of a metric that describes one or more time series in a <strong>tsExpression</strong>. Example: 
 <pre>cpu.load.metric</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsMetricName&gt;</span></td>
-<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). For example: 
+<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). Example: 
 <pre>users.settings.numberOfTokens.m</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceName&gt;</span></td>
 <td>The name of a source, such as a host or container, that emits the data of interest (time series, histogram series, or trace data). Specify a source name with the <strong>source</strong> keyword.
-For example:
+Example:
 <pre>source=appServer15</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceTag&gt;</span></td>
 <td>A source tag that is assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
-For example: <pre>tag=app.*</pre>
+Example: <pre>tag=app.*</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span></td>
 <td>The key and value of a point tag that is associated with the data of interest.
-For example: 
+Example: 
 <pre>region="us-west-2a" or region="us-west-2b"</pre>
 
 <strong>Note:</strong> Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series. Event tags, alert tags, and span tags exist for identifying other types of data. See <a href="tags_overview.html" >Organizing with Tags</a>  for information on the different types of tags and how to use them. 
@@ -249,8 +243,10 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
 </tr>
 </thead>
 <tbody>
+
+<!--- Wildcard ------------->
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
+<td><span style="color:#3a0699;font-weight:bold">Wildcard</span></td>
 <td>
 Matches strings or components in a name or a value. 
 <ul>
@@ -274,23 +270,8 @@ Examples:
 <li><strong>not region="&#42;"</strong> finds any time series that do not have the <code>region</code> point tag.</li>
 </ul>
 </td></tr>
-<tr>
-<td><span style="color:#3a0699;font-weight:bold">Query line variable</span></td>
-<td>Lets one query line refer to another for the same chart. 
-The referenced query line must be named, and must contain a complete <strong>tsExpression</strong>.
-<ul>
-<li>Use the chart UI to name a query: <strong>myQuery</strong> </li>
-<li>Use this syntax to reference the named query in another query: <strong>${myQuery}</strong></li>
-</ul>
-Example. Suppose you assign a name to a long or complex query:
-<pre>latency       ts(requests.latency, source=app-1* or source=app2*, env=dev)</pre>
 
-You can reference the named query in another query as follows:
-<pre>newQuery      max(${latency})</pre>
-
-<strong>Note:</strong> If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable.
-</td></tr>
-
+<!--- Alias ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">Alias</span></td>
 <td>Defines a convenient name for referring to a <strong>tsExpression</strong> any number of times in a query.  
@@ -310,6 +291,25 @@ Example:
 </ul>
 </td></tr>
 
+<!--- Query line variable ------------->
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">Query line variable</span></td>
+<td>Lets one query line refer to another for the same chart. 
+The referenced query line must be named, and must contain a complete <strong>tsExpression</strong>.
+<ul>
+<li>Use the chart UI to name a query: <strong>myQuery</strong> </li>
+<li>Use this syntax to reference the named query in another query: <strong>${myQuery}</strong></li>
+</ul>
+Example. Suppose you assign a name to a long or complex query:
+<pre>latency       ts(requests.latency, source=app-1* or source=app2*, env=dev)</pre>
+
+You can reference the named query in another query as follows:
+<pre>newQuery      max(${latency})</pre>
+
+<strong>Note:</strong> If a query line variable and dashboard variable have the same name, the query line variable overrides the dashboard variable.
+</td></tr>
+
+<!--- Dashboard variable ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">Dashboard variable</span></td>
 <td>Defines a convenient name that expands to a particular string of text in any query line of any chart of a dashboard. 
@@ -373,8 +373,8 @@ All aggregation functions provide parameters for filtering the set of input seri
 
 <table style="width: 100%;">
 <colgroup>
-<col width="45%" />
-<col width="55%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr>

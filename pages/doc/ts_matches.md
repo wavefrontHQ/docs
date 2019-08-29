@@ -27,7 +27,7 @@ The contains() function compares a string extracted from an expression to a spec
 <td markdown="span">string</td>
 <td>String for which you want to check matching or equality.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

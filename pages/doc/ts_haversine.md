@@ -20,9 +20,9 @@ Returns the distance between the specified pair of coordinates.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [lat1, long1](query_language_reference.html#expressions)</td>
+<td markdown="span"> [lat1, long1](query_language_reference.html#query-expressions)</td>
 <td>Expressions specifying the latitude and longitude of the first pair coordinates.</td></tr>
-<td markdown="span"> [lat2, long2](query_language_reference.html#expressions)</td>
+<td markdown="span"> [lat2, long2](query_language_reference.html#query-expressions)</td>
 <td>Expressions specifying the latitude and longitude of the second pair of coordinates.</td></tr>
 </tbody>
 </table>

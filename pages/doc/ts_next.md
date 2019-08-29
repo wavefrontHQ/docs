@@ -23,7 +23,7 @@ Fills in gaps in the expression with the next known value of the expression. If 
 <td>timeWindow</td>
 <td>By default, the <code>next()</code> function applies the specified value to gaps of missing data for up to 4 weeks. Use this optional parameter if you’d like this window to be smaller. The smallest time window you can specify is 1 second (1s). </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression in which you want to replace gaps in data with the next value. </td>
 </tr>
 </tbody>

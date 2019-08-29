@@ -24,7 +24,7 @@ Functions for stripping white space (blank) from a string.
 <tr>
 <td markdown="span">metric|source|PointTag</td>
 <td>The metric, source, or point tag for which you need the string length.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

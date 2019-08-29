@@ -25,7 +25,7 @@ The concat() function lets you concatenate a specified string with a extracted f
 <td markdown="span">string</td>
 <td>The string that you want to concatenate with the extracted string.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

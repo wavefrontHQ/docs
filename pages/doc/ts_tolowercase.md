@@ -23,7 +23,7 @@ The toUpperCase() function converts all lower case function in the string extrac
 <tr>
 <td markdown="span"><metric|source|PointTag></td>
 <td>The metric, source, or point tag that you want to convert to all lower case or all upper case.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

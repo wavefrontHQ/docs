@@ -19,7 +19,7 @@ Returns the per-second rate of change for each time series described by the expr
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return rates of change for. </td></tr>
 </tbody>
 </table>

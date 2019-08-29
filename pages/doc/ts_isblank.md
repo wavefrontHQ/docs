@@ -25,7 +25,7 @@ The isEmpty() function returns true if the value of the metric, source, or point
 <tr>
 <td markdown="span">metric|source|pointTag</td>
 <td>The metric, source, or point tag for which you want to know whether it corresponds to an empty or blank string.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

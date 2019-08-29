@@ -21,7 +21,7 @@ Use [`rawvariance()`](ts_rawvariance.html) if you don't need interpolation.
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to return variances for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>

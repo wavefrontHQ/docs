@@ -25,7 +25,7 @@ Repeats a string extracted from an expression a specified number of times.
 <td markdown="span">integer</td>
 <td>The integer that specifies how many times to repeat the expression. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

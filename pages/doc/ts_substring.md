@@ -31,7 +31,7 @@ tr>
 <td>integer1, integer2</td>
 <td>integer1 specifies the position to start extracting and integer2 specifies the position to stop extracting a substring. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>
