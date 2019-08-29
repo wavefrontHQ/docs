@@ -138,7 +138,7 @@ Span details include:
 * Other tags including the trace ID.
 * A clickable link to the corresponding dashboard that lets you examine the metrics associated with the call.
 
-If your spans have been instrumented to show span logs, you can click **Logs** to download the logs and drill down to examine them. We don't show span logs by default for better browser performance.
+If your spans have been instrumented to show span logs, you can click **Logs** to fetch the logs and drill down to examine them. We don't show span logs by default for better browser performance.
 
 
 ## A Closer Look at Critical Paths

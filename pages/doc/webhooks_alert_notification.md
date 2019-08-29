@@ -182,6 +182,7 @@ The process for creating an alert target is similar for the different types of t
       </tr>
       </tbody>
       </table>
+<a name="alert_route"></a>      
 1. If you want to send notifications to different targets for different point tags, you can specify them under **Recipients**.
   * The **Default Recipients** field specifies recipients that get all alerts.
   * The **Routing** field allows you to specify the following key/value pairs:
