@@ -7,12 +7,12 @@ summary: Reference to the matches() and contains() string manipulation functions
 ---
 ## Summary
 ```
-matches(<metric|source|PointTag>, <string>, <expression>)
-contains(<metric|source|PointTag>, <string>, <expression>)
+matches(metric|source|<pointTagKey>, <string>, <expression>)
+contains(metric|source|<pointTagKey>, <string>, <expression>)
 ```
-The matches() function compares a string extracted from an expression to a specified string, and returns 1 if the two strings match and 0 otherwise.
+The `matches()` function compares a string extracted from an expression to a specified string, and returns 1 if the two strings match and 0 otherwise.
 
-The contains() function compares a string extracted from an expression to a specified string, and returns 1 if the extracted string contains the specified string, and returns 0 otherwise.
+The `contains()` function compares a string extracted from an expression to a specified string, and returns 1 if the extracted string contains the specified string, and returns 0 otherwise.
 
 ## Parameters
 <table style="width: 100%;">
@@ -21,8 +21,8 @@ The contains() function compares a string extracted from an expression to a spec
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">metric|source|PointTag</td>
-<td>The metric, source, or point tag that you want to compare to a string.</td></tr>
+<td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
+<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to compare to a string.</td></tr>
 <tr>
 <td markdown="span">string</td>
 <td>String for which you want to check matching or equality.</td></tr>

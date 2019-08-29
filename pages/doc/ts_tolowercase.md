@@ -7,12 +7,12 @@ summary: Reference to the toLowerCase() and toUpperCase() string manipulation fu
 ---
 ## Summary
 ```
-toLowerCase(<metric|source|PointTag>, <expression>)
-toUpperCase(<metric|source|PointTag>, <expression>)
+toLowerCase(metric|source|<pointTagKey>, <expression>)
+toUpperCase(metric|source|<pointTagKey>, <expression>)
 ```
-The toLowerCase() function converts all upper case function in the string extracted from the expression to lower case.
+The `toLowerCase()` function converts all upper case function in the string extracted from the expression to lower case.
 
-The toUpperCase() function converts all lower case function in the string extracted from the expression to upper case.
+The `toUpperCase()` function converts all lower case function in the string extracted from the expression to upper case.
 
 ## Parameters
 <table style="width: 100%;">
@@ -21,8 +21,8 @@ The toUpperCase() function converts all lower case function in the string extrac
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"><metric|source|PointTag></td>
-<td>The metric, source, or point tag that you want to convert to all lower case or all upper case.</td></tr><tr>
+<td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
+<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to convert to all lower case or all upper case.</td></tr><tr>
 <td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>

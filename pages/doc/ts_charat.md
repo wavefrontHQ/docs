@@ -7,9 +7,9 @@ summary: Reference to the charAt string manipulation function
 ---
 ## Summary
 ```
-charAt(<metric|source|PointTag>, <integer>, <expression>)
+charAt(metric|source|<pointTagKey>, <integer>, <expression>)
 ```
-The charAt() function retrieves the character at the position specified by an integer from a string extracted from an expression.
+The `charAt()` function retrieves the character at the position specified by an integer from a string extracted from an expression.
 
 
 ## Parameters
@@ -19,8 +19,8 @@ The charAt() function retrieves the character at the position specified by an in
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">metric|source|PointTag</td>
-<td>The metric, source, or point tag for that you want to compare to a string.</td></tr>
+<td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
+<td>The part of the expression (metric name, source name, or value of a point tag key) from which you want to extract a character.</td></tr>
 <tr>
 <td markdown="span">integer</td>
 <td>The location of the character that you want to extract.</td></tr>

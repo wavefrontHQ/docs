@@ -7,9 +7,9 @@ summary: Reference to the concat string manipulation function
 ---
 ## Summary
 ```
-concat(<metric|source|PointTag>, <string>, <expression>)
+concat(metric|source|<pointTagKey>, <string>, <expression>)
 ```
-The concat() function lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string.
+The `concat()` function lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string.
 
 
 ## Parameters
@@ -19,8 +19,8 @@ The concat() function lets you concatenate a specified string with a extracted f
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">metric|source|PointTag</td>
-<td>The metric, source, or point tag from the expression.</td></tr>
+<td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
+<td>The part of the expression (metric name, source name, or value of a point tag key) you want to extract.</td></tr>
 <tr>
 <td markdown="span">string</td>
 <td>The string that you want to concatenate with the extracted string.</td></tr>

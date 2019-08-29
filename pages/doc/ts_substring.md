@@ -7,10 +7,10 @@ summary: Reference to the substring string manipulation function
 ---
 ## Summary
 ```
-substring(<metric|source|PointTag>, <integer>, <expression>)
-substring(<metric|source|PointTag>, <integer1>, <integer2>, <expression>)
+substring(metric|source|<pointTagKey>, <integer>, <expression>)
+substring(metric|source|<pointTagKey>, <integer1>, <integer2>, <expression>)
 ```
-The substring() function has two options:
+The `substring()` function has two options:
 * Extract a substring that starts at a position specified by an integer from a string extracted from an expression.
 * Extract a substring that starts at the position specified by integer1 and that ends at the position specified by integer2 from a string extracted from an expression.
 
@@ -22,8 +22,8 @@ The substring() function has two options:
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td>metric|source|PointTag</td>
-<td>The metric, source, or point tag from the expression.</td></tr>
+<td>metric|source|&lt;pointTagKey&gt;</td>
+<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to extract a substring from.</td></tr>
 <tr>
 <td>integer</td>
 <td>The integer that specifies the position to start extracting a substring. </td></tr>

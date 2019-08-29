@@ -25,7 +25,7 @@ A query expression describes data of a particular type: time series, histogram s
 </colgroup>
 <thead>
 <tr>
-<th>Term</th>
+<th>Expression</th>
 <th>Definition</th>
 </tr>
 </thead>
@@ -44,10 +44,11 @@ Describes one or more time series. A  time series is a sequence of data points t
   [,|and|or tag=&lt;sourceTag&gt;] ...
   [,|and|or &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
+Example:
 <strong>ts(~sample.disk.bytes.written, source=app-1 or source=app-2 and env=dev)</strong>
 </li>
 <li>A <strong>constant</strong>, which returns a constant value for each data point. 
-Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefixes</a> (k, M, G, T, P, E, Z, Y) to scale by multiples of 1000: 
+Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefixes</a> (k, M, G, T, P, E, Z, Y) to scale by multiples of 1000. Examples: 
 <br><strong>5.01</strong>
 <br><strong>40</strong>
 <br><strong>1M</strong> (or <strong>1000000</strong>) 
@@ -83,6 +84,7 @@ Describes one or more histogram series. A histogram series is a sequence of hist
   [,|and|or tag=&lt;sourceTag&gt;] ...
   [,|and|or &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
+Example:
 <strong>
 hs(users.settings.numberOfApiTokens.m, source="host1" and customer="qa")
 </strong>
@@ -106,6 +108,7 @@ Describes a set of events.  An <strong>eventsExpression</strong> may be:
 <pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
   [,|and|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
+Example:
 <strong>
 events(type=alert, name="disk space is low", alertTag=App1.*)
 </strong>
@@ -135,6 +138,7 @@ Describes a set of traces.  An <strong>tracesExpression</strong> may be:
 <pre>traces("&lt;fullOperationName&gt;" 
   [,|and[ not]|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
+Example:
 <strong>
 traces("beachshirts.styling.makeShirts")
 </strong>
@@ -165,7 +169,7 @@ Query expressions use a number of common parameters to specify names and values 
 </colgroup>
 <thead>
 <tr>
-<th>Term</th>
+<th>Parameter</th>
 <th>Definition</th>
 </tr>
 </thead>
@@ -246,7 +250,7 @@ You can combine wildcards, aliases, query line variables, and dashboard variable
 
 <!--- Wildcard ------------->
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">Wildcard</span></td>
+<td><span style="color:#3a0699;font-weight:bold">wildcard</span></td>
 <td>
 Matches strings or components in a name or a value. 
 <ul>
@@ -273,7 +277,7 @@ Examples:
 
 <!--- Alias ------------->
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">Alias</span></td>
+<td><span style="color:#3a0699;font-weight:bold">alias</span></td>
 <td>Defines a convenient name for referring to a <strong>tsExpression</strong> any number of times in a query.  
 <ul>
 <li>Use this syntax to define an alias within a query: <strong>&lt;tsExpression&gt; as &lt;aliasName&gt;</strong></li>
@@ -286,14 +290,14 @@ Example:
 <ul>
 <li>Use alias names that are three letters or longer.</li>
 <li>Don't use the SI prefixes (such as k, G, or T) as alias names.</li>
-<li markdown="span">Put any numeric characters at the end of the alias name. `$test123` is ok, but `$1test` and `$test4test` are not.</li>
+<li markdown="span">Put any numeric characters at the end of the alias name. <strong>$test123</strong> is valid, but `$1test` and `$test4test` are not valid.</li>
 <li>You can define multiple aliases in the same query.</li>
 </ul>
 </td></tr>
 
 <!--- Query line variable ------------->
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">Query line variable</span></td>
+<td><span style="color:#3a0699;font-weight:bold">query line variable</span></td>
 <td>Lets one query line refer to another for the same chart. 
 The referenced query line must be named, and must contain a complete <strong>tsExpression</strong>.
 <ul>
@@ -311,7 +315,7 @@ You can reference the named query in another query as follows:
 
 <!--- Dashboard variable ------------->
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">Dashboard variable</span></td>
+<td><span style="color:#3a0699;font-weight:bold">dashboard variable</span></td>
 <td>Defines a convenient name that expands to a particular string of text in any query line of any chart of a dashboard. 
 <ul>
 <li>Use the dashboard UI to <a href="dashboards_variables.html">define a dashboard variable</a>: <strong>myDashVar</strong></li>
@@ -927,71 +931,71 @@ We support 3 groups of string manipulation functions. For each group:
 </tr>
 </thead>
 <tbody>
-<tr><td><a href="ts_length.html">length(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_length.html">length(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Returns the length of a string</td>
 </tr>
-<tr><td><a href="ts_isblank.html">isEmpty(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_isblank.html">isEmpty(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.</td>
 </tr>
-<tr><td><a href="ts_isblank.html">isBlank(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_isblank.html">isBlank(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Returns true if the value of the metric, source, or point tag string is a blank character (<strong>" "</strong>), and returns false otherwise.</td>
 </tr>
-<tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Converts all upper case function in the string extracted from the expression to lower case. </td>
 </tr>
 
-<tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Converts all upper case function in the string extracted from the expression to lower case.</td>
 </tr>
 
-<tr><td><a href="ts_trim.html">trim(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">trim(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Removes a single leading white space and/or a single trailing white space, but does not remove multiple leading or trailing white spaces.  </td>
 </tr>
-<tr><td><a href="ts_trim.html">strip(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">strip(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Removes both leading and trailing white spaces from a string.</td>
 </tr>
-<tr><td><a href="ts_trim.html">stripLeading(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">stripLeading(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Removes leading white spaces from a string.</td>
 </tr>
-<tr><td><a href="ts_trim.html">stripTrailing(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">stripTrailing(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Removes trailing white spaces from a string. </td>
 </tr>
-<tr><td><a href="ts_equals.html">equals(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_equals.html">equals(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string.  </td>
 </tr>
-<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string and ignores case. With this function `string` is equal to `StRiNg` </td>
 </tr>
-<tr><td><a href="ts_startswith.html">startsWith(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_startswith.html">startsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Lets you check whether a string extracted from an expression starts with a specified string.
  </td>
 </tr>
-<tr><td><a href="ts_startswith.html">endsWith(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_startswith.html">endsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Lets you check whether a string extracted from an expression starts with a specified string.  </td>
 </tr>
-<tr><td><a href="ts_indexof.html">indexOf(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_indexof.html">indexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string and returns where the specified string starts in the extracted string.</td>
 </tr>
-<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string starting at the back and returns where the specified string starts in the extracted string. </td>
 </tr>
-<tr><td><a href="ts_concat.html">concat(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_concat.html">concat(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string. </td>
 </tr>
-<tr><td><a href="ts_matches.html">matches(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_matches.html">matches(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string, and returns 1 if the two strings match exactly and 0 otherwise.
 </td>
 </tr>
-<tr><td><a href="ts_matches.html">contains(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_matches.html">contains(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string, and returns 1 if the extracted string contains the specified string and 0 otherwise.  </td>
 </tr>
-<tr><td><a href="ts_charat.html">charAt(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_charat.html">charAt(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Retrieves the character at the position specified by an integer from a string extracted from an expression. </td>
 </tr>
-<tr><td><a href="ts_substring.html">substring(<strong>&lt;metric|source|PointTag&gt;</strong>,&lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_substring.html">substring(<strong>metric|source|&lt;pointTagKey&gt;</strong>,&lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Extracts a substring from a string extracted from an expression.</td>
 </tr>
-<tr><td><a href="ts_repeat.html">repeat(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_repeat.html">repeat(<strong>metric|source|&lt;pointTagKey&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Repeats a string extracted from an expression the specified number of times. </td>
 </tr>
 
@@ -1039,8 +1043,8 @@ You use histogram functions to access the histogram distributions that Wavefront
 
 <table style="width: 100%;">
 <colgroup>
-<col width="45%" />
-<col width="55%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr>
@@ -1050,61 +1054,61 @@ You use histogram functions to access the histogram distributions that Wavefront
 </thead>
 <tbody>
 <tr>
-<td>hs(<strong>&lt;hsMetric&gt;.m|h|d</strong> 
+<td>hs(<strong>&lt;hsMetricName&gt;</strong> 
 <br>&lbrack;,|and|or <strong>source=</strong>&lt;sourceName&gt;&rbrack;
 <br>&lbrack;,|and|or <strong>tag</strong>=&lt;sourceTag&gt;&rbrack;
 <br>&lbrack;,|and|or &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;&rbrack; ...)
 </td>
-<td>Returns the series of histogram distributions for <strong>&lt;hsMetric&gt;</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's <a href="proxies_histograms.html#histogram-metric-aggregation-intervals">aggregation interval</a> (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
+<td>Returns the series of histogram distributions for <strong>hsMetricName</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's <a href="proxies_histograms.html#histogram-metric-aggregation-intervals">aggregation interval</a> (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
 You can specify this function as input to other histogram query functions. 
 If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
 </td>
 </tr>
 <tr>
-<td>merge(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>)&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
+<td>merge(<strong>&lt;hsExpression&gt;</strong><br>&lbrack;, <strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
 <td>Merges the centroids and counts across multiple series of histogram distributions, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(my.hsMetric.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
 You can specify this function as input to other histogram query functions. 
 If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
 </td>
 </tr>
 <tr>
-<td>align(<strong>&lt;timeWindow&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Adjusts the granularity of a series of histogram distributions, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(my.hsMetric.m))</strong> merges groups of per-minute distributions to produce hourly distributions.<br>
 You can specify this function as input to other histogram query functions. 
 If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
 </td>
 </tr>
 <tr>
-<td>median(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>median(<strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Returns the median value from each distribution in a specified histogram. The values are returned as time series.</td>
 </tr>
 <tr>
-<td>avg(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>avg(<strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Returns the average value from each distribution in a specified histogram. The values are returned as time series.
 </td>
 </tr>
 <tr>
-<td>min(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>min(<strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Returns the smallest value from each distribution in a specified histogram. The values are returned as time series.</td>
 </tr>
 <tr>
-<td>max(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>) )</td>
+<td>max(<strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Returns the largest value from each distribution in a specified histogram. The values are returned as time series.</td>
 </tr>
 <tr>
-<td>percentile(<strong>&lt;percentage&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>percentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution. <br>The values are returned as time series.</td>
 </tr>
 <tr>
-<td>count(hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>count(<strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Returns the number of values in each distribution in a specified histogram. The counts are returned as time series.</td>
 </tr>
 <tr>
-<td>summary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>summary(<strong>&lt;percentileList&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
 <td>Summarizes a series of histogram distributions by returning the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
 </tr>
 <tr>
-<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, hs(<strong>&lt;hsMetric&gt;.m|h|d</strong>))</td>
+<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
 <td>
 Merges a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. 
 By default, the summary includes a separate constant time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>alignedSummary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
@@ -1133,32 +1137,32 @@ See [Basic events() Queries](events_queries.html). See [Advanced events() Querie
 </thead>
 <tbody>
 <tr>
-<td>events(<strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"] ...)</td>
+<td>events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</td>
 <td >Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
 <br>You can specify this function as input to other events query functions. You can use this function as a top-level query for a time-series chart to display a set of events in that chart, for example: <br>
 <code>events(type=alert, name="disk space is low", alertTag=App1.*)</code> </td></tr>
 <tr>
-<td>count(<strong>&lt;events&gt;</strong>)</td>
-<td>Converts <strong>&lt;events&gt;</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
+<td>count(<strong>&lt;eventsExpression&gt;</strong>)</td>
+<td>Converts <strong>eventsExpression</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
 </tr>
 <tr>
-<td>ongoing(<strong>&lt;events&gt;</strong>)</td>
+<td>ongoing(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns a continuous time series representing the number of ongoing events at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
 </tr>
 <tr>
-<td>closed(<strong>&lt;events&gt;</strong>)</td>
+<td>closed(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns events that have ended and instantaneous events that occurred in the past.</td>
 </tr>
 <tr>
-<td>until(<strong>&lt;events&gt;</strong>)</td>
+<td>until(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns synthetic events that start at the beginning of epoch time (Jan 1, 1970) and end where the input events start.</td>
 </tr>
 <tr>
-<td>after(<strong>&lt;events&gt;</strong>)</td>
+<td>after(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns synthetic ongoing events that start the moment the input events end.</td>
 </tr>
 <tr>
-<td>since(<strong>&lt;events&gt;</strong>)</td>
+<td>since(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns synthetic events with the same start time and no end time (converts all input events to ongoing events).</td>
 </tr>
 <tr>
@@ -1170,19 +1174,19 @@ See [Basic events() Queries](events_queries.html). See [Advanced events() Querie
 <td>Creates a single synthetic event with the specified start and end timestamps. A timestamp can be expressed in epoch seconds or using a time expression such as "5 minutes ago". Example: timespan("5 minutes ago", "2 minutes ago").</td>
 </tr>
 <tr>
-<td>first(<strong>&lt;events&gt;</strong>)</td>
+<td>first(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns a single event with the earliest start time.</td>
 </tr>
 <tr>
-<td>last(<strong>&lt;events&gt;</strong>)</td>
+<td>last(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns a single event with the latest start time.</td>
 </tr>
 <tr>
-<td>firstEnding(<strong>&lt;events&gt;</strong>)</td>
+<td>firstEnding(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns a single event with the earliest end time.</td>
 </tr>
 <tr>
-<td>lastEnding(<strong>&lt;events&gt;</strong>)</td>
+<td>lastEnding(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns a single event with the latest end time.</td>
 </tr>
 </tbody>
@@ -1210,7 +1214,7 @@ You use trace-data functions to find and filter any [trace data](tracing_basics.
 <tr>
 <td>
 <a href="ts_traces.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
-<br> [,|and|or <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
 <td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="ts_traces.html#span-filters">span filters</a>.</td>
 </tr>
@@ -1237,7 +1241,7 @@ For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</
 <tr>
 <td>
 <a href="ts_spans.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
-<br> [,|and|or <strong>&lt;filterName&gt;</strong>= " <strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
 <td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="ts_traces.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
 </tr>
