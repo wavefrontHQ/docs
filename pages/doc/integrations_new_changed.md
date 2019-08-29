@@ -10,7 +10,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 
 ## April - July 2019
 
-We added the following integrations in April - July 2019
+We added the following integrations in April - July 2019:
 
 * Azure File Storage integration
 * New Relic integration
