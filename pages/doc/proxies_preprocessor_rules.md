@@ -796,7 +796,7 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, applies to all occurrences of the search string, but only in the first matching span tag. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -854,7 +854,7 @@ Convert a span name, source name, or span tag name to lowercase.
 <td>Regular expression. If specified, force lower case only if the value matches this regular expression.</td>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, applies to all occurrences of the search string, but only in the first matching span tag. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
 </tr>
 </tr>
 </tbody>
@@ -960,7 +960,7 @@ Removes a span tag that matches a regex string.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, applies to all occurrences of the search string, but only in the first matching span tag. Default is false.</td>
+<td>If set to true, removes only the first matching tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1044,7 +1044,7 @@ Extract a string from a span name, source name, or a span tag value and create a
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, applies to all occurrences of the search string, but only in the first matching span tag. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when <strong>input</strong> is a span tag and <strong>replaceInput</strong> is specified. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1137,7 +1137,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, applies to all occurrences of the search string, but only in the first matching span tag. Default is false.</td>
+<td>If set to true, applies only to the first matching span tag. Only applicable when the scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
