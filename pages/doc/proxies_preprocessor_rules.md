@@ -56,9 +56,9 @@ You can define separate rules for each listening port.  The example above define
 
 Every rule must have
 * A `rule` parameter that contains the rule ID. Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the `drop-az-tag` rule is defined with the same identifier for both ports, 2878 and 4242.
-* An `action` parameter that contains the action to perform
+* An `action` parameter that contains the action to perform. Also the rule name.
 
-Additional parameters depend on the rule you're defining, for example, a `whitelistregex` rule must have a `scope` and a `match` parameter.
+Additional parameters depend on the rule that you're defining, for example, a `whitelistregex` rule must have a `scope` and a `match` parameter.
 
 <!---
 ### Scope for Metrics
@@ -611,9 +611,9 @@ Enforces string length limits for a metric name, source name, or point tag value
 <td>actionSubtype</td>
 <td>Allows you determine how we limit length:
 <ul>
-<li>DROP drops requested scope if value is greater than maxLength. You can't use DROP with metricName or sourceName. RK>>WHAT CAN I USE IT WITH?? DOES IT HAVE TO BE ALL CAPS??</li>
-<li>TRUNCATE truncates requested scope if value is greater than maxLength.</li>
-<li>TRUNCATE_WITH_ELLIPSIS truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength' must be at least 3 for this action type)</li>
+<li><strong>drop</strong>&mdash;Drops requested scope if value is greater than maxLength. You can't use DROP with the metric name or source name.</li>
+<li><strong>truncate</strong>&mdash;Truncates requested scope if value is greater than maxLength.</li>
+<li><strong>truncate_with_ellipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
 </ul></td>
 </tr>
 <tr>
@@ -643,11 +643,11 @@ Enforces string length limits for a metric name, source name, or point tag value
 
 ## Span Filtering Rules
 
-Span filtering rules allow you to specify a black list or white list.
+[Wavefront distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across services by allowing you to examine traces and spans. Span filtering rules allow you to specify a black list or white list that determine which spans the proxy sends to the Wavefront service.
 
 ### spanBlacklistRegex
 
-Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that matches `qa-service`.
+Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -1113,9 +1113,9 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <td>actionSubtype</td>
 <td>Allows you determine how we limit length:
 <ul>
-<li>DROP drops requested scope if value is greater than maxLength. You can't use DROP with metricName or sourceName. RK>>WHAT CAN I USE IT WITH?? DOES IT HAVE TO BE ALL CAPS??</li>
-<li>TRUNCATE truncates requested scope if value is greater than maxLength.</li>
-<li>TRUNCATE_WITH_ELLIPSIS truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength' must be at least 3 for this action type)</li>
+<li><strong>drop</strong>&mdash;Drops requested scope if value is greater than maxLength. You can't use DROP with the metric name or source name.</li>
+<li><strong>truncate</strong>&mdash;Truncates requested scope if value is greater than maxLength.</li>
+<li><strong>truncate_with_ellipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
 </ul></td>
 </tr>
 <tr>
