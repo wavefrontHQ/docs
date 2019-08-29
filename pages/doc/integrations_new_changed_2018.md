@@ -24,7 +24,7 @@ We added the following integrations in December 2018:
 * Gitlab integration
 * VMware Cloud on AWS integration (same setup instructions as vSphere integration)
 
-We promoted the Kubernetes Integration, which used Wavefront Kubernetes Collector instead of Heapster, from Beta to GA.
+We promoted the Kubernetes Integration, which used Wavefront Collector for Kubernetes instead of Heapster, from Beta to GA.
 
 We updated the following integrations in December 2018:
 

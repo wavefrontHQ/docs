@@ -6,7 +6,7 @@ summary: Learn about the Wavefront Amazon EKS Integration.
 ---
 ## Kubernetes Integration
 
-Wavefront provides a comprehensive solution for monitoring Kubernetes. This integration uses the [Wavefront Kubernetes Collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to collect detailed metrics from Kubernetes clusters.
+Wavefront provides a comprehensive solution for monitoring Kubernetes. This integration uses the [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-kubernetes-collector) to collect detailed metrics from Kubernetes clusters.
 
 ### Collection
 The collector makes it easy for you to monitor and manage your Kubernetes environment:
@@ -62,7 +62,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 
 The `kube-state-metrics` service should now be running on your cluster.
 
-### Step 3. Deploy Wavefront Kubernetes Collector
+### Step 3. Deploy Wavefront Collector for Kubernetes
 
 1. Download the following deployment files to a directory named `wavefront-collector-dir` on your system:
   * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/0-collector-namespace.yaml)

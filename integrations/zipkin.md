@@ -10,7 +10,7 @@ Zipkin is a popular open-source distributed tracing system. The [Wavefront proxy
 
 Click the **Setup** tab for instructions on enabling the Wavefront proxy to consume Zipkin traces.
 
-The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains integration requirements, how to specify custom tags for RED metrics, custom application names and more.
 
 ## Zipkin Integration Setup
 
@@ -32,4 +32,14 @@ Zipkin [deployments](https://zipkin.io/pages/architecture.html) consist of a Zip
 Wavefront will now receive Zipkin trace data on the specified proxy port.
 
 ### Customize Zipkin Integration:
-The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains how to specify custom tags for RED metrics, custom application names and more.
+
+#### Custom Application Names for Zipkin
+You can specify custom application names at the level you need, like this:
+
+1. Span-level tag: Add the application span tag to all spans.
+2. Proxy-level tag: Add traceZipkinApplicationName=<application-name> in the proxy configuration at /etc/wavefront/wavefront-proxy/wavefront.conf.
+   See [Proxy Configuration Paths](https://docs.wavefront.com/proxies_configuring.html#paths) for details on the config file location.
+
+The order of precedence is span level > proxy level.
+
+The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains integration requirements, how to specify custom tags for RED metrics and more.
