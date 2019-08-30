@@ -164,9 +164,11 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 ## Span Logs
 
-The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
+The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
 
-Here's one example expands [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
+You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
+
+Here's an example that adds span logs [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
 
 ```
 try {
@@ -174,7 +176,7 @@ try {
 } catch (Exception e) {
   // handle exception logic
   Tags.ERROR.set(span, true);
-  span.log(new HashMap<String, String>() {{
+  span.log(e.getClass().getName()) {{
     put(Fields.EVENT, "error");
     put(Fields.ERROR_KIND, e.getClass().getName());
     put(Fields.STACK, ExceptionUtils.getStackTrace(e));
@@ -184,8 +186,7 @@ try {
 }
 ```
 
-Span logs are especially useful for recording which spans have errors.
-
+Span logs are especially useful for recording additional information about errors within the span.
 
 
 <!---
