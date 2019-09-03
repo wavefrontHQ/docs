@@ -749,11 +749,11 @@ We support 3 groups of string manipulation functions. For each group:
 <td>Returns true if the value of the metric, source, or point tag string is a blank character (<strong>" "</strong>), and returns false otherwise.</td>
 </tr>
 <tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
-<td>Converts all upper case function in the string extracted from the expression to lower case. </td>
+<td>Converts all lower case characters in the string extracted from the expression to lower case. </td>
 </tr>
 
 <tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
-<td>Converts all upper case function in the string extracted from the expression to lower case.</td>
+<td>Converts all upper case characters in the string extracted from the expression to lower case.</td>
 </tr>
 
 <tr><td><a href="ts_trim.html">trim(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
@@ -768,7 +768,7 @@ We support 3 groups of string manipulation functions. For each group:
 <tr><td><a href="ts_trim.html">stripTrailing(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Removes trailing white spaces from a string. </td>
 </tr>
-<tr><td><a href="ts_equals.html">equals(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_equals.html">equals(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string.  </td>
 </tr>
 <tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
@@ -778,32 +778,32 @@ We support 3 groups of string manipulation functions. For each group:
 <td>Lets you check whether a string extracted from an expression starts with a specified string.
  </td>
 </tr>
-<tr><td><a href="ts_startswith.html">endsWith(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_startswith.html">endsWith(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Lets you check whether a string extracted from an expression starts with a specified string.  </td>
 </tr>
-<tr><td><a href="ts_indexof.html">indexOf(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_indexof.html">indexOf(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string and returns where the specified string starts in the extracted string.</td>
 </tr>
-<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string starting at the back and returns where the specified string starts in the extracted string. </td>
 </tr>
-<tr><td><a href="ts_concat.html">concat(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
-<td>Lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string. </td>
+<tr><td><a href="ts_concat.html">concat(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Lets you concatenate a specified string with a string extraced from an expression. That means we add the specified string at the end of the extracted string. </td>
 </tr>
-<tr><td><a href="ts_matches.html">matches(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string, and returns 1 if the two strings match exactly and 0 otherwise.
+<tr><td><a href="ts_matches.html">matches(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string, and returns true if the two strings match exactly and false otherwise.
 </td>
 </tr>
-<tr><td><a href="ts_matches.html">contains(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string, and returns 1 if the extracted string contains the specified string and 0 otherwise.  </td>
+<tr><td><a href="ts_matches.html">contains(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<td>Compares a string extracted from an expression to a specified string, and returns true if the extracted string contains the specified string and false otherwise.  </td>
 </tr>
-<tr><td><a href="ts_charat.html">charAt(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_charat.html">charAt(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Retrieves the character at the position specified by an integer from a string extracted from an expression. </td>
 </tr>
 <tr><td><a href="ts_substring.html">substring(<strong>&lt;metric|source|PointTag&gt;</strong>,&lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Extracts a substring from a string extracted from an expression.</td>
 </tr>
-<tr><td><a href="ts_repeat.html">repeat(<strong>&lt;metric|source|PointTag&gt;</strong>,<strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_repeat.html">repeat(<strong>&lt;metric|source|PointTag&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
 <td>Repeats a string extracted from an expression the specified number of times. </td>
 </tr>
 
