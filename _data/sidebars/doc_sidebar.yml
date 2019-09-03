@@ -123,7 +123,7 @@ entries:
       output: web
 
       subfolders:
-      - title: Data Format and Elements
+      - title: Data Format & Metrics, Sources, and Tags
         output: web
         subfolderitems:
 
