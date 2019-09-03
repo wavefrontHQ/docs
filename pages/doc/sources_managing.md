@@ -54,8 +54,32 @@ All users can now view the description. </td>
 </tbody>
 </table>
 
+## Obsolete, Recent Metrics, and Metrics Stopped Sources
 
-## Hiding and Unhiding Sources
+The Sources browser includes a Status option that lets you select sources by status.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ul>
+<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for more than 4 weeks.</li>
+<li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. </li>
+<li><strong>Metrics Stopped</strong>&mdash;Sources with no metrics received in the last 2 days. </li>
+</ul> </td>
+<td width="50%"><img src="/images/sources_status.png" alt="hide sources"></td>
+</tr>
+</tbody>
+</table>
+
+We support `~status` metrics that map to what you see in the UI:
+* `~status.error` maps to **Obsolete**
+* `~status.new` and `~status.ok` map to **Recent Metrics**
+* `~status.stopped` maps to **Metrics Stopped**
+
+
+
+## Hide and Unhide Sources
 
 With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down. When applying source filters to the Metrics browser or a ts() expression, this can lead to several sources being included in the autocomplete dropdown even when they are no longer reporting data. After 4 weeks of inactivity we remove those sources from the autocomplete dropdown, but you can also manually hide them from the UI or API.
 
