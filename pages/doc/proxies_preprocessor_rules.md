@@ -56,9 +56,9 @@ You can define separate rules for each listening port.  The example above define
 
 Every rule must have
 * A `rule` parameter that contains the rule ID. Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the `drop-az-tag` rule is defined with the same identifier for both ports, 2878 and 4242.
-* An `action` parameter that contains the action to perform
+* An `action` parameter that contains the action to perform. Also the rule name.
 
-Additional parameters depend on the rule you're defining, for example, a `whitelistregex` rule must have a `scope` and a `match` parameter.
+Additional parameters depend on the rule that you're defining, for example, a `whitelistregex` rule must have a `scope` and a `match` parameter.
 
 <!---
 ### Scope for Metrics
@@ -267,7 +267,7 @@ Replaces arbitrary text in the point line or any of its components:
 </tr>
 <tr>
 <td>replace</td>
-<td>Replacement string. The empty string is allowed. To refer to a capturing group by its number, use &quot;$1&quot;.</td>
+<td>Replacement string. The empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -446,7 +446,7 @@ extractTagIfNotExists</td>
 </tr>
 <tr>
 <td>replace</td>
-<td>Replacement string or pattern that will be used as a value for the new point tag. Empty string is allowed. To refer to a capturing group in &quot;search&quot; regex by its number, use &quot;$1&quot;.</td>
+<td>Replacement string or pattern that will be used as a value for the new point tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -611,9 +611,9 @@ Enforces string length limits for a metric name, source name, or point tag value
 <td>actionSubtype</td>
 <td>Allows you determine how we limit length:
 <ul>
-<li>DROP drops requested scope if value is greater than maxLength. You can't use DROP with metricName or sourceName. RK>>WHAT CAN I USE IT WITH?? DOES IT HAVE TO BE ALL CAPS??</li>
-<li>TRUNCATE truncates requested scope if value is greater than maxLength.</li>
-<li>TRUNCATE_WITH_ELLIPSIS truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength' must be at least 3 for this action type)</li>
+<li><strong>drop</strong>&mdash;Drops requested scope if value is greater than maxLength. You can't use DROP with the metric name or source name.</li>
+<li><strong>truncate</strong>&mdash;Truncates requested scope if value is greater than maxLength.</li>
+<li><strong>truncateWithEllipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
 </ul></td>
 </tr>
 <tr>
@@ -643,11 +643,11 @@ Enforces string length limits for a metric name, source name, or point tag value
 
 ## Span Filtering Rules
 
-Span filtering rules allow you to specify a black list or white list.
+[Wavefront distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across services by allowing you to examine traces and spans. Span filtering rules allow you to specify a black list or white list that determine which spans the proxy sends to the Wavefront service.
 
 ### spanBlacklistRegex
 
-Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that matches `qa-service`.
+Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -784,7 +784,7 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 </tr>
 <tr>
 <td>replace</td>
-<td>Replacement string. The empty string is allowed. To refer to a capturing group by its number, use &quot;$1&quot;.</td>
+<td>Replacement string. The empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group.</td>
 </tr>
 <tr>
 <td>match (optional)</td>
@@ -796,7 +796,7 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, replaces only the first occurrence of the search string with replacement string. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -805,17 +805,17 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# replace special characters ("&", "$", "!") with underscores in the
-# entire span name string e.g. replace "span.service!frontend" with
-# "span.service_frontend"
+# replace dashes with with underscores in the span name
+# if span name starts with "app", i.e. change "app.span-service-frontend" to
+# "app.span_service_frontend"
 ################################################################
-- rule    : example-span-replace-badchars
+- rule    : example-app-span-replace-dashes
   action  : spanReplaceRegex
-  scope : spanName
-  search : "[&\\$!]"
+  scope   : spanName
+  search  : "-"
   replace : "_"
-  match : "span*"
-  firstMatchOnly : false
+  match   : "^app.*"
+
 ```
 
 ### spanForceLowercase
@@ -854,7 +854,7 @@ Convert a span name, source name, or span tag name to lowercase.
 <td>Regular expression. If specified, force lower case only if the value matches this regular expression.</td>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, change only the first occurrence to lower case. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
 </tr>
 </tr>
 </tbody>
@@ -960,7 +960,7 @@ Removes a span tag that matches a regex string.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, remove only the first occurrence of the search string. Default is false.</td>
+<td>If set to true, removes only the first matching tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -976,13 +976,22 @@ Removes a span tag that matches a regex string.
   match   : dev.*
   firstMatchOnly : false
 
+# remove first "bindTo" tag where a value starts with "dev"
+# i.e. `bindTo=prod1 bindTo=dev1 bindTo=prod2 bindTo=dev2` will become
+# `bindTo=prod1 bindTo=prod2 bindTo=dev2`
+################################################################
+- rule           : example-span-drop-bindto-dev-tags
+  action         : spanDropTag
+  tag            : bindTo
+  match          : ^dev.*
+  firstMatchOnly : true
 ```
 
 ### spanExtractTag and spanExtractTagIfNotExists
 
 Extract a string from a span name, source name, or a span tag value and create a new span tag from that string.
-* For `spanExtractTag`, create the new span.
-* For `spanExtractTagIfNotExists`, do not replace the existing value with the new value if the tag already exists.
+* For `spanExtractTag`, create the new span tag.
+* For `spanExtractTagIfNotExists`, do not create the new span tag if at least one tag with this name already exists.
 
 
 <font size="3"><strong>Parameters</strong></font>
@@ -1027,15 +1036,15 @@ Extract a string from a span name, source name, or a span tag value and create a
 </tr>
 <tr>
 <td>replace</td>
-<td>String or pattern that will be used as a value for the new span tag. Empty string is allowed. To refer to a capturing group in the &quot;search&quot; regex by its number, use &quot;$1&quot;. </td>
+<td>String or pattern that will be used as a value for the new span tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
 </tr>
 <tr>
 <td>replaceInput (Optional)</td>
-<td>Modify the name of the input. To refer to a capturing group in &quot;search&quot; regex by its number, use &quot;$1&quot;.</td>
+<td>Modify the name of the input. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group.</td>
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, replaces only the first occurrence of the search string with a replacement string. Default is false.</td>
+<td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when <strong>input</strong> is a span tag and <strong>replaceInput</strong> is specified. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1113,9 +1122,9 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <td>actionSubtype</td>
 <td>Allows you determine how we limit length:
 <ul>
-<li>DROP drops requested scope if value is greater than maxLength. You can't use DROP with metricName or sourceName. RK>>WHAT CAN I USE IT WITH?? DOES IT HAVE TO BE ALL CAPS??</li>
-<li>TRUNCATE truncates requested scope if value is greater than maxLength.</li>
-<li>TRUNCATE_WITH_ELLIPSIS truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength' must be at least 3 for this action type)</li>
+<li><strong>drop</strong>&mdash;Drops requested scope if value is greater than maxLength. You can't use DROP with the metric name or source name.</li>
+<li><strong>truncate</strong>&mdash;Truncates requested scope if value is greater than maxLength.</li>
+<li><strong>truncateWithEllipsis</strong>&mdash;Truncates the requested scope if the value is greater than maxLength but preserving ellipsis (three dots). maxLength must be at least 3 for this action type.</li>
 </ul></td>
 </tr>
 <tr>
@@ -1128,7 +1137,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 </tr>
 <tr>
 <td>firstMatchOnly</td>
-<td>If set to true, replaces only the first occurrence of the search string with replacement string. Default is false.</td>
+<td>If set to true, applies only to the first matching span tag. Only applicable when the scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1136,13 +1145,12 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-# Truncate the length of all span names starting with  "span"
-# i.e. from "span.2.service.test" to "span.2.service.."
+## truncate 'db.statement' annotation value at 240 characters,
+## replace last 3 characters with '...'.
 ################################################################
-- rule : limit-metric-name-length
-  action : spanLimitLength
-  scope : metricName
-  actionSubtype : truncateWithEllipsis
-  maxLength : 17
-  match : "^span.*"
+- rule          : example-limit-db-statement
+  action        : spanLimitLength
+  scope         : "db.statement"
+  actionSubtype : truncateWithEllipsis
+  maxLength     : "240"
 ```
