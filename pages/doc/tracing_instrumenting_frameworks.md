@@ -162,6 +162,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
   ![tracing service filter](images/tracing_service_filter_page.png)
 
+
 ## Span Logs
 
 The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
@@ -170,21 +171,7 @@ You can instrument your application to emit one or more logs with a span, and ex
 
 Here's an example that adds span logs [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
 
-```
-try {
-  //app logic
-} catch (Exception e) {
-  // handle exception logic
-  Tags.ERROR.set(span, true);
-  span.log(e.getClass().getName()) {{
-    put(Fields.EVENT, "error");
-    put(Fields.ERROR_KIND, e.getClass().getName());
-    put(Fields.STACK, ExceptionUtils.getStackTrace(e));
-  }});
-} finally {
-  span.finish();
-}
-```
+![span log example](images/span_log_example.png)
 
 Span logs are especially useful for recording additional information about errors within the span.
 
