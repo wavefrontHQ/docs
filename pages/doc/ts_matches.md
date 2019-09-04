@@ -10,9 +10,9 @@ summary: Reference to the matches() and contains() string manipulation functions
 matches(metric|source|<pointTagKey>, <string>, <expression>)
 contains(metric|source|<pointTagKey>, <string>, <expression>)
 ```
-The `matches()` function compares a string extracted from an expression to a specified string, and returns 1 if the two strings match and 0 otherwise.
+The matches() function compares a string extracted from an expression to a specified string, and returns true if the two strings match and false otherwise.
 
-The `contains()` function compares a string extracted from an expression to a specified string, and returns 1 if the extracted string contains the specified string, and returns 0 otherwise.
+The contains() function compares a string extracted from an expression to a specified string, and returns true if the extracted string contains the specified string, and returns false otherwise.
 
 ## Parameters
 <table style="width: 100%;">

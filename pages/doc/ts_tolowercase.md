@@ -10,9 +10,9 @@ summary: Reference to the toLowerCase() and toUpperCase() string manipulation fu
 toLowerCase(metric|source|<pointTagKey>, <expression>)
 toUpperCase(metric|source|<pointTagKey>, <expression>)
 ```
-The `toLowerCase()` function converts all upper case function in the string extracted from the expression to lower case.
+The toLowerCase() function converts all upper case characters in the string extracted from the expression to lower case.
 
-The `toUpperCase()` function converts all lower case function in the string extracted from the expression to upper case.
+The toUpperCase() function converts all lower case characters in the string extracted from the expression to upper case.
 
 ## Parameters
 <table style="width: 100%;">

@@ -32,6 +32,9 @@ To access the REST API documentation:
   * From the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar and select **API Documentation**.
   * Type `https://<your_cluster_name>.com/api-docs/ui/`
 
+
+![REST API](/images/rest_api.png)
+
 ### Code Samples
 
 Some code samples are available on the [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront). We're providing these samples as is - some are from the Wavefront team, others will come from the community.
@@ -56,6 +59,8 @@ To generate an API token:
 3. Click **Generate**. You can have up to 2 tokens at any given time.
    If you want to generate a new token but already have two tokens, then you must revoke one of the existing tokens.
 4. To revoke a token, click the **Revoke** link next to the token. If you run a script that uses a revoked token, the script returns an authorization error.
+
+![Generate API Token](/images/generate_token.png)
 
 ### Example: Invoke the API Using curl
 

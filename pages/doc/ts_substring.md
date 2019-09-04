@@ -27,7 +27,7 @@ The `substring()` function has two options:
 <tr>
 <td>integer</td>
 <td>The integer that specifies the position to start extracting a substring. </td></tr>
-tr>
+<tr>
 <td>integer1, integer2</td>
 <td>integer1 specifies the position to start extracting and integer2 specifies the position to stop extracting a substring. </td></tr>
 <tr>
