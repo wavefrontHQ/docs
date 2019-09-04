@@ -35,7 +35,7 @@ A query expression describes data of a particular type: time series, histogram s
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tsExpression&gt;</span></td>
 <td>
-Describes one or more time series. A  time series is a sequence of data points that each consist of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. A <strong>tsExpression</strong> may be:
+Describes one or more time series. A  time series is a sequence of data points that each consists of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. A <strong>tsExpression</strong> may be any of the following:
 
 <ul>
 <li>A <strong>ts() function</strong>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
@@ -59,7 +59,7 @@ Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix
 (ts(disk.space.total) - ts(disk.space.used)) * 2
 </strong>
 </li>
-<li>A query function that returns time series by transforming other input time series: 
+<li>A query function that returns time series from other input time series: 
 <br><strong>
 msum(10m, ts(~sample.requests.latency, source=app-14))
 </strong>
@@ -76,7 +76,7 @@ avg(hs(users.settings.numberOfApiTokens.m))
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsExpression&gt;</span></td>
 <td>
-Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be:
+Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
 <ul>
 <li>An <strong>hs() function</strong>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
 <pre>hs(&lt;hsMetricName&gt;
@@ -89,7 +89,7 @@ Example:
 hs(users.settings.numberOfApiTokens.m, source="host1" and customer="qa")
 </strong>
 </li>
-<li>A <a href="#histogram-functions">query function that returns histogram series</a> by transforming other input histogram series: 
+<li>A <a href="#histogram-functions">query function that returns histogram series</a> from other input histogram series: 
 <br><strong>
 align(10m, hs(users.settings.numberOfApiTokens.m))
 </strong>
@@ -101,7 +101,7 @@ align(10m, hs(users.settings.numberOfApiTokens.m))
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;eventsExpression&gt;</span></td>
 <td>
-Describes a set of events.  An <strong>eventsExpression</strong> may be:
+Describes a set of events.  An <strong>eventsExpression</strong> may be one of the following:
 
 <ul>
 <li>An <strong>events()</strong> function, which returns all events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
@@ -131,7 +131,7 @@ events(type=maintenanceWindow) intersect events(name="test")
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tracesExpression&gt;</span></td>
 <td>
-Describes a set of traces.  An <strong>tracesExpression</strong> may be:
+Describes a set of traces.  An <strong>tracesExpression</strong> may be one of the following:
 
 <ul>
 <li>A <strong>traces()</strong> function, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="ts_traces.html#span-filters">span filters</a>. 
@@ -181,7 +181,7 @@ Query expressions use a number of common parameters to specify names and values 
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsMetricName&gt;</span></td>
-<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). Example: 
+<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name contains the name of the metric from which distributions were calculated, and has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). Example: 
 <pre>users.settings.numberOfTokens.m</pre>
 </td></tr>
 <tr>
@@ -1040,6 +1040,7 @@ We support 3 groups of string manipulation functions. For each group:
 
 You use histogram functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
 
+Each histogram function in the following table can be used as an **hsExpression** parameter in another histogram query function, such as the [histogram conversion functions](#histogram-conversion-functions) below. **Note:** When you run these functions under a time-series chart, they display just the median values of the distributions as time series.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1048,64 +1049,80 @@ You use histogram functions to access the histogram distributions that Wavefront
 </colgroup>
 <thead>
 <tr>
-<th>Function</th>
+<th>Conversion Function</th>
 <th>Definition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>hs(<strong>&lt;hsMetricName&gt;</strong> 
+<td><a href="hs_function.html">hs(<strong>&lt;hsMetricName&gt;</strong> 
 <br>&lbrack;,|and|or <strong>source=</strong>&lt;sourceName&gt;&rbrack;
 <br>&lbrack;,|and|or <strong>tag</strong>=&lt;sourceTag&gt;&rbrack;
-<br>&lbrack;,|and|or &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;&rbrack; ...)
+<br>&lbrack;,|and|or &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;&rbrack; ...)</a>
 </td>
 <td>Returns the series of histogram distributions for <strong>hsMetricName</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's <a href="proxies_histograms.html#histogram-metric-aggregation-intervals">aggregation interval</a> (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
-You can specify this function as input to other histogram query functions. 
-If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
+In a time-series chart, this function displays just the median values of the distributions. 
 </td>
 </tr>
 <tr>
 <td>merge(<strong>&lt;hsExpression&gt;</strong><br>&lbrack;, <strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
-<td>Merges the centroids and counts across multiple series of histogram distributions, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(my.hsMetric.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
-You can specify this function as input to other histogram query functions. 
-If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
+<td>Merges the centroids and counts across the series of histogram distributions described by <strong>hsExpression</strong>, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(my.hsMetric.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
+In a time-series chart, this function displays just the median values of the distributions. 
 </td>
 </tr>
 <tr>
 <td>align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Adjusts the granularity of a series of histogram distributions, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(my.hsMetric.m))</strong> merges groups of per-minute distributions to produce hourly distributions.<br>
-You can specify this function as input to other histogram query functions. 
-If you use this function as a top-level query for a time-series chart, just the median values of the distributions are displayed. 
+<td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(my.hsMetric.m))</strong> merges groups of per-minute distributions to produce hourly distributions.<br>
+In a time-series chart, this function displays just the median values of the distributions. 
 </td>
 </tr>
+</tbody>
+</table>
+
+### Histogram Conversion Functions
+
+Each histogram conversion function in the following table takes histogram distributions as input, and returns the results as time series. You can therefore use a histogram conversion function as a **tsExpression** parameter in a time series query function.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead>
+<tr>
+<th>Conversion Function<br>Histogram to Time Series</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>median(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns the median value from each distribution in a specified histogram. The values are returned as time series.</td>
+<td>Returns time series that consist of the median values of the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
 <td>avg(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns the average value from each distribution in a specified histogram. The values are returned as time series.
+<td>Returns time series that consist of the average values from the histogram distributions described by <strong>hsExpression</strong>. 
 </td>
 </tr>
 <tr>
 <td>min(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns the smallest value from each distribution in a specified histogram. The values are returned as time series.</td>
+<td>Returns time series that consist of the smallest values from the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
 <td>max(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns the largest value from each distribution in a specified histogram. The values are returned as time series.</td>
+<td>Returns time series that consist of the largest values from the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
 <td>percentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns the <strong>&lt;percentage&gt;</strong> percentile from each distribution in a specified histogram. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution. <br>The values are returned as time series.</td>
+<td>Returns time series that consist of the <strong>&lt;percentage&gt;</strong> percentiles from the histogram distributions described by <strong>hsExpression</strong>. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution. </td>
 </tr>
 <tr>
 <td>count(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns the number of values in each distribution in a specified histogram. The counts are returned as time series.</td>
+<td>Returns time series that consist of the number of values in each histogram distribution described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
 <td>summary(<strong>&lt;percentileList&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Summarizes a series of histogram distributions by returning the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
+<td>Summarizes the histogram distributions described by <strong>hsExpression</strong>, by returning time series for the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary that includes different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
 </tr>
 <tr>
 <td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
@@ -1115,7 +1132,6 @@ By default, the summary includes a separate constant time series for each signif
 </tr>
 </tbody>
 </table>
-
 
 ## Event Functions
 
