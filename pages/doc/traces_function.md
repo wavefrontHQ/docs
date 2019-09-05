@@ -3,7 +3,7 @@ title: traces() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: ts_traces.html
+permalink: traces_function.html
 summary: Learn how to write traces() queries.
 ---
 
@@ -54,7 +54,7 @@ For more information about the set of returned traces, see [Understanding Trace 
 
 To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query. 
 
-You can specify the length of the qualifying spans by including a [`spans()`](ts_spans.html) expression as the `fullOperationName` parameter.
+You can specify the length of the qualifying spans by including a [`spans()`](spans_function.html) expression as the `fullOperationName` parameter.
 
 ## Examples
 

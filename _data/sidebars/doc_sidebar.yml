@@ -543,7 +543,7 @@ entries:
       output: web
 
     - title: traces() Function
-      url: /ts_traces.html
+      url: /traces_function.html
       output: web
 
     - title: Traces, Spans, and RED Metrics

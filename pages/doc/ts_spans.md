@@ -3,7 +3,7 @@ title: spans() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: ts_spans.html
+permalink: spans_function.html
 summary: Learn how to write spans() queries.
 ---
 
@@ -14,7 +14,7 @@ spans("<fullOperationName>" [,|and|or <filterName>="<filterValue>"] ...)
 
 spans(<filterName>="<filterValue>" [,|and|or <filterName>="<filterValue>"] ...)
 ```
-Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](ts_traces.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
+Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](traces_function.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
 ### Parameters
 
@@ -42,7 +42,7 @@ Full name of the operation that each matching span must represent. For example, 
 ## Description
 The `spans()` function finds spans that match the description you specify. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics that the spans must match.
 
-You use `spans()` by including it as a parameter of the [`traces()`](ts_traces.html) function. Doing so allows you to filter traces according to the duration of a particular span. For example, the following query returns a trace only if it has at least one span that both represents a `makeShirts` operation and lasts longer than 11 seconds: 
+You use `spans()` by including it as a parameter of the [`traces()`](traces_function.html) function. Doing so allows you to filter traces according to the duration of a particular span. For example, the following query returns a trace only if it has at least one span that both represents a `makeShirts` operation and lasts longer than 11 seconds: 
 
 ```
 limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))

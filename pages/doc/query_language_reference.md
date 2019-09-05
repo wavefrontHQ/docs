@@ -78,7 +78,7 @@ avg(hs(users.settings.numberOfApiTokens.m))
 <td>
 Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
 <ul>
-<li>An <strong>hs() function</strong>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
+<li>An <a href="hs_function.html"><strong>hs() function</strong></a>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
 <pre>hs(&lt;hsMetricName&gt;
   [,|and|or source=&lt;sourceName&gt;] ...
   [,|and|or tag=&lt;sourceTag&gt;] ...
@@ -89,7 +89,7 @@ Example:
 hs(users.settings.numberOfApiTokens.m, source="host1" and customer="qa")
 </strong>
 </li>
-<li>A <a href="#histogram-functions">query function that returns histogram series</a> from other input histogram series: 
+<li>A <a href="#histogram-to-histogram-functions">query function that returns histogram series</a> from other input histogram series: 
 <br><strong>
 align(10m, hs(users.settings.numberOfApiTokens.m))
 </strong>
@@ -104,7 +104,7 @@ align(10m, hs(users.settings.numberOfApiTokens.m))
 Describes a set of events.  An <strong>eventsExpression</strong> may be one of the following:
 
 <ul>
-<li>An <strong>events()</strong> function, which returns all events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
+<li>An <a href="events_queries.html"><strong>events() function</strong></a>, which returns all events that match the specified event filters. 
 <pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
   [,|and|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
@@ -134,7 +134,7 @@ events(type=maintenanceWindow) intersect events(name="test")
 Describes a set of traces.  An <strong>tracesExpression</strong> may be one of the following:
 
 <ul>
-<li>A <strong>traces()</strong> function, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="ts_traces.html#span-filters">span filters</a>. 
+<li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
 <pre>traces("&lt;fullOperationName&gt;" 
   [,|and[ not]|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
@@ -1038,9 +1038,11 @@ We support 3 groups of string manipulation functions. For each group:
 
 ## Histogram Functions
 
-You use histogram functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
+You use histogram query functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
 
-Each histogram function in the following table can be used as an **hsExpression** parameter in another histogram query function, such as the [histogram conversion functions](#histogram-conversion-functions) below. **Note:** When you run these functions under a time-series chart, they display just the median values of the distributions as time series.
+### Histogram to Histogram Functions
+
+Each function in the following table returns series of histogram distributions, and can therefore be used as the **hsExpression** parameter of another function. **Note:** In a time-series chart, the histogram-to-histogram functions display just the median values of the returned distributions.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1049,7 +1051,7 @@ Each histogram function in the following table can be used as an **hsExpression*
 </colgroup>
 <thead>
 <tr>
-<th>Conversion Function</th>
+<th>Histogram to Histogram <br> Function</th>
 <th>Definition</th>
 </tr>
 </thead>
@@ -1065,14 +1067,14 @@ In a time-series chart, this function displays just the median values of the dis
 </td>
 </tr>
 <tr>
-<td>merge(<strong>&lt;hsExpression&gt;</strong><br>&lbrack;, <strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</td>
-<td>Merges the centroids and counts across the series of histogram distributions described by <strong>hsExpression</strong>, and returns a single series of composite histogram distributions. Use a 'group by' parameter to subdivide the results. For example, <strong>merge(hs(my.hsMetric.m), sources)</strong> returns a separate series of merged distributions for each source. <br>
+<td><a href="hs_merge.html">merge(<strong>&lt;hsExpression&gt;</strong><br>&lbrack;, <strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Merges the centroids and counts across the series of histogram distributions described by <strong>hsExpression</strong>, and returns one or more series of composite histogram distributions. <br>
 In a time-series chart, this function displays just the median values of the distributions. 
 </td>
 </tr>
 <tr>
-<td>align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. For example, <strong>align(1h, hs(my.hsMetric.m))</strong> merges groups of per-minute distributions to produce hourly distributions.<br>
+<td><a href="hs_align.html">align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
 In a time-series chart, this function displays just the median values of the distributions. 
 </td>
 </tr>
@@ -1090,7 +1092,7 @@ Each histogram conversion function in the following table takes histogram distri
 </colgroup>
 <thead>
 <tr>
-<th>Conversion Function<br>Histogram to Time Series</th>
+<th>Histogram to Time Series <br>Function</th>
 <th>Definition</th>
 </tr>
 </thead>
@@ -1133,12 +1135,19 @@ By default, the summary includes a separate constant time series for each signif
 </tbody>
 </table>
 
+
+
 ## Event Functions
 
-You can use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for an event. Other event functions help you filter events, so that only events you're interested in are displayed. Some `events()` functions return synthetic events, which are displayed by the query, but not stored in Wavefront.
+You use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for a change in a time series. 
 
+<!---
 See [Basic events() Queries](events_queries.html). See [Advanced events() Queries](events_queries_advanced.html) for details about the different kinds of `events()` functions.
+--->
 
+### Event to Event Functions
+
+Each function in the following table returns one or more events. Some functions filter an event set, so that only events you're interested in are displayed. Other functions return synthetic events, which are displayed by the query, but not stored in Wavefront.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1147,24 +1156,16 @@ See [Basic events() Queries](events_queries.html). See [Advanced events() Querie
 </colgroup>
 <thead>
 <tr>
-<th>Function</th>
+<th>Event to Event <br>Function</th>
 <th>Definition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</td>
+<td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
 <td >Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
 <br>You can specify this function as input to other events query functions. You can use this function as a top-level query for a time-series chart to display a set of events in that chart, for example: <br>
 <code>events(type=alert, name="disk space is low", alertTag=App1.*)</code> </td></tr>
-<tr>
-<td>count(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Converts <strong>eventsExpression</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
-</tr>
-<tr>
-<td>ongoing(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns a continuous time series representing the number of ongoing events at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
-</tr>
 <tr>
 <td>closed(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns events that have ended and instantaneous events that occurred in the past.</td>
@@ -1208,6 +1209,70 @@ See [Basic events() Queries](events_queries.html). See [Advanced events() Querie
 </tbody>
 </table>
 
+### Event Set Operators
+
+Each operator in the following table combines or compares 2 sets of events into a result set of events.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Event Set Operator</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&lt;eventsExpression1&gt;</strong> union <strong>&lt;eventsExpression2&gt;</strong></td>
+<td>Returns all events that exist in either of the event sets</td>
+</tr>
+<tr>
+<td><strong>&lt;eventsExpression1&gt;</strong> intersect <strong>&lt;eventsExpression2&gt;</strong></td>
+<td>Returns all events that exist in both of the event sets.</td>
+</tr>
+<tr>
+<td><strong>&lt;eventsExpression1&gt;</strong> - <strong>&lt;eventsExpression2&gt;</strong></td>
+<td>Returns the difference between two event sets.</td>
+</tr>
+<tr>
+<td><strong>&lt;eventsExpression1&gt;</strong> d <strong>&lt;eventsExpression2&gt;</strong></td>
+<td>Returns the events in <strong>eventsExpression1</strong> that occurred during the events in <strong>eventsExpression2</strong>.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+### Event Conversion Functions
+
+Each event conversion function in the following table takes events as input and returns the results as a time series. You can therefore use an event conversion function as a **tsExpression** parameter in a time series query function.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead>
+<tr>
+<th>Event to Time Series <br>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count(<strong>&lt;eventsExpression&gt;</strong>)</td>
+<td>Converts <strong>eventsExpression</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
+</tr>
+<tr>
+<td>ongoing(<strong>&lt;eventsExpression&gt;</strong>)</td>
+<td>Returns a continuous time series representing the number of ongoing events at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
+</tr>
+
+</tbody>
+</table>
 
 
 ## <span id="traceFunctions"></span>Trace-Data Functions
@@ -1229,10 +1294,10 @@ You use trace-data functions to find and filter any [trace data](tracing_basics.
 <tbody>
 <tr>
 <td>
-<a href="ts_traces.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
+<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
 <br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="ts_traces.html#span-filters">span filters</a>.</td>
+<td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>.</td>
 </tr>
 <tr>
 <td>
@@ -1256,10 +1321,10 @@ For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</
 </tr>
 <tr>
 <td>
-<a href="ts_spans.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
+<a href="spans_function.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
 <br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="ts_traces.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
+<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
 </tr>
 <tr>
 <td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
