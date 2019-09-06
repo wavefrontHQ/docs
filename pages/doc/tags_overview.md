@@ -67,7 +67,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <td>event tags</td>
 <td>Filter and find events.</td>
 <td markdown="span">[Create or add event tags](events.html#creating-a-user-event).</td>
-<td markdown="span">Use filters in [Basic events() Queries](events_queries.html).</td>
+<td markdown="span">Use filters in [events() Queries](events_queries.html).</td>
 </tr>
 </tbody>
 </table>

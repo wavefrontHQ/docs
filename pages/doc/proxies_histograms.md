@@ -455,38 +455,36 @@ Wavefront adds the suffixes `.m`, `.h`, or `.d` to the metric name according to 
 
 ## Querying and Viewing Histogram Metrics
 
-You can display time series metrics in Wavefront charts using `ts()` queries. To display histograms, you use `hs()` queries in conjunction with histogram functions, or the histogram browser.
+You display histogram information by running `hs()` queries in conjunction with [histogram functions](query_language_reference.html#histogram-functions), or the histogram browser.
+
 
 ### Histogram Query Basics
 
-You can query histogram metrics with `hs()` queries. Each histogram metric has an extension `.m`, `.h`, or `.d`.
-* If you sent a distribution in histogram data format, the histogram metric extension corresponds to the interval you specified (`!M`, `!H`, or `!D`).
-* If you sent a metric using Wavefront data format, the histogram metric extension depends on the histogram port that you used.
+You use the [`hs()` function](hs_function.html) with the name of a histogram metric to access the histogram distributions for that metric. A histogram metric name has an extension `.m`, `.h`, or `.d`:
+* If you sent distributions in histogram data format, the histogram metric extension corresponds to the interval you specified (`!M`, `!H`, or `!D`).
+* If you sent metrics using Wavefront data format, the histogram metric extension corresponds to the histogram port that you used.
 
-<!---When you add a histogram query to a chart, we --->
-To visualize the histogram, use one of the [histogram functions](query_language_reference.html#histogram-functions).
 
-By default, we wrap a `median()` function around the result and display the median:
+To visualize information about histogram distributions, you can run the `hs()` function under a time-series chart. We implicitly wrap a `median()` function around the `hs()` function and display the median value of each distribution as a time series:
 
-![default histogram](images/hs_median.png)
+![default histogram](images/hs_function_as_median.png)
 
-You can explicitly wrap another [histogram function](query_language_reference.html#histogram-functions) around the result to see other information.
+You can explicitly wrap another [histogram function](query_language_reference.html#histogram-functions) around the result of `hs()` to see other information. For example, the 2 histogram queries in the following chart display the maximum and minimum values from each histogram distribution:
 
-### Using summary() and alignedSummary() for Histogram Visualization
+![default histogram](images/hs_max_min.png)
 
-Sometimes it is useful to see more information about a histogram than just the median or any single percentile. You can use `summary()` or `alignedSummary` to display the following values from the histogram data: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min.
+
+### Histogram Summary Information
+
+Sometimes it is useful to see more information about a histogram than just the median or any single percentile. You can use [`summary()`](hs_summary.html) or [`alignedSummary()`](hs_alignedSummary.html) to display all of the following percentiles from the histogram data: max, 99.9, 99, 95, 90, 75, avg, median (50), 25, and min.
 
 The following diagram shows the information you get for the metric shown above if you wrap it with `summary()`. The legend lists the series that are extracted from the histogram data by default.
 
-![histogram summary](images/hs_summary.png)
+![histogram summary](images/hs_summary_topic.png)
 
-The `alignedSummary()` function returns an aligned summary of the histogram.
+You can extract just the percentiles that you are interested in, by calling the function with an optional list of percentages as the first argument. For example, the following function returns the 10th and 25th percentile from each histogram distribution in the series:
 
-![histogram aligned summary](images/hs_alignedsummary.png)
-
-For both functions, you can extract just the percentiles that you are interested in, by calling the function with an optional list of percentiles as the first argument. For example, the following function returns the 25th and 10th percentile of the orderShirts histogram:
-
-`summary((77.77, 65), hs(orderShirts.m))`
+`summary(10, 25, hs("alerting.check.latency.m", customer=perftest))`
 
 ### Viewing Histograms in the Histogram Browser
 

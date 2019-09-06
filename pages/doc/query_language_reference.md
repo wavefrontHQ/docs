@@ -1042,7 +1042,7 @@ You use histogram query functions to access the histogram distributions that Wav
 
 ### Histogram to Histogram Functions
 
-Each function in the following table returns series of histogram distributions, and can therefore be used as the **hsExpression** parameter of another function. **Note:** In a time-series chart, the histogram-to-histogram functions display just the median values of the returned distributions.
+Each function in the following table returns one or more series of histogram distributions, and can therefore be used as the **hsExpression** parameter in another query. **Note:** In a time-series chart, the histogram-to-histogram functions display just the median values of the returned distributions.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1062,20 +1062,24 @@ Each function in the following table returns series of histogram distributions, 
 <br>&lbrack;,|and|or <strong>tag</strong>=&lt;sourceTag&gt;&rbrack;
 <br>&lbrack;,|and|or &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;&rbrack; ...)</a>
 </td>
-<td>Returns the series of histogram distributions for <strong>hsMetricName</strong>, optionally filtered by sources and point tags. Each returned series consists of one histogram distribution per minute, hour, or day, depending on the metric's <a href="proxies_histograms.html#histogram-metric-aggregation-intervals">aggregation interval</a> (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>). <br>
-In a time-series chart, this function displays just the median values of the distributions. 
+<td>Returns the series of histogram distributions for <strong>hsMetricName</strong>, optionally filtered by sources and point tags. 
+A name extension (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>) indicates the
+<a href="proxies_histograms.html#histogram-metric-aggregation-intervals">histogram aggregation interval</a>, 
+for example:<br>
+<strong>hs(users.settings.numberOfApiTokens.m, source="host1")</strong>
+<br>In a time-series chart, this function displays the median values of the distributions in the matched histogram series. 
 </td>
 </tr>
 <tr>
 <td><a href="hs_merge.html">merge(<strong>&lt;hsExpression&gt;</strong><br>&lbrack;, <strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Merges the centroids and counts across the series of histogram distributions described by <strong>hsExpression</strong>, and returns one or more series of composite histogram distributions. <br>
-In a time-series chart, this function displays just the median values of the distributions. 
+In a time-series chart, this function displays the median values of the merged distributions. 
 </td>
 </tr>
 <tr>
 <td><a href="hs_align.html">align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
-In a time-series chart, this function displays just the median values of the distributions. 
+In a time-series chart, this function displays the median values of the aligned distributions. 
 </td>
 </tr>
 </tbody>
@@ -1098,7 +1102,7 @@ Each histogram conversion function in the following table takes histogram distri
 </thead>
 <tbody>
 <tr>
-<td>median(<strong>&lt;hsExpression&gt;</strong>)</td>
+<td><a href="hs_median.html">median(<strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Returns time series that consist of the median values of the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
@@ -1123,14 +1127,13 @@ Each histogram conversion function in the following table takes histogram distri
 <td>Returns time series that consist of the number of values in each histogram distribution described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
-<td>summary(<strong>&lt;percentileList&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Summarizes the histogram distributions described by <strong>hsExpression</strong>, by returning time series for the significant values from each distribution. By default, the summary includes a separate time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary that includes different values, specify a list of percentiles, for example, <strong>summary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
+<td><a href="hs_summary.html">summary(&lbrack;<strong>&lt;percentageList&gt;</strong>,&rbrack; <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Returns time series that summarize the significant values from the histogram distributions described by <strong>hsExpression</strong>. The summary includes a separate time series for each <strong>percentage</strong> percentile. By default, the summary includes series for: max, 99.9, 99, 95, 90, 75, avg, median (50), 25, and min.  </td>
 </tr>
 <tr>
-<td>alignedSummary(<strong>&lt;percentileList&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
+<td><a href="hs_alignedSummary.html">alignedSummary(&lbrack;<strong>&lt;percentageList&gt;</strong>,&rbrack; <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>
-Merges a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. 
-By default, the summary includes a separate constant time series for each significant value: max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min. For a summary of different values, specify a list of percentiles, for example, <strong>alignedSummary(85, 77.777, 99.999, hs(my.hsMetric.m))</strong>. </td>
+Aligns a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. The aligned summary includes a separate constant time series for each <strong>percentage</strong> percentile. By default, the summary includes series for:  max, 99.9, 99, 95, 90, 75, avg, median (50), 25, and min. </td>
 </tr>
 </tbody>
 </table>
@@ -1141,18 +1144,14 @@ By default, the summary includes a separate constant time series for each signif
 
 You use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for a change in a time series. 
 
-<!---
-See [Basic events() Queries](events_queries.html). See [Advanced events() Queries](events_queries_advanced.html) for details about the different kinds of `events()` functions.
---->
-
 ### Event to Event Functions
 
-Each function in the following table returns one or more events. Some functions filter an event set, so that only events you're interested in are displayed. Other functions return synthetic events, which are displayed by the query, but not stored in Wavefront.
+Each function in the following table returns a set of one or more events, and can therefore be used as the **eventsExpression** parameter in another query. Some functions filter an event set, so that only events you're interested in are displayed. Other functions return synthetic events, which are displayed by the query, but not stored in Wavefront. 
 
 <table style="width: 100%;">
 <colgroup>
-<col width="40%" />
-<col width="60%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -1163,9 +1162,10 @@ Each function in the following table returns one or more events. Some functions 
 <tbody>
 <tr>
 <td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
-<td >Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>. 
-<br>You can specify this function as input to other events query functions. You can use this function as a top-level query for a time-series chart to display a set of events in that chart, for example: <br>
-<code>events(type=alert, name="disk space is low", alertTag=App1.*)</code> </td></tr>
+<td>Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>, for example:<br>
+<strong>events(type=alert, name="disk space is low", alertTag=App1.*)</strong> 
+<br>This function adds a set of events to a time-series chart. 
+</td></tr>
 <tr>
 <td>closed(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns events that have ended and instantaneous events that occurred in the past.</td>
@@ -1206,42 +1206,6 @@ Each function in the following table returns one or more events. Some functions 
 <td>lastEnding(<strong>&lt;eventsExpression&gt;</strong>)</td>
 <td>Returns a single event with the latest end time.</td>
 </tr>
-</tbody>
-</table>
-
-### Event Set Operators
-
-Each operator in the following table combines or compares 2 sets of events into a result set of events.
-
-<table style="width: 100%;">
-<colgroup>
-<col width="45%" />
-<col width="55%" />
-</colgroup>
-<thead>
-<tr>
-<th>Event Set Operator</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>&lt;eventsExpression1&gt;</strong> union <strong>&lt;eventsExpression2&gt;</strong></td>
-<td>Returns all events that exist in either of the event sets</td>
-</tr>
-<tr>
-<td><strong>&lt;eventsExpression1&gt;</strong> intersect <strong>&lt;eventsExpression2&gt;</strong></td>
-<td>Returns all events that exist in both of the event sets.</td>
-</tr>
-<tr>
-<td><strong>&lt;eventsExpression1&gt;</strong> - <strong>&lt;eventsExpression2&gt;</strong></td>
-<td>Returns the difference between two event sets.</td>
-</tr>
-<tr>
-<td><strong>&lt;eventsExpression1&gt;</strong> d <strong>&lt;eventsExpression2&gt;</strong></td>
-<td>Returns the events in <strong>eventsExpression1</strong> that occurred during the events in <strong>eventsExpression2</strong>.</td>
-</tr>
-
 </tbody>
 </table>
 

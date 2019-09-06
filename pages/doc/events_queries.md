@@ -1,24 +1,27 @@
 ---
-title: Basic events() Queries
+title: events() Queries
 keywords: events
 tags: [events]
 sidebar: doc_sidebar
 permalink: events_queries.html
 summary: Learn how to write events() queries.
 ---
-You use `events()` queries to [customize how events display in charts](charts_events_displaying.html). You can specify just an `events()` query for a chart, or combine an `events()` query with certain other functions. 
-
-## Event Query Syntax
+## Summary
 
 ```
 events("<filterName>"="<filterValue>” [,|and|or "<filterName>"="<filterValue>"] ...)
 ```
 
-Displays events in a chart.
+Controls how [events display in a chart](charts_events_displaying.html).
 Can be combined with [events functions](query_language_reference.html#event-functions) that let you fine tune your events() query.
 
+<!--- Add Description section. Add subsection summarizing main categories of event functions 
+see [Event Functions](query_language_reference.html#event-functions).
 
-### Parameters
+--->
+
+
+## Parameters
 
 <table style="width: 100%;">
 <tbody>
@@ -37,7 +40,7 @@ Can be combined with [events functions](query_language_reference.html#event-func
 
 ### Examples
 
-The following examples use only filters. See [Advanced events() Queries](events_queries_advanced.html) for examples of using events functions.
+<!--- The following examples use only filters. --->
 
 To display user events or events based on any alerts that start with `Request` and are either severity `severe` or `warn`, run one of the following queries:
 - `events(name="Request*" and (severity="severe" or severity="warn"))`
@@ -139,6 +142,44 @@ You can optionally assign a type to a user event. The value requires quotes if i
 </tbody>
 </table>
 
+## Event Set Operators
+
+An event set operator combines or compares two sets of events, and returns a set of events as the result.
+
+
+<table style="width: 100%;">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr>
+<th>Event Set Operator</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;e1&gt; <strong>union</strong> &lt;e2&gt;</td>
+<td>Returns all events that exist in either of the event sets</td>
+</tr>
+<tr>
+<td>&lt;e1&gt; <strong>intersect</strong> &lt;e2&gt;</td>
+<td>Returns all events that exist in both of the event sets.</td>
+</tr>
+<tr>
+<td>&lt;e1&gt; <strong>-</strong> &lt;e2&gt;</td>
+<td>Returns the difference between two event sets.</td>
+</tr>
+<tr>
+<td>&lt;e1&gt; <strong>d</strong> &lt;e2&gt;</td>
+<td>Returns the events in <strong>e1</strong> that occurred during the events in <strong>e2</strong>.</td>
+</tr>
+
+</tbody>
+</table>
+
+
 
 ## When Does an Event Query Return Events?
 
@@ -158,10 +199,3 @@ Here are the details:
 |Event 7 | After query end time | N.A. (ongoing event) | No  |
 |Event 8 | After query start time | N.A. (ongoing event)  | Yes  |
 |Event 9 | After query end time | After query end time  | No |
-
-
-## More Info
-
-You can use `events()` functions to fine-tune your events query.
-* For examples, see [Advanced events() Queries](events_queries_advanced.html)
-* For a general reference, see [Event Functions](query_language_reference.html#event-functions).

@@ -24,7 +24,7 @@ Use  [`rawpercentile()`](ts_rawpercentile.html) if you don't want interpolation.
 </thead>
 <tr>
 <td>percentage</td>
-<td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest. You can include as many decimal points as you like.</td></tr>
+<td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest. You can include as many decimal places as you like.</td></tr>
 <tr>
 <td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to estimate the specified percentile for. </td></tr>

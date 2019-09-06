@@ -17,7 +17,7 @@ Merges the series of histogram distributions described by the expression, and re
 ## Parameters
 
 
-<table>
+<table style="width: 100%;">
 <tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>

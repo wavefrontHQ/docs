@@ -28,7 +28,7 @@ In a time-series chart, `hs()` displays just the median values of the distributi
 </thead>
 <tr>
 <td markdown="span">&lt;hsMetricName&gt;</td>
-<td markdown="span">Name of a histogram metric that describes one or more series of histogram distributions. A histogram metric name has an extension (**.m**, **.h**, or **.d**) that indicates the histogram's aggregation interval (minute, hour, or day). For example: **users.settings.numberOfTokens.m**</td></tr>
+<td markdown="span">Name of a histogram metric that describes one or more series of histogram distributions. The extension of the histogram metric name (**.m**, **.h**, or **.d**) indicates whether a series has one histogram distribution per minute, hour, or day, as determined by the [histogram aggregation interval](proxies_histograms.html#histogram-metric-aggregation-intervals). For example: **users.settings.numberOfTokens.m**</td></tr>
 <tr>
 <td>source=&lt;sourceName&gt;</td>
 <td markdown="span">Source of the **hsMetricName** distributions to be returned. Distributions from any other sources are filtered out of the result set. Specify any number of sources by combining them with Boolean operators. Omit this parameter to return **hsMetricName** distributions from all sources.</td>

@@ -398,7 +398,7 @@ entries:
           url: /charts_events_displaying.html
           output: web
 
-        - title: Basic events() Queries
+        - title: events() Queries
           url: /events_queries.html
           output: web
 
