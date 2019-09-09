@@ -38,7 +38,7 @@ The `retainSeries()` function filters the expression to display only the time se
 
 You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define, for example, in conjunction with `taggify()`.
 
-You can specify only one filtering parameter (metric, source, source tag, or point tag) per function call. To filter by multiple parameters, use a `retainSeries()` call for each parameter. In contrast to `filter()`, this function supports expanding a source tag.
+In contrast to `filter()`, this function supports expanding a source tag.
 
 
 ## Examples
