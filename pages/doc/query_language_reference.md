@@ -157,6 +157,11 @@ lowpass(12ms, traces("beachshirts.styling.makeShirts"))
 </table>
 
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Common Parameters
 
@@ -227,6 +232,12 @@ The default unit is minutes if the unit is not specified.
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 
 * Do not use names of functions such as `default` or `sum` or other query language elements as the name of a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Wildcards and Variables
 
@@ -335,6 +346,11 @@ This is equivalent to typing in:
 <!---You can even use the same variable name for a dashboard and an alias (though we don't recommend it). --->
 
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Operators
 
@@ -364,6 +380,11 @@ All operations between expressions are subject to the matching processes describ
 
 
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 <span id="aggregate"></span>
 
@@ -454,7 +475,11 @@ The results are computed from real reported data values only, with no interpolat
 </tbody>
 </table>
 
-
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 <span id="filter"></span>
 
@@ -550,6 +575,11 @@ The results are computed from real reported data values only, with no interpolat
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Standard Time Functions
 <table style="width: 100%;">
@@ -627,8 +657,14 @@ The results are computed from real reported data values only, with no interpolat
 </tbody>
 </table>
 
-<span id="moving"></span>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+<span id="moving"></span>
 ## Moving Window Time Functions
 
 Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
@@ -715,6 +751,11 @@ These functions output continuous time series, with the exception of `integral()
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Conditional Functions
 <table style="width: 100%;">
@@ -734,6 +775,12 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns points from <strong>thenExpression</strong> only while <strong>conditionalExpression</strong> &gt; 0. Otherwise, returns points from <strong>elseExpression</strong>, if it is specified. <strong>conditionalExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>thenExpression</strong> and <strong>elseExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>conditionalExpression</strong>.
 </td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -764,6 +811,12 @@ These functions output continuous time series, with the exception of `integral()
 <td><a href="ts_floor.html">floor(<strong>&lt;expression&gt;</strong>)</a></td>
 <td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -802,6 +855,13 @@ Missing data functions allow you to interpolate missing data with points based o
 <td><a href="ts_interpolate.html">interpolate(<strong>&lt;expression&gt;</strong>)</a></td>
 <td>Fills in gaps in <strong>expression</strong> with a continuous linear interpolation of points.</td>
 </tr>
+</tbody>
+</table>
+
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -854,6 +914,12 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
   - Original: `max(ts(customer.alerts.active), metrics)`
   - Renamed: `aliasMetric(${original}, "Total Number Of Alerts")`, replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
+  <table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+  </table>
+
 ## Join Function
 
 See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
@@ -865,6 +931,12 @@ The `join()` function enables you to:
 The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
 
 **Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
@@ -908,6 +980,12 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 <td>toDegrees(<strong>&lt;numRadians&gt;</strong>), <br>toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
 <td>Converts radians to degrees, and vice versa. <br>See <a href="ts_trig_utilities.html">Trigonometric Utility Functions</a> for details.</td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -1002,6 +1080,11 @@ We support 3 groups of string manipulation functions. For each group:
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Predictive Functions
 
@@ -1033,6 +1116,12 @@ We support 3 groups of string manipulation functions. For each group:
 </td>
 <td>Forecasts future data values for each time series described by the expression. It uses hypothesis testing and neural networks for prediction. </td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -1138,7 +1227,11 @@ Aligns a series of histogram distributions into a single time bucket for the cur
 </tbody>
 </table>
 
-
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Event Functions
 
@@ -1238,6 +1331,11 @@ Each event conversion function in the following table takes events as input and 
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## <span id="traceFunctions"></span>Trace-Data Functions
 
@@ -1303,6 +1401,12 @@ For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## <span id="misc"></span>Miscellaneous Functions
 <table style="width: 100%;">
 <colgroup>
@@ -1361,5 +1465,11 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 <td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>

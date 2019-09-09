@@ -477,6 +477,7 @@ You can explicitly wrap another [histogram function](query_language_reference.ht
 ### Histogram Summary Information
 
 Sometimes it is useful to see more information about a histogram than just the median or any single percentile. You can use [`summary()`](hs_summary.html) or [`alignedSummary()`](hs_alignedSummary.html) to display all of the following percentiles from the histogram data: max, 99.9, 99, 95, 90, 75, avg, median (50), 25, and min.
+<!--- When/if these values can be specified to the function, change to "max, P999, P99, P95, P90, P75, avg, median (P50), P25, and min" --->
 
 The following diagram shows the information you get for the metric shown above if you wrap it with `summary()`. The legend lists the series that are extracted from the histogram data by default.
 
