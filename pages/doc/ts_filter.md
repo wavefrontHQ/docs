@@ -32,7 +32,7 @@ Filters the expression to display only the time series that match the specified 
 
 The `filter()` function filters the expression to display only the time series that match the specified metric, source, or point tag. To filter by a particular source or point tag, specify `source=` or `tagk=`, respectively. Set `pointTagKey` to the unique point tag key to filter by.
 
-You can specify only one filtering parameter (metric, source, or point tag) per function call. To filter by multiple parameters, use a `filter()` call for each parameter. `filter()` is similar to `retainSeries()`, but does not support matching a source tag.
+`filter()` is similar to `retainSeries()`, but does not support matching a source tag.
 
 <!---The following content from QL Reference - need to verify this is still true.
 
