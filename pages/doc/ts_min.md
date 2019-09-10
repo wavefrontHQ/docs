@@ -8,41 +8,47 @@ summary: Reference to the min() function
 ---
 ## Summary
 ```
-min(<expression1>, <expression2>)
-min(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
+min(<tsExpression1>, <tsExpression2>)
+
+min(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
+
+min(<hsExpression>)
 ```
 
-When used as a comparison function, returns the lower of the two values in `expression1` and `expression2`.  
+When used as a comparison function, returns the lower of the two values in `tsExpression1` and `tsExpression2`.  
 
-When used as an aggregation function, returns the lowest value across the set of time series described by `expression`. The results might be computed from real reported values and interpolated values. 
+When used as an aggregation function, returns the lowest value across the set of time series described by `tsExpression`. The results might be computed from real reported values and interpolated values. 
 Use  [`rawmin()`](ts_rawmin.html) if you don't need interpolation.
+
+When used as a histogram conversion function, returns time series that consist of the lowest value from each histogram distribution described by  `hsExpression`.
+
 
 ## Parameters
 
-### Comparison Function
+### Time-Series Comparison Function
 <table>
 <tbody>
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>expression1</td>
-<td>Expression to use as a threshold value for comparison. </td></tr>
+<td markdown="span"> [tsExpression1](query_language_reference.html#query-expressions)</td>
+<td>Expression describing the time series to use as a threshold value for comparison. </td></tr>
 <tr>
-<td>expression2</td>
+<td markdown="span"> [tsExpression2](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to be compared against the threshold value.   </td>
 </tr>
 </tbody>
 </table>
 
-### Aggregation Function
+### Time-Series Aggregation Function
 <table>
 <tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to return minimums for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
@@ -52,15 +58,30 @@ Use one or more parameters to group by metric names, source names, source tag na
 </tbody>
 </table>
 
+### Histogram Conversion Function
+
+<table>
+<tbody>
+<thead>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
+</thead>
+<tr>
+<td markdown="span"> [hsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression describing the histogram series to obtain minimum values from. </td></tr>
+</tbody>
+</table>
+
 ## Description
 
-You can use `min()` as a comparison function or as an aggregation function.
+You can use `min()` as:
+* A comparison function or as an aggregation function for time series.
+* A conversion function for histogram series.
 
-### Comparison Function
+### Time-Series Comparison Function
 
 The `min()` comparison function lets you display all data points below a desired threshold, and assigns the threshold value to all data points above the threshold.
 
-### Aggregation Function
+### Time-Series Aggregation Function
 
 The `min()` aggregation function finds the lowest (minimum) data value at each moment in time, across the time series that are represented by the expression.  
 
@@ -86,19 +107,34 @@ In this case, Wavefront finds the last known reported value in the series, and a
 
 You can use [`rawmin()`](ts_rawmin.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
 
+### Histogram Conversion Function
+
+The `min()` histogram conversion function returns the lowest data value from each distribution of each histogram series that is represented by the expression. The minimum values for a given histogram series are returned as a separate time series that contains a data point corresponding to each input distribution.
+
+`min()` is a histogram conversion function because it takes histogram distributions as input, and returns time series. You can therefore use a histogram conversion function as a `tsExpression` parameter in a time series query function.
+
+
 ## Examples
 
-### Comparison Function
+### Time-Series Comparison Function
 
 The following example from our built-in Interactive Query Language Tutorial illustrates the use of `min()`. It includes a mark line so you can see how the values are shown as 200 if they are higher than the specified minimum.
 
 ![ts min](images/ts_min.png)
 
-### Aggregation Function
+### Time-Series Aggregation Function
 
 The following example shows `min()` without an expression to compare against. For this example, we can group the results.
 
 ![ts min aggr](images/ts_min_aggr.png)
+
+### Histogram Conversion Function
+
+In the following example, the blue line shows the result of applying `min()` to an `hsExpression`. (The red line is the median, shown for comparison.)
+
+![hs min](images/hs_min.png)
+
+**Note:**  `min()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `min()` is used as an aggregation function with a `tsExpression`, a single returned time series might be the result of combining multiple input time series.) 
 
 
 ## Caveats

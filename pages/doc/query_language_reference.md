@@ -54,7 +54,7 @@ Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix
 <br><strong>1M</strong> (or <strong>1000000</strong>) 
 <br><strong>7.2k</strong> (or <strong>7200</strong>) 
 </li>
-<li>An <a href="#operators">operator expression</a> that combines ts() expressions and constants:
+<li>An <a href="#time-series-operators">operator expression</a> that combines <strong>tsExpression</strong>s and constants:
 <br><strong>
 (ts(disk.space.total) - ts(disk.space.used)) * 2
 </strong>
@@ -165,7 +165,7 @@ lowpass(12ms, traces("beachshirts.styling.makeShirts"))
 
 ## Common Parameters
 
-Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-and-variables) to match multiple names or values.
+Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-aliases-and-variables) to match multiple names or values.
  
 <table style="width: 100%;">
 <colgroup>
@@ -239,7 +239,7 @@ The default unit is minutes if the unit is not specified.
 </tbody>
 </table>
 
-## Wildcards and Variables
+## Wildcards, Aliases, and Variables
 
 You can use wildcards as shortcuts for specifying multiple names or values. 
 You can use query line variables, aliases, and dashboard variables as shortcuts for building queries out of other expressions or predefined strings.
@@ -295,12 +295,13 @@ Examples:
 <li>Use this syntax to reference the alias in the same query: <strong>$aliasName</strong></li>
 </ul>
 Example:
-<pre>if(ts(requests.latency, source=app-1*) as nonzero, $nonzero)</pre>
+<pre>if(ts(requests.latency, source=app-1*) as latency, $latency)</pre>
 
 <strong>Notes:</strong>
 <ul>
-<li>Use alias names that are three letters or longer.</li>
-<li>Don't use the SI prefixes (such as k, G, or T) as alias names.</li>
+<li>Best practice: Use alias names that are three letters or longer.</li>
+<li>Don't use an <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a> (such as p, h, k, M, G, T, P, E, Z, Y) as an alias name.</li>
+<li>Don't use the name of any Wavefront query function.</li>
 <li markdown="span">Put any numeric characters at the end of the alias name. <strong>$test123</strong> is valid, but `$1test` and `$test4test` are not valid.</li>
 <li>You can define multiple aliases in the same query.</li>
 </ul>
@@ -352,24 +353,28 @@ This is equivalent to typing in:
 </tbody>
 </table>
 
-## Operators
+## Time-Series Operators
 
-All operations between expressions are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​. The result is always interpolated.
+All operations between `tsExpression`s are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​. The result is always interpolated.
 
 <ul>
-<li>Boolean operators - combine ts() expressions and constants and the filtering performed by source names, alert names, source tags, alert tags, and point tags.</li>
+<li markdown="span">**Boolean operators** - Combine `tsExpression`s, constants, source names, source tags,  point tags, alert names, alert tags.</li>
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
 <li markdown="span">`and not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
-<li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
-<li>Arithmetic operators</li>
-<ul><li markdown="span">`+`, `-`, `*`, `/`: Match metric, source, and point tag combinations on both sides of an <span style="color:#3a0699;font-weight:bold">expression</span>. If either side of the <span style="color:#3a0699;font-weight:bold">expression</span> is a 'singleton' -- that is, a single metric, source, or point tag combination--it automatically matches up with every element on the other side of the <span style="color:#3a0699;font-weight:bold">expression</span>.</li>
-<li markdown="span">`[+]`, `[-]`, `[*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
-<li>Comparison operators</li>
+<li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
+
+<li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
+<ul><li markdown="span">`+`, `-`, `*`, `/`: Operate on pairs of time series that have matching metric, source, and point tag combinations. If either side of the operator is a 'singleton' -- that is, a single series with a unique metric/source/point tag combination -- it automatically matches up with every time series on the other side of the operator.</li>
+<li markdown="span">`[+]`, `[-]`, `[*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
+
+<li markdown="span">**Comparison operators** -- Compare corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator.</li>
 <ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported Wavefront operator.</li>
-<li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric|source|point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
-<li>Examples</li>
+<li markdown="span">`[<]`, `[<=]`, `[>]`, `[>=]`, `[=]`, `[!=]`: Perform strict 'inner join' versions of the comparison operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li>
+</ul>
+
+<li markdown="span">**Examples**</li>
 <ul>
 <li markdown="span">`(ts(my.metric) > 10) and (ts(my.metric) < 20)` returns 1 if `my.metric` is between 10 and 20. Otherwise, returns 0.</li>
 <li markdown="span">`ts(cpu.load.1m, tag=prod and tag=db)` returns `cpu.load.1m` for all sources tagged with both `prod` and `db`.</li>
@@ -409,67 +414,67 @@ All aggregation functions provide parameters for filtering the set of input seri
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_sum.html">sum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Returns the sum of the time series described by <strong>expression</strong>.
+<td><a href="ts_sum.html">sum(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td>Returns the sum of the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the raw sum of the time series described by <strong>expression</strong>.
+<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the raw sum of the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_avg.html"> avg(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the average (mean) of the time series described by <strong>expression</strong>.
+<td><a href="ts_avg.html"> avg(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the average (mean) of the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;expression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the raw average (mean) of the time series described by <strong>expression</strong>.
+<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the raw average (mean) of the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_min.html"> min(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results might be computed from real reported values and interpolated values.  </td>
+<td><a href="ts_min.html"> min(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the lowest value across the time series described by <strong>tsExpression</strong>. The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;expression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the lowest value across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
+<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the lowest value across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_max.html"> max(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the highest value across the time series described by <strong>expression</strong>. The results might be computed from real reported values and interpolated values. </td>
+<td><a href="ts_max.html"> max(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the highest value across the time series described by <strong>tsExpression</strong>. The results might be computed from real reported values and interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the highest value across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
+<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the highest value across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_count.html">count(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of reporting time series described by <strong>expression</strong>,
+<td><a href="ts_count.html">count(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the number of reporting time series described by <strong>tsExpression</strong>,
 where a time series is counted as reporting even if it has interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the number of reporting time series described by <strong>expression</strong>, where a time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
+<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the number of reporting time series described by <strong>tsExpression</strong>, where a time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
 </tr>
 <tr>
-<td><a href="ts_variance.html"> variance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance based on the time series described by <strong>expression</strong>.
+<td><a href="ts_variance.html"> variance(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the variance based on the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the variance across the time series described by <strong>expression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
+<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the variance across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;expression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>.
+<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;expression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>expression</strong>.
+<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;tsExpression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 </tbody>
@@ -497,79 +502,79 @@ The results are computed from real reported data values only, with no interpolat
 </thead>
 <tbody>
 <tr>
-<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>[, inner])</a></td>
-<td>Returns only the points in <strong>expression2</strong> that are above <strong>expression1</strong>. <strong>expression1</strong> can be a constant.</td>
+<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
+<td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>[, inner])</a></td>
-<td>Returns only the points in <strong>expression2</strong> that are below <strong>expression1</strong>. <strong>expression1</strong> can be a constant.</td>
+<td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
+<td>Returns only the points in <strong>tsExpression2</strong> that are below <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td><a href="ts_min.html">min(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
-<td>Returns the lower of the two values in <strong>expression1</strong> and <strong>expression2</strong>. For example: <strong>min(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td><a href="ts_min.html">min(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>)</a></td>
+<td>Returns the lower of the two values in <strong>tsExpression1</strong> and <strong>tsExpression2</strong>. For example: <strong>min(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
-<td><a href="ts_max.html">max(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong>)</a></td>
-<td>Returns the higher of the two values in <strong>expression1</strong> and  <strong>expression2</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td><a href="ts_max.html">max(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>)</a></td>
+<td>Returns the higher of the two values in <strong>tsExpression1</strong> and  <strong>tsExpression2</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
 </tr>
 <tr>
-<td><a href="ts_between.html">between(<strong>&lt;expression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
-<td>Returns 1 if <strong>expression</strong> is &gt;= <strong>lower</strong> and &lt;= <strong>upper</strong>. Otherwise, returns 0. This function outputs continuous time series.</td>
+<td><a href="ts_between.html">between(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
+<td>Returns 1 if <strong>tsExpression</strong> is &gt;= <strong>lower</strong> and &lt;= <strong>upper</strong>. Otherwise, returns 0. This function outputs continuous time series.</td>
 </tr>
 <tr>
-<td><a href="ts_downsample.html">downsample(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the values in <strong>expression</strong> that occur in each time window. For example: <strong>downsample(30m, ts(my.metric))</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
+<td><a href="ts_downsample.html">downsample(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the values in <strong>tsExpression</strong> that occur in each time window. For example: <strong>downsample(30m, ts(my.metric))</strong> returns the values of <strong>my.metric</strong> every half hour.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_align.html"> align(<strong>&lt;timeWindow&gt;</strong>,<strong>[mean|median|min|max|first|last|sum|count,]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
+<td markdown="span"><a href="ts_align.html"> align(<strong>&lt;timeWindow&gt;</strong>,<strong>[mean|median|min|max|first|last|sum|count,]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Groups the data values of a time series into buckets of size <strong>timeWindow</strong>, and returns one displayed value per bucket. Each returned value is the result of combining the data values in a bucket using the specified summarization method.</td>
 </tr>
 <tr>
-<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the top <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the top <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the bottom <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns 1 for the top <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns 1 for the top <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> series described by <strong>expression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;expression&gt;</strong> <strong>[, &lt;metricName&gt;| source=&lt;sourceName&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
-<td>Retains only the time series in  <strong>expression</strong> that match the specified metric, source, or point tag. No key is required to filter a time series. <strong>filter()</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
+<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;tsExpression&gt;</strong> <strong>[, &lt;metricName&gt;| source=&lt;sourceName&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
+<td>Retains only the time series in  <strong>tsExpression</strong> that match the specified metric, source, or point tag. No key is required to filter a time series. <strong>filter()</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;expression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
-<td>Retains only the time series in <strong>expression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a time series. </td>
+<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;tsExpression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
+<td>Retains only the time series in <strong>tsExpression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a time series. </td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;expression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
-<td>Suppresses any time series in <strong>expression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a time series.
+<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;tsExpression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
+<td>Suppresses any time series in <strong>tsExpression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a time series.
 </td>
 </tr>
 <tr>
-<td><a href="ts_sample.html">sample(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;)</strong></a></td>
-<td>Returns a non-random sample set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls display the same sample set as long as the underlying set of time series stays the same. </td>
+<td><a href="ts_sample.html">sample(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;tsExpression&gt;)</strong></a></td>
+<td>Returns a non-random sample set of <strong>numberOfTimeSeries</strong> time series based on <strong>tsExpression</strong>. Repeated calls display the same sample set as long as the underlying set of time series stays the same. </td>
 </tr>
 <tr>
-<td><a href="ts_random.html">random(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns a random set of <strong>numberOfTimeSeries</strong> time series based on <strong>expression</strong>. Repeated calls always display different sample sets.</td>
+<td><a href="ts_random.html">random(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns a random set of <strong>numberOfTimeSeries</strong> time series based on <strong>tsExpression</strong>. Repeated calls always display different sample sets.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;expression&gt;</strong>)</a></td>
+<td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
 </tr>
 <tr>
-<td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Hides data before a specified time. For example, <strong>hideBefore(10m)</strong> hides data that’s older than 10 minutes.  </td>
 </tr>
-<tr><td><a href="ts_hideAfter.html"> hideAfter(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<tr><td><a href="ts_hideAfter.html"> hideAfter(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Hides data after a specified time. For example, <strong>hideAfter(10m)</strong> hides data that’s newer than 10 minutes ago. </td>
 </tr>
 </tbody>
@@ -595,28 +600,28 @@ The results are computed from real reported data values only, with no interpolat
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>,&rbrack; <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the per-second change of the time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values over regular time intervals. Handles counter resets.</td>
+<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>,&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the per-second change of the time series described by <strong>tsExpression</strong>. Recommended for counter metrics that report only increasing data values over regular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
-<td><a href="ts_deriv.html">deriv(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the per-second change of the time series described by <strong>expression</strong>. Appropriate for metrics that report increasing or decreasing data values.</td>
+<td><a href="ts_deriv.html">deriv(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the per-second change of the time series described by <strong>tsExpression</strong>. Appropriate for metrics that report increasing or decreasing data values.</td>
 </tr>
 <tr>
-<td><a href="ts_ratediff.html">ratediff(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the differences between adjacent values in each time series described by <strong>expression</strong>. Recommended for counter metrics that report only increasing data values over irregular time intervals. Handles counter resets.</td>
+<td><a href="ts_ratediff.html">ratediff(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the differences between adjacent values in each time series described by <strong>tsExpression</strong>. Recommended for counter metrics that report only increasing data values over irregular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
-<td><a href="ts_lag.html">lag(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns earlier data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own past behavior. </td>
+<td><a href="ts_lag.html">lag(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns earlier data values from the time series described by <strong>tsExpression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own past behavior. </td>
 </tr>
 <tr>
-<td><a href="ts_lead.html">lead(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns later data values from the time series described by <strong>expression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own subsequent or forecasted behavior. </td>
+<td><a href="ts_lead.html">lead(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns later data values from the time series described by <strong>tsExpression</strong>, time-shifting the values by <strong>timeWindow</strong> to enable you to compare a time series with its own subsequent or forecasted behavior. </td>
 </tr>
 <tr>
-<td><a href="ts_at.html">at(<strong>&lt;atTime&gt;</strong>, &lbrack;<strong>&lt;lookbackWindow&gt;</strong>,&rbrack; <strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns a data value reported at a particular time by the time series described by <strong>expression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
+<td><a href="ts_at.html">at(<strong>&lt;atTime&gt;</strong>, &lbrack;<strong>&lt;lookbackWindow&gt;</strong>,&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns a data value reported at a particular time by the time series described by <strong>tsExpression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
 </tr>
 <tr>
 <td><a href="ts_year.html">year(<strong>&lt;timezone&gt;</strong>)</a></td>
@@ -647,8 +652,8 @@ The results are computed from real reported data values only, with no interpolat
 <td>Tests for the current day in the specified time zone. Return values are 1 for times during the current day, or 0 for times before or after today. </td>
 </tr>
 <tr>
-<td><a href="ts_timestamp.html">timestamp(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Returns the timestamps associated with the reported data values in the time series described by <strong>expression</strong>. </td>
+<td><a href="ts_timestamp.html">timestamp(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the timestamps associated with the reported data values in the time series described by <strong>tsExpression</strong>. </td>
 </tr>
 <tr>
 <td><a href="ts_time.html">time()</a></td>
@@ -684,68 +689,68 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_mavg.html">mavg(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mavg.html">mavg(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving average of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_msum.html">msum(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_msum.html">msum(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving sum of each series for the specified time window. Don't confuse this function with mcount(), which returns the <em>number of data points</em>.</td>
 </tr>
 <tr>
-<td><a href="ts_mmedian.html">mmedian(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mmedian.html">mmedian(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving median of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_mvar.html">mvar(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mvar.html">mvar(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving variance of each series for the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mcount.html"> mcount(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mcount.html"> mcount(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the number of data points reported by each time series over the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mmin.html">mmin(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mmin.html">mmin(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the minimum of each series for the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mmax.html">mmax(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mmax.html">mmax(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the maximum of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentileValue&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentileValue&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong>. </td>
 </tr>
 <tr>
-<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;expression&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
+<td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
 <td>Returns the aggregated number of series reporting during the specified time window. </td>
 </tr>
 <tr>
-<td><a href="ts_mdiff.html">mdiff(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_mdiff.html">mdiff(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the difference between the current value of the expression and the expression's value at the point in time that is <strong>timeWindow</strong> ago. This function doesn't interpolate the points before doing the subtraction.
 </td>
 </tr>
 <tr>
-<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, &lt;expression1&gt;, &lt;expression2&gt;  &lbrack;,inner&rbrack;</strong>)</a></td>
+<td><a href="ts_mcorr.html">mcorr(<strong>&lt;timeWindow&gt;, &lt;tsExpression1&gt;, &lt;tsExpression2&gt;  &lbrack;, <strong>inner</strong>&rbrack;</strong>)</a></td>
 <td>Returns the moving correlation between two expressions for a specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_integrate.html">integrate(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_integrate.html">integrate(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving integration for the specified expression for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_integral.html">integral(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_integral.html">integral(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving sum over time for the given expression over the time window of the current chart window.</td>
 </tr>
 <tr>
-<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the number of times a counter has reset within the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_any.html">any(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_any.html">any(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns 1 if the expression has been non-zero at <em>any</em> time during the specified time window. Otherwise, returns 0.</td>
 </tr>
 <tr>
-<td><a href="ts_all.html">all(<strong>&lt;timeWindow&gt;, &lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_all.html">all(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns 1 if the expression has been non-zero at <em>every</em> point in time during the time window. Otherwise, returns 0.</td>
 </tr>
 </tbody>
@@ -771,8 +776,8 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_if.html">if(<strong>&lt;conditionalExpression&gt;</strong>, <strong>&lt;thenExpression&gt;</strong> &lbrack;, <strong>&lt;elseExpression&gt;</strong>&rbrack;)</a></td>
-<td>Returns points from <strong>thenExpression</strong> only while <strong>conditionalExpression</strong> &gt; 0. Otherwise, returns points from <strong>elseExpression</strong>, if it is specified. <strong>conditionalExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>thenExpression</strong> and <strong>elseExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>conditionalExpression</strong>.
+<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, <strong>&lt;then-tsExpression&gt;</strong> &lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
+<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. <strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>then-tsExpression</strong> and <strong>else-tsExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>condition-tsExpression</strong>.
 </td>
 </tr>
 </tbody>
@@ -799,16 +804,16 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 </thead>
 <tr>
-<td><a href="ts_round.html">round(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_round.html">round(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the nearest integer for each data value in the specified time series.
 </td>
 </tr>
 <tr>
-<td><a href="ts_ceil.html">ceil(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_ceil.html">ceil(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the ceiling for the specified time series, by rounding any data values with decimals up to the next largest integer.</td>
 </tr>
 <tr>
-<td><a href="ts_floor.html">floor(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_floor.html">floor(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
 </tr>
 </tbody>
@@ -837,23 +842,23 @@ Missing data functions allow you to interpolate missing data with points based o
 </tr>
 </thead>
 <tr>
-<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>expression</strong> with <strong>defaultValue</strong> (whether that's a constant or an expression). The optional <strong>timeWindow</strong> parameter fills in the specified period of time after each existing point (for example, <strong>5m</strong> for 5 minutes). Without this argument, all gaps are filled in. The optional <strong>delayTime</strong> parameter specifies the amount of time that must pass without a reported value in order for the default value to be applied.</td>
+<td>Fills in gaps in <strong>tsExpression</strong> with <strong>defaultValue</strong> (whether that's a constant or an expression). The optional <strong>timeWindow</strong> parameter fills in the specified period of time after each existing point (for example, <strong>5m</strong> for 5 minutes). Without this argument, all gaps are filled in. The optional <strong>delayTime</strong> parameter specifies the amount of time that must pass without a reported value in order for the default value to be applied.</td>
 </tr>
 <tr>
-<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>expression</strong> with the last known value of <strong>expression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period after each existing point.</td>
+<td>Fills in gaps in <strong>tsExpression</strong> with the last known value of <strong>tsExpression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period after each existing point.</td>
 </tr>
 <tr>
-<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>expression</strong> with the next known value of <strong>expression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period before the first data point after the missing data.</td>
+<td>Fills in gaps in <strong>tsExpression</strong> with the next known value of <strong>tsExpression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period before the first data point after the missing data.</td>
 </tr>
 <tr>
-<td><a href="ts_interpolate.html">interpolate(<strong>&lt;expression&gt;</strong>)</a></td>
-<td>Fills in gaps in <strong>expression</strong> with a continuous linear interpolation of points.</td>
+<td><a href="ts_interpolate.html">interpolate(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Fills in gaps in <strong>tsExpression</strong> with a continuous linear interpolation of points.</td>
 </tr>
 </tbody>
 </table>
@@ -869,7 +874,7 @@ Missing data functions allow you to interpolate missing data with points based o
 
 Metadata functions help users rename a metric, source, or create a synthetic point tag on a metric. There are three ways to formulate the alias:
 
-- Node index - Extract a string component based on a <span style="color:#238567;font-weight:bold">zeroBasedNodeIndex</span>. Components are identified by the default delimiter "." or a delimiter specified in <span style="color:#757575;font-weight:bold">delimiterDefinition</span>.
+- Node index - Extract a string component based on a <strong>zeroBasedNodeIndex</strong>. Components are identified by the default delimiter "." or a delimiter specified in <strong>delimiterDefinition</strong>.
 - Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
 - String substitution - Replace a metric or source in an expression with a replacement string.
 
@@ -886,19 +891,19 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;expression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
+<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;tsExpression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
 <strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
-<td markdown="span">Extracts a string from an existing metric name, source name, or point tag value and renames the metric in the expression with that string. If you don't specify the <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong> parameter, it defaults to <strong>source</strong>. </td>
+<td markdown="span">Extracts a string from an existing metric name, source name, or point tag value in the <strong>tsExpression</strong> and renames the metric with that string. If you don't specify the <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong> parameter, it defaults to <strong>source</strong>. </td>
 </tr>
 <tr>
-<td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;expression&gt;</strong>, 
+<td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;tsExpression&gt;</strong>, 
 &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
 <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
-<td markdown="span">Replaces one or more source names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).
+<td markdown="span">Replaces one or more source names in the <strong>tsExpression</strong> with a string extracted from the metric name(s), source name(s), or point tag value(s).
 </td>
 </tr>
 <tr>
-<td><a href="ts_taggify.html"> taggify(<strong>&lt;expression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
+<td><a href="ts_taggify.html"> taggify(<strong>&lt;tsExpression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
 </td>
 <td markdown="span">Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
 </td>
@@ -941,8 +946,8 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, and sup
 ## Exponential and Trigonometric Functions
 <table style="width: 100%;">
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="55%" />
+<col width="45%" />
 </colgroup>
 <thead>
 <tr>
@@ -952,28 +957,28 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, and sup
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_sqrt.html">sqrt(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_sqrt.html">sqrt(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the square root of each data value described by the expression.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;baseExpression&gt;</strong>, <strong>&lt;exponentExpression&gt;</strong>[, inner])</a></td>
+<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;baseExpression&gt;</strong>, <strong>&lt;exponentExpression&gt;</strong>[, <strong>inner</strong>])</a></td>
 <td>Raises the base expression to the power of the exponent expression. </td>
 </tr>
 <tr>
-<td><a href="ts_exp.html">exp(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_exp.html">exp(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the natural exponential for each data value described by the expression.</td>
 </tr>
 <tr>
-<td><a href="ts_log.html">log(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_log.html">log(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the natural log of each data value described by the expression.</td>
 </tr>
 <tr>
-<td><a href="ts_log10.html">log10(<strong>&lt;expression&gt;</strong>)</a></td>
+<td><a href="ts_log10.html">log10(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the log base 10 of each data value described by the expression.</td>
 </tr>
 <tr>
-<td>sin(<strong>&lt;expression&gt;</strong>), cos(<strong>&lt;expression&gt;</strong>), tan(<strong>&lt;expression&gt;</strong>),<br/>asin(<strong>&lt;expression&gt;</strong>), acos(<strong>&lt;expression&gt;</strong>),<br/>atan(<strong>&lt;expression&gt;</strong>),
-atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;expression&gt;</strong>), cosh(<strong>&lt;expression&gt;</strong>), tanh(<strong>&lt;expression&gt;</strong>)</td>
+<td>sin(<strong>&lt;tsExpression&gt;</strong>), cos(<strong>&lt;tsExpression&gt;</strong>), tan(<strong>&lt;tsExpression&gt;</strong>),<br/>asin(<strong>&lt;tsExpression&gt;</strong>), acos(<strong>&lt;tsExpression&gt;</strong>),<br/>atan(<strong>&lt;tsExpression&gt;</strong>),
+atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;tsExpression&gt;</strong>), cosh(<strong>&lt;tsExpression&gt;</strong>), tanh(<strong>&lt;tsExpression&gt;</strong>)</td>
 <td>Performs the specified trigonometric function on each data value described by the expression. <br>See <a href="ts_trig.html">Trigonometric Functions</a> for details.</td>
 </tr>
 <tr>
@@ -1009,71 +1014,71 @@ We support 3 groups of string manipulation functions. For each group:
 </tr>
 </thead>
 <tbody>
-<tr><td><a href="ts_length.html">length(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_length.html">length(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Returns the length of a string</td>
 </tr>
-<tr><td><a href="ts_isblank.html">isEmpty(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_isblank.html">isEmpty(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.</td>
 </tr>
-<tr><td><a href="ts_isblank.html">isBlank(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_isblank.html">isBlank(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Returns true if the value of the metric, source, or point tag string is a blank character (<strong>" "</strong>), and returns false otherwise.</td>
 </tr>
-<tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Converts all upper case characters in the string extracted from the expression to lower case. </td>
 </tr>
 
-<tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Converts all lower case characters in the string extracted from the expression to upper case.</td>
 </tr>
 
-<tr><td><a href="ts_trim.html">trim(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">trim(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Removes a single leading white space and/or a single trailing white space, but does not remove multiple leading or trailing white spaces.  </td>
 </tr>
-<tr><td><a href="ts_trim.html">strip(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">strip(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Removes both leading and trailing white spaces from a string.</td>
 </tr>
-<tr><td><a href="ts_trim.html">stripLeading(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">stripLeading(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Removes leading white spaces from a string.</td>
 </tr>
-<tr><td><a href="ts_trim.html">stripTrailing(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_trim.html">stripTrailing(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Removes trailing white spaces from a string. </td>
 </tr>
-<tr><td><a href="ts_equals.html">equals(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_equals.html">equals(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string.  </td>
 </tr>
-<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string and ignores case. With this function `string` is equal to `StRiNg` </td>
 </tr>
-<tr><td><a href="ts_startswith.html">startsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_startswith.html">startsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Lets you check whether a string extracted from an expression starts with a specified string.
  </td>
 </tr>
-<tr><td><a href="ts_startswith.html">endsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_startswith.html">endsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Lets you check whether a string extracted from an expression starts with a specified string.  </td>
 </tr>
-<tr><td><a href="ts_indexof.html">indexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_indexof.html">indexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string and returns where the specified string starts in the extracted string.</td>
 </tr>
-<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string starting at the back and returns where the specified string starts in the extracted string. </td>
 </tr>
-<tr><td><a href="ts_concat.html">concat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_concat.html">concat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string. </td>
 </tr>
-<tr><td><a href="ts_matches.html">matches(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_matches.html">matches(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string, and returns true if the two strings match exactly and false otherwise.
 </td>
 </tr>
-<tr><td><a href="ts_matches.html">contains(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_matches.html">contains(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string, and returns true if the extracted string contains the specified string and false otherwise.  </td>
 </tr>
-<tr><td><a href="ts_charat.html">charAt(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_charat.html">charAt(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Retrieves the character at the position specified by an integer from a string extracted from an expression. </td>
 </tr>
-<tr><td><a href="ts_substring.html">substring(<strong>metric|source|&lt;pointTagKey&gt;</strong>, &lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_substring.html">substring(<strong>metric|source|&lt;pointTagKey&gt;</strong>, &lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Extracts a substring from a string extracted from an expression.</td>
 </tr>
-<tr><td><a href="ts_repeat.html">repeat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;expression&gt;</strong>) </a></td>
+<tr><td><a href="ts_repeat.html">repeat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Repeats a string extracted from an expression the specified number of times. </td>
 </tr>
 
@@ -1101,18 +1106,18 @@ We support 3 groups of string manipulation functions. For each group:
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_anomalous.html">anomalous(<strong>&lt;testWindow&gt;</strong>, &lbrack;<strong>&lt;confidenceFactor&gt;</strong>,&rbrack; &lbrack;<strong>&lt;historyWindow&gt;</strong>, &lbrack;<strong>&lt;alignWindow&gt;</strong>,&rbrack;&rbrack; <strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_anomalous.html">anomalous(<strong>&lt;testWindow&gt;</strong>, &lbrack;<strong>&lt;confidenceFactor&gt;</strong>,&rbrack; &lbrack;<strong>&lt;historyWindow&gt;</strong>, &lbrack;<strong>&lt;alignWindow&gt;</strong>,&rbrack;&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns the percentage of anomalous points in each time series described by the expression. Anomalous points have values that fall outside an expected range, as determined by <strong>confidenceFactor</strong>. </td>
 </tr>
 
 <tr>
-<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;expression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
+<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
 </td>
 <td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>
 <tr>
-<td><a href="ts_nnforecast.html"><strong>nnforecast(&lt;forecastPeriod&gt;, [&lt;confidenceFactor&gt;,] &lt;expression&gt;, [with_bounds])</strong></a>
+<td><a href="ts_nnforecast.html"><strong>nnforecast(&lt;forecastPeriod&gt;, [&lt;confidenceFactor&gt;,] &lt;tsExpression&gt;, [with_bounds])</strong></a>
 </td>
 <td>Forecasts future data values for each time series described by the expression. It uses hypothesis testing and neural networks for prediction. </td>
 </tr>
@@ -1195,24 +1200,24 @@ Each histogram conversion function in the following table takes histogram distri
 <td>Returns time series that consist of the median values of the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
-<td>avg(<strong>&lt;hsExpression&gt;</strong>)</td>
+<td><a href="ts_avg.html">avg(<strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Returns time series that consist of the average values from the histogram distributions described by <strong>hsExpression</strong>. 
 </td>
 </tr>
 <tr>
-<td>min(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns time series that consist of the smallest values from the histogram distributions described by <strong>hsExpression</strong>. </td>
+<td><a href="ts_min.html">min(<strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Returns time series that consist of the lowest values from the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
-<td>max(<strong>&lt;hsExpression&gt;</strong>)</td>
-<td>Returns time series that consist of the largest values from the histogram distributions described by <strong>hsExpression</strong>. </td>
+<td><a href="ts_max.html">max(<strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Returns time series that consist of the highest values from the histogram distributions described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
-<td>percentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</td>
+<td><a href="ts_percentile.html">percentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Returns time series that consist of the <strong>&lt;percentage&gt;</strong> percentiles from the histogram distributions described by <strong>hsExpression</strong>. A percentile is a value below which the specified percentage of values fall. For example, <strong>percentile(75, hs(my.hsMetric.m))</strong> returns the 75th percentile value from each distribution. </td>
 </tr>
 <tr>
-<td>count(<strong>&lt;hsExpression&gt;</strong>)</td>
+<td><a href="ts_count.html">count(<strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Returns time series that consist of the number of values in each histogram distribution described by <strong>hsExpression</strong>. </td>
 </tr>
 <tr>
@@ -1422,20 +1427,20 @@ For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</
 <tbody>
 <tr>
 <td>
-<a href="ts_collect.html">collect(<strong>&lt;expression1&gt;</strong>, <strong>&lt;expression2&gt;</strong> &lsqb;, <strong>&lt;expression3&gt;, ...</strong>&rsqb;)</a>
+<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
 </td>
-<td>Returns a single ts() expression that is the combination of two or more ts() expressions.</td>
+<td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
 </tr>
 <tr>
 <td>
-<a href="ts_exists.html">exists(<strong>&lt;expression&gt;</strong>)</a>
+<a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
 A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
 <td>
-<a href="ts_abs.html">abs(<strong>&lt;expression&gt;</strong>)</a>
+<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns the absolute value of the time series described by the expression.</td>
 </tr>
@@ -1447,7 +1452,7 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
 <td>
-<a href="ts_normalize.html">normalize(<strong>&lt;expression&gt;</strong>)</a>
+<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
 </td>
@@ -1460,7 +1465,7 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </td>
 </tr>
 <tr>
-<td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;expression&gt;</strong>)</a>
+<td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>

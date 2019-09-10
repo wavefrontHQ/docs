@@ -8,22 +8,29 @@ summary: Reference to the count() function
 ---
 ## Summary
 ```
-count(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
+count(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
+
+count(<hsExpression>)	
 ```
 
-Returns the number of reporting time series described by the expression at each moment in time.
+When used as an aggregation function, returns the number of reporting time series described by the `tsExpression` at each moment in time.
 A time series is counted as reporting even if it has interpolated values. 
 Use [`rawcount()`](ts_rawcount.html) if you don't want to consider interpolated values.
 
+When used as a histogram conversion function, returns time series that consist of the number of values in each histogram distribution described by `hsExpression`.
+
 
 ## Parameters
+
+### Time-Series Aggregation Function
+
 <table>
 <tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to be counted. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
@@ -33,7 +40,26 @@ Use one or more parameters to group by metric names, source names, source tag na
 </tbody>
 </table>
 
+### Histogram Conversion Function
+
+<table>
+<tbody>
+<thead>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
+</thead>
+<tr>
+<td markdown="span"> [hsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression describing the histogram distributions to obtain the number of values from. </td></tr>
+</tbody>
+</table>
+
 ## Description
+
+You can use `count()` as:
+* An aggregation function for time series.
+* A conversion function for histogram series.
+
+### Time-Series Aggregation Function
 
 The `count()` aggregate function adds together the number of reporting time series represented by the expression, at each moment in time.
 
@@ -41,7 +67,7 @@ By default, `count()` produces a single count across all time series. You can op
 
 If a time series has data gaps, `count()` fills them in by interpolation whenever possible. A time series with an interpolated value is considered to be reporting and is included in the current count.  When a value cannot be interpolated into a time series (or if the series stops reporting altogether), the series is excluded from the count.
 
-### Grouping
+#### Grouping
 
 Like all aggregation functions, `count()` returns a single series of results by default.  
 
@@ -51,7 +77,7 @@ The function returns a separate series of results corresponding to each group.
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `count(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 
-### Interpolation
+#### Interpolation
 
 If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function. 
 A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
@@ -62,8 +88,15 @@ In this case, Wavefront finds the last known reported value in the series, and a
 
 You can use [`rawcount()`](ts_rawcount.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
 
+### Histogram Conversion Function
+
+The `count()` histogram conversion function returns the number of data values in each distribution of each histogram series that is represented by the expression. The counts for a given histogram series are returned as a separate time series that contains a data point corresponding to each input distribution.
+
+`count()` is a histogram conversion function because it takes histogram distributions as input, and returns time series. You can therefore use a histogram conversion function as a `tsExpression` parameter in a time series query function.
 
 ## Examples
+
+### Time-Series Aggregation Function
 
 The following examples contrast the result you get for two different types of servers. We're using a Single Stat View chart to first get a count of all servers that have a sample requests latency and the source `app-1*` (11 servers). Then we get a count of all servers that have the source `app-2*` While the example is a bit contrived, it illustrates how to use the function.
 
@@ -74,6 +107,15 @@ The following examples contrast the result you get for two different types of se
 The following example groups all sources whose name starts with `"app-1*"` by the `env` point tag. The Stacked Area chart shows that 1 server is tagged with `dev` and 10 servers are tagged with `production`.
 
 ![count grouped](images/ts_count_groupby_env.png)
+
+### Histogram Conversion Function
+
+The following example shows the result of applying `count()` to an `hsExpression`. As the legend shows, the distribution at 2:40p summarizes 3 values.
+
+![hs count](images/hs_count.png)
+
+**Note:**  `count()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `count()` is used as an aggregation function with a `tsExpression`, a single returned time series might be the result of counting multiple input time series.) 
+
 
 ## Caveats
 
