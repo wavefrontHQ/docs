@@ -300,9 +300,10 @@ Example:
 <strong>Notes:</strong>
 <ul>
 <li>Best practice: Use alias names that are three letters or longer.</li>
-<li>Don't use an <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a> (such as p, h, k, M, G, T, P, E, Z, Y) as an alias name.</li>
-<li>Don't use the name of any Wavefront query function.</li>
-<li markdown="span">Put any numeric characters at the end of the alias name. <strong>$test123</strong> is valid, but `$1test` and `$test4test` are not valid.</li>
+<li>Don't use an <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a> (such as p, h, k, M, G, T, P, E, Z, Y, etc.) as an alias name.</li>
+<li>Don't use the name of any Wavefront query function. For example, <strong>$sum</strong> is not valid.</li>
+<li>Alias names are case sensitive. For example, <strong>$Sum</strong> is valid.</li>
+<li markdown="span">Put any numeric characters at the end of the alias name. For example, <strong>$test123</strong> is valid, but <strong>$1test</strong> and <strong>$test4test</strong> are not valid.</li>
 <li>You can define multiple aliases in the same query.</li>
 </ul>
 </td></tr>
