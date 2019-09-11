@@ -34,7 +34,7 @@ You select an operation to display traces with at least one span that represents
 3. Select name components for an application, service, and operation.  
     ![tracing query builder operation menu](images/tracing_query_builder_operation_menu.png) 
     
-4. Either [add filters](#add-filters) or click **Search**.
+4. Either [add filters](#add-filters) or click **Search** to display results.
     
 **Note:** You can select `*` instead of name components to select all operations in a service, or all operations in all services:
     ![tracing query builder operation menu](images/tracing_query_builder_operation_menu_all.png) 
@@ -45,17 +45,14 @@ You select an operation to display traces with at least one span that represents
 
 After you have selected an operation, you can optionally add filters to further describe the traces you want to see. You can add different types of filters in any order.
 
-1. Select an operation if you have not already done so.
-2. Click **Add Filter** and select a filter type. 
+<ol>
+<li>Select an operation if you have not already done so.</li>
+<li markdown="span">Click **Add Filter** and select a filter type. 
 ![tracing query builder filter type menu](images/tracing_query_builder_filter_type_menu.png) 
+</li>
 
 
-
-4. Click next to the filter type and specify the filter setting. Depending on the filter type:
-  * Select settings from menus.
-  * Type one or more settings in fields.
-
-5. Click **Add Filter** to add another filter, or click **Search**.
+<li>Click next to the filter type and specify the filter setting. 
 
 <table style="width: 100%">
 <colgroup>
@@ -67,13 +64,13 @@ After you have selected an operation, you can optionally add filters to further 
 </thead>
 <tbody>
 <tr>
-<td markdown="span">**Tags**</td>
-<td markdown="span">Traces with at least one span that is associated with a selected tag, or that was emitted from a selected source (host).
+<td markdown="span">**Tag**</td>
+<td markdown="span">Traces that have at least one span with a selected tag or a selected source (host).
 Use this type for indexed tags that your application uses, typically `cluster`, `shard`, `component`, `source`, and so on.</td>
 </tr>
 <tr>
-<td markdown="span">**RawTags**</td>
-<td markdown="span">Traces with at least one span that is associated with a specified tag, for example, `env="prod"`. Use this type for custom or unindexed span tags.</td>
+<td markdown="span">**RawTag**</td>
+<td markdown="span">Traces that have at least one span with a specified tag, for example, `env="prod"`. Use this type for custom or unindexed span tags.</td>
 </tr>
 <tr>
 <td markdown="span">**Duration**</td>
@@ -85,39 +82,65 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 </tr>
 <tr>
 <td markdown="span">**Error**</td>
-<td markdown="span">Traces with at least one span with an error (`error=true`).</td>
+<td markdown="span">Traces with at least one span that contains an error (`error=true`).</td>
 </tr>
 </tbody>
 </table>
+</li>
+
+<li>Depending on the filter type, either select settings from menus or type one or more settings in fields.</li>
+
+<li markdown="span">Click **Add Filter** to add another filter, or click **Search**  to display results.</li>
+</ol>
+
+## Remove Filters
+
+You can remove an individual filter: 
+1. Click the **X** in the filter box:
+
+    ![tracing query builder remove filter](images/tracing_query_builder_remove_filter.png) 
+2. Click **Search** to update the displayed results.
+
+If you want to start the query all over, click **Clear** to remove the operation name and all filters:
+
+![tracing query builder clear](images/tracing_query_builder_clear.png) 
 
 
-<!---  Show multiple tags, plus duration or limit
 ## Example
 
-Suppose you want to find traces that contain spans for an operation called `dispatch`, which is called from the `delivery` service of the `beachshirts` application. You're interested only in traces that are longer than 30 milliseconds.  
+Suppose you want to find traces that contain spans for an operation called `notify`, which is called from the `notification` service of the `beachshirts` application. You're interested only in seeing traces that are emitted from a particular source and that are longer than 30 milliseconds.  
 
-1. Select the operation from the cascading **Operation** menu:
-    ![tracing query builder menu](images/tracing_query_builder_menu.png)
-2. Type 30 in the **Min Duration** field.
-    ![tracing query builder menu2](images/tracing_query_builder_menu2.png) 
+1. Select the operation from the cascading **Operation** menu.
+2. Click **Add Filter** and select **Tag**.
+3. Click the Tags selector to open a cascading menu of tag types.
+4. Select the **source** tag type to display a menu of source names, and select the source name you want.
+    ![tracing query builder select source](images/tracing_query_builder_select_source.png) 
+5. Click **Add Filter** and select **Duration**.
+6. Click the min/max Duration selector to display fields for specifying durations.
+    ![tracing query builder select duration](images/tracing_query_builder_select_duration.png) 
+7. Type 30 in the **Min Duration** field and click **Apply**.
+8. Click **Search** to display the results.
+    ![tracing query builder complete](images/tracing_query_builder_complete.png) 
+
 
 ### Optionally View the Corresponding Trace Query
 
-Query Builder generates a query that includes the [`traces()` function](ts_traces.html) and one or more [filtering functions](ts_traces.html#filtering-functions). For example, you can: 
+Query Builder generates a query that includes the [`traces()` function](ts_traces.html) and one or more filtering functions like `limit()`. For example, you can: 
 
 1. Construct a query with Query Builder as shown [above](#example).
 2. [Toggle to the Query Editor](#use-query-editor-power-users) to see what the corresponding functions look like. 
     ![tracing query editor from builder](images/tracing_query_editor_from_builder.png)
 
-At this point, you can either continue to edit the query directly, or toggle back to Query Builder. **Note:** If you change a query using Query Editor, you cannot go back to Query Builder.
+At this point, you can either continue to edit the query directly, or toggle back to Query Builder. 
 
---->
+**Note:** If you change a query using Query Editor, you cannot go back to Query Builder.
+
 
 ## Understand Trace Query Results
 
 A trace query:
 1. Finds the spans that match the description you specify.
-2. Finds the traces that contain at least one qualifying span.
+2. Finds the traces that contain at least one matching span.
 3. Uses duration thresholds (if you specified any) to filter the set of returned traces.  
 
 For example, you can query for traces that each have at least one member span that meets all of the following criteria: 
@@ -127,22 +150,19 @@ For example, you can query for traces that each have at least one member span th
 
 If you also specified a minimum (or maximum) duration, the query filters out any traces that are shorter (longer) than the threshold you specified.
 
-<!--- Revise
 ### Graphic Representation of a Returned Trace
 
-Wavefront displays a bar for each trace that is returned by a trace query. The bar's length corresponds to the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
+Wavefront displays a bar for each trace that is returned by a trace query. The bar's length visually indicates the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
 
 ![tracing query results](images/tracing_query_results.png)
 
 ### How Wavefront Labels a Returned Trace
 Each bar that is returned by a query represents a unique trace that has a unique trace ID. For readability, we label each trace by its root span, which is the first span in the trace. The trace's label is the name of the operation that the root span represents.
 
-For example, the two returned traces shown above both have the label **shopping: orderShirts**. This is because both traces have a root span
-that represents the work done by the `orderShirts` operation in the `shopping` service. However, these root spans represent different executions of the `orderShirts` operation, with different start times. Although these two root spans have the same operation name, they mark the beginning of two different traces.
+For example, the two returned traces shown above both have a root span that represents work done by an operation called `ShoppingWebResource.getShoppingMenu`. However, these root spans represent different executions of the operation, with different start times. Although the two root spans have the same operation name, they mark the beginning of two different traces.
 
-**Note:** A label such as **shopping: orderShirts** refers to the root span of a trace, which may be different from the span that was specified in the query. For example, suppose you query for spans that represent `dispatch` operations. The query could return traces that begin with `orderShirts`, if those traces contain a `dispatch` span. 
+**Note:** A trace's root span might differ from the span that was specified in the query. For example, suppose you query for spans that represent `getAvailableColors` operations. The query could return traces that begin with `ShoppingWebResource.getShoppingMenu`, if those traces contain a `getAvailableColors` span. 
 
----> 
 ## Limited Result Set
 
 Using the **Limit** filter to limit the number of returned traces can make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces. 
