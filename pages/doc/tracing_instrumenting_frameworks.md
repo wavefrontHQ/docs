@@ -169,7 +169,7 @@ The OpenTracing standard supports [span logs](https://opentracing.io/docs/overvi
 
 You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
 
-Here's an example that adds span logs [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
+Here's an example that adds span logs to [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
 
 ![span log example](images/span_log_example.png)
 

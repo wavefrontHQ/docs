@@ -118,9 +118,10 @@ Watch this video to see how visualizing trace data can help you find hot spots i
 
 You can view trace data by [looking for a trace](trace_data_query.html).
 1. Select **Applications > Traces** in the task bar.
-2. In the Traces browser, select the filters that describe the spans to be matched in the Traces Query Builder and click **Search**.
+2. Use the Traces Query Builder to select the filters that describe the spans to be matched. 
+3. Click **Search**.
 
-The browser displays the traces that contain the matched spans.
+The Traces browser displays the traces that contain the matched spans.
 * Use the histograms on the left to find potential problem spots.
 * Explore what's going on in the service map.
 * Drill down to learn more about time spent, errors, and span logs. 
@@ -132,7 +133,7 @@ You can view trace data by starting with the [RED metrics](trace_data_details.ht
 To start examining your application's RED metrics:
 1. Select **Applications > Inventory** in the task bar and find your application.
 2. Click on the application's name.
-3. Find the microservice you are interested in and click **Details**.
+3. Find the service you are interested in and click **Details**.
 4. Scroll the service's page until you find the framework or component you are interested in.
 5. Select an operation from one of the charts to examine traces. 
 
