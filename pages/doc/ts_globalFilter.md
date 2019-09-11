@@ -36,15 +36,19 @@ Filters the expression to display only the time series that matches the specifie
 
 The `globalFilter()` function filters a time series or histogram expression. You can filter by metric, source, source tag, or point tag. To filter by a source, source tag, or point tag, specify `source=`, `tag=`, or `tagk=`. Set `pointTagKey` to the unique point tag key to filter by.
 
-The `globalFilter()` function is similar to [retainSeries()](ts_retainSeries.html), but filters are pushed all the way into the inner ts()/hs() expressions. That means you can use `globalFilter()` to filter data pre-aggregation. 
+The `globalFilter()` function is similar to [retainSeries()](ts_retainSeries.html), but filters are pushed all the way into the inner ts()/hs() expressions. That means you can use `globalFilter()` to filter data pre-aggregation.
 
 
 ## Examples
 
-In the following example, we first extract all `~sample.requests.*` metrics that are in the `dev` environment.
+In the following example, we're using the `retainSeries` filtering function together with `sum()`. Because information about the environment is no longer available after the `sum()` has been applied, the query returns NO DATA.
 
-![retain series 1](images/ts_retain_series_1.png)
+![filter with retainSeries](images/filter_with_retainSeries.png)
 
-Then we extract from that series only the series that come from the `app-5` source. The resulting chart displays just three series.
+In contrast, if we use `globalFilter` for the same scenario, we can filter by environment and apply the `sum()` function.
 
-![retain series 2](images/ts_retain_series_2.png)
+![filter with globalFilter](images/filter_with_globalFilter.png)
+
+## See Also
+
+Other filtering functions include `retainSeries()` and `removeSeries()`.
