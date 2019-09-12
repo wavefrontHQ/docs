@@ -17,49 +17,62 @@ To choose your starting point for visualizing traces:
 1. In your web browser, go to your Wavefront cluster and log in.
 2. From the task bar:
 
-    - Select **Applications > Inventory** to [view all instrumented applications](#view-instrumented-applications) and drill down from there.
+    - Select **Applications > Inventory** to [view an inventory of your instrumented applications](#view-application-inventory) and drill down from there.
     - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there.
 
     ![tracing menu](images/tracing_menu.png)
 
-## View Instrumented Applications
+## View Applications
 
 Go to the Applications page for a top-level overview of your instrumented applications.
 
-
-
-
 ![app inventory](images/tracing_application_inventory.png)
 
+On the Applications page, you can:
+* View your entire inventory of instrumented applications, or search for a particular application by applying filters. 
+  - Apply one or more filters to select application name, cluster, or shard.
+* Inspect RED metrics to obtain a status summary for an application:
+  - The total number of requests that are represented by the application's spans. 
+  - The percentage of the application's spans that contain errors.
+  - The span duration (in seconds) at the 95th percentile across the application.
+* Sort the displayed applications by name or by a RED metric.
+* Click an application name for an overview of its services.
 
-## View Application Services
 
-Go to the Application Services page for an overview of the services in a particular application.
+## View Services
+
+When you select an application, you get an overview of its services.
 
 ![app services](images/tracing_app_services.png)
 
-On the Application Services page, you can:
-* Select an application from the **Jump To** pulldown, or search for a service or application.
-* Examine the inventory of services in your application.
+On the page for a particular application, you can:
+* Examine the all services in the application, or search for a particular service by applying filters.
 * View the inventory of component frameworks that each service is built on.
-* Click inside a service box to go to the dashboard for that service.
+* Inspect RED metrics to obtain a status summary for a service:
+  - The total number of requests that are represented by the service's spans. 
+  - The percentage of the service's spans that contain errors.
+  - The span duration (in seconds) at the 95th percentile across the service.
+
+* Drill down from a service box:
+  - Click **Details** to go to the dashboard for that service.
+  - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
+
 
 ## Examine Service Metrics and Drill Down
 
-When you select a service, you can examine the corresponding metrics to identify potential hot spots, and then drill down to the Traces browser.
+When you click on a service's **Details**, you can examine a dashboard of metrics to identify potential hot spots, and then drill down to the Traces browser.
 
 ![examine services](images/tracing_services.png)
 
-**Note:** The charts on this dashboard are read only.
-
 On the page for a particular service, you can:
-* Select the time and timezone in the task bar to customize the chart display. These selections are the same as for other dashboards.
+* Select the time and timezone in the task bar to customize the chart time properties. 
 * Use the **Jump To** pulldown to select a dashboard section:
   - Select Overview to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
-  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., `Jersey`) or the runtime system (e.g., `JVM`).
+  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
+* Clone the dashboard to add or customize charts. 
 * Navigate to the Traces browser:
   - Select **See All ... Traces** to display all traces that include a span from this service component.
   - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
