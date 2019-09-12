@@ -40,11 +40,11 @@ Because requests normally consist of other requests, a trace actually consists o
 ### Sample Application
 <!--- Revise with final names and inventory of services and operations. Styling vs. Designer. --->
 
-Let's look at an example. Here's how the different services (black) interact in a simple Java application for ordering beach shirts.
+Let's look at an example. Here's how the different services interact in a simple Java application for ordering beach shirts.
 
 ![tracing beachShirts](images/tracing_beachshirts_app.png)
 
-Each service processes a different part of a customer order. The diagram shows how these services collaborate by sending requests (red) and responses:
+Each service processes a different part of a customer order. The diagram shows how these services collaborate by sending requests and responses:
 * The customer clicks a button on the browser to trigger a request (Order Shirts) to the Shopping service.
 * The Shopping service sends the customer's shirt-selection data in a request to the Styling service.
 * The Styling service performs its operations, which include sending requests to the Printing and Packaging services. Each of these services performs its operations and returns a response to Styling.
