@@ -94,7 +94,7 @@ From the Traces browser, you can:
 * Select a trace in the list and:
   - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
-* Examine a trace's percentile indicator to see how the trace's duration compares to the duration of the other listed traces.
+* Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
 
 You can toggle the panel size for the traces list, service map, or trace details.
 
@@ -114,7 +114,7 @@ You can use the trace list to:
 
 * Sort the returned traces according to different criteria.
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
-* View a trace's percentile indicator to see how the trace's duration compares to the duration of the other listed traces -- and potentially find outliers.
+* View a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces -- and potentially find outliers.
 
 ## Investigate the Service Map for a Trace
 
