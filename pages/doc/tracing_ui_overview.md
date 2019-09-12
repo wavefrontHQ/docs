@@ -66,7 +66,7 @@ When you click on a service's **Details**, you can examine a dashboard of metric
 
 On the page for a particular service, you can:
 * Select the time and timezone in the task bar to customize the chart time properties. 
-* Use the **Jump To** pulldown to select a dashboard section:
+* Use the **Jump To** pulldown to select a dashboard section:tr
   - Select Overview to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
 * Filter the metrics based on the cluster, shard, or source.
@@ -87,14 +87,14 @@ In the Traces browser, you can explore the context and the details of your appli
 * Navigate from the service's page to display traces for operations you selected.
 * Select **Applications > Traces** from the task bar to display an empty page that you populate by [querying](trace_data_query.html).
 
-![explore trace browser](images/tracing_traces_browser_rev.png)
+![explore trace browser](images/tracing_traces_browser.png)
 
 From the Traces browser, you can:
 * Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
 * Select a trace in the list and:
-  - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the microservices that contribute spans to the trace.
+  - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
-* Examine how a trace compares to other traces in the percentile indicator.
+* Examine a trace's percentile indicator to see how the trace's duration compares to the duration of the other listed traces.
 
 You can toggle the panel size for the traces list, service map, or trace details.
 
@@ -102,7 +102,7 @@ You can toggle the panel size for the traces list, service map, or trace details
 
 In the Traces browser, you can [query](trace_data_query.html) for the traces that include spans for a particular operation, and you can view the results in a traces list.
 
-![explore traces list](images/tracing_traces_browser_traces_list_rev.png)
+![explore traces list](images/tracing_traces_browser_traces_list.png)
 
 Here's how to get started:
 1. Start typing in the Operations field and select an operation (or type a name in the search box).
@@ -110,12 +110,11 @@ Here's how to get started:
 3. (Optional) Advanced users can use Query Editor to limit the scope even further.
 
 
-
-You can then use the trace list to:
+You can use the trace list to:
 
 * Sort the returned traces according to different criteria.
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
-* See the relationship of a trace to similar traces in the percentile indicator -- and potentially find outliers.
+* View a trace's percentile indicator to see how the trace's duration compares to the duration of the other listed traces -- and potentially find outliers.
 
 ## Investigate the Service Map for a Trace
 
@@ -125,8 +124,8 @@ In the Traces browser, use the service map to investigate the services that cont
 
 In the service map panel, you can:
 * View the service dependencies, and follow the flow of request calls from service to service.
-* Select a service to display:
-  - The RED metrics that reflect the health of the service.
+* Click on a service to display the RED metrics that reflect the health of the service:
+  - Request count, error count, and trace duration at the 95th percentile, over all traces (root spans) that originate in the service.
   - Line charts that indicate the general contour of the RED metrics.
 * Navigate to the selected service's dashboard for more service details.
 * Scroll the service map to zoom in or out, and re-center the service map.
