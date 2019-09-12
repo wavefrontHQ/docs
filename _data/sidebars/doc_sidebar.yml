@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2019-30.x Release Notes
+      url: /2019.30.x_release_notes.html
+      output: web
+
     - title: 2019-26.x Release Notes
       url: /2019.26.x_release_notes.html
       output: web
@@ -119,7 +123,7 @@ entries:
       output: web
 
       subfolders:
-      - title: Data Format and Elements
+      - title: Data Format & Metrics, Sources, and Tags
         output: web
         subfolderitems:
 
@@ -281,7 +285,7 @@ entries:
         - title: Pairing Up Matching Series
           url: /query_language_series_matching.html
           output: web
-          
+
         - title: Point Tags in Queries
           url: /query_language_point_tags.html
           output: web

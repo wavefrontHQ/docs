@@ -127,16 +127,18 @@ In the trace details panel, you can:
 * Explore the trace’s [critical path](#a-closer-look-at-critical-paths). This is an end-to-end sequence of blocking spans, where each blocking span must complete before the trace can complete.
 
 
-## Drill Down Into Spans and View Related Metrics
+## Drill Down Into Spans and View Metrics and Span Logs
 
 In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
-![trace span details](images/tracing_traces_browser_span_details.png)
+![trace span details](images/tracing_span_details_with_logs.png)
 
 Span details include:
 * Application tags. These are the application, service, cluster, and shard, as selected by the trace query.
 * Other tags including the trace ID.
 * A clickable link to the corresponding dashboard that lets you examine the metrics associated with the call.
+
+If your spans have been instrumented to show span logs, you can click **Logs** to fetch the logs and drill down to examine them. We don't show span logs by default for better browser performance.
 
 
 ## A Closer Look at Critical Paths
