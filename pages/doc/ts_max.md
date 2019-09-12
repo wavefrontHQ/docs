@@ -14,18 +14,30 @@ max(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 max(<hsExpression>)
 ```
-
-When used as a comparison function, returns the higher of the two values in `tsExpression1` and `tsExpression2`.
-
-When used as an aggregation function, returns the highest value across the set of time series described by `tsExpression`. The results might be computed from real reported values and interpolated values. Use [`rawmax()`](ts_rawmax.html) if you don't need interpolation.
-
-When used as a histogram conversion function, returns time series that consist of the highest value from each histogram distribution described by  `hsExpression`.
-
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td markdown="span"> Time series <br>comparison function</td>
+<td markdown="span">Returns the higher of the two values in `tsExpression1` and `tsExpression2`.</td></tr>
+<tr>
+<td markdown="span"> Time series <br>aggregation function</td>
+<td markdown="span">Returns the highest value across the set of time series described by `tsExpression`. The results might be computed from real reported values and interpolated values. Use  [`rawmax()`](ts_rawmax.html) if you don't need interpolation.</td></tr>
+<tr>
+<td markdown="span">Histogram <br>conversion function</td>
+<td markdown="span">Returns time series that consist of the highest value from each histogram distribution described by the `hsExpression`.</td>
+</tr>
+</tbody>
+</table>
 
 ## Parameters
 
 ### Time-Series Comparison Function
-<table>
+
+<table style="width: 100%;">
 <tbody>
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
@@ -43,11 +55,12 @@ When used as a histogram conversion function, returns time series that consist o
 
 
 ### Time-Series Aggregation Function
-<table>
-<tbody>
+
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to return maximums for. </td></tr>
@@ -61,11 +74,11 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ### Histogram Conversion Function
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> [hsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the histogram series to obtain maximum values from. </td></tr>
@@ -74,9 +87,9 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-You can use `max()` as:
-* A comparison function or as an aggregation function for time series.
-* A conversion function for histogram series.
+You can use `max()`:
+* With time series as a comparison function or as an aggregation function.
+* With histogram series as a conversion function.
 
 ### Time-Series Comparison Function
 

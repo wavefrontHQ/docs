@@ -12,23 +12,35 @@ count(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 count(<hsExpression>)	
 ```
+You can use `count()` with time series and with histograms.
 
-When used as an aggregation function, returns the number of reporting time series described by the `tsExpression` at each moment in time.
-A time series is counted as reporting even if it has interpolated values. 
-Use [`rawcount()`](ts_rawcount.html) if you don't want to consider interpolated values.
-
-When used as a histogram conversion function, returns time series that consist of the number of values in each histogram distribution described by `hsExpression`.
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td markdown="span"> Time series <br>aggregation function</td>
+<td markdown="span">Returns the number of reporting time series described by the `tsExpression` at each moment in time.
+A time series is counted as reporting even if it has interpolated values.</td></tr>
+<tr>
+<td markdown="span">Histogram <br>conversion function</td>
+<td markdown="span">Returns time series that consist of the number of values in each histogram distribution described by the `hsExpression`.</td>
+</tr>
+</tbody>
+</table>
 
 
 ## Parameters
 
 ### Time-Series Aggregation Function
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to be counted. </td></tr>
@@ -42,11 +54,11 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ### Histogram Conversion Function
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> [hsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the histogram distributions to obtain the number of values from. </td></tr>
@@ -55,9 +67,9 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-You can use `count()` as:
-* An aggregation function for time series.
-* A conversion function for histogram series.
+You can use `count()`:
+* With time series as an aggregation function for time series.
+* With histogram series as a conversion function.
 
 ### Time-Series Aggregation Function
 

@@ -18,10 +18,10 @@ Merges the series of histogram distributions described by the expression, and re
 
 
 <table style="width: 100%;">
-<tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span">[hsExpression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Expression describing the histogram series to be merged.</td></tr>

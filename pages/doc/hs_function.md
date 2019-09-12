@@ -21,11 +21,11 @@ In a time-series chart, `hs()` displays just the median values of the distributi
 ## Parameters
 
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span">&lt;hsMetricName&gt;</td>
 <td markdown="span">Name of a histogram metric that describes one or more series of histogram distributions. The extension of the histogram metric name (**.m**, **.h**, or **.d**) indicates whether a series has one histogram distribution per minute, hour, or day, as determined by the [histogram aggregation interval](proxies_histograms.html#histogram-metric-aggregation-intervals). For example: **users.settings.numberOfTokens.m**</td></tr>

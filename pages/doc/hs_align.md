@@ -17,11 +17,11 @@ Groups the distributions of a histogram series into time buckets of size **timeW
 ## Parameters
 
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> [timeWindow](query_language_reference.html#common-parameters)</td>
 <td markdown="span">Size (duration) of the buckets into which histogram distributions are grouped. 

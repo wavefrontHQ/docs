@@ -14,21 +14,36 @@ percentile(<percentage>, <tsExpression>[, metrics|sources|sourceTags|pointTags|<
 
 percentile(<percentage>, <hsExpression>)
 ```
-When used as an aggregation function, returns the estimated `percentage` percentile across the set of time series described by `tsExpression`. 
-The results might be computed from real reported values and interpolated values.
-Use  [`rawpercentile()`](ts_rawpercentile.html) if you don't want interpolation.
+You can use `percentile()` with time series and with histograms.
 
-When used as a histogram conversion function, returns time series that consist of the `percentage` percentiles from the histogram distributions described by `hsExpression`.
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td markdown="span"> Time series <br>aggregation function</td>
+<td markdown="span">Returns the estimated `percentage` percentile across the set of time series described by `tsExpression`. 
+The results might be computed from real reported values and interpolated values.
+Use  [`rawpercentile()`](ts_rawpercentile.html) if you don't want interpolation.</td></tr>
+<tr>
+<td markdown="span">Histogram <br>conversion function</td>
+<td markdown="span">Returns time series that consist of the `percentage` percentiles from each histogram distribution described by the `hsExpression`.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Parameters
 
 ### Time-Series Aggregation Function
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td>percentage</td>
 <td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest. You can include as many decimal places as you like.</td></tr>
@@ -45,11 +60,11 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ### Histogram Conversion Function
 
-<table>
-<tbody>
+<table style="width: 100%;">
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td>percentage</td>
 <td>A number from 0 to 100, inclusive, that specifies the percentile of interest. You can include as many decimal places as you like.</td></tr>
@@ -62,9 +77,9 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-You can use `percentile()` as:
-* An aggregation function for time series.
-* A conversion function for histogram series.
+You can use `percentile()`:
+* With time series as an aggregation function.
+* With histogram series as a conversion function.
 
 ### Time-Series Aggregation Function
 

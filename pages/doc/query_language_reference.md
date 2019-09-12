@@ -6,12 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_reference.html
 summary: Learn about the query syntax, operators, and functions supported by Wavefront Query Language.
 ---
-The Wavefront Query Language allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples. For some background information, see:
-* [Aggregation Functions](query_language_aggregate_functions.html)
-* [Discrete and Continuous Time Series](query_language_discrete_continuous.html)
-* [Detecting Anomalies](query_language_statistical_functions_anomalies.html)
-* [Bucketing with align()](query_language_align_function.html)
-
+The Wavefront Query Language allows you to extract the information you need from your data. You use the query language for queries that display in charts and for alerts. This page is a complete reference to all query language elements and functions. You can click most functions for a page with details and examples.
 
 
 ## Query Expressions

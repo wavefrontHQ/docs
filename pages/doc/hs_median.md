@@ -17,10 +17,10 @@ Returns time series that consist of the median values from the histogram distrib
 
 
 <table style="width: 100%;">
-<tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span">[hsExpression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Expression describing the histogram series to extract median values from.</td></tr>

@@ -17,10 +17,10 @@ Returns time series that summarize the significant values from the histogram dis
 
 
 <table style="width: 100%;">
-<tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> percentageList</td>
 <td>Comma-separated list of percentages that specify the percentiles you want in your summary. 

@@ -17,10 +17,10 @@ The summary includes a constant time series for each `percentage` percentile.
 
 
 <table style="width: 100%;">
-<tbody>
 <thead>
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
+<tbody>
 <tr>
 <td markdown="span"> percentageList</td>
 <td>Comma-separated list of percentages that specify the percentiles you want in your aligned summary. 
