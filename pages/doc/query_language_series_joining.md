@@ -176,7 +176,7 @@ join(
   ts(cpu.load) AS ts1 INNER JOIN ts(request.rate) AS ts2            <== Join Input and Join Type
   
   USING(source, env),                                               <== Join Condition
-       // ON ts1.source=ts2.source, ts1.env=ts2.env,                <== alternative syntax
+       // ON ts1.source=ts2.source AND ts1.env=ts2.env,             <== alternative syntax
 
   metric='cpuPerRequest', source=ts1.source, env=ts1.env,           <== Output Metadata
 
@@ -194,17 +194,19 @@ join(
 * ts() expressions specify the time series in a left table (e.g., `ts(cpu.load)`) and a right table (e.g., `ts(request.rate)`). 
 * Either or both ts() expressions can include filters, analogous to SQL `WHERE`. For example, `ts(cpu.load, dc!=Texas)`
 * `AS` assigns an alias to each table (required). For example, `ts1` is the alias for `ts(cpu.load)`. 
+  - Best practice: Make aliases 3 letters or longer. 
+  - Don't use the name of any query function, keyword, or <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a> (such as p, h, k, M, G, T, P, E, Z, Y, etc.). If you use numeric characters, put them at the end. Aliases are case-sensitive.
 * `INNER JOIN` is one of 4 [join types](#join-types). The join type determines whether and how rows are included in the result table.
 
 ### Join Condition
 
 ```USING(source, env),``` _or_ <br>
-```ON ts1.source=ts2.source, ts1.env=ts2.env,```
+```ON ts1.source=ts2.source AND ts1.env=ts2.env,```
 
 * Syntax alternatives:  `USING` or `ON` 
 * `USING` lists the columns to use when testing for correlated rows: `USING(source, env)`
   - Rows satisfy the condition if they share a common value in _each_ listed column. For example, two rows match if they both have `source="host-1"` and `env="prod"`.
-* `ON` specifies explicit condition predicates: `ON ts1.source=ts2.source, ts1.env=ts2.env`
+* `ON` specifies explicit condition predicates: `ON ts1.source=ts2.source AND ts1.env=ts2.env`
   - Predicates use table aliases to qualify column names. For example, `ts1.env=ts2.env` compares `env` values from the left table to `env` values from the right table.
   - Predicates can include pattern matches, negation, parentheses, and constants. For example, `ON ts1.source!="web*"` 
 
