@@ -354,7 +354,7 @@ This is equivalent to typing in:
 All operations between `tsExpression`s are subject to the matching processes described in [Series Matching](query_language_series_matching.html)​. The result is always interpolated.
 
 <ul>
-<li markdown="span">**Boolean operators** - Combine `tsExpression`s, constants, source names, source tags,  point tags, alert names, alert tags.</li>
+<li markdown="span">**Boolean operators** - Combine `tsExpression`s, constants, or filters, such as source names, source tags,  point tags, alert names, alert tags.</li>
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
@@ -1256,8 +1256,8 @@ Each function in the following table returns a set of one or more events, and ca
 <tbody>
 <tr>
 <td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
-<td>Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>, for example:<br>
-<strong>events(type=alert, name="disk space is low", alertTag=App1.*)</strong> 
+<td>Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>, for example:
+<strong>events(type=alert, name="low space", alertTag=App1.*)</strong> 
 <br>This function adds a set of events to a time-series chart. 
 </td></tr>
 <tr>
