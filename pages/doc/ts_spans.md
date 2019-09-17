@@ -10,9 +10,9 @@ summary: Learn how to write spans() queries.
 ## Summary
 
 ```
-spans("<fullOperationName>" [,|and|or <filterName>="<filterValue>"] ...)
+spans("<fullOperationName>" [and|or [not] <filterName>="<filterValue>"] ...)
 
-spans(<filterName>="<filterValue>" [,|and|or <filterName>="<filterValue>"] ...)
+spans(<filterName>="<filterValue>" [and|or [not] <filterName>="<filterValue>"] ...)
 ```
 Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](traces_function.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
