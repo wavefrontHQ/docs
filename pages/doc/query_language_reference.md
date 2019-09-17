@@ -358,7 +358,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
-<li markdown="span">`and not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
+<li markdown="span">`and not`, `or not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
@@ -1273,15 +1273,15 @@ Each function in the following table returns a set of one or more events, and ca
 <td>Returns synthetic events that start at the beginning of epoch time (Jan 1, 1970) and end where the input events start.</td>
 </tr>
 <tr>
-<td>after(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns synthetic ongoing events that start the moment the input events end.</td>
+<td><a href="event_after.html">after(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Returns synthetic ongoing events that start when the input events end.</td>
 </tr>
 <tr>
-<td>since(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns synthetic events with the same start time and no end time (converts all input events to ongoing events).</td>
+<td><a href="event_since.html">since(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Returns synthetic ongoing events that start when the input events start, but have no end time. .</td>
 </tr>
 <tr>
-<td>since(<strong>timeWindow</strong>)</td>
+<td><a href="event_since.html">since(<strong>timeWindow</strong>)</a></td>
 <td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;. Specify <strong>timeWindow</strong> in seconds, minutes, hours, days or weeks (e.g., <strong> 1s, 1m, 1h, 1d, 1w</strong>. Default is minutes.</td>
 </tr>
 <tr>
