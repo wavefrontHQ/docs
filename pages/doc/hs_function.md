@@ -9,9 +9,9 @@ summary: Reference to the hs() function
 ## Summary
 ```
 hs(<hsMetricName> 
-  [,|and|or source=<sourceName>] 
-  [,|and|or tag=<sourceTag>] 
-  [,|and|or <pointTagKey>=<pointTagValue>] ...)
+  [and|or [not] source=<sourceName>] 
+  [and|or [not] tag=<sourceTag>] 
+  [and|or [not] <pointTagKey>=<pointTagValue>] ...)
 ```
 
 Returns the series of histogram distributions that match the specified histogram metric name, optionally filtered by sources and point tags. 

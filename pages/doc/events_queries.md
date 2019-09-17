@@ -9,7 +9,7 @@ summary: Learn how to write events() queries.
 ## Summary
 
 ```
-events("<filterName>"="<filterValue>” [,|and|or "<filterName>"="<filterValue>"] ...)
+events("<filterName>"="<filterValue>” [and|or [not] "<filterName>"="<filterValue>"] ...)
 ```
 
 Controls how [events display in a chart](charts_events_displaying.html).
