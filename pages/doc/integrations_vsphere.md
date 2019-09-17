@@ -10,6 +10,7 @@ The Wavefront [vSphere integration](vsphere.html) offers predefined dashboards a
 
 **Note**: For details on some customization aspects, see the [Telegraf plugin info on Github](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/vsphere)
 
+<!---Out of date>
 ## Separating Real-time and Historical Metrics
 vCenter Server provides real-time and historical metrics:
 * **Real-time metrics** are typically stored in ESXi memory and can be accessed very quickly. They have a 20 second time resolution and are normally stored for 24 hours. Real-time metrics are available only for hosts and virtual machines.
@@ -18,6 +19,7 @@ vCenter Server provides real-time and historical metrics:
 In the default configuration, all metrics are defined in a single instance of the vSphere plugin. Because the default setup mixes real-time and historical metrics, it sometimes has problems collecting the historical metrics within the collection interval, even though the real-time metric collections finish in just a few seconds. If this happens, consider moving some or all of the historical metrics to its own instance of the vSphere plugin. You can define two instances of the plugin:
 * The real-time instance of the plugin excludes all historical metrics.
 * The historical data instance excludes all real-time metrics.
+<!--->
 
 ## Setting Collection Concurrency
 
@@ -35,7 +37,7 @@ The vSphere plugin periodically performs resource discovery (typically every 5 m
 
 If you're separating real-time and historical metics, it makes sense to use different values for the  `discovery_concurrency` parameter for the two plugin instances.
 
-
+<!---Out of date as per Pierre>
 ## Example Configuration
 Here is an example configuration with separate instances for real-time and historical metrics. For the real-time instance, we enable both concurrent collection and discovery. For the historical instance, we enable concurrent collection but fewer collectors:
 
@@ -75,3 +77,4 @@ Here is an example configuration with separate instances for real-time and histo
   max_query_metrics = 256
   collect_concurrency = 3
 ```
+<!--->
