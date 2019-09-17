@@ -1261,11 +1261,15 @@ Each function in the following table returns a set of one or more events, and ca
 <br>This function adds a set of events to a time-series chart. 
 </td></tr>
 <tr>
-<td>closed(<strong>&lt;eventsExpression&gt;</strong>)</td>
+<td><a href="events_queries.html#event-set-operators">Event set operators</a></td>
+<td>Operators (such as union, intersect, - , d, m, o) that combine or compare two input <strong>eventsExpressions</strong>.  </td>
+</tr>
+<tr>
+<td><a href="event_closed.html">closed(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
 <td>Returns events that have ended and instantaneous events that occurred in the past.</td>
 </tr>
 <tr>
-<td>until(<strong>&lt;eventsExpression&gt;</strong>)</td>
+<td><a href="event_until.html">until(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
 <td>Returns synthetic events that start at the beginning of epoch time (Jan 1, 1970) and end where the input events start.</td>
 </tr>
 <tr>
