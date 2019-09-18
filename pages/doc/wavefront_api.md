@@ -19,13 +19,11 @@ The current version of the REST API is v2. You can access the API at `<wavefront
 
 **Note:** The Wavefront REST API is not the same as the `/api` endpoint that you specify for the Wavefront proxy.
 
-### API Documentation
+## API Documentation (Wavefront Instance)
 
-The REST API is publicly documented in the Swagger-generated API documentation.
+Each Wavefront instance includes Swagger-generated documentation for the REST API. In our blog post [Did You Know that Our API Docs Are Alive](https://www.wavefront.com/wavefront-rest-api/) we explain how you can experiment with our API directly from this in-product documentation.
 
-**Note:** In our blog post [Did You Know that Our API Docs Are Alive](https://www.wavefront.com/wavefront-rest-api/) we explain how you can experiment with our API directly from the documentation.
-
-To access the REST API documentation:
+To access the REST API documentation :
 
 1. Log in to your Wavefront instance.
 2. Display the doc from the UI or using a URL:
@@ -33,11 +31,17 @@ To access the REST API documentation:
   * Type `https://<your_cluster_name>.com/api-docs/ui/`
 
 
-![REST API](/images/rest_api.png)
+![REST API in Wavefront instance](/images/rest_api.png)
 
-### Code Samples
+## API Documentation (VMware code)
 
-Some code samples are available on the [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront). We're providing these samples as is - some are from the Wavefront team, others will come from the community.
+If you don't have access to a Wavefront instance, you can have a look at our API doc [on the VMware code site](https://code.vmware.com/apis/714/wavefront-rest).
+
+We include an overview and a Swagger-generated API Reference. We update the reference with each release.
+
+![REST API in VMware code](/images/vmware_code_api.png)
+
+The [VMware code website](https://code.vmware.com/samples?categories=Sample&tags=wavefront) also includes some samples, for example, for getting data into Wavefront. We're providing these samples as is - some are from the Wavefront team, others will come from the community.
 
 
 ## Invoking the API
