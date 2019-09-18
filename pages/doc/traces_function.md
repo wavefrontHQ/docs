@@ -10,9 +10,9 @@ summary: Learn how to write traces() queries.
 ## Summary
 
 ```
-traces("<fullOperationName>" [and|or [not] <filterName>="<filterValue>"] ...)
+traces("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
-traces(<filterName>="<filterValue>" [and|or [not] <filterName>="<filterValue>"] ...)
+traces(<filterName>="<filterValue>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 ```
 Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
@@ -69,7 +69,7 @@ To display the traces that include spans for any operation in the `styling` serv
 - `limit(100, traces("beachshirts.styling.*"))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces("beachshirts.*.*" and source=prod-app1 or source=prod-app10))`
+- `limit(100, traces("beachshirts.*.*" and (source=prod-app1 or source=prod-app10)))`
 
 <a name="filters"></a>
 
