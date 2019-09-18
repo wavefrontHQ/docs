@@ -9,7 +9,7 @@ summary: Reference to the hs() function
 ## Summary
 ```
 hs(<hsMetricName> 
-  [and|or [not] source=<sourceName>] 
+  [,|and|or [not] source=<sourceName>] 
   [and|or [not] tag=<sourceTag>] 
   [and|or [not] <pointTagKey>=<pointTagValue>] ...)
 ```

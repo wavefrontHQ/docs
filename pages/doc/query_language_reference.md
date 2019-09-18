@@ -35,7 +35,7 @@ Describes one or more time series. A  time series is a sequence of data points t
 <ul>
 <li>A <strong>ts() function</strong>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
 <pre>ts(&lt;metricName&gt;
-  [and|or [not] source=&lt;sourceName&gt;] ...
+  [,|and|or [not] source=&lt;sourceName&gt;] ...
   [and|or [not] tag=&lt;sourceTag&gt;] ...
   [and|or [not] &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
@@ -75,7 +75,7 @@ Describes one or more histogram series. A histogram series is a sequence of hist
 <ul>
 <li>An <a href="hs_function.html"><strong>hs() function</strong></a>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
 <pre>hs(&lt;hsMetricName&gt;
-  [and|or [not] source=&lt;sourceName&gt;] ...
+  [,|and|or [not] source=&lt;sourceName&gt;] ...
   [and|or [not] tag=&lt;sourceTag&gt;] ...
   [and|or [not] &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
 </pre>
@@ -101,7 +101,7 @@ Describes a set of events.  An <strong>eventsExpression</strong> may be one of t
 <ul>
 <li>An <a href="events_queries.html"><strong>events() function</strong></a>, which returns all events that match the specified event filters. 
 <pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
-  [and|or [not] &lt;filterName&gt;=&lt;filterValue&gt;] ... )
+  [,|and|or [not] &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
 Example:
 <strong>
@@ -131,7 +131,7 @@ Describes a set of traces.  An <strong>tracesExpression</strong> may be one of t
 <ul>
 <li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
 <pre>traces("&lt;fullOperationName&gt;" 
-  [and[ not]|or &lt;filterName&gt;=&lt;filterValue&gt;] ... )
+  [,|and|or [ not] &lt;filterName&gt;=&lt;filterValue&gt;] ... )
 </pre>
 Example:
 <strong>
@@ -358,7 +358,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <ul>
 <li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
 <li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
-<li markdown="span">`and not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
+<li markdown="span">`not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
@@ -1255,7 +1255,7 @@ Each function in the following table returns a set of one or more events, and ca
 </thead>
 <tbody>
 <tr>
-<td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
+<td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
 <td>Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>, for example:<br>
 <strong>events(type=alert, name="disk space is low", alertTag=App1.*)</strong> 
 <br>This function adds a set of events to a time-series chart. 
@@ -1358,7 +1358,7 @@ You use trace-data functions to find and filter any [trace data](tracing_basics.
 <tr>
 <td>
 <a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
-<br> [and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
 <td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>.</td>
 </tr>
@@ -1385,7 +1385,7 @@ For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</
 <tr>
 <td>
 <a href="spans_function.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
-<br> [and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
 <td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
 </tr>
