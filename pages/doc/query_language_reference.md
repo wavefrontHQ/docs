@@ -1126,6 +1126,73 @@ We support 3 groups of string manipulation functions. For each group:
 </tbody>
 </table>
 
+## <span id="misc"></span>Miscellaneous Time-Series Functions
+<table style="width: 100%;">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
+</td>
+<td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
+A time series exists if it has reported a data value in the last 4 weeks.  </td>
+</tr>
+<tr>
+<td>
+<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Returns the absolute value of the time series described by the expression.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_random.html">random()</a>
+</td>
+<td>Returns random values between 0.0 and 1.0. Repeated calls display different random values.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
+</td>
+</tr>
+<tr>
+<td>
+<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
+</td>
+<td>Returns the distance between a pair of coordinates.
+</td>
+</tr>
+<tr>
+<td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
+</td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## Histogram Functions
 
 You use histogram query functions to access the histogram distributions that Wavefront has computed from a metric. See [Wavefront Histograms](proxies_histograms.html) for background.
@@ -1308,9 +1375,9 @@ Each function in the following table returns a set of one or more events, and ca
 </table>
 
 
-### Event Conversion Functions
+### Events Conversion Functions
 
-Each event conversion function in the following table takes a set of events as input, and returns the results as a time series. You can therefore use an event conversion function as a **tsExpression** parameter in a time series query function.
+Each events conversion function in the following table takes a set of events as input, and returns the results as a time series. You can therefore use an events conversion function as a **tsExpression** parameter in a time series query function.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1329,8 +1396,8 @@ Each event conversion function in the following table takes a set of events as i
 <td>Converts <strong>eventsExpression</strong> into a single time series, where every data point is computed from the number of event boundaries that occurred at that time. </td>
 </tr>
 <tr>
-<td>ongoing(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns a continuous time series representing the number of ongoing events at any given moment within the query time window. See <a href="events_queries.html#when-does-an-event-query-return-events">When Does an Event Query Return Events?</a> for some background information.</td>
+<td><a href="event_ongoing.html">ongoing(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Converts <strong>eventsExpression</strong> into a continuous time series that represents the number of ongoing events at each moment of the chart's time window.</td>
 </tr>
 
 </tbody>
@@ -1401,73 +1468,6 @@ For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</
 <tr>
 <td>lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
 <td markdown="span">Filters the spans returned by **spansExpression** to include only spans that are shorter than **spanDuration**.  
-</td>
-</tr>
-</tbody>
-</table>
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-</tbody>
-</table>
-
-## <span id="misc"></span>Miscellaneous Functions
-<table style="width: 100%;">
-<colgroup>
-<col width="33%" />
-<col width="67%" />
-</colgroup>
-<thead>
-<tr>
-<th>Function</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
-</td>
-<td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
-</tr>
-<tr>
-<td>
-<a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
-A time series exists if it has reported a data value in the last 4 weeks.  </td>
-</tr>
-<tr>
-<td>
-<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Returns the absolute value of the time series described by the expression.</td>
-</tr>
-<tr>
-<td>
-<a href="ts_random.html">random()</a>
-</td>
-<td>Returns random values between 0.0 and 1.0. Repeated calls display different random values.</td>
-</tr>
-<tr>
-<td>
-<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
-</td>
-</tr>
-<tr>
-<td>
-<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
-</td>
-<td>Returns the distance between a pair of coordinates.
-</td>
-</tr>
-<tr>
-<td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Wrapping any query expression in <strong>bestEffort()</strong> tells Wavefront to use conservative targets for scheduling workloads. That means we limit thread use and asynchronous operations.
 </td>
 </tr>
 </tbody>

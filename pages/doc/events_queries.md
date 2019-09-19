@@ -248,7 +248,7 @@ Examples:
 
 ## When Does an Event Query Return Events?
 
-Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing the event in the UI, or, if you use the API, returning the event itself. The following illustration illustrates the behavior:
+Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing the event in the UI, or, if you use the API, returning the event itself. The following diagram illustrates the behavior:
 
 ![when events return](images/events_returns.svg)
 

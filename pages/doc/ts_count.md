@@ -71,7 +71,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 </tbody>
 </table>
 
-### Event Conversion Function
+### Events Conversion Function
 
 <table style="width: 100%;">
 <thead>
@@ -127,9 +127,9 @@ The `count()` histogram conversion function returns the number of data values in
 
 `count()` is a histogram conversion function because it takes histogram distributions as input, and returns time series. You can therefore use a histogram conversion function as a `tsExpression` parameter in a time series query function.
 
-### Event Conversion Function
+### Events Conversion Function
 
-The `count()` event conversion function returns a single time series in which each data point reports the number of event boundaries in `eventExpression` at that moment in time.
+The `count()` events conversion function returns a single time series in which each data point reports the number of event boundaries in `eventExpression` at that moment in time.
 
 The number of event boundaries at a particular moment in time is equal to: the number of events that started at that time, minus the number of events that ended at that time. Instantaneous events are represented as a single “0” value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).
 
