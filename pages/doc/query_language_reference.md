@@ -101,7 +101,7 @@ Describes a set of events.  An <strong>eventsExpression</strong> may be one of t
 <ul>
 <li>An <a href="events_queries.html"><strong>events() function</strong></a>, which returns all events that match the specified event filters. 
 <pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
-  [,|and|or [not] &lt;filterName&gt;=&lt;filterValue&gt;] ... )
+  [,|and|or [not] &lt;filter2Name&gt;=&lt;filter2Value&gt;] ... )
 </pre>
 Example:
 <strong>
