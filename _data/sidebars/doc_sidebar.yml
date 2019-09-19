@@ -402,10 +402,6 @@ entries:
           url: /events_queries.html
           output: web
 
-        - title: Advanced events() Queries
-          url: /events_queries_advanced.html
-          output: web
-
 
   - title: Integrations
     output: web
