@@ -619,7 +619,7 @@ entries:
         url: /wavefront_monitoring.html
         output: web
 
-      - title: Getting Data Samples With Spy
+      - title: Investigate Traffic With Spy and Wavefront Top
         url: /wavefront_monitoring_spy.html
         output: web
 
