@@ -1278,31 +1278,31 @@ Each function in the following table returns a set of one or more events, and ca
 </tr>
 <tr>
 <td><a href="event_since.html">since(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns synthetic ongoing events that start when the input events start, but have no end time. .</td>
+<td>Returns synthetic ongoing events that start when the input events start, but have no end time.</td>
 </tr>
 <tr>
-<td><a href="event_since.html">since(<strong>timeWindow</strong>)</a></td>
-<td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;. Specify <strong>timeWindow</strong> in seconds, minutes, hours, days or weeks (e.g., <strong> 1s, 1m, 1h, 1d, 1w</strong>. Default is minutes.</td>
+<td><a href="event_since.html">since(<strong>&lt;timeWindow&gt;</strong>)</a></td>
+<td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;.</td>
 </tr>
 <tr>
-<td>timespan(<strong>startTimestamp</strong>, <strong>endTimestamp</strong>)</td>
-<td>Creates a single synthetic event with the specified start and end timestamps. A timestamp can be expressed in epoch seconds or using a time expression such as "5 minutes ago". Example: timespan("5 minutes ago", "2 minutes ago").</td>
+<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>)</a></td>
+<td>Creates a single synthetic event with the specified start and end timestamps. </td>
 </tr>
 <tr>
-<td>first(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns a single event with the earliest start time.</td>
+<td><a href="event_first.html">first(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Returns the event that starts earliest, from among the specified set of events.</td>
 </tr>
 <tr>
-<td>last(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns a single event with the latest start time.</td>
+<td><a href="event_first.html">last(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Returns the event that starts latest, from among the specified set of events.</td>
 </tr>
 <tr>
-<td>firstEnding(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns a single event with the earliest end time.</td>
+<td><a href="event_firstEnding.html">firstEnding(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Returns the event that ends earliest, from among the specified set of events.</td>
 </tr>
 <tr>
-<td>lastEnding(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Returns a single event with the latest end time.</td>
+<td><a href="event_firstEnding.html">lastEnding(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Returns the event that starts latest, from among the specified set of events.</td>
 </tr>
 </tbody>
 </table>
@@ -1310,7 +1310,7 @@ Each function in the following table returns a set of one or more events, and ca
 
 ### Event Conversion Functions
 
-Each event conversion function in the following table takes events as input and returns the results as a time series. You can therefore use an event conversion function as a **tsExpression** parameter in a time series query function.
+Each event conversion function in the following table takes a set of events as input, and returns the results as a time series. You can therefore use an event conversion function as a **tsExpression** parameter in a time series query function.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1325,8 +1325,8 @@ Each event conversion function in the following table takes events as input and 
 </thead>
 <tbody>
 <tr>
-<td>count(<strong>&lt;eventsExpression&gt;</strong>)</td>
-<td>Converts <strong>eventsExpression</strong> into a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single &quot;0&quot; value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).</td>
+<td><a href="ts_count.html">count(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
+<td>Converts <strong>eventsExpression</strong> into a single time series, where every data point is computed from the number of event boundaries that occurred at that time. </td>
 </tr>
 <tr>
 <td>ongoing(<strong>&lt;eventsExpression&gt;</strong>)</td>

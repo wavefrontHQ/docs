@@ -11,8 +11,10 @@ summary: Reference to the count() function
 count(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 count(<hsExpression>)	
+
+count(<eventsExpression>)	
 ```
-You can use `count()` with time series and with histograms.
+You can use `count()` with time series, with histograms, and with events.
 
 <table style="width: 100%;">
 <colgroup>
@@ -27,6 +29,10 @@ A time series is counted as reporting even if it has interpolated values.</td></
 <tr>
 <td markdown="span">Histogram <br>conversion function</td>
 <td markdown="span">Returns time series that consist of the number of values in each histogram distribution described by the `hsExpression`.</td>
+</tr>
+<tr>
+<td markdown="span">Event <br>conversion function</td>
+<td markdown="span">Returns a single time series that reports the number of event boundaries that occur in `eventExpression` over time.</td>
 </tr>
 </tbody>
 </table>
@@ -65,11 +71,26 @@ Use one or more parameters to group by metric names, source names, source tag na
 </tbody>
 </table>
 
+### Event Conversion Function
+
+<table style="width: 100%;">
+<thead>
+<tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span"> [eventExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression describing the events to count over time. </td></tr>
+</tbody>
+</table>
+
+
 ## Description
 
 You can use `count()`:
 * With time series as an aggregation function for time series.
 * With histogram series as a conversion function.
+* With event sets as a conversion function.
 
 ### Time-Series Aggregation Function
 
@@ -105,6 +126,15 @@ You can use [`rawcount()`](ts_rawcount.html) to suppress interpolation.  See [St
 The `count()` histogram conversion function returns the number of data values in each distribution of each histogram series that is represented by the expression. The counts for a given histogram series are returned as a separate time series that contains a data point corresponding to each input distribution.
 
 `count()` is a histogram conversion function because it takes histogram distributions as input, and returns time series. You can therefore use a histogram conversion function as a `tsExpression` parameter in a time series query function.
+
+### Event Conversion Function
+
+The `count()` event conversion function returns a single time series in which each data point reports the number of event boundaries in `eventExpression` at that moment in time.
+
+The number of event boundaries at a particular moment in time is equal to: the number of events that started at that time, minus the number of events that ended at that time. Instantaneous events are represented as a single “0” value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).
+
+![Events count](images/count_events.svg)
+
 
 ## Examples
 

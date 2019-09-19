@@ -16,8 +16,6 @@ Controls how [events display in a chart](charts_events_displaying.html).
 Can be combined with [event set operators](#event-set-operators) and [event functions](query_language_reference.html#event-functions) that let you fine tune your `events()` query.
 
 
-
-
 ## Parameters
 
 <table style="width: 100%;">
