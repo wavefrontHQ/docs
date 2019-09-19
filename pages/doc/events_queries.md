@@ -9,7 +9,7 @@ summary: Learn how to write events() queries.
 ## Summary
 
 ```
-events("<filterName>"="<filterValue>” [,|and|or [not] "<filterName>"="<filterValue>"] ...)
+events("<filterName>"="<filterValue>” [,|and|or [not] "<filter2Name>"="<filter2Value>"] ...)
 ```
 
 Controls how [events display in a chart](charts_events_displaying.html).
@@ -25,7 +25,7 @@ Can be combined with [event set operators](#event-set-operators) and [event func
 </thead>
 <tr>
 <td>filterName</td>
-<td markdown="span"> An [event filter](#filters) that lets you limit which events to display. You can optionally specify multiple event filters combined with Boolean operators (`and`, `and not`, `or`).</td></tr>
+<td markdown="span"> An [event filter](#filters) that lets you limit which events to display. You can optionally specify multiple event filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span"> Value accepted by a specified `filterName`. </td></tr>

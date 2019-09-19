@@ -1322,14 +1322,14 @@ Each function in the following table returns a set of one or more events, and ca
 </thead>
 <tbody>
 <tr>
-<td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
+<td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or [not] <strong>&lt;filter2Name&gt;</strong>="<strong>&lt;filter2Value&gt;</strong>"] ...)</a></td>
 <td>Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>, for example:<br>
 <strong>events(type=alert, name="low space", alertTag=App1.*)</strong> 
 <br>This function adds a set of events to a time-series chart. 
 </td></tr>
 <tr>
 <td><a href="events_queries.html#event-set-operators">Event set operators</a></td>
-<td>Operators (such as union, intersect, - , d, m, o) that combine or compare two input <strong>eventsExpressions</strong>.  </td>
+<td>Operators (such as <strong>union, <strong>intersect</strong>, <strong>-</strong>, <strong>d</strong>, <strong>m</strong>, <strong>o</strong>) that combine or compare two input <strong>eventsExpressions</strong>.  </td>
 </tr>
 <tr>
 <td><a href="event_closed.html">closed(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
