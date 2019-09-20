@@ -1330,7 +1330,7 @@ Each function in the following table returns a set of one or more events, and ca
 </td></tr>
 <tr>
 <td><a href="events_queries.html#event-set-operators">Event set operators</a></td>
-<td>Operators (such as <strong>union, <strong>intersect</strong>, <strong>-</strong>, <strong>d</strong>, <strong>m</strong>, <strong>o</strong>) that combine or compare two input <strong>eventsExpressions</strong>.  </td>
+<td>Operators (such as <strong>union</strong>, <strong>intersect</strong>, <strong>-</strong>, <strong>d</strong>, <strong>m</strong>, <strong>o</strong>) that combine or compare two input <strong>eventsExpressions</strong>.  </td>
 </tr>
 <tr>
 <td><a href="event_closed.html">closed(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
