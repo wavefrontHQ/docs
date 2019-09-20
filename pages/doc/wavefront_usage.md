@@ -3,6 +3,7 @@ title: Monitoring Wavefront Usage
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_usage.html
+published: False
 summary: Monitor usage with ingestion policies and usage dashboards.
 ---
 
@@ -26,4 +27,4 @@ Ingestion policies allow you to group users and then examine their usage in the 
 
 ## Examine Usage
 
-You examine usage for users in different policies or for individual users from the Usage dashboard. 
+You examine usage for users in different policies or for individual users from the Usage dashboard.
