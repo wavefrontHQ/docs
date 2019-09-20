@@ -10,7 +10,7 @@ Event sets returned from [events() queries](events_queries.html) support several
 
 ## Event Set Combination Operators
 
-You can combine two event sets using <code>union</code>, <code>intersect</code>, and the minus ()<code>-</code>) operator.
+You can combine two event sets using <code>union</code>, <code>intersect</code>, and the minus (<code>-</code>) operator.
 
 ### Union
 The <code>union</code> operator returns all events that exist in either of the event sets. In its simplest form, this expression

@@ -24,7 +24,7 @@ Returns the differences between adjacent values in each time series described by
 <tr><th>Parameter</th><th>Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return differences for. </td></tr>
 </tbody>
 </table>

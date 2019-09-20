@@ -23,7 +23,7 @@ Returns the moving sum for each time series, over the time window set for the cu
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>A ts() expression, a constant, or a wildcard.  </td></tr>
 </tbody>
 </table>

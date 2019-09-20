@@ -19,7 +19,7 @@ A time series exists if it has reported a data value in the last 4 weeks.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to be tested for existence.</td></tr>
 </tbody>
 </table>

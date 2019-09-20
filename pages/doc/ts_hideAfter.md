@@ -25,7 +25,7 @@ For example, `hideAfter(10m)` hides data that’s newer than 10 minutes ago.
 <td>timeWindow</td>
 <td>Time where you want to start hiding data.  For example, <code>hideAfter(10m)</code> hides data that’s newer than 10 minutes ago. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression that you want to filter.</td>
 </tr>
 </tbody>

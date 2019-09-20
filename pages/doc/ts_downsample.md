@@ -24,7 +24,7 @@ Returns the values in the expression that occur in each time window. For example
 <td>The filter time window. The function filters the data so you see only the data for the specified time window.  </td>
 </tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression to downsample. </td>
 </tr>
 </tbody>

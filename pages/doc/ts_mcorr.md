@@ -22,12 +22,12 @@ Returns the correlation between two time series, specified by `expression1` and 
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
+<td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
-<td markdown="span"> [expression1](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression1](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the first set of time series to be correlated.   </td></tr><tr>
-<td markdown="span"> [expression2](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression2](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the second set of time series to be correlated.   </td></tr>
 <tr>
 <td markdown="span">inner</td>

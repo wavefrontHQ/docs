@@ -22,7 +22,7 @@ Returns `numberOfTimeSeries` non-random time series based on the expression. Thi
 <td>numberOfTimeSeries</td>
 <td>Number of time series that you want. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression that you want to filter.</td>
 </tr>
 </tbody>

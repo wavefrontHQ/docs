@@ -20,7 +20,7 @@ Returns 1 if `expression` is greater than or equal to `lower` and less than or e
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression to compare against an upper and lower limit. </td></tr>
 <tr>
 <td>lower</td>

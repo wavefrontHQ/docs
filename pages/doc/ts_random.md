@@ -26,7 +26,7 @@ When used as a value generator (no parameters), returns a series of random value
 <td>numberOfTimeSeries</td>
 <td>Number of time series in the random subset. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series that you want to filter.</td>
 </tr>
 </tbody>

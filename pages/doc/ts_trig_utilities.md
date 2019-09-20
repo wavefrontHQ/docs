@@ -46,7 +46,7 @@ Converts between radians and degrees.
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing input values to be converted. </td></tr>
 </tbody>
 </table>

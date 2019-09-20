@@ -19,20 +19,20 @@ Returns the percentage of anomalous points in each time series described by the 
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span">testWindow</td>
-<td markdown="span">Length of the _test window_, which is the moving [time window](query_language_reference.html#query-elements) to check for anomalous points. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
+<td markdown="span">Length of the _test window_, which is the moving [time window](query_language_reference.html#common-parameters) to check for anomalous points. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr>
 <tr><td markdown="span">confidenceFactor</td>
 <td markdown="span"> A number from 0.0 to 1.00 (inclusive) that expresses the _confidence factor_ for determining the range of expected values. This number is used to compute the range as a number of standard deviations around the mean expected value.
 Default is 0.99 if this parameter is not specified.
 </td></tr>
 <tr><td markdown="span">historyWindow</td>
-<td markdown="span">Amount of time in the _history window_, which is the [time window](query_language_reference.html#query-elements) immediately preceding the chart window. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1 week (1w) if this parameter is not specified.
+<td markdown="span">Amount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) immediately preceding the chart window. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1 week (1w) if this parameter is not specified.
 </td></tr>
 <tr><td markdown="span">alignWindow</td>
-<td markdown="span">Size (duration) of the buckets for summarizing data values, to regularize the reporting interval of the time series. The reported values in a bucket are summarized by averaging. You can specify a [time window](query_language_reference.html#query-elements) measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is the bucket size of the chart (1bw), if this parameter is not specified. You must specify `historyWindow` as well if you want to use this parameter.
+<td markdown="span">Size (duration) of the buckets for summarizing data values, to regularize the reporting interval of the time series. The reported values in a bucket are summarized by averaging. You can specify a [time window](query_language_reference.html#common-parameters) measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is the bucket size of the chart (1bw), if this parameter is not specified. You must specify `historyWindow` as well if you want to use this parameter.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to inspect for anomalous points. </td></tr>
 </tbody>
 </table>

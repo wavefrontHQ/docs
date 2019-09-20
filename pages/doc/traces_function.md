@@ -3,16 +3,16 @@ title: traces() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: ts_traces.html
+permalink: traces_function.html
 summary: Learn how to write traces() queries.
 ---
 
 ## Summary
 
 ```
-traces("<fullOperationName>" [and|or|not <filterName>="<filterValue>"])
+traces("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
-traces(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
+traces(<filterName>="<filterValue>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 ```
 Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
@@ -29,7 +29,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
+<td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `and not`, `or`).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>
@@ -54,7 +54,7 @@ For more information about the set of returned traces, see [Understanding Trace 
 
 To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query. 
 
-You can specify the length of the qualifying spans by including a [`spans()`](ts_spans.html) expression as the `fullOperationName` parameter.
+You can specify the length of the qualifying spans by including a [`spans()`](spans_function.html) expression as the `fullOperationName` parameter.
 
 ## Examples
 
@@ -69,7 +69,7 @@ To display the traces that include spans for any operation in the `styling` serv
 - `limit(100, traces("beachshirts.styling.*"))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces("beachshirts.*.*" and source=prod-app1 or source=prod-app10))`
+- `limit(100, traces("beachshirts.*.*" and (source=prod-app1 or source=prod-app10)))`
 
 <a name="filters"></a>
 

@@ -22,10 +22,10 @@ Raises the base expression to the power of the exponent expression.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [baseExpression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [baseExpression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Expression specifying each base to be raised to the exponent. </td></tr>
 <tr>
-<td markdown="span"> [exponentExpression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [exponentExpression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Expression specifying the exponent to raise each base to. </td></tr>
 <tr>
 <td>inner</td>
