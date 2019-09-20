@@ -8,29 +8,32 @@ summary: Reference to the filter() function
 ---
 ## Summary
 ```
-filter(<expression> [, <metricName>|source=<sourceName>|tagk=<pointTagKey>])
+filter(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
+
+where <filterN> is: 
+    <metricName> | source=<sourceName> | <pointTagKey>=<pointTagValue> 
 ```
-Filters the expression to display only the time series that match the specified metric, source, or point tag. To filter by a particular source or point tag, specify `source=` or `tagk=`, respectively. You can specify only one filtering parameter per function call.
+Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, or point tags. 
 
 ## Parameters
-<table>
+<table style="width: 100%;">
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="40%">Parameter</th><th width="60%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression that you want to filter.</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series you want to filter.</td>
 </tr>
 <tr>
-<td>&lt;metricName&gt;&vert;source=&vert;tagk=</td>
-<td>The metric, source or point tag to filter by. </td></tr>
+<td>&lt;metricName&gt;&vert;source=&vert;tag=&vert;&lt;pointTagKey&gt;=</td>
+<td markdown="span">A metric, source, source tag, or point tag to filter by. You must specify at least one filter, which can be of any type. Use Boolean operators to combine multiple filters. For example, <br>**(source=app-1 or source=app-2) and env=dev**.</td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `filter()` function filters the expression to display only the time series that match the specified metric, source, or point tag. To filter by a particular source or point tag, specify `source=` or `tagk=`, respectively. Set `pointTagKey` to the unique point tag key to filter by.
+The `filter()` function filters the expression to display only the time series that match the specified metric, source, point tag, or combination of these filters. 
 
 `filter()` is similar to `retainSeries()`, but does not support matching a source tag.
 

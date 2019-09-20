@@ -542,16 +542,17 @@ The results are computed from real reported data values only, with no interpolat
 <td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;tsExpression&gt;</strong> <strong>[, &lt;metricName&gt;| source=&lt;sourceName&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
-<td>Retains only the time series in  <strong>tsExpression</strong> that match the specified metric, source, or point tag. No key is required to filter a time series. <strong>filter()</strong> is similar to <strong>retainSeries()</strong>, but does not support matching a source tag.</td>
+<td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
+<td>Retains only the time series in  <strong>tsExpression</strong> that match one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), or point tags. Use Boolean operators to combine multiple filters. 
+<br> Does not support filtering by source tag.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;tsExpression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
-<td>Retains only the time series in <strong>tsExpression</strong> that match the specified metric, source, source tag, or point tag. No key is required to retain a time series. </td>
+<td markdown="span"><a href="ts_retainSeries.html">retainSeries(<strong>&lt;tsExpression&gt;,  &lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
+<td>Retains only the time series in <strong>tsExpression</strong> that match one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters.  </td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;tsExpression&gt; [, &lt;metricName&gt;|source=&lt;sourceName&gt;|tag=&lt;sourceTag&gt;|tagk=&lt;pointTagKey&gt;]</strong>)</a></td>
-<td>Suppresses any time series in <strong>tsExpression</strong> that matches the specified metric, source, source tag, or point tag. No key is required to remove a time series.
+<td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;tsExpression&gt;, &lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
+<td>Suppresses any time series in <strong>tsExpression</strong> that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters. 
 </td>
 </tr>
 <tr>
