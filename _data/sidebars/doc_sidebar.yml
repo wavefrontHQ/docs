@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2019-30.x Release Notes
+      url: /2019.30.x_release_notes.html
+      output: web
+
     - title: 2019-26.x Release Notes
       url: /2019.26.x_release_notes.html
       output: web
@@ -611,7 +615,7 @@ entries:
         url: /wavefront_monitoring.html
         output: web
 
-      - title: Getting Data Samples With Spy
+      - title: Investigate Traffic With Spy and Wavefront Top
         url: /wavefront_monitoring_spy.html
         output: web
 
