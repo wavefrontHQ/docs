@@ -20,10 +20,10 @@ Returns only the points in `expression2` that are below `expression1`. `expressi
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression1](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression1](query_language_reference.html#query-expressions)</td>
 <td>Threshold expression. Often a constant. </td></tr>
 <tr>
-<td markdown="span"> [expression2](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression2](query_language_reference.html#query-expressions)</td>
 <td>Expression that you want to filter.</td>
 </tr>
 <tr>

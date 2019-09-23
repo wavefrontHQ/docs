@@ -20,16 +20,16 @@ Returns points from `elseExpression` otherwise.
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td markdown="span"> [conditionExpression](query_language_reference.html#expressions)</td>
+<tr><td markdown="span"> [conditionExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to be used as the condition. For example, if the condition is <strong>cpu.loadavg.1m>100</strong>, then the condition evaluates to true if the load is greater than 100, and to false otherwise.<br />
 This expression typically uses a comparison operator.</td></tr>
-<tr><td markdown="span"> [thenExpression](query_language_reference.html#expressions)</td>
+<tr><td markdown="span"> [thenExpression](query_language_reference.html#query-expressions)</td>
 <td>Required expression that describes the time series to return when the condition is met.
 <ul>
 <li>If <strong>conditionExpression</strong> is true for a point, we return the corresponding point from  <strong>thenExpression</strong>.</li>
 <li>If <strong>conditionExpression</strong> is false for a point, we return nothing for that point. </li>
 </ul></td></tr>
-<tr><td markdown="span"> [elseExpression](query_language_reference.html#expressions)</td>
+<tr><td markdown="span"> [elseExpression](query_language_reference.html#query-expressions)</td>
 <td>Optional expression that describes the time series to return when the condition is not met. <br />
 If you include <strong>elseExpression</strong>:
 <ul><li>If <strong>conditionExpression</strong> is true for a point, we return the corresponding point from <strong>thenExpression</strong>, that is, we ignore <strong>elseExpression</strong></li>
@@ -41,7 +41,7 @@ If you include <strong>elseExpression</strong>:
 ## Description
 The `if()` conditional function returns data values based on the specified condition. You can determine what values are returned if the condition is true, and what values are returned if the condition is false. The Wavefront system treats a 0 value as false, and all other values as true.
 
-Each of the [expressions](query_language_reference.html#expressions) can be constant or a ts() expression (query).
+Each of the [expressions](query_language_reference.html#query-expressions) can be constant or a ts() expression (query).
 
 ### Interpolation
 

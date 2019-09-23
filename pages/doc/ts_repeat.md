@@ -7,7 +7,7 @@ summary: Reference to the repeat string manipulation function
 ---
 ## Summary
 ```
-repeat(<metric|source|PointTag>, <integer>, <expression>)
+repeat(metric|source|<pointTagKey>, <integer>, <expression>)
 ```
 Repeats a string extracted from an expression a specified number of times.
 
@@ -19,13 +19,13 @@ Repeats a string extracted from an expression a specified number of times.
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span">metric|source|PointTag</td>
-<td>The metric, source, or point tag from the expression.</td></tr>
+<td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
+<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to extract a string from.</td></tr>
 <tr>
 <td markdown="span">integer</td>
-<td>The integer that specifies how many times to repeat the expression. </td></tr>
+<td>The integer that specifies how many times to repeat the extracted string. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>The expression that contains the metric, source, or point tag.</td></tr>
 </tbody>
 </table>

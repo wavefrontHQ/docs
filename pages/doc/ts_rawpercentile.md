@@ -27,7 +27,7 @@ Use [`percentile()`](ts_percentile.html) to include interpolated values.
 <td>percentage</td>
 <td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest. You can include as many decimal points as you like.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to estimate the specified percentile for. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>

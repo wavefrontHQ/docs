@@ -54,7 +54,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <td>source tag</td>
 <td>Filter sources.</td>
 <td markdown="span">Add source tags using API, CLI, or UI (discussed below). </td>
-<td markdown="span">[Select only tagged sources](query_language_reference.html#tags-in-queries) in your query.</td>
+<td markdown="span">[Select only tagged sources](#why-source-tags) in your query.</td>
 </tr>
 <tr>
 <td>alert tag</td>
@@ -67,7 +67,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <td>event tags</td>
 <td>Filter and find events.</td>
 <td markdown="span">[Create or add event tags](events.html#creating-a-user-event).</td>
-<td markdown="span">Use filters in [Basic events() Queries](events_queries.html).</td>
+<td markdown="span">Use filters in [events() Queries](events_queries.html).</td>
 </tr>
 </tbody>
 </table>
@@ -146,8 +146,12 @@ You can add source tags explicitly from the UI, CLI, or API.
 
 Here's some background info:
 * Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help.
-* Point tags are key-value pairs, in contrast, source tags are just strings -- you can only choose the value.
-* Your use case determines how to use source tags:
+* Source tags are just strings -- you can only choose the value. (In contrast, point tags are key-value pairs.)
+
+### Why Source Tags?
+Source tags let you to group sources. You can specify a source tag in a query to refer to an entire group of sources in a simple expression. For example, if you have two sources, `appServer15` and `appServer16` you can add the source tag `app` to both sources to specify that both are app servers.  You can then query `ts(cpu.load.metric, tag=app)` instead of `ts(cpu.load.metric, source=appServer15 or source=appServer16)`
+
+Your use case determines how to use source tags:
   - Use a source tag hierarchy, that is, have source tags dot-delimited, for example `env.cluster.role.role1`.
   In that case, your query might include `... and tag=env.cluster.role.*`
   - Use source tags as intersection sets, that is, use multiple tags (e.g. `env`, `cluster`, `role`, etc).

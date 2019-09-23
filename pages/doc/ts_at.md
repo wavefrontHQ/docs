@@ -21,7 +21,7 @@ Returns a single current or past reported data value from the time series descri
 <tr><td> atTime</td>
 <td>The report time of the data value to be returned, expressed as:
 <ul>
-<li markdown="span">An amount of time before the current time. You can specify a [time window](query_language_reference.html#query-elements) based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</li>
+<li markdown="span">An amount of time before the current time. You can specify a [time window](query_language_reference.html#common-parameters) based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</li>
 <li>A quoted string (<strong>"now"</strong>) indicating the current time.</li>
 <li>A quoted string indicating a time relative to your chart. You can specify the start time of your chart (<strong>"start"</strong>), 
 or the end time of your chart (<strong>"end"</strong>).</li>
@@ -29,11 +29,11 @@ or the end time of your chart (<strong>"end"</strong>).</li>
 </td></tr>
 <tr>
 <td markdown="span">lookbackWindow</td>
-<td markdown="span">The period of time before `atTime` in which to look for a data value to return, if no data is reported at `atTime`. You can specify a [time window](query_language_reference.html#query-elements) based on the clock or calendar (1s, 1m, 1h, 1d, 1w), or the window length (1vw) of the chart.
+<td markdown="span">The period of time before `atTime` in which to look for a data value to return, if no data is reported at `atTime`. You can specify a [time window](query_language_reference.html#common-parameters) based on the clock or calendar (1s, 1m, 1h, 1d, 1w), or the window length (1vw) of the chart.
 Default is `1h` if `lookbackWindow` is not specified.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return a data value from. </td></tr>
 </tbody>
 </table>

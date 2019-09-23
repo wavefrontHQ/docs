@@ -125,7 +125,7 @@ Suppose you want to find traces that contain spans for an operation called `noti
 
 ### Optionally View the Corresponding Trace Query
 
-Query Builder generates a query that includes the [`traces()` function](ts_traces.html) and one or more filtering functions like `limit()`. For example, you can: 
+Query Builder generates a query that includes the [`traces()` function](traces_function.html) and one or more [filtering functions](traces_function.html#filtering-functions). For example, you can: 
 
 1. Construct a query with Query Builder as shown [above](#example).
 2. [Toggle to the Query Editor](#use-query-editor-power-users) to see what the corresponding functions look like. 
@@ -188,7 +188,7 @@ If you both limit and sort the query results, sorting applies after limiting. Fo
 1. Select **Applications > Traces** in the task bar to display the Traces browser.
 2. Click the icon to toggle to Query Editor:  
     ![tracing query toggle](images/tracing_query_toggle.png)
-3. Type a query that includes the [`traces()` function](ts_traces.html):  
+3. Type a query that includes the [`traces()` function](traces_function.html):  
 ![tracing query editor](images/tracing_query_editor_populated.png) 
 4. Click **Search** in the query bar to update the list of traces.
 

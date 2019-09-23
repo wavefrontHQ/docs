@@ -29,10 +29,10 @@ These are similar to the <a href="ui_chart_reference.html#general"><strong>Summa
 Default is to rank each series according to the value of its last (rightmost) data point on the current chart, if this parameter is not specified.</td>
 </tr>
 <tr>
-<td markdown="span">[timeWindow](query_language_reference.html#query-elements)</td>
+<td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
 <td markdown="span">Length of the time window over which to summarize data values in a time series, if a summarization method is specified. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1vw, if this parameter is not specified.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to be ranked and filtered.</td>
 </tr>
 </tbody>

@@ -22,7 +22,7 @@ Returns the natural exponential for each data value described by the expression.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Expression specifying the powers to raise the constant _e_ to. </td></tr>
 </tbody>
 </table>

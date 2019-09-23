@@ -99,10 +99,10 @@ Performs the indicated trigonometric function on each data value described by th
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Expression describing input values that are interpreted as indicated in the [table above](#trig-functions). **Note:** You can use [`toRadians()`](ts_trig_utilities.html) to convert values from numbers of degrees to numbers of radians.</td></tr>
 <tr>
-<td markdown="span"> [y-expression](query_language_reference.html#expressions), [x-expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [y-expression](query_language_reference.html#query-expressions), [x-expression](query_language_reference.html#query-expressions)</td>
 <td markdown="span">Used in `atan2()`. Expressions describing values that represent pairs of y and x coordinates. </td></tr>
 </tbody>
 </table>

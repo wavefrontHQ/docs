@@ -406,7 +406,7 @@ entries:
           url: /charts_events_displaying.html
           output: web
 
-        - title: Basic events() Queries
+        - title: events() Queries
           url: /events_queries.html
           output: web
 
@@ -551,7 +551,7 @@ entries:
       output: web
 
     - title: traces() Function
-      url: /ts_traces.html
+      url: /traces_function.html
       output: web
 
     - title: Traces, Spans, and RED Metrics
@@ -623,7 +623,7 @@ entries:
         url: /wavefront_monitoring.html
         output: web
 
-      - title: Getting Data Samples With Spy
+      - title: Investigate Traffic With Spy and Wavefront Top
         url: /wavefront_monitoring_spy.html
         output: web
 

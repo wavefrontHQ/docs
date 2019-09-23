@@ -3,18 +3,18 @@ title: spans() Function
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
-permalink: ts_spans.html
+permalink: spans_function.html
 summary: Learn how to write spans() queries.
 ---
 
 ## Summary
 
 ```
-spans("<fullOperationName>" [and|or|not <filterName>="<filterValue>"])
+spans("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
-spans(<filterName>="<filterValue>" [and|or|not <filterName>="<filterValue>"])
+spans(<filterName>="<filterValue>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 ```
-Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](ts_traces.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
+Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](traces_function.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
 ### Parameters
 
@@ -31,7 +31,7 @@ Full name of the operation that each matching span must represent. For example, 
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#filters) that each matching span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters separated by the Boolean operators (and, or, not).</td></tr>
+<td markdown="span"> A [span filter](#filters) that each matching span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `and not`, `or`).</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>
@@ -42,7 +42,7 @@ Full name of the operation that each matching span must represent. For example, 
 ## Description
 The `spans()` function finds spans that match the description you specify. You describe the spans of interest by providing an operation name, one or more filters, or a combination of these, to specify the characteristics that the spans must match.
 
-You use `spans()` by including it as a parameter of the [`traces()`](ts_traces.html) function. Doing so allows you to filter traces according to the duration of a particular span. For example, the following query returns a trace only if it has at least one span that both represents a `makeShirts` operation and lasts longer than 11 seconds: 
+You use `spans()` by including it as a parameter of the [`traces()`](traces_function.html) function. Doing so allows you to filter traces according to the duration of a particular span. For example, the following query returns a trace only if it has at least one span that both represents a `makeShirts` operation and lasts longer than 11 seconds: 
 
 ```
 limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))
@@ -76,7 +76,7 @@ To display the traces that include short spans for any operation in the `styling
 - `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.*"))))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces(spans("beachshirts.*.*" and source=prod-app1 or source=prod-app10)))`
+- `limit(100, traces(spans("beachshirts.*.*" and (source=prod-app1 or source=prod-app10))))`
 
 
 <a name="filters"></a>

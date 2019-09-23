@@ -19,7 +19,7 @@ Groups the data values of a time series into buckets of size <strong>timeWindow<
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [timeWindow](query_language_reference.html#query-elements)</td>
+<td markdown="span"> [timeWindow](query_language_reference.html#common-parameters)</td>
 <td markdown="span">Size (duration) of the buckets into which data values are grouped. 
 You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified. </td>
 </tr>
@@ -30,7 +30,7 @@ These are similar to the <a href="ui_chart_reference.html#general"><strong>Summa
 Default is mean (average).</td>
 </tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to organize into buckets. </td></tr>
 </tbody>
 </table>

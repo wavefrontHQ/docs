@@ -1,22 +1,32 @@
 ---
-title: Getting Data Samples With Spy
+title: Investigate Traffic With Spy and Wavefront Top
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring_spy.html
-summary: Use HTTP endpoints to get samples of the metric points, spans, or ID allocations from your Wavefront instance.
+summary: Use HTTP endpoints to get samples data or IDs, or use wftop to examine them with a keyboard-driven UI.
 ---
 
-Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting.
+Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that your Wavefront instance is currently ingesting. Examining these endpoints helps you understand the data shape and avoid slowdown or other problems.
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
-**Note:** For an interactive alternative to the `spy` endpoints, use Wavefront Top (`wftop`), which is an [open source tool](https://github.com/wavefrontHQ/wftop).
+
+## Getting Started with Spy and Wavefront Top
+
+Use spy to extract information programatically. This page give details on the available endpoints and associated parameters.
+
+Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [Github](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://www.wavefront.com/wavefront-top-monitor-your-wavefront-instance-in-just-three-clicks/), or watch a short video.
+
+<p><a href="https://youtu.be/XROitQwFCJs"><img src="/images/v_wftop.png" style="width: 700px;"/></a>
+</p>
+
+
 
 ## Why `spy`?
 
 The Wavefront `spy` endpoints can provide insight into new data that is being ingested by your Wavefront instance. For example, you might analyze `spy` results to:
 * Verify that your Wavefront instance is ingesting the data points that you expect.
-* Troubleshoot a sudden change in the rate at which new data is ingested. 
+* Troubleshoot a sudden change in the rate at which new data is ingested.
 
 Wavefront supports the `spy` endpoints shown in the following table:
 
@@ -35,7 +45,7 @@ Wavefront supports the `spy` endpoints shown in the following table:
 </tbody>
 </table>
 
-Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line. 
+Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
 **Note:** A `spy` endpoint returns a sample of the requested data, and you specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is taken from just the data that is ingested on a single shard, even when you request 100% sampling.
 
@@ -52,7 +62,7 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of the
 
 To get a sampling of ingested data points, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```https://<cluster>.wavefront.com/api/spy/points``` 
+  ```https://<cluster>.wavefront.com/api/spy/points```
 
 To get a sampling of points with specific characteristics, add one or more of the following parameters:
 
@@ -135,7 +145,7 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <tr><td markdown="span">spanTagKey</td>
 <td markdown="span">List a span only if it has the specified span tag key. Add this parameter multiple times to specify multiple span tags, e.g. `spanTagKey=cluster&spanTagKey=shard` </td></tr>
 <tr><td markdown="span">sampling</td>
-<td markdown="span">0 to 1, with 0.01 being 1%.  
+<td markdown="span">0 to 1, with 0.01 being 1%.
  </td></tr>
 </tbody>
 </table>
@@ -182,7 +192,7 @@ Your Wavefront instance includes an HTTP endpoint that provides a window into th
 
 ### Endpoint and Parameters for New ID Assignments
 
-To get a list of new ID assignments, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance: 
+To get a list of new ID assignments, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
   ```https://<cluster>.wavefront.com/api/spy/ids```
 
@@ -195,7 +205,7 @@ To get ID assignments for a specific type of new item, add one or more of the fo
 </thead>
 <tr><td markdown="span">type</td>
 <td>
-Type of new items you want to see ID assignments for: 
+Type of new items you want to see ID assignments for:
 <ul><li>
 METRIC - Metric names
 </li>

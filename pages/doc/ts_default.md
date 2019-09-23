@@ -32,7 +32,7 @@ Despite its apparent simplicity, the `default()` function is one of the most mis
 <td>defaultValue</td>
 <td>Value that you want to use in places where there are gaps in the data. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>Expression in which you want to replace gaps in data with a default value. </td>
 </tr>
 </tbody>

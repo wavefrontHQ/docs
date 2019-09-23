@@ -19,7 +19,7 @@ Returns a ts() expression that is the combination of two or more ts() expression
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#expressions)</td>
+<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
 <td>A ts() expression that you want to include in the collection.  </td></tr>
 </tbody>
 </table>
