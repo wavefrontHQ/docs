@@ -34,7 +34,7 @@ On the Applications page, you can:
 * Inspect RED metrics to obtain a status summary for an application:
   - The total number of requests that are represented by the application's spans. 
   - The percentage of the application's spans that contain errors.
-  - The span duration (in seconds) at the 95th percentile across the application.
+  - The span duration (in milliseconds) at the 95th percentile across the application.
 * Sort the displayed applications by name or by a RED metric.
 * Click an application name for an overview of its services.
 
@@ -51,7 +51,7 @@ On the page for a particular application, you can:
 * Inspect RED metrics to obtain a status summary for a service:
   - The total number of requests that are represented by the service's spans. 
   - The percentage of the service's spans that contain errors.
-  - The span duration (in seconds) at the 95th percentile across the service.
+  - The span duration (in milliseconds) at the 95th percentile across the service.
 
 * Drill down from a service box:
   - Click **Details** to go to the dashboard for that service.
