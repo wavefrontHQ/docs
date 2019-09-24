@@ -554,6 +554,7 @@ The results are computed from real reported data values only, with no interpolat
 <td markdown="span"><a href="ts_removeSeries.html">removeSeries(<strong>&lt;tsExpression&gt;, &lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
 <td>Suppresses any time series in <strong>tsExpression</strong> that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters. 
 </td>
+</tr>
 <tr>
 <td><a href="ts_sample.html">sample(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>&lt;tsExpression&gt;)</strong></a></td>
 <td>Returns a non-random sample set of <strong>numberOfTimeSeries</strong> time series based on <strong>tsExpression</strong>. Repeated calls display the same sample set as long as the underlying set of time series stays the same. </td>
