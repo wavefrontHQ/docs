@@ -176,30 +176,51 @@ Query expressions use a number of common parameters to specify names and values 
 <tbody>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;metricName&gt;</span></td>
-<td>The name of a metric that describes one or more time series in a <strong>tsExpression</strong>. Example: 
-<pre>cpu.load.metric</pre>
+<td>The name of a metric that describes one or more time series in a <strong>tsExpression</strong>. Examples: 
+<pre>
+cpu.load.metric
+cpu.*.metric
+cpu.load.metric or cpu.idle.metric
+</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;hsMetricName&gt;</span></td>
-<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name contains the name of the metric from which distributions were calculated, and has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). Example: 
-<pre>users.settings.numberOfTokens.m</pre>
+<td>The name of a histogram metric that describes one or more histogram series in an <strong>hsExpression</strong>. A histogram metric name contains the name of the metric from which distributions were calculated, and has an extension (<strong>.m</strong>, <strong>.h</strong>, or <strong>.d</strong>) that indicates the histogram's aggregation interval (minute, hour, or day). Examples: 
+<pre>
+request.latency.web.m
+request.latency.*.m
+request.latency.*.m and not request.latency.web.m
+</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceName&gt;</span></td>
 <td>The name of a source, such as a host or container, that emits the data of interest (time series, histogram series, or trace data). Specify a source name with the <strong>source</strong> keyword.
-Example:
-<pre>source=appServer15</pre>
+Examples:
+<pre>
+source=appServer15
+source=app-1*
+source=app-10 or source=app-20
+</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;sourceTag&gt;</span></td>
-<td>A source tag that is assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
-Example: <pre>tag=app.*</pre>
+<td>A <a href="tag-overview.html#add-source-tags">source tag</a> that has been assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
+Examples: 
+<pre>
+tag=appServers
+tag=env.cluster.role.*
+tag=appServer and tag=local
+</pre>
 </td></tr>
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span></td>
 <td>The key and value of a point tag that is associated with the data of interest.
-Example: 
-<pre>region="us-west-2a" or region="us-west-2b"</pre>
+Examples: 
+<pre>
+region="us-west-2a"
+region="us-west*"
+region="us-west-2a" or region="us-west-2b"
+</pre>
 
 <strong>Note:</strong> Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series. Event tags, alert tags, and span tags exist for identifying other types of data. See <a href="tags_overview.html" >Organizing with Tags</a>  for information on the different types of tags and how to use them. 
 
@@ -222,11 +243,11 @@ The default unit is minutes if the unit is not specified.
 </table>
 
 
-**Note:**
+**Notes:**
 
 * Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
 
-* Do not use names of functions such as `default` or `sum` or other query language elements as the name of a metric, source, source tag, point tag, or point tag value. If you must, surround the element with double quotes. For example, if you're using a point tag named `default`, use `"default"`.
+* Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
 
 <table style="width: 100%;">
 <tbody>
@@ -241,7 +262,7 @@ You can use query line variables, aliases, and dashboard variables as shortcuts 
 
 You can combine wildcards, aliases, query line variables, and dashboard variables in the same query line.
 
-<table style="width: 100%;">
+<table style="width: 100%;" id="wildcardAliasVariable">
 <colgroup>
 <col width="20%" />
 <col width="80%" />
@@ -264,12 +285,14 @@ Matches strings or components in a name or a value.
 </ul>
 Examples:
 <ul>
-<li> <strong>ts(~sample.cpu.usage.&#42;)</strong> matches metric names <code>~sample.cpu.usage.user.percentage</code> and <code>~sample.cpu.usage.percentage</code>.
+<li> <strong>~sample.cpu.usage.&#42;</strong> matches metric names <code>~sample.cpu.usage.user.percentage</code> and <code>~sample.cpu.usage.percentage</code>.
  </li>
 
-<li><strong>hs(tracing.derived.&#42;.duration.micros.m, application=beachshirts)</strong> matches histogram duration metric names for all operations of all services of the <code>beachshirts</code> application.
+<li><strong>tracing.derived.beachshirts.&#42;.duration.micros.m</strong> matches histogram duration metric names for all operations of all services of the <code>beachshirts</code> application.
 </li>
 
+<li><strong>httpstatus.api.* and ("*.POST.*" or "*.PUT.*")</strong> matches <code>httpstatus.api</code> metrics for <code>POST</code> or <code>PUT</code> operations.
+</li>
 
 <li><strong>source=app-1&#42;</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
  </li>
@@ -284,22 +307,31 @@ Examples:
 <!--- Alias ------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">alias</span></td>
-<td>Defines a convenient name for referring to a <strong>tsExpression</strong> any number of times in a query.  
+<td>Defines a convenient name for referring to a <strong>tsExpression</strong> any number of times in a query. You can define multiple aliases in the same query. 
 <ul>
-<li>Use this syntax to define an alias within a query: <strong>&lt;tsExpression&gt; as &lt;aliasName&gt;</strong></li>
-<li>Use this syntax to reference the alias in the same query: <strong>$aliasName</strong></li>
+<li>Use <strong>as</strong> to define an alias within a query: <strong>&lt;tsExpression&gt; as &lt;aliasName&gt;</strong></li>
+<li>Use <strong>$</strong> to reference the alias in the same query: <strong>$aliasName</strong></li>
+<li>But omit the <strong>$</strong> prefix when using aliases in a <a href="query_language_series_joining.html#join-syntax-overview">join() query</a>: <strong>aliasName</strong></li>
 </ul>
-Example:
-<pre>if(ts(requests.latency, source=app-1*) as latency, $latency)</pre>
+Examples:
+<pre>
+if(ts(requests.latency, source=app-1*) as latency, $latency)
 
-<strong>Notes:</strong>
+join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... )
+</pre>
+
+<strong>Rules for valid alias names:</strong>
 <ul>
-<li>Best practice: Use alias names that are three letters or longer.</li>
-<li>Don't use an <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a> (such as p, h, k, M, G, T, P, E, Z, Y, etc.) as an alias name.</li>
-<li>Don't use the name of any Wavefront query function. For example, <strong>$sum</strong> is not valid.</li>
-<li>Alias names are case sensitive. For example, <strong>$Sum</strong> is valid.</li>
-<li markdown="span">Put any numeric characters at the end of the alias name. For example, <strong>$test123</strong> is valid, but <strong>$1test</strong> and <strong>$test4test</strong> are not valid.</li>
-<li>You can define multiple aliases in the same query.</li>
+<li>Best practice: Use alias names that are three characters or longer.</li>
+<li>Don't use a Wavefront reserved word as an alias name. For example, don't use: 
+  <ul>
+  <li>The name of any Wavefront query function. For example, <strong>sum</strong> is not valid.</li>
+  <li>An <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a>. For example: p, h, k, M, G, T, P, E, Z, Y are not valid.</li>
+  <li>An <a href="https://en.wikipedia.org/wiki/Allen%27s_interval_algebra">Allen's interval algebra operator</a>. For example: m, mi, o, s, d, f are not valid.</li>
+  </ul>
+</li>
+<li>Alias names are case sensitive. For example, <strong>Sum</strong> is valid.</li>
+<li markdown="span">Put any numeric characters at the end of the alias name. For example, <strong>test123</strong> is valid, but <strong>1test</strong> and <strong>test4test</strong> are not valid.</li>
 </ul>
 </td></tr>
 
@@ -996,9 +1028,9 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 We support 3 groups of string manipulation functions. For each group:
 * The first argument is a metric, source, or point tag to manipulate.
 * Additional arguments depend on the group:
-  - The first group takes an expression as the second argument, for example, `length(service, ${ts})`.
-  - The second group takes a string and an expression arguments, for example, `startsWith(service, "newV", ${ts})` Use those functions, for example, to see whether a specified string is found in an expression.
-  - The third group takes one or two numbers and allows you for example, to find the character at a certain location, for example, `charAt(service, 3, ${ts})`.
+  - The first group takes an expression as the second argument. For example: `length(service, ${ts})`
+  - The second group takes a string and an expression arguments and allows you to see whether a specified string is found in an expression. For example: `startsWith(service, "newV", ${ts})` 
+  - The third group takes one or two numbers and allows you to find the character at a certain location. For example: `charAt(service, 3, ${ts})`
 <table style="width: 100%;">
 <colgroup>
 <col width="50%" />
@@ -1204,8 +1236,8 @@ Each function in the following table returns one or more series of histogram dis
 
 <table style="width: 100%;">
 <colgroup>
-<col width="40%" />
-<col width="60%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -1216,9 +1248,9 @@ Each function in the following table returns one or more series of histogram dis
 <tbody>
 <tr>
 <td><a href="hs_function.html">hs(<strong>&lt;hsMetricName&gt;</strong> 
-<br>&lbrack;,|and|or <strong>source=</strong>&lt;sourceName&gt;&rbrack;
-<br>&lbrack;,|and|or <strong>tag</strong>=&lt;sourceTag&gt;&rbrack;
-<br>&lbrack;,|and|or &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;&rbrack; ...)</a>
+<br>[,|and|or [not] <strong>source=</strong>&lt;sourceName&gt;] ...
+<br>[and|or [not] <strong>tag</strong>=&lt;sourceTag&gt;] ...
+<br>[and|or [not] &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;] ...)</a>
 </td>
 <td>Returns the series of histogram distributions for <strong>hsMetricName</strong>, optionally filtered by sources and point tags. 
 A name extension (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>) indicates the
@@ -1304,7 +1336,7 @@ Aligns a series of histogram distributions into a single time bucket for the cur
 
 ## Event Functions
 
-You use event functions to [display events in charts](charts_events_displaying.html), for example, to inform other users about reasons for a change in a time series. 
+Event functions let you filter and display [events](events.html).
 
 ### Event to Event Functions
 

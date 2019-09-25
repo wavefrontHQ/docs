@@ -198,8 +198,8 @@ join(
 * ts() expressions specify the time series in a left table (e.g., `ts(cpu.load)`) and a right table (e.g., `ts(request.rate)`).
 * Either or both ts() expressions can include filters, analogous to SQL `WHERE`. For example, `ts(cpu.load, dc!=Texas)`
 * `AS` assigns an alias to each table (required). For example, `ts1` is the alias for `ts(cpu.load)`.
-  - Best practice: Make aliases 3 letters or longer.
-  - Don't use the name of any query function, keyword, or <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefix</a> (such as p, h, k, M, G, T, P, E, Z, Y, etc.). If you use numeric characters, put them at the end. Aliases are case-sensitive.
+  - Do not use Wavefront reserved words, such as function names, operator names, or SI prefixes. See the [rules for valid alias names](query_language_reference.html#wildcardAliasVariable).
+  - Best practice: Make aliases 3 characters or longer.
 * `INNER JOIN` is one of 4 [join types](#join-types). The join type determines whether and how rows are included in the result table.
 
 ### Join Condition
