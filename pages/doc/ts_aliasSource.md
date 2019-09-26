@@ -10,13 +10,13 @@ summary: Reference to the aliasSource() function
 ## Summary
 
 ```
-aliasSource (<expression>, [metric|source|{tagk, <pointTagKey>},]
+aliasSource (<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
             <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasSource (<expression>, [metric|source|{tagk, <pointTagKey>},]
+aliasSource (<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
             “<regexSearchPattern>”, "<replacementPattern>")
 
-aliasSource (<expression>, "<newSourceName>")
+aliasSource (<tsExpression>, "<newSourceName>")
 ```
 
 Replace one or more source names in a ts() expression with a string extracted from the metric name(s), source name(s), or point tag value(s).
@@ -29,15 +29,15 @@ Replace one or more source names in a ts() expression with a string extracted fr
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td>expression</td>
-<td>The <code>ts()</code> expression to extract a string from.</td>
+<td>tsExpression</td>
+<td>Expression describing the time series to extract a metadata string from.</td>
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
 <td>The set of data to extract the new source name from.
 <ul>
-<li>Use &#123;tagk, &lt;pointTagKey&gt;&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing metric name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
-<li>If you don't specify (<code>metric</code>, <code>source</code>, or <code>tagk</code>), this parameter defaults to <code>source</code>.</li>
+<li>Use &#123;tagk, &lt;pointTagKey&gt;&#125; if you want to extract a node from an existing point tag value. To use this approach, enter <code>tagk</code> followed by the point tag key. <div>For example, if you have point tag <code>Region=us-west-2b</code>, and you want to replace the existing source name with the entire point tag value, enter <code>tagk, Region</code> and set <code>zeroBasedNodeIndex</code> to 0.</div></li>
+<li>If you don't specify <code>metric</code>, <code>source</code>, or <code>tagk</code>, this parameter defaults to <code>source</code>.</li>
 </ul>
 </td>
 </tr>
@@ -52,7 +52,7 @@ Replace one or more source names in a ts() expression with a string extracted fr
 </tr>
 <tr>
 <td>"regexSearchPattern", "replacementPattern"</td>
-<td>Use these parameters if you want to use regular expression search and replacement patterns from an existing source name, metric name, or point tag value as the new source name.
+<td>Use these parameters if you want to use regular expression search and replacement patterns from an existing metric name, source name, or point tag value as the new source name.
 <ul>
 <li><code>"regexSearchPattern"</code> - A regular expression pattern to match against the source name, metric name or point tag value.</li>
 <li><code>"replacementPattern"</code> - The replacement string. If capturing groups are used in regexSearchPattern, they can be referred to as $1, $2, etc.</li>
