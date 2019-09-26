@@ -115,7 +115,7 @@ aliasMetric(ts(aws.instance.price), "{{region}}/{{source}}")
 ```
 {% endraw %}
 
-The specified replacement string acts like a template, in which Wavefront replaces each variable with the string that represents the requested values. If `ts(aws.instance.price)` describes a time series that has `region=us-west-2`, that time series is displayed with a metric name like `us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
+The specified replacement string acts like a template, in which Wavefront replaces each variable with the string that represents the requested values. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
 
 
 ### Single Extracted Node
@@ -124,36 +124,46 @@ A common practice is to use naming conventions that provide structure to metric 
 
 You can use `aliasMetric()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as the metric name for your time series. For example, you might want to simplify a metric name like `pdx.customerA_latency.i49f21a72` by displaying it as `customerA_latency`. 
 
-`zeroBasedNodeIndex` specifies the node to extract by counting nodes from left to right, starting with 0. By default, `aliasMetric()` extracts the node from the existing metric name. To extract a node from the source name or a specified point tag, you must explicitly include `source` or `tagk, <pointTagKey>`.
+`zeroBasedNodeIndex` specifies the node to extract by counting nodes from left to right, starting with 0. By default, `aliasMetric()` extracts the node from the existing metric name. To extract a node from the source name or a specified point tag value, you must explicitly include `source` or `tagk, <pointTagKey>`.
 
-For example, suppose you have the following naming convention for a metric namespace, and you use periods (".") as node delimiters: `<datacenter>.<customerName>_latency.<idNumber>` 
+For example, suppose you use the following naming convention for a metric namespace, and you consider periods (".") to be node delimiters: `<datacenter>.<customerName>_latency.<idNumber>` 
 
-Under these conventions, the nodes in `pdx.customerA_latency.i49f21a72` are numbered as follows:
+Under these conventions, the nodes in the metric name `pdx.customerA_latency.i49f21a72` are numbered as follows:
 
 |**node**|**node number**|
 |pdx|0|
 |customerA_latency|1|
 |i49f21a72|2|
 
+The following query extracts `customerA_latency` from the existing metric name and uses it as the new metric name:
+```
+aliasMetric(ts(pdx.customerA_latency.i49f21a72), 1)
+```
 
-Note**:** `customerA_latency` is considered a single node because it does not contain a period (".").
+`customerA_latency` is a single node because it does not contain a period ("."), which is the default delimiter. You can specify a nondefault set of delimiters to change how names are divided into nodes. For example, the following query extracts just `customerA` from the existing metric name by redefining the delimiter set to include both periods (".") and underscores ("_"):
 
-If the data you want to extract a node from includes delimiters such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter.
-
-You can optionally specify your own set of delimiters. 
-
-See the examples below for details.
+```
+aliasMetric(ts(pdx.customerA_latency.i49f21a72), 1, "._")
+```
 
 ### Matched Substrings
 
-You can also use a regular expression with `aliasMetric()` to transform an existing source name, metric name, or point tag value.  This approach works as a "search-replace" functionality&mdash;everything that matches `regexSearchPattern` is replaced with `replacementPattern`. For similar examples, see the [aliasSource](ts_aliasSource.html) page.
+You can use `aliasMetric()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#replacement-string-with-variables).
 
+By default, `aliasMetric()` applies the regular expression to the existing metric name. To match substrings in the source name or in a specified point tag value, you must explicitly include `source` or `tagk, <pointTagKey>`.
 
+For example, assume your metric comes from sources whose names follow the pattern `db-1`, `db-2`, and so on. The following query renames each time series by combining the numeric part of the source name with the value of the `env` point tag, and prefixing it with the string `connect`:
+
+{% raw %}
+```
+aliasMetric(ts(~sample.db.connections.*), source, "db-([0-9]*)", "connect-$1-{{env}}")
+```
+{% endraw %}
 
 
 ## Examples
 
-The following example illustrates the zeroBasedNodeIndex approach. More detailed examples are on the [aliasSource](ts_aliasSource.html) page. The examples for `aliasMetric` are similar.
+The following example illustrates the zeroBasedNodeIndex approach. For examples that use regular expressions, see the [aliasSource](ts_aliasSource.html) page. 
 
 ### aliasMetric Using a zeroBasedNodeIndex - Example
 
