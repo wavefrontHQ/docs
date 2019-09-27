@@ -901,7 +901,7 @@ Missing data functions allow you to interpolate missing data with points based o
 
 ## Metadata Functions
 
-Metadata functions help users rename a metric, source, or create a synthetic point tag on a metric. There are three ways to formulate the alias:
+Metadata functions let you temporarily rename a metric or source, or create a synthetic point tag on a time series. There are three ways to formulate the alias:
 
 - Node index - Extract a string component based on a <strong>zeroBasedNodeIndex</strong>. Components are identified by the default delimiter "." or a delimiter specified in <strong>delimiterDefinition</strong>.
 - Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
@@ -922,19 +922,19 @@ Metadata functions help users rename a metric, source, or create a synthetic poi
 <tr>
 <td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;tsExpression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
 <strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
-<td markdown="span">Extracts a string from an existing metric name, source name, or point tag value in the <strong>tsExpression</strong> and renames the metric with that string. If you don't specify the <strong>metric|source|{tagk, &lt;pointTagKey&gt;}</strong> parameter, it defaults to <strong>source</strong>. </td>
+<td markdown="span">Replaces the metric name for each time series described by <strong> tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value. </td>
 </tr>
 <tr>
 <td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;tsExpression&gt;</strong>, 
 &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
 <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
-<td markdown="span">Replaces one or more source names in the <strong>tsExpression</strong> with a string extracted from the metric name(s), source name(s), or point tag value(s).
+<td markdown="span">Replaces the source name of each time series described by the <strong>tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
 </td>
 </tr>
 <tr>
 <td><a href="ts_taggify.html"> taggify(<strong>&lt;tsExpression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
 </td>
-<td markdown="span">Lets you extract a string from an existing metric name, source name, or point tag value and create a synthetic point tag key value for that query.
+<td markdown="span">Creates a synthetic point tag with the specified key for each time series described by <strong>tsExpression</strong>. The value of the new tag can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
 </td>
 </tr>
 </tbody>

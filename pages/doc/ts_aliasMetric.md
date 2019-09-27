@@ -19,7 +19,7 @@ aliasMetric (<tsExpression>, [metric|source|{tagk, <pointTagKey>}], "<regexSearc
          "<replacementPattern>" | "<replacementString>")
 ```
 
-Replaces the metric name(s) for the specified time series with a specified string, with a single node from a metadata value, or with matched substrings from a metadata value. 
+Replaces the metric name for each time series with an alias, which can be a specified string or derived from existing metadata. 
 
 
 ## Parameters
@@ -35,7 +35,7 @@ Replaces the metric name(s) for the specified time series with a specified strin
 </tr>
 <tr>
 <td>"newMetricName"</td>
-<td>String value to replace each metric name with. </td>
+<td>Static string value to replace each metric name with. </td>
 </tr>
 <tr>
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
@@ -43,7 +43,7 @@ Replaces the metric name(s) for the specified time series with a specified strin
 <ul>
 <li markdown="span">Specify `metric` to construct the new metric name for a time series from part of its actual metric name.</li>
 <li markdown="span">Specify `source` to construct the new metric name for a time series from part of its source name.</li>
-<li markdown="span">Specify `tagk, <pointTagKey>` (no brackets or curly braces) to construct the new metric name for a time series from part of the value of a given point tag. 
+<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new metric name for a time series from part of the value of a given point tag. 
 </li>
 </ul>
 Omitting this parameter is the same as specifying <code>metric</code>.
@@ -72,22 +72,20 @@ Omitting this parameter is the same as specifying <code>metric</code>.
 
 ## Description
 
-The `aliasMetric()` metadata function lets you replace the metric names of one or more time series described by `tsExpression` by substituting a single new name, or by constructing new names from other metadata values. 
+The `aliasMetric()` metadata function lets you replace the metric name of each time series described by `tsExpression` with an alias. The alias can be a specified string or a string that is derived from the metric name, the source name, an existing point tag value, or a combination of these.
 
 Here are some sample scenarios:
-* You want to clarify the columns in a Table chart.
+* You want to clarify the column headings in a Table chart.
 * You want an aggregation function to group by a given parameter that is only found within a metric, source, or point tag value.
 * You want to make complex metric names easier for end users to understand.
 * You use [derived metrics](derived_metrics.html).
-
-
 
 `aliasMetric()` lets you replace metric names with:
 
 * A simple replacement string.
 * A replacement string that contains variables.
-* A single node that is extracted from an existing metric name, source name, or point tag value. 
-* Substrings that are matched by regular expressions from an existing metric name, source name, or point tag value.
+* A single node that is extracted from the original metric name, the source name, or a point tag value. 
+* Substrings that are matched by regular expressions from the original metric name, the source name, or a point tag value.
 
 ### Simple Replacement String
 
@@ -101,13 +99,13 @@ aliasMetric(sum(ts("customer.user.total"),customer), "Total Users")
 
 ### Replacement String With Variables
 
-You can specify a replacement string with variables if you want the metric name for each time series to contain one or more metadata values from that series. You can use any combination of variables and embed them in text. The following variables obtain the actual metric name, the source name or the value of a specified point tag:
+You can specify a replacement string with variables if you want the new metric name for each time series to contain one or more metadata values from that series. You can use any combination of variables and embed them in text. The following variables obtain the actual metric name, the source name, or the value of a specified point tag:
 
 {% raw %}
 `"{{metric}}"  "{{source}}"  "{{<pointTagKey}}"`
 {% endraw %}
 
-Suppose you have a metric `ts(aws.instance.price)` that has a `region` point tag, and you want to display a chart in which the name of each time series consists of the value of its `region` tag and its source name, separated by a slash. The following function accomplishes this:
+Suppose you have a metric `ts(aws.instance.price)` that has a `region` point tag, and you want to display a chart in which the metric name of each time series consists of the value of its `region` tag and its source name, separated by a slash. The following function accomplishes this:
 
 {% raw %}
 ```handlebars
@@ -115,7 +113,7 @@ aliasMetric(ts(aws.instance.price), "{{region}}/{{source}}")
 ```
 {% endraw %}
 
-The specified replacement string acts like a template, in which Wavefront replaces each variable with the string that represents the requested values. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
+The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
 
 
 ### Single Extracted Node
@@ -150,9 +148,9 @@ aliasMetric(ts(pdx.customerA_latency.i49f21a72), 1, "._")
 
 You can use `aliasMetric()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#replacement-string-with-variables).
 
-By default, `aliasMetric()` applies the regular expression to the existing metric name. To match substrings in the source name or in a specified point tag value, you must explicitly include `source` or `tagk, <pointTagKey>`.
+By default, `aliasMetric()` applies the regular expression to the existing metric name. To apply the regular expression to the source name or to a specified point tag value, you must explicitly include `source` or `tagk, <pointTagKey>`.
 
-For example, assume your metric comes from sources whose names follow the pattern `db-1`, `db-2`, and so on. The following query renames each time series by combining the numeric part of the source name with the value of the `env` point tag, and prefixing it with the string `connect`:
+For example, assume your metric comes from sources whose names follow the pattern `db-1`, `db-2`, and so on. The following query renames the metric for each time series by combining the numeric part of the source name with the value of the `env` point tag, and prefixing it with the string `connect`:
 
 {% raw %}
 ```
@@ -163,11 +161,45 @@ aliasMetric(ts(~sample.db.connections.*), source, "db-([0-9]*)", "connect-$1-{{e
 
 ## Examples
 
-The following example illustrates the zeroBasedNodeIndex approach. For examples that use regular expressions, see the [aliasSource](ts_aliasSource.html) page. 
+Here is a summary of the sample `aliasMetric()` queries from the examples in the sections above.
+
+* [Replace metric names with a simple string:](#simple-replacement-string) 
+
+  ```
+  aliasMetric(sum(ts("customer.user.total"),customer), "Total Users")
+  ```
+
+* [Replace the metric name with a string that contains metadata variables:](#replacement-string-with-variables)
+
+  {% raw %}
+  ```
+  aliasMetric(ts(aws.instance.price), "{{region}}/{{source}}")
+  ```
+  {% endraw %}
+
+* [Replace the metric name with a single node extracted from it:](#single-extracted-node)
+
+  ```
+   aliasMetric(ts(pdx.customerA_latency.i49f21a72), 1)
+   aliasMetric(ts(pdx.customerA_latency.i49f21a72), 1, "._")
+```
+
+* [Replace the metric name by combining text, a matched substring, and a point tag value:](#matched-substrings)
+
+  {% raw %}
+  ```
+  aliasMetric(ts(~sample.db.connections.*), source, "db-([0-9]*)", "connect-$1-{{env}}")
+  ```
+  {% endraw %}
+
+
+For additional examples, see the [aliasSource() Function](ts_aliasSource.html). 
+
+<!--- Need to fix this example
 
 ### aliasMetric Using a zeroBasedNodeIndex - Example
 
-In this example, you rename metric(s) with an existing point tag value.
+In this example, you rename metric(s) to eliminate nodes that contain redundant information.
 
 Assume that you have a set of metric names that are very long and clutter your hover legend:
 
@@ -182,6 +214,7 @@ aliasMetric(ts("<datacenter>.<version>.<customer>_latency.<id>"), 2)
 ```
 
 In this case, you are extracting from a metric name, so you don't need to specify `',metric'` before applying the `zeroBasedNodeIndex` value.
+--->
 
 <!---### aliasMetric using a Regular Expression - Example
 
