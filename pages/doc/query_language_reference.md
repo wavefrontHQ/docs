@@ -35,12 +35,12 @@ Describes one or more time series. A  time series is a sequence of data points t
 <ul>
 <li>A <strong>ts() function</strong>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
 <pre>ts(&lt;metricName&gt; [and|or [not] &lt;metricName2&gt;] ...
-  [,|and|or [not] source=&lt;sourceName&gt;] ...
-  [and|or [not] tag=&lt;sourceTag&gt;] ...
-  [and|or [not] &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
+  [,|and|or [not] source="&lt;sourceName&gt;"] ...
+  [and|or [not] tag="&lt;sourceTag&gt;"] ...
+  [and|or [not] &lt;pointTagKey&gt;="&lt;pointTagValue&gt;"] ... )
 </pre>
 Example:
-<strong>ts(~sample.disk.bytes.written, source=app-1 or source=app-2 and env=dev)</strong>
+<strong>ts(~sample.disk.bytes.written, source="app-1" or source="app-2" and env="dev")</strong>
 </li>
 <li>A <strong>constant</strong>, which returns a constant value for each data point. 
 Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix">SI prefixes</a> (k, M, G, T, P, E, Z, Y) to scale by multiples of 1000. Examples: 
@@ -56,7 +56,7 @@ Specify as a number, or use <a href="https://en.wikipedia.org/wiki/Metric_prefix
 </li>
 <li>A query function that returns time series from other input time series: 
 <br><strong>
-msum(10m, ts(~sample.requests.latency, source=app-14))
+msum(10m, ts(~sample.requests.latency, source="app-14"))
 </strong>
 </li> 
 <li>A query function that returns time series by converting input data of another type:
@@ -75,9 +75,9 @@ Describes one or more histogram series. A histogram series is a sequence of hist
 <ul>
 <li>An <a href="hs_function.html"><strong>hs() function</strong></a>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
 <pre>hs(&lt;hsMetricName&gt; [and|or [not] &lt;hsMetricName2&gt;] ...
-  [,|and|or [not] source=&lt;sourceName&gt;] ...
-  [and|or [not] tag=&lt;sourceTag&gt;] ...
-  [and|or [not] &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
+  [,|and|or [not] source="&lt;sourceName&gt;"] ...
+  [and|or [not] tag="&lt;sourceTag&gt;"] ...
+  [and|or [not] &lt;pointTagKey&gt;="&lt;pointTagValue&gt;"] ... )
 </pre>
 Example:
 <strong>
@@ -126,7 +126,7 @@ events(type="maintenanceWindow") intersect events(name="test")
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tracesExpression&gt;</span></td>
 <td>
-Describes a set of traces.  An <strong>tracesExpression</strong> may be one of the following:
+Describes a set of traces.  A <strong>tracesExpression</strong> may be one of the following:
 
 <ul>
 <li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
@@ -135,7 +135,7 @@ Describes a set of traces.  An <strong>tracesExpression</strong> may be one of t
 </pre>
 Example:
 <strong>
-traces("beachshirts.styling.makeShirts")
+traces("beachshirts.styling.makeShirts", source="app-1")
 </strong>
 
 </li>
@@ -197,9 +197,9 @@ request.latency.*.m and not request.latency.web.m
 <td>The name of a source, such as a host or container, that emits the data of interest (time series, histogram series, or trace data). Specify a source name with the <strong>source</strong> keyword.
 Examples:
 <pre>
-source=appServer15
-source=app-1*
-source=app-10 or source=app-20
+source="appServer15"
+source="app-1*"
+source="app-10" or source="app-20"
 </pre>
 </td></tr>
 <tr>
@@ -207,9 +207,9 @@ source=app-10 or source=app-20
 <td>A <a href="tag-overview.html#add-source-tags">source tag</a> that has been assigned to a group of data sources. Specify a source tag with the <strong>tag</strong> keyword.
 Examples: 
 <pre>
-tag=appServers
-tag=env.cluster.role.*
-tag=appServer and tag=local
+tag="appServers"
+tag="env.cluster.role.*"
+tag="appServer" and tag="local"
 </pre>
 </td></tr>
 <tr>
@@ -294,7 +294,7 @@ Examples:
 <li><strong>httpstatus.api.* and ("*.POST.*" or "*.PUT.*")</strong> matches <code>httpstatus.api</code> metrics for <code>POST</code> or <code>PUT</code> operations.
 </li>
 
-<li><strong>source=app-1&#42;</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
+<li><strong>source="app-1"&#42;</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
  </li>
 
 <li><strong>region="&#42;"</strong> matches the time series that have the <code>region</code> point tag with any value, and filter out any time series without a <code>region</code> point tag.
@@ -315,7 +315,7 @@ Examples:
 </ul>
 Examples:
 <pre>
-if(ts(requests.latency, source=app-1*) as latency, $latency)
+if(ts(requests.latency, source="app-1*") as latency, $latency)
 
 join(ts(cpu.load) AS ts1 JOIN ts(request.rate) AS ts2 ON ts1.env = ts2.env, ... )
 </pre>
@@ -345,7 +345,7 @@ The referenced query line must be named, and must contain a complete <strong>tsE
 <li>Use this syntax to reference the named query in another query: <strong>${myQuery}</strong></li>
 </ul>
 Example. Suppose you assign a name to a long or complex query:
-<pre>latency       ts(requests.latency, source=app-1* or source=app2*, env=dev)</pre>
+<pre>latency       ts(requests.latency, source="app-1*" or source="app2*", env="dev")</pre>
 
 You can reference the named query in another query as follows:
 <pre>newQuery      max(${latency})</pre>
@@ -406,7 +406,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <ul>
 <li markdown="span">`(ts(my.metric) > 10) and (ts(my.metric) < 20)` returns 1 if `my.metric` is between 10 and 20. Otherwise, returns 0.</li>
 <li markdown="span">`ts(cpu.load.1m, tag=prod and tag=db)` returns `cpu.load.1m` for all sources tagged with both `prod` and `db`.</li>
-<li markdown="span">`ts(db.query.rate, tag=db and not source=db5.wavefront.com)` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
+<li markdown="span">`ts(db.query.rate, tag=db and not source="db5.wavefront.com")` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
 <li markdown="span">`ts("smp-fax*.count" and not "smp-fax*.metrics.wavefront.", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"` for any sources that start with `-eq`.</li>
 </ul>
 </ul>
@@ -1248,9 +1248,9 @@ Each function in the following table returns one or more series of histogram dis
 <tbody>
 <tr>
 <td><a href="hs_function.html">hs(<strong>&lt;hsMetricName&gt; </strong>[and|or [not] <strong>&lt;hsMetricName2&gt;</strong>] ...
-<br>[,|and|or [not] <strong>source=</strong>&lt;sourceName&gt;] ...
-<br>[and|or [not] <strong>tag</strong>=&lt;sourceTag&gt;] ...
-<br>[and|or [not] &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;] ...)</a>
+<br>[,|and|or [not] <strong>source=</strong>"&lt;sourceName&gt;"] ...
+<br>[and|or [not] <strong>tag</strong>="&lt;sourceTag&gt;"] ...
+<br>[and|or [not] &lt;<strong>pointTagKey</strong>&gt;="&lt;pointTagValue&gt;"] ...)</a>
 </td>
 <td>Returns the series of histogram distributions for <strong>hsMetricName</strong>, optionally filtered by sources and point tags. 
 A name extension (<strong>m</strong>, <strong>h</strong>, or <strong>d</strong>) indicates the
