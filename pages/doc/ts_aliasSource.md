@@ -21,6 +21,7 @@ aliasSource (<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
 
 Replaces the source name for each time series with an alias, which can be a specified string or derived from existing metadata. 
 
+To replace the metric name with an alias, use [aliasMetric()](ts_aliasMetric.html).
 
 ## Parameters
 
@@ -42,9 +43,9 @@ Replaces the source name for each time series with an alias, which can be a spec
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
 <td>Type of metadata value to extract a node or substrings from.
 <ul>
-<li markdown="span">Specify `metric` to construct the new source name for a time series from part of its metric name.</li>
-<li markdown="span">Specify `source` to construct the new source name for a time series from part of its original source name.</li>
-<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new source name for a time series from part of the value of a given point tag. 
+<li markdown="span">Specify `metric` to construct the new source name for a time series based on its metric name.</li>
+<li markdown="span">Specify `source` to construct the new source name for a time series based on its original source name.</li>
+<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new source name for a time series based on the value of a given point tag. 
 </li>
 </ul>
 Omitting this parameter is the same as specifying <code>source</code>.
@@ -108,15 +109,15 @@ You can specify a replacement string with variables if you want the new source n
 `"{{metric}}"  "{{source}}"  "{{<pointTagKey}}"`
 {% endraw %}
 
-Suppose you have a metric that has a `region` point tag, and you want to display a chart in which the source of each time series consists of the value of its `region` tag and its original source name, separated by a slash. The following function accomplishes this:
+Suppose you have a metric that has a `region` point tag, and you want to display a chart in which the source of each time series consists of the string `Price`, followed by the value of the `region` tag and the source name, separated by slashes. The following function accomplishes this:
 
 {% raw %}
 ```handlebars
-aliasSource(ts(aws.instance.price), "{{region}}/{{source}}")
+aliasSource(ts(aws.instance.price), "Price/{{region}}/{{source}}")
 ```
 {% endraw %}
 
-The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If a time series has a point tag `region=us-west-2`, that time series is displayed with a source name like `us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
+The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If a time series has a point tag `region=us-west-2`, that time series is displayed with a source name like `Price/us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
 
 ### Single Extracted Node
 

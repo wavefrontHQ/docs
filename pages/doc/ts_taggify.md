@@ -47,9 +47,9 @@ Creates a synthetic point tag with the specified key for each time series. The v
 <td>metric&vert;source&vert;&#123;tagk,&lt;pointTagKey&gt;&#125;</td>
 <td>Type of metadata value to extract a node or substrings from.
 <ul>
-<li markdown="span">Specify `metric` to construct the new point tag value from part of the metric name.</li>
-<li markdown="span">Specify `source` to construct the new point tag value from part of the source name.</li>
-<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new point tag value from an existing point tag value. 
+<li markdown="span">Specify `metric` to construct the new point tag value based on the metric name.</li>
+<li markdown="span">Specify `source` to construct the new point tag value based on the source name.</li>
+<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new point tag value based on an existing point tag value. 
 </li>
 </ul>
 </td>
@@ -119,6 +119,8 @@ The query above:
 * A single node that is extracted from the original metric name, the source name, or a point tag value. 
 * Substrings that are matched by regular expressions from the original metric name, the source name, or a point tag value.
 
+**Note:** You can nest `taggify` calls.
+
 ### Simple String
 
 You can specify a simple string if you want to use the same point tag value for all time series described by `tsExpression`.
@@ -131,52 +133,59 @@ You can specify a string with variables if you want the point tag value for each
 `"{{metric}}"  "{{source}}"  "{{<pointTagKey}}"`
 {% endraw %}
 
-Suppose you have a metric with a `region` point tag, and you want to display a chart with a new point tag called `location` that consists of the value of its `region` tag and its source name, separated by a slash. The following function accomplishes this:
+Suppose you have a metric with a `region` point tag, and you want to display a chart with a new point tag called `location` that consists of the string `Price`, followed by the value of the `region` tag and the source name, separated by slashes. The following function accomplishes this:
 
 {% raw %}
 ```handlebars
-aliasMetric(ts(aws.instance.price), location, "{{region}}/{{source}}")
+aliasMetric(ts(aws.instance.price), location, "Price/{{region}}/{{source}}")
 ```
 {% endraw %}
 
-The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
+The specified replacement string acts like a template, in which Wavefront replaces each variable with the requested string value. If `ts(aws.instance.price)` describes a time series that has a point tag `region=us-west-2`, that time series is displayed with a metric name like `Price/us-west-2/mycluster-2c-ha2-i-00e421d1bef7fb88e`.
 
 
 
-### zeroBasedNodeIndex Approach
+### Single Extracted Node
 
-The zeroBasedNodeIndex approach for `taggify()` refers to extracting a single node from an existing source name, metric name, or point tag value to create synthetic point tag.
+A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Wavefront uses periods (".") as node delimiters, but your naming conventions might use other characters.
 
-Nodes in existing source name(s), metric name(s), or point tag value(s) are separated by delimiters. Suppose you have the following naming convention for a metric namespace:
+You can use `taggify()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as point tag values for your time series. For example, if you have a time series with a metric name like `pdx.customerA_latency.i49f21a72`, you could use `taggify()` to display it with a point tag like `cust=customerA_latency`. 
 
+`zeroBasedNodeIndex` specifies the node to extract by counting nodes from left to right, starting with 0. You must specify the type of value to extract the node from by including `metric`, `source` or `tagk, <pointTagKey>`.
+
+For example, suppose you use the following naming convention for a metric namespace, and you consider periods (".") to be node delimiters: `<datacenter>.<customerName>_latency.<idNumber>` 
+
+Under these conventions, the nodes in the metric name `pdx.customerA_latency.i49f21a72` are numbered as follows:
+
+|**node**|**node number**|
+|pdx|0|
+|customerA_latency|1|
+|i49f21a72|2|
+
+The following query extracts `customerA_latency` from the metric name and uses it as the value for a new point tag called `cust`:
 ```
-<datacenter>.<customerName>_latency.<idNumber>
-```
-e.g. `pdx.customerA_latency.i49f21a72`
-
-For the example metric name above, each node is assigned a number:
-
-```
-pdx = 0
-customerA_latency = 1
-i49f21a72 = 2
-```
-
-By default, Wavefront assumes nodes are separated by a (".") delimiter. This is why `customerA_latency` is considered a single node. If the data you want to extract a node from includes other delimiters, such as a hyphen ("-") or underscore ("_"), then you can use the `"delimiterDefinition"` parameter. The syntax for `taggify()` using the zeroBasedNodeIndex approach is:
-
-```
-taggify(expression, metric|source|{tagk, <pointTagKey>}, newPointTagKey,
-   zeroBasedNodeIndex [, "delimiterDefinition"])
+taggify(ts(pdx.customerA_latency.i49f21a72), metric, cust, 1)
 ```
 
-### Regex Approach
-
-You can use a regular expression in `taggify()` to extract an existing metric name, source name, or point tag value and create a synthetic point tag from the information.  This approach works like search and replace &mdash;everything matching `regexSearchPattern` is replaced with `replacementPattern`. The syntax for this approach is:
+`customerA_latency` is a single node because it does not contain a period ("."), which is the default delimiter. You can specify a nondefault set of delimiters to change how names are divided into nodes. For example, the following query extracts just `customerA` from the metric name by redefining the delimiter set to include both periods (".") and underscores ("_"):
 
 ```
-taggify(expression, metric|source|{tagk, <pointTagKey>}, version,
-   "regexSearchPattern", "replacementPattern")
+taggify(ts(pdx.customerA_latency.i49f21a72), metric, cust, 1, "._")
 ```
+### Matched Substrings
+
+You can use `taggify()` with a regular expression `"regexSearchPattern"` to match one or more substrings from an existing metadata value, and then construct the new metric name `"replacementPattern"` from one or more matched substrings. You can combine these substrings with text and [variables](#replacement-string-with-variables).
+
+You must include `metric`, `source` or `tagk, <pointTagKey>` to specify the type of value that you want to apply the regular expression to.
+
+For example, assume your time series comes from sources whose names follow the pattern `db-1`, `db-2`, and so on, and you want a tabular chart that sorts the series by strings such as `dev-3`, which combine the value of the `env` point tag with the numeric part of the source name. the following query constructs such strings and assigns them to a point tag called `sortBy`:
+
+{% raw %}
+```
+taggify(ts(~sample.db.connections.*), source, "db-([0-9]*)", "{{env}}-$1")
+```
+{% endraw %}
+
 
 
 ## Examples
@@ -184,32 +193,39 @@ taggify(expression, metric|source|{tagk, <pointTagKey>}, version,
 Imagine you're a SaaS company that provides multiple versions of your platform. You collect data from each platform your customer(s) are running and you include a version key in the source name(s):
 
 ```
-source="<app-x>-<machine_type>.<versionKey>"
+source="<app_x>-<machine_type>-<versionKey>"
 ```
 
 With this approach each customer has several version keys over time. Right now, all customers are broken into 3 categories: `<versionKey1>`, `<versionKey2>`, and `<versionKey3>`.
 
 You want to collect a dataset that helps you understand the difference in performance between the different versions. You can create a synthetic point tag `version` based on `<versionKey>` to aggregate and group by `version` and to see the performance differences.
 
-### Using taggify with a zeroBasedNodeIndex Example
+You can accomplish this with `taggify()` either by extracting a node or by applying a regular expression.
 
-The following query uses the zeroBasedNodeIndex approach to:
-* identify `source` as the set of data to extract the `<versionKey>`,
-* name `version` as the new point tag key,
-* and identify `<versionKey>` as the 1st node.
+### Extracted Node Example - Adding a new point tag
 
-```
-taggify(ts("performance.*.tracker"), source, version, 1)
-```
-
-You can nest `taggify` calls.
-
-### Using taggify with a Regular Expression
-
-To perform the transform shown in the zeroBasedNodeIndex example with a regular expressions, use the following query:
+The following query:
+* Identifies `source` as the type of metadata to extract the `<versionKey>` from.
+* Adds a synthetic point tag called `version`.
+* Identifies `<versionKey>` as node 2 of the source name, when hyphens are defined as delimiters.
+* Uses the node as the value of the new `version` point tag.
 
 ```
-taggify(ts("performance.*.tracker"), source, version, "regexSearchPattern", "replacementPattern")
+taggify(ts("performance.*.tracker"), source, version, 2, "-")
+```
+
+
+### RegEx Example - Adding a new point tag
+
+The following query:
+
+* Identifies `source` as the type of metadata to extract the `<versionKey>` from.
+* Adds a synthetic point tag called `version`.
+* Matches `<versionKey>` as the 3rd capture group in the source name (between the last hyphen and the end of the name).
+* Uses the 3rd capture group to specify the value of the new `vesion` point tag.
+
+```
+taggify(ts("performance.*.tracker"), source, version,  "^(.*)-(.*)-(.*)$", "$3")
 ```
 
 ## Caveats
@@ -219,7 +235,7 @@ taggify(ts("performance.*.tracker"), source, version, "regexSearchPattern", "rep
 When you use the `taggify()` function, it creates a synthetic point tag, not an actual one. You cannot call that synthetic point tag in a separate query. You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define.
 
 ### Getting Duplicate Return Values with taggify()
-When you use `taggify` with a regular expression, you might encounter a  behavior that exists in most regex engines - a "greedy" regular expression in the "." search pattern matches the entire string, but it also matches the empty string at the end of input, so it substitutes the value twice, as in the following example:
+When you use `taggify()` with a regular expression, you might encounter a  behavior that exists in most regex engines - a "greedy" regular expression in the "." search pattern matches the entire string, but it also matches the empty string at the end of input, so it substitutes the value twice, as in the following example:
 
 ``
 taggify(highpass(80, align(15m, mean, ts(metricname),tagk,tenant,grouping,".*","ProblematicTenant") ...
