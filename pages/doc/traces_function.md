@@ -69,7 +69,7 @@ To display the traces that include spans for any operation in the `styling` serv
 - `limit(100, traces("beachshirts.styling.*"))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces("beachshirts.*.*" and (source=prod-app1 or source=prod-app10)))`
+- `limit(100, traces("beachshirts.*.*" and (source="prod-app1" or source="prod-app10")))`
 
 <a name="filters"></a>
 

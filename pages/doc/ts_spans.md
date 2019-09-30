@@ -76,7 +76,7 @@ To display the traces that include short spans for any operation in the `styling
 - `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.*"))))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces(spans("beachshirts.*.*" and (source=prod-app1 or source=prod-app10))))`
+- `limit(100, traces(spans("beachshirts.*.*" and (source="prod-app1" or source="prod-app10"))))`
 
 
 <a name="filters"></a>

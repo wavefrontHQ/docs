@@ -34,7 +34,7 @@ Describes one or more time series. A  time series is a sequence of data points t
 
 <ul>
 <li>A <strong>ts() function</strong>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
-<pre>ts(&lt;metricName&gt;
+<pre>ts(&lt;metricName&gt; [and|or [not] &lt;metricName2&gt;] ...
   [,|and|or [not] source=&lt;sourceName&gt;] ...
   [and|or [not] tag=&lt;sourceTag&gt;] ...
   [and|or [not] &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
@@ -74,7 +74,7 @@ avg(hs(users.settings.numberOfApiTokens.m))
 Describes one or more histogram series. A histogram series is a sequence of histogram distributions Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a time interval (minute, hour, day).  An <strong>hsExpression</strong> may be one of the following:
 <ul>
 <li>An <a href="hs_function.html"><strong>hs() function</strong></a>, which returns all distributions that match a histogram metric name, filtered by source names, source tags, and point tags. 
-<pre>hs(&lt;hsMetricName&gt;
+<pre>hs(&lt;hsMetricName&gt; [and|or [not] &lt;hsMetricName2&gt;] ...
   [,|and|or [not] source=&lt;sourceName&gt;] ...
   [and|or [not] tag=&lt;sourceTag&gt;] ...
   [and|or [not] &lt;pointTagKey&gt;=&lt;pointTagValue&gt;] ... )
@@ -100,23 +100,23 @@ Describes a set of events.  An <strong>eventsExpression</strong> may be one of t
 
 <ul>
 <li>An <a href="events_queries.html"><strong>events() function</strong></a>, which returns all events that match the specified event filters. 
-<pre>events("&lt;filterName&gt;=&lt;filterValue&gt;" 
-  [,|and|or [not] &lt;filter2Name&gt;=&lt;filter2Value&gt;] ... )
+<pre>events(&lt;filterName&gt;="&lt;filterValue&gt;" 
+  [,|and|or [not] &lt;filter2Name&gt;="&lt;filter2Value&gt;"] ... )
 </pre>
 Example:
 <strong>
-events(type=alert, name="disk space is low", alertTag=App1.*)
+events(type="alert", name="disk space is low", alertTag="App1.*")
 </strong>
 </li>
 
 <li>A <a href="#event-functions">query function that returns a set of events</a> from an input event set:
 <br><strong>
-closed(events(type=alert, name="disk space is low", alertTag=App1.*))
+closed(events(type="alert", name="disk space is low", alertTag="App1.*"))
 </strong>
 </li> 
 <li>An <a href="events_queries_advanced.html">events operator expression</a> that combines eventsExpressions:
 <br><strong>
-events(type=maintenanceWindow) intersect events(name="test")
+events(type="maintenanceWindow") intersect events(name="test")
 </strong>
 </li> 
 </ul>
@@ -131,7 +131,7 @@ Describes a set of traces.  An <strong>tracesExpression</strong> may be one of t
 <ul>
 <li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
 <pre>traces("&lt;fullOperationName&gt;" 
-  [,|and|or [ not] &lt;filterName&gt;=&lt;filterValue&gt;] ... )
+  [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
 </pre>
 Example:
 <strong>
@@ -1236,8 +1236,8 @@ Each function in the following table returns one or more series of histogram dis
 
 <table style="width: 100%;">
 <colgroup>
-<col width="45%" />
-<col width="55%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr>
@@ -1247,7 +1247,7 @@ Each function in the following table returns one or more series of histogram dis
 </thead>
 <tbody>
 <tr>
-<td><a href="hs_function.html">hs(<strong>&lt;hsMetricName&gt;</strong> 
+<td><a href="hs_function.html">hs(<strong>&lt;hsMetricName&gt; </strong>[and|or [not] <strong>&lt;hsMetricName2&gt;</strong>] ...
 <br>[,|and|or [not] <strong>source=</strong>&lt;sourceName&gt;] ...
 <br>[and|or [not] <strong>tag</strong>=&lt;sourceTag&gt;] ...
 <br>[and|or [not] &lt;<strong>pointTagKey</strong>&gt;=&lt;pointTagValue&gt;] ...)</a>
@@ -1357,7 +1357,7 @@ Each function in the following table returns a set of one or more events, and ca
 <tr>
 <td><a href="events_queries.html">events(<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"<br> [,|and|or [not] <strong>&lt;filter2Name&gt;</strong>="<strong>&lt;filter2Value&gt;</strong>"] ...)</a></td>
 <td>Returns the set of events that match the specified <a href="events_queries.html#event-filters">event filters</a>, for example:<br>
-<strong>events(type=alert, name="low space", alertTag=App1.*)</strong> 
+<strong>events(type="alert", name="low space", alertTag="App1.*")</strong> 
 <br>This function adds a set of events to a time-series chart. 
 </td></tr>
 <tr>
