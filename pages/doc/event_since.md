@@ -17,12 +17,12 @@ You can use `since()` with an event set or with a time window.
 
 <table style="width: 100%;">
 <colgroup>
-<col width="20%" />
-<col width="80%" />
+<col width="25%" />
+<col width="75%" />
 </colgroup>
 <tbody>
 <tr>
-<td markdown="span">Event set <br>transformation function</td>
+<td markdown="span">Event set transformation function</td>
 <td markdown="span">Returns a set of synthetic ongoing events that start at the same time as the events described by `eventsExpression`, but have no end time.</td></tr>
 <tr>
 <td markdown="span">Event creation<br>function</td>
