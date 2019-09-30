@@ -14,6 +14,9 @@ max(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 max(<hsExpression>)
 ```
+
+You can use `max()` with time series and with histograms.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="20%" />

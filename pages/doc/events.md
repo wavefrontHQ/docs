@@ -50,7 +50,7 @@ A System/Alert and a System event can be in the Ongoing or Ended state.
 
 A User event can be in the Pending, Ongoing, or Ended state. A User event with a start time in the future has the state Pending.
 
-Here's an example of 3 user events that are created by 3 `events()` queries:
+Here's an example of 3 user events:
 
 * The `Computer turned on` event is instantaneous, it starts and ends at the same time.
 * The `high wattage usage` event has a start and end time. It's in the Ongoing state between the start and end time, and then in the Ended state.
