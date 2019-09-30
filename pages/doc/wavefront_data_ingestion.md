@@ -22,11 +22,11 @@ You can use Wavefront for:
 
 The data flow is like this:
 
-1. The metrics originate with your infrastructure or application. The could come from Telegraf, or a cloud service, or you might collect metrics with a custom metrics pipeline.
+1. The metrics originate with your infrastructure or application. They could come from Telegraf, or a cloud service, or you might collect metrics with a custom metrics pipeline.
 2. You send the metrics to Wavefront:
     * For cloud services, you use one of the Cloud integrations -- you don't have to install or set up a Wavefront proxy.
     * To monitor hosts, infrastructure, or applications, set up an integration. The integration Setup tab has instructions for getting the data flowing. For many integrations, you set up Telegraf to collect the metrics and create a Wavefront proxy (or select an existing proxy). The proxy forwards metrics from many sources to the Wavefront service.
-    * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a Telegraf integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Graphana, and [Wavefront data format](images/data_flow.png).
+    * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a Telegraf integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Grafana, and [Wavefront data format](images/data_flow.png).
     * Another option is direct ingestion. In that case, you send data directly to the Wavefront service. Most customers and the DevOps team at Wavefront prefer using a proxy -- there are [many benefits](proxies.html#proxy-benefits).
 
 ![data into wavefront](images/data_into_wavefront_with_ingestion.svg)
