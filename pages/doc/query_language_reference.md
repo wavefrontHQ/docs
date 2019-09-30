@@ -588,7 +588,7 @@ The results are computed from real reported data values only, with no interpolat
 </td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_globalFilter.html">globalFilter(<strong>&lt;tsExpression | hsExpression&gt;, &lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
+<td markdown="span"><a href="ts_globalFilter.html">globalFilter(<strong>&lt;tsExpression | hsExpression&gt;,<br> &lt;filter1&gt;</strong> [and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
 <td>Suppresses any time series or histogram in the specified expression that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters. 
 </td>
 </tr>
