@@ -129,8 +129,8 @@ events(type="maintenanceWindow") intersect events(name="test")
 Describes a set of traces.  A <strong>tracesExpression</strong> may be one of the following:
 
 <ul>
-<li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
-<pre>traces("&lt;fullOperationName&gt;" 
+<li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces that contain at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
+<pre>traces("&lt;fullOperationName&gt;" | &lt;spansExpression&gt;
   [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
 </pre>
 Example:
@@ -139,10 +139,37 @@ traces("beachshirts.styling.makeShirts", source="app-1")
 </strong>
 
 </li>
-<li>A <a href="#trace-data-functions">query function that returns a list of traces</a> by filtering an input list of traces:
+<li>A <a href="#traces-functions">query function that returns a list of traces</a> by filtering an input list of traces:
 
 <br><strong>
 lowpass(12ms, traces("beachshirts.styling.makeShirts"))
+</strong>
+</li> 
+</ul>
+</td></tr>
+
+
+<!--- spansExpression ------------->
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;spansExpression&gt;</span></td>
+<td>
+Describes a set of spans.  A <strong>spansExpression</strong> may be one of the following:
+
+<ul>
+<li>A <a href="ts_spans.html"><strong>spans() function</strong></a>, which returns all spans that represent the specified operation and that match the specified <a href="ts_spans.html#span-filters">span filters</a>. 
+<pre>spans("&lt;fullOperationName&gt;" 
+  [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
+</pre>
+Example:
+<strong>
+spans("beachshirts.styling.makeShirts", source="app-1")
+</strong>
+
+</li>
+<li>A <a href="#spans-functions">query function that returns a list of spans</a> by filtering an input list of spans:
+
+<br><strong>
+lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 </strong>
 </li> 
 </ul>
@@ -1442,9 +1469,9 @@ Each events conversion function in the following table takes a set of events as 
 </tbody>
 </table>
 
-## <span id="traceFunctions"></span>Trace-Data Functions
+## <span id="traceFunctions"></span>Traces Functions
 
-You use trace-data functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace-data functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use traces functions to find and filter any [traces](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
 
 <table style="width: 100%;">
@@ -1461,7 +1488,7 @@ You use trace-data functions to find and filter any [trace data](tracing_basics.
 <tbody>
 <tr>
 <td>
-<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
+<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>|<strong>&lt;spansExpression&gt;</strong>
 <br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
 <td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>.</td>
@@ -1486,6 +1513,33 @@ For example:<br> <code>highpass(3s, traces("beachshirts.styling.makeShirts"))</c
 For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+## <span id="traceFunctions"></span>Spans Functions
+
+You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+
+
+<table style="width: 100%;">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+
 <tr>
 <td>
 <a href="spans_function.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>

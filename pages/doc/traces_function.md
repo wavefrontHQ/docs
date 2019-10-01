@@ -12,6 +12,8 @@ summary: Learn how to write traces() queries.
 ```
 traces("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
+traces(<spansExpression> [,|and|or [not] <filterName>="<filterValue>"] ...)
+
 traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
 ```
 Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
@@ -27,6 +29,11 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 <td>fullOperationName</td>
 <td markdown="span">Full name of the operation that a qualifying span must represent. For example, specify `"beachshirts.delivery.dispatch"` to match the spans that represent calls to an operation named `dispatch` in the `delivery` service of the `beachshirts` application. <br> The general format of a `fullOperationName` is `<application>.<service>.<operationName>`, where each component consists of one or more period-delimited components. Replace `operationName` or `serviceName` with an asterisk `*` to match spans for any operation in any service. </td>
 </tr>
+<tr>
+<td markdown="span">[spansExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Set of spans returned by a [`spans()`](ts_spans.html) query.</td>
+</tr>
+
 <tr>
 <td>filterName</td>
 <td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
