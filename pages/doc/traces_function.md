@@ -10,7 +10,7 @@ summary: Learn how to write traces() queries.
 ## Summary
 
 ```
-traces("<fullOperationName>"|<spansExpression>  [,|and|or [not] <filterName>="<filterValue>"] ...)
+traces("<fullOperationName>"  [,|and|or [not] <filterName>="<filterValue>"] ...)
 
 traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
 ```
