@@ -10,13 +10,13 @@ summary: Learn how to write traces() queries.
 ## Summary
 
 ```
-traces("<fullOperationName>"|<spansExpression>  [,|and|or [not] <filterName>="<filterValue>"] ...)
-
-traces(<spansExpression> [,|and|or [not] <filterName>="<filterValue>"] ...)
+traces("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
 traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
+
+traces(<spansExpression>)
 ```
-Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and filters. Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
+Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters.html). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
 ### Parameters
 
@@ -27,11 +27,9 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 </thead>
 <tr>
 <td>fullOperationName</td>
-<td markdown="span">Full name of the operation that a qualifying span must represent. For example, specify `"beachshirts.delivery.dispatch"` to match the spans that represent calls to an operation named `dispatch` in the `delivery` service of the `beachshirts` application. <br> The general format of a `fullOperationName` is `<application>.<service>.<operationName>`, where each component consists of one or more period-delimited components. Replace `operationName` or `serviceName` with an asterisk `*` to match spans for any operation in any service. </td>
-</tr>
-<tr>
-<td markdown="span">[spansExpression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Set of spans returned by a [`spans()`](ts_spans.html) query.</td>
+<td markdown="span">Full name of the operation that a qualifying span must represent. For example:
+<br> **`"beachshirts.delivery.dispatch"`** matches spans that represent calls to an operation named **`dispatch`** in the **`delivery`** service of the **`beachshirts`** application. 
+<br> The general format is **`<application>.<service>.<operationName>`**, where each component consists of one or more period-delimited nodes. Replace **`operationName`** or **`serviceName`** with an asterisk **`*`** to match spans for any operation in any service. </td>
 </tr>
 
 <tr>
@@ -39,7 +37,11 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 <td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
 <tr>
 <td>filterValue</td>
-<td markdown="span">Value accepted by a specified `filterName`.</td></tr>
+<td markdown="span">Value accepted by a specified **`filterName`**.</td></tr>
+<tr>
+<td markdown="span">[spansExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Expression that describes the set of qualifying spans. You typically specify a [`spans()`](spans_function.html) query that is wrapped in a spans filtering function. For example, the following expression describes spans that qualify by being longer than 11 seconds: <br> **`highpass(11s, spans("beachshirts.styling.makeShirts"))`**. </td>
+</tr>
 </tbody>
 </table>
 
@@ -52,16 +54,10 @@ Using the `traces()` function is a power-user alternative to using Query Builder
 
 `traces()` returns a trace if it contains a member span that matches the _entire_ specified description. If the description is a Boolean expression that combines multiple span filters, then the same span must satisfy all of the filters in the expression. For example, the result set for  `traces(service=shopping and source=web1)` includes any trace that has at least one member span that is associated with _both_ of the tags `service=shopping` and `source=web1`. The result set does not include, e.g., a trace that has one member span with `service=shopping` and a different member span with `source=web1`.
 
-<!--- Because trace data is generated the ordering of matched spans is unpredictable, running the same `traces()` query twice normally returns a different set of traces.
-
-MONIT-13913 - You can use autocompletion to discover the span filters available for your query.
-
-For more information about the set of returned traces, see [Understanding Trace Queries](trace_data_query.html#understanding-trace-queries).
---->
 
 To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query. 
 
-You can specify the length of the qualifying spans by including a [`spans()`](spans_function.html) expression as the `fullOperationName` parameter.
+To qualify spans based on their length, specify a [`spans()`](spans_function.html) query that is wrapped in a spans filtering function such as `highpass()`.
 
 ## Examples
 
@@ -77,6 +73,9 @@ To display the traces that include spans for any operation in the `styling` serv
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
 - `limit(100, traces("beachshirts.*.*" and (source="prod-app1" or source="prod-app10")))`
+
+To display the traces that include particularly long spans for calls to `makeShirt`:
+- `limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))`
 
 <a name="filters"></a>
 

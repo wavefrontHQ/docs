@@ -130,8 +130,10 @@ Describes a set of traces.  A <strong>tracesExpression</strong> may be one of th
 
 <ul>
 <li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces that contain at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
-<pre>traces("&lt;fullOperationName&gt;" | &lt;spansExpression&gt;
+<pre>traces("&lt;fullOperationName&gt;"
   [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
+  
+traces(&lt;spansExpression&gt;)
 </pre>
 Example:
 <strong>
@@ -153,10 +155,10 @@ lowpass(12ms, traces("beachshirts.styling.makeShirts"))
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;spansExpression&gt;</span></td>
 <td>
-Describes a set of spans.  A <strong>spansExpression</strong> may be one of the following:
+Describes a set of spans to a <a href="traces_function.html">traces() function</a>.  A <strong>spansExpression</strong> may be one of the following:
 
 <ul>
-<li>A <a href="ts_spans.html"><strong>spans() function</strong></a>, which returns all spans that represent the specified operation and that match the specified <a href="ts_spans.html#span-filters">span filters</a>. 
+<li>A <a href="spans_function.html"><strong>spans() function</strong></a>, which returns all spans that represent the specified operation and that match the specified <a href="spans_function.html#span-filters">span filters</a>. 
 <pre>spans("&lt;fullOperationName&gt;" 
   [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
 </pre>
@@ -624,7 +626,7 @@ The results are computed from real reported data values only, with no interpolat
 </tr>
 <tr>
 <td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
+<td>Returns at most <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
 </tr>
 <tr>
 <td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
@@ -1488,16 +1490,16 @@ You use traces functions to find and filter any [traces](tracing_basics.html#wav
 <tbody>
 <tr>
 <td>
-<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>|<strong>&lt;spansExpression&gt;</strong>
-<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<a href="traces_function.html">traces({<strong>"&lt;fullOperationName&gt;"</strong>
+<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...}
+<br> <strong>| &lt;spansExpression&gt;</strong>)</a>
 </td>
 <td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>.</td>
 </tr>
 <tr>
 <td>
-limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<a href="ts_limit.html">limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
 <td markdown="span">Limits the traces returned by **tracesExpression** to include the specified **numberOfTraces**. 
-For example:<br> <code>limit(50, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
 
