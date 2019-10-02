@@ -155,7 +155,7 @@ lowpass(12ms, traces("beachshirts.styling.makeShirts"))
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;spansExpression&gt;</span></td>
 <td>
-Describes a set of spans that you can specify to a <a href="traces_function.html">traces() function</a>.  A <strong>spansExpression</strong> may be one of the following:
+Describes a set of spans.  A <strong>spansExpression</strong> may be one of the following:
 
 <ul>
 <li>A <a href="spans_function.html"><strong>spans() function</strong></a>, which returns all spans that represent the specified operation and that match the specified <a href="spans_function.html#span-filters">span filters</a>. 
@@ -175,6 +175,7 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 </strong>
 </li> 
 </ul>
+<strong>Note:</strong> You cannot use a <strong>spansExpression</strong> by itself as a top-level query. Instead, you always use a <strong>spansExpression</strong> as a parameter to a <a href="traces_function.html">traces() function</a>. 
 </td></tr>
 
 </tbody>
@@ -1524,10 +1525,11 @@ You use traces functions to find and filter any [traces](tracing_basics.html#wav
 </tbody>
 </table>
 
-## <span id="traceFunctions"></span>Spans Functions
+## <span id="spanFunctions"></span>Spans Functions
 
 You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
+**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to compose a `spansExpression` that you specify as a parameter to a `traces()` function. 
 
 <table style="width: 100%;">
 <colgroup>
@@ -1547,7 +1549,7 @@ You use spans functions to find and filter individual [spans](tracing_basics.htm
 <a href="spans_function.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
 <br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
+<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>. </td>
 </tr>
 <tr>
 <td><a href="ts_highpass.html">highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</a></td>
