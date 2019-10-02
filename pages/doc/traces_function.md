@@ -74,8 +74,8 @@ To display the traces that include spans for any operation in the `styling` serv
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
 - `limit(100, traces("beachshirts.*.*" and (source="prod-app1" or source="prod-app10")))`
 
-To display the traces that include particularly long spans for calls to `makeShirt`:
-- `limit(100, traces(highpass(11s, spans("beachshirts.styling.makeShirts"))))`
+To display the traces that include spans for calls to `makeShirt` that are shorter than 3 milliseconds:
+- `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.makeShirts"))))`
 
 <a name="filters"></a>
 
@@ -140,12 +140,11 @@ The general format for a span filter is `<filterName>="filterValue"`.
 
 You can use filtering functions to provide additional levels of filtering for the results of the `traces()` function. 
 
-**Note:** To keep query execution manageable, combine `traces()` with at least the `limit()` function.
-
-Each filtering function has a **tracesExpression** parameter, which can be a `traces()` function or one of the other filtering functions. For example, to return up to 100 traces that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `traces()` functions as follows:
+You can combine filtering functions. For example, to return up to 100 traces that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `traces()` functions as follows:
 
 * `limit(100, highpass(30ms, traces("beachshirts.delivery.dispatch")))`
 
+**Note:** To keep query execution manageable, combine `traces()` with at least the `limit()` function.
 
 <table style="width: 100%;">
 <colgroup>
@@ -157,26 +156,18 @@ Each filtering function has a **tracesExpression** parameter, which can be a `tr
 </thead>
 <tbody>
 <tr>
-<td>limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Limits the results of **tracesExpression** to include the specified **numberOfTraces**.  <br>
-**Note:** Because the ordering of traces is unpredictable, you cannot use `limit()` to page through a set of results to obtain the next group of traces. <br><br>
-
-**Example:** Limit the set of returned traces to 50:<br>
-`limit(50, traces("beachshirts.styling.makeShirts"))` <br>
+<td><a href="ts_limit.html">limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
+<td markdown="span">Limits the results of **tracesExpression** to include the specified **numberOfTraces**.
 </td>
 </tr>
 <tr>
-<td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Filters the results of **tracesExpression** to include only traces that are longer than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
-**Example:** Limit the result set to include traces that are longer than 3 seconds: <br>
-`highpass(3s, traces("beachshirts.styling.makeShirts"))`
+<td><a href="ts_highpass.html">highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
+<td markdown="span">Filters the results of **tracesExpression** to include only traces that are longer than **traceDuration**.  
 </td>
 </tr>
 <tr>
-<td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
-<td markdown="span">Filters the results of **tracesExpression** to include only traces that are shorter than **traceDuration**.  Specify **traceDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
-**Example:** Limit the result set to include traces that are shorter than 10 milliseconds: <br>
-`lowpass(10ms, traces("beachshirts.styling.makeShirts"))`
+<td><a href="ts_lowpass.html">lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
+<td markdown="span">Filters the results of **tracesExpression** to include only traces that are shorter than **traceDuration**.  
 </td>
 </tr>
 
