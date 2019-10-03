@@ -8,23 +8,53 @@ summary: Reference to the highpass() function
 ---
 ## Summary
 ```
-highpass(<expression1>, <expression2>[, <inner>])
+highpass(<tsExpression1>, <tsExpression2>[, inner])
+
+highpass(<traceDuration>, <tracesExpression>)	
+
+highpass(<spanDuration>, <spansExpression>)	
 ```
-Returns only the points in `expression2` that are above `expression1`. `expression1` is often a constant.
+
+You can use `highpass()` with time series, with traces, or with spans.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td markdown="span"> Time series filtering function</td>
+<td markdown="span">Filters the results of `tsExpression2` to include only points with values that are greater than `tsExpression1`. `tsExpression1` is often a constant.</td></tr>
+<tr>
+<td markdown="span">Traces filtering function</td>
+<td markdown="span">Filters the results of `tracesExpression` to include only traces that are longer than the specified duration.</td>
+</tr>
+<tr>
+<td markdown="span">Spans filtering <br>function</td>
+<td markdown="span">Filters the results of `spansExpression` to include only spans that are longer than the specified duration.</td>
+</tr>
+</tbody>
+</table>
+
+
 
 
 ## Parameters
+
+### Time-Series Filtering Function
+
 <table>
 <tbody>
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression1](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression1](query_language_reference.html#query-expressions)</td>
 <td>Threshold expression. Often a constant. </td></tr>
 <tr>
-<td markdown="span"> [expression2](query_language_reference.html#query-expressions)</td>
-<td>Expression that you want to filter</td>
+<td markdown="span"> [tsExpression2](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series that you want to filter.</td>
 </tr>
 <tr>
 <td>inner</td>
@@ -33,11 +63,78 @@ Returns only the points in `expression2` that are above `expression1`. `expressi
 </tbody>
 </table>
 
+### Traces Filtering Function
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>traceDuration</td>
+<td>Lower limit for trace duration. Specify an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w).</td></tr>
+<tr>
+<td markdown="span"> [tracesExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that that describes the traces you want to filter. Includes a <a href="traces_function.html">traces() function.</a></td>
+</tr>
+</tbody>
+</table>
+
+### Spans Filtering Function
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>spanDuration</td>
+<td>Lower limit for span duration. Specify an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w).</td></tr>
+<tr>
+<td markdown="span"> [spansExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that that describes the spans you want to filter. Includes a <a href="spans_function.html">spans() function.</a></td>
+</tr>
+</tbody>
+</table>
+
+
 ## Description
 
-The `highpass()` filtering function plots a chart based on all reported data points that are higher than the threshold. The function discards data values that are  less than or equal to the threshold, resulting in gaps of missing data between the remaining points.
+You can use `highpass()`:
+* With time series as a filtering function.
+* With traces as a filtering function.
+* With spans as a filtering function.
+
+### Time-Series Filtering Function
+
+
+The `highpass()` time-series filtering function plots a chart based on all reported data points that are higher than the specified threshold. The function ignores data points if their values are less than or equal to the threshold, resulting in gaps between the remaining points.
+
+You typically use `highpass()` to compare multiple time series to a single threshold or a single time series to multiple thresholds. If `tsExpression1` and `tsExpression2` both describe multiple time series, then Wavefront uses [series matching](query_language_series_matching.html) to determine which pairs of time series to compare.
+
+### Traces Filtering Function
+
+The `highpass()` trace-filtering function examines the traces described by the traces expression, and returns any traces that are longer than the specified duration. Shorter traces are ignored. The duration of an entire trace is considered, not the duration of any individual span in the trace.
+
+For example, the following query returns only traces that are longer than 3 seconds: 
+
+```highpass(3s, traces("beachshirts.styling.makeShirts"))```
+
+### Spans Filtering Function
+
+The `highpass()` spans-filtering function examines the spans described by the spans expression, and returns any spans that are longer than the specified duration. Shorter spans are ignored.
+
+For example, the following query expression returns only spans that are longer than 3 seconds: 
+
+```highpass(3s, spans("beachshirts.styling.makeShirts"))```
+
+You can pass this expression to [traces()](traces_function.html) to display traces that contain at least one span for `beachshirts.styling.makeShirts` that is longer than 3 seconds.  
+
+```traces(highpass(3s, spans("beachshirts.styling.makeShirts")))```
 
 ## Examples
+
+### Time-Series Filtering Function
 
 In the example chart below, solid orange lines are only present when the reported data values exceed the threshold. The solid orange lines are right on top of the blue lines. In this example, the threshold is 120. The remaining reported data values that did not exceed 120 are dropped, resulting dashed lines to indicate missing data.
 

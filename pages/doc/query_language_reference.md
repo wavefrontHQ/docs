@@ -129,9 +129,11 @@ events(type="maintenanceWindow") intersect events(name="test")
 Describes a set of traces.  A <strong>tracesExpression</strong> may be one of the following:
 
 <ul>
-<li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces within at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
-<pre>traces("&lt;fullOperationName&gt;" 
+<li>A <a href="traces_function.html"><strong>traces() function</strong></a>, which returns all traces that contain at least one span that represents the specified operation and matches the specified <a href="traces_function.html#span-filters">span filters</a>. 
+<pre>traces("&lt;fullOperationName&gt;"
   [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
+  
+traces(&lt;spansExpression&gt;)
 </pre>
 Example:
 <strong>
@@ -139,13 +141,41 @@ traces("beachshirts.styling.makeShirts", source="app-1")
 </strong>
 
 </li>
-<li>A <a href="#trace-data-functions">query function that returns a list of traces</a> by filtering an input list of traces:
+<li>A <a href="#traces-functions">query function that returns a list of traces</a> by filtering an input list of traces:
 
 <br><strong>
 lowpass(12ms, traces("beachshirts.styling.makeShirts"))
 </strong>
 </li> 
 </ul>
+</td></tr>
+
+
+<!--- spansExpression ------------->
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;spansExpression&gt;</span></td>
+<td>
+Describes a set of spans.  A <strong>spansExpression</strong> may be one of the following:
+
+<ul>
+<li>A <a href="spans_function.html"><strong>spans() function</strong></a>, which returns all spans that represent the specified operation and that match the specified <a href="spans_function.html#span-filters">span filters</a>. 
+<pre>spans("&lt;fullOperationName&gt;" 
+  [,|and|or [ not] &lt;filterName&gt;="&lt;filterValue&gt;"] ... )
+</pre>
+Example:
+<strong>
+spans("beachshirts.styling.makeShirts", source="app-1")
+</strong>
+
+</li>
+<li>A <a href="#spans-functions">query function that returns a list of spans</a> by filtering an input list of spans:
+
+<br><strong>
+lowpass(12ms, spans("beachshirts.styling.makeShirts"))
+</strong>
+</li> 
+</ul>
+<strong>Note:</strong> You cannot use a <strong>spansExpression</strong> by itself as a top-level query. Instead, you always use a <strong>spansExpression</strong> as a parameter to a <a href="traces_function.html">traces() function</a>. 
 </td></tr>
 
 </tbody>
@@ -597,7 +627,7 @@ The results are computed from real reported data values only, with no interpolat
 </tr>
 <tr>
 <td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
+<td>Returns at most <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
 </tr>
 <tr>
 <td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
@@ -1442,9 +1472,9 @@ Each events conversion function in the following table takes a set of events as 
 </tbody>
 </table>
 
-## <span id="traceFunctions"></span>Trace-Data Functions
+## <span id="traceFunctions"></span>Traces Functions
 
-You use trace-data functions to find and filter any [trace data](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Trace-data functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+You use traces functions to find and filter any [traces](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
 
 <table style="width: 100%;">
@@ -1461,45 +1491,73 @@ You use trace-data functions to find and filter any [trace data](tracing_basics.
 <tbody>
 <tr>
 <td>
-<a href="traces_function.html">traces(<strong>"&lt;fullOperationName&gt;"</strong>
-<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<a href="traces_function.html">traces({<strong>"&lt;fullOperationName&gt;"</strong>
+<br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...}
+<br> <strong>| &lt;spansExpression&gt;</strong>)</a>
 </td>
 <td>Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>.</td>
 </tr>
 <tr>
 <td>
-limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<a href="ts_limit.html">limit(<strong>&lt;numberOfTraces&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
 <td markdown="span">Limits the traces returned by **tracesExpression** to include the specified **numberOfTraces**. 
-For example:<br> <code>limit(50, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
 
 <tr>
-<td>highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td>
+<a href="ts_highpass.html">highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
 <td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are longer than **traceDuration**. 
-For example:<br> <code>highpass(3s, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
 <tr>
-<td>lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</td>
+<td>
+<a href="ts_lowpass.html">lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
 <td markdown="span">Filters the traces returned by **tracesExpression** to include only traces that are shorter than **traceDuration**.
-For example:<br> <code>lowpass(12ms, traces("beachshirts.styling.makeShirts"))</code>
 </td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+## <span id="spanFunctions"></span>Spans Functions
+
+You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
+
+**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to compose a `spansExpression` that you specify as a parameter to a `traces()` function. 
+
+<table style="width: 100%;">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+
 <tr>
 <td>
 <a href="spans_function.html">spans(<strong>"&lt;fullOperationName&gt;"</strong>
 <br> [,|and|or [not] <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>. Used as an argument to <strong>traces()</strong>.</td>
+<td>Returns the spans that match the specified <strong>fullOperationName</strong> and <a href="traces_function.html#span-filters">span filters</a>. </td>
 </tr>
 <tr>
-<td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
+<td><a href="ts_highpass.html">highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</a></td>
 <td markdown="span">Filters the spans returned by **spansExpression** to include only spans that are longer than **spanDuration**. 
 </td>
 </tr>
 <tr>
-<td>lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
+<td><a href="ts_lowpass.html">lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</a></td>
 <td markdown="span">Filters the spans returned by **spansExpression** to include only spans that are shorter than **spanDuration**.  
 </td>
 </tr>
