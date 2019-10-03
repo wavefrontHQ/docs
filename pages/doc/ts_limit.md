@@ -8,11 +8,34 @@ summary: Reference to the limit() function
 ---
 ## Summary
 ```
-limit(<numberOfTimeSeries>[, <offsetNumber>], <expression>)
+limit(<numberOfTimeSeries>[, <offsetNumber>], <tsExpression>)
+
+limit(<numberOfTraces>, <tracesExpression>)
 ```
-Displays only `numberOfTimeSeries` time series.
+
+You can use `limit()` with time series and with traces.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td markdown="span"> Time series filtering function</td>
+<td markdown="span">Limits the number of time series displayed for `tsExpression` in a time-series chart.</td></tr>
+<tr>
+<td markdown="span">Traces filtering function</td>
+<td markdown="span">Limits the number of traces listed by `tracesExpression` in the Traces browser.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Parameters
+
+### Time-Series Filtering Function
+
 <table>
 <tbody>
 <thead>
@@ -25,17 +48,55 @@ Displays only `numberOfTimeSeries` time series.
 <td>offsetNumber</td>
 <td markdown="span"> Specifies the index to start with.  </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression that you want to filter.</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that that describes the time series you want to filter.</td>
+</tr>
+</tbody>
+</table>
+
+### Traces Filtering Function
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>numberOfTraces</td>
+<td>Number of traces that you want listed. Express this parameter as a number (e.g. 10). Do not specify a percentage. </td></tr>
+<tr>
+<td markdown="span"> [tracesExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that that describes the traces you want to filter. Includes a <a href="traces_function.html">traces() function.</a></td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-Returns only `numberOfTimeSeriestime` series. Use the optional `offsetNumber` to specify an index to start with. For example, set `offsetNumber` to 5 to start with the 5th item.
+You can use `limit()`:
+* With time series as a filtering function.
+* With traces as a filtering function.
+
+### Time-Series Filtering Function
+
+The `limit()` time-series filtering function limits the results of `tsExpression` to at most `numberOfTimeSeries` time series. For example, the following query limits the results of the `tsExpression` to at most 10 time series: 
+
+```limit(10, ts(~sample.mem.used.percentage))```
+
+Use the optional `offsetNumber` to specify an index to start with. For example, set `offsetNumber` to 5 to start with the 5th item. 
+
+
+### Traces Filtering Function
+
+The `limit()` traces filtering function limits the results of `tracesExpression` to at most `numberOfTraces` traces. For example, the following query limits the results of the `traces()` query to at most 50 traces: 
+
+```limit(50, traces("beachshirts.styling.makeShirts"))```
+
+**Note:** Because the ordering of traces is unpredictable, you cannot use `limit()` to page through a set of results to obtain the next group of traces.
 
 ## Examples
+
+### Time-Series Filtering Function
 
 The following example returns only 5 of the time series.
 

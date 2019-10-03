@@ -9,7 +9,7 @@ summary: Learn how to write events() queries.
 ## Summary
 
 ```
-events("<filterName>"="<filterValue>” [,|and|or [not] "<filter2Name>"="<filter2Value>"] ...)
+events(<filterName>="<filterValue>” [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
 ```
 
 Controls how [events display in a chart](charts_events_displaying.html).
@@ -171,17 +171,17 @@ An event set operator combines or compares two sets of events, and returns a set
 <td>&lt;e1&gt; <strong>union</strong> &lt;e2&gt;</td>
 <td>Returns all events that exist in either of the event sets. For example, these queries return events of type <code>maintenanceWindow</code> (with any name), and events named <code>test</code> (of any type): 
 <pre>
-events(type=maintenanceWindow) union events(name="test")
+events(type="maintenanceWindow") union events(name="test")
 
-events(type=maintenanceWindow or name="test")   // Equivalent alternative </pre></td>
+events(type="maintenanceWindow" or name="test")   // Equivalent alternative </pre></td>
 </tr>
 <tr>
 <td>&lt;e1&gt; <strong>intersect</strong> &lt;e2&gt;</td>
 <td>Returns all events that exist in both of the event sets. For example, these queries return events of type <code>maintenanceWindow</code> that are also called <code>test</code>:
 <pre>
-events(type=maintenanceWindow) intersect events(name="test")
+events(type="maintenanceWindow") intersect events(name="test")
 
-events(type=maintenanceWindow and name="test")  // Equivalent alternative </pre></td>
+events(type="maintenanceWindow" and name="test")  // Equivalent alternative </pre></td>
 </tr>
 <tr>
 <td>&lt;e1&gt; <strong>-</strong> &lt;e2&gt;</td>
@@ -242,8 +242,8 @@ You can use [Allen's interval algebra](https://en.wikipedia.org/wiki/Allen%27s_i
 
 Examples:
  
-- `events(severity=severe) d since(1d)` returns all events with severity `severe` that occurred in the last day.
-- `events(severity=severe) - (events(severity=severe) d since(1d))` returns all events with severity `severe` that are older than one day.
+- `events(severity="severe") d since(1d)` returns all events with severity `severe` that occurred in the last day.
+- `events(severity="severe") - (events(severity="severe") d since(1d))` returns all events with severity `severe` that are older than one day.
 
 
 ## When Does an Event Query Return Events?

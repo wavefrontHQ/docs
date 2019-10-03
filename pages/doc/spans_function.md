@@ -76,7 +76,7 @@ To display the traces that include short spans for any operation in the `styling
 - `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.*"))))`
 
 To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces(spans("beachshirts.*.*" and (source=prod-app1 or source=prod-app10))))`
+- `limit(100, traces(spans("beachshirts.*.*" and (source="prod-app1" or source="prod-app10"))))`
 
 
 <a name="filters"></a>
@@ -155,17 +155,13 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 <tbody>
 
 <tr>
-<td>highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
-**Example:** Return the qualifying spans that are longer than 3 seconds: <br>
-`highpass(3s, spans("makeShirts", application="beachshirts"))`
+<td><a href="ts_highpass.html">highpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</a></td>
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are longer than **spanDuration**. 
 </td>
 </tr>
 <tr>
 <td>lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</td>
-<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are shorter than **spanDuration**.  Specify **spanDuration** as an integer number of milliseconds, seconds, minutes, hours, days or weeks (1ms, 1s, 1m, 1h, 1d, 1w). <br><br>
-**Example:** Return the qualifying spans that are shorter than 10 milliseconds: <br>
-`lowpass(10ms, spans("makeShirts", application="beachshirts"))`
+<td markdown="span">Limits the set of spans that are matched by **spansExpression** to include only spans that are shorter than **spanDuration**. 
 </td>
 </tr>
 
