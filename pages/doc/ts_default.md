@@ -8,7 +8,7 @@ summary: Reference to the default() function
 ---
 ## Summary
 ```
-default([<timeWindow>,] [<delayTime>,] <defaultValue>, <expression>)
+default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)
 ```
 
 Fills in gaps in an expression with `defaultValue`. `defaultValue` can be a constant or an expression). The optional `timeWindow` parameter fills in that period of time after each existing point (for example, 5m for 5 minutes). Without `timeWindow`, all gaps are filled in.
@@ -32,7 +32,7 @@ Despite its apparent simplicity, the `default()` function is one of the most mis
 <td>defaultValue</td>
 <td>Value that you want to use in places where there are gaps in the data. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression in which you want to replace gaps in data with a default value. </td>
 </tr>
 </tbody>
@@ -46,15 +46,13 @@ For the simplest case, you can use `default()` to set the default value of a que
 
 `default(0, ts(my.metric))`
 
-**Note:** In certain situations we don't recommenbt using `default()`. See the list of **Caveats** below. In that case, use the following query instead.
+**Note:** In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead.
 
 `if(exists(ts(my.metric)), ts(my.metric), 0)`
 
 
 
 ## Examples
-
-In the chart below, we're using a value of 0 to highlight when data a missing - the line dips to 0:
 
 The first screenshot shows just the function as a blue line, which is dashed when there are no data:
 

@@ -82,20 +82,21 @@ The `ts()` function uses the specified parameters to select the time series to r
 
   ```ts(~sample.disk.bytes.written)```
 
-* Filter the matched time series by specifying a combination of source names, source tags, and/or point tags. For example, the following function returns only the time series that are from the source `host1` and have a `customer` point tag with the value `qa`:
+* Filter the matched time series by specifying a combination of source names, source tags, and/or point tags. For example, the following function returns only the time series that are from either of 2 specified sources and that have an `env` point tag with the value `dev`:
 
-  ```ts(~sample.disk.bytes.written, (source="host1" or source="host2") and customer="qa")```
+  ```ts(~sample.disk.bytes.written, (source="app-1" or source="app-2") and env="dev")```
+
+**Note:** As you type a `ts()` function in Query Editor, you are prompted with metric name components, Boolean operators, keywords, and possible values.
 
 A time series described by a `ts()` function may be [discrete or continuous](query_language_discrete_continuous.html), depending on how frequently and regularly the data points are reported. 
 
-<!---
+
 ## Examples
 
-In the following example, we run `ts()` as a top-level query under a time-series chart.
+The following chart shows the results of running `ts()` as a top-level query. Because we include just the metric name `~sample.disk.bytes.written`, the query returns all time series reported with that metric name.
 
-![ts function](images/ts_function.png)
+![ts function](images/ts_function_all_series.png)
 
+We can add filters to narrow down the results. The following chart shows that two time series match the specified sources and point tag:
 
-## See Also
-
---->
+![ts function filtered](images/ts_function_filtered.png)

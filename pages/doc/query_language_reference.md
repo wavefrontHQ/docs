@@ -454,8 +454,8 @@ All operations between `tsExpression`s are subject to the matching processes des
 ## Aggregation Functions
 
 [Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
-* Standard aggregation functions interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
-* Raw aggregation functions do not interpolate the underlying series before aggregation.
+* Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
+* Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 
 All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.
 
@@ -547,6 +547,9 @@ The results are computed from real reported data values only, with no interpolat
 <span id="filter"></span>
 
 ## Filtering and Comparison Functions
+
+Filtering functions help you select a subset of the time series that are returned by a `tsExpression`.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -569,11 +572,11 @@ The results are computed from real reported data values only, with no interpolat
 </tr>
 <tr>
 <td><a href="ts_min.html">min(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>)</a></td>
-<td>Returns the lower of the two values in <strong>tsExpression1</strong> and <strong>tsExpression2</strong>. For example: <strong>min(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the lower value in each pair of corresponding values in <strong>tsExpression1</strong> and <strong>tsExpression2</strong>. </td>
 </tr>
 <tr>
 <td><a href="ts_max.html">max(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>)</a></td>
-<td>Returns the higher of the two values in <strong>tsExpression1</strong> and  <strong>tsExpression2</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the higher value in each pair of corresponding values in <strong>tsExpression1</strong> and  <strong>tsExpression2</strong>.</td>
 </tr>
 <tr>
 <td><a href="ts_between.html">between(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
@@ -589,19 +592,19 @@ The results are computed from real reported data values only, with no interpolat
 </tr>
 <tr>
 <td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the top <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td>Returns the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
 <td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td>Returns the bottom <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
 <td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns 1 for the top <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td>Returns 1 for the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
 <td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
@@ -646,6 +649,12 @@ The results are computed from real reported data values only, with no interpolat
 </table>
 
 ## Standard Time Functions
+
+Standard time functions can help you:
+* Analyze how time series change over time: `rate()`, `derive()`, `ratediff()`)
+* Compare current values to earlier or later values of the same time series: `lag()`, `lead()`, `at()`
+* Examine time series during particular time windows: `year()`, `month()`, `dayOfYear()` and so on
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -731,7 +740,7 @@ The results are computed from real reported data values only, with no interpolat
 <span id="moving"></span>
 ## Moving Window Time Functions
 
-Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
+Moving window time functions combine or test the values of a time series over a sliding window. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
 
 These functions output continuous time series, with the exception of `integral()`.
 
@@ -821,7 +830,10 @@ These functions output continuous time series, with the exception of `integral()
 </tbody>
 </table>
 
-## Conditional Functions
+## Conditional Function
+
+The `if()` conditional function returns data values from time series based on a specified condition.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -835,8 +847,11 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, <strong>&lt;then-tsExpression&gt;</strong> &lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
-<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. <strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>then-tsExpression</strong> and <strong>else-tsExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>condition-tsExpression</strong>.
+<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, 
+<br><strong>&lt;then-tsExpression&gt;</strong> 
+<br>&lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
+<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. 
+<br><strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. 
 </td>
 </tr>
 </tbody>
@@ -849,6 +864,8 @@ These functions output continuous time series, with the exception of `integral()
 </table>
 
 ## Rounding Functions
+
+Rounding functions return time series with integer data values.
 
 <table style="width: 100%;">
 <colgroup>
@@ -903,7 +920,7 @@ Missing data functions allow you to interpolate missing data with points based o
 <tr>
 <td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>tsExpression</strong> with <strong>defaultValue</strong> (whether that's a constant or an expression). The optional <strong>timeWindow</strong> parameter fills in the specified period of time after each existing point (for example, <strong>5m</strong> for 5 minutes). Without this argument, all gaps are filled in. The optional <strong>delayTime</strong> parameter specifies the amount of time that must pass without a reported value in order for the default value to be applied.</td>
+<td>Fills in gaps in <strong>tsExpression</strong> with <strong>defaultValue</strong>, which might be a constant or an expression. Include <strong>timeWindow</strong> to fill in data for just a limited period of time after each existing point. Include <strong>delayTime</strong> to wait for a period of time without a reported value before applying the default value.</td>
 </tr>
 <tr>
 <td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
@@ -931,11 +948,11 @@ Missing data functions allow you to interpolate missing data with points based o
 
 ## Metadata Functions
 
-Metadata functions let you temporarily rename a metric or source, or create a synthetic point tag on a time series. There are three ways to formulate the alias:
+Metadata functions let you temporarily rename a metric, rename a source, or create a synthetic point tag on a time series. You can formulate an alias or point tag value in one of 3 ways:
 
-- Node index - Extract a string component based on a <strong>zeroBasedNodeIndex</strong>. Components are identified by the default delimiter "." or a delimiter specified in <strong>delimiterDefinition</strong>.
-- Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
-- String substitution - Replace a metric or source in an expression with a replacement string.
+- Specify a string. The string can include one or more variables that are replaced with existing metadata values.
+- Specify a numeric **zeroBasedNodeIndex** to identify a node (string component) in an existing metadata value. The node is "extracted" and used as the new alias or value. By default, we consider nodes to be separated by periods, for example, `cpu.loadavg.1m`, but you can add an explicit **delimiterDefinition**, such as `"-"` to extract nodes from `cpu-loadavg-1m`.
+- Specify a regular expression **regexSearchPattern** to match substrings in an existing metadata value. You can use one or more matched substrings in a **replacementPattern** that describes the new alias or value.
 
 <table style="width: 100%;">
 <colgroup>
@@ -970,13 +987,6 @@ Metadata functions let you temporarily rename a metric or source, or create a sy
 </tbody>
 </table>
 
-**Examples**
-
-- Node index: `aliasMetric(ts(cpu.loadavg.1m, source), 1)` the extracted string is selected by node index. The metric `cpu.loadavg.1m` has 3 components. Setting `zeroBasedNodeIndex` to `1` extracts the second component (`loadavg`).
-- Node index with delimiter: `cpu-loadavg-1m` sets `delimiterDefinition` to `-`.
-- String substitution:
-  - Original: `max(ts(customer.alerts.active), metrics)`
-  - Renamed: `aliasMetric(${original}, "Total Number Of Alerts")`, replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
   <table style="width: 100%;">
   <tbody>
@@ -1003,6 +1013,9 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, and sup
 </table>
 
 ## Exponential and Trigonometric Functions
+
+Exponential and trigonometric functions enable you to perform mathematical transformations on each data value in the specified time series. 
+
 <table style="width: 100%;">
 <colgroup>
 <col width="55%" />
@@ -1036,13 +1049,18 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, and sup
 <td>Returns the log base 10 of each data value described by the expression.</td>
 </tr>
 <tr>
-<td>sin(<strong>&lt;tsExpression&gt;</strong>), cos(<strong>&lt;tsExpression&gt;</strong>), tan(<strong>&lt;tsExpression&gt;</strong>),<br/>asin(<strong>&lt;tsExpression&gt;</strong>), acos(<strong>&lt;tsExpression&gt;</strong>),<br/>atan(<strong>&lt;tsExpression&gt;</strong>),
+<td>
+<a href="ts_trig.html">Trigonometric Functions</a>
+<br>sin(<strong>&lt;tsExpression&gt;</strong>), cos(<strong>&lt;tsExpression&gt;</strong>), tan(<strong>&lt;tsExpression&gt;</strong>),<br/>asin(<strong>&lt;tsExpression&gt;</strong>), acos(<strong>&lt;tsExpression&gt;</strong>),<br/>atan(<strong>&lt;tsExpression&gt;</strong>),
 atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;tsExpression&gt;</strong>), cosh(<strong>&lt;tsExpression&gt;</strong>), tanh(<strong>&lt;tsExpression&gt;</strong>)</td>
-<td>Performs the specified trigonometric function on each data value described by the expression. <br>See <a href="ts_trig.html">Trigonometric Functions</a> for details.</td>
+<td>Performs the specified trigonometric function on each data value described by the expression. 
+</td>
 </tr>
 <tr>
-<td>toDegrees(<strong>&lt;numRadians&gt;</strong>), <br>toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
-<td>Converts radians to degrees, and vice versa. <br>See <a href="ts_trig_utilities.html">Trigonometric Utility Functions</a> for details.</td>
+<td>
+<a href="ts_trig_utilities.html">Trigonometric Utility Functions.</a> 
+<br>toDegrees(<strong>&lt;numRadians&gt;</strong>), toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
+<td>Converts radians to degrees, and vice versa.</td>
 </tr>
 </tbody>
 </table>
@@ -1055,12 +1073,15 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 
 ## String Manipulation Functions
 
-We support 3 groups of string manipulation functions. For each group:
-* The first argument is a metric, source, or point tag to manipulate.
-* Additional arguments depend on the group:
-  - The first group takes an expression as the second argument. For example: `length(service, ${ts})`
-  - The second group takes a string and an expression arguments and allows you to see whether a specified string is found in an expression. For example: `startsWith(service, "newV", ${ts})` 
-  - The third group takes one or two numbers and allows you to find the character at a certain location. For example: `charAt(service, 3, ${ts})`
+String manipulation functions let you manipulate the metadata of the specified time series. In each function, the first parameter identifies whether the string to manipulate the metric name, a source name, or the value of a point tag key.
+
+String manipulation functions can help you:
+* Obtain information about the string: `length()`, `indexOf()`, `lastIndex()` 
+* Extract a subset from the string: `charAt()`, `substring()`
+* Test the string: `isEmpty()`, `isBlank()`, `equals()`, `equalsIgnore()`, `startsWith()`, `endsWith()`, `matches()`, `contains()` 
+* Temporarily transform the string for duration of query: `toLowerCase()`, `toUpperCase()`, `trim()`, `strip()`, `stripLeading()`, `stripTrailing()`, `concat()`, `repeat()`
+ 
+
 <table style="width: 100%;">
 <colgroup>
 <col width="50%" />
@@ -1151,6 +1172,7 @@ We support 3 groups of string manipulation functions. For each group:
 </table>
 
 ## Predictive Functions
+Predictive functions enable you to forecast data values and find outlier data values in the specified time series.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1476,6 +1498,7 @@ Each events conversion function in the following table takes a set of events as 
 
 You use traces functions to find and filter any [traces](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
+Each function in the following table returns a set of one or more traces, and can therefore be used as the **tracesExpression** parameter in another function. 
 
 <table style="width: 100%;">
 <colgroup>
@@ -1529,7 +1552,7 @@ You use traces functions to find and filter any [traces](tracing_basics.html#wav
 
 You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
-**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to compose a `spansExpression` that you specify as a parameter to a `traces()` function. 
+**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to produce a **spansExpression** that you specify as a parameter to a `traces()` function. 
 
 <table style="width: 100%;">
 <colgroup>
