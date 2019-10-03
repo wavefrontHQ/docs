@@ -10,11 +10,7 @@ summary: Learn how to write traces() queries.
 ## Summary
 
 ```
-<<<<<<< HEAD
-traces("<fullOperationName>"  [,|and|or [not] <filterName>="<filterValue>"] ...)
-=======
 traces("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
->>>>>>> slindner-QLR-datatypes
 
 traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
 
