@@ -8,7 +8,7 @@ summary: Reference to the lead() function
 ---
 ## Summary
 ```
-lead(<timeWindow>, <expression>)
+lead(<timeWindow>, <tsExpression>)
 ```
 Returns later data values from the time series described by the expression, to help you compare each time series with its own subsequent behavior.
 
@@ -22,8 +22,8 @@ Returns later data values from the time series described by the expression, to h
 <td>Amount of time you want to go forward to obtain the values to return. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to return later values from. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to return later values from. </td></tr>
 </tbody>
 </table>
 

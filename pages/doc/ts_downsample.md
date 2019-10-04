@@ -8,7 +8,7 @@ summary: Reference to the downsample() function
 ---
 ## Summary
 ```
-downsample(<timeWindow>, <expression>)
+downsample(<timeWindow>, <tsExpression>)
 ```
 Returns the values in the expression that occur in each time window. For example, `downsample(30m, ts(my.metric)` returns the values of `my.metric` every half hour.
 
@@ -24,17 +24,17 @@ Returns the values in the expression that occur in each time window. For example
 <td>The filter time window. The function filters the data so you see only the data for the specified time window.  </td>
 </tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression to downsample. </td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression describing the time series to downsample. </td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-The `downsample()` function allows you to filter any `ts()` expression to just the values occurring every `timeWindow`.
+The `downsample()` function allows you to filter any time series to return just the values occurring every `timeWindow`.
 
-For example, to see the values for every half-hour of a given metric,  enter the following `ts()` expression:
+For example, to see the values for every half-hour of a given time series,  enter a query such as the following:
 
 ``
 downsample(30, ts(“my.metric”))

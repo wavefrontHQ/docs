@@ -472,67 +472,78 @@ All aggregation functions provide parameters for filtering the set of input seri
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_sum.html">sum(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td><a href="ts_sum.html">sum(<strong>&lt;tsExpression&gt;</strong> <br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns the sum of the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;tsExpression&gt;</strong> <br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the raw sum of the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_avg.html"> avg(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_avg.html"> avg(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the average (mean) of the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;tsExpression&gt;</strong> <br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the raw average (mean) of the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_min.html"> min(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_min.html"> min(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the lowest value across the time series described by <strong>tsExpression</strong>. The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the lowest value across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_max.html"> max(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_max.html"> max(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the highest value across the time series described by <strong>tsExpression</strong>. The results might be computed from real reported values and interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the highest value across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_count.html">count(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_count.html">count(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of reporting time series described by <strong>tsExpression</strong>,
 where a time series is counted as reporting even if it has interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of reporting time series described by <strong>tsExpression</strong>, where a time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
 </tr>
 <tr>
-<td><a href="ts_variance.html"> variance(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_variance.html"> variance(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance based on the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
+<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;tsExpression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
+<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 </tbody>
@@ -552,8 +563,8 @@ Filtering functions help you select a subset of the time series that are returne
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -591,19 +602,23 @@ Filtering functions help you select a subset of the time series that are returne
 <td>Groups the data values of a time series into buckets of size <strong>timeWindow</strong>, and returns one displayed value per bucket. Each returned value is the result of combining the data values in a bucket using the specified summarization method.</td>
 </tr>
 <tr>
-<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the bottom <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns 1 for the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
@@ -785,8 +800,8 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the maximum of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentileValue&gt;, &lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong>. </td>
+<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentage&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the <strong>percentage</strong> percentile of each series for the specified time window.  </td>
 </tr>
 <tr>
 <td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
@@ -903,12 +918,12 @@ Rounding functions return time series with integer data values.
 
 ## Missing Data Functions
 
-Missing data functions allow you to interpolate missing data with points based on other points in a series.
+Missing data functions allow you to interpolate data points in time series that have gaps.
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <tbody>
 <thead>
@@ -918,23 +933,24 @@ Missing data functions allow you to interpolate missing data with points based o
 </tr>
 </thead>
 <tr>
-<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
+<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; &lbrack;<strong>&lt;delayTime&gt;,</strong>&rbrack;  
+<br><strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>tsExpression</strong> with <strong>defaultValue</strong>, which might be a constant or an expression. Include <strong>timeWindow</strong> to fill in data for just a limited period of time after each existing point. Include <strong>delayTime</strong> to wait for a period of time without a reported value before applying the default value.</td>
+<td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points with the value <strong>defaultValue</strong>. Specify <strong>timeWindow</strong> to insert data for just a limited period of time after each existing point. Specify <strong>delayTime</strong> to allow a gap before the inserted data.</td>
 </tr>
 <tr>
-<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
+<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>tsExpression</strong> with the last known value of <strong>tsExpression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period after each existing point.</td>
+<td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points that have the last known value of the series. Specify <strong>timeWindow</strong> to insert data for just a limited period of time after each existing point.</td>
 </tr>
 <tr>
-<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
+<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
-<td>Fills in gaps in <strong>tsExpression</strong> with the next known value of <strong>tsExpression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period before the first data point after the missing data.</td>
+<td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points that have the next known value of the series. Specify <strong>timeWindow</strong> to insert data for the specified amount of time before the first data point after each gap.</td>
 </tr>
 <tr>
 <td><a href="ts_interpolate.html">interpolate(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Fills in gaps in <strong>tsExpression</strong> with a continuous linear interpolation of points.</td>
+<td>Fills in gaps in the time series described by <strong>tsExpression</strong>, by inserting a continuous linear interpolation of data points.</td>
 </tr>
 </tbody>
 </table>

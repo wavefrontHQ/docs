@@ -8,7 +8,7 @@ summary: Reference to the align() function
 ---
 ## Summary
 ```
-align(<timeWindow>,[mean|median|min|max|first|last|sum|count,] <expression>)
+align(<timeWindow>,[mean|median|min|max|first|last|sum|count,] <tsExpression>)
 ```
 Groups the data values of a time series into buckets of size <strong>timeWindow</strong>, and returns one displayed value per bucket. Each returned value is the result of combining the data values in a bucket using the specified summarization method.
 
@@ -30,7 +30,7 @@ These are similar to the <a href="ui_chart_reference.html#general"><strong>Summa
 Default is mean (average).</td>
 </tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to organize into buckets. </td></tr>
 </tbody>
 </table>
@@ -49,8 +49,8 @@ For example, suppose `align(1m, sum, ts(my.metric))` returns a value at 10:05:00
 
 Metrics are automatically pre-aligned for performance reasons when more than 100 time series are used in an aggregation function. You might see a pre-align warning even if you're not using the `align()` function. You can ignore the warning in most cases, for instance, if a metric reflects a parameter changing over time.
 
-You can use any supported unit of time for the `timeWindow` parameter. The `bw` unit, which stands for bucket window, enforces the summarization option in the query instead of the chart. For example, `align(1bw, [{mean|median|min|max|first|last|sum},] <expression>)` produces a chart that looks identical, regardless of summarization method that you choose in the chart.
-Using `bw` can also improve query performance on larger time windows where you normally align to a smaller interval like 1 minute. For example, `rawsum(align(1m, <expression>))` can be optimized by using `rawsum(align(1bw, <expression>))`.
+You can use any supported unit of time for the `timeWindow` parameter. The `bw` unit, which stands for bucket window, enforces the summarization option in the query instead of the chart. For example, `align(1bw, [{mean|median|min|max|first|last|sum},] <tsExpression>)` produces a chart that looks identical, regardless of summarization method that you choose in the chart.
+Using `bw` can also improve query performance on larger time windows where you normally align to a smaller interval like 1 minute. For example, `rawsum(align(1m, <tsExpression>))` can be optimized by using `rawsum(align(1bw, <tsExpression>))`.
 
 
 ## Examples

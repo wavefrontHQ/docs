@@ -11,9 +11,9 @@ summary: Reference to the default() function
 default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)
 ```
 
-Fills in gaps in an expression with `defaultValue`. `defaultValue` can be a constant or an expression). The optional `timeWindow` parameter fills in that period of time after each existing point (for example, 5m for 5 minutes). Without `timeWindow`, all gaps are filled in.
+Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
 
-Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations.
+**Note:** Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations.
 
 ## Parameters
 
@@ -23,14 +23,15 @@ Despite its apparent simplicity, the `default()` function is one of the most mis
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td>timeWindow</td>
-<td>By default, the <code>default()</code> function applies the specified value to gaps of missing data for up to 4 weeks. Use this optional parameter if you’d like this window to be smaller. The smallest time window you can specify is 1 second (1s). </td></tr>
+<td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
+<td>Maximum amount of time to fill with inserted data points. If you omit this parameter, gaps of up to 4 weeks are completely filled.
+<br>You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td>delayTime</td>
-<td>Amount of time that must pass without a reported value before the value specified by <code>defaultValue</code> is used. Optional.</td></tr>
+<td>Amount of time that must pass without a reported value before inserting data points. If you omit this parameter, data points are inserted at the beginning of each gap.</td></tr>
 <tr>
 <td>defaultValue</td>
-<td>Value that you want to use in places where there are gaps in the data. </td></tr>
+<td>Value that you want to use in places where there are gaps in the data. You can specify a constant or a function that returns time series.</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression in which you want to replace gaps in data with a default value. </td>

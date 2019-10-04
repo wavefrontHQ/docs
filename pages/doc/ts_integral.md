@@ -10,7 +10,7 @@ summary: Reference to the integral() function
 ## Summary
 
 ```
-integral(<expression>)
+integral(<tsExpression>)
 ```
 Returns the moving sum for each time series, over the time window set for the current chart.
 
@@ -23,8 +23,8 @@ Returns the moving sum for each time series, over the time window set for the cu
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>A ts() expression, a constant, or a wildcard.  </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series you want moving sums for.  </td></tr>
 </tbody>
 </table>
 

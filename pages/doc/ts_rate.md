@@ -8,8 +8,9 @@ summary: Reference to the rate() function
 ---
 
 ## Summary
-
-    rate([<timewindow>,] <expression>)
+```
+rate([<timeWindow>,] <tsExpression>)
+```
 
 Returns the per-second rate of change for each time series described by the expression. The results include only positive rates of change. Use [`deriv()`](ts_deriv.html) if you want negative rates of change as well. Consider [`ratediff()`](ts_ratediff.html) if the time series have lots of gaps or irregular reporting intervals.
 
@@ -24,8 +25,8 @@ Returns the per-second rate of change for each time series described by the expr
 <td>Length of the reporting interval for the time series, to enable Wavefront to avoid rate gaps by inferring initial values. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w). Default is minutes if the unit is not specified.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to return rates of change for. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to return rates of change for. </td></tr>
 </tbody>
 </table>
 
