@@ -6,7 +6,7 @@ summary: Learn about the Wavefront VMware Cloud on AWS Integration.
 ---
 ## vSphere Integration
 
-The vSphere integration is a full-featured implementation offering pre-defined dashboards and predifined alert conditions. The integration is fully configurable.
+The vSphere integration is a full-featured implementation offering pre-defined dashboards and pre-defined alert conditions. The integration is fully configurable.
 
 ### Dashboards
 

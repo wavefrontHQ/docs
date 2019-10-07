@@ -26,7 +26,7 @@ Returns the percentage of anomalous points in each time series described by the 
 Default is 0.99 if this parameter is not specified.
 </td></tr>
 <tr><td markdown="span">historyWindow</td>
-<td markdown="span">Amount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) immediately preceding the chart window. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1 week (1w) if this parameter is not specified.
+<td markdown="span">Amount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) immediately preceding the chart window. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1 day (1d) if this parameter is not specified.
 </td></tr>
 <tr><td markdown="span">alignWindow</td>
 <td markdown="span">Size (duration) of the buckets for summarizing data values, to regularize the reporting interval of the time series. The reported values in a bucket are summarized by averaging. You can specify a [time window](query_language_reference.html#common-parameters) measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is the bucket size of the chart (1bw), if this parameter is not specified. You must specify `historyWindow` as well if you want to use this parameter.
@@ -68,7 +68,7 @@ If the range is narrow, many points lie outside it, and the reported percentages
 
 `anomalous()` uses a forecasting algorithm that bases its predictions on actual values reported by the time series. These values come from data points reported in the chart window and data points reported in a history window immediately preceding the chart. In effect, the history window provides a minimum amount of past data for `anomalous()` to base its predictions on, regardless of the size of the chart's time window. 
 
-By default, the history window is a week long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
+By default, the history window is one day long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
 
 If the data points used for prediction have missing data or an irregular reporting interval, you can smooth over the gaps by specifying an optional `alignWindow` parameter. This also smooths the gaps in the results. If you specify `alignWindow`, you must specify `historyWindow` as well.
 
