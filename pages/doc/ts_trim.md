@@ -8,8 +8,11 @@ summary: Reference to the trim, strip, stripLeading, and stripTrailing string ma
 ## Summary
 ```
 trim(metric|source|<pointTagKey>, <tsExpression>)
+
 strip(metric|source|<pointTagKey>, <tsExpression>)
+
 stripLeading(metric|source|<pointTagKey>, <tsExpression>)
+
 stripTrailing(metric|source|<pointTagKey>, <tsExpression>)
 ```
 

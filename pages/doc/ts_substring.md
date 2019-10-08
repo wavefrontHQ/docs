@@ -7,12 +7,10 @@ summary: Reference to the substring string manipulation function
 ---
 ## Summary
 ```
-substring(metric|source|<pointTagKey>, <integer>, <expression>)
-substring(metric|source|<pointTagKey>, <integer1>, <integer2>, <expression>)
+substring(metric|source|<pointTagKey>, <startInteger>, [<endInteger>,] <tsExpression>)
+
 ```
-The `substring()` function has two options:
-* Extract a substring that starts at a position specified by an integer from a string extracted from an expression.
-* Extract a substring that starts at the position specified by integer1 and that ends at the position specified by integer2 from a string extracted from an expression.
+Returns a substring that is extracted from the specified metadata string. 
 
 
 ## Parameters
@@ -23,25 +21,29 @@ The `substring()` function has two options:
 </thead>
 <tr>
 <td>metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to extract a substring from.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to extract a substring from.</td></tr>
 <tr>
-<td>integer</td>
-<td>The integer that specifies the position to start extracting a substring. </td></tr>
+<td>startInteger</td>
+<td>Starting position of the substring that you want to extract. Positions are counted from left to right, starting with 0. </td></tr>
 <tr>
-<td>integer1, integer2</td>
-<td>integer1 specifies the position to start extracting and integer2 specifies the position to stop extracting a substring. </td></tr>
+<td>endInteger</td>
+<td markdown="span">Position that immediately follows the last character of the substring to be extracted. Omit this parameter to extract all characters from `startString` to the end of the metadata string.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to extract a substring from.</td></tr>
 </tbody>
 </table>
+
+## Description
+
+The `substring()` function returns a substring that is extracted from the specified metadata string. The extracted substring starts at the position specified by `startInteger` and ends just before the position specified by `endInteger`. You can omit `endInteger` if you want to remove a prefix from the metadata string.
 
 
 ## Example
 
 The following example uses two integers to specify where to start and end extracting a substring from a string extracted from an expression.
 
-The example
+The example:
 * Extracts the string `Point` from `newPointTagValue` by specifying 3, 8
 * Extracts the string `Tag` from `newPointTagValue` by specifying 8, 11
 

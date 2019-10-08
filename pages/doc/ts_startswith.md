@@ -7,12 +7,13 @@ summary: Reference to the startsWith() and endsWith() string manipulation functi
 ---
 ## Summary
 ```
-startsWith(metric|source|<pointTagKey>, <string>, <tsExpression>)
-endsWith(metric|source|<pointTagKey>, <string>, <tsExpression>)
-```
-The `startsWith()` function tests whether the specified metadata string starts with a specified string.
+startsWith(metric|source|<pointTagKey>, "<string>", <tsExpression>)
 
-The `endsWith()` function tests whether the specified metadata string ends with a specified string.
+endsWith(metric|source|<pointTagKey>, "<string>", <tsExpression>)
+```
+The `startsWith()` function returns true if the specified metadata string starts with the given string, and returns false otherwise.
+
+The `endsWith()` function returns true if the specified metadata string ends with the given string, and returns false otherwise.
 
 
 ## Parameters

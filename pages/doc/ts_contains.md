@@ -1,18 +1,16 @@
 ---
-title: matches and contains Functions
+title: contains Function
 keywords: query language reference
 tags: [reference page]
-permalink: ts_matches.html
-summary: Reference to the matches() and contains() string manipulation functions
+permalink: ts_contains.html
+summary: Reference to the contains() string manipulation functions
 ---
 ## Summary
 ```
-matches(metric|source|<pointTagKey>, <string>, <tsExpression>)
-contains(metric|source|<pointTagKey>, <string>, <tsExpression>)
+contains(metric|source|<pointTagKey>, "<subString>", <tsExpression>)
 ```
-The `matches()` function tests the specified metadata string against a comparison string, and returns true if the two strings match and false otherwise.
 
-The `contains()` function tests the specified metadata string against a comparison string, and returns true if the metadata string contains the comparison string, and returns false otherwise.
+Returns true if the specified metadata string contains the substring, and returns false otherwise.
 
 ## Parameters
 <table style="width: 100%;">
@@ -24,8 +22,8 @@ The `contains()` function tests the specified metadata string against a comparis
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
 <td>The metadata string (metric name, source name, or value of a point tag key) to be tested.</td></tr>
 <tr>
-<td markdown="span">string</td>
-<td>Comparison string to test against the metadata string.</td></tr>
+<td markdown="span">subString</td>
+<td>String to test for containment in the metadata string.</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>The expression that describes the time series with the metadata string to be tested.</td></tr>

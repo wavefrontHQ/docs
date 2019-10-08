@@ -7,8 +7,9 @@ summary: Reference to the indexOf() and lastIndexOf() string manipulation functi
 ---
 ## Summary
 ```
-indexOf(metric|source|<pointTagKey>, <subString>, <tsExpression>)
-lastIndexOf(metric|source|<pointTagKey>, <subString>, <tsExpression>)
+indexOf(metric|source|<pointTagKey>, "<subString>", <tsExpression>)
+
+lastIndexOf(metric|source|<pointTagKey>, "<subString>", <tsExpression>)
 ```
 The `indexOf()` function finds the first occurrence of the specified substring in the metadata string, and returns the starting position of that occurrence.
 

@@ -9,7 +9,7 @@ summary: Reference to the length() string manipulation function
 ```
 length(metric|source|<pointTagKey>, <tsExpression>)
 ```
-Returns the length of a metadata string from the specified time series.
+Returns the length of the specified metadata string.
 
 ## Parameters
 <table style="width: 100%;">

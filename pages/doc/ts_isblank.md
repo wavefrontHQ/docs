@@ -8,6 +8,7 @@ summary: Reference to the isBlank() and isEmpty() string manipulation functions
 ## Summary
 ```
 isBlank(metric|source|<pointTagKey>, <tsExpression>)
+
 isEmpty(metric|source|<pointTagKey>, <tsExpression>)
 ```
 
