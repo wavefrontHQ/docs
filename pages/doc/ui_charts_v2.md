@@ -246,13 +246,12 @@ The same chart with the millisecond values in the hundred thousands displays as 
 
 ## Chart Resolution
 
-**Note:** The following explanation for chart resolution relies on screen shots and examples from the v1 UI. The information about the horizontal scale and bucket size is not currently available in v2.
-
 Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, Wavefront *groups* data points into time buckets and maps the buckets to display points.
 
 **Chart resolution** is the bucket time interval. It displays in the **Horizontal Scale** field in the lower-left corner of a chart.
 
-![resolution](images/chart_resolution.png)
+![resolution](images/chart_resolution_v2.png)
+
 
 
 The chart above has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the Count summarization method you can see how many points are in each bucket.
