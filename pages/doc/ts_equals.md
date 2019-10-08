@@ -7,12 +7,12 @@ summary: Reference to the equals() and equalsIgnoreCase() string manipulation fu
 ---
 ## Summary
 ```
-equals(metric|source|<pointTagKey>, <string>, <expression>)
-equalsIgnoreCase(metric|source|<pointTagKey>, <string>, <expression>)
+equals(metric|source|<pointTagKey>, <string>, <tsExpression>)
+equalsIgnoreCase(metric|source|<pointTagKey>, <string>, <tsExpression>)
 ```
-The `equals()` function compares a string extracted from an expression to a specified string.
+The `equals()` function compares the specified metadata string to another string.
 
-The `equalsIgnoreCase()` function compares a string extracted from an expression to a specified string and ignores case. With this function `string` is equal to `StRiNg`
+The `equalsIgnoreCase()` function compares the specified metadata string to another string, and ignores case. With this function, `string` is equal to `StRiNg`.
 
 ## Parameters
 <table style="width: 100%;">
@@ -22,13 +22,13 @@ The `equalsIgnoreCase()` function compares a string extracted from an expression
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to compare to a string.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to compare to a string.</td></tr>
 <tr>
 <td markdown="span">string</td>
 <td>The string that you want to check equality for.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to be compared.</td></tr>
 </tbody>
 </table>
 

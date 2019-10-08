@@ -7,13 +7,13 @@ summary: Reference to the isBlank() and isEmpty() string manipulation functions
 ---
 ## Summary
 ```
-isBlank(metric|source|<pointTagKey>, <expression>)
-isEmpty(metric|source|<pointTagKey>, <expression>)
+isBlank(metric|source|<pointTagKey>, <tsExpression>)
+isEmpty(metric|source|<pointTagKey>, <tsExpression>)
 ```
 
-The `isBlank()` function returns true if the value of the metric, source, or point tag string is a blank character (`" "`), and returns false otherwise.
+The `isBlank()` function returns true if the specified metadata string is a blank character (`" "`), and returns false otherwise.
 
-The `isEmpty()` function returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.
+The `isEmpty()` function returns true if the specified metadata string is the empty string, and returns false otherwise.
 
 
 ## Parameters
@@ -24,9 +24,9 @@ The `isEmpty()` function returns true if the value of the metric, source, or poi
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) to be tested.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to be tested.</td></tr><tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to be tested.</td></tr>
 </tbody>
 </table>
 

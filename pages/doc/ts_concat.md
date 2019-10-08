@@ -7,9 +7,9 @@ summary: Reference to the concat string manipulation function
 ---
 ## Summary
 ```
-concat(metric|source|<pointTagKey>, <string>, <expression>)
+concat(metric|source|<pointTagKey>, <string>, <tsExpression>)
 ```
-The `concat()` function lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string.
+The `concat()` function concatenates the specified string by adding it to the end of the specified metadata string. 
 
 
 ## Parameters
@@ -20,13 +20,13 @@ The `concat()` function lets you concatenate a specified string with a extracted
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) you want to extract.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to add to.</td></tr>
 <tr>
 <td markdown="span">string</td>
-<td>The string that you want to concatenate with the extracted string.</td></tr>
+<td>The string that you want to concatenate with the metadata string.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>TThe expression that describes the time series with the metadata string to be added to.</td></tr>
 </tbody>
 </table>
 

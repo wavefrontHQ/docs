@@ -8,10 +8,10 @@ summary: Reference to the sqrt() function
 ---
 ## Summary
 ```
-sqrt(<expression>)
+sqrt(<tsExpression>)
 ```
 
-Returns the square root of each data value described by the expression.
+Returns the square root of each data value in the time series described by the expression.
 
 
 ## Parameters
@@ -22,16 +22,16 @@ Returns the square root of each data value described by the expression.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the values to find the square root of. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression describing the time series of data values to find the square root of. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
 The `sqrt()` function produces data points by taking the square root of the data points returned by the input expression.
-* If `expression` is a constant, then `sqrt()` returns the square root of that constant.  
-* If `expression` describes one or more time series, then `sqrt()` returns a new time series for each input time series. 
+* If `tsExpression` is a constant, then `sqrt()` returns the square root of that constant.  
+* If `tsExpression` describes one or more time series, then `sqrt()` returns a new time series for each input time series. 
 Each value in a new time series is obtained by taking the square root of the value of the corresponding point in the input time series. 
 
 

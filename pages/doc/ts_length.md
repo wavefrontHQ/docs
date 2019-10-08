@@ -7,9 +7,9 @@ summary: Reference to the length() string manipulation function
 ---
 ## Summary
 ```
-length(metric|source|<pointTagKey>, <expression>)
+length(metric|source|<pointTagKey>, <tsExpression>)
 ```
-Returns the length of a string.
+Returns the length of a metadata string from the specified time series.
 
 ## Parameters
 <table style="width: 100%;">
@@ -19,9 +19,9 @@ Returns the length of a string.
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) for which you need the string length.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span">The metadata string (metric name, source name, or value of a point tag key) to get the length of.</td></tr><tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string that you want the length of.</td></tr>
 </tbody>
 </table>
 

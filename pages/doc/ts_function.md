@@ -73,7 +73,7 @@ region="us-west-2a" or region="us-west-2b"
 
 The `ts()` function returns one or more time series. A time series is a sequence of data points that each consists of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. 
 
-You visualize a time series by running `ts()` as a top-level query under a time-series chart. 
+You visualize a time series by running `ts()` as a top-level query in [Query Editor](query_editor.html) under a time-series chart. 
 You can also use `ts()` as an input [`tsExpression`](query_language_reference.html#query-expressions) that you specify to another query function, for example, `msum(10m, ts(~sample.disk.bytes.written, source="app-14"))` 
 
 The `ts()` function uses the specified parameters to select the time series to return: 

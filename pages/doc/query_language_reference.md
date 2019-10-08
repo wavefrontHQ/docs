@@ -396,7 +396,7 @@ Example. Suppose a dashboard variable <strong>az</strong> has the value <strong>
 <pre>ts(requests.latency, ${az})</pre>
 
 This is equivalent to typing in:
-<pre>ts(requests.latency, tag=az-3 or tag=az-4)</pre>
+<pre>ts(requests.latency, tag="az-3" or tag="az-4")</pre>
 <strong>Note: </strong> A dashboard variable can expand to any text string, unlike query line variables and aliases, which must be complete tsExpressions.
 </td></tr>
 </tbody>
@@ -1049,7 +1049,7 @@ Exponential and trigonometric functions enable you to perform mathematical trans
 <td>Returns the square root of each data value described by the expression.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;baseExpression&gt;</strong>, <strong>&lt;exponentExpression&gt;</strong>[, <strong>inner</strong>])</a></td>
+<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;base-tsExpression&gt;</strong>, <strong>&lt;exponent-tsExpression&gt;</strong>[, <strong>inner</strong>])</a></td>
 <td>Raises the base expression to the power of the exponent expression. </td>
 </tr>
 <tr>
@@ -1111,7 +1111,7 @@ String manipulation functions can help you:
 </thead>
 <tbody>
 <tr><td><a href="ts_length.html">length(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Returns the length of a string</td>
+<td>Returns the length of a string in the metadata of a time series.</td>
 </tr>
 <tr><td><a href="ts_isblank.html">isEmpty(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.</td>

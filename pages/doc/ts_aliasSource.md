@@ -10,12 +10,12 @@ summary: Reference to the aliasSource() function
 ## Summary
 
 ```
-aliasSource (<tsExpression>, "<newSourceName>")
+aliasSource(<tsExpression>, "<newSourceName>")
 
-aliasSource (<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
+aliasSource(<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
             <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasSource (<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
+aliasSource(<tsExpression>, [metric|source|{tagk, <pointTagKey>},]
             “<regexSearchPattern>”, "<replacementPattern>")
 ```
 

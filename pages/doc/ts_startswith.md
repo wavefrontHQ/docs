@@ -7,12 +7,12 @@ summary: Reference to the startsWith() and endsWith() string manipulation functi
 ---
 ## Summary
 ```
-startsWith(metric|source|<pointTagKey>, <string>, <expression>)
-endsWith(metric|source|<pointTagKey>, <string>, <expression>)
+startsWith(metric|source|<pointTagKey>, <string>, <tsExpression>)
+endsWith(metric|source|<pointTagKey>, <string>, <tsExpression>)
 ```
-The `startsWith()` function lets you check whether a string extracted from an expression starts with a specified string.
+The `startsWith()` function tests whether the specified metadata string starts with a specified string.
 
-The `endsWith()` function lets you check whether a string extracted from an expression starts with a specified string.
+The `endsWith()` function tests whether the specified metadata string ends with a specified string.
 
 
 ## Parameters
@@ -23,22 +23,25 @@ The `endsWith()` function lets you check whether a string extracted from an expr
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to check for a specified string.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to test for the specified starting or ending string.</td></tr>
 <tr>
 <td markdown="span">string</td>
-<td>The string you want to check for.</td></tr>
+<td>The starting or ending string to be tested for.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to be tested.</td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `startsWith()` and `endsWith()` functions allow you to check whether a string starts with or ends with a specified string. For example, you could check whether a host name starts with `aws` or ends with `2020`.
+The `startsWith()` and `endsWith()` functions allow you to check whether a metadata string starts with or ends with a specified string. For example, you could check whether a host name starts with `aws` or ends with `2020`.
+
+The returned values (`true` or `false`) are displayed as metadata values in the chart legend or in a table column. 
+
 
 ## Example
 
-In the example below, we check whether the string `newPointTagValue` starts with `newV` (false) or with `newP` (true)
+In the example below, we check whether the string `newPointTagValue` starts with `newV` (false) or with `newP` (true).
 
 ![ts starts with](images/ts_starts_with.png)
