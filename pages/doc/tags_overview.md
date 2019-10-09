@@ -21,7 +21,7 @@ You use tags in several ways:
 * **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
   **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
 * **Alert tags** -- Find [alerts](alerts.html) or exclude tagged alerts from a maintenance window.
-* **Event Tags** -- Add event tags from the Events browser or when you [create a user event](events.html#creating-a-user-event) to make it easier to filter events. 
+* **Event Tags** -- Add event tags from the Events browser or when you [create a user event](events.html#creating-a-user-event) to make it easier to filter events.
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
 
 You can use tags to filter alerts, dashboards, events, and sources from the Wavefront UI or with the REST API.
@@ -170,16 +170,45 @@ To add a source tag from the UI:
 1. Click **Browse>Sources**.
 2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
 
-### Add SourceTag and SourceDescription Properties to Metrics
+### Manage SourceTag and SourceDescription Properties at the Proxy
 
-You can use the `SourceTag` and `SourceDescription` properties to add source tags and source descriptions before the metrics reach Wavefront. Starting with proxy version 4.24, you send these properties to the same listening port as regular metrics (`pushListenerPorts` setting, 2878 by default).
+You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Proxy 4.24 and later supports these properties. Starting with proxy 5.0, each property works with `add`, `save`, and `delete`.
 
-To send a source tag or source description to a proxy, you can include commands like a following:
+You send these properties to the same listening port as regular metrics (`pushListenerPorts` setting, 2878 by default).
+
+**Examples**
+
+Here are some simple examples:
+
+Add source tags `highPriority` and `red` to all metrics coming from the source `app-2`.
+```
+@SourceTag action=add source=app-1 highPriority red
+```
+
+Replace all existing source tags for source `app-2` with `qa-42`
+```
+@SourceTag action=save source=app-2 qa-42
+```
+
+Delete the source description 2018 from metrics coming from the source `app-3`.
+```
+@SourceTag action=delete source=app-3 dev
+```
+
+**Syntax**
+
+The syntax is the same for both the SourceTag and the SourceDescription property.
 
 ```
-@SourceTag action=save source=app-1 highPriority
+@SourceTag|@SourceDescription <action> <source> <value>
 ```
+* action is `add`, `save`, or `delete`. When you specify `save`, you replace any existing source tags or source descriptions with the new source tag or source description.
+* source is the source to which you want to add a source tag or source description.
+* value is the name of the tag or the description.
 
+**NOTE**: Use quotes if any of the values includes spaces or special characters.
+
+<!---
 <table>
 <thead>
 <tr>
@@ -215,3 +244,4 @@ To send a source tag or source description to a proxy, you can include commands 
 </tr>
 </tbody>
 </table>
+--->
