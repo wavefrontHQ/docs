@@ -7,9 +7,10 @@ summary: Reference to the charAt string manipulation function
 ---
 ## Summary
 ```
-charAt(metric|source|<pointTagKey>, <integer>, <expression>)
+charAt(metric|source|<pointTagKey>, <integer>, <tsExpression>)
 ```
-The `charAt()` function retrieves the character at the position specified by an integer from a string extracted from an expression.
+
+Returns the character at the specified position in the specified metadata string.
 
 
 ## Parameters
@@ -20,13 +21,13 @@ The `charAt()` function retrieves the character at the position specified by an 
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) from which you want to extract a character.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to extract a character from.</td></tr>
 <tr>
 <td markdown="span">integer</td>
-<td>The location of the character that you want to extract.</td></tr>
+<td>The position of the character that you want to extract. Positions are counted from left to right, starting with 0. </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to extract a character from.</td></tr>
 </tbody>
 </table>
 

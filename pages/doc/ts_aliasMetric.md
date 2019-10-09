@@ -10,12 +10,12 @@ summary: Reference to the aliasMetric() function
 ## Summary
 
 ```
-aliasMetric (<tsExpression>, "<newMetricName>")
+aliasMetric(<tsExpression>, "<newMetricName>")
 
-aliasMetric (<tsExpression>, [metric|source|{tagk, <pointTagKey>}],
+aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}],
          <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasMetric (<tsExpression>, [metric|source|{tagk, <pointTagKey>}], "<regexSearchPattern>",
+aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}], "<regexSearchPattern>",
          "<replacementPattern>" | "<replacementString>")
 ```
 

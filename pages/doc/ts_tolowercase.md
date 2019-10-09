@@ -7,12 +7,12 @@ summary: Reference to the toLowerCase() and toUpperCase() string manipulation fu
 ---
 ## Summary
 ```
-toLowerCase(metric|source|<pointTagKey>, <expression>)
-toUpperCase(metric|source|<pointTagKey>, <expression>)
+toLowerCase(metric|source|<pointTagKey>, <tsExpression>)
+toUpperCase(metric|source|<pointTagKey>, <tsExpression>)
 ```
-The toLowerCase() function converts all upper case characters in the string extracted from the expression to lower case.
+The `toLowerCase()` function converts all upper case characters to lower case, in the specified metadata string.
 
-The toUpperCase() function converts all lower case characters in the string extracted from the expression to upper case.
+The `toUpperCase()` function converts all lower case characters to upper case, in the specified metadata string.
 
 ## Parameters
 <table style="width: 100%;">
@@ -22,9 +22,9 @@ The toUpperCase() function converts all lower case characters in the string extr
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to convert to all lower case or all upper case.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to be converted to all lower case or all upper case.</td></tr><tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string that you want to convert.</td></tr>
 </tbody>
 </table>
 

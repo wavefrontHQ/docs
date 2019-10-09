@@ -8,7 +8,7 @@ summary: Reference to the floor() function
 ---
 ## Summary
 ```
-floor(<expression>)
+floor(<tsExpression>)
 ```
 Returns the floor for the time series described by the expression, by rounding any data values with decimals down to the nearest integer. 
 
@@ -19,7 +19,7 @@ Returns the floor for the time series described by the expression, by rounding a
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return floor values for. </td></tr>
 </tbody>
 </table>

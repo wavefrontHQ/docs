@@ -33,7 +33,7 @@ A query expression describes data of a particular type: time series, histogram s
 Describes one or more time series. A  time series is a sequence of data points that each consists of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values. A <strong>tsExpression</strong> may be any of the following:
 
 <ul>
-<li>A <strong>ts() function</strong>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
+<li>A <a href="ts_function.html"><strong>ts() function</strong></a>, which returns all points that match a metric name, filtered by source names, source tags, and point tags. (<a href="alerts_dependencies.html">Alert metrics</a> are filtered by alert tags.)
 <pre>ts(&lt;metricName&gt; [and|or [not] &lt;metricName2&gt;] ...
   [,|and|or [not] source="&lt;sourceName&gt;"] ...
   [and|or [not] tag="&lt;sourceTag&gt;"] ...
@@ -396,7 +396,7 @@ Example. Suppose a dashboard variable <strong>az</strong> has the value <strong>
 <pre>ts(requests.latency, ${az})</pre>
 
 This is equivalent to typing in:
-<pre>ts(requests.latency, tag=az-3 or tag=az-4)</pre>
+<pre>ts(requests.latency, tag="az-3" or tag="az-4")</pre>
 <strong>Note: </strong> A dashboard variable can expand to any text string, unlike query line variables and aliases, which must be complete tsExpressions.
 </td></tr>
 </tbody>
@@ -454,8 +454,8 @@ All operations between `tsExpression`s are subject to the matching processes des
 ## Aggregation Functions
 
 [Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
-* Standard aggregation functions interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
-* Raw aggregation functions do not interpolate the underlying series before aggregation.
+* Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
+* Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 
 All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.
 
@@ -472,67 +472,78 @@ All aggregation functions provide parameters for filtering the set of input seri
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_sum.html">sum(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td><a href="ts_sum.html">sum(<strong>&lt;tsExpression&gt;</strong> <br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns the sum of the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawsum.html"> rawsum(<strong>&lt;tsExpression&gt;</strong> <br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the raw sum of the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_avg.html"> avg(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_avg.html"> avg(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the average (mean) of the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;tsExpression&gt;</strong> &lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawavg.html"> rawavg(<strong>&lt;tsExpression&gt;</strong> <br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the raw average (mean) of the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_min.html"> min(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_min.html"> min(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the lowest value across the time series described by <strong>tsExpression</strong>. The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawmin.html"> rawmin(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong> metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the lowest value across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_max.html"> max(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_max.html"> max(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the highest value across the time series described by <strong>tsExpression</strong>. The results might be computed from real reported values and interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawmax.html"> rawmax(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the highest value across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_count.html">count(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_count.html">count(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of reporting time series described by <strong>tsExpression</strong>,
 where a time series is counted as reporting even if it has interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawcount.html"> rawcount(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the number of reporting time series described by <strong>tsExpression</strong>, where a time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value. </td>
 </tr>
 <tr>
-<td><a href="ts_variance.html"> variance(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_variance.html"> variance(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance based on the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.  </td>
 </tr>
 <tr>
-<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td><a href="ts_rawvariance.html"> rawvariance(<strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
 <td>Returns the variance across the time series described by <strong>tsExpression</strong>. The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 <tr>
-<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong><strong>&lt;tsExpression&gt;</strong>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
+<td><a href="ts_percentile.html"> percentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
 The results might be computed from real reported values and interpolated values.</td>
 </tr>
 <tr>
-<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>,<strong>&lt;tsExpression&gt;</strong>&lbrack; ,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
-<td>Returns the estimated percentile for the specified <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
+<td><a href="ts_rawpercentile.html"> rawpercentile(<strong>&lt;percentage&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>
+<br>&lbrack;,<strong>metrics|sources| sourceTags|pointTags|&lt;pointTagKey&gt;</strong>&rbrack;)</a></td>
+<td>Returns the estimated percentile for <strong>percentage</strong>, across the time series described by <strong>tsExpression</strong>.
 The results are computed from real reported data values only, with no interpolated values. </td>
 </tr>
 </tbody>
@@ -547,10 +558,13 @@ The results are computed from real reported data values only, with no interpolat
 <span id="filter"></span>
 
 ## Filtering and Comparison Functions
+
+Filtering functions help you select a subset of the time series that are returned by a `tsExpression`.
+
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="45%" />
+<col width="55%" />
 </colgroup>
 <thead>
 <tr>
@@ -569,11 +583,11 @@ The results are computed from real reported data values only, with no interpolat
 </tr>
 <tr>
 <td><a href="ts_min.html">min(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>)</a></td>
-<td>Returns the lower of the two values in <strong>tsExpression1</strong> and <strong>tsExpression2</strong>. For example: <strong>min(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &gt; 160. If <strong>my.metric</strong> is &lt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the lower value in each pair of corresponding values in <strong>tsExpression1</strong> and <strong>tsExpression2</strong>. </td>
 </tr>
 <tr>
 <td><a href="ts_max.html">max(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>)</a></td>
-<td>Returns the higher of the two values in <strong>tsExpression1</strong> and  <strong>tsExpression2</strong>. For example: <strong>max(160, ts(my.metric))</strong> returns 160 if <strong>my.metric</strong> is &lt; 160. If <strong>my.metric</strong> is &gt; 160, returns the value of <strong>my.metric</strong>.</td>
+<td>Returns the higher value in each pair of corresponding values in <strong>tsExpression1</strong> and  <strong>tsExpression2</strong>.</td>
 </tr>
 <tr>
 <td><a href="ts_between.html">between(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;lower&gt;</strong>, <strong>&lt;upper&gt;</strong>)</a></td>
@@ -588,20 +602,24 @@ The results are computed from real reported data values only, with no interpolat
 <td>Groups the data values of a time series into buckets of size <strong>timeWindow</strong>, and returns one displayed value per bucket. Each returned value is the result of combining the data values in a bucket using the specified summarization method.</td>
 </tr>
 <tr>
-<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the top <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_bottomk.html">bottomk(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the bottom <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>,  <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns 1 for the top <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns 1 for the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
-<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, <strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
+<td><a href="ts_bottom.html">bottom(<strong>&lt;numberOfTimeSeries&gt;</strong>, 
+<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns 1 for the bottom <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
 <td markdown="span"><a href="ts_filter.html">filter(<strong>&lt;tsExpression&gt;</strong>, <strong>&lt;filter1&gt;</strong><br>[and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
@@ -651,6 +669,12 @@ The results are computed from real reported data values only, with no interpolat
 </table>
 
 ## Standard Time Functions
+
+Standard time functions can help you:
+* Analyze how time series change over time: `rate()`, `derive()`, `ratediff()`)
+* Compare current values to earlier or later values of the same time series: `lag()`, `lead()`, `at()`
+* Examine time series during particular time windows: `year()`, `month()`, `dayOfYear()` and so on
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -736,7 +760,7 @@ The results are computed from real reported data values only, with no interpolat
 <span id="moving"></span>
 ## Moving Window Time Functions
 
-Moving window time functions allow you to calculate continuous aggregation over sliding windows. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
+Moving window time functions combine or test the values of a time series over a sliding window. For further information, see [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html).
 
 These functions output continuous time series, with the exception of `integral()`.
 
@@ -781,8 +805,8 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the maximum of each series for the specified time window.</td>
 </tr>
 <tr>
-<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentileValue&gt;, &lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the <strong>percentile</strong> of each series for the specified time window. The percentile value must be greater than <strong>0</strong> and less than <strong>100</strong>. </td>
+<td><a href="ts_mpercentile.html">mpercentile(<strong>&lt;timeWindow&gt;, &lt;percentage&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the <strong>percentage</strong> percentile of each series for the specified time window.  </td>
 </tr>
 <tr>
 <td><a href="ts_mseriescount.html"> mseriescount(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
@@ -826,7 +850,57 @@ These functions output continuous time series, with the exception of `integral()
 </tbody>
 </table>
 
-## Conditional Functions
+## Missing Data Functions
+
+Missing data functions allow you to interpolate data points in time series that have gaps.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tr>
+<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; &lbrack;<strong>&lt;delayTime&gt;,</strong>&rbrack;  
+<br><strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points with the value <strong>defaultValue</strong>. Specify <strong>timeWindow</strong> to insert data for just a limited period of time after each existing point. Specify <strong>delayTime</strong> to allow a gap before the inserted data.</td>
+</tr>
+<tr>
+<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points that have the last known value of the series. Specify <strong>timeWindow</strong> to insert data for just a limited period of time after each existing point.</td>
+</tr>
+<tr>
+<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong>&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Fills in gaps in each time series described by <strong>tsExpression</strong>, by inserting data points that have the next known value of the series. Specify <strong>timeWindow</strong> to insert data for the specified amount of time before the first data point after each gap.</td>
+</tr>
+<tr>
+<td><a href="ts_interpolate.html">interpolate(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Fills in gaps in the time series described by <strong>tsExpression</strong>, by inserting a continuous linear interpolation of data points.</td>
+</tr>
+</tbody>
+</table>
+
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+
+## Conditional Function
+
+The `if()` conditional function returns data values from time series based on a specified condition.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="33%" />
@@ -840,8 +914,11 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, <strong>&lt;then-tsExpression&gt;</strong> &lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
-<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. <strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. When both <strong>then-tsExpression</strong> and <strong>else-tsExpression</strong> return data, if() performs <a href="query_language_series_matching.html">series matching</a> against <strong>condition-tsExpression</strong>.
+<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, 
+<br><strong>&lt;then-tsExpression&gt;</strong> 
+<br>&lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
+<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. 
+<br><strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. 
 </td>
 </tr>
 </tbody>
@@ -853,7 +930,9 @@ These functions output continuous time series, with the exception of `integral()
 </tbody>
 </table>
 
-## Rounding Functions
+## Rounding and Mathematical Functions
+
+Rounding and mathematical functions let you transform the data values in time series. Rounding functions return time series with integer data values.
 
 <table style="width: 100%;">
 <colgroup>
@@ -880,6 +959,19 @@ These functions output continuous time series, with the exception of `integral()
 <td><a href="ts_floor.html">floor(<strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
 </tr>
+<tr>
+<td>
+<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Returns the absolute value of the time series described by the expression.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -889,44 +981,58 @@ These functions output continuous time series, with the exception of `integral()
 </tbody>
 </table>
 
-## Missing Data Functions
+## Exponential and Trigonometric Functions
 
-Missing data functions allow you to interpolate missing data with points based on other points in a series.
+Exponential and trigonometric functions enable you to perform mathematical transformations on each data value in the specified time series. 
 
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="55%" />
+<col width="45%" />
 </colgroup>
-<tbody>
 <thead>
 <tr>
 <th>Function</th>
 <th>Definition</th>
 </tr>
 </thead>
+<tbody>
 <tr>
-<td><a href="ts_default.html">default(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack;<strong>&lt;delayTime&gt;</strong> <strong>&lt;defaultValue&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Fills in gaps in <strong>tsExpression</strong> with <strong>defaultValue</strong> (whether that's a constant or an expression). The optional <strong>timeWindow</strong> parameter fills in the specified period of time after each existing point (for example, <strong>5m</strong> for 5 minutes). Without this argument, all gaps are filled in. The optional <strong>delayTime</strong> parameter specifies the amount of time that must pass without a reported value in order for the default value to be applied.</td>
+<td><a href="ts_sqrt.html">sqrt(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the square root of each data value described by the expression.</td>
 </tr>
 <tr>
-<td><a href="ts_last.html">last(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Fills in gaps in <strong>tsExpression</strong> with the last known value of <strong>tsExpression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period after each existing point.</td>
+<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;base-tsExpression&gt;</strong>, <strong>&lt;exponent-tsExpression&gt;</strong>[, <strong>inner</strong>])</a></td>
+<td>Raises the base expression to the power of the exponent expression. </td>
 </tr>
 <tr>
-<td><a href="ts_next.html">next(&lbrack;<strong>&lt;timeWindow&gt;,</strong> &rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Fills in gaps in <strong>tsExpression</strong> with the next known value of <strong>tsExpression</strong>. Use the optional <strong>timeWindow</strong> parameter to fill in a specified time period before the first data point after the missing data.</td>
+<td><a href="ts_exp.html">exp(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the natural exponential for each data value described by the expression.</td>
 </tr>
 <tr>
-<td><a href="ts_interpolate.html">interpolate(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Fills in gaps in <strong>tsExpression</strong> with a continuous linear interpolation of points.</td>
+<td><a href="ts_log.html">log(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the natural log of each data value described by the expression.</td>
+</tr>
+<tr>
+<td><a href="ts_log10.html">log10(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the log base 10 of each data value described by the expression.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_trig.html">Trigonometric Functions</a>
+<br>sin(<strong>&lt;tsExpression&gt;</strong>), cos(<strong>&lt;tsExpression&gt;</strong>), tan(<strong>&lt;tsExpression&gt;</strong>),<br/>asin(<strong>&lt;tsExpression&gt;</strong>), acos(<strong>&lt;tsExpression&gt;</strong>),<br/>atan(<strong>&lt;tsExpression&gt;</strong>),
+atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;tsExpression&gt;</strong>), cosh(<strong>&lt;tsExpression&gt;</strong>), tanh(<strong>&lt;tsExpression&gt;</strong>)</td>
+<td>Performs the specified trigonometric function on each data value described by the expression. 
+</td>
+</tr>
+<tr>
+<td>
+<a href="ts_trig_utilities.html">Trigonometric Utility Functions.</a> 
+<br>toDegrees(<strong>&lt;numRadians&gt;</strong>), toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
+<td>Converts radians to degrees, and vice versa.</td>
 </tr>
 </tbody>
 </table>
-
 
 <table style="width: 100%;">
 <tbody>
@@ -934,13 +1040,33 @@ Missing data functions allow you to interpolate missing data with points based o
 </tbody>
 </table>
 
+## Join Function
+
+See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
+
+The `join()` function enables you to: 
+* Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
+* Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
+
+The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
+
+**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+
+
 ## Metadata Functions
 
-Metadata functions let you temporarily rename a metric or source, or create a synthetic point tag on a time series. There are three ways to formulate the alias:
+Metadata functions let you temporarily rename a metric, rename a source, or create a synthetic point tag on a time series. You can formulate an alias or point tag value in one of 3 ways:
 
-- Node index - Extract a string component based on a <strong>zeroBasedNodeIndex</strong>. Components are identified by the default delimiter "." or a delimiter specified in <strong>delimiterDefinition</strong>.
-- Regular expression replacement - Identify the string using a regular expression and replacement string using a replacement pattern.
-- String substitution - Replace a metric or source in an expression with a replacement string.
+- Specify a string. The string can include one or more variables that are replaced with existing metadata values.
+- Specify a numeric **zeroBasedNodeIndex** to identify a node (string component) in an existing metadata value. The node is "extracted" and used as the new alias or value. By default, we consider nodes to be separated by periods, for example, `cpu.loadavg.1m`, but you can add an explicit **delimiterDefinition**, such as `"-"` to extract nodes from `cpu-loadavg-1m`.
+- Specify a regular expression **regexSearchPattern** to match substrings in an existing metadata value. You can use one or more matched substrings in a **replacementPattern** that describes the new alias or value.
 
 <table style="width: 100%;">
 <colgroup>
@@ -975,13 +1101,6 @@ Metadata functions let you temporarily rename a metric or source, or create a sy
 </tbody>
 </table>
 
-**Examples**
-
-- Node index: `aliasMetric(ts(cpu.loadavg.1m, source), 1)` the extracted string is selected by node index. The metric `cpu.loadavg.1m` has 3 components. Setting `zeroBasedNodeIndex` to `1` extracts the second component (`loadavg`).
-- Node index with delimiter: `cpu-loadavg-1m` sets `delimiterDefinition` to `-`.
-- String substitution:
-  - Original: `max(ts(customer.alerts.active), metrics)`
-  - Renamed: `aliasMetric(${original}, "Total Number Of Alerts")`, replaces the metric `customer.alerts.active` with `"Total Number Of Alerts"`.
 
   <table style="width: 100%;">
   <tbody>
@@ -989,83 +1108,18 @@ Metadata functions let you temporarily rename a metric or source, or create a sy
   </tbody>
   </table>
 
-## Join Function
-
-See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
-
-The `join()` function enables you to: 
-* Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
-* Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
-
-The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
-
-**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-</tbody>
-</table>
-
-## Exponential and Trigonometric Functions
-<table style="width: 100%;">
-<colgroup>
-<col width="55%" />
-<col width="45%" />
-</colgroup>
-<thead>
-<tr>
-<th>Function</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="ts_sqrt.html">sqrt(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the square root of each data value described by the expression.</td>
-</tr>
-<tr>
-<td markdown="span"><a href="ts_pow.html">pow(<strong>&lt;baseExpression&gt;</strong>, <strong>&lt;exponentExpression&gt;</strong>[, <strong>inner</strong>])</a></td>
-<td>Raises the base expression to the power of the exponent expression. </td>
-</tr>
-<tr>
-<td><a href="ts_exp.html">exp(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the natural exponential for each data value described by the expression.</td>
-</tr>
-<tr>
-<td><a href="ts_log.html">log(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the natural log of each data value described by the expression.</td>
-</tr>
-<tr>
-<td><a href="ts_log10.html">log10(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the log base 10 of each data value described by the expression.</td>
-</tr>
-<tr>
-<td>sin(<strong>&lt;tsExpression&gt;</strong>), cos(<strong>&lt;tsExpression&gt;</strong>), tan(<strong>&lt;tsExpression&gt;</strong>),<br/>asin(<strong>&lt;tsExpression&gt;</strong>), acos(<strong>&lt;tsExpression&gt;</strong>),<br/>atan(<strong>&lt;tsExpression&gt;</strong>),
-atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<strong>&lt;tsExpression&gt;</strong>), cosh(<strong>&lt;tsExpression&gt;</strong>), tanh(<strong>&lt;tsExpression&gt;</strong>)</td>
-<td>Performs the specified trigonometric function on each data value described by the expression. <br>See <a href="ts_trig.html">Trigonometric Functions</a> for details.</td>
-</tr>
-<tr>
-<td>toDegrees(<strong>&lt;numRadians&gt;</strong>), <br>toRadians(<strong>&lt;numDegrees&gt;</strong>)</td>
-<td>Converts radians to degrees, and vice versa. <br>See <a href="ts_trig_utilities.html">Trigonometric Utility Functions</a> for details.</td>
-</tr>
-</tbody>
-</table>
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-</tbody>
-</table>
 
 ## String Manipulation Functions
 
-We support 3 groups of string manipulation functions. For each group:
-* The first argument is a metric, source, or point tag to manipulate.
-* Additional arguments depend on the group:
-  - The first group takes an expression as the second argument. For example: `length(service, ${ts})`
-  - The second group takes a string and an expression arguments and allows you to see whether a specified string is found in an expression. For example: `startsWith(service, "newV", ${ts})` 
-  - The third group takes one or two numbers and allows you to find the character at a certain location. For example: `charAt(service, 3, ${ts})`
+String manipulation functions let you manipulate the metadata of the specified time series. In each function, the first parameter identifies the type of metadata string to manipulate: the metric name, a source name, or the value of a point tag key.
+
+String manipulation functions can help you:
+* Obtain information about the string: `length()`, `indexOf()`, `lastIndex()` 
+* Extract a subset from the string: `charAt()`, `substring()`
+* Test the string: `isEmpty()`, `isBlank()`, `equals()`, `equalsIgnore()`, `startsWith()`, `endsWith()`, `matches()`, `contains()` 
+* Temporarily transform the string for duration of query: `toLowerCase()`, `toUpperCase()`, `trim()`, `strip()`, `stripLeading()`, `stripTrailing()`, `concat()`, `repeat()`
+ 
+
 <table style="width: 100%;">
 <colgroup>
 <col width="50%" />
@@ -1079,71 +1133,71 @@ We support 3 groups of string manipulation functions. For each group:
 </thead>
 <tbody>
 <tr><td><a href="ts_length.html">length(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Returns the length of a string</td>
+<td>Returns the length of in the specified metadata string.</td>
 </tr>
 <tr><td><a href="ts_isblank.html">isEmpty(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Returns true if the value of the metric, source, or point tag string is the empty string, and returns false otherwise.</td>
+<td>Returns true if the specified metadata string is an empty string, and returns false otherwise.</td>
 </tr>
 <tr><td><a href="ts_isblank.html">isBlank(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Returns true if the value of the metric, source, or point tag string is a blank character (<strong>" "</strong>), and returns false otherwise.</td>
+<td>Returns true if the specified metadata string is a blank character (<strong>" "</strong>), and returns false otherwise.</td>
 </tr>
 <tr><td><a href="ts_tolowercase.html">toLowerCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Converts all upper case characters in the string extracted from the expression to lower case. </td>
+<td>Converts all upper case characters to lower case in the specified metadata string. </td>
 </tr>
 
 <tr><td><a href="ts_tolowercase.html">toUpperCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Converts all lower case characters in the string extracted from the expression to upper case.</td>
+<td>Converts all lower case characters to upper case in the specified metadata string.</td>
 </tr>
 
 <tr><td><a href="ts_trim.html">trim(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Removes a single leading white space and/or a single trailing white space, but does not remove multiple leading or trailing white spaces.  </td>
+<td>Removes a single leading white space and/or a single trailing white space from the specified metadata string, but does not remove multiple leading or trailing white spaces.  </td>
 </tr>
 <tr><td><a href="ts_trim.html">strip(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Removes both leading and trailing white spaces from a string.</td>
+<td>Removes both leading and trailing white spaces from the specified metadata string.</td>
 </tr>
 <tr><td><a href="ts_trim.html">stripLeading(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Removes leading white spaces from a string.</td>
+<td>Removes leading white spaces from the specified metadata string.</td>
 </tr>
 <tr><td><a href="ts_trim.html">stripTrailing(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Removes trailing white spaces from a string. </td>
+<td>Removes trailing white spaces from the specified metadata string. </td>
 </tr>
-<tr><td><a href="ts_equals.html">equals(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong> <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string.  </td>
+<tr><td><a href="ts_equals.html">equals(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;string&gt;</strong>", <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td>Returns true if the specified metadata string is equal ot the comparison string, and returns false otherwise. Both strings must match exactly. </td>
 </tr>
-<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string and ignores case. With this function `string` is equal to `StRiNg` </td>
+<tr><td><a href="ts_equals.html">equalsIgnoreCase(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;string&gt;</strong>", <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td markdown="span">Ignores case and returns true if the specified metadata string matches the comparison string, and returns false otherwise. With this function `"string"` is equal to `"StRiNg"`. </td>
 </tr>
-<tr><td><a href="ts_startswith.html">startsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Lets you check whether a string extracted from an expression starts with a specified string.
- </td>
-</tr>
-<tr><td><a href="ts_startswith.html">endsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Lets you check whether a string extracted from an expression starts with a specified string.  </td>
-</tr>
-<tr><td><a href="ts_indexof.html">indexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string and returns where the specified string starts in the extracted string.</td>
-</tr>
-<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string starting at the back and returns where the specified string starts in the extracted string. </td>
-</tr>
-<tr><td><a href="ts_concat.html">concat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Lets you concatenate a specified string with a extracted from an expression. That means we add the specified string at the end of the extracted string. </td>
-</tr>
-<tr><td><a href="ts_matches.html">matches(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Compares a string extracted from an expression to a specified string, and returns true if the two strings match exactly and false otherwise.
+<tr><td><a href="ts_equals.html">matches(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;stringOrRegex&gt;</strong>",  <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td markdown="span">Returns true if the specified metadata string matches the comparison string, and false otherwise. The comparison string can be a regular expression. With this function, `"us.*"` matches `"us-west-1"`.
 </td>
 </tr>
-<tr><td><a href="ts_matches.html">contains(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;string&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<tr><td><a href="ts_startswith.html">startsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;string&gt;</strong>", <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td>Returns true if the specified metadata string starts with the given string, and returns false otherwise.
+ </td>
+</tr>
+<tr><td><a href="ts_startswith.html">endsWith(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;string&gt;</strong>",  <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td>Returns true if the specified metadata string ends with the given string, and returns false otherwise. </td>
+</tr>
+<tr><td><a href="ts_indexof.html">indexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;subString&gt;</strong>",  <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td>Finds the first occurrence of the specified substring in the metadata string, and returns the starting position of that occurrence.</td>
+</tr>
+<tr><td><a href="ts_indexof.html">lastIndexOf(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;subString&gt;</strong>",  <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td>Finds the last occurrence of the specified substring in the specified metadata string, and returns the starting position of that occurrence. </td>
+</tr>
+<tr><td><a href="ts_concat.html">concat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;string&gt;</strong>",  <strong>&lt;tsExpression&gt;</strong>) </a></td>
+<td>Concatenates the specified string by adding it to the end of the specified metadata string. </td>
+</tr>
+<tr><td><a href="ts_contains.html">contains(<strong>metric|source|&lt;pointTagKey&gt;</strong>, "<strong>&lt;subString&gt;</strong>",  <strong>&lt;tsExpression&gt;</strong>) </a></td>
 <td>Compares a string extracted from an expression to a specified string, and returns true if the extracted string contains the specified string and false otherwise.  </td>
 </tr>
 <tr><td><a href="ts_charat.html">charAt(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Retrieves the character at the position specified by an integer from a string extracted from an expression. </td>
+<td>Returns the character at the specified position in the specified metadata string. </td>
 </tr>
 <tr><td><a href="ts_substring.html">substring(<strong>metric|source|&lt;pointTagKey&gt;</strong>, &lbrack;<strong>&lt;integer&gt;</strong>&rbrack;|&lbrack;<strong>&lt;integer1&gt;</strong>, <strong>&lt;integer2&gt;</strong>&rbrack;,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Extracts a substring from a string extracted from an expression.</td>
+<td>Returns a substring that is extracted the specified metadata string.</td>
 </tr>
 <tr><td><a href="ts_repeat.html">repeat(<strong>metric|source|&lt;pointTagKey&gt;</strong>, <strong>&lt;integer&gt;</strong>,  <strong>&lt;tsExpression&gt;</strong>) </a></td>
-<td>Repeats a string extracted from an expression the specified number of times. </td>
+<td>Repeats the specified metadata string a specified number of times. </td>
 </tr>
 
 </tbody>
@@ -1156,6 +1210,7 @@ We support 3 groups of string manipulation functions. For each group:
 </table>
 
 ## Predictive Functions
+Predictive functions enable you to forecast data values and find outlier data values in the specified time series.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1197,8 +1252,8 @@ We support 3 groups of string manipulation functions. For each group:
 ## <span id="misc"></span>Miscellaneous Time-Series Functions
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr>
@@ -1209,7 +1264,7 @@ We support 3 groups of string manipulation functions. For each group:
 <tbody>
 <tr>
 <td>
-<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
+<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <br> <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
 </td>
 <td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
 </tr>
@@ -1222,29 +1277,16 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
 <td>
-<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
+<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
 </td>
-<td>Returns the absolute value of the time series described by the expression.</td>
+<td>Returns the distance between a pair of coordinates.
+</td>
 </tr>
 <tr>
 <td>
 <a href="ts_random.html">random()</a>
 </td>
 <td>Returns random values between 0.0 and 1.0. Repeated calls display different random values.</td>
-</tr>
-<tr>
-<td>
-<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
-</td>
-</tr>
-<tr>
-<td>
-<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
-</td>
-<td>Returns the distance between a pair of coordinates.
-</td>
 </tr>
 <tr>
 <td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;tsExpression&gt;</strong>)</a>
@@ -1481,6 +1523,7 @@ Each events conversion function in the following table takes a set of events as 
 
 You use traces functions to find and filter any [traces](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Traces functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
+Each function in the following table returns a set of one or more traces, and can therefore be used as the **tracesExpression** parameter in another function. 
 
 <table style="width: 100%;">
 <colgroup>
@@ -1534,7 +1577,7 @@ You use traces functions to find and filter any [traces](tracing_basics.html#wav
 
 You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
-**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to compose a `spansExpression` that you specify as a parameter to a `traces()` function. 
+**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to produce a **spansExpression** that you specify as a parameter to a `traces()` function. 
 
 <table style="width: 100%;">
 <colgroup>

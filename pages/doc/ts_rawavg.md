@@ -8,7 +8,7 @@ summary: Reference to the rawavg() function
 ---
 ## Summary
 ```
-rawavg(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
+rawavg(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the raw average (mean) of the time series described by the expression. 
 The results are computed from real reported data values only.
@@ -21,7 +21,7 @@ Use [`avg()`](ts_avg.html) to include interpolated values.
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to be averaged. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>

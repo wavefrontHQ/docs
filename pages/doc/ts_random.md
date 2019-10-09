@@ -8,15 +8,31 @@ summary: Reference to the random() function
 ---
 ## Summary
 ```
-random(<numberOfTimeSeries>, <expression>)
+random(<numberOfTimeSeries>, <tsExpression>)
+
 random()
 ```
-When used as a filtering function, returns the specified number of time series chosen randomly from the series described by the expression.
+You can use `random()` with time series and with no parameters.
 
-When used as a value generator (no parameters), returns a series of random values between 0.0 and 1.0.
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td markdown="span"> Time series filtering <br>function</td>
+<td markdown="span">Returns the specified number of time series chosen randomly from the series described by `tsExpression`.</td></tr>
+<tr>
+<td markdown="span">Value generator <br>function</td>
+<td markdown="span">Returns a series of random values between 0.0 and 1.0.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Parameters
-### Filtering Function
+### Time-Series Filtering Function
 <table style="width: 100%;">
 <tbody>
 <thead>
@@ -26,26 +42,30 @@ When used as a value generator (no parameters), returns a series of random value
 <td>numberOfTimeSeries</td>
 <td>Number of time series in the random subset. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series that you want to filter.</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series you want to filter.</td>
 </tr>
 </tbody>
 </table>
 
 ## Description
 
-### Filtering Function
+You can use `random()`:
+* With time series as a filtering function.
+* With no parameters as a value generator function.
 
-The `random()` filtering function returns the specified number of time series chosen randomly from the time series described by the expression. Repeated calls display different random subsets.
+### Time-Series Filtering Function
 
-### Value generator
+The `random()` filtering function returns the specified number of time series chosen randomly from the time series described by the `tsExpression`. Repeated calls display different random subsets.
+
+### Value Generator
 
 The `random()` value generator returns a random value between 0.0 and 1.0 for every point in time on a chart. Repeated calls display different random values at each point.
 
 
 ## Examples
 
-### Filtering Function
+### Time-Series Filtering Function
 
 The following example chart shows 3 of the `~sample.cpu.loadavg.1m` time series, picked randomly. Notice how the sources that were selected are not related.
 

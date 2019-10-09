@@ -11,7 +11,7 @@ summary: Reference to the filter() function
 filter(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
 where <filterN> is: 
-    <metricName> | source=<sourceName> | <pointTagKey>=<pointTagValue> 
+    <metricName> | source="<sourceName>" | <pointTagKey>="<pointTagValue>"
 ```
 Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, or point tags. 
 

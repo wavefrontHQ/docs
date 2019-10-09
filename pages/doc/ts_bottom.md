@@ -8,7 +8,7 @@ summary: Reference to the bottom() function
 ---
 ## Summary
 ```
-bottom(<numberOfTimeSeries>, [mean|median|min|max|sum|count, [<timeWindow>,]] <expression>)
+bottom(<numberOfTimeSeries>, [mean|median|min|max|sum|count, [<timeWindow>,]] <tsExpression>)
 ```
 
 Ranks the time series described by the expression, and returns 1 for the specified number of bottom-ranked series, and 0 for the other series. Ranking for a time series is based on its last data value in the current chart, or on a summarization of its last data values over a specified time window.
@@ -33,8 +33,8 @@ Default is to rank each series according to the value of its last (rightmost) da
 <td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
 <td markdown="span">Length of the time window over which to summarize data values in a time series, if a summarization method is specified. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1vw, if this parameter is not specified.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to be ranked and filtered.</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to be ranked and filtered.</td>
 </tr>
 </tbody>
 </table>

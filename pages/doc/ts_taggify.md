@@ -10,12 +10,12 @@ summary: Reference to the taggify() function
 ## Summary
 
 ```
-taggify (<expression>, <newPointTagKey>, "<newPointTagValue>")
+taggify(<expression>, <newPointTagKey>, "<newPointTagValue>")
 
-taggify (<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
+taggify(<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
          [<zeroBasedNodeIndex> [,"<delimiterDefinition>"])
 
-taggify (<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
+taggify(<expression>, metric|source|{tagk, <pointTagKey>}, <newPointTagKey>,
 		 “<regexSearchPattern>”, “<replacementPattern>”)
 ```
 

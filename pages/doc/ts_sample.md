@@ -8,7 +8,7 @@ summary: Reference to the sample() function
 ---
 ## Summary
 ```
-sample(<numberOfTimeSeries>, <expression>)
+sample(<numberOfTimeSeries>, <tsExpression>)
 ```
 Returns `numberOfTimeSeries` non-random time series based on the expression. This function is deterministic as long as the underlying set of time series stays the same. However, the returned values can change, for example, if a new source starts reporting the metric.
 
@@ -22,7 +22,7 @@ Returns `numberOfTimeSeries` non-random time series based on the expression. Thi
 <td>numberOfTimeSeries</td>
 <td>Number of time series that you want. You can express this parameter as a number (e.g. 10) or a percentage (e.g. 17%). </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression that you want to filter.</td>
 </tr>
 </tbody>

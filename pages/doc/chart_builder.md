@@ -169,4 +169,6 @@ You can add, remove, or reorder functions. Reordering might become necessary bec
 
 ## More Info
 
+Advanced users can use [Query Editor](query_editor.html) to take advantage of the complete set of query language functions. 
+
 See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete reference. Each function links to a reference page.

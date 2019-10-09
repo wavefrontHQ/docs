@@ -8,7 +8,7 @@ summary: Reference to the exp() function
 ---
 ## Summary
 ```
-exp(<expression>)
+exp(<tsExpression>)
 ```
 
 Returns the natural exponential for each data value described by the expression.
@@ -22,16 +22,16 @@ Returns the natural exponential for each data value described by the expression.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression specifying the powers to raise the constant _e_ to. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Expression describing a constant or a time series of values to raise the constant _e_ to. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
 The `exp()` function produces a time series in which each data value is equal to _e_ raised to the power specified by the expression. 
-* If the expression describes a constant value _`N`_, then `exp()` returns a continuous series where every data value is <code><em>e<sup>N</sup></em></code>.
-* If the expression describes one or more time series, then `exp()` returns a new time series for each input time series. 
+* If `tsExpression` describes a constant value _`N`_, then `exp()` returns a continuous series where every data value is <code><em>e<sup>N</sup></em></code>.
+* If `tsExpression` describes one or more time series, then `exp()` returns a new time series for each input time series. 
 Each value in a new time series is calculated as <code><em>e<sup>V</sup></em></code>, where _`V`_ is the value of the corresponding point in the input time series.  
 
 The inverse of this function is [`log()`](ts_log.html).

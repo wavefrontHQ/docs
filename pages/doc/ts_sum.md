@@ -8,7 +8,7 @@ summary: Reference to the sum() function
 ---
 ## Summary
 ```
-sum(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
+sum(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 Returns the sum of the set of time series described by the expression. 
 The results might be computed from real reported values and interpolated values. 
@@ -21,7 +21,7 @@ Use [`rawsum()`](ts_rawsum.html) if you don't need interpolation.
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to be summed. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
