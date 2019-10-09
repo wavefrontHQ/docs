@@ -12,7 +12,7 @@ summary: Reference to the removeSeries() function
 removeSeries(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
 where <filterN> is: 
-    <metricName> | source=<sourceName> | tag=<sourceTagName> | <pointTagKey>=<pointTagValue> 
+    <metricName> | source="<sourceName>" | tag="<sourceTagName>" | <pointTagKey>="<pointTagValue>" 
 ```
 Filters the expression to display only the time series that do <em>not</em> match one or more filters, which might be any combination of metric names, source names, source tags, or point tags. 
 

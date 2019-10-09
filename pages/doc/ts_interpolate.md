@@ -8,9 +8,9 @@ summary: Reference to the interpolate() function
 ---
 ## Summary
 ```
-interpolate(<expression>)
+interpolate(<tsExpression>)
 ```
-Fills in gaps in the expression with a continuous linear interpolation of points.
+Fills in gaps in each time series described by `tsExpression`, by inserting a continuous linear interpolation of data points.
 
 
 ## Parameters
@@ -21,8 +21,8 @@ Fills in gaps in the expression with a continuous linear interpolation of points
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression in which you want to replace gaps in data with the next value. </td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series in which to replace data gaps with interpolated data points. </td>
 </tr>
 </tbody>
 </table>

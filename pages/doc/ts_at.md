@@ -8,7 +8,7 @@ summary: Reference to the at() function
 ---
 ## Summary
 ```
-at(<atTime>, [lookbackWindow,] <expression>)
+at(<atTime>, [lookbackWindow,] <tsExpression>)
 ```
 Returns a single current or past reported data value from the time series described by the expression. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against the results of other queries.
 
@@ -33,8 +33,8 @@ or the end time of your chart (<strong>"end"</strong>).</li>
 Default is `1h` if `lookbackWindow` is not specified.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to return a data value from. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to return a data value from. </td></tr>
 </tbody>
 </table>
 

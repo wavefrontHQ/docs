@@ -10,10 +10,11 @@ summary: Reference to the mpercentile() function
 ## Summary
 
 ```
-mpercentile(<timeWindow>, <percentileValue>, <expression>)
+mpercentile(<timeWindow>, <percentage>, <tsExpression>)
 ```
 
-Returns the specied percentile value for each time series over a moving time window.
+Returns the value at the specified percentile for each time series over a moving time window.
+
 
 ## Parameters
 
@@ -26,10 +27,10 @@ Returns the specied percentile value for each time series over a moving time win
 <td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
 <td >Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
-<td>percentileValue</td>
-<td>A number greater than 0 and less than or equal to 100. You can include as many decimal points as you like.</td></tr>
+<td>percentage</td>
+<td>A number greater than 0 and less than or equal to 100 that specifies the percentile of interest. You can include as many decimal points as you like.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series for which to return percentile values over the moving time window.   </td>
 </tr>
 </tbody>

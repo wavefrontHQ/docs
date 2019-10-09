@@ -8,7 +8,7 @@ summary: Reference to the ratediff() function
 ---
 ## Summary
 ```
-ratediff(<expression>)
+ratediff(<tsExpression>)
 ```
 Returns the differences between adjacent values in each time series described by the expression. The results include only positive changes in value. Use [`rate()`](ts_rate.html) if you want to see per-second rates of change. 
 
@@ -24,7 +24,7 @@ Returns the differences between adjacent values in each time series described by
 <tr><th>Parameter</th><th>Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return differences for. </td></tr>
 </tbody>
 </table>

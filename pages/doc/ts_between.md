@@ -8,9 +8,9 @@ summary: Reference to the between() function
 ---
 ## Summary
 ```
-between(<expression>, <lower>, <upper>)
+between(<tsExpression>, <lower>, <upper>)
 ```
-Returns 1 if `expression` is greater than or equal to `lower` and less than or equal to `upper`. Otherwise, returns 0. This function outputs continuous time series.
+Returns 1 if `tsExpression` is greater than or equal to `lower` and less than or equal to `upper`. Otherwise, returns 0. This function outputs continuous time series.
 
 
 ## Parameters
@@ -20,8 +20,8 @@ Returns 1 if `expression` is greater than or equal to `lower` and less than or e
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression to compare against an upper and lower limit. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to compare against an upper and lower limit. </td></tr>
 <tr>
 <td>lower</td>
 <td>Lower bound for the between() function. </td>
@@ -35,7 +35,7 @@ Returns 1 if `expression` is greater than or equal to `lower` and less than or e
 
 ## Description
 
-The `between()` function determines whether the value of `expression` is greater than or equal to`lower` and less than or equal to `upper`. When the value of `expression` falls in between the values of `lower` and `upper`, the function displays 1 on the chart.  When `expression` does not fall between `lower` and `upper`, the function displays 0 on the chart. The values for `expression`, `lower`, and `upper` can be any constant or ts() expression.
+The `between()` function determines whether the value of `tsExpression` is greater than or equal to`lower` and less than or equal to `upper`. When the value of `tsExpression` falls in between the values of `lower` and `upper`, the function displays 1 on the chart.  When `tsExpression` does not fall between `lower` and `upper`, the function displays 0 on the chart. The values for `tsExpression`, `lower`, and `upper` can be any constant or time-series expression.
 
 ## Examples
 

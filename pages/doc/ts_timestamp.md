@@ -8,7 +8,7 @@ summary: Reference to the timestamp() function
 ---
 ## Summary
 ```
-timestamp(<expression>)
+timestamp(<tsExpression>)
 ```
 Returns the timestamps for the reported data values in the time series described by the expression. 
 
@@ -19,8 +19,8 @@ Returns the timestamps for the reported data values in the time series described
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to return timestamps for. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to return timestamps for. </td></tr>
 </tbody>
 </table>
 

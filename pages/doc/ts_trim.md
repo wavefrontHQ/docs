@@ -7,13 +7,16 @@ summary: Reference to the trim, strip, stripLeading, and stripTrailing string ma
 ---
 ## Summary
 ```
-trim(metric|source|<pointTagKey>, <expression>)
-strip(metric|source|<pointTagKey>, <expression>)
-stripLeading(metric|source|<pointTagKey>, <expression>)
-stripTrailing(metric|source|<pointTagKey>, <expression>)
+trim(metric|source|<pointTagKey>, <tsExpression>)
+
+strip(metric|source|<pointTagKey>, <tsExpression>)
+
+stripLeading(metric|source|<pointTagKey>, <tsExpression>)
+
+stripTrailing(metric|source|<pointTagKey>, <tsExpression>)
 ```
 
-Functions for stripping white space (blank) from a string.
+Functions for removing white space (blanks) from the specified metadata string.
 
 ## Parameters
 <table style="width: 100%;">
@@ -23,15 +26,15 @@ Functions for stripping white space (blank) from a string.
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) you need to strip white space from.</td></tr><tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to remove white space from.</td></tr><tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to be trimmed or stripped.</td></tr>
 </tbody>
 </table>
 
 ## Description
 
-We support several functions for handling white spaces (blank).
+We support several functions for handling white spaces (blank) in a metadata string of a time series.
 
 * `isBlank()` returns true if a string contains only white spaces and returns false otherwise.
 * `trim()` removes a single leading white space and a single trailing white space, but does not remove multiple leading or trailing white spaces.

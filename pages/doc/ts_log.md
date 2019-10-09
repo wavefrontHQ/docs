@@ -8,7 +8,7 @@ summary: Reference to the log() function
 ---
 ## Summary
 ```
-log(<expression>)
+log(<tsExpression>)
 ```
 
 Returns the natural logarithm of each data value described by the expression.
@@ -22,16 +22,16 @@ Returns the natural logarithm of each data value described by the expression.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression specifying the values to take the natural logarithm of. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Expression describing a constant or a time series of values to take the natural logarithm of. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `log()` function produces a time series in which each data value is equal to the natural logarithm (log base _e_) of the value or values specified by the expression. The natural logarithm is the power to which you need to raise _e_ to obtain the specified value. In mathematics <code>log<sub><em>e</em></sub></code> can be written `ln`.
-* If the expression describes a constant value _`N`_, then `log()` returns a continuous series where every data value is <code>log<sub><em>e</em></sub> <em>N</em></code>.
-* If the expression describes one or more time series, then `log()` returns a new time series for each input time series. 
+The `log()` function produces a time series in which each data value is equal to the natural logarithm (log base _e_) of the value or values specified by the expression. The natural logarithm is the power to which you need to raise _e_ to obtain the specified value. In mathematics, <code>log<sub><em>e</em></sub></code> can be written `ln`.
+* If `tsExpression` describes a constant value _`N`_, then `log()` returns a continuous series where every data value is <code>log<sub><em>e</em></sub> <em>N</em></code>.
+* If `tsExpression` describes one or more time series, then `log()` returns a new time series for each input time series. 
 Each value in a new time series is calculated as <code>log<sub><em>e</em></sub> <em>V</em></code>, where _`V`_ is the value of the corresponding point in the input time series.  
 
 

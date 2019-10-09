@@ -9,9 +9,9 @@ summary: Reference to the hw() function
 
 ## Summary
 ```
-hw(<history_length>, <season_length>, <sampling_rate>, <expression>[, <alpha>, <beta>, <gamma>])
+hw(<history_length>, <season_length>, <sampling_rate>, <tsExpression>[, <alpha>, <beta>, <gamma>])
 ```
-Returns a smoothed version of the expression and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. The last three parameters are optional.
+Returns a smoothed version of the time series described by the expression, and forecasts future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data. The last three parameters are optional.
 
 <table style="width: 100%;">
 <tbody>
@@ -39,7 +39,7 @@ Returns a smoothed version of the expression and forecasts its future points usi
 </td>
 </tr>
 <tr>
-<td>expression</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>The time series on which you want to run the Holt-Winters algorithm.
 </td>
 </tr>

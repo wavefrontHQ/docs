@@ -8,7 +8,7 @@ summary: Reference to the ceil() function
 ---
 ## Summary
 ```
-ceil(<expression>)
+ceil(<tsExpression>)
 ```
 Returns the ceiling for the time series described by the expression, by rounding any data values with decimals up to the nearest integer.
 
@@ -19,8 +19,8 @@ Returns the ceiling for the time series described by the expression, by rounding
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to return ceiling values for. </td></tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to return ceiling values for. </td></tr>
 </tbody>
 </table>
 

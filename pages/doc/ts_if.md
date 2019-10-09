@@ -8,11 +8,11 @@ summary: Reference to the if() function
 ---
 ## Summary
 ```
-if(<conditionExpression>, <thenExpression>, [<elseExpression>])
+if(<condition-tsExpression>, <then-tsExpression>, [<else-tsExpression>])
 ```
 
-Returns the points from `thenExpression` while `conditionExpression` returns non-zero values.
-Returns points from `elseExpression` otherwise.
+Returns the points from `then-tsExpression` while `condition-tsExpression` returns non-zero values.
+Returns points from `else-tsExpression` otherwise.
 
 ## Parameters
 <table>
@@ -20,20 +20,20 @@ Returns points from `elseExpression` otherwise.
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td markdown="span"> [conditionExpression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series to be used as the condition. For example, if the condition is <strong>cpu.loadavg.1m>100</strong>, then the condition evaluates to true if the load is greater than 100, and to false otherwise.<br />
+<tr><td markdown="span"> [condition-tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series to be used as the condition. For example, if the condition is <strong>cpu.loadavg.1m>100</strong>, then the condition evaluates to true if the load is greater than 100, and to false otherwise.<br />
 This expression typically uses a comparison operator.</td></tr>
-<tr><td markdown="span"> [thenExpression](query_language_reference.html#query-expressions)</td>
+<tr><td markdown="span"> [then-tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Required expression that describes the time series to return when the condition is met.
 <ul>
-<li>If <strong>conditionExpression</strong> is true for a point, we return the corresponding point from  <strong>thenExpression</strong>.</li>
-<li>If <strong>conditionExpression</strong> is false for a point, we return nothing for that point. </li>
+<li>If <strong>condition-tsExpression</strong> is true for a point, we return the corresponding point from  <strong>then-tsExpression</strong>.</li>
+<li>If <strong>condition-tsExpression</strong> is false for a point, we return nothing for that point. </li>
 </ul></td></tr>
-<tr><td markdown="span"> [elseExpression](query_language_reference.html#query-expressions)</td>
+<tr><td markdown="span"> [else-tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Optional expression that describes the time series to return when the condition is not met. <br />
-If you include <strong>elseExpression</strong>:
-<ul><li>If <strong>conditionExpression</strong> is true for a point, we return the corresponding point from <strong>thenExpression</strong>, that is, we ignore <strong>elseExpression</strong></li>
-<li>If <strong>conditionExpression</strong> is false for a point, we return the corresponding point from <strong>elseExpression</strong>. That means we return return a continuous stream of points that change depending on the value of the condition.</li></ul>
+If you include <strong>else-tsExpression</strong>:
+<ul><li>If <strong>condition-tsExpression</strong> is true for a point, we return the corresponding point from <strong>then-tsExpression</strong>, that is, we ignore <strong>else-tsExpression</strong></li>
+<li>If <strong>condition-tsExpression</strong> is false for a point, we return the corresponding point from <strong>else-tsExpression</strong>. That means we return return a continuous stream of points that change depending on the value of the condition.</li></ul>
  </td></tr>
 </tbody>
 </table>
@@ -41,11 +41,11 @@ If you include <strong>elseExpression</strong>:
 ## Description
 The `if()` conditional function returns data values based on the specified condition. You can determine what values are returned if the condition is true, and what values are returned if the condition is false. The Wavefront system treats a 0 value as false, and all other values as true.
 
-Each of the [expressions](query_language_reference.html#query-expressions) can be constant or a ts() expression (query).
+Each of the [tsExpressions](query_language_reference.html#query-expressions) can be a constant or a query that returns one or more non-constant time series.
 
 ### Interpolation
 
-We use interpolation to connect points in each of the expressions. We use interpolated values in `conditionalExpression` to determine whether to return values from `thenExpression` or `elseExpression`. For example:
+We use interpolation to connect points in each of the expressions. We use interpolated values in `conditional-tsExpression` to determine whether to return values from `then-tsExpression` or `else-tsExpression`. For example:
 
 * Assume you have an `if()` query like the following:
 
@@ -56,7 +56,7 @@ We use interpolation to connect points in each of the expressions. We use interp
 
 ### Series Matching and if()
 
-We perform [series matching](query_language_series_matching.html) when ts() expressions are used for 2 or more parameters.
+We perform [series matching](query_language_series_matching.html) when 2 or more parameters are `tsExpression`s that each describe multiple time series.
 
 For example, assume we have a query that's structured like this:
 
@@ -77,6 +77,6 @@ Now we use an `if` condition that returns a value of 50 for any point that's gre
 
 ![if then else](images/ts_if_then_else.png)
 
-Finally, we look at an example that does not use an `else` expression. For this case, we've limited the query to one time series, and we can see the interpolation that happens between the different true values.
+Finally, we look at an example that does not use an `else-tsExpression`. For this case, we've limited the query to one time series, and we can see the interpolation that happens between the different true values.
 
 ![if then](images/ts_if_then.png)

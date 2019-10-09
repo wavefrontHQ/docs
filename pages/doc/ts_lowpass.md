@@ -107,7 +107,7 @@ You can use `lowpass()`:
 
 The `lowpass()` filtering function time-series filtering function plots a chart based on all reported data points that are lower than the specified threshold. The function ignores data points if their values are greater than or equal to the threshold, resulting in gaps between the remaining points.
 
-You typically use `lowpass()` to compare multiple time series to a single threshold or a single time series to multiple thresholds. If `tsExpression1` and `tsExpression2` both describe multiple time series, then Wavefront uses [series matching](query_language_series_matching.html) to determine which pairs of time series to compare.
+You typically use `lowpass()` to compare multiple time series to a single threshold or a single time series to multiple thresholds. If `tsExpression1` and `tsExpression2` each describe multiple time series, then Wavefront uses [series matching](query_language_series_matching.html) to determine which pairs of time series to compare.
 
 
 ### Traces Filtering Function

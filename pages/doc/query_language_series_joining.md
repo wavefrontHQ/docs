@@ -18,7 +18,7 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, which c
 
 **Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html).
 
-Watch Pierre talk about Wavefront joins and how they're used. (There's a minor problem with the cursor positioning in this video. We plan to reshoot it soon.)
+Watch Pierre talk about Wavefront joins and how they're used. 
 
 <p><a href="https://bcove.video/31i2mik"><img src="/images/v_join.png" style="width: 700px;"/></a>
 </p>

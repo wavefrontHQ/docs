@@ -8,7 +8,7 @@ summary: Reference to the exists() function
 ---
 ## Summary
 ```
-exists(<expression>)
+exists(<tsExpression>)
 ```
 Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
 A time series exists if it has reported a data value in the last 4 weeks.
@@ -19,7 +19,7 @@ A time series exists if it has reported a data value in the last 4 weeks.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to be tested for existence.</td></tr>
 </tbody>
 </table>
