@@ -60,28 +60,6 @@ Every rule must have
 
 Additional parameters depend on the rule that you're defining, for example, a `whitelistregex` rule must have a `scope` and a `match` parameter.
 
-<!---
-### Scope for Metrics
-
-If a rule for metrics has a `scope` parameter, the preprocessor applies the rule to metrics as follows:
-
-* `pointLine` -- Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only)
-* `metricName` -- Rule applies only to the *metric name* after the point is parsed
-* `sourceName` -- Rule applies only to the *source name* after the point is parsed
-* point tag -- Rule applies to the value of a point tag with this name, after the point is parsed.
-
-
-### Scope for Spans
-
-If a rule for spans has a `scope` or `source` parameter, the preprocessor applies the rule to spans as follows:
-
-* `spanName` -- Rule applies only to *span name* of the span.
-* `sourceName` -- Rule applies only to the *source name* of span.
-* tag -- If you specify any other value for the `scope` parameter the rule applies to span annotations/tag keys.
---->
-
-
-
 ### Regex Notes
 
 -   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
@@ -94,9 +72,13 @@ To enable the preprocessor:
 1. Add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring.html).
 2. Set `preprocessorConfigFile` to a valid path to the rules configuration file.
 
-### Validation
+### Validation and Changes to the Preprocessor File
 
 The rules file is validated when the proxy starts. The proxy aborts the start-up process if any of the rules is not valid. We provide a detailed error message for every rule that fails validation.
+
+Starting with proxy version 5.0, changes to the preprocessor file take effect shortly after you save the file.
+
+For earlier versions of the proxy, you have to [restart the proxy](proxies_installing.html#start-and-stop-a-proxy) before the changes take effect. 
 
 ### Metrics for Rules
 
