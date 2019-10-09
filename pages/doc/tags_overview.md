@@ -107,7 +107,7 @@ When you create maintenance windows, you can use tag paths and wildcards to put 
 
 
 <a name="entity_tags"></a>
-## Manage Object Tags
+## Object Tags
 
 Object tags apply to Wavefront objects: alerts, dashboards, events, and sources.
 
@@ -140,15 +140,14 @@ When you have many tags in your environment, you can search for tags by typing t
 
 To filter by a tag, click a tag icon. You can click the icon in the filter bar on the left or below an object in an object browser.
 
-## Add Source Tags
+## Source Tags
 
-You can add source tags explicitly from the UI, CLI, or API.
+Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings, in contrast, point tags are key-value pairs.
 
-Here's some background info:
-* Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help.
-* Source tags are just strings -- you can only choose the value. (In contrast, point tags are key-value pairs.)
+You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
 ### Why Source Tags?
+
 Source tags let you to group sources. You can specify a source tag in a query to refer to an entire group of sources in a simple expression. For example, if you have two sources, `appServer15` and `appServer16` you can add the source tag `app` to both sources to specify that both are app servers.  You can then query `ts(cpu.load.metric, tag=app)` instead of `ts(cpu.load.metric, source=appServer15 or source=appServer16)`
 
 Your use case determines how to use source tags:
@@ -158,23 +157,23 @@ Your use case determines how to use source tags:
   In that case, your query might include`... and tag=env and tag=cluster`.
 
 
-### Add Source Tags from the API
-
-You can add source tags using the [Wavefront REST API](wavefront_api.html).  The API supports getting and setting source tag values.
-
-For details about the APIs, click the gear icon in your Wavefront instance and select **API Documentation**.
-
 ### Add Source Tags from the UI
 
 To add a source tag from the UI:
 1. Click **Browse>Sources**.
 2. Select one or more sources and click **+Tag** or click the **+** icon below the source. You can add an existing source tag or create a new source tag.
 
+### Add Source Tags from the API
+
+You can add source tags using the [Wavefront REST API](wavefront_api.html).  The API supports getting and setting source tag values.
+
+For details about the APIs, click the gear icon in your Wavefront instance and select **API Documentation**.
+
 ### Manage SourceTag and SourceDescription Properties at the Proxy
 
 You can send metrics directly to the Wavefront proxy, and you can add source tags and source descriptions using the `SourceTag` and `SourceDescription` properties. Proxy 4.24 and later supports these properties. Starting with proxy 5.0, each property works with `add`, `save`, and `delete`.
 
-You send these properties to the same listening port as regular metrics (`pushListenerPorts` setting, 2878 by default).
+You send these properties to the same listening port as regular metrics. The port defaults to 2878, and you can change it with the `pushListenerPorts` setting in the [proxy configuration file](proxies_configuring.html#proxy-configuration-properties).
 
 **Examples**
 
@@ -190,9 +189,9 @@ Replace all existing source tags for source `app-2` with `qa-42`
 @SourceTag action=save source=app-2 qa-42
 ```
 
-Delete the source description 2018 from metrics coming from the source `app-3`.
+Delete the source description `app-3 reserved for qa` from metrics coming from the source `app-3`.
 ```
-@SourceTag action=delete source=app-3 dev
+@SourceDescription action=delete source=app-3 "app-3 reserved for qa"
 ```
 
 **Syntax**
@@ -202,46 +201,23 @@ The syntax is the same for both the SourceTag and the SourceDescription property
 ```
 @SourceTag|@SourceDescription <action> <source> <value>
 ```
-* action is `add`, `save`, or `delete`. When you specify `save`, you replace any existing source tags or source descriptions with the new source tag or source description.
-* source is the source to which you want to add a source tag or source description.
-* value is the name of the tag or the description.
 
-**NOTE**: Use quotes if any of the values includes spaces or special characters.
-
-<!---
 <table>
-<thead>
-<tr>
-<th width="15%">Property</th>
-<th width="40%">Purpose</th>
-<th width="45%">Example </th>
-</tr>
-</thead>
 <tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
 <tr>
-<td>SourceTag</td>
-<td>Save or delete a source tag. For example, you use this property to inject a source tag into a database on a host. Use <code>SourceTag</code> with <code>action=</code> and <code>source=</code> arguments.  NOTE: Use quotes if any of the values includes spaces or special characters.
-<ul>
-<li><code>action</code> is either save or delete.</li>
-<li><code>source</code> takes the source name as the first value, followed by a source tag to save or delete.</li>
-</ul>
-</td>
-<td>Ex:<code> &#64;SourceTag action=save source=host_42 db1</code>
-<div>Ex:<code> &#64;SourceTag action=delete source=host_42 sourceTag1</code></div>
-</td>
+<td>action</td>
+<td>Can be <strong>add</strong>, <strong>save</strong>, or <strong>delete</strong>. When you specify <strong>save</strong>, you replace any existing source tags or source descriptions with the new source tag or source description.</td>
 </tr>
 <tr>
-<td>SourceDescription</td>
-<td>Save or delete a description on the specified source. You can use this property to add a description or delete an existing description. Use `SourceDescription` with <code>action=</code>, <code>source=</code>, and <code>description=</code> arguments. NOTE: Use quotes if any of the values includes spaces or special characters.
-<ul>
-<li><code>action</code> is either save or delete.</li>
-<li><code>source</code> takes the source as the first value, followed by a descriptor.</li>
-<li><code>description</code> allows you to specify a description for the tag.</li>
-</ul>
-</td>
-<td>Ex:<code>&#64;SourceDescription action=save source="sourceId" description=A Description</code>
-<div>Ex:<code>&#64;SourceDescription action=delete source="sourceId"</code></div></td>
+<td>source</td>
+<td>Source to which you want to add a source tag or source description.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Name of the tag or the description. Use quotes for values that include spaces or special characters.</td>
 </tr>
 </tbody>
 </table>
---->

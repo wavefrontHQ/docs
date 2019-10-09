@@ -17,9 +17,9 @@ This version includes support for the following new functionality:
 
 - Support for span logs. Both proxy version 5.1 and Wavefront service version 2019.30 or later are required for span logs.
 - Delta counter aggregation at the proxy. Previously, only the service performed delta counter aggregation.
-- New `add` functionality when sending SourceTag or SourceDescription to the proxy.
+- New `add` functionality when [sending SourceTag or SourceDescription directly to the proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
 - Hot reload for proxy preprocessor rules. Proxy checks for changes to the file every 5 seconds, so proxy restart is no longer required.
-- Several bug fixes and improvements related to ingestion and tracing
+- Several bug fixes and improvements related to ingestion and tracing.
 
 ## Version 4.38
 
