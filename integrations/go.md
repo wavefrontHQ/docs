@@ -6,13 +6,22 @@ summary: Learn about the Wavefront Go Integration.
 ---
 # Go Integration
 
-You can use go-metrics and the Wavefront reporters to send Go application metrics to Wavefront. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). You can assign point tags at both the reporter and metric levels.
+This Wavefront Go integration explains how to send Go application metrics to Wavefront.
+
+Wavefront provides several Go SDKs for different purposes on Github:
+
+- **[wavefront-sdk-go](https://github.com/wavefrontHQ/wavefront-sdk-go)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions, and spans.
+- **[go-metrics-wavefront](https://github.com/wavefrontHQ/go-metrics-wavefront)**: Provides reporters and constructs such as counters, meters and histograms to periodically report application metrics and distributions to Wavefront.
+- **[wavefront-lambda-go](https://github.com/wavefrontHQ/wavefront-lambda-go)**: Wavefront Go wrapper for AWS Lambda to enable reporting of standard lambda metrics and custom app metrics directly to Wavefront.
+- **[wavefront-opentracing-sdk-go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)**: Wavefront OpenTracing Go SDK. See [our tracing documentation](https://docs.wavefront.com/tracing_basics.html) for background.
+
+In the Setup tab, the integration includes sample code based on `go-metrics-wavefront` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). The Setup tab includes both a simple example and an extended example for adding metric-level tags.
 
 This is a custom integration. You can send your own metrics and create your own dashboards.
 
 ## Go Setup
 
-The Wavefront plugin for [go-metrics](https://github.com/rcrowley/go-metrics) adds [Wavefront reporters](https://github.com/wavefronthq/go-metrics-wavefront) and a simple abstraction that supports tagging at the reporter and metric levels.
+The Wavefront plugin for [go-metrics](https://github.com/rcrowley/go-metrics) adds [Wavefront reporters](https://github.com/wavefronthq/go-metrics-wavefront) and an abstraction that supports tagging at the reporter and metric levels.
 The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 
@@ -27,27 +36,41 @@ Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for se
 If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Go application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you invoke the reporter.
 
 #### Step 2. Create the Wavefront Proxy Reporter
-
-Tags passed to the proxy reporter are applied to every metric.
-
 {% raw %}
 ```
 import (
   "net"
-  "github.com/rcrowley/go-metrics"
+
+  "github.com/wavefronthq/wavefront-sdk-go/senders"
   "github.com/wavefronthq/go-metrics-wavefront"
+  "github.com/rcrowley/go-metrics"
 )
 
 func main() {
-  hostTags := map[string]string{
-    "source": "go-metrics-test",
+  proxyCfg := &senders.ProxyConfiguration {
+        // The proxy hostname or address
+        Host : "proxyHostname or proxyIPAddress",
+
+        // Set the proxy port to send metrics to. Default: 2878
+        MetricsPort : 2878,
+
+        // Set a proxy port to send histograms to. Recommended: 2878
+        DistributionPort: 2878,
   }
 
-  // Set the address of the Wavefront proxy
-  addr, _ := net.ResolveTCPAddr("tcp", "192.168.99.100:2878")
+  // Create the proxy sender
+  sender, err := senders.NewProxySender(proxyCfg)
+  if err != nil {
+      panic(err)
+  }
 
-  // Report to a Wavefront Proxy every second
-  go wavefront.WavefrontProxy(metrics.DefaultRegistry, 1*time.Second, hostTags, "some.prefix", addr)
+  reporter := reporting.NewReporter(
+    sender,
+    application.New("test-app", "test-service"),
+    reporting.Source("go-metrics-test"),
+    reporting.Prefix("test.prefix"),
+    reporting.LogErrors(true),
+  )
 }
 ```
 {% endraw %}
@@ -55,34 +78,39 @@ func main() {
 ### Option 2. Create a Wavefront Direct Reporter
 
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
-
-Tags passed to the direct reporter are applied to every metric.
-
 {% raw %}
 ```
 import (
-  "github.com/rcrowley/go-metrics"
+  "github.com/wavefronthq/wavefront-sdk-go/senders"
   "github.com/wavefronthq/go-metrics-wavefront"
+  "github.com/rcrowley/go-metrics"
 )
 
 func main() {
-  hostTags := map[string]string{
-    "source": "go-metrics-test",
+  directCfg := &senders.DirectConfiguration{
+    Server: "https://YOUR_CLUSTER.wavefront.com",
+    Token:  "YOUR_API_TOKEN",
   }
 
-  server := "https://YOUR_CLUSTER.wavefront.com"
-  token := "YOUR_API_TOKEN"
+  sender, err := senders.NewDirectSender(directCfg)
+  if err != nil {
+    panic(err)
+  }
 
-  // Report to a Wavefront server every 5 seconds
-  go wavefront.WavefrontDirect(metrics.DefaultRegistry, 5*time.Second, hostTags, "direct.prefix", server, token)
+  reporter := reporting.NewReporter(
+    sender,
+    application.New("test-app", "test-service"),
+    reporting.Source("go-metrics-test"),
+    reporting.Prefix("test.prefix"),
+    reporting.LogErrors(true),
+  )
 }
 ```
 {% endraw %}
 
 ### Adding Metric-level Tags
 
-You can add tags to individual metrics. `wavefront.RegisterMetric()` has the same affect as go-metrics' `metrics.Register()` except that it accepts tags in the form of a string map. The tags are then used by the Wavefront reporter at flush time. The tags become part of the key for a metric within go-metrics' registry. Every unique combination of metric name+tags is a unique series. You can pass your tags in any order to the Register and Get functions. The Wavefront plugin ensures the tags are always encoded in the same order within the registry to ensure no duplication of metric series.
-{% raw %}
+You can add tags to individual metrics.{% raw %}
 ```
 import (
   "github.com/rcrowley/go-metrics"
@@ -90,14 +118,16 @@ import (
 )
 
 func main() {
+  // create a reporter using steps above
 
-  c := metrics.NewCounter()
-  wavefront.RegisterMetric(
-    "foo", c, map[string]string{
-      "key1": "val1",
-      "key2": "val2",
-    })
-  c.Inc(47)
+  // create tags you wish to add on the metrics
+  tags := map[string]string{
+    "key1": "val1",
+    "key2": "val2",
+  }
+  counter := metrics.NewCounter() // Create a counter
+  reporter.RegisterMetric("foo", counter, tags) // will create a 'test.prefix.foo.count' metric with tags
+  counter.Inc(47)
 }
 ```
 {% endraw %}
@@ -108,56 +138,79 @@ func main() {
 package main
 
 import (
-  "fmt"
-  "net"
-  "time"
+	"fmt"
+	"math/rand"
+	"os"
+	"time"
 
-  "github.com/rcrowley/go-metrics"
-  "github.com/wavefronthq/go-metrics-wavefront"
+	metrics "github.com/rcrowley/go-metrics"
+	"github.com/wavefronthq/go-metrics-wavefront/reporting"
+	"github.com/wavefronthq/wavefront-sdk-go/application"
+	"github.com/wavefronthq/wavefront-sdk-go/senders"
 )
 
 func main() {
 
-  //Create a counter
-  c := metrics.NewCounter()
-  //Tags we'll add to the metric
-  tags := map[string]string{
-    "key2": "val1",
-    "key1": "val2",
-    "key0": "val0",
-    "key4": "val4",
-    "key3": "val3",
-  }
+	// Tags we'll add to the metric
+	tags := map[string]string{
+		"key2": "val2",
+		"key1": "val1",
+		"key0": "val0",
+		"key4": "val4",
+		"key3": "val3",
+	}
 
-  // Register the counter using wavefront.RegisterMetric instead of metrics.Register if there are tags
-  wavefront.RegisterMetric("foo", c, tags)
-  c.Inc(47)
+	// Create a direct sender
+	directCfg := &senders.DirectConfiguration{
+    Server:               "https://YOUR_CLUSTER.wavefront.com",
+    Token:                "YOUR_API_TOKEN",
+		BatchSize:            10000,
+		MaxBufferSize:        50000,
+		FlushIntervalSeconds: 1,
+	}
 
-  // Retrieve the counter using metric name and tags.
-  // Any unique set of name+tags is a unique series and thus a unique metric
-  m2 := wavefront.GetMetric("foo", tags)
+	sender, err := senders.NewDirectSender(directCfg)
+	if err != nil {
+		panic(err)
+	}
 
-  // Retrieve the counter using wavefront.GetOrRegisterMetric instead of metrics.GetOrRegister if there are tags.
-  m3 := wavefront.GetOrRegisterMetric("foo", c, tags)
+	reporter := reporting.NewReporter(
+		sender,
+		application.New("test-app", "test-service"),
+		reporting.Source("go-metrics-test"),
+		reporting.Prefix("test.prefix"),
+		reporting.LogErrors(true),
+	)
 
-  // Define tags to pass to the reporter
-  reporterTags := map[string]string{
-    "source": "go-metrics-test",
-  }
+	// Create a counter metric and register with tags
+	counter := metrics.NewCounter()                
+	reporter.RegisterMetric("foo", counter, tags)
+	counter.Inc(47)
 
-  // Set the address of the Wavefront proxy
-  addr, _ := net.ResolveTCPAddr("tcp", "192.168.99.100:2878")
+	// Create a histogram and register with tags
+	histogram := reporting.NewHistogram()
+	reporter.RegisterMetric("duration", histogram, tags)
 
-  go wavefront.WavefrontProxy(metrics.DefaultRegistry, 1*time.Second, reporterTags, "some.prefix", addr)
+	// Create a histogram and register without tags
+	histogram2 := reporting.NewHistogram()
+	reporter.Register("duration2", histogram2)
 
-  // Send metrics directly to a wavefront service
-  server := "https://YOUR_CLUSTER.wavefront.com"
-  token := "YOUR_API_TOKEN"
-  go wavefront.WavefrontDirect(metrics.DefaultRegistry, 5*time.Second, hostTags, "direct.prefix", server, token)
+	deltaCounter := metrics.NewCounter()
+	reporter.RegisterMetric(reporting.DeltaCounterName("delta.metric"), deltaCounter, tags)
+	deltaCounter.Inc(10)
 
-  select{}
+	fmt.Println("Search wavefront: ts(\"test.prefix.foo.count\")")
+	fmt.Println("Entering loop to simulate metrics flushing. Hit ctrl+c to cancel")
+
+	for {
+		counter.Inc(rand.Int63())
+		histogram.Update(rand.Int63())
+		histogram2.Update(rand.Int63())
+		deltaCounter.Inc(10)
+		time.Sleep(time.Second * 10)
+	}
 }
 ```
 {% endraw %}
 
-For more information, see [go-metrics-wavefront  reference](https://github.com/wavefrontHQ/go-metrics-wavefront/blob/master/GODOCS.md).
+For more information, see [go-metrics-wavefront reference](https://github.com/wavefrontHQ/go-metrics-wavefront/blob/master/GODOCS.md).
