@@ -8,7 +8,7 @@ summary: Reference to the lag() function
 ---
 ## Summary
 ```
-lag(<timeWindow>, <expression>)
+lag(<timeWindow>, <tsExpression>)
 ```
 Returns earlier data values from the time series described by the expression, to help you compare each time series with its own past behavior.
 
@@ -22,7 +22,7 @@ Returns earlier data values from the time series described by the expression, to
 <td>Amount of time you want to go back to obtain the past values. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return earlier values from. </td></tr>
 </tbody>
 </table>

@@ -8,9 +8,9 @@ summary: Reference to the collect() function
 ---
 ## Summary
 ```
-collect(<expression1>, <expression2> [, <expression3>, ...])
+collect(<tsExpression1>, <tsExpression2> [, <tsExpression3>, ...])
 ```
-Returns a ts() expression that is the combination of two or more ts() expressions.
+Returns a `tsExpression` that is the combination of two or more `tsExpressions`.
 
 ## Parameters
 <table style="width: 100%;">
@@ -19,19 +19,19 @@ Returns a ts() expression that is the combination of two or more ts() expression
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>A ts() expression that you want to include in the collection.  </td></tr>
+<td markdown="span"> [tsExpressionN](query_language_reference.html#query-expressions)</td>
+<td>A time-series expression that you want to include in the collection.  </td></tr>
 </tbody>
 </table>
 
 
 ## Description
 
-The `collect()` function returns a ts() expression that is the combination of two or more ts() expressions.
+The `collect()` function returns a `tsExpression` that is the combination of two or more `tsExpressions`.
 
 The returned expression includes a synthetic `collect_<number>` point tag, where `<number>` is the number of input expressions.
 
-The `collect()` function is just a convenience function that combines multiple expressions into a single expression. It does not operate on the time series described by the input expressions (for example, it does not create a single series from them).
+The `collect()` function is a convenience function that combines multiple expressions into a single expression. It does not operate on the time series described by the input expressions. For example, it does not create a single series from them.
 
 
 ## Example

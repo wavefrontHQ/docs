@@ -10,7 +10,7 @@ summary: Reference to the mcount() function
 ## Summary
 
 ```
-mcount(<timeWindow>, <expression>)
+mcount(<timeWindow>, <tsExpression>)
 ```
 Returns the number of data points reported over the specified time window. If a time series stops reporting data, `mcount()` continues for 2x the specified time window, and then stops.
 
@@ -27,8 +27,8 @@ Returns the number of data points reported over the specified time window. If a 
 
 <div><strong>NOTE</strong>: If a time series stops reporting data, <code>mcount()</code> reports 0 for 2x the specified time window, and then stops.</div></td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>Expression describing the time series you want moving counts for.  </td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Expression that describes the time series you want moving counts for.  </td>
 </tr>
 </tbody>
 </table>

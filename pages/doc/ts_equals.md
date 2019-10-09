@@ -1,18 +1,24 @@
 ---
-title: equals and equalsIgnoreCase Functions
+title: equals, equalsIgnoreCase, and matches Functions
 keywords: query language reference
 tags: [reference page]
 permalink: ts_equals.html
-summary: Reference to the equals() and equalsIgnoreCase() string manipulation functions
+summary: Reference to the equals(), equalsIgnoreCase(), and matches() string manipulation functions
 ---
 ## Summary
 ```
-equals(metric|source|<pointTagKey>, <string>, <expression>)
-equalsIgnoreCase(metric|source|<pointTagKey>, <string>, <expression>)
-```
-The `equals()` function compares a string extracted from an expression to a specified string.
+equals(metric|source|<pointTagKey>, "<string>", <tsExpression>)
 
-The `equalsIgnoreCase()` function compares a string extracted from an expression to a specified string and ignores case. With this function `string` is equal to `StRiNg`
+equalsIgnoreCase(metric|source|<pointTagKey>, "<string>", <tsExpression>)
+
+matches(metric|source|<pointTagKey>, "<stringOrRegex>", <tsExpression>)
+```
+The `equals()` function returns true if the specified metadata string is equal to the comparison string, and otherwise false. Both strings must match exactly.
+
+The `equalsIgnoreCase()` function ignores case, and returns true if the specified metadata string matches the comparison string, and otherwise false. With this function, `string` is equal to `StRiNg`.
+
+The `matches()` function returns true if the specified metadata string matches the comparison string, and false otherwise. The comparison string can be a regular expression.
+
 
 ## Parameters
 <table style="width: 100%;">
@@ -22,13 +28,16 @@ The `equalsIgnoreCase()` function compares a string extracted from an expression
 </thead>
 <tr>
 <td markdown="span">metric|source|&lt;pointTagKey&gt;</td>
-<td>The part of the expression (metric name, source name, or value of a point tag key) that you want to compare to a string.</td></tr>
+<td>The metadata string (metric name, source name, or value of a point tag key) to be compared.</td></tr>
 <tr>
 <td markdown="span">string</td>
-<td>The string that you want to check equality for.</td></tr>
+<td>The comparison string.</td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
-<td>The expression that contains the metric, source, or point tag.</td></tr>
+<td markdown="span">stringOrRegex</td>
+<td markdown="span">The comparison string, which can be a regular expression, for example, `"us.*"` matches `"us-west-1"`.</td></tr>
+<tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>The expression that describes the time series with the metadata string to be compared.</td></tr>
 </tbody>
 </table>
 

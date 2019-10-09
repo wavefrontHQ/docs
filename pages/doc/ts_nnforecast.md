@@ -8,7 +8,7 @@ summary: Reference to the nnforecast() function
 ---
 ## Summary
 ```
-nnforecast(<forecastPeriod>, [<confidenceFactor>,] <expression>, [with_bounds])
+nnforecast(<forecastPeriod>, [<confidenceFactor>,] <tsExpression>, [with_bounds])
 ```
 Forecasts future data values for each time series described by the expression.
 It uses hypothesis testing and neural networks for prediction.
@@ -26,7 +26,7 @@ It uses hypothesis testing and neural networks for prediction.
 <td markdown="span"> A number from 0.0 to 1.00 (inclusive) that expresses the _confidence factor_ for determining the range of expected values. Default is 0.67. The **Note**. We consider this parameter _only_ if the **with_bounds** parameter is also specified.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to forecast. </td></tr>
 <tr><td markdown="span">with_bounds</td>
 <td markdown="span">Enables confidence bounds. Disabled by default.

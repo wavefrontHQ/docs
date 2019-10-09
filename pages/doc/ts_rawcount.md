@@ -8,7 +8,7 @@ summary: Reference to the rawcount() function
 ---
 ## Summary
 ```
-rawcount(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
+rawcount(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
 Returns the number of reporting time series described by the expression at each moment in time. A time series is counted as reporting at a given moment only if it has a real data value, instead of an interpolated value.
@@ -21,7 +21,7 @@ Use [`count()`](ts_count.html) to include time series with interpolated values.
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series to be counted.  </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>

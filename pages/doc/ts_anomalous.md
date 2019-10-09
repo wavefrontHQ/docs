@@ -8,7 +8,7 @@ summary: Reference to the anomalous() function
 ---
 ## Summary
 ```
-anomalous(<testWindow>, [<confidenceFactor>,] [<historyWindow>, [<alignWindow>,]] <expression>)
+anomalous(<testWindow>, [<confidenceFactor>,] [<historyWindow>, [<alignWindow>,]] <tsExpression>)
 ```
 Returns the percentage of anomalous points in each time series described by the expression. Points are considered anomalous if their values fall outside an expected range, as determined by the given confidence factor. 
 
@@ -32,7 +32,7 @@ Default is 0.99 if this parameter is not specified.
 <td markdown="span">Size (duration) of the buckets for summarizing data values, to regularize the reporting interval of the time series. The reported values in a bucket are summarized by averaging. You can specify a [time window](query_language_reference.html#common-parameters) measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is the bucket size of the chart (1bw), if this parameter is not specified. You must specify `historyWindow` as well if you want to use this parameter.
 </td></tr>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to inspect for anomalous points. </td></tr>
 </tbody>
 </table>

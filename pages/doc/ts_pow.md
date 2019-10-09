@@ -8,7 +8,7 @@ summary: Reference to the pow() function
 ---
 ## Summary
 ```
-pow(<baseExpression>, <exponentExpression>[, inner])
+pow(<base-tsExpression>, <exponent-tsExpression>[, inner])
 ```
 
 Raises the base expression to the power of the exponent expression. 
@@ -22,11 +22,11 @@ Raises the base expression to the power of the exponent expression.
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [baseExpression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression specifying each base to be raised to the exponent. </td></tr>
+<td markdown="span"> [base-tsExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Expression describing a constant or a time series of values to be raised to the exponent. </td></tr>
 <tr>
-<td markdown="span"> [exponentExpression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression specifying the exponent to raise each base to. </td></tr>
+<td markdown="span"> [exponent-tsExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Expression describing a constant or a time series of values to use as the exponent. </td></tr>
 <tr>
 <td>inner</td>
 <td>Results in an inner join.</td></tr>
