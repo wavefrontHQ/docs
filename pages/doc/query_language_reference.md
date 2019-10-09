@@ -845,77 +845,6 @@ These functions output continuous time series, with the exception of `integral()
 </tbody>
 </table>
 
-## Conditional Function
-
-The `if()` conditional function returns data values from time series based on a specified condition.
-
-<table style="width: 100%;">
-<colgroup>
-<col width="33%" />
-<col width="67%" />
-</colgroup>
-<thead>
-<tr>
-<th>Function</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, 
-<br><strong>&lt;then-tsExpression&gt;</strong> 
-<br>&lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
-<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. 
-<br><strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. 
-</td>
-</tr>
-</tbody>
-</table>
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-</tbody>
-</table>
-
-## Rounding Functions
-
-Rounding functions return time series with integer data values.
-
-<table style="width: 100%;">
-<colgroup>
-<col width="33%" />
-<col width="67%" />
-</colgroup>
-<tbody>
-<thead>
-<tr>
-<th>Function</th>
-<th>Definition</th>
-</tr>
-</thead>
-<tr>
-<td><a href="ts_round.html">round(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the nearest integer for each data value in the specified time series.
-</td>
-</tr>
-<tr>
-<td><a href="ts_ceil.html">ceil(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the ceiling for the specified time series, by rounding any data values with decimals up to the next largest integer.</td>
-</tr>
-<tr>
-<td><a href="ts_floor.html">floor(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
-</tr>
-</tbody>
-</table>
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-</tbody>
-</table>
-
 ## Missing Data Functions
 
 Missing data functions allow you to interpolate data points in time series that have gaps.
@@ -962,18 +891,15 @@ Missing data functions allow you to interpolate data points in time series that 
 </tbody>
 </table>
 
-## Metadata Functions
 
-Metadata functions let you temporarily rename a metric, rename a source, or create a synthetic point tag on a time series. You can formulate an alias or point tag value in one of 3 ways:
+## Conditional Function
 
-- Specify a string. The string can include one or more variables that are replaced with existing metadata values.
-- Specify a numeric **zeroBasedNodeIndex** to identify a node (string component) in an existing metadata value. The node is "extracted" and used as the new alias or value. By default, we consider nodes to be separated by periods, for example, `cpu.loadavg.1m`, but you can add an explicit **delimiterDefinition**, such as `"-"` to extract nodes from `cpu-loadavg-1m`.
-- Specify a regular expression **regexSearchPattern** to match substrings in an existing metadata value. You can use one or more matched substrings in a **replacementPattern** that describes the new alias or value.
+The `if()` conditional function returns data values from time series based on a specified condition.
 
 <table style="width: 100%;">
 <colgroup>
-<col width="55%" />
-<col width="45%" />
+<col width="33%" />
+<col width="67%" />
 </colgroup>
 <thead>
 <tr>
@@ -983,44 +909,66 @@ Metadata functions let you temporarily rename a metric, rename a source, or crea
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;tsExpression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
-<strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
-<td markdown="span">Replaces the metric name for each time series described by <strong> tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value. </td>
-</tr>
-<tr>
-<td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;tsExpression&gt;</strong>, 
-&lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
-<strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
-<td markdown="span">Replaces the source name of each time series described by the <strong>tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
-</td>
-</tr>
-<tr>
-<td><a href="ts_taggify.html"> taggify(<strong>&lt;tsExpression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
-</td>
-<td markdown="span">Creates a synthetic point tag with the specified key for each time series described by <strong>tsExpression</strong>. The value of the new tag can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
+<td><a href="ts_if.html">if(<strong>&lt;condition-tsExpression&gt;</strong>, 
+<br><strong>&lt;then-tsExpression&gt;</strong> 
+<br>&lbrack;, <strong>&lt;else-tsExpression&gt;</strong>&rbrack;)</a></td>
+<td>Returns points from <strong>then-tsExpression</strong> only while <strong>condition-tsExpression</strong> &gt; 0. Otherwise, returns points from <strong>else-tsExpression</strong>, if it is specified. 
+<br><strong>condition-tsExpression</strong> must evaluate to a series of numeric values, and typically includes numeric comparisons or transformations of time series. 
 </td>
 </tr>
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
-  <table style="width: 100%;">
-  <tbody>
-  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
-  </tbody>
-  </table>
+## Rounding and Mathematical Functions
 
-## Join Function
+Rounding and mathematical functions let you transform the data values in time series. Rounding functions return time series with integer data values.
 
-See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
-
-The `join()` function enables you to: 
-* Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
-* Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
-
-The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
-
-**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+<table style="width: 100%;">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tr>
+<td><a href="ts_round.html">round(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the nearest integer for each data value in the specified time series.
+</td>
+</tr>
+<tr>
+<td><a href="ts_ceil.html">ceil(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the ceiling for the specified time series, by rounding any data values with decimals up to the next largest integer.</td>
+</tr>
+<tr>
+<td><a href="ts_floor.html">floor(<strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the floor for the specified time series, by rounding any data values with decimals down to the next smallest integer.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Returns the absolute value of the time series described by the expression.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
+</td>
+</tr>
+</tbody>
+</table>
 
 <table style="width: 100%;">
 <tbody>
@@ -1087,9 +1035,78 @@ atan2(<strong>&lt;y-expression&gt;, &lt;x-expression&gt;</strong>),<br/>sinh(<st
 </tbody>
 </table>
 
+## Join Function
+
+See [Combining Time Series With join()](query_language_series_joining.html) for syntax and examples.
+
+The `join()` function enables you to: 
+* Compare two or more time series, and find matches, or, conversely, find the time series that do not match.
+* Combine the data points from any matching time series to form a new synthetic time series with point tags from one or both of the input series.
+
+The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins. 
+
+**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). 
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+
+
+## Metadata Functions
+
+Metadata functions let you temporarily rename a metric, rename a source, or create a synthetic point tag on a time series. You can formulate an alias or point tag value in one of 3 ways:
+
+- Specify a string. The string can include one or more variables that are replaced with existing metadata values.
+- Specify a numeric **zeroBasedNodeIndex** to identify a node (string component) in an existing metadata value. The node is "extracted" and used as the new alias or value. By default, we consider nodes to be separated by periods, for example, `cpu.loadavg.1m`, but you can add an explicit **delimiterDefinition**, such as `"-"` to extract nodes from `cpu-loadavg-1m`.
+- Specify a regular expression **regexSearchPattern** to match substrings in an existing metadata value. You can use one or more matched substrings in a **replacementPattern** that describes the new alias or value.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="55%" />
+<col width="45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;tsExpression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
+<strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
+<td markdown="span">Replaces the metric name for each time series described by <strong> tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value. </td>
+</tr>
+<tr>
+<td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;tsExpression&gt;</strong>, 
+&lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack; 
+<strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
+<td markdown="span">Replaces the source name of each time series described by the <strong>tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
+</td>
+</tr>
+<tr>
+<td><a href="ts_taggify.html"> taggify(<strong>&lt;tsExpression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
+</td>
+<td markdown="span">Creates a synthetic point tag with the specified key for each time series described by <strong>tsExpression</strong>. The value of the new tag can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
+</td>
+</tr>
+</tbody>
+</table>
+
+
+  <table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+  </table>
+
+
 ## String Manipulation Functions
 
-String manipulation functions let you manipulate the metadata of the specified time series. In each function, the first parameter identifies whether the string to manipulate the metric name, a source name, or the value of a point tag key.
+String manipulation functions let you manipulate the metadata of the specified time series. In each function, the first parameter identifies the type of metadata string to manipulate: the metric name, a source name, or the value of a point tag key.
 
 String manipulation functions can help you:
 * Obtain information about the string: `length()`, `indexOf()`, `lastIndex()` 
@@ -1230,8 +1247,8 @@ Predictive functions enable you to forecast data values and find outlier data va
 ## <span id="misc"></span>Miscellaneous Time-Series Functions
 <table style="width: 100%;">
 <colgroup>
-<col width="33%" />
-<col width="67%" />
+<col width="40%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr>
@@ -1242,7 +1259,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 <tbody>
 <tr>
 <td>
-<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
+<a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <br> <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
 </td>
 <td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
 </tr>
@@ -1255,29 +1272,16 @@ A time series exists if it has reported a data value in the last 4 weeks.  </td>
 </tr>
 <tr>
 <td>
-<a href="ts_abs.html">abs(<strong>&lt;tsExpression&gt;</strong>)</a>
+<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
 </td>
-<td>Returns the absolute value of the time series described by the expression.</td>
+<td>Returns the distance between a pair of coordinates.
+</td>
 </tr>
 <tr>
 <td>
 <a href="ts_random.html">random()</a>
 </td>
 <td>Returns random values between 0.0 and 1.0. Repeated calls display different random values.</td>
-</tr>
-<tr>
-<td>
-<a href="ts_normalize.html">normalize(<strong>&lt;tsExpression&gt;</strong>)</a>
-</td>
-<td>Normalizes each time series described by the expression, so that its values are scaled between 0 and 1.0.
-</td>
-</tr>
-<tr>
-<td>
-<a href="ts_haversine.html">haversine(<strong>&lt;lat1&gt;, &lt;long1&gt;, &lt;lat2&gt;,&lt;long2&gt;</strong>)</a>
-</td>
-<td>Returns the distance between a pair of coordinates.
-</td>
 </tr>
 <tr>
 <td><a href="ts_bestEffort.html">bestEffort(<strong>&lt;tsExpression&gt;</strong>)</a>
