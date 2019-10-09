@@ -212,5 +212,3 @@ func main() {
 }
 ```
 {% endraw %}
-
-For more information, see [go-metrics-wavefront reference](https://github.com/wavefrontHQ/go-metrics-wavefront/blob/master/GODOCS.md).
