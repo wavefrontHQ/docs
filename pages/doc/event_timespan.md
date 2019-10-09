@@ -45,10 +45,10 @@ The `timespan()` event creation function creates a single synthetic event that s
 
 The following chart shows a single 5-minute synthetic event that was created by specifying 2 epoch timestamps.
 
-![Event timespan fixed](images/event_timespan_epochTimestamps.png)
+![Event timespan fixed](images/event_timespan_epoch.png)
 
 ### Relative Start and End Times
 
 The following chart shows a single synthetic 10-minute event that was created by specifying 2 relative timestamps. In a chart that displays live data, the start time of the event will always be 12 minutes before the end of the chart, and the end time will always be 2 minutes before the end of the chart.
 
-![Event timespan relative](images/event_timespan_relativeTimestamps.png)
+![Event timespan relative](images/event_timespan_relative.png)
