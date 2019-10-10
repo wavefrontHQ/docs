@@ -20,7 +20,7 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, which c
 
 Watch Pierre talk about Wavefront joins and how they're used.
 
-<p><a href="https://bcove.video/31i2mik"><img src="/images/v_join.png" style="width: 700px;"/></a>
+<p><a href="https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s"><img src="/images/v_join.png" style="width: 700px;"/></a>
 </p>
 
 ## Time Series as Tables
@@ -838,4 +838,4 @@ In this query, the `join()` function performs an left outer join that uses the `
 
 The `removeSeries()` function then filters the results of the `join()` function by removing any `NeedsAttention` series that has a `filter-id` tag. The overall result is a set of time series corresponding to each source that does not have the expected service running on it.
 
-**Note:** See the [video](https://bcove.video/31i2mik) for examples of a right exclusive join and a full exclusive join.
+**Note:** See the [video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s) for examples of a right exclusive join and a full exclusive join.
