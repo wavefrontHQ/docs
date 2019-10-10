@@ -38,7 +38,7 @@ The `counter_sum()` function returns the per-second rate of change for each time
 
 This function is similar to the [rate() function](ts_rate.html). Both functions report only positive values, and both gap the first data value to be reported by a new time series.
 However, there are differences:
-* `counter_sum()` gaps on counter reset, but `rate()` reports zero.
+* `rate()` gaps on counter reset, but `counter_sum()` reports zero.
 * `counter_sum()` allows you to group by metrics, sources, etc. `rate()` does not support group by parameters.
 
 ## Examples
