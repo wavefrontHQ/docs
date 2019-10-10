@@ -18,7 +18,7 @@ The Wavefront `join()` function is modeled after the SQL JOIN operation, which c
 
 **Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html).
 
-Watch Pierre talk about Wavefront joins and how they're used. 
+Watch Pierre talk about Wavefront joins and how they're used.
 
 <p><a href="https://bcove.video/31i2mik"><img src="/images/v_join.png" style="width: 700px;"/></a>
 </p>
@@ -241,7 +241,7 @@ join(
 
 Like SQL JOIN, the Wavefront `join()` function supports different types of join operation. Each join type has a different rule for including rows (time series) in the result table.
 
-The following table shows the main types of joins, we're discussing even more in our [video about joins](https://bcove.video/31i2mik).
+The following table shows the main types of joins. **Note:** This table shows _inclusive_ joins, which means they include any rows that satisfy the join condition. Wavefront also supports [_exclusive_ join types](#exclusive-join-types) for use cases in which you only want rows that do not satisfy the condition.
 
 <table width="100%">
 <colgroup>
@@ -249,7 +249,7 @@ The following table shows the main types of joins, we're discussing even more in
 <col width="70%" />
 </colgroup>
 <thead>
-<tr><th>Join Type</th><th>Results</th></tr>
+<tr><th>Join Type</th><th>Operation</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -777,3 +777,65 @@ The data points of each new series are derived from the data points of the corre
 **Note:** You must use the special syntax in a right outer join to provide alternate values for the left-hand series, which might be missing. A result series with missing input values will not display.
 
 You can use the special syntax to provide whatever alternate value makes sense for your use case. In the example, specifying 0 as the dividend produces a new constant series of 0 for each unmatched right-hand input series.
+
+## Exclusive Join Types
+
+You can combine the Wavefront `join()` and `removeSeries()` functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition.
+
+The following table describes the types of exclusive join.
+
+<table width="100%">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr><th>Join Type</th><th>Operation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">![left join](images/ts_join_venn_left_exclusive.png)</td>
+<td markdown="span" style="vertical-align:middle">Include only rows from the left table that do not satisfy a specified join condition (i.e., that do not match rows of the right table.) <br><br>`join()` keywords: LEFT JOIN | LEFT OUTER JOIN <br><br> Use `removeSeries()` to filter out matches
+</td>
+</tr>
+<tr>
+<td markdown="span">![right join](images/ts_join_venn_right_exclusive.png)</td>
+<td markdown="span" style="vertical-align:middle">Include only rows from the right table that do not satisfy a specified join condition (i.e., that do not match rows of the left table.) <br><br>`join()` keywords: RIGHT JOIN | RIGHT OUTER JOIN <br><br> Use `removeSeries()` to filter out matches
+</td>
+</tr>
+<tr>
+<td markdown="span">![full join](images/ts_join_venn_full_exclusive.png)</td>
+<td markdown="span" style="vertical-align:middle">Include only the rows from either table that do not satisfy a specified join condition. <br><br> Use `collect()` to combine a left outer join and a right outer join<br>
+Use `removeSeries()` to filter out matches
+</td>
+</tr>
+</tbody>
+</table>
+
+### Left Exclusive Join Example
+
+Suppose you are running services on various sources, and you know that your services take 3.5 minutes to start up. You can tell that a service has started when it starts reporting metrics, but you'd like to find out if any services have failed to start after 5 minutes. 
+
+You can do this by running a left exclusive join between a metric that is reported by the source (e.g., `cpu.uptime`) and a metric that is reported by the service (e.g., `service.uptime`), provided that these metrics share common metadata (e.g., an `id` point tag). You can then investigate any source whose uptime metric does not correspond to a matching service-uptime metric. For example:
+
+```
+removeSeries()
+  join(
+    ts(cpu.uptime) AS ts1 LEFT JOIN ts(service.uptime) AS ts2 USING(id),
+    metric='NeedsAttention', source=ts1.source, env=ts1.env, id=ts1.id, filter-id=ts2.id,
+    ts1
+    ),
+  filter-id="*"
+)
+```
+
+In this query, the `join()` function performs an left outer join that uses the `id` point tag value as the join condition. Each output series from this function has: 
+* The specified metric name (`NeedsAttention`), 
+* Data values and several metadata values from a `cpu.uptime` series. 
+* A new `filter-id` point tag, but only if the join condition has been met:
+  - `filter-id` is added whenever a `cpu.uptime` series and a `service.uptime` series have a matching id. 
+  - `filter-id` is not added to an unmatched output series.
+
+The `removeSeries()` function then filters the results of the `join()` function by removing any `NeedsAttention` series that has a `filter-id` tag. The overall result is a set of time series corresponding to each source that does not have the expected service running on it.
+
+**Note:** See the [video](https://bcove.video/31i2mik) for examples of a right exclusive join and a full exclusive join.
