@@ -780,7 +780,7 @@ You can use the special syntax to provide whatever alternate value makes sense f
 
 ## Exclusive Join Types
 
-You can combine the Wavefront `join()` and `removeSeries()` functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition.
+You can combine the Wavefront `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition.
 
 The following table describes the types of exclusive join.
 
@@ -819,7 +819,7 @@ Suppose you are running services on various sources, and you know that your serv
 You can do this by running a left exclusive join between a metric that is reported by the source (e.g., `cpu.uptime`) and a metric that is reported by the service (e.g., `service.uptime`), provided that these metrics share common metadata (e.g., an `id` point tag). You can then investigate any source whose uptime metric does not correspond to a matching service-uptime metric. For example:
 
 ```
-removeSeries()
+removeSeries(
   join(
     ts(cpu.uptime) AS ts1 LEFT JOIN ts(service.uptime) AS ts2 USING(id),
     metric='NeedsAttention', source=ts1.source, env=ts1.env, id=ts1.id, filter-id=ts2.id,
