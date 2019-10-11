@@ -6,7 +6,17 @@ summary: Learn about the Wavefront Python Integration.
 ---
 # Python Integration
 
-You can use PyFormance and the Wavefront reporters to send Python application metrics to Wavefront. The reporters support sending metrics to Wavefront using the [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). You can assign point tags at the reporter level for fine-grained filtering.
+This Wavefront Python integration explains how to send Python application metrics to Wavefront.
+
+Wavefront provides several Python SDKs and a REST API client for different purposes on Github:
+
+- **[wavefront-sdk-python](https://github.com/wavefrontHQ/wavefront-sdk-python)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions, and spans.
+- **[wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)**: Provides reporters and constructs such as counters, meters and histograms to periodically report application metrics and distributions to Wavefront.
+- **[wavefront-lambda-python](https://github.com/wavefrontHQ/wavefront-lambda-python)**: Wavefront Python wrapper for AWS Lambda to enable reporting of standard lambda metrics and custom app metrics directly to Wavefront.
+- **[wavefront-opentracing-sdk-python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)**: Wavefront OpenTracing Python SDK. See [our tracing documentation](https://docs.wavefront.com/tracing_basics.html) for background.
+- **[python-client](https://github.com/wavefrontHQ/python-client)**: The Wavefront REST API client enables you to interact with Wavefront servers using the standard REST API. You can use this client to automate commonly executed operations such as automatically tagging sources.
+
+In the Setup tab, the integration includes sample code based on `wavefront-pyformance` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
 This is a custom integration. You can send your own metrics and create your own dashboards.
 
@@ -35,36 +45,35 @@ Tags passed to the proxy reporter are applied to every metric.
 
 {% raw %}
 ```
-from pyformance import MetricsRegistry
-from wavefront_pyformance.wavefront_reporter import WavefrontProxyReporter
+import pyformance
+from wavefront_pyformance import wavefront_reporter
 
-reg = MetricsRegistry()
+reg = pyformance.MetricsRegistry()
 c1 = reg.counter("numbers")
 c1.inc()
 
-# Proxy Reporter with tags reporting to a Wavefront Proxy every 10s
-wf_proxy_reporter = WavefrontProxyReporter(host=host, port=2878, registry=reg,
-                                           source="wavefront-pyformance-example",
-                                           tags={"key1":"val1", "key2":"val2"},
-                                           prefix="python.proxy.",
-                                           reporting_interval=10)
+# report metrics to a Wavefront proxy every 10s
+wf_proxy_reporter = wavefront_reporter.WavefrontProxyReporter(
+    host=host, port=2878, registry=reg,
+    source='wavefront-pyformance-example',
+    tags={'key1': 'val1', 'key2': 'val2'},
+    prefix='python.proxy.',
+    reporting_interval=10)
 wf_proxy_reporter.start()
 ```
 {% endraw %}
-
 
 ### Option 2. Create a Wavefront Direct Reporter and Register Metrics
 
 You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
 
 Tags passed to the direct reporter are applied to every metric.
-
 {% raw %}
 ```
-from pyformance import MetricsRegistry
-from wavefront_pyformance.wavefront_reporter import WavefrontDirectReporter
+import pyformance
+from wavefront_pyformance import wavefront_reporter
 
-reg = MetricsRegistry()
+reg = pyformance.MetricsRegistry()
 c1 = reg.counter("numbers")
 c1.inc()
 
@@ -72,11 +81,12 @@ server = "https://YOUR_CLUSTER.wavefront.com"
 token = "YOUR_API_TOKEN"
 
 # Direct Reporter with tags reporting directly to a Wavefront service every 10s
-wf_direct_reporter = WavefrontDirectReporter(server=server, token=token, registry=reg,
-                                             source="wavefront-pyformance-exmaple",
-                                             tags={"key1":"val1", "key2": "val2"},
-                                             prefix="python.direct.",
-                                             reporting_interval=10)
+wf_direct_reporter = wavefront_reporter.WavefrontDirectReporter(
+    server=server, token=token, registry=reg,
+    source='wavefront-pyformance-exmaple',
+    tags={'key1': 'val1', 'key2': 'val2'},
+    prefix='python.direct.',
+    reporting_interval=10)
 wf_direct_reporter.start()
 ```
 {% endraw %}
