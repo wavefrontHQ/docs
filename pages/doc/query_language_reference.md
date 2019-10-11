@@ -271,7 +271,7 @@ source="appServer15"   // include only data from a source called appServer15
 <li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value. 
 Example: 
 <pre>
-source!="appServer15"  // include data from all sources except appServer15
+source!="appServer15"  // include data from any source except appServer15
 </pre>
 </li>
 </ul>
