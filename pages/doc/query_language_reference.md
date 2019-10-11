@@ -242,9 +242,10 @@ tag="env.cluster.role.*"
 tag="appServer" and tag="local"
 </pre>
 </td></tr>
+
 <tr>
-<td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;=&lt;pointTagValue&gt;</span></td>
-<td>The key and value of a point tag that is associated with the data of interest.
+<td><span style="color:#3a0699;font-weight:bold">&lt;pointTagKey&gt;, &lt;pointTagValue&gt;</span></td>
+<td>The key and value of a point tag that is associated with the data of interest. Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series.
 Examples: 
 <pre>
 region="us-west-2a"
@@ -252,11 +253,33 @@ region="us-west*"
 region="us-west-2a" or region="us-west-2b"
 </pre>
 
-<strong>Note:</strong> Point tags are a type of custom metadata for identifying a time series and any histogram series computed from a time series. Event tags, alert tags, and span tags exist for identifying other types of data. See <a href="tags_overview.html" >Organizing with Tags</a>  for information on the different types of tags and how to use them. 
-
-<!--- link to event filters, alert tags, span filters? --->
-
 </td></tr>
+
+<tr>
+<td><span style="color:#3a0699;font-weight:bold">&lt;filterName&gt;, &lt;filterValue&gt;</span></td>
+<td>Metadata that you can use to filter a set of data. Filter names and their values might be reserved keywords or custom strings. Available filters depend on the type of data you are querying. Sources, source tags, point tags, <a href="events_queries.html#event-filters">event filters</a>, alert tags, and <a href="traces_function.html#span-filters">span tags</a> are all examples of filters.  
+<br>
+Filter operators include or exclude data based on the filter value:
+<ul>
+<li>Use <strong>=</strong> to specify a filter that is set to a particular value. 
+Example: 
+<pre>
+source="appServer15"   // include only data from a source called appServer15
+</pre>
+</li>
+
+<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value. 
+Example: 
+<pre>
+source!="appServer15"  // include data from all sources except appServer15
+</pre>
+</li>
+</ul>
+ 
+
+<strong>Note: </strong>See <a href="tags_overview.html" >Organizing with Tags</a>  for information on the supported types of tags and how to use them. 
+</td></tr>
+
 
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;timeWindow&gt;</span></td>
