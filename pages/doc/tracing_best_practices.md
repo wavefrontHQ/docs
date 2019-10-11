@@ -13,7 +13,7 @@ The best practices on this page help you get optimal results from instrumenting 
 
 1. Learn about traces and spans. Traces represent end-to-end requests across services, and consist of spans, which represent calls to individual operations. See [Tracing Basics](tracing_basics.html) for basic tracing concepts, and see [https://opentracing.io](https://opentracing.io/) for comprehensive discussion and details.
 
-2. Inventory your application to answer these questions:
+2. Examine your application to answer these questions:
 * Which services belong to your application? Which ones participate in the most critical requests?
 * What programming language or languages are these services written in?
 * Are any services built with open-source component frameworks? Which frameworks?

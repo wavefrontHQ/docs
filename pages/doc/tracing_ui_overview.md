@@ -17,19 +17,19 @@ To choose your starting point for visualizing traces:
 1. In your web browser, go to your Wavefront cluster and log in.
 2. From the task bar:
 
-    - Select **Applications > Inventory** to [view an inventory of your instrumented applications](#view-application-inventory) and drill down from there.
+    - Select **Applications > Inventory** to [view the status of your instrumented applications](#view-application-status) and drill down from there.
     - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there.
 
     ![tracing menu](images/tracing_menu.png)
 
-## View Applications
+## View Application Status
 
-Go to the Applications page for a top-level overview of your instrumented applications.
+Go to the Applications page for a top-level status overview of your instrumented applications.
 
-![app inventory](images/tracing_application_inventory.png)
+![app status](images/tracing_application_status.png)
 
 On the Applications page, you can:
-* View your entire inventory of instrumented applications, or search for a particular application by applying filters. 
+* View the status of all instrumented applications, or search for a particular application by applying filters. 
   - Apply one or more filters to select application name, cluster, or shard.
 * Inspect RED metrics to obtain a status summary for an application:
   - The total number of requests that are represented by the application's spans. 
@@ -39,7 +39,7 @@ On the Applications page, you can:
 * Click an application name for an overview of its services.
 
 
-## View Services
+## View the Services of an Application
 
 When you select an application, you get an overview of its services.
 
@@ -64,21 +64,29 @@ When you click on a service's **Details**, you can examine a dashboard of metric
 
 ![examine services](images/tracing_services.png)
 
-On the page for a particular service, you can:
+On the dashboard for a particular service, you can:
 * Select the time and timezone in the task bar to customize the chart time properties. 
-* Use the **Jump To** pulldown to select a dashboard section:tr
-  - Select Overview to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
+* Use the **Jump To** pulldown to select a dashboard section:
+  - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
+  - Select **System** if your environment uses Telegraf and you want to view CPU usage, memory usage, and disk usage.
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
-* Clone the dashboard to add or customize charts. 
 * Navigate to the Traces browser:
   - Select **See All ... Traces** to display all traces that include a span from this service component.
   - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
-* If your environment uses Telegraf, view system metrics such as CPU usage, memory usages, and disk usage in the **System** section.
-  ![system metrics](images/system_metrics.png)
 
+<!--- do we really need a screen shot of System metrics?
+  ![system metrics](images/system_metrics.png)
+--->
+
+### Custom Service Metrics Dashboard
+The standard dashboard for service metrics is read-only. To create a customizable copy:
+1. Click **Clone** from the ellipsis menu. 
+2. In the cloned dashboard, add your own charts or customize the RED metrics charts. (Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)
+
+After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
 ## Explore Traces
 
