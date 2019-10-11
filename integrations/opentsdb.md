@@ -6,7 +6,7 @@ summary: Learn about the Wavefront OpenTSDB Integration.
 ---
 ## OpenTSDB Integration
 
-The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports OpenTSDB data format out of the box.  No extra configuration is needed. The Wavefront proxy supports both the OpenTSDB [Telnet interface](http://opentsdb.net/docs/build/html/user_guide/writing#telnet) and [HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing#http-api).
+The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports OpenTSDB data format with minimal configuration. The Wavefront proxy supports both the OpenTSDB [Telnet interface](http://opentsdb.net/docs/build/html/user_guide/writing#telnet) and [HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing#http-api).
 
 ## OpenTSDB Setup
 
