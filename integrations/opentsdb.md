@@ -14,9 +14,18 @@ The [Wavefront proxy](https://docs.wavefront.com/proxies.html) supports OpenTSDB
 
 ### Step 1. Install Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your collector, install a proxy. By default, the proxy listens on TCP port 4242 for line messages in OpenTSDB [line format](http://opentsdb.net/docs/build/html/user_guide/writing#telnet).
+If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your collector, install a proxy.
 
-### Step 2. Configure the Collector
+### Step 2. Open TCP Port 4242
+
+By default, the proxy listens on TCP port 4242 for line messages in OpenTSDB [line format](http://opentsdb.net/docs/build/html/user_guide/writing#telnet). 
+
+1. Open the proxy configuration file (<wavefront_config_path>/wavefront.conf) for edit. 
+2. Add or uncomment the line `opentsdbPorts=4242`.  
+
+See [Proxy Configuration File](https://docs.wavefront.com/proxies_configuring.html#proxy-configuration-properties) for details. 
+
+### Step 3. Configure the Collector
 
 If you have existing collectors such as Tcollector or Diamond sending data to an OpenTSDB server, change the target address from your OpenTSDB service to the Wavefront proxy.
 
