@@ -40,7 +40,35 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 You can also create a dashboard from the Dashboard browser (**Dashboards > All Dashboards**) or the Metrics browser (**Browse > Metrics**).
 
-## Examine Metrics in View Mode
+## Edit or Clone a Dashboard
+
+The dashboard menu allows you to create a dashboard, edit a dashboard, clone a dashboard, and look at the dashboard version history.
+
+* When you **clone a dashboard** you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone. 
+* The **dashboard version history** tracks each saved version and includes the user who saved the version. The result is an audit trail for the dashboard.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<strong>To edit a dashboard</strong>:
+<ol><li>Select the ellipsis icon in the top right of the dashboard. </li>
+<li>Select <strong>Edit</strong> and make changes to the dashboard in edit mode.</li>
+<li>Save the dashboard.</li></ol></td>
+<td width="60%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
+</tr>
+<tr>
+<td width="40%">
+<strong>To clone a dashboard</strong>:
+<ol><li>Select the ellipsis icon in the top right of the dashboard and select <strong>Clone</strong>. </li>
+<li>Accept the suggested URL and dashboard name we suggest, or specify them. For the URL, do not include <code>https://</code>. Specify only the URL string. </li>
+<li>Save the cloned dashboard.</li></ol></td>
+<td width="60%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+## Examine Metrics in Dashboard View Mode
 
 You can examine metrics and make several temporary changes to your dashboard in View Mode.
 
