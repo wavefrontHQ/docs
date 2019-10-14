@@ -17,7 +17,7 @@ To choose your starting point for visualizing traces:
 1. In your web browser, go to your Wavefront cluster and log in.
 2. From the task bar:
 
-    - Select **Applications > Inventory** to [view the status of your instrumented applications](#view-application-status) and drill down from there.
+    - Select **Applications > Application Status** to [view the status of your instrumented applications](#view-application-status) and drill down from there.
     - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there.
 
     ![tracing menu](images/tracing_menu.png)

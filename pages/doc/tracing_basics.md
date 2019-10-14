@@ -131,7 +131,7 @@ The Traces browser displays the traces that contain the matched spans.
 You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each instrumented application. RED metrics measure the request Rate (number of requests being served per minute), Errors (number of failed requests per minute), and Duration (histogram distributions of the amount of time each request takes). These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces and spans.
 
 To start examining your application's RED metrics:
-1. Select **Applications > Inventory** in the task bar and find your application.
+1. Select **Applications > Application Status** in the task bar and find your application.
 2. Click on the application's name.
 3. Find the service you are interested in and click **Details**.
 4. Scroll the service's page until you find the framework or component you are interested in.

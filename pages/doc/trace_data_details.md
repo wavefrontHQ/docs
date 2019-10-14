@@ -278,7 +278,7 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
 ### Predefined Charts
 Wavefront automatically generates charts to display the auto-derived RED metrics for a particular service. To view these charts:
 
-1. Select **Applications > Inventory** in the Wavefront task bar. If necessary, scroll to find your application and its services.
+1. Select **Applications > Application Status** in the Wavefront task bar. If necessary, scroll to find your application and its services.
 2. Click on the service you want to see metrics for.
 3. If you instrumented your application with a Wavefront SDK, look for the charts in the **Overview** section. (If you used a tracing-system integration, the charts are in the only section on the page.)
 
