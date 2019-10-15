@@ -64,7 +64,7 @@ To report metrics from your Go Lambda functions, use the [Wavefront Go Lambda Wr
 
 #### Install wavefront-lambda{% raw %}
 ```
-go get github.com/wavefrontHQ/wavefront-lambda-go.git
+go get github.com/wavefronthq/wavefront-lambda-go
 ```
 {% endraw %}
 
