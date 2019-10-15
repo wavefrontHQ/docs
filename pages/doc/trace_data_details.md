@@ -260,21 +260,21 @@ RED metrics are key indicators of the health of your services, and you can use t
 * Duration – per-minute histogram distributions of the amount of time that each request takes
 
 
-### Operation-level and Trace-level RED Metrics
+### Span RED Metrics and Trace RED Metrics
 
 Wavefront uses ingested spans to derive RED metrics for two kinds of request:
-* Operation-level RED metrics measure individual operations, typically within a single service. For example, an operation-level metric might measure number of calls per minute to the `dispatch` operation in the `delivery` service.
+* Span RED metrics measure individual operations, typically within a single service. For example, a span RED metric might measure number of calls per minute to the `dispatch` operation in the `delivery` service.
 
-  Wavefront uses operation-level metrics as the basis for the [predefined charts](#predefined-charts) shown below.
+  Wavefront uses span RED metrics as the basis for the [predefined charts](#predefined-charts) shown below.
 
-* Trace-level RED metrics measure traces that start with a given root operation. For example, a trace-level metric might measure the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service.
+* Trace RED metrics measure traces that start with a given root operation. For example, a trace RED metric might measure the number of traces that each start with a call to the `orderShirts` operation in the `shopping` service.
 
-  Wavefront derives trace-level metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace-level metrics](#red-metrics-queries-for-charts-and-alerts) to visualize them.
+  Wavefront derives trace RED metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace metrics](#red-metrics-queries-for-charts-and-alerts) to visualize them.
 
-**Note:** For traces that consist entirely of synchronous member spans, trace-level RED metrics are equivalent to the corresponding operation-level RED metrics. For traces that have asynchronous member spans, trace-level RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span.
+**Note:** For traces that consist entirely of synchronous member spans, trace RED metrics are equivalent to the corresponding span RED metrics. For traces that have asynchronous member spans, trace RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span.
 
 ### Predefined Charts
-Wavefront automatically generates charts to display the auto-derived RED metrics for a particular service. To view these charts:
+Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts:
 
 1. Select **Applications > Inventory** in the Wavefront task bar. If necessary, scroll to find your application and its services.
 2. Click on the service you want to see metrics for.
@@ -304,7 +304,7 @@ Wavefront constructs the names of the underlying counters and histograms as show
 <col width="40%"/>
 </colgroup>
 <thead>
-<tr><th markdown="span">Operation-Level Metric Names</th><th>Metric Type</th><th>Description</th></tr>
+<tr><th markdown="span">Span RED Metric Names</th><th>Metric Type</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -333,7 +333,7 @@ Wavefront constructs the names of the underlying counters and histograms as show
 <col width="40%"/>
 </colgroup>
 <thead>
-<tr><th>Trace-Level Metric Names</th><th>Metric Type</th><th>Description</th></tr>
+<tr><th>Trace RED Metric Names</th><th>Metric Type</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -395,11 +395,11 @@ The point tag technique is useful when the metric name contains string values fo
 
 
 
-### Trace Sampling and Auto-Derived RED Metrics
+### Trace Sampling and Derived RED Metrics
 
 If you have instrumented your application with a Wavefront observability SDK, Wavefront derives the RED metrics from 100% of the generated spans, _before_ any sampling is performed. This is true when the sampling is performed by the SDK or when the sampling is performed by a Wavefront proxy. Consequently, the RED metrics provide a highly accurate picture of your application's behavior. However, if you click through a chart to inspect a particular trace, you might discover that the trace has not actually been ingested in Wavefront. You can consider configuring a less restrictive [sampling strategy](trace_data_sampling.html).
 
-If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the auto-derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
+If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
 
 <!---
