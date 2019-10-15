@@ -251,7 +251,7 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 ## RED Metrics Derived From Spans
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically aggregates and displays RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
+If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically provides the corresponding span RED metrics and trace RED metrics for the spans with no additional configuration or instrumentation on your part.
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
@@ -259,6 +259,8 @@ RED metrics are key indicators of the health of your services, and you can use t
 * Errors – the number of failed requests per minute
 * Duration – per-minute histogram distributions of the amount of time that each request takes
 
+
+The derived RED metrics are operation-level, which means that they measure individual operations, and not whole traces. For example, an operation-level metric might measure then number of calls per minute to the `dispatch` operation in the `delivery` service, where each call to `dispatch` might correspond to one of many spans in a trace.
 
 ### Operation-level and Trace-level RED Metrics
 
