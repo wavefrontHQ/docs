@@ -19,7 +19,7 @@ Returns a single value from the time series described by the expression. The ret
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td>epochTime</td>
-<td>The report time of the data value to be returned, as epoch time.
+<td>The report time of the data value to be returned, as Epoch time in seconds.
 </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
