@@ -44,94 +44,109 @@ This section lists:
 
 See [Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties) for properties specific to histogram distributions.
 
-<table>
+<table style="width: 100%;">
 <thead>
 <tr>
-<th>Property</th>
-<th>Purpose</th>
-<th>Format /Example </th>
-<th>Since</th>
+<th width="10%">Property</th>
+<th width="50%">Purpose</th>
+<th width="30%">Format and Example </th>
+<th width="10%">Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>agentMetricsPointTags</td>
 <td>Point tags and their values to be passed along with <code>~agent./</code> metrics. Default: None.</td>
-<td>Comma-separated list of key-value pairs.
-<div>Ex: dc=west,env=prod</div></td>
+<td>Comma-separated list of key-value pairs.<br/>
+Ex: dc=west,env=prod</td>
 <td>3.24</td>
 </tr>
 <tr>
 <td>blacklistRegex </td>
 <td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
-<td>Valid regex pattern.
-<div>Ex: Filter out points that begin with qa., development., or test.:</div>
+<td>Valid regex pattern.<br/>
+Ex: Filter out points that begin with qa., development., or test.:
 ^(qa|development|test).</td>
 <td>3.1</td>
 </tr>
 <tr>
 <td>buffer</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
-<td>Valid path on the local file system.
-<div>Ex: <code>&lt;wavefront_spool_path&gt;/buffer</code></div></td>
+<td>Valid path on the local file system.<br/>
+Ex: &lt;wf_spool_path&gt;/buffer</td>
 <td>3.20</td>
 </tr>
 <tr>
 <td>customSourceTags</td>
 <td>Point tag keys to use as 'source' if no 'source' or 'host' field is present. Default: fqdn, hostname.</td>
-<td>Comma-separated list of point tag keys.
-<div>Ex: fqdn, hostname</div></td>
+<td>Comma-separated list of point tag keys.<br/>
+Ex: fqdn, hostname</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>dataBackfillCutoffHours</td>
 <td>The cut-off point for what is considered a valid timestamp for back-dated points. We do not recommend setting this value larger than 1 year unless backfilling or migrating historic data. Default: 8760 (1 year), so all points older than 1 year are rejected.</td>
-<td>Positive integer.
-<div>Ex: 8760</div></td>
+<td>Positive integer.<br/>
+Ex: 8760</td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>ephemeral</td>
 <td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Proxies page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
-<td>Boolean
-<div>Ex: true </div></td>
+<td>Boolean<br/>
+Ex: true </td>
+<td>3.14</td>
+</tr>
+<tr>
+<td>deltaCounterPorts</td>
+<td>Port on which to listen only for <a href="delta_counters.html"delta counter data</a>. Other data format are rejected at this port. If you specify a delta counter port, it can accept both HTTP and TCP data. For HTTP data, make a POST to this proxy port with an empty header, and the line-terminated data. Default: 50000.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.<br/>
+Ex: 50000<br/>
+Ex: 50000,50001,50002</td>
+<td>5.1</td>
+</tr>
+<tr>
+<td>deltaCounterAggregationInterval</td>
+<td>Delay time for delta counter reporter. Default: 30 seconds.</td>
+<td>Number of seconds.<br/>
+Ex: 45</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>fileBeatPort</td>
 <td>TCP port to listen on for Filebeat data. Default: 5044.</td>
-<td>A port number.
-<div>Ex: 5044 </div></td>
+<td>A port number.<br/>
+Ex: 5044 </td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>flushThreads</td>
 <td>Number of threads that flush data to the server. Setting this value too high results in sending batches that are too small to the Wavefront server and wasting connections. Values between 6 and 16 are a good starting point. This setting is per listening port. Default: The number of available processors (min 4).</td>
-<td>Positive integer.
-<div>Ex: 16 </div></td>
+<td>Positive integer.<br/>
+Ex: 16</td>
 <td>3.14</td>
 </tr>
 <tr>
 <td>graphiteDelimiters</td>
 <td>Characters that should be replaced by dots, in case they were escaped within Graphite and collectd before sending. A common delimiter is the underscore character; so if you extract a hostname field with the value <code>web04_www</code>, it is changed to <code>web04.www</code>.</td>
 <td>A concatenation of delimiter characters, without any separators.</td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>graphiteFormat</td>
-<td>Indexes of fields within Graphite and collectd metric names that correspond to a hostname. For example, if your metrics have the format: <code>collectd.prod.www04.cpu.loadavg.1m</code>, specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder <code>collectd.cpu.loadavg.1m</code> is treated as the metric name.</td>
-<td>Comma-separated list of indexes.
-<div>Ex: 4, 2, 5</div>
-<div>Ex: 3</div> </td>
-<td> </td>
+<td>Indexes of fields within Graphite and collectd metric names that correspond to a hostname. For example, if your metrics have the format: collectd.prod.www04.cpu.loadavg.1m, specify the 3rd and 2nd indexes (www04.prod) to be extracted and treated as the hostname. The remainder collectd.cpu.loadavg.1m is treated as the metric name.</td>
+<td>Comma-separated list of indexes.<br/>
+Ex: 4, 2, 5
+Ex: 3 </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>graphitePorts</td>
 <td>TCP ports to listen on for Graphite data. Define which of the segments in your Graphite metrics map to a hostname in the graphiteFormat property. Default: 2003.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.
-<div>Ex: 2003</div>
-<div>Ex: 2003, 2004 </div></td>
-<td> </td>
+<td>Comma-separated list of available port numbers. Can be a single port.<br/>
+Ex: 2003<br/>
+Ex: 2003, 2004 </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td markdown="span">[Histogram Configuration Properties](proxies_histograms.html#histogram-configuration-properties)</td>
@@ -145,7 +160,7 @@ Properties specific to histogram distributions.
 <td>hostname</td>
 <td>A name unique across your account representing the machine that the proxy is running on. The hostname is not used to tag your metrics; rather, it's used to tag proxy metrics, such as JVM statistics, per-proxy point rates, and so on.</td>
 <td>A string containing alphanumeric characters and periods.</td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>httpConnectTimeout</td>
@@ -163,22 +178,22 @@ Properties specific to histogram distributions.
 </tr>
 <tr>
 <td>httpUserAgent</td>
-<td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: <code>Wavefront-Proxy/&lt;version&gt;</code>.</td>
+<td>Override User-Agent in request headers. Can help bypass excessively restrictive filters on the HTTP proxy. Default user agent: Wavefront-Proxy/&lt;version&gt;.</td>
 <td>A string.
 <div>Ex: 'Mozilla/5.0' </div></td>
 <td>4.1</td>
 </tr>
 <tr>
 <td>idFile</td>
-<td>Location of the PID file for the wavefront-proxy process. Default: <code>&lt;wf_config_path&gt;/.wavefront_id</code>.</td>
+<td>Location of the PID file for the wavefront-proxy process. Default: &lt;cfg_path&gt;/.wf_id.</td>
 <td>Valid path on the local file system.</td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>jsonListenerPorts</td>
 <td>TCP ports to listen on for incoming JSON-formatted metrics. Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td></td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>listenerIdleConnectionTimeout</td>
@@ -190,7 +205,7 @@ Properties specific to histogram distributions.
 <tr>
 <td>logsIngestionConfigFile</td>
 <td>The file containing instructions for parsing log data into metrics.  See <a href="integrations_log_data.html">Log Data Metrics Integration</a>.
-Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
+Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 <td>Valid path on the local file system.</td>
 <td>4.1</td>
 </tr>
@@ -215,13 +230,13 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <div>Ex: production</div>
 <div>Ex: production.nyc.dc1</div>
 </td>
-<td></td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>preprocessorConfigFile</td>
 <td>Path to the optional preprocessor config file containing <a href="proxies_preprocessor_rules.html">preprocessor rules</a> for filtering and rewriting metrics. Default: None.</td>
 <td>Valid path on the local file system.
-<div>Ex: <code>&lt;wf_config_path&gt;/preprocessor_rules.yaml</code></div></td>
+<div>Ex: &lt;cfg_path&gt;/rules.yaml</div></td>
 <td>4.1</td>
 </tr>
 <tr>
@@ -257,21 +272,21 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print none. If you see a non-zero number of blocked points in the summary lines and want to debug what that data is, set this property to 5. Default: 0.</td>
 <td>0 or a positive integer.
 <div>Ex: 5 </div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushInterval</td>
 <td>Milliseconds to wait between each flush to Wavefront. Default: 1000.</td>
 <td>An integer equal to or greater than 1000.
 <div>Ex: 1000 </div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushFlushMaxPoints</td>
 <td>Maximum number of points to send to Wavefront during each flush. Default: 40,000.</td>
 <td>Positive integer.
 <div>Ex: 40000 </div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushListenerHttpBufferSize</td>
@@ -293,14 +308,14 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878,2879,2880</div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushLogLevel</td>
 <td>Frequency to print status information on the data flow to the log. SUMMARY prints a line every 60 flushes, while DETAILED prints a line on each flush.</td>
 <td>None, SUMMARY, or DETAILED
 <div>Ex: SUMMARY </div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>pushMemoryBufferLimit</td>
@@ -321,7 +336,7 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>Level of validation to perform on incoming data before sending the data to Wavefront. If NO_VALIDATION, all data is sent forward. If NUMERIC_ONLY, data is checked to make sure that it is numerical and dropped locally if it is not.</td>
 <td>NUMERIC_ONLY or NO_VALIDATION
 <div>Ex: NUMERIC_ONLY </div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>rawLogsMaxReceivedLength</td>
@@ -343,19 +358,19 @@ Default: <code>&lt;wf_config_path&gt;/logsIngestion.yaml</code>.</td>
 <td>For exponential back-off when retry threads are throttled, the base (a in a^b) in seconds. Default: 2.0.</td>
 <td>Positive number, integer or decimal.
 <div>Ex: 2.0 </div></td>
-<td> </td></tr>
+<td>&nbsp;</td></tr>
 <tr>
 <td>retryThreads</td>
 <td>Number of threads retrying failed transmissions. If no value is specified, defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads controls the maximum amount of space that the proxy can use to buffer points locally.</td>
 <td>Positive integer.
 <div>Ex: 4 </div>  </td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>server</td>
-<td>The API URL of the Wavefront server in the format <code>https://&lt;wf_instance&gt;.wavefront.com/api/</code>.</td>
-<td> </td>
-<td> </td>
+<td>The API URL of the Wavefront server in the format https://&lt;wf_instance&gt;.wavefront.com/api/.</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>soLingerTime</td>
@@ -369,7 +384,7 @@ Ex: 0 </td>
 <td>Whether to split the push batch size when the push is rejected by Wavefront due to rate limit. Default: false.</td>
 <td>true or false
 <div>Ex: false </div></td>
-<td> </td>
+<td>&nbsp;</td>
 </tr>
 <tr>
 <td>whitelistRegex</td>

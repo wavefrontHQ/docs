@@ -36,9 +36,17 @@ Delta counters make monitoring easy for this use case. The Wavefront service agg
 
 
 ## Using Delta Counters
+
 To use delta counters, you have several options:
 * Start with our sample libraries.
 * Send metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
+
+### Delta Counter Proxy Configuration Properties
+
+We support the following [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) with delta counters.
+
+- **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
+- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds. 
 
 ### SDKs
 You can use our SDKs to make your metric a delta counter.
