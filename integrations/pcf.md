@@ -4,11 +4,11 @@ tags: [integrations list]
 permalink: pcf.html
 summary: Learn about the Wavefront Pivotal Cloud Foundry Integration.
 ---
-## Pivotal Cloud Foundry Integration
+### Pivotal Cloud Foundry Integration
 
 Pivotal Cloud Foundry (PCF) is a popular platform for building cloud-native applications. The PCF integration is full-featured implementation offering pre-defined dashboards and alert conditions and is fully configurable.
 
-### Dashboards
+## Dashboards
 
 The PCF integration is a set of dashboards that give an overview of your PCF deployment and specific PCF components:
 
@@ -20,10 +20,10 @@ The PCF integration is a set of dashboards that give an overview of your PCF dep
 - PCF: Diego Auctioneer - detailed Diego Auctioneer metrics.
 - PCF: Diego BBS - detailed Deigo Bulletin Board System (BBS) metrics.
 - PCF: Diego Cell - health of Diego Cells.
-- PCF: Diego Nsync-bulker Route-Emitter - detailed Diego Nsync metrics.
-- PCF: Doppler Server - health of Doppler Servers.
-- PCF: Loggregator Traffic Controller - detailed Loggregator Traffic Controller metrics.
 - PCF: Metron Agent - health of Metron Agents.
+- PCF: MySQL - Real-time visibility into the PCF MySQL status.
+- PCF: Redis - Real-time visibility into the PCF Redis status.
+- PCF: RabbitMQ - Real-time visibility into the PCF RabbitMQ status.
 
 Here's a preview of the Cloud Controller dashboard:
 {% include image.md src="images/cloud_controller_dashboard.png" width="80" %}
