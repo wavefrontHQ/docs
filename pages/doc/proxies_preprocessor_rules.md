@@ -15,6 +15,8 @@ Starting with version 4.1, the Wavefront proxy includes a preprocessor that appl
 
 The rules make it possible to address data quality issues in the data flow when it's not possible to fix the problem at the source. For example, you could have a rule "before the point line is parsed, replace invalid characters with underscores" to allow points that would be rejected to get to the Wavefront service.
 
+{% include shared/badge.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
+
 ## Rule Configuration File
 
 You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify rule filenames in your [proxy configuration](proxies_configuring.html#proxy-configuration). An example rule file could look like this:
@@ -78,7 +80,7 @@ The rules file is validated when the proxy starts. The proxy aborts the start-up
 
 Starting with proxy version 5.0, changes to the preprocessor file take effect shortly after you save the file.
 
-For earlier versions of the proxy, you have to [restart the proxy](proxies_installing.html#start-and-stop-a-proxy) before the changes take effect. 
+For earlier versions of the proxy, you have to [restart the proxy](proxies_installing.html#start-and-stop-a-proxy) before the changes take effect.
 
 ### Metrics for Rules
 

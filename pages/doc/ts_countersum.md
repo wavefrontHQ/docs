@@ -13,6 +13,8 @@ counter_sum(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
 Returns the per-second rate of change for each time series described by the expression. Recommended for counter metrics to see increase or reset.
 
+<!---This function is public but not in QLR page on purpose. Used for special cases (tracing) and name is non-standard (underbar)--->
+
 ## Parameters
 <table>
 <tbody>
