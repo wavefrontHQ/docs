@@ -1371,7 +1371,7 @@ In a time-series chart, this function displays the median values of the merged d
 </td>
 </tr>
 <tr>
-<td><a href="hs_align.html">align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td><a href="ts_align.html">align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
 In a time-series chart, this function displays the median values of the aligned distributions.
 </td>
