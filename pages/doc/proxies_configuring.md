@@ -99,7 +99,7 @@ Ex: true </td>
 </tr>
 <tr>
 <td>deltaCounterPorts</td>
-<td>Port on which to listen only for <a href="delta_counters.html"delta counter data</a>. Other data format are rejected at this port. If you specify a delta counter port, it can accept both HTTP and TCP data. For HTTP data, make a POST to this proxy port with an empty header, and the line-terminated data. Default: 50000.</td>
+<td>Port on which to listen only for <a href="delta_counters.html">delta counter data</a>. Other data format are rejected at this port. If you specify a delta counter port, it can accept both HTTP and TCP data. For HTTP data, make a POST to this proxy port with an empty header, and the line-terminated data. Default: 50000.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.<br/>
 Ex: 50000<br/>
 Ex: 50000,50001,50002</td>
