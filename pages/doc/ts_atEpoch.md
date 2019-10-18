@@ -10,7 +10,7 @@ summary: Reference to the atEpoch() function
 ```
 atEpoch(<epochTime>, <tsExpression>)
 ```
-Returns a single value from the time series described by the expression. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against the results of other queries of you can compare results at precise times.
+Returns the value at the specified time for the time series described by the expression. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against the results of other queries of you can compare results at precise times.
 
 ## Parameters
 <table>
