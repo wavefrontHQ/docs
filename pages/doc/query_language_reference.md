@@ -11,7 +11,7 @@ The Wavefront Query Language allows you to extract the information you need from
 
 ## Query Expressions
 
-A query expression describes data of a particular type: time series, histogram series, events, trace or spans.
+A query expression describes data of a particular type: time series, histogram series, events, traces or spans.
 
 <table style="width: 100%;">
 <colgroup>
