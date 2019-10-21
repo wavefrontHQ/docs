@@ -263,7 +263,7 @@ RED metrics are key indicators of the health of your services, and you can use t
 ### Span RED Metrics and Trace RED Metrics
 
 Wavefront uses ingested spans to derive RED metrics for two kinds of request:
-* Span RED metrics measure individual operations, typically within a single service. For example, a span RED metric might measure number of calls per minute to the `dispatch` operation in the `delivery` service.
+* Operation-level RED metrics measure individual operations, typically within a single service. For example, an operation-level metric might measure the number of calls per minute to the `dispatch` operation in the `delivery` service.
 
   Wavefront uses span RED metrics as the basis for the [predefined charts](#predefined-charts) shown below.
 
