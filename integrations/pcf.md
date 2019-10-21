@@ -24,6 +24,7 @@ The PCF integration is a set of dashboards that give an overview of your PCF dep
 - PCF: MySQL - Real-time visibility into the PCF MySQL status.
 - PCF: Redis - Real-time visibility into the PCF Redis status.
 - PCF: RabbitMQ - Real-time visibility into the PCF RabbitMQ status.
+- PCF: Wavefront Nozzle - To monitor the health and performance of your Pivotal Platform deployment and apps.
 
 Here's a preview of the Cloud Controller dashboard:
 {% include image.md src="images/cloud_controller_dashboard.png" width="80" %}
