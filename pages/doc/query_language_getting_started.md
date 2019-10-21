@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: query_language_getting_started.html
 summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
-The Wavefront Query Language has been designed for time series data. Time series data are unique and requires a query language that accommodates the periodicity, potential irregularity, and streaming nature of the data.
+The Wavefront Query Language lets you retrieve and display the observability data that has been ingested into Wavefront. The query language is particularly well suited to time series data, because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 
 Watch these videos to get you started:
 
