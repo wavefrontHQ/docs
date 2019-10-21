@@ -265,7 +265,7 @@ The derived RED metrics are operation-level, which means that they measure indiv
 ### Operation-level and Trace-level RED Metrics
 
 Wavefront uses ingested spans to derive RED metrics for two kinds of request:
-* Operation-level RED metrics measure individual operations, typically within a single service. For example, an operation-level metric might measure number of calls per minute to the `dispatch` operation in the `delivery` service.
+* Operation-level RED metrics measure individual operations, typically within a single service. For example, an operation-level metric might measure the number of calls per minute to the `dispatch` operation in the `delivery` service.
 
   Wavefront uses operation-level metrics as the basis for the [predefined charts](#predefined-charts) shown below.
 

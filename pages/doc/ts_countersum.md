@@ -4,14 +4,16 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_countersum.html
-summary: Reference to the rawsum() function
+summary: Reference to the counter_sum() function
 ---
 ## Summary
 ```
-counter_sum(<expression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
+counter_sum(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
 Returns the per-second rate of change for each time series described by the expression. Recommended for counter metrics to see increase or reset.
+
+<!---This function is public but not in QLR page on purpose. Used for special cases (tracing) and name is non-standard (underbar)--->
 
 ## Parameters
 <table>
@@ -20,7 +22,7 @@ Returns the per-second rate of change for each time series described by the expr
 <tr><th width="30%">Parameter</th><th width="70%">Description</th></tr>
 </thead>
 <tr>
-<td markdown="span"> [expression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">[tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the set of time series. </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
@@ -38,8 +40,8 @@ The `counter_sum()` function returns the per-second rate of change for each time
 
 This function is similar to the [rate() function](ts_rate.html). Both functions report only positive values, and both gap the first data value to be reported by a new time series.
 However, there are differences:
-* `counter_sum()` gaps on counter reset, but `rate()` reports zero.
-* `counter_sum()` has a different syntax than `rate()` (see above).
+* `rate()` gaps on counter reset, but `counter_sum()` reports zero.
+* `counter_sum()` allows you to group by metrics, sources, etc. `rate()` does not support group by parameters.
 
 ## Examples
 

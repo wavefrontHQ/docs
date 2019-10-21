@@ -87,7 +87,7 @@ The aggregation intervals do not overlap.  If you are aggregating by the minute,
 
 ## Sending Histogram Distributions
 
-A histogram distribution allows you to send multiple points with a single value.
+A histogram distribution allows you to combine multiple points into a complex value that has a single timestamp.
 
 To send a histogram distribution to the Wavefront proxy:
 
@@ -455,7 +455,7 @@ Wavefront adds the suffixes `.m`, `.h`, or `.d` to the metric name according to 
 
 ## Querying and Viewing Histogram Metrics
 
-You display histogram information by running `hs()` queries in conjunction with [histogram functions](query_language_reference.html#histogram-functions), or the histogram browser.
+You display histogram information by running `hs()` in conjunction with histogram functions, or by selecting a histogram metric from the Histogram browser.
 
 
 ### Histogram Query Basics

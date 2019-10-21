@@ -42,6 +42,11 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td markdown="span">Specifies when and how to send notifications in response to alert activity. You can use our built-in alert targets by specifying an email address or a PagerDuty key in the alert, or you can create a [**custom alert target**](webhooks_alert_notification.html).</td>
 </tr>
 <tr>
+<td>&nbsp;</td>
+<td markdown="span">[**Application tags**](tracing_instrumenting_frameworks.html#application-tags)</td>
+<td markdown="span">Application tags describe the architecture of an application that was instrumented for tracing. Application tags are span tags with the names <code>application</code>, <code>service</code>, <code>cluster</code>, and <code>shard</code>. Wavefront uses application tags to aggregate and filter trace data at different levels of granularity.</td>
+</tr>
+<tr>
 <td><strong><big>B</big></strong></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td></tr>
@@ -119,6 +124,11 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 </tr>
 <tr>
 <td>&nbsp;</td>
+<td markdown="span">[**Expression**](query_language_reference.html#query-expressions)</td>
+<td>An expression describes data of a particular type: time series, histograms, events, traces, or spans. Expressions can be complete queries or building blocks of queries. </td>
+</tr>
+<tr>
+<td>&nbsp;</td>
 <td markdown="span">[**External link**](external_links_managing.html)</td>
 <td>External links allow you to go from a Wavefront chart to an external system such as a log. You can in effect connect your streaming metrics to logs and other external info. </td>
 </tr>
@@ -129,7 +139,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Histogram (distribution)**](proxies_histograms.html)</td>
-<td>Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Wavefront creates histogram distributions by aggregating metrics into bins.You can send histograms to a histogram proxy port or directly to the Wavefront service. </td>
+<td>A Wavefront histogram is a series of distributions that Wavefront has computed from the data points of a time series. Each distribution summarizes the points in a particular time interval (minute, hour, or day) by organizing their values into bins (value ranges). You can send histograms to a histogram proxy port or directly to the Wavefront service. </td>
 </tr>
 <tr>
 <td><strong><big>I</big></strong></td>
@@ -148,6 +158,11 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>&nbsp;</td>
 <td markdown="span">[**Maintenance window**](maintenance_windows_managing.html)</td>
 <td>You can create a maintenance window to prevent alerts from firing. That's useful if you expect to perform disruptive operations that result in conditions where alerts would fire.</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td markdown="span">Metadata</td>
+<td>Metadata is a collection of values that uniquely describes a particular set of observability data, but which are not themselves part of the data set. For example, every time series is uniquely described by its metric name, source name, and point tags.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -197,7 +212,16 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Proxy**](proxies.html)</td>
-<td markdown="span">A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. Using a Wavefront proxy has several benefits, but you can also send data to Wavefront using *direct ingestion*. </td>
+<td markdown="span">A Wavefront proxy ingests metrics and forwards them to the Wavefront service in a secure, fast, and reliable manner. Using a Wavefront proxy has several benefits, but you can also send data to Wavefront using direct ingestion. </td>
+</tr>
+<tr>
+<td><strong><big>Q</big></strong></td>
+<td>&nbsp;</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td markdown="span">Query</td>
+<td markdown="span">Queries are requests that you submit to find and visualize data. A query consists of expressions built from the [Wavefront Query Language](query_language_reference.html). You can compose queries with the [Chart Builder](chart_builder.html) UI, or you can write queries directly in [Query Editor](query_editor.html). Queries let you retrieve and transform ingested data, as well as create and display synthetic data for the duration of the query.</td>
 </tr>
 <tr>
 <td><strong><big>R</big></strong></td>
@@ -206,7 +230,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**RED metrics**](trace_data_details.html#red-metrics-derived-from-spans)</td>
-<td>RED metrics are key health metrics for a microservice that is instrumented for distributed tracing. RED metrics measure the request Rate (number of requests per minute), Errors (number of failed requests per minute), and Duration of the spans that are generated by a microservice.</td>
+<td>RED metrics are key health metrics for applications that are instrumented for distributed tracing. RED metrics measure the Request Rate (number of requests per minute), Errors (number of failed requests per minute), and Duration of the spans that are generated by an application or one of its services. <strong>See also:</strong> Span RED metrics, Trace RED metrics.</td>
 </tr>
 <tr>
 <td><strong><big>S</big></strong></td>
@@ -231,7 +255,7 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Source**](sources_managing.html)</td>
-<td>A source is a unique application, host, container, or instance that emits metrics. In contrast to other platforms, each Wavefront metric explicitly includes the source. For cloud integrations, the source is extracted from service properties or dimensions. </td>
+<td>A source is a unique application, host, container, or instance that emits observability data. A source is part of the unique metadata that identifies a data set. For cloud integrations, the source is extracted automatically from service properties or dimensions. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -244,13 +268,23 @@ You can manage authorization with user-level permissions or user and group-level
 <td>A span is a named, timed representation of a contiguous segment of work in a trace. Every span corresponds to a unique invocation of an operation in an instrumented application, and belongs to exactly one trace.    </td>
 </tr>
 <tr>
+<td>&nbsp;</td>
+<td markdown="span">[**Span RED metrics**](trace_data_details.html#span-red-metrics-and-trace-red-metrics)</td>
+<td>Span RED metrics measure the individual operations that originated in a service or application that was instrumented for tracing. For example, a span RED metric for a <code>delivery</code> service might measure the number of calls per minute to the <code>dispatch</code> operation. </td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td markdown="span">[**Span tag**](trace_data_details.html#span-tags)</td>
+<td>Span tags are key-value pairs (strings) that are associated with a span. Certain span tags are required for a span to be valid. An application can be instrumented to include custom span tags, as well.</td>
+</tr>
+<tr>
 <td><strong><big>T</big></strong></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Tag**](tags_overview.html)</td>
-<td>Tags allows you to group and filter information or UI objects. Wavefront includes several types of tags for filtering metrics, sources, and events, supressing alerts during maintenance windows, and customizing your display. <strong>See also:</strong> Point tag, Source tag. </td>
+<td>Tags are metadata that is associated with your observability data. You can use tags to filter the results of a query, or to apply an operation to a group of objects (such as suppressing a group of alerts during a maintenance window). Wavefront supports several types of tags, including source tags, point tags, event tags, alert tags, and span tags. <strong>See also:</strong> Point tag, Source tag. </td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -265,13 +299,20 @@ You can manage authorization with user-level permissions or user and group-level
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">Time series</td>
-<td>Collection of unique data points over time. The data points are related to a specific metrics on specific source, with specific point tags. In Wavefront query language, you use a ts() function to describe a time series. <strong>See also:</strong> Continuous time series and Discrete time series.</td>
+<td markdown="span">A time series is a data set that consists of a sequence of data points over time. Each data point in a time series combines a single data value with a unique timestamp. Every time series is identified by unique metadata (combination of metric name, source name, and point tag values). In the Wavefront query language, you use the [ts() function](ts_function.html) to describe and visualize a time series. <strong>See also:</strong> Continuous time series and Discrete time series.</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Trace**](tracing_basics.html#wavefront-trace-data)</td>
 <td markdown="span">A trace allows you to follow and examine a transaction or workflow in your application. As a result, you might be able to locate errors in context or improve execution speed. In [OpenTracing](https://opentracing.io/), a trace is a directed, acyclic graph of spans.</td>
 </tr>
+<tr>
+<td>&nbsp;</td>
+<td markdown="span">[**Trace RED metrics**](trace_data_details.html#span-red-metrics-and-trace-red-metrics)</td>
+<td>Trace RED metrics measure the traces that start with a given root operation in a service or application that has been instrumented for tracing. For example, a trace RED metric for a service might measure the number of traces that each start with a call to the <code>orderShirts</code> operation.
+</td>
+</tr>
+
 <tr>
 <td><strong><big>W</big></strong></td>
 <td>&nbsp;</td>
