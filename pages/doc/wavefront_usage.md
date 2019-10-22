@@ -1,5 +1,5 @@
 ---
-title: Monitoring Wavefront Usage
+title: Examine Ingestion Breakdown
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_usage.html

@@ -1,5 +1,5 @@
 ---
-title: Monitoring Wavefront
+title: Monitor Wavefront Service
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html

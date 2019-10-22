@@ -1,12 +1,16 @@
 ---
-title: Monitoring Wavefront Proxies
+title: Monitor Wavefront Proxies
 tags: [administration, proxies]
 sidebar: doc_sidebar
 permalink: monitoring_proxies.html
 summary: Learn how to monitor Wavefront proxies.
 ---
 
-## Monitoring Proxy Health with the System Usage Dashboard
+The Wavefront Usage integration includes a **Wavefront Usage and Proxy Metrics** dashboard that includes several sections with dashboards for examining proxy health.
+
+![proxy health](images/proxy_health_example.png)
+
+## Monitoring Proxy Health with the Usage Dashboard
 
 [Wavefront proxies](proxies.html) emit metrics that you can use to check if your Wavefront proxy is behaving as expected.
 
