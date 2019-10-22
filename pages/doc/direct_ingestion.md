@@ -90,6 +90,6 @@ It's typical that the Wavefront service doesn't accept a small amount of data. T
 * The Wavefront cluster is sized to 150k pps (plenty of headroom).
 * However, the client (customer) sends all the data for each minute on the minute. The client might send 6M pps points in 1 second, than nothing for 59 seconds, then repeat.
 
-For cost reasons and right sizing, it doesn't make sense to size the Wavefront cluster for 6M pps when the smoothed-out traffic is really 100k. Instead, the Wavefront service will push and ask the proxy to smooth out the traffic over the minute. Proxies retry queued points, so even with just one proxy you won't see dropped points.
+Wavefront doesn't size your Wavefront cluster for 6M pps when the smoothed-out traffic is really 100k. Instead, the Wavefront service relies on the proxy to smooth out the traffic over the minute. Proxies retry queued points, so even with just one proxy you won't see dropped points.
 
 With direct ingestion you might lose data. In most cases, using a proxy will therefore give you more reliable results.
