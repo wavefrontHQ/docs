@@ -101,7 +101,7 @@ Watch the following video for an introduction to point tags and source tags:
 <p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
 </p>
 
-## Valid and Invalid Metrics Examples
+### Valid and Invalid Metrics Examples
 
 The following metrics are valid:
 
