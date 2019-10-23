@@ -99,7 +99,7 @@ Ex: true </td>
 </tr>
 <tr>
 <td>deltaCounterPorts</td>
-<td>Port on which to listen only for <a href="delta_counters.html">delta counter data</a>. Other data format are rejected at this port. If you specify a delta counter port, it can accept both HTTP and TCP data. For HTTP data, make a POST to this proxy port with an empty header, and the line-terminated data. Default: 50000.</td>
+<td>Port on which to listen only for <a href="delta_counters.html">delta counter data</a>. Other data format are rejected at this port. If you specify a delta counter port, it can accept both HTTP and TCP data. For HTTP data, make a POST to this proxy port with an empty header, and the line-terminated data. Use this property in conjunction with deltaCounterAggregationInterval to limit the number of points per second for delta counters.  Default: 50000.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.<br/>
 Ex: 50000<br/>
 Ex: 50000,50001,50002</td>
@@ -107,7 +107,7 @@ Ex: 50000,50001,50002</td>
 </tr>
 <tr>
 <td>deltaCounterAggregationInterval</td>
-<td>Delay time for delta counter reporter. Default: 30 seconds.</td>
+<td>Delay time for delta counter reporter. Use this property in conjunction with deltaCounterPorts to send points to the port(s) in batches, thereby limiting the number of points per second. Default: 30 seconds. </td>
 <td>Number of seconds.<br/>
 Ex: 45</td>
 <td>3.14</td>
