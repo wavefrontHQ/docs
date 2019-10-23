@@ -73,9 +73,9 @@ For example, a span with two span tags `service=notify` and `service=backend` is
 **Note:** Wavefront will ignore span tags with empty values.
 
 
-### Auto-Derived RED Metrics
+### Derived RED Metrics
 
-For spans sent from the instrumented application services, Wavefront automatically provides the corresponding span RED metrics and trace RED metrics. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
+Wavefront automatically derives RED metrics from the spans that are sent from the instrumented application services. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
 
 Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics Derived From Spans](trace_data_details.html#red-metrics-derived-from-spans).
 
@@ -128,7 +128,7 @@ The order of precedence is span level > proxy level.
 
 You view trace data from an integration using [Wavefront charts and queries](tracing_ui_overview.html).
 
-If you want context for identifying problem traces, you can start by viewing the [auto-derived RED metrics](#auto-derived-red-metrics):
+If you want context for identifying problem traces, you can start by viewing the [derived RED metrics](#derived-red-metrics):
 
 1. Select **Applications > Application Status** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
 2. Click on the application name, and find the service whose RED metrics you want to see.
@@ -143,7 +143,7 @@ If you want to view trace data directly, you can start by submitting [a trace qu
 
 ## Trace Sampling and RED Metrics from an Integration
 
-When you use a 3rd party distributed tracing system, you normally configure it to perform sampling. Doing so means that sampling occurs first, before the Wavefront proxy derives the [RED metrics](#auto-derived-red-metrics). The Wavefront proxy receives only a subset of the generated spans, and the auto-derived RED metrics will reflect just that subset.
+When you use a 3rd party distributed tracing system, you normally configure it to perform sampling. Doing so means that sampling occurs first, before the Wavefront proxy derives the [RED metrics](#derived-red-metrics). The Wavefront proxy receives only a subset of the generated spans, and the RED metrics will reflect just that subset.
 
 For more accurate RED metrics, you can disable the 3rd party sampling, and choose one of the following options instead:
 
@@ -158,7 +158,7 @@ The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, 
 ### Swap In a Wavefront Tracer
 If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer.
 
-Swapping Tracers enables Wavefront to derive the RED metrics from the entire set of generated spans. In contrast, using the Jaeger integration causes the auto-derived RED metrics to reflect just the subset of spans that are admitted by the Jaeger sampling.
+Swapping Tracers enables Wavefront to derive the RED metrics from the entire set of generated spans. In contrast, using the Jaeger integration causes the RED metrics to reflect just the subset of spans that are admitted by the Jaeger sampling.
 
 For setup details, see the [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data) for your programming language.
 

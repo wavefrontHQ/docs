@@ -8,7 +8,10 @@ summary: Syntax and parameters of the Wavefront native data format.
 ---
 The Wavefront data format is supported by Wavefront proxies and by direct ingestion. This page is a reference to the Wavefront data format. See [Wavefront Data Naming](wavefront_data_naming.html) for best practices.
 
-## Supported Data Formats for Metrics
+## Metrics
+
+
+### Supported Data Formats for Metrics
 
 [Direct ingestion](direct_ingestion.html) supports only the Wavefront data format.
 
@@ -18,11 +21,8 @@ The Wavefront data format is supported by Wavefront proxies and by direct ingest
 - [Graphite data format (plaintext and  pickle)](https://graphite.readthedocs.io/en/latest/feeding-carbon.html)
 - [OpenTSDB data format (Telnet interface and HTTP API (JSON))](http://opentsdb.net/docs/build/html/user_guide/writing/)
 
-## Wavefront Data Format Syntax
+### Metrics Data Format Syntax
 
-The syntax differs for metrics, histograms, and spans. This page is primarily about metrics.
-
-### Metrics
 
 Here's the Wavefront data format for metrics.
 
@@ -30,25 +30,8 @@ Here's the Wavefront data format for metrics.
 
 Fields must be space separated and each line must be terminated with the newline character (\\n or ASCII hex 0A). See the **Data Format Fields** table below for details about each parameter.
 
-### Histograms
 
-[Histograms](proxies_histograms.html#sending-histogram-distributions) have port requirements and use the following format:
-
-```
-{!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
- <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>]
-```
-
-### Spans
-
-[The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
-
-```
-<operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
-```
-
-
-## Wavefront Data Format Fields
+### Wavefront Data Format Fields
 
 <table>
 <colgroup>
@@ -111,29 +94,14 @@ Keep the number of distinct time series per metric and host to under 1000. </td>
 </tbody>
 </table>
 
-## Video: Point Tags and Source Tags
+### Video: Point Tags and Source Tags
 
 Watch the following video for an introduction to point tags and source tags:
 
 <p><a href="https://www.youtube.com/watch?v=9tt4orZHQts&index=3&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_tagging_clement.png" style="width: 700px;" alt="tagging"/></a>
 </p>
 
-## Wavefront Data Format Best Practices
-
-Follow best practices for improved query execution speed and meaningful results.
-
-* Make the metrics the most stable part of your data:
-  - Do not include source names in the metric name. Wavefront captures sources separately.
-  - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
-* Aim for a metric hierarchy:
-  - Partition the top level of the metric hierarchy by including at least one dot.
-  - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
-* For best performance, keep the number of distinct time series per metric and host to under 1000.
-
-See [Wavefront Data Naming](wavefront_data_naming.html) for a more best practices.
-
-
-## Valid and Invalid Metrics Examples
+### Valid and Invalid Metrics Examples
 
 The following metrics are valid:
 
@@ -155,3 +123,38 @@ The following metrics are invalid. For each metric, we explain why it's invalid.
 - `cpu0.loadavg.1m 0.03`
 
   -   **Reason:** No **source** field
+
+## Histograms and Spans
+
+Most of our discussion of the histogram and span data formats is on the pages linked below. Here's an overview.
+
+### Histogram Data Format Syntax
+
+[Histograms](proxies_histograms.html#sending-histogram-distributions) have port requirements and use the following format:
+
+```
+{!M | !H | !D} [<timestamp>] #<points> <metricValue> [... #<points> <metricValue>]
+ <metricName> source=<source> [<pointTagKey1>=<value1> ... <pointTagKeyn>=<valuen>]
+```
+
+### Span Data Format Syntax
+
+[The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
+
+```
+<operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
+```
+
+## Wavefront Data Format Best Practices
+
+Follow best practices for improved query execution speed and meaningful results.
+
+* Make the metrics the most stable part of your data:
+  - Do not include source names in the metric name. Wavefront captures sources separately.
+  - Do not include data or timestamps in the metric name. Each point has an associated timestamp.
+* Aim for a metric hierarchy:
+  - Partition the top level of the metric hierarchy by including at least one dot.
+  - Organize metric names in a meaningful hierarchy from most general to most specific (i.e. `system.cpu0.loadavg.1m` instead of `1m.loadavg.cpu0.system`)
+* For best performance, keep the number of distinct time series per metric and host to under 1000.
+
+See [Wavefront Data Naming](wavefront_data_naming.html) for a more best practices.

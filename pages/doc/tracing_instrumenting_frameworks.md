@@ -151,14 +151,14 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 * **Required tags** enable you to drill down into the data for a particular service:
     - `application` - Name that identifies the application, for example, `beachshirts`. All microservices in the same application should use the same `application` name.
-    - `service` - Name that identifies the microservice, for example, `delivery`. Each microservice should have its own `service` name.
+    - `service` - Name that identifies the microservice, for example, `shopping`. Each microservice should have its own `service` name.
 
   ![tracing app services](images/tracing_app_services_page.png)
 
 
 * **Optional tags** enable you to use the physical topology of your application to further filter your data:
-  - `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run, for example, `us-west-2`.
-  - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `secondary`.
+  - `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run, for example, `us-west`.
+  - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `primary`.
 
   ![tracing service filter](images/tracing_service_filter_page.png)
 
