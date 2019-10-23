@@ -393,7 +393,22 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
+### Custom Alerts on RED Metrics
 
+You can use RED metrics in the alert conditions for trace-data alerts. You normally create trace-data alerts by cloning and customizing predefined alerts as follows:
+
+1. Search for **Tracing Metrics Alert** in the Alerts browser to display the predefined trace-data alerts.  
+2. Click on the ellipsis menu next to name of the alert you want to customize, and select **Clone**.
+3. On the **Create Alert** page, modify the alert condition and any other properties to suit your use case.
+
+For example, you might want to alert only on RED metrics from a specific service of a specific application:
+
+```
+limit(500, rate(ts(tracing.derived.beachshirts.delivery.*.error.count)))
+```
+
+<!--- Verify integration name ---> 
+**Note:** If all you need to do is change thresholds or notification targets, you can do so by [editing the Tracing Derived Metrics integration](tracing_basics.html#trace-data-alerts) directly. 
 
 ### Trace Sampling and Derived RED Metrics
 

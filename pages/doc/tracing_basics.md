@@ -169,10 +169,25 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 </tbody>
 </table>
 
+## Trace-Data Alerts
 
-<!---
-## Questions for Reviewers
+<!--- Verify name of integration. It may change to "Tracing Alerts" --->
 
-1. Mention configuring sampling rate on this page? Proxy or SDK or both?
+Whenever an instrumented application sends trace data, Wavefront not only computes RED metrics from that data, but also alerts on any RED metrics that exceed preset performance thresholds. We automatically alert on request rates or error rates that are particularly high, as well as request latencies that are particularly long. You can view any  alert events in the charts on the dashboard for a service. 
 
---->
+Trace-data alerts are enabled by default. For best results, you should perform some minimal customization on each of the alerts. To customize an alert:
+
+1. Open the **Tracing Derived Metrics** integration from the Integrations browser.
+2. Go to the **Alerts** page and click **Edit** next to the alert.
+3. Review the preset thresholds in the **Severity** section. Change any or all of the thresholds to suit your use cases.
+  - Request rate: Number of requests per second
+  - Error rate: Number of errors per second
+  - Duration: Number of milliseconds
+4. Click **Add Target** at to add [notification targets](alerts_notifications.html) such as email addresses.
+
+**Note:** You can clone the alert if you need further [trace-data alert customization](trace_data_details.html#custom-alerts-on-red-metrics). 
+
+If you do not want to see trace-data alert events on your charts, you can either suppress all events from your chart display, or you can disable trace-data alerts from being generated. To disable trace-data alerts: 
+
+1. Open the **Tracing Derived Metrics** integration from the Integrations browser.
+2. Go to the **Alerts** page and click **Uninstall All**.  
