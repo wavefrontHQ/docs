@@ -19,17 +19,19 @@ Sampling can give you a good idea of how your application is behaving, while:
 
 ## Wavefront Intelligent Sampling
 
-Wavefront automatically performs intelligent sampling to reduce the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative, and to discard traces that are redundant or otherwise not worth inspecting. In general, intelligent sampling gives preference to: 
+Wavefront automatically performs intelligent sampling to reduce the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative, and to discard traces that are redundant or otherwise not worth inspecting. 
+
+In general, intelligent sampling gives preference to: 
 
 * Traces that are abnormally long, as compared to other traces for the same endpoint. 
 * Traces that contain at least one individual span that is abnormally long, as compared to other spans for the same operation.
 * Traces that contain at least one span in which an error occurred.
 
-Wavefront uses proprietary algorithms to decide which traces to ingest and which to ignore. When analyzing whether a trace is worth retaining, Wavefront compares the trace's characteristics to a historical context that is composed of similar traces. The historical context is comprehensive because it is based on the [RED metrics](trace_data_details.html#trace-sampling-and-derived-red-metrics) that Wavefront derives from all of the trace data that has been emitted by your application before any sampling has taken place. This enables Wavefront to determine whether an analyzed trace is a true outlier.
+Wavefront uses proprietary algorithms to decide which traces to retain (sample) and which traces to discard (not sample). When analyzing whether a trace is worth retaining, Wavefront compares the trace's characteristics to a historical context that is composed of similar traces. The historical context is comprehensive because it is based on the [RED metrics](trace_data_details.html#trace-sampling-and-derived-red-metrics) that Wavefront derives from all of the trace data that has been emitted by your application before any sampling has taken place. This enables Wavefront to determine whether an analyzed trace is a true outlier.
 
 Intelligent sampling applies to entire traces after Wavefront receives them. If you have set up an [explicit sampling strategy](#explicit-sampling-strategies), then the output of your explicit sampling strategy is the input to intelligent sampling. 
 
-Intelligent sampling is performed by the Wavefront service, not by the proxy or by an instrumented application.  
+Intelligent sampling is performed by the Wavefront service itself, not by the proxy or by an instrumented application. Consequently, intelligent sampling does not place any additional processing burden on your proxies or applications. If you already use one or more proxies to ingest your time-series data, you can start ingesting and sampling trace data without adding more hardware to support more proxies. 
 
 
 
