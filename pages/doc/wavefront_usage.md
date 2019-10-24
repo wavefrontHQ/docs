@@ -6,10 +6,9 @@ permalink: wavefront_usage.html
 summary: Monitor usage with ingestion policies and usage dashboards.
 ---
 
-You can look at the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-user basis using ingestion policies and the usage dashboards.
-
 As a Wavefront administrator, you might be curious who is sending high amounts of data to the Wavefront instance. You can create ingestion policies and assign users to each policy to find potential problem accounts.
 
+You can look at the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-user basis using ingestion policies and the usage dashboards.
 
 ## Ingestion Policy Basics
 
