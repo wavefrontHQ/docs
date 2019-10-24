@@ -17,45 +17,76 @@ To choose your starting point for visualizing traces:
 1. In your web browser, go to your Wavefront cluster and log in.
 2. From the task bar:
 
-    - Select **Applications > Inventory** to [view all application services](#view-application-services) and drill down from there.
+    - Select **Applications > Inventory** to [view the status of your instrumented applications](#view-application-status) and drill down from there.
     - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there.
 
     ![tracing menu](images/tracing_menu.png)
 
-## View Application Services
+## View Application Status
 
-Go to the Application Services page for a top-level overview of your instrumented applications.
+Go to the Applications page for a top-level status overview of your instrumented applications.
+
+![app status](images/tracing_application_status.png)
+
+On the Applications page, you can:
+* View the status of all instrumented applications, or search for a particular application by applying filters. 
+  - Apply one or more filters to select application name, cluster, or shard.
+* Inspect RED metrics to obtain a status summary for an application:
+  - The total number of requests that are represented by the application's spans. 
+  - The percentage of the application's spans that contain errors.
+  - The span duration (in milliseconds) at the 95th percentile across the application.
+* Sort the displayed applications by name or by a RED metric.
+* Click an application name for an overview of its services.
+
+
+## View the Services of an Application
+
+When you select an application, you get an overview of its services.
 
 ![app services](images/tracing_app_services.png)
 
-On the Application Services page, you can:
-* Select an application from the **Jump To** pulldown, or search for a service or application.
-* Examine the inventory of services in your application.
+On the page for a particular application, you can:
+* Examine the all services in the application, or search for a particular service by applying filters.
 * View the inventory of component frameworks that each service is built on.
-* Click inside a service box to go to the dashboard for that service.
+* Inspect RED metrics to obtain a status summary for a service:
+  - The total number of requests that are represented by the service's spans. 
+  - The percentage of the service's spans that contain errors.
+  - The span duration (in milliseconds) at the 95th percentile across the service.
+
+* Drill down from a service box:
+  - Click **Details** to go to the dashboard for that service.
+  - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
+
 
 ## Examine Service Metrics and Drill Down
 
-When you select a service, you can examine the corresponding metrics to identify potential hot spots, and then drill down to the Traces browser.
+When you click on a service's **Details**, you can examine a dashboard of metrics to identify potential hot spots, and then drill down to the Traces browser.
 
 ![examine services](images/tracing_services.png)
 
-**Note:** The charts on this dashboard are read only.
-
-On the page for a particular service, you can:
-* Select the time and timezone in the task bar to customize the chart display. These selections are the same as for other dashboards.
+On the dashboard for a particular service, you can:
+* Select the time and timezone in the task bar to customize the chart time properties. 
 * Use the **Jump To** pulldown to select a dashboard section:
-  - Select Overview to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
-  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., `Jersey`) or the runtime system (e.g., `JVM`).
+  - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
+  - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
+  - Select **System** if your environment uses Telegraf and you want to view CPU usage, memory usage, and disk usage.
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
 * Navigate to the Traces browser:
   - Select **See All ... Traces** to display all traces that include a span from this service component.
   - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
-* If your environment uses Telegraf, view system metrics such as CPU usage, memory usages, and disk usage in the **System** section.
-  ![system metrics](images/system_metrics.png)
 
+<!--- do we really need a screen shot of System metrics?
+  ![system metrics](images/system_metrics.png)
+--->
+
+### Custom Service Metrics Dashboard
+The standard dashboard for service metrics is read-only. To create a customizable copy:
+1. Click **Clone** from the ellipsis menu. 
+2. In the cloned dashboard, add your own charts or customize the RED metrics charts. (Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)
+
+After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
 ## Explore Traces
 
@@ -64,14 +95,14 @@ In the Traces browser, you can explore the context and the details of your appli
 * Navigate from the service's page to display traces for operations you selected.
 * Select **Applications > Traces** from the task bar to display an empty page that you populate by [querying](trace_data_query.html).
 
-![explore trace browser](images/tracing_traces_browser_rev.png)
+![explore trace browser](images/tracing_traces_browser.png)
 
 From the Traces browser, you can:
 * Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
 * Select a trace in the list and:
-  - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the microservices that contribute spans to the trace.
+  - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
-* Examine how a trace compares to other traces in the percentile indicator.
+* Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
 
 You can toggle the panel size for the traces list, service map, or trace details.
 
@@ -79,7 +110,7 @@ You can toggle the panel size for the traces list, service map, or trace details
 
 In the Traces browser, you can [query](trace_data_query.html) for the traces that include spans for a particular operation, and you can view the results in a traces list.
 
-![explore traces list](images/tracing_traces_browser_traces_list_rev.png)
+![explore traces list](images/tracing_traces_browser_traces_list.png)
 
 Here's how to get started:
 1. Start typing in the Operations field and select an operation (or type a name in the search box).
@@ -87,12 +118,11 @@ Here's how to get started:
 3. (Optional) Advanced users can use Query Editor to limit the scope even further.
 
 
-
-You can then use the trace list to:
+You can use the trace list to:
 
 * Sort the returned traces according to different criteria.
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
-* See the relationship of a trace to similar traces in the percentile indicator -- and potentially find outliers.
+* View a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces -- and potentially find outliers.
 
 ## Investigate the Service Map for a Trace
 
@@ -102,8 +132,8 @@ In the Traces browser, use the service map to investigate the services that cont
 
 In the service map panel, you can:
 * View the service dependencies, and follow the flow of request calls from service to service.
-* Select a service to display:
-  - The RED metrics that reflect the health of the service.
+* Click on a service to display the RED metrics that reflect the health of the service:
+  - Request count, error count, and trace duration at the 95th percentile, over all traces (root spans) that originate in the service.
   - Line charts that indicate the general contour of the RED metrics.
 * Navigate to the selected service's dashboard for more service details.
 * Scroll the service map to zoom in or out, and re-center the service map.

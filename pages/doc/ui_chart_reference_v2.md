@@ -784,3 +784,143 @@ Chart description. The description shows up as hover text when you place the mou
 A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts. We support [CommonMark](https://commonmark.org/)
 
 In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables_v2.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
+
+## Single Stat Chart
+
+![single stat](images/single_stat_v2.png)
+
+By default, a **single stat** chart plots a single series on a chart and displays a summarized value for that series in large font on the chart. The font size and placement of the displayed value can be unique for each chart. A common use case is displaying instantaneous values of critical metrics on an overhead display.
+
+### Format Tab
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Summarization</td>
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+
+<ul>
+<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
+<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
+<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
+<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
+<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
+<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
+<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
+<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
+</ul>
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+</tr>
+<tr>
+<td>Display Value</td>
+<td>Allows you to show the value or the query label. Initially, labels are consecutive starting at <strong>A</strong>. </td>
+</tr>
+<tr>
+<td>Display Subtitle</td>
+<td>Optional subtitle below the value (or label).  </td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many values to show after the decimal point. Defaults to 3.  </td>
+</tr>
+<tr>
+<td>Horizontal Position</td>
+<td>Allows you to set the alignment to Left, Middle, or Right </td>
+</tr>
+<tr>
+<td>Font Size</td>
+<td>Relative font size from 75% to 200%. </td>
+</tr>
+<tr>
+<td>Text Color</td>
+<td>Color of the value or label text displayed in the chart. </td>
+</tr>
+<tr>
+<td>Prefix</td>
+<td>Allows you to prefix the value (or label) with a text string. For example, you could show the source or environment.  </td>
+</tr>
+<tr>
+<td>Postfix</td>
+<td>Allows you to append text to the value (or label). For example, you could show the source or environment.  </td>
+</tr>
+<tr>
+<td>Value/Text Mapping</td>
+<td>Allows you show the text <strong>lower</strong>, <strong>middle</strong>, or <strong>upper</strong> instead of the value itself.   </td>
+</tr>
+<tr><td>Gap Threshold</td>
+<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
+</tr>
+</tbody>
+</table>
+
+### Sparkline Tab
+
+The sparkline on a single stat chart summarizes the series display. You can customize the sparkline with these options:
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Show Sparkline</td>
+<td>
+Whether and where to show the sparkline. Options are:
+<ul>
+<li><strong>Bottom</strong> shows the sparkline below the single stat.</li>
+<li><strong>Background</strong> shows the sparkline in the background of the single stat</li>
+<li><strong>None</strong> doesn't show a sparkline on the chart but shows the value or label.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Sparkline Color</td>
+<td>Color of the sparkline. Click the <strong>X</strong> to return the color to the default (blue).
+</td>
+</tr>
+<tr>
+<td>Fill Color</td>
+<td>Fill color for the sparkline background or text.
+</td>
+</tr>
+<tr>
+<td>Color to Value Mapping</td>
+<td>Allows you to specify a set of values and map them to colors. For example, this mapping shows yellow for values under 10, green for values between 10 and 20, etc. Click any color to customize it.
+<br/>
+<img src="images/color_to_value_v2.png" alt="color_to_value">
+</td>
+</tr>
+<tr>
+<td>Axis</td>
+<td>Allows you to select a linear or logarithmic axis for the sparkline. See <a href="ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data"> Use a Logarithmic Y Axis for Skewed Data</a>.
+</td>
+</tr>
+<tr>
+<td>Min/Max</td>
+<td>Minimum and maximum value on the Y-axis of the sparkline.</td>
+</tr>
+</tbody>
+</table>
+
+### Description Tab
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+### Drilldown Link Tab (Beta)
+
+The **Drilldown Link** tab allows you to specify a target dashboard that displays in a new tab when a user clicks on the single stat chart.
+
+You can optionally customize the target dashboard. For example, you can specify a constant to be used as a variable.

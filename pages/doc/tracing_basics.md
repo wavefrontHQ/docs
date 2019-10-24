@@ -40,11 +40,11 @@ Because requests normally consist of other requests, a trace actually consists o
 ### Sample Application
 <!--- Revise with final names and inventory of services and operations. Styling vs. Designer. --->
 
-Let's look at an example. Here's how the different services (black) interact in a simple Java application for ordering beach shirts.
+Let's look at an example. Here's how the different services interact in a simple Java application for ordering beach shirts.
 
 ![tracing beachShirts](images/tracing_beachshirts_app.png)
 
-Each service processes a different part of a customer order. The diagram shows how these services collaborate by sending requests (red) and responses:
+Each service processes a different part of a customer order. The diagram shows how these services collaborate by sending requests and responses:
 * The customer clicks a button on the browser to trigger a request (Order Shirts) to the Shopping service.
 * The Shopping service sends the customer's shirt-selection data in a request to the Styling service.
 * The Styling service performs its operations, which include sending requests to the Printing and Packaging services. Each of these services performs its operations and returns a response to Styling.
@@ -118,33 +118,27 @@ Watch this video to see how visualizing trace data can help you find hot spots i
 
 You can view trace data by [looking for a trace](trace_data_query.html).
 1. Select **Applications > Traces** in the task bar.
-2. In the Traces browser, select the filters that describe the spans to be matched in the Traces Query Builder and click **Search**.
+2. Use the Traces Query Builder to select the filters that describe the spans to be matched. 
+3. Click **Search**.
 
-The browser displays the traces that contain the matched spans.
+The Traces browser displays the traces that contain the matched spans.
 * Use the histograms on the left to find potential problem spots.
 * Explore what's going on in the service map.
 * Drill down to learn more about time spent, errors, and span logs. 
 
 ### Start With Metrics That Provide Context
 
-You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each microservice in an instrumented application. RED metrics measure the request Rate (number of requests being served per minute), Errors (number of failed requests per minute), and Duration (histogram distributions of the amount of time each request takes). These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces and spans.
+You can view trace data by starting with the [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) that Wavefront collects for each instrumented application. RED metrics measure the request Rate (number of requests being served per minute), Errors (number of failed requests per minute), and Duration (histogram distributions of the amount of time each request takes). These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces and spans.
 
-To start examining your application's microservices from the RED metrics:
+To start examining your application's RED metrics:
 1. Select **Applications > Inventory** in the task bar and find your application.
-2. Click on a service that you are interested in.
-3. Scroll the service's page until you find the framework or component you are interested in.
-4. Select an operation from one of the charts to examine traces. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
+2. Click on the application's name.
+3. Find the service you are interested in and click **Details**.
+4. Scroll the service's page until you find the framework or component you are interested in.
+5. Select an operation from one of the charts to examine traces. 
 
 
 
-<!--- In Hotspots topic - mention that specified span could be anywhere in result trace. Might but need not be first. --->
-<!---  In Hotspots topic -  mention and link to traces() function --->
-<!--- You can use the `traces()` function in the Wavefront Query Language to describe the spans you want to match.
-
-```
-limit(100, traces("orderShirts", application=beachshirts and service=shopping))
-```
---->
 
 ## Trace Sampling and Storage
 
