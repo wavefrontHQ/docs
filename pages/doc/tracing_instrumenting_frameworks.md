@@ -45,7 +45,7 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
     ...
     traceListenerPorts=30000
     ```
-4. Consider setting up [trace sampling](trace_data_sampling.html) by [configuring the proxy with a sampling strategy](trace_data_sampling.html#setting-up-sampling-through-the-proxy).
+4. Consider setting up [trace sampling](trace_data_sampling.html) by [configuring the proxy with a sampling strategy](trace_data_sampling.html#setting-up-explicit-sampling-through-the-proxy).
 5. Save the `wavefront.conf` file.
 6. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
 
