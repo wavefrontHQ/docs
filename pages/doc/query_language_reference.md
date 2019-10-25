@@ -1489,7 +1489,10 @@ Each function in the following table returns a set of one or more events, and ca
 <td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;.</td>
 </tr>
 <tr>
-<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>)</a></td>
+<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>
+<br> [, <strong>prettyName</strong>=<strong>&lt;"displayName"&gt;</strong>]
+<br> [, <strong>&lt;eventTagName&gt;</strong>=<strong>&lt;"eventTagValue"&gt;</strong>] ...)
+</a></td>
 <td>Creates a single synthetic event with the specified start and end timestamps. </td>
 </tr>
 <tr>
