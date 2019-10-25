@@ -11,6 +11,10 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
+## Version 5.5
+
+- Proxy version 5.1 had an issue with brand new non-containerized installs due to incorrect default location for buffer files. This release fixes that problem. 
+
 ## Version 5.1
 
 This version includes support for the following new functionality:
