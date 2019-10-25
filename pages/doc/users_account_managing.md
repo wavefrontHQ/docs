@@ -48,6 +48,14 @@ If your environment has been set up to offer the v2 Beta UI option, you can easi
 
    ![select UI version](/images/ui_version_menu.png)
 
+## Speed up Chart Display with the Sampling Preference
+
+Wavefront is very fast, but the rendering engine might need time to display all time series for a query on a chart.
+
+Starting with release 2019.42, you can limit the number of time series to 100 for new charts by changing the **Sampling** default in your preferences.
+
+![sampling preference](images/sampling_preference.png)
+
 
 ## Examine Groups and Permissions
 
