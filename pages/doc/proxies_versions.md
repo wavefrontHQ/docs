@@ -11,6 +11,10 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
+## Version 5.5
+
+Use correct default setting for buffer files location. 
+
 ## Version 5.1
 
 This version includes support for the following new functionality:
