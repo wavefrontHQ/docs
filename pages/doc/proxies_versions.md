@@ -13,7 +13,7 @@ This page gives an overview of important changes for the most recent Wavefront p
 
 ## Version 5.5
 
-Use correct default setting for buffer files location. 
+5.1 had an issue with brand new non-containerized installs due to incorrect default location for buffer files. This release fixes that problem. 
 
 ## Version 5.1
 
