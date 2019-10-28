@@ -20,6 +20,26 @@ An alert defines:
 
 Wavefront supports classic alerts, where each alert has one preset severity, and multi-threshold alerts, where an alert can have different severities for different threshold values.
 
+### How to Create an Alert -- The Basics
+
+You can create an alert from any chart, or from the **Create Alert** page. The basic process is the same.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Specify the alert condition, for example, CPU utilization is less than 70%. </li>
+<li>Optionally use backtesting to see how often the alert fires and adust the threshold. </li>
+<li>Add an alert target, that is, specify who will receive the alert and how (e.g. email or Pagerduty), then save the alert. </li></ol></td>
+<td width="50%"><a href="https://youtu.be/CDqUWDA9NBM
+"><img src="/images/v_alert_creation_overview.png" alt="Video of alert creation overview"/></a></td>
+</tr>
+</tbody>
+</table>
+
+The rest of this page explains how you can fine-tune the process to get just the right number of alerts to just the right people. You'll learn how alerts work, how to customize the condition and the target, and how to create multi-threshold alerts (multi-threshold alerts have different targets based on the severity of the condition).
+
 ### Alert Condition
 
 The alert condition is a ts() expression that defines the threshold for an alert.
@@ -36,7 +56,9 @@ Each alert is associated with one or more alert targets. The alert target specif
 * For classic alerts, you specify a severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
 * For multi-threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
 
-## Alert Basics Videos
+
+
+## How Alerts Work Video
 In this video, Clement explains how classic alerts work:
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
@@ -316,7 +338,7 @@ If you want to make copies of an existing alert, then change the copy slightly, 
 
 ## Viewing Alerts and Alert History
 
-To view alerts click the **Alerts** button to display the Alerts browser. You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE. 
+To view alerts click the **Alerts** button to display the Alerts browser. You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE.
 
 ### View an Alert
 The Alert browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
@@ -341,7 +363,7 @@ For example, for the alert shown above, the chart displays:
 
 ### View Alert History
 
-Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert in the Alerts browser and click **Versions**: 
+Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert in the Alerts browser and click **Versions**:
 
 ![Alert queries](images/alert_history.png)
 
@@ -364,22 +386,22 @@ You can change an alert at any time.
 
 ## Organizing Related Alerts With Alert Tags
 
-You can use alert tags to organize related alerts into categories. Alert tags let you: 
-* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts. 
-* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html). 
-* [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression. 
+You can use alert tags to organize related alerts into categories. Alert tags let you:
+* [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts.
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html).
+* [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
 You can add a new or existing alert tag at any time:
-* Set the **Tags** property when you create or edit the alert. 
-* Click **+** at the bottom of the alert when you view it in the Alerts browser. 
+* Set the **Tags** property when you create or edit the alert.
+* Click **+** at the bottom of the alert when you view it in the Alerts browser.
 
 For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast`. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
 
 ### Multi-Level Alert Tags
 
-You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and: 
-* Within the demo group, some alerts monitor network activity, while others monitor request latency. 
-* Within each subgroup, some alerts monitor production applications, while others monitor development applications. 
+You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and:
+* Within the demo group, some alerts monitor network activity, while others monitor request latency.
+* Within each subgroup, some alerts monitor production applications, while others monitor development applications.
 
 To help you manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
 
@@ -391,7 +413,7 @@ In tasks such as creating a maintenance window, you can use a wildcard to match 
 * `example.*.prod` matches all of the production alerts.
 
 <!---
-**Note** In simple use cases, you can organize related alerts by assigning them names that contain a common string. You can view just the related alerts by typing the common string in the search field. For example, searching for the string `Latency` might let you view alerts named `Latency Alert`, `Latency Dev Alert`, `Realtime latency`, and so on. 
+**Note** In simple use cases, you can organize related alerts by assigning them names that contain a common string. You can view just the related alerts by typing the common string in the search field. For example, searching for the string `Latency` might let you view alerts named `Latency Alert`, `Latency Dev Alert`, `Realtime latency`, and so on.
 --->
 
 
