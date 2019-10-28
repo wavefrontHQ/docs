@@ -298,15 +298,15 @@ The [`align()` function](query_language_reference.html#filtering-and-comparison-
 
 ## Improve Display Speed with the Sampling Option
 
-Wavefront is very fast, but the rendering engine might need time to display all time series for a query on a chart. Starting with release 2019.42, you can limit the number of time series to 100 for new charts.
+Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. Starting with release 2019.42, you can limit the number of time series to 100 for new charts.
 
 To affect all dashboards, turn on the **Sampling** default in your preferences from the gear icon.
 ![sampling preference](images/sampling_preference.png)
 
-If the **Sampling** preference is on, we limit sampling to 100 time series when you create a chart, but we prompt whether you'd like to turn off the limitation for 1 chart or for all charts. For all charts affects the preference.
+If the **Sampling** preference is on, we limit sampling to 100 time series when you create a chart, but we prompt whether you'd like to turn off the limitation for the current chart or for all charts. For all charts affects the preference.
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a chart, edit the chart and use the **Sampling** toggle in the top right. As with other items in this task bar, you cannot save this change.
+To temporarily change the sampling behavior for a selected chart use the **Sampling** toggle in the top right. As with other items in this task bar, you cannot save this change.
   ![sampling toggle during chart edit](images/sampling_toggle.png)
 
 
