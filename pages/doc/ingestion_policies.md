@@ -2,11 +2,9 @@
 title: Examine Ingestion Breakdown
 tags: [administration, dashboards]
 sidebar: doc_sidebar
-published: false
-permalink: wavefront_usage.html
+permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies and usage dashboards.
 ---
-<!---Renamed this file to ingestion_policies.md/html--->
 
 As a Wavefront administrator, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign users to each policy to see which teams use which part of total ingestion. You can even drill down to individual users from the Ingestion Breakdown dashboard.
 

@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2019-38.x Release Notes
+      url: /2019.38.x_release_notes.html
+      output: web
+
     - title: 2019-34.x Release Notes
       url: /2019.34.x_release_notes.html
       output: web
@@ -80,34 +84,6 @@ entries:
 
     - title: 2019-18.x Release Notes
       url: /2019.18.x_release_notes.html
-      output: web
-
-    - title: 2019-14.x Release Notes
-      url: /2019.14.x_release_notes.html
-      output: web
-
-    - title: 2019-10.x Release Notes
-      url: /2019.10.x_release_notes.html
-      output: web
-
-    - title: 2019-06.x Release Notes
-      url: /2019.06.x_release_notes.html
-      output: web
-
-    - title: 2018-50.x Release Notes
-      url: /2018.50.x_release_notes.html
-      output: web
-
-    - title: 2018-46.x Release Notes
-      url: /2018.46.x_release_notes.html
-      output: web
-
-    - title: 2018-42.x Release Notes
-      url: /2018.42.x_release_notes.html
-      output: web
-
-    - title: 2018-38.x Release Notes
-      url: /2018.38.x_release_notes.html
       output: web
 
     - title: Wavefront Proxy Release Notes
