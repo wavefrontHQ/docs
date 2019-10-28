@@ -36,7 +36,7 @@ Creates a single synthetic event with the specified start and end times, an opti
 
 <tr>
 <td markdown="span"> endTime</td>
-<td>Time when the new event starts. 
+<td>Time when the new event ends. 
 <ul>
 <li>For a fixed end time, specify a number of epoch seconds.</li> 
 <li>For an end time that is relative to the current time, use a time phrase such as <strong>"5 minutes ago"</strong> or <strong>".5 hour ago"</strong>.</li>
