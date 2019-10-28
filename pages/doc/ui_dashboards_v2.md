@@ -34,7 +34,8 @@ You have several options for creating a dashboard:
 
 ### Create a Dashboard from Metrics or Charts
 
-With release 2019.38,
+It's easy to create a dashboard from metrics or by selecting a chart.
+
 <table style="width: 100%;">
 <tbody>
 <tr>
@@ -59,10 +60,10 @@ With release 2019.38, you can create a dashboard by specifying an integration da
 <td width="40%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
-<li>Drag the <Templates> widget onto the canvas. </li>
+<li>Drag the <strong>Templates</strong> widget onto the canvas. </li>
 <li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
-<td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
+<td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create dashboard from template"></td>
 </tr>
 </tbody>
 </table>
