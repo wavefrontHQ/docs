@@ -26,5 +26,5 @@ The following list gives an overview of permissions. To learn more click the lin
 - **[Metrics](metric_types.html)** - Users with Metrics permission can manually hide and unhide metrics and metric prefixes. Hidden metrics are no longer displayed in the Metrics browser and in the query autocomplete dropdown.
 - **[Proxies](proxies_installing.html#managing-proxy-services)** - Users with Proxies permission can view, create, and manage proxies and set up external integrations with AWS and other cloud services.
 - **[Derived Metrics](derived_metrics.html)** - Users with Derived Metrics permission can create and manage registered queries. Derived metrics support reingesting a query.
-- **[Source Tags](sources_managing.html)** - Users with Source Tag permission can manage sources and source tags.
+- **[Source Tags](sources_managing.html)** - Users with Source Tags permission can manage sources and source tags. If you don't have Source Tags permission, source tags will be rejected with a 403 error. 
 - **[Users & Groups](users_groups.html)** - Users with Users & Groups permission can add and remove users and groups and manage the corresponding permissions.

@@ -146,6 +146,8 @@ Any Wavefront metric includes a source name. If source names change frequently o
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
+**Note:** You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Wavefront rejects source tags with a 403 error. 
+
 ### Why Source Tags?
 
 Source tags let you to group sources. You can specify a source tag in a query to refer to an entire group of sources in a simple expression. For example, if you have two sources, `appServer15` and `appServer16` you can add the source tag `app` to both sources to specify that both are app servers.  You can then query `ts(cpu.load.metric, tag=app)` instead of `ts(cpu.load.metric, source=appServer15 or source=appServer16)`
