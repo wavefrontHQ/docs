@@ -26,7 +26,7 @@ If you don't use the Wavefront UI to install the proxy, the installation procedu
 ## Proxy Host Requirements
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
-- Networking - For **metrics**, the proxy uses port 2878 by default. If you want to change this default, or if you want to set up ports for histograms or trace data, see [Configuring Listener Ports for Metrics, Histograms, and Traces](proxies_installing.html#configure-listener-ports-for-metrics-histograms-and-traces).
+- Networking - For **metrics**, the proxy uses port 2878 by default. If you want to change this default, or if you want to set up ports for histograms or trace data, see [Set the Listener Port for Metrics, Histograms, and Traces](proxies_installing.html#set-the-listener-port-for-metrics-histograms-and-traces).
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system
   - Linux: We've tested the proxy with the following versions.
