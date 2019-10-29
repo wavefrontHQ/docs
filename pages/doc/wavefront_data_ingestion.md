@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_data_ingestion.html
 summary: Learn how to get data into Wavefront.
 ---
-Wavefront customers use Wavefront to visualize their metric and instrument them with alerts. How you get your data into Wavefront depends on the use case, but you have many options. Wavefront supports many integrations, or you can instrument your application and send data directly to Wavefront.
+How you get your data into Wavefront depends on your use case, but you have many options. Wavefront supports many integrations, or you can instrument your application and send data directly to Wavefront.
 
 Watch this video to listen to Wavefront co-founder Clement Pang talk about getting data into Wavefront:
 
