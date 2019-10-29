@@ -1493,7 +1493,7 @@ Each function in the following table returns a set of one or more events, and ca
 <br> [, <strong>prettyName</strong>=<strong>&lt;"displayName"&gt;</strong>]
 <br> [, <strong>&lt;eventTagName&gt;</strong>=<strong>&lt;"eventTagValue"&gt;</strong>] ...)
 </a></td>
-<td>Creates a single synthetic event with the specified start and end timestamps. </td>
+<td>Creates a single synthetic event with the specified start and end timestamps, and, optionally, with the specified display name and tags. </td>
 </tr>
 <tr>
 <td><a href="event_first.html">first(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
