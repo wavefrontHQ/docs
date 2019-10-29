@@ -37,7 +37,7 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need Version 4.36 or later.
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
-3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#configure-listener-ports-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
+3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#set-the-listener-port-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
     ```
     pushListenerPorts=2878
     ...
