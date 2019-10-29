@@ -10,7 +10,7 @@ summary: Reference to the cdf() function
 ## Summary
 
 ```
-cdf(<cdf_value>, <hsExpression>)
+cdf(<raw_value>, <hsExpression>)
 ```
 
 Cumulative distribution function for histograms. Lets you find out how likely is that a histogram is less than or equal to a specified value.
@@ -24,8 +24,8 @@ Cumulative distribution function for histograms. Lets you find out how likely is
 </thead>
 <tbody>
 <tr>
-<td>cdf_value</td>
-<td>A number that specifies the number of interest. For example, if you want to know how close your value is to 4000, specify 4000. The function returns the cdf for that. </td></tr>
+<td>raw_value</td>
+<td>The number of interest. For example, if you want to know how close your value is to 4000, specify 4000. The function returns the probability that a value in the histogram is that value. </td></tr>
 <tr>
 <td markdown="span"> [hsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the histogram series. </td></tr>
