@@ -130,10 +130,10 @@ You view trace data from an integration using [Wavefront charts and queries](tra
 
 If you want context for identifying problem traces, you can start by viewing the [derived RED metrics](#derived-red-metrics):
 
-1. Select **Applications > Inventory** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
+1. Select **Applications > Application Status** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
 2. Click on the application name, and find the service whose RED metrics you want to see.
 2. Click on the **Details** link for the service.
-3. Select an operation from one of the charts to examine the traces for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
+3. Select an operation from one of the charts to examine the traces for that operation. 
 
 If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html):
 1. Select **Applications > Traces** in the task bar.
