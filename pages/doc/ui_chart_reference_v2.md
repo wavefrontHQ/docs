@@ -921,6 +921,6 @@ Chart description. The description shows up as hover text when you place the mou
 
 ### Drilldown Link Tab (Beta)
 
-The **Drilldown Link** tab allows you to specify a target dashboard that displays in a new tab when a user clicks on the single stat chart.
+The **Drilldown Link** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart.
 
-You can optionally customize the target dashboard. For example, you can specify a constant to be used as a variable.
+You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
