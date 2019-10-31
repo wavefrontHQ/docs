@@ -61,4 +61,6 @@ Here's a simple example we've used in our demos:
 
 ## Export Usage Data
 
-You can export usage data from the Ellipsis menu in the top right. 
+You can export usage data in CSV format from the Ellipsis menu in the top right. The resulting file has all the information available in the current dashboard. Use the time picker to change the information you export.
+
+![export ingestion data](images/export_ingestion_data.png)
