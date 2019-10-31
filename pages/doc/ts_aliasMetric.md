@@ -15,8 +15,8 @@ aliasMetric(<tsExpression>, "<newMetricName>")
 aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}],
          <zeroBasedNodeIndex> [, "<delimiterDefinition>"])
 
-aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}], "<regexSearchPattern>",
-         "<replacementPattern>" | "<replacementString>")
+aliasMetric(<tsExpression>, [metric|source|{tagk, <pointTagKey>}], 
+        "<regexSearchPattern>", "<replacementPattern>")
 ```
 
 Replaces the metric name for each time series with an alias, which can be a specified string or derived from existing metadata. 

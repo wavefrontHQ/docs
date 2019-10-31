@@ -1109,18 +1109,22 @@ Metadata functions let you temporarily rename a metric, rename a source, or crea
 <tbody>
 <tr>
 <td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;tsExpression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;
-<strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
+<br><strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | 
+<br><strong>"regexSearchPattern", "replacementPattern"</strong> | 
+<br><strong>"replacementString"</strong>)</a></td>
 <td markdown="span">Replaces the metric name for each time series described by <strong> tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value. </td>
 </tr>
 <tr>
 <td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;tsExpression&gt;</strong>,
 &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;
-<strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a></td>
+<br><strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | 
+<br><strong>"regexSearchPattern", "replacementPattern"</strong> | 
+<br><strong>"replacementString"</strong>)</a></td>
 <td markdown="span">Replaces the source name of each time series described by the <strong>tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
 </td>
 </tr>
 <tr>
-<td><a href="ts_taggify.html"> taggify(<strong>&lt;tsExpression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern" | "replacementString")</strong></a>
+<td><a href="ts_taggify.html"> taggify(<strong>&lt;tsExpression&gt;</strong>, <strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>, <strong>&lt;newPointTagKey&gt;</strong>, <strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | <strong>"regexSearchPattern", "replacementPattern"</strong> | <strong>"replacementString"</strong>)</a>
 </td>
 <td markdown="span">Creates a synthetic point tag with the specified key for each time series described by <strong>tsExpression</strong>. The value of the new tag can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
 </td>
