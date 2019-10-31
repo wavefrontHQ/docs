@@ -58,3 +58,7 @@ All users can go to the
 Here's a simple example we've used in our demos:
 
 ![ingestion breakdown](images/ingestion_usage_breakdown.png)
+
+## Export Usage Data
+
+You can export usage data from the Ellipsis menu in the top right. 
