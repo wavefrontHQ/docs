@@ -47,7 +47,7 @@ Creates a single synthetic event with the specified start and end times, an opti
 
 <tr>
 <td>prettyName="&lt;displayName&gt;"</td>
-<td>Name to display for the new synthetic event when you hover over its icon on the X-axis of a chart. The keyword <strong>prettyName</strong> is case-sensitive. 
+<td>Name to display for the new synthetic event when you hover over its icon on the X-axis of a chart. The keyword <strong>prettyName</strong> is case-sensitive. If <strong>displayName</strong> includes spaces, you must enclose it in double quotes.
 <br>Example:
 <strong>prettyName="Computer turned on"</strong> 
 </td>
@@ -86,3 +86,9 @@ The following chart shows a single 5-minute synthetic event that was created by 
 The following chart shows a single synthetic 10-minute event that was created by specifying 2 relative times. In a chart that displays live data, the start time of the event will always be 12 minutes before the end of the chart, and the end time will always be 2 minutes before the end of the chart.
 
 ![Event timespan relative](images/event_timespan_relative.png)
+
+### Display Name and Tags
+
+The following chart shows a synthetic 10 minute event that has the display name `outage timeframe`. The display name appears in the [event overlay](charts_events_displaying.html) and in the chart. The function also specifies an event tag called `tag1`, which is part of the event's metadata, but not part of its display.
+
+![Event timespan prettyName](images/event_timespan_prettyName.png)
