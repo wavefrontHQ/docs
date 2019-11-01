@@ -64,7 +64,7 @@ In this example, we're looking at some metrics and filter to show only 3 time se
 ![metric for histo example](images/ts_histo_metric.png)
 
 Then we run `histo()` and can see the following in the example below:
-* The example shows 2 points for each query. That's because we're specifying a 1 hour time window in the query, and looking at a 2 hour time window.
+* The example shows 3 points for each query. That's because we're specifying a 2 hour time window in the query, and looking at a 6 hour time window.
 * In the second query (histogram_from_metrics) we get the median of the histogram distribution that's created from the metrics.
 * In the third query, we get the 90th percentile of the histogram.
 
