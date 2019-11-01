@@ -6,9 +6,16 @@ sidebar: doc_sidebar
 permalink: query_language_getting_started.html
 summary: Watch some videos, run a query, apply filters and functions, and more.
 ---
-The Wavefront Query Language lets you retrieve and display the observability data that has been ingested into Wavefront. The query language is particularly well suited to time series data, because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
+The Wavefront Query Language lets you retrieve and display the data that has been ingested into Wavefront.
+* **Time series data** The query language is particularly well suited to time series data, because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
+* **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
+* **Traces and spans** Use the [tracing UI](tracing_ui_overview.html) to query traces and spans. 
 
-Watch these videos to get you started:
+Our v2 UI supports [Chart Builder](chart_builder.html) to build queries interactively. But regardless of UI version, you can use Query Editor to examine, filter, group, and manipulate your data, as shown on this page.
+
+**Note**: If your cluster has been upgraded to v2, you can [select your UI version](users_account_managing.html#switch-between-ui-versions) from the gear icon.
+
+Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same.
 
 <table style="width: 100%;">
 <tbody>
@@ -23,28 +30,53 @@ A simple query retrieves an individual metric:
 
 `ts(<metricName>)`
 
-For example, you can show when the CPU is idle by entering `ts(cpu.idle)` into a query field to produce the chart below:
+For example, you can the total number of requests by entering `ts(~sample.requests.total.num)` into a query field to produce the chart below. (The ~sample metrics are available on all clusters for experimentation).
 
-![base query](images/base_query.png)
+![base query](images/v2_quickstart_simple.png)
 
 
-## Filtering by Source
+## Filter by Source
 
-The example chart displays many lines, particularly below 8M. To simplify the chart, you can filter by source using the optional `source=<sourceName>` parameter: `ts(<metricName>, source=<sourceName>)`. For example, use a `source="m*"` filter to show all sources that start with "m". The number of lines is reduced and the Y-axis scale changes from 30M to 5M:
+The example chart is quite busy, but we can filter by source. The [Wavefront Data Format](wavefront_data_format.html) includes the source for each metric out of the box, and you can filter by source using the `source=<sourceName>` parameter: `ts(<metricName>, source=<sourceName>)`.
 
-![filtered query](images/filtered.png)
+In the example, we use `source="app-1*"` to show all sources that start with app-1. The number of lines is reduced.
 
-## Applying Aggregation Functions
+![filtered query](images/v2_quickstart_filtered.png)
 
-For further exploration try one of the aggregation functions. For example, use `avg()` to show the average value of the `cpu.idle` metric across all sources.  Or use `sum()` to get a total for all sources starting with "m". Here's the chart adding `sum()`:
+## Apply an Aggregation Function
 
-![summed query](images/summed.png)
+Next, let's try one of the aggregation functions. For example, use `avg()` to show the average value of the `~sample.requests.total.num` metric across all sources. Or use `sum()` to get a total for all sources starting with "app-1". Here's the chart:
 
-## Applying Mathematical Functions
+![summed query](images/v2_quickstart_sum.png)
 
-Notice how the result of `sum(ts(cpu.idle))` is slowly increasing over time, but does not show how fast the sum is increasing. The query language has a `deriv()` function that shows the rate of change per second: `deriv(sum(ts(cpu.idle))`.
+## Further Chart Customization
 
-![summed rate query](images/deriv_sum.png)
+The [query language](query_language_reference.html) supports many other ways of getting just the results you want from your data. Here are some examples;
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+Apply the deriv() function to show the rate of change per second:
+<p><code>deriv(sum(ts(~sample.requests.total.num))</code></p> </td>
+<td width="60%"><img src="/images/v2_quickstart_deriv.png" alt="create dashboard"></td>
+</tr>
+<tr>
+<td width="40%">
+Because sum() is an aggregation function, you can group the results. To group by point tags, add the literal <strong>, pointTags</strong> (you need the comma!). The legend shows that we're getting results for both point tags (az and env).
+
+<p><code>sum(ts(~sample.requests.total.num), pointTags)</code></p> </td>
+<td width="60%"><img src="/images/v2_quickstart_pointTags.png" alt="group by point tags"></td>
+</tr>
+<tr>
+<td width="40%">
+You can also group by tag, in this example, <strong>, az</strong>. The legend now shows only the selected tag.
+<p><code>sum(ts(~sample.requests.total.num), az)</code></p> </td>
+<td width="60%"><img src="/images/v2_quickstart_tag.png" alt="group by tag"></td>
+</tr>
+</tbody>
+</table>
+
 
 ## Next Steps
 
@@ -55,19 +87,18 @@ What's next depends on the type of data you're interested in, and how you want t
 Most Wavefront users query for metrics, but we support interacting with other data.
 
 Charts for metrics also support the following types of queries:
-* Query Wavefront events with [`events()` queries](query_language_reference.html#event-functions).
-* Query histograms with [`hs() queries`](proxies_histograms.html#querying-histogram-metrics)
-
-A separate set of interfaces is available for developers who are interested in traces and spans.
+* **Events**: Query Wavefront events with [`events()` queries](query_language_reference.html#event-functions).
+* **Histograms**: Query histograms with [`hs() queries`](proxies_histograms.html#querying-histogram-metrics)
+* **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html)
 
 ### Docs, Videos, and Wizards
 
 Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
 
 - **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
-- **[Query builder](query_language_query_builder.html)** can help you come up to speed quickly while using the product.
-- Log in to Wavefront and learn with our Tutorial and  Tour. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
-- [Wavefront Query Language Quick Reference](query_language_reference.html). gives an overview of the different types of functions that can be used in a query. Each function names is a link to a reference page for the function.
+- **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
+- If you're logged in to Wavefront, select **Integrations** in the task bar and find the **Tutorial** or the **Tour Pro** integration. The Tutorial includes an Interactive Query Language Explorer that shows examples for each function.
+- [Wavefront Query Language Reference](query_language_reference.html) lists each function and gives query language syntax element. Each function names is a link to a reference page for the function.
 - For in-depth discussions and examples, we have a **[reference page](label_query%20language.html)** for each function and some [Query Language Recipes](query_language_recipes.html).
 
 ## FAQ
