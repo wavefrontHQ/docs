@@ -95,7 +95,7 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 ```
 2. Generate the client, for example:
 
-`swagger-codegen generate -i https://metrics.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
+`swagger-codegen generate -i https://mydomain.wavefront.com/api/v2/swagger.json -c swagger-config.json -l java`
 
 ## Wavefront REST API Categories
 
