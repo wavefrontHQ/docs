@@ -63,7 +63,7 @@ Wavefront supports several options to control how units display in chart axes an
 
 ### Unit Prefixes
 Charts support two unit prefixes: **SI** and **IEC/Binary**.
-* SI unit prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default.
+* SI unit prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source. 
 * IEC/Binary prefixes (Ki, Mi, Gi, Ti, Pi, Ei, Zi, Yi) increment by a factor of 1024.
 
 To display data in axes and legends with IEC/Binary unit prefixes, select the **IEC/Binary Unit Prefixes** checkbox. A data point with value 1024 x 1024 = 1,048,576 displays as "1.000Mi", instead of "1.049M".
