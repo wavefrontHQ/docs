@@ -44,7 +44,7 @@ The `histo()` function returns a histogram for a time series. By default, charts
 
 ### Grouping
 
-Similar to aggregation functions for metrics, `histo()` returns a single distribution per specified time window.  To get separate distributions for groups that share common characteristics,you can include a 'group by' parameter. For example, use `histo(1m, &lt;expression&gt;, sources)` to group by sources.
+Similar to aggregation functions for metrics, `histo()` returns a single distribution per specified time window.  To get separate distributions for groups that share common characteristics,you can include a 'group by' parameter. For example, use `histo(1m, <expression>, sources)` to group by sources.
 
 The function returns a separate series of results for each group.
 
