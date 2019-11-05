@@ -80,6 +80,11 @@ The `kube-state-metrics` service should now be running on your cluster.
 
 To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
 
+### Application and Service Auto Discovery
+The Wavefront collector can [auto discover](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#rule-based-discovery) applications and services within a Kubernetes environment and automatically start collecting metrics.
+
+The default configuration file includes [discovery configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/d6a73808a32d72d9268e8c18204287f9515ad413/deploy/kubernetes/4-collector-config.yaml#L96) for a number of common applications such as Consul, Redis, Memcached, etc. Uncomment the configurations for the applications you wish to monitor, and customize the rules as relevant to your environment.
+
 ### Troubleshooting
 If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
 
