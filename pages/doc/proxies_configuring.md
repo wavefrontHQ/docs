@@ -4,7 +4,7 @@ keywords:
 tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_configuring.html
-summary: Learn how to configure a Wavefront proxy.
+summary: Proxy cofiguration properties and advanced install info
 ---
 
 You can configure proxies using a configuration file, and you can performing advanced installation management such as installing proxies in a container.
@@ -483,7 +483,11 @@ By default, there are 4 threads (and 4 buffer files) waiting to retry points onc
 
 ## Logging
 
-The Wavefront proxy supports two log files: proxy log and blocked point log. To keep the log file sizes reasonable and avoid filling up the disk with logs, both log files are automatically rotated and purged periodically. You configure the log file locations and rotation rules in `<wavefront_config_path>/log4j2.xml`. For details on log4j2 configuration, see [Log4j Configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+The Wavefront proxy supports two log files: proxy log and blocked point log.
+
+To keep the log file sizes reasonable and avoid filling up the disk with logs, both log files are automatically rotated and purged periodically. You configure the log file locations and rotation rules in `<wavefront_config_path>/log4j2.xml`. For details on log4j2 configuration, see [Log4j Configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+
+If you're using proxies in containers, you can mount the file, as discussed below.
 
 ### Proxy Log
 
@@ -527,6 +531,14 @@ For example, add `-e WAVEFRONT_PROXY_ARGS="--pushRateLimit 1000"` to your docker
 
 See the [Wavefront Proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) for a full list.
 
+### Logging Customization for Containers
+
+You can customize logging by mounting a customized `log4j2.xml` file. Here's an example for Docker:
+
+```
+--mount type=bind, src=<absolute_path>/log4j2.xml, dst=/etc/wavefront/wavefront-proxy/log4j2.xml
+```
+See **Logging** above for additional background.
 
 <a name="ansible"></a>
 

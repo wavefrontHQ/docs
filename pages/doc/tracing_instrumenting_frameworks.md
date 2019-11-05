@@ -107,8 +107,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 3. Follow the setup steps in the `README` file. You instantiate several helper objects, and augment individual business methods with OpenTracing operations.
 
 4. After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
-
-
+  - **Note:** The Wavefront OpenTracing SDK for Java automatically reports JVM metrics in addition to the custom trace data and derived metrics. You can display the JVM metrics in a chart with the query `ts(app-agent.jvm.*)`.
 
 ## A Closer Look at an Instrumented Microservice
 

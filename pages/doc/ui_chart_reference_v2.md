@@ -103,7 +103,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
-<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
@@ -254,7 +254,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
-<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
@@ -425,7 +425,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
-<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
@@ -584,7 +584,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
-<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
@@ -744,7 +744,7 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
-<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
 <p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>

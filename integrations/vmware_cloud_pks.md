@@ -69,15 +69,21 @@ The `kube-state-metrics` service should now be running on your cluster.
   * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/1-collector-cluster-role.yaml)
   * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/2-collector-rbac.yaml)
   * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/3-collector-service-account.yaml)
-  * [4-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/4-collector-daemonset.yaml)
+  * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/4-collector-config.yaml)
+  * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/5-collector-daemonset.yaml)
 
-2. Edit `4-collector-daemonset.yaml` as follows:
-    1. Replace `clusterName=k8s-cluster` to uniquely identify your Kubernetes cluster.
-    2. If RBAC is disabled in your Kubernetes cluster, comment out `serviceAccountName: wavefront-collector`.
+2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` to uniquely identify your Kubernetes cluster.
 
-3. Run `kubectl create -f </path/to/wavefront-collector-dir>/` to deploy the collector on your cluster.
+3. If RBAC is disabled in your Kubernetes cluster, edit `5-collector-daemonset.yaml` and comment out `serviceAccountName: wavefront-collector`.
+
+4. Run `kubectl create -f </path/to/wavefront-collector-dir>/` to deploy the collector on your cluster.
 
 To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
+
+### Application and Service Auto Discovery
+The Wavefront collector can [auto discover](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#rule-based-discovery) applications and services within a Kubernetes environment and automatically start collecting metrics.
+
+The default configuration file includes [discovery configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/d6a73808a32d72d9268e8c18204287f9515ad413/deploy/kubernetes/4-collector-config.yaml#L96) for a number of common applications such as Consul, Redis, Memcached, etc. Uncomment the configurations for the applications you wish to monitor, and customize the rules as relevant to your environment.
 
 ### Troubleshooting
 If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
