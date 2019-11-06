@@ -31,7 +31,7 @@ You can use Wavefront alerts to trigger a VictorOps incident of varying types (i
 1. Select **Alert Target POST Body Template > TEMPLATE > VictorOps**.
 1. Customize the [template](https://docs.wavefront.com/alert_target_customizing.html).
 1. Give a meaningful description to your new alert target:
-{% include image.md width="90" src="images/victorops_webhook.png" %}
+{% include image.md width="90" src="images/victorops_alert_target.png" %}
 1. Click **Save**. 
 
 ### Step 3. Add the VictorOps Alert Target to a Wavefront Alert

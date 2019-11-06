@@ -7,25 +7,23 @@ permalink: tracing_instrumenting_frameworks.html
 summary: Set up your application to send metrics, histograms, and trace data to Wavefront.
 ---
 
-You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack can be sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
+You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack are sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
 
-You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page helps you choose the SDK(s), directs you to the setup steps for each SDK, and provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
+You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page:
+* Helps you choose the SDK(s)
+* Directs you to the setup steps for each SDK
+* Provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
 
-**Note:** If you have already instrumented your application for tracing using a 3rd party solution such as Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront.
+**Note:** If you have already instrumented your application for tracing using Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront.
 
-<!---
-## Sample Setup
-
-Watch this video to see how to set up a sample application to send out-of-the-box metrics and traces. (You can read about the steps [below](#XX).)
-
-_[[video that describes how to set up BeachShirts app]]_
---->
 
 ## Step 1. Prepare to Send Data to Wavefront
 
 Choose one of the following ways to send metrics, histograms, and trace data from your application to the Wavefront service:
-* To get up and running quickly, use direct ingestion to send data directly to the Wavefront service.
-* For large-scale deployments, you'll need a Wavefront proxy to forward data from your application to the Wavefront service. Using a proxy provides resilience to internet outages, control over data queuing and filtering, and more.
+* **Direct Ingestion**. To get up and running quickly, use direct ingestion to send data directly to the Wavefront service.
+* **Wavefront proxy**. For any production environment, we recommend a Wavefront proxy to forward data from your application to the Wavefront service. [Using a proxy](direct_ingestion.html#proxy-or-direct-ingestion) provides resilience to internet outages, control over data queuing and filtering, and more.
+
+Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs. direct ingestion.
 
 ### To prepare for direct ingestion
 
@@ -35,7 +33,7 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
 
 ### To prepare a Wavefront proxy
 
-1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need Version 4.36 or later.
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need proxy version 4.36 or later. If you want to use span logs, you need proxy version 5.0 or later.
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
 3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#set-the-listener-port-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
     ```
@@ -64,7 +62,7 @@ Your cloud-native application might consist of many microservices.
 
 ### Instrument a Framework
 
-Follow these steps to use a Wavefront SDK that instruments an application framework for handling RESTful web services or RPC connections. Each such SDK collects predefined traces, metrics and histograms automatically, so you can get up and running with minimal effort.
+Follow these steps to use a Wavefront SDK that instruments an application framework for handling RESTful web services or RPC connections. Each such SDK collects predefined traces, metrics and histograms automatically, so you can get up and running quickly.
 
 1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above).
 2. If your microservice uses one of the frameworks in this table, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub:
@@ -107,7 +105,8 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 3. Follow the setup steps in the `README` file. You instantiate several helper objects, and augment individual business methods with OpenTracing operations.
 
 4. After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
-  - **Note:** The Wavefront OpenTracing SDK for Java automatically reports JVM metrics in addition to the custom trace data and derived metrics. You can display the JVM metrics in a chart with the query `ts(app-agent.jvm.*)`.
+
+  **Note:** The Wavefront OpenTracing SDK for Java automatically reports JVM metrics in addition to the custom trace data and derived metrics. You can display the JVM metrics in a chart with the query `ts(app-agent.jvm.*)`.
 
 ## A Closer Look at an Instrumented Microservice
 
@@ -128,7 +127,7 @@ The actual helper objects in a microservice depends on the SDKs you set up. A ty
 * [WavefrontTracer and WavefrontSpanReporter](#wavefronttracer-and-wavefrontspanreporter) objects that create and propagate trace data.
 * One or more framework-specific objects that collect metrics and histograms. (In the diagram, these are the Java `WavefrontJerseyFilter` and `WavefrontJaxrsClientFilter` objects).
 * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
-* A [WavefrontSender](#wavefront-sender) that specifies whether to send data through a Wavefront proxy or directly to the Wavefront service.
+* A [WavefrontSender](#wavefront-sender) that sends data through a Wavefront proxy or directly to the Wavefront service.
 
 **Note:** When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared.
 
@@ -166,7 +165,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
 
-**Note**: Span logs are disabled by default and require Wavefront proxy version 5.0. Contact Wavefront customer success to enable the feature. 
+**Note**: Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact Wavefront customer success to enable the feature.
 
 You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
 
@@ -186,12 +185,12 @@ Span logs are especially useful for recording additional information about error
 
 ### Wavefront Sender
 
-When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above. Choose between:
+When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1, Prepare to Send Metrics to Wavefront,](#step-1-prepare-to-send-data-to-wavefront) above. Choose between:
 
 * Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
 * Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service.
 
-Your choice is represented in your code as an object called a "Wavefront sender".
+Your choice is represented in your code as Wavefront Sender object.
 (Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above.
 
 **Note:** You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent.
