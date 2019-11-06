@@ -183,7 +183,7 @@ Span logs are especially useful for recording additional information about error
 ## Helper Objects That Collect and Transfer Data
 
 
-### Wavefront Sender Object
+### Wavefront Sender
 
 When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1, Prepare to Send Metrics to Wavefront,](#step-1-prepare-to-send-data-to-wavefront) above. Choose between:
 
@@ -199,7 +199,7 @@ Your choice is represented in your code as Wavefront Sender object.
 
 
 
-### WavefrontTracer and WavefrontSpanReporter Objects
+### WavefrontTracer and WavefrontSpanReporter
 
 Wavefront uses a pair of objects to create and report trace data:
 
