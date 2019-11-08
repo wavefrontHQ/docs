@@ -28,8 +28,6 @@ When an alert starts firing or is updated, the resulting alert notification can 
 
 ![alert_chart_only](images/alert_chart_only.png)
 
-Chart images show the results of an alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the chart image provides a snapshot of the time series being tested by the alert.
-
 A chart image is a static snapshot that captures the state of the data at the time the alert was triggered. Such a snapshot can be helpful for diagnosing a possible [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), because the chart image can show you the exact state of the data that caused the alert to fire. (In contrast, an [interactive chart](#interactive-charts-linked-by-alert-notifications) viewed through the notification shows the data at the time you bring up the chart, which might include data that was backfilled after a delay.)
 
 For performance reasons, a chart image is included only if the alert's conditional query takes a minute or less to return. The chart image can take a few seconds to create, so you might briefly see a placeholder image in the notification.
@@ -48,18 +46,16 @@ You can optionally include chart images in notifications for [custom alert targe
 
 ## Interactive Charts Linked by Alert Notifications
 
-An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see the following interactive chart:
+An alert notification includes a URL that links to an interactive chart showing data at the time the alert was triggered. The [sample email notification](#sample-alert-notification) above displays the URL as a **View Alert** button that you can click to see an interactive chart like the following:
 
 ![alert_interactive_chart](images/alert_interactive_chart.png)
 
 The interactive chart viewed through an alert notification shows the results of the alert's display expression. If you have set the alert's [**Display Expression** field](#alert-properties), the interactive chart shows the time series being tested by the alert. Depending on the state change that triggered the alert, the interactive chart can display additional queries for alert events and alert metrics:
 
 * **&lt;Alert name&gt;** - The display expression if one was specified. Otherwise, the [condition](alerts.html#alert-properties) expression.
-* **Alert Condition** - The condition expression, if the display expression is shown.
+* **Alert Condition** - The [alert condition](alerts.html#alert-condition)
 * **Alert Firings** - An [events() query](events_queries.html) that shows events of type `alert` for the alert. These system events occur whenever the alert is opened. The query shows both the current firing (an ongoing event) and any past firings (ended events).
 * **Alert Details** - An [events() query](events_queries.html) that shows events of type `alert-detail` for the alert. These system events occur whenever the alert is updated (continues firing while an individual time series changes from recovered to failing, or from failing to recovered).
-* **Alert Data** - A query for alert metrics. These metrics are shown when the alert is open or updated.
-
 
 Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
 
