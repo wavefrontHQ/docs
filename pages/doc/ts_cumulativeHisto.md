@@ -64,13 +64,10 @@ This query displays the 90th quantile of a cumulative histogram that corresponds
 
 The corresponding Wavefront query looks like this:
 ```
-percentile(90, cumulativeHisto(counter_sum(req_latency_bucket, le) * 60))
+percentile(90, cumulativeHisto(align(5m, counter_sum(req_latency_bucket, le) * 60)))
 ```
 
 Here, we are creating a T-digest and adding sampling points based on the range and the cound of the bucket.
-(??Don't understand this yet)
-
-??And what about the accuracy bit?
 
 ### Grouping
 
