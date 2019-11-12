@@ -1,15 +1,17 @@
 ---
-title: Using a 3rd Party Distributed Tracing System
+title: Using Jaeger or Zipkin with Wavefront
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_integrations.html
-summary: Learn about ways to send trace data to Wavefront from a 3rd party distributed tracing system.
+summary: Learn how to send trace data from Jaeger or Zipkin to Wavefront.
 ---
 
-You can collect [traces](tracing_basics.html#wavefront-trace-data) with a 3rd party distributed tracing system, and send the [trace data](tracing_basics.html) to Wavefront. Wavefront provides managed, highly scalable storage for your trace data, as well as RED metrics that are derived from the spans.
+You can collect [traces](tracing_basics.html#wavefront-trace-data) with Jaeger or Zipkin and send the [trace data](tracing_basics.html) to Wavefront. Wavefront
+* Provides managed, highly scalable storage for your trace data.
+* Allows you to examine and alert on RED metrics that are derived from the spans.
 
-Suppose you have already instrumented your application using a 3rd party distributed tracing system such as Jaeger or Zipkin. You can continue using that system for application development, and then switch to a Wavefront proxy in production by changing a few configuration settings.
+Suppose you have already instrumented your application using Jaeger or Zipkin. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.
 
 **Note:** If you have not yet [instrumented your application for tracing](tracing_instrumenting_frameworks.html), consider doing so with one or more [Wavefront observability SDKs](wavefront_sdks.html).
 
@@ -17,17 +19,18 @@ Suppose you have already instrumented your application using a 3rd party distrib
 
 Wavefront supports integrations and also lets you specify custom tags.
 
-Wavefront provides integrations with popular 3rd party distributed tracing systems. To get data flowing:
+To get data flowing:
+
 * Follow setup steps for the [Jaeger integration](jaeger.html)
 * Follow setup steps for the [Zipkin integration](zipkin.html)
 
-Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system.
-
-The Wavefront integration
-1. Configures your distributed tracing system to send trace data to a [Wavefront proxy](proxies_installing.html).
+The  integration
+1. Configures your distributed tracing system to send trace data to a Wavefront proxy. During integration setup, follow the prompts to create a new integration or use an existing integration.
 2. The proxy processes the data and sends it to your Wavefront service.
 
 Part of setting up the integration is to configure the Wavefront proxy to listen for the trace data on an integration-specific port.
+
+Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system.
 
 
 ## Trace Data from an Integration
@@ -40,7 +43,7 @@ The Wavefront proxy:
 
 ### Required Span Tags
 
-Wavefront requires various [span tags](trace_data_details.html#span-tags) on well-formed spans. The following spans tags enable you to filter and visualize trace data from the different services in your instrumented application:
+Wavefront requires certain [span tags](trace_data_details.html#span-tags) on well-formed spans. The following spans tags enable you to filter and visualize trace data from the different services in your instrumented application:
 <table>
 <colgroup>
 <col width="20%"/>
@@ -54,12 +57,12 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 <tr>
 <td markdown="span">`application`</td>
 <td markdown="span">Name that identifies the application that emitted the span. </td>
-<td markdown="span">By default, the name of your distributed tracing system, for example,`Jaeger` or `Zipkin`.</td>
+<td markdown="span">Name of your tracing system, for example,`Jaeger` or `Zipkin`.</td>
 </tr>
 <tr>
 <td markdown="span">`service`</td>
-<td markdown="span">Name that identifies the microservice that emitted the span. </td>
-<td markdown="span">The service name that you specified to your distributed tracing system.</td>
+<td markdown="span">Name of the microservice that emitted the span. </td>
+<td markdown="span">Service name that you specified to your distributed tracing system.</td>
 </tr>
 </tbody>
 </table>
@@ -67,10 +70,10 @@ Wavefront requires various [span tags](trace_data_details.html#span-tags) on wel
 
 The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
 
-Wavefront does not allow the mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application/service tags.
+Wavefront does not allow the mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application or service tags.
 For example, a span with two span tags `service=notify` and `service=backend` is invalid.
 
-**Note:** Wavefront will ignore span tags with empty values.
+**Note:** Wavefront ignores span tags with empty values.
 
 
 ### Derived RED Metrics
@@ -87,17 +90,16 @@ Starting with Wavefront proxy version 4.38, you can include custom tags for RED 
 
 ```traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>```
 
-to the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
+to the [proxy configuration file](proxies_configuring.html#paths) (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default).
 
 Wavefront generates custom tags for the specified keys at the proxy.
 
-For example, adding the following property causes the Wavefront proxy to generate 3 custom tags:
+For example, if you add the following properties, the Wavefront proxy generates 3 custom tags:
 
 ```traceDerivedCustomTagKeys=tenant, env, location```
 
 
-
-**Note:** For faster performance, index only low-cardinality custom span tags. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
+**Note:** For faster performance, index only low-cardinality custom span tags. A low cardinality tag has comparatively few unique values that can be assigned to it. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
 
 ### Custom Application Names
 
@@ -131,9 +133,9 @@ You view trace data from an integration using [Wavefront charts and queries](tra
 If you want context for identifying problem traces, you can start by viewing the [derived RED metrics](#derived-red-metrics):
 
 1. Select **Applications > Inventory** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
-2. Click on the application name, and find the service whose RED metrics you want to see.
-2. Click on the **Details** link for the service.
-3. Select an operation from one of the charts to examine the traces for that operation. <!---by following the steps in _[[Link to subsection of Tracing a Hotspot Across Services page]]_.--->
+2. Click the application name, and find the service whose RED metrics you want to see.
+2. Click the **Details** link for the service.
+3. Select an operation from one of the charts to examine the traces for that operation.
 
 If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html):
 1. Select **Applications > Traces** in the task bar.
@@ -154,6 +156,9 @@ The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, 
 
 
 ## Alternatives to Integrations
+
+If using the Jaeger or Zipkin integration doesn't make sense in your environment, you can still use Wavefront with those systems.
+
 
 ### Swap In a Wavefront Tracer
 If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer.
