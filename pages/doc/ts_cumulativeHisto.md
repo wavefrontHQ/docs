@@ -12,11 +12,8 @@ cumulativeHisto([<timeWindow>] <tsExpression>, <bucketName>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Returns a cumulative histogram for a Prometheus or Telegraf time series.
+Returns a cumulative histogram that comes from Prometheus, Telegraf, or other source of cumulative histograms. Using this function, you can manipulate those data with the Wavefront query language.
 
-This function works only with data that include a parameter such as `le` for defining which part of the cumulative histogram you want to display. Data that are imported from Prometheus always include such a parameter.
-
-When a chart displays the result of this function, it shows the median by default. You can use `percentile()` to change that and, for example, show the 90% percentile.
 
 ## Parameters
 <table>
@@ -43,6 +40,14 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 
 ## Description
+
+This function is useful if you want to analyze data that are already in a cumulative history format.
+
+This function works only with data that include a parameter such as `le` for defining which part of the cumulative histogram you want to display. Data that are imported from Prometheus always include such a parameter.
+
+When a chart displays the result of this function, it shows the median by default. You can use `percentile()` to change that and, for example, show the 90% percentile.
+
+### Ordinary and Cumulative Histograms
 
 Wavefront histogram distributions are ordinary histograms while some other tools, such as Prometheus and Telegraph, use cumulative histograms.
 
