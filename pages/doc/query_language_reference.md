@@ -1387,7 +1387,7 @@ In a time-series chart, this function displays the median values of the aligned 
 </tr>
 <tr>
 <td><a href="ts_cumulativeHisto.html">cumulativeHisto(<strong>&lt;raw_value&gt;</strong>,&lbrack;<strong>timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong>, <strong>&lt;bucketName&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
-<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such a <strong>percentile</strong>.
+<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
 </tbody>
@@ -1411,7 +1411,7 @@ Each histogram conversion function in the following table takes histogram distri
 <tbody>
 <tr>
 <td><a href="hs_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
-<td>returns a histogram distribution for a dime series descripted by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
+<td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
 </tr>
 <tr>
 <td><a href="hs_median.html">median(<strong>&lt;hsExpression&gt;</strong>)</a></td>
