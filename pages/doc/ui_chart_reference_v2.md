@@ -928,16 +928,16 @@ You can optionally customize the target dashboard. For example, you can specify 
 ### Drilldown Link Example
 
 Suppose your users monitor 2 dashboards:
-* Dashboard 1 consists of a set of single stat charts that monitor important values and change color as critical thresholds are crossed for an availability zone. Each chart is for one availability zone only. Each chart uses the `az` point tag, for example:
+* Dashboard 1 consists of a set of single stat charts that monitor important values and change color as critical thresholds are crossed for an availability zone. Each chart is for one availability zone only. Each chart sets the `az` point tag to show only the value for that zone, for example:
 
   ![query for drilldown](images/drilldown_0.png)
 
-* Dashboard 2 allows users to gather details about each availability zone. A variable (Availability Zone) is defined for that dashboard.
+* Dashboard 2 allows users to get details about the different availability zones. A variable (Availability Zone) is defined for that dashboard, and users can select a value for that variable.
 
-* Inside dashboard 1, we've defined a drilldown link that:
-  - Goes to dashboard 2 when the user clicks dashboard 1
-  - Passes the value of the `az` point tag in as the `az` variable.
-  **Note** The variable that maps to the point tag in the source dashboard must exist in the target dashboard.
+* Inside dashboard 1, we've defined a drilldown link for each single stat chart that:
+  - Goes to dashboard 2 when the user clicks one of the single-stat charts.
+  - Passes the value of the `az` point tag in as the value of the `az` variable.
+  **Note** A variable value that matches to the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match.
 
   ![drilldown_definition](images/drilldown_1.png)
 

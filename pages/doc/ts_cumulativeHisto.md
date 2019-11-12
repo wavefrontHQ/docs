@@ -8,7 +8,7 @@ summary: Reference to the cumulativeHisto() function
 ---
 ## Summary
 ```
-cumulativeHisto([<timeWindow>] <tsExpression>, <bucket_desc> <bucket_num>
+cumulativeHisto([<timeWindow>] <tsExpression>, <bucketName>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
@@ -32,10 +32,7 @@ When a chart displays the result of this function, it shows the median by defaul
 <td>Time series for which we want to have a cumulative histogram. </td></tr>
 <tr>
 <td>bucketName</td>
-<td markdown="span">String that describes how to determine the bucket we're interested in. Default is <strong>le</strong>, that is, less than or equal. These names must be in the data. </td></tr>
-<tr>
-<td>bucket_value</td>
-<td>Number for the bucket value. For example, <strong>le 60</strong> results in a histogram in which all values are less than or equal to 60. <strong>ge 200</strong> results in a histogram in which all values are less than or equal to 50. </td></tr>
+<td markdown="span">String that describes the bucket, based on available values in the source histogram. Default is <strong>le</strong>, that is, less than or equal.  </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning each histogram subgroup.
