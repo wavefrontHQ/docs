@@ -12,7 +12,7 @@ cumulativeHisto([<timeWindow>] <tsExpression>, <bucketName>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Returns a cumulative histogram that comes from Prometheus, Telegraf, or other source of cumulative histograms. Using this function, you can manipulate those data with the Wavefront query language.
+Converts a cumulative histogram coming from Prometheus, Telegraf, or other source to an ordinary histogram in Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
 
 
 ## Parameters
@@ -26,7 +26,7 @@ Returns a cumulative histogram that comes from Prometheus, Telegraf, or other so
 <td markdown="span">Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes.</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
-<td>Time series for which we want to have a cumulative histogram. </td></tr>
+<td>Cumulative histogram that we'll convert to an ordinary histogram.  </td></tr>
 <tr>
 <td>bucketName</td>
 <td markdown="span">String that describes the bucket, based on available values in the source histogram. Default is <strong>le</strong>, that is, less than or equal.  </td></tr>
@@ -41,7 +41,7 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-This function is useful if you want to analyze data that are already in a cumulative history format.
+This function is useful if you want to analyze data that are already in a cumulative histogram format.
 
 This function works only with data that include a parameter such as `le` for defining which part of the cumulative histogram you want to display. Data that are imported from Prometheus always include such a parameter.
 
@@ -79,8 +79,7 @@ The function returns a separate series of results for each group.
 
 ### Interpolation
 
-??Relevant??
-The `histo()` function itself doesn't perform interpolation because that doesn't make sense for a histogram. But when you apply `percentile()`, we do perform interpolation.
+The `cumulativeHisto()` function itself doesn't perform interpolation because that doesn't make sense for a histogram. But when you apply `percentile()`, we do perform interpolation.
 
 See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
 
