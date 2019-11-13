@@ -4,7 +4,7 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: trace_data_details.html
-summary: Learn about the format for Wavefront spans, and naming conventions for the RED metrics derived from them.
+summary: Wavefront spans format and the RED metrics derived from spans.
 ---
 
 A [trace](tracing_basics.html#wavefront-trace-data) shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request.
@@ -56,14 +56,14 @@ getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId
 <tr>
 <td markdown="span">`operationName`</td>
 <td>Yes</td>
-<td>The string name that indicates the operation represented by the span.</td>
-<td>Valid characters: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). <br> Length: less than 1024 characters.</td>
+<td>Name of the operation represented by the span.</td>
+<td>String of less than 1024 characters. <br>Valid: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot (".").</td>
 </tr>
 <tr>
 <td markdown="span">`source`</td>
 <td>Yes</td>
-<td>The string name of a host or container on which the represented operation executed.</td>
-<td>Valid characters: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). <br> Length: less than 1024 characters.</td>
+<td>Name of a host or container on which the operation executed.</td>
+<td>String of less than 1024 characters.<br>Valid: a-z, A-Z, 0-9, hyphen ("-"), underscore ("_"), dot ("."). </td>
 </tr>
 <tr>
 <td markdown="span">`spanTags`</td>
@@ -74,8 +74,8 @@ getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId
 <tr>
 <td markdown="span">`start_milliseconds`</td>
 <td>Yes</td>
-<td>Start time of the span, expressed as epoch time elapsed since 00:00:00 Coordinated Universal Time (UTC) on January 1, 1970. </td>
-<td markdown="span">Whole number of epoch milliseconds [or other units (see below)](#time-value-precision-in-spans). </td>
+<td>Start time of the span, expressed as Epoch time. </td>
+<td markdown="span">Whole number of Epoch milliseconds [or other units (see below)](#time-value-precision-in-spans). </td>
 </tr>
 <tr>
 <td markdown="span">`duration_milliseconds`</td>
@@ -88,7 +88,10 @@ getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId
 
 ### Span Tags
 
-Span tags are special tags associated with a span. Many of these span tags are required for a span to be valid. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names listed in the following tables.
+Span tags are special tags associated with a span.
+
+- **Required**. Many of the span tags are required for a span to be valid.
+- **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names listed in the following tables.
 
 **Note:** The maximum allowed length for a combination of a span tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the span is rejected.
 
@@ -397,7 +400,7 @@ The point tag technique is useful when the metric name contains string values fo
 
 You can use RED metrics in the alert conditions for trace-data alerts. You normally create trace-data alerts by cloning and customizing predefined alerts as follows:
 
-1. Search for **Tracing Metrics Alert** in the Alerts browser to display the predefined trace-data alerts.  
+1. Search for **Tracing Metrics Alert** in the Alerts browser to display the predefined trace-data alerts.
 2. Click on the ellipsis menu next to name of the alert you want to customize, and select **Clone**.
 3. On the **Create Alert** page, modify the alert condition and any other properties to suit your use case.
 
@@ -407,8 +410,8 @@ For example, you might want to alert only on RED metrics from a specific service
 limit(500, rate(ts(tracing.derived.beachshirts.delivery.*.error.count)))
 ```
 
-<!--- Verify integration name ---> 
-**Note:** If all you need to do is change thresholds or notification targets, you can do so by [editing the Tracing Derived Metrics integration](tracing_basics.html#trace-data-alerts) directly. 
+<!--- Verify integration name --->
+**Note:** If all you need to do is change thresholds or notification targets, you can do so by [editing the Tracing Derived Metrics integration](tracing_basics.html#trace-data-alerts) directly.
 
 ### Trace Sampling and Derived RED Metrics
 
