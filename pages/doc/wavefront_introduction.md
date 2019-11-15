@@ -30,14 +30,14 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="50%">To detect problems, You can <a href="alerts.html"> <strong>create alerts</strong></a> directly from charts and specify
+<tr><td width="50%">To detect problems, you can <a href="alerts.html"> <strong>create alerts</strong></a> directly from charts and specify.
 <p>For example, assume in your environment you need to know:</p>
 <ul>
 <li>When the CPU reaches a certain threshold. </li>
 <li>Who should be notified and how (email, Pagerduty, etc). </li>
-<li>What the alert severity is, and when the alert resolves</li>
+<li>What the alert severity is, and when the alert resolves.</li>
 </ul>
-After you've set up an alert with that information, we'll send an alert notifications that include details and a chart image. See the example on the right. </td>
+After you've set up an alert with that information, we'll send alert notifications that include details and a chart image. See the example on the right. </td>
 <td width="50%"><img src="/images/alert_notification_example.png" alt="simple v1 chart"/></td>
 </tr>
 </tbody>
