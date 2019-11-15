@@ -411,7 +411,7 @@ limit(500, rate(ts(tracing.derived.beachshirts.delivery.*.error.count)))
 ```
 
 <!--- Verify integration name --->
-**Note:** If all you need to do is change thresholds or notification targets, you can do so by [editing the Tracing Derived Metrics integration](tracing_basics.html#trace-data-alerts) directly.
+**Note:** If all you need to do is change thresholds or notification targets, you can do so by [editing the Alerts for Tracing RED Metrics integration](tracing_basics.html#trace-data-alerts) directly.
 
 ### Trace Sampling and Derived RED Metrics
 

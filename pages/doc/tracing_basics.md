@@ -188,7 +188,7 @@ Whenever an instrumented application sends trace data, Wavefront not only comput
 
 Trace-data alerts are enabled by default. For best results, you should perform some minimal customization on each of the alerts. To customize an alert:
 
-1. Open the **Tracing Derived Metrics** integration from the Integrations browser.
+1. Open the **Alerts for Tracing RED Metrics** integration from the Integrations browser.
 2. Go to the **Alerts** page and click **Edit** next to the alert.
 3. Review the preset thresholds in the **Severity** section. Change any or all of the thresholds to suit your use cases.
   - Request rate: Number of requests per second
@@ -200,5 +200,5 @@ Trace-data alerts are enabled by default. For best results, you should perform s
 
 If you do not want to see trace-data alert events on your charts, you can either suppress all events from your chart display, or you can disable trace-data alerts from being generated. To disable trace-data alerts: 
 
-1. Open the **Tracing Derived Metrics** integration from the Integrations browser.
+1. Open the **Alerts for Tracing RED Metrics** integration from the Integrations browser.
 2. Go to the **Alerts** page and click **Uninstall All**.  
