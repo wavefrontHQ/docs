@@ -13,7 +13,7 @@
 Wavefront public repositories into the official documentation)
     ```shell
     $ git submodule init
-    $ git submodule fetch
+    $ git submodule update
     ```
 
 ## Run and View Site Locally
