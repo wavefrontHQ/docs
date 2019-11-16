@@ -92,7 +92,7 @@ The `limit()` traces filtering function limits the results of `tracesExpression`
 
 ```limit(50, traces("beachshirts.styling.makeShirts"))```
 
-**Note:** Because the ordering of traces is unpredictable, you cannot use `limit()` to page through a set of results to obtain the next group of traces.
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Because the ordering of traces is unpredictable, you cannot use <code>limit()</code> to page through a set of results to obtain the next group of traces.</div>
 
 ## Examples
 
