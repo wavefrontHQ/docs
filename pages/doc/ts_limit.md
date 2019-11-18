@@ -79,7 +79,7 @@ You can use `limit()`:
 
 ### Time-Series Filtering Function
 
-The `limit()` function specifies the maximum number of time series that need to be returned by the `tsExpression` using the `numberOfTimeSeries`. For example, the following query limits the results of the `tsExpression` to at most 10 time series: 
+The `limit()` function specifies the maximum number of time series that are returned by the `tsExpression` using the `numberOfTimeSeries`. For example, the following query limits the results of the `tsExpression` to at most 10 time series: 
 
 ```limit(10, ts(~sample.mem.used.percentage))```
 
@@ -88,7 +88,7 @@ Optionally, use `offsetNumber` to specify the starting index. For example, set `
 
 ### Traces Filtering Function
 
-The `limit()` traces filtering function specifies the maximum number of traces that need to be returned by the `tracesExpression` using `numberOfTraces`. For example, the following query limits the results of the `tracesExpression` to at most 50 traces: 
+The `limit()` traces filtering function specifies the maximum number of traces that are returned by the `tracesExpression` using `numberOfTraces`. For example, the following query limits the results of the `tracesExpression` to at most 50 traces: 
 
 ```limit(50, traces("beachshirts.styling.makeShirts"))```
 
