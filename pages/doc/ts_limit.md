@@ -79,20 +79,20 @@ You can use `limit()`:
 
 ### Time-Series Filtering Function
 
-The `limit()` time-series filtering function limits the results of `tsExpression` to at most `numberOfTimeSeries` time series. For example, the following query limits the results of the `tsExpression` to at most 10 time series: 
+The `limit()` function specifies the maximum number of time series that need to be returned by the `tsExpression` using the `numberOfTimeSeries`. For example, the following query limits the results of the `tsExpression` to at most 10 time series: 
 
 ```limit(10, ts(~sample.mem.used.percentage))```
 
-Use the optional `offsetNumber` to specify an index to start with. For example, set `offsetNumber` to 5 to start with the 5th item. 
+Optionally, use `offsetNumber` to specify the starting index. For example, set `offsetNumber` to 5 to start with the 5th item. 
 
 
 ### Traces Filtering Function
 
-The `limit()` traces filtering function limits the results of `tracesExpression` to at most `numberOfTraces` traces. For example, the following query limits the results of the `traces()` query to at most 50 traces: 
+The `limit()` traces filtering function specifies the maximum number of traces that need to be returned by the `tracesExpression` using `numberOfTraces`. For example, the following query limits the results of the `tracesExpression` to at most 50 traces: 
 
 ```limit(50, traces("beachshirts.styling.makeShirts"))```
 
-<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Because the ordering of traces is unpredictable, you cannot use <code>limit()</code> to page through a set of results to obtain the next group of traces.</div>
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Because the ordering of traces is unpredictable, you cannot use <code>limit()</code> to page through a set of results and obtain the next group of traces.</div>
 
 ## Examples
 
