@@ -246,13 +246,12 @@ The same chart with the millisecond values in the hundred thousands displays as 
 
 ## Chart Resolution
 
-**Note:** The following explanation for chart resolution relies on screen shots and examples from the v1 UI. The information about the horizontal scale and bucket size is not currently available in v2.
-
 Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts display that granularity only for small time windows on high-resolution displays. In most cases, Wavefront *groups* data points into time buckets and maps the buckets to display points.
 
 **Chart resolution** is the bucket time interval. It displays in the **Horizontal Scale** field in the lower-left corner of a chart.
 
-![resolution](images/chart_resolution.png)
+![resolution](images/chart_resolution_v2.png)
+
 
 
 The chart above has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the Count summarization method you can see how many points are in each bucket.
@@ -296,6 +295,19 @@ Here is a series of charts with increasing time window for the _same_ display re
 The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, Wavefront would first align the values into 15 minute buckets, and then take two aligned values and summarize those based on the Summarize By method.
 
 {% include note.html content="To improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
+
+## Improve Display Speed with the Sampling Option
+
+Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. Starting with release 2019.42, you can limit the number of time series to 100 for new charts.
+
+To affect all dashboards, turn on the **Sampling** default in your preferences from the gear icon.
+![sampling preference](images/sampling_preference.png)
+
+If the **Sampling** preference is on, we limit sampling to 100 time series when you create a chart, but we prompt whether you'd like to turn off the limitation for the current chart or for all charts. For all charts affects the preference.
+![sampling query during chart create](images/sampling_during_chart_create.png)
+
+To temporarily change the sampling behavior for a selected chart use the **Sampling** toggle in the top right. As with other items in this task bar, you cannot save this change.
+  ![sampling toggle during chart edit](images/sampling_toggle.png)
 
 
 ## Do More!

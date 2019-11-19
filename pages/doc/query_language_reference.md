@@ -660,7 +660,7 @@ Filtering functions help you select a subset of the time series that are returne
 </tr>
 <tr>
 <td markdown="span"><a href="ts_globalFilter.html">globalFilter(<strong>&lt;tsExpression | hsExpression&gt;,<br> &lt;filter1&gt;</strong> [and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
-<td>Suppresses any time series or histogram in the specified expression that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters. 
+<td>Suppresses any time series or histogram in the specified expression that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters.
 </td>
 </tr>
 <tr>
@@ -1109,16 +1109,16 @@ Metadata functions let you temporarily rename a metric, rename a source, or crea
 <tbody>
 <tr>
 <td><a href="ts_aliasMetric.html"> aliasMetric(<strong>&lt;tsExpression&gt;</strong>, &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;
-<br><strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; | 
-<br><strong>"regexSearchPattern", "replacementPattern"</strong> | 
+<br><strong>zeroBasedNodeIndex&lbrack;,  "delimiterDefinition"</strong>&rbrack; |
+<br><strong>"regexSearchPattern", "replacementPattern"</strong> |
 <br><strong>"replacementString"</strong>)</a></td>
 <td markdown="span">Replaces the metric name for each time series described by <strong> tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value. </td>
 </tr>
 <tr>
 <td><a href="ts_aliasSource.html"> aliasSource(<strong>&lt;tsExpression&gt;</strong>,
 &lbrack;<strong>metric|source|&lbrace;tagk,&lt;pointTagKey&gt;&rbrace;</strong>,&rbrack;
-<br><strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; | 
-<br><strong>"regexSearchPattern", "replacementPattern"</strong> | 
+<br><strong>zeroBasedNodeIndex&lbrack;, "delimiterDefinition"</strong>&rbrack; |
+<br><strong>"regexSearchPattern", "replacementPattern"</strong> |
 <br><strong>"replacementString"</strong>)</a></td>
 <td markdown="span">Replaces the source name of each time series described by the <strong>tsExpression</strong>. The alias can be a specified <strong>replacementString</strong> or a string that is constructed from part or all of an existing metadata value.
 </td>
@@ -1375,9 +1375,19 @@ In a time-series chart, this function displays the median values of the merged d
 </td>
 </tr>
 <tr>
-<td><a href="ts_align.html">align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td><a href="ts_cdf.html">cdf(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
 In a time-series chart, this function displays the median values of the aligned distributions.
+</td>
+</tr>
+<tr>
+<td><a href="ts_cdf.html">align(<strong>&lt;raw_value&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
+</td>
+</tr>
+<tr>
+<td><a href="ts_cumulativeHisto.html">cumulativeHisto(<strong>&lt;raw_value&gt;</strong>,&lbrack;<strong>timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong>, <strong>&lt;bucketName&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
+<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
 </tbody>
@@ -1399,6 +1409,10 @@ Each histogram conversion function in the following table takes histogram distri
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="hs_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
+<td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
+</tr>
 <tr>
 <td><a href="hs_median.html">median(<strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Returns time series that consist of the median values of the histogram distributions described by <strong>hsExpression</strong>. </td>

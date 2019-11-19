@@ -921,6 +921,26 @@ Chart description. The description shows up as hover text when you place the mou
 
 ### Drilldown Link Tab (Beta)
 
-The **Drilldown Link** tab allows you to specify a target dashboard that displays in a new tab when a user clicks on the single stat chart.
+The **Drilldown Link** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart.
 
-You can optionally customize the target dashboard. For example, you can specify a constant to be used as a variable.
+You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+### Drilldown Link Example
+
+Suppose your users monitor 2 dashboards:
+* Dashboard 1 consists of a set of single stat charts that monitor important values and change color as critical thresholds are crossed for an availability zone. Each chart is for one availability zone only. Each chart sets the `az` point tag to show only the value for that zone, for example:
+
+  ![query for drilldown](images/drilldown_0.png)
+
+* Dashboard 2 allows users to get details about the different availability zones. A variable (Availability Zone) is defined for that dashboard, and users can select a value for that variable.
+
+* Inside dashboard 1, we've defined a drilldown link for each single stat chart that:
+  - Goes to dashboard 2 when the user clicks one of the single-stat charts.
+  - Passes the value of the `az` point tag in as the value of the `az` variable.
+  **Note** A variable value that matches to the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match.
+
+  ![drilldown_definition](images/drilldown_1.png)
+
+* When the user clicks on a chart in dashboard 1 because it shows a critical value, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
+
+  ![drilldown_target](images/drilldown_2.png)

@@ -18,7 +18,7 @@ traces(<spansExpression>)
 ```
 Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters.html). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
-### Parameters
+## Parameters
 
 <table style="width: 100%;">
 <tbody>
@@ -28,7 +28,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 <tr>
 <td>fullOperationName</td>
 <td markdown="span">Full name of the operation that a qualifying span must represent. For example:
-<br> **`"beachshirts.delivery.dispatch"`** matches spans that represent calls to an operation named **`dispatch`** in the **`delivery`** service of the **`beachshirts`** application. 
+<br> **`"beachshirts.delivery.dispatch"`** matches spans that represent calls to an operation named **`dispatch`** in the **`delivery`** service of the **`beachshirts`** application.
 <br> The general format is **`<application>.<service>.<operationName>`**, where each component consists of one or more period-delimited nodes. Replace **`operationName`** or **`serviceName`** with an asterisk **`*`** to match spans for any operation in any service. </td>
 </tr>
 
@@ -47,15 +47,19 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 
 
 ## Description
-The `traces()` function returns a set of traces, where each trace contains at least one qualifying member span. A span qualifies if it matches the description you specify, which might consist of an operation name, one or more [span filters](#span-filters), or a combination of these. 
+The `traces()` function returns a set of traces. Each trace contains at least one qualifying member span. A span qualifies if it matches the description you specify, which might consist of an operation name, one or more [span filters](#span-filters), or a combination of these.
 
-You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). 
-Using the `traces()` function is a power-user alternative to using Query Builder.  
+You submit a `traces()` function using the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users).
+Using the `traces()` function is a power-user alternative to using Query Builder.
 
-`traces()` returns a trace if it contains a member span that matches the _entire_ specified description. If the description is a Boolean expression that combines multiple span filters, then the same span must satisfy all of the filters in the expression. For example, the result set for  `traces(service=shopping and source=web1)` includes any trace that has at least one member span that is associated with _both_ of the tags `service=shopping` and `source=web1`. The result set does not include, e.g., a trace that has one member span with `service=shopping` and a different member span with `source=web1`.
+`traces()` returns a trace:
+* If it contains a member span that matches the _entire_ specified description.
+* If the description is a Boolean expression that combines multiple span filters, then the same span must satisfy *all* the filters.
+
+  For example, the result set for  `traces(service=shopping and source=web1)` includes any trace that has at least one member span that is associated with _both_ of the tags `service=shopping` and `source=web1`. The result set does not include, e.g., a trace that has one member span with `service=shopping` and a different member span with `source=web1`.
 
 
-To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query. 
+To keep query execution manageable, combine `traces()` with a [filtering function](#filtering-functions) such as `limit()` in the same query.
 
 To qualify spans based on their length, specify a [`spans()`](spans_function.html) query that is wrapped in a spans filtering function such as `highpass()`.
 
@@ -65,23 +69,27 @@ Assume your team has instrumented an application called `beachshirts` for tracin
 
 **Note:** To keep query execution manageable, these examples use `traces()` with the `limit()` function.
 
-To display the traces that include spans for calls to `makeShirt`:
-- `limit(100, traces("beachshirts.styling.makeShirts"))`
+Display the traces that include spans for calls to `makeShirt`:
 
-To display the traces that include spans for any operation in the `styling` service:
-- `limit(100, traces("beachshirts.styling.*"))`
+`limit(100, traces("beachshirts.styling.makeShirts"))`
 
-To display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
-- `limit(100, traces("beachshirts.*.*" and (source="prod-app1" or source="prod-app10")))`
+Display the traces that include spans for any operation in the `styling` service:
 
-To display the traces that include spans for calls to `makeShirt` that are shorter than 3 milliseconds:
-- `limit(100, traces(lowpass(3ms, spans("beachshirts.styling.makeShirts"))))`
+`limit(100, traces("beachshirts.styling.*"))`
+
+Display the traces that include spans for any operation in the `beachshirts` application executing on either of two specified hosts:
+
+`limit(100, traces("beachshirts.*.*" and (source="prod-app1" or source="prod-app10")))`
+
+Display the traces that include spans for calls to `makeShirt` that are shorter than 3 milliseconds:
+
+`limit(100, traces(lowpass(3ms, spans("beachshirts.styling.makeShirts"))))`
 
 <a name="filters"></a>
 
 ## Span Filters
 
-Span filters allow you to limit which spans to return traces for. Span filters are key/value pairs associated with spans. Developers define the available span filters (also called *application tags*) as part of instrumenting the application code for tracing. Even if you did not instrument the code yourself, you can use autocompletion in the Query Editor to discover the available span filters.
+Span filters allow you to limit which spans to return traces for. Span filters are key/value pairs associated with spans. Developers define the available span filters (also called *application tags*) as part of instrumenting the application code for tracing. If you did not instrument the code yourself, you can use autocompletion in the Query Editor to discover the available span filters.
 
 The general format for a span filter is `<filterName>="filterValue"`.
 
@@ -138,7 +146,7 @@ The general format for a span filter is `<filterName>="filterValue"`.
 
 ## Filtering Functions
 
-You can use filtering functions to provide additional levels of filtering for the results of the `traces()` function. 
+You can use filtering functions to provide additional levels of filtering for the results of the `traces()` function.
 
 You can combine filtering functions. For example, to return up to 100 traces that are longer than 30 milliseconds, you can combine the `limit()`, `highpass()`, and `traces()` functions as follows:
 
@@ -162,12 +170,12 @@ You can combine filtering functions. For example, to return up to 100 traces tha
 </tr>
 <tr>
 <td><a href="ts_highpass.html">highpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
-<td markdown="span">Filters the results of **tracesExpression** to include only traces that are longer than **traceDuration**.  
+<td markdown="span">Filters the results of **tracesExpression** to include only traces that are longer than **traceDuration**.
 </td>
 </tr>
 <tr>
 <td><a href="ts_lowpass.html">lowpass(<strong>&lt;traceDuration&gt;</strong>, <strong>&lt;tracesExpression&gt;</strong>)</a></td>
-<td markdown="span">Filters the results of **tracesExpression** to include only traces that are shorter than **traceDuration**.  
+<td markdown="span">Filters the results of **tracesExpression** to include only traces that are shorter than **traceDuration**.
 </td>
 </tr>
 
