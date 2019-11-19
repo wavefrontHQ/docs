@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2019-38.x Release Notes
+      url: /2019.38.x_release_notes.html
+      output: web
+
     - title: 2019-34.x Release Notes
       url: /2019.34.x_release_notes.html
       output: web
@@ -80,34 +84,6 @@ entries:
 
     - title: 2019-18.x Release Notes
       url: /2019.18.x_release_notes.html
-      output: web
-
-    - title: 2019-14.x Release Notes
-      url: /2019.14.x_release_notes.html
-      output: web
-
-    - title: 2019-10.x Release Notes
-      url: /2019.10.x_release_notes.html
-      output: web
-
-    - title: 2019-06.x Release Notes
-      url: /2019.06.x_release_notes.html
-      output: web
-
-    - title: 2018-50.x Release Notes
-      url: /2018.50.x_release_notes.html
-      output: web
-
-    - title: 2018-46.x Release Notes
-      url: /2018.46.x_release_notes.html
-      output: web
-
-    - title: 2018-42.x Release Notes
-      url: /2018.42.x_release_notes.html
-      output: web
-
-    - title: 2018-38.x Release Notes
-      url: /2018.38.x_release_notes.html
       output: web
 
     - title: Wavefront Proxy Release Notes
@@ -229,39 +205,39 @@ entries:
       url: /dashboards_variables.html
       output: web
 
-  - title: "Charts and Dashboards (v2 Beta)"
+  - title: "Charts and Dashboards (v2)"
     output: web
     folderitems:
 
-    - title: "What's New in v2 Beta"
+    - title: "What's New in v2"
       url: /ui_v2_faq.html
       output: web
 
-    - title: "Chart Builder v2 Beta"
+    - title: "Chart Builder (v2)"
       url: /chart_builder.html
       output: web
 
-    - title: "Examine Data v2 Beta"
+    - title: "Examine Data (v2)"
       url: /ui_examine_data_v2.html
       output: web
 
-    - title: "Create and Customize Dashboards v2 Beta"
+    - title: "Create and Customize Dashboards (v2)"
       url: /ui_dashboards_v2.html
       output: web
 
-    - title: "Create and Customize Charts v2 Beta"
+    - title: "Create and Customize Charts (v2)"
       url: /ui_charts_v2.html
       output: web
 
-    - title: "Chart Reference v2 Beta"
+    - title: "Chart Reference (v2)"
       url: /ui_chart_reference_v2.html
       output: web
 
-    - title: "Dashboard Variables v2 Beta"
+    - title: "Dashboard Variables (v2)"
       url: /dashboards_variables_v2.html
       output: web
 
-    - title: "Getting Started with Wavefront v2 Beta"
+    - title: "Getting Started with Wavefront (v2)"
       url: /tutorial_getting_started_v2.html
       output: web
 
@@ -615,17 +591,32 @@ entries:
         url: /wavefront_security.html
         output: web
 
-      - title: Monitoring Wavefront
-        url: /wavefront_monitoring.html
-        output: web
+        subfolders:
+        - title: Monitoring & Troubleshooting
+          output: web
+          subfolderitems:
 
-      - title: Investigate Traffic With Spy and Wavefront Top
-        url: /wavefront_monitoring_spy.html
-        output: web
+          - title: Monitor Wavefront the Service
+            url: /wavefront_monitoring.html
+            output: web
 
-      - title: Monitoring Wavefront Proxies
-        url: /monitoring_proxies.html
-        output: web
+          - title: Monitor Wavefront Proxies
+            url: /monitoring_proxies.html
+            output: web
+
+          - title: Examine Ingestion Breakdown
+            url: /ingestion_policies.html
+            output: web
+
+          - title: Investigate Traffic With Spy and Wavefront Top
+            url: /wavefront_monitoring_spy.html
+            output: web
+
+
+
+
+
+
 
   - title: Videos
     output: web

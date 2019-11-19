@@ -11,48 +11,63 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 ## Get Started With Trace Queries
 
-You query for traces by using Query Builder to describe the spans they must contain. 
+You query for traces by using Query Builder to describe the spans that those traces must contain.
 
 
-1. Select **Applications > Traces** in the task bar to display the Traces browser. 
-2. [Select an operation](#select-an-operation) to specify the scans to be matched. 
+1. Select **Applications > Traces** in the task bar to display the Traces browser.
+2. [Select an operation](#select-an-operation) to specify the scans to be matched.
 ![tracing query builder](images/tracing_query_builder.png)
-3. Optionally [add one or more filters](#add-filters) to refine your query. 
+3. Optionally [add one or more filters](#add-filters) to refine your query.
 ![tracing query builder](images/tracing_query_builder_filter.png)
 4. Click **Search** in the query bar to update the list of traces.
 
 **Note:** As an alternative, you can use [Query Editor](#use-query-editor-power-users) to submit advanced trace queries explicitly.
+<!---Add mini screenshot?--->
+
 
 ## Select an Operation
 
 You select an operation to display traces with at least one span that represents the work done by that operation.
 
-1. Display the Traces browser.
-2. Click the **Operation** selector to open the cascading menu.  
-    ![tracing query builder operation selector](images/tracing_query_builder_operation_selector.png) 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+1. Select <strong>Applications &gt; Traces</strong> to open the Traces browser.
+<p>&nbsp;</p>
+2. Click the <strong>Operation</strong> selector to open the cascading menu.
+</td>
+<td width="60%"><img src="images/tracing_query_builder_operation_selector.png" alt="tracing query builder operation selector"></td>
+</tr>
+<tr>
+<td width="40%">
+3. Use the drill-down to select the application, service, and operation.
+<p>&nbsp;</p>
+4. Either add filters (see below) or click <strong>Search</strong> to display results.</td>
+<td width="60%"><img src="images/tracing_query_builder_operation_menu.png" alt="tracing query builder operation menu"><br>
+</td>
+</tr>
+</tbody>
+</table>
 
-3. Select name components for an application, service, and operation.  
-    ![tracing query builder operation menu](images/tracing_query_builder_operation_menu.png) 
-    
-4. Either [add filters](#add-filters) or click **Search** to display results.
-    
-**Note:** You can select `*` instead of name components to select all operations in a service, or all operations in all services:
-    ![tracing query builder operation menu](images/tracing_query_builder_operation_menu_all.png) 
+**Wildcard Selection**
 
-**Note:** The names in the cascading menus correspond to tag values and span names that a developer specified while instrumenting the application code.
+You can select `*` instead of name components to select all operations in a service, or all operations in all services:
+
+![tracing query builder operation menu](images/tracing_query_builder_operation_menu_all.png)
 
 ## Add Filters
 
 After you have selected an operation, you can optionally add filters to further describe the traces you want to see. You can add different types of filters in any order.
 
 <ol>
-<li>Select an operation if you have not already done so.</li>
-<li markdown="span">Click **Add Filter** and select a filter type. 
-![tracing query builder filter type menu](images/tracing_query_builder_filter_type_menu.png) 
+<li>Select an operation.</li>
+<li markdown="span">Click **Add Filter** and select a filter type.
+![tracing query builder filter type menu](images/tracing_query_builder_filter_type_menu.png)
 </li>
 
 
-<li>Click next to the filter type and specify the filter setting. 
+<li>Click next to the filter type and specify the filter setting.
 
 <table style="width: 100%">
 <colgroup>
@@ -95,55 +110,62 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 
 ## Remove Filters
 
-You can remove an individual filter: 
-1. Click the **X** in the filter box:
+You can remove an individual filter:
 
-    ![tracing query builder remove filter](images/tracing_query_builder_remove_filter.png) 
-2. Click **Search** to update the displayed results.
-
-If you want to start the query all over, click **Clear** to remove the operation name and all filters:
-
-![tracing query builder clear](images/tracing_query_builder_clear.png) 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol><li>Click the <strong>X</strong> in the filter box:</li>
+<li>Click <strong>Search</strong> to update the displayed results.</li>
+</ol></td>
+<td width="60%"><img src="images/tracing_query_builder_remove_filter.png" alt="tracing query builder remove filter"></td>
+</tr>
+<tr>
+<td width="40%">
+<p>If you want to start the query all over, click <strong>Clear</strong> to remove the operation name and all filters:</p></td>
+<td width="60%"><img src="images/tracing_query_builder_clear.png" alt="tracing query builder clear"></td>
+</tr>
+</tbody>
+</table>
 
 
 ## Example
 
-Suppose you want to find traces that contain spans for an operation called `notify`, which is called from the `notification` service of the `beachshirts` application. You're interested only in seeing traces that are emitted from a particular source and that are longer than 30 milliseconds.  
+Suppose you want to find traces that contain spans for an operation called `notify`, which is called from the `notification` service of the `beachshirts` application. You're interested only in seeing traces that are emitted from a particular source and that are longer than 30 milliseconds.
 
 1. Select the operation from the cascading **Operation** menu.
 2. Click **Add Filter** and select **Tag**.
 3. Click the Tags selector to open a cascading menu of tag types.
 4. Select the **source** tag type to display a menu of source names, and select the source name you want.
-    ![tracing query builder select source](images/tracing_query_builder_select_source.png) 
+    ![tracing query builder select source](images/tracing_query_builder_select_source.png)
 5. Click **Add Filter** and select **Duration**.
 6. Click the min/max Duration selector to display fields for specifying durations.
-    ![tracing query builder select duration](images/tracing_query_builder_select_duration.png) 
+    ![tracing query builder select duration](images/tracing_query_builder_select_duration.png)
 7. Type 30 in the **Min Duration** field and click **Apply**.
 8. Click **Search** to display the results.
-    ![tracing query builder complete](images/tracing_query_builder_complete.png) 
+    ![tracing query builder complete](images/tracing_query_builder_complete.png)
 
 
-### Optionally View the Corresponding Trace Query
+### View Trace Queries in Query Editor
 
-Query Builder generates a query that includes the [`traces()` function](traces_function.html) and one or more [filtering functions](traces_function.html#filtering-functions). For example, you can: 
+Query Builder generates a query that includes the [`traces()` function](traces_function.html) and one or more [filtering functions](traces_function.html#filtering-functions). You can:
 
-1. Construct a query with Query Builder as shown [above](#example).
-2. [Toggle to the Query Editor](#use-query-editor-power-users) to see what the corresponding functions look like. 
+* Construct a query with Query Builder as shown [above](#example).
+* [Toggle to the Query Editor](#use-query-editor-power-users) to see what the corresponding functions look like.
     ![tracing query editor from builder](images/tracing_query_editor_from_builder.png)
-
-At this point, you can either continue to edit the query directly, or toggle back to Query Builder. 
 
 **Note:** If you change a query using Query Editor, you cannot go back to Query Builder.
 
 
-## Understand Trace Query Results
+## Trace Query Results
 
 A trace query:
 1. Finds the spans that match the description you specify.
 2. Finds the traces that contain at least one matching span.
-3. Uses duration thresholds (if you specified any) to filter the set of returned traces.  
+3. Uses duration thresholds (if you specified any) to filter the set of returned traces.
 
-For example, you can query for traces that each have at least one member span that meets all of the following criteria: 
+For example, you can query for traces with at least one member span that meets the following criteria:
 * Represents an operation called `dispatch` that is performed by a service called `delivery`.
 * Represents work done on a cluster called `us-west-2`.
 * Is associated with a custom tag `env=production`.
@@ -161,91 +183,43 @@ Each bar that is returned by a query represents a unique trace that has a unique
 
 For example, the two returned traces shown above both have a root span that represents work done by an operation called `ShoppingWebResource.getShoppingMenu`. However, these root spans represent different executions of the operation, with different start times. Although the two root spans have the same operation name, they mark the beginning of two different traces.
 
-**Note:** A trace's root span might differ from the span that was specified in the query. For example, suppose you query for spans that represent `getAvailableColors` operations. The query could return traces that begin with `ShoppingWebResource.getShoppingMenu`, if those traces contain a `getAvailableColors` span. 
+**Note:** A trace's root span might differ from the span that was specified in the query. For example, suppose you query for spans that represent `getAvailableColors` operations. The query could return traces that begin with `ShoppingWebResource.getShoppingMenu`, if those traces contain a `getAvailableColors` span.
 
-## Limited Result Set
+## Limit and Sort the Result Set
 
-Using the **Limit** filter to limit the number of returned traces can make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces. 
+The browser allows you to fine-tune what you see.
 
-**Note:** The current time window for the Traces browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start within the current time window.
+* Use the **Limit** filter to limit the number of returned traces and make your query complete faster. The trace query starts by returning the most recent traces.  After reaching the limit, the query stops looking for more traces.
 
+   **Note:** The current time window for the Traces browser also implicitly limits by the result set. Traces are returned only if they contain a matching span _and_ start in the current time window.
 
-
-## Sort the Result Set
-
-You can sort a set of returned traces by selecting a sort order from the **Sort By** menu. For example: 
-* Choose **Most Recent** to start with the traces that have the most recent start times.
-* Choose **Longest First** to start with the longest traces.
-* Choose **Outliers** to start with the traces whose duration is unusually long or unusually short.
-* Choose **Most Spans** to start with the traces that contain the largest number of spans.
+* Sort a set of returned traces by selecting a sort order from the **Sort By** menu. For example, choose **Outliers** to start with the traces whose duration is unusually long or unusually short. Or, choose **Most Spans** to start with the traces that contain the largest number of spans.
 
 If you both limit and sort the query results, sorting applies after limiting. For example, suppose you limit the number of returned traces to 50, and then sort the result set from shortest to longest. The sorted list includes only the 50 traces that were originally returned by the query. We do not first sort all traces containing a matching span, and then display the 50 shortest traces.
- 
+
 **Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
 
 ## Use Query Editor (Power Users)
 
-1. Select **Applications > Traces** in the task bar to display the Traces browser.
-2. Click the icon to toggle to Query Editor:  
-    ![tracing query toggle](images/tracing_query_toggle.png)
-3. Type a query that includes the [`traces()` function](traces_function.html):  
-![tracing query editor](images/tracing_query_editor_populated.png) 
-4. Click **Search** in the query bar to update the list of traces.
+Query Builder works well for many use cases, but sometimes Query Editor is your best option.
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol><li>Select <strong>Applications &gt; Traces</strong> in the task bar to display the Traces browser. </li>
+<li>Click the icon to toggle to Query Editor:</li>
+<li>Type a query that includes the <a href="traces_function.html">traces() function</a>.</li>
+<li>Click <strong>Search</strong> to update the list of traces.</li>
+</ol></td>
+<td width="60%"><img src="images/tracing_query_toggle.png" alt="tracing query toggle"></td>
+</tr>
+</tbody>
+</table>
 
 
 <!---
-<table>
-<colgroup>
-<col width="18%"/>
-<col width="50%"/>
-<col width="32%"/>
-</colgroup>
-<thead>
-<tr><th>Menu</th><th>Description</th><th>Example</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span"> </td>
-<td markdown="span"> </td>
-<td markdown="span"> </td>
-</tr>
-</tbody>
-</table>
-
-<table style="width: 100%">
-<colgroup>
-<col width="30%"/>
-<col width="70%"/>
-</colgroup>
-<thead>
-<tr><th>Menu</th><th>Start With the Traces That Have</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span">**Most Recent**</td>
-<td markdown="span">The most recent start times.</td>
-</tr>
-<tr>
-<td markdown="span">**Longest First**</td>
-<td markdown="span">The longest overall duration.</td>
-</tr>
-<tr>
-<td markdown="span">**Shortest First**</td>
-<td markdown="span">The shortest overall duration.</td>
-</tr>
-<tr>
-<td markdown="span">**Most Spans**</td>
-<td markdown="span">The largest number of spans.</td>
-</tr>
-<tr>
-<td markdown="span">**Least Spans**</td>
-<td markdown="span">The smallest number of spans.</td>
-</tr>
-</tbody>
-</table>
-
-
+Sue left this commented out table. Not sure we need it.
 <table style="width: 100%">
 <colgroup>
 <col width="15%"/>
@@ -259,7 +233,7 @@ If you both limit and sort the query results, sorting applies after limiting. Fo
 <tr>
 <td markdown="span">**Tags**</td>
 <td markdown="span">Traces that contain at least one span with a selected span tag or from a selected source (host)</td>
-<td markdown="span">Cascading menu of span tags that are used by your application and indexed by Wavefront. Typically includes `cluster`, `shard`, and `component`, among others. Select `source` to match spans from a given source. 
+<td markdown="span">Cascading menu of span tags that are used by your application and indexed by Wavefront. Typically includes `cluster`, `shard`, and `component`, among others. Select `source` to match spans from a given source.
 </td>
 </tr>
 <tr>

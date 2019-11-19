@@ -1,5 +1,5 @@
 ---
-title: Examine Data with Dashboards and Charts (v2 Beta)
+title: Examine Data with Dashboards and Charts (v2)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_examine_data_v2.html

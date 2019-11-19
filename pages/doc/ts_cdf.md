@@ -13,7 +13,7 @@ summary: Reference to the cdf() function
 cdf(<raw_value>, <hsExpression>)
 ```
 
-Cumulative distribution function for histograms. Lets you find out how likely is that a histogram is less than or equal to a specified value.
+Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value.
 
 
 ## Parameters

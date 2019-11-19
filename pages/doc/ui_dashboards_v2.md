@@ -1,5 +1,5 @@
 ---
-title: Create and Customize Dashboards (v2 Beta)
+title: Create and Customize Dashboards (v2)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_dashboards_v2.html
@@ -25,26 +25,55 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 ## Create a Dashboard
 
+You have several options for creating a dashboard:
+
+* Select **Dashboards > Create Dashboard**, drag in the Metrics or New Chart widget, and follow the wizard to create a single-chart or multi-chart dashboard.
+* Select **Dashboards > Create Dashboard**, drag in the Templates widget, and select an integration, then pick the dashboards and charts you'd like to include.
+* Select **Dashboards > All Dashboards** and click **Create Dashboard**
+* Select **Browse > Metrics** and click **Create Dashboard**.
+
+### Create a Dashboard from Metrics or Charts
+
+It's easy to create a dashboard from metrics or by selecting a chart.
+
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
-<li>Drag the metrics or chart type widget onto the canvas, and select metrics, filters, and functions now or later. </li>
+<li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
+<li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
 <td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
 </tr>
 </tbody>
 </table>
 
-You can also create a dashboard from the Dashboard browser (**Dashboards > All Dashboards**) or the Metrics browser (**Browse > Metrics**).
+### Create a Dashboard from a Template
+
+With release 2019.38, you can create a dashboard by specifying an integration dashboard as a template.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<li>Drag the <strong>Templates</strong> widget onto the canvas. </li>
+<li>Select first the source integration, then the dashboard you want as a template, and then one or more charts from that dashboard.</li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
+<td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create dashboard from template"></td>
+</tr>
+</tbody>
+</table>
+
 
 ## Edit or Clone a Dashboard
 
 The dashboard menu allows you to create a dashboard, edit a dashboard, clone a dashboard, and look at the dashboard version history.
 
-* When you **clone a dashboard** you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone. 
+* When you **clone a dashboard** you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
 * The **dashboard version history** tracks each saved version and includes the user who saved the version. The result is an audit trail for the dashboard.
 
 <table style="width: 100%;">
