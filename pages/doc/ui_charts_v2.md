@@ -1,5 +1,5 @@
 ---
-title: Create and Customize Charts (v2 Beta)
+title: Create and Customize Charts (v2)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_charts_v2.html
@@ -177,7 +177,7 @@ You can control how units display in the Y axis. Changes affect *only the displa
 **Note:** Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows, for example, GB of memory or Gigabytes per second, then changes can result in a clearer display.
 
 By default, charts use SI unit prefixes, but you can change that.
-* **SI unit** prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source. 
+* **SI unit** prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source.
 * **IEC/Binary** prefixes (Ki, Mi, Gi, Ti, Pi, Ei, Zi, Yi) increment by a factor of 1024.
 
 **To display axes and legends with IEC/Binary unit prefixes:**

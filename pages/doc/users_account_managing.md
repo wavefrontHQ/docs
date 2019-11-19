@@ -41,7 +41,7 @@ In your user profile, you can configure several preferences, for example, select
 
 ## Switch Between UI Versions
 
-If your environment has been set up to offer the v2 Beta UI option, you can easily switch between UI versions.
+If your environment has been set up to offer the v2 UI option, you can easily switch between UI versions.
 
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
 1. Select the UI Version that you want to work in.

@@ -205,39 +205,39 @@ entries:
       url: /dashboards_variables.html
       output: web
 
-  - title: "Charts and Dashboards (v2 Beta)"
+  - title: "Charts and Dashboards (v2)"
     output: web
     folderitems:
 
-    - title: "What's New in v2 Beta"
+    - title: "What's New in v2"
       url: /ui_v2_faq.html
       output: web
 
-    - title: "Chart Builder v2 Beta"
+    - title: "Chart Builder (v2)"
       url: /chart_builder.html
       output: web
 
-    - title: "Examine Data v2 Beta"
+    - title: "Examine Data (v2)"
       url: /ui_examine_data_v2.html
       output: web
 
-    - title: "Create and Customize Dashboards v2 Beta"
+    - title: "Create and Customize Dashboards (v2)"
       url: /ui_dashboards_v2.html
       output: web
 
-    - title: "Create and Customize Charts v2 Beta"
+    - title: "Create and Customize Charts (v2)"
       url: /ui_charts_v2.html
       output: web
 
-    - title: "Chart Reference v2 Beta"
+    - title: "Chart Reference (v2)"
       url: /ui_chart_reference_v2.html
       output: web
 
-    - title: "Dashboard Variables v2 Beta"
+    - title: "Dashboard Variables (v2)"
       url: /dashboards_variables_v2.html
       output: web
 
-    - title: "Getting Started with Wavefront v2 Beta"
+    - title: "Getting Started with Wavefront (v2)"
       url: /tutorial_getting_started_v2.html
       output: web
 

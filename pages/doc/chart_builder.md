@@ -1,5 +1,5 @@
 ---
-title: Chart Builder (v2 Beta)
+title: Chart Builder (v2)
 keywords: query language
 tags: [query language, getting started]
 sidebar: doc_sidebar
@@ -169,6 +169,6 @@ You can add, remove, or reorder functions. Reordering might become necessary bec
 
 ## More Info
 
-Advanced users can use [Query Editor](query_editor.html) to take advantage of the complete set of query language functions. 
+Advanced users can use [Query Editor](query_editor.html) to take advantage of the complete set of query language functions.
 
 See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete reference. Each function links to a reference page.
