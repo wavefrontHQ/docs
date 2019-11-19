@@ -949,7 +949,7 @@ Chart description. The description shows up as hover text when you place the mou
 </table>
 
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
-
+<!---
 The **Drilldown Link** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart.
 
 You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
@@ -973,6 +973,7 @@ Suppose your users monitor 2 dashboards:
 * When the user clicks on a chart in dashboard 1 because it shows a critical value, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
 
   ![drilldown_target](images/drilldown_2.png)
+  --->
 
 <table style="width: 100%;">
   <tbody>
