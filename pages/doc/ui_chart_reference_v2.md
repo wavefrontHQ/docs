@@ -43,7 +43,7 @@ A **line plot** represents interpolated point buckets. The X axis represents the
 
 Missing data is represented by a dashed line. The dashed line only gives a visual representation of the data stream; it _does not_ represent values of the missing data. If you hover over the chart, you won't see values where the gap threshold has been applied. Use the **Format > Gap Threshold** property to set the amount of time before gaps of missing data display as dashed lines.
 
-### Format Tab
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 <table>
 <tbody>
 <thead>
@@ -78,7 +78,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 </tbody>
 </table>
 
-### Axis Tab
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
@@ -113,7 +113,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 </table>
 
 
-### Legend Tab
+<p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
@@ -162,7 +162,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
-### Description Tab
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
@@ -174,7 +174,7 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Advanced Tab
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
 <tbody>
@@ -190,13 +190,19 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## Point Plot Chart
 
 ![point plot](images/point_plot_v2.png)
 
 A **point plot** chart displays point buckets *without* any interpolation. Like a line chart, the X-axis represents the amount of time in your time window, and the Y-axis represents the value associated with the data during that time window.
 
-### Format Tab
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
 <tbody>
@@ -229,7 +235,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 </tbody>
 </table>
 
-### Axis Tab
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
@@ -263,7 +269,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 </tbody>
 </table>
 
-### Legend Tab
+<p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
@@ -312,7 +318,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
-### Description Tab
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
@@ -324,7 +330,7 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Advanced Tab
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
 <tbody>
@@ -340,6 +346,12 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
 ## Stacked Area Chart
 
 ![stacked area](images/stacked_area_v2.png)
@@ -348,7 +360,7 @@ A **stacked area** chart is a line chart but each line is filled in as a solid b
 
 The stacked area chart can help you determine at a glance which queries have the largest magnitude at any point in time. It is most commonly used to visually compare two or more quantities.
 
-### Format Tab
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
 <tbody>
@@ -400,7 +412,7 @@ The following stack types are supported.
 
 
 
-### Axis Tab
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
@@ -434,7 +446,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 </tbody>
 </table>
 
-### Legend Tab
+<p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
@@ -483,7 +495,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
-### Description Tab
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
@@ -495,7 +507,7 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Advanced Tab
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
 <tbody>
@@ -511,6 +523,11 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
 
 ## Stacked Column Chart
 
@@ -520,7 +537,7 @@ A **stacked column** chart resembles a bar chart and lets you view your data in 
 
 This chart supports the same tabs and options as the Stacked Area Chart discussed above but does not allow you to specify a Stack Type in the Format tab.
 
-### Format Tab
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
 <tbody>
@@ -559,7 +576,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 
 
-### Axis Tab
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
@@ -593,7 +610,7 @@ The Axis tab lets you customize the Y axis. The customizaiton is the same for bo
 </tbody>
 </table>
 
-### Legend Tab
+<p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
 
@@ -642,7 +659,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
-### Description Tab
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
@@ -654,7 +671,7 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Advanced Tab
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
 <tbody>
@@ -667,6 +684,12 @@ Chart description. The description shows up as hover text when you place the mou
 </tr>
 <tr><td>Interpolate points</td>
 <td>Check to interpolate points that exist only in the past or future into the current time window. </td></tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -717,7 +740,7 @@ A table chart doesn't support changes to the legend but allows fine-grained cust
 </tbody>
 </table>
 
-### Axis Tab
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab of a table chart allows you to limit which values show up in the chart. Consider this example table, which users have to scroll:
 
@@ -753,7 +776,7 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 </tbody>
 </table>
 
-### Description Tab
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
@@ -765,7 +788,7 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Advanced Tab
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
 <tbody>
@@ -776,6 +799,12 @@ Chart description. The description shows up as hover text when you place the mou
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
 </tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -791,7 +820,7 @@ In addition to Markdown formatted text, you can use links, images hosted outside
 
 By default, a **single stat** chart plots a single series on a chart and displays a summarized value for that series in large font on the chart. The font size and placement of the displayed value can be unique for each chart. A common use case is displaying instantaneous values of critical metrics on an overhead display.
 
-### Format Tab
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
 <tbody>
@@ -858,7 +887,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tbody>
 </table>
 
-### Sparkline Tab
+<p><span style="font-size: large; font-weight: 600">Sparkline Tab</span></p>
 
 The sparkline on a single stat chart summarizes the series display. You can customize the sparkline with these options:
 
@@ -907,7 +936,7 @@ Whether and where to show the sparkline. Options are:
 </tbody>
 </table>
 
-### Description Tab
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
@@ -919,8 +948,197 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Drilldown Link Tab (Beta)
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-The **Drilldown Link** tab allows you to specify a target dashboard that displays in a new tab when a user clicks on the single stat chart.
+The **Drilldown Link** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart.
 
-You can optionally customize the target dashboard. For example, you can specify a constant to be used as a variable.
+You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Example</span></p>
+
+Suppose your users monitor 2 dashboards:
+* Dashboard 1 consists of a set of single stat charts that monitor important values and change color as critical thresholds are crossed for an availability zone. Each chart is for one availability zone only. Each chart sets the `az` point tag to show only the value for that zone, for example:
+
+  ![query for drilldown](images/drilldown_0.png)
+
+* Dashboard 2 allows users to get details about the different availability zones. A variable (Availability Zone) is defined for that dashboard, and users can select a value for that variable.
+
+* Inside dashboard 1, we've defined a drilldown link for each single stat chart that:
+  - Goes to dashboard 2 when the user clicks one of the single-stat charts.
+  - Passes the value of the `az` point tag in as the value of the `az` variable.
+  **Note** A variable value that matches to the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match.
+
+  ![drilldown_definition](images/drilldown_1.png)
+
+* When the user clicks on a chart in dashboard 1 because it shows a critical value, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
+
+  ![drilldown_target](images/drilldown_2.png)
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+</table>
+
+## Topk Chart
+
+![topk chart](images/topk.png)
+
+A **topk** chart shows the most critical time series (8 by default) as horizontal bars. You can
+* Add a color mapping to highlight values
+* Specify the number of bars and other details such as the bar label, bar header, etc.
+* Specify a drilldown link that directs users to a different dashboard when they click on a bar.
+
+<p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
+
+The color mapping tab lets you define which set of values maps to which colors. In the example above, values between 0 and 0.5 are mapped to orange, values 0.5 - 1.0 are mapped to blue.
+
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Summarization</td>
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+
+<ul>
+<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
+<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
+<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
+<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
+<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
+<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
+<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
+<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
+</ul>
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+</tr>
+<tr>
+<td>Number of Bars</td>
+<td>Sets the number of bars for this topk chart. Default is 8. </td>
+</tr>
+<tr>
+<td>Group By</td>
+<td>Groups the bars. Source is included by default and cannot be removed. </td>
+</tr>
+<tr>
+<td>Bar Label</td>
+<td>Label shown on the very left of each bar. Default is <strong>source</strong>. In the example above, sources include app-3, db-1, etc.  </td>
+</tr>
+<tr>
+<td>Bar Header</td>
+<td>Header for all bars, show in the top left. In the example above, <strong>source</strong>. </td>
+</tr>
+<tr>
+<td>Value Header</td>
+<td>Header for the value column, shown in the top right. In the example above, <strong>value</strong>. </td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>Decimal precision of the value. Default is 3. </td>
+</tr>
+<tr>
+<td>Min and Max</td>
+<td>Allows you to specify the minimum and maximum and the units.  </td>
+</tr>
+<tr>
+<td>Sort Values Descending</td>
+<td>If checked, the highest values are at the top. If unchecked, the lowest values are at the top.  </td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to direct end users to a target dashboard if they click this chart,
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+## Node Map Chart
+
+![node map chart](images/node_map.png)
+
+A **node map** chart shows colored 3-D cubes ordered from highest to lowest.   a node map that shows data based on source values.
+* By default, the node map uses displays the highest value on the top left to catch the user's eye.
+* When a user clicks a node, a small popup of the corresponding metric for that source results.
+* Use color mapping to determine colors for higher values. The node map uses shading to show transitions. In the example above, values below 0.3 are shown as green, values lower than 0.8 are shown as a shade of yellow.
+* Users can group and can set the metric to display in the top right.
+* Specify a drilldown link to direct users to a different dashboard if they click on the dashboard.
+
+When you refresh a node map page, a short animation folds out the chart content.
+
+<p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
+
+The color mapping tab lets you define which set of values maps to which colors. Color mapping uses less than. In the example above, values less than 0.3 are green, values less than 0.8 are yellow. All other values are red.
+
+<p><span style="font-size: large; font-weight: 600">Node Map Defaults Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Default Group by</td>
+<td>Specifies grouping.
+</td>
+</tr>
+<tr>
+<td>Default Metric</td>
+<td>Metric you're interested in. Each cube in the node map displays one node and you can, for example, create a set of queries to monitor for CPU, memory, and bandwidth issues. </td>
+</tr>
+<tr>
+<td>Node Title Tag</td>
+<td>Lets you set the title of the popup line chart to the source (default) or one of the point tags. </td>
+</tr>
+<tr>
+<td>Default Node Color</td>
+<td>Let's you pick the color of nodes with values that are below any of the thresholds.  </td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to direct end users to a target dashboard if they click this chart,
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
