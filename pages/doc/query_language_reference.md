@@ -673,7 +673,7 @@ Filtering functions help you select a subset of the time series that are returne
 </tr>
 <tr>
 <td markdown="span"><a href="ts_limit.html">limit(<strong>&lt;numberOfTimeSeries&gt;[, &lt;offsetNumber&gt;],  &lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns at most <strong>numberOfTimeSeries</strong> time series. Use the optional <strong>offsetNumber</strong> to specify an index to start with. </td>
+<td>Limits the number of time series returned by the query. <strong>numberOfTimeSeries</strong> specifies the maximum number of time series returned. Optionally, use <strong>offsetNumber</strong> to specify the starting index.</td>
 </tr>
 <tr>
 <td><a href="ts_hideBefore.html"> hideBefore(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
