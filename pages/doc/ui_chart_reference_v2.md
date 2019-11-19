@@ -1,5 +1,5 @@
 ---
-title: Chart Reference (v2 Beta)
+title: Chart Reference (v2)
 keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar

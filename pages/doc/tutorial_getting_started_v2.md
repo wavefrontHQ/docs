@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with Wavefront (v2 Beta)"
+title: "Getting Started with Wavefront (v2)"
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started_v2.html
@@ -8,7 +8,7 @@ summary: Build dashboards and charts with sample data, create an alert, and get 
 
 This tutorial uses Wavefront sample data to get you started.
 
-**Note:** If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2 Beta](ui_v2_faq.html) instead.
+**Note:** If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2](ui_v2_faq.html) instead.
 
 To complete these tasks you need:
 * **Access to a Wavefront instance**. If your company doesn't have one, sign up for a [free trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"}!

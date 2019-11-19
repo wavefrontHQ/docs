@@ -1,5 +1,5 @@
 ---
-title: Create and Customize Dashboards (v2 Beta)
+title: Create and Customize Dashboards (v2)
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_dashboards_v2.html
