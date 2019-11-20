@@ -1145,10 +1145,9 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-Allows you to direct end users to a target dashboard if they click this chart,
+If you [specify a drilldow link], end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. 
 
 <table style="width: 100%;">
 <tbody>
