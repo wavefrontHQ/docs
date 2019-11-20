@@ -96,7 +96,7 @@ We can show only histogram values that are less than or equal to 60 using the `l
 
 ![show only le 60](images/cum_histo_bucket.png)
 
-We can then manipulate the cumulative histogram. First, we use [counter_sum](ts_counter_sum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
+We can then manipulate the cumulative histogram. First, we use [counter_sum](ts_countersum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
 
 ![counter sum and align](images/cum_histo_counter_sum.png)
 
