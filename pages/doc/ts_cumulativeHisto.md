@@ -4,7 +4,7 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_cumulativeHisto.html
-summary: Reference to the cumulativeHisto() function
+summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulative histograms to Wavefront ordinary histograms.
 ---
 ## Summary
 ```
@@ -52,6 +52,8 @@ When a chart displays the result of this function, it shows the median by defaul
 Wavefront histogram distributions are ordinary histograms while some other tools, such as Prometheus and Telegraph, use cumulative histograms.
 
 ![histogram types](images/histogram_types.png)
+
+(image credit: Wikipedia)
 
 If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Wavefront.
 
@@ -105,8 +107,10 @@ Finally, we use the `cumulativeHisto()` function to return a cumulative histogra
 
 ## See Also
 
-* Our [histogram doc page](https://proxies_histograms.html) gives background information.
-* The [median() function](ts_median.html) returns time series that consist of the median values of the histogram distributions described by an expression.
+* The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://www.wavefront.com/integrating-prometheus-with-wavefront/) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
+* The [How to Make Prometheus Monitoring Enterprise Ready](https://www.wavefront.com/how-to-make-prometheus-monitoring-enterprise-ready/) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
+* Our [histogram doc page](https://proxies_histograms.html) gives background information about Wavefront histograms.
+
 
 ## Caveats
 
