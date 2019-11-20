@@ -49,7 +49,7 @@ Creates a synthetic point tag with the specified key for each time series. The v
 <ul>
 <li markdown="span">Specify `metric` to construct the new point tag value based on the metric name.</li>
 <li markdown="span">Specify `source` to construct the new point tag value based on the source name.</li>
-<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new point tag value based on an existing point tag value. 
+<li markdown="span">Specify `tagk, <pointTagKey>` (no curly braces) to construct the new point tag value based on an existing point tag value.
 </li>
 </ul>
 </td>
@@ -116,7 +116,7 @@ The query above:
 
 * A simple string.
 * A string that contains variables.
-* A single node that is extracted from the original metric name, the source name, or a point tag value. 
+* A single node that is extracted from the original metric name, the source name, or a point tag value.
 * Substrings that are matched by regular expressions from the original metric name, the source name, or a point tag value.
 
 **Note:** You can nest `taggify` calls.
@@ -124,7 +124,7 @@ The query above:
 ### Simple String
 
 You can specify a simple string if you want to use the same point tag value for all time series described by `tsExpression`.
- 
+
 ### String With Variables
 
 You can specify a string with variables if you want the point tag value for each time series to contain one or more metadata values from that series. You can use any combination of variables and embed them in text. The following variables obtain the actual metric name, the source name, or the value of a specified point tag:
@@ -149,11 +149,11 @@ The specified replacement string acts like a template, in which Wavefront replac
 
 A common practice is to use naming conventions that provide structure to metric names, source names, or point tag values. Naming conventions typically subdivide  metadata values into nodes, which are substrings that are delimited by certain characters. By default, Wavefront uses periods (".") as node delimiters, but your naming conventions might use other characters.
 
-You can use `taggify()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as point tag values for your time series. For example, if you have a time series with a metric name like `pdx.customerA_latency.i49f21a72`, you could use `taggify()` to display it with a point tag like `cust=customerA_latency`. 
+You can use `taggify()` with a `zeroBasedNodeIndex` to extract a single node from an existing metadata value and use just the extracted node as point tag values for your time series. For example, if you have a time series with a metric name like `pdx.customerA_latency.i49f21a72`, you could use `taggify()` to display it with a point tag like `cust=customerA_latency`.
 
 `zeroBasedNodeIndex` specifies the node to extract by counting nodes from left to right, starting with 0. You must specify the type of value to extract the node from by including `metric`, `source` or `tagk, <pointTagKey>`.
 
-For example, suppose you use the following naming convention for a metric namespace, and you consider periods (".") to be node delimiters: `<datacenter>.<customerName>_latency.<idNumber>` 
+For example, suppose you use the following naming convention for a metric namespace, and you consider periods (".") to be node delimiters: `<datacenter>.<customerName>_latency.<idNumber>`
 
 Under these conventions, the nodes in the metric name `pdx.customerA_latency.i49f21a72` are numbered as follows:
 
@@ -222,7 +222,7 @@ The following query:
 * Identifies `source` as the type of metadata to extract the `<versionKey>` from.
 * Adds a synthetic point tag called `version`.
 * Matches `<versionKey>` as the 3rd capture group in the source name (between the last hyphen and the end of the name).
-* Uses the 3rd capture group to specify the value of the new `vesion` point tag.
+* Uses the 3rd capture group to specify the value of the new `version` point tag.
 
 ```
 taggify(ts("performance.*.tracker"), source, version,  "^(.*)-(.*)-(.*)$", "$3")
