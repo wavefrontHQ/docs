@@ -17,7 +17,7 @@ Wavefront provides several Go SDKs for different purposes on Github:
 
 In the Setup tab, the integration includes sample code based on `go-metrics-wavefront` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html). The Setup tab includes both a simple example and an extended example for adding metric-level tags.
 
-This is a custom integration. You can send your own metrics and create your own dashboards.
+The steps in the Setup tab explain how to collect Go runtime metrics. This integration provides a dashboard based on the collected Go runtime metrics.
 
 ## Go Setup
 
@@ -128,6 +128,24 @@ func main() {
   counter := metrics.NewCounter() // Create a counter
   reporter.RegisterMetric("foo", counter, tags) // will create a 'test.prefix.foo.count' metric with tags
   counter.Inc(47)
+}
+```
+{% endraw %}
+
+### Collecting Go Runtime Metrics
+You can enable the runtime metric flag in the reporter to collect Go runtime metrics:
+{% raw %}
+```
+func main() {
+  // set reporting.RuntimeMetric(true) when creating a reporter using the steps mentioned above
+  reporter := reporting.NewReporter(
+    sender,
+    application.New("test-app", "test-service"),
+    reporting.Source("go-metrics-test"),
+    reporting.Prefix("test.prefix"),
+    reporting.LogErrors(true),
+    reporting.RuntimeMetric(true),
+  )
 }
 ```
 {% endraw %}
