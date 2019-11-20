@@ -441,10 +441,10 @@ All operations between `tsExpression`s are subject to the matching processes des
 <ul>
 <li markdown="span">**Boolean operators** - Combine `tsExpression`s, constants, or filters, such as source names, source tags,  point tags, alert names, alert tags.</li>
 <ul>
-<li markdown="span">`and`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
-<li markdown="span">`or`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
-<li markdown="span">`not`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
-<li markdown="span">`[and]`, `[or]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
+<li markdown="span">`and`, `AND`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
+<li markdown="span">`or`, `OR`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
+<li markdown="span">`not`, `NOT`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
+<li markdown="span">`[and]`, `[AND]`, `[or]`, `[OR]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
 <ul><li markdown="span">`+`, `-`, `*`, `/`: Operate on pairs of time series that have matching metric, source, and point tag combinations. If either side of the operator is a 'singleton' -- that is, a single series with a unique metric/source/point tag combination -- it automatically matches up with every time series on the other side of the operator.</li>
@@ -458,9 +458,9 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">**Examples**</li>
 <ul>
 <li markdown="span">`(ts(my.metric) > 10) and (ts(my.metric) < 20)` returns 1 if `my.metric` is between 10 and 20. Otherwise, returns 0.</li>
-<li markdown="span">`ts(cpu.load.1m, tag=prod and tag=db)` returns `cpu.load.1m` for all sources tagged with both `prod` and `db`.</li>
+<li markdown="span">`ts(cpu.load.1m, tag=prod AND tag=db)` returns `cpu.load.1m` for all sources tagged with both `prod` and `db`.</li>
 <li markdown="span">`ts(db.query.rate, tag=db and not source="db5.wavefront.com")` returns `db.query.rate` for all sources tagged with `db`, except for the `db5.wavefront.com` source.</li>
-<li markdown="span">`ts("smp-fax*.count" and not "smp-fax*.metrics.wavefront.", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"` for any sources that start with `-eq`.</li>
+<li markdown="span">`ts("smp-fax*.count" AND NOT "smp-fax*.metrics.wavefront.*", source="-eq*"` returns all metrics that match `"smp-fax*.count"` except for those matching `"smp-fax*.metrics.wavefront.*"` for any sources that start with `-eq`.</li>
 </ul>
 </ul>
 
@@ -1507,8 +1507,11 @@ Each function in the following table returns a set of one or more events, and ca
 <td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;.</td>
 </tr>
 <tr>
-<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>)</a></td>
-<td>Creates a single synthetic event with the specified start and end timestamps. </td>
+<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>
+<br> [, <strong>prettyName</strong>=<strong>&lt;"displayName"&gt;</strong>]
+<br> [, <strong>&lt;eventTagName&gt;</strong>=<strong>&lt;"eventTagValue"&gt;</strong>] ...)
+</a></td>
+<td>Creates a single synthetic event with the specified start and end timestamps, and, optionally, with the specified display name and tags. </td>
 </tr>
 <tr>
 <td><a href="event_first.html">first(<strong>&lt;eventsExpression&gt;</strong>)</a></td>

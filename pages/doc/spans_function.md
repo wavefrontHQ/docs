@@ -31,7 +31,7 @@ Full name of the operation that each matching span must represent. For example, 
 </tr>
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#filters) that each matching span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
+<td markdown="span"> A [span filter](#filters) that each matching span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators.</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified `filterName`.</td></tr>
