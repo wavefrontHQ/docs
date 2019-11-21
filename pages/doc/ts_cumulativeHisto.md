@@ -4,7 +4,7 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_cumulativeHisto.html
-summary: Reference to the cumulativeHisto() function
+summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulative histograms to Wavefront ordinary histograms.
 ---
 ## Summary
 ```
@@ -53,6 +53,8 @@ Wavefront histogram distributions are ordinary histograms while some other tools
 
 ![histogram types](images/histogram_types.png)
 
+(image credit: Wikipedia)
+
 If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Wavefront.
 
 ### How to map Prometheus Queries to Wavefront Queries
@@ -94,7 +96,7 @@ We can show only histogram values that are less than or equal to 60 using the `l
 
 ![show only le 60](images/cum_histo_bucket.png)
 
-We can then manipulate the cumulative histogram. First, we use [counter_sum](ts_counter_sum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
+We can then manipulate the cumulative histogram. First, we use [counter_sum](ts_countersum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
 
 ![counter sum and align](images/cum_histo_counter_sum.png)
 
@@ -105,8 +107,10 @@ Finally, we use the `cumulativeHisto()` function to return a cumulative histogra
 
 ## See Also
 
-* Our [histogram doc page](https://proxies_histograms.html) gives background information.
-* The [median() function](ts_median.html) returns time series that consist of the median values of the histogram distributions described by an expression.
+* The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://www.wavefront.com/integrating-prometheus-with-wavefront/) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
+* The [How to Make Prometheus Monitoring Enterprise Ready](https://www.wavefront.com/how-to-make-prometheus-monitoring-enterprise-ready/) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
+* Our [histogram doc page](https://proxies_histograms.html) gives background information about Wavefront histograms.
+
 
 ## Caveats
 

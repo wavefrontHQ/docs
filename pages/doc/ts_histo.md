@@ -73,8 +73,8 @@ Then we run `histo()` and can see the following in the example below:
 ## See Also
 
 * Our [histogram doc page](https://proxies_histograms.html) gives background information.
-* The [median() function](ts_median.html) returns time series that consist of the median values of the histogram distributions described by an expression.
+* The [median() function](hs_median.html) returns time series that consist of the median values of the histogram distributions described by an expression.
 
 ## Caveats
 
-If you want to convert metrics at query time, `histo()` does that for you. However, ingesting first-class histogram distributions is the faster, more accurate and preferred approach to working with histograms. 
+If you want to convert metrics at query time, `histo()` does that for you. However, ingesting first-class histogram distributions is the faster, more accurate and preferred approach to working with histograms.
