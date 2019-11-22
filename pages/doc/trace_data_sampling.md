@@ -4,20 +4,40 @@ keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: trace_data_sampling.html
-summary: Learn how to set up sampling for Wavefront trace data.
+summary: Learn about sampling for Wavefront trace data.
 ---
 
-A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront-trace-data). You can set up sampling strategies to reduce the volume of ingested trace data. 
+A cloud-scale web application generates a very large number of [traces](tracing_basics.html#wavefront-trace-data). Wavefront supports sampling to reduce the volume of stored trace data: 
 
-Well-chosen sampling strategies can give you a good idea of how your application is behaving, while: 
-* Limiting the performance impact on network bandwidth and application response times.
-* Reducing the amount of storage required for trace data, and lowering your monthly costs.
-* Filtering out "noise" traces so you can see what's important.
+* Wavefront automatically performs intelligent sampling on the traces that it receives, and retains only those traces that are most likely to be informative.  
+* You can further reduce the trace data that Wavefront receives by adding explicit sampling strategies.
+
+Sampling can give you a good idea of how your application is behaving. In addition, sampling can: 
+* Reduce the amount of storage required for trace data, and lowering your monthly costs.
+* Filter out "noise" traces so you can see what's important.
+* Limit the performance impact on network bandwidth and application response times.
+
+## Wavefront Intelligent Sampling
+
+Wavefront automatically performs intelligent sampling to reduce the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative, and to discard traces that are redundant or otherwise not worth inspecting. 
+
+Intelligent sampling gives preference to: 
+
+* Traces that are abnormally long, as compared to other traces for the same endpoint. 
+* Traces that contain at least one individual span that is abnormally long, as compared to other spans for the same operation.
+* Traces that contain at least one span in which an error occurred.
+
+Wavefront uses proprietary algorithms to decide which traces to retain (sample) and which traces to discard (not sample). When analyzing whether a trace is worth retaining, Wavefront compares the trace's characteristics to a historical context that is composed of similar traces. The historical context is based on the [RED metrics](trace_data_details.html#trace-sampling-and-derived-red-metrics) that Wavefront derives from the entire set of trace data that your application has emitted before any sampling occurs. This enables Wavefront to determine whether an analyzed trace is a true outlier.
+
+Intelligent sampling applies to entire traces after Wavefront receives them. If you have set up an [explicit sampling strategy](#explicit-sampling-strategies), then the output of your explicit sampling strategy is the input to intelligent sampling. 
+
+Intelligent sampling is performed by the Wavefront service itself, not by the proxy or by an instrumented application. Consequently, intelligent sampling does not place any additional processing burden on your proxies or applications. Intelligent sampling does not add to your total cost of operation (TCO). If you already use one or more proxies to ingest your time-series data, you can start ingesting and sampling trace data without adding more hardware to support more proxies. 
 
 
-## Wavefront Sampling Strategies
 
-A sampling strategy is a mechanism for selecting which traces to forward to Wavefront. Wavefront supports the following sampling strategies: 
+## Explicit Sampling Strategies
+
+A explicit sampling strategy is a mechanism for selecting which traces to forward to Wavefront. Wavefront supports the following explicit sampling strategies: 
 
 <table>
 <colgroup>
@@ -30,7 +50,7 @@ A sampling strategy is a mechanism for selecting which traces to forward to Wave
 <tbody>
 <tr>
 <td markdown="span">Rate-based sampling</td>
-<td markdown="span">Sends N percent of the generated traces to Wavefront. Sometimes called "probabilistic sampling". For example, a sampling rate of 10% causes 1 out of 10 traces to be sent and ingested.</td>
+<td markdown="span">Sends N percent of the generated traces to Wavefront. Sometimes called probabilistic sampling. For example, a sampling rate of 10% causes 1 out of 10 traces to be sent and ingested.</td>
 </tr>
 <tr>
 <td markdown="span">Duration-based sampling</td>
@@ -43,39 +63,14 @@ A sampling strategy is a mechanism for selecting which traces to forward to Wave
 </tbody>
 </table>
 
-**Note:** You can query and visualize only the traces and spans that Wavefront has actually received and ingested. If you set up a sampling strategy that severely reduces the volume of ingested trace data, you could end up with queries that produce no results.
+**Note:** You can query and visualize only the traces and spans that Wavefront has actually received and ingested. If you set up an explicit sampling strategy that severely reduces the volume of ingested trace data, you could end up with queries that produce no results.
 
-### Complete vs. Partial Traces
+### Ways to Set Up Explicit Sampling Strategies 
 
-An ingested trace normally could be complete (a trace ingested with all of its member spans) or partial (a trace that is missing one or more spans). The completeness of the traces in a sample depends in part on the sampling strategy:
+You can set up an explicit sampling strategy using either of the following methods:
 
-* Rate-based sampling attempts to send complete traces. That is, the sampler selects the specified percentage of trace IDs, and then sends all of the spans that belong to each selected trace. 
-
-* Duration-based sampling considers only individual spans. That is, the sampler selects all spans of an appropriate duration, regardless of whether they form complete traces.
-
-Partial traces can also occur in the following situations:
-* If a span contains an error. Each such span is sent individually, without the other spans in the same trace.
-* If a trace has spans from multiple microservices, and you set up different sampling rates for those microservices. 
-
-
-### When Sampling Strategies are Combined
-
-You can combine rate-based sampling and duration-based sampling in the same microservice. Doing so causes Wavefront to ingest the union of the spans that are selected by each sampler.
-
-For example, suppose you set the sampling rate to 20% and the sampling duration to 45ms for the same microservice. This causes Wavefront to receive:
-* 20% of the traces generated by that microservice, regardless of the length of their spans.
-* Any additional spans outside of that 20% that are longer than 45ms. 
-
-As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
-
-**Note:** A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. 
-
-
-## Ways to Set Up Sampling
-You can set up a sampling strategy using either of the following methods:
-
-* [Configure sampling on a Wavefront proxy](#setting-up-sampling-through-the-proxy).  
-* [Configure sampling in your instrumented application code](#setting-up-sampling-in-your-code).  
+* [Configure sampling on a Wavefront proxy](#setting-up-explicit-sampling-through-the-proxy).  
+* [Configure sampling in your instrumented application code](#setting-up-explicit-sampling-in-your-code).  
 
 Choose the [Wavefront proxy](proxies_installing.html) for sampling when you want to:
 * Use a single sampling strategy to coordinate the sampling for all applications that use the same proxy. 
@@ -84,13 +79,41 @@ Choose the [Wavefront proxy](proxies_installing.html) for sampling when you want
 
 Choose sampling in your instrumented code when you want to:
 * Reduce the performance impact of span reporting on your application. 
-* Use [direct ingestion](direct_ingestion.html) (so no proxy).
+* Use [direct ingestion](direct_ingestion.html) (no proxy).
 * Configure sampling on a per-process basis, for example, when you expect spans from the services in different processes to have different characteristics.
 
+### Complete vs. Partial Traces
 
-## Setting Up Sampling Through the Proxy
+An ingested trace can be complete (a trace ingested with all of its member spans) or partial (a trace that is missing one or more spans). The completeness of the traces in a sample depends in part on the sampling strategy:
 
-You can set up sampling strategies through a [Wavefront proxy](proxies_installing.html) by adding the sampling properties to the proxy's configuration file.
+* Rate-based sampling attempts to send complete traces. That is, the sampler selects the specified percentage of trace IDs, and then sends all of the spans that belong to each selected trace. 
+
+* Duration-based sampling considers only individual spans. That is, the sampler selects all spans of an appropriate duration, regardless of whether they form complete traces.
+
+Partial traces can also occur in the following situations:
+* If a span contains an error. Each such span is sent individually, without the other spans in the same trace.
+* If a trace has spans from multiple services, and you set up different sampling rates for those services. 
+
+
+### Result of Combining Explicit Sampling Strategies
+
+You can combine rate-based sampling and duration-based sampling in the same service. Doing so causes Wavefront to ingest the union of the spans that are selected by each sampler.
+
+For example, suppose you set the sampling rate to 20% and the sampling duration to 45ms for the same service. This causes Wavefront to receive:
+* 20% of the traces generated by that service, regardless of the length of their spans.
+* Any additional spans outside of that 20% that are longer than 45ms. 
+
+As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
+
+**Note:** A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. 
+
+
+
+
+
+## Setting Up Explicit Sampling Through the Proxy
+
+You can set up explicit sampling strategies through a [Wavefront proxy](proxies_installing.html) by adding the sampling properties to the proxy's configuration file.
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 2. In the `wavefront.conf` file, add one or both of the following properties. For example, the following properties set up a sampling rate of 10% and a sampling duration of 45 milliseconds:
@@ -105,9 +128,9 @@ You can set up sampling strategies through a [Wavefront proxy](proxies_installin
 
 
 
-## Setting Up Sampling in Your Code
+## Setting Up Explicit Sampling in Your Code
 
-You can set up sampling strategies in application code that is built with one of the following [Wavefront observability SDKs](wavefront_sdks.html):
+You can set up explicit sampling strategies in application code that is built with one of the following [Wavefront observability SDKs](wavefront_sdks.html):
 
 * The Wavefront OpenTracing SDK
 * Any Wavefront observability SDK that depends on the Wavefront OpenTracing SDK
