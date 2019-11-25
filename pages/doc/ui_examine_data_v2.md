@@ -45,13 +45,27 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 ![time bar](images/time_bar_v2.png)
 
-## Filter with Dashboard Variables
+## Filter with Variables or Filters
+
+Dashboard variables and global filters are two ways to narrow down what you see.
+* [**Dashboard Variables**](dashboards_variables_v2.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
+* **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
+
+If you select a variable and a global filter, Wavefront uses AND to fine results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+
+### Filter with Dashboard Variables
 
 If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts. Dashboard variables are below the section bar.
 
 ![dashboard variables example](images/variables_example.png)
 
 In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined for this dashboard. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
+
+### Filter with Global Filters
+
+All users can use global filters to customize their dashboard. When you set a global filter, for example, to limit to certain sources, you affect all charts in the dashboard.  
+
+
 
 ## Find a Dashboard
 
