@@ -89,13 +89,11 @@ In ts() and events() queries, you can filter:
     - system tags added by alerts (severity, subtype, and type)
 
 
-## Tag Paths
+## Select and Search Using Tag Paths
 
 All tag types support the ability to organize tags in a hierarchy. The hierarchy is defined by separating tag components with a dot (`.`), for example, `MyService.MyApp`.
 
 Dashboards provided by Wavefront start with a tilde at the beginning of the tag, for example, `~welcome.`, `~integration.`, and `~system.`. To improve readability, tags retain case for display but they are treated as case-insensitive for searching, sorting, etc.
-
-### Select and Search Tag Paths
 
 In the UI you operate on tag paths by selecting a component at a specific node in the hierarchy.  For example:
 * Select all Wavefront dashboards by clicking **wavefront**
@@ -105,6 +103,15 @@ In queries, you achieve the same effect by specifying a tag path with trailing w
 
 When you create maintenance windows, you can use tag paths and wildcards to put a group of alerts in maintenance.
 
+
+## Point Tags
+
+Point tags offer a powerful way of labeling data so that you can slice and dice it in almost any way you can imagine. For example, you can use point tags, to label a point’s datacenter, version, etc. and can then group by datacenter or version.
+
+You use point tags to add extra dimensions to your data, and can then focus your exploration just on that dimension.
+
+* [Fine Tune Queries with Point Tags](query_language_point_tags.html) explains how to use point tags.
+* [Pairing Up Matching Series](query_language_series_matching.html) discusses how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
 
 <a name="entity_tags"></a>
 ## Object Tags
@@ -146,7 +153,7 @@ Any Wavefront metric includes a source name. If source names change frequently o
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
-**Note:** You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Wavefront rejects source tags with a 403 error. 
+**Note:** You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Wavefront rejects source tags with a 403 error.
 
 ### Why Source Tags?
 
