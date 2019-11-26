@@ -106,13 +106,13 @@ Ex: 45</td>
 <td>3.14</td>
 </tr>
 <tr>
-<tr>
 <td>ephemeral</td>
 <td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Proxies page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. Default: false.</td>
 <td>Boolean<br/>
 Ex: true </td>
 <td>3.14</td>
 </tr>
+<tr>
 <td>fileBeatPort</td>
 <td>TCP port to listen on for Filebeat data. Default: 5044.</td>
 <td>A port number.<br/>
