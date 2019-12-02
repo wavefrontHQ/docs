@@ -1386,7 +1386,7 @@ In a time-series chart, this function displays the median values of the aligned 
 </td>
 </tr>
 <tr>
-<td><a href="ts_cumulativeHisto.html">cumulativeHisto(<strong>&lt;raw_value&gt;</strong>,&lbrack;<strong>timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong>, <strong>&lt;bucketName&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
+<td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>, timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;, bucketName&gt; </strong> &rbrack; &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
