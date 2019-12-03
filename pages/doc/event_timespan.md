@@ -26,9 +26,9 @@ Creates a single synthetic event with the specified start and end times, an opti
 
 <tr>
 <td markdown="span"> startTime</td>
-<td>Time when the new event starts. 
+<td>Time when the new event starts.
 <ul>
-<li>For a fixed start time, specify a number of epoch seconds.</li> 
+<li>For a fixed start time, specify a number of epoch seconds.</li>
 <li>For a start time that is relative to the current time, use a time phrase such as <strong>"5 minutes ago"</strong> or <strong>".5 hour ago"</strong>.</li>
 </ul>
 </td>
@@ -36,9 +36,9 @@ Creates a single synthetic event with the specified start and end times, an opti
 
 <tr>
 <td markdown="span"> endTime</td>
-<td>Time when the new event ends. 
+<td>Time when the new event ends.
 <ul>
-<li>For a fixed end time, specify a number of epoch seconds.</li> 
+<li>For a fixed end time, specify a number of epoch seconds.</li>
 <li>For an end time that is relative to the current time, use a time phrase such as <strong>"5 minutes ago"</strong> or <strong>".5 hour ago"</strong>.</li>
 </ul>
 
@@ -49,13 +49,13 @@ Creates a single synthetic event with the specified start and end times, an opti
 <td>prettyName="&lt;displayName&gt;"</td>
 <td>Name to display for the new synthetic event when you hover over its icon on the X-axis of a chart. The keyword <strong>prettyName</strong> is case-sensitive. If <strong>displayName</strong> includes spaces, you must enclose it in double quotes.
 <br>Example:
-<strong>prettyName="Computer turned on"</strong> 
+<strong>prettyName="Computer turned on"</strong>
 </td>
 </tr>
 
 <tr>
 <td>&lt;eventTagKey&gt;="&lt;eventTagValue&gt;"</td>
-<td>Event tag key and value to be associated with the new synthetic event. Specify multiple event tags by separating them with commas. 
+<td>Event tag key and value to be associated with the new synthetic event. Specify multiple event tags by separating them with commas.
 <br>Examples:
 <br><strong>severity="info"</strong>
 <br><strong>details="traceID: 52ab47e"</strong>

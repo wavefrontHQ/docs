@@ -4,7 +4,7 @@ keywords: query language
 tags: [query language]
 sidebar: doc_sidebar
 permalink: query_language_series_matching.html
-summary: Learn how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags. 
+summary: Learn how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
 ---
 
 Certain operators and functions apply to pairs of time series. When you specify two ts() expressions as parameters, Wavefront implicitly performs series matching across these expressions to identify meaningful pairs of individual time series to operate on. For example, implicit series matching in the following operation causes Wavefront to compare metrics for disk reads and disk writes only when they come from the same source and have common point tag values:
@@ -121,7 +121,7 @@ Here's an example where the Wavefront UI displays a message that informs you tha
 
 ![series matching example](images/series_matching_example.png)
 
-The reason we get this message is that some expressions limit the environment to `env=dev` and other expressions don't use the filter. When part of a query uses a filter, but another part doesn't, then the whole query uses the filter. In this example, all queries will be limited to `env=dev`
+The reason we get this message is that some expressions limit the environment to `env="dev"` and other expressions don't use the filter. When part of a query uses a filter, but another part doesn't, then the whole query uses the filter. In this example, all queries will be limited to `env="dev"`
 
 <a name="point_tags"></a>
 
@@ -130,10 +130,10 @@ The reason we get this message is that some expressions limit the environment to
 Consider the following ts() query:
 
 ```
-ts(disk.space.total, tag=az-1 and env=*) - ts(disk.space.used, tag=az-1 and env=*)
+ts(disk.space.total, tag="az-1" and env=*) - ts(disk.space.used, tag="az-1" and env=*)
 ```
 
-In this example, the `env` point tag key takes the values `production` and `development`. If source `app-1` includes the `env` value `development` in the first ts() call, but includes the `env` value `production` in the second ts() call, they do not match up.
+In this example, the `env` point tag key takes the values `"production"` and `"development"`. If source `app-1` includes the `env` value `"development"` in the first ts() call, but includes the `env` value `production` in the second ts() call, they do not match up.
 
 Series matching occurs only for exact matches. This also means that if two series have the same source\|metric\|point tag but one of the series includes an additional point tag that the other series does not have, series matching does not include the series with the additional point tag in the results.
 

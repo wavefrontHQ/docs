@@ -8,7 +8,7 @@ summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulat
 ---
 ## Summary
 ```
-cumulativeHisto([<timeWindow>] <tsExpression>, <bucketName>
+cumulativeHisto([<timeWindow>], <tsExpression> [,<bucketName>]
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
@@ -23,13 +23,13 @@ Converts a cumulative histogram coming from Prometheus, Telegraf, or other sourc
 </thead>
 <tr>
 <td markdown="span">[timeWindow](query_language_reference.html#common-parameters)</td>
-<td markdown="span">Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes.</td></tr>
+<td markdown="span">Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Defaults to 1m.</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Cumulative histogram that we'll convert to an ordinary histogram.  </td></tr>
 <tr>
 <td>bucketName</td>
-<td markdown="span">String that describes the bucket, based on available values in the source histogram. Default is <strong>le</strong>, that is, less than or equal.  </td></tr>
+<td markdown="span">Optional string that describes the bucket. Default is <strong>le</strong>, that is, less than or equal. If your source histogram uses a different bucketing strategy, specify the name here.  </td></tr>
 <tr>
 <td>metrics&vert;sources&vert;sourceTags&vert;pointTags&vert;&lt;pointTagKey&gt;</td>
 <td>Optional 'group by' parameter for organizing the time series into subgroups and then returning each histogram subgroup.
