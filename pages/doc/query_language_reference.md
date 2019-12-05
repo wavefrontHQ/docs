@@ -476,11 +476,13 @@ All operations between `tsExpression`s are subject to the matching processes des
 
 ## Aggregation Functions
 
-[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
+[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
 * Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
 * Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 
-All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.
+All aggregation functions provide:
+* **Filtering**: Parameters for filtering the set of input series, for example, to show only points from one source.
+* **Grouping**: Parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values. For example, if you have an `env` point tag with values `dev` and `prod`, you can return one series for all points that come from `dev` and another for all points that come from `prod`.
 
 <table style="width: 100%;">
 <colgroup>
