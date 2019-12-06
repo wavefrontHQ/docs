@@ -4,15 +4,15 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_globalFilter.html
-summary: Reference to the retainSeries() function
+summary: Reference to the globalFilter() function
 ---
 
 ## Summary
 ```
 globalFilter(<tsExpression | hsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
-where <filterN> is: 
-    <metricName> | source=<sourceName> | tag=<sourceTagName> | <pointTagKey>=<pointTagValue> 
+where <filterN> is:
+    <metricName> | source=<sourceName> | tag=<sourceTagName> | <pointTagKey>=<pointTagValue>
 ```
 
 Filters the expression to display only the time series that match the specified filters. This function works for ts() and hs() expressions.
@@ -43,9 +43,13 @@ The `globalFilter()` function is similar to [retainSeries()](ts_retainSeries.htm
 
 ## Examples
 
+**No Data With retainSeries()**
+
 In the following example, we're using the `retainSeries` filtering function together with `sum()`. Because information about the environment is no longer available after the `sum()` has been applied, the query returns NO DATA.
 
 ![filter with retainSeries](images/filter_with_retainSeries.png)
+
+**Data With globalFilter()**
 
 In contrast, if we use `globalFilter` for the same scenario, we can filter by environment and apply the `sum()` function.
 
