@@ -1113,14 +1113,14 @@ Renames a span tag. The renaming does not affect the values stored in a span.
 
 ```yaml
 ## rename the "guid:x-request-id" span tag to "guid-x-request-id" by 
-## removing the invalid punctuations (":") to prevent it from being blacklisted.
+## removing the invalid punctuation (":") to prevent it from being blacklisted.
 ################################################################
         - rule   : rename-span-tag-x-request-id
           action : spanRenameTag
           key    : guid:x-request-id
           newkey : guid-x-request-id
           
-## rename a span tag if its value is numeric. for example, myDevice=123 is renamed to device=123, 
+## rename a span tag if its value is numeric. For example, myDevice=123 is renamed to device=123, 
 ## but myDevice=text123 is not changed.
 ################################################################
         - rule   : rename-numeric-span-tag
@@ -1181,7 +1181,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
 </tr>
 <tr>
-<td>firstMatchOnly (optional)</td>
+<td>firstMatchOnly</td>
 <td>If set to true, applies only to the first matching span tag. Only applicable when the scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
