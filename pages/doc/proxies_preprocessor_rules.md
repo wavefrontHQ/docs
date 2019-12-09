@@ -1190,12 +1190,12 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-## truncate 'db.statement' annotation value at 240 characters,
+## truncate 'db.statement' annotation value at 128 characters,
 ## replace last 3 characters with '...'.
 ################################################################
 - rule          : example-limit-db-statement
   action        : spanLimitLength
   scope         : "db.statement"
   actionSubtype : truncateWithEllipsis
-  maxLength     : "240"
+  maxLength     : "128"
 ```
