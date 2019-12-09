@@ -614,7 +614,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-# Truncate the length of all metric names starting with  "metric"
+# truncate the length of all metric names starting with  "metric"
 # i.e. from "metric.name.2.test" to "metric.2.name..."
 ################################################################
 - rule : limit-metric-name-length
@@ -1067,6 +1067,67 @@ Extract a string from a span name, source name, or a span tag value and create a
   replace       : "$2"
   replaceInput  : "$1$3"
   # optional, omit if you plan on just extracting the tag leaving the metric name intact
+```
+
+### spanRenameTag
+Renames a span tag. The renaming does not affect the values stored in a span.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>spanRenameTag</td>
+</tr>
+<tr>
+<td>key</td>
+<td>The span tag to be renamed.</td>
+</tr>
+<tr>
+<td>newkey</td>
+<td>The new name for the span tag.</td>
+</tr>
+<tr>
+<td>match (optional)</td>
+<td>If specified, renames a span tag if its value matches this regular expression.</td>
+</tr>
+<tr>
+<td>firstMatchOnly</td>
+<td>If set to true, renames only the first matching span tag. Default is false.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Example</strong></font>
+
+```yaml
+## rename the "guid:x-request-id" span tag to "guid-x-request-id" by 
+## removing the invalid punctuations (":") to prevent it from being blacklisted.
+################################################################
+        - rule   : rename-span-tag-x-request-id
+          action : spanRenameTag
+          key    : guid:x-request-id
+          newkey : guid-x-request-id
+          
+## rename a span tag if its value is numeric. for example, myDevice=123 is renamed to device=123, 
+## but myDevice=text123 is not changed.
+################################################################
+        - rule   : rename-numeric-span-tag
+          action : spanRenameTag
+          key    : myDevice
+          newkey : device
+          match  : "^\\d*$"
 ```
 
 ### spanlimitLength
