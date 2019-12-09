@@ -1103,7 +1103,7 @@ Renames a span tag. The renaming does not affect the values stored in a span.
 <td>If specified, renames a span tag if its value matches this regular expression.</td>
 </tr>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, renames only the first matching span tag. Default is false.</td>
 </tr>
 </tbody>
@@ -1181,7 +1181,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
 </tr>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, applies only to the first matching span tag. Only applicable when the scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
