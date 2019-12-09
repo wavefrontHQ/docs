@@ -31,7 +31,7 @@ Renate's video gives an overview of authorization and explains the difference be
 <td><strong><font color="blue">Access Control in Wavefront</font></strong><br>
 <a href="https://youtu.be/45E4pkann0E" target="_blank"><img src="images/v_access.png" alt="Wavefront access control"/></a></td>
 <td><br>
-<p>Access control, added in Spring 2019, allows users with Users & Groups permissions to add or revoke access for one or more dashboards. You can add and revoke access for groups or individual users. The video explains how to use access control and also discusses the Everyone group and the Super Admin user. </p>
+<p>Access control, added in Spring 2019, allows users with Accounts & Groups permissions to add or revoke access for one or more dashboards. You can add and revoke access for groups or individual users. The video explains how to use access control and also discusses the Everyone group and the Super Admin user. </p>
 </td>
 </tr>
 </tbody>
