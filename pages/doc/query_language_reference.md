@@ -1378,13 +1378,13 @@ In a time-series chart, this function displays the median values of the merged d
 </tr>
 <tr>
 <td><a href="ts_cdf.html">cdf(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
-<td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
-In a time-series chart, this function displays the median values of the aligned distributions.
+<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
 </td>
 </tr>
 <tr>
 <td><a href="ts_cdf.html">align(<strong>&lt;raw_value&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
-<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
+<td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
+In a time-series chart, this function displays the median values of the aligned distributions.
 </td>
 </tr>
 <tr>

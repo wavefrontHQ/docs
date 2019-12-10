@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2019-46.x Release Notes
+      url: /2019.46.x_release_notes.html
+      output: web
+
     - title: 2019-38.x Release Notes
       url: /2019.38.x_release_notes.html
       output: web
@@ -228,6 +232,10 @@ entries:
     - title: "Create and Customize Charts (v2)"
       url: /ui_charts_v2.html
       output: web
+
+    - title: "Wavefront Charts FAQ (v2)"
+      url: /ui_charts_faq.html
+      output: web  
 
     - title: "Chart Reference (v2)"
       url: /ui_chart_reference_v2.html

@@ -954,7 +954,7 @@ Chart description. The description shows up as hover text when you place the mou
 </tbody>
 </table>
 
-### Drilldown Link Tab (Beta)
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
 
