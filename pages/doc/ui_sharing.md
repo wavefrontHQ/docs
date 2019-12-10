@@ -3,11 +3,11 @@ title: Share Dashboards and Charts
 tags: [dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_sharing.html
-summary: Give dashboard access, share links to dashboards and charts, and create embedded charts.
+summary: Share links to dashboards and charts, give dashboard access, and create embedded charts.
 ---
 You can
 * Share a link to a dashboard or chart so someone else can see what's going on.
-* Share access to a dashboard if the user is not in a group that has access to that specific dashboard.
+* Share [access](access.html) to a dashboard if the user is not in a group that has access to that specific dashboard.
 * Embed an interactive chart outside Wavefront.
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to share a link to a dashboard or chart." %}
@@ -29,6 +29,16 @@ Wavefront allows you to share dashboards and charts with other authorized users 
    | Share link to the LIVE display | The link recipient will see, at any time, what you see. As you make changes, the other user can see them. The time window associated with your live view URL link is based on your selection on the time bar. For example, if you select 10m, the result is a live view URL link with a 10 minute view.|
    |  Share link to the CURRENT display | The link recipient sees what you're seeing right now. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link. |
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="65%">
+<strong>Note:</strong> You can instead share the link to the live display using the link icon in the bottom right quadrant of the page.</td>
+<td width="35%"><img src="/images/link_icon.png" alt="link icon"></td>
+</tr>
+</tbody>
+</table>
+
 ## Share Access to Dashboards and Charts
 
 If the **Security** system [preference is set](access.html#changing-the-access-control-default) to allow access to new objects only to **Creator**, the following users can share dashboard access with other users and groups:
@@ -40,7 +50,7 @@ If the **Security** system [preference is set](access.html#changing-the-access-c
 1. Navigate to the dashboard and click the Share Dashboard icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
-2. Click **Users & Groups**
+2. Click **Accounts & Groups**
 3. To grant access:
    1. Start typing in the **View Dashboard** or **View & Modify Dashboard** field.
    2. Select the group or user to give access to and click **Update**
