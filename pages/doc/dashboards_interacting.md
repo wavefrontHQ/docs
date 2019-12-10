@@ -79,7 +79,7 @@ If the **Security** system [preference is set](access.html#changing-the-access-c
 1. Navigate to the dashboard and click the Share Dashboard icon.
 
    ![share dashboard icon](images/share_dashboard_icon.png)
-2. Click **Users & Groups**
+2. Click **Accounts & Groups**
 3. To grant access:
    1. Start typing in the **View Dashboard** or **View & Modify Dashboard** field.
    2. Select the group or user to give access to.

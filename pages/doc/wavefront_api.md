@@ -101,7 +101,9 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
+- **Account (User and Service Account)** - Allows users with [Accounts & Groups permission](permissions_overview.html) to retrieve a list of all [accounts](users_groups.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert permission](permissions_overview.html) can create and update alerts.
+- **ApiToken** - Allows users with [Accounts & Groups permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxies permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
@@ -116,7 +118,9 @@ The REST API supports the following objects corresponding to different categorie
 - **Query** - Perform queries.
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and web hooks.
+<!--- TBD whether this should be in. 
+- **Settings** - --->
 - **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag permission](permissions_overview.html) can add and remove source tags and set descriptions.
-- **User** - Allows users with [Users & Groups permission](permissions_overview.html) to retrieve a list of all users, create, update, and delete users and manage permissions and groups associated with users.
-- **UserGroup** - Allows users with [Users & Groups permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and permissions associated with a group.
+- **User** - Deprecated API that allows users with [Accounts & Groups permission](permissions_overview.html) to retrieve a list of all accounts (user or service account), create, update, and delete accounts and manage permissions and groups associated with accounts.
+- **UserGroup** - Allows users with [Accounts & Groups permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and permissions associated with a group.
 - **Webhook** - Retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.

@@ -127,6 +127,7 @@ Dynamic dashboard variables allow you to select one of the following options:
 -   **Matching Source Tag** - This will get all of the sources from your ts() expression, then, find all the source tags associated with those sources and populate the dynamic variable list with those source tags. If the query returns at least 1 source associated with a source tag, **Matching Source Tag** will display source tags.
 -   **Metric** - Populates the  dynamic variable list with metrics associated with the query in the Query field.
 -   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.
+    **Note**: Always surround point tag values with double quotes. For example, in queries use `env="qa 3"` and in a dashboard's variable selector, type `"qa 3"`.
 
 The example below uses the **Metric** field to populate a dynamic variable list.
 

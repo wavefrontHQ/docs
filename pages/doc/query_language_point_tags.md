@@ -36,7 +36,7 @@ The first 5 points are request latencies from API calls, and the last 5 points a
 
 ![Two lines](images/two_lines.png)
 
-The orange line is associated with the point tag `clientService=web`, while the blue line is associated with the point tag `clientService=API`.
+The orange line is associated with the point tag `clientService="web"`, while the blue line is associated with the point tag `clientService="API"`.
 
 If you have multiple point tags on a point, you'll see all the point tags. For this example, the points in the green line contain three point tags: `clientService`, `clientApp`, and `hw`. Note that they are all visible in the legend:
 
@@ -93,6 +93,10 @@ Now only a single series that matches both point tags displays; all of the other
 
 To avoid performance issues, follow best practices.
 
+### Enclose Point Tag Values in Double Quotes
+
+Double quotes are required if the point tag value includes certian characters such as spaces, but are recommended in all cases. For example, use `"my test"` instead of `my test`.
+
 ### Watch the Number of Time Series
 
 Wavefront recommends that you keep the number of distinct time series per metric and host to under 1000. Whether a time series is distinct depends on the combination of the point tag keys and the point tag values.
@@ -102,6 +106,8 @@ For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metr
 ### Don't Use Point Tags for Highly Variable Data
 
 Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
+
+### More Info
 
 See [Series Matching](query_language_series_matching.html) for more info on:
 

@@ -116,13 +116,14 @@ As a result, the ingested sample will contain somewhat more than 20% of the gene
 You can set up explicit sampling strategies through a [Wavefront proxy](proxies_installing.html) by adding the sampling properties to the proxy's configuration file.
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
-2. In the `wavefront.conf` file, add one or both of the following properties. For example, the following properties set up a sampling rate of 10% and a sampling duration of 45 milliseconds:
+2. Add the [traceSamplingRate](proxies_configuring#tracing-proxy-properties-and-examples) property, the [traceSamplingDuration](proxies_configuring#tracing-proxy-properties-and-examples) property, or both to the `wavefront.conf` file. In the following example, the `traceSamplingRate` property sends 10% of the spans that make up the trace, to Wavefront and the `traceSamplingDuration` property sets the minimum sampling duration to 45 milliseconds: 
     ```
     # Number from 0.0 to 1.0
     traceSamplingRate=.1
     ...
     traceSamplingDuration=45
     ```
+    <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> If you have more than one proxy, each proxy must have the same value for the <code>traceSamplingRate</code> property. If different proxies send different percentages of spans to Wavefront, you get incomplete traces. </div>
 3. Save the `wavefront.conf` file. 
 4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
 
