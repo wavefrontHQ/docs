@@ -51,7 +51,7 @@ Dashboard variables and global filters are two ways to narrow down what you see.
 * [**Dashboard Variables**](dashboards_variables_v2.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 * **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
 
-If you select a variable and a global filter, Wavefront uses AND to fine results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
 
 ### Filter with Dashboard Variables
 
@@ -63,7 +63,7 @@ In the example above, you can select all AWS regions (wildcard character) or one
 
 ### Filter with Global Filters
 
-All users can use global filters to customize their dashboard. When you set a global filter, for example, to limit to certain sources, you affect all charts in the dashboard.  
+All users can use global filters to customize their dashboard. When you set a global filter, for example, to limit to certain sources, you affect all charts in the dashboard.
 
 
 
