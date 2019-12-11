@@ -245,6 +245,20 @@ When you create a chart using **Dashboards > Create Chart**, you're prompted to 
 </tbody>
 </table>
 
+### Undo and Revert Undo Operations
+
+Starting with release 2018.46.x, we support undo in dashboard edit mode. Use the two icons in the top menu bar.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<p>With your dashboard in Edit mode, you can now undo and redo changes to the dashboard. </p></td>
+<td width="60%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
+</tr>
+</tbody>
+</table>
+
 ### Set Dashboard Display Preferences
 
 For each dashboard, you can customize display preferences.
