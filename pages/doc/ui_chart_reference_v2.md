@@ -976,7 +976,7 @@ A **topk** chart shows the most critical time series (8 by default) as horizonta
 
 <p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
 
-The color mapping tab lets you define which set of values maps to which colors. In the example above, values between 0 and 0.5 are mapped to orange, values 0.5 - 1.0 are mapped to blue.
+The color mapping tab lets you define which set of values maps to which colors. In the example above, values under 0.5 are mapped to orange, values 0.5 - 1.0 are mapped to blue.
 
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
@@ -1100,7 +1100,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </tr>
 <tr>
 <td>Default Node Color</td>
-<td>Let's you pick the color of nodes with values that are below any of the thresholds.  </td>
+<td>Lets you pick the color of nodes with values that are below any of the thresholds.  </td>
 </tr>
 </tbody>
 </table>
