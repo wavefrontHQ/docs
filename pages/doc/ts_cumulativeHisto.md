@@ -49,7 +49,7 @@ When a chart displays the result of this function, it shows the median by defaul
 
 ### Ordinary and Cumulative Histograms
 
-Wavefront histogram distributions are ordinary histograms while some other tools, such as Prometheus and Telegraph, use cumulative histograms.
+Wavefront histogram distributions are ordinary histograms while some other tools, such as Prometheus and Telegraf, use cumulative histograms.
 
 ![histogram types](images/histogram_types.png)
 
@@ -71,7 +71,7 @@ The corresponding Wavefront query looks like this:
 percentile(90, cumulativeHisto(align(5m, counter_sum(req_latency_bucket, le) * 60)))
 ```
 
-Here, we are creating a T-digest and adding sampling points based on the range and the cound of the bucket.
+Here, we are creating a T-digest and adding sampling points based on the range and the count of the bucket.
 
 ### Grouping
 
