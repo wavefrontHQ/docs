@@ -28,13 +28,13 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 You have several options for creating a dashboard:
 
 * Select **Dashboards > Create Dashboard**, drag in the Metrics or New Chart widget, and follow the wizard to create a single-chart or multi-chart dashboard.
-* Select **Dashboards > Create Dashboard**, drag in the Templates widget, and select an integration, then pick the dashboards and charts you'd like to include.
+<!---* Select **Dashboards > Create Dashboard**, drag in the Templates widget, and select an integration, then pick the dashboards and charts you'd like to include.--->
 * Select **Dashboards > All Dashboards** and click **Create Dashboard**
 * Select **Browse > Metrics** and click **Create Dashboard**.
 
-### Create a Dashboard from Metrics or Charts
+<!---### Create a Dashboard from Metrics or Charts
 
-It's easy to create a dashboard from metrics or by selecting a chart.
+It's easy to create a dashboard from metrics or by selecting a chart.--->
 
 <table style="width: 100%;">
 <tbody>
@@ -50,6 +50,7 @@ It's easy to create a dashboard from metrics or by selecting a chart.
 </tbody>
 </table>
 
+<!---
 ### Create a Dashboard from a Template
 
 With release 2019.38, you can create a dashboard by specifying an integration dashboard as a template.
@@ -66,7 +67,7 @@ With release 2019.38, you can create a dashboard by specifying an integration da
 <td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create dashboard from template"></td>
 </tr>
 </tbody>
-</table>
+</table>--->
 
 
 ## Edit or Clone a Dashboard

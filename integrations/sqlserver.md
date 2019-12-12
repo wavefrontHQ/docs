@@ -29,6 +29,8 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 
 ### Step 2: Install the Telegraf Agent
 
+If you've already installed Telegraf on your server(s), you can skip to step 3.
+
 {% include windows_telegraf.md %}
 
 ### Step 3. Configure MSSQLServer Input Plugin
