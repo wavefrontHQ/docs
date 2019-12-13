@@ -946,7 +946,7 @@ Removes a span tag that matches a regex string.
 <td>If specified, remove a tag only if its value matches this regular expression.</td>
 </tr>
 <tr>
-<td>firstMatchOnly(optional)</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, removes only the first matching tag. Default is false.</td>
 </tr>
 </tbody>
@@ -961,7 +961,6 @@ Removes a span tag that matches a regex string.
     action         : spanDropTag
     key            : az
     match          : dev.*
-    firstMatchOnly : false
 
   # remove first "bindTo" tag where a value starts with "dev"
   # i.e. `bindTo=prod1 bindTo=dev1 bindTo=prod2 bindTo=dev2` will become
