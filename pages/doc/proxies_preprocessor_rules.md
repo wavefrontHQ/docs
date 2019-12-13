@@ -286,6 +286,8 @@ Adds a point tag with the specified value.
 * For `addTag`, if the point tag already exists, its existing value is replaced with the new value.
 * For `addTagIfNotExists`, if the point tag already exists, its existing value is preserved.
 
+{% include note.html content="You can add up to 20 point tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
+
 <font size="3"><strong>Parameters</strong></font>
 
 <table width="100%">
@@ -860,6 +862,8 @@ Convert a span name, source name, or span tag name to lowercase.
 Add a span tag to all spans.
 * For `spanAddTag`, if the tag already exists, its existing value is replaced with the new value.
 * For `spanAddTagIfNotExists`, do not replace the value of an existing tag.
+
+{% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
 <font size="3"><strong>Parameters</strong></font>
 
