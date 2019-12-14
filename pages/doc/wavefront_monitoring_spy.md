@@ -115,6 +115,76 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
+## Getting Ingested Histograms
+
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate, meaning for example that if you set the rate to 30, then spy only shows 30% of results. By default, sampling rate is 100, which means we return 100% of the data.
+
+You can use the returned list of histograms to help you answer questions like this:
+
+* Show me some ingested histograms with names that start with the prefix `order`.
+* How many histograms-per-second come from hosts with names that start with the prefix `web`?
+* What are some histograms that are tagged with `cluster` or `shard`?
+
+
+### Endpoint and Parameters for Histograms
+
+To get a sampling of ingested histograms, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+
+  ```https://<cluster>.wavefront.com/api/spy/histograms```
+
+
+To get a sampling of spans with specific characteristics, add one or more of the following parameters:
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+</thead>
+<tr><td markdown="span">name</td>
+<td markdown="span">List a histogram only if its name starts with the specified case-sensitive prefix. <br> E.g., `name=orderShirt` matches histograms named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
+<tr><td markdown="span">host</td>
+<td>List a histogram only if the name of its source starts with the specified case-sensitive prefix. </td></tr>
+<tr><td markdown="span">histogramTagKey</td>
+<td markdown="span">List a histogram only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. `histogramTagKey=cluster&histogramTagKey=shard` </td></tr>
+<tr><td markdown="span">sampling</td>
+<td markdown="span">0 to 1, with 0.01 being 1%. In this context, the sampling rate is a display sampling rate. For example, if you set the rate to 30, then spy only shows 30% of results.
+ </td></tr>
+</tbody>
+</table>
+
+
+### Example Requests for Histograms
+
+Suppose you have a Wavefront instance named `ex1`.
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="30%">To Get a Sample of <br>These Histograms</th><th width="70%">Use This Request</th></tr>
+</thead>
+<tr>
+<td>Ingested histograms representing any operation.</td>
+<td><code>http://ex1.wavefront.com/api/spy/histograms</code>
+</td>
+</tr>
+<tr>
+<td>Ingested histograms with names that begin with <code>orderShirts</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/histograms?name=orderShirts</code>
+</td>
+</tr>
+<tr>
+<td>Ingested histograms that have tags <code>cluster</code> and <code>shard</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/histograms?histogramTagKey=cluster&histogramTagKey=shard</code>
+</td>
+</tr>
+<tr>
+<td>Ingested histograms from a host whose name starts with <code>web1</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/histograms?host=web1</code>
+</td>
+</tr>
+</tbody>
+</table>
+
 ## Getting Ingested Spans
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans to help you answer questions like:
