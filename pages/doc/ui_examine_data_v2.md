@@ -118,16 +118,14 @@ The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> 
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
 
-## Navigate to Tracing Data from Charts
-If your chart is based on a metric that has the `application` and `service` [point tags](query_language_point_tags.html), you can view your Tracing information by following the steps given below:
-1. On your chart, click the vertical ellipsis menu in the far right corner, select **Traces**.
+## Navigate to the Tracing UI from Charts
+If your chart is based on a metric that has the `application` and `service` [point tags](query_language_point_tags.html), view your tracing information by following the steps given below:
+1. On your chart, click the vertical ellipsis menu in the far-right corner, click **Traces**, and click a preferred service.
   ![charts to tracing](images/metrics_to_traces_on_charts_v2.png)
+    {% include note.html content="Don't see **Traces**? That's because you don't have the `application` and `service` point tags in your metric. 
+    <br/><br/>These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
   
-  **Note**:Don't see **Traces**? That's because you don't have the the `application` and `service` point tags in your metric. Make sure to add these tags to the metrics that are already sent to Wavefront.
-  
-2. Next, click the service you want to view the tracing data. Now, you are directed to the tracing UI, which provides details about the trace, the spans within the trace, and RED metrics for the specific service. For more information, see [Explore Traces](tracing_ui_overview.html#explore-traces).
-
-
+2. Next, you are directed to the tracing UI. For more information, see [Explore Traces](tracing_ui_overview.html#explore-traces).
  
 ## Do More!
 
