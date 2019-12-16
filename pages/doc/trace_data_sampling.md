@@ -106,7 +106,8 @@ As a result, the ingested sample will contain somewhat more than 20% of the gene
 
 ## Setting Up Explicit Sampling Through the Proxy
 
-You can set up explicit sampling strategies through a [Wavefront proxy](proxies_installing.html) by adding the sampling properties to the proxy's configuration file.
+You can set up explicit sampling strategies through a [Wavefront proxy](proxies.html) by adding the sampling properties to the proxy's configuration file.
+{% include note.html content="Explicit sampling through a proxy is supported in Wavefront proxy version 4.34 and above. If you have an older version, make sure to [upgrade your proxy to the latest version](proxies_installing.html#upgrade-a-proxy)."  %}
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 2. Add the [traceSamplingRate](proxies_configuring#tracing-proxy-properties-and-examples) property, the [traceSamplingDuration](proxies_configuring#tracing-proxy-properties-and-examples) property, or both to the `wavefront.conf` file. In the following example, the `traceSamplingRate` property sends 10% of the spans that make up the trace, to Wavefront and the `traceSamplingDuration` property sets the minimum sampling duration to 45 milliseconds: 
@@ -116,7 +117,7 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies_
     ...
     traceSamplingDuration=45
     ```
-    <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> If you have more than one proxy, each proxy must have the same value for the <code>traceSamplingRate</code> property. If different proxies send different percentages of spans to Wavefront, you get incomplete traces. </div>
+    {% include important.html content="If you have more than one proxy, each proxy must have the same value for the `traceSamplingRate` property. If different proxies send different percentages of spans to Wavefront, you get incomplete traces."%}
 3. Save the `wavefront.conf` file. 
 4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
 

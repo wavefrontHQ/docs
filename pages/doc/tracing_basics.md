@@ -150,7 +150,9 @@ To start examining your application's RED metrics:
 
 A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  Wavefront limits the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling). You can additionally limit the volume of reported trace data by setting up one or more [explicit sampling strategies](trace_data_sampling.html#explicit-sampling-strategies).
 
-Sampling helps you keep the volume of trace data manageable, and can help reduce costs. Your costs are calculated based on the number of spans you store in Wavefront. You can configure Wavefront to keep spans in storage for 7 or 30 days.
+Sampling helps you keep the volume of trace data manageable, and can help reduce costs. Your costs are calculated based on the number of spans you store in Wavefront. 
+
+{% include note.html content="You can configure Wavefront to keep spans in storage for 7 or 30 days. Contact [support@wavefront.com](mailto:support@wavefront.com) to configure your span storage settings."  %}
 
 You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) your span storage by checking the following internal metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place.
 <table width="100%">
