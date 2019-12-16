@@ -9,8 +9,11 @@ permalink: index.html
 
 Welcome to the Wavefront documentation site!
 
-* New users usually start with [What is Wavefront?](wavefront_introduction.html).
-* Even if you don't usually read docs, have a look at the [Wavefront Query Language Quick Reference](query_language_reference.html) or look at [individual reference pages](label_reference%20page.html)
+* New users often start with [What is Wavefront?](wavefront_introduction.html).
+* Even if you don't read docs, check out the [Query Language Reference](query_language_reference.html) or [individual reference pages](label_reference%20page.html)
+* If you're a developer:
+  - Find our REST APIs [on the VMware {code} website](https://code.vmware.com/apis/714/wavefront-rest) or directly from inside the product.
+  - Look at our [public Github repositories](https://github.com/wavefrontHQ)
 * Ready to try for yourself? Sign up for a [free trial](https://www.wavefront.com/sign-up/?utm_source=Website&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}!
 
 You can explore the documentation in the nav bar hierarchy on the left. Each topic also has one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
