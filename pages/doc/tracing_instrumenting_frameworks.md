@@ -16,7 +16,6 @@ You instrument each microservice in your application with one or more [Wavefront
 
 **Note:** If you have already instrumented your application for tracing using Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront.
 
-
 ## Step 1. Prepare to Send Data to Wavefront
 
 Choose one of the following ways to send metrics, histograms, and trace data from your application to the Wavefront service:
@@ -116,7 +115,6 @@ The details of creating the helper objects for an SDK are in the setup steps for
 * In some cases, you edit a configuration file, and Wavefront instantiates the helper object.
 * In other cases, you instantiate the helper object directly in your code.
 
-
 The following diagram shows the Wavefront helper objects in a Java microservice that uses Spring Boot to implement RESTful operations to other services:
 
 ![sdk objects](images/sdk_objects.svg)
@@ -160,7 +158,6 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
   ![tracing service filter](images/tracing_service_filter_page.png)
 
-
 ## Span Logs
 
 The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
@@ -175,13 +172,11 @@ Here's an example that adds span logs to [the best practices example](tracing_be
 
 Span logs are especially useful for recording additional information about errors within the span.
 
-
 <!---
 **Note:** For details, see _[[link to tagging topic on another page]]_.
 --->
 
 ## Helper Objects That Collect and Transfer Data
-
 
 ### Wavefront Sender
 
@@ -196,8 +191,6 @@ Your choice is represented in your code as Wavefront Sender object.
 **Note:** You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent.
 
 <!--- change links when proxy/dir ing decision is in a single section --->
-
-
 
 ### WavefrontTracer and WavefrontSpanReporter
 

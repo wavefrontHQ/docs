@@ -33,8 +33,6 @@ Intelligent sampling applies to entire traces after Wavefront receives them. If 
 
 Intelligent sampling is performed by the Wavefront service itself, not by the proxy or by an instrumented application. Consequently, intelligent sampling does not place any additional processing burden on your proxies or applications. Intelligent sampling does not add to your total cost of operation (TCO). If you already use one or more proxies to ingest your time-series data, you can start ingesting and sampling trace data without adding more hardware to support more proxies. 
 
-
-
 ## Explicit Sampling Strategies
 
 A explicit sampling strategy is a mechanism for selecting which traces to forward to Wavefront. Wavefront supports the following explicit sampling strategies: 
@@ -94,7 +92,6 @@ Partial traces can also occur in the following situations:
 * If a span contains an error. Each such span is sent individually, without the other spans in the same trace.
 * If a trace has spans from multiple services, and you set up different sampling rates for those services. 
 
-
 ### Result of Combining Explicit Sampling Strategies
 
 You can combine rate-based sampling and duration-based sampling in the same service. Doing so causes Wavefront to ingest the union of the spans that are selected by each sampler.
@@ -107,13 +104,10 @@ As a result, the ingested sample will contain somewhat more than 20% of the gene
 
 **Note:** A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. 
 
-
-
-
-
 ## Setting Up Explicit Sampling Through the Proxy
 
-You can set up explicit sampling strategies through a [Wavefront proxy](proxies_installing.html) by adding the sampling properties to the proxy's configuration file.
+You can set up explicit sampling strategies through a [Wavefront proxy](proxies.html) by adding the sampling properties to the proxy's configuration file.
+{% include note.html content="Explicit sampling through a proxy is supported in Wavefront proxy version 4.34 and above. If you have an older version, make sure to [upgrade your proxy to the latest version](proxies_installing.html#upgrade-a-proxy)."  %}
 
 1. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host. 
 2. Add the [traceSamplingRate](proxies_configuring#tracing-proxy-properties-and-examples) property, the [traceSamplingDuration](proxies_configuring#tracing-proxy-properties-and-examples) property, or both to the `wavefront.conf` file. In the following example, the `traceSamplingRate` property sends 10% of the spans that make up the trace, to Wavefront and the `traceSamplingDuration` property sets the minimum sampling duration to 45 milliseconds: 
@@ -123,11 +117,9 @@ You can set up explicit sampling strategies through a [Wavefront proxy](proxies_
     ...
     traceSamplingDuration=45
     ```
-    <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> If you have more than one proxy, each proxy must have the same value for the <code>traceSamplingRate</code> property. If different proxies send different percentages of spans to Wavefront, you get incomplete traces. </div>
+    {% include important.html content="If you have more than one proxy, each proxy must have the same value for the `traceSamplingRate` property. If different proxies send different percentages of spans to Wavefront, you get incomplete traces."%}
 3. Save the `wavefront.conf` file. 
 4. [Start the proxy](proxies_installing.html#starting-and-stopping-a-proxy).
-
-
 
 ## Setting Up Explicit Sampling in Your Code
 

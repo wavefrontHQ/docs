@@ -32,7 +32,6 @@ Part of setting up the integration is to configure the Wavefront proxy to listen
 
 Using an integration is the simplest way - [but not the only way](#alternatives-to-integrations) - to send trace data to Wavefront from a 3rd part tracing system.
 
-
 ## Trace Data from an Integration
 
 When you use a tracing-system integration, the Wavefront proxy receives the trace data that your application emits. If you configured your distributed tracing system to perform sampling, the proxy receives only the spans that the 3rd party sampler has allowed.
@@ -67,7 +66,6 @@ Wavefront requires certain [span tags](trace_data_details.html#span-tags) on wel
 </tbody>
 </table>
 
-
 The proxy preserves any tags that you assigned through your distributed tracing system. You can explicitly instrument your code to add an `application` tag with a preferred application name.
 
 Wavefront does not allow the mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application or service tags.
@@ -88,7 +86,9 @@ Wavefront stores the RED metrics along with the spans they are based on. For mor
 
 Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. To do so, add:
 
-```traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>```
+```
+traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>
+```
 
 to the [proxy configuration file](proxies_configuring.html#paths) (`/etc/wavefront/wavefront-proxy/wavefront.conf` by default).
 
@@ -96,15 +96,15 @@ Wavefront generates custom tags for the specified keys at the proxy.
 
 For example, if you add the following properties, the Wavefront proxy generates 3 custom tags:
 
-```traceDerivedCustomTagKeys=tenant, env, location```
-
+```
+traceDerivedCustomTagKeys=tenant, env, location
+```
 
 **Note:** For faster performance, index only low-cardinality custom span tags. A low cardinality tag has comparatively few unique values that can be assigned to it. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
 
 ### Custom Application Names
 
 Starting with Wavefront proxy version 4.38, you can set up custom application names for Jaeger and Zipkin. The process differs depending on your source, as follows.
-
 
 #### Custom Application Names for Jaeger
 

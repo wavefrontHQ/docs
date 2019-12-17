@@ -279,7 +279,11 @@ entries:
           url: /query_language_query_builder.html
           output: web
 
-        - title: AI Genie (Beta)
+        - title: Query Editor
+          url: /query_editor.html.html
+          output: web  
+
+        - title: AI Genie
           url: /ai_genie.html
           output: web
 
