@@ -476,11 +476,13 @@ All operations between `tsExpression`s are subject to the matching processes des
 
 ## Aggregation Functions
 
-[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions differ in how they handle data points that do not line up:
+[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
 * Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
 * Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 
-All aggregation functions provide parameters for filtering the set of input series, as well as 'group by' parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values.
+All aggregation functions provide:
+* **Filtering**: Parameters for filtering the set of input series, for example, to show only points from one source.
+* **Grouping**: Parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values. For example, if you have an `env` point tag with values `dev` and `prod`, you can return one series for all points that come from `dev` and another for all points that come from `prod`.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1376,17 +1378,17 @@ In a time-series chart, this function displays the median values of the merged d
 </tr>
 <tr>
 <td><a href="ts_cdf.html">cdf(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
+</td>
+</tr>
+<tr>
+<td><a href="ts_cdf.html">align(<strong>&lt;raw_value&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
 In a time-series chart, this function displays the median values of the aligned distributions.
 </td>
 </tr>
 <tr>
-<td><a href="ts_cdf.html">align(<strong>&lt;raw_value&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
-<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
-</td>
-</tr>
-<tr>
-<td><a href="ts_cumulativeHisto.html">cumulativeHisto(<strong>&lt;raw_value&gt;</strong>,&lbrack;<strong>timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong>, <strong>&lt;bucketName&gt; &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;</strong>)</a></td>
+<td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>, timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;, bucketName&gt; </strong> &rbrack; &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
@@ -1507,8 +1509,11 @@ Each function in the following table returns a set of one or more events, and ca
 <td>Creates a single synthetic event that started <strong>timeWindow</strong> ago and ended &quot;now&quot;.</td>
 </tr>
 <tr>
-<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>)</a></td>
-<td>Creates a single synthetic event with the specified start and end timestamps. </td>
+<td><a href="event_timespan.html">timespan(<strong>&lt;startTimestamp&gt;</strong>, <strong>&lt;endTimestamp&gt;</strong>
+<br> [, <strong>prettyName</strong>=<strong>&lt;"displayName"&gt;</strong>]
+<br> [, <strong>&lt;eventTagName&gt;</strong>=<strong>&lt;"eventTagValue"&gt;</strong>] ...)
+</a></td>
+<td>Creates a single synthetic event with the specified start and end timestamps, and, optionally, with the specified display name and tags. </td>
 </tr>
 <tr>
 <td><a href="event_first.html">first(<strong>&lt;eventsExpression&gt;</strong>)</a></td>

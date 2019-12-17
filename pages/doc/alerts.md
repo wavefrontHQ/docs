@@ -188,7 +188,12 @@ The display expression can include any valid Wavefront Query Language construct,
 <tr>
 <td><strong>Checking Frequency</strong></td>
 <td markdown="span">Number of minutes between checking whether <strong>Condition</strong> is true. Minimum and default is 1. When an alert is in the [INVALID state](alerts_states_lifecycle.html), it is checked approximately every 15 minutes, instead of the specified checking frequency.</td>
-</tr><tr>
+</tr>
+<tr>
+<td><strong>Evaluation Strategy</strong></td>
+<td markdown="span">Allows you to select <strong>Real-time Alerting</strong>. By default, Wavefront ignores values for the last 1 minutes to account for delays. Many data sources are updated only at certain points in time, so using the default evaluation strategy prevents spurious firings.  If you select this check box, we include values for the last 1 minute. The alert is evaluated strictly on the ingested data. See <a href="alerts_delayed_data.html">Limiting the Effects of Data Delays</a>. </td>
+</tr>
+<tr>
 <td><strong>Resend Notifications</strong></td>
 <td>Whether to resend notification of a firing alert. If enabled, you can specify the number of minutes to wait before resending the notification.</td>
 </tr>

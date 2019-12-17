@@ -89,7 +89,13 @@ Point tags cannot be empty, i.e. <code>tagKey=""</code> and <code>tagKey=</code>
 </ul>
 Maximum allowed length for a combination of a point tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the point is rejected and logged.
 
-Keep the number of distinct time series per metric and host to under 1000. </td>
+Keep the number of distinct time series per metric and host to under 1000.
+<br>
+<br>
+The string "host" is a reserved word. If you specify a point tag host=&lt;tagValue&gt;, we evaluate it as follows:
+<ul><li>If the expression also specifies source="&lt;sourceValue&gt;", we add an underbar character to the host point tag. The result is "_host=&lt;tagValue&gt;"</li>
+<li>If the expression does not specify source=&lt;sourceValue&gt;, we treat "host=" as a source and not as a point tag key.  </li></ul>
+</td>
 </tr>
 </tbody>
 </table>

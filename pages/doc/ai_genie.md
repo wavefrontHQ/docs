@@ -1,5 +1,5 @@
 ---
-title: Forecasting and Anomaly Detection with AI Genie - Beta
+title: Forecasting and Anomaly Detection with AI Genie
 keywords: machine learning, ai
 tags: [charts]
 sidebar: doc_sidebar

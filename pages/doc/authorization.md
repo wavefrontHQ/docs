@@ -43,10 +43,10 @@ Starting with Release 2018.46.x, administrators can use groups to make permissio
 * In conjunction with access control (see Level 3 below), grant or revoke access to individual dashboards or alerts to a group.
 
 As an administrator, you manage groups and permissions like this:
-* You create one or more groups and assign permissions. For example, you can create an Admin group that includes Users & Groups permission.
+* You create one or more groups and assign permissions. For example, you can create an Admin group that includes Accounts & Groups permission.
 * When you invite a new user, you can add the user to one or more groups. The UI makes it easy to see where a permission comes from.
 * You can manage permissions on a per-group basis. For example, assume that the Marketing group has Users and Groups permission. If you remove the permission from the group, all members of the Marketing group no longer have it.
-* You can still manage individual permissions. For the example above, after you've removed Users & Groups permission from the Marketing group, you can give the permission explicitly to a few members of the group.
+* You can still manage individual permissions. For the example above, after you've removed Accounts & Groups permission from the Marketing group, you can give the permission explicitly to a few members of the group.
 * A user who belongs to more than one group gets permissions from both groups (addition).
 
 Wavefront does not currently integrate with the groups of your identity manager (Active Directory or LDAP).

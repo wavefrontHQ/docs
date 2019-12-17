@@ -263,21 +263,21 @@ Replaces arbitrary text in the point line or any of its components:
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# for "exampleCluster" point tag replace all "-" characters with dots
-###############################################################
-- rule    : example-cluster-name
-  action  : replaceRegex
-  scope   : exampleCluster
-  search  : "-"
-  replace : "."
+  # for "exampleCluster" point tag replace all "-" characters with dots
+  ###############################################################
+  - rule    : example-cluster-name
+    action  : replaceRegex
+    scope   : exampleCluster
+    search  : "-"
+    replace : "."
 
-# replace bad characters ("&", "$", "!") with underscores in the entire point line string
-################################################################
-- rule    : example-replace-badchars
-  action  : replaceRegex
-  scope   : pointLine
-  search  : "[&\\$!]"
-  replace : "_"
+  # replace bad characters ("&", "$", "!") with underscores in the entire point line string
+  ################################################################
+  - rule    : example-replace-badchars
+    action  : replaceRegex
+    scope   : pointLine
+    search  : "[&\\$!]"
+    replace : "_"
 ```
 
 ### addTag and addTagIfNotExists
@@ -285,6 +285,8 @@ Replaces arbitrary text in the point line or any of its components:
 Adds a point tag with the specified value.
 * For `addTag`, if the point tag already exists, its existing value is replaced with the new value.
 * For `addTagIfNotExists`, if the point tag already exists, its existing value is preserved.
+
+{% include note.html content="You can add up to 20 point tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -326,12 +328,12 @@ addTagIfNotExists </td>
     tag     : env
     value   : "prod"
 
-    # add "env=prod" point tag to all metrics sent through this port unless already tagged with "env"
-    ################################################################
-    - rule    : tag-all-metrics
-      action  : addTagIfNotExists
-      tag     : env
-      value   : "prod"
+  # add "env=prod" point tag to all metrics sent through this port unless already tagged with "env"
+  ################################################################
+  - rule    : tag-all-metrics
+    action  : addTagIfNotExists
+    tag     : env
+    value   : "prod"
 ```
 
 ### dropTag
@@ -614,15 +616,15 @@ Enforces string length limits for a metric name, source name, or point tag value
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-# Truncate the length of all metric names starting with  "metric"
-# i.e. from "metric.name.2.test" to "metric.2.name..."
-################################################################
-- rule : limit-metric-name-length
-  action : limitLength
-  scope : metricName
-  actionSubtype : truncateWithEllipsis
-  maxLength : 16
-  match : "^metric.*"
+  # truncate the length of all metric names starting with  "metric"
+  # i.e. from "metric.name.2.test" to "metric.2.name..."
+  ################################################################
+  - rule          : limit-metric-name-length
+    action        : limitLength
+    scope         : metricName
+    actionSubtype : truncateWithEllipsis
+    maxLength     : 16
+    match         : "^metric.*"
 ```
 
 ## Span Filtering Rules
@@ -670,12 +672,12 @@ Defines a regex that spans must match to be filtered out. In the example below, 
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# block all spans with sourceName that starts with qa-service
+  # block all spans with sourceName that starts with qa-service
 ###############################################################
-- rule    : example-span-block-qa-services
-  action  : spanBlacklistRegex
-  scope   : sourceName
-  match   : "qa-service.*"
+  - rule    : example-span-block-qa-services
+    action  : spanBlacklistRegex
+    scope   : sourceName
+    match   : "qa-service.*"
 ```
 
 ### spanWhitelistRegex
@@ -719,12 +721,12 @@ Points must match the `spanWhitelistRegex` to be accepted. Multiple `spanWhiteli
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# only allow spans that contain the "prod" substring anywhere in the source
-###############################################################
-- rule    : example-span-allow-only-prod
-  action  : spanWhitelistRegex
-  scope   : sourceName
-  match   : ".*prod.*"
+  # only allow spans that contain the "prod" substring anywhere in the source
+  ###############################################################
+  - rule    : example-span-allow-only-prod
+    action  : spanWhitelistRegex
+    scope   : sourceName
+    match   : ".*prod.*"
 ```
 
 ## Span Altering Rules
@@ -779,7 +781,7 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 <td>Number of iterations. Recursively check and recursively replace if the output string contains the search string until the number of iterations is reached.</td>
 </tr>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
@@ -789,17 +791,16 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-# replace dashes with with underscores in the span name
-# if span name starts with "app", i.e. change "app.span-service-frontend" to
-# "app.span_service_frontend"
-################################################################
-- rule    : example-app-span-replace-dashes
-  action  : spanReplaceRegex
-  scope   : spanName
-  search  : "-"
-  replace : "_"
-  match   : "^app.*"
-
+  # replace dashes with with underscores in the span name
+  # if span name starts with "app", i.e. change "app.span-service-frontend" to
+  # "app.span_service_frontend"
+  ################################################################
+  - rule    : example-app-span-replace-dashes
+    action  : spanReplaceRegex
+    scope   : spanName
+    search  : "-"
+    replace : "_"
+    match   : "^app.*"
 ```
 
 ### spanForceLowercase
@@ -837,7 +838,7 @@ Convert a span name, source name, or span tag name to lowercase.
 <td>match (optional)</td>
 <td>Regular expression. If specified, force lower case only if the value matches this regular expression.</td>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when scope is a span tag. Default is false.</td>
 </tr>
 </tr>
@@ -847,13 +848,13 @@ Convert a span name, source name, or span tag name to lowercase.
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-# force lowercase on span name (with optional regex match)
-################################################################
-- rule    : example-span-force-lowercase
-  action  : spanForceLowercase
-  scope : spanName
-  match : "^UPPERCASE.*$"
-  firstMatchOnly : false
+  # force lowercase on span name (with optional regex match)
+  ################################################################
+  - rule          : example-span-force-lowercase
+    action        : spanForceLowercase
+    scope         : spanName
+    match         : "^UPPERCASE.*$"
+    firstMatchOnly: false
 ```
 
 ### spanAddTag and spanAddTagIfNotExists
@@ -861,6 +862,8 @@ Convert a span name, source name, or span tag name to lowercase.
 Add a span tag to all spans.
 * For `spanAddTag`, if the tag already exists, its existing value is replaced with the new value.
 * For `spanAddTagIfNotExists`, do not replace the value of an existing tag.
+
+{% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -899,7 +902,7 @@ spanAddTagIfNotExists</td>
   ################################################################
   - rule    : example-span-tag-all-metrics
     action  : spanAddTag
-    tag     : env
+    key     : env
     value   : "prod"
 
   # add "env=prod" point tag to all spans sent through this port
@@ -907,7 +910,7 @@ spanAddTagIfNotExists</td>
   ################################################################
   - rule    : example-span-tag-all-metrics-if-not-exists
     action  : spanAddTagIfNotExists
-    tag     : env
+    key     : env
     value   : "prod"
 ```
 
@@ -943,7 +946,7 @@ Removes a span tag that matches a regex string.
 <td>If specified, remove a tag only if its value matches this regular expression.</td>
 </tr>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, removes only the first matching tag. Default is false.</td>
 </tr>
 </tbody>
@@ -952,23 +955,22 @@ Removes a span tag that matches a regex string.
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-#  remove "az" annotation if its value starts with "dev"
-################################################################
-- rule    : example-span-drop-az-annotation
-  action  : spanDropTag
-  tag     : az
-  match   : dev.*
-  firstMatchOnly : false
+  #  remove "az" annotation if its value starts with "dev"
+  ################################################################
+  - rule           : example-span-drop-az-annotation
+    action         : spanDropTag
+    key            : az
+    match          : dev.*
 
-# remove first "bindTo" tag where a value starts with "dev"
-# i.e. `bindTo=prod1 bindTo=dev1 bindTo=prod2 bindTo=dev2` will become
-# `bindTo=prod1 bindTo=prod2 bindTo=dev2`
-################################################################
-- rule           : example-span-drop-bindto-dev-tags
-  action         : spanDropTag
-  tag            : bindTo
-  match          : ^dev.*
-  firstMatchOnly : true
+  # remove first "bindTo" tag where a value starts with "dev"
+  # i.e. `bindTo=prod1 bindTo=dev1 bindTo=prod2 bindTo=dev2` will become
+  # `bindTo=prod1 bindTo=prod2 bindTo=dev2`
+  ################################################################
+  - rule           : example-span-drop-bindto-dev-tags
+    action         : spanDropTag
+    key            : bindTo
+    match          : ^dev.*
+    firstMatchOnly : true
 ```
 
 ### spanExtractTag and spanExtractTagIfNotExists
@@ -1023,11 +1025,11 @@ Extract a string from a span name, source name, or a span tag value and create a
 <td>String or pattern that will be used as a value for the new span tag. Empty string is allowed. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group. </td>
 </tr>
 <tr>
-<td>replaceInput (Optional)</td>
+<td>replaceInput (optional)</td>
 <td>Modify the name of the input. Refer to a capturing group in the search regex using $ and its number (starting from 1). For example, use $1 to refer to the first group.</td>
 </tr>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, performs string replacement only on the first matching span tag’s value. Only applicable when <strong>input</strong> is a span tag and <strong>replaceInput</strong> is specified. Default is false.</td>
 </tr>
 </tbody>
@@ -1036,37 +1038,98 @@ Extract a string from a span name, source name, or a span tag value and create a
 <font size="3"><strong>Examples</strong></font>
 
 ```yaml
-## extract 3rd dot-delimited node from the span name into new
-## span tag, and remove it from the metric, i.e. from
-## "span.service.frontend.cpu_utilization" span name extract "serviceTag=frontend"
-## tag and change metric name to "span.service.cpu_utilization"
-################################################################
-- rule          : example-extract-tag-from-span
-  action        : spanExtractTag
-  key           : serviceTag
-  input         : spanName
-  match         : "span.*"
-  search        : "^([^\\.]*\\.[^\\.]*\\.)([^\\.]*)\\.(.*)$"
-  replace       : "$2"
-  replaceInput  : "$1$3"
-  # optional, omit if you plan on just extracting the tag leaving the metric name intact
+  ## extract 3rd dot-delimited node from the span name into new
+  ## span tag, and remove it from the metric, i.e. from
+  ## "span.service.frontend.cpu_utilization" span name extract "serviceTag=frontend"
+  ## tag and change metric name to "span.service.cpu_utilization"
+  ################################################################
+  - rule          : example-extract-tag-from-span
+    action        : spanExtractTag
+    key           : serviceTag
+    input         : spanName
+    match         : "span.*"
+    search        : "^([^\\.]*\\.[^\\.]*\\.)([^\\.]*)\\.(.*)$"
+    replace       : "$2"
+    replaceInput  : "$1$3"
+    # optional, omit if you plan on just extracting the tag leaving the metric name intact
 ```
 
 ```yaml
-## extract 3rd dot-delimited node from the span name into new
-## span tag, and remove it from the metric, i.e. from
-## "span.service.frontend.cpu_utilization" span name extract "serviceTag=frontend"
-## tag and change metric name to "span.service.cpu_utilization"
-################################################################
-- rule          : example-extract-tag-from-span
-  action        : spanExtractTagIfNotExists
-  key           : serviceTag
-  input         : spanName
-  match         : "span.*"
-  search        : "^([^\\.]*\\.[^\\.]*\\.)([^\\.]*)\\.(.*)$"
-  replace       : "$2"
-  replaceInput  : "$1$3"
-  # optional, omit if you plan on just extracting the tag leaving the metric name intact
+  ## extract 3rd dot-delimited node from the span name into new
+  ## span tag, and remove it from the metric, i.e. from
+  ## "span.service.frontend.cpu_utilization" span name extract "serviceTag=frontend"
+  ## tag and change metric name to "span.service.cpu_utilization"
+  ################################################################
+  - rule          : example-extract-tag-from-span
+    action        : spanExtractTagIfNotExists
+    key           : serviceTag
+    input         : spanName
+    match         : "span.*"
+    search        : "^([^\\.]*\\.[^\\.]*\\.)([^\\.]*)\\.(.*)$"
+    replace       : "$2"
+    replaceInput  : "$1$3"
+    # optional, omit if you plan on just extracting the tag leaving the metric name intact
+```
+
+### spanRenameTag
+Renames a span tag. The renaming does not affect the values stored in a span.
+
+<font size="3"><strong>Parameters</strong></font>
+
+<table>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>spanRenameTag</td>
+</tr>
+<tr>
+<td>key</td>
+<td>The span tag to be renamed.</td>
+</tr>
+<tr>
+<td>newkey</td>
+<td>The new name for the span tag.</td>
+</tr>
+<tr>
+<td>match (optional)</td>
+<td>If specified, renames a span tag if its value matches this regular expression.</td>
+</tr>
+<tr>
+<td>firstMatchOnly (optional)</td>
+<td>If set to true, renames only the first matching span tag. Default is false.</td>
+</tr>
+</tbody>
+</table>
+
+<font size="3"><strong>Example</strong></font>
+
+```yaml
+  ## rename the "guid:x-request-id" span tag to "guid-x-request-id" by 
+  ## removing the invalid punctuation (":") to prevent it from being blacklisted.
+  ################################################################
+  - rule   : rename-span-tag-x-request-id
+    action : spanRenameTag
+    key    : guid:x-request-id
+    newkey : guid-x-request-id
+            
+  ## rename a span tag if its value is numeric. For example, myDevice=123 is renamed to device=123, 
+  ## but myDevice=text123 is not changed.
+  ################################################################
+  - rule   : rename-numeric-span-tag
+    action : spanRenameTag
+    key    : myDevice
+    newkey : device
+    match  : "^\\d*$"
 ```
 
 ### spanlimitLength
@@ -1120,7 +1183,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <td>Regular expression. If specified, remove a tag if its value matches this regular expression.</td>
 </tr>
 <tr>
-<td>firstMatchOnly</td>
+<td>firstMatchOnly (optional)</td>
 <td>If set to true, applies only to the first matching span tag. Only applicable when the scope is a span tag. Default is false.</td>
 </tr>
 </tbody>
@@ -1129,12 +1192,12 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <font size="3"><strong>Example</strong></font>
 
 ```yaml
-## truncate 'db.statement' annotation value at 240 characters,
-## replace last 3 characters with '...'.
-################################################################
-- rule          : example-limit-db-statement
-  action        : spanLimitLength
-  scope         : "db.statement"
-  actionSubtype : truncateWithEllipsis
-  maxLength     : "240"
+  ## truncate 'db.statement' annotation value at 128 characters,
+  ## replace last 3 characters with '...'.
+  ################################################################
+  - rule          : example-limit-db-statement
+    action        : spanLimitLength
+    scope         : "db.statement"
+    actionSubtype : truncateWithEllipsis
+    maxLength     : "128"
 ```
