@@ -11,7 +11,7 @@ You can combine points from multiple time series using an [**aggregation functio
 
 * Standard aggregation functions (e.g. `sum()`, `avg()`, or `max()`) first interpolate the points of the underlying set of series, and then apply the aggregation function to the interpolated series. These functions aggregate multiple series down, usually to a single series.
 * Raw aggregation functions (e.g. `rawsum()`, `rawavg()`) do **not** interpolate the underlying series before aggregation.
-* [Moving window functions](query_language_windows_trends.html) (e.g. `msum()`, `mavg()` and `mmax()` aggregate series horizontally across a chart by time. They take each individual series and aggregate its own prior behavior across the timeWindow. For example, you can get the maximum value for each series in the specified time window. 
+* [Moving window functions](query_language_windows_trends.html) (e.g. `msum()`, `mavg()` and `mmax()` aggregate series horizontally across a chart by time. They take each individual series and aggregate its own prior behavior across the timeWindow. For example, you can get the maximum value for each series in the specified time window.
 
 In the following video, Wavefrount co-founder Clement Pang explains how interpolation works:
 
@@ -129,9 +129,9 @@ Each aggregation function accepts a 'group by' parameter that allows you to subd
 
 ### A Closer Look at the `sourceTags` Parameter
 
-The `sourceTags` parameter behaves a little differently from the other grouping parameters. `sourceTags` produces a subgroup that corresponds to each source tag that is explicitly specified in the ts() expression. No other source tags are taken into account. 
+The `sourceTags` parameter behaves a little differently from the other grouping parameters. `sourceTags` produces a subgroup that corresponds to each source tag that is explicitly specified in the ts() expression. No other source tags are taken into account.
 
-For example, suppose you added 3 source tags (`prod`, `db`, and `highPriority`) to the metric `cpu.loadavg.1m`, and now you want to use the `sourceTags` parameter with `sum()` to return subtotals based on the source tags. 
+For example, suppose you added 3 source tags (`prod`, `db`, and `highPriority`) to the metric `cpu.loadavg.1m`, and now you want to use the `sourceTags` parameter with `sum()` to return subtotals based on the source tags.
 
 * The following query returns only 2 subtotals - one for the group with the source tag `prod` and one for the group with the source tag `db`:
 
@@ -159,7 +159,7 @@ The series report data like this:
 * All three reporting series have gaps of missing data between 9:27a and 9:30a
 * One reporting series has a gap of missing data between 9:36a and 9:42a.
 
-The following chart shows what happens when we apply `sum()` (blue line) and `rawsum()` (orange line) to the three time series.
+The following chart shows what happens when we apply `sum()` (orange line) and `rawsum()` (blue line) to the three time series.
 
 ![standard versus raw](images/standard_vs_raw_functions.png)
 
