@@ -100,7 +100,7 @@ Wavefront customer support engineers have found the following metrics especially
 <table>
 <tbody>
 <thead>
-<tr><th width="12%">Type</th><th width="38%">Metric</th><th width="50%">Description</th></tr>
+<tr><th width="12%">Type</th><th width="35%">Metric</th><th width="53%">Description</th></tr>
 </thead>
 <tr>
 <td markdown="span">~alert</td>
@@ -116,27 +116,30 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">Tracks how often a specified alert performs a check. See [Alert States](alerts_states_lifecycle.html#alert-states) for details.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
-<td markdown="span">~collector.points.reported <br> ~collector.histograms.reported <br>~collector.tracing.spans.reported<br>~collector.tracing.span_logs.reported <br> ~collector.tracing.span_logs.bytes<br>_reported<br></td>
-<td markdown="span">Valid metric points, histogram points, [trace data (spans)](tracing_basics.html#trace-sampling-and-storage), or [span logs](2019.30.x_release_notes.html#span-logs-for-distributed-tracing) that the collector reports to Wavefront. This is a billing metric that you can look up on the Wavefront Usage dashboard. </td></tr>
-<tr>
-<td markdown="span">~collector</td>
-<td markdown="span">
-~collector.direct-ingestion.points.reported <br>
-~collector.direct-ingestion.histograms.reported<br> ~collector.direct-ingestion.tracing.spans.reported<br>~collector.direct-ingestion.tracing.span_logs.<br>reported <br></td>
-<td markdown="span">Valid metric points, histogram points, spans, and span logs that are reported to the Wavefront service via direct ingestion. This is a billing metric that you can look up on the Wavefront Usage dashboard. </td></tr>
+<td markdown="span">~collector.points.reported <br> ~collector.histograms.reported <br>~collector.tracing.spans.reported<br>~collector.tracing.span_logs.reported <br> ~collector.tracing.span_logs.bytes_reported<br></td>
+<td markdown="span">Valid metric points, histogram points, [trace data (spans)](tracing_basics.html#trace-sampling-and-storage), or [span logs](2019.30.x_release_notes.html#span-logs-for-distributed-tracing) that the collector reports to Wavefront. This is a billing metric that you can look up on the Wavefront Usage dashboard.<br>
+<br>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.reported` we have `collector.direct-ingestion.points.reported`.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.valid<br> ~collector.histograms.valid<br> ~collector.tracing.spans.valid<br>
 ~collector.tracing.span_logs.valid </td>
-<td markdown="span">Valid metric points, histogram points, or spans received by the collector. If the points received by the collector are valid, they are sent to the Wavefront service. There's a corresponding ~collector.*.invalid metric to drill down into invalid points and spans. </td></tr>
+<td markdown="span">Valid metric points, histogram points, or spans received by the collector. If the points received by the collector are valid, they are sent to the Wavefront service. There's a corresponding `~collector.*.invalid` metric to drill down into invalid points and spans.<br>
+<br>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.histograms.valid` we have `collector.direct-ingestion.histograms.valid`.</td></tr></td></tr>
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.batches<br> ~collector.histograms.batches<br> ~collector.tracing.spans.batches<br> ~collector.tracing.span_logs.batches</td>
-<td markdown="span">Number of batches of points, histogram points, or spans received by the collector, either via the proxy or via the direct ingestion API. In the histogram context a batch is the number of HTTP POST requests.</td></tr>
+<td markdown="span">Number of batches of points, histogram points, or spans received by the collector, either via the proxy or via the direct ingestion API. In the histogram context a batch is the number of HTTP POST requests.<br>
+<br>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.spans.batches` we have `collector.direct-ingestion.spans.batches`.</td></tr></td></tr>
+
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable<br> ~collector.histograms.undecodable<br> ~collector.tracing.spans.undecodable<br> ~collector.tracing.span_logs.undecodable</td>
-<td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Wavefront because the input is not in the right format.</td></tr>
+<td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Wavefront because the input is not in the right format.<br>
+<br>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr></td></tr>
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_host_ids</td>
