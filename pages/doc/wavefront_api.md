@@ -117,9 +117,7 @@ The REST API supports the following objects corresponding to different categorie
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [Proxy Management permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
 - **Saved Search** - Retrieve, add, and remove saved searches.
-- **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and web hooks.
-<!--- TBD whether this should be in. 
-- **Settings** - --->
+- **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **User** - Deprecated API that allows users with [Accounts & Groups permission](permissions_overview.html) to retrieve a list of all accounts (user or service account), create, update, and delete accounts and manage permissions and groups associated with accounts.
 - **UserGroup** - Allows users with [Accounts & Groups permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and permissions associated with a group.
