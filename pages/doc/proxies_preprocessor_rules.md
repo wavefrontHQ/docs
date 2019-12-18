@@ -119,7 +119,7 @@ Defines a regex that points must match to be filtered out.
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -176,7 +176,7 @@ Points must match the `whitelistRegex` to be accepted. Multiple `whitelistRegex`
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -242,7 +242,7 @@ Replaces arbitrary text in the point line or any of its components:
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -419,7 +419,7 @@ extractTagIfNotExists</td>
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -540,7 +540,7 @@ Converts metric name, source name, or point tag value to lowercase.
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -590,7 +590,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point tag key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
