@@ -6,23 +6,25 @@ permalink: ingestion_policies.html
 summary: Monitor usage with ingestion policies and usage dashboards.
 ---
 
-As a Wavefront administrator, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign users to each policy to see which teams use which part of total ingestion. You can even drill down to individual users from the Ingestion Breakdown dashboard.
+As a Wavefront administrator, you're interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts (user or service accounts) to each policy to see which teams use which part of total ingestion. You can even drill down to individual users from the Ingestion Breakdown dashboard.
 
-You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-user basis using ingestion policies and the usage dashboards.
+You can examine the performance of your Wavefront instance using [wftop](), [Wavefront spy](wavefront_monitoring_spy.html), and the [Slow Queries dashboard](wavefront_monitoring.html#examine-slow-queries). In addition, you can find out usage on a per-account basis using ingestion policies and a Wavefront Usage integration dashboards.
+
+**Note:** When you create a new ingestion policy, it can take a few minutes for the data to become available in the Wavefront Usage dashboard.
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to group users and then examine their usage in the **Wavefront Ingestion (PPS) Usage Breakdown** for your cluster. For example, you can create a policy, add all users that joined in the last 6 months, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training.
+Ingestion policies allow you to group accounts and then examine their usage in the **Wavefront Ingestion (PPS) Usage Breakdown** for your cluster. For example, you can create a policy, add all accounts that joined in the last 6 months, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training.
 
 ### Permissions
 
 Users with **Accounts&Groups** permissions can create ingestion policies and add user accounts or service accounts.
-* Each user can belong to only one policy at a time. That way, you never count usage of a user twice.
-* You can add accounts and service accounts to the same policy.
+* Each account can belong to only one policy at a time. That way, you never count usage of a account twice.
+* You can add user accounts and service accounts to the same policy.
 
 ### Unassigned Policy
 
-The Ingestion Breakdown dashboard includes an **Unassigned** policy that shows the total for all users who aren't in an ingestion policy that you created.
+The Ingestion Breakdown dashboard includes an **Unassigned** policy that shows the total for all accounts who aren't in an ingestion policy that you created.
 
 ## Create an Ingestion Policy
 
@@ -38,7 +40,7 @@ Each account can only belong to one policy. If an account is greyed out in the p
 
 ## Examine Usage
 
-You examine usage for users in different policies or for individual users from the Ingestion Breakdown dashboard.
+You examine usage for accounts in different policies or for individual accounts from the Ingestion Breakdown dashboard.
 
 ### Administrators
 

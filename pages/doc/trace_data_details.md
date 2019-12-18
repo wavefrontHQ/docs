@@ -88,13 +88,43 @@ getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId
 
 ### Span Tags
 
-Span tags are special tags associated with a span.
+Span tags are special tags associated with a span and are key-value pairs.
 
 - **Required**. Many of the span tags are required for a span to be valid.
-- **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names listed in the following tables.
+- **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names.
 
-**Note:** The maximum allowed length for a combination of a span tag key and value is 254 characters (255 including the "=" separating key and value). If the value is longer, the span is rejected.
-
+The following table lists the maximum number of characters you can assign a span tag.
+<table>
+<colgroup>
+<col width="20%" />
+<col width="10%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Maximum Length</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Span tag key</td>
+<td>128</td>
+<td>If the span tag key exceeds the maximum length, the span associated with it is blocked by Wavefront.</td>
+</tr>
+<tr>
+<td>Span tag value</td>
+<td>128</td>
+<td>If the span tag value exceeds the maximum length, the value is truncated to the maximum number of characters.</td>
+</tr>
+<tr>
+<td>Span tag</td>
+<td>256</td>
+<td><code>span-tag-length = span-tag-key length + span-tag-value length</code><br/><br/> If the span tag exceeds the maximum length, the span details are recorded in Wavefront but, the span tag associated with it is blocked.</td>
+</tr>
+</tbody>
+</table>
 
 The following table lists span tags that contain information about the span's identity and relationships.
 
