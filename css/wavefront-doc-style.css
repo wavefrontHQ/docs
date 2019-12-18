@@ -746,24 +746,18 @@ li.activeSeries {
 }
 
 .alert-danger {
-  background-color: #f5dddb;
-  border-color: #f8b5b4;
-  color: #575757;
+  background-color: #F2DEDE;
+  border-color: #EED3D7;
+  color: #B94A65;
   border-radius: 1px;
 }
 
 .alert-success {
-  background-color: #dff0d0;
-  border-color: #61b715;
-  color: #575757;
-  border-radius: 1px;
+  color: #52606D;
 }
 
 .alert-warning{
-  background-color: #fef3b4;
-  border-color: #fdd008;
-  color: #575757;
-  border-radius: 1px;
+  color: #52606D;
 }
 
 div.alert code, h2 code {
