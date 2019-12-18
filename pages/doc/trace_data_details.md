@@ -93,7 +93,7 @@ Span tags are special tags associated with a span and are key value pairs.
 - **Required**. Many of the span tags are required for a span to be valid.
 - **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names.
 {{site.data.alerts.note}}
-The following table lists the maximum characters for a span tag.
+The following table lists the maximum characters you can assign a span tag.
 <table>
 <colgroup>
 <col width="20%" />
@@ -111,17 +111,17 @@ The following table lists the maximum characters for a span tag.
 <tr>
 <td>Span tag key</td>
 <td>128</td>
-<td>The default value is 128 characters. If your span tag is longer, it is dropped by Wavefront.<br/> But, if you remove the default value and the value defaults to empty, the maximum limit is 64 characters.</td>
+<td>If the span-tag-key exceeds the maximum length, the span associated with it is blocked by Wavefront, and you won't see the span details in Wavefront.</td>
 </tr>
 <tr>
 <td>Span tag value</td>
 <td>128</td>
-<td>If you exceed 128 characters, the value is truncated to the maximum number of characters.</td>
+<td>If the span-tag-value exceeds the maximum length, the value is truncated to the maximum number of characters.</td>
 </tr>
 <tr>
 <td>Span tag</td>
-<td>255</td>
-<td>The maximum allowed length for a combination of a span tag key and value is 254 characters (255 including the "=" separating key and value). If the span tag is longer, it is dropped by Wavefront but, the span is recorded.</td>
+<td>256</td>
+<td>The length of the span-tag-key and span-tag-value make up the length of the span tag. If it exceeds the maximum length, the span details are recorded in Wavefront but, the span-tag associated with it is blocked.</td>
 </tr>
 </tbody>
 </table>
