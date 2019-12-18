@@ -119,7 +119,7 @@ Defines a regex that points must match to be filtered out.
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -176,7 +176,7 @@ Points must match the `whitelistRegex` to be accepted. Multiple `whitelistRegex`
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -242,7 +242,7 @@ Replaces arbitrary text in the point line or any of its components:
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -419,7 +419,7 @@ extractTagIfNotExists</td>
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -540,7 +540,7 @@ Converts metric name, source name, or point tag value to lowercase.
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -590,7 +590,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 <li>pointLine&mdash;Rule applies to the whole point line before it's parsed (can be used with Wavefront and Graphite formats only). </li>
 <li>metricName&mdash;Rule applies only to the metric name after the point is parsed.</li>
 <li>sourceName&mdash;Rule applies only to the source name after the point is parsed.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to the value of a point tag with this name after the point is parsed.</li>
+<li>&lt;point tag&gt;&mdash;Rule applies to the value of the specified point-tag-key after the point is parsed.</li>
 </ul></td>
 </tr>
 <tr>
@@ -659,7 +659,7 @@ Defines a regex that spans must match to be filtered out. In the example below, 
 <ul>
 <li>spanName&mdash;Rule applies only to span name.</li>
 <li>sourceName&mdash;Rule applies only to the source name.</li>
-<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
+<li>&lt;span tag&gt;&mdash;Rule applies to the value of the specified span tag (annotation) key.</li>
 </ul></td>
 </tr>
 <tr>
@@ -708,7 +708,7 @@ Points must match the `spanWhitelistRegex` to be accepted. Multiple `spanWhiteli
 <ul>
 <li>spanName&mdash;Rule applies only to the span name.</li>
 <li>sourceName&mdash;Rule applies only to the source name. </li>
-<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
+<li>&lt;span tag&gt;&mdash;Rule applies to the value of the specified span tag (annotation) key.</li>
 </ul></td>
 </tr>
 <tr>
@@ -761,7 +761,7 @@ Replaces arbitrary text in the span name, span source name, or a span tag.
 <ul>
 <li>spanName&mdash;Rule applies only to the span name.</li>
 <li>sourceName&mdash;Rule applies only to the source name.</li>
-<li>&lt;point tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
+<li>&lt;span tag&gt;&mdash;Rule applies to the value of the specified span tag (annotation) key.</li>
 </ul></td>
 </tr>
 <tr>
@@ -831,7 +831,7 @@ Convert a span name, source name, or span tag name to lowercase.
 <ul>
 <li>spanName&mdash;Rule applies only to the span name.</li>
 <li>sourceName&mdash;Rule applies only to the source name.</li>
-<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
+<li>&lt;span tag&gt;&mdash;Rule applies to the value of the specified span tag (annotation) key.</li>
 </ul></td>
 </tr>
 <tr>
@@ -1009,7 +1009,7 @@ Extract a string from a span name, source name, or a span tag value and create a
 <ul>
 <li>spanName&mdash;Rule applies only to the span name.</li>
 <li>sourceName&mdash;Rule applies only to the source name.</li>
-<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
+<li>&lt;span tag&gt;&mdash;Rule applies to the value of the specified span tag (annotation) key.</li>
 </ul></td>
 </tr>
 <tr>
@@ -1162,7 +1162,7 @@ Available action subtypes are `truncate`, `truncateWithEllipsis`, and `drop`.
 <ul>
 <li>spanName&mdash;Rule applies only to the span name of the span.</li>
 <li>sourceName&mdash;Rule applies only to the source name of the span.</li>
-<li>&lt;span tag&gt;&mdash;For any other value, the rule applies to span tags (annotations).</li>
+<li>&lt;span tag&gt;&mdash;Rule applies to the value of the specified span tag (annotation) key.</li>
 </ul></td>
 </tr>
 <tr>
