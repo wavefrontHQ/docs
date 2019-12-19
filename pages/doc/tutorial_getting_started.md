@@ -67,7 +67,7 @@ Next, let's have a look at some metrics in the Metrics browser.
 
 ## Create Dashboards and Charts With the Dashboard Builder
 
-Use our [Dashboard Builder drag-and-drop interface](ui_dashboards_v2.html#create-a-dashboard) to quickly create a dashboard from your metrics. Start with an integration or browse all metrics, and create one or multiple charts.
+Use our [Dashboard Builder drag-and-drop interface](ui_dashboards.html#create-a-dashboard) to quickly create a dashboard from your metrics. Start with an integration or browse all metrics, and create one or multiple charts.
 
 ![create dashboard with builder](images/v2_create_dashboard.png)
 

@@ -61,7 +61,7 @@ We made usability improvements for each chart type--and you can use delete, clon
 
 ### Dashboard Variables Redesign
 
-[Dashboard variables](dashboards_variables_v2.html) are now easier to configure and easier to use.
+[Dashboard variables](dashboards_variables.html) are now easier to configure and easier to use.
 
 <table style="width: 100%;">
 <tbody>
@@ -77,10 +77,10 @@ We've streamlined variable configuration for developers. We've made setting vari
 
 We've prepared the following doc pages for the new UI. These pages are not yet in the Table of Contents because most Wavefront users are still using the v1 UI but you can access them using the following links:
 
-* [Examine Data with Dashboards and Charts](ui_examine_data_v2.html)
-* [Create and Customize Dashboards](ui_dashboards_v2.html)
-* [Create and Customize Charts](ui_charts_v2.html)
-* [Chart Reference](ui_chart_reference_v2.html)
+* [Examine Data with Dashboards and Charts](ui_examine_data.html)
+* [Create and Customize Dashboards](ui_dashboards.html)
+* [Create and Customize Charts](ui_charts.html)
+* [Chart Reference](ui_chart_reference.html)
 * [Chart Builder](chart_builder.html)
 
 ## Chart FAQs
@@ -151,4 +151,4 @@ Wavefront currently doesn't distinguish between warnings and info messages. For 
 
 ### Q: Dashboard variables have changed. Where do I find out more?
 
-A: We have [new documentation](dashboards_variables_v2.html) for dashboard variables.
+A: We have [new documentation](dashboards_variables.html) for dashboard variables.

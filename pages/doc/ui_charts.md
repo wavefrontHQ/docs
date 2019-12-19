@@ -146,7 +146,7 @@ You have many options to make the legend display easy to find and understand.
 </tbody>
 </table>
 
-For details, see the [Chart Reference](ui_chart_reference_v2.html).
+For details, see the [Chart Reference](ui_chart_reference.html).
 
 ### Include Metrics That Stopped Reporting Over 4 Weeks Ago
 
@@ -314,6 +314,6 @@ To temporarily change the sampling behavior for a selected chart use the **Sampl
 
 ## Do More!
 
-* Customize your chart. See the [Chart Reference](ui_chart_reference_v2.html) for details on options.
+* Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details on options.
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.

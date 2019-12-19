@@ -32,7 +32,7 @@ summary: Examine data with dashboards and charts
 
 ## Set the Dashboard Time Window
 
-By default dashboards display charts with a two-hour time window with real-time (live) data flowing in. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards_v2.html#set-dashboard-display-preferences).
+By default dashboards display charts with a two-hour time window with real-time (live) data flowing in. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
@@ -49,7 +49,7 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 Global filters and dashboard variables are two ways to narrow down what you see.
 * **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
-* * [**Dashboard Variables**](dashboards_variables_v2.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
+* * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 
 If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
 
@@ -68,7 +68,7 @@ All users can use global filters to customize their dashboard. When you set a gl
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%"><a href="ui_examine_data_v2.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
+<td width="40%"><a href="ui_examine_data.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
 <ul>
 <li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking the <strong>X</strong>. </li></ul></td>
 <td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>

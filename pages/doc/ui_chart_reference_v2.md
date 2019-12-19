@@ -81,7 +81,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -193,7 +193,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -238,7 +238,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -349,7 +349,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -415,7 +415,7 @@ The following stack types are supported.
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -526,7 +526,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -579,7 +579,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts_v2.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -690,7 +690,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -805,7 +805,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -813,11 +813,11 @@ Chart description. The description shows up as hover text when you place the mou
 
 A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts. We support [CommonMark](https://commonmark.org/)
 
-In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables_v2.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
+In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -933,7 +933,7 @@ Whether and where to show the sparkline. Options are:
 </tr>
 <tr>
 <td>Axis</td>
-<td>Allows you to select a linear or logarithmic axis for the sparkline. See <a href="ui_charts_v2.html#use-a-logarithmic-y-axis-for-skewed-data"> Use a Logarithmic Y Axis for Skewed Data</a>.
+<td>Allows you to select a linear or logarithmic axis for the sparkline. See <a href="ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data"> Use a Logarithmic Y Axis for Skewed Data</a>.
 </td>
 </tr>
 <tr>
@@ -962,7 +962,7 @@ The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab all
 
 <table style="width: 100%;">
   <tbody>
-  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
   </tbody>
 </table>
 
@@ -1058,7 +1058,7 @@ Allows you to direct end users to a target dashboard if they click this chart,
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
 
@@ -1124,6 +1124,6 @@ If you [specify a drilldow link], end users are directed to a target dashboard w
 
 <table style="width: 100%;">
 <tbody>
-<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference_v2.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>

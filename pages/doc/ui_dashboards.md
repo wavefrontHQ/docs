@@ -19,7 +19,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 </tbody>
 </table>
 
-[Examine Data with Dashboards and Charts](ui_examine_data_v2.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
+[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have Dashboard permission and Modify access to save changes you make to dashboards." %}
 
@@ -203,7 +203,7 @@ With the dashboard in Edit mode:
 <ol>
 <li>Scroll up to the Variables bar.  </li>
 <li>Click the Edit icon to edit a variable.</li>
-<li>Click the Add button to <a href="dashboards_variables_v2.html">add a variable</a>.</li>
+<li>Click the Add button to <a href="dashboards_variables.html">add a variable</a>.</li>
 </ol>
 </td>
 <td width="50%">

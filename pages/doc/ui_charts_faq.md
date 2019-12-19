@@ -1,12 +1,12 @@
 ---
-title: Wavefront Charts FAQ (v2)
+title: Wavefront Charts FAQ
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
 permalink: ui_charts_faq.html
 summary: Learn chart customization from the experts.
 ---
 
-[Create and Customize Charts](ui_charts_v2.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
+[Create and Customize Charts](ui_charts.html) describes most of the things you need to know to get started. This page has some special tips and tricks to help you create the user experience you're after.
 
 {% include shared/badge.html content="You must have [Dashboard permission](permissions_overview.html) to save a chart to a dashboard. If you do not have permission, UI menu selections and buttons required to perform the task are not visible." %}
 
@@ -69,6 +69,6 @@ Suppose your users monitor 2 dashboards:
 
 ## Any Other Doc (or Videos)?
 
-* Get the details about each chart type from the [Chart Reference](ui_chart_reference_v2.html).
+* Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
 * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.

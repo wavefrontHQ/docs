@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Getting Started"
+title: "Tutorial: Getting Started (v1)"
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started_v1.html
