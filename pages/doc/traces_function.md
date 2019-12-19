@@ -16,7 +16,7 @@ traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value
 
 traces(<spansExpression>)
 ```
-Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters.html). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
+Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
 ## Parameters
 
