@@ -38,7 +38,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 1. Make sure python 3.6 or higher is installed on the Telegraf agent server.
 2. Install python package cx_Oracle. Use the following snippet.{% raw %}
   ```
-    python -m pip install cx_Oracle --upgrade
+    python3 -m pip install cx_Oracle --upgrade
   ```
 {% endraw %}
 
