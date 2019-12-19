@@ -14,7 +14,7 @@ summary: Learn how to use dashboard variables.
 <br>
 When you use a dashboard variable, you change that variable in all queries on all charts that use the variable. As a result, users can update many charts at once, for example, to change to a different environment or a different customer. Developers can set up the variables so users only have to pick items from a list.
 <strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
-<td width="20%"><a href="dashboard_variables.html"><img src="/images/v2_button.png" alt="click here for the v2 doc"/></a></td>
+<td width="20%"><a href="dashboards_variables.html"><img src="/images/v2_button.png" alt="click here for the v2 doc"/></a></td>
 </tr>
 </tbody>
 </table>

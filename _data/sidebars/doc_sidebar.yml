@@ -260,7 +260,7 @@ entries:
           output: web
 
         - title: Query Editor
-          url: /query_editor.html.html
+          url: /query_editor.html
           output: web
 
         - title: AI Genie
