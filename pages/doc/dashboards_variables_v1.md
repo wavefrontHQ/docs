@@ -3,7 +3,7 @@ title: Dashboard Variables (v1)
 keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
-permalink: dashboards_variables.html
+permalink: dashboards_variables_v1.html
 summary: Learn how to use dashboard variables.
 ---
 

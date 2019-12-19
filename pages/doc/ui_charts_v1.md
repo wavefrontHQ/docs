@@ -62,7 +62,7 @@ When you construct a query, you can use functions such as `sum()`, `highpass()`,
 
 * To change which queries are associated with a chart, use the icons in the Query section.
    * Click the add icon (+) to the right of the query field to add a new query field and an additional query with a chart.
-   * Click the clone icon to clone an existing query into a new query field. Cloning is recommended when you are using a [legend](charts.html#legend) for a chart with several query fields.
+   * Click the clone icon to clone an existing query into a new query field. Cloning is recommended when you are using a [legend](ui_charts.html#legend) for a chart with several query fields.
    * Click the remove icon (-) to remove a query field.
 * To rename a query, click the current query name (New Query is the initial default) and enter a name. The query name can be up to 50 characters and there's no restriction on characters you can use.
 

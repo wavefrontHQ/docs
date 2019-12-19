@@ -68,7 +68,7 @@ create  a dashboard starting with one of the charts in this tour dashboard and a
     1. In the App Servers section, click the **Requests** chart title:
        ![requests](images/requests.png)
 
-       The [stacked area](charts.html#stacked-area) chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. The **last()** function fills in any gaps in data with the last known value of the metric.
+       The [stacked area](ui_charts.html#stacked-area) chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. The **last()** function fills in any gaps in data with the last known value of the metric.
 1.  Add the chart to a new dashboard:
     1. Scroll to the bottom of the chart page.
     1. Click **Save to New Dashboard**.
@@ -85,7 +85,7 @@ create  a dashboard starting with one of the charts in this tour dashboard and a
     1. Press **Enter**. The chart now displays only _production_ application servers in all availability zones.
     1. Click **Accept**.
 1.  Now let's create a chart from scratch:
-    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts.html#line-plot) chart is created.
+    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](ui_charts.html#line-plot) chart is created.
     1. In the New Query field, type **ts**. The system adds parentheses.
     1. Type **~sample.requests**.
     1. Choose **latency** from the autocomplete dropdown and press **Enter**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
