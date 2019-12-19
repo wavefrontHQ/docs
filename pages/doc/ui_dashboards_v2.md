@@ -1,7 +1,8 @@
 ---
-title: Create and Customize Dashboards (v2)
+title: Create and Customize Dashboards
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
+published: false
 permalink: ui_dashboards_v2.html
 summary: Create dashboards, add charts, and customize dashboard layout.
 ---

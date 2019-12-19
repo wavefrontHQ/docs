@@ -1,24 +1,47 @@
 ---
-title: Dashboard Variables
+title: Dashboard Variables and Global Filters
 keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
-permalink: dashboards_variables.html
-summary: Learn how to use dashboard variables.
+permalink: dashboards_variables_v2.html
+summary: Define dashboard variables to allow easy switches between different data sources.
 ---
-When you use a dashboard variable, you change that variable in all queries on all charts that use the variable. As a result, users can update many charts at once, for example, to change to a different environment or a different customer. Developers can set up the variables so users only have to pick items from a list.
-
-{% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to save changes you make to dashboards." %}
-
-All Wavefront users can select and temporarily alter the value of a dashboard variable.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="80%">
+Dashboard variables and global filters are excellent ways of focusing the metrics that a dashboard displays.
+<ul>
+<li>A user with Dashboard permissions can <strong>add or edit variables</strong> for a dashboard and save the changes.  </li>
+<li>All users can <strong>set variables</strong> for a dashboard. The change applies to all charts in that dashboard.</li>
+<li>All users can create <strong>global filters</strong>; key value pairs for filtering dashboard results. </li>
+<li> All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
+</ul>
+<strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
+<td width="20%"><a href="dashboard_variables_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+</tr>
+</tbody>
+</table>
 
 ## Dashboard Variable Use Cases
 
-Dashboard variables can contain:
-* Metric names
-* Filters
-* Advanced functions
-* A string such as ")))", which could be inserted at the end of a query.
+Dashboard variables make it easy for all users to refocus what a dashboard displays. For example:
+
+* An environment includes a tag `env` that can be `prod` or `dev`. You can use a list variable to allow users to pick one - and you can define a label that makes it easy for users to make the choice.
+* An environment that has a growing fleet of machines. You can use a dynamic variable that accesses the `source` to allow users to choose from currently available sources.
+
+## Change and Show/Hide Variables (View Mode)
+
+All users can show or hide the variables bar and can select from the predefined variables once the bar is visible. If no variables are defined for the dashboard, the show/hide icon is not visible.
+
+![select variable](images/select_variable.png)
+
+
+## Create, Modify, and Save Variables (Edit Mode)
+
+Users with Dashboard permissions can create variables, use them in queries, and save the dashboard. After the dashboard has been saved, the variable shows up in the dashboard bar and all users can make selections.
+
+### Dashboard Variable Scope
 
 Different types of dashboard variables can help in different ways:
 
@@ -28,95 +51,139 @@ Different types of dashboard variables can help in different ways:
   ![Variable Name.png](images/db_var_name.png)
 - **Dynamic**: Use a dynamic variable to show choices that interactively change your dashboard based on the source, metric, point tag, and other options.
 
-## Access Dashboard Variables
+Dashboard variables can contain:
+* Metric names
+* Filters
+* Advanced functions
+* A string such as ")))", which could be inserted at the end of a query.
 
-To access the variables associated with a dashboard, click the icon to the left of the pen in the top right corner of the task bar ![db_actions.png](images/db_actions.png#inline).
 
-## Create a Dashboard Variable
+### Create a Dashboard Variable
 
 To create a dashboard variable:
 
-1.  Put your dashboard into edit mode by clicking the pencil icon in the top right corner of the task bar.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
+2. Click the **Add** icon in the variables bar.
 
-    - If no dashboard variables are defined, click **Create**.
-    - If at least one variable is associated with the dashboard, click the plus (+) icon.
+   ![edit_or_reorder variables](images/edit_variable_v2.png)
+3. In the Add Variable dialog box:
+   1. Specify the **Variable Name** -- Name you can use in queries that use the variable. Keep this name short.
+   2. Select the Variable Type.
+   3. Specify the **Display Name**.
+   5. To make your dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
+   6. Fill in remaining fields depending on the variable type (discussed below):
+      * [Simple variable](#simple)
+      * [List variable](#list)
+      * [Dynamic variable](#dynamic)
 
-2.  Inside the Variables pane, click the pen icon.
+### Edit a Dashboard Variable
 
-    ![variables edit icon](images/variables_edit.png)
+Editing a dashboard variable is similar to creating a dashboard variable.
 
-3.  In the Variable Details dialog box, specify the variable name and label, and select the Variable Type. Fill in remaining fields depending on the variable type: [simple](#simple), [list](#list), and [dynamic](#dynamic).
-4.  To make your dashboard variable non-viewable/non-changeable when the dashboard is not in edit mode, click **Hide from non-editors**. The dashboard variable can still be used in ts() expressions and is visible when you put the dashboard into edit mode.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
+2. Click the **Edit** icon in the variables bar and select **Edit**.
+
+   ![edit_or_reorder variables](images/edit_variable_v2.png)
+3. In the Add Variable dialog box:
+   1. Specify the **Variable Name** -- Name you can use in queries that use the variable. Keep this name short.
+   2. Select the Variable Type.
+   3. Specify the **Display Name**.
+   5. To make your dashboard variable invisible when the dashboard is not in edit mode, click **Hide when not in edit mode**. The dashboard variable can still be used in ts() expressions and is visible in edit mode.
+   3. Fill in remaining fields depending on the variable type (discussed below):
+      * [Simple variable](#simple)
+      * [List variable](#list)
+      * [Dynamic variable](#dynamic)
+
+### Clone or Delete a Dashboard Variable
+
+To clone or delete a dashboard variable:
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
+2. Select **Clone** or **Delete** from the pencil icon pull-down menu.
 
 ## Use Dashboard Variables in Queries
 
-You reference a variable in a ts() expression using the syntax `${variableName}`. For example:
+You reference a variable in a ts() expression using the syntax `${variableName}`.
+
+**Note:** Use Query Editor if you want to use variables. Chart Builder does not support them.
+
+Here's an example that uses a simple variable:
+
 1. Define a variable `az` and give it the value `tag=az-3 or source=app-3`.
-2. Use the variable in a query like this:
+2. Using Query Editor, use the variable in a query like this:
+
    `ts(cpu.loadavg.1m, ${az})`.
 
-When Wavefront executes this query, it replaces `${az}` with the current variable value and executes this query: `ts(cpu.loadavg.1m, tag=az-3 or source=app-3)`.
+3. When Wavefront executes this query, it replaces `${az}` with the current variable value and executes this query:
+
+   `ts(cpu.loadavg.1m, tag=az-3 or source=app-3)`.
 
 <span id="simple"></span>
 
-## Simple Dashboard Variables
+## Create a Simple Dashboard Variables
 
-A simple dashboard variable maps a single variable to a single value.
+A simple dashboard variable maps a single variable to a single value. Simple variables are useful, for example, if you want to use a complex filter in multiple queries and you don't want to repeat the complex filter each time. The example above illustrates this.
 
-To create a simple dashboard variable:
-1. Enter a variable name (case sensitive). We suggest keeping the variable name short.
-2. Enter the label.
-Click **Save** to save the dashboard and the dashboard variable.
+### Create a Simple Dashboard Variable
 
-To use a simple dashboard variable:
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
+1. Click the **Add** icon in the variables bar.
+1. Enter a variable name (case sensitive). Keep the name short - this is what you'll use in queries.
+1. Select **Simple** from the pull-down menu.
+1. (Optional) Enter an initial value for the variable.
+1. (Optional) Change the display name if you want to show something different in the Variables bar.
+1. Click **Accept** to save the dashboard variable, the **Save** again to save the dashboard.
+
+### Use a Simple Dashboard Variable
+
 1. Give the variable a value from the Variables section of the dashboard in one of these ways:
   * To make a permanent change, edit the dashboard.
   * To make a temporary change, specify the value in the dashboard's Variables section.
-2. In your query or queries, use the variable where you'd like to use the string of text.
+2. In your query or queries, use the variable as {$myvar} where you'd like to use the string of text.
 
 
 <span id="list"></span>
 
 ## List Dashboard Variables
 
-A list dashboard variable maps a variable label to a list of labels and values. List variables allow you to present users with a list of values to choose from.
+A list dashboard variable allows users to pick a value from a list.
 
-To create a list dashboard variable:
-1. Enter a variable name (case sensitive) and a label. We suggest keeping the variable name short.
-2. Select **Variable Type > List**:
-3. Add, remove, or clone fields by using the icons on the right and set the default.
-  ![list var with non-editor hide and parameters.png](images/db_var_list_with_non-editor_hide_and_parameters.png)
-4. Click **Accept** and click **Save** to save your dashboard and the dashboard variable.
+### Create a List Dashboard Variable
 
-To use a list dashboard variable:
-1. Find the variable in the variables section at the top of the dashboard.
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
+1. Click the **Add** icon in the variables bar.
+1. Enter a variable name (case sensitive). Keep the name short - this is what you'll use in queries.
+2. Select **Variable Type > List**. Each row lets you specify a display name and variable value. When the user selects the item from the menu, we use the specified value in all queries that use the variable.
+![list_variable](images/list_variable_example.png)
+   1. Add, remove, or clone fields by using the icons on the right
+   2. (Optional) Set the default.
+4. Click **Accept** and click **Save** to save your dashboard.
+
+### Use a List Dashboard Variable
+
+All users can set the value of the list variable:
+1. Find the variable in the variables bar at the top of the dashboard.
 2. Select the variable value from the dropdown.
 
+   ![Varible list.png](images/db_var_list.png)
 
 
-**List Dashboard Variable Example**
+### List Dashboard Variable Example
+
 1. Suppose that sources located in Availability Zone 1 are production and Availability Zone 2 are development.
 2. You can define a list variable with:
-   * name: **environment**
-   * label **Datacenter**
-   * options  **Production** and **Development**
+   * Name: **env**
+   * Options:<br>
+     ![variable options](images/list_variable_options.png)
+   * Label **Datacenter**
 
-![Varible list.png](images/db_var_list.png)
-
-3. Users can:
-  1. Use the variable as `${environment}`  in queries
-  2. Pick **Production** or **Development** from the Datacenter field in the Variables section at the top of the dashboard.
-Wavefront maps to the correct availability zone, and users don't have to know the underlying information.
+3. Users who edit charts can use the variable in queries as `${env}`.
+4. All users can select **Production** or **Development** from the **Datacenter** menu in the variables bar to set the value of `${env}` to `prod` or `dev`
 
 <span id="dynamic"></span>
 
 ## Dynamic Dashboard Variables
 
-A dynamic dashboard variable is a variable whose set of values are dynamically determined by a query.
-
-For example, you could set up a query that returns a CPU metric based on the customer. You've specified the point tag `customer`, and set up a variable that allows you to pick the value for the `customer` point tag.
-
-**Note** Dynamic dashboard variables allow you to specify only a single metric name, source, source tag, or point tag at a time. Use simple or list dashboard variables if you want to use wildcards that return more than 1 metric name, source, source tag, or point tag.
+The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
 ### Dynamic Dashboard Variable Field Options
 
@@ -127,7 +194,6 @@ Dynamic dashboard variables allow you to select one of the following options:
 -   **Matching Source Tag** - This will get all of the sources from your ts() expression, then, find all the source tags associated with those sources and populate the dynamic variable list with those source tags. If the query returns at least 1 source associated with a source tag, **Matching Source Tag** will display source tags.
 -   **Metric** - Populates the  dynamic variable list with metrics associated with the query in the Query field.
 -   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.
-    **Note**: Always surround point tag values with double quotes. For example, in queries use `env="qa 3"` and in a dashboard's variable selector, type `"qa 3"`.
 
 The example below uses the **Metric** field to populate a dynamic variable list.
 
@@ -139,36 +205,50 @@ If you define a dynamic dashboard variable named **var2** that refers to a sourc
 
 ### Create a Dynamic Dashboard Variable
 
-To create a dynamic variable:
-1. Put the dashboard into edit mode and add or edit a variable.
+The following example uses the
+
+1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
+1. Click the **Add** icon in the variables bar.
 2. Specify the Variable Type **Dynamic**.
 3. In the Field pulldown menu, select one of the options, for example, **Source**.
 5. Type a query that uses the option you selected, for example, that uses `"source=`
 6. Select a default value and click **Accept**.
 4. Click **Save** in the top right to save your dashboard and the dashboard variable.
 
-![dynamic with field options.png](images/db_var_dynamic_with_field_options.png)
+![create_dynamic_variable.png](images/create_dynamic_variable.png)
+
+
+### Use the Dynamic Variable
+
+1. Find the variable in the variables bar at the top of the dashboard.
+2. Select the variable value from the dropdown.
 
 Users can then use `${var2}` in queries, and select from the options in the field corresponding to the label.
 
 
 ### Dynamic Variable Example
 
-Suppose you want to populate a variable with a list of metrics that start with **~sample.cpu** or **~sample.mem.**.
+The following example uses the `~sample` data included in your Wavefront instance.
 
-To create the example dynamic variable:
-1. Create a new variable, call it **Variable3** and select **Type > Dynamic**
-2. Choose **Field > Metric**, type `ts("mem.available*" or "cpu.usage*")` in the Query field, and press **Enter**:
+First, we create the dynamic variable:
+1. Specify a variable name and type Dynamic.
+2. Select the field **Source**
+3. Specify a query that you could filter by source, in this example, 1ts(~sample.cpu.loadavg.1m)
+   As soon as we've specified the query, the Current Values list is populated. This list is updated dynamically.
+4. (Optional) Change the default and hide the variable when the dashboard is not in Edit mode.
+5. Specify a display name and click **Accept**, then click **Save** to save the dashboard.
 
-  ![Variable dynamic query](images/db_var_dynamic_query.png)
+  ![Dynamic variable](images/create_dynamic_variable.png)
   A Current Values field displays every metric name that matches the query. As with list variables, you can select a specific value as the default.
 3. Select a default value and click **Accept**.
 4. Click **Save** to save your dashboard and the dashboard variable.
 
-To use the example dynamic variable:
 
-After you save the dynamic dashboard variable, you can enter that variable name into a ts() query. For example:
-1. Create a chart with a query `ts(${Variable3})`.
-2. Select the option of your choice from the **Variable3** pulldown menu to replace the variable.
+After we've saved the dynamic dashboard variable, we can use the variable in queries. :
+1. Create a chart with the following query:
+   `ts(~sample.cpu.loadav.1m, source={$source})`
+2. When users change the value of the **Source** variable in the dashboard, the query uses the selected value.
 
-![Dynamic query options](images/db_var_dynamic.png)
+Users can select the variable value from the menu - here, users can select one of many sources. As additional sources become available or are removed, the menu items change.
+
+![select dynamic variable](/images/select_dynamic_variable_v2.png)

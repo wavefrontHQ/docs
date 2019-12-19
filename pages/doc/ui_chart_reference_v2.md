@@ -3,6 +3,7 @@ title: Chart Reference (v2)
 keywords: getting started
 tags: [charts]
 sidebar: doc_sidebar
+published: false
 permalink: ui_chart_reference_v2.html
 summary: Chart types and configuration options for each chart type.
 ---
