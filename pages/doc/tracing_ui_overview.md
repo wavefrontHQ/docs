@@ -95,6 +95,15 @@ The standard dashboard for service metrics is read-only. To create a customizabl
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
+### Navigate to the Tracing UI from the Service Metrics Dashboard
+If the charts on your [service metric dashboard](#Explore-the-Default-Service-Metrics-Dashboard) have the `application` and `service` [point tags](query_language_point_tags.html), follow the steps given below to view your tracing information:
+
+1. To navigate to the tracing UI, you need to view your charts using **Detailed View**. Therefore, use the **view** dropdown and select **Detailed View**.
+2. On your chart, click the vertical ellipsis menu in the far-right corner, click **Traces**, and click a preferred service.
+  ![charts to tracing](images/tracing_metrics_to_tracing.png)
+    {% include note.html content="Don’t see **Traces**? That’s because you don’t have the `application` and `service point` tags in your metric.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+3. Now, you see the tracing UI. For more information, see [Explore Traces](#explore-traces).
+
 ## Explore Traces
 
 In the Traces browser, you can explore the context and the details of your application's traces.

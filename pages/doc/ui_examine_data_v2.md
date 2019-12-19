@@ -117,15 +117,6 @@ The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> 
 ![time window](images/display_events_v2.png)
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
-
-## Navigate to the Tracing UI from Charts
-If your chart is based on a metric that has the `application` and `service` [point tags](query_language_point_tags.html), view your tracing information by following the steps given below:
-1. On your chart, click the vertical ellipsis menu in the far-right corner, click **Traces**, and click a preferred service.
-  ![charts to tracing](images/metrics_to_traces_on_charts_v2.png)
-    {% include note.html content="Don't see **Traces**? That's because you don't have the `application` and `service` point tags in your metric. 
-    <br/><br/>These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
-  
-2. Next, you are directed to the tracing UI. For more information, see [Explore Traces](tracing_ui_overview.html#explore-traces).
  
 ## Do More!
 
