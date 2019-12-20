@@ -9,13 +9,11 @@ summary: Watch some videos, run a query, apply filters and functions, and more.
 The Wavefront Query Language lets you retrieve and display the data that has been ingested into Wavefront.
 * **Time series data** The query language is particularly well suited to time series data, because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
-* **Traces and spans** Use the [tracing UI](tracing_ui_overview.html) to query traces and spans. 
+* **Traces and spans** Use the [tracing UI](tracing_ui_overview.html) to query traces and spans.
 
-Our v2 UI supports [Chart Builder](chart_builder.html) to build queries interactively. But regardless of UI version, you can use Query Editor to examine, filter, group, and manipulate your data, as shown on this page.
+This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 
-**Note**: If your cluster has been upgraded to v2, you can [select your UI version](users_account_managing.html#switch-between-ui-versions) from the gear icon.
-
-Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same.
+Watch these videos to get you started. The videos use the v1 UI, but the basic workflow remains the same in the v2 UI.
 
 <table style="width: 100%;">
 <tbody>
@@ -24,30 +22,27 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </tbody>
 </table>
 
-## Basic Query
+## Retrieve a Metric
 
-A simple query retrieves an individual metric:
-
-`ts(<metricName>)`
-
-For example, you can the total number of requests by entering `ts(~sample.requests.total.num)` into a query field to produce the chart below. (The ~sample metrics are available on all clusters for experimentation).
+The Chart Builder UI makes it easy to show any metric that's currently flowing into your Wavefront instance. For example, you can the total number of requests typing `~sample.requ` into the **Metric** field and selecting from the auto-complete options. (The ~sample metrics are available on all Wavefront instances for experimentation).
 
 ![base query](images/v2_quickstart_simple.png)
 
 
 ## Filter by Source
 
-The example chart is quite busy, but we can filter by source. The [Wavefront Data Format](wavefront_data_format.html) includes the source for each metric out of the box, and you can filter by source using the `source=<sourceName>` parameter: `ts(<metricName>, source=<sourceName>)`.
+The example chart is quite busy, but we can filter by source. The [Wavefront Data Format](wavefront_data_format.html) includes the source for each metric out of the box. Chart Builder makes it easy to filter by source.
 
-In the example, we use `source="app-1*"` to show all sources that start with app-1. The number of lines is reduced.
 
 ![filtered query](images/v2_quickstart_filtered.png)
 
 ## Apply an Aggregation Function
 
-Next, let's try one of the aggregation functions. For example, use `avg()` to show the average value of the `~sample.requests.total.num` metric across all sources. Or use `sum()` to get a total for all sources starting with "app-1". Here's the chart:
+The example above selected a single source - but we can also use the wildcard character in the query line. Now, the chart becomes pretty busy again. Let's use one of the aggregation functions. We could use `avg()` to show the average value of metric across all sources. Or we can use `sum()` to get a total for all sources starting with `app-1`. Here's the chart:
 
 ![summed query](images/v2_quickstart_sum.png)
+
+
 
 ## Further Chart Customization
 
@@ -57,7 +52,7 @@ The [query language](query_language_reference.html) supports many other ways of 
 <tbody>
 <tr>
 <td width="40%">
-Apply the deriv() function to show the rate of change per second:
+Add a second function. For example we can use the deriv() function to show the rate of change per second for the sum.
 <p><code>deriv(sum(ts(~sample.requests.total.num))</code></p> </td>
 <td width="60%"><img src="/images/v2_quickstart_deriv.png" alt="create dashboard"></td>
 </tr>
@@ -70,8 +65,7 @@ Because sum() is an aggregation function, you can group the results. To group by
 </tr>
 <tr>
 <td width="40%">
-You can also group by tag, in this example, <strong>, az</strong>. The legend now shows only the selected tag.
-<p><code>sum(ts(~sample.requests.total.num), az)</code></p> </td>
+You can also add a second filter. Our sample data include an env and an az point tag, and we can select one of the values of that tag. </td>
 <td width="60%"><img src="/images/v2_quickstart_tag.png" alt="group by tag"></td>
 </tr>
 </tbody>
@@ -91,7 +85,7 @@ Charts for metrics also support the following types of queries:
 * **Histograms**: Query histograms with [`hs() queries`](proxies_histograms.html#querying-histogram-metrics)
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html)
 
-### Docs, Videos, and Wizards
+### Docs, Videos, and Recipes
 
 Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
 
