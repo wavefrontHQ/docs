@@ -71,7 +71,7 @@ The following examples sum these series in different ways.
 ![sum_base](images/ts_sum_base.png)
 
 
-**Example 1: No Filtering, no Grouping**
+**Example 1: Use Sum with No Filtering, Noo Grouping**
 
 Here we include all of the time series in the results:
 
