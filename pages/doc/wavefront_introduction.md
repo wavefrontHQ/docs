@@ -21,7 +21,7 @@ After you've sent your data to Wavefront, you can view them in custom dashboards
 <li>Use filters and functions to see exactly what you’re interested in. For example, combine multiple time series using aggregation functions such as sum() or avg().</li>
 <li>Combine functions, and show or hide some of the information - or use dashboard variables to change the focus of a dashboard. For example, a variable might allow you to show the production or development environment.</li>
 <li>Select one of several <strong>chart types</strong> (line plot, point plot, table, etc.)</li></ul></td>
-<td width="50%"><img src="images/intro_query_v2.png" alt="simple v1 chart"/></td>
+<td width="50%"><img src="images/intro_query_v2new.png" alt="simple v1 chart"/></td>
 </tr>
 </tbody>
 </table>
