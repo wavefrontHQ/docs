@@ -3,7 +3,7 @@ title: Dashboard Variables and Global Filters
 keywords: dashboards
 tags: [dashboards]
 sidebar: doc_sidebar
-permalink: dashboards_variables_v2.html
+permalink: dashboards_variables.html
 summary: Define dashboard variables to allow easy switches between different data sources.
 ---
 <table style="width: 100%;">

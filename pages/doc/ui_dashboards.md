@@ -14,7 +14,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 <li>Organize charts into sections</li>
 <li>Perform global operations such as setting the dashboard time window.</li>
 <li>Use dashboard variables.</li></ul></td>
-<td width="20%"><a href="ui_dashboards.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+<td width="20%"><a href="ui_dashboards_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>
 </table>

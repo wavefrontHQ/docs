@@ -209,7 +209,7 @@ entries:
       url: /ui_chart_reference.html
       output: web
 
-    - title: "Wavefront Charts FAQ (v2)"
+    - title: "Wavefront Charts FAQ"
       url: /ui_charts_faq.html
       output: web
 
@@ -580,7 +580,7 @@ entries:
           output: web
           subfolderitems:
 
-          - title: Monitor Wavefront the Service
+          - title: Monitor the Wavefront Service
             url: /wavefront_monitoring.html
             output: web
 
