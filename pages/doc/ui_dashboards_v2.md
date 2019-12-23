@@ -204,7 +204,7 @@ With the dashboard in Edit mode:
 <ol>
 <li>Scroll up to the Variables bar.  </li>
 <li>Click the Edit icon to edit a variable.</li>
-<li>Click the Add button to <a href="dashboards_variables_v2.html">add a variable</a>.</li>
+<li>Click the Add button to <a href="dashboards_variables.html">add a variable</a>.</li>
 </ol>
 </td>
 <td width="50%">

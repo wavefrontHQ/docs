@@ -50,7 +50,7 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 Global filters and dashboard variables are two ways to narrow down what you see.
 * **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
-* * [**Dashboard Variables**](dashboards_variables_v2.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
+* * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 
 If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
 

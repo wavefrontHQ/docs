@@ -74,7 +74,7 @@ When you construct a query, you can use functions such as `sum()`, `highpass()`,
 
 ## Customize a Chart
 
-All users can perform chart customizations such as [setting the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolating sources and series](ui_examine_data.html#isolate-sources-or-series). You can further customize your charts to suit your needs precisely. The [chart configuration options](charts.html) are in the Chart section:
+All users can perform chart customizations such as [setting the chart time window](ui_examine_data.html#select-the-chart-time-window) and [isolating sources and series](ui_examine_data.html#isolate-sources-or-series). You can further customize your charts to suit your needs precisely. The chart configuration options are in the Chart section:
 
 ![chart_section](images/chart_section.png)
 
