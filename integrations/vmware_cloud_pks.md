@@ -48,22 +48,29 @@ The collector supports monitoring of Openshift clusters:
   * To monitor Openshift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on Openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
 
 ### Kubernetes Quick Install Using Helm
-Ensure that you have installed [helm](https://helm.sh/docs/intro/).
-
-To deploy the Wavefront Collector and Wavefront Proxy using helm 2:{% raw %}
+1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
+1. Add the Wavefront helm repo:{% raw %}
+```
+helm repo add wavefront https://wavefronthq.github.io/helm/
+helm repo update
+```
+{% endraw %}
+1. To deploy the Wavefront Collector and Wavefront Proxy:
+  * Using helm 2:{% raw %}
 ```
 helm install stable/wavefront --name wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
 ```
 {% endraw %}
-
-To deploy the Wavefront Collector and Wavefront Proxy using helm 3:{% raw %}
+  * Using helm 3:{% raw %}
 ```
+kubectl create namespace wavefront
 helm install wavefront stable/wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
 ```
 {% endraw %}
+
 **Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property.
 
-Refer to the Wavefront [helm chart](https://github.com/helm/charts/tree/master/stable/wavefront) for further options.
+Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 
 ### Kubernetes Manual Install
 Follow the instructions below to manually set up Kubernetes monitoring.
