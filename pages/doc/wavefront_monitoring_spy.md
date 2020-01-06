@@ -115,6 +115,7 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
+<!---
 ## Getting Ingested Histograms
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate, meaning for example that if you set the rate to 30, then spy only shows 30% of results. By default, sampling rate is 100, which means we return 100% of the data.
@@ -184,6 +185,7 @@ Suppose you have a Wavefront instance named `ex1`.
 </tr>
 </tbody>
 </table>
+--->
 
 ## Getting Ingested Spans
 
