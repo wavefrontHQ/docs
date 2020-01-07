@@ -27,23 +27,17 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 You have several options for creating a dashboard:
 
-* Select **Dashboards > Create Dashboard**, drag in the Metrics or New Chart widget, and follow the wizard to create a single-chart or multi-chart dashboard.
-<!---* Select **Dashboards > Create Dashboard**, drag in the Templates widget, and select an integration, then pick the dashboards and charts you'd like to include.--->
-* Select **Dashboards > All Dashboards** and click **Create Dashboard**
+* Select **Dashboards > Create Dashboard** and drag the Chart Type or Metrics widget onto the canvas.
 * Select **Browse > Metrics** and click **Create Dashboard**.
-
-<!---### Create a Dashboard from Metrics or Charts
-
-It's easy to create a dashboard from metrics or by selecting a chart.--->
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <strong>To create a dashboard</strong>:
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<ol><li>Click <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
 <li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
-<li>Select metrics, filters, and functions now or later. </li>
+<li>Select metrics, filters, and functions for your chart. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
 <td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
 </tr>
@@ -74,15 +68,15 @@ With release 2019.38, you can create a dashboard by specifying an integration da
 
 The dashboard menu allows you to create a dashboard, edit a dashboard, clone a dashboard, and look at the dashboard version history.
 
-* When you **clone a dashboard** you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
-* The **dashboard version history** tracks each saved version and includes the user who saved the version. The result is an audit trail for the dashboard.
+* When you **clone** a dashboard, you copy the dashboard. If you want to customize one of the Wavefront read-only dashboards, such as integration dashboards, just clone the dashboard and edit the clone.
+* The dashboard  **version history** tracks each saved version and includes the user who saved the version. The result is an audit trail for the dashboard.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <strong>To edit a dashboard</strong>:
-<ol><li>Select the ellipsis icon in the top right of the dashboard. </li>
+<ol><li>Click the ellipsis icon in the top right of the dashboard. </li>
 <li>Select <strong>Edit</strong> and make changes to the dashboard in edit mode.</li>
 <li>Save the dashboard.</li></ol></td>
 <td width="60%"><img src="/images/v2_edit_dashboard.png" alt="edit a dashboard"></td>
@@ -90,8 +84,8 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 <tr>
 <td width="40%">
 <strong>To clone a dashboard</strong>:
-<ol><li>Select the ellipsis icon in the top right of the dashboard and select <strong>Clone</strong>. </li>
-<li>Accept the suggested URL and dashboard name we suggest, or specify them. For the URL, do not include <code>https://</code>. Specify only the URL string. </li>
+<ol><li>Click the ellipsis icon in the top right of the dashboard and select <strong>Clone</strong>. </li>
+<li>Accept the suggested URL and dashboard name, or specify a new URL and dashboard name. Specify only the URL string. Do not include <code>https://</code>.  </li>
 <li>Save the cloned dashboard.</li></ol></td>
 <td width="60%"><img src="/images/v2_clone_dashboard.png" alt="clone a dashboard"></td>
 </tr>
@@ -100,52 +94,17 @@ The dashboard menu allows you to create a dashboard, edit a dashboard, clone a d
 
 ## Examine Metrics in Dashboard View Mode
 
-You can examine metrics and make several temporary changes to your dashboard in View Mode.
-
-You can make temporary changes to dashboards while in View mode. Even users who don't have dashboard permissions can make those changes, for example, set the time window, change variables, or clone or edit the dashboard.
+All users can examine metrics, set the time window, and make temporary changes to dashboards. See [Examine Data](ui_examine_data.html) for details.
 
 ![dashboard elements](images/v2_dashboard_elements.png)
 
-### Use the Jump To Menu to Find a Section
-Most dashboards have several sections. They're easy to access from the Jump To menu.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-Use the <strong>Jump To</strong> menu to go to a section</td>
-<td width="60%"><img src="/images/v2_jump_to.png" alt="jump to a section"></td>
-</tr>
-</tbody>
-</table>
-
-### Select Variables
-
-Unless your administrator has removed variables from view, you can select variables to examine exactly what you need (for example select the environment).
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="40%">
-Scroll up to the Variables bar and select one or more variables.</td>
-<td width="60%">
-<img src="images/v2_select_variables.png" alt="select variables"></td>
-</tr>
-</tbody>
-</table>
-
-### Hide the Variables Bar
-
-With the dashboard in View mode, you can temporarily hide the variables bar.
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-Scroll up to the Variables bar and select the up or down double ^.</td>
-<td width="40%">
-<img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide variables"></td>
-</tr>
-</tbody>
-</table>
+Here are some examples of what [all users can do](ui_examine_data.html):
+* Set the dashboard time window
+* Find a dashboard section
+* Filter with global filters or dashboard variables
+* Find a dashboard
+* Isolate sources or series
+* Fine-tune the time window
 
 
 ## Make Changes to a Dashboard in Edit Mode
@@ -185,7 +144,7 @@ Editing a chart is different in View mode and in Edit mode:
 <tr>
 <td width="50%">
 <ol><li>Place the cursor inside a chart. </li>
-<li>Select one of the icons and follow the prompts. </li>
+<li>Click one of the icons and follow the prompts. </li>
 </ol>
 </td>
 <td width="50%"><img src="/images/v2_dashboard_edit_chart.png" alt="clone a chart"></td>
@@ -231,15 +190,17 @@ With the dashboard in Edit mode:
 
 ### Add a New or Cloned Chart
 
-When you create a chart using **Dashboards > Create Chart**, you're prompted to save to a dashboard. When you edit a chart, you can save to the current dashboard, or save a clone to a different dashboard.
+When you create a chart using **Dashboards > Create Chart**, you're prompted to save it to a dashboard. When you edit a chart, you can save to the current dashboard, or save a clone to a different dashboard.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
 <ol><li>With the dashboard in View mode, create or edit a chart. </li>
-<li>Scroll up, select <strong>Save</strong> and start typing to add to an existing dashboard, or save to a new dashboard. </li>
-<li>When the target dashboard opens in Edit mode, click and drag to the location of your choice and click <strong>Save</strong> at the top.</li></ol></td>
+<li>Select the <strong>v</strong> next to <strong>Save</strong> and make a selection:
+<ul><li>To save to an existing dasbhoard, start typing the name of the dashboard, select a dashboard, and click <strong>Insert</strong></li>
+<li>Click <strong>Save to New Dashboard</strong>, enter the dashboard name and URL, and click <strong>Create</strong>. Specify only the URL string; do not include https://. </li> </ul></li>
+<li>When the target dashboard opens in Edit mode, click and drag the chart to the location of your choice and click <strong>Save</strong> at the top.</li></ol></td>
 <td width="50%">
 <img src="/images/v2_save_chart_to_new.png " alt="save to dashboard"></td>
 </tr>
@@ -248,13 +209,14 @@ When you create a chart using **Dashboards > Create Chart**, you're prompted to 
 
 ### Undo and Revert Undo Operations
 
-Starting with release 2018.46.x, we support undo in dashboard edit mode. Use the two icons in the top menu bar.
+Starting with release 2018.46.x, you can undo dashboard changes.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
-<p>With your dashboard in Edit mode, you can now undo and redo changes to the dashboard. </p></td>
+<ol><li>Edit the dashboard and make one or more changes.</li>
+<li>Click the icons to undo and to revert the undo. </li> </ol></td>
 <td width="60%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
 </tr>
 </tbody>
@@ -264,14 +226,21 @@ Starting with release 2018.46.x, we support undo in dashboard edit mode. Use the
 
 For each dashboard, you can customize display preferences.
 
+**Note** To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences).
+
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <strong>To set the dashboard display preferences</strong>:
 <ol><li>Display a dashboard and select <strong>Edit</strong>. </li>
-<li>Click <strong>Settings</strong></li>
-<li>Make selections in the dialog, click <strong>Accept</strong>, and click <strong>Save</strong> </li>
+<li>Click <strong>Settings</strong>.</li>
+<li>Make selections in the dialog:
+<ul><li>Set the default time window. You can later override the time window.  </li>
+<li>Hide the variables for the dashboard by default. Users can still show the variables bar using the icon.  </li>
+</ul>
+</li>
+<li>Click <strong>Accept</strong>, and click <strong>Save</strong> </li>
 <li>Optionally, you can display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
 For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#controlling-event-overlays">Controlling Events Overlays</a>.</li>
 </ol></td>
@@ -280,7 +249,6 @@ For more information on the options listed in the Show Events dropdown, see <a h
 </tbody>
 </table>
 
-**Note** To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences).
 
 
 {% include shared/system_dashboard.html %}

@@ -4,7 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: access.html
-summary: Learn how to manage access to dashboards.
+summary: Control access to individual dashboards and alerts.
 ---
 The users/groups/permissions authorization paradigm manages global permissions. For example, a user with Dashboard permission can manage *all* dashboards. This paradigm is sufficient for many Wavefront customers.
 

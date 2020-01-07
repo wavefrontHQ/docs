@@ -23,7 +23,7 @@ summary: Examine data with dashboards and charts
 2. Select **Dashboards > All Dashboards**
 3. In the dashboards browser:
     * Use the search bar at the top to find a dasbhoard.
-    * Use the options on the left to narrow down which options the dashboard browser displays.
+    * Use the options on the left to narrow down the options that the dashboard browser displays.
     * Use the three horizontal dots for dashboard management.
     * Add new or existing tags to make finding dashboards easier.
 
@@ -32,7 +32,7 @@ summary: Examine data with dashboards and charts
 
 ## Set the Dashboard Time Window
 
-By default dashboards display charts with a two-hour time window with real-time (live) data flowing in. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+By default dashboards show a two-hour time window in each chart, and display real-time (live) data. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
@@ -45,21 +45,27 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 ![time bar](images/time_bar_v2.png)
 
+### Use the Jump To Menu to Find a Section
+Most dashboards have several sections. They're easy to access from the Jump To menu.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+Use the <strong>Jump To</strong> menu to go to a section</td>
+<td width="60%"><img src="/images/v2_jump_to.png" alt="jump to a section"></td>
+</tr>
+</tbody>
+</table>
+
+
 ## Filter with Global Filters or Dashboard Variables
 
 Global filters and dashboard variables are two ways to narrow down what you see.
 * **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
-* * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
+* [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
 
 If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
-
-### Filter with Dashboard Variables
-
-If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts. Dashboard variables are below the section bar.
-
-![dashboard variables example](images/variables_example.png)
-
-In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined for this dashboard. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
 
 ### Filter with Global Filters
 
@@ -74,6 +80,34 @@ All users can use global filters to customize their dashboard. When you set a gl
 <td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
 </tbody>
 </table>
+
+### Use Dashboard Variables
+
+If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+To show or hide the Variables bar:
+<ol><li>
+Scroll up to right below the Task bar.</li>
+<li>Click the up or down double caret <strong>^</strong>.</li></ol></td>
+<td width="40%">
+<img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide variables"></td>
+</tr>
+<tr>
+<td width="60%">
+To select a variable:
+<ol><li>Find the variable in the variables bar. </li>
+<li>Select either the wildcard character or one of the options.  </li></ol>
+In the example on the right, a <strong>Region</strong> dashboard variable has been predefined for the dashboard. You can select all AWS regions (wildcard character) or one of the three regions.  </td>
+<td width="40%">
+<img src="images/variables_example.png" align="center" valign="center" alt="dashboard variables example"></td>
+</tr>
+</tbody>
+</table>
+
 
 
 ## Find a Dashboard
@@ -102,9 +136,9 @@ You can focus on a particular source or series in the dashboard view or the sing
 
 **To remove an isolation**, click the **X** icon next to the series at the bottom of the browser window.
 
-## Select the Chart Time Window
+## Fine-Tune the Time Window
 
-You can select the time window for a chart in a few different ways.
+You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
 
 <table style="width: 100%;">
 <tbody>
@@ -123,9 +157,12 @@ You can select the time window for a chart in a few different ways.
 <td markdown="span">Place the cursor over the X-axis. When the cursor changes to a 4-way arrow <i class="fa fa-arrows" />, hold and drag to the left or right. To shift the time windows of all charts on a dashboard, hold down the **Shift** key while dragging.<br />
 You can move the time window into the future, however, unless you are using one of the [predictive functions](query_language_reference.html#predictive-functions), the data you see won't be predictive.</td></tr>
 <tr><td markdown="span">Propagate time to all charts</td>
-<td markdown="span">To propagate a chart time window to all other charts on the dashboard, do something inside the chart and then click the sync icon <i class="fa fa-share-square-o" /> directly under the chart name in the top right corner of the chart box.</td></tr>
+<td>To propagate a chart time window to all other charts on the dashboard:
+<ol><li>Select a time window or zoom in/out on one chart. </li>
+<li>Click <strong>Sync Time</strong><img src="/images/reset_time_window_v2.png#inline"  alt="reset time window"/></li>
+</ol></td></tr>
 <tr><td markdown="span">Reset chart time</td>
-<td markdown="span">To reset an individual chart window to match the time window in all other charts, do something inside the chart and click **RESET**: <img src="/images/reset_time_window_v2.png#inline"  alt="reset time window"/></td></tr>
+<td markdown="span">If you've changed the time window in one chart and want to return to the default time used by other charts in the dashboard, click **Reset** next to the chart time selector: <img src="/images/reset_time_window_v2.png#inline"  alt="reset time window"/></td></tr>
 </tbody>
 </table>
 
@@ -135,7 +172,7 @@ Here's a video that illustrates chart time windows. The video uses the v1 UI, bu
 
 ## Display Events on Charts
 
-The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
+The **Show Events** dropdown in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
 
 ![time window](images/display_events_v2.png)
 

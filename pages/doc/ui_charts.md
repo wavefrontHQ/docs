@@ -11,10 +11,10 @@ summary: Create charts, add and manage queries, and customize the chart.
 <tr>
 <td width="80%">
 <br>
-Wavefront charts allow you to examine what visualize metrics, create alerts, and more!
+Wavefront charts allow you to examine data, create alerts, and more!
 <ul>
 <li>Create a chart and fine-tune the data it displays using filters and functions.</li>
-<li>Customize chart appearance.</li>
+<li>Customize your charts.</li>
 <li>Use chart variables, set the time window, create alerts, and much more!</li></ul></td>
 <td width="20%"><a href="ui_charts_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
@@ -56,7 +56,7 @@ You can create a chart from a dashboard or from the task bar.
 
 ## Fine-Tune Chart Metrics from the Data Tab
 
-From the Data tab, every chart lets you fine-tune the metrics that come in and apply filters and functions.
+From the Data tab, fine-tune the metrics that are displayed in the chart by customizing the query and applying filters and functions.
 
 **Note:** Your user preferences and the last used UI determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default.
 
@@ -75,13 +75,13 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 Instead of using [Chart Builder](chart_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
-**Note**: After you switch, to Query Editor, you cannot return to Query Builder.
+**Note**: After you switch, to Query Editor, you cannot return to Chart Builder.
 
 We can get the metric we selected above with the following query.
 
-`max(ts(~sample.network.bytes.recv, source="app-12" or source="app-16"))`
+`max(ts(~sample.db.queries.duration, source="db-1" OR source="db-5"))`
 
-Many Wavefront users start with Chart Builder as the default, and set their default to Query Editor for more fine-grained control (including chart variables) later.
+Many Wavefront users start with Chart Builder as the default, and set their default to Query Editor later for more fine-grained control (including chart variables).
 
 ## Hide, Clone, or Delete Queries
 
@@ -93,7 +93,7 @@ You can easily hide, clone, or delete queries from the Data tab.
 <td width="40%">
 <ul><li>
 To clone a query, click the Clone icon. A copy of the query appears below the query itself. </li>
-<li>To delete a query, click the Delete icon. We don't prompt for confirmation. </li>
+<li>To delete a query, click the Delete icon. </li>
 <li>To hide or redisplay a query, click the Hide/Show icon.  </li>
 </ul>Save your changes.
 </td>
@@ -116,32 +116,30 @@ Users with Dashboard permissions can make many other changes such as selecting t
 
 ### Change the Legend
 
-For many chart types, we render the lines or points for different time series in different colors. A legend explains which color maps to which time series.
-You have many options to make the legend display easy to find and understand.
+Wavefront renders the lines or points for different time series in different colors. A legend explains which color maps to which time series. You can change the legend to help users find the information they need, as follows:
 
 
 <table style="width: 100%;">
 <tbody>
-<thead>
-<tr><th width="50%">Hover Legend</th>
-<th width="50%">Fixed Legend</th></tr>
-</thead>
 <tr>
-<td><img src="/images/hover_legend.png" alt="hover legend">
-</td>
-<td><img src="/images/fixed_legend.png" alt="fixed legend"></td>
-</tr>
-<tr><td>For hover legends you can:
+<td width="60%">
+<strong>Hover Legend</strong> <br> <br>
+For hover legends you can:
 <ul><li>Disable the legend.</li>
 <li>Limit the number of point tags or specify point tags to show in the legend. </li>
 <li>Press Shift-P to pin the legend. You can move the pinned legend</li></ul>
 </td>
-<td>For fixed legends you can:
+<td width="40%"><img src="/images/hover_legend.png" alt="hover legend"></td></tr>
+<tr>
+<td>
+<strong>Fixed Legend</strong> <br><br>
+For fixed legends you can:
 <ul><li>Change where the legend displays.</li>
 <li>Add more information to the legend (Mean, Median, etc.) </li>
 <li>Show only the top or bottom <emphasis>N</emphasis> series, by value. </li>
 <li>Show only the top or bottom <emphasis>N</emphasis> series, by median, mean, sum, etc. </li>
 </ul> </td>
+<td><img src="/images/fixed_legend.png" alt="fixed legend"></td>
 </tr>
 </tbody>
 </table>
@@ -150,7 +148,7 @@ For details, see the [Chart Reference](ui_chart_reference.html).
 
 ### Include Metrics That Stopped Reporting Over 4 Weeks Ago
 
-For optimal rendering of displayed results, Wavefront does not include metrics metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
+For optimal rendering of displayed results, Wavefront does not include metrics that stopped reporting over 4 weeks ago (obsolete metrics) in charts. If you're interested in including those metrics in a chart, it's easy to do.
 
 **To include obsolete metrics**
 1. Open the chart for edit.
@@ -176,7 +174,7 @@ To filter out some lines, you specify a minimum or maximum. By default, Wavefron
 
 You can control how units display in the Y axis. Changes affect *only the display* of data.
 
-**Note:** Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows, for example, GB of memory or Gigabytes per second, then changes can result in a clearer display.
+**Note:** Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows GB of memory or Gigabytes per second, then changes can result in a clearer display.
 
 By default, charts use SI unit prefixes, but you can change that.
 * **SI unit** prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source.
@@ -185,7 +183,8 @@ By default, charts use SI unit prefixes, but you can change that.
 **To display axes and legends with IEC/Binary unit prefixes:**
 
 1. Open the chart for edit.
-2. Select **Unit > IEC/Binary** and pick the unit from the pulldown menu.
+2. Select the **Axis** tab.
+3. For all applicable options (e.g. **Min** and **Max**), select **Unit > IEC/Binary** and pick the unit from the pulldown menu.
 
 Going forward, a data point with value `1024 x 1024 = 1,048,576` displays as `1.000Mi` instead of `1.049M`.
 
@@ -196,7 +195,7 @@ Here's how two charts might look:
 
 ### Use Dynamic Units to Optimize the Display
 
-Dynamic units adjust the scaling prefixes and units assigned to displayed data to favor clearer display.  When enabled, dynamic units result change how Wavefront displays the data. The change depends on the type of metric and the corresponding unit.
+Dynamic units adjust the scaling prefixes and units and result in a clearer display. The change depends on the type of metric and the corresponding unit.
 
 **SI or ICE/Binary Dynamic Units**
 
@@ -209,11 +208,11 @@ For example, if an axis is labeled `MPPS` (Mega PPS, or 1 million PPS), and the 
 Options to show the underlying raw data are not affected - hold the Shift key to see the legend and the actual value.
 
 **Time Dynamic Units**
-When an axis is labeled with a unit that exactly matches one of the time units, (ys, zs, as, fs, ps, ns, us, ms, s, min, hr, day, wk, mo, yr), the display logic keeps the magnitute as small as possible:
-1. First we normalize the underlying data to seconds.
+When an axis is labeled with a unit that exactly matches one of the time units, (ys, zs, as, fs, ps, ns, us, ms, s, min, hr, day, wk, mo, yr), the display logic keeps the magnitude as small as possible:
+1. First Wavefront normalizes the underlying data to seconds.
 2. Then we display the data:
-   * If the normalized data magnitude is < 60, we use units ys through s
-   * If the magnitude is > 60, then we scale the data using a larger time unit.
+   * If the  normalized magnitude is < 60 results, the result is units ys through s.
+   * If the normalized magnitude is > 60, Wavefront scales the data using a larger time unit.
 
 For example:
 
@@ -256,7 +255,7 @@ Wavefront accepts and stores data at up to 1 second resolution. Wavefront charts
 
 
 
-The chart above has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the Count summarization method you can see how many points are in each bucket.
+The chart above has 240 point buckets and the resolution of each bucket is 30 sec. If a source is sending 1 point per second, each bucket summarizes 30 points. On the other hand, if the source is sending 1 point every minute, no summarization occurs. If you choose the **Count** summarization method you can see how many points are in each bucket.
 
 ### Factors That Affect Chart Resolution
 
@@ -294,7 +293,7 @@ Here is a series of charts with increasing time window for the _same_ display re
 
 ### The align() Function and Resolution
 
-The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, Wavefront would first align the values into 15 minute buckets, and then take two aligned values and summarize those based on the Summarize By method.
+The [`align()` function](query_language_reference.html#filtering-and-comparison-functions) lets you specify the size of the buckets&mdash;45 minute, 2 hour, 1 day, etc.&mdash;into which the points are grouped. However, the supported chart resolution is the most granular view you can get. Therefore, for the 1-week time window + 3840px screen example, specifying `align(15m,...)` does not result in 15 minute buckets being displayed on the screen because the ~30 minute buckets are already associated with the chart. If you were to use the `align()` function, Wavefront first aligns the values to 15 minute buckets, and then takes two aligned values and summarize those based on the Summarize By method.
 
 {% include note.html content="To improve the performance of an aggregation, Wavefront will sometimes pre-align an expression. For details, see [Bucketing with align()](query_language_align_function.html)." %}
 
@@ -305,15 +304,22 @@ Wavefront is very fast, but sometimes it's not necessary for the user to wait fo
 To affect all dashboards, turn on the **Sampling** default in your preferences from the gear icon.
 ![sampling preference](images/sampling_preference.png)
 
-If the **Sampling** preference is on, we limit sampling to 100 time series when you create a chart, but we prompt whether you'd like to turn off the limitation for the current chart or for all charts. For all charts affects the preference.
+If the **Sampling** preference is **On**:
+* The maximum number of time series that's displayed during chart creation or edit is 100.
+* You're prompted whether you'd like to turn off the limitation, as shown in the following screenshot.
+  - **Turn off Sampling** removes the limit for the current chart.
+  - **Always off** removes the limit for all charts.
+
 ![sampling query during chart create](images/sampling_during_chart_create.png)
 
-To temporarily change the sampling behavior for a selected chart use the **Sampling** toggle in the top right. As with other items in this task bar, you cannot save this change.
-  ![sampling toggle during chart edit](images/sampling_toggle.png)
+To temporarily change the sampling behavior for a chart, use the **Sampling** toggle in the top right. You cannot save this change (or other changes in this Task bar).
+
+![sampling toggle during chart edit](images/sampling_toggle.png)
 
 
 ## Do More!
 
-* Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details on options.
-* Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
+* Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details.
+* [Share a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) with a coworker (or with the customer success team if you need help).
+<!---Chart embedding not currently supported for v2
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.---!>
