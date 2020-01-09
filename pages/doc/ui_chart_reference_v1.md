@@ -13,7 +13,7 @@ summary: Chart types and configuration options for each chart type.
 <td width="80%" markdown="span">
 <br>
 Charts allow you to view and examine your metrics. You can [interact directly with charts](ui_examine_data.html)--zoom in, zoom out, change the time window, and so on. You don't receive a static image of your data but you can work with your charts in real time, asking questions and receiving answers.</td>
-<td width="20%"><a href="ui_dashboards_v1.html"><img src="/images/v2_button.png" alt="click here for the v2 doc"/></a></td>
+<td width="20%"><a href="ui_chart_reference.html"><img src="/images/v2_button.png" alt="click here for the v2 doc"/></a></td>
 </tr>
 </tbody>
 </table>

@@ -592,7 +592,7 @@ entries:
             url: /ingestion_policies.html
             output: web
 
-          - title: Investigate Traffic With Spy and Wavefront Top
+          - title: Use Wavefront Top or Spy to Investigate Traffic
             url: /wavefront_monitoring_spy.html
             output: web
 

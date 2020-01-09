@@ -14,13 +14,13 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 Wavefront dashboards allow you to organize charts into sections, perform global operations such as [setting the dashboard time window](ui_examine_data.html#set-the-dashboard-time-window) and use [dashboard variables](dashboards_variables.html).
 <br>
 <br>
-<br>
-Watch this video for an introduction to dashboards: </td>
-<td width="20%"><a href="ui_dashboards_v1.html"><img src="/images/v2_button.png" alt="click here for the v2 doc"/></a></td>
+<br> </td>
+<td width="20%"><a href="ui_dashboards.html"><img src="/images/v2_button.png" alt="click here for the v2 doc"/></a></td>
 </tr>
 </tbody>
 </table>
 
+Watch this video for an introduction to dashboards:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5103bc38-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_dashboards_intro.png" style="width: 700px;" alt="introduction to dashboards"/></a>
 </p>
 
