@@ -29,7 +29,7 @@ The following example shows how to use color mapping with a single stat chart.
 <li>In the Data tab, specify the metrics to monitor and give a subtitle. </li>
 <li>In the Sparkline tab:</li>
 <ol><li>Select whether to apply the color to the Text or the Background and change <strong>Show Sparkline</strong> to <strong>No Line</strong> if you want a solid color chart. </li>
-<li>Click the <strong>+</strong> next to <strong>Color to Value Mapping</strong> and chage the values and colors to fit your use case. In the example on the right, we show green for values under 75, yellow for values under 80, and red for values over 80. </li>
+<li>Click the <strong>+</strong> next to <strong>Color to Value Mapping</strong> and change the values and colors to fit your use case. In the example on the right, we show green for values under 75, yellow for values under 80, and red for values over 80. </li>
 <li>Save your chart. </li></ol>
 </ol></td>
 <td width="50%"><img src="/images/color_mapping_faq.png" alt="create dashboard"></td>
@@ -66,9 +66,9 @@ Suppose your users monitor 2 dashboards:
   ![drilldown_target](images/drilldown_2.png)
 
 
-
 ## Any Other Doc (or Videos)?
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.
+<!---
+* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.--->

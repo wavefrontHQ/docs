@@ -51,7 +51,7 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
 
 <ul>
 <li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
@@ -80,7 +80,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -131,7 +131,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>You can select all or none of the Legend options.
 <ul>
 <li>Fixed Legend -- Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarize By</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -162,13 +162,17 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -185,8 +189,6 @@ Chart description. The description shows up as hover text when you place the mou
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
 </tr>
-<tr><td>Interpolate points</td>
-<td>Check to interpolate points that exist only in the past or future into the current time window. </td></tr>
 </tbody>
 </table>
 
@@ -211,7 +213,7 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
 
 <ul>
 <li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
@@ -237,7 +239,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -287,7 +289,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarize By</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -318,13 +320,17 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -356,7 +362,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 ![stacked area](images/stacked_area_v2.png)
 
-A **stacked area** chart is a line chart but each line is filled in as a solid block with blocks stacked top of each other. With the default Stack Type of zero, the peak of the chart at any time is the sum of the magnitudes of all  sources at that time.
+A **stacked area** chart is similar to a line chart, but each line is filled in as a solid block with blocks stacked on top of each other.
 
 The stacked area chart can help you determine at a glance which queries have the largest magnitude at any point in time. It is most commonly used to visually compare two or more quantities.
 
@@ -369,7 +375,7 @@ The stacked area chart can help you determine at a glance which queries have the
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
 
 <ul>
 <li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
@@ -414,7 +420,7 @@ The following stack types are supported.
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -464,7 +470,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarize By</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -495,13 +501,17 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -546,7 +556,7 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
 
 <ul>
 <li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
@@ -578,7 +588,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customizaiton is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -628,7 +638,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <td>Supports these options:
 <ul>
 <li>Fixed Legend -- Displays a fixed legend. Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
-<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarize By</strong> setting. </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
 <li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
 </ul>
 </td>
@@ -644,20 +654,26 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tr>
 <tr>
 <td>Filter</td>
-<td>The value and number of metrics displayed in the legend. Specify:
-<ul>
-<li>Top or Bottom</li>
-<li>Number of metrics</li>
-<li>Value or statistic</li>
-</ul>
+<td>The value and number of metrics displayed in the legend. Specify <strong>Top</strong> or <strong>Bottom</strong> and then select the number (e.g. 5 to show the top 5 time series) and, optionally, an evaluation filter.
 </td>
 </tr>
 <tr>
 <td>Point Tag Display Options </td>
-<td>The point tags to display in the legend. </td>
+<td>Determines which point tags to display in the hover legend.
+<ul>
+<li><strong>Show All</strong> includes all point tags.</li>
+<li><strong>Top (X)</strong> allows you to display, for example, the top 10</li>
+<li><strong>Custom</strong> allows you to select one or more tags. </li>
+</ul>
+</td>
 </tr>
+
 </tbody>
 </table>
+
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
@@ -665,7 +681,7 @@ When you look at the chart, you can also control the legend with these keyboard 
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -697,7 +713,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 ![table chart](images/table_chart_v2.png)
 
-A table chart doesn't support changes to the legend but allows fine-grained customization in the Format tab.
+A **table** chart allows fine-grained customization in the Format tab but doesn't support changes to the legend.
 
 <table>
 <tbody>
@@ -719,7 +735,7 @@ A table chart doesn't support changes to the legend but allows fine-grained cust
 </tr>
 <tr>
 <td>Show Labels</td>
-<td>Select to display labels in the table. A label is the metric name associated with the data or the query expression resulting from an aggregation. TBD details
+<td>Select to display labels in the table. A label is the metric name associated with the data or the query expression resulting from an aggregation.
 </td>
 </tr>
 <tr>
@@ -776,13 +792,17 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 </tbody>
 </table>
 
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
+
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -810,7 +830,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 ##  Markdown Chart
 
-A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts. We support [CommonMark](https://commonmark.org/)
+A **Markdown** chart allows you to provide in-depth text descriptions of a dashboard and individual charts using Markdown. We support [CommonMark](https://commonmark.org/)
 
 In addition to Markdown formatted text, you can use links, images hosted outside Wavefront, and [dashboard variables](dashboards_variables.html). You can refer to the value of a dashboard variable with the query variable syntax **${var_name}** and the label of the variable using **%{var_name}**. Using a label instead of the variable value could be useful for list variables that might show the dropdown labels such as: Any, 1 Year, 3 Years which could map to opaque values such as -1, 1, 3.
 
@@ -835,7 +855,7 @@ By default, a **single stat** chart plots a single series on a chart and display
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
 
 <ul>
 <li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
@@ -948,7 +968,7 @@ Whether and where to show the sparkline. Options are:
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -976,7 +996,7 @@ A **topk** chart shows the most critical time series (8 by default) as horizonta
 
 <p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
 
-The color mapping tab lets you define which set of values maps to which colors. In the example above, values under 0.5 are mapped to orange, values 0.5 - 1.0 are mapped to blue.
+The color mapping tab lets you define which set of values maps to which colors. In the example above, values under 0.5 are mapped to orange, values 0.5 - 1.0 are mapped to blue. See [How Do I Set Up Color Mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) for details.
 
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
@@ -987,7 +1007,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  We then aggregate (combine) the raw data values that are reported within each such time interval, to produce a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
 
 <ul>
 <li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
@@ -1044,7 +1064,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -1053,7 +1073,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-Allows you to direct end users to a target dashboard if they click this chart,
+Allows you to direct end users to a target dashboard if they click this chart. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
 <table style="width: 100%;">
 <tbody>
@@ -1076,7 +1096,7 @@ When you refresh a node map page, a short animation folds out the chart content.
 
 <p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
 
-The color mapping tab lets you define which set of values maps to which colors. Color mapping uses less than. In the example above, values less than 0.3 are green, values less than 0.8 are yellow. All other values are red.
+The color mapping tab lets you define which set of values maps to which colors. In the example above, values less than 0.3 are green, values less than 0.8 are yellow. All other values are red. See [How Do I Set Up Color Mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) for details.
 
 <p><span style="font-size: large; font-weight: 600">Node Map Defaults Tab</span></p>
 
@@ -1111,7 +1131,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 <tbody>
 <tr>
 <td width="60%">
-Chart description. The description shows up as hover text when you place the mouse over the chart name.</td>
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
 <td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
 </tr>
 </tbody>
@@ -1119,7 +1139,7 @@ Chart description. The description shows up as hover text when you place the mou
 
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-If you [specify a drilldow link], end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time.
+If you [specify a drilldown link], end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
 <table style="width: 100%;">
 <tbody>
