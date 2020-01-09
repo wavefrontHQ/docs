@@ -347,8 +347,6 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
 </tr>
-<tr><td>Interpolate points</td>
-<td>Check to interpolate points that exist only in the past or future into the current time window. </td></tr>
 </tbody>
 </table>
 
@@ -528,8 +526,6 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
 </tr>
-<tr><td>Interpolate points</td>
-<td>Check to interpolate points that exist only in the past or future into the current time window. </td></tr>
 </tbody>
 </table>
 
@@ -667,7 +663,6 @@ When you look at the chart, you can also control the legend with these keyboard 
 </ul>
 </td>
 </tr>
-
 </tbody>
 </table>
 
@@ -698,8 +693,6 @@ Chart description which shows up as hover text when users move the mouse over th
 <td>Include Obsolete Metrics</td>
 <td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
 </tr>
-<tr><td>Interpolate points</td>
-<td>Check to interpolate points that exist only in the past or future into the current time window. </td></tr>
 </tbody>
 </table>
 
