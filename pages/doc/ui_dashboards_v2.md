@@ -1,7 +1,8 @@
 ---
-title: Create and Customize Dashboards (v2)
+title: Create and Customize Dashboards
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
+published: false
 permalink: ui_dashboards_v2.html
 summary: Create dashboards, add charts, and customize dashboard layout.
 ---
@@ -19,7 +20,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 </tbody>
 </table>
 
-[Examine Data with Dashboards and Charts](ui_examine_data_v2.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
+[Examine Data with Dashboards and Charts](ui_examine_data.html) explains how to set dashboard preferences, set the dashboard time window, isolate sources and series, and more.
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have Dashboard permission and Modify access to save changes you make to dashboards." %}
 
@@ -203,7 +204,7 @@ With the dashboard in Edit mode:
 <ol>
 <li>Scroll up to the Variables bar.  </li>
 <li>Click the Edit icon to edit a variable.</li>
-<li>Click the Add button to <a href="dashboards_variables_v2.html">add a variable</a>.</li>
+<li>Click the Add button to <a href="dashboards_variables.html">add a variable</a>.</li>
 </ol>
 </td>
 <td width="50%">
@@ -242,6 +243,20 @@ When you create a chart using **Dashboards > Create Chart**, you're prompted to 
 <li>When the target dashboard opens in Edit mode, click and drag to the location of your choice and click <strong>Save</strong> at the top.</li></ol></td>
 <td width="50%">
 <img src="/images/v2_save_chart_to_new.png " alt="save to dashboard"></td>
+</tr>
+</tbody>
+</table>
+
+### Undo and Revert Undo Operations
+
+Starting with release 2018.46.x, we support undo in dashboard edit mode. Use the two icons in the top menu bar.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<p>With your dashboard in Edit mode, you can now undo and redo changes to the dashboard. </p></td>
+<td width="60%"><img src="/images/v2_undo.png" alt="Undo and redo icons"/></td>
 </tr>
 </tbody>
 </table>

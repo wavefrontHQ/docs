@@ -115,7 +115,7 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
-<!---
+
 ## Getting Ingested Histograms
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate, meaning for example that if you set the rate to 30, then spy only shows 30% of results. By default, sampling rate is 100, which means we return 100% of the data.
@@ -139,7 +139,7 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
 <tr><td markdown="span">name</td>
 <td markdown="span">List a histogram only if its name starts with the specified case-sensitive prefix. <br> E.g., `name=orderShirt` matches histograms named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
@@ -185,7 +185,7 @@ Suppose you have a Wavefront instance named `ex1`.
 </tr>
 </tbody>
 </table>
---->
+
 
 ## Getting Ingested Spans
 

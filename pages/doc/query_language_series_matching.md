@@ -117,11 +117,17 @@ For example, if you replaced `tag="east"` with `source="app-4"`, then the value 
 
 ## Series Matching Example
 
-Here's an example where the Wavefront UI displays a message that informs you that some of the series are not included in all queries.
+Here's an example where the Wavefront UI displays a message that starts like this:
+```
+15 series were not included in all queries (showing up to 5):...
+```
 
 ![series matching example](images/series_matching_example.png)
 
-The reason we get this message is that some expressions limit the environment to `env="dev"` and other expressions don't use the filter. When part of a query uses a filter, but another part doesn't, then the whole query uses the filter. In this example, all queries will be limited to `env="dev"`
+Some of the series are not included in all queries because there was no match.
+* Some expressions limit the environment to `env="dev"`
+* Other expressions don't use the filter. 
+When part of a query uses a filter, but another part doesn't, then the whole query uses the filter. In this example, all queries will be limited to `env="dev"`
 
 <a name="point_tags"></a>
 

@@ -1,7 +1,8 @@
 ---
-title: Examine Data with Dashboards and Charts (v2)
+title: Examine Data with Dashboards and Charts
 tags: [getting started, dashboards, charts]
 sidebar: doc_sidebar
+published: false
 permalink: ui_examine_data_v2.html
 summary: Examine data with dashboards and charts
 ---
@@ -12,7 +13,7 @@ summary: Examine data with dashboards and charts
 <td width="80%"> With dashboards and charts, you can examine data, set dashboard time window, zoom in and out, and perform other customizations.
 <br>
 <strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
-<td width="20%"><a href="ui_examine_data.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+<td width="20%"><a href="ui_examine_data_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>
 </table>
@@ -45,13 +46,36 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 ![time bar](images/time_bar_v2.png)
 
-## Filter with Dashboard Variables
+## Filter with Global Filters or Dashboard Variables
+
+Global filters and dashboard variables are two ways to narrow down what you see.
+* **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
+* * [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
+
+If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+
+### Filter with Dashboard Variables
 
 If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts. Dashboard variables are below the section bar.
 
 ![dashboard variables example](images/variables_example.png)
 
 In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined for this dashboard. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
+
+### Filter with Global Filters
+
+All users can use global filters to customize their dashboard. When you set a global filter, for example, to limit to certain sources, you affect all charts in the dashboard.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%"><a href="ui_examine_data_v2.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
+<ul>
+<li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking the <strong>X</strong>. </li></ul></td>
+<td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
+</tbody>
+</table>
+
 
 ## Find a Dashboard
 

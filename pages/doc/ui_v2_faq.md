@@ -20,9 +20,9 @@ Our revamped UI for charts and dashboards includes the following main features:
 <tr>
 <td width="40%">
 Simple workflow for dashboards with multiple charts.
-<ol><li>Select <strong>Dashboards > Create Dashboard</strong></li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong>.</li>
 <li>Drag in a widget to create a chart (from integration or chart type)</li>
-<li>Customize chart and save dashboard.</li></ol></td>
+<li>Customize the chart and save the dashboard.</li></ol></td>
 <td width="60%"><img src="/images/dashboard_123.png" alt="create dashboard"></td>
 </tr>
 </tbody>
@@ -53,7 +53,7 @@ You can now specify the data you want to display in the <strong>Data</strong> ta
 </tr>
 <tr>
 <td width="40%">
-We made usability improvements for each chart type--and you can use delete, clone, create alert from icon bar.</td>
+We made usability improvements for each chart type--and you can use delete, clone, create alert from the icon bar.</td>
 <td width="60%"><img src="images/v2_create_alert.png" alt="create an alert from the ellipsis menu"></td>
 </tr>
 </tbody>
@@ -61,7 +61,7 @@ We made usability improvements for each chart type--and you can use delete, clon
 
 ### Dashboard Variables Redesign
 
-[Dashboard variables](dashboards_variables_v2.html) are now easier to configure and easier to use.
+[Dashboard variables](dashboards_variables.html) are now easier to configure and easier to use.
 
 <table style="width: 100%;">
 <tbody>
@@ -75,15 +75,15 @@ We've streamlined variable configuration for developers. We've made setting vari
 
 ## Where's the Doc for the New UI?
 
-We've prepared the following doc pages for the new UI. These pages are not yet in the Table of Contents because most Wavefront users are still using the v1 UI but you can access them using the following links:
+We've updated the doc for dashboards and charts. From each doc page, you can access the corresponding information for the v1 UI in case you haven't yet switched to the v2 UI.
 
-* [Examine Data with Dashboards and Charts](ui_examine_data_v2.html)
-* [Create and Customize Dashboards](ui_dashboards_v2.html)
-* [Create and Customize Charts](ui_charts_v2.html)
-* [Chart Reference](ui_chart_reference_v2.html)
+* [Examine Data with Dashboards and Charts](ui_examine_data.html)
+* [Create and Customize Dashboards](ui_dashboards.html)
+* [Create and Customize Charts](ui_charts.html)
+* [Chart Reference](ui_chart_reference.html)
 * [Chart Builder](chart_builder.html)
 
-## Chart FAQs
+## Chart FAQs from v2 Users
 
 ### Q: How do I add an alert from a chart?
 A: Open the chart, click the **Data** tab, and select **Create Alert** from the ellipsis menu on the far right.
@@ -120,15 +120,22 @@ A. Use the eye icon on the right to deselect (hide) or show the results of a que
 
 ![v2 Hide or show query](images/v2_hide_show.png)
 
+### Q: How can I copy/paste table chart content in v2?
+
+A. We're working on improving the copy/paste behavior. For now, please use [the third-party CLI](https://github.com/snltd/wavefront-cli) to generate a CSV file. See our [blog about using the CLI ](https://www.wavefront.com/commanding-the-waves-using-wavefront-cli/).
+
 ### Q: How can I create an embedded chart in v2?
 
-[Embedded charts](ui_sharing.html#embed-a-chart-in-other-uis) allow you to make a chart available outside Wavefront. We currently don't support this functionality for v2, but all your existing embedded charts will continue to work.
+A. Embedded charts allow you to make a chart available outside Wavefront. We temporarily don't support this functionality for v2, but all your existing embedded charts will continue to work.
 
-## Dashboard FAQ
+
+
+
+## Dashboard FAQs from v2 UI Users
 
 ### Q: Where are my sections?
 
-A: Use the Jump To menu to select a section.
+A: Use the **Jump To** menu to select a section.
 
 ![v2 Jump To](images/v2_jump_to.png)
 
@@ -143,7 +150,7 @@ A: We've consolidated the UI for customizing dashboards.
 
 ### Q:Several of my charts now have warnings. What's going on?
 
-A: We've move the warning icon from the bottom right of a chart to the top left to make it more visible. Here's an example with v2 on the left and the same chart in v1 on the right:
+A: We've moved the warning icon from the bottom right of a chart to the top left to make it more visible. Here's an example with v2 on the left and the same chart in v1 on the right:
 
 ![v2 warnings](images/v2_warning.png)
 
@@ -151,4 +158,4 @@ Wavefront currently doesn't distinguish between warnings and info messages. For 
 
 ### Q: Dashboard variables have changed. Where do I find out more?
 
-A: We have [new documentation](dashboards_variables_v2.html) for dashboard variables.
+A: We have [new documentation](dashboards_variables.html) for dashboard variables.

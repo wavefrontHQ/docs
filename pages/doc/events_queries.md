@@ -25,7 +25,7 @@ Can be combined with [event set operators](#event-set-operators) and [event func
 </thead>
 <tr>
 <td>filterName</td>
-<td markdown="span"> An [event filter](#filters) that lets you limit which events to display. You can optionally specify multiple event filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
+<td markdown="span"> An [event filter](#filters) that lets you limit which events to display. You can optionally specify multiple event filters combined with Boolean operators.</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span"> Value accepted by a specified `filterName`. </td></tr>

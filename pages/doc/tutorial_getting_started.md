@@ -1,10 +1,27 @@
 ---
-title: "Tutorial: Getting Started"
+title: Getting Started with Wavefront
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
 permalink: tutorial_getting_started.html
 summary: Build dashboards and charts with sample data, create an alert, and get pointers to more info.
 ---
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="80%">
+<br>
+This tutorial uses Wavefront sample data to get you started.
+
+To complete these tasks you need:
+<ul>
+<li><strong>Access to a Wavefront instance</strong>. If your company doesn't have one, sign up for a <a href="https://www.wavefront.com/sign-up/" target="_blank" rel="noopenner noreferrer">free trial</a></li>
+<li><strong>Dashboard permission and Alert permission</strong>. Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.</li>
+</ul></td>
+<td width="20%"><a href="tutorial_getting_started_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+</tr>
+</tbody>
+</table>
 
 This tutorial uses Wavefront sample data to get you started.
 
@@ -12,106 +29,183 @@ To complete these tasks you need:
 * **Access to a Wavefront instance**. If your company doesn't have one, sign up for a [free trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"}!
 * **Dashboard permission and Alert permission**. Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.
 
+**Note:** If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2](ui_v2_faq.html) instead.
+
 ## Review Sample Dashboards and Metrics
 
-Your Wavefront instance includes tutorial and tour dashboards that we built using the sample metrics. Let's get started by reviewing some of these dashboards and metrics.
+Your Wavefront instance includes tutorial and tour dashboards that we built using sample metrics. Let's have a look at a tutorial dashboard.
 
-1. Log in to Wavefront.
-1. Select **Dashboards > All Dashboards**.
-1. In the Tags section of the filter bar on the left, click the **welcome.tutorial** tag.
-1. Click each dashboard and review:
-  - Tutorial: Intro - gives an overview of the Getting Started dashboards and documentation.
-  - Tutorial: Getting Started with Wavefront Query Language - gives an overview of how to construct metrics queries.
-  - Tutorial: Dashboard Basics: Chart Types - describes the different ways of displaying metrics.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Log in to Wavefront.</li>
+<li>Select <strong>Dashboards > All Dashboards</strong>.</li>
+<li>In the Tags section of the filter bar on the left, click the <strong>~welcome.tutorial</strong> tag</li>
+<li>Click each dashboard. </li>
+<li>Examine some of the charts by selecting the chart title.</li></ol></td>
+<td width="50%"><img src="/images/welcome_tutorial.png" alt="select ~welcome.tutorial"/></td>
+</tr>
+</tbody>
+</table>
+![click chart title to select a chart](/images/select_chart_v2.png)
 
-1. The Getting Started Dashboards all use sample metrics. You can explore any metrics in Wavefront, including the **~sample.** metrics, using the Metrics browser:
-    1. Select **Browse > Metrics**.
-    1. In the Metrics field, type **~sample.** (include the period). The sample metrics categories display:
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+Next, let's have a look at some metrics in the Metrics browser.
+<ol>
+<li>Select <strong>Browse > Metrics</strong>.</li>
+<li>In the Metrics field, type <strong>~sample.</strong> (include the period). The sample metrics  categories (shown on the right) display</li>
+<li>Explore folders until you see a chart icon representing a metric, and click the icon to display a chart with the metric.  </li></ol></td>
+<td width="50%"><img src="/images/sample_metrics.png" alt="sample metrics"/></td>
+</tr>
+</tbody>
+</table>
 
-       ![sample_metrics](images/sample_metrics.png)
+## Create Dashboards and Charts With the Dashboard Builder
 
-    1. Optionally, explore folders until you see a chart icon representing a metric.  In the next section you learn  how to create your own charts for metrics.
-    1. Click the icon to display a chart of the metric.
+Use our [Dashboard Builder drag-and-drop interface](ui_dashboards.html#create-a-dashboard) to quickly create a dashboard from your metrics. Start with an integration or browse all metrics, and create one or multiple charts.
 
-## Create Dashboards and Charts
+![create dashboard with builder](images/v2_create_dashboard.png)
 
-To get you started quickly, Wavefront includes not only a tutorial, but also a set of sample dashboards, tagged as **welcome.tour**.
-One of the tour dashboards, Tour: Sample Cluster Metrics, illustrates a range of metrics that span an entire cluster. You can
-create  a dashboard starting with one of the charts in this tour dashboard and add a new chart to your dashboard.
+## Create Dashboards and Charts by Saving a Chart to a New Dashboard
 
-1.  Open the Tour: Sample Cluster Metrics dashboard:
-    1. Select **Dashboards > All Dashboards**.
-    1. In the Search field at the top, type **Sample Cluster** and press **Enter**.
-    1. Click the **Tour: Sample Cluster Metrics** dashboard link.
+Saving an existing chart to a new dashboard is another easy way to create a dashboard. We create a copy of the chart, and create new dashboard with the name and URL you specify.
 
-        ![sample_cluster](images/sample_cluster.png)
+This example uses a chart from our Tour Pro, which is a set of dashboards for exploring typical customer use cases. Tour Pro also includes a dashboard that monitors a sample cluster and one dashboard that monitors a single host.
 
-        The dashboard defines two [variables](dashboards_variables.html),  dashboard&mdash;Availability Zone (az) and Environment (env)&mdash; which you can see at the top. Variables can be used in queries to filter metrics for classes of sources. The us-west-2 availability zone and dev environment variable are selected by default.
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 1: Open the Sample Cluster Metrics dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Log in to Wavefront.</li>
+<li>Select <strong>Dashboards > All Dashboards</strong>.</li>
+<li>In the Search field at the top, type <strong>Sample Cluster</strong> and press <strong>Enter</strong>.</li>
+<li>Click the <strong>Sample Cluster Metrics</strong> dashboard link.</li></ol></td>
+<td width="50%"><img src="/images/sample_cluster.png" alt="Sample Cluster"/></td>
+</tr>
+</tbody>
+</table>
 
-1.  Open a chart in the Tour: Sample Cluster Metrics dashboard.
-    1. The Tour: Sample Cluster Metrics dashboard is organized into sections. Click **App Servers** at the top to jump to the App Servers section:
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 2: Open a chart in the dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Select <strong>Jump To &gt; App Servers</strong> to go to the App Servers section. </li>
+<li>Click the <strong>Requests</strong> chart title.</li></ol>
+<p>The stacked area chart opens in the chart editor. This chart displays the query:<br> <code>last(ts("~sample.requests.total.num", az=${az}, env=${env}))</code></p>
+<p>The query returns the total number of requests (<strong>~sample.requests.total.num</strong>) metric, filtered by availability zone and environment. The <strong>last()</strong> function fills in any gaps in data with the last known value of the metric. </p></td>
+<td width="50%"><img src="/images/app_servers.png" alt="Sample Cluster"/></td>
+</tr>
+</tbody>
+</table>
 
-       ![app_servers](images/app_servers.png)
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 3: Add the chart to a new dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>With the chart still in the chart editor, click <strong>Save</strong> in the top right corner. </li>
+<li>Select <strong>Save to a New Dashboard</strong> and specify a dashboard url.  </li></ol>
+The new dashboard is created, with a clone of the chart in the chart editor. </td>
+<td width="50%"><img src="/images/save_to_new_v2.png" alt="save to new dashboard"/></td>
+</tr>
+</tbody>
+</table>
 
-    1. In the App Servers section, click the **Requests** chart title:
-       ![requests](images/requests.png)
-
-       The [stacked area](charts.html#stacked-area) chart opens in the chart editor. This chart displays the query **last(ts("~sample.requests.total.num", az=${az}, env=${env}))**, which returns the **~sample.requests.total.num (total number of requests)** metric filtered by availability zone and environment. The **last()** function fills in any gaps in data with the last known value of the metric.
-1.  Add the chart to a new dashboard:
-    1. Scroll to the bottom of the chart page.
-    1. Click **Save to New Dashboard**.
-    1. In the URL field, type **app-server-dashboard**.
-    1. In the Name field, type **App Server Dashboard**.
-    1. Click **Create**. You have now created your first dashboard and are placed in edit mode. The variables have also been included in your new dashboard because they are used in the chart.
-1.  Edit the App Server Dashboard:
-    1. Click the <i class="fa fa-superscript" /> icon at the top right to close the dashboard variables editor.
-    1. Click **Incoming Chart** at the top left and type **Request Metrics**.
-1.  Edit the Requests chart to limit the number of sources being displayed:
-    1. Click the **Requests** title at the top right of the chart.
-    1. In the Requests query field delete **az=${az}, env=${env}** and type **env**.
-    1. Select **env=** and then **production** from the autocomplete dropdown.
-    1. Press **Enter**. The chart now displays only _production_ application servers in all availability zones.
-    1. Click **Accept**.
-1.  Now let's create a chart from scratch:
-    1. Click <i class="fa fa-plus-circle"/> Add New Chart. A new [line plot](charts.html#line-plot) chart is created.
-    1. In the New Query field, type **ts**. The system adds parentheses.
-    1. Type **~sample.requests**.
-    1. Choose **latency** from the autocomplete dropdown and press **Enter**. The chart displays the query **ts(~sample.requests.latency)** which returns the **~sample.requests.latency** (request latency) metric. The chart contains many lines that can make it hard to see trends. To reduce the number of lines you can filter the points by sources.
-    1. Type **", env=production"** (without the quotes) after latency. This filter selects sources in the _production_ environment.
-    1. Type **"mmax(10m, "** (without the quotes) before ts and type a closing parenthesis **)** at the end. This function sets the value to the maximum of the metric over a 10 minute window, reducing noise and focusing attention on the more interesting metric _maximum latency_. This is an example of the one of the many functions available in Wavefront to analyze your metrics.
-    1. In the Name field, replace New Chart with **Request Latencies**.
-    1. Click **Accept**.
-1.  Make sure that Edit JSON is still selected in the top right, hover over the chart, and press and hold the left mouse button. When the cursor changes to <i class="fa fa-arrows"/>,  drag the chart to the right of the Requests chart and release the mouse button. The two charts now share the same row.
-1. At the top right of the dashboard, click **Save**.
-
-   ![request_metrics](images/request_metrics.png)
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 4: Edit the chart in the cloned dashboard.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<p>The chart is currently using variables to determine what to display. Let's simplify the chart to show only metrics for the dev environment, and experiment with chart types.</p>
+<ol>
+<li>With the chart still in Edit mode, select the variables and replace them with <strong>env=dev</strong>. Auto-complete offers options as you type.</li>
+<li>Experiment with some of the chart types available from the pull-down menu on the left. </li></ol>
+<p>For an introduction, see the <a href="chart_builder.html"> Chart Builder page</a>.</p> </td>
+<td width="50%"><img src="/images/select_env.png" alt="select environment"/>
+<img src="/images/v2_chart_builder_select.png" alt="select chart type"/></td>
+</tr>
+</tbody>
+</table>
 
 ## Create an Alert
 
-In this section you create an alert that fires when the request latency metric reaches a certain threshold. In Wavefront, one way to create an alert is directly from a chart.
+In this section you create an alert that fires when the request latency metric reaches a certain threshold. One way to create an alert is directly from a chart.
 
-1. In App Server Dashboard, click the **Request Latencies** chart title to open the chart.
-1. Hover over the query builder toggle. The **Create Alert** link displays.
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 1: Create the alert.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>In the App Server section of the dashboard, click the <strong>Request Latencies</strong> chart title to open the chart.  </li>
+<li>Select <strong>Create Alert</strong> from the menu on the far right. </li></ol>
+The <strong>Create Alert</strong> page displays. </td>
+<td width="50%"><img src="/images/v2_create_alert.png" alt="Create Alert menu item"/></td>
+</tr>
+</tbody>
+</table>
 
-   ![create_alert](images/create_alert.png)
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 2: Customize the alert.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>In the Name field, replace <strong>New Alert</strong> with <strong>Latency Alert</strong>.</li>
+<li>At the end of the Condition field, type <strong>&gt; 210</strong>. We're deliberately setting this alert threshold low so you can see the alert fire after a few minutes. In normal practice, you would set the threshold to an anomalous value.</li>
+<li>In the <strong>Alert fires</strong> field, change the value to <strong>2</strong> and press <strong>Enter</strong>. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes.</li>
+<li>In the <strong>Targets</strong> field, type your email address.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+</td>
+<td width="50%"><img src="/images/create_latency_alert.png" alt="create latency alert"/></td>
+</tr>
+</tbody>
+</table>
 
-1.  Click the **Create Alert** link. The Create Alert page displays with the Condition field filled in with the request latencies query.
-    1. In the Name field, replace **New Alert** with **Latency Alert**.
-    1. At the end of the Condition field, type **> 210**. The alert threshold is deliberately set low so you can see the alert fire after a few minutes. In normal practice the threshold would be set to an anomalous value.
-    1. In the **Alert fires** field, change the value to **2** and press **Return** or **Enter**. The alert fires whenever the moving maximum of the latency is greater than 210 for 2 minutes. You can see when alerts would have been generated in the **Backtesting** option of the Events Display chart.
-    1. In the Targets field, type your email address.
-    1. Click **Save**.
-1.  Click **Alerts** in the task bar. The Alerts browser displays and Latency Alert displays the state CHECKING. When the alert fires, the state changes to FIRING:
+<table style="width: 100%;">
+<thead><tr><th width="50%">Step 3: Observe and snooze the alert.</th><th width="50%">&nbsp;</th></tr>
+</thead>
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>To watch the alert fire, click <strong>Alerts</strong> in the task bar.
+<br>
+<br>
+Because your alert was the most recently created, you should see it with the state CHECKING.
+<br>
+<br>
+Watch the state change to FIRING and check your email. </li>
+<li>Select the alert's check box, click <strong>Snooze</strong> and select <strong>Forever</strong>.
+<br>
+<br>
+You'll receive a second email that the alert was snoozed. </li>
+</ol>
+ </td>
+<td width="50%"><img src="/images/alert_checking.png" alt="create latency alert"/>
+<img src="/images/snooze_alert.png" alt="snooze alert"/></td>
+</tr>
+</tbody>
+</table>
 
-    ![firing alert](images/tutorial_get_started_alert_firing.png)
 
-     and you receive an email like the following:
-
-    ![alert_email](images/tutorial_get_started_alert_email.png)
-
-    As alerts fire and resolve, events are created in Wavefront. You can add many other types of events to Wavefront. You can identify these events as [icons](charts_events_displaying.html) that are added to the Request Latencies chart's X-axis:
-
-    ![event icons](images/event_icons.png)
 
 ## Videos
 
@@ -138,6 +232,7 @@ Our doc set includes concept videos, how-to videos, and more!
 
 </tbody>
 </table>
+
 
 ## Docs
 
@@ -200,7 +295,7 @@ Click a tile for doc about integrating with Wavefront, visualizing your data, re
          </div>
          <div class="panel-body">
              <p><a href="/alerts.html" class="btn btn-primary btn-block">Alert</a></p>
-             <p>Get started with alerting </p>
+             <p>Get started with alerting. </p>
          </div>
      </div>
  </div>
@@ -214,9 +309,9 @@ Release notes summarize the features added to each release and changes to existi
 
 ### Query Language Docs
 
-[Wavefront Query Builder](query_language_query_builder.html) offers an easy select-and-refine interface that lets you fine tune what your charts display.
+[Wavefront Chart Builder](chart_builder.html) offers an easy select-and-refine interface that lets you fine tune what your charts display.
 
-![chart builder](images/query_builder_04x.png)
+![chart builder](images/v2_chart_builder_simple.png)
 
 Advanced users further refine charts and alerts with Wavefront Query Language. Click on the green bar in a tile for a query language page.
 
@@ -288,7 +383,7 @@ Wavefront offers an onboarding (**Getting Started**) workflow, tutorial and tour
 <tr>
 <td width="50%">
 The <strong>Getting Started</strong> onboarding flow gives a overview of the Wavefront architecture, and a preview of dashboards and alerts. All trial users go through this flow before they can continue using Wavefront.</td>
-<td width="50%"><img src="/images/get_started_v1.png" alt="Getting Started flow"/></td>
+<td width="50%"><img src="/images/getting_started_flow.png" alt="Sample Cluster"/></td>
 </tr>
 <tr>
 <td width="50%">
@@ -314,5 +409,3 @@ Developers like the Interactive Query Language Exporer dashboard to learn about 
 </table>
 
 Once you're familiar with the basics, you can [send your own data to Wavefront](wavefront_data_ingestion.html) and start your journey!
-
-<!---moved some updates from 34 branch to master (but not all). Fingers crossed no merge problems later--->

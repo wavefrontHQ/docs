@@ -10,7 +10,7 @@ summary: Reference to the rawavg() function
 ```
 rawavg(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
-Returns the raw average (mean) of the time series described by the expression. 
+Returns the raw average (mean) of the time series described by the expression.
 The results are computed from real reported data values only.
 Use [`avg()`](ts_avg.html) to include interpolated values.
 
@@ -33,26 +33,31 @@ Use one or more parameters to group by metric names, source names, source tag na
 
 ## Description
 
-The `rawavg()` aggregation function averages the data values reported at each moment in time, across the time series that are represented by the expression. 
+The `rawavg()` aggregation function averages the data values reported at each moment in time, across the time series that are represented by the expression.
 
 By default, `rawavg()` returns a single series of averages by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of averages for each group.
 
-A raw average is computed only from real values reported at a given moment in time. 
+A raw average is computed only from real values reported at a given moment in time.
 No interpolation is performed to fill in data gaps in any time series.
-Use [`avg()`](ts_avg.html) if you want the averages to include interpolated values wherever possible. Using `rawavg()` instead of `avg()` can significantly improve query performance. 
+Use [`avg()`](ts_avg.html) if you want the averages to include interpolated values wherever possible. Using `rawavg()` instead of `avg()` can significantly improve query performance.
 
 ### Grouping
 
-Like all aggregation functions, `rawavg()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw averages for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+Like all aggregation functions, `rawavg()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw averages for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawavg(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 ## Example
 
-The following example shows the raw average for sample requests, grouped by the `az` tag, which indicates the region to which the hosts below to.
+The following example shows the data for `sample.requests.loadavg`. To limit the number of lines, we're filtering to show only time series with `env=dev`.
 
-![raw average](images/ts_rawavg.png)
+![metric filtered](images/ts_avg_before.png)
+
+When we apply `rawavg()` we get a single line.
+
+![raw avg](images/ts_rawavg.png)
+
 
 ## See Also
 [Detecting Anomalies With Functions and Statistical Functions](query_language_statistical_functions_anomalies.html#mean-and-median)
