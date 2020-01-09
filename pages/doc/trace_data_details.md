@@ -34,7 +34,6 @@ For example:
 getAllUsers source=localhost traceId=7b3bf470-9456-11e8-9eb6-529269fb1459 spanId=0313bafe-9457-11e8-9eb6-529269fb1459 parent=2f64e538-9457-11e8-9eb6-529269fb1459 application=Wavefront service=auth cluster=us-west-2 shard=secondary http.method=GET 1552949776000 343
 ```
 
-
 ### Span Fields
 
 <table id = "spanfields">
@@ -93,6 +92,7 @@ Span tags are special tags associated with a span and are key-value pairs.
 - **Required**. Many of the span tags are required for a span to be valid.
 - **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names.
 
+{% include note.html content="Make sure your span tags are within the maximum character limit as explained below." %}
 The following table lists the maximum number of characters you can assign a span tag.
 <table>
 <colgroup>
@@ -117,11 +117,6 @@ The following table lists the maximum number of characters you can assign a span
 <td>Span tag value</td>
 <td>128</td>
 <td>If the span tag value exceeds the maximum length, the value is truncated to the maximum number of characters.</td>
-</tr>
-<tr>
-<td>Span tag</td>
-<td>256</td>
-<td><code>span-tag-length = span-tag-key length + span-tag-value length</code><br/><br/> If the span tag exceeds the maximum length, the span details are recorded in Wavefront but, the span tag associated with it is blocked.</td>
 </tr>
 </tbody>
 </table>
