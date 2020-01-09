@@ -66,8 +66,7 @@ The Microsoft Team is now ready to receive webhook alerts. Note that you can cre
 			  },
 			  {
 			    "name": "Condition",
-			    "value": "{{#jsonEscape}}```
-{% endraw %}{{{condition}}}```{{/jsonEscape}}"
+			    "value": "{{#jsonEscape}}`{{{condition}}}`{{/jsonEscape}}"
 			  },
 			  {
 			    "name": "Event Started",
@@ -128,6 +127,7 @@ The Microsoft Team is now ready to receive webhook alerts. Note that you can cre
 	]
 }
 ```
+{% endraw %}
 Customize other aspects of the [template](https://docs.wavefront.com/alert_target_customizing.html) as desired.
 {% include image.md width="90" src="images/msteams_alert_target.png" %}
 1. Click **Save**.
