@@ -96,15 +96,15 @@ The standard dashboard for service metrics is read-only. To create a customizabl
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
 ### Navigate to the Tracing UI from the Service Metrics Dashboard
-If the charts on your service metric dashboard have the `application` and `service` [point tags](query_language_point_tags.html), follow the steps given below to navigate directly to your tracing information from this dashboard:
 
-1. To navigate to the tracing UI, you need to view your charts using **Detailed View**. Therefore, click the **view** dropdown and select **Detailed View**.
+You can navigate directly from a service dashboard to the corresponding tracing information if the charts have the `application` and `service` [point tags](query_language_point_tags.html). Follow the steps given below: 
+
+1. Click the **view** dropdown and select **Detailed View**.
   ![detailed view](images/tracing_detailed_view.png)
-2. On your chart, click the vertical ellipsis menu in the far-right corner, click **Traces**, and click a preferred service.
+2. On your chart, click the vertical ellipsis in the top right, click **Traces**, and click a service.
   ![charts to tracing](images/tracing_metrics_to_tracing.png)
   
-    Now, you see the tracing UI for the service you selected.
-{% include note.html content="Don’t see **Traces**? That’s because you don’t have the `application` and `service point` tags in your metric.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+{% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Explore Traces
 
