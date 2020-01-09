@@ -118,7 +118,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Histograms with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate (1% by default). For example that if you set the rate to 30, then spy only shows 30% of results. By default, sampling rate is 100, which means we return 100% of the data.
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate (1% by default). For example that if you set the rate to 0.3, then spy only shows 30% of results. By default, sampling rate is 1%, which means we return 100% of the data.
 
 You can use the returned list of histograms to help you answer questions like this:
 

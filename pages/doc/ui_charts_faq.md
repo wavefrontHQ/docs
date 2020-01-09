@@ -40,10 +40,24 @@ The following example shows how to use color mapping with a single stat chart.
 ## How Do Drilldown Links Work?
 
 
-A drilldown link sends users to a target dashboard when they click on a chart. We support drilldown links for the following chart types:
-* Single stat
-* Topk
-* Node map
+A drilldown link sends users to a target dashboard when they click on a chart.
+
+* Drilldown on click is available for the following chart types:
+  - Single stat
+  - Topk
+  - Node map
+* For all other chart types, drilldown is available from the ellipsis menu in the top right.
+![drilldown example](images/drilldown_ellipsis.png)
+
+### Simple Drilldown
+
+In most cases, you want to send users from a chart to another dashboard.
+1. Open the chart for edit and click the **Drilldown Link** tab.
+2. Start typing the name of the target dashboard, select from the options, and save the chart.
+   ![simple drilldown](images/simple_drilldown.png)
+
+### Drilldown Using Local Settings
+
 
 You can optionally pass along a constant, point tag value, or other value to be used in the target dashboard. Here's an example:
 
@@ -54,15 +68,14 @@ Suppose your users monitor 2 dashboards:
 
 * Dashboard 2 allows users to get details about the different availability zones. A variable (Availability Zone) is defined for that dashboard, and users can select a value for that variable.
 
-* Inside dashboard 1, you've defined a drilldown link for each single stat chart that:
+**Note** For this use case, a variable value that matches the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match.
+
+You can set this up as follows:
+1. Inside dashboard 1, define a drilldown link for each single stat chart that:
   - Goes to dashboard 2 when the user clicks one of the single-stat charts.
   - Passes the value of the `az` point tag in as the value of the `az` variable.
-  **Note** A variable value that matches to the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match.
-
   ![drilldown_definition](images/drilldown_1.png)
-
-* When the user clicks on a chart in dashboard 1 because it shows a critical value, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
-
+2. When a user sees a critical value on a chart and clicks on that chart in dashboard 1, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
   ![drilldown_target](images/drilldown_2.png)
 
 
