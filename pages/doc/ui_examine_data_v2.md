@@ -141,7 +141,7 @@ The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> 
 ![time window](images/display_events_v2.png)
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
-
+ 
 ## Do More!
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc, you can also
