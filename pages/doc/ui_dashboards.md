@@ -27,27 +27,32 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 You have several options for creating a dashboard:
 
-* Select **Dashboards > Create Dashboard** and drag the Chart Type or Metrics widget onto the canvas.
+* Select **Dashboards > Create Dashboard**, drag in the Metrics or New Chart widget, and follow the wizard to create a single-chart or multi-chart dashboard.
+* Select **Dashboards > Create Dashboard**, drag in the Templates widget, and select an integration, then pick the dashboards and charts you'd like to include.
+* Select **Dashboards > All Dashboards** and click **Create Dashboard**
 * Select **Browse > Metrics** and click **Create Dashboard**.
+
+### Create a Dashboard from Metrics or Charts
+
+It's easy to create a dashboard from metrics or by selecting a chart.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">
 <strong>To create a dashboard</strong>:
-<ol><li>Click <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the task bar. </li>
 <li>Drag the <strong>Metrics</strong> or <strong>New Chart</strong> widget onto the canvas</li>
-<li>Select metrics, filters, and functions for your chart. </li>
+<li>Select metrics, filters, and functions now or later. </li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. The URL field supports letters, numbers, underscores, and dashes.  The Name field supports letters, numbers, characters, and spaces.</li></ol></td>
 <td width="60%"><img src="/images/v2_create_dashboard.png" alt="create dashboard"></td>
 </tr>
 </tbody>
 </table>
 
-<!---
 ### Create a Dashboard from a Template
 
-With release 2019.38, you can create a dashboard by specifying an integration dashboard as a template.
+With release 2019.46, you can create a dashboard by specifying an integration dashboard as a template.
 
 <table style="width: 100%;">
 <tbody>
@@ -61,7 +66,7 @@ With release 2019.38, you can create a dashboard by specifying an integration da
 <td width="60%"><img src="/images/v2_create_dashboard_template.png" alt="create dashboard from template"></td>
 </tr>
 </tbody>
-</table>--->
+</table>
 
 
 ## Edit or Clone a Dashboard
