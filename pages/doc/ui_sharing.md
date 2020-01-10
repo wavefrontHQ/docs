@@ -8,8 +8,7 @@ summary: Share links to dashboards and charts, give dashboard access, and create
 You can
 * Share a link to a dashboard or chart so someone else can see what's going on.
 * Share [access](access.html) to a dashboard if the user is not in a group that has access to that specific dashboard.
-<!---
-* Embed an interactive chart outside Wavefront.--->
+<!---* Embed an interactive chart outside Wavefront.--->
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to share a link to a dashboard or chart." %}
 

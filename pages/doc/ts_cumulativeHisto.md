@@ -109,7 +109,7 @@ Finally, we use the `cumulativeHisto()` function to return a cumulative histogra
 
 * The [Integrating Prometheus with Wavefront for Easy Scaling and Failover](https://www.wavefront.com/integrating-prometheus-with-wavefront/) blog post discusses the [Prometheus integration](prometheus.html) in some detail.
 * The [How to Make Prometheus Monitoring Enterprise Ready](https://www.wavefront.com/how-to-make-prometheus-monitoring-enterprise-ready/) blog post explores how using Prometheus for metrics collection and Wavefront for data storage and visualization can give you the best of both worlds.
-* Our [histogram doc page](https://proxies_histograms.html) gives background information about Wavefront histograms.
+* Our [histogram doc page](proxies_histograms.html) gives background information about Wavefront histograms.
 
 
 ## Caveats
