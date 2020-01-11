@@ -157,7 +157,14 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tr>
 <tr>
 <td>Point Tag Display Options </td>
-<td>The point tags to display in the legend. </td>
+<td>Offers these options:
+<ul><li>
+<strong>Show All</strong></li>
+<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+</li>
+<li><strong>Custom</strong>: Allows you to specify selected point tags.
+</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
@@ -315,7 +322,14 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tr>
 <tr>
 <td>Point Tag Display Options </td>
-<td>The point tags to display in the legend. </td>
+<td>Offers these options:
+<ul><li>
+<strong>Show All</strong></li>
+<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+</li>
+<li><strong>Custom</strong>: Allows you to specify selected point tags.
+</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
@@ -494,7 +508,14 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tr>
 <tr>
 <td>Point Tag Display Options </td>
-<td>The point tags to display in the legend. </td>
+<td>Offers these options:
+<ul><li>
+<strong>Show All</strong></li>
+<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+</li>
+<li><strong>Custom</strong>: Allows you to specify selected point tags.
+</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
@@ -655,13 +676,14 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tr>
 <tr>
 <td>Point Tag Display Options </td>
-<td>Determines which point tags to display in the hover legend.
-<ul>
-<li><strong>Show All</strong> includes all point tags.</li>
-<li><strong>Top (X)</strong> allows you to display, for example, the top 10</li>
-<li><strong>Custom</strong> allows you to select one or more tags. </li>
-</ul>
-</td>
+<td>Offers these options:
+<ul><li>
+<strong>Show All</strong></li>
+<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+</li>
+<li><strong>Custom</strong>: Allows you to specify selected point tags.
+</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
