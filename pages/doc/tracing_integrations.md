@@ -154,6 +154,86 @@ For more accurate RED metrics, you can disable the 3rd party sampling, and choos
 
 The Wavefront proxy or Wavefront Tracer will auto-derive the RED metrics first, and then perform the sampling.
 
+## Enable Logs
+You can enable logging for your Jaeger and Zipkin integrations.
+
+### Enable logs for Jaeger Integrations
+Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file, add the following code into it, and save the file.
+
+1. Add the following code inside the `<Appenders>` tag.<br/>
+  Example:
+  
+    ```
+    <Appenders>
+       <RollingFile name="JaegerDataFile" fileName="${log-path}/wavefront-jaeger-data.log" filePattern="${log-path}/wavefront-jaeger-data-%d{yyyy-MM-dd}-%i.log">
+          <PatternLayout>
+             <pattern>%m%n</pattern>
+          </PatternLayout>
+          <Policies>
+             <TimeBasedTriggeringPolicy interval="1" />
+             <SizeBasedTriggeringPolicy size="1024 MB" />
+          </Policies>
+          <DefaultRolloverStrategy max="10">
+             <Delete basePath="/var/log/wavefront" maxDepth="1">
+                <IfFileName glob="wavefront-jaeger*.log" />
+                <IfLastModified age="7d" />
+             </Delete>
+          </DefaultRolloverStrategy>
+       </RollingFile>
+    </Appenders>
+    ```
+    {% include note.html content="For information on each parameter and to configure it for your requirement, see [log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/appenders.html)."%}
+
+2. Add the appender for the ZipkinDataLogger inside the `<Loggers>` tag.<br/>
+    Example:
+    
+      ```
+      <!-- Set level="ALL" to log Jeager data to a file. -->
+      <Loggers>
+         <AsyncLogger name="JaegerDataLogger" level="DEBUG" additivity="false">
+            <AppenderRef ref="JaegerDataFile" />
+         </AsyncLogger>
+      </Loggers>
+      ```
+
+### Enable Logs for Zipkin Integrations
+
+Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file, add the following code into it, and save the file.
+
+1. Add the following code under the `<Appenders>` tag.<br/>
+  Example:
+  
+    ```
+    <Appenders>
+       <RollingFile name="ZipkinDataFile" fileName="${log-path}/wavefront-zipkin-data.log" filePattern="${log-path}/wavefront-zipkin-data-%d{yyyy-MM-dd}-%i.log">
+          <PatternLayout>
+             <pattern>%m%n</pattern>
+          </PatternLayout>
+          <Policies>
+             <TimeBasedTriggeringPolicy interval="1" />
+             <SizeBasedTriggeringPolicy size="1024 MB" />
+          </Policies>
+          <DefaultRolloverStrategy max="10">
+             <Delete basePath="${log-path}/var/log/wavefront" maxDepth="1">
+                <IfFileName glob="wavefront-zipkin*.log" />
+                <IfLastModified age="7d" />
+             </Delete>
+          </DefaultRolloverStrategy>
+       </RollingFile>
+    </Appenders>
+    ```
+    {% include note.html content="For information on each parameter and to configure it for your requirement, see [log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/appenders.html)."%}
+    
+2. Add the appender for the ZipkinDataLogger under the `<Loggers>` tag.<br/>
+    Example:
+    ```
+    <!-- Set level="ALL" to log Zipkin data to a file. -->
+    <Loggers>
+       <AsyncLogger name="ZipkinDataLogger" level="ALL" additivity="false">
+          <AppenderRef ref="ZipkinDataFile" />
+       </AsyncLogger>
+    </Loggers>
+    ```
 
 ## Alternatives to Integrations
 
