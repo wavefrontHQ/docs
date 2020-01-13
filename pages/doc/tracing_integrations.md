@@ -184,7 +184,7 @@ Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file, add the followin
     ```
     {% include note.html content="For information on each parameter and to configure it for your requirement, see [log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/appenders.html)."%}
 
-2. Add the appender for the ZipkinDataLogger inside the `<Loggers>` tag.<br/>
+2. Add the appender for the JaegerDataLogger inside the `<Loggers>` tag.<br/>
     Example:
     
       ```
