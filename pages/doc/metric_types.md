@@ -4,7 +4,7 @@ keywords: data
 tags: [data]
 sidebar: doc_sidebar
 permalink: metric_types.html
-summary: Learn Wavefront metric types and the Metrics browser.
+summary: Learn about gauges, counters, delta counters, histograms, and spans.
 ---
 
 Wavefront supports monitoring time series, histograms, and traces.

@@ -299,7 +299,7 @@ The [`align()` function](query_language_reference.html#filtering-and-comparison-
 
 ## Improve Display Speed with the Sampling Option
 
-Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. Starting with release 2019.42, you can limit the number of time series to 100 for new charts.
+Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered. Starting with release 2019.38, you can limit the number of time series to 100 for new charts.
 
 To affect all dashboards, turn on the **Sampling** default in your preferences from the gear icon.
 ![sampling preference](images/sampling_preference.png)
