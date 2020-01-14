@@ -752,6 +752,14 @@ li.activeSeries {
   border-radius: 1px;
 }
 
+.alert-success {
+  color: #52606D;
+}
+
+.alert-warning{
+  color: #52606D;
+}
+
 div.alert code, h2 code {
     background-color: transparent !important;
 }

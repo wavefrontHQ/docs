@@ -175,7 +175,7 @@ You can _manually_ hide metrics from the Metrics browser and in the autocomplete
 {% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
 
 
-**Note:** While hidden metrics are removed from the autocomplete dropdown, those metrics can still be used in a ts() query when data values are present.
+{% include note.html content="While hidden metrics are removed from the autocomplete dropdown, those metrics can still be used in a `ts()` query when data values are present. " %}
 
 <table style="width: 100%;">
 <tbody>
