@@ -2,12 +2,11 @@
 title: Microsoft Teams Integration
 tags: [integrations list]
 permalink: msteams.html
-published: false
 summary: Learn about the Wavefront Microsoft Teams Integration.
 ---
 ## Microsoft Teams Integration
 
-Microsoft Teams is a popular team collaboration tool.
+Microsoft Teams is a popular team collaboration tool. 
 You can use Wavefront alerts to send a message to a Microsoft Teams chat channel. With the help of webhooks you can integrate Wavefront alerts into Microsoft Teams as a Connector.
 
 ## Microsoft Teams Setup
