@@ -860,8 +860,8 @@ Convert a span name, source name, or span tag name to lowercase.
 ### spanAddTag and spanAddTagIfNotExists
 
 Add a span tag to all spans.
-* For `spanAddTag`, if the tag already exists, its existing value is replaced with the new value.
-* For `spanAddTagIfNotExists`, do not replace the value of an existing tag.
+* `spanAddTag` adds the new span tag and assigns the new value to it. Spans do not restrict you from adding tags with the same name. If you want to update the value of a span tag, you need to [drop the span tag](#spandroptag) and add it again.
+* `spanAddTagIfNotExists` adds the span tag only if it does not already exist.
 
 {% include note.html content="You can add up to 20 span tags. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements." %}
 
