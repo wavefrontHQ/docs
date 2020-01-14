@@ -485,9 +485,9 @@ By default, there are 4 threads (and 4 buffer files) waiting to retry points onc
 
 The Wavefront proxy supports two log files: proxy log and blocked point log.
 
-To keep the log file sizes reasonable and avoid filling up the disk with logs, both log files are automatically rotated and purged periodically. You configure the log file locations and rotation rules in `<wavefront_config_path>/log4j2.xml`. For details on log4j2 configuration, see [Log4j Configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+To keep the log file sizes reasonable and avoid filling up the disk with logs, both log files are automatically rotated and purged periodically. Configure the log file locations and rotation rules in `<wavefront_config_path>/log4j2.xml`. For details on log4j2 configuration, see [Log4j Configuration](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
-If you're using proxies in containers, you can mount the file, as discussed below.
+If you're using proxies in containers, you can mount the log files, as discussed below.
 
 ### Proxy Log
 
@@ -495,37 +495,40 @@ By default, proxy log entries are logged to [`<wavefront_log_path>`](#paths)`/wa
 
 If you want to set logs for Jaeger and Zipkin integrations, see [Logging for Jaeger and Zipkin](tracing_integrations.html#enable-logs).
 
-### Blocked Point Log
+### Blocked Data Log
 
-You can log all the raw blocked points in a separate log from the proxy log or log them into their separate log files. Logging of blocked points is disabled by default.
+You can log all the raw blocked data separately or log different entities into their separate log files.
 
-* **Log the block points to a single file** <br/>
-  To log all the block points into a single file, open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` configuration file and uncomment the blocked points file appender. 
-  ```
-  <AppenderRef ref="BlockedPointsFile"/>
-  ```
-  By default, blocked point entries are logged to the [`<wavefront_log_path>`](#paths)`/wavefront-blocked-points.log` file and the log file is rolled over every day when its size reaches 100MB. When there are 31 log files, older files are deleted.
-
-* **Set up separate log files for blocked points**<br/>
-  Follow the steps given below:
-    1. Uncomment the blocked points file appender in the [`<wavefront_config_path>`](#paths)`/log4j2.xml` configuration file.
+* **Log the block data separately** <br/>
+  Follow these steps:
+  1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` configuration file.
+  2. To log all the block data, uncomment the corresponding section. 
+      ```
+      <AsyncLogger name="RawBlockPoints" level="WARN" additivity="false">
+         <AppenderRef ref="BlockedPointsFile" />
+      </AsyncLogger>
+      ```
+  By default, blocked point entries are logged to the `<wavefront_log_path>/wavefront-blocked-points.log` file and the log file is rolled over every day when its size reaches 100MB. When there are 31 log files, older files are deleted. You can customize the configurations to suit your environment.
+  
+* **Set up separate log files for blocked entities**<br/>
+  Follow these steps:
+    1. Uncomment or add the configurations under Appenders and Loggers in the [`<wavefront_config_path>`](#paths)`/log4j2.xml` configuration file.
         ```
-        <AppenderRef ref="BlockedPointsFile"/>
-        ```
-    2. Add the following appenders to the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.<br/>
-        Example:
-        ```
-          <!-- Logs the blocked points for histograms. If you don't need a separate log file for it, 
+          <!-- Log the blocked histograms. If you don't need a separate log file for it, 
           don't add this configuration to the file.-->
-           <AsyncLogger name="RawBlockedHistograms" level="WARN" additivity="false">
-              <AppenderRef ref="BlockedHistogramsFile"/>
-          </AsyncLogger>
-          
-          <!-- Logs the blocked points for spans. If you don't need a separate log file for it, 
-          don't add this configuration to the file.-->
-          <AsyncLogger name="RawBlockedSpans" level="WARN" additivity="false">
-              <AppenderRef ref="BlockedSpansFile"/>
-          </AsyncLogger>
+          <AsyncLogger name="RawBlockedHistograms" level="WARN" additivity="false">
+             <AppenderRef ref="[Enter_Your_File_Name]"/>
+         </AsyncLogger>
+                
+         <!-- Logs the blocked points for spans. If you don't need a separate log file for it, 
+         don't add this configuration to the file.-->
+         <AsyncLogger name="RawBlockedSpans" level="WARN" additivity="false">
+             <AppenderRef ref="[Enter_Your_File_Name]"/>
+         </AsyncLogger>
+         
+         <AsyncLogger name="RawBlockPoints" level="WARN" ADDITIVITY="FALSE"/> 
+       	   <AppenderRef ref=”BlockedPointsFile”/>
+         </AsyncLogger>
         ```
     3. Add the names of the block points, which you uncommented in the `log4j2.xml` file, to the [`<wavefront_config_path>`](#paths)`/wavefront.conf` file.<br/>
         Example:
@@ -538,7 +541,7 @@ You can log all the raw blocked points in a separate log from the proxy log or l
           # Add this if you added the appender for spans in the log4j2.xml file.
           blockedSpansLoggerName = RawBlockedSpans (RawBlockedPoints by default)
         ```
-    {%include warning.html content ="You must to update the `<wavefront_log_path>/log4j2.xml` and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for a blocked point. If you don't update both files accordingly, you won't get separate log files."%}
+    {%include warning.html content ="You must update the `<wavefront_log_path>/log4j2.xml` file and the `<wavefront_config_path>/wavefront.conf` file to get separate log files for blocked entities."%}
 
 <a name="docker"></a>
 
