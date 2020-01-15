@@ -10,9 +10,9 @@ summary: Reference to the count() function
 ```
 count(<tsExpression>[, metrics|sources|sourceTags|pointTags|<pointTagKey>])
 
-count(<hsExpression>)	
+count(<hsExpression>)
 
-count(<eventsExpression>)	
+count(<eventsExpression>)
 ```
 You can use `count()` with time series, with histograms, and with events.
 
@@ -102,9 +102,9 @@ If a time series has data gaps, `count()` fills them in by interpolation wheneve
 
 #### Grouping
 
-Like all aggregation functions, `count()` returns a single series of results by default.  
+Like all aggregation functions, `count()` returns a single series of results by default.
 
-You can include a 'group by' parameter to obtain separate counts for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+You can include a 'group by' parameter to obtain separate counts for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `count(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
@@ -112,11 +112,11 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 #### Interpolation
 
-If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function. 
+If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function.
 A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
 
-Within a given time series, an interpolated value is calculated from two real reported values on either side of it. 
-Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart. 
+Within a given time series, an interpolated value is calculated from two real reported values on either side of it.
+Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart.
 In this case, Wavefront finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
 
 You can use [`rawcount()`](ts_rawcount.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
@@ -146,7 +146,7 @@ The following examples contrast the result you get for two different types of se
 
 ![count 2](images/ts_count2.png)
 
-The following example groups all sources whose name starts with `"app-1*"` by the `env` point tag. The Stacked Area chart shows that 1 server is tagged with `dev` and 10 servers are tagged with `production`.
+The following Stacked Area chart groups all sources whose name starts with `"app-1*"` by the `env` point tag. The chart shows that 1 server is tagged with `dev` and 10 servers are tagged with `production`.
 
 ![count grouped](images/ts_count_groupby_env.png)
 
@@ -156,7 +156,7 @@ The following example shows the result of applying `count()` to an `hsExpression
 
 ![hs count](images/hs_count.png)
 
-**Note:**  `count()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `count()` is used as an aggregation function with a `tsExpression`, a single returned time series might be the result of counting multiple input time series.) 
+**Note:**  `count()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `count()` is used as an aggregation function with a `tsExpression`, a single returned time series might be the result of counting multiple input time series.)
 
 
 ## Caveats
