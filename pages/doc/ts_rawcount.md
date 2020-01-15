@@ -37,14 +37,14 @@ The `rawcount()` aggregation function adds together the number of actually repor
 
 By default, `rawcount()` produces a single raw count across across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate raw count for each group.
 
-A raw count is computed only from those time series that actually report real values at a given moment in time. 
+A raw count is computed only from those time series that actually report real values at a given moment in time.
 No interpolation is performed to fill in data gaps in any time series.
-Use [`count()`](ts_count.html) if you want the counts to include time series with interpolated values wherever possible. Using `ts_rawcount()` instead of `count()` can significantly improve query performance. 
+Use [`count()`](ts_count.html) if you want the counts to include time series with interpolated values wherever possible. Using `ts_rawcount()` instead of `count()` can significantly improve query performance.
 
 ### Grouping
 
-Like all aggregation functions, `rawcount()` returns a single series of results by default. 
-You can include a 'group by' parameter to obtain separate raw counts for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+Like all aggregation functions, `rawcount()` returns a single series of results by default.
+You can include a 'group by' parameter to obtain separate raw counts for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawcount(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
@@ -52,6 +52,6 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 ## Example
 
-The following example shows the raw count grouped by the values of the `env` point tag. The orange line, for the production environment, is at the top.
+The following example shows the raw count grouped by the values of the `env` point tag. There's an area for each environment.
 
 ![rawcount example](images/ts_rawcount.png)

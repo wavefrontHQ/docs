@@ -104,11 +104,11 @@ The `max()` aggregation function finds the highest (maximum) data value at each 
 
 By default, `max()` produces a single series of maximums by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of maximums for each group.
 
-If any time series has data gaps, `max()` fills them in by interpolation whenever possible. 
+If any time series has data gaps, `max()` fills them in by interpolation whenever possible.
 
 #### Grouping
 
-The `max()` aggregation function returns a single series of results by default. You can include a 'group by' parameter to obtain separate maximums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+The `max()` aggregation function returns a single series of results by default. You can include a 'group by' parameter to obtain separate maximums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `max(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
@@ -116,11 +116,11 @@ You can specify multiple 'group by' parameters to group the time series based on
 
 #### Interpolation
 
-If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function. 
+If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function.
 A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
 
-Within a given time series, an interpolated value is calculated from two real reported values on either side of it. 
-Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart. 
+Within a given time series, an interpolated value is calculated from two real reported values on either side of it.
+Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart.
 In this case, Wavefront finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
 
 You can use [`rawmax()`](ts_rawmax.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
@@ -143,7 +143,7 @@ The following example shows the total number of sample requests.
 
 And here we see the only the metrics if there are more than 200 sample requests.
 
-![ts max 250](images/ts_max_250.png)
+![ts max 250](images/ts_max_comparison_after.png)
 
 
 ### Time-Series Aggregation Function
@@ -162,12 +162,12 @@ In the following example, the blue line shows the result of applying `max()` to 
 
 ![hs max](images/hs_max.png)
 
-**Note:**  `max()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `max()` is used as an aggregation function with a `tsExpression`, a single returned time series might be the result of combining multiple input time series.) 
+**Note:**  `max()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `max()` is used as an aggregation function with a `tsExpression`, a single returned time series might be the result of combining multiple input time series.)
 
 
 ## Caveats for Time Series
 
-Sometimes it's best to use `max()` with `align()`. 
+Sometimes it's best to use `max()` with `align()`.
 See [Bucketing with align()](query_language_align_function.html).
 
 Using [`rawmax()`](ts_rawmax.html) instead of `max()` can significantly improve query performance because `rawmax()` does not perform interpolation.
