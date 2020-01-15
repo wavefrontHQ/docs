@@ -19,7 +19,7 @@ See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and
 You use tags in several ways:
 * **[Point tags](query_language_point_tags.html)** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
 * **Source tags** -- Group your sources. For example, examine only production hosts but not development hosts.
-  **Note:** Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API.
+  {% include note.html content="Information about the source is part of each metric, but you add source tags explicitly from the UI, CLI, or API." %} 
 * **Alert tags** -- Find [alerts](alerts.html) or exclude tagged alerts from a maintenance window.
 * **Event Tags** -- Add event tags from the Events browser or when you [create a user event](events.html#creating-a-user-event) to make it easier to filter events.
 * **Object tags** -- Limit the number of objects (e.g. dashboards) and metrics. For example, you might  display only dashboards with a certain tag.
@@ -142,7 +142,7 @@ To add tags to one or more objects:
 
 When you have many tags in your environment, you can search for tags by typing tag names in the Search box below the **Tags** heading in the filter bar on the left. As you type, the list of tags is filtered by the search string.
 
-**Note** When you search for tags, the search process is *case insensitive*. For example, searching for the tag `myapp` returns `MyApp` and `myapp`.
+{% include note.html content="When you search for tags, the search process is *case insensitive*. For example, searching for the tag `myapp` returns `MyApp` and `myapp`." %}
 
 ### Filter by Object Tags
 
@@ -154,7 +154,7 @@ Any Wavefront metric includes a source name. If source names change frequently o
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
-**Note:** You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Wavefront rejects source tags with a 403 error.
+{% include note.html content="You must have **Source Tags** permission to manage sources and source tags. If you don't have **Source Tags** permission, Wavefront rejects source tags with a 403 error." %} 
 
 ### Why Source Tags?
 
