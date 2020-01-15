@@ -72,7 +72,7 @@ Then we run `histo()` and can see the following in the example below:
 
 ## See Also
 
-* Our [histogram doc page](https://proxies_histograms.html) gives background information.
+* Our [histogram doc page](proxies_histograms.html) gives background information.
 * The [median() function](hs_median.html) returns time series that consist of the median values of the histogram distributions described by an expression.
 
 ## Caveats

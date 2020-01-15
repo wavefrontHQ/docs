@@ -13,7 +13,7 @@ Derived metrics allow you to run a query and ingest it back into Wavefront. All 
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 
-**Note:** The minimum reporting interval for derived metric is 1 minute.  If the query that is used in the derived metric reports data points more than once within a minute, then we summarize with `mean()` aggregation and align to 1 minute time buckets.
+{% include note.html content="The minimum reporting interval for derived metric is 1 minute.  If the query that is used in the derived metric reports data points more than once within a minute, then we summarize with `mean()` aggregation and align to 1 minute time buckets." %}
 
 ## Use Cases
 
@@ -61,8 +61,7 @@ You can customize how often the derived metric executes, and how many minutes of
 
 * **Include results in the last N minutes**: By default, Wavefront uses the last 5 minutes as the time window for the derived metrics query to account for possible delays in the upstream metric pipeline. The results of the query are ingested back into Wavefront and  overwrite existing data in the last N minutes for the derived metric. You can adjust the time window of the query with this setting.
 
-**Note**: We recommend that the **Includes...** setting is always larger than the **Execute** setting.
-
+{% include note.html content="We recommend that the **Includes...** setting is always larger than the **Execute** setting." %} 
 
 ## Creating and Managing Derived Metrics
 
@@ -73,4 +72,4 @@ To create a derived metric:
 3. Specify the query and make sure you include an `aliasMetric` -- you later use that name for the derived metric.
 4. If you want, change the times for results inclusion and for query execution. If your environment might have queueing problems, increase the results inclusion time.
 
-**Note:** An error results if you attempt to ingest a metric into itself. Use `aliasMetric` or `aliasSource` to have a different name for the metric (and optional source).
+{% include note.html content="An error results if you attempt to ingest a metric into itself. Use `aliasMetric` or `aliasSource` to have a different name for the metric (and optional source)." %}

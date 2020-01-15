@@ -11,7 +11,7 @@ Wavefront supports authentication through your identity provider (IDP). For seve
 
 Most Wavefront customers use single-tenant authentication. If your company wants to set up a different tenant for different teams, a multi-tenant setup might make sense.
 
-**Note:** Switching tenants in multi-tenant environments requires extra steps listed below. 
+**Note:** Switching tenants in multi-tenant environments requires extra steps listed below.
 
 
 ## Single-Tenant Authentication
@@ -47,7 +47,7 @@ Multi-tenancy is set up jointly by the Wavefront administrator at the customer s
    * Enables multi-tenancy for the customer.
    * Creates a tenant for each team specified by the customer.
    * Points each tenant to the customer's IDP.
-   * Creates tenant administrator users with **User Management** permissions on each tenant.
+   * Creates tenant administrator users with **Accounts & Groups** permissions on each tenant.
 1. The administrator at the customer site and the newly specified tenant administrator(s) can then:
   * Log in to the tenant.
   * [Invite users](users_groups.html#managing-users) to the tenant and assign permissions for that tenant.
@@ -73,7 +73,7 @@ If your environment is set up to support multi-tenant SSO, you log in to Wavefro
 
    * If you've been invited to only one tenant, then you are logged in to that tenant after authentication.
    * If you've been invited to more than one tenant, you are logged in to the last tenant you logged in. You can switch to the other tenant(s) by selecting the tenant from the gear icon.
-   * For each tenant, you have the permissions granted on that tenant. That means, for example, if you have the User Management permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
+   * For each tenant, you have the permissions granted on that tenant. That means, for example, if you have the **Accounts & Groups** permission on Tenant A, you don't necessarily have that permission for Tenant B. See [permissions](permissions_overview.html) for details.
    **Note:** You can have different sets of permissions on different tenants because each tenant administrator controls the permissions for that tenant for each user.
 
    * When you log out, the logout applies to *all* tenants.

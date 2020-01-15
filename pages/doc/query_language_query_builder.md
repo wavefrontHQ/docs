@@ -6,11 +6,20 @@ sidebar: doc_sidebar
 permalink: query_language_query_builder.html
 summary: Learn how to create Wavefront Query Language expressions using Query Builder.
 ---
-The Wavefront Query Builder is an easy-to-use interface that makes Wavefront accessible to all users in your organization. You can construct queries using query builder or query editor. Both query quilder and query editor support autocomplete.
-* Query builder allows you to construct queries from building blocks. Query Builder supports most elements of the Wavefront Query Language. A few of the more advanced functions are only available in the Query Editor, so you can switch from Query Builder to Query Editor to use those functions. You cannot switch from Query Editor to Query Builder.
-* Query Editor expect that you type the query using the elements of the query language.
 
-See [Wavefront Query Language Quick Reference](query_language_reference.html) for a complete reference - each function links to a reference page.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="80%">The Wavefront Query Builder is an easy-to-use interface that makes Wavefront accessible to all users in your organization. You can construct queries using query builder or query editor. Both query quilder and query editor support autocomplete.
+<ul>
+<li>Query builder allows you to construct queries from building blocks. Query Builder supports most elements of the Wavefront Query Language. A few of the more advanced functions are only available in the Query Editor, so you can switch from Query Builder to Query Editor to use those functions. You cannot switch from Query Editor to Query Builder.</li>
+<li>Query Editor expect that you type the query using the elements of the query language.</li></ul></td>
+<td width="20%"><a href="query_language_query_builder.html"><img src="/images/v2_button.png" alt="click here for the chart builder(v2) doc"/></a></td>
+</tr>
+</tbody>
+</table>
+
+See [Wavefront Query Language Reference](query_language_reference.html) for a complete reference - each function links to a reference page.
 
 ## Constructing Queries
 

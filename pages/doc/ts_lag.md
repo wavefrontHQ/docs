@@ -32,6 +32,7 @@ Returns earlier data values from the time series described by the expression, to
 
 The `lag()` standard time function returns data values that were reported earlier by the time series described by the expression. The data values are time-shifted forward by the specified amount of time along the time axis, for easy comparison with more recent data values.
 
+
 For example, say you want to use a single chart to show a set of recent data values reported by a time series, along with the data values that were reported 4 hours earlier. You can use `lag()` to "time-shift" the time series by 4 hours, so that the earlier values align, point for point, with the more recent values.
 
 `lag()` returns a separate series of results for each time series described by the expression.
@@ -40,13 +41,29 @@ Note:
 * If you simply want to see earlier values without comparing them to more recent data in the same chart, you can simply click <strong>Custom Date</strong> and specify the start and end time to display.
 * If you want to time shift by 1 day, 1 week, or 1 month, you can use the chart's <strong>Compare</strong> menu as a shortcut for querying with `lag(1d, ...)`, `lag(1w, ...)`, or `lag(1m, ...)`.
 
+This function is also well suited for highlighting trends.
+
 ## Examples
+
+### Compare with Earlier Values
 
 Here's a query that shows some recent request latency averages.
 ![lag before](images/ts_lag_before.png)
 
-Now we'd like to see how these averages compare to the averages that were reported 4 hours earlier. We add a second query that applies `lag()` to the original query. At a given moment in time, `lag()` returns the value that was actually reported by the time series 4 hours earlier.
+Now we'd like to see how these averages compare to the averages that were reported 30 minutes earlier. We add a second query that applies `lag()` to the original query. At a given moment in time, `lag()` returns the value that was actually reported by the time series 30 minutes earlier. 
+
 ![lag after](images/ts_lag_after.png)
+
+### Show Trend
+
+You can also use `lag()` to show a trend. Assume you start with CPU information, as in the following chart:
+
+![lag trend before](images/ts_lag_trend_before.png)
+
+When you wrap `lag()` around that function, you're showing the trend for the CPU information.
+
+![lag trend after](images/ts_lag_trend_after.png)
+
 
 ## See Also
 [`lead()` Function](ts_lead.html)

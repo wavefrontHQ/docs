@@ -6,54 +6,117 @@ permalink: ui_examine_data.html
 summary: Examine data with dashboards and charts
 ---
 
-If your environment is set up with data flowing and dashboards with preconfigured dashboards and charts, you can examine data, set dashboard preferences, zoom in and out, and perform other customizations.
-
-{% include shared/badge.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through [access control](access.html). All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission." %}
-
-
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="80%"> With dashboards and charts, you can examine data, set dashboard time window, zoom in and out, and perform other customizations.
+<br>
+<strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
+<td width="20%"><a href="ui_examine_data_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
+</tr>
+</tbody>
+</table>
 
 ## Get Started
 
 1. Log in to Wavefront.
 2. Select **Dashboards > All Dashboards**
 3. In the dashboards browser:
-    * Use the options on the left to find a dashboard.
+    * Use the search bar at the top to find a dasbhoard.
+    * Use the options on the left to narrow down the options that the dashboard browser displays.
     * Use the three horizontal dots for dashboard management.
     * Add new or existing tags to make finding dashboards easier.
 
 ![dashboard browser annotated](images/dashboard_browser.png)
 
+
 ## Set the Dashboard Time Window
 
-By default dashboards display charts with a two-hour time window with real-time data flowing in. Charts are updated every 30s. The Live Data control displays the state of the update cycle:
+By default dashboards show a two-hour time window in each chart, and display real-time (live) data. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
 
-![live data](images/live_data.png)
+You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
 
-You can configure the default time window as part of the Dashboard Display Preferences.
+**To change the dashboard time window:**
 
-You can select a larger or smaller time window or view past data instead of realtime data by using the time bar controls.
+- Click the **Live** toggle to on (green) to see up-to-date data on the charts.
+- Click the **Live** toggle to off to look at past data.
 
-To change the dashboard time window:
+Regardless of selection, you can click the time selector for a fine-grained time selection window. To the left of the time selector, you see the currently selected time.
 
-![time window](images/time_bar.png)
+![time bar](images/time_bar_v2.png)
 
-- Click **Live Data** to see up-to-date data on the charts. When Live Data is selected, you can click a time window interval to quickly increase or decrease the amount of live data displayed within each chart.
-- Click **Custom Date** to look at past data. When Custom Date is selected, you can click an interval to adjust the start time based on the end time. For example, if your end time is 3:00 PM and you choose 12h, the start time is adjusted to 3:00 AM.
+### Use the Jump To Menu to Find a Section
+Most dashboards have several sections. They're easy to access from the Jump To menu.
 
-## Filter with Dashboard Variables
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+Use the <strong>Jump To</strong> menu to go to a section</td>
+<td width="60%"><img src="/images/v2_jump_to.png" alt="jump to a section"></td>
+</tr>
+</tbody>
+</table>
 
-If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts. Dashboard variables are below the section bar.
 
-![dashboard variables example](images/variables_example.png)
+## Filter with Global Filters or Dashboard Variables
 
-In the example above, you can select all AWS regions (wildcard character) or one of the other three regions. The **Region** dashboard variable has been predefined in Wavefront. Users with Dashboard permission can [add dashboard variables](dashboards_variables.html) to any dashboard.
+Global filters and dashboard variables are two ways to narrow down what you see.
+* **Global Filters** allow any Wavefront user to filter by key value pair. For example, you could specify `source="db-2"` or `env="production"`.
+* [**Dashboard Variables**](dashboards_variables.html) are preset by a user with Dashboard permissions. All users can then make selections, for example, select a value from predefined list of strings or an automatically generated list of sources.
+
+If you select both a variable and a global filter, Wavefront uses AND to find results that satisfy both conditions. For example, `source="db-2" AND source="db-1"` results in No Data, but other combinations might get the results you're after.
+
+### Filter with Global Filters
+
+All users can use global filters to customize their dashboard. When you set a global filter, for example, to limit to certain sources, you affect all charts in the dashboard.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%"><a href="ui_examine_data.html#filter-with-variables-or-filters"> Global filters</a> allow any user to:
+<ul>
+<li>Specify a key-value pair as a filter for the dashboard. <br><br>All filters show up to the right of any dashboard variables</li> <li>Remove the filter by clicking the <strong>X</strong>. </li></ul></td>
+<td width="60%"><img src="/images/global_filters.png" alt="Global filter set and see"/></td></tr>
+</tbody>
+</table>
+
+### Use Dashboard Variables
+
+If a dashboard has preconfigured dashboard variables, you can use them to filter the information displayed in all charts.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+To show or hide the Variables bar:
+<ol><li>
+Scroll up to right below the Task bar.</li>
+<li>Click the up or down double caret <strong>^</strong>.</li></ol></td>
+<td width="40%">
+<img src="images/v2_hide_variables.png" align="center" valign="center" alt="hide variables"></td>
+</tr>
+<tr>
+<td width="60%">
+To select a variable:
+<ol><li>Find the variable in the variables bar. </li>
+<li>Select either the wildcard character or one of the options.  </li></ol>
+In the example on the right, a <strong>Region</strong> dashboard variable has been predefined for the dashboard. You can select all AWS regions (wildcard character) or one of the three regions.  </td>
+<td width="40%">
+<img src="images/variables_example.png" align="center" valign="center" alt="dashboard variables example"></td>
+</tr>
+</tbody>
+</table>
+
+
 
 ## Find a Dashboard
 
 Many Wavefront users work in environments with many dashboards.
 
-**To find a dashboard**, you have two options:
+**To find a dashboard**, you have these options:
 * From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
 * From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
 ## Isolate Sources or Series
@@ -65,19 +128,17 @@ You can focus on a particular source or series in the dashboard view or the sing
 1. Hover over the series you want to isolate. The series you hover over displays as saturated and all other series are dimmed.
 1. Click the series.  An isolation bar appears at the bottom of the browser window.
 
-![isolated series](images/isolated_series.png)
+![isolated series](images/isolated_series_v2.png)
 
 **To isolate multiple series on all charts**, hold down the **Windows** or **Command** key and repeat.
    - If a series is related to a single source, it appears in the **Sources:** list. When you isolate a source, every series in the dashboard containing that source is isolated.
    - If a series represents an aggregation of sources, it appears in the **Series:** list.  When you isolate a series, the query field name displays in the isolation bar and every series in the dashboard with that query field name is isolated.
 
-**To remove a single isolation**, click the **X** icon next to the series at the bottom of the browser window.
+**To remove an isolation**, click the **X** icon next to the series at the bottom of the browser window.
 
-**To remove all isolated sources or series** click the **X** icon next to the list label.
+## Fine-Tune the Time Window
 
-## Select the Chart Time Window
-
-You can select the time window for a chart in a few different ways.
+You can fine-tune the time window for an individual chart, propagate the time window from one to all charts, and reset a customized time window to the dashboard default.
 
 <table style="width: 100%;">
 <tbody>
@@ -86,34 +147,34 @@ You can select the time window for a chart in a few different ways.
 </thead>
 <tr><td markdown="span">Time Bar</td>
 <td markdown="span">Click the chart time bar in the upper-right corner of a chart. Use the magnifying lenses to quickly increase or decrease the time window.
-<img src="images/chart_time_bar.png#inline"  alt="chart time bar"/></td></tr>
-<tr><td markdown="span">Live Data </td>
-<td markdown="span">If the chart is not displaying live data, click the <span style="color:#8B0000">GO LIVE</span> <i class="fa fa-play-circle" style="color:#8B0000"/> link that displays to the left of the time bar.
-</td></tr>
+<img src="images/chart_time_bar_v2.png#inline"  alt="chart time bar v2"/></td></tr>
 <tr>
 <td markdown="span">Zoom in</td>
 <td>Place your cursor at the beginning of the time window you want, and click and drag. Hold the Shift key to zoom in on all charts in a dashboard.
-<div><img src="/images/drag_zoom.png"  alt="drag and zoom"/> </div></td></tr>
+<div><img src="/images/drag_zoom_v2.png"  alt="drag and zoom"/> </div></td></tr>
 <tr>
 <td markdown="span">Shift the time window</td>
 <td markdown="span">Place the cursor over the X-axis. When the cursor changes to a 4-way arrow <i class="fa fa-arrows" />, hold and drag to the left or right. To shift the time windows of all charts on a dashboard, hold down the **Shift** key while dragging.<br />
 You can move the time window into the future, however, unless you are using one of the [predictive functions](query_language_reference.html#predictive-functions), the data you see won't be predictive.</td></tr>
 <tr><td markdown="span">Propagate time to all charts</td>
-<td markdown="span">To propagate a chart time window to all other charts on the dashboard, do something inside the chart and then click the sync icon <i class="fa fa-share-square-o" /> directly under the chart name in the top right corner of the chart box.</td></tr>
+<td>To propagate a chart time window to all other charts on the dashboard:
+<ol><li>Select a time window or zoom in/out on one chart. </li>
+<li>Click <strong>Sync Time</strong><img src="/images/reset_time_window_v2.png#inline"  alt="reset time window"/></li>
+</ol></td></tr>
 <tr><td markdown="span">Reset chart time</td>
-<td markdown="span">To reset an individual chart window to match the time window in all other charts, do something inside the chart and click **RESET**: <img src="/images/reset_time_window.png#inline"  alt="reset time window"/></td></tr>
+<td markdown="span">If you've changed the time window in one chart and want to return to the default time used by other charts in the dashboard, click **Reset** next to the chart time selector: <img src="/images/reset_time_window_v2.png#inline"  alt="reset time window"/></td></tr>
 </tbody>
 </table>
 
-Here's a video that illustrates chart time windows:
+Here's a video that illustrates chart time windows. The video uses the v1 UI, but most of the information is still accurate:
 <p><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=5925769f-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true"><img src="/images/v_charts_time_window.png" style="width: 700px;"/></a>
 </p>
 
 ## Display Events on Charts
 
-The **Show Events** dropdown (with **From Chart** <i class="fa fa-caret-down"/> selected) in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
+The **Show Events** dropdown in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
 
-![time window](images/time_bar.png)
+![time window](images/display_events_v2.png)
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
 

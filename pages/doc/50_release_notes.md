@@ -164,5 +164,7 @@ Wavefront has added **eight** new categories of APIs and renamed the Management 
 -   **Saved Search** - Retrieve, add, and remove saved searches.
 -   **Search** - Search agents, alerts, cloud integrations, dashboards, external links, maintenance windows, sources, and webhooks.
 -   **Source** - Retrieve sources and tags associated with a source. Users with Source Tag Management permission can add and remove source tags and set descriptions.
+<!---
 -   **User** - Users with User Management permission can retrieve a list of all users, create, update, and delete users, and manage permissions.
+--->
 -   **Webhook** - Retrieve webhooks. Users with Alert Management permission can create, update, and delete webhooks.

@@ -2,6 +2,7 @@
 title: "Getting Started with Wavefront (v2)"
 tags: [getting started, dashboards, charts, alerts, tutorials]
 sidebar: doc_sidebar
+published: false
 permalink: tutorial_getting_started_v2.html
 summary: Build dashboards and charts with sample data, create an alert, and get pointers to more info.
 ---

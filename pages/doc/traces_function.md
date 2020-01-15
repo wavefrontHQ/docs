@@ -16,7 +16,7 @@ traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value
 
 traces(<spansExpression>)
 ```
-Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters.html). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
+Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
 ## Parameters
 
@@ -34,7 +34,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 
 <tr>
 <td>filterName</td>
-<td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators (`and`, `or`, `not`).</td></tr>
+<td markdown="span"> A [span filter](#span-filters) that a qualifying span must match. Span filters let you limit which spans to return traces for. You can optionally specify multiple span filters combined with Boolean operators.</td></tr>
 <tr>
 <td>filterValue</td>
 <td markdown="span">Value accepted by a specified **`filterName`**.</td></tr>

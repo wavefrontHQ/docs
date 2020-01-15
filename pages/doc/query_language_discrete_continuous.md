@@ -21,7 +21,7 @@ The following chart shows a point plot for the results of two queries. The query
 
 ![discrete continuous](images/query_language_discrete_continuous.png)
 
-A discrete time series is still discrete, even if you use a line plot to display it. The following chart shows the same queries, but with the points connected by lines in the display. (By default, gaps larger than 60 seconds are shown as dotted lines.)
+A discrete time series is still discrete when you use a line plot to display it. The following chart shows the same queries, but with the points connected by lines in the display. We've used the **Color** option to show all lines associated with one time series in yellow.
 
 ![discrete continuous lineplot](images/query_language_discrete_continuous_lineplot.png)
 

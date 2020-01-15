@@ -114,6 +114,24 @@ In both cases, but especially when you create the query from scratch, it's impor
   - **Chart**: In a chart, nuances might be hidden, but the alert might expose information that the chart doesn't show.
   - **Alert**: Alerts check only once per minute by default, so the alert might not catch certain changes. 
 
+## Select Time Windows Carefully
+
+If your alert doesn't have constant time window that's long enough to account for data delays, alert behavior can become very confusing.
+
+### Use a Constant Time Window in the Query
+
+Use a constant time window in your alert queries -- and don't use 1vw.
+
+If you use 1vw in a chart, the query applies to the time window selected for the chart the user looks at. But if you use 1vw in an alert query,  view window that is used in the alert condition defaults to:
+
+* When the alert is **not firing**, the minutes to fire for the alert.
+* When the alert is in **Firing** state, the minutes to fire or minutes to resolve for the alert (whichever is greater)
+
+### Consider Data Delays
+
+Data coming from certain sources, such as cloud applications, are often batched and arrive at your alert at unpredictible times. You can [Limit the Impact of Data Delays](alerts_delayed_data.html) by making sure you understand the issue and by fine-tuning the query and time window.
+
+
 ## Follow Alert Settings Recommendations
 
 Consider carefully which values are best suited for the settings you specify in the **Alerts** UI.

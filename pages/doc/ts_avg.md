@@ -23,7 +23,7 @@ You can use `avg()` with time series and with histograms.
 <tr>
 <td markdown="span"> Time series <br>aggregation function</td>
 <td markdown="span">Returns the average (the mean) of the set of time series described by the `tsExpression`.
-The results might be computed from real reported values and interpolated values. 
+The results might be computed from real reported values and interpolated values.
 Use [ `rawavg()`](ts_rawavg.html) if you don't need interpolation.</td></tr>
 <tr>
 <td markdown="span">Histogram <br>conversion function</td>
@@ -73,11 +73,11 @@ You can use `avg()`:
 
 ### Time-Series Aggregation Function
 
-The `avg()` aggregation function averages the data values at each moment in time, across the time series that are represented by the expression.  
+The `avg()` aggregation function averages the data values at each moment in time, across the time series that are represented by the expression.
 
 By default, `avg()` produces a single series of averages by aggregating values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of averages for each group.
 
-If any time series has data gaps, `avg()` fills them in by interpolation whenever possible. 
+If any time series has data gaps, `avg()` fills them in by interpolation whenever possible.
 
 The `avg()`, `mavg()` and `mmedian()` functions can help you understand the tendency of the data.
 
@@ -87,19 +87,19 @@ The `avg()`, `mavg()` and `mmedian()` functions can help you understand the tend
 
 #### Grouping
 
-Like all aggregation functions, `avg()` returns a single series of results by default. 
-You can include a 'group by' parameter to obtain separate averages for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+Like all aggregation functions, `avg()` returns a single series of results by default.
+You can include a 'group by' parameter to obtain separate averages for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `avg(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 
 #### Interpolation
-If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function. 
+If any time series has gaps in its data, Wavefront attempts to fill these gaps with interpolated values before applying the function.
 A value can be interpolated into a time series only if at least one other time series reports a real data value at the same moment in time.
 
-Within a given time series, an interpolated value is calculated from two real reported values on either side of it. 
-Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart. 
+Within a given time series, an interpolated value is calculated from two real reported values on either side of it.
+Sometimes interpolation is not possible--for example, when a new value has not been reported yet in a live-view chart.
 In this case, Wavefront finds the last known reported value in the series, and assigns it to any subsequent moment in time for which a real reported data value is present in some other time series. We use the last known reported value only if interpolation can’t occur _and_ if the last known reported value has been reported within the last 15% of the query time in the chart window.
 
 You can use [`rawavg()`](ts_rawavg.html) to suppress interpolation.  See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
@@ -115,7 +115,9 @@ The `avg()` histogram conversion function computes the average of the data value
 
 ### Time-Series Aggregation Function
 
-The following example shows the data for `sample.requests.loadavg`.
+The following example shows the data for `sample.requests.loadavg`. To limit the number of lines, we're filtering to show only time series with `env=dev`.
+
+![metric filtered](images/ts_avg_before.png)
 
 When we apply `avg()` we get a single line.
 
@@ -127,11 +129,11 @@ We can group by the `env()` point tag to see the differences between the dev and
 
 ### Histogram Conversion Function
 
-In the following example, the blue line shows the result of applying `avg()` to an `hsExpression`. In this particular example, the average is nearly always the same as the median (the red line), with some divergent values around 2:40p. 
+In the following example, the blue line shows the result of applying `avg()` to an `hsExpression`. In this particular example, the average is nearly always the same as the median (the red line), with some divergent values around 2:40p.
 
 ![hs avg](images/hs_avg.png)
 
-**Note:**  `avg()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `avg()` is applied to a `tsExpression`, a single returned time series might be the result of combining multiple input time series.) 
+**Note:**  `avg()` returns a separate time series for each input histogram series. In this example, the `hsExpression` represents a single histogram series, so the result is a single time series. (In contrast, when `avg()` is applied to a `tsExpression`, a single returned time series might be the result of combining multiple input time series.)
 
 
 ## Caveats for Time Series

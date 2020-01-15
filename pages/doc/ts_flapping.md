@@ -35,8 +35,12 @@ The `flapping()` function reports how frequently a time series falls and then cl
 
 Although you can apply `flapping()` to any kind of metric, the typical use is to analyze the behavior of counter metrics, which are metrics that report cumulative totals (increasing values) over time. A counter metric normally produces an monotonically increasing series of data values. However, a metric might reset its counter on occasion – for example, if the metric's source restarts or encounters a particular condition. A metric indicates a counter reset by reporting one or more falling data values, followed by rising data values. `flapping()` reports the number of such resets within the specified time window.
 
-## Examples
+## Example
 
-The following image shows the fluctuations in the total number of requests for two different sources.
+The following screenshort shows a counter metric that monitors uptime.
+
+![metric for flapping example](images/ts_flapping_metric.png)
+
+We can use `flapping()` to show that counter reset twice (blue line and axis on the left).
 
 ![flapping](images/ts_flapping.png)

@@ -65,7 +65,7 @@ To manage permissions for groups:
 ## Granting and Revoking Permissions for Users
 
 To manage permissions for users:
-1. Click the gear icon and select **User Management**.
+1. Click the gear icon and select **Account Management**.
 2. Click the user you want to change.
 3. Select or deselect checkboxes for the permissions you want to change and click **Update**.
 

@@ -1,5 +1,5 @@
 ---
-title: Investigate Traffic With Spy and Wavefront Top
+title: Use Wavefront Top or Spy to Investigate Traffic
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring_spy.html
@@ -11,7 +11,7 @@ Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to use these HTTP endpoints." %}
 
 
-## Getting Started with Spy and Wavefront Top
+## Get Started with Wavefront Top and Spy
 
 Use spy to extract information programatically. This page give details on the available endpoints and associated parameters.
 
@@ -22,7 +22,7 @@ Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux t
 
 
 
-## Why `spy`?
+## Why Spy?
 
 The Wavefront `spy` endpoints can provide insight into new data that is being ingested by your Wavefront instance. For example, you might analyze `spy` results to:
 * Verify that your Wavefront instance is ingesting the data points that you expect.
@@ -50,7 +50,7 @@ Each endpoint displays a header that describes your request, and then lists the 
 **Note:** A `spy` endpoint returns a sample of the requested data, and you specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is taken from just the data that is ingested on a single shard, even when you request 100% sampling.
 
 
-## Getting Ingested Metric Points
+## Get Ingested Metric Points with Spy
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of the ingested metric points that have specified characteristics. You can use the returned list of points to help you answer questions like:
 
@@ -115,9 +115,10 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
-## Getting Ingested Histograms
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate, meaning for example that if you set the rate to 30, then spy only shows 30% of results. By default, sampling rate is 100, which means we return 100% of the data.
+## Get Ingested Histograms with Spy
+
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate (1% by default). For example that if you set the rate to 0.3, then spy only shows 30% of results. By default, sampling rate is 1%, which means we return 100% of the data.
 
 You can use the returned list of histograms to help you answer questions like this:
 
@@ -138,16 +139,16 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td markdown="span">name</td>
-<td markdown="span">List a histogram only if its name starts with the specified case-sensitive prefix. <br> E.g., `name=orderShirt` matches histograms named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
+<tr><td markdown="span">histogram</td>
+<td markdown="span">List a histogram only if its name starts with the specified case-sensitive prefix. <br> E.g., `histogram=orderShirt` matches histograms named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
 <tr><td markdown="span">host</td>
 <td>List a histogram only if the name of its source starts with the specified case-sensitive prefix. </td></tr>
 <tr><td markdown="span">histogramTagKey</td>
 <td markdown="span">List a histogram only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. `histogramTagKey=cluster&histogramTagKey=shard` </td></tr>
 <tr><td markdown="span">sampling</td>
-<td markdown="span">0 to 1, with 0.01 being 1%. In this context, the sampling rate is a display sampling rate. For example, if you set the rate to 30, then spy only shows 30% of results.
+<td markdown="span">0 to 1, with 0.01 being 1% (the default). Sampling rate affects the display. For example, if you set the rate to 30, then spy only shows 30% of results.
  </td></tr>
 </tbody>
 </table>
@@ -169,12 +170,12 @@ Suppose you have a Wavefront instance named `ex1`.
 </tr>
 <tr>
 <td>Ingested histograms with names that begin with <code>orderShirts</code>.</td>
-<td><code>http://ex1.wavefront.com/api/spy/histograms?name=orderShirts</code>
+<td><code>http://ex1.wavefront.com/api/spy/histograms?histogram=orderShirts</code>
 </td>
 </tr>
 <tr>
-<td>Ingested histograms that have tags <code>cluster</code> and <code>shard</code>.</td>
-<td><code>http://ex1.wavefront.com/api/spy/histograms?histogramTagKey=cluster&histogramTagKey=shard</code>
+<td>Ingested histograms that have the specified sampling rate, tag key `cluster`, and histogram name `orderShirt`.</td>
+<td><code>http://ex1.wavefront.com/api/spy/histograms?sampling=0.004&histogramTagKey=cluster&histogram=orderShirt</code>
 </td>
 </tr>
 <tr>
@@ -185,7 +186,8 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
-## Getting Ingested Spans
+
+## Get Ingested Spans with Spy
 
 Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested spans with specified characteristics. You can use the returned list of spans to help you answer questions like:
 
@@ -254,7 +256,7 @@ Suppose you have a Wavefront instance named `ex1`.
 </table>
 
 
-## Getting New ID Assignments
+## Get New ID Assignments with Spy
 
 During ingestion, Wavefront assigns an ID to each newly added metric name, span name, source name, and <code>key=value</code> string of a point tag or span tag. A new ID generally indicates that a new time series has been introduced.
 
