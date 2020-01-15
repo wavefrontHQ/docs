@@ -1412,7 +1412,7 @@ Each histogram conversion function in the following table takes histogram distri
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
+<td><a href="ts_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
 <td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
 </tr>
 <tr>
