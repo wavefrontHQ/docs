@@ -103,7 +103,11 @@ Suppose your alert condition is `ts(my.metric) > 4` and `my.metric` reports 5 da
 2. Returns a 1 (true) or 0 (false) for each value
 3. Produces a single summarization data point at 12:11:00pm.
 
-The value of this summarization point (.8) evaluates to true because .8 != 0.
+The value of this summarization point is .8:
+
+`(((1+1+1+0+1) / 5) = .8)`
+
+This value (.8) evaluates to true because .8 != 0.
 
 **Example 2**
 
