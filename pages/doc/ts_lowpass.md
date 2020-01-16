@@ -113,7 +113,7 @@ You typically use `lowpass()` to compare multiple time series to a single thresh
 ### Traces Filtering Function
 
 The `lowpass()` trace-filtering function examines the traces described by the traces expression, and returns only traces that are shorter than the specified duration. Longer traces are ignored. The duration of an entire trace is considered, not the duration of any individual span in the trace.
-For example, the following query returns only traces that are shorter than 12 milliseconds: 
+For example, the following query returns only traces that are shorter than 12 milliseconds:
 
 ```lowpass(12ms, traces("beachshirts.styling.makeShirts"))```
 
@@ -121,20 +121,25 @@ For example, the following query returns only traces that are shorter than 12 mi
 
 The `lowpass()` spans-filtering function examines the spans described by the spans expression, and returns any spans that are shorter than the specified duration. Longer spans are ignored.
 
-For example, the following query expression returns only spans that are shorter than 12 milliseconds: 
+For example, the following query expression returns only spans that are shorter than 12 milliseconds:
 
 ```lowpass(12ms, spans("beachshirts.styling.makeShirts"))```
 
-You can pass this expression to [traces()](traces_function.html) to display traces that contain at least one span for `beachshirts.styling.makeShirts` that is shorter than 12 milliseconds.  
+You can pass this expression to [traces()](traces_function.html) to display traces that contain at least one span for `beachshirts.styling.makeShirts` that is shorter than 12 milliseconds.
 
 ```traces(lowpass(12ms, spans("beachshirts.styling.makeShirts")))```
 
 
 ## Examples
 
-![lowpass example](images/lowpass.png)
+Let's look at latency data:
 
-In the example chart above, solid orange lines are only present when the reported data values are lower than the threshold. In this example, the threshold is 140. The remaining reported data values display as dashed lines to indicate missing data.
+![highpass before](images/ts_highpass_before.png)
+
+Now we wrap this example with `lowpass()` and use a threshold of 130.
+The resulting Stacked Area chart shows results only where the data are less than 130.
+
+![lowpass example](images/ts_lowpass.png)
 
 
 ## See Also

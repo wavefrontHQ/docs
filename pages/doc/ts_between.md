@@ -39,7 +39,11 @@ The `between()` function determines whether the value of `tsExpression` is great
 
 ## Examples
 
-The following example show the CPU load average per 1 minute as a blue line. The orange line shows a value of 1 where the metric is between .5 and 1.0, and shows a value of zero otherwise.
+The following example screenshot of a Stacked Area chart shows the CPU load average per 1 minute. 
+
+![between example before](images/ts_between_before.png)
+
+The second screenshot shows the result of wrapping the function in `between()` in green. The value is 1 where the metric is between .5 and 1.0, and the value is zero otherwise.
 
 ![between example](images/ts_between.png)
 

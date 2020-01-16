@@ -42,7 +42,7 @@ downsample(30, ts(“my.metric”))
 
 ## Examples
 
-The following example shows the CPU load average for a specified source (blue line). The dashed orange line shows only one value every 30 minutes.
+The following example shows the CPU load average for a specified source (blue line). The dashed green line shows only one value every 30 minutes.
 
 ![downsample example](images/ts_downsample.png)
 
