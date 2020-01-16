@@ -17,12 +17,17 @@ You can use Wavefront charts and dashboards for tasks such as the following:
 * Troubleshoot and analyze reported errors.
 * Pinpoint the specific operations that bottlenecks occur in.
 
-## Distributed Tracing Video
+## Distributed Tracing Videos
 
-Watch this video to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront:
+Watch this video to listen to our Co-founder Clement Pang introduce distributed tracing with Wavefront, and give updates including improved ingestion options and intelligent sampling:
 
-<p><a href="https://youtu.be/Z7mf_oZfcSE"><img src="/images/v_tracing.png" style="width: 700px;" alt="distributed tracing"/></a>
-</p>
+<table style="width: 100%;">
+<tbody>
+<tr><td width="48%"><a href="https://youtu.be/Z7mf_oZfcSE"><img src="/images/v_tracing_rev.png" alt="distributed tracing"/></a></td>
+<td width="52%"><a href="https://youtu.be/SlROqypTUYk"><img src="/images/v_tracing_updates.png"  alt="Distributed Tracing Updates"/></a></td>
+</tr>
+</tbody>
+</table>
 
 {% include shared/badge.html content="You need either [Proxy Management permission](permissions_overview.html) or [Direct Data Ingestion permission](permissions_overview.html) to send trace data from your application to Wavefront." %}
 
@@ -150,7 +155,7 @@ To start examining your application's RED metrics:
 
 A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  Wavefront limits the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling). You can additionally limit the volume of reported trace data by setting up one or more [explicit sampling strategies](trace_data_sampling.html#explicit-sampling-strategies).
 
-Sampling helps you keep the volume of trace data manageable, and can help reduce costs. Your costs are calculated based on the number of spans you store in Wavefront. 
+Sampling helps you keep the volume of trace data manageable, and can help reduce costs. Your costs are calculated based on the number of spans you store in Wavefront.
 
 {% include note.html content="You can configure Wavefront to keep spans in storage for 7 or 30 days. Contact [support@wavefront.com](mailto:support@wavefront.com) to configure your span storage settings."  %}
 

@@ -13,11 +13,21 @@ summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes wo
 
 *Scale* your Kubernetes environment based on any metrics that are available in Wavefront with the Wavefront Horizontal Pod Autoscaler Adapter.
 
+## Videos
 
-In the following video, Pierre Tessier explains how this works.
+The following two videos get you started.
+* **Monitor and Scale Kubernetes with Wavefront** (August 2019, 6 minutes) gives you the big picture. It explains the different ways of monitoring Kubernetes with Wavefront.
+* **Kubernetes and Wavefront** (January 2020, 13 minutes) includes more details and some recent developments including the one-click install of the new [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes).
 
-<p><a href="https://youtu.be/nZnbdNHFNyU"><img src="/images/v_kubernetes_pierre_2.png" style="width: 700px;" alt="monitor and scale kubernetes"/></a>
-</p>
+<table style="width: 100%;">
+<tbody>
+<tr><td width="51%"><a href="https://youtu.be/nZnbdNHFNyU"><img src="/images/v_kubernetes_pierre_2.png" alt="monitor and scale Kubernetes"/></a></td>
+<td width="49%"><a href="https://youtu.be/jbmUKPSIguQ"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront Details"/></a></td>
+</tr>
+</tbody>
+</table>
+
+
 
 ## Kubernetes and Wavefront: Overview
 
