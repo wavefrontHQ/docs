@@ -49,64 +49,91 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 
 ## Step 2. Instrument Your Application
 
-Your cloud-native application might consist of many microservices.
-
-1. Choose a microservice to instrument.
-
-2. Is this microservice written in Java and built with a framework?
-
-    * Yes: Start by [instrumenting the framework](#instrument-a-framework).
-    * No: Start by [instrumenting with OpenTracing](#instrument-with-opentracing).
-
-
-### Instrument a Framework
-
-Follow these steps to use a Wavefront SDK that instruments an application framework for handling RESTful web services or RPC connections. Each such SDK collects predefined traces, metrics and histograms automatically, so you can get up and running quickly.
-
-1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above).
-2. If your microservice uses one of the frameworks in this table, click the link to go to the `README` file for the corresponding Wavefront SDK on GitHub:
-
-    | Language | Framework | README File |
-    | --- | --- | --- |
-    | Java | Dropwizard | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) |
-    |  | gRPC | [`wavefront-grpc-sdk-java`](https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java) |
-    |  | JAX-RS | [`wavefront-jaxrs-sdk-java`](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)  |
-    |  | Spring Boot | [`wavefront-jersey-sdk-java`](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java) |
-    | .NET/C# | ASP.NET Core | [`wavefront-aspnetcore-sdk-csharp`](https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp) |
-
-    **Note:** If your framework is not listed here, you can [instrument your code with a Wavefront OpenTracing SDK](#instrument-with-opentracing).
-
-3. Follow the setup steps in the `README` file. These steps create several helper objects in your microservice. No other code changes are needed. For an overview of these helper objects, see [A Closer Look at an Instrumented Microservice](#a-closer-look-at-an-instrumented-microservice).
-
-
-4. After your recompiled application starts running, start [exploring the metrics, histograms, and trace data](tracing_ui_overview.html) that the SDK collects from your microservice.
-
-
-Does your microservice have business methods that need custom instrumentation? Continue by [instrumenting those methods with a Wavefront OpenTracing SDK](#instrument-with-opentracing).
-
-
-### Instrument With OpenTracing
-
 Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io) specification in many languages. You can use a Wavefront OpenTracing SDK to collect custom trace data that you define for your service, for example, to augment an auto-instrumented framework or to replace a 3rd party OpenTracing-compliant library.
 
-1. [Prepare to send data to Wavefront](#step-1-prepare-to-send-data-to-wavefront) (shown above).
+**Language Specific**
 
-2. Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
+Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
 
-    | Language | README File |
-    | --- | --- |
-    | Java | [wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) |
-    | C# | [wavefront-opentracing-sdk-csharp](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp) |
-    | Python | [wavefront-opentracing-sdk-python](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python) |
-    | Go | [wavefront-opentracing-sdk-go](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)|
+<div class="row">
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">
+            <img src="https://datadog-docs.imgix.net/images/integrations_logos/java.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Java logo">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">
+            <img src="https://datadog-docs.imgix.net/images/integrations_logos/python.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Python">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">
+            <img src="https://datadog-docs.imgix.net/images/integrations_logos/golang.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Go">
+            </a>
+         </div>
+     </div>
+ </div>
+ </div>
 
-    {% include note.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/)." %}
+   <div class="row">
+    <div class="col-md-3 col-sm-6">
+        <div class="panel panel-default text-center">
+            <div class="panel-body">
+               <a href="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">
+               <img src="/images/Tracing_Agent.png" alt="Java tracing agent">
+               </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <div class="panel panel-default text-center">
+            <div class="panel-body">
+               <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
+               <img src="https://datadog-docs.imgix.net/images/integrations_logos/net.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Net">
+               </a>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/)." %}
+  
+  **Distribute Tracing Systems**
+  
+  You can collect traces using the following integrations and send the trace data to Wavefront. For more information, see [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html).
+   
+  <div class="row">
+   <div class="col-md-3 col-sm-6">
+       <div class="panel panel-default text-center">
+           <div class="panel-body">
+              <a href="https://docs.wavefront.com/jaeger.html">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhh-dmy44jyfDm8Ds9F_y3QjK5oiV-Hh-uPlO0Ojs9X2TucN_8IQ&s" alt="Jaeger">
+              </a>
+           </div>
+       </div>
+   </div>
+   <div class="col-md-3 col-sm-6">
+       <div class="panel panel-default text-center">
+           <div class="panel-body">
+              <a href="https://docs.wavefront.com/zipkin.html">
+              <img src="https://avatars3.githubusercontent.com/u/11860887?v=4" alt="Zipkin">
+              </a>
+           </div>
+       </div>
+   </div>
+ </div>
 
-3. Follow the setup steps in the `README` file. You instantiate several helper objects, and augment individual business methods with OpenTracing operations.
-
-4. After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
-
-  **Note:** The Wavefront OpenTracing SDK for Java automatically reports JVM metrics in addition to the custom trace data and derived metrics. You can display the JVM metrics in a chart with the query `ts(app-agent.jvm.*)`.
+After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
 
 ## A Closer Look at an Instrumented Microservice
 
