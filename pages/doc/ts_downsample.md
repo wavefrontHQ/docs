@@ -40,9 +40,9 @@ For example, to see the values for every half-hour of a given time series,  ente
 downsample(30, ts(“my.metric”))
 ``
 
-## Examples
+## Example
 
-The following example shows the CPU load average for a specified source (blue line). The dashed green line shows only one value every 30 minutes.
+The following example shows the latency for a specified source as a blue line. The dashed black line shows only one value every 30 minutes.
 
 ![downsample example](images/ts_downsample.png)
 
