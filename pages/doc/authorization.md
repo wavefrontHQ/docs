@@ -7,21 +7,24 @@ permalink: authorization.html
 summary: Learn about authorization of Wavefront groups and users.
 ---
 
-Wavefront supports several levels of authorization to support customers with different authorization needs. The basic level is based on [permissions](permissions_overview.html) assigned to individual users.  If you're an administrator who wants more control over who can do what, you can perform some additional setup tasks.
+Wavefront supports several levels of authorization to support customers with different authorization needs. The most basic level is based on [permissions](permissions_overview.html) assigned to individual users.
 
-**Note:** If you need more than global permissions for users, you can give permissions to groups. For example, you could give the Engineering group Dashboard permission to allow them to manage all dashboards. If that's not enough, you can add access control, which revokes or grants access for individual dashboards and alerts.
-
-Watch this video for an overview of the different authorization features.
-
-<p><a href=" https://youtu.be/-HFb1AJINrY"><img src="images/v_authorization.png" style="width: 700px;" alt="Authorization in Wavefront"/></a>
-</p>
+Administrator who want more control can
+* Create **roles** with permissions and assign roles to users or groups.
+* Use [access control](access.html) to protect individual dashboards or alerts.
 
 ## More Control, More Effort
 
 With additional setup, you gain finer-grained control:
-* **Permissions for users** -- You can initially use the model in which each user has access based on [permissions](permissions_overview.html). Permissions are global. For example, if you have Dashboard permission, you can manage *all* dashboards.
-* **Permissions for groups** -- Using permissions with groups is faster and less error prone than using permissions with users. It's easy keep permissions consistent.
-* **Access control on objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
+
+### Permissions and Roles
+
+* **Permissions for users** -- You can assign [permissions](permissions_overview.html) to users. Permissions are global. For example, users with Dashboard permission can manage *all* dashboards.
+* **Roles** -- A role is a set of permissions suitable for a certain type of user. Administrators create one or more roles and assign roles to users or groups.
+
+### Access Control
+
+* **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
 * **Security preference for new objects** -- In high security environments, administrator can set a security preference so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.
 
   ![control setup](images/security_levels.svg)
@@ -33,27 +36,24 @@ Level 1 authorization allows adminstrators to assign permissions to individual u
 * A new user:
   - Can perform a set of [New User Actions](user_accounts.html#what-can-a-new-user-do) such as viewing dashboards, alerts, etc.
   - Has a set of New User Permissions. This set is determined by the administrator.
-* All users get the permissions that the administrator assigned to the Everyone group. For example, all users might get Dashboard permission and Proxy permission.
-* Users with Accounts & Groups permissions can [grant or revoke permissions](users_groups.html#grant-or-revoke-permissions) for individual users and service accounts (and for groups, discussed next).
+* All users get the permissions that the administrator assigned to the **Default Role**. For example, all users might get Dashboard permission and Proxy permission.
+* Users with Accounts & Groups permissions can [grant or revoke permissions](users_groups.html#grant-or-revoke-permissions) for individual users and service accounts.
 
-## Level 2: Permissions for Groups and Users
+## Level 2: Roles for Users and Groups
 
-Starting with Release 2018.46.x, administrators can use groups to make permissions assignment faster and more transparent and consistent.
-* Assign permissions to a group. For example, assign Dashboard permission to allow each group member to manage all dashboards.
-* In conjunction with access control (see Level 3 below), grant or revoke access to individual dashboards or alerts to a group.
+Starting with Release 2019-52, Wavefront supports roles for users and groups.
 
-As an administrator, you manage groups and permissions like this:
-* You create one or more groups and assign permissions. For example, you can create an Admin group that includes Accounts & Groups permission.
-* When you invite a new user, you can add the user to one or more groups. The UI makes it easy to see where a permission comes from.
-* You can manage permissions on a per-group basis. For example, assume that the Marketing group has Users and Groups permission. If you remove the permission from the group, all members of the Marketing group no longer have it.
-* You can still manage individual permissions. For the example above, after you've removed Accounts & Groups permission from the Marketing group, you can give the permission explicitly to a few members of the group.
-* A user who belongs to more than one group gets permissions from both groups (addition).
+1. Create roles for different types of users, for example, an **Ops Role** and a **Dev Role** role. Assign permissions to each role.
+1. Optionally, create groups.
+1. Assign roles to individual users or to groups.
+
+{% include important.html content="In a previous authorization model, Wavefront supported assigning permissions directly to groups. Starting with Release 2019-52 we support full RBAC. The old model is deprecated. " %}
 
 Wavefront does not currently integrate with the groups of your identity manager (Active Directory or LDAP).
 
 ## Level 3: Access Control for Objects
 
-Starting with Release 2018.46.x, Wavefront supports object-level access control in addition to global permissions. Initially, we support access control for dashboards and for alerts.
+Starting with Release 2018.46.x, Wavefront supports access control for individual objects in addition to the global role-based access control. Initially, we support access control for individual dashboards and alerts.
 
 ### Basic Access Control
 
