@@ -47,7 +47,7 @@ Starting with Release 2019-52, Wavefront supports roles for users and groups.
 1. Optionally, create groups.
 1. Assign roles to individual users or to groups.
 
-{% include important.html content="In a previous authorization model, Wavefront supported assigning permissions directly to groups. Starting with Release 2019-52 we support full RBAC. The old model is deprecated. " %}
+{% include important.html content="In a previous authorization model, Wavefront supported assigning permissions directly to groups. Starting with Release 2019-52 we support full RBAC. Assigning permissions to groups is deprecated and no longer supported in future releases. " %}
 
 Wavefront does not currently integrate with the groups of your identity manager (Active Directory or LDAP).
 
@@ -63,10 +63,12 @@ All users with Dashboard permission can view and modify all dashboards. Those us
 
 **Note:** Do not remove the Everyone group from an object's access list unless other users or groups have access. If you remove the Everyone group, you create an orphan object. Only Super Admin users can restore orphan objects
 
-
-### Security Preference for New Objects
+### Security Preference for New Object Access
 
 In high-security environments, an administrator can [change the default Security preference](access.html#changing-the-access-control-preference) to grant access for *new* objects (dashboards and alerts) only to the object creator. After the preference change, only the object creator and Super Admin users can access new objects initially. Those users can share the dashboard with user groups or individual users. Users with View & Modify access can then share the dashboard with more users.
+
+
+<!--- Too much detail for feature not used by most
 
 When the preference is set, access control works like this:
 
@@ -111,4 +113,4 @@ Now let's assume the administrator changes the setting for access to new dashboa
   * If Dana has View & Modify access, Dana can view and modify the dashboard.
     This is true even if Dana belongs to a group with only View access.
   * If Dana has View access, Dana can View the dashboard.
-    If Dana also belongs to a group with View & Modify access, Dana can also modify the dashboard because access is cumulative.
+    If Dana also belongs to a group with View & Modify access, Dana can also modify the dashboard because access is cumulative.--->

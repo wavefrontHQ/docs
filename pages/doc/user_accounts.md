@@ -82,3 +82,14 @@ To add any new user to additional groups:
   * Click the **x** next to a group name to remove a group. You cannot remove the Everyone group.
 
 Going forward, new users are added to the group. They get the group's permissions and any permissions set as **New User Default Permissions**.
+
+## Add a Super Admin User
+
+New Wavefront customers specify Super Admin users during account setup. Any existing Super Admin user can add other Super Admin users.
+
+**To add a Super Admin user:**
+
+1. Click the gear icon and select **Super Admin**.
+2. Enter the user name of a user you want to add as Super Admin.
+
+Going forward, that user can perform Super Admin tasks.
