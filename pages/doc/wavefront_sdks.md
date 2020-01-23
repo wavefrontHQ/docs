@@ -41,16 +41,16 @@ For the most gain with the least amount of work:
 <td>
   <ul>
     <li>
-      <b>Java</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">OpenTracing SDK</a> <b>|</b> <a herf ="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">Tracing Agent</a>
+      <b>Java</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">OpenTracing SDK</a> <b>|</b> <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">Tracing Agent</a>
     </li>
     <li>
-      <b>Python</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">OpenTracing SDK</a>
+      <b>Python</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">OpenTracing SDK</a>
     </li>
     <li>
-      <b>Go</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">OpenTracing SDK</a>
+      <b>Go</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">OpenTracing SDK</a>
     </li>
     <li>
-      <b>.Net/C#</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">OpenTracing SDK</a>
+      <b>.Net/C#</b>: <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">OpenTracing SDK</a>
     </li>
   </ul>
 </td>
@@ -62,13 +62,13 @@ For the most gain with the least amount of work:
 <td>
 <ul>
   <li>
-    <b>Java</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java">Dropwizard</a> <b>|</b> <a herf ="https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm">JVM</a>
+    <b>Java</b>: <a href ="https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java">Dropwizard</a> <b>|</b> <a href ="https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm">JVM</a>
   </li>
   <li>
-    <b>Python</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-pyformance">Pyformance SDK</a>
+    <b>Python</b>: <a href ="https://github.com/wavefrontHQ/wavefront-pyformance">Pyformance SDK</a>
   </li>
   <li>
-    <b>.Net/C#</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp">App Metrics SDK</a>
+    <b>.Net/C#</b>: <a href ="https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp">App Metrics SDK</a>
   </li>
 </ul>
 </td>
@@ -95,19 +95,19 @@ For the most gain with the least amount of work:
 <td>
 <ul>
   <li>
-    <b>Java</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-sdk-java">Sender SDK</a>
+    <b>Java</b>: <a href ="https://github.com/wavefrontHQ/wavefront-sdk-java">Sender SDK</a>
   </li>
   <li>
-    <b>Python</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-sdk-python">Sender SDK</a>
+    <b>Python</b>: <a href ="https://github.com/wavefrontHQ/wavefront-sdk-python">Sender SDK</a>
   </li>
   <li>
-    <b>Go</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-sdk-go">Sender SDK</a>
+    <b>Go</b>: <a href ="https://github.com/wavefrontHQ/wavefront-sdk-go">Sender SDK</a>
   </li>
   <li>
-    <b>.Net/C#</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-sdk-csharp">Sender SDK</a>
+    <b>.Net/C#</b>: <a href ="https://github.com/wavefrontHQ/wavefront-sdk-csharp">Sender SDK</a>
   </li>
   <li>
-    <b>C++</b>: <a herf ="https://github.com/wavefrontHQ/wavefront-sdk-cpp">Sender SDK</a>
+    <b>C++</b>: <a href ="https://github.com/wavefrontHQ/wavefront-sdk-cpp">Sender SDK</a>
   </li>
 </ul>
 </td>
