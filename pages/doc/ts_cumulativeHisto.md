@@ -88,17 +88,17 @@ See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functio
 
 ## Example
 
-The following example starts with a cumulative histogram in Prometheus format. You can see the `le` tag in the legend.
+The following example starts with a cumulative histogram in Prometheus format. We can show only histogram values that are less than or equal to 60 using the `le` tag. You can see the `le` tag in the legend.
 
 ![cumulative histogram](images/cum_histo_simple.png)
 
-We can show only histogram values that are less than or equal to 60 using the `le` tag.
+We can then manipulate the cumulative histogram. First, we use `sum(rate())` to return the per-second rate of each time series.
 
 ![show only le 60](images/cum_histo_bucket.png)
 
-We can then manipulate the cumulative histogram. First, we use  [counter_sum](ts_countersum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
+Next we group the results with the `env` and `location` parameter, and we use the [`align()` function](ts_align.html) to group the distributions of the histogram series into time buckets of 1 minute.
 
-![counter sum and align](images/cum_histo_counter_sum.png)
+![counter sum and align](images/cum_histo_align.png)
 
 Finally, we use the `cumulativeHisto()` function to return a cumulative histogram for the data.
 
