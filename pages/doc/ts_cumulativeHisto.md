@@ -8,7 +8,7 @@ summary: Reference to the cumulativeHisto() function. Convert Prometheus cumulat
 ---
 ## Summary
 ```
-cumulativeHisto([<timeWindow>,] [,<bucketName>,] <tsExpression>
+cumulativeHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
@@ -57,7 +57,7 @@ Wavefront histogram distributions are ordinary histograms while some other tools
 
 If your data source emits cumulative histograms, you can use this function to visualize your histogram data in Wavefront.
 
-### How to map Prometheus Queries to Wavefront Queries
+### How to Map Prometheus Queries to Wavefront Queries
 
 When you use Prometheus, you run queries like this:
 ```
@@ -68,7 +68,7 @@ This query displays the 90th quantile of a cumulative histogram that corresponds
 
 The corresponding Wavefront query looks like this:
 ```
-percentile(90, cumulativeHisto(align(5m, counter_sum(req_latency_bucket, le) * 60)))
+percentile(90, cumulativeHisto(align(5m, sum(rate(req_latency_bucket, le)) * 60)))
 ```
 
 Here, we are creating a T-digest and adding sampling points based on the range and the count of the bucket.
@@ -96,7 +96,7 @@ We can show only histogram values that are less than or equal to 60 using the `l
 
 ![show only le 60](images/cum_histo_bucket.png)
 
-We can then manipulate the cumulative histogram. First, we use [counter_sum](ts_countersum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
+We can then manipulate the cumulative histogram. First, we use  [counter_sum](ts_countersum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
 
 ![counter sum and align](images/cum_histo_counter_sum.png)
 
