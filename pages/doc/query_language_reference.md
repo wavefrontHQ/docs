@@ -347,7 +347,7 @@ Examples:
 <li><strong>httpstatus.api.* and ("*.POST.*" or "*.PUT.*")</strong> matches <code>httpstatus.api</code> metrics for <code>POST</code> or <code>PUT</code> operations.
 </li>
 
-<li><strong>source="app-1"&#42;</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
+<li><strong>source="app-1&#42;"</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
  </li>
 
 <li><strong>region="&#42;"</strong> matches the time series that have the <code>region</code> point tag with any value, and filter out any time series without a <code>region</code> point tag.
