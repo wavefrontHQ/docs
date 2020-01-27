@@ -36,12 +36,13 @@ Wavefront supports the `spy` endpoints shown in the following table:
 <tr><th markdown="span" width="45%">Spy Endpoint</th><th width="55%">Description</th></tr>
 </thead>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
-<td markdown="span">[Gets new metric data points](#getting-ingested-metric-points) that are added to existing time series.</td></tr>
+<td markdown="span">[Gets new metric data points](#get-ingested-metric-points-with-spy) that are added to existing time series.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/spans`</td>
-<td markdown="span">[Gets new spans](#getting-ingested-spans) with existing source names and span tags.</td></tr>
+<td markdown="span">[Gets new spans](#get-ingested-spans-with-spy) with existing source names and span tags.</td></tr>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/gateway/spy/spanlogs`</td>
+<td markdown="span">[Gets the span logs](#get-ingested-span-logs-with-spy) with the existing trace ID, span ID, and the respective event that created the log.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/ids`</td>
-<td markdown="span">[Gets newly allocated IDs](#getting-new-id-assignments) that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.</td></tr>
-
+<td markdown="span">[Gets newly allocated IDs](#get-new-id-assignments-with-spy) that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.</td></tr>
 </tbody>
 </table>
 
@@ -62,7 +63,9 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of the
 
 To get a sampling of ingested data points, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```https://<cluster>.wavefront.com/api/spy/points```
+  ```
+  https://<cluster>.wavefront.com/api/spy/points
+  ```
 
 To get a sampling of points with specific characteristics, add one or more of the following parameters:
 
@@ -131,8 +134,9 @@ You can use the returned list of histograms to help you answer questions like th
 
 To get a sampling of ingested histograms, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```https://<cluster>.wavefront.com/api/spy/histograms```
-
+  ```
+  https://<cluster>.wavefront.com/api/spy/histograms
+  ```
 
 To get a sampling of spans with specific characteristics, add one or more of the following parameters:
 
@@ -200,7 +204,9 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of ing
 
 To get a sampling of ingested spans, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```https://<cluster>.wavefront.com/api/spy/spans```
+  ```
+  https://<cluster>.wavefront.com/api/spy/spans
+  ```
 
 
 To get a sampling of spans with specific characteristics, add one or more of the following parameters:
@@ -255,6 +261,44 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
+## Get Ingested Span Logs with Spy
+
+Span logs capture span-specific logging information and are supported by the OpenTracing standard. You need to instrument your application or customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs). Some Wavefront SDKs include span logs for errors by default.
+
+You can use the returned list of span logs to:
+
+* Find out if your application is sending span logs to Wavefront.
+* Know if your span logs follow the required format:
+  <br/>Example:
+  ```
+  traceId="00000000-0000-0000-0000-00000001234" spanId="00000000-0000-0000-0000-000000012341" 
+  logs=[{"timestamp": 1572303812999, "fields": {"event": "error", "error.kind": "exception"}}]
+  ```
+
+### Endpoint and Parameters for Span Logs
+
+To get a sample of the ingested span logs, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+
+```
+https://<cluster>.wavefront.com/api/gateway/spy/spanlogs
+```
+
+By default, sampling rate is 1%, which means Wavefront returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter:
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+</thead>
+<tr><td markdown="span">sampling</td>
+<td markdown="span">0 to 1, with 0.01 being 1%.<br/><br/>
+Example: Spy on the ingested span logs at a sampling rate of 5%.
+```
+http://ex1.wavefront.com/api/gateway/spy/spanlogs?sampling=0.05
+```
+ </td></tr>
+</tbody>
+</table>
 
 ## Get New ID Assignments with Spy
 
@@ -266,7 +310,9 @@ Your Wavefront instance includes an HTTP endpoint that provides a window into th
 
 To get a list of new ID assignments, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```https://<cluster>.wavefront.com/api/spy/ids```
+  ```
+  https://<cluster>.wavefront.com/api/spy/ids
+  ```
 
 To get ID assignments for a specific type of new item, add one or more of the following parameters:
 
