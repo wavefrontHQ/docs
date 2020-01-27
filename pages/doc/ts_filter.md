@@ -10,10 +10,10 @@ summary: Reference to the filter() function
 ```
 filter(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
-where <filterN> is: 
+where <filterN> is:
     <metricName> | source="<sourceName>" | <pointTagKey>="<pointTagValue>"
 ```
-Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, or point tags. 
+Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, or point tags.
 
 ## Parameters
 <table style="width: 100%;">
@@ -33,9 +33,11 @@ Filters the expression to display only the time series that match one or more fi
 
 ## Description
 
-The `filter()` function filters the expression to display only the time series that match the specified metric, source, point tag, or combination of these filters. 
+The `filter()` function filters the expression to display only the time series that match the specified metric, source, point tag, or combination of these filters.
 
 `filter()` is similar to `retainSeries()`, but does not support matching a source tag.
+
+The advantage of using `filter()` is that it's very clear that the filtering is going on; that helps other users understand your query.
 
 <!---The following content from QL Reference - need to verify this is still true.
 
@@ -59,6 +61,8 @@ ts(“cpu.loadavg.1m”, source=“app-1” and app=“blue”)
 
 ## Examples
 
-The following example filters the disk space used metrics to show only the data for `app-10`. The advantage of using `filter()` is that it's very clear that the filtering is going on; that helps other users understand your query.
+The following example filters the disk space used metrics to show only the data for certain sources. We use a wildcard character to get both app-2 and app-20 `app-2*`.
+
+The advantage of using `filter()` is that it's very clear that the filtering is going on; that helps other users understand your query.
 
 ![filter example](images/ts_filter.png)
