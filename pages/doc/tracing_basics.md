@@ -99,14 +99,8 @@ An application must be _instrumented for tracing_ before it can send trace data 
 
 **If you have already instrumented your code** with [Jaeger](jaeger.html) or [Zipkin](zipkin.html), you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
-**If you have not yet instrumented your code,** you can add instrumentation by using [Wavefront observability SDKs](wavefront_sdks.html):
-
-* If your application is built with a supported application framework, you can [instrument that framework](tracing_instrumenting_frameworks.html#instrument-a-framework) by setting up the corresponding Wavefront observability SDK. This is the simplest approach, because a framework SDK produces out-of-the-box metrics, histograms, and trace data for the APIs supported by the instrumented framework.
-
-* If your application includes critical methods that are not handled by any supported framework, you can [instrument those methods](tracing_instrumenting_frameworks.html#instrument-with-opentracing) with a Wavefront OpenTracing SDK. This is also a good choice if you want to use custom annotations to tag your traces. <!---  See XX for a list of supported programming languages and for links to the setup and usage steps. --->
-
-The Wavefront observability SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
-
+**If you have not yet instrumented your code,** you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
+The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
 
 ## How to See Trace Data in Wavefront
 

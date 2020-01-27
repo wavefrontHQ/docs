@@ -14,7 +14,7 @@ You instrument each microservice in your application with one or more [Wavefront
 * Directs you to the setup steps for each SDK
 * Provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
 
-**Note:** If you have already instrumented your application for tracing using Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront.
+{% include note.html content="If you have already instrumented your application for tracing using Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront." %}
 
 ## Step 1. Prepare to Send Data to Wavefront
 
@@ -51,7 +51,9 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 
 Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io) specification in many languages. You can use a Wavefront OpenTracing SDK to collect custom trace data that you define for your service, for example, to augment an auto-instrumented framework or to replace a 3rd party OpenTracing-compliant library.
 
-### Instrument your OpenTracing application with the Wavefront SDKs
+{% include note.html content="If you can not find the SDK you were looking for, see all the [SDKs provided by Wavefront](wavefront_sdks.html#what-do-you-want-to-collect)." %}
+
+### Instrument your application with OpenTracing SDKs
 
 Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
 
@@ -110,30 +112,32 @@ If you need application observability, but don't want to instrument code for you
    </div>
  </div>
 
-### Send trace data to Wavefront via application integrated with Jeager and Zipkin
+### Send trace data to Wavefront via applications integrated with Jaeger or Zipkin
   
-  If you have already instrumented your application with Jaeger or Zipkin, you can collect traces using the following integrations and send the trace data to Wavefront. For more information, see [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html).
+  If you have already instrumented your application with Jaeger or Zipkin follow the steps given below :
+  1. Collect traces send them to Wavefront using the following integrations.
    
-  <div class="row">
-   <div class="col-md-3 col-sm-6">
-       <div class="panel panel-default text-center">
-           <div class="panel-body">
-              <a href="https://docs.wavefront.com/jaeger.html">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhh-dmy44jyfDm8Ds9F_y3QjK5oiV-Hh-uPlO0Ojs9X2TucN_8IQ&s" alt="Jaeger">
-              </a>
+      <div class="row">
+       <div class="col-md-3 col-sm-6">
+           <div class="panel panel-default text-center">
+               <div class="panel-body">
+                  <a href="https://docs.wavefront.com/jaeger.html">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhh-dmy44jyfDm8Ds9F_y3QjK5oiV-Hh-uPlO0Ojs9X2TucN_8IQ&s" alt="Jaeger">
+                  </a>
+               </div>
            </div>
        </div>
-   </div>
-   <div class="col-md-3 col-sm-6">
-       <div class="panel panel-default text-center">
-           <div class="panel-body">
-              <a href="https://docs.wavefront.com/zipkin.html">
-              <img src="https://avatars3.githubusercontent.com/u/11860887?v=4" alt="Zipkin">
-              </a>
+       <div class="col-md-3 col-sm-6">
+           <div class="panel panel-default text-center">
+               <div class="panel-body">
+                  <a href="https://docs.wavefront.com/zipkin.html">
+                  <img src="https://avatars3.githubusercontent.com/u/11860887?v=4" alt="Zipkin">
+                  </a>
+               </div>
            </div>
        </div>
-   </div>
- </div>
+     </div>
+ 2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](racing_integrations.html) for details.
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
 
@@ -192,7 +196,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
 
-**Note**: Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact Wavefront customer success to enable the feature.
+{% include note.html content="Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact Wavefront customer success to enable the feature." %}
 
 You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
 
