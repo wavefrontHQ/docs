@@ -13,7 +13,7 @@ Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that
 
 ## Get Started with Wavefront Top and Spy
 
-Use spy to extract information programatically. This page give details on the available endpoints and associated parameters.
+Use spy to extract information programmatically. This page gives details on the available endpoints and associated parameters.
 
 Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [Github](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://www.wavefront.com/wavefront-top-monitor-your-wavefront-instance-in-just-three-clicks/), or watch a short video.
 
@@ -33,23 +33,25 @@ Wavefront supports the `spy` endpoints shown in the following table:
 <table width="100%">
 <tbody>
 <thead>
-<tr><th markdown="span" width="45%">Spy Endpoint</th><th width="55%">Description</th></tr>
+<tr><th markdown="span" width="53%">Spy Endpoint</th><th width="47%">Description</th></tr>
 </thead>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
 <td markdown="span">[Gets new metric data points](#get-ingested-metric-points-with-spy) that are added to existing time series.</td></tr>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
+<td markdown="span">[Gets new histograms](#get-ingested-histograms-with-spy) that are added to existing time series.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/spans`</td>
 <td markdown="span">[Gets new spans](#get-ingested-spans-with-spy) with existing source names and span tags.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/gateway/spy/spanlogs`</td>
-<td markdown="span">[Gets the span logs](#get-ingested-span-logs-with-spy) with the existing trace ID, span ID, and the respective event that created the log.</td></tr>
+<td markdown="span">[Gets new span logs](#get-ingested-span-logs-with-spy) with the existing trace ID, span ID, and the respective event that created the log.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/ids`</td>
 <td markdown="span">[Gets newly allocated IDs](#get-new-id-assignments-with-spy) that correspond to new metric names, source names, point tags, or span tags. A new ID generally indicates that a new time series has been introduced.</td></tr>
+
 </tbody>
 </table>
 
 Each endpoint displays a header that describes your request, and then lists the results, if any, in close to real time (as soon as they are available). Each returned point, span, or ID is listed on a separate line.
 
-**Note:** A `spy` endpoint returns a sample of the requested data, and you specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is taken from just the data that is ingested on a single shard, even when you request 100% sampling.
-
+{% include note.html content="A `spy` endpoint returns a sample of the requested data, and you specify the sample size as an endpoint parameter. Because the endpoint connects to a single Wavefront back-end, the sample is taken from just the data that is ingested on a single shard, even when you request 100% sampling." %}
 
 ## Get Ingested Metric Points with Spy
 
@@ -121,7 +123,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Histograms with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate (1% by default). For example that if you set the rate to 0.3, then spy shows 30% of results. By default, sampling rate is 1%, which means we return 1% of the data.
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate (1% by default). For example, if you set the rate to 0.3, then spy shows 30% of results. By default, sampling rate is 1%, which means we return 1% of the data.
 
 You can use the returned list of histograms to help you answer questions like this:
 

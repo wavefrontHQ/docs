@@ -231,7 +231,7 @@ Starting with release 2018.46.x, you can undo dashboard changes.
 
 For each dashboard, you can customize display preferences.
 
-**Note** To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences).
+{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%}
 
 <table style="width: 100%;">
 <tbody>
