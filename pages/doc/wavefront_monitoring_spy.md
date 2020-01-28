@@ -282,7 +282,7 @@ To get a sample of the ingested span logs, use the following endpoint. Replace `
 https://<cluster>.wavefront.com/api/gateway/spy/spanlogs
 ```
 
-By default, sampling rate is 1%, which means Wavefront returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter:
+By default, sampling rate is 1%, which means Wavefront returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter.
 
 <table width="100%">
 <tbody>
@@ -290,14 +290,17 @@ By default, sampling rate is 1%, which means Wavefront returns 1% of the data. T
 <tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
 </thead>
 <tr><td markdown="span">sampling</td>
-<td markdown="span">0 to 1, with 0.01 being 1%.<br/><br/>
-Example: Spy on the ingested span logs at a sampling rate of 5%.
-```
-http://ex1.wavefront.com/api/gateway/spy/spanlogs?sampling=0.05
-```
+<td markdown="span">0 to 1, with 0.01 being 1%.
  </td></tr>
 </tbody>
 </table>
+
+### Example Requests for Span Logs
+
+Suppose you have a Wavefront instance named `ex1` and want to spy on the ingested span logs at a sampling rate of 5%:
+```
+http://ex1.wavefront.com/api/gateway/spy/spanlogs?sampling=0.05
+```
 
 ## Get New ID Assignments with Spy
 
