@@ -90,7 +90,7 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 1. Evaluates the ts() expression you specified in the alert condition.
 1. Implicitly aligns the returned values by grouping them into 1-minute buckets.
 1. Summarizes the values within each bucket by averaging them, and aligns each result at the beginning of the minute that contains the summarized values.
-1. Tests each average value (1 per minute) against the alert condition to see whether it evaluates to 0 (false) or non-zero (true).
+1. Evaluates each average value as true (non-zero) or false (zero).
 
 If the ts() expression returns a single data value per minute, the summarization values and the returned values are the same.
 
@@ -98,12 +98,28 @@ If the ts() expression returns a single data value per minute, the summarization
 
 **Example 1**
 
-Suppose your alert condition is `ts(my.metric) > 4`, and `my.metric` reports 5 data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm. The alert checking process averages these 5 values to produce a single summarization data point at 12:11:00pm. The value of this summarization point (7.8) evaluates to true because 7.8 > 4.
+Suppose your alert condition is `ts(my.metric) > 4` and `my.metric` reports 5 data values (9,9,9,3,9) between 12:11:00pm and 12:11:59pm. The alert checking process:
+1. Compares each reported value to the condition
+2. Returns a 1 (true) or 0 (false) for each value
+3. Produces a single summarization data point at 12:11:00pm.
+
+The value of this summarization point is .8:
+
+`(((1+1+1+0+1) / 5) = .8)`
+
+This value (.8) evaluates to true because .8 != 0.
 
 **Example 2**
 
-Suppose you want to know whether any single value within the minute will evaluate as false, even if all the other values will be true. You can explicitly bucket the values by changing your alert condition: `align(1m, min, ts(my.metric) > 4)`. When `my.metric` reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the `align` function returns the minimum value (3) as the single value at 12:11:00pm. The alert checking process evaluates this value to false, because 3 < 4.
+Suppose you want to return an entire summarized minute value as false if there's at least 1 false value present. You can explicitly bucket the values by changing your alert condition to use `align()`:
 
+`align(1m, min, ts(my.metric) > 4)`.
+
+When my.metric reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the alert checking process:
+1. Compares each value to the condition (>4)
+2. Returns a true (1) or false (0) value.
+
+The `align()` function returns the minimum value (0) as the single value at 12:11:00pm. For that summarized minute value, the alert checking process returns false because 0 = 0.
 
 ## Alert Check Time Window
 

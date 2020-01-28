@@ -32,7 +32,7 @@ Wavefront lets you choose a deployment option:
 * As your environment grows, you place the proxy on a dedicated host. Different agents and other data sources can send metrics to the proxy, and the proxy forwards the metrics to the Wavefront service. Agents can run either on the same host as the data source or on a different host.
 *  In production environments, you can place two proxies or a fleet of proxies behind a load balancer for optimal performance and high availability. In that case, each proxy must have a unique name. Your fleet of proxies does not run on the same host as your data sources.
 
-{% include note.html content="It's not a good idea to install a proxy on each host you're monitoring. First, you lose the benefit of protection against data loss -- the proxy can buffer your metrics. Second, you only need a small number of proxies even in production environments." %}
+{% include note.html content="It's not a good idea to install a proxy on each host you're monitoring. First, you lose the benefit of protection against data loss -- the proxy can buffer your metrics. Second, you only need a small number of proxies even in production environments." %} 
 
 ### Learning Environment: One Host
 
@@ -62,7 +62,11 @@ To enable fault tolerance and higher data rates, production environments typical
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.svg)
 
+<<<<<<< HEAD
 {% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %}
+=======
+{% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %} 
+>>>>>>> 711e0ddc8fafd9a7acc1d2a93f496df133bdbd60
 
 ## Proxy Configuration
 

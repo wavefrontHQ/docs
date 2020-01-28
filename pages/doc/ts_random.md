@@ -63,10 +63,14 @@ The `random()` filtering function returns the specified number of time series ch
 The `random()` value generator returns a random value between 0.0 and 1.0 for every point in time on a chart. Repeated calls display different random values at each point.
 
 
-## Examples
+## Example
 
 ### Time-Series Filtering Function
 
-The following example chart shows 3 of the `~sample.cpu.loadavg.1m` time series, picked randomly. Notice how the sources that were selected are not related.
+The following example shows first the result of a query that returns a fairly large number of time series.
+
+![metric for sample function](images/ts_sample_before.png)
+
+The following example chart shows how we use `random()` to pick 3 of the time series. Notice how the sources that were selected are not related.
 
 ![random](images/ts_random.png)

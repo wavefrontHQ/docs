@@ -115,15 +115,16 @@ In both cases, but especially when you create the query from scratch, it's impor
   - **Alert**: Alerts check only once per minute by default, so the alert might not catch certain changes. 
 
 ## Select Time Windows Carefully
+
 If your alert doesn't have constant time window that's long enough to account for data delays, alert behavior can become very confusing.
 
 ### Use a Constant Time Window in the Query
 
 Use a constant time window in your alert queries -- and don't use 1vw.
 
-If you use 1vw in a chart, the query applies to the time window selected for the chart the user looks at. But if you use 1vw in an alert query, the alert view window defaults to:
+If you use 1vw in a chart, the query applies to the time window selected for the chart the user looks at. But if you use 1vw in an alert query,  view window that is used in the alert condition defaults to:
 
-* When the alert is not firing, the minutes to fire for the alert.
+* When the alert is **not firing**, the minutes to fire for the alert.
 * When the alert is in **Firing** state, the minutes to fire or minutes to resolve for the alert (whichever is greater)
 
 ### Consider Data Delays
