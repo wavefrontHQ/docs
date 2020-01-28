@@ -62,11 +62,7 @@ To enable fault tolerance and higher data rates, production environments typical
 
 ![Proxies using load balancer](/images/proxy_deployment_load_balancer.svg)
 
-<<<<<<< HEAD
-{% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %}
-=======
 {% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %} 
->>>>>>> 711e0ddc8fafd9a7acc1d2a93f496df133bdbd60
 
 ## Proxy Configuration
 
