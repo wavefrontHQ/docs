@@ -265,11 +265,10 @@ Suppose you have a Wavefront instance named `ex1`.
 
 Span logs capture span-specific logging information and are supported by the OpenTracing standard. You need to instrument your application or customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs). Some Wavefront SDKs include span logs for errors by default.
 
-You can use the returned list of span logs to:
+{% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact the Wavefront Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
 
-* Find out if your application is sending span logs to Wavefront.
-* Know if your span logs follow the required format:
-  <br/>Example:
+You can use the returned list of span logs to find out if it contains the data that you expect.<br/>
+Example:
   ```
   traceId="00000000-0000-0000-0000-00000001234" spanId="00000000-0000-0000-0000-000000012341" 
   logs=[{"timestamp": 1572303812999, "fields": {"event": "error", "error.kind": "exception"}}]
