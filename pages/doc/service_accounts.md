@@ -71,7 +71,7 @@ Permissions</td>
 </tbody>
 </table>
 
-You can now [grant or revoke permissions](users_groups.html#grant-or-revoke-account-permissions), which is the same for user accounts and service accounts, and you can deactivate or activate a service account.
+You can [grant or revoke permissions](users_roles.html#grant-or-revoke-account-permissions-explicitly) for individual accounts. The process is the same for user accounts and service accounts. You can deactivate or activate a service account.
 
 
 ## Deactivate or Activate a Service Account

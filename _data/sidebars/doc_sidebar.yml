@@ -560,8 +560,8 @@ entries:
             url: /authorization.html
             output: web
 
-          - title: Accounts, Groups, and Permissions
-            url: /users_groups.html
+          - title: Roles, Groups, and Permissions
+            url: /users_roles.html
             output: web
 
           - title: Manage User Accounts

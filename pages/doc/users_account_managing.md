@@ -52,23 +52,30 @@ If your environment has been set up to offer the v2 UI option, you can easily sw
 
 Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered.
 
-Starting with release 2019.42, you can limit the number of time series to 100 for new charts by changing the **Sampling** default in your preferences.
+Starting with release 2019.38, you can limit the number of time series to 100 for new charts by changing the **Sampling** default in your preferences.
 
 ![sampling preference](images/sampling_preference.png)
 
 
-## Examine Groups and Permissions
+## Examine Groups, Roles, and Permissions
 
-If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html). Permissions are additive: You have the permissions from all groups you belong to, plus any permissions individually assigned to you.
+If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html).
+* Wavefront administrators usually create roles, which are sets of permissions, and assign one or more roles to a group.
+* Administrators can also assign roles or permissions explicitly to individual users.
+
+Permissions are additive:
+* If 2 roles were assigned to a group you belong to, you have the permissions from both roles.
+* If you belong to 2 groups, you get the permissions associated with the roles assigned to those groups.
+* If you have any individual permissions, you get those as well.
 
 You can check the permissions you have and see which groups you belong to from your account page.
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
-2. Click the **Groups & Permissions** tab to display the groups you belong to and the permissions you have.
+2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and why you have them.
 ![groups and permissions](images/groups_and_permissions.png)
 
-3. Hover over any group to see the permissions you have because you belong to that group. Permissions are additive.
+3. Hover over any group to see the permissions you have from this. Permissions are additive.
 
-**Note:** It's possible that you can't modify a dashboard or an alert even if you have Dashboard or Alert permission. This happens if access is restricted explicitly for that dashboard or alert, or if the [Security system preference](access.html) is set to allow access to new objects only to the creator. Ask the dashboard or alert creator to share the object with you.
+**Note:** Even if you have Dashboard or Alert **permission**, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you.
 
 ## Generating an API Token
 

@@ -6,29 +6,29 @@ sidebar: doc_sidebar
 permalink: access.html
 summary: Control access to individual dashboards and alerts.
 ---
-The users/groups/permissions authorization paradigm manages global permissions. For example, a user with Dashboard permission can manage *all* dashboards. This paradigm is sufficient for many Wavefront customers.
+The roles/permissions/groups authorization paradigm manages global permissions. For example, a user with Dashboards permission can manage *all* dashboards. This paradigm is sufficient for many Wavefront customers.
 
-Admins who need finer-grained control can manage access to Wavefront objects on a per-object basis. we currently support access control for dashboards and alerts. See [Authorization in Wavefront](authorization.html#level-3-access-control-for-objects) for background information.
+Admins who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
-This video shows how to limit access for dashboards, how to share dashboards, and how to set the Security system preference. You can manage access for alerts the same way.
+This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security system preference. You can manage access for alerts the same way.
 
 <p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Wavefront access control"/></a>
 </p>
 
-**Note**: After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can share the object with other groups or users.
+**Note**: After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users.
 
 ## How Access Control Works
 
 Wavefront supports granting and revoking access to dashboards and alerts.
-* By default, all users can access all dashboards and alerts.
+* By default, all users can view all dashboards and alerts.
 * Users with Dashboard permission can:
-  - Change access for one or more dashboards from the Dashboard browser.
-  - Select the Share icon on individual dashboards to change who has access.
-* Users with Alert permission can:
-  - Change access for one or more alerts from the Alerts browser.
+  - Restrict or grant access to individual dashboards from the Dashboard browser.
+  - Select the Share icon on individual dashboards to change who has access..
+* Users with Alerts permission can:
+  - Restrict or grant access for individual alerts from the Alerts browser.
   - Select the Share icon on individual alerts to change who has access.
 
-In high-security environments, administrators change a security preference. After that:
+In high-security environments, administrators change a security preference. After that change:
 * Each *new* object (dashboard or alert) is visible only to the creator and to Super Admin users.
 * The object creator or a Super Admin user can then share new dashboards with groups or users.
 * If the administrator changes the Security preference back to allow Everyone access, then the objects that were created while the strict security preference was set continue to be governed by access control.
@@ -57,7 +57,7 @@ You can change access for an individual dashboard or alert from the Edit page of
 
 
 
-## Changing the Access Control Security Preference
+## Change the Access Control Security Preference
 
 Initially, all users can *view* all dashboards and alerts. In addition, global permissions apply:
 * Users with Dashboard permission can modify all dashboards

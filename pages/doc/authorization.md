@@ -7,27 +7,37 @@ permalink: authorization.html
 summary: Learn about authorization of Wavefront groups and users.
 ---
 
-Wavefront supports several levels of authorization to support customers with different authorization needs. The most basic level is based on [permissions](permissions_overview.html) assigned to individual users.
+Wavefront supports both role-based controls that use global permissions and object based controls for individual dashboards and alerts. .
 
-Administrator who want more control can
+Administrator can
 * Create **roles** with permissions and assign roles to users or groups.
 * Use [access control](access.html) to protect individual dashboards or alerts.
 
-## More Control, More Effort
 
-With additional setup, you gain finer-grained control:
 
-### Permissions and Roles
+## Role-Based Permissions Management
 
-* **Permissions for users** -- You can assign [permissions](permissions_overview.html) to users. Permissions are global. For example, users with Dashboard permission can manage *all* dashboards.
-* **Roles** -- A role is a set of permissions suitable for a certain type of user. Administrators create one or more roles and assign roles to users or groups.
+Permissions always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
 
-### Access Control
+Wavefront is permissions with roles. The adminstrator:
+* Creates one or more **roles** and assigns one or more [permissions](permissions_overview.html) to each role.
+* Creates one or more **groups** and adds one or more users to each group.
+* Assigns one or more roles to each group.
+
+**Picture here!**
+
+Assigning roles or permissions to individual users is also supported but discouraged. Doing permission management at the role and group level makes it less likely, for example, that one user retains permissions that were to be revoked.
+
+## Access Control
+
+Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team. 
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
 * **Security preference for new objects** -- In high security environments, administrator can set a security preference so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.
 
-  ![control setup](images/security_levels.svg)
+
+<!---
+![control setup](images/security_levels.svg)
 
 ## Level 1: Permissions for Users
 
@@ -66,9 +76,6 @@ All users with Dashboard permission can view and modify all dashboards. Those us
 ### Security Preference for New Object Access
 
 In high-security environments, an administrator can [change the default Security preference](access.html#changing-the-access-control-preference) to grant access for *new* objects (dashboards and alerts) only to the object creator. After the preference change, only the object creator and Super Admin users can access new objects initially. Those users can share the dashboard with user groups or individual users. Users with View & Modify access can then share the dashboard with more users.
-
-
-<!--- Too much detail for feature not used by most
 
 When the preference is set, access control works like this:
 

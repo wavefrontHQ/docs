@@ -84,7 +84,7 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 
 Wavefront supports multi-level access management:
 * **Permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission to a Developers group and only Dashboard permission to a Novice group.
-* **Access control** applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_groups.html#who-is-the-super-admin-user) user.
+* **Access control** applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
 
 Wavefront supports a [high security mode](access.html#changing-the-access-control-preference) where only the object creator and Super Admin user can view and modify new dashboards.
 
