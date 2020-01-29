@@ -83,7 +83,7 @@ We support `~status` metrics that map to what you see in the UI:
 
 With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down. When applying source filters to the Metrics browser or a ts() expression, this can lead to several sources being included in the autocomplete dropdown even when they are no longer reporting data. After 4 weeks of inactivity we remove those sources from the autocomplete dropdown, but you can also manually hide them from the UI or API.
 
-**Note:** While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present.
+{% include note.html content="While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present." %}
 
 <table style="width: 100%;">
 <tbody>
