@@ -8,8 +8,7 @@ summary: Learn how to manually install a Wavefront proxy and Telegraf agent.
 ---
 Most Wavefront customers perform a [scripted installation](proxies_installing.html#proxy-installation) of the Wavefront proxy and Telegraf agent. In some environments, it's necessary to perform a manual installation instead. This page gives some guidance. You can perform additional customization using [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples).
 
-**Note:** Because the exact steps depend on your environment, this page can't give details for each use case. [Advanced Proxy Configuration](proxies_configuring.html) gives details about settings you can change in the proxy config file.
-
+{% include note.html content="Because the exact steps depend on your environment, this page can't give details for each use case. [Advanced Proxy Configuration](proxies_configuring.html) gives details about settings you can change in the proxy config file." %}
 
 ## Proxy Install - Full Network Access
 
@@ -24,17 +23,15 @@ Before you begin the installation process, [test connectivity](proxies_manual_in
 
 If your system accepts incoming traffic, you can download the proxy file as follows:
 
-1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](http://packagecloud.io/wavefront/proxy)
-2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`
-
-   **Note:** If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`
-
+1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](http://packagecloud.io/wavefront/proxy).
+2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`.
+    {% include note.html content="<br/>If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`." %} 
 
 ### Step 2: Determine Proxy Settings
 
 Before you can customize the proxy configuration, you have to find the values for your environment. You need the following information to customize the settings.
 
-**Note:** To find the values for server and token, you can select **Integrations** from the task bar, select **Linux Host**, and select the **Setup** Tab.
+{% include note.html content="To find the values for server and token, you can select **Integrations** from the task bar, select **Linux Host**, and select the **Setup** Tab."%}
 
 <table style="width: 100%;">
 <tbody>
@@ -242,7 +239,7 @@ The Wavefront proxy initiates an HTTPS connection to the Wavefront service. The 
 
 You can instead configure the HTTP proxy setting within `wavefront.conf`.
 
-**Note:** The Wavefront proxy does not use the `http_proxy` environmental variables. You must specify the information in `wavefront.conf`.
+{% include note.html content="The Wavefront proxy does not use the `http_proxy` environmental variables. You must specify the information in `wavefront.conf`." %}
 
 ### Using curl to Test HTTP Proxy Connections
 

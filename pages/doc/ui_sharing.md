@@ -18,7 +18,7 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 * Non-live view -- Links to a snapshot of what you're looking at right now.
 * Live view -- Changes as the dashboard or alert changes.
 
-**Note:** If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to share access before you share the link.
+{% include note.html content="If access control is on, and you share a link with a user who does not have view access, the user cannot view the dashboard. You have to share access before you share the link."%}
 
 **To share a dashboard using a link**
 1. Navigate to the dashboard and click the Share Dashboard icon.
@@ -33,7 +33,8 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 <tbody>
 <tr>
 <td width="65%">
-<strong>Note:</strong> You can instead share the link to the NON-LIVE display using the link icon in the bottom right quadrant of the page.</td>
+{% include note.html content="You can instead share the link to the NON-LIVE display using the link icon in the bottom right quadrant of the page." %}
+</td>
 <td width="35%"><img src="/images/link_icon.png" alt="link icon"></td>
 </tr>
 </tbody>
