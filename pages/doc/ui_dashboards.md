@@ -68,6 +68,38 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 </tbody>
 </table>
 
+### Create a Dashboard from a Tracing Template
+
+Wavefront provides a set of charts by default to [monitor the trace data sent by each service in your application](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard). Now, you can directly add these charts to your dashboard using this template.
+
+{% include note.html content="To view data in these charts, your applications need to send trace data to Wavefront. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
+<li>You get all the default charts. Click <strong>Import 9 Charts</strong>.</li>
+<li>Optionally, to delete or edit a chart, see <a href="#clone-delete-or-edit-a-chart">Clone, Delete, or Edit a Chart</a>.</li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
+  {{site.data.alerts.note}}
+  <ul>
+    <li>The URL field supports letters, numbers, underscores, and dashes.</li>
+    <li>The Name field supports letters, numbers, characters, and spaces.</li>
+  </ul>
+  {{site.data.alerts.end}}
+</li>
+<li>To view data that is specific to an application and service, use the <strong>application</strong> and <strong>service</strong> dropdowns.</li>
+</ol></td>
+<td width="60%"><img src="/images/create_tracing_template.png" alt="create dashboard from template"></td>
+</tr>
+</tbody>
+</table>
+
+For more information on the dashboard and charts, see [Explore the Default Service Metrics Dashboard](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard) and to drill down directly to the tracing dashboard, see [Navigate to the Tracing UI from the Service Metrics Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard).
+
 
 ## Edit or Clone a Dashboard
 
