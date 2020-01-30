@@ -83,5 +83,5 @@ You can set this up as follows:
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-<!---
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.--->
+
+<!-- * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront. -->
