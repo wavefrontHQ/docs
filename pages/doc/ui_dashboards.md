@@ -70,7 +70,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 
 ### Create a Dashboard from a Tracing Template
 
-Wavefront provides a set of charts by default to [monitor the trace data sent by each service in your application](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard). Now, you can use this template to create a dashboard with the tracing charts.
+The Wavefront tracing dashboard includes a set of charts for [monitoring the trace data sent by each service in your application](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard). You can use this dashboard as a template and create a dashboard with these charts, then customize the charts for your environment
 
 {% include note.html content="To view data in these charts, your applications need to send trace data to Wavefront. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
 
@@ -81,8 +81,7 @@ Wavefront provides a set of charts by default to [monitor the trace data sent by
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
-<li>You get all the default charts. Click <strong>Import 9 Charts</strong>.</li>
-<li>Optionally, to delete or edit a chart, see <a href="#clone-delete-or-edit-a-chart">Clone, Delete, or Edit a Chart</a>.</li>
+<li>Click <strong>Import 9 Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
   {{site.data.alerts.note}}
   <ul>
@@ -98,8 +97,10 @@ Wavefront provides a set of charts by default to [monitor the trace data sent by
 </tbody>
 </table>
 
-For more information on the dashboard and charts, see [Explore the Default Service Metrics Dashboard](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard) and to drill down directly to the tracing dashboard, see [Navigate to the Tracing UI from the Service Metrics Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard).
-
+**Take a look at the cool actions you can do using these charts:**
+* [Navigate to the Tracing UI from the Service Metrics Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard). 
+* [Explore the Default Service Metrics Dashboard](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard).
+* To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
 
 ## Edit or Clone a Dashboard
 

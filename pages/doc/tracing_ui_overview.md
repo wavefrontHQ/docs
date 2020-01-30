@@ -69,6 +69,8 @@ The default, read-only dashboard for a service lets you explore that service, ho
 
 ![examine services](images/tracing_services.png)
 
+{% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
+
 On the dashboard for a particular service, you can:
 * Select the time and timezone in the task bar to customize the chart time properties.
 * Use the **Jump To** pulldown to select a dashboard section:
