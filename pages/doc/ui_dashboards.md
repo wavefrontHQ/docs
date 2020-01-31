@@ -81,7 +81,7 @@ The Wavefront tracing dashboard includes a set of charts for monitoring the trac
 <strong>To create a dashboard</strong>:
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
-<li>Click <strong>Import 9 Charts</strong>.</li>
+<li>Click <strong>Import Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
   {{site.data.alerts.note}}
   <ul>
