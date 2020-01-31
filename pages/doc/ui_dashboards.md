@@ -70,7 +70,7 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 
 ### Create a Dashboard from a Tracing Template
 
-The Wavefront tracing dashboard includes a set of charts for [monitoring the trace data sent by each service in your application](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard). You can use this dashboard as a template and create a dashboard with these charts, then customize the charts for your environment
+The Wavefront tracing dashboard includes a set of charts for monitoring the trace data sent by each service in your application. You can use this dashboard as a template and create a dashboard with these charts, then customize the charts for your environment
 
 {% include note.html content="To view data in these charts, your applications need to send trace data to Wavefront. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
 
