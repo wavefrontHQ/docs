@@ -1209,7 +1209,7 @@ You must make sure you're looking at a metric -- it doesn't make sense to select
 
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you ...
+The Axis tab lets you change the Y axis, and both the X axis dimensions and units.
 
 <table>
 <tbody>
@@ -1231,7 +1231,7 @@ The Axis tab lets you ...
 </tr>
 <tr>
 <td>Unit</td>
-<td>Unit of measurement to assign to the label that appears along the X-axis. This unit <em>does not</em> change the unit of measurement. 
+<td>Unit of measurement to assign to the label that appears along the X-axis. This unit <em>does not</em> change the unit of measurement. This unit also does not affect the Y axis. 
 <p>Supported units are:</p>
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
