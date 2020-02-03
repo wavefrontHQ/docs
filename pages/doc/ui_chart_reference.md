@@ -43,6 +43,7 @@ A **line plot** represents interpolated point buckets. The X axis represents the
 
 Missing data is represented by a dashed line. The dashed line only gives a visual representation of the data stream; it _does not_ represent values of the missing data. If you hover over the chart, you won't see values where the gap threshold has been applied. Use the **Format > Gap Threshold** property to set the amount of time before gaps of missing data display as dashed lines.
 
+<a id="line_plot_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 <table>
 <tbody>
@@ -78,6 +79,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 </tbody>
 </table>
 
+<a id="line_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
@@ -112,7 +114,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 </tbody>
 </table>
 
-
+<a id="line_plot_legend_tab">
 <p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
@@ -169,10 +171,12 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<a id="line_plot_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
+<a id="line_plot_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -185,6 +189,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="line_plot_advanced_tab">
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
