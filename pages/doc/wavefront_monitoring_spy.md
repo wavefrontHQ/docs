@@ -265,7 +265,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Span Logs with Spy
 
-Span logs capture span-specific logging information and are supported by the OpenTracing standard. You need to instrument your application or customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs). Some Wavefront SDKs include span logs for errors by default.
+Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html). 
 
 {% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact the Wavefront Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
 
@@ -284,7 +284,7 @@ To get a sample of the ingested span logs, use the following endpoint. Replace `
 https://<cluster>.wavefront.com/api/gateway/spy/spanlogs
 ```
 
-By default, sampling rate is 1%, which means Wavefront returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter.
+By default, the sampling rate is 1%, which means Wavefront returns 1% of the data. To sample the span logs at a different sampling rate, add the `sampling` parameter to the URL.
 
 <table width="100%">
 <tbody>
