@@ -20,9 +20,6 @@ The following blog posts give some background information:
 * [How the Metric Histogram Type Works: True Visibility into High-Velocity Application Metrics](https://www.wavefront.com/metric-histogram-type-works-true-visibility-high-velocity-application-metrics-part-2-2-2-2/)
 
 
-
-
-
 ## Why Use Histograms?
 
 Wavefront can receive and store highly granular metrics at 1 point per second per unique source. However, some scenarios generate even higher frequency data. Suppose you are measuring the latency of web requests. If you have a lot of traffic at multiple servers, you may have multiple distinct measurements for a given metric,
@@ -104,7 +101,7 @@ To send a histogram distribution to the Wavefront proxy:
   where
   * `{!M | !H | !D}` identifies the aggregation interval (minute, hour, or day) used when computing the distribution
   * `points` is the number of points.
-  * all elements not enclosed in square brackets, including the source, are required elements. 
+  * all elements not enclosed in square brackets, including the source, are required elements.
 
   For example:
 
@@ -156,316 +153,36 @@ You can now apply other functions to the histogram, for example, you can try to 
 
 `percentile (85, hs(my.metric))`
 
-## Histogram Configuration
 
-Histograms are supported by Wavefront proxy 4.12 and later. To use histograms, ensure that your data is in histogram data format, and set the [histogram proxy port](#histogram-proxy-ports) to send to. Different ports accept different data formats, as shown in the table below. For information on how to configure proxies, see [Advanced Proxy Configuration](proxies_configuring.html).
+## Querying Histogram Metrics
 
-
-### Histogram Proxy Ports
-
-To indicate that you are sending histogram data, send the metrics to one of the histogram proxy ports. You can use:
-* Port 2878 for proxy 4.29 and later for histogram distributions.
-* Port 40000 for earlier proxy versions for histogram distributions.
-* The other ports for other formats.
-
-<table>
-<colgroup>
-<col width="25%" />
-<col width="30%" />
-<col width="25%" />
-<col width="20%" />
-</colgroup>
-<thead>
-<tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>distribution</td>
-<td>histogramDistListenerPorts</td>
-<td>2878 (proxy 4.29 and later)<br>
-40000 (earlier proxy versions)</td>
-<td><a href="#sending-histogram-distributions">Histogram data format</a></td>
-</tr>
-<tr>
-<td>minute</td>
-<td>histogramMinuteListenerPorts</td>
-<td>40001</td>
-<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
-</tr>
-<tr>
-<td>hour</td>
-<td>histogramHourListenerPorts</td>
-<td>40002</td>
-<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
-</tr>
-<tr>
-<td>day</td>
-<td>histogramDayListenerPorts</td>
-<td>40003</td>
-<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
-</tr>
-</tbody>
-</table>
-
-You can send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
-
-You can send [**histogram data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront histogram data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
-
-### Histogram Configuration Properties
-
-Wavefront supports additional histogram configuration properties, shown in the following table. Note the requirements on the state directory and the effect of the two `persist` properties listed at the bottom of the table.
-
-<table class="width:100%;">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="34%" /></colgroup>
-<thead>
-<tr><th>Property</th><th>Description</th><th>Format</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>histogramStateDirectory</td>
-<td>Directory for persistent proxy state, must be writable.  Before being flushed to Wavefront, histogram data is persisted on the filesystem where the Wavefront proxy resides. If the files are corrupted or the files in the directory can't be accessed, the proxy reports the problem in its log and fails back to using in-memory structures. In this mode, samples can be lost if the proxy terminates without draining its queues. Default: <code>/var/spool/wavefront-proxy</code>.
-</td>
-<td>A valid path on the local file system. {% include note.html content="A high PPS requires that the machine that the proxy is on has an appropriate amount of IOPS. We recommend about 1K IOPS with at least 8GB RAM on the machine that the proxy writes histogram data to. Recommended machine type: m4.xlarge." %}</td>
-</tr>
-<tr>
-<td>persistAccumulator</td>
-<td>Whether to persist accumulation state. We suggest keeping this setting enabled unless you are not using hour and day level aggregation and consider losing up to 1 minute worth of data during proxy restarts acceptable. Default: true.
-</td>
-<td>. {% include warning.html content="If set to false, unprocessed metrics are lost on proxy shutdown." %}
-</td>
-</tr>
-<tr>
-<td>persistMessages</td>
-<td>Whether to persist received metrics to disk. Default: true.
-</td>
-<td>Boolean. {% include warning.html content="If set to false, unprocessed metrics are lost on proxy shutdown." %}
-</td>
-</tr>
-<tr>
-<td>histogramAccumulatorResolveInterval</td>
-<td>Interval in milliseconds to write back accumulation changes from memory cache to disk. Only applicable when memory cache is enabled. Increasing this setting reduces storage IO pressure but might increase heap memory use. Default: 100.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramAccumulatorFlushInterval</td>
-<td>Interval in milliseconds to check for histograms that need to be sent to Wavefront acccording to their histogramMinuteFlushSecs etc settings. Default: 1000.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramAccumulatorFlushMaxBatchSize</td>
-<td>Max number of histograms to move to the outbound queue in one flush. Default: no limit.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td> histogramMaxReceivedLength</td>
-<td>Maximum line length for received histogram points. Default: 65536.</td>
-<td>Positive integer.</td>
-</tr>
-
-<tr>
-<td>histogramReceiveBufferFlushInterval</td>
-<td>Sets maximum time in milliseconds that incoming points can stay in the receive buffer when incoming traffic volume is very low. Default: 100.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramProcessingQueueScanInterval</td>
-<td>Interval in milliseconds between checks for new entries in the processing queue. Default: 20.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramMinuteListenerPorts</td>
-<td>TCP ports to listen on for histograms to be aggregated by minute. Default: 40001.</td>
-<td>Comma-separated list of ports. Can be a single port.</td>
-</tr>
-<tr>
-<td>histogramMinuteAccumulators</td>
-<td>Number of accumulators per minute port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: 2.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramMinuteFlushSecs</td>
-<td>Time-to-live, in seconds, for a minute granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 70.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramMinuteAccumulatorSize</td>
-<td>Expected upper bound of concurrent accumulations: ~ #time series * #parallel reporting bins. Default: 100000.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramMinuteCompression</td>
-<td>A bound on the number of centroids per histogram. Default: 100.</td>
-<td markdown="span">Positive integer in the interval. [20;1000].</td>
-</tr>
-<tr>
-<td>histogramMinuteMemoryCache</td>
-<td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (more than 1 point per second per time series). Default: false.</td>
-<td>Boolean.</td>
-</tr>
-<tr>
-<td>histogramMinuteAvgDigestBytes</td>
-<td>Average number of bytes in an encoded distribution/accumulation. Default: 32 + histogramMinuteCompression * 7</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramMinuteAvgKeyBytes</td>
-<td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 150.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramHourListenerPorts</td>
-<td>TCP ports to listen on for histograms to be aggregated by hour. Default: 40002.</td>
-<td>Comma-separated list of ports. Can be a single port.</td>
-</tr>
-<tr>
-<td>histogramHourAccumulators</td>
-<td>Number of accumulators per hour port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: 2.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramHourFlushSecs</td>
-<td>Time-to-live, in seconds, for an hour granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 4200.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramHourAccumulatorSize</td>
-<td>Expected upper bound of concurrent accumulations: ~ #time series * #parallel reporting bins. Default: 100000.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramHourCompression</td>
-<td>A bound on the number of centroids per histogram. Default: 100.</td>
-<td markdown="span">Positive integer in the interval [20;1000].</td>
-</tr>
-<tr>
-<td>histogramHourMemoryCache</td>
-<td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (more than 1 point per second per time series). Default: false.</td>
-<td>Boolean.</td>
-</tr>
-<tr>
-<td>histogramHourAvgDigestBytes</td>
-<td>Average number of bytes in an encoded distribution/accumulation. Default: 32 + histogramMinuteCompression * 7</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramHourAvgKeyBytes</td>
-<td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 150.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDayListenerPorts</td>
-<td>TCP ports to listen on for histograms to be aggregated by day. Default: 40003.</td>
-<td>Comma-separated list of ports.</td>
-</tr>
-<tr>
-<td>histogramDayAccumulators</td>
-<td>Number of accumulators per day port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: 2.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDayFlushSecs</td>
-<td>Time-to-live, in seconds, for a day granularity accumulation on the proxy (before the intermediary is sent to Wavefront). Default: 18000 (5 hours).
-</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDayAccumulatorSize</td>
-<td>Expected upper bound of concurrent accumulations: ~ #time series * #parallel reporting bins. Default: 100000.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDayCompression</td>
-<td>A bound on the number of centroids per histogram. Default: 100.</td>
-<td markdown="span">Positive integer in the interval [20;1000].</td>
-</tr>
-<tr>
-<td>histogramDayMemoryCache</td>
-<td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (more than 1 point per second per time series). Default: false.</td>
-<td>Boolean.</td>
-</tr>
-<tr>
-<td>histogramDayAvgDigestBytes</td>
-<td>Average number of bytes in an encoded distribution/accumulation. Default: 32 + histogramDayCompression * 7</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDayAvgKeyBytes</td>
-<td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 150.</td>
-<td>Positive integer.</td>
-</tr>
-
-<tr>
-<td>histogramDistListenerPorts</td>
-<td>TCP ports to listen on for ingesting histogram distributions. Default: 2878 (proxy 4.29 and later) 40000 (earlier proxy versions).</td>
-<td>Comma-separated list of ports. Can be a single port.</td>
-</tr>
-<tr>
-<td>histogramDistAccumulators</td>
-<td>Number of accumulators per distribution port. In high traffic environments we recommend that the total number of accumulators per proxy across all utilized ports does not exceed the number of available CPU cores. Default: number of available CPU cores. </td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDistFlushSecs</td>
-<td>Number of seconds to keep a new distribution bin open for new samples, before the intermediary is sent to Wavefront. Default: 70.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDistAccumulatorSize</td>
-<td>Expected upper bound of concurrent accumulations: ~ #time series * #parallel reporting bins. Default: 100000.</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDistCompression</td>
-<td>A bound on the number of centroids per histogram. Default: 100.</td>
-<td markdown="span">Positive integer in the interval [20;1000].</td>
-</tr>
-<tr>
-<td>histogramDistMemoryCache</td>
-<td>Enabling memory cache reduces I/O load with fewer time series and higher frequency data (Aggregating more than 1 distribution per second per time series). Default: false.</td>
-<td>Boolean.</td>
-</tr>
-<tr>
-<td>histogramDistAvgDigestBytes</td>
-<td>Average number of bytes in an encoded distribution/accumulation. Default: 32 + histogramDistCompression * 7</td>
-<td>Positive integer.</td>
-</tr>
-<tr>
-<td>histogramDistAvgKeyBytes</td>
-<td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 150.</td>
-<td>Positive integer.</td>
-</tr>
-</tbody>
-</table>
-
-
-## Histogram Metric Naming
-
-You send metrics using the standard [Wavefront data format](wavefront_data_format.html):
-
-```html
-<metricName> <metricValue> [<timestamp>] source=<source> <pointTagKey1>=<value1> ... <pointTagKeyN>=<valueN>
-```
-
-For example, `request.latency 20 1484877771 source=<source>`.
-
-Wavefront adds the suffixes `.m`, `.h`, or `.d` to the metric name according to the aggregation interval. For example, if the metric `request.latency` is aggregated over an hour, the metric will be named: `request.latency.h`.
-
-## Querying and Viewing Histogram Metrics
-
-You display histogram information by running `hs()` in conjunction with histogram functions, or by selecting a histogram metric from the Histogram browser.
-
-
-### Histogram Query Basics
+To display histogram information start with a query or with the Histogram browser:
+* Run an `hs()` query, optionally with [histogram functions](query_language_reference.html#histogram-functions)
+* Select **Browse > Histograms** from the task bar and drill down to a histogram metric.
 
 You use the [`hs()` function](hs_function.html) with the name of a histogram metric to access the histogram distributions for that metric. A histogram metric name has an extension `.m`, `.h`, or `.d`:
 * If you sent distributions in histogram data format, the histogram metric extension corresponds to the interval you specified (`!M`, `!H`, or `!D`).
 * If you sent metrics using Wavefront data format, the histogram metric extension corresponds to the histogram port that you used.
 
+## Visualizing Histogram Metrics in a Histogram Chart
 
-To visualize information about histogram distributions, you can run the `hs()` function under a time-series chart. We implicitly wrap a `median()` function around the `hs()` function and display the median value of each distribution as a time series:
+Histogram charts are charts designed especially for histogram visualization.
+
+![histogram overview](images/histograms_overview.png)
+
+You can:
+* Add histogram queries in Query Builder (Chart Builder is not currently supported for histogram queries).
+* Set the Y axis dimensions and X axis minimum, maximum, and units.
+* Select percentile markers to display.
+* Customize the color gradient.
+* Examine each histogram bar with hover text.
+* Drill down to a corresponding chart from the menu in the top right.
+
+See the [chart reference for histograms](ui_chart_reference.html#histogram-chart) for details.
+
+## Visualizing Histogram Metics in Other Charts
+
+It's also possible to visualize histogram distributions in a time-series chart such as a line chart. We implicitly wrap a `median()` function around the `hs()` function and display the median value of each distribution as a time series:
 
 ![default histogram](images/hs_function_as_median.png)
 
