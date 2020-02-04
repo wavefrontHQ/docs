@@ -43,6 +43,7 @@ A **line plot** represents interpolated point buckets. The X axis represents the
 
 Missing data is represented by a dashed line. The dashed line only gives a visual representation of the data stream; it _does not_ represent values of the missing data. If you hover over the chart, you won't see values where the gap threshold has been applied. Use the **Format > Gap Threshold** property to set the amount of time before gaps of missing data display as dashed lines.
 
+<a id="line_plot_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 <table>
 <tbody>
@@ -78,6 +79,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 </tbody>
 </table>
 
+<a id="line_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
@@ -112,7 +114,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 </tbody>
 </table>
 
-
+<a id="line_plot_legend_tab">
 <p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
@@ -169,10 +171,12 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<a id="line_plot_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
+<a id="line_plot_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -185,6 +189,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="line_plot_advanced_tab">
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
@@ -211,6 +216,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 A **point plot** chart displays point buckets *without* any interpolation. Like a line chart, the X-axis represents the amount of time in your time window, and the Y-axis represents the value associated with the data during that time window.
 
+<a id="point_plot_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
@@ -244,6 +250,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 </tbody>
 </table>
 
+<a id="point_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
@@ -278,6 +285,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 </tbody>
 </table>
 
+<a id="point_plot_legend_tab">
 <p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
@@ -334,10 +342,12 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<a id="point_plot_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
+<a id="point_plot_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -350,6 +360,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="point_plot_advanced_tab">
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
@@ -378,6 +389,7 @@ A **stacked area** chart is similar to a line chart, but each line is filled in 
 
 The stacked area chart can help you determine at a glance which queries have the largest magnitude at any point in time. It is most commonly used to visually compare two or more quantities.
 
+<a id="stacked_area_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
@@ -429,8 +441,9 @@ The following stack types are supported.
 </table>
 
 
-
+<a id="stacked_area_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
+
 
 The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
@@ -464,6 +477,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 </tbody>
 </table>
 
+<a id="stacked_area_legend_tab">
 <p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
@@ -520,10 +534,12 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<a id="stacked_area_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
+<a id="stacked_area_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -536,6 +552,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="stacked_area_advanced_tab">
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
@@ -564,6 +581,7 @@ A **stacked column** chart resembles a bar chart and lets you view your data in 
 
 This chart supports the same tabs and options as the Stacked Area Chart discussed above but does not allow you to specify a Stack Type in the Format tab.
 
+<a id="stacked_column_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
@@ -602,7 +620,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 </table>
 
 
-
+<a id="stacked_column_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
@@ -637,6 +655,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 </tbody>
 </table>
 
+<a id="stacked_column_legend_tab">
 <p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
 
 Controls the legend displayed for the chart by default. The options are the same for line plot and point plot charts.
@@ -688,10 +707,12 @@ When you look at the chart, you can also control the legend with these keyboard 
 </tbody>
 </table>
 
+<a id="stacked_column_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
+<a id="stacked_column_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -704,6 +725,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="stacked_column_advanced_tab">
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
@@ -730,6 +752,9 @@ Chart description which shows up as hover text when users move the mouse over th
 
 A **table** chart allows fine-grained customization in the Format tab but doesn't support changes to the legend.
 
+
+<a id="table_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 <table>
 <tbody>
 <thead>
@@ -771,6 +796,7 @@ A **table** chart allows fine-grained customization in the Format tab but doesn'
 </tbody>
 </table>
 
+<a id="table_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 The Axis tab of a table chart allows you to limit which values show up in the chart. Consider this example table, which users have to scroll:
@@ -807,10 +833,12 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 </tbody>
 </table>
 
+<a id="table_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally pass in a dashboard variable or a constant. For example, you can specify a constant us-west-2 to be used as a variable in the target dashboard. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
 
+<a id="table_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -823,6 +851,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="table_advanced_tab">
 <p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
 
 <table>
@@ -861,6 +890,7 @@ In addition to Markdown formatted text, you can use links, images hosted outside
 
 By default, a **single stat** chart plots a single series on a chart and displays a summarized value for that series in large font on the chart. The font size and placement of the displayed value can be unique for each chart. A common use case is displaying instantaneous values of critical metrics on an overhead display.
 
+<a id="single_stat_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
@@ -928,6 +958,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tbody>
 </table>
 
+<a id="single_stat_sparkline_tab">
 <p><span style="font-size: large; font-weight: 600">Sparkline Tab</span></p>
 
 The sparkline on a single stat chart summarizes the series display. You can customize the sparkline with these options:
@@ -977,6 +1008,7 @@ Whether and where to show the sparkline. Options are:
 </tbody>
 </table>
 
+<a id="single_stat_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -989,6 +1021,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="single_stat_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
@@ -1009,10 +1042,12 @@ A **topk** chart shows the most critical time series (8 by default) as horizonta
 * Specify the number of bars and other details such as the bar label, bar header, etc.
 * Specify a drilldown link that directs users to a different dashboard when they click on a bar.
 
+<a id="topk_color_mapping_tab">
 <p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
 
 The color mapping tab lets you define which set of values maps to which colors. In the example above, values under 0.5 are mapped to orange, values 0.5 - 1.0 are mapped to blue. See [How Do I Set Up Color Mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) for details.
 
+<a id="topk_format_tab">
 <p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
 
 <table>
@@ -1073,6 +1108,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tbody>
 </table>
 
+<a id="topk_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -1086,6 +1122,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </table>
 
 
+<a id="topk_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 Allows you to direct end users to a target dashboard if they click this chart. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
@@ -1109,10 +1146,12 @@ A **node map** chart shows colored 3-D cubes ordered from highest to lowest.   a
 
 When you refresh a node map page, a short animation folds out the chart content.
 
+<a id="node_map_format_tab">
 <p><span style="font-size: large; font-weight: 600">Color Mapping Tab</span></p>
 
 The color mapping tab lets you define which set of values maps to which colors. In the example above, values less than 0.3 are green, values less than 0.8 are yellow. All other values are red. See [How Do I Set Up Color Mapping](ui_charts_faq.html#how-do-i-set-up-color-mapping) for details.
 
+<a id="node_map_default_tab">
 <p><span style="font-size: large; font-weight: 600">Node Map Defaults Tab</span></p>
 
 <table>
@@ -1140,6 +1179,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </tbody>
 </table>
 
+<a id="node_map_description_tab">
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 
 <table style="width: 100%;">
@@ -1152,6 +1192,7 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<a id="node_map_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
 If you [specify a drilldown link], end users are directed to a target dashboard when they click this chart. You can optionally pass a point tag, variable, or other value into the target dashboard to customize it for the user ahead of time. See [How Do Drilldown Links Work](ui_charts_faq.html#how-do-drilldown-links-work) for details.
