@@ -39,11 +39,14 @@ This function does not interpolate any data values before doing the subtraction.
  
 
 ## Examples
+In this example, we're starting with a single time series.
 
-In the following chart, the value at 5:00pm is 462 and the value 15 minutes before that was 258, resulting in a difference of 204.
+!ts mdiff before](images/ts_mdiff_before.png)
+
+In the following chart, each point in the green time series represents the current value minus the value 15 minutes ago.
 
 ![ts mdiff](images/ts_mdiff.png)
 
 ## See Also
 
-See [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html) for background information. 
+See [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html) for background information.

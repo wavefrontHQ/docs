@@ -11,10 +11,10 @@ summary: Reference to the removeSeries() function
 ```
 removeSeries(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
-where <filterN> is: 
-    <metricName> | source="<sourceName>" | tag="<sourceTagName>" | <pointTagKey>="<pointTagValue>" 
+where <filterN> is:
+    <metricName> | source="<sourceName>" | tag="<sourceTagName>" | <pointTagKey>="<pointTagValue>"
 ```
-Filters the expression to display only the time series that do <em>not</em> match one or more filters, which might be any combination of metric names, source names, source tags, or point tags. 
+Filters the expression to display only the time series that do <em>not</em> match one or more filters, which might be any combination of metric names, source names, source tags, or point tags.
 
 ## Parameters
 <table style="width: 100%;">
@@ -50,6 +50,6 @@ ts("smp-fax*.count" and not "smp-fax*.metrics.wavefront.*", source="-eq*")`
 
 ## Examples
 
-The following example removes all series tagged with `env=dev`, so only those with `env=production` remain.
+The following example removes all series tagged with `env=production`, so only those with `env=dev` remain.
 
 ![remove series](images/ts_remove_series.png)

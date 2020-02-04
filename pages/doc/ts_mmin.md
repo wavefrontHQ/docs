@@ -38,7 +38,15 @@ By default, all the lines are dimmed. You can move the curser over a line to hig
 
 ## Examples
 
-The following example shows the result of a simple `mmin()` query.
+Let's first look at a time series that shows results for all `app-1*` time series.
+
+![mmin](images/ts_mmin_before.png)
+
+When we apply the `min()` function, we're using aggregation and get the minimum for all time series.
+
+![mmin](images/ts_mmin_min.png)
+
+In contrast, when we apply `mmin()` we get the minimum for each time window for each time series.
 
 ![mmin](images/ts_mmin.png)
 

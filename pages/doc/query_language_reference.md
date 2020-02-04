@@ -347,7 +347,7 @@ Examples:
 <li><strong>httpstatus.api.* and ("*.POST.*" or "*.PUT.*")</strong> matches <code>httpstatus.api</code> metrics for <code>POST</code> or <code>PUT</code> operations.
 </li>
 
-<li><strong>source="app-1"&#42;</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
+<li><strong>source="app-1&#42;"</strong> matches all sources starting with <code>"app-1"</code>, such as <code>app-10</code>, <code>app-11</code>, <code>app-12</code>, <code>app-110</code>, and so on.
  </li>
 
 <li><strong>region="&#42;"</strong> matches the time series that have the <code>region</code> point tag with any value, and filter out any time series without a <code>region</code> point tag.
@@ -1377,12 +1377,7 @@ In a time-series chart, this function displays the median values of the merged d
 </td>
 </tr>
 <tr>
-<td><a href="ts_cdf.html">cdf(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
-<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
-</td>
-</tr>
-<tr>
-<td><a href="ts_cdf.html">align(<strong>&lt;raw_value&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td><a href="ts_align.html">align(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Adjusts the granularity of the series of histogram distributions described by <strong>hsExpression</strong>, by merging distributions into time buckets of size <strong>timeWindow</strong> and returning one distribution per bucket. <br>
 In a time-series chart, this function displays the median values of the aligned distributions.
 </td>
@@ -1412,7 +1407,12 @@ Each histogram conversion function in the following table takes histogram distri
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
+<td><a href="ts_cdf.html">cdf(<strong>&lt;rawValue&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
+</td>
+</tr>
+<tr>
+<td><a href="ts_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
 <td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
 </tr>
 <tr>

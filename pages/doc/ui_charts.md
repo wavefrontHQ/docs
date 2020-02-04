@@ -58,7 +58,7 @@ You can create a chart from a dashboard or from the task bar.
 
 From the Data tab, fine-tune the metrics that are displayed in the chart by customizing the query and applying filters and functions.
 
-**Note:** Your user preferences and the last used UI determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default.
+{% include note.html content="Your user preferences and the last used UI determine whether the Data tab shows Chart Builder or the more advanced Query Editor by default." %}
 
 ### Chart Builder
 
@@ -75,7 +75,7 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 Instead of using [Chart Builder](chart_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
-**Note**: After you switch, to Query Editor, you cannot return to Chart Builder.
+{% include note.html content="After you switch, to Query Editor, you cannot return to Chart Builder." %} 
 
 We can get the metric we selected above with the following query.
 
@@ -109,10 +109,15 @@ All users can [set the chart time window](ui_examine_data.html#select-the-chart-
 
 Users with Dashboard permissions can make many other changes such as selecting the chart type or customizing the axes and colors. Here are some tasks you can perform. In many cases, they're possible only for certain chart types.
 
-**Note:** Making changes to the UI, for example, changing the units, only affects the UI:
-* Does not change the actual data values
-* Does not change the results of queries made with the API.
-* Does not change constants used in queries, including thresholds
+{{site.data.alerts.note}}
+<p>Making changes to the UI, for example, changing the units, only affects the UI:</p>
+<ul>
+  <li>Does not change the actual data values. </li>
+  <li>Does not change the results of queries made with the API.</li>
+  <li>Does not change constants used in queries, including thresholds.</li>
+
+</ul>
+{{site.data.alerts.end}}
 
 ### Change the Legend
 
@@ -174,7 +179,7 @@ To filter out some lines, you specify a minimum or maximum. By default, Wavefron
 
 You can control how units display in the Y axis. Changes affect *only the display* of data.
 
-**Note:** Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows GB of memory or Gigabytes per second, then changes can result in a clearer display.
+{% include note.html content="Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows GB of memory or Gigabytes per second, then changes can result in a clearer display." %} 
 
 By default, charts use SI unit prefixes, but you can change that.
 * **SI unit** prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source.
@@ -321,5 +326,5 @@ To temporarily change the sampling behavior for a chart, use the **Sampling** to
 
 * Customize your chart. See the [Chart Reference](ui_chart_reference.html) for details.
 * [Share a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) with a coworker (or with the customer success team if you need help).
-<!---Chart embedding not currently supported for v2
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.---!>
+<!---Chart embedding not currently supported for v2--->
+<!---* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.--->

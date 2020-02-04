@@ -36,10 +36,14 @@ Don't confuse `sample()` with  [`downsample()`](ts_downsample.html), which retur
 
 ## Examples
 
-The following example shows 10% of all `~sample.cpu.loadavg.1m` metrics. You would get the same results if you selected 3 of the metrics instead.
+The following example shows first the result of a query that returns a fairly large number of time series.
+
+![metric for sample function](images/ts_sample_before.png)
+
+We can use `sample()` to return 10% the time series, in this example, 3.  
 
 ![sample cpu load average](images/ts_sample.png)
 
 ## See Also
 
-For a random set of time series, use the [random()](ts_random.html) function. 
+For a random set of time series, use the [random()](ts_random.html) function.

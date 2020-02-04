@@ -68,7 +68,7 @@ Suppose your users monitor 2 dashboards:
 
 * Dashboard 2 allows users to get details about the different availability zones. A variable (Availability Zone) is defined for that dashboard, and users can select a value for that variable.
 
-**Note** For this use case, a variable value that matches the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match.
+{% include note.html content ="For this use case, a variable value that matches the point tag value must exist in dashboard 2. However, the point tag name and the variable name do not have to match."%}
 
 You can set this up as follows:
 1. Inside dashboard 1, define a drilldown link for each single stat chart that:
@@ -83,5 +83,5 @@ You can set this up as follows:
 
 * Get the details about each chart type from the [Chart Reference](ui_chart_reference.html).
 * Send [a link to a chart](ui_sharing.html#share-a-link-to-a-dashboard-or-chart) to a coworker (or to the customer success team if you need help).
-<!---
-* [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront.--->
+
+<!-- * [Embed a chart](ui_sharing.html#embed-a-chart-in-other-uis) outside Wavefront. -->

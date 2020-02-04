@@ -46,7 +46,7 @@ You can also run a proxy in a [Docker or Kubernetes container](proxies_configuri
 
 Many users install a proxy when they set up an integration. For other situation, we support several installation options.
 
-**Note**: In development, many customers use only one proxy that receives data from many applications and sends those data to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options).
+{% include note.html content="In development, many customers use only one proxy that receives data from many applications and sends those data to the Wavefront service. In production, consider using two proxies behind a load balancer. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
 
 ### Install a Proxy from the UI
 
@@ -58,8 +58,7 @@ To install and run a proxy on a Linux, Mac, or Windows host, or in a Docker cont
 1. Click the **\[Linux \| Mac \| Windows \| Docker ]** tab.
 1. (Windows Only) Download the proxy.
 1. Copy the script and run it on your host.
-
-   **Note** On Windows, do not run the installer `.exe` file. Run the script instead.
+    {% include note.html content="On Windows, do not run the installer `.exe` file. Run the script instead." %} 
 1. After the proxy contacts the Wavefront service, the proxy name displays under "Checking for new proxies..." and the button label changes to **Done**.
 1. Click **Done** and verify that your proxy is listed on the Proxies page. If not, follow the steps in [Managing Proxy Services](#managing-proxy-services) to start the proxy is running.
 
@@ -158,7 +157,7 @@ You set the following properties to configure proxy ports:
 * For **histograms**, set `histogramDistListenerPorts` for data in histogram format. The recommended port number is 2878 (proxy 4.29 and later) or 40000 (earlier proxy versions). See [Histogram Proxy Ports](proxies_histograms.html#histogram-proxy-ports) for port numbers for histograms in Wavefront data format.
 * For **trace data**, set `traceListenerPorts`.  The recommended port number is 30000.
 
-**Note:** If you are instrumenting your application with a Wavefront SDK to send data to the proxy, make sure the proxy's port settings match the port numbers you specify during SDK setup.
+{% include note.html content="If you are instrumenting your application with a Wavefront SDK to send data to the proxy, make sure the proxy's port settings match the port numbers you specify during SDK setup." %} 
 
 ### Test a Proxy
 
@@ -180,7 +179,7 @@ Wavefront frequently releases new proxy versions with new features. See [Proxy R
 
 To upgrade, select **Browse > Proxies > Add New Proxy**. If an older version of the proxy exists, this process replaces it.
 
-**Note** On Windows systems, you might have to uninstall the existing proxy first.
+{% include note.html content="On Windows systems, you might have to uninstall the existing proxy first." %} 
 
 For Linux and Mac OS, can also upgrade a proxy from the command line as follows:
 

@@ -23,6 +23,11 @@ In the Getting Started videos, Wavefront co-founder Clement Pang explains how th
 <td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
+<td width="30%"><strong><font color="blue">Kubernetes and Wavefront</font></strong><br> <a href="https://youtu.be/jbmUKPSIguQ" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront"/></a></td>
+<td width="70%"><br><p>Containers have many benefits, but monitoring them can be challenging. In this video, Clement discusses several ways in which you can use Wavefront for monitoring Kubernetes. The video includes some discussion of our new Wavefront Collector for Kubernetes. </p> </td>
+</tr>
+
+<tr>
 <td><strong><font color="blue">Alerting in Wavefront</font></strong><br>
 <a href="https://www.youtube.com/watch?v=VjmWExKiYYg&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1" target="_blank"><img src="/images/v_alerting_clement.png"  alt="Alerting With Wavefront"/></a></td>
 <td><br>

@@ -46,10 +46,6 @@ The following example shows how `integral()` sums all sources that start with `a
 
 ![integral](images/ts_integral.png)
 
-As we zoom in, the differences between the different sources become more obvious.
-
-![integral zoomed](images/ts_integral_zoomed.png)
-
 ## Caveats
 
 The `integral()` function depends on the window size and is not compatible with `at()`. Applying `at()` to the results of `integral()` may produce unexpected results. Use the `msum()` function with a `1vw` time window argument instead.

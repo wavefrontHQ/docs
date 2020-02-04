@@ -11,7 +11,7 @@ summary: Reference to the rawmax() function
 rawmax(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the highest value across the set of time series described by the expression. The results are computed from real reported data values only. 
+Returns the highest value across the set of time series described by the expression. The results are computed from real reported data values only.
 Use [`max()`](ts_max.html) to include interpolated values.
 
 ## Parameters
@@ -39,19 +39,19 @@ The `rawmax()` aggregation function displays the highest (maximum) data value at
 
 By default, `rawmax()` returns a single series of maximums by aggregating data values across all time series. You can optionally group the time series based on one or more characteristics, and obtain a separate series of maximums for each group.
 
-A raw maximum is computed only from real values reported at a given moment in time. 
+A raw maximum is computed only from real values reported at a given moment in time.
 No interpolation is performed to fill in data gaps in any time series.
-Use [`max()`](ts_max.html) if you want the maximums to include interpolated values wherever possible. Using `rawmax()` instead of `max()` can significantly improve query performance. 
+Use [`max()`](ts_max.html) if you want the maximums to include interpolated values wherever possible. Using `rawmax()` instead of `max()` can significantly improve query performance.
 
 ### Grouping
 
-Like all other aggregation functions, `rawmax()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw maximums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key. 
+Like all other aggregation functions, `rawmax()` returns a single series of results by default. You can include a 'group by' parameter to obtain separate raw maximums for groups of time series that share common metric names, source names, source tags, point tags, or values for a particular point tag key.
 The function returns a separate series of results corresponding to each group.
 
 You can specify multiple 'group by' parameters to group the time series based on multiple characteristics. For example, `rawmax(ts("cpu.cpu*"), metrics, Customer)` first groups by metric names, and then groups by the values of the `Customer` point tag.
 
 
-## Examples
+## Example
 
 In following example, we use `rawmax()` to display the maximum for the sample cpu usage percentage, and display a line for each region.
 

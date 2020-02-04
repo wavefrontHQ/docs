@@ -16,7 +16,8 @@ You can use the `join()` function to:
 
 The Wavefront `join()` function is modeled after the SQL JOIN operation, which correlates rows of data across 2 or more input tables, and then forms new tables by joining selected portions of the correlated rows. If you are familiar with SQL, then you will recognize many of the Wavefront `join()` keywords and concepts.
 
-**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html).
+{% include note.html content="Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an shortcut for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html)." %}
+
 
 Watch Pierre talk about Wavefront joins and how they're used.
 
@@ -36,7 +37,7 @@ A `join()` operation views every time series as a row in a table that has a colu
 
 Suppose you are running services on several sources, and you want to use a Wavefront `join()` to correlate the CPU load with the number of service requests per second on each source. You identify the time series you want to correlate, and refer to them using the ts() expressions `ts(cpu.load)` and `ts(request.rate)`. Each ts() expression stands for a group of time series with different sources and point-tag values, and you want to use `join()` to identify any pairs of series that both flow from the same source, and share certain point-tag values.
 
-We represent the time series for each metric as rows in separate tables, which we will use for the various `join()` examples on this page. (**Note:** The doc uses row indicators like _L1_ so we can refer to specific time series in later examples. They're not part of the data!)
+We represent the time series for each metric as rows in separate tables, which we will use for the various `join()` examples on this page. The doc uses row indicators like _L1_ so we can refer to specific time series in later examples. They're not part of the data!
 
 The first table shows 6 time series that are described by `ts(cpu.load)`. Each series is a unique combination of metric name, source, and values for point tags `env` and `dc`:
 
@@ -159,8 +160,7 @@ The second table shows 4 time series that are described by `ts(request.rate)`. T
 </tbody>
 </table>
 
-**Note:** The informal notation in the _Data Points_ column indicates that a time series' data points are an array of timestamped values.
-
+{% include note.html content="The informal notation in the _Data Points_ column indicates that a time series' data points are an array of timestamped values." %}
 
 ## join() Syntax Overview
 
@@ -188,7 +188,7 @@ join(
   )
 ```
 
-**Note:** For readability, we write the keywords in all caps, but that's not required.
+For readability, we write the keywords in all caps, but that's not required.
 
 ### Join Input and Join Type
 
@@ -231,6 +231,7 @@ join(
 
 * Derives the data points for each new time series from the data points of matching input rows.
   - Table aliases indicate where the input data points come from. For example, `ts1` refers to the data points from a row in the left table.
+* Inner joins function as expected only when the output data expression includes **both** `ts1` and `ts2` in some form.
 * Supports operators `+ - / *` and functions `max()`, `min()`, `avg()`, `median()`, `sum()`, `count()` to combine data points from both tables. For example:
   - `ts1 / ts2` divides each value from a left-hand row by the corresponding value from the matching right-hand row.
   - `avg(ts1, ts2)` averages each value from a left-hand row with the corresponding value from the matching right-hand row.
@@ -241,7 +242,9 @@ join(
 
 Like SQL JOIN, the Wavefront `join()` function supports different types of join operation. Each join type has a different rule for including rows (time series) in the result table.
 
-The following table shows the main types of joins. **Note:** This table shows _inclusive_ joins, which means they include any rows that satisfy the join condition. Wavefront also supports [_exclusive_ join types](#exclusive-join-types) for use cases in which you only want rows that do not satisfy the condition.
+The following table shows the main types of joins.
+* This table shows _inclusive_ joins, which means they include any rows that satisfy the join condition.
+* Wavefront also supports [_exclusive_ join types](#exclusive-join-types) for use cases in which you only want rows that do not satisfy the condition.
 
 <table width="100%">
 <colgroup>
@@ -345,7 +348,7 @@ The inner join matches rows (time series) from the [left table](#left-hand-table
 </tbody>
 </table>
 
-**Note:** Rows _L5_ and _R4_ do not appear in this table because an inner join returns only the rows that satisfy the join condition. So we ignore any series from one table that is not matched by a series in the other table.
+{% include note.html content="Rows _L5_ and _R4_ do not appear in this table because an inner join returns only the rows that satisfy the join condition. So we ignore any series from one table that is not matched by a series in the other table." %}
 
 <!--- ### Selected Rows are Input for the Result Series --->
 <br>
@@ -418,7 +421,7 @@ Each pair of matching rows in the previous table is the input for a new time ser
 </tbody>
 </table>
 
-**Note:** The table does not have a column for `dc`, because the sample `join()` function did not specify this point tag among its output metadata expressions.
+{% include note.html content="The table does not have a column for `dc`, because the sample `join()` function did not specify this point tag among its output metadata expressions." %}
 
 <!--- ### Result Series Have Data Points Derived from Input Rows --->
 <br>
@@ -431,7 +434,7 @@ The data points of each result series are derived from the data points of the ma
 
 Wavefront accomplishes this by dividing each value of the left-hand series by the value with the corresponding timestamp from the right-hand series. So, for example, the result series corresponding to row _A5_ has points that are derived by dividing each value from _L6_ by the corresponding value from _R3_.
 
-**Note:** If the timestamps for the 2 input series do not line up, Wavefront interpolates values before combining them.
+If the timestamps for the 2 input series do not line up, Wavefront interpolates values before combining them.
 
 ## Left Outer Join Example
 
@@ -599,7 +602,7 @@ The data points of each new series are derived from the data points of the corre
 * When a new series is produced by combining a pair of matching input series, the data points in the new series are <a href="#derived_data_inner">derived as for an inner join</a>.
 * When a new series (such as _B5_) is produced from a single left-hand input series, the data points in the new series are derived using the special syntax in the output data expression. The sample output data expression `ts1 / {ts2|1}`  says to divide the values of a left-hand series by 1 whenever there is no matching right-hand series, as is the case for _B5_.
 
-**Note:** You must use the special syntax in a left outer join to provide alternate values for the right-hand series, which might be missing. A result series with missing input values will not display.
+You must use the special syntax in a left outer join to provide alternate values for the right-hand series, which might be missing. A result series with missing input values will not display.
 
 You can use the special syntax to provide whatever alternate value makes sense for your use case. In the example, dividing by 1 gives the new series the same data points as the unmatched left-hand input series. In an output expression that uses `+` to combine data values, however, you can preserve values by specifying 0 as the alternate value, for example, `ts1 + {ts2|0}`.
 
@@ -774,13 +777,13 @@ The data points of each new series are derived from the data points of the corre
 * When a new series is produced by combining a pair of matching input series, the data points in the new series are <a href="#derived_data_inner">derived as for an inner join</a>.
 * When a new series (such as _C6_) is produced from a single right-hand input series, the data points in the new series are derived using the special syntax in the output data expression. The sample output data expression `{ts1|0} / ts2`  says to divide the right-hand series into 0 whenever there is no matching left-hand series, as is the case for _C6_.
 
-**Note:** You must use the special syntax in a right outer join to provide alternate values for the left-hand series, which might be missing. A result series with missing input values will not display.
+You must use the special syntax in a right outer join to provide alternate values for the left-hand series, which might be missing. A result series with missing input values will not display.
 
 You can use the special syntax to provide whatever alternate value makes sense for your use case. In the example, specifying 0 as the dividend produces a new constant series of 0 for each unmatched right-hand input series.
 
 ## Exclusive Join Types
 
-You can combine the Wavefront `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition. Exclusive joins are useful for finding hidden issues, as illustrated in [our blog on finding silent failures with `join()`](https://www.wavefront.com/find-silent-failures-in-cloud-services-faster-with-join-function). 
+You can combine the Wavefront `join()` and [`removeSeries()`](ts_removeSeries.html) functions to perform exclusive join operations. An exclusive join starts with an [inclusive join type](#join-types) and then filters out any rows (time series) that satisfy the join condition. Exclusive joins are useful for finding hidden issues, as illustrated in [our blog on finding silent failures with `join()`](https://www.wavefront.com/find-silent-failures-in-cloud-services-faster-with-join-function).
 
 The following table describes the types of exclusive join.
 
@@ -814,7 +817,7 @@ Use `removeSeries()` to filter out matches
 
 ### Left Exclusive Join Example
 
-Suppose you are running services on various sources, and you know that your services take 3.5 minutes to start up. You can tell that a service has started when it starts reporting metrics, but you'd like to find out if any services have failed to start after 5 minutes. 
+Suppose you are running services on various sources, and you know that your services take 3.5 minutes to start up. You can tell that a service has started when it starts reporting metrics, but you'd like to find out if any services have failed to start after 5 minutes.
 
 You can do this by running a left exclusive join between a metric that is reported by the source (e.g., `cpu.uptime`) and a metric that is reported by the service (e.g., `service.uptime`), provided that these metrics share common metadata (e.g., an `id` point tag). You can then investigate any source whose uptime metric does not correspond to a matching service-uptime metric. For example:
 
@@ -829,13 +832,13 @@ removeSeries(
 )
 ```
 
-In this query, the `join()` function performs an left outer join that uses the `id` point tag value as the join condition. Each output series from this function has: 
-* The specified metric name (`NeedsAttention`), 
-* Data values and several metadata values from a `cpu.uptime` series. 
+In this query, the `join()` function performs an left outer join that uses the `id` point tag value as the join condition. Each output series from this function has:
+* The specified metric name (`NeedsAttention`),
+* Data values and several metadata values from a `cpu.uptime` series.
 * A new `filter-id` point tag, but only if the join condition has been met:
-  - `filter-id` is added whenever a `cpu.uptime` series and a `service.uptime` series have a matching id. 
+  - `filter-id` is added whenever a `cpu.uptime` series and a `service.uptime` series have a matching id.
   - `filter-id` is not added to an unmatched output series.
 
 The `removeSeries()` function then filters the results of the `join()` function by removing any `NeedsAttention` series that has a `filter-id` tag. The overall result is a set of time series corresponding to each source that does not have the expected service running on it.
 
-**Note:** See the [video](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s) for examples of a right exclusive join and a full exclusive join.
+See the [video by Pierre](https://www.youtube.com/watch?v=SZhU8AO-SVk&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=22&t=0s) for examples of a right exclusive join and a full exclusive join.

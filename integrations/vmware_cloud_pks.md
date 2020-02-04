@@ -23,18 +23,21 @@ The collector makes it easy for you to monitor and manage your Kubernetes enviro
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 
-* Kubernetes: Detailed health of your infrastructure and workloads.
-* Kubernetes Metrics by Namespace: Details of your pods/containers broken down by namespace.
-* Kube-state metrics: State of Kubernetes objects such as pods, services, deployments and daemonsets.
-* Kubernetes Collector Metrics: Internal stats of the Collector.
+* Kubernetes Summary: Detailed health of your infrastructure and workloads.
+* Kubernetes Clusters: Detailed health of your clusters and its nodes, namespaces, pods and containers.
+* Kubernetes Nodes: Detailed health of your nodes.
+* Kubernetes Pods: Detailed health of your pods broken down by node and namespace.
+* Kubernetes Containers: Deatailed health of your containers broken down by namespace, node and pod.
+* Kubernetes Namespaces: Details of your pods/containers broken down by namespace.
+* Kubernetes Collector Metrics: Internal stats of the Wavefront Kubernetes Collector.
 
-Here's a preview of some of the pod charts in the Kubernetes dashboard:
+Here's a preview of the Kubernetes Summary dashboard:
+
+{% include image.md src="images/db_kubernetes_summary.png" width="80" %}
+
+Here's a preview of the Kubernetes Pods dashboard:
 
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
-
-Here's a preview of some of the charts from kube-state-metrics dashboard:
-
-{% include image.md src="images/kube-state-dashboard.png" width="80" %}
 
 ## Kubernetes Setup
 
