@@ -155,6 +155,7 @@ In the service map panel, you can:
 * Click on a service to display the RED metrics that reflect the health of the service:
   - Request count, error count, and trace duration at the 95th percentile, over all traces (root spans) that originate in the service.
   - Line charts that indicate the general contour of the RED metrics.
+  - [Fine-tune the time window](ui_examine_data.html#fine-tune-the-time-window) of the RED metrics charts, and see [events](events.html). 
 * Navigate to the selected service's dashboard for more service details.
 * Scroll the service map to zoom in or out, and re-center the service map.
 * Look for nodes that are grayed out. These represent services that contribute spans to at least one trace in the list, but not to the trace that is currently selected.
