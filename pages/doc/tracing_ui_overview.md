@@ -99,12 +99,10 @@ After you save the clone, you can find it by name from the **Dashboards** menu o
 
 ### Navigate to the Tracing UI from the Service Metrics Dashboard
 
-You can navigate directly from a service dashboard to the corresponding tracing information if the charts have the `application` and `service` [point tags](query_language_point_tags.html). Follow the steps given below: 
+You can navigate directly from a service dashboard to the corresponding tracing information if the charts have the `application` and `service` [point tags](query_language_point_tags.html).
 
-1. Click the **view** dropdown and select **Detailed View**.
-  ![detailed view](images/tracing_detailed_view.png)
-2. On your chart, click the vertical ellipsis in the top right, click **Traces**, and click a service.
-  ![charts to tracing](images/tracing_metrics_to_tracing.png)
+On your chart, click the vertical ellipsis in the top right, click **Traces**, and click a service.
+![charts to tracing](images/tracing_metrics_to_tracing.png)
   
 {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 

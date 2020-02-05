@@ -83,12 +83,10 @@ The Wavefront tracing dashboard includes a set of charts for monitoring the trac
 <li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
 <li>Click <strong>Import Charts</strong>.</li>
 <li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
-  {{site.data.alerts.note}}
   <ul>
-    <li>The URL field supports letters, numbers, underscores, and dashes.</li>
-    <li>The Name field supports letters, numbers, characters, and spaces.</li>
+  <li>The URL field supports letters, numbers, underscores, and dashes.</li> 
+  <li>The Name field supports letters, numbers, characters, and spaces.</li>
   </ul>
-  {{site.data.alerts.end}}
 </li>
 <li>To view data that is specific to an application and service, use the <strong>application</strong> and <strong>service</strong> dropdowns.</li>
 </ol></td>
