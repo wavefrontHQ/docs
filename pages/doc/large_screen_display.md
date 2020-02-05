@@ -1,0 +1,52 @@
+---
+title: Showing Dashboards on Large-Screen Displays
+tags: [administration]
+sidebar: doc_sidebar
+permalink: large_screen_display.html
+summary: Display Wavefront dashboards on one or more large-screen, read-only displays
+---
+
+Some Wavefront customers saw a need to show Wavefront on several large screen, read only displays. This page explains how to set up an environment with these characteristics:
+
+* Authorization only at the originating source. No login prompts at the TV screen.
+* No Timeout.
+* Read Only. The purpose is display.
+
+## Prerequisites
+
+You start with a Linux VM with the following characteristics:
+* Runs inside the network
+* Outbound access to the Internet (but doesn't need inbound access)
+* Internal DNS
+* One account, preferably a [service account](service_accounts.html)
+* Account has Dashboards and Alerts permissions.
+
+We tested the process with an Ubuntu VM.
+
+## Set Up the VM to Send the Dashboard to the Large Screen
+
+Follow these steps:
+
+1. Install NGNIX on your Linux VM.
+2. Add the following to the NGNIX configuration file:
+
+```
+###
+{code}server {
+  listen 80;
+
+  location / {
+    proxy_pass <wavefront_url_like_https://example.wavefront.com>;
+    proxy_set_header Cookie "";
+    proxy_set_header Authorization "Bearer <token_of_the_user_to_be_like_a_service_account>";
+    proxy_set_header X-WAVEFRONT-RESTRICTED "true";
+    proxy_hide_header Cookie;
+  }
+}
+{code}
+###
+```
+3. Restart the NGNIX service.
+4. Type the URL that includes the address of the VM into the browser that's connected to the large-screen displays.
+
+NGNIX will continue to run, and the connected screens will show the dashboard. Because a service account with a Bearer token was used in the configuration file, there are no additional login prompts.
