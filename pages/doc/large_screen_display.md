@@ -46,6 +46,8 @@ Follow these steps:
 {code}
 ###
 ```
+   This example uses 80 as the listener port, so you have to make sure that port is open.
+   
 3. Restart the NGNIX service.
 4. Type the URL that includes the address of the VM into the browser that's connected to the large-screen displays.
 
