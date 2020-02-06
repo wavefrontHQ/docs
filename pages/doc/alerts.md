@@ -48,7 +48,7 @@ The alert condition is a ts() expression that defines the threshold for an alert
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
 * A **classic alert** send a notification with the specified severity to all specified targets.
-* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity.
+* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state. 
 
 ### Alert Target
 
@@ -222,7 +222,9 @@ Required fields for a multi-threshold alert are:
 * Alert condition and operator (e.g. greater than>)
 * At least one severity and corresponding threshold value.
 
-For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Only custom alert targets are supported, but you can initially create the alert without specifying a target.
+For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Each target is notified if the condition is met when the alert changes state.
+
+Only custom alert targets are supported, but you can initially create the alert without specifying a target.
 
 **Note:** You cannot associate an alert target with more than one severity.
 
