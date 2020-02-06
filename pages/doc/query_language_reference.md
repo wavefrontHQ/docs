@@ -1465,7 +1465,7 @@ Each histogram output conversion function in the following table takes a time se
 <td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
 </tr>
 <tr>
-<td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>, timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;, bucketName&gt; </strong> &rbrack; &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
 <td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
