@@ -1382,17 +1382,13 @@ In a time-series chart, this function displays the median values of the merged d
 In a time-series chart, this function displays the median values of the aligned distributions.
 </td>
 </tr>
-<tr>
-<td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>, timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;, bucketName&gt; </strong> &rbrack; &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
-<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
-</td>
-</tr>
 </tbody>
 </table>
 
-### Histogram Conversion Functions
 
-Each histogram conversion function in the following table takes histogram distributions as input, and returns the results as time series. You can therefore use a histogram conversion function as a **tsExpression** parameter in a time series query function.
+### Histogram Input Conversion Functions
+
+Each histogram input conversion function in the following table takes histogram distributions as input, and returns the results as time series. You can therefore use a histogram conversion function as a **tsExpression** parameter in a time series query function.
 
 <table style="width: 100%;">
 <colgroup>
@@ -1410,10 +1406,6 @@ Each histogram conversion function in the following table takes histogram distri
 <td><a href="ts_cdf.html">cdf(<strong>&lt;rawValue&gt;</strong>, <strong>&lt;hsExpression&gt;</strong>)</a></td>
 <td>Cumulative distribution function for histograms. Lets you find out how likely it is that a histogram is less than or equal to a specified value (raw_value).
 </td>
-</tr>
-<tr>
-<td><a href="ts_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
-<td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
 </tr>
 <tr>
 <td><a href="hs_median.html">median(<strong>&lt;hsExpression&gt;</strong>)</a></td>
@@ -1449,6 +1441,36 @@ Each histogram conversion function in the following table takes histogram distri
 <td>
 Aligns a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. The aligned summary includes a separate constant time series for each <strong>percentage</strong> percentile. By default, the summary includes series for:  max, 99.9, 99, 95, 90, 75, avg, median (50), 25, and min. </td>
 </tr>
+</tbody>
+</table>
+
+### Histogram Output Conversion Functions
+
+Each histogram output conversion function in the following table takes a time series as input and returns the results as Wavefront histogram. You can therefore use the result as input to any of the histogram functions listed in this section.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead>
+<tr>
+<th>Histogram to Time Series <br>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="ts_histo.html">histo(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>, &lbrack;,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;&rbrack;)</a></td>
+<td>Returns a histogram distribution for the time series described by the expression. Charts that display results show the median unless you use the percentile() function to change that. </td>
+</tr>
+<tr>
+<td><a href="ts_cumulativeHisto.html">cumulativeHisto(&lbrack;<strong>, timeWindow</strong>&rbrack;, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;, bucketName&gt; </strong> &rbrack; &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
+</td>
+</tr>
+
+
 </tbody>
 </table>
 
