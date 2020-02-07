@@ -1215,7 +1215,7 @@ For both histogram data and time series data, the histogram chart allows you to 
 
 From the chart's edit menu, you can go to the corresponding trace (if any).
 
-[Go to Traces menu](histogram_goto_menu)
+![Go to Traces menu](images/histogram_goto_menu.png)
 
 <p><span style="font-size: large; font-weight: 600">Data Tab</span></p>
 
