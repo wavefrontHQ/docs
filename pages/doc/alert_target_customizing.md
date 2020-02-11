@@ -331,8 +331,8 @@ You can use iterators to visit each time series in the indicated [category](#ser
 ### Source Iterators
 <table>
 <colgroup>
-<col width="25%"/>
-<col width="75%"/>
+<col width="30%"/>
+<col width="70%"/>
 </colgroup>
 <thead>
 <tr><th>Iterator</th><th>Definition</th></tr>
@@ -360,8 +360,8 @@ You can use iterators to visit each time series in the indicated [category](#ser
 ### Source Tag Iterators
 <table>
 <colgroup>
-<col width="25%"/>
-<col width="75%"/>
+<col width="30%"/>
+<col width="70%"/>
 </colgroup>
 <thead>
 <tr><th>Iterator</th><th>Definition</th></tr>
