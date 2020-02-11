@@ -10,7 +10,7 @@ summary: Reference to the round() function
 ```
 round(<tsExpression>)
 ```
-Returns the nearest integer for each data value in the time series described by the expression. 
+Returns the nearest integer for each data value in the time series described by the expression.
 
 ## Parameters
 <table>
@@ -27,7 +27,7 @@ Returns the nearest integer for each data value in the time series described by 
 
 ## Description
 
-The `round()` function returns the nearest integer for each data value in the time series described by the expression, by mapping any data value with a fractional part to the integer that is closest in value. 
+The `round()` function returns the nearest integer for each data value in the time series described by the expression, by mapping any data value with a fractional part to the integer that is closest in value.
 
 The nearest integer is computed as follows:
 
@@ -49,11 +49,11 @@ The nearest integer is computed as follows:
 
 ## Examples
 
-Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. 
+Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. Here's the chart, with the color set to purple.
 ![round before](images/ts_round_before.png)
 
-Now we apply `round()` to our original query. Notice that the values below .5 are mapped to 0, and the values between .5 and 1.2 are mapped to 1.
-  
+Now we apply `round()` to our original query. Notice that the values below .5 are mapped to 0, and the values between .5 and 1.2 are mapped to 1. The original query is still in purple, the round is set to orange. 
+
 ![round after](images/ts_round_after.png)
 
 ## See Also
