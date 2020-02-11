@@ -43,6 +43,10 @@ The following example computes the moving variance for the CPU usage user percen
 
 ![mvar simple](images/ts_mvar_simple.png)
 
+We can see that the variance flattens out as we look at 5 days.
+
+![mvar 5d](images/ts_mvar_5d.png)
+
 ## See Also
 
 [Using Moving and Tumbling Windows to Highlight Trends](query_language_windows_trends.html)
