@@ -77,6 +77,6 @@ Now we use an `if` condition that returns a value of 50 for any point that's gre
 
 ![if then else](images/ts_if_then_else.png)
 
-Finally, we look at an example that does not use an `else-tsExpression`. For this case, we've limited the query to one time series, and we can see the interpolation that happens between the different true values.
+Finally, we look at an example that does not use an `else-tsExpression`. For this case, we've limited the query to one time series.
 
 ![if then](images/ts_if_then.png)
