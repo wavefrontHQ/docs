@@ -55,11 +55,11 @@ For the simplest case, you can use `default()` to set the default value of a que
 
 ## Examples
 
-The first screenshot shows just the function as a blue line, which is dashed when there are no data:
+The first screenshot shows two time series. The lines are dashed when there are no data:
 
 ![ts_default before](images/ts_default_before.png)
 
-If we add a second query that uses `default()`, an orange line is superimposed on top of the first in most places. In areas of missing data, we see a blue dashed line and the orange line is at 0.
+If we wrap `default()` and specify 0 as the default, missing data are replaced with 0 in the display.
 
 ![ts_default image](images/ts_default.png)
 
@@ -127,4 +127,7 @@ If you still think that `default()` is needed, limit the time window to reduce p
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
-Other missing data functions include [interpolate](ts_interpolate.html), [next](ts_next.html), and [last](ts_last.html).
+Other missing data functions include:
+* [interpolate](ts_interpolate.html)
+* [next](ts_next.html)
+* [last](ts_last.html).

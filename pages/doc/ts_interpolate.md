@@ -37,15 +37,18 @@ For example, suppose there is a gap of missing data in between two reported poin
 
 The following example zooms in on an area of a chart where data are missing. Wavefront uses dashed lines to indicate the missing data.
 
-![interpolate before](images/interpolate_before.png)
+![interpolate before](images/ts_interpolate_before.png)
 
 When you use `interpolate()` for this use case, the dashed lines are replaced with filled lines, indistinguishable from areas where data are available.
 
-![interpolate after](images/interpolate_after.png)
+![interpolate after](images/ts_interpolate_after.png)
 
 
 ## See Also
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
-Other missing data functions include [default](ts_default.html), [next](ts_next.html), and [last](ts_last.html).
+Other missing data functions include:
+* [default](ts_default.html)
+* [next](ts_next.html)
+* [last](ts_last.html)

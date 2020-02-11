@@ -10,7 +10,7 @@ summary: Reference to the floor() function
 ```
 floor(<tsExpression>)
 ```
-Returns the floor for the time series described by the expression, by rounding any data values with decimals down to the nearest integer. 
+Returns the floor for the time series described by the expression, by rounding any data values with decimals down to the nearest integer.
 
 ## Parameters
 <table>
@@ -27,7 +27,7 @@ Returns the floor for the time series described by the expression, by rounding a
 
 ## Description
 
-The `floor()` function returns the floor for each data value in the time series described by the expression. 
+The `floor()` function returns the floor for each data value in the time series described by the expression.
 
 The floor of a data value is the greatest integer that is less than or equal to that value:
 
@@ -47,11 +47,12 @@ The floor of a data value is the greatest integer that is less than or equal to 
 
 ## Examples
 
-Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. 
-![floor before](images/ts_floor_before.png)
+Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. We've changed the color to a dark purple.
 
-Now we apply `floor()` to our original query. Notice that the values below 1 are mapped to 0, and the values from 1 to 1.2 are mapped to 1.
-  
+![floor before](images/ts_ceil_before.png)
+
+Now we apply `floor()` to our original query. Notice that the values below 1 are mapped to 0, and the values from 1 to 1.2 are mapped to 1. The color for the `floor()` time series is orange.
+
 ![floor after](images/ts_floor_after.png)
 
 ## See Also

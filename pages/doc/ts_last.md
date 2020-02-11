@@ -38,11 +38,11 @@ By default, `last()` applies the last reported data value to gaps of missing dat
 
 ## Examples
 
-In the following example, we've zoomed in on `~sample.request.failures.num` and see missing data.
+In the following example, we've zoomed in on `~sample.cpu.loadavg.1m` and see missing data.
 
 ![ts_last before](images/ts_last_next_before.png)
 
-We decide to replace the missing data with the *last* value before the gap, in this case 0.
+We decide to replace the missing data with the *last* value before the gap. What that is differs for different missing data windows.
 
 ![ts_last](images/ts_last.png)
 
@@ -54,6 +54,7 @@ Then we replace the missing data with the first good value after the gap using `
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
-
-
-Other missing data functions include [default](ts_default.html), [next](ts_next.html), and [interpolate](ts_interpolate.html).
+Other missing data functions include
+* [default](ts_default.html)
+* [next](ts_next.html)
+* [interpolate](ts_interpolate.html)
