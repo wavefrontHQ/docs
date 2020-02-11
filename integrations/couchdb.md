@@ -17,7 +17,7 @@ To see a list of the metrics for this integration, select the integration from <
 
 This integration uses the CouchDB input plugin for Telegraf.
 
-**Note:**  This integration was verified with CouchDB 2.x. This integration provides updated setup instructions and dashboard for CouchDB. For the previous setup instructions, see the **CouchDB (Archived)** integration in the **Archived** section.
+**Note:**  This integration was verified with CouchDB 2.x and provides the most recent dashboard and setup instructions for CouchDB. For setup instructions of previous versions, log in to the Wavefront instance and see **CouchDB (Archived)**.
 
 
 

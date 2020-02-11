@@ -20,7 +20,7 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
-**Note:** This integration provides updated setup instructions and dashboard for NGINX Plus. For the previous setup instructions, see the **NGINX Plus (Archived)** integration in the **Archived** section.
+**Note:** This integration provides the most recent dashboard and setup instructions for NGINX Plus. For setup instructions of previous versions, log in to the Wavefront instance and see **NGNIX Plus (Archived)**. 
 
 ### Step 1. Ensure the HTTP API Module is Enabled
 
