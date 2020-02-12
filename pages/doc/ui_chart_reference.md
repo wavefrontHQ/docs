@@ -1207,13 +1207,15 @@ If you [specify a drilldown link], end users are directed to a target dashboard 
 
 ![histogram](images/histogram_chart_v2.png)
 
-Histogram charts facilitate visualization of [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+Histogram charts have two main uses:
+* Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
-The histogram chart allows you to visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
+For both histogram data and time series data, the histogram chart allows you to visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
 
-From the chart edit menu, you can select to go to the corresponding trace (if any).
+From the chart's edit menu, you can go to the corresponding trace (if any).
 
-[Go to Traces menu](histogram_goto_menu)
+![Go to Traces menu](images/histogram_goto_menu.png)
 
 <p><span style="font-size: large; font-weight: 600">Data Tab</span></p>
 
@@ -1272,7 +1274,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 </tr>
 <tr>
 <td>Unit</td>
-<td>Unit of measurement to assign to the label that appears along the X-axis. This unit <em>does not</em> change the unit of measurement. This unit also does not affect the Y axis. 
+<td>Unit of measurement to assign to the label that appears along the X-axis. This unit <em>does not</em> change the unit of measurement. This unit also does not affect the Y axis.
 <p>Supported units are:</p>
 <ul>
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>

@@ -40,7 +40,7 @@ The `nnforecast()` function predicts future data values for each time series des
 
 In charts, we adjust the time window so that you see the forecast in 1/3 of the window and the past in 2/3 of the window. In the following screenshot, the forecast period is set to 1 week so the total time window is 3 weeks.
 
-![nnforecast example](images/ts_nnforecast.png)
+![nnforecast example](images/ts_nnforecast_new.png)
 
 If the function cannot find enough historical data to produce a forecast for the requested period, then the function returns no result.
 

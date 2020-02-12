@@ -18,8 +18,8 @@ You start with a Linux VM with the following characteristics:
 * Runs inside the network
 * Outbound access to the Internet (but doesn't need inbound access)
 * Internal DNS
-* One account, preferably a [service account](service_accounts.html)
-* Account has Dashboards and Alerts permissions.
+
+On the Linux VM, you need one account, preferably a [service account](service_accounts.html). You'll use the token of the account in the NGNIX config file, as shown below. The account should allow you to limit access to dashboards and alerts.
 
 We tested the process with an Ubuntu VM.
 
@@ -46,6 +46,8 @@ Follow these steps:
 {code}
 ###
 ```
+   This example uses 80 as the listener port, so you have to make sure that port is open. The token is the token of the service account mentioned in the prerequisites. 
+
 3. Restart the NGNIX service.
 4. Type the URL that includes the address of the VM into the browser that's connected to the large-screen displays.
 
