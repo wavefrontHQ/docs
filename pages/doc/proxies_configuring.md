@@ -438,6 +438,13 @@ Ex: 0 </td>
 <td>4.31 </td>
 </tr>
 <tr>
+<td>customTracingListenerPorts</td>
+<td markdown="span">TCP ports to receive spans and derive RED metrics from the [SDKs that send raw data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront). <br/> Default: None.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
+<td>6.0 </td>
+</tr>
+<a name="customTracingListenerPorts"></a>
+<tr>
 <td>traceSamplingDuration</td>
 <td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). <br/> Default: 0 (send all generated spans). </td>
 <td>Number of milliseconds.
