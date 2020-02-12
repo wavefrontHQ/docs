@@ -12,7 +12,14 @@ You can
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make temporary changes. You must have Dashboard permission to share a link to a dashboard or chart." %}
 
-## Share a Link to a Dashboard or Chart
+## Share a Link with the Share Icon
+
+The easiest way to share a link is the share icon in the bottom right quadrant of the page. Use this link to share a link to what you're seeing right now (NON-LIVE display).
+
+![link icon](/images/link_icon.png)
+
+
+## Share a Link with the Share Dialog
 
 Wavefront allows you to share dashboards and charts with other authorized users of your environment. We support two options:
 * Non-live view -- Links to a snapshot of what you're looking at right now.
@@ -28,17 +35,6 @@ Wavefront allows you to share dashboards and charts with other authorized users 
 
    | Share link to the NON-LIVE display | The link recipient will see, at any time, what you see. For example, if you share a non-live link, and the recipient opens the links 3 hours later, that link shows the state of the system 3 hours ago. Even if you make changes, the link recipient only sees the snapshot of the dashboard at the time you copied the link.|
    |  Share link to the LIVE display | The link recipient sees the live display of the current dashboard. If the dashboard changed after you sent the link, the recipient sees those changes. |
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="65%">
-{% include note.html content="You can instead share the link to the NON-LIVE display using the link icon in the bottom right quadrant of the page." %}
-</td>
-<td width="35%"><img src="/images/link_icon.png" alt="link icon"></td>
-</tr>
-</tbody>
-</table>
 
 ## Share Access to Dashboards or Alerts
 

@@ -44,13 +44,9 @@ The percentile value must be between 0 and 100.
 
 ## Example
 
-The following simple example shows 75th percentile value for disk space during the last 10 days. We're showing an 8 day time window in this chart.
+The following simple example shows 75th percentile value for disk space during the last 10 days. We're showing an 8 day time window in this chart and are showing only sources that start with `db-`.
 
 ![mpercentile simple](images/ts_mpercentile.png)
-
-The following example uses the same query but with a focus on the app servers. This chart shows an 8 day time window.
-
-![mpercentile grouped](images/ts_mpercentile_app.png)
 
 ## See Also
 

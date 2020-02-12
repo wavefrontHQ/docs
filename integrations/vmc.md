@@ -203,6 +203,13 @@ Create a file called `vsphere.conf` in `/etc/telegraf/telegraf.d` and enter the 
   ## timeout applies to any of the api request made to vcenter
   # timeout = "20s"
 
+  ## Custom attributes from vCenter can be very useful for queries in order to slice the metrics along
+  ## different dimension and for forming ad-hoc relationships. They are enabled by default.To disable 
+  ## set custom_attribute_exclude to [*] and use custom_attribute_include to select the specific 
+  ## attributes to be included.
+  custom_attribute_include = []
+  #custom_attribute_exclude = ["*"]
+
   ## Optional SSL Config
   # ssl_ca = "/path/to/cafile"
   # ssl_cert = "/path/to/certfile"

@@ -10,7 +10,7 @@ summary: Reference to the next() function
 ```
 next([<timeWindow>,] <tsExpression>)
 ```
-Fills in gaps in each time series described by `tsExpression`, by inserting data points that have the next known value of the time series. 
+Fills in gaps in each time series described by `tsExpression`, by inserting data points that have the next known value of the time series.
 Specify `timeWindow` to fill in data for a limited period of time before each existing point.
 
 ## Parameters
@@ -39,7 +39,7 @@ By default, `next()` applies the next reported data value to gaps of missing dat
 
 ## Examples
 
-In the following example, we've zoomed in on `~sample.request.failures.num` and see missing data.
+In the following example, we've zoomed in on `~sample.cpu.loadavg.1m` and see missing data.
 
 ![ts_last before](images/ts_last_next_before.png)
 
@@ -56,4 +56,7 @@ Then we replace the missing data with the first good value after the gap using `
 
 [Using Moving and Tumbling Windows to Highlight trends](query_language_windows_trends.html)
 
-Other missing data functions include [default](ts_default.html), [interpolate](ts_interpolate.html), and [last](ts_last.html).
+Other missing data functions include:
+* [default](ts_default.html)
+* [interpolate](ts_interpolate.html)
+* [last](ts_last.html)

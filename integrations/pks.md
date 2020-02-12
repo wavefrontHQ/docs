@@ -18,7 +18,7 @@ In addition to setting up the metrics flow, this integration also installs a das
 
   Supported Version: VMware PKS 1.4 and later. See the [Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
 
-  **Note:** For VMware PKS 1.1, 1.2 and 1.3 versions, see the **VMware PKS (Archived)** integration in the **Archived** section.
+  **Note:** For setup instructions for VMware PKS 1.1, 1.2, and 1.3 versions, log in to the Wavefront instance and see **VMware PKS (Archived)**.
 
 ### Configuring the Wavefront Account
 
