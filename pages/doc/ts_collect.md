@@ -62,6 +62,6 @@ lag(5w,${processes})
 ))
 ```
 
-The following screen shot shows the second query, with the anomalies filtered out because we can use (`percentile(50...)`) to get the median instead of the mean.
+The following screen shot shows the second query, with the anomalies filtered out because we can use (`percentile(50...)`) to get the median instead of the mean. 
 
 ![ts collect](images/ts_collect.png)
