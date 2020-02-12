@@ -26,7 +26,7 @@ Converts a cumulative histogram coming from Prometheus, Telegraf, or other sourc
 <td markdown="span">Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Defaults to 1m.</td></tr>
 <tr>
 <td>bucketName</td>
-<td markdown="span">Optional string that describes the bucket. Default is <strong>le</strong>, that is, less than or equal. If your source histogram uses a different bucketing strategy, specify the name here.  </td></tr>
+<td markdown="span">Optional string that describes the bucket. Default is <strong>le</strong>, that is, less than or equal. If your source histogram uses a different tag key to specify the buckets, specify that tag key here.  </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Cumulative histogram that we'll convert to an ordinary histogram.  </td></tr>
@@ -68,7 +68,7 @@ This query displays the 90th quantile of a cumulative histogram that corresponds
 
 The corresponding Wavefront query looks like this:
 ```
-percentile(90, cumulativeHisto(align(5m, sum(rate(req_latency_bucket, le)) * 60)))
+percentile(90, cumulativeHisto(sum(rate(ts(req_latency_bucket)), le)))
 ```
 
 Here, we are creating a T-digest and adding sampling points based on the range and the count of the bucket.
@@ -88,19 +88,15 @@ See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functio
 
 ## Example
 
-The following example starts with a cumulative histogram in Prometheus format. You can see the `le` tag in the legend.
+The following example starts with a cumulative histogram in Prometheus format. We can show only histogram values that are less than or equal to 60 using the `le` tag. You can see the `le` tag in the legend.
 
 ![cumulative histogram](images/cum_histo_simple.png)
 
-We can show only histogram values that are less than or equal to 60 using the `le` tag.
+We can then manipulate the cumulative histogram. First, we use `sum(rate())` to return the per-second rate of each time series.
 
 ![show only le 60](images/cum_histo_bucket.png)
 
-We can then manipulate the cumulative histogram. First, we use  [counter_sum](ts_countersum.html) to return the per-second rate of each time series. We also group the results with the `env` and `location` parameter, and we use [`align()`](ts_align.html) to groups the distributions the a histogram series into time buckets of 1 minute.
-
-![counter sum and align](images/cum_histo_counter_sum.png)
-
-Finally, we use the `cumulativeHisto()` function to return a cumulative histogram for the data.
+Then we use the `cumulativeHisto()` function to return the cumulative histogram for the data.
 
 ![cumulative histo](images/cumulative_histo.png)
 

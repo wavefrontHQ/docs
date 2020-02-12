@@ -7,7 +7,7 @@ permalink: proxies_configuring.html
 summary: Proxy cofiguration properties and advanced install info
 ---
 
-You can configure proxies using a configuration file, and you can performing advanced installation management such as installing proxies in a container.
+You can configure proxies using a configuration file, and you can perform advanced installation management such as installing proxies in a container.
 
 In addition to the proxy configuration properties discussed here you can also use [proxy preprocessor rules](proxies_preprocessor_rules.html). These rules allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters.
 
@@ -546,6 +546,6 @@ See **Logging** above for additional background.
 
 Ansible is an open-source automation engine that automates software provisioning, configuration and management, and application deployment. The Wavefront Ansible role installs and configures the Wavefront proxy, which allows you to automate Wavefront proxy installation on multiple Linux hosts.
 
-{% include note.html content="In most cases, you install only one or two proxies in your environment. You don't need a proxy for each host you collect data from. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %} 
+{% include note.html content="In most cases, you install only one or two proxies in your environment. You don't need a proxy for each host you collect data from. See [Proxy Deployment Options](proxies.html#proxy-deployment-options)." %}
 
 For details, see the Setup tab in the Ansible built-in integration.
