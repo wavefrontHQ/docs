@@ -31,7 +31,7 @@ The `toUpperCase()` function converts all lower case characters to upper case, i
 
 ## Example
 
-The following example uses `toUpperCase()` to convert all lower-case characters in `newPointTagValue` to upper case, resulting in `NEWPOINTTAGVALUE` as shown in the screen shot below.
+The following example uses `toUpperCase()` to convert all lower-case characters in the value of the `service` point tag to upper case. Because that value is `dataingester`, we see `DATAINGESTER` in the hover text. 
 
 
 ![ts toLowerCase](images/ts_to_upper_case.png)

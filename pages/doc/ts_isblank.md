@@ -34,18 +34,11 @@ The `isEmpty()` function returns true if the specified metadata string is the em
 
 ## Example
 
-The following example illustrates how `isBlank()` works:
+The following examples illustrate how `isBlank()` works:
 
-* In the screenshot on the left, we use `isBlank()` to see whether the string `"newPointTagValue"` is blank. The query returns false.
+* In this first screenshot, we check whether the value of the `service` point tag is the empty string. In this case, the result is `false`.
 
-   `isBlank(service, ${ts})`
+![is blank false](images/ts_is_blank_false.png)
+* In the second example, we're using the `taggify()` function to replace the result of the query with the empty string, and then we call `isBlank()`. Now the result is true.
 
-* In the screenshot on the right, we use `isBlank()` to see whether the string `" "` is blank.
-
-   `isBlank(service, ${ts_b})`
-
-
-Because the string this query uses is the empty string (`" "`), this query returns true.
-
-
-![ts isBlank](images/ts_is_blank.png)
+![is blank true](images/ts_is_blank_true.png)

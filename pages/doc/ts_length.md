@@ -28,6 +28,6 @@ Returns the length of the specified metadata string.
 
 ## Example
 
-The following example returns the length of the string `newPointTagValue` (16 characters). 
+The following example returns the length of the string `dataingester`, which is the value of the `service` point tag. The length is 12 characters, as shown in the hover text. 
 
 ![ts length](images/ts_length.png)
