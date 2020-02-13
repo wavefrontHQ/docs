@@ -11,6 +11,12 @@ The following videos explain how alerts work and how to configure them.
 <table style="width: 100%;">
 <tbody>
 <tr>
+<td><strong><font color="blue">Watch Alerts in Action</font></strong><br><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=522058ee-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alert_intro.png" alt="introduction to alerts"/></a></td>
+<td><br>
+<p>Jason demos in the Wavefront UI how you can find firing alerts and look at alert details. He also shows how you can look at alert events in a chart window. </p>
+</td>
+</tr>
+<tr>
 <td width="30%"><strong><font color="blue">Monitoring with Alerts</font></strong><br>
 <a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=68cd255b-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alerts_monitoring.png" alt="monitoring with alerts"/></a></td>
 <td width="70%"><br>
