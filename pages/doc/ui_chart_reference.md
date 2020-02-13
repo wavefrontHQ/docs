@@ -1211,7 +1211,7 @@ Histogram charts have two main uses:
 * Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
 * Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
 
-For both histogram data and time series data, the histogram chart allows you to visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
+The histogram chart shows the aggregate view of the entire window. For both histogram data and time series data, you can visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
 
 From the chart's edit menu, you can go to the corresponding trace (if any).
 
