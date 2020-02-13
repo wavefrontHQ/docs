@@ -18,7 +18,11 @@ Wavefront provides several Python SDKs and a REST API client for different purpo
 
 In the Setup tab, the integration includes sample code based on `wavefront-pyformance` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
-This is a custom integration. You can send your own metrics and create your own dashboards.
+In the Dashboard tab, you can view the dashboard around Python runtime metrics that can be collected using  wavefront-pyformance. You can also send your own metrics and create your own dashboards.
+
+Here's a preview of some charts in Python Runtime dashboard:
+
+{% include image.md src="images/python_runtime_dashboard.png" width="80" %}
 
 ## Python Setup
 
@@ -45,12 +49,14 @@ Tags passed to the proxy reporter are applied to every metric.
 
 {% raw %}
 ```
-import pyformance
+from wavefront_pyformance import tagged_registry
 from wavefront_pyformance import wavefront_reporter
 
-reg = pyformance.MetricsRegistry()
+reg = tagged_registry.TaggedRegistry()
 c1 = reg.counter("numbers")
 c1.inc()
+
+host = "<wavefront proxy hostname/IP>"
 
 # report metrics to a Wavefront proxy every 10s
 wf_proxy_reporter = wavefront_reporter.WavefrontProxyReporter(
@@ -59,7 +65,7 @@ wf_proxy_reporter = wavefront_reporter.WavefrontProxyReporter(
     tags={'key1': 'val1', 'key2': 'val2'},
     prefix='python.proxy.',
     reporting_interval=10)
-wf_proxy_reporter.start()
+wf_proxy_reporter.report_now()
 ```
 {% endraw %}
 
@@ -70,10 +76,10 @@ You can send metrics directly to a Wavefront service, discussed next. Option 1 a
 Tags passed to the direct reporter are applied to every metric.
 {% raw %}
 ```
-import pyformance
+from wavefront_pyformance import tagged_registry
 from wavefront_pyformance import wavefront_reporter
 
-reg = pyformance.MetricsRegistry()
+reg = tagged_registry.TaggedRegistry()
 c1 = reg.counter("numbers")
 c1.inc()
 
@@ -87,6 +93,28 @@ wf_direct_reporter = wavefront_reporter.WavefrontDirectReporter(
     tags={'key1': 'val1', 'key2': 'val2'},
     prefix='python.direct.',
     reporting_interval=10)
-wf_direct_reporter.start()
+wf_direct_reporter.report_now()
+```
+{% endraw %}
+
+### Python Runtime Metrics
+To enable Python runtime metrics reporting, modify the reporter created above to set the `enable_runtime_metrics` flag to **True**:
+{% raw %}
+```
+wf_proxy_reporter = wavefront_reporter.WavefrontProxyReporter(
+    host=host, port=2878, registry=reg,
+    source='wavefront-pyformance-example',
+    tags={'key1': 'val1', 'key2': 'val2'},
+    prefix='python.proxy.',
+    reporting_interval=10,
+    enable_runtime_metrics=True)
+
+wf_direct_reporter = wavefront_reporter.WavefrontDirectReporter(
+    server=server, token=token, registry=reg,
+    source='wavefront-pyformance-exmaple',
+    tags={'key1': 'val1', 'key2': 'val2'},
+    prefix='python.direct.',
+    reporting_interval=10,
+    enable_runtime_metrics=True)
 ```
 {% endraw %}
