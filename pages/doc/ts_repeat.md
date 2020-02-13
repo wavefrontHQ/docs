@@ -33,7 +33,7 @@ Repeats the specified metadata string a specified number of times.
 
 ## Example
 
-The following example creates a synthetic `service` tag and assigns it the value `newValue`. Then we use `repeat()` to repeat `newValue` 3 times (`newValuenewValuenewValue`) and twice (`newValuenewValue`).
+In the following example, the value of the `service` point tag is `dataingester`. We repeat that value twice to get the string `dataingesterdataingester`.
 
 
 
