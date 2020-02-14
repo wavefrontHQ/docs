@@ -19,7 +19,7 @@ You start with a Linux VM with the following characteristics:
 * Outbound access to the Internet (but doesn't need inbound access)
 * Internal DNS
 
-On the Linux VM, you need one account, preferably a [service account](service_accounts.html). You'll use the token of the account in the NGNIX config file, as shown below.
+On the Linux VM, you need one account, preferably a [service account](service_accounts.html). You'll use the token of the account in the NGINX config file, as shown below.
 
 We tested the process with an Ubuntu VM with a service account that had the default permissions.
 
@@ -27,8 +27,8 @@ We tested the process with an Ubuntu VM with a service account that had the defa
 
 Follow these steps:
 
-1. Install NGNIX on your Linux VM.
-2. Add the following to the NGNIX configuration file:
+1. Install NGINX on your Linux VM.
+2. Add the following to the NGINX configuration file:
 
 ```
 ###
@@ -48,7 +48,7 @@ Follow these steps:
 ```
    This example uses 80 as the listener port, so you have to make sure that port is open. The token is the token of the service account mentioned in the prerequisites.
 
-3. Restart the NGNIX service.
+3. Restart the NGINX service.
 4. Type the URL that includes the address of the VM into the browser that's connected to the large-screen displays.
 
-NGNIX will continue to run, and the connected screens will show the dashboard. Because a service account with a Bearer token was used in the configuration file, there are no additional login prompts.
+NGINX will continue to run, and the connected screens will show the dashboard. Because a service account with a Bearer token was used in the configuration file, there are no additional login prompts.

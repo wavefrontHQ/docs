@@ -33,19 +33,19 @@ The returned values are plotted against the times shown on the x-axis. The retur
 `weekday()` automatically adjusts its return values for daylight savings time.
 
 `weekday()` is particularly useful when you want to define an alert that fires only on a specific day or range of days of a week.
-For example, you could use an expression such as `between(weekday("America/Chicago"),6,7)` in an alert condition to ensure that the alert fires only on a weekend in Central Standard Time. 
+For example, you could use an expression such as `between(weekday("America/Chicago"),6,7)` in an alert condition to ensure that the alert fires only on a weekend in Central Standard Time.
 
 
 ## Examples
 
 **Example 1: Showing Days of the Week**
 
-This chart shows live data for 8 days. `weekday("America/Chicago")` returns 1 through 7, representing each day of the current week. 
+This chart shows data for several weeks. 1 represents Sunday and 7 represents Saturday.  
 ![weekday](images/ts_weekday.png)
 
 **Example 2: Defining an Alert that Fires on Particular Days**
 
-Here we include `(weekday("UTC") = 1 or weekday("UTC") = 3 or weekday("UTC") = 5)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on a Monday, Wednesday, or Friday of each week. 
+Here we include `(weekday("UTC") = 1 or weekday("UTC") = 3 or weekday("UTC") = 5)` in a conditional expression to define an alert that fires when the CPU load average rises above 2.5 on a Monday, Wednesday, or Friday of each week.
 ![weekday alert](images/ts_weekday_alert.png)
 
 ## See Also

@@ -42,7 +42,7 @@ For example, you could use an expression such as `between(dayOfYear("America/Chi
 
 **Example 1: Showing Days of the Year**
 
-This chart shows live data for 8 days. `dayOfYear("America/Chicago")` returns 161 through 169, representing the 161st through the 169th days of the current year. The legend shows that 163 is returned for June 12, 2018.
+This chart shows live data for 8 days. `dayOfYear("Europe/Berlin")` returns 37 through 45 when starting on February 5. The legend shows that 38 is returned for February 06 2020.
 ![dayOfYear](images/ts_dayOfYear.png)
 
 **Example 2: Defining an Alert that Fires on Particular Days**
