@@ -82,7 +82,7 @@ Finally, we can display the daily average like this:
 
 ![missing_data_fnc](images/missing_data_fcn_tumbling_window.png)
 
-
+<!---
 ### Count the Unique Number of Metrics per Day
 
 The following example shows the metrics reported to Wavefront by the Slack application in both the moving and the tumbling windows.
@@ -104,6 +104,7 @@ We use the following queries:
 |Readable across day| `next(24h, ${window-aligned})`|
 
 ![daily_count](images/daily_count.png)
+--->
 
 ### Get a 50th Percentile of Each 5-minute Bucket
 
@@ -117,7 +118,7 @@ For the same time series, we show a 5-minute moving percentile. The result is th
 
 ![moving_percentile](images/5min_50th_moving.png)
 
-If you want to find a 50th percentile of points in fixed 5-minute window, you can use `align(5m,...)` to sample, followed by `next()` to display the 50th percentile for the entire 5-minute window. The example uses `align()` instead of a time function.
+If you want to find a 50th percentile of points in fixed 5-minute window, you can use `align(5m,...)` to sample, followed by `next()` to display the 50th percentile for the entire 5-minute window. The example uses `align()` instead of a time function. The screenshot shows all 3 functions. 
 
 ![tumbling_percentile](images/5min_50th_tumbling.png)
 

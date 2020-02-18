@@ -1,5 +1,5 @@
 ---
-title: Chart Builder (v2)
+title: Chart Builder
 keywords: query language
 tags: [query language, getting started]
 sidebar: doc_sidebar
