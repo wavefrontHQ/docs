@@ -13,7 +13,7 @@ lastIndexOf(metric|source|<pointTagKey>, "<subString>", <tsExpression>)
 ```
 The `indexOf()` function finds the first occurrence of the specified substring in the metadata string, and returns the starting position of that occurrence.
 
-The `lastIndexOf()` function finds the last occurrence of the specified substring in the specified metadata string, and returns the starting position of that occurrence. 
+The `lastIndexOf()` function finds the last occurrence of the specified substring in the specified metadata string, and returns the starting position of that occurrence.
 
 ## Parameters
 <table style="width: 100%;">
@@ -35,29 +35,21 @@ The `lastIndexOf()` function finds the last occurrence of the specified substrin
 
 ## Description
 
-The `indexOf()` and `lastIndexOf()` function return a numeric index that indicates the starting position of a given substring in the specified metadata string: 
-* `indexOf()` returns the index for the first occurrence of the substring. 
+The `indexOf()` and `lastIndexOf()` function return a numeric index that indicates the starting position of a given substring in the specified metadata string:
+* `indexOf()` returns the index for the first occurrence of the substring.
 * `lastIndexOf()` returns the index for the last occurrence of the substring.
 
 
-The returned indexes are displayed as metadata values in the chart legend or in a table column. 
+The returned indexes are displayed as metadata values in the chart legend or in a table column.
 
-Numeric indexes are counted from left to right, starting with 0. 
+Numeric indexes are counted from left to right, starting with 0.
 
 These functions return -1 if no occurrence of the specified substring are found.
 
 ## Example
 
-The following example uses `taggify()` to add a `service=` point tag to the time series, and sets the point tag value to `data-engine-data points`.
-* We use `indexOf()` to find the position (0) of the first occurrence of `data` in the point tag value.
-* We use `lastIndexOf()` to find the position (12) of last occurrence of `data` in the point tag value.
+The following example uses string functions to get information about the value of the `service` point tag, which is `dataingester`.
+* We check where the string `"ta"` occurs in `dataingester` and get 2 (the index starts at 0).
+* We check for the last occurrence of `"e"` in `dataingester` and get 10, as shown in the hover text.
 
 ![ts indexOf-lastIndexOf](images/ts_indexOf_lastIndexOf.png)
-
-<!---
-The following example uses `lastIndexOf()` to look at the string `newPointTagValue`.
-* We check the position of `Tag` from the back, which is 8 (`tTag` would be 7).
-* We check the position of `newP` from the back, which is 0.
-
-![ts lastIndexOf](images/ts_last_index_of.png)
---->

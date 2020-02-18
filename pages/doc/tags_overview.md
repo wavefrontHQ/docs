@@ -119,7 +119,7 @@ You use point tags to add extra dimensions to your data, and can then focus your
 
 Object tags apply to Wavefront objects: alerts, dashboards, events, and sources.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+{% include note.html content="While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
 
 ### Manage Object Tags
 

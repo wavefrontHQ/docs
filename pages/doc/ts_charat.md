@@ -33,9 +33,9 @@ Returns the character at the specified position in the specified metadata string
 
 ## Example
 
-In the example below, we use `charAt()` to extract:
-* The character at position 4 in `newPointTagValue` (o)
-* The character at position 8 in `newPointTagValue` (T).
+In the example below, we use `charAt()` to extract characters from the value of the `service` point tag, which is `dataingester`
+* The character at position 0 is `d`
+* The character at position 5 is `n`.
 
 The returned characters are case sensitive.
 

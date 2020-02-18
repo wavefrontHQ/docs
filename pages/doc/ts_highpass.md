@@ -10,9 +10,9 @@ summary: Reference to the highpass() function
 ```
 highpass(<tsExpression1>, <tsExpression2>[, inner])
 
-highpass(<traceDuration>, <tracesExpression>)	
+highpass(<traceDuration>, <tracesExpression>)
 
-highpass(<spanDuration>, <spansExpression>)	
+highpass(<spanDuration>, <spansExpression>)
 ```
 
 You can use `highpass()` with time series, with traces, or with spans.
@@ -116,7 +116,7 @@ You typically use `highpass()` to compare multiple time series to a single thres
 
 The `highpass()` trace-filtering function examines the traces described by the traces expression, and returns any traces that are longer than the specified duration. Shorter traces are ignored. The duration of an entire trace is considered, not the duration of any individual span in the trace.
 
-For example, the following query returns only traces that are longer than 3 seconds: 
+For example, the following query returns only traces that are longer than 3 seconds:
 
 ```highpass(3s, traces("beachshirts.styling.makeShirts"))```
 
@@ -124,23 +124,24 @@ For example, the following query returns only traces that are longer than 3 seco
 
 The `highpass()` spans-filtering function examines the spans described by the spans expression, and returns any spans that are longer than the specified duration. Shorter spans are ignored.
 
-For example, the following query expression returns only spans that are longer than 3 seconds: 
+For example, the following query expression returns only spans that are longer than 3 seconds:
 
 ```highpass(3s, spans("beachshirts.styling.makeShirts"))```
 
-You can pass this expression to [traces()](traces_function.html) to display traces that contain at least one span for `beachshirts.styling.makeShirts` that is longer than 3 seconds.  
+You can pass this expression to [traces()](traces_function.html) to display traces that contain at least one span for `beachshirts.styling.makeShirts` that is longer than 3 seconds.
 
 ```traces(highpass(3s, spans("beachshirts.styling.makeShirts")))```
 
 ## Examples
 
-### Time-Series Filtering Function
+Let's look at latency data:
 
-In the example chart below, solid orange lines are only present when the reported data values exceed the threshold. The solid orange lines are right on top of the blue lines. In this example, the threshold is 120. The remaining reported data values that did not exceed 120 are dropped, resulting dashed lines to indicate missing data.
+![highpass before](images/ts_highpass_before.png)
+
+Now we wrap this example with `highpass()` and use a threshold of 120.
+The resulting Stacked Area chart shows results only where the data exceeds 120.
 
 ![highpass example](images/ts_highpass.png)
-
-
 
 
 ## See Also

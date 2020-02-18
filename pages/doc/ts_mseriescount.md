@@ -42,7 +42,7 @@ This function is especially helpful if new time series are constantly spun up an
 
 Here's how you use different counting functions:
 * `count()` - returns the number of time series reporting at each moment in time
-* `mcount()` - returns the number of data points reported by a given time series over a shifting time window 
+* `mcount()` - returns the number of data points reported by a given time series over a shifting time window
 * `mseriescount()` - returns the number of time series reporting during a shifting time window
 
 

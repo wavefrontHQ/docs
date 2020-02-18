@@ -17,7 +17,8 @@ Dashboard variables and global filters are excellent ways of focusing the metric
 <li>All users can create <strong>global filters</strong>; key value pairs for filtering dashboard results. </li>
 <li> All users can include dashboard variables in queries. The query uses the current value of the variable.</li>
 </ul>
-<strong>Note:</strong> All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission.</td>
+{% include note.html content="All Wavefront users can examine all dashboards and charts unless an individual dashboard is protected through access control. All users can make temporary changes. To save changes to dashboards and charts you must have Dashboard permission."%}
+</td>
 <td width="20%"><a href="dashboards_variables_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
 </tr>
 </tbody>
@@ -104,7 +105,7 @@ To clone or delete a dashboard variable:
 
 You reference a variable in a ts() expression using the syntax `${variableName}`.
 
-**Note:** Use Query Editor if you want to use variables. Chart Builder does not support them.
+{% include note.html content="Use Query Editor if you want to use variables. Chart Builder does not support them." %}
 
 Here's an example that uses a simple variable:
 

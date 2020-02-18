@@ -10,7 +10,7 @@ summary: Reference to the anomalous() function
 ```
 anomalous(<testWindow>, [<confidenceFactor>,] [<historyWindow>, [<alignWindow>,]] <tsExpression>)
 ```
-Returns the percentage of anomalous points in each time series described by the expression. Points are considered anomalous if their values fall outside an expected range, as determined by the given confidence factor. 
+Returns the percentage of anomalous points in each time series described by the expression. Points are considered anomalous if their values fall outside an expected range, as determined by the given confidence factor.
 
 ## Parameters
 <table>
@@ -42,7 +42,7 @@ Default is 0.99 if this parameter is not specified.
 
 The `anomalous()` function analyzes data points in the time series described by the expression, and returns the percentage of points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. By default, `anomalous()` uses a range that is predicted with 0.99 (99%) confidence.
 
-`anomalous()` analyzes successive groups of data points in a time series, and returns the percentage of anomalous points for each group. You define the groups by specifying the `testWindow` parameter. For example, `anomalous(10m, ts(my.metric))` returns, for each data point, the percentage of data points with anomalous values that were reported during the 10 minutes before that data point. If 4 out of 10 points in a test window have anomalous values, the result returned for that test window is `0.40`. 
+`anomalous()` analyzes successive groups of data points in a time series, and returns the percentage of anomalous points for each group. You define the groups by specifying the `testWindow` parameter. For example, `anomalous(10m, ts(my.metric))` returns, for each data point, the percentage of data points with anomalous values that were reported during the 10 minutes before that data point. If 4 out of 10 points in a test window have anomalous values, the result returned for that test window is `0.40`.
 
 `anomalous()` returns the result for a test window at the end of that window. Consequently, the longer the test window, the more the result might appear to be delayed after a sudden change in the time series. If you choose a short test window, the result will coincide more closely to the time series change. A typical test window is `10m`.
 
@@ -52,13 +52,13 @@ You can specify optional parameters to `anomalous()` to adjust the range of expe
 
 ### Adjusting the Range of Expected Values
 
-`anomalous()` uses a forecasting algorithm to predict a range of expected values for each data point reported in the chart for the time series. A reported data point is considered anomalous if its value falls outside of the range that is predicted for it. 
+`anomalous()` uses a forecasting algorithm to predict a range of expected values for each data point reported in the chart for the time series. A reported data point is considered anomalous if its value falls outside of the range that is predicted for it.
 
 The range of expected values for a point is organized in standard deviations around a mean expected value. You can adjust the width of the range by specifying a numeric `confidenceFactor` parameter. `anomalous()` uses this number to compute the number of standard deviations to include in the range. For example:
 
 * Specify 0.99 to include 99% of the expected values in the range. Consequently, `anomalous(5m, .99, ts(my.metric))` returns the percentages of points that fall outside 3 standard deviations from the mean expected values. (**Note:** This is the default, so omitting `.99` is the same as specifying it.)
-* Specify 0.95 to include 95% of the expected values. Consequently, `anomalous(5m, .95, ts(my.metric))` returns the percentages of points that fall outside 2 standard deviations from the mean expected values. 
-* Specify 0.68 to include 68% of the expected values. Consequently, `anomalous(5m, .68, ts(my.metric))` returns the percentages of points that fall outside 1 standard deviation from the mean expected values. 
+* Specify 0.95 to include 95% of the expected values. Consequently, `anomalous(5m, .95, ts(my.metric))` returns the percentages of points that fall outside 2 standard deviations from the mean expected values.
+* Specify 0.68 to include 68% of the expected values. Consequently, `anomalous(5m, .68, ts(my.metric))` returns the percentages of points that fall outside 1 standard deviation from the mean expected values.
 
 
 If the range is narrow, many points lie outside it, and the reported percentages are large. If the range is wide, few points will lie outside it, and the reported percentages are small. The narrower the range, the more points might be considered anomalous, and the higher the reported percentages.
@@ -66,23 +66,23 @@ If the range is narrow, many points lie outside it, and the reported percentages
 
 ### Tuning Value Prediction
 
-`anomalous()` uses a forecasting algorithm that bases its predictions on actual values reported by the time series. These values come from data points reported in the chart window and data points reported in a history window immediately preceding the chart. In effect, the history window provides a minimum amount of past data for `anomalous()` to base its predictions on, regardless of the size of the chart's time window. 
+`anomalous()` uses a forecasting algorithm that bases its predictions on actual values reported by the time series. These values come from data points reported in the chart window and data points reported in a history window immediately preceding the chart. In effect, the history window provides a minimum amount of past data for `anomalous()` to base its predictions on, regardless of the size of the chart's time window.
 
 By default, the history window is one day long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
 
 If the data points used for prediction have missing data or an irregular reporting interval, you can smooth over the gaps by specifying an optional `alignWindow` parameter. This also smooths the gaps in the results. If you specify `alignWindow`, you must specify `historyWindow` as well.
 
-For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input and output data points at 1-minute intervals. 
+For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input and output data points at 1-minute intervals.
 
 <!---  9/30/18-10/08/18 sum(rate(ts(dataingester.report-points, tag=${cluster}))) --->
 ## Example
 
 The following chart shows an aggregated rate of data ingestion for a particular cluster. Data ingestion appears to fluctuate daily, with lower rates around midnight and peaking around noon.
 
-![anomalous before](images/ts_anomalous_before.png)
+![anomalous before](images/ts_anomalous_before_new.png)
 
-We'd like to know whether the actual fluctuation deviates from the expected fluctuation, based on about 2 weeks' worth of actual data (the week before the chart and the week shown in the chart). We want to keep the test window short, to better correlate the results with the changes in the time series. So we run `anomalous()` with a `10m` test window and a `1w` history window. 
+We'd like to know whether the actual fluctuation deviates from the expected fluctuation, based on about 2 weeks' worth of actual data (the week before the chart and the week shown in the chart). We want to keep the test window short, to better correlate the results with the changes in the time series. So we run `anomalous()` with a `10m` test window and a `1w` history window.
 
-The orange line in the following chart suggests that the spikes in data ingestion on the afternoons of October 1, 3, 4, and 5 may be anomalous because they fall outside the range of 99% of expected values. In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.  
+The orange line in the following chart suggests that the spikes in data ingestion on the afternoons of October 1, 3, 4, and 5 may be anomalous because they fall outside the range of 99% of expected values. In contrast, the behavior on the afternoon of October 2 seems right in line with expectations -- the percentage of anomalous points here is 0.
 
-![anomalous after](images/ts_anomalous_after.png)
+![anomalous after](images/ts_anomalous_after_new.png)

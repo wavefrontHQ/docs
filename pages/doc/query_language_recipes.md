@@ -115,7 +115,7 @@ Point rate blocked across all Wavefront proxies. Points might be blocked due to 
 
 Total points that are collected by the Wavefront service. The `~collector` service acts as a entry point to Wavefront, and these metrics monitor the data processed at the collector.
 
-`sum(rate(ts(~collector.points.valid)))`
+`sum(rate(ts(~collector.points.reported)))`
 
 ### Point Rate for Each Proxy
 

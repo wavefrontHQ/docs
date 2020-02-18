@@ -23,18 +23,24 @@ In the Getting Started videos, Wavefront co-founder Clement Pang explains how th
 <td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
+<td width="30%"><strong><font color="blue">Kubernetes and Wavefront</font></strong><br> <a href="https://youtu.be/jbmUKPSIguQ" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront"/></a></td>
+<td width="70%"><br><p>Containers have many benefits, but monitoring them can be challenging. In this video, Clement discusses several ways in which you can use Wavefront for monitoring Kubernetes. The video includes some discussion of our new Wavefront Collector for Kubernetes. </p> </td>
+</tr>
+<tr>
+<td><strong><font color="blue">About Cardinality</font></strong><br>
+<a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png"  alt="Lightboard video about cardinality"/></a></td>
+<td><br>
+<p markdown="span">Clement explains why the concept of cardinality is so important for observability, what high cardinality means, and why Wavefront deals so well with high cardinality input.</p>
+</td>
+</tr>
+<tr>
 <td><strong><font color="blue">Alerting in Wavefront</font></strong><br>
 <a href="https://www.youtube.com/watch?v=VjmWExKiYYg&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=1" target="_blank"><img src="/images/v_alerting_clement.png"  alt="Alerting With Wavefront"/></a></td>
 <td><br>
 <p markdown="span">Wavefront supports sophisticated alerts that go far beyond traditional alerting systems. Clement explains how alerts work using the example of a simple threshold alert. The alert fires when any monitored time series exceeds the threshold for 10 minutes. Wavefront then sends an alert notification to all specified alert targets. When the alert is resolved, notifications are sent to the targets again. Additional examples are shown in [other videos](videos_alerts.html).</p>
 </td>
 </tr>
-<tr>
-<td><strong><font color="blue">Watch Alerts in Action</font></strong><br><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=522058ee-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_alert_intro.png" alt="introduction to alerts"/></a></td>
-<td><br>
-<p>Jason demos in the Wavefront UI how you can find firing alerts and look at alert details. He also shows how you can look at alert events in a chart window. </p>
-</td>
-</tr>
+
 <tr>
 <td><strong><font color="blue">Distributed Tracing in Wavefront</font></strong><br>
 <a href="https://youtu.be/Z7mf_oZfcSE" target="_blank"><img src="/images/v_tracing.png"  alt="Distributed tracing in Wavefront"/></a></td>

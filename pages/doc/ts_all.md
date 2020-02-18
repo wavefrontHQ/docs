@@ -43,6 +43,6 @@ Note: You can use [`any()`](ts_any.html) to test whether one or more displayed p
 
 ## Examples
 
-The following example shows the value 1 if the two sources in the query have the same number of failure requests, and shows 0 otherwise.
+The following example shows the value 1 if the two sources in the query have the same number of failure requests (shown in orange), and shows 0 otherwise. The two time series are shown in the background. 
 
 ![all example](images/ts_all.png)

@@ -122,13 +122,6 @@ Wavefront customer support engineers have found the following metrics especially
 **Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.reported` we have `collector.direct-ingestion.points.reported`.</td></tr>
 <tr>
 <td markdown="span">~collector</td>
-<td markdown="span">~collector.points.valid<br> ~collector.histograms.valid<br> ~collector.tracing.spans.valid<br>
-~collector.tracing.span_logs.valid </td>
-<td markdown="span">Valid metric points, histogram points, or spans received by the collector. If the points received by the collector are valid, they are sent to the Wavefront service. There's a corresponding `~collector.*.invalid` metric to drill down into invalid points and spans.<br>
-<br>
-**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.histograms.valid` we have `collector.direct-ingestion.histograms.valid`.</td></tr></td></tr>
-<tr>
-<td markdown="span">~collector</td>
 <td markdown="span">~collector.points.batches<br> ~collector.histograms.batches<br> ~collector.tracing.spans.batches<br> ~collector.tracing.span_logs.batches</td>
 <td markdown="span">Number of batches of points, histogram points, or spans received by the collector, either via the proxy or via the direct ingestion API. In the histogram context a batch is the number of HTTP POST requests.<br>
 <br>

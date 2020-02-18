@@ -27,7 +27,7 @@ Returns the ceiling for the time series described by the expression, by rounding
 
 ## Description
 
-The `ceil()` function returns the ceiling for each data value in the time series described by the expression. 
+The `ceil()` function returns the ceiling for each data value in the time series described by the expression.
 
 The ceiling of a data value is the smallest integer that is greater than or equal to that value:
 
@@ -47,11 +47,11 @@ The ceiling of a data value is the smallest integer that is greater than or equa
 
 ## Examples
 
-Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. 
+Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. The color has been changed to dark purple.
 ![ceil before](images/ts_ceil_before.png)
 
-Now we apply `ceil()` to our original query. Notice that the values below 1 are mapped to 1, and the values from 1 to 1.2 are mapped to 2.
-  
+Now we apply `ceil()` to our original query. Notice that the values below 1 are mapped to 1, and the values from 1 to 1.2 are mapped to 2. The the ceil function uses orange. 
+
 ![ceil after](images/ts_ceil_after.png)
 
 ## See Also

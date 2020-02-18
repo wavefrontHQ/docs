@@ -32,13 +32,13 @@ Returns the moving integration for each time series described by the expression,
 
 ## Description
 
-The `integrate()` function returns the integration for each time series, over a shifting time window. The integration for a series over a time window determines the area below the series during that window. For example, `integrate(10m, ts(my.metric))` returns, at each point, the integration over the previous 10 minutes for each specified time series. 
+The `integrate()` function returns the integration for each time series, over a shifting time window. The integration for a series over a time window determines the area below the series during that window. For example, `integrate(10m, ts(my.metric))` returns, at each point, the integration over the previous 10 minutes for each specified time series.
 
 This function is similar to [integral()](ts_integral.html). However, `integral()` always looks at the current view window and starts at 0, while `integrate()` allows you to specify a time window. You can use this function to determine trends in a specified time window, for example, over the last 8 days or 24 hours.
 
 ## Examples
 
-The following example shows the behavior of 5 services over 8 days.
+The following example shows the behavior of 5 time series over 2 hours.
 
 ![integrate](images/ts_integrate.png)
 

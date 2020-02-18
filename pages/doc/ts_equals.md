@@ -44,6 +44,11 @@ The `matches()` function returns true if the specified metadata string matches t
 
 ## Example
 
-The following example checks whether the string `newPointTagValue` is equal to the string `newPointTagValue` (true) or to the string `dataingester` (false).
+In the following example:
+* The first argument is the point tag key `service`.
+* The second argument is the string `"dataingester"`.
+* The function checks wither the value of `service` is equal to `"dataingester"` for the text string that's the third argument.
+
+In the hover text, we can see that the point tag value is indeed equal to `"dataingestor"`
 
 ![ts equals](images/ts_equals.png)

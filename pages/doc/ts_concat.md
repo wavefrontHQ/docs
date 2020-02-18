@@ -9,7 +9,7 @@ summary: Reference to the concat string manipulation function
 ```
 concat(metric|source|<pointTagKey>, "<string>", <tsExpression>)
 ```
-Concatenates the specified string by adding it to the end of the specified metadata string. 
+Concatenates the specified string by adding it to the end of the specified metadata string.
 
 
 ## Parameters
@@ -33,7 +33,7 @@ Concatenates the specified string by adding it to the end of the specified metad
 
 ## Example
 
-The following example concatenates `newPointTagValue` with `_newStr`. The result is `newPointTagValue_newStr`.
+The following example starts with the value of the `service` point tag, which is `dataingester` and concatenates `_by_wavefront`. You can see the result in the hover text.
 
 
 ![ts concat example](images/ts_concat.png)

@@ -19,6 +19,13 @@ Wavefront supports distributed tracing with third-party apps such as Jaeger or y
 </td>
 </tr>
 <tr>
+<td><strong><font color="blue">Distributed Tracing Updates</font></strong><br>
+<a href="https://youtu.be/SlROqypTUYk" target="_blank"><img src="/images/v_tracing_updates.png"  alt="Distributed Tracing Updates"/></a></td>
+<td><br>
+<p>Clement discusses some of the improvements to distributed tracing as of early 2020. This includes more ingestions options, intelligent sampling, and root cause analysis (Beta).</p>
+</td>
+</tr>
+<tr>
 <td width="35%"><strong><font color="blue">Application Monitoring with Wavefront</font></strong><br><a href="https://youtu.be/56Ql2OQ2NLQ" target="_blank"><img src="/images/v_app_monitoring.png"  alt="Application monitoring with Wavefront"/></a></td>
 <td width="65%"><br><p>Clement first discusses how you can monitor metrics, histograms, and traces with Wavefront. He uses an example of monitoring microservices by traversing multiple languages and transport layers that use different <a href="https://github.com/wavefrontHQ"> Wavefront open source SDKs</a>.
 </p> </td>
