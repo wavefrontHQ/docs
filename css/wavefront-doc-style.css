@@ -1146,7 +1146,7 @@ img[src*='#inline']{
 }
 
 /* this part adds an icon after external links, using FontAwesome*/
-a[href^="http://"]:after, a[href^="https://"]:after {
+/**a[href^="http://"]:after, a[href^="https://"]:after {
     content: "\f08e";
     font-family: FontAwesome;
     font-weight: normal;
@@ -1154,7 +1154,7 @@ a[href^="http://"]:after, a[href^="https://"]:after {
     display: inline-block;
     text-decoration: none;
     padding-left: 3px;
-}
+}*/
 
 .topnavlinks a[href^="http://"]:after, 
 .topnavlinks a[href^="https://"]:after {
