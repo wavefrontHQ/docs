@@ -32,7 +32,7 @@ To address high frequency data, Wavefront supports histograms -- a mechanism to 
 * Send the metrics to a [histogram proxy port](#histogram-proxy-ports) -- either 2878 (Wavefront proxy 4.29 or later) or 40000 (earlier proxy versions).
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
-The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-naming), which you can query with a set of [functions](#histogram-functions).
+The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-naming), which you can query with a set of [functions](query_language_reference.html#histogram-functions).
 
 ## Wavefront Histogram Distributions
 
