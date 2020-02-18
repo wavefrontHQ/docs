@@ -39,6 +39,12 @@ See [Point Tags in Queries](query_language_point_tags.html).
 
 **Alert, event, and source tags** represent conceptual attributes that can be tied to an alert, event, or source and change at infrequent (> 1 month) intervals. For example, the specific hardware of a source, the geographical location, perhaps the role of a source (production vs. staging vs. development), or the version of application software of that source (such as the JVM version, or OS version, or proprietary application version).  Alert, event, and source tags (or _object_ tags) can be attached to multiple alerts, events, and sources.  You can add and remove such tags through API calls or from the Alert, Event, and Sources browser and use the tags in queries to select groups of related objects.
 
+### Supported Characters
+
+Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), and colon (:) characters. The space character is not supported.
+
+### History
+
 Wavefront does not retain the history of alert, event, and source tags. For example, the machine `web004.pax.wavefront.com` might have the source tags `java-17`, `build-24`, and `dc-pax`. If you remove the `build-24` tag from `web004.pax.wavefront.com` and replace it with `build-25`, queries filtered by `build-24` no longer match `web004.pax.wavefront.com.` In other words, only current alert, event, and source tags affect queries because these tags are tied only to those objects, not to data.
 
 For more information on tags, see [Organizing with Tags](tags_overview.html).
