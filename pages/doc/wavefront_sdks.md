@@ -129,7 +129,7 @@ Wavefront provides OpenTracing SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/java.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Java logo">
+            <img src="/images/icons_svg_java.png" alt="Java logo">
             </a>
          </div>
      </div>
@@ -138,7 +138,7 @@ Wavefront provides OpenTracing SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/python.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Python">
+            <img src="/images/icons_svg_phython.png" alt="Python">
             </a>
          </div>
      </div>
@@ -147,7 +147,16 @@ Wavefront provides OpenTracing SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/golang.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Go">
+            <img src="/images/icons_svg_go.png" alt="Go">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
+            <img src="/images/icons_svg_.net.png" alt="Net">
             </a>
          </div>
      </div>
@@ -159,16 +168,7 @@ Wavefront provides OpenTracing SDKs for:
         <div class="panel panel-default text-center">
             <div class="panel-body">
                <a href="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">
-               <img src="/images/Tracing_Agent.png" alt="Java tracing agent">
-               </a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="panel panel-default text-center">
-            <div class="panel-body">
-               <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
-               <img src="https://datadog-docs.imgix.net/images/integrations_logos/net.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Net">
+               <img src="/images/icons_svg_java_tracing_agent.png" alt="Java tracing agent">
                </a>
             </div>
         </div>
@@ -195,8 +195,8 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
-            <a href="">
-            <img src="https://www.aytech.ca/wp-content/uploads/2016/12/dropwizard.png" alt="Dropwizard_logo">
+            <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java">
+            <img src="/images/icons_svg_dropwizard.png" alt="Dropwizard_logo">
             </a>
          </div>
      </div>
@@ -204,8 +204,8 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
-            <a href="">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/java.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="jvm">
+            <a href="https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm">
+            <img src="/images/icons_svg_java.png" alt="jvm">
             </a>
          </div>
      </div>
@@ -213,8 +213,8 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
-            <a href="">
-            <img src="https://d33wubrfki0l68.cloudfront.net/50c4a4966653fae2944e468dd284f43796a5488a/53cb4/images/logo-text.png" alt="App Metric">
+            <a href="https://github.com/wavefrontHQ/wavefront-pyformance">
+            <img src="/images/icons_svg_phython.png" alt="Pyformance Python">
             </a>
          </div>
      </div>
@@ -222,8 +222,8 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
-            <a href="">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/110px-Python-logo-notext.svg.png" alt="Pyformance Python">
+            <a href="https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp">
+            <img src="/images/icons_svg_.net.png" alt="App Metric">
             </a>
          </div>
      </div>
@@ -251,7 +251,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java">
-            <img src="https://www.aytech.ca/wp-content/uploads/2016/12/dropwizard.png" alt="Dropwizard_logo">
+            <img src="/images/icons_svg_dropwizard.png" alt="Dropwizard_logo">
             </a>
          </div>
      </div>
@@ -260,7 +260,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java">
-            <img src="https://www.cncf.io/wp-content/uploads/2018/02/grpc-icon-color.png" alt="Grpc">
+            <img src="/images/icons_svg_grpc.png" alt="Grpc">
             </a>
          </div>
      </div>
@@ -269,7 +269,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java">
-            <img src="https://www.logicbig.com/tutorials/java-ee-tutorial/jax-rs/images/jax-rs.png" alt="Jax-RS">
+            <img src="/images/icons_svg_Java_JSX_RS.png" alt="Jax-RS">
             </a>
          </div>
      </div>
@@ -278,7 +278,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-jersey-sdk-java">
-            <img src="https://wolfpaulus.com/wp-content/uploads/2015/06/java-jersey-web-service.png" alt="Jersey">
+            <img src="images/icons_svg_jersey.png" alt="Jersey">
             </a>
          </div>
      </div>
@@ -292,7 +292,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/150px-.NET_Core_Logo.svg.png" alt="ASP .net core">
+            <img src="/images/icons_svg_.net.png" alt="ASP .net core">
             </a>
          </div>
      </div>
@@ -324,7 +324,7 @@ Wavefront provides sender SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-java">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/java.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Java logo">
+            <img src="/images/icons_svg_java.png" alt="Java logo">
             </a>
          </div>
      </div>
@@ -333,7 +333,7 @@ Wavefront provides sender SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-python">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/python.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Python">
+            <img src="/images/icons_svg_phython.png" alt="Python">
             </a>
          </div>
      </div>
@@ -342,7 +342,16 @@ Wavefront provides sender SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-go">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/golang.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Go">
+            <img src="/images/icons_svg_go.png" alt="Go">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-sdk-csharp">
+            <img src="/images/icons_svg_.net.png" alt="Net">
             </a>
          </div>
      </div>
@@ -353,22 +362,13 @@ Wavefront provides sender SDKs for:
  <div class="col-md-3 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-sdk-csharp">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/net.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Net">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-cpp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Images_200px-ISO_C%2B%2B_Logo_svg.png" alt="C++">
+            <img src="/images/icons_svg_c++.png" alt="C++">
             </a>
          </div>
      </div>
  </div>
-  </div>
+</div>
 
 A sender SDK is built into each of the other observability SDKs to enable applications to communicate with Wavefront in one of two ways:
 * Send data directly to the Wavefront service ([direct ingestion](direct_ingestion.html)). This technique gets you up and running with minimal preparation, but is best suited for small-scale uses.

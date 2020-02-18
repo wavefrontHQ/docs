@@ -62,7 +62,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/java.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Java logo">
+            <img src="/images/icons_svg_java.png" alt="Java logo">
             </a>
          </div>
      </div>
@@ -71,7 +71,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/python.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Python">
+            <img src="/images/icons_svg_phython.png" alt="Python">
             </a>
          </div>
      </div>
@@ -80,7 +80,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">
-            <img src="https://datadog-docs.imgix.net/images/integrations_logos/golang.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Go">
+            <img src="/images/icons_svg_go.png" alt="Go">
             </a>
          </div>
      </div>
@@ -89,7 +89,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
         <div class="panel panel-default text-center">
             <div class="panel-body">
                <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
-               <img src="https://datadog-docs.imgix.net/images/integrations_logos/net.png?ch=Width%2cDPR&fit=max&auto=format&w=807" alt="Net">
+               <img src="/images/icons_svg_.net.png" alt="Net">
                </a>
             </div>
         </div>
@@ -105,7 +105,7 @@ If you need application observability, but don't want to instrument code for you
        <div class="panel panel-default text-center">
            <div class="panel-body">
               <a href="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">
-              <img src="/images/Tracing_Agent.png" alt="Java tracing agent">
+              <img src="/images/icons_svg_java_tracing_agent.png" alt="Java tracing agent">
               </a>
            </div>
        </div>
@@ -122,7 +122,7 @@ If you need application observability, but don't want to instrument code for you
            <div class="panel panel-default text-center">
                <div class="panel-body">
                   <a href="https://docs.wavefront.com/jaeger.html">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhh-dmy44jyfDm8Ds9F_y3QjK5oiV-Hh-uPlO0Ojs9X2TucN_8IQ&s" alt="Jaeger">
+                  <img src="/images/icons_svg_jaeger.png" alt="Jaeger" class="center">
                   </a>
                </div>
            </div>
@@ -131,7 +131,7 @@ If you need application observability, but don't want to instrument code for you
            <div class="panel panel-default text-center">
                <div class="panel-body">
                   <a href="https://docs.wavefront.com/zipkin.html">
-                  <img src="https://avatars3.githubusercontent.com/u/11860887?v=4" alt="Zipkin">
+                  <img src="/images/icons_svg_zipkin.png" alt="Zipkin" class="center">
                   </a>
                </div>
            </div>
