@@ -1,5 +1,5 @@
 ---
-title: Query Builder
+title: Query Builder (v1)
 keywords: query language
 tags: [query language, getting started]
 sidebar: doc_sidebar
@@ -14,7 +14,7 @@ summary: Learn how to create Wavefront Query Language expressions using Query Bu
 <ul>
 <li>Query builder allows you to construct queries from building blocks. Query Builder supports most elements of the Wavefront Query Language. A few of the more advanced functions are only available in the Query Editor, so you can switch from Query Builder to Query Editor to use those functions. You cannot switch from Query Editor to Query Builder.</li>
 <li>Query Editor expect that you type the query using the elements of the query language.</li></ul></td>
-<td width="20%"><a href="query_language_query_builder.html"><img src="/images/v2_button.png" alt="click here for the chart builder(v2) doc"/></a></td>
+<td width="20%"><a href="chart_builder.html"><img src="/images/v2_button.png" alt="click here for the chart builder doc"/></a></td>
 </tr>
 </tbody>
 </table>
