@@ -40,7 +40,7 @@ The returned values are plotted against the times shown on the x-axis. The retur
 
 **Example 1: Showing Months**
 
-In this chart, we have set custom dates over several months. `month("America/New_York")` returns 4, 5, and 6, representing April, May, and June, Eastern Daylight Time.
+In this chart, we have set a custom date that goes from August 12 to February 12. `month("America/New_York")` returns 8 (August), 9 (September)... and then 1 (January) and 2 (February.
 ![month](images/ts_month.png)
 
 **Example 2: Defining an Alert that Fires in Particular Months**

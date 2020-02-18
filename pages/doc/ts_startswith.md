@@ -38,11 +38,11 @@ The `endsWith()` function returns true if the specified metadata string ends wit
 
 The `startsWith()` and `endsWith()` functions allow you to check whether a metadata string starts with or ends with a specified string. For example, you could check whether a host name starts with `aws` or ends with `2020`.
 
-The returned values (`true` or `false`) are displayed as metadata values in the chart legend or in a table column. 
+The returned values (`true` or `false`) are displayed as metadata values in the chart legend or in a table column.
 
 
 ## Example
 
-In the example below, we check whether the string `newPointTagValue` starts with `newV` (false) or with `newP` (true).
+In the example below, we check whether the string that's the value of the `service` point tag starts with `data` or starts with `ingester`. In the hover text, we can see that the result is `true` for the first query and `false` for the second. 
 
 ![ts starts with](images/ts_starts_with.png)
