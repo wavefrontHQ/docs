@@ -161,7 +161,7 @@ The actual helper objects in a microservice depends on the SDKs you set up. A ty
 * Several different kinds of [WavefrontReporter objects](#wavefront-reporters) that specify how metrics and histograms are reported.
 * A [WavefrontSender](#wavefront-sender) that sends data through a Wavefront proxy or directly to the Wavefront service.
 
-**Note:** When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared.
+{% include note.html content="When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared."%}
 
 <!---
 Passing contexts between operations for trace data.
@@ -173,7 +173,7 @@ Wavefront requires tags that describe the structure of your application. These a
 
 Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code. You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. The tags include information about the way your application is structured and deployed, so your code normally obtains tag values from a configuration file at runtime. The configuration file might be provided by the Wavefront SDK, or it might be part of a custom configuration mechanism that is implemented by your application. (Only SDKs with quickstart setup steps provide a configuration file.)
 
-**Note:** You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data.
+{% include note.html content="You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data." %}
 
 ### How Wavefront Uses Application Tags
 
@@ -222,7 +222,7 @@ When you instrument an application, you set up a mechanism for sending metrics a
 Your choice is represented in your code as Wavefront Sender object.
 (Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above.
 
-**Note:** You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent.
+{% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
 
 <!--- change links when proxy/dir ing decision is in a single section --->
 
@@ -237,7 +237,7 @@ A `WavefrontSpanReporter` specifies the source of the reported trace data -- by 
 
 Trace data is reported automatically whenever spans are complete, so a `WavefrontSpanReporter` does not specify a reporting interval.
 
-**Note:** If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console.
+{% include note.html content="If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console." %} 
 
 ### Wavefront Metrics Reporter Objects
 
@@ -248,7 +248,7 @@ A Wavefront reporter object specifies:
 
 * The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 
-**Note:** You can use a Wavefront reporter object to set a nondefault reporting interval.
+{% include note.html content="You can use a Wavefront reporter object to set a nondefault reporting interval." %} 
 
 <!---
 **Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.

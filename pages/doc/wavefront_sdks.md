@@ -307,7 +307,7 @@ Sample use case:
 
 ![tracing fmwk sdk](images/tracing_framework_sdk.png)
 
-**Note:** If you need deeper instrumentation, you can later augment specific function calls with an SDK for collecting metrics or trace data.
+{% include note.html content="If you need deeper instrumentation, you can later augment specific function calls with an SDK for collecting metrics or trace data." %} 
 
 ## SDKs for Sending Raw Data to Wavefront
 
