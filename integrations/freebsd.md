@@ -18,42 +18,92 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1: Install and Configure the Wavefront Proxy Manually
 
-1. Download the [Wavefront proxy jar](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/proxy-4.26-uber.jar) and [Wavefront config file](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/wavefront.conf).
-2. Open the `wavefront.conf` file for edit, add the following proxy properties and save the file:{% raw %}
+1. Create a directory `wavefront-proxy` and change the directory:{% raw %}
+   ```
+   mkdir wavefront-proxy
+   cd wavefront-proxy
+   ```
+{% endraw %}
+2. Download the [Wavefront proxy jar](https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar):{% raw %}
+   ```
+   curl -o proxy-uber.jar https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar
+   ```
+{% endraw %}
+3. Create a directory `conf` and download the `wavefront.conf`, `log4j2.xml` and `preprocessor_rules.yaml` files into the `conf` directory:{% raw %}
+   ```
+   mkdir conf
+   curl -o ./conf/wavefront.conf https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/wavefront.conf
+   curl -o ./conf/log4j2.xml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/log4j2.xml.default
+   curl -o ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default
+   ```
+{% endraw %}
+4. Open the `conf/wavefront.conf` file for edit, update the following proxy properties:{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN
-   hostname = HOSTNAME
+   hostname = "HOSTNAME"
    ```
 {% endraw %} 
-   Here, the `hostname` field is for the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
 5. Start the Wavefront proxy service:{% raw %}
    ```
-   sudo java -cp ./proxy-4.26-uber.jar \
-   -XX:+AggressiveHeap -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
-   -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
+   java -XX:OnOutOfMemoryError="kill -1 %p" \
+   -Dlog4j.configurationFile=./conf/log4j2.xml -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager \
+   -Djavax.net.debug=summary -jar ./proxy-uber.jar \
+   -f conf/wavefront.conf \
+   --preprocessorConfigFile ./conf/preprocessor_rules.yaml &
    ```
 {% endraw %}
-**NOTE:** If Java is not installed, run `pkg install openjdk8`.
+   **NOTE:**
+   * If Java is not installed, run `pkg install openjdk8` to install jdk and set the path`.
+   * If the proxy fails to start with an `Error requesting exclusive access to the buffer lock file`, execute the below command and start the proxy (Step 5){% raw %}
+      ```
+      mkdir -p /var/spool/wavefront-proxy
+      ```
+{% endraw %}
 6. Verify that the proxy has registered with the Wavefront server.
 
 ### Step 2: Install and Configure the Telegraf Agent Manually
 
-1. Download the Telegraf package: [amd64](https://dl.influxdata.com/telegraf/releases/telegraf-1.5.2_freebsd_amd64.tar.gz) / [i386](https://dl.influxdata.com/telegraf/releases/telegraf-1.5.2_freebsd_i386.tar.gz)
-2. Extract the `telegraf-*.tar.gz` file and change the working directory to the extracted directory:
-   `cd telegraf`
-3. Open the `./etc/telegraf/telegraf.conf` file for edit, add the following information and save the file.{% raw %}
+1. Download the Telegraf binary for FreeBSD from https://github.com/influxdata/telegraf/releases.
+2. Extract the `telegraf-*.tar.gz` file and change the working directory to the extracted directory:{% raw %}
    ```
-   [[outputs.wavefront]]
-     host = "WAVEFRONT_PROXY_ADDRESS"
-     port = 2878
-     metric_separator = "."
-     source_override = ["hostname", "agent_host", "node_host"]
-     convert_paths = true
+   tar xf telegraf-*.tar.gz
+   cd telegraf
+   ```
+{% endraw %}
+3. Open the `./etc/telegraf/telegraf.conf` file for edit, and
 
-   # Enable net plugin
-   [[inputs.net]]
-   ```
+   a. Comment the `influxdb` output plugin:{% raw %}
+      ```
+      #[[outputs.influxdb]]
+      ```
+{% endraw %}
+   b. Enable the `wavefront` output plugin by adding below snippet:{% raw %}
+      ```
+      [[outputs.wavefront]]
+      ## Url for Wavefront Direct Ingestion or using HTTP with Wavefront Proxy
+      ## If using Wavefront Proxy, also specify port. example: http://proxyserver:2878
+      # url = "https://<CLUSTER>.wavefront.com"
+      #
+      ## Authentication Token for Wavefront. Only required if using Direct Ingestion
+      # token = "API_TOKEN"
+      #
+      ## DNS name of the wavefront proxy server. Do not use if url is specified
+      host = "WAVEFRONT_PROXY_ADDRESS"
+      #
+      ## Port that the Wavefront proxy server listens on. Do not use if url is specified
+      port = 2878
+      prefix = "bsd."
+      metric_separator = "."
+      source_override = ["hostname", "agent_host", "node_host"]
+      convert_paths = true
+      ```
+{% endraw %}
+   c. Uncomment the `net` input plugin, if commented.{% raw %}
+      ```
+      # Enable net plugin
+      [[inputs.net]]
+      ```
 {% endraw %}
 4. Start the Telegraf agent{% raw %}
    ```
