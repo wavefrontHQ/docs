@@ -27,8 +27,8 @@ For the most gain with the least amount of work:
 <table id="SDKlevels" style="width: 100%">
 <colgroup>
 <col width="16%"/>
-<col width="44%"/>
-<col width="40%"/>
+<col width="42%"/>
+<col width="42%"/>
 </colgroup>
 <thead>
 <tr><th>SDK Type</th><th>SDK Description </th><th>Supported Languages</th></tr>
@@ -125,7 +125,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://www.opentracing
 
 Wavefront provides OpenTracing SDKs for:
 <div class="row">
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">
@@ -134,7 +134,7 @@ Wavefront provides OpenTracing SDKs for:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python">
@@ -143,7 +143,7 @@ Wavefront provides OpenTracing SDKs for:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go">
@@ -152,7 +152,7 @@ Wavefront provides OpenTracing SDKs for:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp">
@@ -161,10 +161,7 @@ Wavefront provides OpenTracing SDKs for:
          </div>
      </div>
  </div>
- </div>
-
-   <div class="row">
-    <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
         <div class="panel panel-default text-center">
             <div class="panel-body">
                <a href="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">
@@ -192,7 +189,7 @@ Wavefront provides SDKs that implement standard metrics libraries in popular pro
 
 Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
 <div class="row">
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java">
@@ -201,7 +198,7 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm">
@@ -210,7 +207,7 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-pyformance">
@@ -219,7 +216,7 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp">
@@ -247,7 +244,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
 **Java frameworks**
 
 <div class="row">
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java">
@@ -256,7 +253,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java">
@@ -265,7 +262,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java">
@@ -274,7 +271,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-jersey-sdk-java">
@@ -288,7 +285,7 @@ Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
 **.NET/C# frameworks**
 
 <div class="row">
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp">
@@ -320,7 +317,7 @@ Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as 
 Wavefront provides sender SDKs for:
 
 <div class="row">
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-java">
@@ -329,7 +326,7 @@ Wavefront provides sender SDKs for:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-python">
@@ -338,7 +335,7 @@ Wavefront provides sender SDKs for:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-go">
@@ -347,7 +344,7 @@ Wavefront provides sender SDKs for:
          </div>
      </div>
  </div>
- <div class="col-md-3 col-sm-6">
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-csharp">
@@ -355,11 +352,8 @@ Wavefront provides sender SDKs for:
             </a>
          </div>
      </div>
- </div>
- </div>
- 
-<div class="row"> 
- <div class="col-md-3 col-sm-6">
+ </div> 
+ <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-cpp">
