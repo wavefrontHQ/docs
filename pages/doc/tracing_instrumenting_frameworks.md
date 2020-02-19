@@ -121,7 +121,7 @@ If you need application observability, but don't want to instrument code for you
        <div class="col-md-3 col-sm-6">
            <div class="panel panel-default text-center">
                <div class="panel-body">
-                  <a href="https://docs.wavefront.com/jaeger.html">
+                  <a href="jaeger.html">
                   <img src="/images/icons_svg_jaeger.png" alt="Jaeger" class="center">
                   </a>
                </div>
@@ -130,7 +130,7 @@ If you need application observability, but don't want to instrument code for you
        <div class="col-md-3 col-sm-6">
            <div class="panel panel-default text-center">
                <div class="panel-body">
-                  <a href="https://docs.wavefront.com/zipkin.html">
+                  <a href="zipkin.html">
                   <img src="/images/icons_svg_zipkin.png" alt="Zipkin" class="center">
                   </a>
                </div>
