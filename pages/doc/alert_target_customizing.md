@@ -27,7 +27,7 @@ A custom alert target's template uses [Mustache syntax](https://mustache.github.
 ### Predefined Templates
 Wavefront provides a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it to add, remove, or rearrange alert information and structural elements. You can even use a predefined template as a guide for composing your own template.
 
-You can [inspect](#displaying-and-editing-predefined-templates) a predefined template to see:
+You can [inspect](#display-and-edit-predefined-templates) a predefined template to see:
 
 * The Wavefront-defined [variables](#template-variables) and [functions](#template-functions) that extract information from the alert.
 
@@ -65,7 +65,7 @@ Mustache supports several variations in each case, but this example shows the mo
 
 ### Template Functions
 
-Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailoring-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limiting-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
+Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailor-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limit-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
 
 The following snippet shows the basic [Mustache](https://mustache.github.io/) syntax for two functions:
 
@@ -83,7 +83,7 @@ The following snippet shows the basic [Mustache](https://mustache.github.io/) sy
 
 Like iterators, a function is used in a Mustache section, with the function's name appearing on either end. The contents of the section are passed as input to the function.
 
-## Displaying and Editing Predefined Templates
+## Display and Edit Predefined Templates
 
 To display and edit a predefined template for a new or existing custom alert target:
 
@@ -96,7 +96,7 @@ The custom alert target's **Type** determines the list of available predefined t
 
 ![predefined alert target](images/alert_target_predefined_template.png)
 
-## Obtaining Information About the Alert
+## Obtain Information About the Alert
 
 Wavefront defines variables for obtaining information about the alert as a whole, such as the alert ID, timing, severity, and so on. Each of these variables is a property unless explicitly described as an iterator.
 
@@ -277,13 +277,14 @@ Notice that, in a template entry such as {% raw %} `"alertId": "{{{alertId}}}"`{
 * {% raw %}`{{{alertId}}}`{% endraw %} invokes the Wavefront-defined variable `alertId`, which expands to `1460761882996` in our example.
 
 
-## Obtaining Information About the Alert's Time Series
+## Obtain Information About the Alert's Time Series
 
 Wavefront defines variables for obtaining information about the time series that contributed to the alert's state change. Each of these variables is an iterator that visits the time series in a particular category, and returns one of the following kinds of information about the visited series:
 
-* [Each series' source (host)](#listing-the-sources-of-an-alerts-time-series)
-* [Each series' defining information](#listing-the-definitions-of-an-alerts-time-series)
-* A [custom combination of details](#accessing-a-custom-group-of-time-series-details) about each series.
+* [Each series' source (host)](#list-sources-and-source-tags-of-an-alerts-time-series)
+*
+* [Each series' defining information](#list-the-definitions-of-an-alerts-time-series)
+* A [custom combination of details](#access-a-custom-group-of-time-series-details) about each series.
 
  The time series visited by a particular iterator are in one of the following categories:
 
@@ -317,18 +318,21 @@ Wavefront defines variables for obtaining information about the time series that
 </table>
 
 **Note** The names of the iterators follow this convention: `<seriesCategory><InfoIndicator>`. For example:
-* `failingHosts` is an iterator that lists the [host name](#listing-the-sources-of-an-alerts-time-series) of each failing time series.
-* `inMaintenanceSeries` is an iterator that lists the [defining information](#listing-the-definitions-of-an-alerts-time-series) of each time series whose source is in maintenance.
-* `recoveredAlertSeries` is an iterator that can access a [custom combination of details](#accessing-a-custom-group-of-time-series-details) about each recovered time series.
+* `failingHosts` is an iterator that lists the [host name](#list-the-sources-of-an-alerts-time-series) of each failing time series.
+* `inMaintenanceSeries` is an iterator that lists the [defining information](#list-the-definitions-of-an-alerts-time-series) of each time series whose source is in maintenance.
+* `recoveredAlertSeries` is an iterator that can access a [custom combination of details](#access-a-custom-group-of-time-series-details) about each recovered time series.
 
-## Listing the Sources of an Alert's Time Series
+## List Sources and Source Tags of an Alert's Time Series
 
-You can use the following iterators to visit each time series in the indicated [category](#series-category) and return the string name of the series' source (host). Any time series not associated with a source is skipped.
+You can use iterators to visit each time series in the indicated [category](#series-category) and return
+* The string name of the series' source (host). Any time series not associated with a source is skipped.
+* The string names of the source tags associated with each of sources. For example, corresponding to the `failingHosts` iterator, we support a `FailingHostToSourceTags` iterator that returns the source tags associated with each failing host.
 
+### Source Iterators
 <table>
 <colgroup>
-<col width="25%"/>
-<col width="75%"/>
+<col width="30%"/>
+<col width="70%"/>
 </colgroup>
 <thead>
 <tr><th>Iterator</th><th>Definition</th></tr>
@@ -349,6 +353,35 @@ You can use the following iterators to visit each time series in the indicated [
 <tr>
 <td markdown="span">`recoveredHosts`</td>
 <td>Iterator that returns the source of each time series that has recovered since the previous notification.</td>
+</tr>
+</tbody>
+</table>
+
+### Source Tag Iterators
+<table>
+<colgroup>
+<col width="30%"/>
+<col width="70%"/>
+</colgroup>
+<thead>
+<tr><th>Iterator</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`failingHostSourceTags`</td>
+<td>Iterator that returns source tags that are associated with the sources for each failing time series.</td>
+</tr>
+<tr>
+<td markdown="span">`inMaintenanceHostSourceTags`</td>
+<td>Iterator that returns source tags that are associated with the sources for each source that is in a maintenance window.</td>
+</tr>
+<tr>
+<td markdown="span">`newlyFailingHostSourceTags`</td>
+<td markdown="span">Iterator that returns source tags that are associated with the sources of each time series that has failed since the previous notification.</td>
+</tr>
+<tr>
+<td markdown="span">`recoveredHostSourceTags`</td>
+<td>Iterator that returns the source tags associated with the sources of each time series that has recovered since the previous notification.</td>
 </tr>
 </tbody>
 </table>
@@ -392,6 +425,43 @@ This portion of the Generic Webhook alert target template shows iterators that r
 ```
 {% endraw %}
 
+**Example: Accessing Source Tags Associated with Alert Sources in a Generic Webhook Alert Target Template**
+
+This portion of the Generic Webhook alert target template shows iterators that return the source tags that are associated with the sources of the time series tested by the alert:
+
+{% raw %}
+```handlebars
+"failingHostToSourceTags": [
+    {{#trimTrailingComma}}
+      {{#failingHostToSourceTags}}
+        "Host: {{host}}, SourceTags: {{sourceTags}}",
+      {{/failingHostToSourceTags}}
+    {{/trimTrailingComma}}
+  ],
+  "inMaintenanceHostToSourceTags": [
+    {{#trimTrailingComma}}
+      {{#inMaintenanceHostToSourceTags}}
+        "Host: {{host}}, SourceTags: {{sourceTags}}",
+      {{/inMaintenanceHostToSourceTags}}
+    {{/trimTrailingComma}}
+  ],
+  "newlyFailingHostToSourceTags": [
+    {{#trimTrailingComma}}
+      {{#newlyFailingHostToSourceTags}}
+        "Host: {{host}}, SourceTags: {{sourceTags}}",
+      {{/newlyFailingHostToSourceTags}}
+    {{/trimTrailingComma}}
+  ],
+  "recoveredHostToSourceTags": [
+    {{#trimTrailingComma}}
+      {{#recoveredHostToSourceTags}}
+        "Host: {{host}}, SourceTags: {{sourceTags}}",
+      {{/recoveredHostToSourceTags}}
+    {{/trimTrailingComma}}
+  ],
+  ```
+  {% endraw %}
+
 **Example: Alert Sources in Output From the Sample Template**
 
 Here is a sample alert target output generated with the preceding template:
@@ -409,7 +479,7 @@ Here is a sample alert target output generated with the preceding template:
 
 Notice that the template provides literal text for enclosing each source name in quotation marks, for separating the source names with commas, and for enclosing the list in square brackets. The `trimTrailingComma` function suppresses the comma after the last source name.
 
-## Listing the Definitions of an Alert's Time Series
+## List the Definitions of an Alert's Time Series
 
 You can use the following iterators to visit each time series in the indicated [category](#series-category) and return the series' defining information. The defining information for a series is a preformatted string that contains the source name, the metric name, and any point tags (shown as `<key>=<value>` pairs).
 
@@ -505,7 +575,7 @@ Here is a sample alert target output generated with the preceding template:
 The template explicitly includes literal text for enclosing the overall list of preformatted strings in square brackets, and for separating the preformatted strings with commas. The `trimTrailingComma` function suppresses the comma after the last preformatted string. The punctuation (quotation marks, comma separators, and square brackets) in each preformatted output string is generated automatically.
 
 
-## Accessing a Custom Group of Time Series Details
+## Access a Custom Group of Time Series Details
 
 You can access a custom combination of details for the time series that contributed to the alert's state change. To do so:
 1. Use an [alert-series iterator](#alert-series-iterators) to visit each each time series in the indicated [category](#series-category).
@@ -704,7 +774,7 @@ The preceding template might yield the following message:
 ```
 {% endraw %}
 
-## Tailoring Content to the Trigger Type
+## Tailor Content to the Trigger Type
 
 If you want to send out different notifications for different types of triggers, you can use the following functions.
 For example, you can use the same template to send out one message for a firing alert, and another message for an updated alert.
@@ -777,7 +847,7 @@ Alert is firing!
 ```
 {% endraw %}
 
-## Limiting List Sizes
+## Limit List Sizes
 
 If your messaging platform imposes a limit on the number of characters in a notification, you can avoid exceeding this limit by setting a limit on the number of items returned by iterators.
 
@@ -785,7 +855,7 @@ The default value for each limit you can set with a customization function is 50
 
 The order of the limit settings determines limit precedence. For example, if you first set `setDefaultIterationLimit` and then you set `setFailingLimit`, then  `setFailingLimit` overwrites the `setDefaultIterationLimit` setting.
 
-The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, and `failingHosts`.
+The `failingLimit` property applies to all iterators in the `failing` category: `failingAlertSeries`, `failingSeries`, `failingHosts`, and `failingHostsToSourceTags`.
 
 See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteration-limits) for an example.
 
@@ -818,7 +888,7 @@ See [Setting and Testing Iteration Limits](#example-setting-and-testing-iteratio
 </tr>
 <tr>
 <td markdown="span">`setFailingLimit`</td>
-<td markdown="span">Sets the limit for the number of items returned by `failingAlertSeries`, `failingHosts`, and `failingSeries`.
+<td markdown="span">Sets the limit for the number of items returned by `failingAlertSeries`, `failingHosts`, `failingHostsToSourceTags`, and `failingSeries`.
 </td>
 </tr>
 <tr>
@@ -957,8 +1027,8 @@ You can use alert target utility functions to make the output of the alert targe
 <td markdown="span">`jsonEscape`</td>
 <td markdown="span">Escapes the characters in a string using JSON string rules.
 Escapes any values it finds into their Json string form. Deals correctly with quotes and control-chars (tab, backslash, cr, ff, etc) so, for example, a tab becomes the characters `\\` and `t`.</td>
-<td markdown="span">Input: `He didn't say, "Stop!"`\\
-Output: `He didn't say, \"Stop!\"`</td>
+<td markdown="span">Input: `She didn't say, "Alert!"`\\
+Output: `She didn't say, \"Alert!\"`</td>
 </tr>
 <tr>
 <td markdown="span">`xml11Escape`</td>
@@ -1013,13 +1083,13 @@ Output:\\
 </tbody>
 </table>
 
-## Adding Chart Images to Older Custom Alert Targets
+## Add Chart Images to Older Custom Alert Targets
 
 As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 **Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images.
 
-### Updating a Pre-Existing Custom Email Alert Target
+### Update a Pre-Existing Custom Email Alert Target
 
 To update a custom email alert target that was created before 2018-26.x:
 
@@ -1039,7 +1109,7 @@ To update a custom email alert target that was created before 2018-26.x:
 Subsequent email notifications will now include a chart image that is generated for the alert. (Without the HTML `<img src= >` tag, the value returned by the `imageLinks` iterator would be displayed as a URL to a chart image, and not as an image.)
 
 
-### Updating a Pre-Existing Custom Alert Target for Slack
+### Update a Pre-Existing Custom Alert Target for Slack
 
 To update the template for a custom Slack alert target that was created before 2018-26.x:
 
