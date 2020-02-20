@@ -7,29 +7,25 @@ permalink: users_roles.html
 summary: Manage global permissions with roles
 ---
 
-Administrators manage global permissions in the Wavefront environment:
-* Create one or more **roles** and assigns one or more [permissions](permissions_overview.html) to each role.
-* Create one or more **groups** and adds one or more users to each group.
-* Assign one or more roles to each group.
+Administrators use roles to fine-tune authorization in the Wavefront environment:
+1. Create one or more **roles** and assign one or more [permissions](permissions_overview.html) to each role.
+2. Create one or more **groups** and add one or more accounts to each group. Accounts can be user accounts or service accounts.
+3. Assign one or more roles to each group. It's also possible to assign a role to individual users.
 
-It's also possible to assign a role to individual users.
-
-Administrators can also [manage access to individual objects](access.html), for example access to a sensitive dashboard.
-
-Accounts can be user accounts or service accounts.
+In addition to the global roles and permissions model, Wavefront also supports [access control for individual objects](access.html), for example, administrators can limit access to a sensitive dashboard.
 
 {% include note.html content="You must have the **Accounts, Groups & Roles** permission to view and manage authorization in Wavefront. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
 
 ## Manage Roles and Permissions
 
-Our roles and permissions model makes it easy to make sure nobody can perform tasks without the corresponding permission -- and our doc set lists the required permissions for most tasks.
+The Wavefront roles and permissions model allows you to make sure nobody can perform tasks without the corresponding permission -- and this doc set lists the required permissions for most tasks.
 
-It's possible to grant permissions or assign a role to an individual user, but assigning a role to a group of users is more efficient and leaves less room for error.
+Creating roles and assigning them to groups of users is most efficient and least error prone. It's possible to grant permissions or assign a role to an individual account -- that might make sense during a POC.
 
 ### Create a Role
 
-All users with **Accounts** permission can create roles.
+All users with **Accounts, Groups & Roles** permission can create roles.
 
 1. Log in to your Wavefront instance.
 2. From the gear menu, select **Account Management**.
@@ -41,7 +37,7 @@ We encourage assigning roles to groups, not to accounts.
 
 ### Create a Group
 
-All users with **Accounts** permission can create roles.
+All users with **Accounts, Groups & Roles** permission can create roles.
 
 1. Log in to your Wavefront instance.
 2. From the gear menu, select **Account Management**.
@@ -55,7 +51,7 @@ All users with **Accounts** permission can create roles.
 
 ### Assign a Role to a Group
 
-Users with **Accounts** permissions can assign roles when they create a group, or can add and remove roles later.
+Users with **Accounts, Groups & Roles** permission can assign roles when they create a group, or can add and remove roles later.
 
 1. Log in to your Wavefront instance.
 2. From the gear menu, select **Account Management**.
@@ -102,8 +98,6 @@ To grant or revoke permissions from the <strong>Edit Service Account</strong> pa
 </tbody>
 </table>
 
-You can assign or revoke roles for individual accounts in the same way.
-
 ## Learn About Users and Groups (FAQs)
 
 Before you start with users and and groups, here are some FAQs:
@@ -130,7 +124,7 @@ When your company signs up with Wavefront, we ask you which user(s) you want to 
 
 Groups allow you to combine a set of users. You can then:
 * Assign a role to the group.
-* Give [view or modify access](access.html) to the group.
+* Give [view or modify access](access.html) for individual dashboards and alerts to the group.
 
 Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
 
