@@ -13,6 +13,7 @@ Permissions allow administrators to control access to Wavefront feature sets. Ad
 
 The following list gives an overview of permissions. To learn more click the link.
 
+- **[Accounts, Groups & Roles](users_roles.html)** - Users with Accounts, Groups & Roles permission can manage user and service accounts. They can create groups and add accounts to groups, create roles and assign permissions to those roles, and assign roles to groups. 
 - **[Alerts](alerts.html)** - Users with Alerts permission can create, edit, and delete alerts as well as maintenance windows, manage alert tags and view alert history, and create, edit, and delete alert targets.
   **Note:** If the Security system preference is set to Creator, View access or View & Modify access to new alert has to be granted explicitly.
 - Batch Query Priority - When an account with Batch Query Priority permission runs queries, Wavefront treats every query executed by that account as if it was wrapped in the [`bestEffort()` function](ts_bestEffort.html).

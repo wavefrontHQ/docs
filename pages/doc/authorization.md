@@ -7,11 +7,11 @@ permalink: authorization.html
 summary: Learn about authorization of Wavefront groups and users.
 ---
 
-Wavefront supports both role-based controls that use global permissions and object based controls for individual dashboards and alerts. .
+Wavefront supports both role-based controls that use global permissions and object based controls for individual dashboards and alerts.
 
 Administrator can
-* Create **roles** with permissions and assign roles to users or groups.
-* Use [access control](access.html) to protect individual dashboards or alerts.
+* Create **[roles](users_roles.html)** with permissions and assign roles to users or groups.
+* Use **[access control](access.html)** to protect individual dashboards or alerts.
 
 
 
@@ -30,7 +30,7 @@ Assigning roles or permissions to individual users is also supported but discour
 
 ## Access Control
 
-Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team. 
+Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
 * **Security preference for new objects** -- In high security environments, administrator can set a security preference so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.

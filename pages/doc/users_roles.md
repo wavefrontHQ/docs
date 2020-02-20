@@ -27,13 +27,24 @@ Creating roles and assigning them to groups of users is most efficient and least
 
 All users with **Accounts, Groups & Roles** permission can create roles.
 
-1. Log in to your Wavefront instance.
-2. From the gear menu, select **Account Management**.
-3. Click the **Roles** tab and select **Create Role**.
-4. Specify a name, description, and one or more permissions for that role.
-5. (Optional) Enter groups (or accounts) to assign the role to.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+To create a role:
+<ol><li>Log in to your Wavefront instance.</li>
+<li>From the gear menu, select <strong>Account Management</strong>.</li>
+<li>Click the <strong>Roles</strong> tab and select <strong>Create Role</strong>.</li>
+<li>Specify a name, description, and one or more permissions for that role.</li>
+<li>(Optional) Enter groups (or accounts) to assign the role to. </li>
+</ol></td>
+<td width="50%"><img src="/images/create_role.png" alt="create a role"/></td>
+</tr>
+</tbody>
+</table>
 
-We encourage assigning roles to groups, not to accounts.
+
+
 
 ### Create a Group
 

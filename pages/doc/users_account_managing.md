@@ -48,7 +48,7 @@ If your environment has been set up to offer the v2 UI option, you can easily sw
 
    ![select UI version](/images/ui_version_menu.png)
 
-## Speed up Chart Display with the Sampling Preference
+## Speed up Chart Display with the Chart Sampling Preference
 
 Wavefront is very fast, but sometimes it's not necessary for the user to wait for thousands of series to be rendered.
 
@@ -60,24 +60,24 @@ Starting with release 2019.38, you can limit the number of time series to 100 fo
 ## Examine Groups, Roles, and Permissions
 
 If you can't perform a certain task, it's possible that you don't have [permissions](permissions_overview.html).
-* Wavefront administrators usually create roles, which are sets of permissions, and assign one or more roles to a group.
-* Administrators can also assign roles or permissions explicitly to individual users.
+* Wavefront administrators usually [create roles](users_roles.html), which are sets of permissions, and assign one or more roles to a group.
+* Administrators can assign roles or permissions explicitly to individual users.
 
 Permissions are additive:
-* If 2 roles were assigned to a group you belong to, you have the permissions from both roles.
-* If you belong to 2 groups, you get the permissions associated with the roles assigned to those groups.
-* If you have any individual permissions, you get those as well.
+* If you belong to a group with 2 roles, you get the permissions from both roles.
+* If you belong to 2 groups, you get the permissions from combined roles.
+* If permissions or roles were assigned to you explicitly, you get those as well.
 
-You can check the permissions you have and see which groups you belong to from your account page.
+You can check the permissions you have and see which groups you belong to.
 1. Click the gear icon <i class="fa fa-cog"/> on the task bar and select your username.
 2. Click the **Groups, Roles & Permissions** tab to display the permissions you have and why you have them.
 ![groups and permissions](images/groups_and_permissions.png)
 
-3. Hover over any group to see the permissions you have from this. Permissions are additive.
+3. Hover over any group to see the permissions you have from this group. The permissions come from roles assigned to the group.
 
 **Note:** Even if you have Dashboard or Alert **permission**, it's possible that you can't modify a dashboard or an alert. This happens if **access** is restricted explicitly for that dashboard or alert. Ask the dashboard or alert creator to share the object with you.
 
-## Generating an API Token
+## Generate an API Token
 
 Wavefront allows you to interact with your Wavefront instance using the [Wavefront REST API](wavefront_api.html). When you make an API call, you have to pass in a token, which you can generate from your account page.
 
