@@ -9,21 +9,25 @@ summary: Learn how to query for Wavefront trace data.
 
 After your application sends [trace data](tracing_basics.html#wavefront-trace-data) to Wavefront, you can examine that data in the Traces browser. By fine-tuning the trace query in the Traces browser, you find the traces that you're interested in by describing the spans they must contain.
 
-## Get Started With Trace Queries
+## Get Started with Trace Queries
 
-You query for traces by using Query Builder to describe the spans that those traces must contain.
+To query traces, select **Applications > Traces** and navigate to the Traces browser.
 
+**Query traces using a trace ID**:
+1. Click **Trace ID** and enter the ID of the trace or traces you want to query.
+    ![query traces by trace ID](images/tracing_query_by_trace_id.png)
+    {% include note.html content="You might not see search results if you search for a trace after 7 days because spans data is only saved for 7 days by default, or after 1 hour if you have enabled [intelligent sampling for traces](trace_data_sampling.html)." %}
+    {% include tip.html content="To get the ID of a trace, go to the trace details panel, expand a service, and click **Tags**. See [Drill Down Into Spans and View Metrics and Span Logs](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs)." %}
+2. Click **Search** in the query bar to update the list of traces.
+    
+**Query traces using an operation**: 
+1. Click **Operation**, and [select an operation](#select-an-operation) to specify the scans to be matched.
+2. Optionally, [add one or more filters](#add-filters) to refine your query.
+  ![tracing query builder](images/tracing_query_builder_filter.png)
+3. Click **Search** in the query bar to update the list of traces.
 
-1. Select **Applications > Traces** in the task bar to display the Traces browser.
-2. [Select an operation](#select-an-operation) to specify the scans to be matched.
-![tracing query builder](images/tracing_query_builder.png)
-3. Optionally [add one or more filters](#add-filters) to refine your query.
-![tracing query builder](images/tracing_query_builder_filter.png)
-4. Click **Search** in the query bar to update the list of traces.
-
-**Note:** As an alternative, you can use [Query Editor](#use-query-editor-power-users) to submit advanced trace queries explicitly.
+{% include note.html content="As an alternative, you can use [Query Editor](#use-query-editor-power-users) to submit advanced trace queries explicitly." %}
 <!---Add mini screenshot?--->
-
 
 ## Select an Operation
 
@@ -88,8 +92,18 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 <td markdown="span">Traces that have at least one span with a specified tag, for example, `env="prod"`. Use this type for custom or unindexed span tags.</td>
 </tr>
 <tr>
-<td markdown="span">**Duration**</td>
+<td markdown="span">**SpanLog**</td>
+<td>Traces that have span logs.
+{% include note.html content="Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact [support@wavefront.com](mailto:support@wavefront.com) if this does not meet your requirements"%}
+</td>
+</tr>
+<tr>
+<td markdown="span">**Duration (Trace)**</td>
 <td markdown="span">Traces that have a specified minimum and/or maximum length (in milliseconds).</td>
+</tr>
+<tr>
+<td markdown="span">**Duration (Span)**</td>
+<td markdown="span">Traces that have a specified minimum and/or maximum span length (in milliseconds).</td>
 </tr>
 <tr>
 <td markdown="span">**Limit**</td>
@@ -98,6 +112,12 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 <tr>
 <td markdown="span">**Error**</td>
 <td markdown="span">Traces with at least one span that contains an error (`error=true`).</td>
+</tr>
+<tr>
+<td markdown="span">**TraceId**</td>
+<td>The trace or traces that match the trace ID or trace IDs. 
+{% include note.html content="If you select **TraceId** you can only search by the trace ID. You cannot filter an operation by a trace ID."%}
+</td>
 </tr>
 </tbody>
 </table>
