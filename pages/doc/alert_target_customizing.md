@@ -380,7 +380,7 @@ You can use iterators to visit each time series in the indicated [category](#ser
 <td markdown="span">Iterator that returns source tags that are associated with the sources of each time series that has failed since the previous notification.</td>
 </tr>
 <tr>
-<td markdown="span">`recoveredHostsSourceTags`</td>
+<td markdown="span">`recoveredHostSourceTags`</td>
 <td>Iterator that returns the source tags associated with the sources of each time series that has recovered since the previous notification.</td>
 </tr>
 </tbody>

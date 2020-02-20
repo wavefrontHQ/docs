@@ -50,7 +50,7 @@ It's easy to create a dashboard from metrics or by selecting a chart.
 </tbody>
 </table>
 
-### Create a Dashboard from a Template
+### Create a Dashboard from Integration Templates
 
 With release 2019.46, you can create a dashboard by specifying an integration dashboard as a template.
 
@@ -68,6 +68,37 @@ With release 2019.46, you can create a dashboard by specifying an integration da
 </tbody>
 </table>
 
+### Create a Dashboard from a Tracing Template
+
+The Wavefront service dashboard includes a set of charts to monitor the trace data sent by each service in your application. You can use the service dashboard as a template to create your dashboard and then customize the charts for your environment.
+
+{% include note.html content="To view data in these charts, your applications need to send trace data to Wavefront. See [Instrument Your Applications](tracing_instrumenting_frameworks.html) for details." %}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<strong>To create a dashboard</strong>:
+<ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
+<li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
+<li>Click <strong>Import Charts</strong>.</li>
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
+  <ul>
+  <li>The URL field supports letters, numbers, underscores, and dashes.</li> 
+  <li>The Name field supports letters, numbers, characters, and spaces.</li>
+  </ul>
+</li>
+<li>To view data that is specific to an application and service, use the <strong>application</strong> and <strong>service</strong> dropdowns.</li>
+</ol></td>
+<td width="60%"><img src="/images/create_tracing_template.png" alt="create dashboard from template"></td>
+</tr>
+</tbody>
+</table>
+
+**Take a look at the cool actions you can do using these charts:**
+* [Navigate to the Tracing UI from the Service Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard). 
+* [Explore the Default Service Metrics Dashboard](tracing_ui_overview.html#explore-the-default-service-metrics-dashboard).
+* To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
 
 ## Edit or Clone a Dashboard
 
@@ -231,7 +262,7 @@ Starting with release 2018.46.x, you can undo dashboard changes.
 
 For each dashboard, you can customize display preferences.
 
-{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)." %}
+{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%} 
 
 <table style="width: 100%;">
 <tbody>

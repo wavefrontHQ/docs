@@ -162,7 +162,7 @@ We improved the following dashboards in the AWS integration in July/August 2018:
 
 We improved the following dashboards in other integrations in July/August 2018:
 
-* NGNIX dashboard
+* NGINX dashboard
 * RabbitMQ dashboard
 
 ## June 2018

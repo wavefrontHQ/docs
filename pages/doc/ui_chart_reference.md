@@ -1202,3 +1202,108 @@ If you [specify a drilldown link], end users are directed to a target dashboard 
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
+## Histogram Chart
+
+![histogram](images/histogram_chart_v2.png)
+
+Histogram charts have two main uses:
+* Visualize [Wavefront Histograms](proxies_histograms.html). Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources.
+* Display a histogram visualization of a time series. That makes it possible, for example, to easily see query results above a certain percentile.
+
+The histogram chart shows the aggregate view of the entire window. For both histogram data and time series data, you can visualize the amount of data in a certain percentile, specify color gradient and axis information, and, most importantly, get details about your histogram data by looking at hover text on each bar.
+
+From the chart's edit menu, you can go to the corresponding trace (if any).
+
+![Go to Traces menu](images/histogram_goto_menu.png)
+
+<p><span style="font-size: large; font-weight: 600">Data Tab</span></p>
+
+In contrast to other chart types, you must use the query editor to enter histogram information.
+
+One easy way to show a histogram is from the **Histogram** browser.
+
+1. Select **Browse > Histograms**
+2. Drill down to the metric you're interested in and double-click it to open it in a chart.
+
+You must make sure you're looking at a metric -- it doesn't make sense to select a folder.
+
+
+
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Color Gradient</td>
+<td>Lets you select a start and end color for the histogram gradient.</td>
+</tr>
+<tr>
+<td>Percentile Markers</td>
+<td>Display predefined percentile makers as numbers on the chart. You can also </td>
+</tr>
+<tr><td>Gap Threshold</td>
+<td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
+
+The Axis tab lets you change the Y axis, and both the X axis dimensions and units.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="15%">Option</th><th width="85%">Description</th></tr>
+</thead>
+<tr>
+<td>Y-Axis</td>
+<td>Scale of the Y-axis: linear or logarithmic. Default is linear. In most cases, linear is sufficient as long as there is not a large difference in measurement between the reported data points. If there's a large difference in measurement scale, use the logarithmic scale. By default, the logarithmic scale is set to the power of 10. You can configure the scale in the adjacent text field.
+</td>
+</tr>
+<tr>
+<td>Min/Max</td>
+<td>Y axis minimum and maximum value. Use these two options to change the height of your histogram bars. </td>
+</tr>
+<tr>
+<td>X-Axis Min / X-Axis Max</td>
+<td>Allows you to specify the minimum and maximum on the X axis, in effect, filtering out some of the left-most and right-most bars that the chart displays.</td>
+</tr>
+<tr>
+<td>Unit</td>
+<td>Unit of measurement to assign to the label that appears along the X-axis. This unit <em>does not</em> change the unit of measurement. This unit also does not affect the Y axis.
+<p>Supported units are:</p>
+<ul>
+<li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
+<li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
+<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+</ul>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>

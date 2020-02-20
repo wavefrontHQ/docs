@@ -10,7 +10,7 @@ summary: Reference to the substring string manipulation function
 substring(metric|source|<pointTagKey>, <startInteger>, [<endInteger>,] <tsExpression>)
 
 ```
-Returns a substring that is extracted from the specified metadata string. 
+Returns a substring that is extracted from the specified metadata string.
 
 
 ## Parameters
@@ -41,11 +41,10 @@ The `substring()` function returns a substring that is extracted from the specif
 
 ## Example
 
-The following example uses two integers to specify where to start and end extracting a substring from a string extracted from an expression.
+The following example extracts substrings from the value of the `service` point tag, which is `dataingester`.
 
-The example:
-* Extracts the string `Point` from `newPointTagValue` by specifying 3, 8
-* Extracts the string `Tag` from `newPointTagValue` by specifying 8, 11
+* The first query specifies 0, 4, to extract the string `data`
+* The second query specifies 4, 10 to extract the string `ingest`
 
 
 ![ts substring example](images/ts_substring.png)

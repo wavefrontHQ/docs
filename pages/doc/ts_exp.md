@@ -29,10 +29,10 @@ Returns the natural exponential for each data value described by the expression.
 
 ## Description
 
-The `exp()` function produces a time series in which each data value is equal to _e_ raised to the power specified by the expression. 
+The `exp()` function produces a time series in which each data value is equal to _e_ raised to the power specified by the expression.
 * If `tsExpression` describes a constant value _`N`_, then `exp()` returns a continuous series where every data value is <code><em>e<sup>N</sup></em></code>.
-* If `tsExpression` describes one or more time series, then `exp()` returns a new time series for each input time series. 
-Each value in a new time series is calculated as <code><em>e<sup>V</sup></em></code>, where _`V`_ is the value of the corresponding point in the input time series.  
+* If `tsExpression` describes one or more time series, then `exp()` returns a new time series for each input time series.
+Each value in a new time series is calculated as <code><em>e<sup>V</sup></em></code>, where _`V`_ is the value of the corresponding point in the input time series.
 
 The inverse of this function is [`log()`](ts_log.html).
 
@@ -44,6 +44,6 @@ In this example, we see the result (in red) of using `exp(2)` to raise _e_ to th
 
 ![ts exp](images/ts_exp_and_inverse.png)
 
-Here we see the result (in orange) of using `exp()` to obtain the natural exponential of a time series (in blue).
+Here we see the result (in orange) of using `exp()` to obtain the natural exponential of a time series (in purple).
 
 ![ts exp ts](images/ts_exp_time_series.png)
