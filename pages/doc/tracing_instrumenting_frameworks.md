@@ -24,13 +24,13 @@ Choose one of the following ways to send metrics, histograms, and trace data fro
 
 Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs. direct ingestion.
 
-### To prepare for direct ingestion
+### To Prepare for Direct Ingestion
 
 1. Identify the URL of your Wavefront instance. This is the URL you connect to when you log in to Wavefront, typically something like `https://mywavefront.wavefront.com`.
 2. [Obtain an API token](wavefront_api.html#generating-an-api-token).
 
 
-### To prepare a Wavefront proxy
+### To Prepare a Wavefront Proxy
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need proxy version 4.36 or later. If you want to use span logs, you need proxy version 5.0 or later.
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
@@ -53,7 +53,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 
 {% include note.html content="If you can not find the SDK you were looking for, see all the [SDKs provided by Wavefront](wavefront_sdks.html#what-do-you-want-to-collect)." %}
 
-### Instrument your application with OpenTracing SDKs
+### Instrument Your Application with OpenTracing SDKs
 
 Choose the Wavefront OpenTracing SDK for your microservice's programming language, and click the link to go to its `README` file on GitHub:
 
@@ -96,7 +96,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
     </div>
   </div>
   
-### Instrument your OpenTracing Java application without writing code
+### Instrument Your OpenTracing Java Application Without Writing Code
 
 If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/).
 
@@ -112,7 +112,7 @@ If you need application observability, but don't want to instrument code for you
    </div>
  </div>
 
-### Send trace data to Wavefront via applications integrated with Jaeger or Zipkin
+### Send Trace Data to Wavefront via Applications Integrated with Jaeger or Zipkin
   
   If you have already instrumented your application with Jaeger or Zipkin follow the steps given below :
   1. Collect traces send them to Wavefront using the following integrations.
