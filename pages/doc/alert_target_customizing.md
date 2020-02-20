@@ -322,13 +322,20 @@ Wavefront defines variables for obtaining information about the time series that
 * `inMaintenanceSeries` is an iterator that lists the [defining information](#list-the-definitions-of-an-alerts-time-series) of each time series whose source is in maintenance.
 * `recoveredAlertSeries` is an iterator that can access a [custom combination of details](#access-a-custom-group-of-time-series-details) about each recovered time series.
 
+<!---
 ## List Sources and Source Tags of an Alert's Time Series
 
 You can use iterators to visit each time series in the indicated [category](#series-category) and return
 * The string name of the series' source (host). Any time series not associated with a source is skipped.
-* The string names of the source tags associated with each of sources. For example, corresponding to the `failingHosts` iterator, we support a `FailingHostToSourceTags` iterator that returns the source tags associated with each failing host.
+* The string names of the source tags associated with each of sources. For example, corresponding to the `failingHosts` iterator, we support a `FailingHostSourceTags` iterator that returns the source tags associated with each failing host.
 
-### Source Iterators
+### Source Iterators--->
+
+
+## List Sources of an Alert's Time Series
+
+You can use iterators to visit each time series in the indicated [category](#series-category) and return the string name of the series' source (host). Any time series not associated with a source is skipped.
+
 <table>
 <colgroup>
 <col width="30%"/>
@@ -357,6 +364,7 @@ You can use iterators to visit each time series in the indicated [category](#ser
 </tbody>
 </table>
 
+<!---
 ### Source Tag Iterators
 <table>
 <colgroup>
@@ -385,6 +393,7 @@ You can use iterators to visit each time series in the indicated [category](#ser
 </tr>
 </tbody>
 </table>
+--->
 
 **Example: Accessing Alert Sources in a Generic Webhook Alert Target Template**
 
