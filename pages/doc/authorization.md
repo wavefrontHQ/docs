@@ -19,14 +19,14 @@ Administrator can
 
 Permissions always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
 
-Wavefront is permissions with roles. The adminstrator:
-* Creates one or more **roles** and assigns one or more [permissions](permissions_overview.html) to each role.
-* Creates one or more **groups** and adds one or more users to each group.
-* Assigns one or more roles to each group.
+A user with Accounts, Groups & Roles permission manages authorization:
+1. Creates one or more **roles** and assigns one or more [permissions](permissions_overview.html) to each role.
+2. Creates one or more **groups** and adds one or more users to each group.
+3. Assigns one or more roles to each group.
 
 **Picture here!**
 
-Assigning roles or permissions to individual users is also supported but discouraged. Doing permission management at the role and group level makes it less likely, for example, that one user retains permissions that were to be revoked.
+Assigning roles or permissions to individual users is also supported but discouraged. Management at the role and group level is less error prone, for example, it's easier to remove a role from a group than from 15 individual users. 
 
 ## Access Control
 
