@@ -10,25 +10,24 @@ summary: Create and manage service accounts.
 A service account can be used to automate management of objects like dashboard, alerts, etc.
 
 * A service account uses a **token** to authenticate.
-* A service account must have **permissions** to perform tasks. For dashboards and alerts, the service account must also have access.
-* By default, service accounts do not get any **individual permission** by default
-  - Each account is automatically added to the **Everyone**  group and inherits the Everyone group permissions (if any)
-  - Service account can be added to any group to get that groups permissions.
-* A service account can't perform the **UI operations** that user accounts can [perform by default](user_accounts.html#what-can-a-new-user-do).  Service Accounts can be used to automate management of objects like Dashboard, Alerts, etc. If a user wants to automate the process of managing certain objects then they can assign Dashboard management permission or Alert management permission to a Service Account and add it to the ACL for the objects that the user wants to manage automatically through a Service Account
+* A service account must have **permissions** to perform tasks. For dashboards and alerts, the service account must also have [access](access.html).
+* By default, service accounts do not get any **individual permission**
+  - Each account is automatically added to the **Everyone**  group. If a role is assigned to that group, the service account gets the permissions from that role.
+  - Service account can be added to any group to get that group's role (and permissions).
+* A service account can't perform the **UI operations** that all user accounts can [perform by default](user_accounts.html#what-can-a-new-user-do).
+
 
 ## Service Accounts Basics
 
-If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Wavefront API. Service accounts support this type of authentication.
+If you build a service or tool that manages proxies or ingests data, then that tool must authenticate to the Wavefront API.
 
-1. Create a service account from the Wavefront UI.
-
-   **Note**: The service account name must be unique.
-2. Give the account the permissions it needs.
+1. Create a service account from the Wavefront UI. The service account name must be unique.
+2. Assign a role to the account to give the account the permissions it needs. Service accounts can perform get, modify, and delete tasks **only** if they have the necessary permissions.
 2. Configure your tool to pass the service account credentials (API token) to the Wavefront API.
 
-   The tool authenticates seamlessly to the API without embedding any secret keys or user credentials in your instance, image, or application code.
+   The tool authenticates seamlessly to the API without embedding secret keys or user credentials in your instance, image, or application code.
 
-Service accounts can perform get, modify, and delete tasks **only** if they have the necessary permissions. You can disable a service account if you temporarily don't need it, or delete it permanently.
+You can disable a service account if you temporarily don't need it, or delete it permanently.
 
 
 ## Create a Service Account
@@ -62,16 +61,18 @@ Tokens</td>
 <tr>
 <td>
 Groups</td>
-<td>By default, service accounts are added to the Everyone group and you cannot remove them. If you give permissions to the Everyone group, all the service account get those permissions. You can also add a service accounts to other groups. </td></tr>
+<td>By default, service accounts are added to the Everyone group and you cannot remove them. If you give assign roles to the Everyone group, all the service account get the permissions associated with that role. You can also add a service accounts to other groups. </td></tr>
 <tr>
-<td>
-Permissions</td>
+<td>Roles</td>
+<td>Roles for the service account. Roles are sets of permissions. You could create one or two roles and use those roles only for service accounts. </td></tr>
+<tr>
+<td>Permissions</td>
 <td>Individual permissions assigned to this service account. For example, give the account <strong>Proxies</strong> permission to interact with proxies or <strong>Alerts</strong> permissions to retrieve data from alerts. </td>
 </tr>
 </tbody>
 </table>
 
-You can [grant or revoke permissions](users_roles.html#grant-or-revoke-account-permissions-explicitly) for individual accounts. The process is the same for user accounts and service accounts. You can deactivate or activate a service account.
+After you create the account, you can change role or group assignment for individual accounts. The process is the same for user accounts and service accounts.
 
 
 ## Deactivate or Activate a Service Account

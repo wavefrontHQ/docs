@@ -14,7 +14,7 @@ Administrators use roles to fine-tune authorization in the Wavefront environment
 
 In addition to the global roles and permissions model, Wavefront also supports [access control for individual objects](access.html), for example, administrators can limit access to a sensitive dashboard.
 
-{% include note.html content="You must have the **Accounts, Groups & Roles** permission to view and manage authorization in Wavefront. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
+{% include note.html content="You must have **Accounts, Groups & Roles** permission to view and manage authorization in Wavefront. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
 
 
 ## Manage Roles and Permissions
@@ -36,7 +36,8 @@ To create a role:
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Roles</strong> tab and select <strong>Create Role</strong>.</li>
 <li>Specify a name, description, and one or more permissions for that role.</li>
-<li>(Optional) Enter groups (or accounts) to assign the role to and click <strong>Create</strong>. </li>
+<li>(Optional) Enter groups (or accounts) to assign the role to.</li>
+<li>Click <strong>Create</strong>. </li>
 </ol></td>
 <td width="50%"><img src="/images/create_role.png" alt="create a role"/></td>
 </tr>
@@ -54,7 +55,7 @@ All users with **Accounts, Groups & Roles** permission can create groups and add
 <tbody>
 <tr>
 <td width="50%">
-To create a role:
+To create a group:
 <ol><li>Log in to your Wavefront instance.</li>
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Groups</strong> tab and select <strong>Create Group</strong>.</li>
@@ -75,11 +76,11 @@ Users with **Accounts, Groups & Roles** permission can assign roles when they cr
 <tbody>
 <tr>
 <td width="50%">
-To create a role:
+To assign a role to a group:
 <ol><li>Log in to your Wavefront instance.</li>
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Groups</strong> tab and change role assignment in one of these ways: </li>
-<ul><li>Select the check box for the group to change, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment. </li>
+<ul><li>Click the group name, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment.</li>
 <li>Select the check box for the group and click the group name. In the <strong>Edit Group</strong> dialog, make the desired changes and click <strong>Update</strong></li></ul>
 </ol>
 </td>
@@ -120,61 +121,3 @@ To grant or revoke permissions from the <strong>Edit Service Account</strong> pa
 
 </tbody>
 </table>
-
-## Learn About Users and Groups (FAQs)
-
-Before you start with users and and groups, here are some FAQs:
-
-### What are User Accounts & Service Accounts?
-
-Wavefront supports two account types:
-* **[User accounts](user_accounts.html)** are for human users who work with Wavefront. A user account authenticates with a user name and password.
-* **[Service accounts](service_accounts.html)** are for services that interact with Wavfront through an API and use a **token** to authenticate. Service accounts:
-  - Don't have **default permissions** (unless the **Default Role** has default permissions).
-  - Can't perform the **UI operations** that user accounts can perform by default.
-  In the UI, service acount names always start with **sa:**
-
-### Who is the Super Admin User?
-
-When your company signs up with Wavefront, we ask you which user(s) you want to designate as Super Admin. A Super Admin user:
-* Has all permissions
-* Has access to all dashboards and alerts
-* Can [restore orphan dashboards and alerts](access.html#making-orphan-dashboards-visible)
-* Can invite other Super Admin users.
-
-
-### Why Groups?
-
-Groups allow you to combine a set of users. You can then:
-* Assign a role to the group.
-* Give [view or modify access](access.html) for individual dashboards and alerts to the group.
-
-Wavefront groups do *not* currently synchronize with groups in your identity provider (IDP) such as Active Directory or LDAP.
-
-<!--- Obsolete
-### What's the Everyone Group?
-
-All accounts (users and service accounts) are members of the Everyone group.
-
-Here's what you need to know:
-
-* You cannot remove accounts from the Everyone group. All accounts, including Super Admin, are always in the Everyone group.
-* You cannot delete the Everyone group.
-* You can change the permissions assigned to the Everyone group. By default, the group has no explicit permissions, which means human users can browse data but cannot modify anything and service accounts have no permissions.
-
-  **Warning** If you add permissions assigned to the Everyone group, you change the permissions for each account in your environment, including service accounts.
-* If you use access control in your environment, you can share a dashboard or alert with the Everyone group to:
-  - Give View & Modify access to accounts who have Dashboard (or Alert) permissions
-  - Give View access to accounts who don't have Dashboard (or Alert) permissions
-  You can remove the Everyone group from a dashboard or alert access list to limit access to that object.
-
---->
-
-### What is the Default Role?
-
-The **Default Role** is a predefined role that allows you to give certain permissions to all accounts.
-
-* By default, this role has no associated permissions.
-* If your environment had assigned permissions to the Everyone group before 2019.52.x, those permissions are automatically assigned to the **Default Role**.
-
-In most cases, it makes sense to create explicit roles with names that make sense in your environment.
