@@ -36,7 +36,7 @@ To create a role:
 <li>From the gear menu, select <strong>Account Management</strong>.</li>
 <li>Click the <strong>Roles</strong> tab and select <strong>Create Role</strong>.</li>
 <li>Specify a name, description, and one or more permissions for that role.</li>
-<li>(Optional) Enter groups (or accounts) to assign the role to. </li>
+<li>(Optional) Enter groups (or accounts) to assign the role to and click <strong>Create</strong>. </li>
 </ol></td>
 <td width="50%"><img src="/images/create_role.png" alt="create a role"/></td>
 </tr>
@@ -48,34 +48,46 @@ To create a role:
 
 ### Create a Group
 
-All users with **Accounts, Groups & Roles** permission can create roles.
+All users with **Accounts, Groups & Roles** permission can create groups and add members and roles to the group. You can't assign permissions to groups.
 
-1. Log in to your Wavefront instance.
-2. From the gear menu, select **Account Management**.
-3. Click the **Groups** tab and select **Create Group**.
-4. Specify a name and description.
-5. (Optional) Specify one or more group members.
-   * You can specify both user accounts and service accounts, though groups usually make more sense for user accounts.
-   * Only accounts (not other groups) can be group members.
-5. (Optional) Specify one or more roles to assign to the group.
-   You can instead assign (or remove) roles later.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+To create a role:
+<ol><li>Log in to your Wavefront instance.</li>
+<li>From the gear menu, select <strong>Account Management</strong>.</li>
+<li>Click the <strong>Groups</strong> tab and select <strong>Create Group</strong>.</li>
+<li>Specify a name and (optional) description.</li>
+<li>(Optional) Add one or more accounts to the group. You cannot add a group as a member.</li>
+<li>(Optional) Add one or more roles to the group now or later. </li></ol></td>
+<td width="50%"><img src="/images/create_group.png" alt="create a group"/></td>
+</tr>
+</tbody>
+</table>
+
 
 ### Assign a Role to a Group
 
 Users with **Accounts, Groups & Roles** permission can assign roles when they create a group, or can add and remove roles later.
 
-1. Log in to your Wavefront instance.
-2. From the gear menu, select **Account Management**.
-3. Click the **Groups** tab and change role assignment in one of these ways:
-   * Select the check box for the group to change, click **+Role** or **-Role**, and select a role to change role assignment.
-   * Select the check box for the group and click the group name. In the **Edit Group** dialog, make the desired changes and click **Update**
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+To create a role:
+<ol><li>Log in to your Wavefront instance.</li>
+<li>From the gear menu, select <strong>Account Management</strong>.</li>
+<li>Click the <strong>Groups</strong> tab and change role assignment in one of these ways: </li>
+<ul><li>Select the check box for the group to change, click <strong>+Role</strong> or <strong>-Role</strong>, and select a role to change role assignment. </li>
+<li>Select the check box for the group and click the group name. In the <strong>Edit Group</strong> dialog, make the desired changes and click <strong>Update</strong></li></ul>
+</ol>
+</td>
+<td width="50%"><img src="/images/add_role_to_group.png" alt="add role to group"/></td>
+</tr>
+</tbody>
+</table>
 
-
-<!---
-This video shows how you find out the permissions you have, and how to manage permissions for users and groups.
-
-<p><a href="https://youtu.be/kQ-w-DyjW5M"><img src="/images/v_permissions_2019.png" style="width: 700px;" alt="permissions for users and groups"/></a>
-</p>--->
 
 ## Grant or Revoke Account Permissions Explicitly
 

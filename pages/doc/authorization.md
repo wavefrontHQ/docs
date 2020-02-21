@@ -24,9 +24,42 @@ A user with Accounts, Groups & Roles permission manages authorization:
 2. Creates one or more **groups** and adds one or more users to each group.
 3. Assigns one or more roles to each group.
 
-**Picture here!**
+In this picture, we have 3 roles and 3 groups of users. Each user gets the permissions from one role.
 
-Assigning roles or permissions to individual users is also supported but discouraged. Management at the role and group level is less error prone, for example, it's easier to remove a role from a group than from 15 individual users. 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<img src="/images/permissions_basics.png" alt="permissions basics"/></td>
+<td width="50%"> </td>
+</tr>
+</tbody>
+</table>
+
+Assigning roles or permissions to individual users is also supported. For example, assume the marketing team asks Pat to give a demo, and Pat is assigned the Demo role and now has Dashboards permisson.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<img src="/images/permissions_user_level.png" alt="permissions user level"/></td>
+<td width="50%"> </td>
+</tr>
+</tbody>
+</table>
+
+Management at the role and group level is less error prone, for example, it's easier to remove a role from a group than from 15 individual users. In this example, we could assign the Demo role to the Admin Group. Or we could create a separate group only for users that need the set of permissions. In production environments, that's the only way to follow the principle of least privilege.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<img src="/images/two_roles_one_group.png" alt="one group gets two roles"/></td>
+<td width="50%"> </td>
+</tr>
+</tbody>
+</table>
+
 
 ## Access Control
 
