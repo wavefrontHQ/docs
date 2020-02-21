@@ -107,18 +107,22 @@ The REST API supports the following objects corresponding to different categorie
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxies permission](permissions_overview.html) can add and remove cloud integration data types.
 - **Dashboard** - Retrieve data about dashboards, list dashboards, and return version history. Users with [Dashboard permission](permissions_overview.html) can save, create, delete, clone, undelete dashboards.
 - **Derived Metric** - Manage derived metrics.
+- **Direct Ingestion** - Perform [direct ingestion](direct_ingestion.html) instead of using a proxy.
 - **Event** - Retrieve events and tags associated with a specific event. Users with [Event permission](permissions_overview.html) can create, update, and delete events. Deleting events is limited to non-system events. System events include events based on alert firings, error events, and maintenance windows.
 - **External Link** - Navigate external links. Users with [External Links permission](permissions_overview.html) can create, update, and delete external links.
 - **Integration** - Retrieve integrations. Users with [Integration permission](permissions_overview.html) can install and uninstall integration dashboards.
 - **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [Alert permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Retrieve messages and mark messages read.
 - **Metric** - Retrieve details on a metric.
+- **MonitoredCluster** - Retrieve information about monitored clusters
 - **Notificant** - Allows users with Users with [Alert permission](permissions_overview.html) to create, delete, update, or test alert notification targets.
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [Proxy Management permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
+- **Role** - Retrieve information about a role and manage roles and role assignees.
 - **Saved Search** - Retrieve, add, and remove saved searches.
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag permission](permissions_overview.html) can add and remove source tags and set descriptions.
-- **User** - Deprecated API.
+- **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
+- **User** - Deprecated API. Use **Account (User and Service Account)** instead. 
 - **UserGroup** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
 - **Webhook** - Retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.
