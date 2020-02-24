@@ -196,7 +196,7 @@ Wavefront uses application tags to aggregate and filter data at different levels
 
 The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
 
-{% include note.html content="Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact Wavefront customer success to enable the feature." %}
+{% include note.html content="Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact [support@wavefront.com](mailto:support@wavefront.com) to enable the feature." %}
 
 You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
 
