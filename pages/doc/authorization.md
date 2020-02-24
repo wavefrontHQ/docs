@@ -9,13 +9,13 @@ summary: Learn about authorization of Wavefront groups and users.
 
 Wavefront supports both role-based controls that use global permissions and object based controls for individual dashboards and alerts.
 
-Administrator can
+Administrators can
 * Create **[roles](users_roles.html)** with permissions and assign roles to users or groups.
-* Use **[access control](access.html)** to protect individual dashboards or alerts.
+* Protect individual dashboards or alerts and grant **[access](access.html)** only to selected groups or accounts.
 
 
 
-## Role-Based Permissions Management
+## Role-Based Access Control with Global Permissions
 
 Permissions always apply to all objects of a certain type. For example, a user with **Dashboards** permission can view and modify all dashboards.
 
@@ -61,7 +61,7 @@ Management at the role and group level is less error prone, for example, it's ea
 </table>
 
 
-## Access Control
+## Access Control for Individual Object
 
 Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
@@ -75,9 +75,9 @@ Before you start, here are some FAQs:
 
 ### What are User Accounts & Service Accounts?
 
-Wavefront supports two account types:
-* **[User accounts](user_accounts.html)** are for human users who work with Wavefront. A user account authenticates with a user name and password.
-* **[Service accounts](service_accounts.html)** are for services that interact with Wavfront through an API and use a **token** to authenticate. Service accounts:
+Wavefront supports two [account types](accounts.html):
+* **User accounts** are for human users who work with Wavefront. A user account authenticates with a user name and password.
+* **Service accounts** are for services that interact with Wavfront through an API and use a **token** to authenticate. Service accounts:
   - Don't have **default permissions** (unless one or more roles with permissions are assigned to the **Everyone** group.).
   - Can't perform the **UI operations** that user accounts can perform by default.
   In the UI, service acount names always start with **sa:**

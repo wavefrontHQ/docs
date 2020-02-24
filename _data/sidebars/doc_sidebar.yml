@@ -564,12 +564,8 @@ entries:
             url: /users_roles.html
             output: web
 
-          - title: Manage User Accounts
-            url: /user_accounts.html
-            output: web
-
-          - title: Manage Service Accounts
-            url: /service_accounts.html
+          - title: User Accounts and Service Accounts
+            url: /accounts.html
             output: web
 
           - title: Permissions Reference

@@ -3,6 +3,7 @@ title: Manage Service Accounts
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
+published: false
 permalink: service_accounts.html
 summary: Create and manage service accounts.
 ---
@@ -14,7 +15,7 @@ A service account can be used to automate management of objects like dashboard, 
 * By default, service accounts do not get any **individual permission**
   - Each account is automatically added to the **Everyone**  group. If a role is assigned to that group, the service account gets the permissions from that role.
   - Service account can be added to any group to get that group's role (and permissions).
-* A service account can't perform the **UI operations** that all user accounts can [perform by default](user_accounts.html#what-can-a-new-user-do).
+* A service account can't perform the **UI operations** that all user accounts can [perform by default](accounts.html#what-can-a-new-user-do).
 
 
 ## Service Accounts Basics
