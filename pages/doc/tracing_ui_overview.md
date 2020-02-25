@@ -55,7 +55,7 @@ On the page for a particular application, you can:
   - The span duration (in milliseconds) at the 95th percentile across the service.
 
 * Drill down from a service box:
-  - Click **Details** to go to the dashboard for that service.
+  - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
 
 
@@ -72,7 +72,7 @@ The default, read-only dashboard for a service lets you explore that service, ho
 {% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
 
 On the dashboard for a particular service, you can:
-* Select the time and timezone in the task bar to customize the chart time properties.
+* Select the time and time zone in the task bar to customize the chart time properties.
 * Use the **Jump To** pulldown to select a dashboard section:
   - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
@@ -112,7 +112,7 @@ Use any of the following methods to navigate from the service dashboard to the c
   <tr>
   <td width="40%">
     <b>Option 2</b>:<br/>
-    Click a bar on a topk chart, and you are taken to the corresponding tracing information in the tracing browser.
+    Click a bar on a TopK chart, and you are taken to the corresponding tracing information in the tracing browser.
   </td>
   <td width="60%">
     <img src="/images/tracing_topk_chart_to_tracing_browser.png" alt="charts to tracing">
@@ -152,17 +152,16 @@ You can toggle the panel size for the traces list, service map, or trace details
 
 ## Query for a List of Traces
 
-In the Traces browser, you can [use the query builder or query editor](trace_data_query.html) for query for the traces that include spans for a particular operation.
+In the Traces browser, you can [use the query builder or query editor](trace_data_query.html) to query for traces that include spans for a particular operation.
 
 You can view the results in a traces list.
 
 ![explore traces list](images/tracing_traces_browser_traces_list.png)
 
 Here's how to get started:
-1. Start typing in the Operations field and select an operation (or type a name in the search box).
+1. Add an Operation or Trace ID. See [Get Started with Trace Queries](trace_data_query.html#get-started-with-trace-queries) for details.
 2. Click **Add Filter** and specify a filter to limit the results.
 3. (Optional) Advanced users can use Query Editor to limit the scope even further.
-
 
 You can use the trace list to:
 
