@@ -58,7 +58,7 @@ and between(weekday("US/Pacific"),4,4)
 
 The following diagram shows the corresponding query in a chart.
 
-![alert times](images/alert_recipe_time.png)
+![alert times](images/v2_alert_recipe_time.png)
 
 ## Alert When There Are More than X Points in a Time Window
 
