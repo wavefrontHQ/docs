@@ -130,7 +130,7 @@ The following illustration compares a counter and a delta counter.
 * The *counter* mycounter sends 3 data points to the Wavefront service. Wavefront stores each value with its timestamp. When you run a query, such as `integral()`, the Wavefront service fetches the stored values, aggregates them, and returns the result.
 * In the *delta counter* use case, a FaaS environment runs the function in multiple function invocation instances and sends the points to the Wavefront service. The Wavefront service aggregates the points and stores the result. When the user runs a query, the Wavefront service fetches the already aggregated value.
 
-![counters_delta_counters](images/counter_delta_counter.svg)
+![counters_delta_counters](images/counter_delta_counter.png)
 
 ## Histograms
 
