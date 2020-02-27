@@ -17,7 +17,7 @@ Delta counters are useful if you want to combine points that come in at the same
 
 * You're monitoring a Function-as-a-Service (FaaS or serverless) environment, and many functions execute simultaneously. It's not possible to monitor bursty traffic like that without losing some reported metric points due to collision.
 * You want to collect metrics from two sets of applications, each using a separate Telegraf instance behind a load balancer.
-![telegraf and delta_counters](images/delta_metrics_telegraph.svg)
+![telegraf and delta_counters](images/delta_metrics_telegraph.png)
 * You want to aggregate counters across multiple apps. For example, Wavefront uses delta counters for the [logs to metrics Wavefront integration](integrations_log_data.html).
 
 For more on delta counter use cases, see our blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/)
@@ -46,7 +46,7 @@ To use delta counters, you have several options:
 We support the following [proxy configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) with delta counters.
 
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
-- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds. 
+- **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds.
 
 ### SDKs
 You can use our SDKs to make your metric a delta counter.
@@ -67,7 +67,7 @@ DELTA_PREFIX = u"\u2206"
 ALT_DELTA_PREFIX = u"\u0394"
 ```
 
-{% include note.html content="In queries, you don't have to specify the delta character. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`." %} 
+{% include note.html content="In queries, you don't have to specify the delta character. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`." %}
 
 ### Best Practices
 
