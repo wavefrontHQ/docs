@@ -47,15 +47,17 @@ Wavefront provides two kinds of aggregation functions for handling this situatio
 
 Standard aggregation functions fill in the gaps in each input series by interpolating values.
 
-For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute, and `series 2` reports once every 2.5 minutes. Both series have data points aligned at 4:25 and again at 4:30. Between these times, we see unaligned data points -- 4 points from `series 1`, and one point (at 4:27:30) from `series 2`.
+For example, let's start with a pair of series with reporting intervals that do not line up. In the following chart, `series 1` reports once a minute. We use `downsample` to have `series 2` report only every 150 seconds (2.5 minutes). Both series have data points aligned at the 5 minute marks, but the points in between are not aligned.
 
 ![agg mismatch](images/query_language_agg_mismatch.png)
 
-Now we use the `sum()` function (a standard aggregation function) to aggregate these two time series. In the following chart, we see that `sum()` produces a result for _every_ moment in time that a data point is reported by _at least one_ input series. Whenever both series report a data point at the same time (for example, 4:25), `sum()` returns a data point whose value is the sum of both reported points (169.05 + 162 = 331.05).
+Now we use the `sum()` function (a standard aggregation function) to aggregate these two time series. In the following chart, we see that `sum()` produces a result for _every_ moment in time that a data point is reported by _at least one_ input series. Whenever both series report a data point at the same time (at each 5 minute mark), `sum()` returns a data point whose value is the sum of both reported points.
 
 ![agg mismatch sum](images/query_language_agg_mismatch_sum.png)
 
-The result at 4:26 is more interesting. At this moment in time, `sum()` returns the value 328.430, although there is only a single input data value (164) at that time, reported by `series 1`. `sum()` produces the return value by adding 164 to an _interpolated_ value from `series 2`. Interpolation inserts an implicit point into `series 2` at 4:26, and assigns an estimated value to that point based on the values of the actual, reported points on either side (at 4:25 and 4:27:30). `sum()` uses the estimated value (in this case, 164.43) to calculate the value returned at 4:26.
+The result at 2:34 is more interesting. At this moment in time, only series 1 reports a pont, but `sum()` returns the value 368.800. `sum()` produces the return value by adding 176 to an _interpolated_ value from `series 2`. Interpolation inserts an implicit point into `series 2` at 2:34, and assigns an estimated value to that point based on the values of the actual, reported points. `sum()` uses the estimated value (in this case, 213.000) to calculate the value returned at 2:34.
+
+![agg mismatch onepoint](images/query_language_agg_mismatch_onepoint.png)
 
 **Requirements for Interpolation**
 

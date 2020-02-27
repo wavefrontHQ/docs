@@ -48,7 +48,7 @@ The alert condition is a ts() expression that defines the threshold for an alert
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
 * A **classic alert** send a notification with the specified severity to all specified targets.
-* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity.
+* A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state.
 
 ### Alert Target
 
@@ -90,8 +90,8 @@ To create a classic alert:
 <li>Do one of the following:
 <ul>
 <li markdown="span"><strong>Alerts browser</strong> - Select <strong>Alerts</strong> and click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
-<li markdown="span">**Chart** - Hover over a query field and click the **Create Alert** link below the query field.
-![create_alert](images/create_alert.png)</li>
+<li markdown="span">**Chart** - Hover over a query field and select **Create Alert** from the Ellipsis menu to the right of the query line.
+![create_alert](images/v2_create_alert.png)</li>
 </ul></li>
 
 <li>Specify the following required alert properties.
@@ -222,7 +222,9 @@ Required fields for a multi-threshold alert are:
 * Alert condition and operator (e.g. greater than>)
 * At least one severity and corresponding threshold value.
 
-For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Only custom alert targets are supported, but you can initially create the alert without specifying a target.
+For each severity, you can specify one or more alert targets to notify [when the alert changes state](alerts_states_lifecycle.html#when-threshold-alerts-notify-targets). Each target is notified if the condition is met when the alert changes state.
+
+Only custom alert targets are supported, but you can initially create the alert without specifying a target.
 
 **Note:** You cannot associate an alert target with more than one severity.
 
@@ -235,8 +237,8 @@ To create a multi-threshold alert:
 <li>Do one of the following:
 <ul>
 <li markdown="span"><strong>Alerts browser</strong> - Click the <strong>Alerts</strong> button, then click the <strong>Create Alert</strong> button located at the top of the filter bar.</li>
-<li markdown="span">**Chart** - Hover over a query field and click the **Create Alert** link below the query field.
-![create_alert](images/create_alert.png)</li>
+<li markdown="span">**Chart** - Hover over a query field and select **Create Alert** from the Ellipsis menu to the right of the query line.
+![create_alert](images/v2_create_alert.png)</li>
 </ul></li>
 <li markdown="span">Next to **Type**, click **Threshold**.
 </li>
@@ -363,7 +365,7 @@ To view alert details, click the chart icon in the State column in the Alerts br
 
 For example, for the alert shown above, the chart displays:
 
-![Alert queries](images/alert_queries.png)
+![Alert queries](images/v2_alert_queries.png)
 
 
 ### View Alert History

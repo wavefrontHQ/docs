@@ -18,28 +18,52 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 ### Step 1: Install and Configure the Wavefront Proxy Manually
 
-1. Download the [Wavefront proxy jar](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/proxy-4.26-uber.jar) and [Wavefront config file](https://s3-us-west-2.amazonaws.com/wavefront-cdn/bsd/wavefront.conf).
-2. Open the `wavefront.conf` file for edit, add the following proxy properties, and save the file:{% raw %}
+1. Create a directory `wavefront-proxy` and change the directory:{% raw %}
+   ```
+   mkdir wavefront-proxy
+   cd wavefront-proxy
+   ```
+{% endraw %}
+2. Download the [Wavefront proxy jar](https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar):{% raw %}
+   ```
+   curl -o proxy-uber.jar https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/proxy-uber.jar
+   ```
+{% endraw %}
+3. Create a directory `conf` and download the `wavefront.conf`, `log4j2.xml` and `preprocessor_rules.yaml` files into the `conf` directory:{% raw %}
+   ```
+   mkdir conf
+   curl -o ./conf/wavefront.conf https://wavefront-cdn.s3-us-west-2.amazonaws.com/bsd/wavefront.conf
+   curl -o ./conf/log4j2.xml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/log4j2.xml.default
+   curl -o ./conf/preprocessor_rules.yaml https://raw.githubusercontent.com/wavefrontHQ/wavefront-proxy/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default
+   ```
+{% endraw %}
+4. Open the `conf/wavefront.conf` file for edit, add the following proxy properties:{% raw %}
    ```
    server = https://YOUR_CLUSTER.wavefront.com/api/
    token = YOUR_API_TOKEN
-   hostname = HOSTNAME
+   hostname = "HOSTNAME"
    graphitePorts = 2003
    graphiteFormat = 2
    graphiteDelimiters = _
    ```
 {% endraw %}
-Here, `hostname` represents the machine on which the proxy is running. The name can have alphanumeric characters and periods, and must be unique. Wavefront does not use the hostname to tag your data but uses it to tag data internal to the proxy, such as JVM statistics, per-proxy point rates, and so on.
-3. If Java is not installed, run the command `pkg_add -v jdk` to install Java and set the path.
-4. Start the Wavefront proxy service:{% raw %}
+5. Start the Wavefront proxy service:{% raw %}
    ```
-   sudo java -cp ./proxy-4.26-uber.jar \
-   -Xss2049k -XX:OnOutOfMemoryError="kill -1 %p" \
-   -debug com.wavefront.agent.PushAgent -f ./wavefront.conf &
+   java -XX:OnOutOfMemoryError="kill -1 %p" \
+   -Dlog4j.configurationFile=./conf/log4j2.xml -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager \
+   -Djavax.net.debug=summary -jar ./proxy-uber.jar \
+   -f conf/wavefront.conf \
+   --preprocessorConfigFile ./conf/preprocessor_rules.yaml &
    ```
 {% endraw %}
-5. On the Proxies page, verify that the proxy has registered with the Wavefront server.
-
+   **NOTE:**
+   * If Java is not installed, run `pkg install openjdk8` to install jdk and set the path.
+   * If the proxy fails to start with an `Error requesting exclusive access to the buffer lock file`, execute the below command and start the proxy (Step 5){% raw %}
+      ```
+      mkdir -p /var/spool/wavefront-proxy
+      ```
+{% endraw %}
+6. Verify that the proxy has registered with the Wavefront server.
 
 ### Step 2: Install and Configure the Collectd Daemon Manually
 
@@ -47,7 +71,7 @@ Here, `hostname` represents the machine on which the proxy is running. The name 
 2. Open the `/etc/collectd.conf` file for edit, add the following information, and save the file.{% raw %}
    ```
    # Global settings for the daemon.
-   Hostname    "OPENBSD_HOSTNAME"
+   Hostname    "HOSTNAME"
    FQDNLookup   true
    BaseDir     "/var/collectd"
    PIDFile     "/var/collectd/collectd.pid"
@@ -122,7 +146,7 @@ Here, `hostname` represents the machine on which the proxy is running. The name 
 
    # Enable graphite output plugin
    <Plugin write_graphite>
-      <Node "OPENBSD_HOSTNAME">
+      <Node "HOSTNAME">
           Host "WAVEFRONT_PROXY_ADDRESS"
           Port "2003"
           Protocol "tcp"

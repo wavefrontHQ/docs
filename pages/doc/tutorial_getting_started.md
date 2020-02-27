@@ -214,19 +214,19 @@ Our doc set includes concept videos, how-to videos, and more!
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%"><p><strong>Intro Videos</strong></p><p>Our intro videos explain how to get data into Wavefront, how alerting works, and more!</p> </td>
+<td width="50%"><p><strong>Intro Videos</strong></p><p>Our <strong><a href="videos_quickstart.html" target="_blank">intro videos</a></strong> explain how to get data into Wavefront, how alerting works, and more!</p> </td>
 <td width="50%"><a href="https://www.youtube.com/watch?v=lhrtPSqn8-c&index=2&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
 </tr>
 <tr>
-<td width="50%"><p><strong>Alerts Videos</strong></p><p>Our Alerts videos give important background and best practices info and a lot of practical advice on how to configure classic alerts and multi-threshold alerts.  </p> </td>
+<td width="50%"><p><strong>Alerts Videos</strong></p><p>Our <strong><a href="videos_alerts.html" target="_blank">alerts videos</a></strong> give important background and best practices info and a lot of practical advice on how to configure classic alerts and multi-threshold alerts.  </p> </td>
 <td width="50%"><a href=" https://youtu.be/qWBP6PrkUrU"><img src="/images/v_threshold_alerts.png" style="width: 700px;" alt="threshold alerts"/></a></td>
 </tr>
 <tr>
-<td width="50%"><p><strong>Wavefront and Data Videos</strong></p><p>Thess videos explain important concepts such as interpolation and tagging, and explain how to use histograms. </p> </td>
+<td width="50%"><p><strong>Wavefront and Data Videos</strong></p><p>The <strong><a href="videos_data.html" target="_blank">Wavefront and data videos</a></strong> explain important concepts such as interpolation and tagging, and explain how to use histograms. </p> </td>
 <td width="50%"><a href="https://youtu.be/9LnDszVrJs4"  target="_blank"><img src="/images/v_interpolation.png" alt="time series and interpolation"/></a></td>
 </tr>
 <tr>
-<td width="50%"><p><strong>Administration Videos</strong></p><p>Administration videos help you understand how permissions and access control work in Wavefront, and show how to set up permissions and access control. </p> </td>
+<td width="50%"><p><strong>Administration Videos</strong></p><p><strong><a href="videos_administration.html" target="_blank">Administration videos</a></strong> include a a video about Wavefront Top. They also help you understand how permissions and access control work in Wavefront, and show how to set up permissions and access control. </p> </td>
 <td width="50%"><a href="https://youtu.be/45E4pkann0E" target="_blank"><img src="images/v_access.png" alt="Wavefront access control"/></a></td>
 </tr>
 

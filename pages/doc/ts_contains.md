@@ -33,9 +33,6 @@ Returns true if the specified metadata string contains the substring, and return
 
 ## Example
 
-The following example checks:
-
-* Whether `newPointTagValue` contains `newV` (false)
-* Whether `newPointTagValue` contains `newP` (true)
+In the following example, we check whether the value of the `service` point tag, which is `dataingester` contains a specified string. In the first case, the result is true for the string `data`. In the second case, the result is false for the string `metrics`.
 
 ![ts contains](images/ts_contains.png)
