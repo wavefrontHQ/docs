@@ -37,8 +37,8 @@ Can be combined with [event set operators](#event-set-operators) and [event func
 The `events()` function returns the set of stored [events](events.html) that match one or more event filters. You can use `events()` to display events in time-series charts, for example, to inform other users about reasons for a change in a time series. The result set of an `events()` query depends on the [timing of the query](#when-does-an-event-query-return-events).
 
 You can describe the set of events to be returned using [event filters](#filters):
-* Match events in general by filtering on name, source, type, severity, and event tags. 
-* Match events that are associated with alerts by filtering on alert tags, targets, and alert ID. 
+* Match events in general by filtering on name, source, type, severity, and event tags.
+* Match events that are associated with alerts by filtering on alert tags, targets, and alert ID.
 
 You can combine multiple event filters with Boolean operators. For example:
 * Return events of any type that start with `Request` and have severity that is either `severe` or `warn`:
@@ -151,7 +151,7 @@ You can optionally assign a type to a user event. The value requires quotes if i
 
 ## Event Set Operators
 
-An event set operator combines or compares two sets of events, and returns a set of events as the result. 
+An event set operator combines or compares two sets of events, and returns a set of events as the result.
 
 ### Event Set Combination Operators
 
@@ -169,7 +169,7 @@ An event set operator combines or compares two sets of events, and returns a set
 <tbody>
 <tr>
 <td>&lt;e1&gt; <strong>union</strong> &lt;e2&gt;</td>
-<td>Returns all events that exist in either of the event sets. For example, these queries return events of type <code>maintenanceWindow</code> (with any name), and events named <code>test</code> (of any type): 
+<td>Returns all events that exist in either of the event sets. For example, these queries return events of type <code>maintenanceWindow</code> (with any name), and events named <code>test</code> (of any type):
 <pre>
 events(type="maintenanceWindow") union events(name="test")
 
@@ -241,7 +241,7 @@ You can use [Allen's interval algebra](https://en.wikipedia.org/wiki/Allen%27s_i
 </table>
 
 Examples:
- 
+
 - `events(severity="severe") d since(1d)` returns all events with severity `severe` that occurred in the last day.
 - `events(severity="severe") - (events(severity="severe") d since(1d))` returns all events with severity `severe` that are older than one day.
 
@@ -250,7 +250,7 @@ Examples:
 
 Where an event happens in relation to the query start time  and query end time determines whether a query returns an event or not. Returning an event means showing the event in the UI, or, if you use the API, returning the event itself. The following diagram illustrates the behavior:
 
-![when events return](images/events_returns.svg)
+![when events return](images/events_returns.png)
 
 Here are the details:
 
