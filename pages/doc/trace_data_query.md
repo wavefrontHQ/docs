@@ -16,18 +16,30 @@ To query traces, select **Applications > Traces** and navigate to the Traces bro
 **Query traces using a trace ID**:
 1. Click **Trace ID** and enter the ID of the trace or traces you want to query.
     ![query traces by trace ID](images/tracing_query_by_trace_id.png)
-    {% include note.html content="You might not see search results if you search for a trace after 7 days because spans data is only saved for 7 days by default, or after 1 hour if you have enabled [intelligent sampling for traces](trace_data_sampling.html)." %}
-    {% include tip.html content="To get the ID of a trace, go to the trace details panel, expand a service, and click **Tags**. See [Drill Down Into Spans and View Metrics and Span Logs](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs)." %}
-2. Click **Search** in the query bar to update the list of traces.
-    
+2. Click **Search** in the query bar.
+
+{{site.data.alerts.note}}
+  You might not see search results:
+  <ul>
+    <li>
+      If you search for a trace after 7 days because Wavefront retains trace data only for 7 days.
+    </li>
+    <li>
+      If you search for a trace after 1 hour if you have enabled <a href="trace_data_sampling.html">intelligent sampling for traces</a>.
+    </li>
+    <li>
+      If you use invalid query syntax.
+    </li>
+  </ul>
+{{site.data.alerts.end}}
+
+{% include tip.html content="To get the ID of a trace, go to the trace details panel, expand a service, and click **Tags**. See [Drill Down Into Spans and View Metrics and Span Logs](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs)." %}
+
 **Query traces using an operation**: 
-1. Click **Operation**, and [select an operation](#select-an-operation) to specify the scans to be matched.
+1. Click **Operation** and select an operation.
 2. Optionally, [add one or more filters](#add-filters) to refine your query.
   ![tracing query builder](images/tracing_query_builder_filter.png)
-3. Click **Search** in the query bar to update the list of traces.
-
-{% include note.html content="As an alternative, you can use [Query Editor](#use-query-editor-power-users) to submit advanced trace queries explicitly." %}
-<!---Add mini screenshot?--->
+3. Click **Search** in the query bar.
 
 ## Select an Operation
 
@@ -66,12 +78,8 @@ After you have selected an operation, you can optionally add filters to further 
 
 <ol>
 <li>Select an operation.</li>
-<li markdown="span">Click **Add Filter** and select a filter type.
-![tracing query builder filter type menu](images/tracing_query_builder_filter_type_menu.png)
-</li>
-
-
-<li>Click next to the filter type and specify the filter setting.
+<li>Click <b>Add Filter</b> and select a filter type.
+<img src="images/tracing_query_builder_filter_type_menu.png" alt="tracing query builder filter type menu">
 
 <table style="width: 100%">
 <colgroup>
@@ -123,9 +131,9 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 </table>
 </li>
 
-<li>Depending on the filter type, either select settings from menus or type one or more settings in fields.</li>
+<li>Click next to the filter type and specify the filter setting. See <a href="#example">the example given below</a>.</li>
 
-<li markdown="span">Click **Add Filter** to add another filter, or click **Search**  to display results.</li>
+<li markdown="span">Click **Add Filter** to add another filter or click **Search**  to display results.</li>
 </ol>
 
 ## Remove Filters

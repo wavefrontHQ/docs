@@ -79,12 +79,13 @@ On the dashboard for a particular service, you can:
   - Select **System** if your environment uses Telegraf and you want to view CPU usage, memory usage, and disk usage.
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
+<a name="Tracesbrowser"></a>
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
-* [Navigate to the Traces browser](#Navigate-to-the-Tracing-UI-from-the-Service-Dashboard).
-
-<!--- do we really need a screen shot of System metrics?
-  ![system metrics](images/system_metrics.png)
---->
+* Navigate to the Traces browser.
+  * Click a bar on a histogram.
+  * Click a bar on a TopK chart.
+  * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ### Custom Service Dashboard
 
@@ -94,43 +95,6 @@ The standard dashboard for services is read-only. To create a customizable copy:
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. (Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
-
-### Navigate to the Tracing Browser from the Service Dashboard
-
-Use any of the following methods to navigate from the service dashboard to the corresponding tracing information in the tracing browser:
-
-<table>
-  <tr>
-  <td width="40%">
-    <b>Option 1</b>:<br/>
-    Click a bar on your histogram chart, and you are taken to the corresponding tracing information in the tracing browser.
-  </td>
-  <td width="60%">
-    <img src="/images/tracing_histogram_chart_to_tracing_browser.png" alt="charts to tracing">
-  </td>  
-  </tr>
-  <tr>
-  <td width="40%">
-    <b>Option 2</b>:<br/>
-    Click a bar on a TopK chart, and you are taken to the corresponding tracing information in the tracing browser.
-  </td>
-  <td width="60%">
-    <img src="/images/tracing_topk_chart_to_tracing_browser.png" alt="charts to tracing">
-  </td>  
-  </tr>
-  <tr>
-    <td width="40%">
-      <b>Option 3</b>:<br/>
-      You can navigate directly from a service dashboard to the corresponding tracing information if the charts have the <code>application</code> and <code>service</code> <a href="query_language_point_tags.html">point tags</a>.<br/><br/>
-
-      On your chart, click the vertical ellipsis in the top right, click <b>Traces</b>, and click a service.
-    </td>
-    <td width="60%">
-      <img src="/images/tracing_metrics_to_tracing.png" alt="charts to tracing">
-    </td>  
-  </tr>
-</table>
-{% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Explore Traces
 
