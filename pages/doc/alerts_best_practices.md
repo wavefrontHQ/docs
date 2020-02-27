@@ -50,8 +50,6 @@ If your metric includes zero values, or if blips in the network might result in 
 
 Your data might already come in as counters, for example, the uptime for a system. You can explicitly set up a counter to count tasks completed, errors occurred, etc. For example, `sum(ts(cpu.idle))` is a counter metric. It increases over time, and never reports zero values. 
 
-<!---XXscreenshot here.--->
-
 For alerts, follow these guidelines:
 * Counters are especially helpful for alerts: Even if there's a break in the data flow, the alert doesn't immediately get triggered. 
 
@@ -98,9 +96,9 @@ For some data sources, for example AWS, the metric is backfilled in chunks, and 
 
 Effective alerts require planning and testing. Here are some things to keep in mind to avoid unexpected problems:
 
-**Compose the query carefully**. You can create alerts directly from the **Alerts** page or by selecting **Create Alert** below a query.
+**Compose the query carefully**. You can create alerts directly from the **Alerts** page or by selecting **Create Alert** from the Ellipsis to the right of a query.
 
-![create alert](images/create_alert_chart.png)
+![create alert](images/v2_create_alert.png)
 
 In both cases, but especially when you create the query from scratch, it's important that you compose the query carefully. In some cases, the default settings for alerts work well, but in other cases it makes sense to change them. See [Recommendations for Alert Settings](alerts_best_practices.html#recommendations-for-alert-settings)
 
