@@ -13,6 +13,8 @@ summary: Learn how to write spans() queries.
 spans("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
 spans(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
+
+spans(<fullOperationName>).[from| childOf| followsFrom (spans(<fullOperationName>))]
 ```
 Returns the spans that match the specified operation and filters. You use `spans()` as a parameter of the [`traces()`](traces_function.html) function, typically after combining `spans()` with one or more [spans filtering functions](#spans-filtering-functions).
 
@@ -167,6 +169,143 @@ Each spans filtering function has a **spansExpression** parameter, which can be 
 
 </tbody>
 </table>
+
+## Use Spans to Examine Applications and Services
+
+Use the following functions to get details or find the relationship between services in an application and their operations.
+          
+<table>
+  <colgroup>
+    <col width="15%" />
+    <col width="85%" />
+  </colgroup>
+  <thead>
+    <th>Function</th>
+    <th>Description</th>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td markdown="span">
+        `from()`
+      </td>
+      <td>
+        Returns spans that are directly related to each other. The spans can be a child of another span and can directly follow another span.        
+        
+        <br/><br/>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(Enter_fullOperationName).from(spans(Enter_fullOperationName))
+        </code>
+        </div>
+        <br/>
+        For details on the operation name format, see <a href="#parameters"><code>fullOperationName</code></a>.      
+
+        <br/><br/>Example:
+        
+        <br/>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*))
+        </code>
+        </div>
+        <br/>
+
+        The above query searches for spans in the beachshirts application and returns the following spans:
+        <ul>
+          <li>
+            Spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping-service )
+          </li>
+          <li>
+            Spans where the inventory service directly follow after the shopping-service.
+          </li>
+        </ul>
+      </td>
+    </tr>
+  
+    <tr>
+      <td markdown="span">
+        `childOf()`
+      </td>
+      <td>
+        Returns spans that are a child of a given span. This concept is a result of the OpenTracing <code>ChildOf</code> relationship.
+                
+        <br/><br/>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(Enter_fullOperationName).childOf(spans(Enter_fullOperationName))
+        </code>
+        </div>
+        <br/>
+        For details on the operation name format, see <a href="#parameters"><code>fullOperationName</code></a>.
+
+        <br/><br/>Example:
+        
+        <br/>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(beachshirts.inventory.*).childOf(spans(beachshirts.shopping.*))
+        </code>
+        </div>
+        <br/>
+        
+        The above query searches for spans in the beachshirts application and only return the spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping service).
+
+      </td>
+    </tr>
+    
+    <tr>
+      <td markdown="span">
+        `followsFrom()`
+      </td>
+      <td>
+        Returns spans that directly follow a given span. This concept is a result of the OpenTracing <code>followsFrom</code> relationship.
+                
+        <br/><br/>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(Enter_fullOperationName).followsFrom(spans(Enter_fullOperationName))
+        </code>
+        </div>
+        <br/>
+        For details on the operation name format, see <a href="#parameters"><code>fullOperationName</code></a>.
+
+        <br/><br/>Example:
+        
+        <br/>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(beachshirts.inventory.*).followsFrom(spans(beachshirts.shopping.*))
+        </code>
+        </div>
+        <br/>
+        
+        The above query searches for spans in the beachshirts application and only returns the spans from the inventory service that directly follows after the shopping service.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% include note.html content=" Make sure to add the `fullOperationName` in the correct order. <br/><br/>When adding the `fullOperationName`, you need to first add the child span or the span that follows the main span, and add the parent span after the functions (`from`, `childOf`, or `followsFrom`). If you change this order, you might not see any results. <br/><br/>
+For example, if you use `spans(beachshirts.shoping.*).from(spans(beachshirts.inventory.*))`, you don't get any results because no spans go from the inventory service to the shopping service." %}
+
+### Sample
+The video given below shows you how to get the trace details from the beachshirts application where the spans match the following:
+- Spans where the shopping service is the parent span of the inventory service.
+- Spans where the inventory service directly follow after the shopping service.
+
+It uses the following queries:
+
+```
+traces(spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*)))
+```  
+
+You can use any of the [trace filtering functions](traces_function.html#filtering-functions) to view trace details. To keep query execution manageable, use the limits function, as shown below.
+
+```
+limit (100, traces(spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*))))
+```
+<iframe width="700" height="400" src="https://www.youtube.com/embed/tBQv2cb3jhk" allowfullscreen></iframe>
 
 <!--- May include eventually. Currently traces(limit(spans())) is equivalent to limit(traces(spans())), but works less well.
 <tr>
