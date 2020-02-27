@@ -286,7 +286,9 @@ Use the following functions to get details or find the relationship between serv
   </tbody>
 </table>
 
-{% include note.html content=" Make sure to add the `fullOperationName` in the correct order. <br/><br/>When adding the `fullOperationName`, you need to first add the child span or the span that follows the main span, and add the parent span after the functions (`from`, `childOf`, or `followsFrom`). If you change this order, you might not see any results. <br/><br/>
+{%include note.html content="You can use the following functions as a chain to search for spans. <br/> Example: `spans(beachshirts.inventory.*).followsFrom(spans(beachshirts.inventory.*)).from(beachshirts.shopping.*)`"  %}
+
+{% include tip.html content=" Make sure to add the `fullOperationName` in the correct order. <br/><br/>When adding the `fullOperationName`, you need to first add the child span or the span that follows the main span, and add the parent span after the functions (`from`, `childOf`, or `followsFrom`). If you change this order, you might not see any results. <br/><br/>
 For example, if you use `spans(beachshirts.shoping.*).from(spans(beachshirts.inventory.*))`, you don't get any results because no spans go from the inventory service to the shopping service." %}
 
 ### Sample
