@@ -32,7 +32,7 @@ To address high frequency data, Wavefront supports histograms -- a mechanism to 
 * Send the metrics to a histogram proxy port -- either 2878 (Wavefront proxy 4.29 or later) or 40000 (earlier proxy versions).
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
-The Wavefront service rewrites the metric by adding the extension `.m`, `.h`. or `.d`. You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using Histogram charts or other chart types. 
+The Wavefront service rewrites the metric by adding the extension `.m`, `.h`. or `.d`. You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using Histogram charts or other chart types.
 
 ## Wavefront Histogram Distributions
 
@@ -155,6 +155,54 @@ You can now apply other functions to the histogram, for example, you can try to 
 
 `percentile (85, hs(my.metric))`
 
+
+## Histogram Proxy Ports
+
+To indicate that you are sending histogram data, send the metrics to one of the histogram proxy ports. You can use 2878 (or 40000 with earlier proxy versions) for sending a distribution or select one of the other ports to sending an aggregation interval. For example:
+
+<table>
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="15%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>distribution</td>
+<td>histogramDistListenerPorts</td>
+<td>40000</td>
+<td><a href="#sending-histogram-distributions">Distribution data format</a></td>
+</tr>
+<tr>
+<td>minute</td>
+<td>histogramMinuteListenerPorts</td>
+<td>40001</td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
+</tr>
+<tr>
+<td>hour</td>
+<td>histogramHourListenerPorts</td>
+<td>40002</td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
+</tr>
+<tr>
+<td>day</td>
+<td>histogramDayListenerPorts</td>
+<td>40003</td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
+</tr>
+</tbody>
+</table>
+
+You can send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
+* If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged.
+* If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics.
+
+You can send [**distribution data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront distribution data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
 
 ## Querying Histogram Metrics
 
