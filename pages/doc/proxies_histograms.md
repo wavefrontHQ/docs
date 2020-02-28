@@ -156,9 +156,12 @@ You can now apply other functions to the histogram, for example, you can try to 
 `percentile (85, hs(my.metric))`
 
 
-## Histogram Proxy Ports
+## Histogram Aggregation Ports
 
-To indicate that you are sending histogram data, send the metrics to one of the histogram proxy ports. You can use 2878 (or 40000 with earlier proxy versions) for sending a distribution or select one of the other ports to sending an aggregation interval. For example:
+The port you use depends on your intention.
+* If you are already sending histogram distributions to the proxy directly, you can use the same port you use for your regular metric traffic (usually 2878, see `pushListenerPorts`).
+
+* If you want to aggregate high-velocity metric data into histogram distributions, use one of the following ports:
 
 <table>
 <colgroup>
@@ -171,12 +174,6 @@ To indicate that you are sending histogram data, send the metrics to one of the 
 <tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>distribution</td>
-<td>histogramDistListenerPorts</td>
-<td>2878 <br>40000</td>
-<td><a href="#sending-histogram-distributions">Distribution data format</a></td>
-</tr>
 <tr>
 <td>minute</td>
 <td>histogramMinuteListenerPorts</td>
@@ -198,9 +195,14 @@ To indicate that you are sending histogram data, send the metrics to one of the 
 </tbody>
 </table>
 
-You can send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
 
-You can send [**distribution data format**](#sending-histogram-distributions) histogram data only the distribution port (2878, or 40000 for earlier versions of the proxy). If you send Wavefront distribution data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
+Send [**distribution data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront histogram distribution data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
+
+Send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
+* If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged.
+* If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics.
+
+
 
 ## Querying Histogram Metrics
 
