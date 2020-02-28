@@ -29,7 +29,7 @@ The data flow is like this:
     * If no built-in integration for your data source exists, you can set up one of the collector integrations (such as a Telegraf integration) or you can stream your data to the Wavefront proxy. The proxy accepts metrics in OpenTSB, Grafana, and [Wavefront data format](wavefront_data_format.html).
     * Another option is direct ingestion. In that case, you send data directly to the Wavefront service. Most customers and the DevOps team at Wavefront prefer using a proxy -- there are [many benefits](proxies.html#proxy-benefits).
 
-![data into wavefront](images/data_into_wavefront_with_ingestion.svg)
+![data into wavefront](images/data_into_wavefront_with_ingestion.png)
 
 ## Step 1: Understand Your Use Case
 

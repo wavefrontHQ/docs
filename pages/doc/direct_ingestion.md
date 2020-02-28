@@ -15,7 +15,7 @@ You use the direct data ingestion mechanism to send data directly to the Wavefro
 
 Most customers set up Wavefront so that the host, application, or custom code sends metrics to a [Wavefront proxy](proxies.html) installed in their environment. The proxy forwards metrics to the Wavefront service. In production environments, two proxies behind a load balancer guarantee availability and prevent data loss.
 
-![proxies behind load balancer](/images/proxy_deployment_load_balancer.svg)
+![proxies behind load balancer](/images/proxy_deployment_load_balancer.png)
 
 Because some customers wanted to send data directly to the Wavefront service, we made this functionality available.
 
