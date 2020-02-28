@@ -421,10 +421,6 @@ entries:
         output: web
         subfolderitems:
 
-          - title: AppDynamics Integration
-            url: /integrations_appdynamics.html
-            output: web
-
           - title: Manage External Links
             url: /external_links_managing.html
             output: web
