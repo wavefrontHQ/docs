@@ -59,7 +59,7 @@ Some `events()` functions return *synthetic events*. These events are displayed 
   ![Events until](images/until_events.svg)
 - `after(<events>)` - Returns a synthetic ongoing event that starts the moment the input event ends.
 
-  ![Events after](images/after_events.svg)
+  ![Events after](images/after_events.png)
 
 ## Event Set to Time Series Conversion Functions
 
@@ -67,7 +67,7 @@ Some functions convert event sets to time series.
 
 - `count(<events>)` - Aggregates a set of events and converts the result to a single time series, where every data point represents the number of events that started at that time minus the number of events that ended at that time. Instantaneous events are represented as a single "0" value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).
 
-  ![Events count](images/count_events.svg)
+  ![Events count](images/count_events.png)
 - `ongoing(<events>)` - Returns a continuous time series (values reported every second), representing the number of ongoing events at any given moment.
 
 ## Single Event Functions

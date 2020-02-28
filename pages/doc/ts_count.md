@@ -133,7 +133,7 @@ The `count()` events conversion function returns a single time series in which e
 
 The number of event boundaries at a particular moment in time is equal to: the number of events that started at that time, minus the number of events that ended at that time. Instantaneous events are represented as a single “0” value: 1 started minus 1 ended (instantaneous events are defined as events having their end time equal to their start time).
 
-![Events count](images/count_events.svg)
+![Events count](images/count_events.png)
 
 
 ## Examples
