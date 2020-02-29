@@ -65,7 +65,7 @@ You can use `since()` with an event set or with a time window.
 
 ## Description
 
-You can use the `since()` event function: 
+You can use the `since()` event function:
 * With an `eventsExpression` to return a set of synthetic events.
 * With a `timeWindow` to return a single synthetic event.
 
@@ -74,14 +74,14 @@ You can use the `since()` event function:
 ### Event Set Transformation Function
 
 The `since()` event set transformation function returns a set of synthetic ongoing events, where each synthetic event:
-* Starts at the same time as a corresponding event described by the expression. 
+* Starts at the same time as a corresponding event described by the expression.
 * Continues indefinitely.
 
 In effect, `since()` transforms all input events to ongoing events.
 
 The following diagram represents an `events()` query that returns 3 events (A, B, and C). Using that `events()` query as the input to `since()` produces 3 synthetic events that each start at the same time as the corresponding input event:
 
-![Events since](images/since_events.svg)
+![Events since](images/since_events.png)
 
 ### Event Creation Function
 

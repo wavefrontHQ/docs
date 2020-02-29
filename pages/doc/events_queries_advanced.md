@@ -53,10 +53,10 @@ Some `events()` functions return *synthetic events*. These events are displayed 
 
 - `since(<events>)` - Returns a synthetic event with the same start time as the input event and no end time (converts all events to ongoing).
 
-  ![Events since](images/since_events.svg)
+  ![Events since](images/since_events.png)
 - `until(<events>)` - Returns a synthetic event that starts at the beginning of Epoch time (Jan 1, 1970) and ends where the input event starts.
 
-  ![Events until](images/until_events.svg)
+  ![Events until](images/until_events.png)
 - `after(<events>)` - Returns a synthetic ongoing event that starts the moment the input event ends.
 
   ![Events after](images/after_events.png)

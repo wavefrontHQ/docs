@@ -122,4 +122,4 @@ The Wavefront Service runs the metrics collection engine. The service runs in th
 * The proxy can also ingest metrics from your log files. See [Log Data Metrics Integration](integrations_log_data.html)
 
 
-![Wavefront architecture](images/wavefront_architecture_new.svg)
+![Wavefront architecture](images/wavefront_architecture_new.png)
