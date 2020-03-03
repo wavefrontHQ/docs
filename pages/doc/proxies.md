@@ -32,7 +32,7 @@ Wavefront lets you choose a deployment option:
 * As your environment grows, you place the proxy on a dedicated host. Different agents and other data sources can send metrics to the proxy, and the proxy forwards the metrics to the Wavefront service. Agents can run either on the same host as the data source or on a different host.
 *  In production environments, you can place two proxies or a fleet of proxies behind a load balancer for optimal performance and high availability. In that case, each proxy must have a unique name. Your fleet of proxies does not run on the same host as your data sources.
 
-{% include note.html content="It's not a good idea to install a proxy on each host you're monitoring. First, you lose the benefit of protection against data loss -- the proxy can buffer your metrics. Second, you only need a small number of proxies even in production environments." %} 
+{% include note.html content="It's not a good idea to install a proxy on each host you're monitoring. First, you lose the benefit of protection against data loss -- the proxy can buffer your metrics. Second, you only need a small number of proxies even in production environments." %}
 
 ### Learning Environment: One Host
 
@@ -50,19 +50,19 @@ When you set up an integration, the Setup page lets you pick a proxy –- or off
 
 A proxy can accept metrics from multiple collector agents and forward those metrics to the Wavefront service. Having just one proxy means that you don't need to open multiple firewall ports: The proxy is the only component that needs a firewall port opened, simplifying configuration.
 
-![Multiple agents one proxy](/images/proxy_deployment_multiple_inputs.svg)
+![Multiple agents one proxy](/images/proxy_deployment_multiple_inputs.png)
 
 Wavefront supports a rich set of custom collector integrations. You can follow the steps on the Setup tab for the integration to enable your environment for that agent. You can also use a code instrumentation integration such as Java, Go, or StatsD to send your metrics directly to the proxy.
 
-![Agents and metrics collection](/images/proxy_deployment_complex.svg)
+![Agents and metrics collection](/images/proxy_deployment_complex.png)
 
 ### Production Environment: Team of Proxies & Load Balancer
 
 To enable fault tolerance and higher data rates, production environments typically use a load balancer that sends data to multiple proxies, as shown below.
 
-![Proxies using load balancer](/images/proxy_deployment_load_balancer.svg)
+![Proxies using load balancer](/images/proxy_deployment_load_balancer.png)
 
-{% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %} 
+{% include note.html content="In environments with more than one proxy, each proxy must have a unique name." %}
 
 ## Proxy Configuration
 

@@ -3,6 +3,7 @@ title: AppDynamics Integration
 keywords:
 tags: [integrations]
 sidebar: doc_sidebar
+published: false
 permalink: integrations_appdynamics.html
 summary: Learn how to send data emitted by AppDynamics to Wavefront.
 ---

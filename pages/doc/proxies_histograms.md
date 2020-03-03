@@ -29,10 +29,10 @@ One approach to dealing with high frequency data is to calculate an aggregate st
 a 95th percentile from a variety of sources) does not yield an accurate and valid percentile with high velocity metrics. That might mean that even though you have an outlier in some of the source data, it becomes obscured by all the other data.
 
 To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user can:
-* Send the metrics to a [histogram proxy port](#histogram-proxy-ports) -- either 2878 (Wavefront proxy 4.29 or later) or 40000 (earlier proxy versions).
+* Send the metrics to a histogram proxy port -- either 2878 (Wavefront proxy 4.29 or later) or 40000 (earlier proxy versions).
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
-The Wavefront service [rewrites the names of histogram metrics](#histogram-metric-naming), which you can query with a set of [functions](query_language_reference.html#histogram-functions).
+The Wavefront service rewrites the metric by adding the extension `.m`, `.h`. or `.d`. You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using Histogram charts or other chart types.
 
 ## Wavefront Histogram Distributions
 
@@ -115,6 +115,8 @@ To send a histogram distribution to the Wavefront proxy:
 
 You can also send a histogram distribution using [direct ingestion](direct_ingestion.html#histogram-distribution). In that case, you must include `f=histogram` or your data are treated as metrics even if you use histogram data format.
 
+You can use [histogram configuration properties](proxies_configuring.html#histogram-configuration-properties) to customize how the Wavefront proxy handles histogram data.
+
 ## Histogram Example
 
 Suppose you want to send the following points to the Wavefront proxy:
@@ -152,6 +154,54 @@ The proxy aggregates the points and sends only the histogram distribution to Wav
 You can now apply other functions to the histogram, for example, you can try to find out what the 85th percentile of the histogram is. For this example, you could now write a query like this:
 
 `percentile (85, hs(my.metric))`
+
+
+## Histogram Aggregation Ports
+
+The port you use depends on your intention.
+* If you are already sending histogram distributions to the proxy directly, you can use the same port you use for your regular metric traffic (usually 2878, see `pushListenerPorts`).
+
+* If you want to aggregate high-velocity metric data into histogram distributions, use one of the following ports:
+
+<table>
+<colgroup>
+<col width="30%" />
+<col width="30%" />
+<col width="15%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr><th>Aggregation Interval or Distribution</th><th>Proxy Property</th><th>Default Value</th><th>Data Ingestion Format</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>minute</td>
+<td>histogramMinuteListenerPorts</td>
+<td>40001</td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
+</tr>
+<tr>
+<td>hour</td>
+<td>histogramHourListenerPorts</td>
+<td>40002</td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
+</tr>
+<tr>
+<td>day</td>
+<td>histogramDayListenerPorts</td>
+<td>40003</td>
+<td><a href="/wavefront_data_format.html">Wavefront data format</a></td>
+</tr>
+</tbody>
+</table>
+
+
+Send [**distribution data format**](#sending-histogram-distributions) histogram data only to the distribution port. If you send Wavefront histogram distribution data format to `min`, `hour`, or `day` ports, the points are rejected as invalid input format and logged.
+
+Send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
+* If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged.
+* If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics.
+
 
 
 ## Querying Histogram Metrics
