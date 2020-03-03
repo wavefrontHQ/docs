@@ -15,7 +15,7 @@ This page gives an overview of important changes for the most recent Wavefront p
 - Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
 - Supports [logs for Jaeger and Zipkin integrations](tracing_integrations.html#enable-logs).
 - Jaeger integration can now receive data via HTTP using the [Wavefront proxy](proxies_configuring.html#traceJaegerHttpListenerPorts).
-- A custom port in [Wavefront proxy](proxies_configuring.html#customTracingListenerPorts) to receive spans and derive RED metrics from the SDKs that send raw data to Wavefront. 
+- New configurations added to the [Wavefront proxy configuration file](proxies_configuring.html). 
 
 ## Version 5.7
 
