@@ -190,28 +190,14 @@ Use the following functions to get details or find the relationship between serv
         `from()`
       </td>
       <td>
-        Returns spans that are directly related to each other. The spans can be a child of another span and can directly follow another span.        
-        
-        <br/><br/>
+        Returns spans that are a child of or directly follow a given span         
         <div style="background-color: #ECF0F5;">
         <code>
-        spans(Enter_fullOperationName).from(spans(Enter_fullOperationName))
+        &lt;child_spansExpression&gt;.from(&lt;parent_spansExpression&gt;)
         </code>
         </div>
-        <br/>
-        For details on the operation name format, see <a href="#parameters"><code>fullOperationName</code></a>.      
-
-        <br/><br/>Example:
         
-        <br/>
-        <div style="background-color: #ECF0F5;">
-        <code>
-        spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*))
-        </code>
-        </div>
-        <br/>
-
-        The above query searches for spans in the beachshirts application and returns the following spans:
+        <br/><b>Example</b>: <br/>Search for spans in the beachshirts application and get the following spans:
         <ul>
           <li>
             Spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping-service )
@@ -220,6 +206,18 @@ Use the following functions to get details or find the relationship between serv
             Spans where the inventory service directly follow after the shopping-service.
           </li>
         </ul>
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*))
+        </code>
+        </div>
+
+        Search for spans where the spans from the shopping service are longer than 1000 milliseconds and are the parent spans of the inventory service.
+        <div style="background-color: #ECF0F5;">
+        <code>
+        spans(beachshirts.inventory.*).from(highpass(1000, spans(beachshirts.shopping.*)))
+        </code>
+        </div>
       </td>
     </tr>
   
@@ -229,28 +227,18 @@ Use the following functions to get details or find the relationship between serv
       </td>
       <td>
         Returns spans that are a child of a given span. This concept is a result of the OpenTracing <code>ChildOf</code> relationship.
-                
-        <br/><br/>
-        <div style="background-color: #ECF0F5;">
-        <code>
-        spans(Enter_fullOperationName).childOf(spans(Enter_fullOperationName))
-        </code>
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>&lt;child_spansExpression&gt;.childOf(&lt;parent_spansExpression&gt;)</code>
         </div>
-        <br/>
-        For details on the operation name format, see <a href="#parameters"><code>fullOperationName</code></a>.
 
-        <br/><br/>Example:
-        
+        <br/><b>Example</b>:<br/> 
+        Search for spans in the beachshirts application and only get the spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping service).
         <br/>
         <div style="background-color: #ECF0F5;">
         <code>
         spans(beachshirts.inventory.*).childOf(spans(beachshirts.shopping.*))
         </code>
         </div>
-        <br/>
-        
-        The above query searches for spans in the beachshirts application and only return the spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping service).
-
       </td>
     </tr>
     
@@ -260,35 +248,27 @@ Use the following functions to get details or find the relationship between serv
       </td>
       <td>
         Returns spans that directly follow a given span. This concept is a result of the OpenTracing <code>followsFrom</code> relationship.
-                
-        <br/><br/>
         <div style="background-color: #ECF0F5;">
         <code>
-        spans(Enter_fullOperationName).followsFrom(spans(Enter_fullOperationName))
+        &lt;child_spansExpression&gt;.followsFrom(&lt;parent_spansExpression&gt;)
         </code>
         </div>
-        <br/>
-        For details on the operation name format, see <a href="#parameters"><code>fullOperationName</code></a>.
 
-        <br/><br/>Example:
-        
-        <br/>
+        <br/><b>Example</b>:
+        Search for spans in the beachshirts application and get the spans from the inventory service that directly follow the shopping service.
         <div style="background-color: #ECF0F5;">
         <code>
         spans(beachshirts.inventory.*).followsFrom(spans(beachshirts.shopping.*))
         </code>
         </div>
-        <br/>
-        
-        The above query searches for spans in the beachshirts application and only returns the spans from the inventory service that directly follows after the shopping service.
       </td>
     </tr>
   </tbody>
 </table>
 
-{%include note.html content="You can use the following functions as a chain to search for spans. <br/> Example: `spans(beachshirts.inventory.*).followsFrom(spans(beachshirts.inventory.*)).from(beachshirts.shopping.*)`"  %}
+{%include note.html content="You can use the following functions as a chain to search for spans. <br/> Example: `spans(beachshirts.inventory.*).childOf(spans(beachshirts.inventory.*)).from(spans(beachshirts.shopping.*))`"  %}
 
-{% include tip.html content=" Make sure to add the `fullOperationName` in the correct order. <br/><br/>When adding the `fullOperationName`, you need to first add the child span or the span that follows the main span, and add the parent span after the functions (`from`, `childOf`, or `followsFrom`). If you change this order, you might not see any results. <br/><br/>
+{% include tip.html content=" Make sure to add the `<spansExpression>` in the correct order. <br/><br/>You need to first add the child span or the span that follows the main span, and add the parent span after the functions (`from`, `childOf`, or `followsFrom`). If you change this order, you might not see any results. <br/><br/>
 For example, if you use `spans(beachshirts.shoping.*).from(spans(beachshirts.inventory.*))`, you don't get any results because no spans go from the inventory service to the shopping service." %}
 
 ### Sample
