@@ -70,6 +70,27 @@ Ex: Filter out points that begin with qa., development., or test.:
 <td>3.1</td>
 </tr>
 <tr>
+<td>blockedPointsLoggerName </td>
+<td>Controls how the blocked points are logged. For details, see <a href="#blocked-data-log">Blocked Data Log</a>. <br/>Default: RawBlockedPoints. </td>
+<td>Logger name for blocked points.<br/>
+Ex: RawBlockedPoints</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>blockedHistogramsLoggerName </td>
+<td>Controls how the blocked histograms are logged. For details, see <a href="#blocked-data-log">Blocked Data Log</a>. <br/>Default: RawBlockedPoints. </td>
+<td>Logger name for blocked points.<br/>
+Ex: RawBlockedPoints</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>blockedSpansLoggerName </td>
+<td>Controls how the blocked spans are logged. For details, see <a href="#blocked-data-log">Blocked Data Log</a>. <br/>Default: RawBlockedPoints. </td>
+<td>Logger name for blocked points.<br/>
+Ex: RawBlockedPoints</td>
+<td>6.0</td>
+</tr>
+<tr>
 <td>buffer</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
 <td>Valid path on the local file system.<br/>
@@ -91,19 +112,19 @@ Ex: 8760</td>
 <td>4.1</td>
 </tr>
 <tr>
-<td>deltaCounterPorts</td>
-<td>Port on which to listen only for <a href="delta_counters.html">delta counter data</a>. Other data format are rejected at this port. If you specify a delta counter port, it can accept both HTTP and TCP data. For HTTP data, make a POST to this proxy port with an empty header, and the line-terminated data. Use this property in conjunction with deltaCounterAggregationInterval to limit the number of points per second for delta counters. <br/>Default: 50000.</td>
+<td>deltaCountersAggregationListenerPorts</td>
+<td>Port to listen to the Wavefront-formatted <a href="delta_counters.html">delta counter data</a>. Other data formats are rejected at this port. Pre-aggregating delta counters at the proxy, helps reduce the outbound point rate. Use this property in conjunction with deltaCountersAggregationIntervalSeconds to limit the number of points per second for delta counters. <br/>Default: none.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.<br/>
-Ex: 50000<br/>
-Ex: 50000,50001,50002</td>
-<td>5.1</td>
+Ex: 12878<br/>
+Ex: 12878,12879</td>
+<td>6.0</td>
 </tr>
 <tr>
-<td>deltaCounterAggregationInterval</td>
-<td>Delay time for delta counter reporter. Use this property in conjunction with deltaCounterPorts to send points to the port(s) in batches, thereby limiting the number of points per second. <br/>Default: 30 seconds. </td>
+<td>deltaCountersAggregationIntervalSeconds</td>
+<td>Interval between flushing aggregating delta counters to Wavefront. Use this property in conjunction with deltaCountersAggregationListenerPorts to send points to the port(s) in batches, thereby limiting the number of points per second. <br/>Default: 30 seconds. </td>
 <td>Number of seconds.<br/>
 Ex: 45</td>
-<td>3.14</td>
+<td>6.0</td>
 </tr>
 <tr>
 <td>ephemeral</td>
@@ -149,9 +170,23 @@ Ex: 2003, 2004 </td>
 <td>&nbsp;</td>
 </tr>
 <tr>
+<td>gzipCompression</td>
+<td>If set to true, metric traffic from the proxy to the Wavefront endpoint is gzip-compressed. <br/> Default: true.</td>
+<td>true or false<br/>
+Ex: true</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>gzipCompressionLevel</td>
+<td>Sets the gzip compression level if gzipCompression is enabled. The level vary from, 1 to 9. Higher compression levels slightly reduces the volume of traffic between the proxy and Wavefront, but uses more CPU.  <br/> Default: 4.</td>
+<td>Positive integer ranging from 1 to 9.<br/>
+Ex: 4</td>
+<td>6.0</td>
+</tr>
+<tr>
 <td markdown="span">Histogram configuration properties</td>
 <td>
-Properties specific to histogram distributions, listed in a separate table below.
+Properties specific to histogram distributions, listed in a <a href="#histogram-configuration-properties">separate table below</a>.
 </td>
 <td></td>
 <td>4.31 </td>
@@ -289,6 +324,27 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 <td>&nbsp;</td>
 </tr>
 <tr>
+<td>pushFlushMaxHistograms</td>
+<td>Maximum number of histograms to send to Wavefront during each flush. <br/>Default: 10,000.</td>
+<td>Positive integer.
+<div>Ex: 10000 </div></td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>pushFlushMaxSpans</td>
+<td>Maximum number of spans to send to Wavefront during each flush. <br/>Default: 5,000.</td>
+<td>Positive integer.
+<div>Ex: 5000 </div></td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>pushFlushMaxSpanLogs</td>
+<td>Maximum number of span logs to send to Wavefront during each flush. <br/>Default: 1,000.</td>
+<td>Positive integer.
+<div>Ex: 1000 </div></td>
+<td>6.0</td>
+</tr>
+<tr>
 <td>pushListenerHttpBufferSize</td>
 <td>Maximum allowed request size (in bytes) for incoming HTTP requests on Wavefront, OpenTSDB, or Graphite ports. <br/>Default: 16777216 (16MB).
 </td>
@@ -330,6 +386,42 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 <td>Positive integer.
 <div>Ex: 20000</div></td>
 <td>4.1</td>
+</tr>
+<tr>
+<td>pushRateLimitHistograms</td>
+<td>Maximum number of histograms per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Positive integer.
+<div>Ex: 20000</div></td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>pushRateLimitSpans</td>
+<td>Maximum number of spans per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Positive integer.
+<div>Ex: 10000</div></td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>pushRateLimitSpanLogs</td>
+<td>Maximum number of span logs per second to send to Wavefront. <br/>Default: unlimited.</td>
+<td>Positive integer.
+<div>Ex: 10000</div></td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>pushRelayListenerPorts</td>
+<td>Ports to receive the data sent to the relay. In environments where direct outbound connections to Wavefront servers are not possible, you can use another Wavefront proxy that has outbound access to act as a relay and forward all the data received on that endpoint (from direct data ingestion clients and/or other proxies) to Wavefront servers. <br/>Default: none.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.
+Ex: 2978<br/>
+Ex: 2978,2979</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>pushRelayHistogramAggregator</td>
+<td>If set to true, aggregates the histogram distributions received on the relay port. <br/>Default: false.</td>
+<td>true or false
+<div>Ex: true</div></td>
+<td>6.0</td>
 </tr>
 <tr>
 <td>pushValidationLevel</td>
@@ -423,6 +515,13 @@ Ex: 0 </td>
 <td>4.31 </td>
 </tr>
 <tr>
+<td>customTracingListenerPorts</td>
+<td markdown="span">TCP ports to receive spans and derive RED metrics from the [SDKs that send raw data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront). <br/> Default: None.</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
+<td>6.0 </td>
+<a name="customTracingListenerPorts"></a>
+</tr>
+<tr>
 <a name="traceJaegerHttpListenerPorts"></a> 
 <td>traceJaegerHttpListenerPorts</td>
 <td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in the [span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
@@ -431,19 +530,12 @@ Ex: 0 </td>
 </tr>
 <tr>
 <td>traceListenerPorts</td>
-<td markdown="span">TCP ports to listen on for incoming [trace data](tracing_basics.html). <br/> Default: None.</td>
+<td markdown="span">TCP ports to listen on for incoming [spans](tracing_basics.html). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 30000</div>
 <div>Ex: 30000, 30001</div></td>
 <td>4.31 </td>
 </tr>
-<tr>
-<td>customTracingListenerPorts</td>
-<td markdown="span">TCP ports to receive spans and derive RED metrics from the [SDKs that send raw data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront). <br/> Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>6.0 </td>
-</tr>
-<a name="customTracingListenerPorts"></a>
 <tr>
 <td>traceSamplingDuration</td>
 <td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). <br/> Default: 0 (send all generated spans). </td>
@@ -526,7 +618,7 @@ Wavefront supports additional histogram configuration properties, shown in the f
 </tr>
 <tr>
 <td>histogramAccumulatorFlushInterval</td>
-<td>Interval in milliseconds to check for histograms that need to be sent to Wavefront acccording to their histogramMinuteFlushSecs etc settings. Default: 1000.</td>
+<td>Interval in milliseconds to check for histograms that need to be sent to Wavefront according to their histogramMinuteFlushSecs settings. Default: 1000.</td>
 <td>Positive integer.</td>
 </tr>
 <tr>
@@ -710,6 +802,22 @@ Wavefront supports additional histogram configuration properties, shown in the f
 <tr>
 <td>histogramDistAvgKeyBytes</td>
 <td>Average number of bytes in a UTF-8 encoded histogram key. Concatenation of metric, source, and point tags. Default: 150.</td>
+<td>Positive integer.</td>
+</tr>
+<tr>
+<td>pushRelayHistogramAggregatorFlushSecs</td>
+<td>Since 6.0. Interval in milliseconds to check for histograms that have accumulated at the relay ports before sending data to Wavefront. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 70.</td>
+<td>Number of milliseconds.<br/> Ex: 80</td>
+</tr>
+<tr>
+<td>pushRelayHistogramAggregatorCompression</td>
+<td>Since 6.0. Number of centroids per histogram. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 32.</td>
+<td>Must be between 20 and 1000.<br/>
+Ex: 40</td>
+</tr>
+<tr>
+<td>pushRelayHistogramAggregatorAccumulatorSize</td>
+<td>Since 6.0. Max number of concurrent histogram to accumulations at the relay ports. The value is approximately the number of time series * 2 (use a higher multiplier if out-of-order points more than 1 bin apart are expected). Setting this value too high will cause excessive disk space usage, setting this value too low may cause severe performance issues. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 32.</td>
 <td>Positive integer.</td>
 </tr>
 </tbody>
