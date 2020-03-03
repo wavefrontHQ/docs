@@ -369,7 +369,7 @@ Wavefront provides sender SDKs for:
      <div class="panel panel-default text-center">
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-sdk-cpp">
-            <img src="/images/icons_svg_C++.png" alt="C++">
+            <img src="/images/icons_c++.png" alt="C++">
             </a>
          </div>
      </div>
