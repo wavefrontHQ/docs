@@ -28,12 +28,12 @@ Returns synthetic ongoing events that start when the input events end.
 ## Description
 
 The `after()` event function returns a set of synthetic ongoing events, where each synthetic event:
-* Starts at the end time of a corresponding event described by the expression. 
+* Starts at the end time of a corresponding event described by the expression.
 * Continues indefinitely.
 
 
 The following diagram represents an `events()` query that returns 3 events (A, B, and C). Using that `events()` query as the input to `after()` produces 3 synthetic events that each start when the corresponding input event ends:
 
-![Events after](images/after_events.svg)
+![Events after](images/after_events.png)
 
 **Note:** Synthetic events are displayed by the query, but not stored in Wavefront.

@@ -68,6 +68,9 @@ For the most gain with the least amount of work:
     <b>Python</b>: <a href ="https://github.com/wavefrontHQ/wavefront-pyformance">Pyformance SDK</a>
   </li>
   <li>
+    <b>Go</b>: <a href ="https://github.com/wavefrontHQ/go-metrics-wavefront">Go Metrics SDK</a>
+  </li>
+  <li>
     <b>.Net/C#</b>: <a href ="https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp">App Metrics SDK</a>
   </li>
 </ul>
@@ -212,6 +215,15 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
          <div class="panel-body">
             <a href="https://github.com/wavefrontHQ/wavefront-pyformance">
             <img src="/images/icons_svg_phython.png" alt="Pyformance Python">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-2 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/go-metrics-wavefront">
+            <img src="/images/icons_svg_go.png" alt="Go">
             </a>
          </div>
      </div>
