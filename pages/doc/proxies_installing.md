@@ -191,7 +191,7 @@ Use the following command to export the data that is queued at the proxy. Once t
       <code>exportQueueOutputFile</code>
       </td>
       <td>
-        Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.<FILE_NAME>.txt
+        Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.&lt;FILE_NAME&gt;.txt
       </td>
     </tr>
     <tr>
