@@ -16,7 +16,7 @@ This page gives an overview of important changes for the most recent Wavefront p
 - Supports [logs for Jaeger and Zipkin integrations](tracing_integrations.html#enable-logs).
 - Jaeger integration can now receive data via HTTP using the [Wavefront proxy](proxies_configuring.html#traceJaegerHttpListenerPorts).
 - New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html). 
-- [Export data that is queued at the proxy to text files](proxies_installing.html#export-data-queued-at-the-proxy).
+- [Export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
 
 ## Version 5.7
 
