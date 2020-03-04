@@ -161,7 +161,9 @@ You set the following properties to configure proxy ports:
 
 ### Export Data Queued at the Proxy 
 
-When you send too much data or if there is a network error, data starts to queue at the Wavefront proxy and create a backlog. Use the following command to export the data that is queued at the proxy. 
+When you send too much data or if there is a network error, data starts to queue at the Wavefront proxy and create a backlog.
+
+Use the following command to export the data that is queued at the proxy. Once the data is exported, you can make changes to the data, like removing the data that is not required, and send it back to the Wavefront proxy.
 
 ```
 /opt/wavefront/wavefront-proxy/proxy-jre/java -jar /opt/wavefront/wavefront-proxy/wavefront-push-agent.jar --f /etc/wavefront/wavefront-proxy/wavefront.conf --exportQueuePorts <ports> --exportQueueOutputFile <outputFileNamePrefix> --exportQueueRetainData false
@@ -189,7 +191,7 @@ When you send too much data or if there is a network error, data starts to queue
       <code>exportQueueOutputFile</code>
       </td>
       <td>
-        The prefix you want the output files to have.
+        Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.<FILE_NAME>.txt
       </td>
     </tr>
     <tr>
@@ -197,8 +199,8 @@ When you send too much data or if there is a network error, data starts to queue
         <code>exportQueueRetainData</code>
       </td>
       <td>
-      This is set to true by default. When set to false, exports the data and removes it from the backlog. <br/>
-      {% include note.html content="Make sure to have a backup of the files you export. If you delete the files, you lose the information that was queued at the proxy." %}
+      When set to false, exports the data and removes the data from the backlog. Default is true.  <br/>
+      {% include note.html content="Make sure to backup the files you export. If you delete the files, you lose the information that was queued at the proxy." %}
       </td>
     </tr>
   </tbody>
@@ -210,9 +212,10 @@ Example:
 /opt/wavefront/wavefront-proxy/proxy-jre/java -jar /opt/wavefront/wavefront-proxy/wavefront-push-agent.jar --f /etc/wavefront/wavefront-proxy/wavefront.conf --exportQueuePorts 2878,3000 --exportQueueOutputFile wfproxy --exportQueueRetainData false
 ```
 
-The example given above exports the data queued at ports 2878 and 3000, and create the output files that have the prefix wfproxy, such as wfproxy.points.2878.0.txt.
-
-Now, you can make changes to the data, like removing the data that is not required, and send it back to the Wavefront proxy.
+The example:
+* Exports the data queued at ports 2878 and 3000.
+* Creates output files that have the prefix wfproxy, such as wfproxy.points.2878.0.txt.
+*	Deletes all data that’s currently in the proxy queue.  
 
 ### Test a Proxy
 
