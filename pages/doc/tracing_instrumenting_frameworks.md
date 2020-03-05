@@ -95,7 +95,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
         </div>
     </div>
   </div>
-  
+
 ### Instrument Your OpenTracing Java Application Without Writing Code
 
 If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/).
@@ -113,10 +113,10 @@ If you need application observability, but don't want to instrument code for you
  </div>
 
 ### Send Trace Data to Wavefront via Applications Integrated with Jaeger or Zipkin
-  
+
   If you have already instrumented your application with Jaeger or Zipkin follow the steps given below :
   1. Collect traces send them to Wavefront using the following integrations.
-   
+
       <div class="row">
        <div class="col-md-3 col-sm-6">
            <div class="panel panel-default text-center">
@@ -137,7 +137,7 @@ If you need application observability, but don't want to instrument code for you
            </div>
        </div>
      </div>
- 2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](racing_integrations.html) for details.
+ 2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
 
@@ -151,7 +151,7 @@ The details of creating the helper objects for an SDK are in the setup steps for
 
 The following diagram shows the Wavefront helper objects in a Java microservice that uses Spring Boot to implement RESTful operations to other services:
 
-![sdk objects](images/sdk_objects.svg)
+![sdk objects](images/sdk_objects.png)
 
 The actual helper objects in a microservice depends on the SDKs you set up. A typical set of helper objects includes some or all of the following:
 
@@ -237,7 +237,7 @@ A `WavefrontSpanReporter` specifies the source of the reported trace data -- by 
 
 Trace data is reported automatically whenever spans are complete, so a `WavefrontSpanReporter` does not specify a reporting interval.
 
-{% include note.html content="If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console." %} 
+{% include note.html content="If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console." %}
 
 ### Wavefront Metrics Reporter Objects
 
@@ -248,7 +248,7 @@ A Wavefront reporter object specifies:
 
 * The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
 
-{% include note.html content="You can use a Wavefront reporter object to set a nondefault reporting interval." %} 
+{% include note.html content="You can use a Wavefront reporter object to set a nondefault reporting interval." %}
 
 <!---
 **Note:** For guidelines on choosing a reporting interval, see _[[link to reporting interval topic on another page]]_.
