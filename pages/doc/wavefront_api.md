@@ -101,7 +101,7 @@ Because we expose the Wavefront REST API via Swagger, you can generate a working
 
 The REST API supports the following objects corresponding to different categories of management tasks:
 
-- **Account (User and Service Account)** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all [accounts](users_groups.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
+- **Account (User and Service Account)** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all [accounts](users_roles.html), create, update, and delete accounts and manage permissions and groups associated with accounts.
 - **Alert** - Retrieve active, snoozed, in-maintenance, and invalid alerts. Users with [Alert permission](permissions_overview.html) can create and update alerts.
 - **ApiToken** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve, create, and manage API tokens. Used primarily in conjunction with service accounts.
 - **Cloud Integration** - Retrieve cloud integration data types such as those available with the [AWS integration](integrations_aws_metrics.html). Users with [Proxies permission](permissions_overview.html) can add and remove cloud integration data types.
@@ -123,6 +123,6 @@ The REST API supports the following objects corresponding to different categorie
 - **Search** - Search agents, alerts, integrations, dashboards, external links, maintenance windows, sources, and webhook alert targets.
 - **Source** - Retrieve sources and tags associated with a source. Users with [Source Tag permission](permissions_overview.html) can add and remove source tags and set descriptions.
 - **Usage** - Retrieve information about usage associated with ingestion policies and manage policies.
-- **User** - Deprecated API. Use **Account (User and Service Account)** instead. 
+- **User** - Deprecated API. Use **Account (User and Service Account)** instead.
 - **UserGroup** - Allows users with [Accounts, Groups & Roles permission](permissions_overview.html) to retrieve a list of all groups, create, update, and delete groups, and manage the users and roles associated with a group.
 - **Webhook** - Retrieve webhooks. Users with [Alert Management permission](permissions_overview.html) can create, update, and delete webhooks.

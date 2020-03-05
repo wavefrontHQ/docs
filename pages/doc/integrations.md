@@ -61,7 +61,7 @@ This table provides links to the documentation pages for many of the custom and 
 </tr>
 <tr>
 <td>Custom integrations - Data Collector</td>
-<td markdown="span">[AppDynamics](integrations_appdynamics.html), [External links](external_links_managing.html), [R](integrations_r.html)
+<td markdown="span">[External links](external_links_managing.html), [R](integrations_r.html)
 </td>
 </tr>
 <tr>
