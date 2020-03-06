@@ -137,7 +137,7 @@ Suppose you have a metric with a `region` point tag, and you want to display a c
 
 {% raw %}
 ```handlebars
-aliasMetric(ts(aws.instance.price), location, "Price/{{region}}/{{source}}")
+aliasMetric(ts(aws.instance.price), "Price/{{region}}/{{source}}")
 ```
 {% endraw %}
 
