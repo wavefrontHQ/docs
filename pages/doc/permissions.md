@@ -12,9 +12,10 @@ All new users can perform a basic set of tasks when they are invited to Wavefron
 * All users also have any permissions that are assigned explicitly.
 That is, a user has the union of group and explicit permissions. Even if the user is removed from a group, that user keeps any explicit permissions.
 
-Users with Accounts & Groups permission can set the default user group and can assign [permissions](permissions_overview.html) or revoke permissions at the group level or for individual users.
+Users with **Accounts, Groups & Roles** permission can set the default user group and can assign [permissions](permissions_overview.html) or revoke permissions at the group level or for individual users.
 
-**Note:** You must have Accounts & Groups permission to view and manage users and permissions in Wavefront. Otherwise, the relevant UI elements aren't available to you.
+{% include note.html content="You must have the **Accounts, Groups & Roles** permission to view and manage authorization in Wavefront. If you don't have the permission, the corresponding UI menu selections, buttons, and links are not visible." %}
+
 
 ## Permissions Basics
 

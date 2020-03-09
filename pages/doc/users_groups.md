@@ -4,6 +4,7 @@ keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
 permalink: users_groups.html
+published: false
 summary: Manage authorization for user accounts and service accounts
 ---
 
@@ -13,7 +14,7 @@ You can manage authorization in your Wavefront environment by:
 
 Accounts can be user accounts or service accounts.
 
-**Note**: You must have Accounts & Groups permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have Accounts & Groups permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible.
+{% include note.html content="You must have **Accounts, Groups & Roles** permission to view and manage accounts, groups, and permissions in Wavefront. If you don't have **Accounts, Groups & Roles** permission, the UI menu selections, buttons, and links that you use to view accounts and permissions are not visible. " %}
 
 ## Permissions, Accounts, and Groups Basics
 
@@ -62,7 +63,7 @@ Here's what you need to know:
 
 ## Manage Groups
 
-Users who have Accounts & Groups permission can create groups, change groups by adding and removing accounts, and grant and revoke permissions.
+Users who have Accounts, Groups & Roles permission can create groups, change groups by adding and removing accounts, and grant and revoke permissions.
 
 1. Click the gear icon and select **Group Management**.
 2. To create a group:

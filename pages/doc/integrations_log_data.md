@@ -213,7 +213,7 @@ The Wavefront proxy automatically assigns metrics a **source** according to the 
 
 ### Direct Log Ingestion Architecture (Raw TCP / Splunk)
 
-![TCP Log Harvesting Architecture](images/log_data_tcp.tcp)
+![TCP Log Harvesting Architecture](images/log_data_tcp.png)
 
 ### Instructions
 
