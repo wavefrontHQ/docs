@@ -10,7 +10,7 @@ summary: Create custom alert targets to receive alert notifications on different
 You can create custom alert targets to configure alert notifications for a variety of messaging platforms (email, pager services) and communication channels. You can route notifications for the same alert to different targets based on a point tag.
 
 
-<div markdown="span" class="alert alert-info" role="alert"><strong>Note</strong> While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to create and manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+{% include note.html content="While every Wavefront user can view alert targets, you must have [Alert Management permission](permissions_overview.html) to create and manage alert targets. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
 
 
 ## Learn About Alert Targets
@@ -187,12 +187,12 @@ The process for creating an alert target is similar for the different types of t
   * The **Default Recipients** field specifies recipients that get all alerts.
   * The **Routing** field allows you to specify the following key/value pairs:
 
-        |**key**|**value**|
+        |**key** |**value** |
         |source|&lt;source name&gt; |
         |metric|&lt;metric name&gt;|
         |&lt;point tag name&gt;|&lt;point tag value&gt;|
-
-  **Note:** You must specify either default recipients or recipients determined by routing.
+  
+  {% include note.html content="You must specify either default recipients or recipients determined by routing." %}
 
   The screenshot below shows this for alert targets of type email.
   ![alert route example](images/alert_route_example.png)
@@ -281,8 +281,7 @@ Wavefront exposes response codes from webooks alert target calls as metrics:
 ~alert.webhooks.<webhook_id>.4xx
 ~alert.webhooks.<webhook_id>.5xx
 ```
-
-**Note** Wavefront does not expose response codes from the simpler alert targets (Email and PagerDuty).
+{% include note.html content="Wavefront does not expose response codes from the simpler alert targets (Email and PagerDuty)" %}
 
 The response codes indicate if a webhook call was successful and if the webhook generated a notification. You can query these metrics to  determine if any webhooks are generating a problem response code. The metrics have the point tag `name = <webhook_name>` so you can determine all the response codes for a particular webhook alert target:
 

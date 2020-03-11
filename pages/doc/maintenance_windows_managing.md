@@ -108,7 +108,7 @@ To suppress the example alerts, you create a maintenance window as shown above, 
   - In **Affected Alert Tags**, specify the tag path `example.latency.*`.
   - In **Affected Source Tags**, specify the source tag `EastCoastSources`.
   - In **Affected Sources**, specify `app-1`.
-  - **Note:** If you wanted to suppress the alerts from firing on `app-1` only if that source also has the source tag `EastCoastSources`, you can click on **OR** and select **AND**.
+{% include note.html content="If you wanted to suppress the alerts from firing on `app-1` only if that source also has the source tag `EastCoastSources`, you can click on **OR** and select **AND**." %}
 
 
 
