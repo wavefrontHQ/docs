@@ -37,7 +37,7 @@ Wavefront supports the `spy` endpoints shown in the following table:
 </thead>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
 <td markdown="span">[Gets new metric data points](#get-ingested-metric-points-with-spy) that are added to existing time series.</td></tr>
-<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/points`</td>
+<tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/histograms`</td>
 <td markdown="span">[Gets new histograms](#get-ingested-histograms-with-spy) that are added to existing time series.</td></tr>
 <tr><td markdown="span">`https://<cluster>.wavefront.com/api/spy/spans`</td>
 <td markdown="span">[Gets new spans](#get-ingested-spans-with-spy) with existing source names and span tags.</td></tr>
@@ -265,14 +265,14 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Span Logs with Spy
 
-Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html). 
+Span logs capture span-specific logging information and are supported by the OpenTracing standard. Some Wavefront SDKs include span logs for errors by default. To get access to other span log information, you can customize a Wavefront SDK to include [span log information](tracing_instrumenting_frameworks.html#span-logs) or [instrument your application](tracing_instrumenting_frameworks.html).
 
 {% include note.html content="Span logs are disabled by default. If you want to enable span logs on your cluster, contact the Wavefront Customer Success team at [support@wavefront.com](mailto:support@wavefront.com)."%}
 
 You can use the returned list of span logs to find out if it contains the data that you expect.<br/>
 Example:
   ```
-  traceId="00000000-0000-0000-0000-00000001234" spanId="00000000-0000-0000-0000-000000012341" 
+  traceId="00000000-0000-0000-0000-00000001234" spanId="00000000-0000-0000-0000-000000012341"
   logs=[{"timestamp": 1572303812999, "fields": {"event": "error", "error.kind": "exception"}}]
   ```
 

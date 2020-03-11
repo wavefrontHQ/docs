@@ -22,9 +22,9 @@ You can use `avg()` with time series and with histograms.
 <tbody>
 <tr>
 <td markdown="span"> Time series <br>aggregation function</td>
-<td markdown="span">Returns the average (the mean) of the set of time series described by the `tsExpression`.
+<td>Returns the average (the mean) of the set of time series described by the expression.
 The results might be computed from real reported values and interpolated values.
-Use [ `rawavg()`](ts_rawavg.html) if you don't need interpolation.</td></tr>
+Use rawavg() if you don't need interpolation.</td></tr>
 <tr>
 <td markdown="span">Histogram <br>conversion function</td>
 <td markdown="span">Returns time series that consist of the average value from each histogram distribution described by the `hsExpression`.</td>
@@ -143,3 +143,4 @@ Using [`rawavg()`](ts_rawavg.html) instead of `avg()` can significantly improve 
 ## See Also
 * [Mean and Median](query_language_statistical_functions_anomalies.html#mean-and-median)
 * [Bucketing with align()](query_language_align_function.html)
+* [rawavg()](ts_rawavg.html)
