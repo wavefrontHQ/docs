@@ -55,7 +55,7 @@ On the page for a particular application, you can:
   - The span duration (in milliseconds) at the 95th percentile across the service.
 
 * Drill down from a service box:
-  - Click **Details** to go to the dashboard for that service.
+  - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
 
 
@@ -63,7 +63,7 @@ On the page for a particular application, you can:
 
 When you click on a service's **Details**, you can examine a dashboard of metrics to identify potential hot spots, and then drill down to the Traces browser.
 
-### Explore the Default Service Metrics Dashboard
+### Explore the Default Service Dashboard
 
 The default, read-only dashboard for a service lets you explore that service, however, you can't make changes to the dashboard.
 
@@ -72,39 +72,29 @@ The default, read-only dashboard for a service lets you explore that service, ho
 {% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
 
 On the dashboard for a particular service, you can:
-* Select the time and timezone in the task bar to customize the chart time properties.
+* Select the time and time zone in the task bar to customize the chart time properties.
 * Use the **Jump To** pulldown to select a dashboard section:
   - Select **Overview** to examine the RED metrics that are derived from all of the spans for the service. These metrics reflect the health of the service.
   - Select an individual component to examine metrics for just that component of the service. A component could be an instrumented framework (e.g., **Jersey**) or the runtime system (e.g., **JVM**).
   - Select **System** if your environment uses Telegraf and you want to view CPU usage, memory usage, and disk usage.
 * Filter the metrics based on the cluster, shard, or source.
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
+<a name="Tracesbrowser"></a>
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
-* Navigate to the Traces browser:
-  - Select **See All ... Traces** to display all traces that include a span from this service component.
-  - Click a bar in a TopK chart to display just the traces that include spans for the selected operation.
+* Navigate to the Traces browser.
+  * Click a bar on a histogram.
+  * Click a bar on a TopK chart.
+  * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
-<!--- do we really need a screen shot of System metrics?
-  ![system metrics](images/system_metrics.png)
---->
+### Custom Service Dashboard
 
-### Custom Service Metrics Dashboard
-
-The standard dashboard for service metrics is read-only. To create a customizable copy:
+The standard dashboard for services is read-only. To create a customizable copy:
 
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. (Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
-
-### Navigate to the Tracing UI from the Service Metrics Dashboard
-
-You can navigate directly from a service dashboard to the corresponding tracing information if the charts have the `application` and `service` [point tags](query_language_point_tags.html).
-
-On your chart, click the vertical ellipsis in the top right, click **Traces**, and click a service.
-![charts to tracing](images/tracing_metrics_to_tracing.png)
-  
-{% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ## Explore Traces
 
@@ -126,17 +116,16 @@ You can toggle the panel size for the traces list, service map, or trace details
 
 ## Query for a List of Traces
 
-In the Traces browser, you can [use the query builder or query editor](trace_data_query.html) for query for the traces that include spans for a particular operation.
+In the Traces browser, you can [use the query builder or query editor](trace_data_query.html) to query for traces that include spans for a particular operation.
 
 You can view the results in a traces list.
 
 ![explore traces list](images/tracing_traces_browser_traces_list.png)
 
 Here's how to get started:
-1. Start typing in the Operations field and select an operation (or type a name in the search box).
+1. Add an Operation or Trace ID. See [Get Started with Trace Queries](trace_data_query.html#get-started-with-trace-queries) for details.
 2. Click **Add Filter** and specify a filter to limit the results.
 3. (Optional) Advanced users can use Query Editor to limit the scope even further.
-
 
 You can use the trace list to:
 
