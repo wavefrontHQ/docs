@@ -122,7 +122,7 @@ Wavefront creates many events for you, but you can also create an event explicit
     <li><strong>Instantaneous</strong> - End the event instantaneously with the start time. The exact interval is indeterminate. The Events page can report that the event starts and ends at exactly the same time or that it lasts a few seconds.</li>
     <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page. Wavefront closes events that are older than 60 days.</li>
     <li><i class="fa fa-calendar"></i> - End the event at the specified day and time. Click the text field to select the end time.</li></ul>
-    {% include note.html content="If you can create an event with an end time, you cannot make changes to the event name or other event properties later." %}</td>
+    <strong>Note</strong>: If you can create an event with an end time, you cannot make changes to the event name or other event properties later.</td>
     </tr>
     <tr>
     <td>Classification</td>
