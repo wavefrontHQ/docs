@@ -65,7 +65,7 @@ If an alert has fired when you did't expect it, you can examine an alert notific
   * If the image and the interactive chart are identical, then it's possible that a data delay occurred, but backfilling has not yet taken place.
 --->
 
-**Note:** Comparing a chart image to a current interactive chart is the most direct way to determine whether a data delay has occurred in an alert check time window. If your alert notifications do not include chart images, or if you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for clues that might point to a data delay. You can also try techniques for [minimizing the impact of data delays (below)](#minimize-the-impact-of-data-delays-on-alerts) to see if that helps prevent further false positives or negatives.
+{% include note.html content="Comparing a chart image to a current interactive chart is the most direct way to determine whether a data delay has occurred in an alert check time window. If your alert notifications do not include chart images, or if you are trying to determine why an alert didn't fire when you expected it to, you might need to investigate your data pipeline for clues that might point to a data delay. You can also try techniques for [minimizing the impact of data delays (below)](#minimize-the-impact-of-data-delays-on-alerts) to see if that helps prevent further false positives or negatives." %}
 
 <!---
 You can also try adjusting your alert condition to limit the impact of data delays, and see if that makes a difference.
@@ -104,7 +104,7 @@ lag(15m, sum(ts("aws.elb.requestcount"))) < 1000
 
 By setting the lag time to `15m`, you tell the alert condition to return data values whose timestamps are 15 minutes earlier than the alert check time. The alert checking process evaluates 2 minutes' worth of these older values (from 15 to 17 minutes before checking occurs). The 15 minute lag gives Wavefront a chance to backfill the delayed values into the alert check time window.
 
-**Note:** If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place. 
+{% include note.html content="If a data delay lasts longer than 15 minutes, the sample alert condition will return data values before backfilling has a chance take place." %} 
 
 ### Lengthen the Alert Check Time Window
 

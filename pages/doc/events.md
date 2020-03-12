@@ -63,7 +63,7 @@ The example does not include an event that's in the Pending state.
 To improve event performance, Wavefront ends events that have been ongoing for 60 days (based on start time). We also don't return events for certain ongoing `events()` queries. See [When Does an Event Query Return Events](events_queries.html#when-does-an-event-query-return-events).
 
 
-**Note:** You cannot have more than 1000 ongoing events on your cluster. Use the `~events.num-ongoing-events` internal metric to monitor the number of ongoing events.
+{% include note.html content="You cannot have more than 1000 ongoing events on your cluster. Use the `~events.num-ongoing-events` internal metric to monitor the number of ongoing events." %}
 
 ## Viewing Events
 
@@ -122,7 +122,7 @@ Wavefront creates many events for you, but you can also create an event explicit
     <li><strong>Instantaneous</strong> - End the event instantaneously with the start time. The exact interval is indeterminate. The Events page can report that the event starts and ends at exactly the same time or that it lasts a few seconds.</li>
     <li><strong>Ongoing</strong> - The event does not have a specified end time. You can manually end (close) the event from the Events page. Wavefront closes events that are older than 60 days.</li>
     <li><i class="fa fa-calendar"></i> - End the event at the specified day and time. Click the text field to select the end time.</li></ul>
-    <strong>Note:</strong> If you can create an event with an end time, you cannot make changes to the event name or other event properties later.</td>
+    <strong>Note</strong>: If you can create an event with an end time, you cannot make changes to the event name or other event properties later.</td>
     </tr>
     <tr>
     <td>Classification</td>
@@ -152,7 +152,7 @@ Wavefront closes any event that is older than 60 days, based on start time. You 
 
 You can close an event if you no longer need it. It's especially important to close ongoing events, which do not have an end time.
 
-**Note:** To prevent performance degradation, you cannot have more than 1000 (one thousand) ongoing events.
+{% include note.html content="To prevent performance degradation, you cannot have more than 1000 (one thousand) ongoing events."%}
 
 To close ongoing events:
 1. Click the check box(es) next to the event(s).

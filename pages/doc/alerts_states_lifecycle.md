@@ -94,7 +94,7 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 
 If the ts() expression returns a single data value per minute, the summarization values and the returned values are the same.
 
-**Note:** If you want a different summarization strategy, then you can explicitly use the [`align()`](ts_align.html) function in your alert condition, with parameters specifying a 1-minute time window and your preferred summarization method.
+{% include note.html content="If you want a different summarization strategy, then you can explicitly use the [`align()`](ts_align.html) function in your alert condition, with parameters specifying a 1-minute time window and your preferred summarization method." %} 
 
 **Example 1**
 

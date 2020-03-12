@@ -9,7 +9,7 @@ summary: Queries for common alert scenarios
 
 The Wavefront Customer Success team has found that customers use certain alerts frequently. For example, customers want to alert on point rate drops or on between specific times.
 
-**Note:** For improved legibility, we've included line breaks in some of the query examples.
+{% include note.html content="For improved legibility, we've included line breaks in some of the query examples." %}
 
 ## Alert on Point Rate Drop
 
