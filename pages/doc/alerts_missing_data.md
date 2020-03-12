@@ -33,7 +33,7 @@ This page describes 2 techniques for alerting on missing data:
 * [Alerting on an entire group of time series that fail together.](#alerting-on-time-series-that-fail-together)
 * [Alerting on one or more individual time series within a group.](#alerting-on-missing-data-in-individual-time-series)
 
-**Note:** Sometimes a gap of NO DATA in a time series means that data reporting has been delayed, but not completely stopped. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts).
+{% include note.html content="Sometimes a gap of NO DATA in a time series means that data reporting has been delayed, but not completely stopped. If you need to alert on a time series that is subject to data delays, you can [configure the alert to minimize their impact](alerts_delayed_data.html#minimize-the-impact-of-data-delays-on-alerts)." %}
 
 ## Alerting on Time Series that Fail Together
 
@@ -81,8 +81,7 @@ Different amounts of missing data can indicate the severity of a fault. In gener
   ```
   mcount(5m, ts(my.metric)) <= 3
   ```
-
-  **Note:** You base the threshold on the number of points you expect the time series to report in the chosen interval. The expected count is easiest to estimate for a time series that reports regularly, such as once a minute or once every 20 seconds.  
+{% include note.html content="You base the threshold on the number of points you expect the time series to report in the chosen interval. The expected count is easiest to estimate for a time series that reports regularly, such as once a minute or once every 20 seconds. " %}  
 
 * To find out whether a time series is reporting fewer and fewer points over time, compare the current moving count to a moving count from an earlier part of the same time series. See [Alert on Point Rate Drop](alerts_recipes.html#alert-on-point-rate-drop) on the recipes page.
 
@@ -106,8 +105,7 @@ Now consider what happens if `my.metric` reports regularly once a minute until 1
 2. The alert checking system combines the per-second moving counts into summarization points: 3 at 10:30, 2 at 10:31, 1 at 10:32, and 0 at 10:33, 10:34, and so on.
 3. When the alert condition compares each summarization value to 0, the result is false until 10:33. 
 4. The alert fires at 10:35, based on 2 minutes' worth (10:33 and 10:34) of true values and no false values. The total elapsed time between the last reported data point and the alert firing is 3+2 = 5 minutes. 
-
-    **Note:** The elapsed time will be shorter for an alert condition such as `mcount(3m, ts(my.metric)) < 3`, when the **Alert fires** time window can overlap the shifting time window.
+    {% include note.html content="The elapsed time will be shorter for an alert condition such as `mcount(3m, ts(my.metric)) < 3`, when the **Alert fires** time window can overlap the shifting time window." %}
 
 ![Alert mcount](images/alerts_mcount_fire.png)
 
@@ -116,7 +114,7 @@ When you choose a shifting time window for `mcount()`, you make a trade-off betw
 * Short enough so that you don't wait too long for the alert to fire after the time series stops reporting.
 * Long enough so that the alert can ignore slight variations in reporting times or extremely brief reporting gaps.
 
-**Note:** Always make the shifting time window longer than the data-reporting interval of the time series.
+{% include note.html content="Always make the shifting time window longer than the data-reporting interval of the time series." %}
 
 <!---
 For example, a one-minute shifting time window is likely to be too sensitive for a time series that reports once a minute, because even a slight variation in reporting time might lead to a false positive:
@@ -147,7 +145,8 @@ Consider the alert that we described [above](#controlling-alert-responsiveness):
 Now consider what happens if the time series stops reporting at 10:30 (and does not restart):
 * The alert fires at 10:35.
 * `mcount()` stops returning values after 6 minutes (2x the length of the shifting time window).
-* After 2 minutes of NO DATA, the alert resolves at 10:38, because there have been no false values for the length of the **Alert resolves** time window.  **Note:** Do not interpret the resolved alert as an indication that the time series has started reporting again!
+* After 2 minutes of NO DATA, the alert resolves at 10:38, because there have been no false values for the length of the **Alert resolves** time window.  
+{% include note.html content="Do not interpret the resolved alert as an indication that the time series has started reporting again!" %}
 
 ![Alert mcount](images/alerts_mcount_fire_resolve.png)
 

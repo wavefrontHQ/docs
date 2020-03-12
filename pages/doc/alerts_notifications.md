@@ -39,7 +39,7 @@ Chart images are automatically included in notifications for:
 
 You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms.
 
-**Note:** If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target.
+{% include note.html content="If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target." %}
 
 (Version 2018-26.x and later) You exclude chart images from notifications to custom HTML email or Slack targets by removing the corresponding variable from their templates. You cannot remove chart images from custom PagerDuty alert targets.
 
