@@ -38,7 +38,7 @@ Wavefront lets you choose a deployment option:
 
 Users who set up their first integration -- usually as part of the Getting Started workflow --  often choose to monitor their local host. This first integration installs both the proxy and a Telegraf agent on the same host by default.
 
-![Proxy and agent on single host](/images/proxy_deployment_simple.svg)
+![Proxy and agent on single host](/images/proxy_deployment_simple.png)
 
 The single-host deployment is an exception. Most environments use one or two proxies on dedicated hosts and run the agents on different systems - either on the same system as the data source or on separate systems.
 

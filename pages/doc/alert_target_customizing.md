@@ -12,7 +12,7 @@ The template is a blueprint for extracting information from the alert and assemb
 
 To customize a template, start with the default template for the alert target type, and edit that template.
 
-**Note** For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html).
+{% include note.html content="For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html)." %}
 
 ## About Alert Target Templates
 
@@ -35,7 +35,7 @@ You can [inspect](#display-and-edit-predefined-templates) a predefined template 
 
 The predefined Slack, HipChat, and VictorOps templates contain JSON attributes defined by the messaging platform. See the product documentation for the platform for details.
 
-**Note** The predefined Webhook Generic template contains JSON attributes that do not conform to any particular message platform's Webhook endpoint specification. This template simply demonstrates how to access the different kinds of alert information for a Webhook endpoint.
+{% include note.html content="The predefined Webhook Generic template contains JSON attributes that do not conform to any particular message platform's Webhook endpoint specification. This template simply demonstrates how to access the different kinds of alert information for a Webhook endpoint." %}
 
 ### Template Variables
 
@@ -317,10 +317,20 @@ Wavefront defines variables for obtaining information about the time series that
 </tbody>
 </table>
 
-**Note** The names of the iterators follow this convention: `<seriesCategory><InfoIndicator>`. For example:
-* `failingHosts` is an iterator that lists the [host name](#list-the-sources-of-an-alerts-time-series) of each failing time series.
-* `inMaintenanceSeries` is an iterator that lists the [defining information](#list-the-definitions-of-an-alerts-time-series) of each time series whose source is in maintenance.
-* `recoveredAlertSeries` is an iterator that can access a [custom combination of details](#access-a-custom-group-of-time-series-details) about each recovered time series.
+{{site.data.alerts.note}}
+The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&lt;InfoIndicator&gt;</code>. For example:
+<ul>
+  <li>
+    <code>failingHosts</code> is an iterator that lists the <a href="#list-the-sources-of-an-alerts-time-series">host name</a>of each failing time series.
+  </li>
+  <li>
+    <code>inMaintenanceSeries</code> is an iterator that lists the <a href="#list-the-definitions-of-an-alerts-time-series">defining information</a> of each time series whose source is in maintenance.
+  </li>
+  <li>
+    <code>recoveredAlertSeries</code> is an iterator that can access a <a href="#access-a-custom-group-of-time-series-details">custom combination of details</a> about each recovered time series.
+  </li>
+</ul>
+{{site.data.alerts.end}}
 
 <!---
 ## List Sources and Source Tags of an Alert's Time Series
@@ -727,10 +737,9 @@ First value reported within the checking time window immediately preceding the n
 </tr>
 <tr>
 <td markdown="span">`stats.last`</td>
-<td markdown="span">
+<td>
 Last value reported within the checking time window immediately preceding the notification.
-<div>
-**Note** This value is appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets.</div>
+{% include note.html content="This value is appended to the output of `hostsFailingMessage`, which is automatically included in the built-in email and PagerDuty alert targets."%}
 </td>
 </tr>
 <tr>
@@ -1096,7 +1105,7 @@ Output:\\
 
 As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
-**Note** You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images.
+{% include note.html content="You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
 ### Update a Pre-Existing Custom Email Alert Target
 
