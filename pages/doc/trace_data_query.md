@@ -25,7 +25,7 @@ To query traces, select **Applications > Traces** and navigate to the Traces bro
       If you search for a trace after 7 days because Wavefront retains trace data for 7 days.
     </li>
     <li>
-      If you search for a trace after 1 hour because have enabled <a href="trace_data_sampling.html">intelligent sampling</a> for traces.
+      If you search for a trace after 1 hour because you have enabled <a href="trace_data_sampling.html">intelligent sampling</a> for traces.
     </li>
     <li>
       If you use invalid query syntax.
