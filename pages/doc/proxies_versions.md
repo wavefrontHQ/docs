@@ -11,6 +11,13 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
+## Version 6.0
+- Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
+- Supports [logs for Jaeger and Zipkin integrations](tracing_integrations.html#enable-logs).
+- Jaeger integration can now receive data via HTTP using the [Wavefront proxy](proxies_configuring.html#traceJaegerHttpListenerPorts).
+- New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html). 
+- [Export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
+
 ## Version 5.7
 
 - Miscellaneous improvements and bug fixes.
