@@ -92,7 +92,8 @@ On the dashboard for a particular service, you can:
 The standard dashboard for services is read-only. To create a customizable copy:
 
 1. Click **Clone** from the ellipsis menu.
-2. In the cloned dashboard, add your own charts or customize the RED metrics charts. (Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)
+2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
+<!---(Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)-->
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
