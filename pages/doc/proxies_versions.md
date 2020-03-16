@@ -11,7 +11,7 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
-## Version 6.2
+## Version 6.1
 
 - Significantly improved data parsing performance and throughput.
 - New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html).
