@@ -14,7 +14,7 @@ Watch the following video for an introduction to point tags and source tags:
 
 See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming.
 
-## Tags Basics?
+## Tags Basics
 
 You use tags in several ways:
 * **[Point tags](query_language_point_tags.html)** -- Add dimensions to your query with point tags. For example, examine only metrics from a certain region.
@@ -75,7 +75,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 
 ### Supported Characters
 
-Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), and colon (:) characters. The space character is not supported. 
+Tag names can contain alphanumeric (a-z, A-Z, 0-9), dash (-), underscore (_), and colon (:) characters. The space character is not supported.
 
 ### Tags in the UI
 
@@ -154,7 +154,7 @@ To filter by a tag, click a tag icon. You can click the icon in the filter bar o
 
 ## Source Tags
 
-Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings, in contrast, point tags are key-value pairs.
+Any Wavefront metric includes a source name. If source names change frequently or if you want to filter sources, a source tag can help. Source tags are just strings--in contrast, point tags are key-value pairs.
 
 You can add source tags from the UI or API, or you can inject source tags and source descriptions directly at the proxy.
 
@@ -182,6 +182,28 @@ To add a source tag from the UI:
 You can add source tags using the [Wavefront REST API](wavefront_api.html).  The API supports getting and setting source tag values.
 
 For details about the APIs, click the gear icon in your Wavefront instance and select **API Documentation**.
+
+### Group by Source Tag in Queries
+
+Aggreggation functions include a group by parameter that allows you to group the results. The syntax is the following (here we use `sum` as an example):
+
+```
+sum(<tsExpression>
+[,metrics|sources|sourceTags|pointTags|<pointTagKey> ])
+```
+
+For example the following query aggregates all time series but groups the result by point tags. That means you see 1 line if there are no point tags defined for the metric, and multiple lines, one for each point tag, if they are defined for the metric:
+
+```
+sum(ts(dataingester.report-points AND source="dev-2b-*"), pointTags)
+```
+
+When you want to group by source tag, however, you have to include the source tag name in the query, as shown in this example:
+
+```
+sum(ts(dataingester.report-points, source="dev-2b-*" and tag=mySourceTag)), sourcetags)
+```
+
 
 ### Manage SourceTag and SourceDescription Properties at the Proxy
 

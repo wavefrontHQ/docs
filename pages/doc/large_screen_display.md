@@ -31,20 +31,17 @@ Follow these steps:
 2. Add the following to the NGINX configuration file:
 
 ```
-###
-{code}server {
+server {
   listen 80;
 
   location / {
-    proxy_pass <wavefront_url_like_https://example.wavefront.com>;
+    proxy_pass <wavefront_url_like_https://mon.wavefront.com>;
     proxy_set_header Cookie "";
-    proxy_set_header Authorization "Bearer <token_of_the_user_to_be_like_a_service_account>";
+    proxy_set_header Authorization "Bearer <token_of_the_user_to_impersonate_like_a_service_account>";
     proxy_set_header X-WAVEFRONT-RESTRICTED "true";
     proxy_hide_header Cookie;
   }
 }
-{code}
-###
 ```
    This example uses 80 as the listener port, so you have to make sure that port is open. The token is the token of the service account mentioned in the prerequisites.
 
