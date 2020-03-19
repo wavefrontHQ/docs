@@ -129,7 +129,7 @@ Ex: 45</td>
 <tr>
 <td>ephemeral</td>
 <td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Proxies page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. <br/>Default: true.
-{% include note.html content="Starting from version 6.0, the value defaults to true (it defaulted to false from 3.14 to 6.0)." %}</td>
+{% include note.html content="Starting with version 6.0, the value defaults to true (it defaulted to false from 3.14 to 6.0)." %}</td>
 <td>Boolean<br/>
 Ex: false </td>
 <td>3.14</td>
@@ -222,7 +222,7 @@ Properties specific to histogram distributions, listed in a <a href="#histogram-
 <tr>
 <td>idFile</td>
 <td>Location of the PID file for the wavefront-proxy process. <br/>Default: &lt;dshell&gt;/.id</td>
-<td>Valid path on the local file system. This configuration is ignored when ephemeral=true.</td>
+<td>Valid path on the local file system. This option is ignored when ephemeral=true.</td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -459,7 +459,7 @@ Ex: 2978,2979</td>
 <tr>
 <td>retryThreads</td>
 <td>Number of threads retrying failed transmissions. If no value is specified, defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads controls the maximum amount of space that the proxy can use to buffer points locally.
-{% include warning.html content="This configuration was deprecated in version 6.0 because we redesigned and improved the storage engine to resolve the problem of spooling data to disk." %}
+{% include warning.html content="This configuration was deprecated in version 6.0 because we redesigned the storage engine to improve spooling data to disk.." %}
 </td>
 <td>Positive integer.
 <div>Ex: 4 </div>  </td>
