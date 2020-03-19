@@ -18,6 +18,9 @@ This page gives an overview of important changes for the most recent Wavefront p
 - [Jaeger integration can now receive data via HTTP](proxies_configuring.html#traceJaegerHttpListenerPorts).
 - Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
 - [Ability to export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
+- Deprecated configurations:
+  - Deprecated `pushLogLevel` because the level of logging is now controlled through log4j2 configurations.
+  - Deprecated `retryThreads` because we redesigned and improved the storage engine to resolve the problem of spooling data to disk.
 
 ## Version 5.7
 
