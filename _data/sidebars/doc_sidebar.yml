@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2020-06.x Release Notes
+      url: /2020.06.x_release_notes.html
+      output: web  
+
     - title: 2019-52.x Release Notes
       url: /2019.52.x_release_notes.html
       output: web
@@ -556,16 +560,12 @@ entries:
             url: /authorization.html
             output: web
 
-          - title: Accounts, Groups, and Permissions
-            url: /users_groups.html
+          - title: Roles, Groups, and Permissions
+            url: /users_roles.html
             output: web
 
-          - title: Manage User Accounts
-            url: /user_accounts.html
-            output: web
-
-          - title: Manage Service Accounts
-            url: /service_accounts.html
+          - title: User Accounts and Service Accounts
+            url: /accounts.html
             output: web
 
           - title: Permissions Reference

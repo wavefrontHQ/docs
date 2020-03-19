@@ -19,7 +19,7 @@ You start with a Linux VM with the following characteristics:
 * Outbound access to the Internet (but doesn't need inbound access)
 * Internal DNS
 
-On the Linux VM, you need one account, preferably a [service account](service_accounts.html). You'll use the token of the account in the NGINX config file, as shown below.
+On the Linux VM, you need one account, preferably a [service account](accounts.html#service_accounts). You'll use the token of the account in the NGINX config file, as shown below.
 
 We tested the process with an Ubuntu VM with a service account that had the default permissions.
 
@@ -31,20 +31,17 @@ Follow these steps:
 2. Add the following to the NGINX configuration file:
 
 ```
-###
-{code}server {
+server {
   listen 80;
 
   location / {
-    proxy_pass <wavefront_url_like_https://example.wavefront.com>;
+    proxy_pass <wavefront_url_like_https://mon.wavefront.com>;
     proxy_set_header Cookie "";
-    proxy_set_header Authorization "Bearer <token_of_the_user_to_be_like_a_service_account>";
+    proxy_set_header Authorization "Bearer <token_of_the_user_to_impersonate_like_a_service_account>";
     proxy_set_header X-WAVEFRONT-RESTRICTED "true";
     proxy_hide_header Cookie;
   }
 }
-{code}
-###
 ```
    This example uses 80 as the listener port, so you have to make sure that port is open. The token is the token of the service account mentioned in the prerequisites.
 

@@ -146,4 +146,5 @@ The resulting Stacked Area chart shows results only where the data exceeds 120.
 
 ## See Also
 
-[Series Matching](query_language_series_matching.html)
+* [Series Matching](query_language_series_matching.html)
+* [Compare with Operators (.lt, .gt, .le, .ge, .eq, .ne)](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne)

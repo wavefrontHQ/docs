@@ -3,6 +3,7 @@ title: counter_sum Function
 keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
+published: false
 permalink: ts_countersum.html
 summary: Reference to the counter_sum() function
 ---
@@ -11,7 +12,7 @@ summary: Reference to the counter_sum() function
 counter_sum(<tsExpression>[,metrics|sources|sourceTags|pointTags|<pointTagKey>])
 ```
 
-Returns the per-second rate of change for each time series described by the expression. Recommended for counter metrics to see increase or reset.
+For counter metrics, returns the per-second rate of change for all time series.
 
 <!---This function is public but not in QLR page on purpose. Used for special cases (tracing) and name is non-standard (underbar)--->
 
@@ -36,32 +37,22 @@ Use one or more parameters to group by metric names, source names, source tag na
 ## Description
 
 
-The `counter_sum()` function returns the per-second rate of change for each time series described by the expression. The results include only non-negative rates of change.
+The `counter_sum()` function is intended for counter metrics and solves the following problem:
+* If you call `sum(rate(<mymetric>))`, then interpolation can distort the result.
+* If you call `rawsum(rate(<mymetric))`, there's no interpolation but query execution is not efficient.
 
-This function is similar to the [rate() function](ts_rate.html). Both functions report only positive values, and both gap the first data value to be reported by a new time series.
-However, there are differences:
-* `rate()` gaps on counter reset, but `counter_sum()` reports zero.
-* `counter_sum()` allows you to group by metrics, sources, etc. `rate()` does not support group by parameters.
+The `counter_sum()` function returns the sum of the per-second rate of change for all data, but does so efficiently.
+
 
 ## Examples
 
-The following simple examples contrast `rate()`, `deriv()`, and `counter_sum`.
+The following simple examples contrast `sum(rate)`, `rawsum(rate)`, and `counter_sum`.
 
-The `rate()` function only shows positive rates of change - even if the rate appears to drop to zero, it is slightly above zero.
 
-![rate vs. counter_sum](images/ts_countersum_rate.png)
-
-In contrast, the `deriv()` function shows both negative and positive rates of change.
-
-![deriv vs. counter_sum](images/ts_counter_sum_deriv.png)
-
-Finally, `counter_sum()` shows both no change (zero) and negative rates of change as zero.
-
-![counter_sum](images/ts_counter_sum.png)
 
 
 ## See Also
 
 Related functions include
-* [rate()](ts_rate.html), which reports zero while counter_sum() reports only non-negative rates of change.
-* [deriv()](ts_deriv.html), which reports zero and negative rates of change.
+* [rate()](ts_rate.html) and [deriv()](ts_deriv.html) report rates of change.
+* [sum()](ts_sum.html) and [rawsum()](ts_rawsum.html) aggregate metrics with and without interpolation.

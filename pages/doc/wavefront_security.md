@@ -12,7 +12,7 @@ This page gives a summary. For a detailed discussion of many aspects of security
 
 ## Certifications
 
-Wavefront has successfully completed all requirements for the following certifications:
+Wavefront has successfully completed all requirements for the following certifications and reports:
 
 *	ISO 27001/27017/27018
 *	SOC 2 Type 1
@@ -22,7 +22,7 @@ Wavefront has successfully completed all requirements for the following certific
 
 Wavefront is used for monitoring applications. Wavefront securely stores username/password information but does not collect information about individual users. We do not install agents that collect user information.
 
-None of the built-in integrations collect user information. However, customers can set up Wavefront to collect any type of information they want.
+None of the built-in integrations collect user information. However, Wavefront customers can set up Wavefront to collect any type of information they want.
 
 ## Data Protection
 
@@ -73,7 +73,7 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 ## Authentication
 
-All Wavefront users [must be authenticated](authentication.html) to log in. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integration. We support several authentication solutions including AzureAD, Google ID, and Okta.
+Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and passwords, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integration. We support several authentication solutions including AzureAD, Google ID, and Okta.
 
 If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
 
@@ -82,9 +82,9 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 
 ## Authorization
 
-Wavefront supports multi-level access management:
-* **Permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission to a Developers group and only Dashboard permission to a Novice group.
-* **Access control** applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_groups.html#who-is-the-super-admin-user) user.
+Wavefront supports multi-level authorization:
+* **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a ReadOnly role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developers group.
+* **Access control** applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
 
 Wavefront supports a [high security mode](access.html#changing-the-access-control-preference) where only the object creator and Super Admin user can view and modify new dashboards.
 

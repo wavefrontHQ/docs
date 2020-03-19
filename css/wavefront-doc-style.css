@@ -894,7 +894,7 @@ table code {background-color: transparent;}
 }
 
 .highlighter-rouge pre code {
-  white-space: pre;       // forces <code> to respect <pre> formatting
+  white-space: pre-wrap;       // forces <code> to respect <pre> formatting
 }
 
 table p {
