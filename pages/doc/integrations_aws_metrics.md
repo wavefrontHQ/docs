@@ -24,7 +24,7 @@ For information how to monitor AWS data ingestion, see [AWS Integration](wavefro
 
 ## AWS Account ID
 
-Adding an AWS integration requires establishing a trust relationship between Amazon and Wavefront by sharing the account IDs. 
+Adding an AWS integration requires establishing a trust relationship between Amazon and Wavefront by sharing the account IDs.
 
 ## Managing an AWS Integration
 
@@ -136,11 +136,19 @@ The following basic JSON snippet shows how to add IAM permissions to AWS integra
     "Statement": [
         {
             "Action": [
-                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:GetMetric*",
                 "cloudwatch:ListMetrics",
                 "ec2:Describe*",
-                "s3:Get*",
-                "s3:List*"
+                "s3:List*",
+                "rds:DescribeDBClusters",
+                "sqs:ListQueues",
+                "sqs:GetQueue*",
+                "dynamodb:ListTables",
+                "dynamodb:DescribeTable",
+                "trustedadvisor:Describe*",
+                "trustedadvisor:RefreshCheck",
+                "eks:Describe*",
+                "eks:List*"
             ],
             "Effect": "Allow",
             "Resource": "*"
