@@ -4,10 +4,10 @@ keywords:
 tags: [best practice]
 sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
-summary: Try out this tutorial to configure the Spring Boot Autoconfigure SDK with a sample application.
+summary: Try out this tutorial to configure the Wavefront Spring Boot Starter with a sample application.
 ---
 
-In the tutorial, you will use the Wavefront Spring Boot Autoconfigure SDK with the Spring pet clinic sample application. Let's get stated!
+In the tutorial, you will use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get stated!
 
 ## Steps in Detail
 **Add Video by Clement!**
