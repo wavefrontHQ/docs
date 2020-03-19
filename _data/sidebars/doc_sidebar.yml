@@ -68,7 +68,7 @@ entries:
 
     - title: 2020-06.x Release Notes
       url: /2020.06.x_release_notes.html
-      output: web  
+      output: web
 
     - title: 2019-52.x Release Notes
       url: /2019.52.x_release_notes.html
@@ -473,6 +473,21 @@ entries:
             url: /integrations_collectd_zookeeper.html
             output: web
 
+  - title: Kubernetes
+    output: web
+    folderitems:
+
+      - title: Kubernetes Integration
+        url: /kubernetes.html
+        output: web
+
+      - title: Monitor and Scale Kubernetes
+        url: /wavefront_kubernetes.html
+        output: web
+
+      - title: Kubernetes Videos
+        url: /videos_kubernetes.html
+        output: web
 
   - title: "Distributed Tracing"
     output: web

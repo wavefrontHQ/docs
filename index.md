@@ -37,6 +37,20 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
      <div class="panel panel-default text-center">
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
+             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+             <i class="fa fa-video-camera fa-stack-1x fa-inverse"></i>
+             </span>
+         </div>
+         <div class="panel-body">
+             <p><a href="label_videos.html" class="btn btn-primary btn-block">Videos</a></p>
+             <p>{{site.data.labels.videos}}</p>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-3 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-heading">
+             <span class="fa-stack fa-1x">
                    <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
                    <i class="fa fa-table fa-stack-1x fa-inverse"></i>
              </span>
@@ -52,26 +66,12 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
          <div class="panel-heading">
              <span class="fa-stack fa-1x">
              <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-             <i class="fa fa-video-camera fa-stack-1x fa-inverse"></i>
+             <i class="fa fa-asterisk fa-stack-1x fa-inverse"></i>
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_videos.html" class="btn btn-primary btn-block">Videos</a></p>
-             <p>{{site.data.labels.videos}}</p>
-         </div>
-     </div>
- </div>
- <div class="col-md-3 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-heading">
-             <span class="fa-stack fa-1x">
-             <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-             <i class="fa fa-question fa-stack-1x fa-inverse"></i>
-             </span>
-         </div>
-         <div class="panel-body">
-             <p><a href="label_reference%20page.html" class="btn btn-primary btn-block">Query Lang. Reference</a></p>
-             <p>{{site.data.labels.reference_page}}</p>
+             <p><a href="label_kubernetes.html" class="btn btn-primary btn-block">Kubernetes</a></p>
+             <p>{{site.data.labels.kubernetes}}</p>
          </div>
      </div>
  </div>
@@ -124,16 +124,16 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
     <div class="panel panel-default text-center">
         <div class="panel-heading">
             <span class="fa-stack fa-1x">
-                  <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
-                  <i class="fa fa-exclamation fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-circle fa-stack-2x landing-text-primary"></i>
+            <i class="fa fa-question fa-stack-1x fa-inverse"></i>
             </span>
         </div>
         <div class="panel-body">
-            <p><a href="label_events.html" class="btn btn-primary btn-block">Events</a></p>
-            <p>{{site.data.labels.events}}</p>
+            <p><a href="label_reference%20page.html" class="btn btn-primary btn-block">Query Lang. Reference</a></p>
+            <p>{{site.data.labels.reference_page}}</p>
         </div>
     </div>
-  </div>
+</div>
 </div>
 
 <div class="row">
