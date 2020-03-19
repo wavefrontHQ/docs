@@ -35,7 +35,8 @@ server {
   listen 80;
 
   location / {
-    proxy_pass <wavefront_url_like_https://mon.wavefront.com>;
+    proxy_pass <wavefront_url_like_https://<service>.wavefront.com>;
+    proxy_redirect <wavefront_url_like_https://<service>.wavefront.com> /;
     proxy_set_header Cookie "";
     proxy_set_header Authorization "Bearer <token_of_the_user_to_impersonate_like_a_service_account>";
     proxy_set_header X-WAVEFRONT-RESTRICTED "true";
