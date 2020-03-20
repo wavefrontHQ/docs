@@ -1,14 +1,16 @@
 ---
-title: lowpass Function
+title: lowpass Function and lt Operator
 keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_lowpass.html
-summary: Reference to the lowpass() function
+summary: Reference to the lowpass() function and the lt operator
 ---
 ## Summary
 ```
 lowpass(<tsExpression1>, <tsExpression2>[, inner])
+
+<tsExpression>.lt(<number>)
 
 lowpass(<traceDuration>, <tracesExpression>)
 
@@ -93,6 +95,10 @@ You can use `lowpass()` with time series, with traces, and with spans.
 </tbody>
 </table>
 
+### Operator (.lt)
+
+Use the operator as a shortcut. See [filter on the query line](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne) for details.
+
 
 
 ## Description
@@ -101,6 +107,9 @@ You can use `lowpass()`:
 * With time series as a filtering function.
 * With traces as a filtering function.
 * With spans as a filtering function.
+
+
+You can use the `lt` operator with time series. You can use more than one operator to create a bounded expression. For example, use `ts(<tsExpression>).gt(50.5).lt(70.5)` to return only values greater than 50.5 and less than 70.5.
 
 
 ### Time-Series Filtering Function
@@ -129,6 +138,9 @@ You can pass this expression to [traces()](traces_function.html) to display trac
 
 ```traces(lowpass(12ms, spans("beachshirts.styling.makeShirts")))```
 
+### Operator (.lt)
+
+Use the operator as a shortcut. See [filter on the query line](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne) for details.
 
 ## Examples
 
@@ -145,4 +157,4 @@ The resulting Stacked Area chart shows results only where the data are less than
 ## See Also
 
 * [Series Matching](query_language_series_matching.html)
-* [Compare with Operators (.lt, .gt, .le, .ge, .eq, .ne)](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne)
+* [Filter on the Query Line with Operators (.lt, .gt, .le, .ge, .eq, .ne)](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne)
