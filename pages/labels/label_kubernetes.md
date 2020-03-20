@@ -1,6 +1,6 @@
 ---
-title: "Integration Pages"
-tagName: integrations
+title: "Kubernetes Pages"
+tagName: kubernetes
 search: exclude
 permalink: label_kubernetes.html
 sidebar: doc_sidebar

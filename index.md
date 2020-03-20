@@ -7,7 +7,7 @@ toc: false
 permalink: index.html
 ---
 
-Welcome to the Wavefront documentation site! 
+Welcome to the Wavefront documentation site!
 
 * New users often start with [What is Wavefront?](wavefront_introduction.html).
 * Even if you don't read docs, check out the [Query Language Reference](query_language_reference.html) or [individual reference pages](label_reference%20page.html)
