@@ -21,8 +21,8 @@ This page gives an overview of important changes for the most recent Wavefront p
 - Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
 - [Ability to export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
 - Deprecated configurations:
-  - `retryThreads` configuration setting is deprecated as it is no longer applicable to the new storage engine. 
-  - `pushLogLevel` configuration setting is deprecated as logging levels are configured through log4j2 configurations. 
+  - `retryThreads` configuration option is deprecated as it is no longer applicable to the new storage engine. 
+  - `pushLogLevel` configuration option is deprecated as logging levels are configured through log4j2 configurations. 
 
 ## Version 5.7
 
