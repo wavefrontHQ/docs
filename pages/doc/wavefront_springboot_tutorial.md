@@ -7,14 +7,14 @@ permalink: wavefront_springboot_tutorial.html
 summary: Try out this tutorial to configure the Wavefront Spring Boot Starter with a sample application.
 ---
 
-In the tutorial, you will use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get stated!
+In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get stated!
 
 ## Steps in Detail
 **Add Video by Clement!**
 
 ## Prerequisites
 
-* Support Java 8 or above
+* Support Java 8 or above.
 * Clone the sample pet clinic application.
   ```
   git clone https://github.com/wavefrontHQ/wavefront-spring-boot.git
@@ -37,7 +37,7 @@ In the tutorial, you will use the Wavefront Spring Boot Starter with the Spring 
     ```
 2. Restart the application, and navigate to [http://localhost:8080/](http://localhost:8080/).
 3. Add data:
-    1. Let's add an Owner and a Pet using the User Interface.
+    1. Let's add an Owner and a Pet via the User Interface.
         <br/>{SHORT VIDEO HERE}
     2. Click **ERROR** to create an error.
         <br/>{SCREENSHOT}
@@ -51,6 +51,7 @@ In the tutorial, you will use the Wavefront Spring Boot Starter with the Spring 
 
 ## View Data in Wavefront
 
-You can get a summary on your application and navigate to the Tracing Browser for the respective service.
+You can get a summary on your application and navigate to the Tracing Browser.
+Once in the tracing browser you see the traces from the applIcation and the trace related to the error you created. 
 
 {ADD OTHER COOLS THINGS}
