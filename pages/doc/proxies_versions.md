@@ -14,13 +14,15 @@ This page gives an overview of important changes for the most recent Wavefront p
 ## Version 6.1
 
 - Significantly improved data parsing performance and throughput.
+- Redesigned and improved storage engine for spooling data to disk.
+  {% include note.html content="The new proxy stores spooled data differently from previous versions, so if your proxies have accumulated substantial backlog, we recommend draining the backlog first before upgrading to version 6.1 or newer." %}
 - New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html).
 - [Jaeger integration can now receive data via HTTP](proxies_configuring.html#traceJaegerHttpListenerPorts).
 - Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
 - [Ability to export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
 - Deprecated configurations:
-  - Deprecated `pushLogLevel` because the level of logging is now controlled through log4j2 configurations.
-  - Deprecated `retryThreads` because we redesigned the storage engine to improve spooling data to disk.
+  - `retryThreads` configuration setting is deprecated as it is no longer applicable to the new storage engine. 
+  - `pushLogLevel` configuration setting is deprecated as logging levels are configured through log4j2 configurations. 
 
 ## Version 5.7
 
