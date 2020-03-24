@@ -32,7 +32,10 @@ Follow these steps:
 
 ```
 server {
-  listen 80;
+  listen 443 ssl;
+
+  ssl_certificate <path to crt file>;
+  ssl_certificate_key <path to key file>;
 
   location / {
     proxy_pass <wavefront_url_like_https://mon.wavefront.com>;
@@ -43,7 +46,8 @@ server {
   }
 }
 ```
-   This example uses 80 as the listener port, so you have to make sure that port is open. The token is the token of the service account mentioned in the prerequisites.
+
+   This example uses 443 as the listener port, so you have to make sure that port is open. The token is the token of the service account mentioned in the prerequisites. You can instead use port 80 without SSL during testing.
 
 3. Restart the NGINX service.
 4. Type the URL that includes the address of the VM into the browser that's connected to the large-screen displays.

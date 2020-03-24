@@ -1,7 +1,7 @@
 ---
 title: Monitor and Scale Kubernetes with Wavefront
 keywords: containers, kubernetes
-tags: [containers]
+tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wavefront_kubernetes.html
 summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes workloads based on metrics in Wavefront.
@@ -12,6 +12,8 @@ summary: Monitor Kubernetes infrastructure and applications. Scale Kubernetes wo
 * Automatically collect metrics from applications and workloads using built-in plug-ins such as Prometheus, Telegraf, etc.
 
 *Scale* your Kubernetes environment based on any metrics that are available in Wavefront with the Wavefront Horizontal Pod Autoscaler Adapter.
+
+Log in to your Wavefront instance to try the integration, or [see it on github here](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes)!
 
 ## Videos
 

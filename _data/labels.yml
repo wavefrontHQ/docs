@@ -14,3 +14,4 @@ tutorials: "Quickly learn the basics of getting, displaying, and working with da
 videos: "View demonstrations of Wavefront features and use cases."
 reference_page: "List of all functions (and some links to get you started)."
 integrations_list: "Scripts create doc for each integration from the Setup tab. Here are links to each page."
+kubernetes: "Wavefront and Kubernetes info & videos."

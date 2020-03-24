@@ -95,7 +95,7 @@ Ex: RawBlockedPoints</td>
 <td>Location of buffer files for saving failed transmissions for retry.</td>
 <td>Valid path on the local file system.<br/>
 Ex: &lt;wf_spool_path&gt;/buffer</td>
-<td>3.20</td>
+<td>The start</td>
 </tr>
 <tr>
 <td>customSourceTags</td>
@@ -128,9 +128,10 @@ Ex: 45</td>
 </tr>
 <tr>
 <td>ephemeral</td>
-<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Proxies page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. <br/>Default: false.</td>
+<td>Whether to automatically clean up old and orphaned proxy instances from the Wavefront Proxies page. We recommend enabling ephemeral mode if you're running the proxy in a container that may be frequently spun down and recreated. <br/>Default: true.
+{% include note.html content="Starting with version 6.0, the value defaults to true (it defaulted to false from 3.14 to 6.0)." %}</td>
 <td>Boolean<br/>
-Ex: true </td>
+Ex: false </td>
 <td>3.14</td>
 </tr>
 <tr>
@@ -220,8 +221,8 @@ Properties specific to histogram distributions, listed in a <a href="#histogram-
 </tr>
 <tr>
 <td>idFile</td>
-<td>Location of the PID file for the wavefront-proxy process. <br/>Default: &lt;cfg_path&gt;/.wf_id.</td>
-<td>Valid path on the local file system.</td>
+<td>Location of the PID file for the wavefront-proxy process. <br/>Default: &lt;dshell&gt;/.id</td>
+<td>Valid path on the local file system. This option is ignored when ephemeral=true.</td>
 <td>&nbsp;</td>
 </tr>
 <tr>
@@ -304,7 +305,9 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushBlockedSamples</td>
-<td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print none. If you see a non-zero number of blocked points in the summary lines and want to debug what that data is, set this property to 5. <br/>Default: 0.</td>
+<td>Number of blocked points to print to the log immediately following each summary line (every 10 flushes). If 0, print none. If you see a non-zero number of blocked points in the summary lines and want to debug what that data is, set this property to 5. <br/>Default: 5
+{% include note.html content="Defaults to 5 since version 5.0. Before version 5.0 it defaulted to 0." %}
+</td>
 <td>0 or a positive integer.
 <div>Ex: 5 </div></td>
 <td>&nbsp;</td>
@@ -368,10 +371,12 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushLogLevel</td>
-<td>Frequency to print status information on the data flow to the log. SUMMARY prints a line every 60 flushes, while DETAILED prints a line on each flush.</td>
+<td>Frequency to print status information on the data flow to the log. SUMMARY prints a line every 60 flushes, while DETAILED prints a line on each flush.
+{% include warning.html content="This configuration was deprecated in version 6.0. The level of logging is controlled through log4j2 configurations." %}
+</td>
 <td>None, SUMMARY, or DETAILED
 <div>Ex: SUMMARY </div></td>
-<td>&nbsp;</td>
+<td>Deprecated since 6.0.</td>
 </tr>
 <tr>
 <td>pushMemoryBufferLimit</td>
@@ -453,10 +458,12 @@ Ex: 2978,2979</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>retryThreads</td>
-<td>Number of threads retrying failed transmissions. If no value is specified, defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads controls the maximum amount of space that the proxy can use to buffer points locally.</td>
+<td>Number of threads retrying failed transmissions. If no value is specified, defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads controls the maximum amount of space that the proxy can use to buffer points locally.
+{% include warning.html content="This configuration was deprecated in version 6.0 because we redesigned the storage engine to improve spooling data to disk.." %}
+</td>
 <td>Positive integer.
 <div>Ex: 4 </div>  </td>
-<td>&nbsp;</td>
+<td>Deprecated since 6.0.</td>
 </tr>
 <tr>
 <td>server</td>
@@ -466,7 +473,7 @@ Ex: 2978,2979</td>
 </tr>
 <tr>
 <td>soLingerTime</td>
-<td>Enable SO_LINGER with the specified linger time in seconds. Set this value to 0 when running in a high-availability configuration under a load balancer. <br/>Default: 0 (disabled). </td>
+<td>Enable SO_LINGER with the specified linger time in seconds. Set this value to 0 when running in a high-availability configuration under a load balancer. <br/>Default: -1 (disabled). </td>
 <td><div>0 or a positive integer.</div>
 Ex: 0 </td>
 <td>4.1</td>
@@ -492,6 +499,12 @@ Ex: 0 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 4878 </div></td>
 <td>3.14</td>
+</tr>
+<tr>
+<td>rawLogsHttpBufferSize</td>
+<td>The maximum request size (in bytes) for incoming HTTP requests with tracing data. <br/>Default: 16MB</td>
+<td>Buffer size in bytes. <br/> Ex: 16777216 </td>
+<td>4.38</td>
 </tr>
 </tbody>
 </table>
@@ -573,6 +586,12 @@ Ex: 0 </td>
 <td>Comma separated list of custom tag keys to include as metric tags for the derived RED (Request, Error, Duration) metrics. Applicable to Jaeger and Zipkin integration only.</td>
 <td>traceDerivedCustomTagKeys=tenant, env, location</td>
 <td>4.38 </td>
+</tr>
+<tr>
+<td>traceListenerHttpBufferSize</td>
+<td>The maximum request size (in bytes) for incoming HTTP requests with tracing data. <br/>Default: 16MB</td>
+<td>Buffer size in bytes. <br/> Ex: 16777216 </td>
+<td>4.37 </td>
 </tr>
 </tbody>
 </table>
@@ -819,6 +838,11 @@ Ex: 40</td>
 <td>pushRelayHistogramAggregatorAccumulatorSize</td>
 <td>Since 6.0. Max number of concurrent histogram to accumulations at the relay ports. The value is approximately the number of time series * 2 (use a higher multiplier if out-of-order points more than 1 bin apart are expected). Setting this value too high will cause excessive disk space usage, setting this value too low may cause severe performance issues. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 32.</td>
 <td>Positive integer.</td>
+</tr>
+<tr>
+<td>histogramHttpBufferSize</td>
+<td>Since 4.40. The maximum request size (in bytes) for incoming HTTP requests on histogram ports.<br/> Default: 16MB.</td>
+<td>Buffer size in bytes. <br/> Ex: 16777216</td>
 </tr>
 </tbody>
 </table>
