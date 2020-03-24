@@ -1,5 +1,5 @@
 ---
-title: Wavefront Spring Boot Tutorial
+title: Wavefront Spring Boot Starter Tutorial
 keywords:
 tags: [best practice]
 sidebar: doc_sidebar
@@ -7,10 +7,10 @@ permalink: wavefront_springboot_tutorial.html
 summary: Try out this tutorial to configure the Wavefront Spring Boot Starter with a sample application.
 ---
 
-In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get stated!
+In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get started!
 
 ## Steps in Detail
-**Add Video by Clement!**
+**{Add Video by Clement!}**
 
 ## Prerequisites
 
@@ -35,13 +35,13 @@ In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet c
       <version>2.0.0</version>
     </dependency>
     ```
-2. Restart the application, and navigate to [http://localhost:8080/](http://localhost:8080/).
+2. Restart the application and navigate to [http://localhost:8080/](http://localhost:8080/).
 3. Add data:
     1. Let's add an Owner and a Pet via the User Interface.
-        <br/>{SHORT VIDEO HERE}
+        <br/>**{SHORT VIDEO or SCREENSHOT}**
     2. Click **ERROR** to create an error.
-        <br/>{SCREENSHOT}
-4. Click the one-time use link that was printed on your console to access the Wavefront Service Dashboard and view data.
+        <br/>**{SCREENSHOT}**
+4. Click the one-time-use link that was printed on your console to access the Wavefront Service Dashboard and view data.
     <br/> Example:
     ```
     w.s.WavefrontSpringBootAutoConfiguration : ==========================
@@ -51,7 +51,10 @@ In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet c
 
 ## View Data in Wavefront
 
-You can get a summary on your application and navigate to the Tracing Browser.
-Once in the tracing browser you see the traces from the applIcation and the trace related to the error you created. 
+When you get the link you are taken to the Services Dashboard where you can:
 
-{ADD OTHER COOLS THINGS}
+* View details specific to a service of the application, such as the Request, Error, and Duration (RED) metrics. See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard) for details.
+* Click **See All {NAME} Traces** to navigate to the Tracing Browser and view the trace data of the {NAME} service.
+  <br/>Once in the tracing browser, you see the traces from the application and the trace related to the error you created. 
+
+**ADD SHORT VIDEO**
