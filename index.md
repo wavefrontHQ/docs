@@ -14,7 +14,7 @@ Welcome to the Wavefront documentation site!
 * If you're a developer:
   - Find our REST APIs [on the VMware {code} website](https://code.vmware.com/apis/714/wavefront-rest) or directly from inside the product.
   - Look at our [public Github repositories](https://github.com/wavefrontHQ)
-* Ready to try for yourself? Sign up for a [free trial](https://www.wavefront.com/sign-up/?utm_source=Website&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}!
+* Doc Feedback? Use the button in the top right or do a PR in our [Wavefront docs github repo](https://github.com/wavefrontHQ/docs/tree/master/pages/doc)
 
 You can explore the documentation in the nav bar hierarchy on the left. Each topic also has one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
 
