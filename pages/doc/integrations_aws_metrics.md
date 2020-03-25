@@ -65,7 +65,13 @@ To delete one or more integrations:
 
 ## Giving Wavefront Global Read-Only Access
 
-This tasks explains how to grant Wavefront read-only access to your Amazon account.
+Data flows from AWS to Wavefront only if the account has the required access.
+* In most cases, it makes sense to give the Wavefront account the `ReadOnlyAccess` policy to the Amazon account.
+* If you want to collect Service Limit metrics:
+  - You need least the Business-level AWS Support plan
+  - You need to grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)
+
+As an alternative, you can explicitly specify the access settings in a JSON file, as discussed in the next section.
 
 To give Wavefront read-access to your Amazon account:
 1. In your Amazon Identity & Access Management settings, grant Wavefront read-only access to your Amazon account.
@@ -98,7 +104,9 @@ To give Wavefront read-access to your Amazon account:
 
 ## Giving Wavefront Limited Access
 
-Instead of giving Wavefront read-only access, you can instead give more limited access. The permissions we require depend on the integration, as shown in the following table:
+Instead of giving Wavefront read-only access, you can instead give more limited access.
+
+The permissions we require depend on the integration, as shown in the following table:
 <table>
   <tr>
     <th scope="col">Integration</th>
@@ -125,6 +133,13 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
       DescribeInstances<br />
     DescribeReservedInstances <br />
     rds:DescribeDBClusters</td>
+  </tr>
+  <tr>
+    <td>AWS Metrics+ <br>Service Limit Metrics</td>
+    <td>Retrieves service limit metrics using AWS APIs. Requires </td>
+    <td>support:DescribeTrustedAdvisorChecks<br />
+support:RefreshTrustedAdvisorCheck<br />
+support:DescribeTrustedAdvisorCheckResult<br /></td>
   </tr>
 </table>
 
@@ -313,6 +328,12 @@ Unless otherwise indicated, Wavefront sets the value of the AWS Metrics+ `source
   - `aws.rds.allocatedstorage` - The amount of storage (in gigabytes) allocated for the database instance.
   - `aws.rds.capacity` - For Amazon Aurora only, RDS capacity.
   - `aws.rds.backtrackconsumedchangerecords` - For Amazon Aurora only, the number of change records stored for Backtrack.
+
+- Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
+  - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
+  - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
+
+    {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Wavefront Read-Only Access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) for details." %}
 
 ## Viewing AWS Metrics
 
