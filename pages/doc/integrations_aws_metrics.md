@@ -65,15 +65,33 @@ To delete one or more integrations:
 
 ## Giving Wavefront Global Read-Only Access
 
-Data flows from AWS to Wavefront only if the account has the required access.
-* In most cases, it makes sense to give the Wavefront account the `ReadOnlyAccess` policy to the Amazon account.
-* If you want to collect Service Limit metrics:
+Data flows from AWS to Wavefront only if the account has the required access. You have several options.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody>
+<tr>
+<td>ReadOnlyAccess policy (most services)</td>
+<td>In most cases, it makes sense to give the Wavefront account the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
+<tr>
+<td markdown="span">Access to Service Limit metrics</td>
+<td markdown="span">If you want to collect Service Limit metrics:
   - You need least the Business-level AWS Support plan
-  - You need to grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)
+  - Grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)</td>
+</tr>
+<tr>
+<td markdown="span">Use JSON to specify access</td>
+<td markdown="span">Explicitly specify the access settings in a JSON file, as discussed in [Giving Wavefront Limited Access](integrations_aws_metrics.html#giving-wavefront-limited-access).</td>
+</tr>
+</tbody>
+</table>
 
-As an alternative, you can explicitly specify the access settings in a JSON file, as discussed in the next section.
 
-To give Wavefront read-access to your Amazon account:
+### Give Wavefront Read-Only Access to Your Amazon Account
+
 1. In your Amazon Identity & Access Management settings, grant Wavefront read-only access to your Amazon account.
    1. Select **Roles** and click **Create new role**. The role creation wizard starts.
    1. Select **Role for cross-account access**.
@@ -106,7 +124,7 @@ To give Wavefront read-access to your Amazon account:
 
 Instead of giving Wavefront read-only access, you can instead give more limited access.
 
-The permissions we require depend on the integration, as shown in the following table:
+The permissions we require depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
   <tr>
     <th scope="col">Integration</th>
@@ -117,7 +135,7 @@ The permissions we require depend on the integration, as shown in the following 
     <td>CloudWatch</td>
     <td>Retrieves AWS metric and dimension data </td>
     <td><p>ListMetrics<br />
-      GetMetricStatistics</p>
+      GetMetric*</p>
     </td>
   </tr>
   <tr>
@@ -129,21 +147,32 @@ The permissions we require depend on the integration, as shown in the following 
   <tr>
     <td>AWS Metrics+ </td>
     <td>Retrieves additional metrics using AWS APIs </td>
-    <td>DescribeVolumes<br />
-      DescribeInstances<br />
-    DescribeReservedInstances <br />
-    rds:DescribeDBClusters</td>
+    <td>ec2:DescribeVolumes<br />
+      ec2:DescribeInstances<br />
+    ec2:DescribeReservedInstances <br />
+    rds:DescribeDBClusters<br />
+    sqs:ListQueue*<br />
+    sqs:GetQueue*<br />
+    dynamodb:ListTables<br />
+    dynamodb:DescribeTable<br />
+    eks:Describe*<br />
+    eks:List*<br />
+    </td>
   </tr>
   <tr>
     <td>AWS Metrics+ <br>Service Limit Metrics</td>
-    <td>Retrieves service limit metrics using AWS APIs. Requires </td>
+    <td>Retrieves service limit metrics using AWS APIs. Requires at least a Business Level AWS Support plan.  </td>
     <td>support:DescribeTrustedAdvisorChecks<br />
 support:RefreshTrustedAdvisorCheck<br />
 support:DescribeTrustedAdvisorCheckResult<br /></td>
   </tr>
 </table>
 
-The following basic JSON snippet shows how to add IAM permissions to AWS integrations:
+The following basic JSON snippet shows how to add IAM permissions to AWS integrations.
+
+{% include note.html content="If you're using the Service Limit Metrics service, you also have to add `support:DescribeTrustedAdvisorChecks`,
+`support:RefreshTrustedAdvisorCheck`, and
+`support:DescribeTrustedAdvisorCheckResult` to the JSON." %}
 
 ```
 {
@@ -155,13 +184,12 @@ The following basic JSON snippet shows how to add IAM permissions to AWS integra
                 "cloudwatch:ListMetrics",
                 "ec2:Describe*",
                 "s3:List*",
+                "s3:Get"
                 "rds:DescribeDBClusters",
                 "sqs:ListQueues",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",
-                "trustedadvisor:Describe*",
-                "trustedadvisor:RefreshCheck",
                 "eks:Describe*",
                 "eks:List*"
             ],
