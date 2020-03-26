@@ -184,9 +184,9 @@ The following basic JSON snippet shows how to add IAM permissions to AWS integra
                 "cloudwatch:ListMetrics",
                 "ec2:Describe*",
                 "s3:List*",
-                "s3:Get"
+                "s3:Get*"
                 "rds:DescribeDBClusters",
-                "sqs:ListQueues",
+                "sqs:ListQueue*",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",

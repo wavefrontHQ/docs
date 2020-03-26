@@ -10,12 +10,15 @@ The roles/permissions/groups authorization paradigm manages global permissions. 
 
 Admins who need finer-grained control can manage access on a per-object basis. We currently support access control for dashboards and alerts.
 
+{% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have Dashboards permission and View and Modify access for that dashboard" %}
+
 This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security system preference. You can manage access for alerts the same way.
 
 <p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Wavefront access control"/></a>
 </p>
 
-**Note**: After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users.
+{% include note.html content="After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
+
 
 ## How Access Control Works
 
@@ -70,7 +73,7 @@ Administrators can restrict access for new dashboards and alerts:
 
 After the change to the preference, access to new dashboards and new alerts is initially limited to the dashboard creator and Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.
 
-**Note:** A security preference change applies only to dashboards and alerts created after the change. If you change the setting to **Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Creator** keep the restricted access.
+{% include note.html content="A security preference change applies only to dashboards and alerts created after the change. If you change the setting to **Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Creator** keep the restricted access." %}
 
 ## Making Orphan Dashboards or Alerts Visible
 
