@@ -125,9 +125,8 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
       ec2:DescribeInstances<br />
     ec2:DescribeReservedInstances <br />
     rds:DescribeDBClusters<br />
-    sqs:ListQueues<br />
-    sqs:GetQueues<br />
-    sqs:ListQueues<br />
+    sqs:ListQueue*<br />
+    sqs:GetQueue*<br />
     dynamodb:ListTables<br />
     dynamodb:DescribeTable<br />
     eks:Describe*<br />
@@ -150,7 +149,7 @@ The following basic JSON snippet shows how to add IAM permissions to AWS integra
                 "s3:List*",
                 "s3:Get*"
                 "rds:DescribeDBClusters",
-                "sqs:ListQueues",
+                "sqs:ListQueue*",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",
