@@ -12,7 +12,7 @@ frequencyHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Converts an ordinary histogram coming from Google Cloud Platform, Telegraf, or other source to Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
+Converts a histogram coming from Google Cloud Platform, Telegraf, or other source to Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
 
 
 ## Parameters
