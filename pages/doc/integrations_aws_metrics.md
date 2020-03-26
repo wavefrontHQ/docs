@@ -75,16 +75,16 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
 <tbody>
 <tr>
 <td>ReadOnlyAccess policy (most services)</td>
-<td>In most cases, it makes sense to give the Wavefront account the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
+<td markdown="span">In most cases, it makes sense to give the Wavefront account the `ReadOnlyAccess` policy to the Amazon account.</td></tr>
 <tr>
 <td markdown="span">Access to Service Limit metrics</td>
 <td markdown="span">If you want to collect Service Limit metrics:
-  - You need least the Business-level AWS Support plan
+  - You need at least the Business-level AWS Support plan
   - Grant the `AWSSupportAccess` policy (in addition to the `ReadOnlyAccess` policy)</td>
 </tr>
 <tr>
-<td markdown="span">Use JSON to specify access</td>
-<td markdown="span">Explicitly specify the access settings in a JSON file, as discussed in [Giving Wavefront Limited Access](integrations_aws_metrics.html#giving-wavefront-limited-access).</td>
+<td markdown="span">Create IAM policy to specify limited access</td>
+<td markdown="span">Explicitly specify the access settings in a custom IAM policy, as discussed in [Giving Wavefront Limited Access](integrations_aws_metrics.html#giving-wavefront-limited-access).</td>
 </tr>
 </tbody>
 </table>
@@ -168,11 +168,13 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
   </tr>
 </table>
 
-The following basic JSON snippet shows how to add IAM permissions to AWS integrations.
+### Create IAM Policy to Specify Limited Access
 
-{% include note.html content="If you're using the Service Limit Metrics service, you also have to add `support:DescribeTrustedAdvisorChecks`,
+You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet.
+
+{% include note.html content="If you want to retrieve Service Limit metrics, you also have to add `support:DescribeTrustedAdvisorChecks`,
 `support:RefreshTrustedAdvisorCheck`, and
-`support:DescribeTrustedAdvisorCheckResult` to the JSON." %}
+`support:DescribeTrustedAdvisorCheckResult` to the file." %}
 
 ```
 {
