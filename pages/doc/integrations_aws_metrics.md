@@ -12,7 +12,7 @@ Amazon Web Services (AWS), is a collection of cloud-computing services that prov
 
 ## Supported AWS Integrations
 
-The AWS integration ingests data from many products and provides dashboards for each. See any integration page for [a list of dashboards](amazon_cloudtrail.html#dashboards). The following products are of special interest to most customers: 
+The AWS integration ingests data from many products and provides dashboards for each. See any integration page for [a list of dashboards](amazon_cloudtrail.html#dashboards). The following products are of special interest to most customers:
 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** - retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
@@ -213,10 +213,12 @@ You can set up an alert to notify you when data reach a certain threshold.
 
 The following chart sets up variables for in-demand instances limit and on-demand instance usage. The visible query shows the percentage.
 
-![chart for service limits query](service_limit_chart.png)
+![chart for service limits query](images/service_limit_chart.png)
 
 We can create a [multi-threshold alert](alerts.html#creating-a-multi-threshold-alert) for this query that:
 
 * Fires if the condition has been true for the last 30 minutes.
 * Notifies `SEVERE` targets if the value is greater than 90.
 * Notifies `WARN` targets if the value is greater than 80.
+
+![service limits alarm](images/service_limit_alert.png)
