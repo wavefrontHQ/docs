@@ -75,7 +75,7 @@ Here, we are creating a T-digest and adding sampling points based on the range a
 
 ### Grouping
 
-Similar to aggregation functions for metrics, `histo()` returns a single distribution per specified time window.  To get separate distributions for groups that share common characteristics,you can include a 'group by' parameter, as for many ts() queries. For example, use  to group by sources.
+Similar to aggregation functions for metrics, `cumulativeHisto()` returns a single distribution per specified time window.  To get separate distributions for groups that share common characteristics, you can include a 'group by' parameter, as for many ts() queries. For example, use `cumulativeHisto(1m, <expression>, sources)` to group by sources.
 
 The function returns a separate series of results for each group.
 

@@ -98,7 +98,7 @@ To give Wavefront read-access to your Amazon account:
 
 ## Giving Wavefront Limited Access
 
-Instead of giving Wavefront read-only access, you can instead give more limited access. The permissions we require depend on the integration, as shown in the following table:
+Instead of giving Wavefront read-only access, you can instead give more limited access. The integration and on the service you want to monitor determine the required permissions:
 <table>
   <tr>
     <th scope="col">Integration</th>
@@ -109,7 +109,7 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
     <td>CloudWatch</td>
     <td>Retrieves AWS metric and dimension data </td>
     <td><p>ListMetrics<br />
-      GetMetricStatistics</p>
+      GetMetric*</p>
     </td>
   </tr>
   <tr>
@@ -121,10 +121,17 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
   <tr>
     <td>AWS Metrics+ </td>
     <td>Retrieves additional metrics using AWS APIs </td>
-    <td>DescribeVolumes<br />
-      DescribeInstances<br />
-    DescribeReservedInstances <br />
-    rds:DescribeDBClusters</td>
+    <td>ec2:DescribeVolumes<br />
+      ec2:DescribeInstances<br />
+    ec2:DescribeReservedInstances <br />
+    rds:DescribeDBClusters<br />
+    sqs:ListQueue*<br />
+    sqs:GetQueue*<br />
+    dynamodb:ListTables<br />
+    dynamodb:DescribeTable<br />
+    eks:Describe*<br />
+    eks:List*<br />
+    </td>
   </tr>
 </table>
 
@@ -140,13 +147,12 @@ The following basic JSON snippet shows how to add IAM permissions to AWS integra
                 "cloudwatch:ListMetrics",
                 "ec2:Describe*",
                 "s3:List*",
+                "s3:Get*",
                 "rds:DescribeDBClusters",
-                "sqs:ListQueues",
+                "sqs:ListQueue*",
                 "sqs:GetQueue*",
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",
-                "trustedadvisor:Describe*",
-                "trustedadvisor:RefreshCheck",
                 "eks:Describe*",
                 "eks:List*"
             ],

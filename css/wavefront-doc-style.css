@@ -1262,7 +1262,7 @@ a code {
 }
 
 code + a > code {
-    margin-left: -7px;
+    margin-left: 1px;
 }
 
 table th code {

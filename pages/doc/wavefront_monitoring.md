@@ -125,14 +125,14 @@ Wavefront customer support engineers have found the following metrics especially
 <td markdown="span">~collector.points.batches<br> ~collector.histograms.batches<br> ~collector.tracing.spans.batches<br> ~collector.tracing.span_logs.batches</td>
 <td markdown="span">Number of batches of points, histogram points, or spans received by the collector, either via the proxy or via the direct ingestion API. In the histogram context a batch is the number of HTTP POST requests.<br>
 <br>
-**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.spans.batches` we have `collector.direct-ingestion.spans.batches`.</td></tr></td></tr>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.spans.batches` we have `collector.direct-ingestion.spans.batches`.</td></tr>
 
 <tr>
 <td markdown="span">~collector</td>
 <td markdown="span">~collector.points.undecodable<br> ~collector.histograms.undecodable<br> ~collector.tracing.spans.undecodable<br> ~collector.tracing.span_logs.undecodable</td>
 <td markdown="span">Points, histogram points, spans, or span logs that the collector receives but cannot report to Wavefront because the input is not in the right format.<br>
 <br>
-**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr></td></tr>
+**Note:** We have a corresponding direct ingestion metric for each metric. For example, corresponding to `collector.points.undecodable` we have `collector.direct-ingestion.points.undecodable`.</td></tr>
 <tr>
 <td markdown="span">~metric</td>
 <td>~metric.new_host_ids</td>
@@ -154,87 +154,6 @@ Wavefront customer support engineers have found the following metrics especially
 <td>Monotonic counter, without tags, that can be aligned with the API endpoints and allows you to examine API request metrics.<br>
 For example: <strong>ts(~http.api.v2.alert.{id}.GET.200.count)</strong> aligns with the <strong>GET /api/v2/alert/{id}</strong> API endpoint.<br>
 Examine the <strong>~http.api.v2.</strong> namespace to see the counters for specific API endpoints.</td></tr>
-</tbody>
-</table>
-
-
-
-
-### Viewing Internal Metrics
-
-Here's one easy way to see internal metrics information:
-1. Select **Integrations** and click the Wavefront Usage integration.
-2. Select **Dashboard**.
-3. Click the pencil icon and select **Clone**.
-4. Add charts for the metrics that you're interested in.
-
-### Fine-Tuning Alerts
-
-The `~alert` metrics allow you to examine your alerts and understand which alerts impact performance. After you find out how much load a query is putting on the system, you can potentially refine the alert and improve performance.
-* `~alert.query_points` shows the details of the points scanned by each alert.
-* `~alert.query_time` shows details for the amount of time it takes to run the alert query.
-* `~alert.checking_frequency` helps you find alerts that are checking too frequently. For each alert, the alert checking frequency should be greater or equal to query time.
-
-For example, you can set up an alert that monitors existing alerts that have high points scanned rates. You can then catch badly written alerts and tune them to improve performance.
-
-See [Building Linked Alerts](alerts_dependencies.html) for additional information about using internal alert metrics.
-
-### Understanding System Activity
-
-The three `~metric.new_*` internal metrics allow you to discover if a recent change to the system might have caused the problem. These metrics can show you if Wavefront recently received points that don't fit the usual pattern of the metrics that Wavefront received from you. For example, assume you just used the Kubernetics integration to add a cluster to your Wavefront instance. The integration will start sending data from all hosts in the cluster. If you create point tags, they will also be sent for each host, potentially creating a bottleneck.
-
-Each metric includes the metric name, customer, any tags, and the source or host. The three internal metrics allow you to find out information about 3 aspects of the metric.
-* `~metric.new_metric_ids` shows metrics that Wavefront hasn't seen before in the metric namespace.
-* `~metric.new_string_ids` shows point tags that Wavefront hasn't seen before, as strings.
-* `~metric.new_host_ids` shows hosts, that is, the sources for the metrics, that Wavefront hasn't seen before.
-
-### Understanding ~collector Metrics for Histograms
-
-The ~collector metrics are especially useful when monitoring histogram ingestion. Whenever a distribution is sent to the collector, `~collector.histograms.reported` is incremented. When using one of the [aggregation ports](proxies_histograms.html#histogram-proxy-ports) (min, hour, day), all data points received within the aggregation interval are used to compute the distribution for that interval.
-
-For example, if you are using the minute aggregation interval, all points received within a minute, e.g. 12:00-12:00:59 are part of the distribution for that minute. This is based on the timestamp, if specified; otherwise, based on arrival time at the proxy.
-If, after 12:07:59, a point is received with a timestamp between 12:00-12:00:59, the proxy builds another distribution because the default flush interval for minute aggregation is 70 sec.
-The proxy will essentially send two distributions to the Wavefront collector for the time interval of 12:00-12:00:59. On the backend, these two distributions are merged together so that when queried, they will behave as one distribution. However, the collector will still have seen two distributions arrive.
-
-
-### Finding Query Users Who Caused Bottlenecks
-
- `~query.requests` returns information about queries and the associated user. It helps you examine whether one of your users stands out as the person who might be causing the performance problem. Often, new users unintentionally send many queries to Wavefront, especially if they use the API for the queries. The results can become difficult to interpret, and system performance might suffer.
-
-
-## Examine Slow Queries
-
-You can examine slow queries to troubleshoot performace issues.
-
-**To bring up the Slow Queries page**
-
-1. In the Wavefront UI, click the gear icon <i class="fa fa-cog"/> at the top right of the task bar.
-1. Click the **Slow Query Dashboard** option in the menu.
-2. Use the buttons at the top right to choose the time window.
-
-The three tabs in the display give you the following information.
-
-<table>
-<tbody>
-<thead>
-<tr><th width="25%">Tab</th><th width="75%">Description</th></tr>
-</thead>
-<tr>
-<td>Overview</td>
-<td>Slow queries in the system.
-<div>Shows the context of the query (Alerts/API or streaming) and which slow queries failed to complete vs. which queries took a long time but eventually completed. Also shows the number of slow queries by user.</div>
-</td>
-</tr>
-<tr>
-<td>Top Slow Queries </td>
-<td>Lists details about the top slow queries including the time taken, points scanned, and CPU seconds.
-</td>
-</tr>
-<tr>
-<td>Resource Consumption</td>
-<td>Displays users that ran slow queries and includes time spent, total points scanned, and total CPU consumed.
-</td>
-</tr>
 </tbody>
 </table>
 
