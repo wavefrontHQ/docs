@@ -4,12 +4,12 @@ keywords:
 tags: [best practice]
 sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
-summary: Try out this tutorial to configure the Wavefront Spring Boot Starter with a sample application.
+summary: Configure the Wavefront Spring Boot Starter with a sample application.
 ---
 
 In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get started!
 
-## Steps in Detail
+## Video
 **{Add Video by Clement!}**
 
 ## Prerequisites
@@ -41,7 +41,7 @@ In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet c
         <br/>**{SHORT VIDEO or SCREENSHOT}**
     2. Click **ERROR** to create an error.
         <br/>**{SCREENSHOT}**
-4. Click the one-time-use link that was printed on your console to access the Wavefront Service Dashboard and view data.
+4. Click the one-time use link to access the Wavefront Service dashboard and view data.
     <br/> Example:
     ```
     w.s.WavefrontSpringBootAutoConfiguration : ==========================
@@ -51,10 +51,10 @@ In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet c
 
 ## View Data in Wavefront
 
-When you get the link you are taken to the Services Dashboard where you can:
+When you click the link you are taken to the Services dashboard where you can:
 
-* View details specific to a service of the application, such as the Request, Error, and Duration (RED) metrics. See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard) for details.
-* Click **See All {NAME} Traces** to navigate to the Tracing Browser and view the trace data of the {NAME} service.
+* View details specific to an application service, such as the Request, Error, and Duration (RED) metrics. See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard) for details.
+* Click **See All {NAME} Traces** to navigate to the Tracing browser and view the trace data of the {NAME} service.
   <br/>Once in the tracing browser, you see the traces from the application and the trace related to the error you created. 
 
 **ADD SHORT VIDEO**
