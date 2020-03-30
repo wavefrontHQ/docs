@@ -12,7 +12,7 @@ frequencyHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Converts a histogram coming from Google Cloud Platform, Telegraf, or other source to Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
+Converts a histogram coming from Google Cloud Platform, Telegraf, or any other source to Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
 
 
 ## Parameters
@@ -72,7 +72,7 @@ Now let's do the same in Wavefront. The GCP integration ingests the distribution
 
 ![GCP bucket data](images/gcp_bucket_data.png)
 
-Then we use `frequencyHisto()` to convert the data to a Wavefront histogram and to group by `location`, and finally we use `percentile()` to find the 95th percentile of the histogram.
+Then we use `frequencyHisto()` to convert the data to a Wavefront histogram and group by `location`, and finally, we use `percentile()` to find the 95th percentile of the histogram.
 
 ![frequency histo](images/frequency_histo_p95.png)
 
