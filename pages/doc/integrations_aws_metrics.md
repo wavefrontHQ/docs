@@ -6,13 +6,13 @@ sidebar: doc_sidebar
 permalink: integrations_aws_metrics.html
 summary: Learn how to send AWS Metrics data to Wavefront.
 ---
-Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefronts Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
+Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS. The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps in this document are needed to complete and customize integration setup.
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
 ## Supported AWS Integrations
 
-The AWS integration ingests data from many products including:
+The AWS integration ingests data from many products and provides dashboards for each. See any integration page for [a list of dashboards](amazon_cloudtrail.html#dashboards). The following products are of special interest to most customers:
 
 - **[CloudWatch](http://aws.amazon.com/cloudwatch)** - retrieves AWS [metric and
 dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html) data. Includes some metrics for Amazon Relational Database (RDS).
@@ -20,150 +20,7 @@ dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Supp
 - **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** - retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of Cloudwatch, and saves money on Cloudwatch calls as a result.
 
 
-For information how to monitor AWS data ingestion, see [AWS Integration](wavefront_monitoring.html#aws-integration).
-
-## AWS Account ID
-
-Adding an AWS integration requires establishing a trust relationship between Amazon and Wavefront by sharing the account IDs.
-
-## Managing an AWS Integration
-
-From the page of the integration you select, you can add an AWS integration, enable and disable it, and delete an AWS integration.
-
-### Adding an AWS Integration
-
-1. In Wavefront, click **Integrations** in the task bar.
-1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click **Set Up Amazon Integration**.
-1. Follow the instructions in the right panel to give Wavefront read-only access to your Amazon account.
-1.  Configure the integration properties:
-     - **Name** - Name to identify the integration.
-     - **Role ARN** - Role ARN from Amazon account.
-     - **Bucket Name -** The S3 bucket containing CloudTrail logs. In your AWS account, go to **CloudTrail** &gt;**Trails** to see the bucket name.
-     - **Prefix** - A log file prefix specified when you created the CloudTrail.
-     - **CloudTrail Region** - AWS Region where the CloudTrail logs reside.
-1.  Click **SET UP**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](#configure).
-
-### Enabling and Disabling AWS Integrations
-
-Wavefront automatically disables integrations that are experiencing errors due to invalid credentials. To enable an integration after the credential has been corrected or to manually disable an integration:
-
-1. In Wavefront, click **Integrations** in the task bar.
-1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. In the row that contains the integration that you want to enable or disable, click the three dots and select **Enable** or **Disable**.
-
-### Deleting AWS Integrations
-
-To delete one or more integrations:
-
-- Select the checkboxes next to one or more integrations and click <i class="fa-trash fa"/>.
-- In the row containing the integration you want to delete, click the three dots, select **Delete** and confirm.
-
-
-## Giving Wavefront Global Read-Only Access
-
-This tasks explains how to grant Wavefront read-only access to your Amazon account.
-
-To give Wavefront read-access to your Amazon account:
-1. In your Amazon Identity & Access Management settings, grant Wavefront read-only access to your Amazon account.
-   1. Select **Roles** and click **Create new role**. The role creation wizard starts.
-   1. Select **Role for cross-account access**.
-   1. Select **Provide access between your AWS account and a 3rd party AWS account**.
-   1. Enter Wavefront account info:
-      - Account ID - Account ID.
-      - Require MFA - unchecked
-   1. Click **Next Step**.
-   1. On the Attach Policy screen, select the **ReadOnlyAccess** checkbox and click **Next Step**.
-   1. For Role name, enter **wavefront** and click **Create role**.
-   1. Click the **wavefront** role.
-   1. Copy the Role ARN value.
-1. In Wavefront, click **Integrations** in the task bar.
-1. In the Featured section, click the **Amazon Web Services** tile.
-1. Click the **Setup** tab.
-1. Click the **Advanced** link.
-1. Select **Add Integration &gt; &lt;Integration Option&gt;**, where  **&lt;Integration Option&gt;** is **Register [CloudWatch \| CloudTrail \| AWS Metrics+]**.
-1.  Configure the integration properties:
-     - **Common**
-         - **Name** - Name to identify the integration.
-         - **Role ARN** - Role ARN from Amazon account.
-     - **CloudTrail**
-         - **Bucket Name -** The S3 bucket that contains CloudTrail logs. In AWS, go to **CloudTrail** &gt;**Trails** to see the bucket name.
-         - **Prefix** - A log file prefix specified when you created the CloudTrail.
-     - **CloudWatch**
-         - Whitelists and Service Refresh Rate - see <a href="#configure">Configuring CloudWatch Data Ingestion</a>.
-1.  Click **Save**. The selected integration(s) are created and added to the Cloud Integrations list.
-
-## Giving Wavefront Limited Access
-
-Instead of giving Wavefront read-only access, you can instead give more limited access. The integration and on the service you want to monitor determine the required permissions:
-<table>
-  <tr>
-    <th scope="col">Integration</th>
-    <th scope="col">Description</th>
-    <th scope="col">Required Permissions </th>
-  </tr>
-  <tr>
-    <td>CloudWatch</td>
-    <td>Retrieves AWS metric and dimension data </td>
-    <td><p>ListMetrics<br />
-      GetMetric*</p>
-    </td>
-  </tr>
-  <tr>
-    <td>CloudTrail <br /></td>
-    <td>Retrieves EC2 event information and creates Wavefront System events </td>
-    <td><p>List and Get permissions on the S3 bucket where the logs are delivered.</p>
-    </td>
-  </tr>
-  <tr>
-    <td>AWS Metrics+ </td>
-    <td>Retrieves additional metrics using AWS APIs </td>
-    <td>ec2:DescribeVolumes<br />
-      ec2:DescribeInstances<br />
-    ec2:DescribeReservedInstances <br />
-    rds:DescribeDBClusters<br />
-    sqs:ListQueue*<br />
-    sqs:GetQueue*<br />
-    dynamodb:ListTables<br />
-    dynamodb:DescribeTable<br />
-    eks:Describe*<br />
-    eks:List*<br />
-    </td>
-  </tr>
-</table>
-
-The following basic JSON snippet shows how to add IAM permissions to AWS integrations:
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "cloudwatch:GetMetric*",
-                "cloudwatch:ListMetrics",
-                "ec2:Describe*",
-                "s3:List*",
-                "s3:Get*",
-                "rds:DescribeDBClusters",
-                "sqs:ListQueue*",
-                "sqs:GetQueue*",
-                "dynamodb:ListTables",
-                "dynamodb:DescribeTable",
-                "eks:Describe*",
-                "eks:List*"
-            ],
-            "Effect": "Allow",
-            "Resource": "*"
-        }
-    ]
-}
-```
-
-## CloudWatch Data
+## CloudWatch Integration Details
 
 Wavefront retrieves AWS metric and dimension data from AWS services using the AWS CloudWatch API. The complete list of metrics and dimensions that can be retrieved from AWS CloudWatch is available at [Amazon CloudWatch Metrics and Dimensions Reference](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html). In addition, you can publish [custom AWS metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) that can also be ingested by the CloudWatch integration.
 
@@ -187,7 +44,7 @@ You can configure which instances and volumes to ingest metrics from, which metr
 
 <a name="aws_sources"></a>
 
-### Sources
+### CloudWatch Sources and Source Tags
 
 Wavefront automatically sets each metric's source field and adds source tags to each AWS source, as follows:
 
@@ -203,7 +60,7 @@ Wavefront sets the value of the AWS metric [`source`](wavefront_data_format.html
 
 AWS sources are assigned source tags that identify their originating service following this pattern: `~integration.aws.<service>`, for example, `~integration.aws.ec2`.
 
-### Point Tags
+### CloudWatch Point Tags
 
 Wavefront adds the following point tags to CloudWatch metrics:
 
@@ -223,7 +80,7 @@ As an alternative to using the CloudWatch API for EC2 metrics, you can collect t
 
 By default, on a new Wavefront trial, Wavefront limits the number of unique metrics that can be retrieved from CloudWatch to 10K to cap the AWS CloudWatch bill.
 
-### Configuring Billing Metrics
+### Configuring CloudWatch Billing Metrics
 
 The AWS Billing and Cost Management service sends [billing metrics](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/billing-metricscollected.html) to CloudWatch. You configure AWS to produce `aws.billing.*` metrics by checking the **Receive Billing Alerts** checkbox on the **Preferences** tab in the [AWS Billing and Cost Management console](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/monitor-charges.html):
 
@@ -263,6 +120,7 @@ As a result, the metrics include, for example `aws.cloudtrail.event.Start` or `a
 In addition, the metric `aws.cloudtrail.event.total-per-minute` reports the per-minute count of *all* AWS API calls recorded by the AWS CloudTrail integration.
 
 ### Point Tags for Filtering CloudTrail Metrics
+
 You can use the following point tags to filter the metrics.
 
 <table>
@@ -320,30 +178,47 @@ Unless otherwise indicated, Wavefront sets the value of the AWS Metrics+ `source
   - `aws.rds.capacity` - For Amazon Aurora only, RDS capacity.
   - `aws.rds.backtrackconsumedchangerecords` - For Amazon Aurora only, the number of change records stored for Backtrack.
 
-## Viewing AWS Metrics
+- Service Limit Metrics - capture the current resource limits and usage for your AWS account. These metrics include the point tags `Region` and `category`.
+  - `aws.limits.<resource>.limit` - the current limit for an AWS resource in a particular region.
+  - `aws.limits.<resource>.usage` - the current usage of an AWS resource in a particular region.
 
-You can view AWS metrics by selecting **Browse &gt; Metrics** and searching for metrics beginning with `aws.`:
+    {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Wavefront Read-Only Access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) for details." %}
 
-![aws metrics](images/aws_metrics.png)
+## AWS Metrics+ Service Limits
 
-You can drill into the folder for a specific service and click a metric to navigate to a chart that displays that set of data. For example, clicking clicking the folder `aws.ec2.`, then the metric `aws.ec2.cpuutilization`, and then refining the query by the `Region` point tag and the `topk` function yields the following chart:
+Each AWS account has limits on the amount of resources that are available to you for each AWS service. You can monitor and manage your resource usage and limits using the AWS service limit metrics in Wavefront.
 
-![aws cpu utilization](images/aws_cpu_utilization.png)
+If you have an account with the required permissions, Amazon lists the [service limits that are available to query for you](https://console.aws.amazon.com/trustedadvisor/home#/category/service-limits)
 
-### AWS Aggregate Metrics
 
-All AWS metrics return the following aggregate metrics: average, maximum, minimum, sample count, and sum. To view the aggregate metrics,
+### Example Queries for Service Limits
 
-1.  Search for a specific metric, for example `aws.ec2.cpuutilization`:
+Here are a few sample queries:
 
-    ![aws cpu utilization folder](images/aws_cpu_utilization_metric.png)
+To visualize your limits for EC2 On-Demand Instances per region, you can run the following query:
 
-2.  Click the metric folder, for example `aws.ec2.cpuutilization.`, to display the aggregate metrics:
+```
+ts(aws.limits.on_demand_instances_*.limit)
+```
+To visualize your usage for EC2 On-Demand Instances per region, you can run the following query:
 
-    ![aws cpu utilization aggregate metrics](images/aws_cpu_utilization_aggregate_metrics.png)
+```
+ts(aws.limits.on_demand_instances_*.usage)
+```
 
-## AWS Dashboards
+### Example Alert for Service Limits
 
-If you set up an [Amazon Web Services integration](integrations.html), Wavefront installs AWS overview dashboards Summary, Pricing, and Billing and the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, and Redshift. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
 
-{% include shared/system_dashboard.html %}
+You can set up an alert to notify you when data reach a certain threshold.
+
+The following chart sets up variables for in-demand instances limit and on-demand instance usage. The visible query shows the percentage.
+
+![chart for service limits query](images/service_limit_chart.png)
+
+We can create a [multi-threshold alert](alerts.html#creating-a-multi-threshold-alert) for this query that:
+
+* Fires if the condition has been true for the last 30 minutes.
+* Notifies `SEVERE` targets if the value is greater than 90.
+* Notifies `WARN` targets if the value is greater than 80.
+
+![service limits alarm](images/service_limit_alert.png)

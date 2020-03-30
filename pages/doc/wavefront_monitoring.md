@@ -89,7 +89,11 @@ This section gives insight into the shape of your data. It shows the total numbe
 
 The metrics used in this section are:
 
-- `~metric.counter` - number of metrics being collected. It can be broken down by the sources sending the metrics.
+- `~metric.counter` - Number of metrics being collected. Does not include internal metrics.
+
+If you're interested in histogram ingestion by source, clone this dashboard and add a chart that uses the `~histogram.counter` metric.
+
+- `~histogram.counter` - Number of histograms being collected. Does not include internal histogram data.  
 
 ## Using Internal Metrics to Optimize Performance
 
