@@ -236,7 +236,7 @@ table th[class*="col-"] {
 
 
 table td:first-child {
-    width: 150px;
+    width: 450px;
     /*font-weight:bold;*/
 }
 
@@ -509,7 +509,7 @@ span.projectTitle {
     padding: 0;
 }
 
-.wf-footer a[href^="http://"]:after, 
+.wf-footer a[href^="http://"]:after,
 .wf-footer a[href^="https://"]:after {
     content: "";
     padding-left: 0;
@@ -1156,7 +1156,7 @@ a[href^="http://"]:after, a[href^="https://"]:after {
     padding-left: 3px;
 }
 
-.topnavlinks a[href^="http://"]:after, 
+.topnavlinks a[href^="http://"]:after,
 .topnavlinks a[href^="https://"]:after {
     content: "";
     padding-left: 0;
@@ -1177,7 +1177,7 @@ a[href^="http://"]:after, a[href^="https://"]:after {
     padding: 0px 10px;
 }
 
-.faw a[href^="http://"]:after, 
+.faw a[href^="http://"]:after,
 .faw a[href^="https://"]:after {
     content: "";
 }
@@ -1448,7 +1448,7 @@ ul#results-container a:hover {
     margin-top:3px;
     background-color: #f9f9f9;
     float: right;
-    max-width: 400px; 
+    max-width: 400px;
     height: 30px;
 }
 
