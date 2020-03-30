@@ -114,7 +114,6 @@ The REST API supports the following objects corresponding to different categorie
 - **Maintenance Window** - Retrieve a complete or filtered list of existing maintenance windows. Users with [Alert permission](permissions_overview.html) can create, close, update, and delete maintenance windows.
 - **Message** - Retrieve messages and mark messages read.
 - **Metric** - Retrieve details on a metric.
-- **MonitoredCluster** - Retrieve information about monitored clusters
 - **Notificant** - Allows users with Users with [Alert permission](permissions_overview.html) to create, delete, update, or test alert notification targets.
 - **Proxy** - Retrieve information about Wavefront proxies. Users with [Proxy Management permission](permissions_overview.html) can add and remove Wavefront proxies.
 - **Query** - Perform queries.
