@@ -8,11 +8,11 @@ summary: Understand setup and services in the AWS integration
 ---
 Amazon Web Services (AWS), is a collection of cloud-computing services that provide an on-demand computing platform. The Wavefront Amazon Web Services integration allows you to ingest metrics directly from AWS.
 
-The Wavefront Amazon Web Services built-in integration is part of the setup, but the additional steps might be needed for some of the services. This page gives an overview.
+You can use the Wavefront Amazon Web Services integration for initial setup, but additional steps might be needed for some of the services. This page gives an overview.
 
 {% include shared/badge.html content="You must have [Proxy Management permission](permissions_overview.html) to set up an AWS integration. If you do not have permission, the UI menu selections, buttons, and links you use to perform the tasks are not visible." %}
 
-## Supported AWS Integrations
+## Basics
 
 The AWS integration ingests data from many Amazon and AWS products including:
 
@@ -21,14 +21,16 @@ dimension](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Supp
 - **[CloudTrail](http://aws.amazon.com/cloudtrail)** - retrieves EC2 event information and creates Wavefront System events that represent the AWS events.
 - **[AWS Metrics+](integrations_aws_metrics.html#aws-metrics-data)** - retrieves additional metrics using AWS APIs other than CloudWatch. Data include EBS volume data and  EC2 instance metadata like tags. You can investigate billing data  and the number of reserved instances. Be sure to enable AWS+ metrics because it allows Wavefront to optimize its use of Cloudwatch, and saves money on Cloudwatch calls as a result.
 
+{% include tip.html content="See [AWS CloudWatch, CloudTrail, and Metrics+ Integrations](integrations_aws_metrics.html)" %}
+
 ### Establish a Trust Relationship
 
-Adding an AWS integration requires establishing a trust relationship between Amazon and Wavefront by specifying the account ID and setting up a trust relationship. You have to do that only once, and have 2 options:
+Adding an AWS integration requires establishing a trust relationship between Amazon and Wavefront by specifying account information. You have to do that only once, and have 2 options:
 
 * [Give Wavefront Global Read-Only Access](#giving-wavefront-global-read-only-access)
 * [Give Wavefront Limited Access](#giving-wavefront-limited-access)
 
-After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Wavefront. The integration includes a predefined dashboard for each service, and you can clone and modify that dashboard or create a new one.
+After you've set up the integration, you can examine metrics from all AWS services that you subscribe to from Wavefront. The integration includes a predefined dashboard for each service. You can clone and modify Wavefront dashboards, or create your own custom dashboard.
 
 ### Use Internal Metrics to Monitor AWS Integrations
 
@@ -36,7 +38,7 @@ You can use some Wavefront internal metrics to [monitor your AWS Integration](wa
 
 ### AWS Dashboards
 
-If you set up an [Amazon Web Services integration](integrations.html), Wavefront installs AWS overview dashboards Summary, Pricing, and Billing and the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, and Redshift. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
+If you set up an [Amazon Web Services integration](integrations.html), Wavefront installs AWS overview dashboards Summary, Pricing, and Billing and the AWS service-specific dashboards: EC2, ECS, ELB, DynamoDB, Lambda, and Redshift, and so on. All AWS dashboards have a tag `~integration.aws.<service>`. For example: `~integration.aws.ec2`, `~integration.aws.lambda`, etc.
 
 {% include shared/system_dashboard.html %}
 
@@ -57,7 +59,7 @@ From the page of the integration you select, you can add an AWS integration, ena
      - **Bucket Name -** The S3 bucket containing CloudTrail logs. In your AWS account, go to **CloudTrail** &gt;**Trails** to see the bucket name.
      - **Prefix** - A log file prefix specified when you created the CloudTrail.
      - **CloudTrail Region** - AWS Region where the CloudTrail logs reside.
-1.  Click **SET UP**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](#configure).
+1.  Click **Set Up**. The integration is added to the Amazon Web Services Integrations list. If you want to configure whitelists and refresh rate for the CloudWatch integration, click the **CloudWatch** link in the Types column and follow the instructions in [Configuring CloudWatch Data Ingestion](#configure).
 
 ### Enabling and Disabling AWS Integrations
 
@@ -69,17 +71,9 @@ Wavefront automatically disables integrations that are experiencing errors due t
 1. Click the **Advanced** link.
 1. In the row that contains the integration that you want to enable or disable, click the three dots and select **Enable** or **Disable**.
 
-### Deleting AWS Integrations
-
-To delete one or more integrations:
-
-- Select the checkboxes next to one or more integrations and click <i class="fa-trash fa"/>.
-- In the row containing the integration you want to delete, click the three dots, select **Delete** and confirm.
-
-
 ## Giving Wavefront Global Read-Only Access
 
-Data flows from AWS to Wavefront only if the account has the required access. You have several options.
+Data flows from AWS to Wavefront only if the account has the required access. You have several options: 
 
 <table style="width: 100%;">
 <colgroup>
@@ -200,7 +194,7 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "cloudwatch:ListMetrics",
                 "ec2:Describe*",
                 "s3:List*",
-                "s3:Get*"
+                "s3:Get*",
                 "rds:DescribeDBClusters",
                 "sqs:ListQueue*",
                 "sqs:GetQueue*",
