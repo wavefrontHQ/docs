@@ -376,7 +376,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </td>
 <td>None, SUMMARY, or DETAILED
 <div>Ex: SUMMARY </div></td>
-<td>Deprecated since 6.0.</td>
+<td>Before 6.0.</td>
 </tr>
 <tr>
 <td>pushMemoryBufferLimit</td>
@@ -459,11 +459,11 @@ Ex: 2978,2979</td>
 <tr>
 <td>retryThreads</td>
 <td>Number of threads retrying failed transmissions. If no value is specified, defaults to the number of processor cores available to the host or 4, whichever is greater. Every retry thread uses a separate buffer file (capped at 2GB) to persist queued data points, so the number of threads controls the maximum amount of space that the proxy can use to buffer points locally.
-{% include warning.html content="This configuration was deprecated in version 6.0 because we redesigned the storage engine to improve spooling data to disk.." %}
+{% include warning.html content="This configuration was deprecated in version 6.0 because we redesigned the storage engine to improve spooling data to disk." %}
 </td>
 <td>Positive integer.
 <div>Ex: 4 </div>  </td>
-<td>Deprecated since 6.0.</td>
+<td>Before 6.0.</td>
 </tr>
 <tr>
 <td>server</td>
@@ -522,10 +522,19 @@ Ex: 0 </td>
 </thead>
 <tbody>
 <tr>
-<td>traceJaegerListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in the [span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
+<a name="traceJaegerHttpListenerPorts"></a> 
+<td>traceJaegerHttpListenerPorts</td>
+<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in the [span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>4.31 </td>
+<td>6.0 </td>
+</tr>
+<tr>
+<td>traceJaegerListenerPorts</td>
+<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in the <a href="trace_data_details.html#wavefront-span-format">span format</a>. <br/> Default: None.
+{% include warning.html content="This configuration was deprecated in version 6.0. Instead, use the <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
+</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
+<td>Before 6.0 </td>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
@@ -533,13 +542,6 @@ Ex: 0 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>6.0 </td>
 <a name="customTracingListenerPorts"></a>
-</tr>
-<tr>
-<a name="traceJaegerHttpListenerPorts"></a> 
-<td>traceJaegerHttpListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in the [span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
-<td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>6.0 </td>
 </tr>
 <tr>
 <td>traceListenerPorts</td>
