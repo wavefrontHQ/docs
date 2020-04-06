@@ -531,10 +531,10 @@ Ex: 0 </td>
 <tr>
 <td>traceJaegerListenerPorts</td>
 <td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in the <a href="trace_data_details.html#wavefront-span-format">span format</a>. <br/> Default: None.
-{% include warning.html content="This configuration was deprecated in version 6.0. Instead, use the <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
+{% include warning.html content="Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>Before 6.0 </td>
+<td>4.31</td>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
