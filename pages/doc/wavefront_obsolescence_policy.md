@@ -11,42 +11,23 @@ Product versions and features move to end-of-life as part of the normal software
 
 ## Lifecycle Stages
 
-<table class=" width: 100%;">
-<thead>
-<tr><th width="33%">Stage</th><th width="67%">Description</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>Active</td>
-<td>Recommended current release.</td>
-</tr>
-<tr>
-<td>Deprecated</td>
-<td>Feature, component, platform, or functionality that Wavefront is planning to remove in a future release.
-<p></p>
-Deprecated features are supported but no longer recommended. Bug fixes are at Wavefront's discretion. In particular, Wavefront may require migration to the new feature in lieu of fixing a bug in a deprecated feature.
-<p></p>
-Wavefront identifies deprecated features in the release notes for the release in which the feature is deprecated.</td>
-</tr>
-<tr>
-<td>End-of-Life</td>
-<td>No longer supported. Feature, component, platform, or functionality is no longer supported and may be removed from the product at any time.</td>
-</tr>
-</tbody>
-</table>
-<p></p>
+To help you plan for end-of-life dates, this page uses the folloing terms:
+
+* **Deprecated**. Feature, component, platform, or functionality that Wavefront is planning to remove in a future release. Deprecated features are supported but no longer recommended. Bug fixes are at Wavefront's discretion. In particular, Wavefront may require migration to the new feature in lieu of fixing a bug in a deprecated feature. Wavefront identifies deprecated features in the release notes for the release in which the feature is deprecated.
+*  **End-of-life**. No longer supported. Feature, component, platform, or functionality is no longer supported and may be removed from the product at any time.
+
 
 <h2>Wavefront Proxy</h2>
+
+Upgrade to the **latest GA release** of the Wavefront proxy to get the latest bug fixes and performance enhancements.
+
+The following proxy versions are scheduled to be deprecated or moved to end-of-life.
+
 <table class="width: 100%;">
 <thead>
 <tr><th width="33%">Version</th><th width="33%">Current Stage</th><th width="34%">End-of-Life Date</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>6.x (latest)</td>
-<td>Latest version is Active</td>
-<td>TBD</td>
-</tr>
 <tr>
 <td>5.x</td>
 <td>Deprecated</td>
@@ -59,7 +40,7 @@ Wavefront identifies deprecated features in the release notes for the release in
 </tr>
 <tr>
 <td>3.24 and lower</td>
-<td>Deprecated</td>
+<td>End-of-Life</td>
 <td>Jun 30, 2017</td>
 </tr>
 </tbody>
@@ -78,7 +59,7 @@ Wavefront identifies deprecated features in the release notes for the release in
 </tr>
 <tr>
 <td>1</td>
-<td>Deprecated</td>
+<td>End-of-Life</td>
 <td>Dec 31, 2017</td>
 </tr>
 </tbody>
