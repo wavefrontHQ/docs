@@ -17,7 +17,7 @@ lowpass(<traceDuration>, <tracesExpression>)
 lowpass(<spanDuration>, <spansExpression>)
 ```
 
-You can use `lowpass()` with time series, with traces, and with spans.
+You can use `lowpass()` with time series, with traces, and with spans. Multiple operators can be used at the same time. 
 
 <table style="width: 100%;">
 <colgroup>

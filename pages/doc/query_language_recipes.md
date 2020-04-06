@@ -18,7 +18,7 @@ The following recipes show how to compare time series.
 
 ### Compare With Operators (.lt, .gt, .le, .ge, .eq, .ne)
 
-Starting with release 2020.6.x, you can use comparison operators to compare time series with other time series or with constants. The operators enhance the functionality available through the `highpass()` and `lowpass()` functions.
+Starting with release 2020.10.x, you can use comparison operators to compare time series with other time series or with constants. The operators enhance the functionality available through the `highpass()` and `lowpass()` functions.
 
 * .lt (less than)
 * .gt (greater than)

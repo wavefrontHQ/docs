@@ -18,7 +18,7 @@ highpass(<spanDuration>, <spansExpression>)
 ```
 
 You can use `highpass()` with time series, with traces, or with spans.
-You can use the `.gt` operator with time series. 
+You can use the `.gt` operator with time series. Multiple operators can be used at the same time.  
 
 <table style="width: 100%;">
 <colgroup>
