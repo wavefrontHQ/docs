@@ -524,13 +524,13 @@ Ex: 0 </td>
 <tr>
 <a name="traceJaegerHttpListenerPorts"></a> 
 <td>traceJaegerHttpListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in the [Wavefront span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
+<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>6.0 </td>
 </tr>
 <tr>
 <td>traceJaegerListenerPorts</td>
-<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in the <a href="trace_data_details.html#wavefront-span-format">Wavefront span format</a>. <br/> Default: None.
+<td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in <a href="trace_data_details.html#wavefront-span-format">Wavefront span format</a>. <br/> Default: None.
 {% include warning.html content="Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
