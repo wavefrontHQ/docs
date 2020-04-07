@@ -23,8 +23,8 @@ You have two options for getting Spring Boot data into Wavefront:
 <tr>
 <td><strong>Setup</strong></td>
 <td>
-1. Set up Maven or Gradle<br>
-2. Customize the configuration file</td>
+1. Set up Maven or Gradle.<br>
+2. Customize the configuration file.ß</td>
 <td>Auto Configuration or Custom Configuration options</td>
 </tr>
 <tr>
