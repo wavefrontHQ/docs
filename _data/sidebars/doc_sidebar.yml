@@ -225,6 +225,10 @@ entries:
       url: /dashboards_variables.html
       output: web
 
+    - title: Manage External Links
+      url: /external_links_managing.html
+      output: web  
+
   - title: Query Language
     output: web
     folderitems:
@@ -421,21 +425,6 @@ entries:
             url: /integrations_log_data.html
             output: web
 
-      - title: Custom Integrations Setup
-        output: web
-        subfolderitems:
-
-          - title: Manage External Links
-            url: /external_links_managing.html
-            output: web
-
-          - title: Visualize Metrics with R
-            url: /integrations_r.html
-            output: web
-
-          - title:  Visualize Metrics with Python
-            url: /integrations_python.html
-            output: web
 
       - title: collectd Integrations
         output: web

@@ -8,7 +8,7 @@ summary: Reference to the ratediff() function
 ---
 ## Summary
 ```
-ratediff(<tsExpression>)
+ratediff([<lookbackWindow>,] <tsExpression>)
 ```
 Returns the differences between adjacent values in each time series described by the expression. The results include only positive changes in value. Use [`rate()`](ts_rate.html) if you want to see per-second rates of change.
 
@@ -23,6 +23,9 @@ Returns the differences between adjacent values in each time series described by
 <thead>
 <tr><th>Parameter</th><th>Description</th></tr>
 </thead>
+<tr>
+<td>lookbackWindow</td>
+<td>Optional time window that specifies how far back an alert should look for the last known value. </td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to return differences for. </td></tr>
@@ -68,6 +71,9 @@ A metric indicates a counter reset by reporting a lower data value immediately a
 
 `ratediff()` never returns a negative change in value.
 
+### Improve Alert Accuracy with lookbackWindow Parameter
+
+The optional first parameter is for situations where an alert does not check far back enough for the last known value and might behave incorrectly. Specify this parameter with the same units as a [time window](query_language_reference.html#common-parameters).
 
 ## Examples
 

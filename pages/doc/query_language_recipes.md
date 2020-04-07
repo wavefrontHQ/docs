@@ -16,6 +16,7 @@ We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use m
 
 The following recipes show how to compare time series.
 
+<!---
 ### Compare With Operators (.lt, .gt, .le, .ge, .eq, .ne)
 
 Starting with release 2020.6.x, you can use comparison operators to compare time series with other time series or with constants. The operators enhance the functionality available through the `highpass()` and `lowpass()` functions.
@@ -32,6 +33,7 @@ You can use more than one of the operators on the query line to return only valu
 For example, you can show all values that are greater than 70 and less than 85 with the following query:
 
 `ts(~sample.mem.used.percentage).gt(70).lt(85)`
+--->
 
 ### Show Ratio Between Two Time Series
 

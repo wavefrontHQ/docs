@@ -3,6 +3,7 @@ title: Visualizing Metrics with R
 keywords: integrations
 tags: [integrations]
 sidebar: doc_sidebar
+published: false
 permalink: integrations_r.html
 summary: Learn how to use R to visualize metrics in Wavefront.
 ---
