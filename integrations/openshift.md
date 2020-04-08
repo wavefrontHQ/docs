@@ -120,3 +120,4 @@ If you do not see metrics in the Kubernetes dashboard, check the logs from the c
 
 ### Horizontal Pod Autoscaling (HPA)
 Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
+

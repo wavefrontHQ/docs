@@ -47,3 +47,4 @@ Create a file called `zookeeper.conf` in `/etc/telegraf/telegraf.d` and enter th
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

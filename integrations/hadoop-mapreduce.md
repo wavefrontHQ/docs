@@ -76,3 +76,4 @@ commands = [
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

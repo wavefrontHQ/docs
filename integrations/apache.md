@@ -86,3 +86,4 @@ insecure_skip_verify = false
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart the Telegraf agent.
+

@@ -34,3 +34,4 @@ In addition to setting up the metrics flow, this integration also installs a das
 6. Navigate back to the Installation dashboard and click **Apply Changes**.
 
 Wavefront monitoring will be active for any cluster that is created after you have saved the configuration settings and applied the changes.
+

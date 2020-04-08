@@ -45,3 +45,4 @@ Apache Spark is an open-source cluster-computing framework. This integration exp
     * **Note**: Replace `.` in the hostname with `_`. For example, enter `spark.prod_host1` instead of `spark.prod.host1`.
 5. Distribute the `metrics.properties` file to all your Spark nodes.
 6. Restart your **master** and **slaves** nodes.
+
