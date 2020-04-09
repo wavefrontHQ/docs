@@ -534,7 +534,7 @@ Ex: 0 </td>
 {% include warning.html content="Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>4.31</td>ß
+<td>4.31</td>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
