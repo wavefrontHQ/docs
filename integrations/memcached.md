@@ -44,3 +44,4 @@ servers = ["your.memcached.server1:11211","your.memcached.server2:11211","your.m
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

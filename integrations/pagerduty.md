@@ -45,3 +45,4 @@ Edit the alert and set the alert target.
    - PagerDuty API integration key - Paste the API integration key into the Targets field and press Enter.
    - PagerDuty email address - Paste the email address into the Targets field and press Enter.
 1. Click **Save**.
+

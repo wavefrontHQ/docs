@@ -101,3 +101,4 @@ Create a `tail.conf` file in `/etc/telegraf/telegraf.d` and enter the following 
 ### Step 5. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

@@ -212,3 +212,4 @@ new JvmThreadMetrics().bindTo(registry); (5)
   3. Gauges max and live data size, promotion and allocation rates, and times GC pauses (or concurrent phase time in the case of CMS).
   4. Gauges current CPU total and load average.
   5. Gauges thread peak, number of daemon threads, and live threads.
+

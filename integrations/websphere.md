@@ -86,3 +86,4 @@ Or, you can put the PMI level to `all`, and you will get more metrics the you ca
 ### Step 6. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

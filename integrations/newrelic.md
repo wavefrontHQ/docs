@@ -30,3 +30,4 @@ Adding a New Relic integration requires establishing a trust relationship betwee
 You can then configure Wavefront to continually load application data.
 
 
+

@@ -60,11 +60,6 @@ This table provides links to the documentation pages for many of the custom and 
 </td>
 </tr>
 <tr>
-<td>Custom integrations - Data Collector</td>
-<td markdown="span">[External links](external_links_managing.html), [R](integrations_r.html)
-</td>
-</tr>
-<tr>
 <td>Custom integrations - collectd</td>
 <td markdown="span"> [Apache collectd](integrations_collectd_apache.html), [Cassandra collectd](integrations_collectd_cassandra.html), [MySQL collectd](integrations_collectd_mysql.html), [NGINX collectd](integrations_collectd_nginx.html), [Redis collectd](integrations_collectd_redis.html), [ZooKeeper collectd](integrations_collectd_zookeeper.html)
 </td>

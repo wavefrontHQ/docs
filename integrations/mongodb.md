@@ -61,3 +61,4 @@ Replace the `servers` value  above with the URL of your mongoDB server.
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

@@ -84,3 +84,4 @@ curl -X GET --header "Accept: application/json" --header "Authorization: YOUR_AP
  * `400`: For any query that returns a non boolean value
  * `404`: For query result `0`
  * `500`: Internal Service Error for any query result errors
+

@@ -52,3 +52,4 @@ For more options see the [Telegraf documentation](https://github.com/influxdata/
 ### Step 4. Restart Telegraf
 
 After any changes restart your Telegraf agent service.
+

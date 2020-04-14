@@ -145,3 +145,4 @@ urls = ["http://10.152.24.99:8080/jolokia"]
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

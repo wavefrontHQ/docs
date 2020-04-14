@@ -41,3 +41,4 @@ Create a file called `kong.conf` in `/etc/telegraf/telegraf.d` and enter the fol
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

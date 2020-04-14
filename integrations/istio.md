@@ -70,3 +70,4 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefro
 #### Step 2. Set up Istio to Send Traces to Wavefront Proxy
 
 Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/istio) to allow Istio to re-direct its traces to the Wavefront proxy.
+

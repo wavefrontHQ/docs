@@ -41,3 +41,4 @@ Create a `phpfpm.conf` file in `/etc/telegraf/telegraf.d` and add the following 
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

@@ -42,3 +42,4 @@ You can send Graphite data to Wavefront only or <a href="#duplicate">duplicate G
 1. Stop carbon-agent, and any previous (if running) carbon-relay.
 1. Start carbon-relay then carbon-agent. Metrics should now be duplicated in Wavefront.
 
+

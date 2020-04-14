@@ -159,3 +159,4 @@ urls = ["http://datanode.foo.com:7778/jolokia","http://datanode2.foo.com:7778/jo
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

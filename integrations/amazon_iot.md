@@ -75,3 +75,4 @@ Setting up an Amazon cloud integration requires establishing a trust relationshi
 You start by granting Wavefront read-only access to your Amazon account or by giving Wavefront the permissions listed in [AWS Metrics Integration](https://docs.wavefront.com/integrations_aws_metrics.html).
 
 
+

@@ -141,3 +141,4 @@ You can use the JBoss Management UI to enable these statistics.
 ### Step 5. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

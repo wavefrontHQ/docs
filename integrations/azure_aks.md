@@ -47,3 +47,4 @@ Adding an Azure cloud integration requires establishing a trust relationship bet
 The process first creates an Azure Active Directory application that represents Wavefront inside Azure. Then you retrieve information for that application, and paste it into the form on the far left to complete the trust setup. 
 
 
+

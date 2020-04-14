@@ -137,3 +137,4 @@ metricRegistry.register("jvm.memory", new MemoryUsageGaugeSet());
 metricRegistry.register("jvm.thread-states", new ThreadStatesGaugeSet());
 ```
 {% endraw %}
+

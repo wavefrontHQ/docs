@@ -24,3 +24,4 @@ This integration uses various Telegraf input plugins and offers several setup op
 * Choose automatic installation or manual installation and configuration.
 
 {% include telegraf.md %}
+

@@ -50,3 +50,4 @@ Configure global tags in the `telegraf.conf` file to group etcd nodes into clust
 Run `sudo service telegraf restart` to restart your agent.
 
 
+

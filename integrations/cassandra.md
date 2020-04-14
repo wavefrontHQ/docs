@@ -180,3 +180,4 @@ Replace the cassandra_host field with your Cassandra server hostname that have i
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

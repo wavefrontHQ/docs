@@ -54,3 +54,4 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefro
 * Modify the Zipkin cluster to point to the Wavefront proxy.
 
 Look at the sample deployment [here](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/aws-appmesh/deploy/tracing-config.yaml).
+
