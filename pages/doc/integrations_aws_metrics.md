@@ -190,7 +190,7 @@ Unless otherwise indicated, Wavefront sets the value of the AWS Metrics+ `source
 
     {% include note.html content="To examine these metrics, your account needs at least the Business-level AWS Support plan because the integration uses the Support API to pull service limits. You also need both ReadOnlyAccess and AWSSupportAccess. See [Giving Wavefront Read-Only Access](integrations_aws_metrics.html#giving-wavefront-global-read-only-access) for details." %}
 
-## AWS Metrics+ Service Limits
+## AWS Metrics+ Trusted Advisor Service Limits
 
 Each AWS account has limits on the amount of resources that are available to you for each AWS service. You can monitor and manage your resource usage and limits using the AWS service limit metrics in Wavefront.
 
@@ -212,8 +212,11 @@ To visualize your usage for EC2 On-Demand Instances per region, you can run the 
 ts(aws.limits.on_demand_instances_*.usage)
 ```
 
-### Example Alert for Service Limits
+### Example Alert for Trusted Advisor Service Limits
 
+Sample alerts from the Wavefront Ops team are [on this page](aws_trusted_advisor_alerts.html). 
+
+The following alert is a simple illustration for how alerts like this work.
 
 You can set up an alert to notify you when data reach a certain threshold.
 
