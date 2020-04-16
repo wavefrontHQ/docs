@@ -10,8 +10,10 @@ Wavefront set up the AWS Metrics+ integration and uses AWS Trusted Advisor Servi
 
 ## Shared Settings and Sample Screenshot
 
-* Each alert fires if the condition is true for 30 minutes.
-* Each alert is set to WARN.
+Each alert is set up as follows:
+* Alert fires if usage is **more than 80% of the limit**.
+* Alert fires if the condition is **true for 30 minutes**.
+* Each alert is set to **WARN**.
 
 Here's a sample screenshot of the first alert:
 
@@ -42,10 +44,8 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * (ts(aws.limits.on_demand_instances_standard.usage)) / (ts(aws.limits.on_demand_instances_standard.limit)), metric, resource, "^.*?\.([a-z][0-9]\.[a-z0-9]+).*$", "$1") > 79
+aliasSource(100 * (ts(aws.limits.on_demand_instances_standard.usage)) / (ts(aws.limits.on_demand_instances_standard.limit)), metric, resource, "^.*?\.([a-z][0-9]\.[a-z0-9]+).*$", "$1") > 80
 ```
-The alert fires if the condition has been true for 30 minutes.
-The alert resolves if the condition is false for 30 minutes.
 
 **Alert Display Expression**
 ```
@@ -62,10 +62,8 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-100 * (sum(aliasSource(ts(aws.limits.active_load_balancers.usage), tagk, region, 0), sources)) / (sum(aliasSource(ts(aws.limits.active_load_balancers.limit), tagk, region, 0), sources)) > 79
+100 * (sum(aliasSource(ts(aws.limits.active_load_balancers.usage), tagk, region, 0), sources)) / (sum(aliasSource(ts(aws.limits.active_load_balancers.limit), tagk, region, 0), sources)) > 80
 ```
-The alert fires if the condition has been true for 30 minutes.
-The alert resolves if the condition is false for 30 minutes.
 
 **Alert Display Expression**
 ```
