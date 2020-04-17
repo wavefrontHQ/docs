@@ -39,7 +39,7 @@ Users with **External Links** permission can create and modify external links.
 1. Select **Browse > External Links**.
 1. Click **Create External Link**.
 1. Specify a link name and description.
-1. Optionally specify metric name, source name, and point tag value filters as Javascript regular expressions that the series must match.
+1. (Optional) If you want to limit which series show the external link, you can specify a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu. 
     <table>
     <colgroup>
     <col width="20%" />
