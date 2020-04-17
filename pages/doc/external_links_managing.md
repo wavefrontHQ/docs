@@ -21,52 +21,33 @@ External links are general purpose: you can link through to any type of system a
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage](external_links_managing.html) external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-## Navigating to an External Link
+## Navigate to an External Link
 
 All users can use the right-click menu on a time series to navigate to an external link.
 * By default, the external link shows up on all time series.
 * If the creator of the external link specified a filter, the **External Link** menu only shows the link on specified time series.
 
+**To navigate to an external link:**
 1. Right-click a series.
 1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created.
 
    ![External links](images/external_link_v2.png)
 
-## Creating an External Link
+## Create an External Link
 
 Users with **External Links** permission can create and modify external links.
 
 1. Select **Browse > External Links**.
 1. Click **Create External Link**.
 1. Specify a link name and description.
-1. (Optional) If you want to limit which series show the external link, you can specify a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu. 
-    <table>
-    <colgroup>
-    <col width="20%" />
-    <col width="50%" />
-    <col width="30%" />
-    </colgroup>
-    <thead>
-    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Metric Filter Regex</td>
-    <td>A regular expression that metric names must match.</td>
-    <td>jvm.memory.heap\w+</td>
-    </tr>
-    <tr>
-    <td>Source Filter Regex</td>
-    <td>A regular expression that source names must match.</td>
-    <td>co-2a-app[0-9]+-i-\d+</td>
-    </tr>
-    <tr>
-    <td>Point Tag Filter Regexes</td>
-    <td>A point tag key and a regular expression that point tag values must match. Click the plus sign after you specify the regex. </td>
-    <td><strong>Tag Key</strong>=env<br/><strong>Filter Regex</strong>=prod\w+</td></tr></tbody></table>
+2. Specify the [Link URL template]().
+3. (Optional) If you want to limit which series show the external link, [specify a filter]. a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu.
+4. Click **Save**.
 
-    Specify the external link URL template. The template employs [Mustache syntax](https://mustache.github.io/). The template supports these properties:
-    <table>
+### Link URL Template Syntax
+
+The link URL template uses [Mustache syntax](https://mustache.github.io/). The template supports these properties:
+<table>
     <thead>
     <tr><th width="40%">Property</th><th width="60%">Description</th></tr>
     </thead>
@@ -88,10 +69,10 @@ Users with **External Links** permission can create and modify external links.
     <td>One or more point tag names associated with the series.</td>
     </tr>
     </tbody>
-    </table>
+</table>
 
-    You can apply functions to transform the URL. All functions begin with the namespace `functions`.
-    <table>
+You can apply functions to transform the URL. All functions begin with the namespace `functions`.
+<table>
     <thead>
     <tr><th width="60%">Function</th><th width="40%">Description</th></tr>
     </thead>
@@ -126,24 +107,43 @@ Users with **External Links** permission can create and modify external links.
     </td>
     </tr>
     </tbody>
-    </table>
-1. Click **Save**.
+</table>
 
+### Link URL Template Examples
 
-
-## Example URL Templates
-
-The following 2 templates go to a specified URL when the user right-clicks a time series and selects the external link.
-
-### Template Passing in Source
-
-The following URL template goes to `scalyr.com` and passes in the source of the series and the start and end time of the chart if a user right-clicks on a series.
-
+Here's the simplest possible example, directing you to the `example.com` domain.
+{% raw %}
+```handlebars
+https://example.com/{{source}}
 ```
+{% endraw %}
+
+The following external link URL template goes to `scalyr.com` and passes in the source of the series and the start and end time of the chart if a user right-clicks on a series.
+
+{% raw %}
+```handlebars
 https://www.scalyr.com/events?logSource={{{source}}}&startTime={{startEpochMillis}}&endTime={{endEpochMillis}}
 ```
+{% endraw %}
 
-### Template Using Point Tag Name
+The next external link URL template looks for a service trace in the distributed traces.
+
+{% raw %}
+```handlebars
+https://demo.wavefront.com/tracing/service/{{namespace_name}}/{{container_name}}#_v01(g:(d:7200,ls:!t,s:{{#functions.epochMillisToEpochSeconds}}{{startEpochMillis}}{{/functions.epochMillisToEpochSeconds}},e:{{#functions.epochMillisToEpochSeconds}}{{endEpochMillis}}{{/functions.epochMillisToEpochSeconds}}),p:(cluster:(v:'*'),shard:(v:'*'),source:(v:'*')))
+```
+{% endraw %}
+
+The following external link URL template displays an event on the Events page when you click the event in a chart.
+
+Replace `<my_instance>` with the name of your Wavefront instance.
+
+{% raw %}
+```handlebars
+https://<my_instance>.wavefront.com/events?search=%7B%22searchTerms%22%3A%5B%7B%22type%22%3A%22freetext%22%2C%22value%22%3A%22{{alertId}}%22%7D%5D%2C%22sortOrder%22%3A%22ascending%22%2C%22sortField%22%3Anull%2C%22pageNum%22%3A1%2C%22cursor%22%3A%22%22%2C%22direction%22%3A%22forward%22%2C%22timeRange%22%3A%7B%22start%22%3A{{startEpochMillis}}%2C%22quickTime%22%3Anull%2C%22end%22%3A{{endEpochMillis}}%7D%7D&tagPathTree=%7B%7D
+```
+{% endraw %}
+
 The following external link URL template references the point tag name `service`:
 
 {% raw %}
@@ -152,52 +152,41 @@ http://<hostname>?time:(from:'{{#functions.epochMillisToISO}}{{startEpochMillis}
 ```
 {% endraw %}
 
-This template contains the substring:
 
-{% raw %}
-```handlebars
-{{#functions.urlEncode}}host:{{source}} AND source:"/mnt/logs/{{service}}.log"{{/functions.urlEncode}}
-```
-{% endraw %}
+### Filter Regex Syntax
 
-Assuming `source=test` and `service=alerting`, the template evaluates to:
-
-{% raw %}
-```handlebars
-{{#functions.urlEncode}}host:test AND source:"/mnt/logs/alerting.log"{{/functions.urlEncode}}
-```
-{% endraw %}
-
-The string inside the function delimiters is URL encoded as:
-
-{% raw %}
-```handlebars
-host%3Atest%20AND%20source%3A%22%2Fmnt%2Flogs%2Falerting.log%22
-```
-{% endraw %}
-
-## Example Filters
-
-When you specify a filter, only time series that match the filter show the right-button menu for the external link. Here are some examples.
+Filters are optional but allow you to show the external link only on certain time series.
 
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr><th>Example</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>Metric Filter Regex: jvm&#92;.memory&#92;.heap\w+</td>
-<td>Matches time series with a metric that includes <code>jvm.memory.heap</code> and an arbitrary number of characers. Uses backslash to escape the period (.) special characters.</td>
-</tr>
-<tr>
-<td>Source Filter Regex: wavefront-2a-app[0-9]+-i-&#92;d+</td>
-<td>Matches time series with a source that includes the string wavefront-2a-app, followed by numeric characters.</td>
-</tr>
-<tr>
-<td>Point Tag Filter Regexes -- Tag Key: <strong>az</strong> Filter Regex<strong>us-west-2</strong></td>
-<td>Matches any time series that includes a point tag <strong>az</strong> that has a value <strong>us-west-2<strong>. You must click the + after the Filter Regex to add the filter. </td>
-<</tr></tbody></table>
+    <colgroup>
+    <col width="20%" />
+    <col width="50%" />
+    <col width="30%" />
+    </colgroup>
+    <thead>
+    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Metric Filter Regex</td>
+    <td>Regular expression that metric names must match.</td>
+    <td>jvm.memory.heap\w+</td>
+    </tr>
+    <tr>
+    <td>Source Filter Regex</td>
+    <td>Regular expression that source names must match.</td>
+    <td>co-2a-app[0-9]+-i-\d+</td>
+    </tr>
+    <tr>
+    <td>Point Tag Filter Regexes</td>
+    <td>Point tag key and a regular expression that point tag values must match. Click the plus sign after you specify the regex. </td>
+    <td><strong>Tag Key</strong>=env<br/><strong>Filter Regex</strong>=prod\w+</td></tr></tbody>
+</table>
+
+### Filter Regex Example
+
+When you specify a filter, only time series that match the filter show the right-button menu for the external link.
+
+The following screenshot shows an example that specifies all three types of filters.
+
+![Example filters for external links](images/edit_external_links_example.png)
