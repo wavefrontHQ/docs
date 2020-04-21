@@ -60,8 +60,8 @@ folder: labels
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="integrations_r.html" class="btn btn-primary btn-block">R and More</a></p>
-             <p>Code-driven custom integration setup. </p>
+             <p><a href="kubernetes.html" class="btn btn-primary btn-block">Kubernetes</a></p>
+             <p>Tanzu and Kubernetes integrations</p>
          </div>
      </div>
  </div>
