@@ -186,6 +186,8 @@ All users can set the value of the list variable:
 
 The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
+Starting with release, 2020.14, we support wildcards for point tag dynamic variables, discussed below.
+
 ### Dynamic Dashboard Variable Field Options
 
 Dynamic dashboard variables allow you to select one of the following options:
@@ -194,7 +196,7 @@ Dynamic dashboard variables allow you to select one of the following options:
 -   **Source Tag** - Populates the dynamic variable list with source tags that match `"tag="` part of your ts() expression. For example `ts(cpu.load, tag=app*)` populates the dynamic variable list with `"app-tag1"`, `"app-tag2"` and so on.
 -   **Matching Source Tag** - This will get all of the sources from your ts() expression, then, find all the source tags associated with those sources and populate the dynamic variable list with those source tags. If the query returns at least 1 source associated with a source tag, **Matching Source Tag** will display source tags.
 -   **Metric** - Populates the  dynamic variable list with metrics associated with the query in the Query field.
--   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.
+-   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field. Starting with release, 2020.14, we support wildcards for point tag dynamic variables. That means users can select from the existing point tag values, or show results for all values.
 
 The example below uses the **Metric** field to populate a dynamic variable list.
 
@@ -206,17 +208,17 @@ If you define a dynamic dashboard variable named **var2** that refers to a sourc
 
 ### Create a Dynamic Dashboard Variable
 
-The following example uses the
+This example uses a point tag dynamic variable. Starting with release 2020.14, you can select a point tag value or the wildcard character to mean all possible values for the point tag.
 
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
-2. Specify the Variable Type **Dynamic**.
-3. In the Field pulldown menu, select one of the options, for example, **Source**.
-5. Type a query that uses the option you selected, for example, that uses `"source=`
+2. Select the Variable Type **Dynamic**.
+3. In the Field pulldown menu, select one of the options, for example, **Point Tag**.
+5. Type a query that has results.
 6. Select a default value and click **Accept**.
 4. Click **Save** in the top right to save your dashboard and the dashboard variable.
 
-![create_dynamic_variable.png](images/create_dynamic_variable.png)
+![create_dynamic_variable.png](images/create_dynamic_variable_point_tag.png)
 
 
 ### Use the Dynamic Variable
@@ -224,8 +226,9 @@ The following example uses the
 1. Find the variable in the variables bar at the top of the dashboard.
 2. Select the variable value from the dropdown.
 
-Users can then use `${var2}` in queries, and select from the options in the field corresponding to the label.
+In this example, we can filter the dashboard to set the point tag `env` to `prod`, to `dev`, or to allow both values.
 
+![set_dynamic_variable.png](images/select_point_tag_variable_menu.png)
 
 ### Dynamic Variable Example
 
@@ -234,7 +237,7 @@ The following example uses the `~sample` data included in your Wavefront instanc
 First, we create the dynamic variable:
 1. Specify a variable name and type Dynamic.
 2. Select the field **Source**
-3. Specify a query that you could filter by source, in this example, 1ts(~sample.cpu.loadavg.1m)
+3. Specify a query that you could filter by source, in this example, `ts(~sample.cpu.loadavg.1m)`
    As soon as we've specified the query, the Current Values list is populated. This list is updated dynamically.
 4. (Optional) Change the default and hide the variable when the dashboard is not in Edit mode.
 5. Specify a display name and click **Accept**, then click **Save** to save the dashboard.
