@@ -214,7 +214,7 @@ ts(aws.limits.on_demand_instances_*.usage)
 
 ### Example Alert for Trusted Advisor Service Limits
 
-Sample alerts from the Wavefront Ops team are [on this page](aws_trusted_advisor_alerts.html). 
+Sample alerts from the Wavefront Ops team are [on this page](aws_trusted_advisor_alerts.html).
 
 The following alert is a simple illustration for how alerts like this work.
 

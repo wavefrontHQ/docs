@@ -23,13 +23,13 @@ Here's a sample screenshot of the first alert:
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.launch_configurations.usage) / ts(aws.limits.launch_configurations.limit), tagk, accountId, 0) > 80
+100 * (ts(aws.limits.launch_configurations.usage) / ts(aws.limits.launch_configurations.limit)) > 80
 ```
 
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.launch_configurations.usage), tagk, accountId, 0)
+ts(aws.limits.launch_configurations.usage)
 ```
 
 The alert informs the recipients with this information:
@@ -44,12 +44,12 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * (ts(aws.limits.on_demand_instances_standard.usage)) / (ts(aws.limits.on_demand_instances_standard.limit)), metric, resource, "^.*?\.([a-z][0-9]\.[a-z0-9]+).*$", "$1") > 80
+100 * (ts(aws.limits.on_demand_instances_standard.usage)) / (ts(aws.limits.on_demand_instances_standard.limit)) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.on_demand_instances_standard.usage), metric, resource, "^.*?\.([a-z][0-9]\.[a-z0-9]+).*$", "$1")
+ts(aws.limits.on_demand_instances_standard.usage)
 ```
 The alert informs the recipients with this information:
 
@@ -57,7 +57,7 @@ The alert informs the recipients with this information:
 Open a support case w/ AWS to increase the limit if possible (otherwise consider a less populated region/account to build the infrastructure in)
 ```
 
-
+<!---
 ## AWS Limits on Available Load Balancers
 
 **Alert Condition**
@@ -74,17 +74,18 @@ The alert informs the recipients with this information:
 ```
 Open a support case w/ AWS to increase the limit if possible (otherwise consider a less populated region/account to build the infrastructure in if this is net new work)
 ```
+--->
 
 ## AWS Limits on VPC EIPs
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.vpc_elastic_ip_addresses_eips.usage) / ts(aws.limits.vpc_elastic_ip_addresses_eips.limit), tagk, accountId, 0) > 80
+100 * ts(aws.limits.vpc_elastic_ip_addresses_eips.usage) / ts(aws.limits.vpc_elastic_ip_addresses_eips.limit) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.vpc_elastic_ip_addresses_eips.usage), tagk, accountId, 0)
+ts(aws.limits.vpc_elastic_ip_addresses_eips.usage)
 ```
 
 The alert informs the recipients with this information:
@@ -96,12 +97,12 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.auto_scaling_groups.usage) / ts(aws.limits.auto_scaling_groups.limit), tagk, accountId, 0) > 80
+100 * ts(aws.limits.auto_scaling_groups.usage) / ts(aws.limits.auto_scaling_groups.limit) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.auto_scaling_groups.usage), tagk, accountId, 0)
+ts(aws.limits.auto_scaling_groups.usage)
 ```
 
 The alert informs the recipients with this information:
@@ -113,12 +114,12 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.vpcs.usage) / ts(aws.limits.vpcs.limit), tagk, accountId, 0) > 90
+100 * ts(aws.limits.vpcs.usage) / ts(aws.limits.vpcs.limit) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.vpcs.usage), tagk, accountId, 0)
+ts(aws.limits.vpcs.usage)
 ```
 
 The alert informs the recipients with this information:
@@ -130,12 +131,12 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.general_purpose_ssd_gp2_volume_storage_gib.usage) / ts(aws.limits.general_purpose_ssd_gp2_volume_storage_gib.limit), tagk, accountId, 0) > 80
+100 * ts(aws.limits.general_purpose_ssd_gp2_volume_storage_gib.usage) / ts(aws.limits.general_purpose_ssd_gp2_volume_storage_gib.limit) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.general_purpose_ssd_gp2_volume_storage_gib.usage), tagk, accountId, 0)
+ts(aws.limits.general_purpose_ssd_gp2_volume_storage_gib.usage)
 ```
 
 The alert informs the recipients with this information:
@@ -147,12 +148,12 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.active_volumes.usage) / ts(aws.limits.active_volumes.limit), tagk, accountId, 0) > 80
+100 * ts(aws.limits.active_volumes.usage) / ts(aws.limits.active_volumes.limit) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.active_volumes.usage), tagk, accountId, 0)
+ts(aws.limits.active_volumes.usage)
 ```
 
 The alert informs the recipients with this information:
@@ -164,12 +165,12 @@ Open a support case w/ AWS to increase the limit if possible (otherwise consider
 
 **Alert Condition**
 ```
-aliasSource(100 * ts(aws.limits.roles.usage) / ts(aws.limits.roles.limit), tagk, accountId, 0) > 80
+100 * ts(aws.limits.roles.usage) / ts(aws.limits.roles.limit) > 80
 ```
 
 **Alert Display Expression**
 ```
-aliasSource(ts(aws.limits.roles.usage), tagk, accountId, 0)
+ts(aws.limits.roles.usage)
 ```
 
 The alert informs the recipients with this information:

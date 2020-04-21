@@ -73,7 +73,7 @@ Wavefront automatically disables integrations that are experiencing errors due t
 
 ## Giving Wavefront Global Read-Only Access
 
-Data flows from AWS to Wavefront only if the account has the required access. You have several options: 
+Data flows from AWS to Wavefront only if the account has the required access. You have several options:
 
 <table style="width: 100%;">
 <colgroup>
@@ -134,25 +134,23 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
 
 The permissions we require depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
-  <tr>
-    <th scope="col">Integration</th>
-    <th scope="col">Description</th>
-    <th scope="col">Required Permissions </th>
-  </tr>
-  <tr>
+<thead>
+<tr><th width="25%">Integration</th><th width="40%">Description</th><th width="45%">Required Permissions</th></tr>
+</thead>
+<tr>
     <td>CloudWatch</td>
     <td>Retrieves AWS metric and dimension data </td>
     <td><p>ListMetrics<br />
       GetMetric*</p>
     </td>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <td>CloudTrail <br /></td>
     <td>Retrieves EC2 event information and creates Wavefront System events </td>
     <td><p>List and Get permissions on the S3 bucket where the logs are delivered.</p>
     </td>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <td>AWS Metrics+ </td>
     <td>Retrieves additional metrics using AWS APIs </td>
     <td>ec2:DescribeVolumes<br />
@@ -166,14 +164,14 @@ The permissions we require depend on the integration and on the service you want
     eks:Describe*<br />
     eks:List*<br />
     </td>
-  </tr>
-  <tr>
+</tr>
+<tr>
     <td>AWS Metrics+ <br>Service Limit Metrics</td>
     <td>Retrieves service limit metrics using AWS APIs. Requires at least a Business Level AWS Support plan.  </td>
     <td>support:DescribeTrustedAdvisorChecks<br />
 support:RefreshTrustedAdvisorCheck<br />
 support:DescribeTrustedAdvisorCheckResult<br /></td>
-  </tr>
+</tr>
 </table>
 
 ### Create IAM Policy to Specify Limited Access
