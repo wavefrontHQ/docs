@@ -57,17 +57,16 @@ The alert informs the recipients with this information:
 Open a support case w/ AWS to increase the limit if possible (otherwise consider a less populated region/account to build the infrastructure in)
 ```
 
-<!---
 ## AWS Limits on Available Load Balancers
 
 **Alert Condition**
 ```
-100 * (sum(aliasSource(ts(aws.limits.active_load_balancers.usage), tagk, region, 0), sources)) / (sum(aliasSource(ts(aws.limits.active_load_balancers.limit), tagk, region, 0), sources)) > 80
+100 * (ts(aws.limits.active_load_balancers.usage) /ts(aws.limits.active_load_balancers.limit)) > 80
 ```
 
 **Alert Display Expression**
 ```
-(sum(aliasSource(ts(aws.limits.active_load_balancers.usage), tagk, region, 0), sources))
+ts(aws.limits.active_load_balancers.usage)
 ```
 
 The alert informs the recipients with this information:
