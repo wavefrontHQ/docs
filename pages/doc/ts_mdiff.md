@@ -41,7 +41,7 @@ This function does not interpolate any data values before doing the subtraction.
 ## Examples
 In this example, we're starting with a single time series.
 
-!ts mdiff before](images/ts_mdiff_before.png)
+![ts mdiff before](images/ts_mdiff_before.png)
 
 In the following chart, each point in the green time series represents the current value minus the value 15 minutes ago.
 
