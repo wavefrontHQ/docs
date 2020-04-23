@@ -57,3 +57,4 @@ To capture metrics from Github you should configure your Organization's Webhooks
 7. Select **Send me everything**.
 8. Leave the **Active** checkbox checked.
 9. Click on **Add webhook** to save the webhook.
+

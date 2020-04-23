@@ -52,3 +52,4 @@ Replace `serverip` with the IP of your CouchDB instance. Replace `username` and 
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

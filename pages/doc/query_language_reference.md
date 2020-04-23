@@ -1441,6 +1441,10 @@ Each histogram input conversion function in the following table takes histogram 
 <td>
 Aligns a series of histogram distributions into a single time bucket for the current chart (1vw), and then returns the significant values from the resulting composite distribution. The aligned summary includes a separate constant time series for each <strong>percentage</strong> percentile. By default, the summary includes series for:  max, 99.9, 99, 95, 90, 75, avg, median (50), 25, and min. </td>
 </tr>
+<tr>
+<td><a href="hs_stddev.html">stddev(<strong>&lt;hsExpression&gt;</strong>)</a></td>
+<td>Returns time series that show you how the data in your <strong>hsExpression</strong> is distributed around the mean.</td>
+</tr>
 </tbody>
 </table>
 

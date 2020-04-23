@@ -260,3 +260,4 @@ Edit the `/etc/telegraf/telegraf.conf` to modify Telegraf agent level settings:
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 
+

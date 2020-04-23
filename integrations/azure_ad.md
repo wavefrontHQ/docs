@@ -34,3 +34,4 @@ An [Azure AD Premium subscription](https://www.microsoft.com/en-us/cloud-platfor
 1. Send the metadata XML file that you saved earlier to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up Azure AD integration for Wavefront. 
 
 After we've completed the setup, users can authenticate to Wavefront through Azure AD instead of using a password. New Azure AD users are auto-created on the Wavefront side when they authenticate for the first time. 
+

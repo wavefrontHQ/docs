@@ -14,6 +14,8 @@ cumulativeHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
 
 Converts a cumulative histogram coming from Prometheus, Telegraf, or other source to an ordinary histogram in Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
 
+{% include note.html content ="Always use the `_bucket` metric. The `_count` and `_sum` metrics won't return results. "%}
+
 
 ## Parameters
 <table>

@@ -54,3 +54,4 @@ Metrics in Wavefront are strings separated by a . character, e.g. `system.cpu.lo
 1. Run the script: `./zabbixDBAdapter.py`. Stop the script by pressing **Control+C**.
 
 The script saves the latest clock interval that it has processed in the files `last_history_clock.hist` and `last_historyuint_clock.hist` in the same working directory as the script is run from. The initial clock time is “now”. If you want to start retrieving values from some point in the past, create those files and enter your preferred start time.
+

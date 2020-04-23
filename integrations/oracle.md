@@ -114,3 +114,4 @@ Restart the Telegraf service using the Windows Services Management Console or fr
   net start telegraf
 ```
 {% endraw %}
+

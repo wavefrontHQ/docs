@@ -107,3 +107,4 @@ password = "admin"
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

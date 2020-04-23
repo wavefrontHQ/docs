@@ -236,7 +236,7 @@ table th[class*="col-"] {
 
 
 table td:first-child {
-    width: 450px;
+    width: 150px;
     /*font-weight:bold;*/
 }
 

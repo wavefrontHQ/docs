@@ -78,3 +78,4 @@ For details on Ceph configuration, see the [Ceph documentation](http://docs.ceph
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

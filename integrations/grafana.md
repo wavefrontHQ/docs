@@ -37,3 +37,4 @@ cp -R grafana-wavefront-datasource/dist/* /var/lib/grafana/plugins/wavefront-dat
 ```
 {% endraw %}
 1. Restart Grafana.
+

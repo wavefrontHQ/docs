@@ -54,3 +54,4 @@ Create a `telegraf.conf` file in `/etc/telegraf/telegraf.d` and add the followin
 ### Restart Telegraf
 
 {% include telegraf_restart.md %}
+
