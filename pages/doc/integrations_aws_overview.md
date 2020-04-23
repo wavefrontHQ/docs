@@ -178,10 +178,6 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 
 You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet.
 
-{% include note.html content="If you want to retrieve Service Limit metrics, you also have to add `support:DescribeTrustedAdvisorChecks`,
-`support:RefreshTrustedAdvisorCheck`, and
-`support:DescribeTrustedAdvisorCheckResult` to the file." %}
-
 ```
 {
     "Version": "2012-10-17",
@@ -199,7 +195,10 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",
                 "eks:Describe*",
-                "eks:List*"
+                "eks:List*",
+                "support:DescribeTrustedAdvisorChecks",
+                "support:RefreshTrustedAdvisorCheck",
+                "support:DescribeTrustedAdvisorCheckResult"
             ],
             "Effect": "Allow",
             "Resource": "*"
