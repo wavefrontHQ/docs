@@ -19,12 +19,13 @@ Wavefront offers the following dashboards and browsers to view information on yo
 
 To choose your starting point for visualizing traces:
 1. In your web browser, go to your Wavefront cluster and log in.
-2. From the task bar:
+2. From the task bar click **Applications** :
 
-    - Select **Applications > Application Map** to [view how your application and services communicate with each other](#view-application-map) and drill down from there.
-    - Select **Applications > Application Status** to [view the status of your instrumented applications](#view-application-status) and drill down from there.
-    - Select **Applications > Service Dashboard** to [view the status of a service in your application](#view-application-service) and drill down from there.
-    - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there.
+    - Select **Application Map** to [view how instrumented applications are related to each other](#application-map) and drill down from there.
+    - Select **Application Status Dashboard** to [view the status of your instrumented applications](#application-status-dashboard) and drill down from there.
+    - Select **Service Status Dashboard** to [view the status of the services in an application](#service-status-dashboard) and drill down from there.
+    - Select **Service Dashboard** to [view the status of a service in your application](#service-dashboard) and drill down from there.
+    - Select **Traces** to start by [querying for traces](#tracing-browser) and drill down from there.
 
     ![tracing menu](images/tracing_menu.png)
 
@@ -35,8 +36,8 @@ The application map gives you an overview of how the  applications and services 
 ![application map](images/tracing_application_map.png)
 
 On the application map page, you can:
-* View how all the instrumented applications are mapped, or search for a particular application by applying filters.
-  - Apply one or more filters, such as the application name, cluster, shard, or any other tag, and click **Search**.
+* View how instrumented applications are related to each other, or search for a particular application by applying filters.
+  - Apply one or more filters, such as the application name, cluster, shard, or any other application tag.
 * Click on a service to: <br/>
   <table>
     <tr>
@@ -44,7 +45,7 @@ On the application map page, you can:
     <ul>
       <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
       <li>Navigate to the Service dashboard when you click <b>View Service dashboard</b>.</li>
-      <li>Navigate to the tracing browser when you click <b>View traces for service</b>.</li>
+      <li>Navigate to the Tracing browser when you click <b>View traces for service</b>.</li>
     </ul>
     </td>
     <td width="50%"><img src="/images/tracing_application_map_service.png" alt="The pop up when you click a service on an application map."/></td>
@@ -56,9 +57,9 @@ On the application map page, you can:
       <td width="50%">
       <ul>
         <li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li>Navigate to the tracing browser when you click <b>View traces for this edge</b>.</li>
+        <li>Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li>
       </ul>
-        <p>Edges can be bidirectional too, where the services send requests to each other.</p>
+        <p>Edges are bidirectional if services sent requests to each other.</p>
       </td>
       <td width="50%"><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
       </tr>
