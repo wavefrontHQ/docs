@@ -1314,7 +1314,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 
 Heat map charts add another dimension to the information about histograms that you see in a histogram chart.
 * The X axis shows time (same as a line plot)
-* The Y axis shows the count (same as the X axis of a histogram chart)
+* The Y axis shows distribution values (just like the X axis in histogram charts). This is what you're recording, for example, latency.
 * The color saturation shows the amount of data for the selected time frame.
 
 <p><span style="font-size: large; font-weight: 600">Data Tab</span></p>
@@ -1396,4 +1396,96 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <tbody>
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
+</table>
+
+## Gauge Chart
+
+![gauge](images/gauge.png)
+
+A gauge chart displays a single value, in a default color. You can optionally add color mapping of values to colors, which displays in an outer ring. By default, color mapping uses 0-100, but you can define a minimum and maximum.
+
+
+
+<a id="single_stat_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Summarization</td>
+<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
+
+<ul>
+<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
+<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
+<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
+<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
+<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
+<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
+<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
+<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
+</ul>
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many values to show after the decimal point. Defaults to 3.  </td>
+</tr>
+<tr>
+<td>Prefix</td>
+<td>Allows you to prefix the value (or label) with a text string. For example, you could show the source or environment. The font of the prefix is smaller than the display font.</td>
+</tr>
+<tr>
+<td>Postfix</td>
+<td>Allows you to append text to the value (or label). For example, you could add the unit of measurement.  </td>
+</tr>
+<tr>
+<td>Default Color</td>
+<td>Color that's used for the value and the gauge ring when no color mapping is defined. </td>
+</tr>
+<tr><td>Color Mapping</td>
+<td>Allows you to add an outer ring to the gauge that illustrates possible values of the gauge. By default, the gauge displays color information for 0-100 even if you define a mapping for a different range. Specify Min and Max to change what the outer ring shows. </td>
+</tr>
+<tr><td>Min</td>
+<td>Minimum value to use. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected. </td>
+</tr>
+<tr><td>Max</td>
+<td>Maximum value to use. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected.</td>
+</tr>
+<tr><td>Display Raw Value</td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+
+<a id="gauge_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+
+<a id="gauge_description_tab">
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
 </table>

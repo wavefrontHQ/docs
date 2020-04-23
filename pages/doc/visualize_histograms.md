@@ -95,7 +95,7 @@ See the [chart reference for histograms](ui_chart_reference.html#histogram-chart
 
 Histogram distributions expand on the functionality of histogram charts by allowing you to examine your histograms in 3 dimensions:
 * X axis shows time (as in most charts)
-* Y axis distribution values (as the X axis in histogram charts). This is what I'm recording, for example, latency.
+* Y axis distribution values (as the X axis in histogram charts). This is what you're recording, for example, latency.
 * Z axis (color saturation) shows density, that is how many values are in this field.
 
 The following diagram uses the same query as the histogram chart above.
