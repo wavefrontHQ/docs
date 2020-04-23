@@ -167,7 +167,7 @@ The permissions we require depend on the integration and on the service you want
 </tr>
 <tr>
     <td>AWS Metrics+ <br>Service Limit Metrics</td>
-    <td>Retrieves service limit metrics using AWS APIs. Requires at least a Business Level AWS Support plan.  </td>
+    <td>Retrieves Trusted Advisor service limit metrics using AWS APIs. Requires at least a Business Level AWS Support plan.  </td>
     <td>support:DescribeTrustedAdvisorChecks<br />
 support:RefreshTrustedAdvisorCheck<br />
 support:DescribeTrustedAdvisorCheckResult<br /></td>
