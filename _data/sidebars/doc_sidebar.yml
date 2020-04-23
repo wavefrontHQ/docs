@@ -144,9 +144,6 @@ entries:
       url: /wavefront_data_naming.html
       output: web
 
-    - title: Wavefront Histograms
-      url: /proxies_histograms.html
-      output: web
 
       subfolders:
       - title: Proxies
@@ -193,6 +190,18 @@ entries:
           url: /delta_counters.html
           output: web
 
+      - title: Histograms
+        output: web
+        subfolderitems:
+
+        - title: Wavefront Histograms
+          url: /proxies_histograms.html
+          output: web
+
+        - title: Visualizing Histograms
+          url: /visualize_histograms.html
+          output: web
+
   - title: "Charts & Dashboards"
     output: web
     folderitems:
@@ -231,7 +240,7 @@ entries:
 
     - title: Manage External Links
       url: /external_links_managing.html
-      output: web  
+      output: web
 
   - title: Query Language
     output: web

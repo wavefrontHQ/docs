@@ -1307,3 +1307,93 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
+## Heat Map Chart
+
+![heat map](images/heat_map.png)
+
+Heat map charts add another dimension to the information about histograms that you see in a histogram chart.
+* The X axis shows time (same as a line plot)
+* The Y axis shows the count (same as the X axis of a histogram chart)
+* The color saturation shows the amount of data for the selected time frame.
+
+<p><span style="font-size: large; font-weight: 600">Data Tab</span></p>
+
+In most cases, it makes sense to do an `hs()` query in the Query Editor.
+
+One easy way to show which histograms are on your cluster is from the **Histogram** browser.
+
+1. Select **Browse > Histograms**
+2. Drill down to the metric you're interested in and double-click it to open it in a chart. You must make sure you're looking at a metric -- it doesn't make sense to select a folder.
+
+
+
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Display Source Events</td>
+<td>When checked, shows events associated with any source related to the data in the X axis. </td>
+</tr>
+<tr>
+<td>Color</td>
+<td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a legend with details. <img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
+
+The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensions and units.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="25%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Y-Axis Min/Max</td>
+<td>Y axis minimum and maximum value. </td>
+</tr>
+<tr>
+<td>Y Axis Unit</td>
+<td>Unit of measurement to assign to the label that appears along the Y-axis. For example, select Dynamic Units and then change to microseconds. This option <em>does not</em> change the unit of measurement.
+<p>Supported units are:</p>
+<ul>
+<li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
+<li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
+<li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
+<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+</ul>
+<p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
+</td>
+</tr>
+<tr>
+<td>Y-Axis Bucket Count/X Axis Bucket Count</td>
+<td>The size of each bucket. For the X axis, the bucket count is also shown right below the chart itself.</td>
+</tr>
+</tbody>
+</table>
+
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
