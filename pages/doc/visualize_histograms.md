@@ -11,6 +11,8 @@ Wavefront histograms let you compute, store, and use distributions of metrics ra
 
 You can find histogram metrics in the histogram browser and query for them using an `hs()` query. You can also visualize histograms different chart types.
 
+{% include note.html content="You can examine histogram distributions in the histogram chart types, but can also examine regular metrics as bucketed data. Accuracy is higher if you're examining histograms, but examining telemetry data (ts metrics) in histogram charts is also useful." %}
+
 ## View Histograms in the Histogram Browser
 
 You can view histograms in the Histogram browser.
@@ -72,13 +74,15 @@ You can extract just the percentiles that you are interested in, by calling the 
 
 Histogram charts are designed especially for histogram visualization:
 * Each bar shows one time slice.
-* X axis shows what I'm recording, for example, latency
-* Y axis shows density (count)
+* X axis shows what I'm recording, for example, latency.
+* Y axis shows distribution values. This is what I'm recording, for example, latency.
 
 ![histogram overview](images/histograms_overview.png)
 
 Histogram charts are interactive. Hover legends give details, and you can go from the ellipsis in the top right to the trace browser for the histogram:
-* Add histogram queries in Query Builder (Chart Builder is not currently supported for histogram queries).
+* Add histogram queries in Query Builder or Chart Builder.
+  - Use an `hs()` query to visualize data that were ingested as Wavefront histograms.
+  - Use a `ts()` query to visualize any data as histograms.
 * Set the Y axis dimensions and X axis minimum, maximum, and units.
 * Select percentile markers to display.
 * Customize the color gradient.
@@ -91,7 +95,7 @@ See the [chart reference for histograms](ui_chart_reference.html#histogram-chart
 
 Histogram distributions expand on the functionality of histogram charts by allowing you to examine your histograms in 3 dimensions:
 * X axis shows time (as in most charts)
-* Y axis shows count (as the X axis in histogram charts)
+* Y axis distribution values (as the X axis in histogram charts). This is what I'm recording, for example, latency.
 * Z axis (color saturation) shows density, that is how many values are in this field.
 
 The following diagram uses the same query as the histogram chart above.
@@ -99,8 +103,12 @@ The following diagram uses the same query as the histogram chart above.
 ![annotated heat map](images/heatmap_annotated.png)
 
 The heatmap is interactive and lets you examine the histogram in detail.
-* Click any field to bring up a legend. The legend:
+* Add histogram queries in Query Builder or Chart Builder.
+  - Use an `hs()` query to visualize data that were ingested as Wavefront histograms.
+  - Use a `ts()` query to visualize any data as histograms.
+* Hover over any field to bring up a legend. The legend:
   - Shows how this histogram bar fits in with the rest of the histogram using a contrasting color.
   - Includes information about the range, count, and percentile.
+  Use Shift-P to pin the legend.
 * Click the ellipsis in the to right to go to the Traces browser for this histogram distribution.
 * Change the time, X axis, or Y axis to customize what you see.

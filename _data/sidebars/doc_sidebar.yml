@@ -194,11 +194,11 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Wavefront Histograms
+        - title: Histogram Ingestion
           url: /proxies_histograms.html
           output: web
 
-        - title: Visualizing Histograms
+        - title: Histogram Visualization
           url: /visualize_histograms.html
           output: web
 
