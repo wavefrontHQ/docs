@@ -63,7 +63,8 @@ If you use the Wavefront Spring Boot Starter:
 ## Getting Started
 
 ### Prerequisites
-Your application needs to support Java 8 or above.
+* Java 8 or above
+* Spring Boot 2.3.0 or above
 
 ### Step 1: Initialize Your Project
 
