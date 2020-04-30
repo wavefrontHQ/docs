@@ -23,13 +23,7 @@ To complete these tasks you need:
 </tbody>
 </table>
 
-This tutorial uses Wavefront sample data to get you started.
-
-To complete these tasks you need:
-* **Access to a Wavefront instance**. If your company doesn't have one, sign up for a [free trial](https://www.wavefront.com/sign-up/){:target="_blank" rel="noopenner noreferrer"}!
-* **Dashboard permission and Alert permission**. Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.
-
-**Note:** If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2](ui_v2_faq.html) instead.
+{% include tip.html content="If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2](ui_v2_faq.html)." %}
 
 ## Review Sample Dashboards and Metrics
 

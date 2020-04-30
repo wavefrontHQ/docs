@@ -17,6 +17,13 @@ summary: Examine data with dashboards and charts
 </tbody>
 </table>
 
+## Video
+
+All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.
+
+<p><a href="https://bcove.video/3aL88g8"><img src="/images/v_dashboards_customizing.png" style="width: 700px;"/></a>
+</p>
+
 ## Get Started
 
 1. Log in to Wavefront.
@@ -45,7 +52,7 @@ Regardless of selection, you can click the time selector for a fine-grained time
 
 ![time bar](images/time_bar_v2.png)
 
-### Use the Jump To Menu to Find a Section
+## Use the Jump To Menu to Find a Section
 Most dashboards have several sections. They're easy to access from the Jump To menu.
 
 <table style="width: 100%;">
