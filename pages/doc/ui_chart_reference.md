@@ -1340,7 +1340,7 @@ One easy way to show which histograms are on your cluster is from the **Histogra
 </tr>
 <tr>
 <td>Color</td>
-<td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a legend with details. <img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
+<td>Base color for the heat map. The saturation of the color indicates the count for the selected field. Hover over any field to see a vertical histogram as a legend that you can pin with Shift-P. The histogram highlights the vertical line that corresponds to the grid cell you've selected.<img src="/images/heatmap_legend.png" alt="legend for a single heatmap field"> </td>
 </tr>
 </tbody>
 </table>
