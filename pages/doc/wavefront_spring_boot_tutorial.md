@@ -35,7 +35,7 @@ In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet c
       <version>2.0.0</version>
     </dependency>
     ```
-2. Restart the application and navigate to [http://localhost:8080/](http://localhost:8080/).
+2. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 3. Add data:
     1. Let's add an Owner and a Pet via the User Interface.
         <br/>**{SHORT VIDEO or SCREENSHOT}**

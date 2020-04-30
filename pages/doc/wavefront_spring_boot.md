@@ -67,7 +67,7 @@ If you are starting a new tracing project, add the Wavefront dependency using th
 <br/>  
 Once you initialize your project, you can send data to Wavefront via [direct ingestion](direct_ingestion.html) or via the [Wavefront proxy](proxies.html). If you are trying it out for the first time, use direct ingestion. For details, see [Getting Data into Wavefront](wavefront_data_ingestion.html) 
 
-![Ways to get started with the Wavefront Spring Boot offering](/images/spring_boot_get_started.png)
+![Ways to get started with the Wavefront Spring Boot offering](/images/spring_boot_getting_started.png)
 
 ### Prerequisites
 * Java 8 or above
