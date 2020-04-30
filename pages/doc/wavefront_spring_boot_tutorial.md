@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
 summary: Configure the Wavefront Spring Boot Starter with a sample application.
 ---
-
+{% include important.html content="This document is work in progress!"%}
 In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get started!
 
 ## Video

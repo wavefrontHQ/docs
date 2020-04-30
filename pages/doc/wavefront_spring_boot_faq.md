@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: wavefront_spring_boot_faq.html
 summary: Get answers to questions that you come across when using the Wavefront Spring Boot Starter.
 ---
-
+{% include important.html content="This document is work in progress!"%}
 
 * **What is the difference between the free Spring Boot cluster and a Wavefront trial?**
 
