@@ -44,6 +44,11 @@ You have two options for getting Spring Boot data into Wavefront:
 <td>Clone and customize the predefined dashboard.</td>
 </tr>
 <tr>
+<td><strong>Alerts</strong></td>
+<td>Create smart alerts that dynamically filter noise and capture true anomalies.</td>
+<td>Alerts are note available on the free cluster.</td>
+</tr>
+<tr>
 <td><strong>Trial required?</strong></td>
 <td>Yes. Sign up for a free trial.</td>
 <td>No. Use the free cluster (limited ingestion) <strong>or</strong> sign up for a trial. </td>
