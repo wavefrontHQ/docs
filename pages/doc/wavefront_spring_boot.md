@@ -76,15 +76,33 @@ Once you initialize your project, you can send data to Wavefront via [direct ing
 Initialization is different for existing or new projects 
 
 * **Initialize an Existing Project** <br/>
-  Open your application and the following code to your pom.xml file. 
-    ```
-    <dependency>
-      <groupId>com.wavefront</groupId>
-      <artifactId>wavefront-spring-boot-starter</artifactId>
-      <version>2.0.0</version>
-    </dependency>
-    ```
-    Next, see [Step 2:  View Your Data on Wavefront](#step-2--view-your-data-on-wavefront).
+  
+  <ul id="profileTabs" class="nav nav-tabs">
+      <li class="active"><a href="#maven" data-toggle="tab">Maven</a></li>
+      <li><a href="#gradle" data-toggle="tab">Gradle</a></li>
+  </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="maven">
+          <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+            <pre>
+&lt;dependency&gt;
+    &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
+    &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+          </pre>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="gradle">
+      <p>Open your application and add the following code to your <code>build.gradle</code> file. </p>
+        <pre>
+dependencies {
+  ...
+  implementation 'com.wavefront:wavefront-spring-boot-starter:2.0.0-SNAPSHOT'
+  }
+      </pre>
+      </div>
+    </div>
     
 * **Initialize a New Project** <br/>
   1. Navigate to the [Spring Initializr](https://start.spring.io/).
@@ -100,41 +118,88 @@ Initialization is different for existing or new projects
 Follow the steps given below to start sending your data to Wavefront and to view them:
 
 1. Run your project. 
-   ```
-   `mvn spring-boot:run`
-   ```
-   You see the following printed on your console:
-   <br/>Example:
-    ```
-      To share this account, make sure the following is added to your configuration:
+    <ul id="profileTabs" class="nav nav-tabs">
+        <li class="active"><a href="#mavenrun" data-toggle="tab">Maven</a></li>
+        <li><a href="#gradlerun" data-toggle="tab">Gradle</a></li>
+    </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="mavenrun">
+            <pre>
+./mvnw spring-boot:run
+            </pre>
+        </div>
 
-       management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
-       management.metrics.export.wavefront.uri=https://wavefront.surf
+        <div role="tabpanel" class="tab-pane" id="gradlerun">
+            <pre>
+./gradlew bootRun
+            </pre>
+        </div>
+      </div>
+     You see the following printed on your console:
+     <br/>Example:
+      ```
+        To share this account, make sure the following is added to your configuration:
 
-      Connect to your Wavefront dashboard using this one-time use link:
-      https://wavefront.surf/us/example
-    ```
+         management.metrics.export.wavefront.api-token=44444-34this-45is-123a-sampletoken
+         management.metrics.export.wavefront.uri=https://wavefront.surf
+
+        Connect to your Wavefront dashboard using this one-time use link:
+        https://wavefront.surf/us/example
+      ```
 2. Click `https://wavefront.surf/us/<name>` and you are taken to the Wavefront Service dashboard where you can examine the data sent by your application.
     {% include note.html content="Want to see the cool information you can gather from the Service Dashboard? See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard)." %}
 
+{% include tip.html content="Every time the application starts, either an account is auto-negotiated, or it is restored from `~/.wavefront_freemium` that is saved on your home directory. "%}
+
 ### Optional: Custom Configurations
 
-You can add the following custom configurations to your projects `application.properties` file.
+You can add the following custom configurations.
+{% include note.html content="See the [GitHub documentation](https://github.com/wavefrontHQ/wavefront-spring-boot#wavefront-spring-boot-starter) for more details on customer configurations."%}
 
-* Wavefront allows you to share dashboards with other authorized users.<br/>
+* Wavefront allows you to invite users and send data to the same cluster.<br/>
   1. Save the link that you used to access the Service dashboard.
-  1. Copy and paste the properties that were printed on your terminal.
+  1. Copy and paste the properties that were printed on your terminal to your projects `application.properties` file.
       ```
       management.metrics.export.wavefront.api-token=<Enter_Token>
       management.metrics.export.wavefront.uri=https://wavefront.surf
       ```
   1. Restart your application.
-  1. Now, share the link with other users and they will be able to access your Service dashboard.
-* Send data to Wavefront using the Wavefront Proxy.
+  1. Click the link you saved previously and navigate to the Wavefront Service dashboard:
+      1. Click the gear icon and select **Account Management**.
+      1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
+    The users will get an email with the link to access your dashboard.
+* Send data to Wavefront using the Wavefront Proxy. <br/>Copy and paste the following property to your projects `application.properties` file. 
   {% include note.html content="Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
   ```
   management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
   ```
+* Send traces from your application:
+  <ul id="profileTabs" class="nav nav-tabs">
+      <li class="active"><a href="#mavenTrace" data-toggle="tab">Maven</a></li>
+      <li><a href="#gradleTrace" data-toggle="tab">Gradle</a></li>
+  </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="mavenTrace">
+          <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+            <pre>
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
+    &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
+  &lt;/dependency&gt;
+          </pre>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="gradleTrace">
+      <p>Open your application and add the following code to your <code>build.gradle</code> file. </p>
+        <pre>
+dependencies {
+  ...
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
+  }
+      </pre>
+      </div>
+    </div>
 
 ## Next Steps
 
