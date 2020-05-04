@@ -51,3 +51,4 @@ knife node run_list add NODE_NAME wavefront
 sudo chef-client
 ```
 {% endraw %}
+

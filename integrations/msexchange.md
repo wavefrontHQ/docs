@@ -203,3 +203,4 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the 
 ### Step 4. Restart Telegraf
 
 After any changes restart your Telegraf agent service.
+

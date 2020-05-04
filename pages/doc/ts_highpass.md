@@ -4,13 +4,11 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_highpass.html
-summary: Reference to the highpass() function and the gt operator
+summary: Reference to the highpass() function
 ---
 ## Summary
 ```
 highpass(<tsExpression1>, <tsExpression2>[, inner])
-
-<tsExpression>.gt(<number>)
 
 highpass(<traceDuration>, <tracesExpression>)
 
@@ -18,7 +16,7 @@ highpass(<spanDuration>, <spansExpression>)
 ```
 
 You can use `highpass()` with time series, with traces, or with spans.
-You can use the `.gt` operator with time series. 
+You can use the `.gt` operator with time series. Multiple operators can be used at the same time.
 
 <table style="width: 100%;">
 <colgroup>
@@ -137,9 +135,6 @@ You can pass this expression to [traces()](traces_function.html) to display trac
 
 ```traces(highpass(3s, spans("beachshirts.styling.makeShirts")))```
 
-### Operator (.gt)
-
-Use the operator as a shortcut. See [filter on the query line](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne) for details.
 
 ## Examples
 
@@ -156,4 +151,3 @@ The resulting Stacked Area chart shows results only where the data exceeds 120.
 ## See Also
 
 * [Series Matching](query_language_series_matching.html)
-* [Filter on the Query Line with Operators (.lt, .gt, .le, .ge, .eq, .ne)](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne)

@@ -53,3 +53,4 @@ Create a file called `varnish.conf` in `/etc/telegraf/telegraf.d` and enter the 
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

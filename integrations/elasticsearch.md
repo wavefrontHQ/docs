@@ -120,3 +120,4 @@ Create a Enum Processor Plugin configuration file at `/etc/telegraf/telegraf.d/e
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

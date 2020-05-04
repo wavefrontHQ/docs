@@ -23,6 +23,14 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 {% include shared/badge.html content="Every Wavefront user can view dashboards and make some changes such as setting the time window. You must have Dashboard permission and Modify access to save changes you make to dashboards." %}
 
+## Video
+
+Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.
+
+<p><a href="https://bcove.video/2KH1iOb"><img src="/images/v_create_dashboards.png" style="width: 700px;"/></a>
+</p>
+
+
 ## Create a Dashboard
 
 You have several options for creating a dashboard:
@@ -82,9 +90,9 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 <ol><li>Select <strong>Dashboards > Create Dashboard</strong> from the taskbar. </li>
 <li>Drag the <strong>Tracing Templates</strong> widget onto the canvas. </li>
 <li>Click <strong>Import Charts</strong>.</li>
-<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard. 
+<li>In the top right, click <strong>Save</strong> and specify a name and URL for the dashboard.
   <ul>
-  <li>The URL field supports letters, numbers, underscores, and dashes.</li> 
+  <li>The URL field supports letters, numbers, underscores, and dashes.</li>
   <li>The Name field supports letters, numbers, characters, and spaces.</li>
   </ul>
 </li>
@@ -96,7 +104,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 </table>
 
 **Take a look at the cool actions you can do using these charts:**
-* [Navigate to the Tracing UI from the Service Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard). 
+* [Navigate to the Tracing UI from the Service Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard).
 * [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard).
 * To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
 
@@ -262,7 +270,7 @@ Starting with release 2018.46.x, you can undo dashboard changes.
 
 For each dashboard, you can customize display preferences.
 
-{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%} 
+{% include tip.html content="To use the dark theme with your dashboard and all other Wavefront UI components, set your personal preferences [from the gear icon](users_account_managing.html#configuring-user-preferences)."%}
 
 <table style="width: 100%;">
 <tbody>

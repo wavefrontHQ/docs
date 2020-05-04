@@ -56,3 +56,4 @@ To capture events from Rollbar:
     2. In the Notifications section, select Webhook.
 
 See the [Rollbar documentation](https://rollbar.com/docs/webhooks/) for details on configuring the Rollbar webhook.
+

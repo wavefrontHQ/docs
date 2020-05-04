@@ -25,3 +25,4 @@ Supported Versions: VMware vRealize Operations 6.7 or later
 2. In the right pane, click **Configure Wavefront Account** and enter the account information:  
    * **Wavefront URL**: `https://YOUR_CLUSTER.wavefront.com`
    * **API Token**: `YOUR_API_TOKEN`
+

@@ -78,3 +78,4 @@ urls = ["http://server1/api","http://server2/api","http://server3/api"]
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
+

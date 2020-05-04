@@ -4,20 +4,18 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_lowpass.html
-summary: Reference to the lowpass() function and the lt operator
+summary: Reference to the lowpass() function
 ---
 ## Summary
 ```
 lowpass(<tsExpression1>, <tsExpression2>[, inner])
-
-<tsExpression>.lt(<number>)
 
 lowpass(<traceDuration>, <tracesExpression>)
 
 lowpass(<spanDuration>, <spansExpression>)
 ```
 
-You can use `lowpass()` with time series, with traces, and with spans.
+You can use `lowpass()` with time series, with traces, and with spans. Multiple operators can be used at the same time. 
 
 <table style="width: 100%;">
 <colgroup>
@@ -95,10 +93,6 @@ You can use `lowpass()` with time series, with traces, and with spans.
 </tbody>
 </table>
 
-### Operator (.lt)
-
-Use the operator as a shortcut. See [filter on the query line](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne) for details.
-
 
 
 ## Description
@@ -138,10 +132,6 @@ You can pass this expression to [traces()](traces_function.html) to display trac
 
 ```traces(lowpass(12ms, spans("beachshirts.styling.makeShirts")))```
 
-### Operator (.lt)
-
-Use the operator as a shortcut. See [filter on the query line](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne) for details.
-
 ## Examples
 
 Let's look at latency data:
@@ -157,4 +147,3 @@ The resulting Stacked Area chart shows results only where the data are less than
 ## See Also
 
 * [Series Matching](query_language_series_matching.html)
-* [Filter on the Query Line with Operators (.lt, .gt, .le, .ge, .eq, .ne)](query_language_recipes.html#compare-with-operators-lt-gt-le-ge-eq-ne)

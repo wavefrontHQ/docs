@@ -93,3 +93,4 @@ To uninstall the Wavefront proxy and Telegraf agent, run:{% raw %}
 bash -c "$(curl -s https://raw.githubusercontent.com/wavefrontHQ/homebrew-wavefront/master/sh/uninstall.sh)"
 ```
 {% endraw %}
+

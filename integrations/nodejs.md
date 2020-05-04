@@ -97,3 +97,4 @@ registry.addTaggedMetric("request.timer", t, {"key1":"val1"});
 t.update(50);
 ```
 {% endraw %}
+

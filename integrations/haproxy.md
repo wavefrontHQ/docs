@@ -103,3 +103,4 @@ servers = ["socket:/run/haproxy/admin.sock"]
 ### Step 4. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

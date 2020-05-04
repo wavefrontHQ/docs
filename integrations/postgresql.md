@@ -89,3 +89,4 @@ Create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter t
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

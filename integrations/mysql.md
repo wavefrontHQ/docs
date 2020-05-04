@@ -111,3 +111,4 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+

@@ -6,69 +6,55 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between Wavefront and external systems. If you use logging systems such as ELK and Splunk, you can easily construct a meaningful URL to navigate from Wavefront to a log entry.
+External links provide integration between Wavefront and external systems. If you use logging systems such as Scalr, ELK, or Splunk, you can construct a meaningful URL to navigate from Wavefront to a log entry.
 
 Here's a video to get you started:
 
 <p><a href="https://youtu.be/oufjL7nM0LQ"><img src="/images/v_external_links.png" style="width: 700px;"/></a>
 </p>
 
-Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate
-and you want to navigate to logs to look for entries that could shed light on why the transaction rate drop occurred. External links allow you to click through from a Wavefront series directly to a related entry in your
+Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. External links allow you to click through from a Wavefront series directly to a related entry in your
 logging system.
 
-External links are general purpose: you can link through to any type of system, not just logs.
+External links are general purpose: you can link through to any type of system accessible from a URL, not just logs.
 
-To view and manage external links, select **Browse > External Links**.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage](external_links_managing.html) external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
-## Navigating to an External Link
+## Navigate to an External Link
 
-1. Right-click a series. The series context menu displays.
-1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created. Only series that match all the filters specified when the link was created display \<linkname\> in the External Links context menu. For example:
+All users can use the right-click menu on a time series to navigate to an external link.
+* By default, the external link shows up on all time series.
+* If the creator of the external link specified a filter, the **External Link** menu only shows the link on specified time series.
 
-   ![External links](images/elk_external_link.png)
+**To navigate to an external link:**
+1. Right-click a series.
+1. Select **External Links > \<linkname\>**, where \<linkname\> is the name specified when the link was created.
 
-## Creating an External Link
+   ![External links](images/external_link_v2.png)
+
+## Create an External Link
+
+Users with **External Links** permission can create and modify external links.
 
 1. Select **Browse > External Links**.
 1. Click **Create External Link**.
 1. Specify a link name and description.
-1. Optionally specify metric name, source name, and point tag value filters as Javascript regular expressions that the series must match.
-    <table>
-    <colgroup>
-    <col width="20%" />
-    <col width="50%" />
-    <col width="30%" />
-    </colgroup>
-    <thead>
-    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Metric Filter Regex</td>
-    <td>A regular expression that metric names must match.</td>
-    <td>jvm.memory.heap\w+</td>
-    </tr>
-    <tr>
-    <td>Source Filter Regex</td>
-    <td>A regular expression that source names must match.</td>
-    <td>co-2a-app[0-9]+-i-\d+</td>
-    </tr>
-    <tr>
-    <td>Point Tag Filter Regexes</td>
-    <td>A point tag key and a regular expression that point tag values must match.</td>
-    <td><strong>Tag Key</strong>=env<br/><strong>Filter Regex</strong>=prod\w+</td></tr></tbody></table>
-    Specify the external link URL template. The template employs [Mustache syntax](https://mustache.github.io/). The properties supported by the template are:
-    <table>
+2. Specify the [Link URL template]().
+3. (Optional) If you want to limit which series show the external link, [specify a filter]. a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu.
+4. Click **Save**.
+
+### Link URL Template Syntax
+
+The link URL template uses [Mustache syntax](https://mustache.github.io/). The template supports these properties:
+<table>
     <thead>
     <tr><th width="40%">Property</th><th width="60%">Description</th></tr>
     </thead>
     <tbody>
     <tr>
     <td>source</td>
-    <td>The source of the series.</td>
+    <td>Source of the series.</td>
     </tr>
     <tr>
     <td>startEpochMillis</td>
@@ -83,9 +69,10 @@ To view and manage external links, select **Browse > External Links**.
     <td>One or more point tag names associated with the series.</td>
     </tr>
     </tbody>
-    </table>
-    You can apply functions to transform their enclosed sections. All functions begin with the namespace `functions`.
-    <table>
+</table>
+
+You can apply functions to transform the URL. All functions begin with the namespace `functions`.
+<table>
     <thead>
     <tr><th width="60%">Function</th><th width="40%">Description</th></tr>
     </thead>
@@ -120,12 +107,44 @@ To view and manage external links, select **Browse > External Links**.
     </td>
     </tr>
     </tbody>
-    </table>
-1. Click **Save**.
+</table>
 
-## Example URL Template
+### Link URL Template Examples
 
-Consider the following external link URL template, which references the point tag name `service`:
+Here's the simplest possible example, directing you to the `example.com` domain.
+{% raw %}
+```handlebars
+https://example.com/{{source}}
+```
+{% endraw %}
+
+The following external link URL template goes to `scalyr.com` and passes in the source of the series and the start and end time of the chart if a user right-clicks on a series.
+
+{% raw %}
+```handlebars
+https://www.scalyr.com/events?logSource={{{source}}}&startTime={{startEpochMillis}}&endTime={{endEpochMillis}}
+```
+{% endraw %}
+
+The next external link URL template looks for a service trace in the distributed traces.
+
+{% raw %}
+```handlebars
+https://demo.wavefront.com/tracing/service/{{namespace_name}}/{{container_name}}#_v01(g:(d:7200,ls:!t,s:{{#functions.epochMillisToEpochSeconds}}{{startEpochMillis}}{{/functions.epochMillisToEpochSeconds}},e:{{#functions.epochMillisToEpochSeconds}}{{endEpochMillis}}{{/functions.epochMillisToEpochSeconds}}),p:(cluster:(v:'*'),shard:(v:'*'),source:(v:'*')))
+```
+{% endraw %}
+
+The following external link URL template displays an event on the Events page when you click the event in a chart.
+
+Replace `<my_instance>` with the name of your Wavefront instance.
+
+{% raw %}
+```handlebars
+https://<my_instance>.wavefront.com/events?search=%7B%22searchTerms%22%3A%5B%7B%22type%22%3A%22freetext%22%2C%22value%22%3A%22{{alertId}}%22%7D%5D%2C%22sortOrder%22%3A%22ascending%22%2C%22sortField%22%3Anull%2C%22pageNum%22%3A1%2C%22cursor%22%3A%22%22%2C%22direction%22%3A%22forward%22%2C%22timeRange%22%3A%7B%22start%22%3A{{startEpochMillis}}%2C%22quickTime%22%3Anull%2C%22end%22%3A{{endEpochMillis}}%7D%7D&tagPathTree=%7B%7D
+```
+{% endraw %}
+
+The following external link URL template references the point tag name `service`:
 
 {% raw %}
 ```handlebars
@@ -133,25 +152,41 @@ http://<hostname>?time:(from:'{{#functions.epochMillisToISO}}{{startEpochMillis}
 ```
 {% endraw %}
 
-This template contains the substring:
-{% raw %}
-```handlebars
-{{#functions.urlEncode}}host:{{source}} AND source:"/mnt/logs/{{service}}.log"{{/functions.urlEncode}}
-```
-{% endraw %}
 
-Assuming `source=test` and `service=alerting`, the template evaluates to:
+### Filter Regex Syntax
 
-{% raw %}
-```handlebars
-{{#functions.urlEncode}}host:test AND source:"/mnt/logs/alerting.log"{{/functions.urlEncode}}
-```
-{% endraw %}
+Filters are optional but allow you to show the external link only on certain time series.
 
-The string inside the function delimiters is URL encoded as:
+<table>
+    <colgroup>
+    <col width="20%" />
+    <col width="50%" />
+    <col width="30%" />
+    </colgroup>
+    <thead>
+    <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>Metric Filter Regex</td>
+    <td>Regular expression that metric names must match.</td>
+    <td>jvm.memory.heap\w+</td>
+    </tr>
+    <tr>
+    <td>Source Filter Regex</td>
+    <td>Regular expression that source names must match.</td>
+    <td>co-2a-app[0-9]+-i-\d+</td>
+    </tr>
+    <tr>
+    <td>Point Tag Filter Regexes</td>
+    <td>Point tag key and a regular expression that point tag values must match. Click the plus sign after you specify the regex. </td>
+    <td><strong>Tag Key</strong>=env<br/><strong>Filter Regex</strong>=prod\w+</td></tr></tbody>
+</table>
 
-{% raw %}
-```handlebars
-host%3Atest%20AND%20source%3A%22%2Fmnt%2Flogs%2Falerting.log%22
-```
-{% endraw %}
+### Filter Regex Example
+
+When you specify a filter, only time series that match the filter show the right-button menu for the external link.
+
+The following screenshot shows an example that specifies all three types of filters.
+
+![Example filters for external links](images/edit_external_links_example.png)

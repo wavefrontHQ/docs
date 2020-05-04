@@ -52,3 +52,4 @@ To monitor multiple Redis instances, configure the `servers` parameter with the 
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+
