@@ -114,7 +114,7 @@ dependencies {
   2. Define the project name, Spring version, and other parameters.
       <br/> ![Spring Initializr](images/spring_boot_initializr.png)
   3. Select Wavefront from the dependency list and click **Generate**. 
-      <br/> **{Add Screenshot}**
+      <br/> ![Wavefront dependency](/images/sping_boot_wavefront_depdendency.png)
   4. Next, add the application logic and start the project.<br/> 
      You need a tracing application to view the trace data in Wavefront, else some of the charts will not show data.
   
@@ -123,6 +123,7 @@ dependencies {
 Follow the steps given below to start sending your data to Wavefront and to view them:
 
 1. Run your project. 
+    {% include note.html content="Every time the application starts, either an account is auto-negotiated, or it is restored from `~/.wavefront_freemium` that is saved on your home directory. "%}
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#mavenrun" data-toggle="tab">Maven</a></li>
         <li><a href="#gradlerun" data-toggle="tab">Gradle</a></li>
@@ -151,17 +152,17 @@ Follow the steps given below to start sending your data to Wavefront and to view
         Connect to your Wavefront dashboard using this one-time use link:
         https://wavefront.surf/us/example
       ```
-2. Click `https://wavefront.surf/us/<name>` and you are taken to the Wavefront Service dashboard where you can examine the data sent by your application.
+1. Add data to your application before you start to view the data on Wavefront.
+    {% include tip.html content="Try out the [Wavefront Spring Boot Tutorial](wavefront_springboot_tutorial.html)."%}
+1. Click `https://wavefront.surf/us/<name>` and you are taken to the Wavefront Service dashboard where you can examine the data sent by your application.
     {% include note.html content="Want to see the cool information you can gather from the Service Dashboard? See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard)." %}
-
-{% include tip.html content="Every time the application starts, either an account is auto-negotiated, or it is restored from `~/.wavefront_freemium` that is saved on your home directory. "%}
 
 ### Optional: Custom Configurations
 
 You can add the following custom configurations.
 {% include note.html content="See the [GitHub documentation](https://github.com/wavefrontHQ/wavefront-spring-boot#wavefront-spring-boot-starter) for more details on customer configurations."%}
 
-* Wavefront allows you to invite users and send data to the same cluster.<br/>
+* **Invite users and let them send data to the same cluster.**<br/>
   1. Save the link that you used to access the Service dashboard.
   1. Copy and paste the properties that were printed on your terminal to your projects `application.properties` file.
       ```
@@ -169,40 +170,70 @@ You can add the following custom configurations.
       management.metrics.export.wavefront.uri=https://wavefront.surf
       ```
   1. Restart your application.
-  1. Click the link you saved previously and navigate to the Wavefront Service dashboard:
+  1. Click the link you saved and navigate to the Wavefront Service dashboard:
       1. Click the gear icon and select **Account Management**.
       1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
-    The users will get an email with the link to access your dashboard.
-* Send data to Wavefront using the Wavefront Proxy. <br/>Copy and paste the following property to your projects `application.properties` file. 
+        ![Invite Users](/images/spring_boot_invite_users.png)
+    The users will get an email with the link to reset their password after which they can access your dashboard.
+<a name="proxy"></a>
+* **Send data to Wavefront using the Wavefront Proxy.** <br/>Copy and paste the following property to your projects `application.properties` file. 
   {% include note.html content="Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
   ```
   management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
   ```
-* Send traces from your application:
+* **Send traces from your application:**<br/> Send trace data to Wavefront using Spring Cloud Sleuth (recommended) or OpenTracing.
   <ul id="profileTabs" class="nav nav-tabs">
-      <li class="active"><a href="#mavenTrace" data-toggle="tab">Maven</a></li>
-      <li><a href="#gradleTrace" data-toggle="tab">Gradle</a></li>
+      <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
+      <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
   </ul>
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="mavenTrace">
-          <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+      <div role="tabpanel" class="tab-pane active" id="sleuth">
+          <ul>
+          <li><p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
             <pre>
   &lt;dependency&gt;
     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
     &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
     &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
   &lt;/dependency&gt;
-          </pre>
+          </pre></li>
+        
+          <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
+            <pre>
+  dependencies {
+    ...
+    ADD CODE
+    }
+          </pre></li></ul>
+          
       </div>
 
-      <div role="tabpanel" class="tab-pane" id="gradleTrace">
-      <p>Open your application and add the following code to your <code>build.gradle</code> file. </p>
+      <div role="tabpanel" class="tab-pane" id="opentracing">
+      <ul><li><p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+        <pre>
+&lt;dependency&gt;
+    &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
+    &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
+    &lt;version&gt;0.5.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.opentracing&lt;/groupId&gt;
+    &lt;artifactId&gt;opentracing-api&lt;/artifactId&gt;
+    &lt;version&gt;0.33.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.validation&lt;/groupId&gt;
+    &lt;artifactId&gt;validation-api&lt;/artifactId&gt;
+&lt;/dependency&gt;
+      </pre></li>
+    
+      <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
         <pre>
 dependencies {
-  ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
-  }
-      </pre>
+...
+implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
+}
+      </pre></li></ul>
       </div>
     </div>
 
