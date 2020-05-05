@@ -200,10 +200,10 @@ You can add the following custom configurations.
         
           <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
             <pre>
-  dependencies {
-    ...
-    ADD CODE
-    }
+dependencies {
+  ...
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
+}
           </pre></li></ul>
           
       </div>
@@ -230,8 +230,8 @@ You can add the following custom configurations.
       <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
         <pre>
 dependencies {
-...
-implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
+  ...
+  ADD CODE
 }
       </pre></li></ul>
       </div>
