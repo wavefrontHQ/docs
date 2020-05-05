@@ -76,7 +76,7 @@ implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELE
               <pre>
 dependencies {
   ...
-  ADD CODE
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
   }
             </pre></li></ul>
             
@@ -105,7 +105,7 @@ dependencies {
           <pre>
 dependencies {
   ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
+  ADD CODE
   }
         </pre></li></ul>
         </div>
