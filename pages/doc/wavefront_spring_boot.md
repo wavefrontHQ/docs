@@ -8,7 +8,7 @@ summary: Using Wavefront with Spring Boot
 ---
 
 {% include important.html content="This document is work in progress!"%}
-The Wavefront for Spring Boot allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service. After you've completed setup, you can examine the data in a preconfigured dashboard.
+Wavefront for Spring Boot allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service. After you've completed setup, you can examine the data in a preconfigured dashboard.
 
 ## Getting Data into Wavefront from Spring Boot Applications
 
@@ -190,7 +190,7 @@ You can add the following custom configurations.
   1. Navigate to the Wavefront Service dashboard using the link that you saved previously.
 <a name="proxy"></a>
 * **Send data to Wavefront using the Wavefront Proxy.** <br/>Copy and paste the following property to your projects `application.properties` file. 
-  {% include note.html content="Supported with [Wavefront Proxy version 7.0](https://docs.wavefront.com/proxies_versions.html) and after. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
+  {% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and after. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
   ```
   management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
   ```
