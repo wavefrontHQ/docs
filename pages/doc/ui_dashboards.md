@@ -27,7 +27,7 @@ summary: Create dashboards, add charts, and customize dashboard layout.
 
 Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.
 
-<p><a href="https://bcove.video/2KH1iOb"><img src="/images/v_create_dashboards.png" style="width: 700px;"/></a>
+<p><a href="https://bcove.video/2WxBJoe"><img src="/images/v_create_dashboards.png" style="width: 700px;"/></a>
 </p>
 
 

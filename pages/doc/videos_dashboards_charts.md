@@ -16,12 +16,12 @@ Learn about visualizing your metrics with dashboards and charts, and how to cust
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="30%"><strong><font color="blue">Customizing Dashboards</font></strong><br><a href="https://bcove.video/3aL88g8" target="_blank"><img src="/images/v_dashboards_customizing.png" alt="customizing dashboards"/></a></td>
+<td width="30%"><strong><font color="blue">Customizing Dashboards</font></strong><br><a href="https://bcove.video/2Wux6eP" target="_blank"><img src="/images/v_dashboards_customizing.png" alt="customizing dashboards"/></a></td>
 <td width="70%"><br><p>All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.</p> </td>
 </tr>
 
 <tr>
-<td width="30%"><strong><font color="blue">Creating Dashboards</font></strong><br><a href="https://bcove.video/2KH1iOb" target="_blank"><img src="/images/v_create_dashboards.png" alt="creating dashboards"/></a></td>
+<td width="30%"><strong><font color="blue">Creating Dashboards</font></strong><br><a href="https://bcove.video/2WxBJoe" target="_blank"><img src="/images/v_create_dashboards.png" alt="creating dashboards"/></a></td>
 <td width="70%"><br><p>Users with Dashboards permissions can create a new dashboard with one or multiple charts from metrics, a chart type, or an integration.  </p> </td>
 </tr>
 
