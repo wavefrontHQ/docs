@@ -6,15 +6,10 @@ sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
 summary: Configure Wavefront for Spring Boot with a sample application.
 ---
-{% include important.html content="This document is work in progress!"%}
 In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sample application. Let's get started!
-
-## Video
-**{Add Video by Clement!}**
 
 ## Prerequisites
 
-* Spring Boot 2.3.0 or above
 * Java 8 or above
 * Maven 3.3+ or Gradle 6.3 or later
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
@@ -34,11 +29,11 @@ In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sa
     <dependency>
       <groupId>com.wavefront</groupId>
       <artifactId>wavefront-spring-boot-starter</artifactId>
-      <version>2.0.0</version>
+      <version>2.0.0-RC1</version>
     </dependency>
     ```
           
-1. Optionally, send trace data to Wavefront using Spring Cloud Sleuth (recommended) or OpenTracing.
+1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing.
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
         <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
@@ -93,4 +88,4 @@ When you click the link, you are taken to the Services dashboard where you can:
   
 {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bHo1f5p-LsU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6_YEpjjVC9E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

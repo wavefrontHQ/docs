@@ -6,12 +6,11 @@ sidebar: doc_sidebar
 permalink: wavefront_spring_boot_faq.html
 summary: Get answers to questions that you come across when using Wavefront for Spring Boot.
 ---
-{% include important.html content="This document is work in progress!"%}
 
 ### What is the difference between the free cluster and a Wavefront trial?
 * **Free cluster** <br/>The free cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
 
-* **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. We ask that you tell us more about yourself when signing up for a trial.
+* **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. We ask that you tell us more about yourself when signing up for a trial.
 
   Once you've signed up, you can retrieve an API token and configure it in your `application.properties` file: 
   ```
