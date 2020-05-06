@@ -6,12 +6,12 @@ sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
 summary: Configure Wavefront for Spring Boot with a sample application.
 ---
-In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sample application. Let's get started!
+In this tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sample application. Let's get started!
 
 ## Prerequisites
 
-* Java 8 or above
-* Maven 3.3+ or Gradle 6.3 or later
+* Java 8 or above.
+* Maven 3.3+ or Gradle 6.3 or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
 * Clone the sample pet clinic application.
   ```
@@ -22,7 +22,7 @@ In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sa
   ./mvnw spring-boot:run
   ```
   
-## Start Configuring
+## Send Data to Wavefront
 
 1. Open the sample pet clinic application using an IDE and add the following code: 
     ```
@@ -64,7 +64,7 @@ In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sa
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 1. Add data by clicking on the pet clinic user interface.
     For example: 
-    1. Let's add an Owner and a Pet via the User Interface.
+    1. Add an Owner and a Pet via the User Interface.
     2. Click **ERROR** to trigger errors.
 1. Click the one-time use link to access the Wavefront Service dashboard and view data.
     <br/> Example:
@@ -78,11 +78,12 @@ In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sa
     https://wavefront.surf/us/example
     ```
 
-## View Data in Wavefront
+## Examine RED Metrics and Traces 
 
 When you click the link, you are taken to the Services dashboard where you can:
 
 * View details specific to an application service, such as the Request, Error, and Duration (RED) metrics. See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard) for details.
+  ![Wavefront Service dashboard](/images/springboot_service_dashboard.png)
 * Click **See All spring-petclinic Traces** to navigate to the Tracing browser and view the trace data of the `spring-petclinic` service.
   <br/>Once in the tracing browser, you see the traces from the application and the trace related to the error you created. 
   
