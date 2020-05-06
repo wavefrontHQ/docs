@@ -1,18 +1,18 @@
 ---
-title: VMware Enterprise PKS Integration Details
+title: VMware Tanzu™ Kubernetes Grid™ Integration Details
 keywords:
 tags: [integrations, dashboards]
 sidebar: doc_sidebar
-permalink: integrations_pks.html
+permalink: integrations_tkgi.html
 summary: Learn about predefined alerts, code examples, and more
 ---
-The Wavefront [VMware Enterprise PKS integration](pks.html) includes an overview and setup instructions.
+The [VMware Tanzu™ Kubernetes Grid™ Integration](tkgi.html) enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters. The integration itself includes an Overview and Setup instructions.
 
 On this page, we list predefined alerts and give other details about the integration.
 
 ## Predefined Alerts for the Integration
 
-The VMware Enterprise PKS integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Wavefront UI.
+The Tanzu Kubernetes Grid integration provides the following monitoring alerts for PKS. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Wavefront UI.
 
 <table>
 <tbody>
@@ -59,12 +59,12 @@ The VMware Enterprise PKS integration provides the following monitoring alerts f
 </table>
 
 
-## VMware EnterprisePKS Monitoring Dashboards
+## Tanzu Kubernetes Grid Monitoring Dashboards
 
-Wavefront includes several predefined dashboards for monitoring PKS. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
+Wavefront includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
 
 We support dashboards for major functionality including:
-* PKS Home dashboard
+* Home dashboard
 * Nodes dashboard
 * Namespaces dashboard
 * Deployments dashboard
@@ -83,16 +83,17 @@ The Wavefront proxy pod includes four containers.
 
 ![pks-arch](images/pks-architecture-rev.png)
 
-Wavefront runs a Wavefront proxy pod inside each PKS-created Kubernetes cluster. There are four containers within the Wavefront proxy pod.
+Wavefront runs a Wavefront proxy pod inside each Kubernetes cluster created by Tanzu Kubernetes Grid. There are four containers within the Wavefront proxy pod.
 
 
-## Troubleshooting the VMware PKS Integration
+## Troubleshooting the Tanzu Kubernetes Grid Integration
 
 ### 401 Unauthorized Error
 
-If PKS tile deployment fails at running the `wavefront-alert-creation` errand with `401 Unauthorized`, the `wavefront-access-token` is invalid.
+This error results if tile deployment fails when running the `wavefront-alert-creation` errand with `401 Unauthorized`, the `wavefront-access-token` is invalid.
 
 ### No such host/no route to host Error
+
 If you receive a no `such host/no route to host` error, check that the wavefront-api-server can connect to the Internet, as follows:
 
 ```
@@ -101,7 +102,7 @@ curl -s 'https://vmware.wavefront.com/api/v2/source‘ \
 ```
 ### No Metrics
 
-If you see  no metrics in the Wavefront dashboard, possible causes are:
+If you see  no metrics in the dashboards, possible causes are:
 - 401 unauthorized: check wavefront-access-token validity
 - Network connectivity to wavefront-api-server
 
