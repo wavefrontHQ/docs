@@ -21,7 +21,7 @@ summary: Examine data with dashboards and charts
 
 All users can customize their dashboards. Learn how to find a section, filter using variables or filters, set the time for the dashboard, and share the dashboard with others.
 
-<p><a href="https://bcove.video/3aL88g8"><img src="/images/v_dashboards_customizing.png" style="width: 700px;"/></a>
+<p><a href="https://bcove.video/2Wux6eP"><img src="/images/v_dashboards_customizing.png" style="width: 700px;"/></a>
 </p>
 
 ## Get Started
