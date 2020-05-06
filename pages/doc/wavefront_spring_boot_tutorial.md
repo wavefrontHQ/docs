@@ -1,60 +1,43 @@
 ---
-title: Wavefront Spring Boot Starter Tutorial
+title: Wavefront for Spring Boot Tutorial
 keywords:
 tags: [best practice]
 sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
-summary: Configure the Wavefront Spring Boot Starter with a sample application.
+summary: Configure Wavefront for Spring Boot with a sample application.
 ---
 {% include important.html content="This document is work in progress!"%}
-In the tutorial, you use the Wavefront Spring Boot Starter with the Spring pet clinic sample application. Let's get started!
+In the tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sample application. Let's get started!
 
 ## Video
 **{Add Video by Clement!}**
 
 ## Prerequisites
 
-* Support Java 8 or above
 * Spring Boot 2.3.0 or above
+* Java 8 or above
+* Maven 3.3+ or Gradle 6.3 or later
+  <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
 * Clone the sample pet clinic application.
   ```
   git clone https://github.com/wavefrontHQ/wavefront-spring-boot.git
   ```
 * Build the project and start it.
   ```
-  ./mvnw package
-  java -jar target/*.jar
+  ./mvnw spring-boot:run
   ```
   
 ## Start Configuring
 
 1. Open the sample pet clinic application using an IDE and add the following code: 
-    <ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a href="#maven" data-toggle="tab">Maven</a></li>
-        <li><a href="#gradle" data-toggle="tab">Gradle</a></li>
-    </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="maven">
-            <p>Open your application and the following code to your <code>pom.xml</code> file. </p>
-              <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
-  &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
-  &lt;version&gt;2.0.0&lt;/version&gt;
-&lt;/dependency&gt;
-            </pre>
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="gradle">
-        <p>Open your application and the following code to your <code>build.gradle</code> file. </p>
-          <pre>
-dependencies {
-...
-implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
-}
-        </pre>
-        </div>
-      </div>
+    ```
+    <dependency>
+      <groupId>com.wavefront</groupId>
+      <artifactId>wavefront-spring-boot-starter</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+    ```
+          
 1. Optionally, send trace data to Wavefront using Spring Cloud Sleuth (recommended) or OpenTracing.
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
@@ -62,52 +45,25 @@ implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELE
     </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="sleuth">
-            <ul>
-            <li><p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+            <p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
               <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
   &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
   &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
 &lt;/dependency&gt;
-            </pre></li>
-          
-            <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
-              <pre>
-dependencies {
-  ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.2.RELEASE'
-  }
-            </pre></li></ul>
-            
+            </pre>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="opentracing">
-        <ul><li><p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+        <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
           <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
   &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
   &lt;version&gt;0.5.3&lt;/version&gt;
 &lt;/dependency&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;io.opentracing&lt;/groupId&gt;
-  &lt;artifactId&gt;opentracing-api&lt;/artifactId&gt;
-  &lt;version&gt;0.33.0&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;javax.validation&lt;/groupId&gt;
-  &lt;artifactId&gt;validation-api&lt;/artifactId&gt;
-&lt;/dependency&gt;
-        </pre></li>
-      
-        <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
-          <pre>
-dependencies {
-  ...
-  ADD CODE
-  }
-        </pre></li></ul>
+        </pre>
         </div>
       </div>
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).

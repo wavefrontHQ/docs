@@ -490,15 +490,15 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront Spring Boot Starter
+      - title: Wavefront for Spring Boot
         url: /wavefront_springboot.html
         output: web
 
-      - title: Spring Boot Starter Tutorial
+      - title: Tutorial
         url: /wavefront_springboot_tutorial.html
         output: web
 
-      - title: Spring Boot Starter FAQs
+      - title: FAQs
         url: /wavefront_spring_boot_faq.html
         output: web
 
