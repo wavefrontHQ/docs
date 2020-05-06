@@ -46,7 +46,7 @@ Set up Maven or Gradle or customize the configuration file.</td>
 <tr>
 <td><strong>Alerts</strong></td>
 <td>Create smart alerts that dynamically filter noise and capture true anomalies.</td>
-<td>Alerts are note available on the free cluster.</td>
+<td>Alerts are not available on the free cluster.</td>
 </tr>
 <tr>
 <td><strong>Actuator endpoint</strong></td>
@@ -74,7 +74,7 @@ If you use Wavefront for Spring Boot:
 
 ## Getting Started
 
-If you are starting a new project, add the Wavefront dependency using https://start.spring.io or if you are configuring an existing application, you only need to add a few lines in your build.
+If you are starting a new project, add the Wavefront dependency using [https://start.spring.io](https://start.spring.io) or if you are configuring an existing application, you only need to add a few lines in your build.
 <br/>  
 Once you initialize your project, you can send data to Wavefront via [direct ingestion](direct_ingestion.html) or via the [Wavefront proxy](proxies.html). If you are trying it out for the first time, use direct ingestion. For details, see [Getting Data into Wavefront](wavefront_data_ingestion.html)
 
@@ -174,7 +174,7 @@ Follow the steps given below to start sending your data to Wavefront and to view
 You can add the following custom configurations.
 {% include note.html content="See the [GitHub documentation](https://github.com/wavefrontHQ/wavefront-spring-boot#wavefront-spring-boot-starter) for more details on customer configurations."%}
 
-* **Invite users and let them send data to the same cluster.**<br/>
+* **Invite users and let them send data to the same cluster**<br/>
   1. Click the link that was printed on your console and navigate to the :
       {% include note.html content="Save the link that you used to access the Service dashboard." %}
       1. Click the gear icon and select **Account Management**.
@@ -189,12 +189,12 @@ You can add the following custom configurations.
   1. Restart your application.
   1. Navigate to the Wavefront Service dashboard using the link that you saved previously.
 <a name="proxy"></a>
-* **Send data to Wavefront using the Wavefront Proxy.** <br/>Copy and paste the following property to your projects `application.properties` file. 
+* **Send data to Wavefront using the Wavefront Proxy** <br/>Copy and paste the following property to your projects `application.properties` file. 
   {% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and after. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
   ```
   management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
   ```
-* **Send traces from your application:**<br/> Send trace data to Wavefront using Spring Cloud Sleuth (recommended) or OpenTracing.
+* **Send traces from your application**<br/> Send trace data to Wavefront using Spring Cloud Sleuth (recommended) or OpenTracing.
   <ul id="profileTabs" class="nav nav-tabs">
       <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
       <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
