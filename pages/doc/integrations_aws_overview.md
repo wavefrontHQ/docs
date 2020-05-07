@@ -167,7 +167,7 @@ The permissions we require depend on the integration and on the service you want
 </tr>
 <tr>
     <td>AWS Metrics+ <br>Service Limit Metrics</td>
-    <td>Retrieves service limit metrics using AWS APIs. Requires at least a Business Level AWS Support plan.  </td>
+    <td>Retrieves Trusted Advisor service limit metrics using AWS APIs. Requires at least a Business Level AWS Support plan.  </td>
     <td>support:DescribeTrustedAdvisorChecks<br />
 support:RefreshTrustedAdvisorCheck<br />
 support:DescribeTrustedAdvisorCheckResult<br /></td>
@@ -177,10 +177,6 @@ support:DescribeTrustedAdvisorCheckResult<br /></td>
 ### Create IAM Policy to Specify Limited Access
 
 You can explicitly specify the access permissions in a custom IAM policy, as shown in the following example snippet.
-
-{% include note.html content="If you want to retrieve Service Limit metrics, you also have to add `support:DescribeTrustedAdvisorChecks`,
-`support:RefreshTrustedAdvisorCheck`, and
-`support:DescribeTrustedAdvisorCheckResult` to the file." %}
 
 ```
 {
@@ -199,7 +195,10 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "dynamodb:ListTables",
                 "dynamodb:DescribeTable",
                 "eks:Describe*",
-                "eks:List*"
+                "eks:List*",
+                "support:DescribeTrustedAdvisorChecks",
+                "support:RefreshTrustedAdvisorCheck",
+                "support:DescribeTrustedAdvisorCheckResult"
             ],
             "Effect": "Allow",
             "Resource": "*"

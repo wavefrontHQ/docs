@@ -478,6 +478,22 @@ entries:
       - title: Kubernetes Videos
         url: /videos_kubernetes.html
         output: web
+  
+  - title: Spring Boot
+    output: web
+    folderitems:
+
+      - title: Wavefront for Spring Boot
+        url: /wavefront_springboot.html
+        output: web
+
+      - title: Tutorial
+        url: /wavefront_springboot_tutorial.html
+        output: web
+
+      - title: FAQs
+        url: /wavefront_spring_boot_faq.html
+        output: web
 
   - title: "Distributed Tracing"
     output: web
