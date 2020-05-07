@@ -45,7 +45,7 @@ Set up Maven or Gradle or customize the configuration file.</td>
 <tr>
 <td><strong>Alerts</strong></td>
 <td>Create smart alerts that dynamically filter noise and capture true anomalies.</td>
-<td>Alerts are not available on this free cluster. However, alerts are supported in all other Wavefront clusters.</td>
+<td>Alerts are not available on this free cluster.</td>
 </tr>
 <tr>
 <td><strong>Actuator endpoint</strong></td>
