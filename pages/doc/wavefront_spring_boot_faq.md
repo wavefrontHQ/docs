@@ -4,11 +4,11 @@ keywords:
 tags: 
 sidebar: doc_sidebar
 permalink: wavefront_spring_boot_faq.html
-summary: Get answers to you questions about Wavefront for Spring Boot
+summary: Get answers to your questions about Wavefront for Spring Boot
 ---
 
-### What is the difference between the free cluster and a Wavefront trial?
-* **Free cluster** <br/>The free cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
+### What is the difference between the freemium cluster and a Wavefront trial?
+* **Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
 
 * **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. We ask that you tell us more about yourself when signing up for a trial.
 
@@ -24,13 +24,13 @@ Reach out to us on our [public Slack channel](https://www.wavefront.com/join-pub
 
 ### Why do I not see a link to access the Wavefront service on start-up?
 
-* Currently only our free cluster supports automatic account provisioning with Spring Boot. If you are using a different cluster, you won’t see a link.
+* Currently, only our freemium cluster supports automatic account provisioning with Spring Boot. If you are using a different cluster, you won’t see a link.
 * You have configured an API token in your application's `application.properties` file. If you want to see the link printed on the console, add `wavefront.freemium-account=true` to the `application.properties` file.
 * If you have a web application, expose the Wavefront actuator endpoint to easily access your dashboard.
 
 ### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
 * If you are just trying out Wavefront, see [Manage Service Accounts](accounts.html#service-accounts) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you are using Wavefront in a larger deployment, sign-up for a Wavefront trial at [www.wavefront.com](www.wavefront.com) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We are more than happy to help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on our [public Slack channel](https://www.wavefront.com/join-public-slack) for more information.
+* If you want to use Wavefront in a larger deployment, sign-up for a Wavefront trial at [www.wavefront.com](www.wavefront.com) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on our [public Slack channel](https://www.wavefront.com/join-public-slack) for more information.
 
 ### How do I set up an email/password login to the account?
 
@@ -40,8 +40,8 @@ If you added `wavefront.freemium-account=true` to your `application.properties` 
 
 ### What do I do if I sign out of the freemium cluster?
 
-* If you have invited yourself and created an account, you can log in and using your username and password and access the same link.
-* Save the link that you used to access the Wavefront Service dashboard and restart your Spring Boot application. Next, click the link you saved to access the dashboard.
+* If you have invited yourself and created an account, log in using your username and password.
+* Save the link that you used to access the Wavefront Service dashboard and restart your Spring Boot application. Next, paste the link you saved into a browser to access the dashboard.
 * If you deleted the `~/.wavefront_freemium` file that was saved in the home directory, a new account is created and you will not be able to access the old link you saved to view your existing data.
 
 ### How do I get help?
