@@ -11,6 +11,16 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
+## Version 7.1
+
+- The Wavefront proxy listener port (2878) can now be used as a direct ingestion endpoint for all data (metrics, histograms, spans/span logs)
+- New preprocessor features:
+  * conditional logic for rules with [`if` parameter](proxies_preprocessor_rules.html#limit-when-a-rule-applies-if-operator).
+  * global and multi-port rules
+  * interactive rules tester
+- New proxy installs use Java 11 runtime
+
+
 ## Version 6.1
 
 - Significantly improved data parsing performance and throughput.
@@ -21,8 +31,8 @@ This page gives an overview of important changes for the most recent Wavefront p
 - Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
 - [Ability to export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
 - Deprecated configuration options:
-  - `retryThreads` configuration option is deprecated as it is no longer applicable to the new storage engine. 
-  - `pushLogLevel` configuration option is deprecated as logging levels are configured through log4j2 configurations. 
+  - `retryThreads` configuration option is deprecated as it is no longer applicable to the new storage engine.
+  - `pushLogLevel` configuration option is deprecated as logging levels are configured through log4j2 configurations.
 
 ## Version 5.7
 
