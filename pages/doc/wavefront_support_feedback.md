@@ -8,7 +8,7 @@ summary: Get help with Wavefront and give feedback.
 
 
 ## Slack
-Get in touch using **Slack**: [Wavefront public Slack channel](http://www.wavefront.com/join-public-slack)
+Get in touch using **Slack**: [Wavefront public Slack channel](http://www.wavefront.com/slack-us)
 
 ## Support
 Get in touch with Wavefront by VMware Support from inside the product:
