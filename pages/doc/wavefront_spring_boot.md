@@ -11,7 +11,7 @@ Wavefront for Spring Boot allows you to quickly configure your environment, so S
 
 ## How to Get Data into Wavefront from Spring Boot Applications
 
-You can send data from your Spring Boot applications into Wavefront using the Micrometer with Spring Boot or Wavefront for Spring Boot: 
+You can send data from your Spring Boot applications into Wavefront using Micrometer with Spring Boot or Wavefront for Spring Boot: 
 
 * **Micrometer**<br/> Wavefront supported a [Micrometer integration](micrometer.html) for several years. Starting with Spring Boot 2, Micrometer is the instrumentation library powering the delivery of application metrics from Spring. This custom integration allows you to send your own metrics to Wavefront and visualize them in custom dashboards and charts. The integration uses the [Wavefront Reporter for Micrometer](https://github.com/micrometer-metrics/micrometer).
 * **Wavefront for Spring Boot**<br/> Wavefront made the Wavefront for Spring Boot starter available recently. If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to the Wavefront service. Once the data is in Wavefront, you can view your data, find hotspots, and gather more data.
@@ -45,7 +45,7 @@ Set up Maven or Gradle or customize the configuration file.</td>
 <tr>
 <td><strong>Alerts</strong></td>
 <td>Create smart alerts that dynamically filter noise and capture true anomalies.</td>
-<td>Alerts are not available on the free cluster.</td>
+<td>Alerts are not available on this free cluster. However, alerts are supported in all other Wavefront clusters.</td>
 </tr>
 <tr>
 <td><strong>Actuator endpoint</strong></td>
@@ -77,7 +77,7 @@ Getting started is easy:
 * If you are starting a new project, add the Wavefront dependency using [https://start.spring.io](https://start.spring.io).
 * If you are configuring an existing application, you only need to add a few lines to your build.
 
-You can send data to Wavefront via [direct ingestion](direct_ingestion.html) or via the [Wavefront proxy](proxies.html). Wavefront for Spring Boot sends data to Wavefront via direct ingestion. Optionally, you can [configure your application to send data via the Wavefront proxy](#proxy).
+You can send data to Wavefront via [direct ingestion](direct_ingestion.html) or via [Wavefront proxy](proxies.html). Wavefront for Spring Boot sends data to Wavefront via direct ingestion by default. Optionally, you can [configure your application to send data via the Wavefront proxy](#proxy).
 
 {% include note.html content="If you do not have a Wavefront account, the starter will auto-negotiate an account for you and save the API token in the`~/.wavefront_freemium` file, which is saved in your home directory." %} 
 
@@ -99,7 +99,7 @@ Initialization is different for existing or new projects.
 </ul>
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="existing">
-      <p>Follow the steps given below:</p>
+      <p>Follow these steps:</p>
       <ol>
         <li> Add the Wavefront dependency.  
           <ul id="profileTabs" class="nav nav-tabs">
@@ -182,7 +182,7 @@ dependencies {
     </div>
 
     <div role="tabpanel" class="tab-pane" id="new">
-      <p>Follow the steps given below:</p>
+      <p>Follow these steps:</p>
       <ol>
         <li markdown="span"> 
           Navigate to [https://start.spring.io](https://start.spring.io/).
@@ -301,8 +301,8 @@ Add the following custom configurations to the `application.properties` file.
       1. Click the gear icon and select **Account Management**.
       1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
         ![Invite Users](/images/spring_boot_invite_users.png)
-    The users will get an email with with a link to reset their password. They can then access your dashboard. 
-  1. Copy and paste the properties that were printed on your terminal to your project's `application.properties` file.
+    The users will get an email with a link to reset their password. They can then access your dashboard. 
+  1. Information about the token and URL are displayed on your terminal. Add them to your project’s `application.properties` file.
       ```
       management.metrics.export.wavefront.api-token=<Enter_Token>
       management.metrics.export.wavefront.uri=https://wavefront.surf
@@ -330,7 +330,7 @@ Add the following custom configurations to the `application.properties` file.
     wavefront.application.service=my-service
     ```
 
-    Example: If you are using YAML file.
+    Example: If you are using a YAML file.
     ```
     wavefront:
       application:
@@ -348,5 +348,5 @@ Add the following custom configurations to the `application.properties` file.
 ## Next Steps
 
 * [Try out the Wavefront for Spring Boot Tutorial](wavefront_springboot_tutorial.html) and see how you can send your data to Wavefront in a few simple steps!
-* Check out [this video](https://youtu.be/Jxwf-Iw-3T8) that show you how to send data to Wavefront from your Spring Boot application and analyze the data.
+* Check out [this video](https://youtu.be/Jxwf-Iw-3T8) that shows you how to send data to Wavefront from your Spring Boot application and analyze the data.
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
