@@ -186,17 +186,17 @@ All users can set the value of the list variable:
 
 The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
-Starting with release, 2020.14, we support wildcards for point tag dynamic variables, discussed below.
+{% include note.html content="Starting with release 2020.14, you can specify a string or a wildchard character (`*`) for each option. Starting with release, 2020.14, we support wildcards for point tag dynamic variables. That means users have the option to show results for all values of the variable." %}
 
 ### Dynamic Dashboard Variable Field Options
 
-Dynamic dashboard variables allow you to select one of the following options:
+Dynamic dashboard variables allow you to select one of the following options.
 
 -   **Source** - Populates the dynamic variable list with sources associated with the query in the Query field.
 -   **Source Tag** - Populates the dynamic variable list with source tags that match `"tag="` part of your ts() expression. For example `ts(cpu.load, tag=app*)` populates the dynamic variable list with `"app-tag1"`, `"app-tag2"` and so on.
 -   **Matching Source Tag** - This will get all of the sources from your ts() expression, then, find all the source tags associated with those sources and populate the dynamic variable list with those source tags. If the query returns at least 1 source associated with a source tag, **Matching Source Tag** will display source tags.
 -   **Metric** - Populates the  dynamic variable list with metrics associated with the query in the Query field.
--   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field. Starting with release, 2020.14, we support wildcards for point tag dynamic variables. That means users can select from the existing point tag values, or show results for all values.
+-   **Point Tag** - Populates the  dynamic variable list with point tag values (of the point tag key in Point Tag Key field) associated with the query in the Query field.
 
 The example below uses the **Metric** field to populate a dynamic variable list.
 
@@ -208,7 +208,7 @@ If you define a dynamic dashboard variable named **var2** that refers to a sourc
 
 ### Create a Dynamic Dashboard Variable
 
-This example uses a point tag dynamic variable. Starting with release 2020.14, you can select a point tag value or the wildcard character to mean all possible values for the point tag.
+This example uses a point tag dynamic variable. Starting with release 2020.14, users can select a value or select the wildcard character to mean all possible values.
 
 1. In the top right corner, select **Edit** from the ellipsis icon to put your dashboard into edit mode.
 1. Click the **Add** icon in the variables bar.
