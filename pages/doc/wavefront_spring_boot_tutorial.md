@@ -8,6 +8,11 @@ summary: Configure Wavefront for Spring Boot with a sample application.
 ---
 In this tutorial, you use Wavefront for Spring Boot with the Spring pet clinic sample application. Let's get started!
 
+## Video
+Let's take a look at how you can configure your Spring Boot application with Wavefront for Spring Boot to send data to Wavefront and analyze this data.
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/Jxwf-Iw-3T8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Prerequisites
 
 * Java 8 or above.
