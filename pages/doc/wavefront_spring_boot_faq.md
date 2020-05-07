@@ -20,7 +20,7 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 ### What is the retention and Service Level Agreement (SLA) on the freemium cluster?
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 30 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
-Reach out to us on [Slack](https://join.slack.com/t/wavefront-public/shared_invite/zt-e0cosp84-LE66b~t22MvUX4bCjz_a5Q) and join the #springboot public channel for more information.
+Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #springboot public channel for more information.
 
 ### Why do I not see a link to access the Wavefront service on start-up?
 
@@ -30,7 +30,7 @@ Reach out to us on [Slack](https://join.slack.com/t/wavefront-public/shared_invi
 
 ### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
 * If you are just trying out Wavefront, see [Manage Service Accounts](accounts.html#service-accounts) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use Wavefront in a larger deployment, sign-up for a Wavefront trial at [www.wavefront.com](www.wavefront.com) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://join.slack.com/t/wavefront-public/shared_invite/zt-e0cosp84-LE66b~t22MvUX4bCjz_a5Q) and join the #springboot public channel for more information.
+* If you want to use Wavefront in a larger deployment, sign-up for a Wavefront trial at [www.wavefront.com](www.wavefront.com) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #springboot public channel for more information.
 
 ### How do I set up an email/password login to the account?
 
@@ -45,4 +45,4 @@ If you added `wavefront.freemium-account=true` to your `application.properties` 
 * If you deleted the `~/.wavefront_freemium` file that was saved in the home directory, a new account is created and you will not be able to access the old link you saved to view your existing data.
 
 ### How do I get help?
-Reach out to us on [Slack](https://join.slack.com/t/wavefront-public/shared_invite/zt-e0cosp84-LE66b~t22MvUX4bCjz_a5Q) and join the #springboot public channel.
+Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #springboot public channel.
