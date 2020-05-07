@@ -93,5 +93,3 @@ When you click the link, you are taken to the Services dashboard where you can:
   <br/>Once in the tracing browser, you see the traces from the application and the trace related to the error you created. 
   
 {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6_YEpjjVC9E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
