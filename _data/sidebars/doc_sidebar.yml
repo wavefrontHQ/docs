@@ -309,6 +309,10 @@ entries:
       url: /alerts.html
       output: web
 
+    - title: Manage Alerts
+      url: /alerts_manage.html
+      output: web
+
     - title: Alert States and Lifecycle
       url: /alerts_states_lifecycle.html
       output: web
@@ -478,7 +482,7 @@ entries:
       - title: Kubernetes Videos
         url: /videos_kubernetes.html
         output: web
-  
+
   - title: Spring Boot
     output: web
     folderitems:
