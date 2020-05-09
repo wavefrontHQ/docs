@@ -20,10 +20,11 @@ Let's take a look at how you can configure your Spring Boot application with Wav
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
 * Clone the sample pet clinic application.
   ```
-  git clone https://github.com/wavefrontHQ/wavefront-spring-boot.git
+  git clone https://github.com/spring-projects/spring-petclinic.git
   ```
 * Build the project and start it.
   ```
+  cd spring-petclinic
   ./mvnw spring-boot:run
   ```
   
