@@ -8,7 +8,7 @@ summary: Learn how alerts work, and how to create and examine them.
 ---
 With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. When you create an alert, you specify one or more alert targets that receive the alert notification(s). You can view an image of the chart in the alert notification, and click a link to see the alert in context. The end result is fewer false alerts and faster remediation when real issues occur.
 
-{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
+{% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
 
 ## Wavefront Alerts

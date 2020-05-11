@@ -52,18 +52,7 @@ Missing data is represented by a dashed line. The dashed line only gives a visua
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -226,18 +215,7 @@ A **point plot** chart displays point buckets *without* any interpolation. Like 
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -399,18 +377,7 @@ The stacked area chart can help you determine at a glance which queries have the
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -591,18 +558,7 @@ This chart supports the same tabs and options as the Stacked Area Chart discusse
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -900,18 +856,7 @@ By default, a **single stat** chart plots a single series on a chart and display
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -954,6 +899,9 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tr>
 <tr><td>Gap Threshold</td>
 <td>Controls when data is considered missing when there are gaps in the reporting of the data. The gap threshold is expressed in seconds and defaults to 60 seconds. </td>
+</tr>
+<tr><td>Display Raw Value</td>
+<td>Check this checkbox if you've selected a unit and you want to display, for example, `10k` instead of `10000`. Checked by default. </td>
 </tr>
 </tbody>
 </table>
@@ -1057,18 +1005,7 @@ The color mapping tab lets you define which set of values maps to which colors. 
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -1402,7 +1339,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 
 ![gauge](images/gauge.png)
 
-A gauge chart displays a single value, in a default color. You can optionally add color mapping of values to colors, which displays in an outer ring. By default, color mapping uses 0-100, but you can define a minimum and maximum.
+A gauge chart displays a single value, in a default color. You can optionally add color mapping. If you do, the  which displays in an outer ring. By default, color mapping uses 0-100, but you can define a minimum and maximum.
 
 
 
@@ -1416,18 +1353,7 @@ A gauge chart displays a single value, in a default color. You can optionally ad
 </thead>
 <tr>
 <td>Summarization</td>
-<td>Summarization method for grouping raw, reported data points, and for mapping them to displayable values. When displaying metrics, Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.  Wavefront then aggregates (combines) the raw data values that are reported within each time interval (bucket) and produces a single value to display for each bucket. The chosen summarization method determines how the aggregation is performed.
-
-<ul>
-<li><strong>Average</strong> - Display the average (mean) of the raw data values in each bucket.</li>
-<li><strong>Median</strong> - Display the median of the raw data values in each bucket.</li>
-<li><strong>Min</strong> - Display the minimum raw data value in each bucket.</li>
-<li><strong>Max</strong> - Display the maximum raw data value in each bucket.</li>
-<li><strong>Count</strong> - Display the number of raw data values in each bucket.</li>
-<li><strong>Sum</strong> - Display the sum of the raw data values in each bucket.</li>
-<li><strong>First</strong> - Display the first raw data value to be reported in each bucket.</li>
-<li><strong>Last</strong> - Display the last raw data value to be reported in each bucket.</li>
-</ul>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
 
 Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
 us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
@@ -1446,19 +1372,20 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tr>
 <tr>
 <td>Default Color</td>
-<td>Color that's used for the value and the gauge ring when no color mapping is defined. </td>
+<td>Color that's used for the value and the gauge ring when no color mapping is defined. Default is blue. See the chart on the left in the image above.  </td>
 </tr>
 <tr><td>Color Mapping</td>
-<td>Allows you to add an outer ring to the gauge that illustrates possible values of the gauge. By default, the gauge displays color information for 0-100 even if you define a mapping for a different range. Specify Min and Max to change what the outer ring shows. </td>
+<td>Allows you to add an outer ring to the gauge that illustrates possible values of the gauge. See the chart on the right in the image above. <br>
+By default, the gauge displays color information for 0-100 even if you define a mapping for a different range. Specify Min and Max to change what the outer ring shows. See <a href="ui_charts_faq.html#why-doesnt-the-outer-ring-of-my-gauge-change">Why Doesn't the Outer Ring of My Gauge Change?</a></td>
 </tr>
 <tr><td>Min</td>
-<td>Minimum value to use. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected. </td>
+<td>Minimum value to for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected. </td>
 </tr>
 <tr><td>Max</td>
-<td>Maximum value to use. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected.</td>
+<td>Maximum value to use for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected.</td>
 </tr>
 <tr><td>Display Raw Value</td>
-<td> </td>
+<td>Check this checkbox if you've selected a unit and you want to display, for example, `10k` instead of `10000` </td>
 </tr>
 </tbody>
 </table>

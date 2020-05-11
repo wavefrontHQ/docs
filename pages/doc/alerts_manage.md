@@ -50,6 +50,11 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 <tr>
+<td width="50%"><strong>Past Firings</strong> shows past firings with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity.
+</td>
+<td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Data section"></td>
+</tr>
+<tr>
 <td width="50%">In the <strong>Data</strong> section you can examine the query (or queries), filter what's displayed, and open the alert query in Chart Editor.
 </td>
 <td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section"></td>
@@ -61,14 +66,12 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 
 Here's how notifications include the View Alert link (2020.14 and later).
 
-* For email alert notifications
-  - The **View Alert** link takes you to the new Alert Viewer. 
-  - The email template for notifications also includes a **View Alert Chart** that takes you directly to the chart view that was the link target before 2020.14.
-* For pagerduty and alert target (webhook) notifications:
+* Notification emails now include a **View Alert Chart** link that takes you directly to the chart view that was the link target before 2020.14.
+* For Pagerduty, alert target (webhook), and  templated email notifications::
   - The link  target of the `url` mustache template variable directs to the new Alert Viewer. 
   - A new mustache context variable `chartUrl` will take you directly to the chart view that was the link target before 2020.14. 
 
-{% include note.html content="When you upgrade to 2020.14, already-created alert templates will not be updated to use `chartUrl`. To give users the option to view the chart in Chart Editor, edit existing alert targets. " %} 
+{% include note.html content="When you upgrade to 2020.14, already-created alert targets will not be updated to use `chartUrl`. To give users the option to view the chart in Chart Editor, edit existing alert targets." %} 
 
 
 ## Examine All Alerts in the Alerts Browser

@@ -16,6 +16,7 @@ summary: Learn chart customization from the experts.
 
 Color mapping is a powerful way to get users' attention when there's a problem. We support color mapping for the following charts:
 * Single stat
+* Gauge
 * Topk
 * Node map
 
@@ -77,6 +78,34 @@ You can set this up as follows:
   ![drilldown_definition](images/drilldown_1.png)
 2. When a user sees a critical value on a chart and clicks on that chart in dashboard 1, the user is redirected to dashboard 2, and the variable is preset to show the environment that has the problem.
   ![drilldown_target](images/drilldown_2.png)
+
+
+## Why Doesn't the Outer Ring of My Gauge Change?
+
+If you specify color mappings for a gauge chart, the inner ring of the chart will show the current value, and the color of that inner ring depends on the color mapping thresholds.
+
+An additional outer ring shows how the colors map to the values 1-100 by default, even if the color mapping numbers are larger than 100. To specify where you want for the outer ring to start, specify a `Min` and `Max` value.
+
+## What Do the Summarization Options Do?
+
+The summarization method groups raw, reported data points, and maps them to displayable values. When displaying metrics:
+
+1. Wavefront determines the chart resolution and establishes an appropriate time interval as the chart's bucket size.
+2. Wavefront then aggregates (combines) the raw data values that are reported within each such time interval (bucket) and produces a single value to display for each bucket.
+
+The chosen summarization method determines how the aggregation is performed. Suppose the horizontal scale for your chart is `240 point buckets across, 1 bucket – 30 sec (est)`. Choosing **Median** causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.
+
+- **Average** - Display the average (mean) of the raw data values in each bucket.
+- **Median** - Display the median of the raw data values in each bucket.
+- **Min** - Display the minimum raw data value in each bucket.
+- **Max** - Display the maximum raw data value in each bucket.
+- **Count** - Display the number of raw data values in each bucket.
+- **Sum** - Display the sum of the raw data values in each bucket.
+- **First** - Display the first raw data value to be reported in each bucket.
+- **Last** - Display the last raw data value to be reported in each bucket.
+
+
 
 
 ## Any Other Doc (or Videos)?
