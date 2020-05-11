@@ -93,7 +93,7 @@ To create a maintenance window:
 
 ### Example
 
-Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts.html#organizing-related-alerts-with-alert-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
+Suppose you have a group of alerts that are used primarily as demo examples. These alerts have [alert tag paths](alerts_manage.html#organize-related-alerts-with-alert-tags) like `example.latency.dev`, `example.latency.prod`, `example.network.dev`, `example.network.prod`, and so on.
 
 To suppress the example alerts, you create a maintenance window as shown above, and fill in `Affected Alerts and Sources` according to your use case:
 

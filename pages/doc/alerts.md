@@ -175,7 +175,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts-with-alert-tags.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
 </tr>
 </tbody>
 </table>
@@ -295,7 +295,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](#organizing-related-alerts-with-alert-tags.html). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
 </tr>
 </tbody>
 </table>
@@ -333,5 +333,5 @@ This video shows how to create a multi-threshold alert:
 
 ## Do More!
 * Use Alert Viewer to drill down to the root cause.
-* Clone, delete, or edit an alert. 
+* Clone, delete, or edit an alert.
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html)
