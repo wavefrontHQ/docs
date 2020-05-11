@@ -426,7 +426,7 @@ entries:
             output: web
 
           - title: VMware PKS Integration
-            url: /integrations_pks.html
+            url: /integrations_tkgi.html
             output: web
 
           - title: Log Data Metrics Integration
