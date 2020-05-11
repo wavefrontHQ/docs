@@ -291,6 +291,8 @@ To view your data, you first run your project and then click the link that direc
 1. Click the link (`https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Service dashboard where you can examine the data sent by your application.
     {% include note.html content="Want to see the cool information you can gather from the Service Dashboard? See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard)." %}
 
+<iframe width="768" height="432" src="https://www.youtube.com/embed/K-cviV9mKKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Optional: Custom Configurations
 
 Add the following custom configurations to the `application.properties` file.
