@@ -81,7 +81,7 @@ Let's walk through the following scenario to get a quick overview of the applica
   <tr>
     <td markdown="span">
       **Step 4: Focus on a service**<br/>
-      Let's focus on the styling service of the beachshirts application by clicking <b>Focus on service</b>.<br/>
+      Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
       
       This will help you focus on a specific service when you have more than 10 services in your application.
       </td>
@@ -92,7 +92,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       **Step 5: Hover over an edge** <br/>
       Hover over the edge between the styling and shopping service. You see that they send requests to each other. 
       
-      <br/>Hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
+      <br/>When you hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
       </td>
     <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
   </tr>
@@ -102,7 +102,6 @@ Let's walk through the following scenario to get a quick overview of the applica
       <br/>When you click on the edge between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
-      For example, click the edge between the styling and printing services.
       </td>
     <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
   </tr>
