@@ -39,7 +39,7 @@ To choose your starting point for visualizing traces:<br/>
 
 ## Application Map
 
-The application map gives you an overview of how the applications and services are linked. You can view Request, Error, and Duration (RED) metrics for each service in the application and edges (the arrow that goes from one service to the other). You can also view traces for the services and edges and drill down from the application map.
+The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
 ![application map](images/tracing_application_map.png)
 
@@ -47,45 +47,59 @@ Let's walk through the following scenario to get a quick overview of the applica
 
 <table style="width: 100%;">
 <thead>
-<tr><th width="60%">Description</th><th width="40%">User Interface</th></tr>
+<tr><th width="60%">Action</th><th width="40%">Result</th></tr>
 </thead>
 <tbody>
   <tr>
     <td markdown="span">
-      Search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
-      <br/><br/>For example, search for the beachshirts application, and click **Search**.
+      **Step 1:  Search for applications** <br/>
+      Click **Tag**, select **application** > **beachshirts**, and click **Search**.<br/>
+      
+      You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
       </td>
     <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/></td>
   </tr>
   <tr>
     <td markdown="span">
-      Hover over a service to see how the service communicates with the other services in the application.
-      <br/><br/>For example, hover over the styling service of the beachshirts application and see how the service communicates with the other services.
+      **Step 2: Hover over a service** <br/>
+      Hover over the styling service of the beachshirts application. It highlights how the styling service communicates with the other services in the application.
       </td>
     <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      Click on a service to:
+      <b>Step 3: Click on a service</b>
+      <br/>Click on the styling service. Now, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
         <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
         <li> Navigate to the Service dashboard when you click <b>View Service dashboard</b>.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for service</b>.</li>
-        <li> See the components used by the service, such as Java, Dropwizard, and more.</li></ul>
-      For example, let's focus on the styling service of the beachshirts application by clicking <b>Focus on service</b>. It uses the OpenTracing, Java, Dropwizard, and Jersey components.
+        <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li></ul>
       </td>
-    <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the beachshirts styling service"/></td>
+    <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
   </tr>
   <tr>
     <td markdown="span">
-      Hover over an edge (the arrow that goes from one service to the other) to see the direction of the requests between two services. <br/><br/>Edges are bidirectional if the two services send requests to each other.
-      <br/><br/>For example, hover over the edge between the styling and shopping service. You see that they send requests to each other. Therefore, the edge is bidirectional. 
+      **Step 4: Focus on a service**<br/>
+      Let's focus on the styling service of the beachshirts application by clicking <b>Focus on service</b>.<br/>
+      
+      This will help you focus on a specific service when you have more than 10 services in your application.
+      </td>
+    <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the styling service"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 5: Hover over an edge** <br/>
+      Hover over the edge between the styling and shopping service. You see that they send requests to each other. 
+      
+      <br/>Hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
       </td>
     <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      Click on an edge (the arrow that goes from on service to the other) to:
+      <b>Step 6: Click on an edge</b>
+      <br/>When you click on the edge between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
       For example, click the edge between the styling and printing services.
