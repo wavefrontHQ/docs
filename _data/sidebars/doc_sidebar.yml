@@ -231,7 +231,7 @@ entries:
 
     - title: Manage External Links
       url: /external_links_managing.html
-      output: web  
+      output: web
 
   - title: Query Language
     output: web
@@ -426,7 +426,7 @@ entries:
             output: web
 
           - title: VMware PKS Integration
-            url: /integrations_pks.html
+            url: /integrations_tkgi.html
             output: web
 
           - title: Log Data Metrics Integration
@@ -485,7 +485,11 @@ entries:
       - title: Kubernetes Videos
         url: /videos_kubernetes.html
         output: web
-  
+
+      - title: Wavefront & Kubernetes FAQ
+        url: /wavefront_kubernetes_faq.html
+        output: web
+
   - title: Spring Boot
     output: web
     folderitems:
