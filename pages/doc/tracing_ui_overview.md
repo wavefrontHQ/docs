@@ -13,59 +13,90 @@ This page explains how you can examine trace data from our UI. You'll learn how 
 
 ## Choose Your Starting Point
 
-Wavefront offers the following dashboards and browsers to view information on your applications and services and you can navigate from one to another to gather more infomration:
+Wavefront offers the following dashboards and browsers to view information on your applications and services and you can navigate from one to another to gather more information:
 
-![tracing user interfaces](images/tracing_ui.png)
-
-To choose your starting point for visualizing traces:
-1. In your web browser, go to your Wavefront cluster and log in.
-2. From the task bar click **Applications** :
-
-    - Select **Application Map** to [view how instrumented applications are related to each other](#application-map) and drill down from there.
-    - Select **Application Status Dashboard** to [view the status of your instrumented applications](#application-status-dashboard) and drill down from there.
-    - Select **Service Status Dashboard** to [view the status of the services in an application](#service-status-dashboard) and drill down from there.
-    - Select **Service Dashboard** to [view the status of a service in your application](#service-dashboard) and drill down from there.
-    - Select **Traces** to start by [querying for traces](#tracing-browser) and drill down from there.
-
-    ![tracing menu](images/tracing_menu.png)
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="55%">
+<img src="images/tracing_ui.png" alt="tracing user interfaces"/>
+</td>
+<td width="45%">
+To choose your starting point for visualizing traces:<br/>
+  <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
+  <li> From the taskbar click <b>Applications</b> :
+  <img src="/images/tracing_menu.png" alt="tracing menu"/>
+      <ul> <li>Select <b>Application Map</b> to <a href="#application-map">view how instrumented applications are related to each other</a> and drill down from there.</li>
+      <li> Select <b>Application Status</b> to <a href="#application-status-dashboard">view the status of your instrumented applications</a> and drill down from there. 
+          <br/>Once on Application Status, click <b>Service Status</b> to <a href="#service-status-dashboard">view the status of the services in an application</a> and drill down from there.</li>
+      <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
+      <li> Select <b>Traces</b> to start by <a href="#tracing-browser">querying for traces</a> and drill down from there.</li>
+      </ul></li></ol>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Application Map
 
-The application map gives you an overview of how the  applications and services are linked.
+The application map gives you an overview of how the applications and services are linked. You can view Request, Error, and Duration (RED) metrics for each service in the application and edges (the arrow that goes from one service to the other). You can also view traces for the services and edges and drill down from the application map.
 
 ![application map](images/tracing_application_map.png)
 
-On the application map page, you can:
-* View how instrumented applications are related to each other, or search for a particular application by applying filters.
-  - Apply one or more filters, such as the application name, cluster, shard, or any other application tag.
-* Click on a service to: <br/>
-  <table>
-    <tr>
-    <td width="50%">
-    <ul>
-      <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
-      <li>Navigate to the Service dashboard when you click <b>View Service dashboard</b>.</li>
-      <li>Navigate to the Tracing browser when you click <b>View traces for service</b>.</li>
-    </ul>
-    </td>
-    <td width="50%"><img src="/images/tracing_application_map_service.png" alt="The pop up when you click a service on an application map."/></td>
-    </tr>
-  <table> 
-* Click on an edge (the arrow that goes from on service to the other) to:  <br/>
-    <table>
-      <tr>
-      <td width="50%">
-      <ul>
-        <li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li>Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li>
-      </ul>
-        <p>Edges are bidirectional if services sent requests to each other.</p>
+Let's walk through the following scenario to get a quick overview of the application map. 
+
+<table style="width: 100%;">
+<thead>
+<tr><th width="60%">Description</th><th width="40%">User Interface</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td markdown="span">
+      Search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
+      <br/><br/>For example, search for the beachshirts application, and click **Search**.
       </td>
-      <td width="50%"><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
-      </tr>
-    <table> 
+    <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      Hover over a service to see how the service communicates with the other services in the application.
+      <br/><br/>For example, hover over the styling service of the beachshirts application and see how the service communicates with the other services.
+      </td>
+    <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
+  </tr>
+  <tr>
+    <td>
+      Click on a service to:
+        <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
+        <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
+        <li> Navigate to the Service dashboard when you click <b>View Service dashboard</b>.</li>
+        <li> Navigate to the Tracing browser when you click <b>View traces for service</b>.</li>
+        <li> See the components used by the service, such as Java, Dropwizard, and more.</li></ul>
+      For example, let's focus on the styling service of the beachshirts application by clicking <b>Focus on service</b>. It uses the OpenTracing, Java, Dropwizard, and Jersey components.
+      </td>
+    <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the beachshirts styling service"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      Hover over an edge (the arrow that goes from one service to the other) to see the direction of the requests between two services. <br/><br/>Edges are bidirectional if the two services send requests to each other.
+      <br/><br/>For example, hover over the edge between the styling and shopping service. You see that they send requests to each other. Therefore, the edge is bidirectional. 
+      </td>
+    <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
+  </tr>
+  <tr>
+    <td>
+      Click on an edge (the arrow that goes from on service to the other) to:
+        <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
+        <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
+      For example, click the edge between the styling and printing services.
+      </td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
+  </tr>
+</tbody>
+</table>
+
     
-## Application Status Dashboard
+## Application Status
 
 Go to the Applications page for a top-level status overview of your instrumented applications.
 
@@ -81,7 +112,7 @@ On the Applications page, you can:
 * Sort the displayed applications by name or by a RED metric.
 * Click an application name for an overview of its services.
 
-## Service Status Dashboard
+## Service Status
 
 When you select an application, you get an overview of its services.
 
