@@ -18,8 +18,6 @@ To see a list of the metrics for this integration, select the integration from <
 
 
 
-**Note:** If you use vRealize Operations, the application proxy agent sets up the integration for you. See the [setup instructions](https://YOUR_CLUSTER.wavefront.com/integration/vrops/setup). Otherwise, follow the setup steps on this page.
-
 ### Step 1. Install the Telegraf Agent
 
 This integration uses Jolokia to extract metrics from Tomcat, and the Jolokia input plugin for Telegraf. If you've already installed Telegraf on your server(s), you can skip to Step 2.
