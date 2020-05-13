@@ -11,19 +11,105 @@ The Wavefront tracing UI enables exploration of your apps and services. Once you
 
 This page explains how you can examine trace data from our UI. You'll learn how to query for traces, examine details, find potential problems, and more.
 
-
 ## Choose Your Starting Point
 
-To choose your starting point for visualizing traces:
-1. In your web browser, go to your Wavefront cluster and log in.
-2. From the task bar:
+Wavefront offers the following dashboards and browsers to view information on your applications and services and you can navigate from one to another to gather more information:
 
-    - Select **Applications > Application Status** to [view the status of your instrumented applications](#view-application-status) and drill down from there.
-    - Select **Applications > Traces** to start by [querying for traces](#query-for-a-list-of-traces) and drill down from there.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="55%">
+<img src="images/tracing_ui.png" alt="tracing user interfaces"/>
+</td>
+<td width="45%">
+To choose your starting point for visualizing traces:<br/>
+  <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
+  <li> From the taskbar click <b>Applications</b> :
+  <img src="/images/tracing_menu.png" alt="tracing menu"/>
+      <ul> <li>Select <b>Application Map</b> to <a href="#application-map">view how instrumented applications are related to each other</a> and drill down from there.</li>
+      <li> Select <b>Application Status</b> to <a href="#application-status-dashboard">view the status of your instrumented applications</a> and drill down from there. 
+          <br/>Once on Application Status, click <b>Service Status</b> to <a href="#service-status-dashboard">view the status of the services in an application</a> and drill down from there.</li>
+      <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
+      <li> Select <b>Traces</b> to start by <a href="#tracing-browser">querying for traces</a> and drill down from there.</li>
+      </ul></li></ol>
+</td>
+</tr>
+</tbody>
+</table>
 
-    ![tracing menu](images/tracing_menu.png)
+## Application Map
 
-## View Application Status
+The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
+
+![application map](images/tracing_application_map.png)
+
+Let's walk through the following scenario to get a quick overview of the application map. 
+
+<table style="width: 100%;">
+<thead>
+<tr><th width="60%">Action</th><th width="40%">Result</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td markdown="span">
+      **Step 1:  Search for applications** <br/>
+      Click **Tag**, select **application** > **beachshirts**, and click **Search**.<br/>
+      
+      You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
+      </td>
+    <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 2: Hover over a service** <br/>
+      Hover over the styling service of the beachshirts application. It highlights how the styling service communicates with the other services in the application.
+      </td>
+    <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 3: Click on a service</b>
+      <br/>Click on the styling service. Now, you can:
+        <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
+        <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
+        <li> Navigate to the Service dashboard when you click <b>View Service dashboard</b>.</li>
+        <li> Navigate to the Tracing browser when you click <b>View traces for service</b>.</li>
+        <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li></ul>
+      </td>
+    <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 4: Focus on a service**<br/>
+      Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
+      
+      This will help you focus on a specific service when you have more than 10 services in your application.
+      </td>
+    <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the styling service"/></td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      **Step 5: Hover over an edge** <br/>
+      Hover over the edge between the styling and shopping service. You see that they send requests to each other. 
+      
+      <br/>When you hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
+      </td>
+    <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 6: Click on an edge</b>
+      <br/>When you click on the edge between the styling and printing service, you can:
+        <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
+        <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
+      </td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
+  </tr>
+</tbody>
+</table>
+
+    
+## Application Status
 
 Go to the Applications page for a top-level status overview of your instrumented applications.
 
@@ -39,8 +125,7 @@ On the Applications page, you can:
 * Sort the displayed applications by name or by a RED metric.
 * Click an application name for an overview of its services.
 
-
-## View the Services of an Application
+## Service Status
 
 When you select an application, you get an overview of its services.
 
@@ -59,7 +144,7 @@ On the page for a particular application, you can:
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
 
 
-## Examine Service Metrics and Drill Down
+## Service Dashboard
 
 When you click on a service's **Details**, you can examine a dashboard of metrics to identify potential hot spots, and then drill down to the Traces browser.
 
@@ -97,7 +182,7 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
-## Explore Traces
+## Tracing Browser
 
 In the Traces browser, you can explore the context and the details of your application's traces.
 
@@ -115,7 +200,7 @@ From the Traces browser, you can:
 
 You can toggle the panel size for the traces list, service map, or trace details.
 
-## Query for a List of Traces
+### Query for a List of Traces
 
 In the Traces browser, you can [use the query builder or query editor](trace_data_query.html) to query for traces that include spans for a particular operation.
 
@@ -134,7 +219,7 @@ You can use the trace list to:
 * Click a trace to view its context in the [service map panel](#investigate-the-service-map-for-a-trace) and its details in the [trace details panel](#examine-trace-details).
 * View a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces -- and potentially find outliers.
 
-## Investigate the Service Map for a Trace
+### Investigate the Service Map for a Trace
 
 In the Traces browser, use the service map to investigate the services that contribute spans to a selected trace.
 
@@ -156,7 +241,7 @@ Watch this video to see how a service map can help you pinpoint a performance bo
 </p>
 
 
-## Examine Trace Details
+### Examine Trace Details
 
 In the Traces browser, use the trace details panel to examine the spans that belong to a selected trace. Some of these spans may represent operations executed by other services.
 
@@ -168,7 +253,7 @@ In the trace details panel, you can:
 * Explore the trace’s [critical path](#a-closer-look-at-critical-paths). This is an end-to-end sequence of blocking spans, where each blocking span must complete before the trace can complete.
 
 
-## Drill Down Into Spans and View Metrics and Span Logs
+### Drill Down Into Spans and View Metrics and Span Logs
 
 In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
@@ -183,7 +268,7 @@ Span details include:
 If your spans have been instrumented to show span logs, you can click **Logs** to fetch the logs and drill down to examine them. We don't show span logs by default for better browser performance.
 
 
-## A Closer Look at Critical Paths
+### A Closer Look at Critical Paths
 
 The [trace details panel](#examine-trace-details) uses an orange line to show the critical path through a trace. You can think of the critical path as the end-to-end combination of spans that are the most blocking. These spans represent the sequence of operations that must complete before the trace itself can complete.
 
