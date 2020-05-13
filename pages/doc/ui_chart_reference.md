@@ -1360,7 +1360,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tr>
 <tr>
 <td>Decimal Precision</td>
-<td>How many values to show after the decimal point. Defaults to 3.  </td>
+<td>How many digits to show after the decimal point. Defaults to 3.  </td>
 </tr>
 <tr>
 <td>Prefix</td>
@@ -1375,11 +1375,11 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 <td>Color that's used for the value and the gauge ring when no color mapping is defined. Default is blue. See the chart on the left in the image above.  </td>
 </tr>
 <tr><td>Color Mapping</td>
-<td>Allows you to add an outer ring to the gauge that illustrates possible values of the gauge. See the chart on the right in the image above. <br>
+<td>Adds an outer ring and splits that outer ring into color zones that show possible values of the gauge. See the chart on the right in the image above. <br>
 By default, the gauge displays color information for 0-100 even if you define a mapping for a different range. Specify Min and Max to change what the outer ring shows. See <a href="ui_charts_faq.html#why-doesnt-the-outer-ring-of-my-gauge-change">Why Doesn't the Outer Ring of My Gauge Change?</a></td>
 </tr>
 <tr><td>Min</td>
-<td>Minimum value to for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected. </td>
+<td>Minimum value to use for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected. </td>
 </tr>
 <tr><td>Max</td>
 <td>Maximum value to use for the outer ring of the gauge. If no color mapping is defined, the gauge ranges from Min to Max. With color mapping defined, the outer ring is also affected.</td>
@@ -1393,7 +1393,7 @@ By default, the gauge displays color information for 0-100 even if you define a 
 <a id="gauge_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the single stat chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the gauge chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
 
 
 <a id="gauge_description_tab">
