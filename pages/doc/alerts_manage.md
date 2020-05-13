@@ -62,11 +62,19 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 </tbody>
 </table>
 
-### How Notifications Include the Link
+### How Alert Notifications Include Links
 
-Here's how notifications include the View Alert link (2020.14 and later).
+Starting with 2020.14, the alert target mustache syntax supports 2 variables:
+* The `url` variable
+* The `charturl` variable
 
-* Notification emails now include a **View Alert Chart** link that takes you directly to the chart view that was the link target before 2020.14.
+**Alert Notifications Created Before 2020.14**
+
+For any alerts that were created before 2020.14, the `url` variable points to the alert chart. Users who click a link in an alert notification are directed to the chart.
+
+**Alert Notifications Created in 2020.14 and later**
+
+* Simple notification **emails** now include a **View Alert Chart** link that takes you directly to the chart view that was the link target before 2020.14.
 * For Pagerduty, alert target (webhook), and  templated email notifications::
   - The link  target of the `url` mustache template variable directs to the new Alert Viewer. 
   - A new mustache context variable `chartUrl` will take you directly to the chart view that was the link target before 2020.14. 
