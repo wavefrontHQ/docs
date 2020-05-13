@@ -9,8 +9,9 @@ summary: Reference to the round() function
 ## Summary
 ```
 round(<tsExpression>)
+round(<nearestNumber>, <tsExpression>)
 ```
-Returns the nearest integer for each data value in the time series described by the expression.
+Returns the nearest integer for each data value in the time series described by the expression. Supports rounding toward a number whose multiple you want to round towards.
 
 ## Parameters
 <table>
@@ -21,6 +22,9 @@ Returns the nearest integer for each data value in the time series described by 
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression that describes the time series to return rounded values for. </td></tr>
+<tr>
+<td markdown="span">nearestNumber</td>
+<td>Number whose multiple you want to round toward. </td></tr>
 </tbody>
 </table>
 
@@ -47,12 +51,15 @@ The nearest integer is computed as follows:
 
 `round()` returns a separate series of results for each time series described by the expression.
 
+You can specify `nearestNumber` as a number whose multiple you want to round towards. For example
+`round(<my_expression>, 0.5)` can return only 0.5, 1, 1.5, etc.
+
 ## Examples
 
 Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. Here's the chart, with the color set to purple.
 ![round before](images/ts_round_before.png)
 
-Now we apply `round()` to our original query. Notice that the values below .5 are mapped to 0, and the values between .5 and 1.2 are mapped to 1. The original query is still in purple, the round is set to orange. 
+Now we apply `round()` to our original query. Notice that the values below .5 are mapped to 0, and the values between .5 and 1.2 are mapped to 1. The original query is still in purple, the round is set to orange.
 
 ![round after](images/ts_round_after.png)
 
