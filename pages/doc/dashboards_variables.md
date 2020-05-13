@@ -186,7 +186,7 @@ All users can set the value of the list variable:
 
 The values of a dynamic dashboard variable are dynamically determined by a query. You use a dynamic variable if you can't predict ahead of time what the available choices are. For example, if you know that the datacenter is development or production, you can use a list variable. But if you want to allow users to select from a list of hosts, and the actual hosts change, you use a dynamic variable.
 
-{% include note.html content="Starting with release 2020.14, you can specify a string or a wildchard character (`*`) for each option. Starting with release, 2020.14, we support wildcards for point tag dynamic variables. That means users have the option to show results for all values of the variable." %}
+{% include note.html content="Starting with release 2020.14, you can specify a string or a wildchard character (`*`) for each option. That means users can limit the display or show results for all values of the variable." %}
 
 ### Dynamic Dashboard Variable Field Options
 
