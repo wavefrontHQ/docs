@@ -1,15 +1,11 @@
 ---
-title: Intro Videos
+title: Basic Concepts Videos
 keywords: videos
 tags: [getting started, videos]
 sidebar: doc_sidebar
 permalink: videos_quickstart.html
-summary: Get data into Wavefront, view your data with charts, and use alerts.
+summary: Learn the concepts behind Wavefront technology.
 ---
-
-In the Getting Started videos, Wavefront co-founder Clement Pang explains how things work, and Wavefront's first Customer Success engineer, Jason Goocher, demos an alert in the Wavefront UI.
-
-<!---Add cardinality and kubernetes videos-->
 
 
 <table style="width: 100%;">

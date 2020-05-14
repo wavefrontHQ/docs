@@ -22,6 +22,7 @@ In the second video, Wavefront co-founder Clement Pang explains:
 <p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
 </p>
 
+
 ## What Can Wavefront Do?
 
 After you've sent your data to Wavefront, you can view them in custom dashboards, alert on problem values, and perform anomaly detection and forecasting.

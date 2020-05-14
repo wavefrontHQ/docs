@@ -25,6 +25,12 @@ To complete these tasks you need:
 
 {% include tip.html content="If you're new to Wavefront, this tutorial is for you. If you're new to the Wavefront v2 UI (and you're already familiar with Wavefront), have a look at [What's New in v2](ui_v2_faq.html)." %}
 
+## Watch Some Videos
+
+This doc set and the VMware Learning Zone include videos that help you understand basic concepts, learn the mechanics of customizing the Wavefront UI, and use advanced features.
+
+Start with [Basic Concept](videos_quickstart.html) videos and [Getting Started](videos_howto_start.html) videos that explain the basics. Then move on to learn in more detail about [dashboards and charts](videos_dashboards_charts.html), [alerts](videos_alerts.html) and more. 
+
 ## Review Sample Dashboards and Metrics
 
 Your Wavefront instance includes tutorial and tour dashboards that we built using sample metrics. Let's have a look at a tutorial dashboard.
