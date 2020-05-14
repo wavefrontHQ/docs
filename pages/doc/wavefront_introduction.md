@@ -5,7 +5,22 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about Wavefront, its architecture, and its interfaces.
 ---
-Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+Wavefront is a high-performance streaming analytics platform that supports 3D observability (metrics, histograms, traces/spans). Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+
+## Intro Videos
+
+The first video is a 90 second overview of **how you can use** Wavefront.
+
+<p><a href="https://bcove.video/2AiJk2v" target="_blank"><img src="/images/v_intro_howto.png" style="width: 700px;" alt="Wavefront intro how-to"/></a>
+</p>
+
+In the second video, Wavefront co-founder Clement Pang explains:
+* How you get data into Wavefront
+* How dashboards, charts, and alerts allow you to monitor your environment
+* How our histogram and tracing features can give you the full picture of what's going on.
+
+<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+</p>
 
 ## What Can Wavefront Do?
 
@@ -76,13 +91,6 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 </tbody>
 </table>
-
-### Video: Introduction to Wavefront
-
-In this video, Wavefront co-founder Clement Pang gives an introduction to Wavefront: How you get data into Wavefront, how dashboards, charts, and alerts allow you to monitor your environment, and how our histogram and tracing features can give you the full picture of what's going on.
-
-<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
-</p>
 
 
 ## How Can I Get Data Into Wavefront?
