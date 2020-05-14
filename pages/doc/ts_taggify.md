@@ -178,11 +178,15 @@ You can use `taggify()` with a regular expression `"regexSearchPattern"` to matc
 
 You must include `metric`, `source` or `tagk, <pointTagKey>` to specify the type of value that you want to apply the regular expression to.
 
-For example, assume your time series comes from sources whose names follow the pattern `db-1`, `db-2`, and so on, and you want a tabular chart that sorts the series by strings such as `dev-3`, which combine the value of the `env` point tag with the numeric part of the source name. the following query constructs such strings and assigns them to a point tag called `sortBy`:
+For example, assume:
+* your time series comes from sources whose names follow the pattern `db-1`, `db-2`, and so on,
+* you want a tabular chart that sorts the series by strings such as `dev-3`, which combine the value of the `env` point tag with the numeric part of the source name.
+
+In the following example, `$1` references the `db-([0-9]*)` capture group. The query constructs the strings and assigns them to a point tag called `sortBy`. 
 
 {% raw %}
 ```
-taggify(ts(~sample.db.connections.*), source, "db-([0-9]*)", "{{env}}-$1")
+taggify(ts(~sample.db.connections.), source, sortBy, "db-([0-9])", "env-$1")
 ```
 {% endraw %}
 

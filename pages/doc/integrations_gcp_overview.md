@@ -31,9 +31,9 @@ Data flows from GCP to Wavefront only if the account has the required access. Yo
 </table>
 
 
-## Assign Wavefront Predefined Roles
+## Assign Predefined Roles
 
-You can assign Wavefront the following predefined roles, depending on which aspect of GCP you want to monitor:
+You can assign the following predefined roles, depending on which aspect of GCP you want to monitor:
 <table style="width: 100%;">
 <colgroup>
 <col width="40%" />
@@ -49,7 +49,7 @@ You can assign Wavefront the following predefined roles, depending on which aspe
 </tr>
 <tr>
 <td markdown="span">To AutoDetect GKE clusters</td>
-<td markdown="span">roles/gkehub.viewer (GKEHub viewer)</td>
+<td markdown="span">GKEHub Viewer</td>
 </tr>
 </tbody>
 </table>
