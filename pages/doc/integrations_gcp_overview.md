@@ -7,7 +7,7 @@ permalink: integrations_gcp_overview.html
 summary: Minimum permissions for Google Cloud Platform
 ---
 
-When you set up a Google Cloud Platform integration, you have to give the Wavefront service a permissions to read the data you want to visualize and analyze.
+When you set up a Google Cloud Platform integration, you have to give the Wavefront service a permissions to access the data you want to visualize and analyze.
 
 
 ## Access Options
