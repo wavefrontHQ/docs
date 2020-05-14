@@ -15,7 +15,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 
 ## Prerequisites
 
-* Spring Boot 2.3.0 or above
+* Spring Boot 2.3.0 or above.
 * Java 8 or above.
 * Maven 3.3+ or Gradle 6.3 or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
