@@ -28,7 +28,9 @@ Learn about getting data into Wavefront and get background info on time series a
 </tr>
 <tr>
 <td><strong><font color="blue">Integrations</font></strong><br>
-<a href="https://bcove.video/2JTvMgW" target="_blank"><img src="/images/v_integrations_v2.png" alt="new intro to integrations"/></a></td>
+<br>
+<iframe src="https://bcove.video/2JTvMgW" width="400" height="225" allowfullscreen="true" alt="new intro to integrations"></iframe>
+</td>
 <td><br>
 <p>Jason shows how any user with Integrations permission can browse existing integrations and use the instructions in the Setup tab to get data flowing.</p>
 </td>
