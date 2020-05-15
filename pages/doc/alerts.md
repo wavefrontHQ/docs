@@ -56,6 +56,8 @@ Each alert is associated with one or more alert targets. The alert target specif
 * For classic alerts, you specify a severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
 * For multi-threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
 
+   {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
+
 
 
 ## How Alerts Work Video
@@ -226,7 +228,7 @@ For each severity, you can specify one or more alert targets to notify [when the
 
 Only custom alert targets are supported, but you can initially create the alert without specifying a target.
 
-{% include note.html content="You cannot associate an alert target with more than one severity."%}
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. "%}
 
 In contrast to classic alerts, Wavefront creates a display expression for a multi-threshold alert. The expression shows the alert condition.
 
@@ -278,7 +280,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 
 <li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity. Use commas to separate targets. You cannot specify an email address or PagerDuty key. Instead, you specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. <br/>
 <br/>
-{% include note.html content="You can associate each alert target only with one severity. For example, suppose you set up an alert to notify target T1 for the SEVERE severity. You cannot specify target T1 for any other severity in that alert." %}
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
 
 </li>
 

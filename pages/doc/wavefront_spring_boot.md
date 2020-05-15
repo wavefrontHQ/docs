@@ -79,7 +79,7 @@ Getting started is easy:
 
 You can send data to Wavefront via [direct ingestion](direct_ingestion.html) or via [Wavefront proxy](proxies.html). Wavefront for Spring Boot sends data to Wavefront via direct ingestion by default. Optionally, you can [configure your application to send data via the Wavefront proxy](#proxy).
 
-{% include note.html content="If you do not have a Wavefront account, the starter will auto-negotiate an account for you and save the API token in the`~/.wavefront_freemium` file, which is saved in your home directory." %} 
+{% include note.html content="If you do not have a Wavefront account, the starter will auto-negotiate an account for you and save the API token in the `~/.wavefront_freemium` file, which is saved in your home directory." %} 
 
 ![Ways to get started with the Wavefront for Spring Boot offering](/images/spring_boot_getting_started.png)
 
