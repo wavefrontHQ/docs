@@ -27,6 +27,10 @@ entries:
       output: web
 
     - title: "Intro Videos"
+      url: /videos_howto_start.html
+      output: web
+
+    - title: "Basic Concepts Videos"
       url: /videos_quickstart.html
       output: web
 
@@ -422,8 +426,8 @@ entries:
             url: /integrations_aws_key_age.html
             output: web
 
-          - title: VMware PKS Integration
-            url: /integrations_pks.html
+          - title: VMware TKGI Integration
+            url: /integrations_tkgi.html
             output: web
 
           - title: Log Data Metrics Integration
@@ -483,6 +487,13 @@ entries:
         url: /videos_kubernetes.html
         output: web
 
+<<<<<<< HEAD
+=======
+      - title: Wavefront & Kubernetes FAQ
+        url: /wavefront_kubernetes_faq.html
+        output: web
+
+>>>>>>> master
   - title: Spring Boot
     output: web
     folderitems:
@@ -630,7 +641,11 @@ entries:
     output: web
     folderitems:
 
-      - title: Intro Videos
+      - title: "Intro Videos"
+        url: /videos_howto_start.html
+        output: web
+
+      - title: "Basic Concepts Videos"
         url: /videos_quickstart.html
         output: web
 
