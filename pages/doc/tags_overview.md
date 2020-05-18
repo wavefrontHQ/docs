@@ -60,7 +60,7 @@ You can use tags to filter alerts, dashboards, events, and sources from the Wave
 <tr>
 <td>alert tag</td>
 <td markdown="span">
-[Organize related alerts](alerts.html#organizing-related-alerts-with-alert-tags). <br> Suppress tagged alerts during a [maintenance window](maintenance_windows_managing.html#creating-a-maintenance-window).</td>
+[Organize related alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). <br> Suppress tagged alerts during a [maintenance window](maintenance_windows_managing.html#creating-a-maintenance-window).</td>
 <td markdown="span">[Create or add alert tags](alerts.html#creating-an-alert).</td>
 <td markdown="span">[Reference alert metrics by tag](alerts_dependencies.html#referencing-alert-metrics).</td>
 </tr>

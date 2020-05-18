@@ -401,7 +401,7 @@ Find the per-minute error rate for traces that begin with a specific operation:
 rate(ts(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)) * 60
 ```
 
-Use a [histogram query](proxies_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
+Use a [histogram query](visualize_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
 
 ```
 percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.m))
