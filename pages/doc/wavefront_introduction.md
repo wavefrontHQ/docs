@@ -5,7 +5,27 @@ sidebar: doc_sidebar
 permalink: wavefront_introduction.html
 summary: Learn about Wavefront, its architecture, and its interfaces.
 ---
-Wavefront is a high-performance streaming analytics platform that helps you monitor and optimize your environment. Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+Wavefront is a high-performance streaming analytics platform that supports 3D observability (metrics, histograms, traces/spans). Wavefront is unique because it can scale to very high data ingestion rates and query loads. You can collect data from many services and sources across your entire application stack, and can look at details for earlier data collected by Wavefront.
+
+## Intro Videos
+
+The first video is a 90 second overview of **how you can use** Wavefront.
+
+<iframe src="https://bcove.video/2AiJk2v" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+
+<!---
+<p><a href="https://bcove.video/2AiJk2v" target="_blank"><img src="/images/v_intro_howto.png" style="width: 700px;" alt="Wavefront intro how-to"/></a>
+</p>
+--->
+
+In the second video, Wavefront co-founder Clement Pang explains:
+* How you get data into Wavefront
+* How dashboards, charts, and alerts allow you to monitor your environment
+* How our histogram and tracing features can give you the full picture of what's going on.
+
+<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
+</p>
+
 
 ## What Can Wavefront Do?
 
@@ -55,17 +75,6 @@ After you've set up an alert with that information, we'll send alert notificatio
 </tbody>
 </table>
 
-### Anomaly Detection and Forecasting
-
-<table style="width: 100%;">
-<tbody>
-<tr><td width="50%">Use <a href="ai_genie.html"> <strong>AI Genie</strong></a> for anomaly detection and forecasting. </td>
-<td width="50%"><img src="/images/ai_genie_for_intro.png" alt="ai genie forecasting"/>  </td>
-</tr>
-
-</tbody>
-</table>
-
 ### Distributed Tracing
 
 <table style="width: 100%;">
@@ -77,12 +86,27 @@ After you've set up an alert with that information, we'll send alert notificatio
 </tbody>
 </table>
 
-### Video: Introduction to Wavefront
+### Kubernetes
 
-In this video, Wavefront co-founder Clement Pang gives an introduction to Wavefront: How you get data into Wavefront, how dashboards, charts, and alerts allow you to monitor your environment, and how our histogram and tracing features can give you the full picture of what's going on.
+<table style="width: 100%;">
+<tbody>
+<tr><td width="50%">Use our one-click install of the <strong><a href="kubernetes.html"> Wavefront Collector for Kubernetes</a></strong> to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
+<td width="50%"><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront with Clement Pang"/></a> </td>
+</tr>
+</tbody>
+</table>
 
-<p><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" style="width: 700px;" alt="Wavefront proxies video"/></a>
-</p>
+### Spring Boot
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="50%"><strong><a href="wavefront_springboot.html">Wavefront for Spring Boot</a></strong> allows you to quickly configure your environment, so Spring Boot components send metrics, histograms, and traces/spans to the Wavefront service. After you’ve completed setup, you can examine the data in preconfigured or custom Wavefront dashboards.  </td>
+<td width="50%"><img src="/images/spring_boot_getting_started.png" alt="spring boot getting started"/>  </td>
+</tr>
+
+</tbody>
+</table>
+
 
 
 ## How Can I Get Data Into Wavefront?
