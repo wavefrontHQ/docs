@@ -421,9 +421,11 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
-### Custom Span Tags for RED Metrics
+### Custom Span-Level Tags for RED Metrics
 
-Wavefront derives RED metrics for `application`, `service`, `cluster`, `shard`, `component`, and `operationName` tags in a span by default. Intelligent sampling filters out the unwanted spans to reduce the volume of ingested traces. Therefore, if you want to filter data using a span tag that is not a default span tag, you need to create a custom span tag.
+Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](#indexed-and-unindexed-span-tags) for details. 
+
+Intelligent sampling filters out the unwanted spans to reduce the volume of ingested traces. See [Trace Sampling and Derived RED Metrics](#trace-sampling-and-derived-red-metrics) for details. Therefore, if you want to filter data using a span tag that is not a default span tag, you need to create a custom span-level tag.
 
 The following custom span tags are supported by default.
 
@@ -490,6 +492,7 @@ wfTracerBuilder.redMetricsCustomTagKey("env");
 1. Once the data is in Wavefront, create a chart that compares the data sent by each environment.
     Example:
     ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
+    For details on querying for RED metrics, see the section above on [RED Metrics Queries](#red-metrics-queries).
 
 ### Custom Alerts on RED Metrics
 
