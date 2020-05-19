@@ -257,6 +257,8 @@ In the trace details panel, you can:
 
 In the trace details panel, you can view details about a particular span in the trace. If that span came from another service, you can navigate to the dashboard for that service.
 
+{% include note.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you drill down into spans. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace."%}
+
 ![trace span details](images/tracing_span_details_with_logs.png)
 
 Span details include:
