@@ -423,9 +423,7 @@ The point tag technique is useful when the metric name contains string values fo
 
 ### Custom Span-Level Tags for RED Metrics
 
-Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](#indexed-and-unindexed-span-tags) for details. 
-
-Intelligent sampling filters out the unwanted spans to reduce the volume of ingested traces. See [Trace Sampling and Derived RED Metrics](#trace-sampling-and-derived-red-metrics) for details. Therefore, if you want to filter data using a span tag that is not a default span tag, you need to create a custom span-level tag.
+Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
 
 The following custom span tags are supported by default.
 
@@ -440,7 +438,8 @@ The following custom span tags are supported by default.
 <tbody>
 <tr>
 <td markdown="span">`span.kind`</td>
-<td markdown="span">Filter spans based on the request type. The default value is `none`. <br/>Example, a `server` request or a `client` request. </td>
+<td markdown="span">Filter spans based on the span type. The default value is `none`.
+<br/>Example: `client` for a client-side span and `server` for a server-side span.</td>
 </tr>
 <tr>
 <td markdown="span">`http.status_code`</td>
@@ -452,10 +451,10 @@ The following custom span tags are supported by default.
 Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is in Wavefront, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
 
 1. Create a custom span tag named `env`.
-    {% include note.html content="When creating a span tags make sure that it has low cardinality. A tag with low cardinality has comparatively few unique values that can be assigned to it." %}
+    {% include note.html content="When adding custom span-level tags, make sure that it is of low cardinality. A tag with low cardinality has comparatively few unique values that can be assigned to it." %}
 
     <ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a href="#tracingApplication" data-toggle="tab">Tracing SDK</a></li>
+        <li class="active"><a href="#tracingApplication" data-toggle="tab">Wavefront OpenTracing SDK</a></li>
         <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
         <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
         <li><a href="#springboot" data-toggle="tab">Spring Boot</a></li>
@@ -463,29 +462,63 @@ Follow the steps given below to propagate custom span tags when sending data fro
     </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="tracingApplication">
-            <p>The <a href="https://docs.wavefront.com/tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration to the <code>WavefrontTracer</code>.</p>
+            <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
             <p>Example:</p>
             <pre>
 wfTracerBuilder.redMetricsCustomTagKey("env");
             </pre>
-            <p>See the <a href="https://docs.wavefront.com/tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">specific GitHub repository</a> for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
-
+            <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
         </div>
         <div role="tabpanel" class="tab-pane" id="jaeger">
-        <p>Jaeger config</p>
-
+        <ul><li>
+          <b><p>Wavefront proxy</p></b>
+            <p>If you are using <a href="proxies.html">Wavefront proxy</a> to send data to Wavefront, add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <pre>
+traceDerivedCustomTagKeys=env
+            </pre>
+        </li>    
+        <li>
+          <b><p>Direct ingestion</p></b>
+            <p>If you are sending data to Wavefront via <a href="direct_ingestion.html">direct ingestion</a>, you need to use a <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Wavefront OpenTracing SDK</a>. It provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
+            <p>Example:</p>
+            <pre>
+wfTracerBuilder.redMetricsCustomTagKey("env");
+            </pre>
+            <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
+        </li></ul>
         </div>
+        
         <div role="tabpanel" class="tab-pane" id="zipkin">
-        <p>Zipkin config</p>
-
+        <ul><li>
+          <b><p>Wavefront proxy</p></b>
+            <p>If you are using <a href="proxies.html">Wavefront proxy</a> to send data to Wavefront, add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <pre>
+traceDerivedCustomTagKeys=env
+            </pre>
+        </li>    
+        <li>
+          <b><p>Direct ingestion</p></b>
+            <p>If you are sending data to Wavefront via <a href="direct_ingestion.html">direct ingestion</a>, you need to use a <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Wavefront OpenTracing SDK</a>. It provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
+            <p>Example:</p>
+            <pre>
+wfTracerBuilder.redMetricsCustomTagKey("env");
+            </pre>
+            <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
+        </li></ul>
         </div>
+        
         <div role="tabpanel" class="tab-pane" id="springboot">
-        <p>Spring Boot config</p>
+        <p> Add the configuration shown below to your application's <code>application.properties</code> file.</p>
+            <pre>
+wavefront.tracing.red-metrics-custom-tag-keys=env
+            </pre>
 
         </div>
         <div role="tabpanel" class="tab-pane" id="customProxy">
-        <p>Configuration for custom proxy port</p>
-
+        <p> Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <pre>
+traceDerivedCustomTagKeys=env
+            </pre>
         </div>
       </div>
 1. Save the changes, restart the application, and send data to Wavefront.
