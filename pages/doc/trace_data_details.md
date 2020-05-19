@@ -421,6 +421,88 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
+### Custom Span-Level Tags for RED Metrics
+
+Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
+
+The following custom span tags are supported by default.
+
+<table>
+<colgroup>
+<col width="30"/>
+<col width="70%"/>
+</colgroup>
+<thead>
+<tr><th>Custom span tag</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`span.kind`</td>
+<td markdown="span">Filter spans based on the span type. The default value is `none`.
+<br/>Example: `client` for a client-side span and `server` for a server-side span.</td>
+</tr>
+<tr>
+<td markdown="span">`http.status_code`</td>
+<td markdown="span">Filter spans based on the error code. <br/>Example: `404` or `500`</td>
+</tr>
+</tbody>
+</table>
+
+Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is in Wavefront, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
+
+1. Create a custom span-level tag. Assume you have a span that has the `env=` span tag.
+    {% include note.html content="When adding custom span-level tags, make sure that it is of low cardinality. A tag with low cardinality has comparatively few unique values that can be assigned to it." %}
+
+    <ul id="profileTabs" class="nav nav-tabs">
+        <li class="active"><a href="#tracingApplication" data-toggle="tab">Wavefront OpenTracing SDK</a></li>
+        <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
+        <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
+        <li><a href="#springboot" data-toggle="tab">Spring Boot</a></li>
+        <li><a href="#customProxy" data-toggle="tab">Custom Proxy Port</a></li>
+    </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tracingApplication">
+            <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
+            <p>Example:</p>
+            <pre>
+wfTracerBuilder.redMetricsCustomTagKey("env");
+            </pre>
+            <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="jaeger">
+        <p>If you are using Jaeger, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <pre>
+traceDerivedCustomTagKeys=env
+            </pre>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="zipkin">
+            <p>If you are using Zipkin, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <pre>
+traceDerivedCustomTagKeys=env
+            </pre>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="springboot">
+        <p> Add the configuration shown below to your application's <code>application.properties</code> file.</p>
+            <pre>
+wavefront.tracing.red-metrics-custom-tag-keys=env
+            </pre>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="customProxy">
+        <p> Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
+            <pre>
+traceDerivedCustomTagKeys=env
+            </pre>
+        </div>
+      </div>
+1. Save the changes, restart the application, and send data to Wavefront.
+1. Once the data is in Wavefront, create a chart that compares the data sent by each environment.
+    Example:
+    ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
+    For details on querying for RED metrics, see the section above on [RED Metrics Queries](#red-metrics-queries).
+
 ### Custom Alerts on RED Metrics
 
 You can use RED metrics in the alert conditions for trace-data alerts. You normally create trace-data alerts by cloning and customizing predefined alerts as follows:
