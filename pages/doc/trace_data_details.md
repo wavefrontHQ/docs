@@ -421,6 +421,76 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
+### Custom Span Tags for RED Metrics
+
+Wavefront derives RED metrics for `application`, `service`, `cluster`, `shard`, `component`, and `operationName` tags in a span by default. Intelligent sampling filters out the unwanted spans to reduce the volume of ingested traces. Therefore, if you want to filter data using a span tag that is not a default span tag, you need to create a custom span tag.
+
+The following custom span tags are supported by default.
+
+<table>
+<colgroup>
+<col width="30"/>
+<col width="70%"/>
+</colgroup>
+<thead>
+<tr><th>Custom span tag</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`span.kind`</td>
+<td markdown="span">Filter spans based on the request type. The default value is `none`. <br/>Example, a `server` request or a `client` request. </td>
+</tr>
+<tr>
+<td markdown="span">`http.status_code`</td>
+<td markdown="span">Filter spans based on the error code. <br/>Example: `404` or `500`</td>
+</tr>
+</tbody>
+</table>
+
+Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is in Wavefront, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
+
+1. Create a custom span tag named `env`.
+    {% include note.html content="When creating a span tags make sure that it has low cardinality. A tag with low cardinality has comparatively few unique values that can be assigned to it." %}
+
+    <ul id="profileTabs" class="nav nav-tabs">
+        <li class="active"><a href="#tracingApplication" data-toggle="tab">Tracing SDK</a></li>
+        <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
+        <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
+        <li><a href="#springboot" data-toggle="tab">Spring Boot</a></li>
+        <li><a href="#customProxy" data-toggle="tab">Custom Proxy Port</a></li>
+    </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tracingApplication">
+            <p>The <a href="https://docs.wavefront.com/tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration to the <code>WavefrontTracer</code>.</p>
+            <p>Example:</p>
+            <pre>
+wfTracerBuilder.redMetricsCustomTagKey("env");
+            </pre>
+            <p>See the <a href="https://docs.wavefront.com/tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">specific GitHub repository</a> for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="jaeger">
+        <p>Jaeger config</p>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="zipkin">
+        <p>Zipkin config</p>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="springboot">
+        <p>Spring Boot config</p>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="customProxy">
+        <p>Configuration for custom proxy port</p>
+
+        </div>
+      </div>
+1. Save the changes, restart the application, and send data to Wavefront.
+1. Once the data is in Wavefront, create a chart that compares the data sent by each environment.
+    Example:
+    ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
+
 ### Custom Alerts on RED Metrics
 
 You can use RED metrics in the alert conditions for trace-data alerts. You normally create trace-data alerts by cloning and customizing predefined alerts as follows:
