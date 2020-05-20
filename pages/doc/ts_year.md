@@ -8,7 +8,7 @@ summary: Reference to the year() function
 ---
 ## Summary
 ```
-year(<timeZone>)
+year(<timeZone> [,<tsExpression])
 ```
 Returns the year in the specified time zone.
 
@@ -22,6 +22,10 @@ Returns the year in the specified time zone.
 <td markdown="span">
 String identifier or alias for a time zone, such as `"US/Pacific"`. Names are case sensitive and must be enclosed in quotes. For a list of valid time zone identifiers and their aliases, see  [http://joda-time.sourceforge.net/timezones.html](http://joda-time.sourceforge.net/timezones.html).
 </td></tr>
+<tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Optional expression to which you want to apply this function. </td>
+</tr>
 </tbody>
 </table>
 
@@ -40,7 +44,7 @@ The returned values are plotted against the times shown on the x-axis. The retur
 
 **Example 2: Showing Years**
 
-This chart shows live data, so `year("UTC")` shows the current year in Coordinated Universal Time. Notice that the year is displayed in SI units (2.018k) on this particular y-axis.  For details on SI units, see Wikipedia or a similar source. 
+This chart shows live data, so `year("UTC")` shows the current year in Coordinated Universal Time. Notice that the year is displayed in SI units (2.018k) on this particular y-axis.  For details on SI units, see Wikipedia or a similar source.
 ![year](images/ts_year.png)
 
 If we set a custom date for the chart from December to May, the series returned by `year("UTC")` shows the change in year.

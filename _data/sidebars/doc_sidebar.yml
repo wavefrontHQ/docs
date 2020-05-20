@@ -27,10 +27,6 @@ entries:
       output: web
 
     - title: "Intro Videos"
-      url: /videos_howto_start.html
-      output: web
-
-    - title: "Basic Concepts Videos"
       url: /videos_quickstart.html
       output: web
 
@@ -634,13 +630,9 @@ entries:
     output: web
     folderitems:
 
-      - title: "Intro Videos"
-        url: /videos_howto_start.html
-        output: web
-
-      - title: "Basic Concepts Videos"
+      - title: Intro Videos
         url: /videos_quickstart.html
-        output: web  
+        output: web
 
       - title: Wavefront and Data Videos
         url: /videos_data.html

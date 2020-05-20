@@ -8,7 +8,7 @@ summary: Reference to the hour() function
 ---
 ## Summary
 ```
-hour(<timeZone>)
+hour(<timeZone> )[,<tsExpression]
 ```
 Returns the hours of the day in the specified time zone.
 
@@ -22,6 +22,10 @@ Returns the hours of the day in the specified time zone.
 <td markdown="span">
 String identifier or alias for a time zone, such as `"US/Pacific"`. Names are case sensitive and must be enclosed in quotes. For a list of valid time zone identifiers and their aliases, see  [http://joda-time.sourceforge.net/timezones.html](http://joda-time.sourceforge.net/timezones.html).
 </td></tr>
+<tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Optional expression to which you want to apply this function. </td>
+</tr>
 </tbody>
 </table>
 
@@ -33,8 +37,6 @@ The `hour()` standard time function returns the hours within a day for the speci
 The returned values are plotted against the corresponding hours of the day shown in the time zone that is currently set for the dashboard. `hour()` automatically adjusts its return values for daylight savings time.
 
 `hour()` is particularly useful when you want to define an alert that fires only during specific times of day. For example, you could use an expression such as `between(hour("US/Pacific"), 22,8)` in an alert condition to ensure that the alert fires only between 10pm and 8am Pacific Time.
-
-
 
 ## Examples
 
