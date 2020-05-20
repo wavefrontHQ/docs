@@ -24,37 +24,38 @@ Returns the nearest integer for each data value in the time series described by 
 <td>Expression that describes the time series to return rounded values for. </td></tr>
 <tr>
 <td markdown="span">nearestNumber</td>
-<td>Number whose multiple you want to round toward. </td></tr>
+<td>Number whose multiple you want to round toward (integer or decimal)</td></tr>
 </tbody>
 </table>
 
 
 ## Description
 
+<!---
+From Amit: one of the uses of this is to achieve precision.  By that i mean, let's say you had a series that returned 0.564, 0.435, 0.777 and the math that you needed to do required you to do something to 1 decimal place you could use round for that.
+round(0.5, {0.564, 0.435, 0.777}) => 0.5, 0.5. 1.0
+
+the reason i bring this up is i think my initial naming of the parameter <nearestNumber> is misleading.  It doesn't have to be an integer.  It could be a decimal.  My point that i wanted to make with you is i think we should:
+point out the use case of achieving precision in the docs (i think it's helpful to explain how customers can use a function).  What do you think?
+consider renaming the parameter from <nearestNumber> to <nearestDecimal>? or maybe leaving it as nearest number but using a fractional example to get our point across
+--->
+
 The `round()` function returns the nearest integer for each data value in the time series described by the expression, by mapping any data value with a fractional part to the integer that is closest in value.
-
-The nearest integer is computed as follows:
-
-<table>
-<tbody>
-<thead>
-<tr><th width="20%">Sample query with round()</th><th width="10%">Sample result</th><th width="35%">Input data value</th><th width="35%">Returned value (nearest integer)</th></tr>
-</thead>
-<tr><td markdown="span">`round(1.75)`</td> <td>2 </td> <td>Positive, with fractional part &gt; 0.5</td><td>Integer with the next higher absolute value</td></tr>
-<tr><td markdown="span">`round(-1.75)`</td><td>-2 </td> <td>Negative, with fractional part &gt; 0.5</td><td>Integer with the next higher absolute value</td></tr>
-<tr><td markdown="span">`round(1.25)`</td><td>1 </td> <td>Positive, with fractional part &lt; 0.5</td><td>Integer with the next lower absolute value</td></tr>
-<tr><td markdown="span">`round(-1.25)`</td><td>-1 </td> <td>Negative, with fractional part &lt; 0.5</td><td>Integer with the next lower absolute value</td></tr>
-<tr><td markdown="span">`round(0.5)`</td><td>1 </td> <td>Positive, with fractional part = 0.5</td><td>Integer with the next higher value (round half up technique)</td></tr>
-<tr><td markdown="span">`round(-0.5)`</td><td>0 </td> <td>Negative, with fractional part = 0.5</td><td>Integer with the next higher value (round half up technique)</td></tr>
-</tbody>
-</table>
 
 `round()` returns a separate series of results for each time series described by the expression.
 
-You can specify `nearestNumber` as a number whose multiple you want to round towards. For example
-`round(<my_expression>, 0.5)` can return only 0.5, 1, 1.5, etc.
 
-## Examples
+## Example 1: Use round() to achieve precision.
+
+One use of `round()` is for achieving precision.  For example, suppose that a series `mySeries` returns 0.564, 0.435, 0.777. The math you need to do requires 1 decimal point. You can use `round()` with the `nearestNumber` parameter like this:
+
+```
+round(0.5, mySeries)
+```
+This call returns  `0.5, 0.5. 1.0`.
+
+
+## Example 2: Visualize round() Results
 
 Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. Here's the chart, with the color set to purple.
 ![round before](images/ts_round_before.png)

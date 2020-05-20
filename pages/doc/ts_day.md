@@ -8,7 +8,7 @@ summary: Reference to the day() function
 ---
 ## Summary
 ```
-day(<timeZone>, [<tsExpression])
+day(<timeZone> [,<tsExpression])
 ```
 
 Returns the day of the month in the specified time zone.
@@ -33,6 +33,8 @@ String identifier or alias for a time zone, such as `"US/Pacific"`. Names are ca
 ## Description
 
 The `day()` standard time function returns the day of the month in the specified time zone. A day is represented as a whole number from 1 through 31, as defined by the Gregorian calendar.
+
+You can optionally pass in an expression.
 
 The returned values are plotted against the times shown on the x-axis. The returned series is generally a straight line, unless you are looking at a chart that includes times from multiple days.
 `day()` automatically adjusts its return values for daylight savings time.

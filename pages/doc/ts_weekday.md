@@ -8,7 +8,7 @@ summary: Reference to the weekday() function
 ---
 ## Summary
 ```
-weekday(<timeZone>)
+weekday(<timeZone> [,<tsExpression])
 ```
 Returns the day of the week in the specified time zone.
 ## Parameters
@@ -21,6 +21,10 @@ Returns the day of the week in the specified time zone.
 <td markdown="span">
 String identifier or alias for a time zone, such as `"US/Pacific"`. Names are case sensitive and must be enclosed in quotes. For a list of valid time zone identifiers and their aliases, see  [http://joda-time.sourceforge.net/timezones.html](http://joda-time.sourceforge.net/timezones.html).
 </td></tr>
+<tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Optional expression to which you want to apply this function. </td>
+</tr>
 </tbody>
 </table>
 
@@ -40,7 +44,7 @@ For example, you could use an expression such as `between(weekday("America/Chica
 
 **Example 1: Showing Days of the Week**
 
-This chart shows data for several weeks. 1 represents Sunday and 7 represents Saturday.  
+This chart shows data for several weeks. 1 represents Sunday and 7 represents Saturday.
 ![weekday](images/ts_weekday.png)
 
 **Example 2: Defining an Alert that Fires on Particular Days**
