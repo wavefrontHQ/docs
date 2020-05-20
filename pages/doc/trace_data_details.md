@@ -465,7 +465,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
             <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
             <p>Example:</p>
             <pre>
-wfTracerBuilder.redMetricsCustomTagKeys(new HashSet<String>(Arrays.asList("env")));
+wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));
             </pre>
             <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
         </div>
