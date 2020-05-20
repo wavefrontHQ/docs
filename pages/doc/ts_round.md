@@ -9,7 +9,7 @@ summary: Reference to the round() function
 ## Summary
 ```
 round(<tsExpression>)
-round(<nearestNumber>, <tsExpression>)
+round(<toMultiple>, <tsExpression>)
 ```
 Returns the nearest integer for each data value in the time series described by the expression. Supports rounding toward a number whose multiple you want to round towards.
 
@@ -23,7 +23,7 @@ Returns the nearest integer for each data value in the time series described by 
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression that describes the time series to return rounded values for. </td></tr>
 <tr>
-<td markdown="span">nearestNumber</td>
+<td markdown="span">toMultiple</td>
 <td>Number whose multiple you want to round toward (integer or decimal)</td></tr>
 </tbody>
 </table>
@@ -31,21 +31,12 @@ Returns the nearest integer for each data value in the time series described by 
 
 ## Description
 
-<!---
-From Amit: one of the uses of this is to achieve precision.  By that i mean, let's say you had a series that returned 0.564, 0.435, 0.777 and the math that you needed to do required you to do something to 1 decimal place you could use round for that.
-round(0.5, {0.564, 0.435, 0.777}) => 0.5, 0.5. 1.0
-
-the reason i bring this up is i think my initial naming of the parameter <nearestNumber> is misleading.  It doesn't have to be an integer.  It could be a decimal.  My point that i wanted to make with you is i think we should:
-point out the use case of achieving precision in the docs (i think it's helpful to explain how customers can use a function).  What do you think?
-consider renaming the parameter from <nearestNumber> to <nearestDecimal>? or maybe leaving it as nearest number but using a fractional example to get our point across
---->
-
 The `round()` function returns the nearest integer for each data value in the time series described by the expression, by mapping any data value with a fractional part to the integer that is closest in value.
 
 `round()` returns a separate series of results for each time series described by the expression.
 
 
-## Example 1: Use round() to achieve precision.
+## Example 1: Use round() for Precision
 
 One use of `round()` is for achieving precision.  For example, suppose that a series `mySeries` returns 0.564, 0.435, 0.777. The math you need to do requires 1 decimal point. You can use `round()` with the `nearestNumber` parameter like this:
 

@@ -713,7 +713,7 @@ Standard time functions can help you:
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>,&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt; </strong>&rbrack; <strong>&lt;,tsExpression&gt;</strong>)</a></td>
 <td>Returns the per-second change of the time series described by <strong>tsExpression</strong>. Recommended for counter metrics that report only increasing data values over regular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
@@ -737,35 +737,35 @@ Standard time functions can help you:
 <td>Returns a data value reported at a particular time by the time series described by <strong>tsExpression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
 </tr>
 <tr>
-<td><a href="ts_atEpoch.html">atEpoch(<strong>&lt;epochTime&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_atEpoch.html">atEpoch(<strong>&lt;epochTime&gt;</strong> <strong>&lt;, tsExpression&gt;</strong>)</a></td>
 <td>Returns the value at the specified time for the time series described by the expression. The returned value is displayed continuously across the chart, so you can use it as a reference value.</td>
 </tr>
 <tr>
-<td><a href="ts_year.html">year(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_year.html">year(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the year in the specified time zone. Years are returned as 4-digit numbers in the Gregorian calendar.</td>
 </tr>
 <tr>
-<td><a href="ts_month.html">month(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_month.html">month(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the month of the year in the specified time zone. Months are returned as whole numbers from 1 (January) through 12 (December).</td>
 </tr>
 <tr>
-<td><a href="ts_dayOfYear.html">dayOfYear(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_dayOfYear.html">dayOfYear(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt; &rbrack;</strong>)</a></td>
 <td>Returns the day of the year in the specified time zone. Days of the year are returned as whole numbers from 1 to 366.</td>
 </tr>
 <tr>
-<td><a href="ts_day.html">day(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_day.html">day(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the day of the month in the specified time zone. Days of the month are returned as whole numbers from 1 to 31.</td>
 </tr>
 <tr>
-<td><a href="ts_weekday.html">weekday(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_weekday.html">weekday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the day of the week in the specified time zone. Days of the week are returned as whole numbers from 1 (Monday) to 7 (Sunday).</td>
 </tr>
 <tr>
-<td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the hour within the day in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
 </tr>
 <tr>
-<td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Tests for the current day in the specified time zone. Return values are 1 for times during the current day, or 0 for times before or after today. </td>
 </tr>
 <tr>
@@ -976,8 +976,8 @@ Rounding and mathematical functions let you transform the data values in time se
 </tr>
 </thead>
 <tr>
-<td><a href="ts_round.html">round(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the nearest integer for each data value in the specified time series.
+<td><a href="ts_round.html">round(<strong>&lbrack;&lt;toMultiple&gt;,&rbrack;</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the nearest integer for each data value in the specified time series. The optional toMultiple parameter supports rounding to the multiple of a specified number.
 </td>
 </tr>
 <tr>
@@ -1264,9 +1264,9 @@ Predictive functions enable you to forecast data values and find outlier data va
 </tr>
 
 <tr>
-<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
+<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong> <strong>&lt; &lbrack;,seasonLength&gt;&rbrack;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
 </td>
-<td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
+<td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters double exponential smoothing algorithm. Optionally supports the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>
 <tr>
 <td><a href="ts_nnforecast.html"><strong>nnforecast(&lt;forecastPeriod&gt;, [&lt;confidenceFactor&gt;,] &lt;tsExpression&gt;, [with_bounds])</strong></a>

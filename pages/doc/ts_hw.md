@@ -9,10 +9,12 @@ summary: Reference to the hw() function
 
 ## Summary
 ```
-hw(<historyLength>, <seasonLength>, <samplingRate>, <tsExpression>[, <alpha>, <beta>, <gamma>])
-hw(<historyLength>, <tsExpression>, <smoothingFactor>, <trendFactor>)
+hw(<historyLength>, <tsExpression> [,<smoothingFactor>, <trendFactor>])
+hw(<historyLength>, <seasonLength>, <samplingRate>, <tsExpression> [, <smoothingFactor>, <trendFactor>, <seasonalityFactor>])
 ```
-Returns a smoothed version of the time series described by the expression, and forecasts future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data using `alpha`, `beta`, `gamma`. Also supports double exponatial smoothing using `smoothingFactor` and `trendFactor`.
+Returns a smoothed version of the time series described by the expression, and forecasts future points using the Holt-Winters algorithm.
+* For double exponential smoothing use `smoothingFactor` and `trendFactor`.
+* If you have seasonal data, use triple exponential smoothing with `smoothingFactor`, `trendFactor`, `seasonalityFactor`.
 
 <table style="width: 100%;">
 <tbody>
@@ -26,17 +28,12 @@ Returns a smoothed version of the time series described by the expression, and f
 </tr>
 <tr>
 <td>seasonLength</td>
-<td>Length of one season of data.  You need at least two full seasons of data to run the Holt-Winters algorithm.
+<td>Used with the triple-exponential smoothing algorithm to specify the length of one season of data.  You need at least two full seasons of data to run the Holt-Winters algorithm.
 </td>
 </tr>
 <tr>
 <td>samplingRate</td>
 <td>Rate at which the function summarizes the points in the underlying expression, similar to the <code>align()</code> function. The sampling rate always uses the average of all points in the time window as the summarization strategy. To use a different summarization strategy, wrap the underlying expression with <code>align()</code>.
-<div>&nbsp;</div>
-<div>For example, <code>hw(4h, 1h, 1m, align(1m, ts(cpu.usage.idle)))</code>
-<ul>
-<li>takes the time series <code>cpu.usage.idle</code>,</li>
-<li>and runs the Holt-Winters algorithm on the series with a season length of 1 hour and a sampling rate of 1 minute. </li></ul></div>
 </td>
 </tr>
 <tr>
@@ -45,20 +42,14 @@ Returns a smoothed version of the time series described by the expression, and f
 </td>
 </tr>
 <tr>
-<td>alpha, beta, gamma</td>
+<td>smoothingFactor, trendFactor, seasonalityFactor</td>
 <td>Optional coefficients that the Holt-Winters algorithm uses to determine how stable and how reactive its forecast is.  The values range between 0 and 1, with smaller numbers weighing historical data more, and larger numbers weighing recent data more.
-<div>&nbsp;</div>
-<div>If you don't specify these parameters, the algorithm uses an optimization method called Nelder-Mead.  Because Nelder-Mead finds local optima the same query might return two different results if the function is run twice.  See Optional Parameters below for details.</div>
-</td>
-</tr>
-<tr>
-<td markdown="span">smoothingFactor</td>
-<td>Specifies how much old data is important relative to new data (same as alpha).
-</td>
-</tr>
-<tr>
-<td markdown="span">trendFactor</td>
-<td>Specifies how important the trend is (same as beta).
+<ul>
+<li>smoothingFactor specifies how much old data is important relative to new data </li>
+<li>trendFactor specifies how important the trend is. </li>
+<li>seasonalityFactor weighs the seasonality.  </li>
+</ul>
+See "Using Optional Parameters to Affect hw()" below for details.
 </td>
 </tr>
 </tbody>
@@ -66,11 +57,13 @@ Returns a smoothed version of the time series described by the expression, and f
 
 ## Description
 
-Wavefront includes an implementation of the Holt-Winters algorithm, which supports prediction based on existing data.
+The `hw` function supports smoothing and prediction based on existing data. An optional `seasonalityFactor` parameter is available for triple exponential smoothing.
+
+If you don't specify the `smoothingFactor`, `trendFactor`, and `seasonalityFactor` parameters, the algorithm uses an optimization method called Nelder-Mead.  Because Nelder-Mead finds local optima the same query might return two different results if the function is run twice.
 
 ### Holt-Winters Triple Exponential Smoothing
 
-Use triple exponential smoothing if your data are highly seasonal. Our implementation includes parameters to specify history length, season length, and sample rate. The optional `alpha`, `beta`, and `gamma` parameters let you fine-tune how aggressive the smoothing is. See [Exponential Smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing) and other internet resources for info about the algorithm.
+Use triple exponential smoothing if your data is highly seasonal. Our implementation includes parameters to specify history length, season length, and sample rate. The optional `smoothingFactor`, `trendFactor`, and `seasonalityFactor` parameters let you fine-tune how aggressive the smoothing is. See [Exponential Smoothing](https://en.wikipedia.org/wiki/Exponential_smoothing) and other internet resources for info about the algorithm.
 
 Holt-Winters triple exponential smoothing is a form of time series analysis that's used primarily for periodic or seasonal data. Its main strength is catching the overall trend of data over time while maintaining the structure of the data's seasons.
 
@@ -80,29 +73,44 @@ For example, assume that at certain times of the day a set of virtual machines e
 
 ### Holt-Winters Double Exponential Smoothing
 
-Use double exponential smoothing if you have data with only trend and no seasonality. The `smoothingFactor` parameter lets you specify how much old data is important relative to new data (same as `alpha`). The `trendFactor` parameter lets you specify how important the trend is (same as `beta`).
+Use double exponential smoothing if you have data with only trend and no seasonality. The `smoothingFactor` parameter lets you specify how much old data is important relative to new data (same as `smoothingFactor`). The `trendFactor` parameter lets you specify how important the trend is (same as `trendFactor`).
 
 {% include note.html content="This double exponential smoothing method is only for data with additive trend not with multiplicative trend." %}
 
 ## Using Optional Parameters to Affect hw()
 
-For triple exponential smoothing, you can use the optional `alpha`, `beta`, and `gamma` parameters that the algorithm uses to determine how stable and how reactive the forecast is.
+For triple exponential smoothing, you can use the optional `smoothingFactor`, `trendFactor`, and `seasonalityFactor` parameters that the algorithm uses to determine how stable and how reactive the forecast is.
 
-- **Alpha** affects the weighted average of the points themselves.  The weight of every point decays exponentially the further back the point is.  When a new point is added to the weighted average, the weight of the new point is alpha, and the weight of the old average is `(1 – alpha)`.  Therefore, higher values of alpha cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
+- **smoothingFactor** affects the weighted average of the points themselves.  The weight of every point decays exponentially the further back the point is.  When a new point is added to the weighted average, the weight of the new point is smoothingFactor, and the weight of the old average is `(1 – smoothingFactor)`.  Therefore, higher values of smoothingFactor cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
 
-- **Beta** affects the weighted average of the slopes between consecutive points.  The algorithm uses an exponentially decaying weighted average of the slope between every two consecutive points, similar to the raw value of the points.  This weighted average is calculated in the same way as the weighted average for alpha. Each time a new point is added, the slope between it and the last point is factored in with a weight of beta, while the old weighted average now has weight `(1 – beta)`.  Therefore, higher values of beta cause the algorithm to weight the most recent slope higher, making the forecast more reactive and less stable.
+- **trendFactor** affects the weighted average of the slopes between consecutive points.  The algorithm uses an exponentially decaying weighted average of the slope between every two consecutive points, similar to the raw value of the points.  This weighted average is calculated in the same way as the weighted average for smoothingFactor. Each time a new point is added, the slope between it and the last point is factored in with a weight of trendFactor, while the old weighted average now has weight `(1 – trendFactor)`.  Therefore, higher values of trendFactor cause the algorithm to weight the most recent slope higher, making the forecast more reactive and less stable.
 
-- **Gamma**  affects the weighted average of the seasonal offsets.  Holt-Winters captures seasonal data by measuring the average offset of a given point into a season from the average value of that season.  For example, assume history length is four weeks, season length is one week, and sampling rate is one day. Then across the four weeks of history, there is an average amount that each day differs from the average value of the week it occurs in.
+- **seasonalityFactor**  affects the weighted average of the seasonal offsets.  Holt-Winters captures seasonal data by measuring the average offset of a given point into a season from the average value of that season.  For example, assume history length is four weeks, season length is one week, and sampling rate is one day. Then across the four weeks of history, there is an average amount that each day differs from the average value of the week it occurs in.
 
-  Like the alpha and beta, this average is a weighted average, with newer offsets having higher weights.  Each time a new point is processed, it impacts the average offset from the season average by a factor of gamma, while the old weighted average offset has a weight of `(1 – gamma)`.  Therefore, higher values of gamma cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
+  Like the smoothingFactor and trendFactor, this average is a weighted average, with newer offsets having higher weights.  Each time a new point is processed, it impacts the average offset from the season average by a factor of seasonalityFactor, while the old weighted average offset has a weight of `(1 – seasonalityFactor)`.  Therefore, higher values of seasonalityFactor cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
 
-If no values for these optional parameters are supplied, the `hw()` function uses an optimization method called Nelder-Mead.  Nelder-Mead finds local optima, so if no coefficients are provided, the same query might return two different results if it's run twice.
+## Example Discussion
+
+**Triple Exponential Smoothing**
+If your data for CPU usage is seasonal, use this query:
+```
+hw(4h, 1h, 1m, align(1m, ts(cpu.usage.idle)))
+```
+The function runs the Holt-Winters algorithm on the series with a season length of 1 hour and a sampling rate of 1 minute. The example doesn't use the optional parameters to weigh smoothing, trend, and seasonality.
+
+**Double Exponential Smoothing**
+
+If your data for CPU usage is *not* seasonal, use this query:
+```
+hw(4h, 1m, align(1m, ts(cpu.usage.idle)))
+```
+The function runs the Holt-Winters algorithm on the series using a sampling rate of 1 minute. The example doesn't use the optional parameters to weigh smoothing and trend.
 
 
 ## Caveats
 There are requirements when using the `hw()` function:
 * The number of data points(including both the history length and the points in the window) divided by the sampling rate cannot exceed 10,000.
-* The sampling rate must evenly divide the season length.
+* For triple exponential smoothing, the sampling rate must evenly divide the season length.
 
 ## See Also
 
