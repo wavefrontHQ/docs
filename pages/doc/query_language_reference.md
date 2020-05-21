@@ -806,6 +806,10 @@ These functions output continuous time series, with the exception of `integral()
 </thead>
 <tbody>
 <tr>
+<td><a href="ts_mslope.html">mslope(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the per-second derivative of the linear regression of the time series over the specified time window.</td>
+</tr>
+<tr>
 <td><a href="ts_mavg.html">mavg(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving average of each series for the specified time window.</td>
 </tr>
@@ -872,6 +876,8 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 </tbody>
 </table>
+
+
 
 <table style="width: 100%;">
 <tbody>
@@ -1245,6 +1251,7 @@ String manipulation functions can help you:
 ## Predictive Functions
 Predictive functions enable you to forecast data values and find outlier data values in the specified time series.
 
+
 <table style="width: 100%;">
 <colgroup>
 <col width="45%" />
@@ -1257,6 +1264,8 @@ Predictive functions enable you to forecast data values and find outlier data va
 </tr>
 </thead>
 <tbody>
+
+
 <tr>
 <td><a href="ts_anomalous.html">anomalous(<strong>&lt;testWindow&gt;</strong>, &lbrack;<strong>&lt;confidenceFactor&gt;</strong>,&rbrack; &lbrack;<strong>&lt;historyWindow&gt;</strong>, &lbrack;<strong>&lt;alignWindow&gt;</strong>,&rbrack;&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
@@ -1273,8 +1282,15 @@ Predictive functions enable you to forecast data values and find outlier data va
 </td>
 <td>Forecasts future data values for each time series described by the expression. It uses hypothesis testing and neural networks for prediction. </td>
 </tr>
+<tr>
+<td><a href="ts_linearforecast.html"><strong>linearforecast(&lt;forecastOffset&gt;, &lt;historyLength&gt;, &lt;tsExpression&gt;)</strong></a>
+</td>
+<td>Predicts the value of the points in the time series using simple linear regression. Similar to the Prometheus `predict_linear` function. </td>
+</tr>
 </tbody>
 </table>
+
+
 
 <table style="width: 100%;">
 <tbody>
