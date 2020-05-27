@@ -76,3 +76,17 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.efs.burstcreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.efs.permittedthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|

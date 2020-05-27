@@ -76,3 +76,36 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.dynamodb.accountmaxreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.accountmaxtablelevelreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.accountmaxtablelevelwrites.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.accountmaxwrites.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.accountprovisionedreadcapacityutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.accountprovisionedwritecapacityutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.conditionalcheckfailedrequests.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.consumedreadcapacityunits.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.consumedwritecapacityunits.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.maxprovisionedtablereadcapacityutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.maxprovisionedtablewritecapacityutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.provisionedreadcapacityunits.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.provisionedwritecapacityunits.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.readthrottleevents.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.returnedbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.returneditemcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.returnedrecordscount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.successfulrequestlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.systemerrors.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.throttledrequests.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.dynamodb.usererrors.*|Statistics: average, maximum, minimum, samplecount, sum|

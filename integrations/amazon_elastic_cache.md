@@ -76,3 +76,43 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.elasticache.bytesusedforcache.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.cachehits.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.cachemisses.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.currconnections.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.curritems.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.enginecpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.evictions.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.freeablememory.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.gettypecmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.hashbasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.ismaster.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.keybasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.masterlinkhealthstatus.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.networkbytesin.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.networkbytesout.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.networkpacketsin.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.networkpacketsout.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.newconnections.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.reclaimed.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.replicationbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.replicationlag.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.saveinprogress.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.setbasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.settypecmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.sortedsetbasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.stringbasedcmds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elasticache.swapusage.*|Statistics: average, maximum, minimum, samplecount, sum|

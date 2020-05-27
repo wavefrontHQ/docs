@@ -76,3 +76,41 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.applicationelb.activeconnectioncount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.clienttlsnegotiationerrorcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.consumedlcus.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.forwardedinvalidheaderrequestcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.healthyhostcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_elb_4xx_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_elb_500_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_elb_502_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_elb_503_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_elb_504_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_elb_5xx_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_target_2xx_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_target_3xx_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_target_4xx_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.httpcode_target_5xx_count.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.lambdatargetprocessedbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.newconnectioncount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.nonstickyrequestcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.processedbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.requestcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.requestcountpertarget.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.ruleevaluations.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.targetconnectionerrorcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.targetresponsetime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.targettlsnegotiationerrorcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.applicationelb.unhealthyhostcount.*|Statistics: average, maximum, minimum, samplecount, sum|

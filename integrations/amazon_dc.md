@@ -76,3 +76,23 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.dx.connectionbpsegress| Bitrate for outbound data from the AWS side of the connection.|
+|aws.dx.connectionbpsingress| Bitrate for inbound data to the AWS side of the connection.|
+|aws.dx.connectioncrcerrorcount| This count is no longer in use. Use ConnectionErrorCount instead.|
+|aws.dx.connectionlightlevelrx| Indicates the health of the fiber connection for inbound (ingress) traffic to the AWS side of the connection. |
+|aws.dx.connectionlightleveltx| Indicates the health of the fiber connection for outbound (egress) traffic from the AWS side of the connection.|
+|aws.dx.connectionppsegress| Packet rate for outbound data from the AWS side of the connection.|
+|aws.dx.connectionppsingress| Packet rate for inbound data to the AWS side of the connection.|
+|aws.dx.connectionstate| State of the connection.1 indicates up and 0 indicates down.|

@@ -76,3 +76,38 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.ec2.cpucreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.cpucreditusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.cpusurpluscreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.cpusurpluscreditscharged.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.diskreadbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.diskreadops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.diskwritebytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.diskwriteops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.ebsbytebalance%.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.ebsiobalance%.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.ebsreadbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.ebsreadops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.ebswritebytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.ebswriteops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.metadatanotoken.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.networkin.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.networkout.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.networkpacketsin.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.networkpacketsout.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.statuscheckfailed.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.statuscheckfailed_instance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ec2.statuscheckfailed_system.*|Statistics: average, maximum, minimum, samplecount, sum|

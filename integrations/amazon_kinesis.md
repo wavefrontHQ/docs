@@ -76,3 +76,28 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.kinesis.getrecords.bytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.getrecords.iteratorage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.getrecords.iteratoragemilliseconds.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.getrecords.latency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.getrecords.records.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.getrecords.success.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.incomingbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.incomingrecords.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.putrecord.bytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.putrecord.latency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.putrecord.success.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.readprovisionedthroughputexceeded.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.kinesis.writeprovisionedthroughputexceeded.*|Statistics: average, maximum, minimum, samplecount, sum|

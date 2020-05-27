@@ -76,3 +76,23 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+  
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.autoscaling.groupdesiredcapacity.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.groupinserviceinstances.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.groupmaxsize.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.groupminsize.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.grouppendinginstances.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.groupstandbyinstances.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.groupterminatinginstances.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.autoscaling.grouptotalinstances.*|Statistics: average, maximum, minimum, samplecount, sum|

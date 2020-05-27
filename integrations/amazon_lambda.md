@@ -76,3 +76,22 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.lambda.concurrentexecutions.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.lambda.duration.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.lambda.errors.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.lambda.invocations.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.lambda.iteratorage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.lambda.throttles.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.lambda.unreservedconcurrentexecutions.*|Statistics: average, maximum, minimum, samplecount, sum|

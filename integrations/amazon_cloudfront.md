@@ -76,3 +76,21 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+  
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions. 
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.cloudfront.4xxerrorrate.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.cloudfront.5xxerrorrate.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.cloudfront.bytesdownloaded.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.cloudfront.bytesuploaded.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.cloudfront.requests.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.cloudfront.totalerrorrate.*|Statistics: average, maximum, minimum, samplecount, sum|

@@ -76,3 +76,19 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+  
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.cloudsearch.indexutilization| Percentage of the search instance's index capacity that has been used. The Maximum value indicates the percentage of the domain's index capacity that has been used. |
+|aws.cloudsearch.partitions| Number of partitions the index is distributed across.|
+|aws.cloudsearch.searchabledocuments| Number of searchable documents in the domain's search index. |
+|aws.cloudsearch.successfulrequests| number of search requests successfully processed by a search instance. |

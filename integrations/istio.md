@@ -71,3 +71,24 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefro
 
 Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/istio) to allow Istio to re-direct its traces to the Wavefront proxy.
 
+## Metrics
+
+|Metric Name|Description|
+| :--- | :--- |
+|istio.adapter.cpu.idle.value||
+|istio.adapter.cpu.nice.value||
+|istio.adapter.cpu.system.value||
+|istio.adapter.cpu.user.value||
+|istio.adapter.memory.alloc.value||
+|istio.adapter.memory.numgc.value||
+|istio.adapter.memory.sys.value||
+|istio.adapter.memory.totalalloc.value||
+|istio.adapter.uptime.value||
+|istio.requestcount.*|Statistics: count|
+|istio.requestduration.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+|istio.requestsize.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+|istio.responsesize.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+|istio.tcpconnectionsclosed.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+|istio.tcpconnectionsopened.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+|istio.tcpreceivedbytes.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|
+|istio.tcpsentbytes.*|Statistics: 50-percentile, 75-percentile, 95-percentile, 99-percentile, 999-percentile, count, max, mean, min, std-dev|

@@ -76,3 +76,85 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.es.2xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.3xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.4xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.5xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingdegraded.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingindexexists.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingindexstatus.green.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingindexstatus.red.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingindexstatus.yellow.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingnodesnotonschedule.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingnodesonschedule.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.alertingscheduledjobenabled.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.automatedsnapshotfailure.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.clusterindexwritesblocked.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.clusterstatus.green.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.clusterstatus.red.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.clusterstatus.yellow.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.clusterusedspace.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.deleteddocuments.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.diskqueuedepth.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.elasticsearchrequests.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.freestoragespace.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.indexinglatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.indexingrate.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.invalidhostheaderrequests.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.jvmgcoldcollectioncount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.jvmgcoldcollectiontime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.jvmgcyoungcollectioncount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.jvmgcyoungcollectiontime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.jvmmemorypressure.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.kibanahealthynodes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.mastercpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.masterfreestoragespace.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.masterjvmmemorypressure.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.masterreachablefromnode.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.mastersysmemoryutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.nodes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.readiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.readlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.readthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.searchabledocuments.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.searchlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.searchrate.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.sqlfailedrequestcountbycuserr.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.sqlfailedrequestcountbysyserr.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.sqlrequestcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.sqlunhealthy.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.sysmemoryutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolforce_mergequeue.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolforce_mergerejected.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolforce_mergethreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolindexqueue.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolindexrejected.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolindexthreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolopendistro_monitor_runnerqueue.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolopendistro_monitor_runnerrejected.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolopendistro_monitor_runnerthreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolsearchqueue.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolsearchrejected.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolsearchthreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolsql-workerqueue.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolsql-workerrejected.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolsql-workerthreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolwritequeue.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolwriterejected.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.threadpoolwritethreads.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.writeiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.writelatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.es.writethroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
