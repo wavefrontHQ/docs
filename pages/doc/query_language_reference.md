@@ -863,8 +863,12 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the moving sum over time for the given expression over the time window of the current chart window.</td>
 </tr>
 <tr>
-<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_mchanges.html">mchanges(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the number of times a counter has reset within the specified time window.</td>
+</tr>
+<tr>
+<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the number of times a counter changed directions (going up or going down) within the specified time window.</td>
 </tr>
 <tr>
 <td><a href="ts_any.html">any(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
@@ -1316,6 +1320,15 @@ Predictive functions enable you to forecast data values and find outlier data va
 <a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <br> <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
 </td>
 <td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_missing.html">missing(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Checks whether there are any data points in the specified time window.<ul>
+<li>If there are no data points, returns 1.</li>
+<li>Otherwise, returns a Double.NaN (i.e. empty time series)</li>
+</ul></td>
 </tr>
 <tr>
 <td>
