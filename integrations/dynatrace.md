@@ -56,9 +56,15 @@ wf-dynatrace config -b <dynatrace-base-url> -a <dynatrace-api-key> -s <wavefront
     dynatrace-collector restart
     ```
 {% endraw %}
+- Get collector information{% raw %}
+    ```
+    wf-dynatrace info
+    ```
+{% endraw %}
 
-### Step 5. Metrics Configuration
-Use the metrics configuration file, located at `/opt/wavefront/dynatrace/config/config.json`, to enable/disable the metrics collection.
+### Step 5. Advanced Configuration
+All configuration files are located at `/opt/wavefront/dynatrace/config/`.
+Use `config.json` to enable/disable the metrics collection.
 
 Configuration options:
 * **family**:  Filter the metrics based on family, to disable the metric for any family remove an entire dictionary object from the array.
@@ -67,5 +73,8 @@ Configuration options:
 
 See [Dynatrace Timeseries API](https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/timeseries/) for more information.
 
+Use `dtcollector.conf` to manage the log and other settings.
+
 ### Step 6. Log File Location
-Log file will be located in the `/tmp/wavefront/dynatrace/log/dynatrace.log`.
+Log file will be located at `/var/log/wavefront/dynatrace/dynatrace.log`.
+
