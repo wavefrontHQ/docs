@@ -4,7 +4,7 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_mslope.html
-summary: Reference to the hw() function
+summary: Reference to the mslope function
 ---
 
 ## Summary
