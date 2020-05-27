@@ -76,3 +76,28 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+  
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.ebs.burstbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumeconsumedreadwriteops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumeidletime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumeiops||
+|aws.ebs.volumequeuelength.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumereadbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumereadops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumesize||
+|aws.ebs.volumethroughputpercentage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumetotalreadtime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumetotalwritetime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumewritebytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ebs.volumewriteops.*|Statistics: average, maximum, minimum, samplecount, sum|

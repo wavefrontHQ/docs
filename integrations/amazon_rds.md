@@ -76,3 +76,84 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.rds.activetransactions.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.allocatedstorage||
+|aws.rds.aurorabinlogreplicalag.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.aurorareplicalag.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.aurorareplicalagmaximum.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.aurorareplicalagminimum.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.backupretentionperiodstorageused.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.binlogdiskusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.blockedtransactions.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.buffercachehitratio.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.burstbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.capacity||
+|aws.rds.commitlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.committhroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.cpucreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.cpucreditusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.cpusurpluscreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.cpusurpluscreditscharged.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.databaseconnections.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.dbload.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.dbloadcpu.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.dbloadnoncpu.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.ddllatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.ddlthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.deadlocks.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.deletelatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.deletethroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.diskqueuedepth.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.dmllatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.dmlthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.engineuptime.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.failedsqlserveragentjobscount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.freeablememory.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.freelocalstorage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.freestoragespace.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.insertlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.insertthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.loginfailures.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.lvmreadiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.lvmwriteiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.maximumusedtransactionids.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.networkreceivethroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.networkthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.networktransmitthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.oldestreplicationslotlag.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.queries.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.rdstoaurorapostgresqlreplicalag.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.readiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.readlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.readthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.replicationslotdiskusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.resultsetcachehitratio.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.selectlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.selectthroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.serverlessdatabasecapacity.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.snapshotstorageused.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.swapusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.totalbackupstoragebilled.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.transactionlogsdiskusage.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.transactionlogsgeneration.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.updatelatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.updatethroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.volumebytesused.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.volumereadiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.volumewriteiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.writeiops.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.writelatency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.rds.writethroughput.*|Statistics: average, maximum, minimum, samplecount, sum|

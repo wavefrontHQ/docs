@@ -142,3 +142,94 @@ Use the `Windows Services Management Console` or execute the following from the 
 {% endraw %}
 
 
+
+
+
+
+## Metrics
+
+
+|Metric Name|Description|
+| :--- | :--- |
+|iis.aspnet.Application.Restarts|Application restarts by IIS ASP.NET.|
+|iis.aspnet.Requests.Queued|Queued requests. |
+|iis.aspnet.Requests.Rejected|Rejected requests. |
+|iis.aspnet.app.Cache.*|Application cache metrics. The caching classes in the `System.Runtime.Caching` namespace provide functionality for caching data in ASP.NET.|
+|iis.aspnet.app.Cache.Total.Entries||
+|iis.aspnet.app.Cache.Total.Hit.Ratio||
+|iis.aspnet.app.Cache.Total.Hits||
+|iis.aspnet.app.Cache.Total.Misses||
+|iis.aspnet.app.Cache.Total.Turnover.Rate||
+|iis.aspnet.app.Errors.Total|Total ASP.NET application errors.|
+|iis.aspnet.app.Pipeline.Instance.Count|Instance count for the application pipeline.|
+|iis.aspnet.app.Requests.persec|ASP.NET application requests per seconds.|
+|iis.dotnet.exception.-.of.Exceps.Thrown|Metrics for IIS .NET exceptions |
+|iis.dotnet.exception.-.of.Exceps.Thrown||
+|iis.dotnet.exception.-.of.Exceps.Thrown.-.Sec||
+|iis.dotnet.exception.-.of.Filters.-.Sec||
+|iis.dotnet.exception.-.of.Finallys.-.Sec||
+|iis.dotnet.exception.Throw.to.Catch.Depth.-.Sec||
+|iis.http.queues.*|Metrics related to IIS HTTP queues.|
+|iis.http.queues.CurrentQueueSize||
+|iis.http.queues.RejectedRequests||
+|iis.websvc.Anonymous.*|IIS web server metrics.|
+|iis.websvc.Anonymous.Users.persec||
+|iis.websvc.Bytes.Received.persec||
+|iis.websvc.Bytes.Sent.persec||
+|iis.websvc.Bytes.Total.persec||
+|iis.websvc.Current.Connections||
+|iis.websvc.Delete.Requests.persec||
+|iis.websvc.Files.Received.persec||
+|iis.websvc.Files.Sent.persec||
+|iis.websvc.Files.persec||
+|iis.websvc.Get.Requests.persec||
+|iis.websvc.Locked.Errors.persec||
+|iis.websvc.NonAnonymous.Users.persec||
+|iis.websvc.Not.Found.Errors.persec||
+|iis.websvc.Post.Requests.persec||
+|iis.websvc.Put.Requests.persec||
+|iis.websvc.Service.Uptime||
+|iis.websvc.Total.Bytes.Received||
+|iis.websvc.Total.Bytes.Sent||
+|iis.websvc.Total.Bytes.Transferred||
+|iis.websvc.Total.Delete.Requests||
+|iis.websvc.Total.Files.Received||
+|iis.websvc.Total.Files.Sent||
+|iis.websvc.Total.Files.Transferred||
+|iis.websvc.Total.Get.Requests||
+|iis.websvc.Total.Method.Requests.persec||
+|iis.websvc.Total.Post.Requests||
+|iis.websvc.Total.Put.Requests||
+|iis.websvc.cache.*|IIS web service cache metrics. |
+|iis.websvc.cache.Active.Flushed.Entries||
+|iis.websvc.cache.Current.File.Cache.Memory.Usage||
+|iis.websvc.cache.Current.Files.Cached||
+|iis.websvc.cache.Current.Metadata.Cached||
+|iis.websvc.cache.Current.URIs.Cached||
+|iis.websvc.cache.File.Cache.Flushes||
+|iis.websvc.cache.File.Cache.Hits||
+|iis.websvc.cache.File.Cache.Hits.Percent||
+|iis.websvc.cache.File.Cache.Misses||
+|iis.websvc.cache.Kernel-.Current.URIs.Cached||
+|iis.websvc.cache.Kernel-.Total.Flushed.URIs||
+|iis.websvc.cache.Kernel-.Total.URIs.Cached||
+|iis.websvc.cache.Kernel-.URI.Cache.Flushes||
+|iis.websvc.cache.Kernel-.URI.Cache.Hits||
+|iis.websvc.cache.Kernel-.URI.Cache.Hits.Percent||
+|iis.websvc.cache.Kernel-.URI.Cache.Misses||
+|iis.websvc.cache.Kernel-.Uri.Cache.Hits.persec||
+|iis.websvc.cache.Maximum.File.Cache.Memory.Usage||
+|iis.websvc.cache.Metadata.Cache.Flushes||
+|iis.websvc.cache.Metadata.Cache.Hits||
+|iis.websvc.cache.Metadata.Cache.Hits.Percent||
+|iis.websvc.cache.Metadata.Cache.Misses||
+|iis.websvc.cache.Total.Files.Cached||
+|iis.websvc.cache.Total.Flushed.Files||
+|iis.websvc.cache.Total.Flushed.Metadata||
+|iis.websvc.cache.Total.Flushed.URIs||
+|iis.websvc.cache.Total.Metadata.Cached||
+|iis.websvc.cache.Total.URIs.Cached||
+|iis.websvc.cache.URI.Cache.Flushes||
+|iis.websvc.cache.URI.Cache.Hits||
+|iis.websvc.cache.URI.Cache.Hits.Percent||
+|iis.websvc.cache.URI.Cache.Misses||

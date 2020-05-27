@@ -76,3 +76,31 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.opsworks.cpu_idle| |
+|aws.opsworks.cpu_nice| |
+|aws.opsworks.cpu_steal| |
+|aws.opsworks.cpu_system| |
+|aws.opsworks.cpu_user| |
+|aws.opsworks.cpu_waitio| |
+|aws.opsworks.load_1| |
+|aws.opsworks.load_15| |
+|aws.opsworks.load_5| |
+|aws.opsworks.memory_buffers| |
+|aws.opsworks.memory_cached| |
+|aws.opsworks.memory_free| |
+|aws.opsworks.memory_swap| |
+|aws.opsworks.memory_total| |
+|aws.opsworks.memory_used| |
+|aws.opsworks.procs| |

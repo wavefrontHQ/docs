@@ -76,3 +76,33 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.redshift.commitqueuelength| Number of transactions waiting to commit at a given point in time.|
+|aws.redshift.concurrencyscalingactiveclusters| Number of concurrency scaling clusters that are actively processing queries at any given time.|
+|aws.redshift.cpuutilization| Percentage of CPU utilization. For clusters, this metric represents an aggregation of all nodes (leader and compute) CPU utilization values.|
+|aws.redshift.databaseconnections| Number of database connections to a cluster.|
+|aws.redshift.healthstatus| Indicates the health of the cluster.  |
+|aws.redshift.maintenancemode| Indicates whether the cluster is in maintenance mode.|
+|aws.redshift.networkreceivethroughput| Rate at which the node or cluster receives data.|
+|aws.redshift.networktransmitthroughput| Rate at which the node or cluster writes data. |
+|aws.redshift.percentagediskspaceused| Percent of disk space used. |
+|aws.redshift.readiops| Average number of disk read operations per second.|
+|aws.redshift.readlatency| Average amount of time taken for disk read I/O operations.|
+|aws.redshift.readthroughput| Average number of bytes read from disk per second.|
+|aws.redshift.totaltablecount| Number of user tables open at a particular point in time. This total doesn't include Amazon Redshift Spectrum tables. |
+|aws.redshift.wlmqueuelength| Number of queries waiting to enter a workload management (WLM) queue.|
+|aws.redshift.wlmrunningqueries| Number of queries running from both the main cluster and concurrency scaling cluster per WLM queue.|
+|aws.redshift.writeiops| Average number of write operations per second.|
+|aws.redshift.writelatency| Average amount of time taken for disk write I/O operations.|
+|aws.redshift.writethroughput| Average number of bytes written to disk per second.|

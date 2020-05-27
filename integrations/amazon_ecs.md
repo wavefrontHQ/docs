@@ -76,3 +76,19 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+  
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.ecs.cpureservation.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ecs.cpuutilization.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ecs.memoryreservation.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.ecs.memoryutilization.*|Statistics: average, maximum, minimum, samplecount, sum|

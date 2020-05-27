@@ -76,3 +76,30 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.elb.backendconnectionerrors.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.estimatedalbactiveconnectioncount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.estimatedalbconsumedlcus.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.estimatedalbnewconnectioncount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.estimatedprocessedbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.healthyhostcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.httpcode_backend_2xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.httpcode_backend_3xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.httpcode_backend_4xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.httpcode_backend_5xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.httpcode_elb_5xx.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.latency.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.requestcount.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.surgequeuelength.*|Statistics: average, maximum, minimum, samplecount, sum|
+|aws.elb.unhealthyhostcount.*|Statistics: average, maximum, minimum, samplecount, sum|

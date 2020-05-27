@@ -76,3 +76,31 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.   
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.dms.cpuallocated| |
+|aws.dms.cpuutilization| |
+|aws.dms.diskqueuedepth| |
+|aws.dms.freeablememory| |
+|aws.dms.freestoragespace| |
+|aws.dms.memoryallocated| |
+|aws.dms.memoryusage| |
+|aws.dms.networkreceivethroughput| |
+|aws.dms.networktransmitthroughput| |
+|aws.dms.readiops| |
+|aws.dms.readlatency| |
+|aws.dms.readthroughput| |
+|aws.dms.swapusage| |
+|aws.dms.writeiops| |
+|aws.dms.writelatency| |
+|aws.dms.writethroughput| |

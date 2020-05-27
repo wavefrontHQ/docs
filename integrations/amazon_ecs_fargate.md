@@ -76,3 +76,119 @@ You start by granting Wavefront read-only access to your Amazon account or by gi
 
 
 
+undefined
+
+
+
+
+
+## Metrics
+
+See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|aws.fargate.cpu_stats.cpu_usage.total_usage| |
+|aws.fargate.cpu_stats.cpu_usage.usage_in_kernelmode| |
+|aws.fargate.cpu_stats.cpu_usage.usage_in_usermode| |
+|aws.fargate.cpu_stats.online_cpus| |
+|aws.fargate.cpu_stats.system_cpu_usage| |
+|aws.fargate.cpu_stats.throttling_data.periods| |
+|aws.fargate.cpu_stats.throttling_data.throttled_periods| |
+|aws.fargate.cpu_stats.throttling_data.throttled_time| |
+|aws.fargate.ecs.cpu_stats.cpu_usage.total_usage| |
+|aws.fargate.ecs.cpu_stats.cpu_usage.usage_in_kernelmode| |
+|aws.fargate.ecs.cpu_stats.cpu_usage.usage_in_usermode| |
+|aws.fargate.ecs.cpu_stats.online_cpus| |
+|aws.fargate.ecs.cpu_stats.system_cpu_usage| |
+|aws.fargate.ecs.cpu_stats.throttling_data.periods| |
+|aws.fargate.ecs.cpu_stats.throttling_data.throttled_periods| |
+|aws.fargate.ecs.cpu_stats.throttling_data.throttled_time| |
+|aws.fargate.ecs.memory_stats.limit| |
+|aws.fargate.ecs.memory_stats.stats.active_anon| |
+|aws.fargate.ecs.memory_stats.stats.active_file| |
+|aws.fargate.ecs.memory_stats.stats.cache| |
+|aws.fargate.ecs.memory_stats.stats.dirty| |
+|aws.fargate.ecs.memory_stats.stats.hierarchical_memory_limit| |
+|aws.fargate.ecs.memory_stats.stats.hierarchical_memsw_limit| |
+|aws.fargate.ecs.memory_stats.stats.inactive_anon| |
+|aws.fargate.ecs.memory_stats.stats.inactive_file| |
+|aws.fargate.ecs.memory_stats.stats.mapped_file| |
+|aws.fargate.ecs.memory_stats.stats.pgfault| |
+|aws.fargate.ecs.memory_stats.stats.pgmajfault| |
+|aws.fargate.ecs.memory_stats.stats.pgpgin| |
+|aws.fargate.ecs.memory_stats.stats.pgpgout| |
+|aws.fargate.ecs.memory_stats.stats.rss| |
+|aws.fargate.ecs.memory_stats.stats.rss_huge| |
+|aws.fargate.ecs.memory_stats.stats.total_active_anon| |
+|aws.fargate.ecs.memory_stats.stats.total_active_file| |
+|aws.fargate.ecs.memory_stats.stats.total_cache| |
+|aws.fargate.ecs.memory_stats.stats.total_dirty| |
+|aws.fargate.ecs.memory_stats.stats.total_inactive_anon| |
+|aws.fargate.ecs.memory_stats.stats.total_inactive_file| |
+|aws.fargate.ecs.memory_stats.stats.total_mapped_file| |
+|aws.fargate.ecs.memory_stats.stats.total_pgfault| |
+|aws.fargate.ecs.memory_stats.stats.total_pgmajfault| |
+|aws.fargate.ecs.memory_stats.stats.total_pgpgin| |
+|aws.fargate.ecs.memory_stats.stats.total_pgpgout| |
+|aws.fargate.ecs.memory_stats.stats.total_rss| |
+|aws.fargate.ecs.memory_stats.stats.total_rss_huge| |
+|aws.fargate.ecs.memory_stats.stats.total_unevictable| |
+|aws.fargate.ecs.memory_stats.stats.total_writeback| |
+|aws.fargate.ecs.memory_stats.stats.unevictable| |
+|aws.fargate.ecs.memory_stats.stats.writeback| |
+|aws.fargate.ecs.memory_stats.usage| |
+|aws.fargate.ecs.num_procs| |
+|aws.fargate.ecs.pids_stats.current| |
+|aws.fargate.ecs.precpu_stats.cpu_usage.total_usage| |
+|aws.fargate.ecs.precpu_stats.cpu_usage.usage_in_kernelmode| |
+|aws.fargate.ecs.precpu_stats.cpu_usage.usage_in_usermode| |
+|aws.fargate.ecs.precpu_stats.online_cpus| |
+|aws.fargate.ecs.precpu_stats.system_cpu_usage| |
+|aws.fargate.ecs.precpu_stats.throttling_data.periods| |
+|aws.fargate.ecs.precpu_stats.throttling_data.throttled_periods| |
+|aws.fargate.ecs.precpu_stats.throttling_data.throttled_time| |
+|aws.fargate.memory_stats.limit| |
+|aws.fargate.memory_stats.stats.active_anon| |
+|aws.fargate.memory_stats.stats.active_file| |
+|aws.fargate.memory_stats.stats.cache| |
+|aws.fargate.memory_stats.stats.dirty| |
+|aws.fargate.memory_stats.stats.hierarchical_memory_limit| |
+|aws.fargate.memory_stats.stats.hierarchical_memsw_limit| |
+|aws.fargate.memory_stats.stats.inactive_anon| |
+|aws.fargate.memory_stats.stats.inactive_file| |
+|aws.fargate.memory_stats.stats.mapped_file| |
+|aws.fargate.memory_stats.stats.pgfault| |
+|aws.fargate.memory_stats.stats.pgmajfault| |
+|aws.fargate.memory_stats.stats.pgpgin| |
+|aws.fargate.memory_stats.stats.pgpgout| |
+|aws.fargate.memory_stats.stats.rss| |
+|aws.fargate.memory_stats.stats.rss_huge| |
+|aws.fargate.memory_stats.stats.total_active_anon| |
+|aws.fargate.memory_stats.stats.total_active_file| |
+|aws.fargate.memory_stats.stats.total_cache| |
+|aws.fargate.memory_stats.stats.total_dirty| |
+|aws.fargate.memory_stats.stats.total_inactive_anon| |
+|aws.fargate.memory_stats.stats.total_inactive_file| |
+|aws.fargate.memory_stats.stats.total_mapped_file| |
+|aws.fargate.memory_stats.stats.total_pgfault| |
+|aws.fargate.memory_stats.stats.total_pgmajfault| |
+|aws.fargate.memory_stats.stats.total_pgpgin| |
+|aws.fargate.memory_stats.stats.total_pgpgout| |
+|aws.fargate.memory_stats.stats.total_rss| |
+|aws.fargate.memory_stats.stats.total_rss_huge| |
+|aws.fargate.memory_stats.stats.total_unevictable| |
+|aws.fargate.memory_stats.stats.total_writeback| |
+|aws.fargate.memory_stats.stats.unevictable| |
+|aws.fargate.memory_stats.stats.writeback| |
+|aws.fargate.memory_stats.usage| |
+|aws.fargate.num_procs| |
+|aws.fargate.pids_stats.current| |
+|aws.fargate.precpu_stats.cpu_usage.total_usage| |
+|aws.fargate.precpu_stats.cpu_usage.usage_in_kernelmode| |
+|aws.fargate.precpu_stats.cpu_usage.usage_in_usermode| |
+|aws.fargate.precpu_stats.online_cpus| |
+|aws.fargate.precpu_stats.system_cpu_usage| |
+|aws.fargate.precpu_stats.throttling_data.periods| |
+|aws.fargate.precpu_stats.throttling_data.throttled_periods| |
+|aws.fargate.precpu_stats.throttling_data.throttled_time| |
