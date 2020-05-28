@@ -9,21 +9,17 @@ summary: Learn how to examine and fine-tune alerts.
 
 Alerts help you find the root cause of a problem quickly.
 
-When you receive an alert notification, the notification includes a link to the alert chart, where you can. From the Alerts Browser, you can check and modify all alerts.
-
-
-<!---
 When you receive an alert notification, the notification includes a link to the Alert Viewer, where you can drill down and examine related information. From the Alerts Browser, you can check and modify all alerts.
 
 * In Alert Viewer, view related events, point tags, and more
 * In Alerts Browser, investigate all alerts and their state, history, and more.
 * In Alerts Browser, clone, edit, or delete alerts.
---->
+
 
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
 
-<!---
+
 ## Examine an Alert in Alert Viewer
 
 When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information that Alert Viewer displays help you determine what's going on.
@@ -71,7 +67,7 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 
 ### How Alert Notifications Include Links
 
-Starting with 2020.14, the alert target mustache syntax supports 2 variables:
+Starting with 2020.22, the alert target mustache syntax supports 2 variables:
 * The `url` variable
 * The `charturl` variable
 
@@ -87,7 +83,7 @@ For any alerts that were created before 2020.14, the `url` variable points to th
   - A new mustache context variable `chartUrl` will take you directly to the chart view that was the link target before 2020.14. 
 
 {% include note.html content="When you upgrade to 2020.14, already-created alert targets will not be updated to use `chartUrl`. To give users the option to view the chart in Chart Editor, edit existing alert targets." %} 
---->
+
 
 ## Examine All Alerts in the Alerts Browser
 
