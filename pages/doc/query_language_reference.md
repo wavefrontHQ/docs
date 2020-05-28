@@ -599,11 +599,11 @@ Filtering functions help you select a subset of the time series that are returne
 </thead>
 <tbody>
 <tr>
-<td markdown="span"><a href="ts_clampMax.html">clampMax(<strong>max</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td markdown="span"><a href="ts_clampmax.html">clampMax(<strong>max</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Changes any point larger than <strong>max</strong> to <strong>max</strong></td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_clampMax.html">clampMin(<strong>min</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td markdown="span"><a href="ts_clampmax.html">clampMin(<strong>min</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Changes any point smaller than <strong>min</strong> to <strong>min</strong></td>
 </tr>
 <tr>
@@ -761,6 +761,10 @@ Standard time functions can help you:
 <td>Returns the month of the year in the specified time zone. Months are returned as whole numbers from 1 (January) through 12 (December).</td>
 </tr>
 <tr>
+<td><a href="ts_daysinmonth.html">month(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
+<td>Returns the number of days in a month for the timestamp of the specified time zone. The values returned are integer only and are in the range 28-31.</td>
+</tr>
+<tr>
 <td><a href="ts_dayOfYear.html">dayOfYear(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt; &rbrack;</strong>)</a></td>
 <td>Returns the day of the year in the specified time zone. Days of the year are returned as whole numbers from 1 to 366.</td>
 </tr>
@@ -774,7 +778,11 @@ Standard time functions can help you:
 </tr>
 <tr>
 <td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
-<td>Returns the hour within the day in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
+<td>Returns the minute of the hour for the timestamp specified by timeZome. The values returned are integer only and are in the range 0-59. </td>
+</tr>
+<tr>
+<td><a href="ts_minute.html">minute(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
+<td> </td>
 </tr>
 <tr>
 <td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
@@ -1301,7 +1309,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 <tr>
 <td><a href="ts_linearforecast.html"><strong>linearforecast(&lt;forecastOffset&gt;, &lt;historyLength&gt;, &lt;tsExpression&gt;)</strong></a>
 </td>
-<td>Predicts the value of the points in the time series using simple linear regression. Similar to the Prometheus `predict_linear` function. </td>
+<td>Predicts the value of the points in the time series using simple linear regression. Similar to the Prometheus <strong>predict_linear()</strong> function. </td>
 </tr>
 </tbody>
 </table>

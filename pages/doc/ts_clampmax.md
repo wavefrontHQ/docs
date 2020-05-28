@@ -20,6 +20,7 @@ clampMin(<min>, <tsExpression>)
 
 
 ## Parameters
+
 <table>
 <tbody>
 <thead>
@@ -28,7 +29,6 @@ clampMin(<min>, <tsExpression>)
 <tr>
 <td>max</td>
 <td>For clampMin(), changes all values that are larger than max to max.</td></tr>
-<tr>
 <tr>
 <td>min</td>
 <td>For clampMin(), changes all values that are smaller than min to min.</td></tr>
