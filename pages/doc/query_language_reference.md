@@ -599,6 +599,18 @@ Filtering functions help you select a subset of the time series that are returne
 </thead>
 <tbody>
 <tr>
+<td markdown="span"><a href="ts_clampMax.html">clampMax(<strong>max</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Changes any point larger than <strong>max</strong> to <strong>max</strong></td>
+</tr>
+<tr>
+<td markdown="span"><a href="ts_clampMax.html">clampMin(<strong>min</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Changes any point smaller than <strong>min</strong> to <strong>min</strong></td>
+</tr>
+<tr>
+<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
+<td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
+</tr>
+<tr>
 <td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
 <td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
