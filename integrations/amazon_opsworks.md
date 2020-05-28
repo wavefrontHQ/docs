@@ -88,19 +88,19 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 
 |Metric Name|Description|
 | :--- | :--- |
-|aws.opsworks.cpu_idle| |
-|aws.opsworks.cpu_nice| |
-|aws.opsworks.cpu_steal| |
-|aws.opsworks.cpu_system| |
-|aws.opsworks.cpu_user| |
-|aws.opsworks.cpu_waitio| |
-|aws.opsworks.load_1| |
-|aws.opsworks.load_15| |
-|aws.opsworks.load_5| |
-|aws.opsworks.memory_buffers| |
-|aws.opsworks.memory_cached| |
-|aws.opsworks.memory_free| |
-|aws.opsworks.memory_swap| |
-|aws.opsworks.memory_total| |
-|aws.opsworks.memory_used| |
-|aws.opsworks.procs| |
+|aws.opsworks.cpu_idle| Percentage of time that the CPU is idle.|
+|aws.opsworks.cpu_nice| Percentage of time that the CPU is handling processes with a positive nice value, which have a lower scheduling priority.|
+|aws.opsworks.cpu_steal| Percentage of time that an instance is waiting for the hypervisor to allocate physical CPU resources.|
+|aws.opsworks.cpu_system| Percentage of time that the CPU is handling system operations.|
+|aws.opsworks.cpu_user| Percentage of time that the CPU is handling user operations.|
+|aws.opsworks.cpu_waitio| Percentage of time that the CPU is waiting for input/output operations.|
+|aws.opsworks.load_1| Load averaged over a one-minute window.|
+|aws.opsworks.load_15| Load averaged over a 15-minute window.|
+|aws.opsworks.load_5| Load averaged over a 5-minute window.|
+|aws.opsworks.memory_buffers| Amount of buffered memory.|
+|aws.opsworks.memory_cached| Amount of cached memory.|
+|aws.opsworks.memory_free| Amount of free memory.|
+|aws.opsworks.memory_swap| Amount of swap space.|
+|aws.opsworks.memory_total| Total amount of memory.|
+|aws.opsworks.memory_used| Amount of memory in use.|
+|aws.opsworks.procs| Number of active processes.|

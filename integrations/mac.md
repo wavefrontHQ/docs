@@ -48,6 +48,10 @@ To run the Wavefront proxy on a host:
 1. Run `brew services restart wfproxy`.
 1. Check `/usr/local/var/log/wavefront/wavefront.log` to verify the installation.
 
+**NOTE:** For wavefront-proxy version 7.0 and later, you will see a warning dialog when the proxy service starts or restarts. The dialog prompts you to accept incoming network connections for Java applications. Click **Allow** and the proxy service starts.
+
+{% include image.md src="images/network_access.png" width="40" %}
+
 #### Install, Configure, and Restart the Telegraf Agent
 
 To run the Telegraf agent on a host:
