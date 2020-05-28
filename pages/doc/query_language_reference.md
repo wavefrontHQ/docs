@@ -761,7 +761,7 @@ Standard time functions can help you:
 <td>Returns the month of the year in the specified time zone. Months are returned as whole numbers from 1 (January) through 12 (December).</td>
 </tr>
 <tr>
-<td><a href="ts_daysinmonth.html">month(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
+<td><a href="ts_daysinmonth.html">daysInMonth(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the number of days in a month for the timestamp of the specified time zone. The values returned are integer only and are in the range 28-31.</td>
 </tr>
 <tr>
@@ -782,7 +782,7 @@ Standard time functions can help you:
 </tr>
 <tr>
 <td><a href="ts_minute.html">minute(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
-<td> </td>
+<td>Returns the minute of the hour for the timestamp specified by timeZome. The values returned are integer only and are in the range 0-59. </td>
 </tr>
 <tr>
 <td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
