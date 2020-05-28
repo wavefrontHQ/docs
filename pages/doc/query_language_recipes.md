@@ -12,6 +12,10 @@ We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use m
 
 **Note:** For improved legibility, we've included line breaks in some of the examples.
 
+## Queries for Counting
+
+Customers often ask us about counting, for example, they might want to know how many times a counter increased in the last five minutes. Look at the detailed examples in [metric_types.html#counters] for answers to those questions. 
+
 ## Queries for Comparing Time Series
 
 The following recipes show how to compare time series.
