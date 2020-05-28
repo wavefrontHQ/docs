@@ -91,11 +91,11 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.ebs.burstbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ebs.volumeconsumedreadwriteops.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ebs.volumeidletime.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.ebs.volumeiops||
+|aws.ebs.volumeiops| Number of I/O operations per second (IOPS) that the volume supports.|
 |aws.ebs.volumequeuelength.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ebs.volumereadbytes.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ebs.volumereadops.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.ebs.volumesize||
+|aws.ebs.volumesize| Size of the volume, in GiB.|
 |aws.ebs.volumethroughputpercentage.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ebs.volumetotalreadtime.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.ebs.volumetotalwritetime.*|Statistics: average, maximum, minimum, samplecount, sum|

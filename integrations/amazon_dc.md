@@ -90,7 +90,6 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 | :--- | :--- |
 |aws.dx.connectionbpsegress| Bitrate for outbound data from the AWS side of the connection.|
 |aws.dx.connectionbpsingress| Bitrate for inbound data to the AWS side of the connection.|
-|aws.dx.connectioncrcerrorcount| This count is no longer in use. Use ConnectionErrorCount instead.|
 |aws.dx.connectionlightlevelrx| Indicates the health of the fiber connection for inbound (ingress) traffic to the AWS side of the connection. |
 |aws.dx.connectionlightleveltx| Indicates the health of the fiber connection for outbound (egress) traffic from the AWS side of the connection.|
 |aws.dx.connectionppsegress| Packet rate for outbound data from the AWS side of the connection.|
