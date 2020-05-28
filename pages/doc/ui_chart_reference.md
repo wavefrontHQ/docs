@@ -1409,6 +1409,110 @@ Chart description which shows up as hover text when users move the mouse over th
 </tbody>
 </table>
 
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+</table>
+
+## Pie and Donut Chart
+
+![pie](images/pie_chart.png)
+
+A pie chart shows the relative size of your data as pie slices. You can show either a pie chart or a donut chart. You can customize the width of the donut ring (by percentage) and, the percentile shown for the number, and more.
+
+
+
+<a id="pie_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Type</td>
+<td>Select a pie chart or donut chart. If you pick a donut chart, you can set a ratio to make the ring thicker or thinner.   </td>
+</tr>
+<tr>
+<td>Summarization</td>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+</tr>
+<tr>
+<td>Show Percentage</td>
+<td>Let's you show percentage labels for your chart.</td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point for the percentage and for the value.  </td>
+</tr>
+<tr>
+<td>Group Slices</td>
+<td>Allows you to specify the maximum number of slices for the chart. If there are more slices than the maximum, the values of all other slices are combined and have the label "Other" by default. You can change that label.   </td>
+</tr>
+<tr><td>Min</td>
+<td>Allows you to filter the chart by value. Only values greater than Min are shown.</td>
+</tr>
+<tr><td>Max</td>
+<td>Allows you to filter the chart by value. Only values smaller than Max are shown. </td>
+</tr>
+</tbody>
+</table>
+
+<a id="pie_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the gauge chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
 
 
 <table style="width: 100%;">

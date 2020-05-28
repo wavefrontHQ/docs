@@ -28,9 +28,10 @@ Creates a single synthetic event with the specified start and end times, an opti
 <td markdown="span"> startTime</td>
 <td>Time when the new event starts.
 <ul>
-<li>For a fixed start time, specify a number of epoch seconds.</li>
+<li>For a fixed start time, specify a number of epoch seconds or milliseconds.</li>
 <li>For a start time that is relative to the current time, use a time phrase such as <strong>"5 minutes ago"</strong> or <strong>".5 hour ago"</strong>.</li>
 </ul>
+<p>You can pass in the time in seconds or milliseconds.</p>
 </td>
 </tr>
 
@@ -38,10 +39,10 @@ Creates a single synthetic event with the specified start and end times, an opti
 <td markdown="span"> endTime</td>
 <td>Time when the new event ends.
 <ul>
-<li>For a fixed end time, specify a number of epoch seconds.</li>
+<li>For a fixed end time, specify a number of epoch seconds or milliseconds.</li>
 <li>For an end time that is relative to the current time, use a time phrase such as <strong>"5 minutes ago"</strong> or <strong>".5 hour ago"</strong>.</li>
 </ul>
-
+<p>You can pass in the time in seconds or milliseconds.</p>
 <strong>endTime</strong> must be of the same type (fixed or relative) as <strong>startTime</strong>.</td>
 </tr>
 
@@ -68,6 +69,8 @@ Creates a single synthetic event with the specified start and end times, an opti
 ## Description
 
 The `timespan()` event creation function creates a single synthetic event that starts and ends at the specified times. You can optionally include a display name for the event, and any number of event tags. Synthetic events are displayed by the query, but not stored in Wavefront.
+
+You can pass in the time in seconds or milliseconds.
 
 **Note:**  If you want to specify an event name that appears in the UI, you must use the `prettyName` keyword, for example, `prettyName="myEvent"`. In contrast, a parameter like `name="myEvent"` associates an event tag with the event, but does not affect the event's display.
 
