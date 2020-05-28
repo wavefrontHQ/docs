@@ -531,14 +531,16 @@ Ex: 0 </td>
 <tr>
 <td>traceJaegerListenerPorts</td>
 <td>TCP ports to receive Jaeger Thrift formatted data via TChannel. The data is then sent to Wavefront in <a href="trace_data_details.html#wavefront-span-format">Wavefront span format</a>. <br/> Default: None.
-{% include warning.html content="Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
+{% include warning.html content="<br/>Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>4.31</td>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td markdown="span">TCP ports to receive spans and derive RED metrics from the [SDKs that send raw data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront). <br/> Default: None.</td>
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to Wavefront</a>. <br/> Default: None.
+{% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
+</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 <td>6.0 </td>
 <a name="customTracingListenerPorts"></a>
