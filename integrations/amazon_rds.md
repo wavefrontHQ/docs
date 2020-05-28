@@ -89,7 +89,7 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |Metric Name|Description|
 | :--- | :--- |
 |aws.rds.activetransactions.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.rds.allocatedstorage||
+|aws.rds.allocatedstorage| Amount of storage (in gigabytes) to be initially allocated for the database instance.|
 |aws.rds.aurorabinlogreplicalag.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.rds.aurorareplicalag.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.rds.aurorareplicalagmaximum.*|Statistics: average, maximum, minimum, samplecount, sum|
@@ -99,7 +99,7 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 |aws.rds.blockedtransactions.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.rds.buffercachehitratio.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.rds.burstbalance.*|Statistics: average, maximum, minimum, samplecount, sum|
-|aws.rds.capacity||
+|aws.rds.capacity| Maximum size.|
 |aws.rds.commitlatency.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.rds.committhroughput.*|Statistics: average, maximum, minimum, samplecount, sum|
 |aws.rds.cpucreditbalance.*|Statistics: average, maximum, minimum, samplecount, sum|

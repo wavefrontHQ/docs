@@ -88,19 +88,19 @@ See [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/moni
 
 |Metric Name|Description|
 | :--- | :--- |
-|aws.dms.cpuallocated| |
-|aws.dms.cpuutilization| |
-|aws.dms.diskqueuedepth| |
-|aws.dms.freeablememory| |
-|aws.dms.freestoragespace| |
-|aws.dms.memoryallocated| |
-|aws.dms.memoryusage| |
-|aws.dms.networkreceivethroughput| |
-|aws.dms.networktransmitthroughput| |
-|aws.dms.readiops| |
-|aws.dms.readlatency| |
-|aws.dms.readthroughput| |
-|aws.dms.swapusage| |
-|aws.dms.writeiops| |
-|aws.dms.writelatency| |
-|aws.dms.writethroughput| |
+|aws.dms.cpuallocated| Amount of CPU assigned.|
+|aws.dms.cpuutilization| Amount of CPU used.|
+|aws.dms.diskqueuedepth| Number of outstanding IOs (read/write requests) waiting to access the disk.|
+|aws.dms.freeablememory| Amount of available random access memory.|
+|aws.dms.freestoragespace| Amount of available storage space.|
+|aws.dms.memoryallocated| Amount of random access memory that is assigned.|
+|aws.dms.memoryusage| Amount of random access memory that is used.|
+|aws.dms.networkreceivethroughput| Incoming (Receive) network traffic on the replication instance, including both customer database traffic and AWS DMS traffic used for monitoring and replication.|
+|aws.dms.networktransmitthroughput| Outgoing (Transmit) network traffic on the replication instance, including both customer database traffic and AWS DMS traffic used for monitoring and replication.|
+|aws.dms.readiops| Average number of disk read I/O operations per second.|
+|aws.dms.readlatency| Average amount of time taken per disk I/O (input) operation.|
+|aws.dms.readthroughput| Average number of bytes read from disk per second.|
+|aws.dms.swapusage| Amount of swap space used on the replication instance.|
+|aws.dms.writeiops| Average number of disk write I/O operations per second.|
+|aws.dms.writelatency| Average amount of time taken per disk I/O (output) operation.|
+|aws.dms.writethroughput| Average number of bytes written to disk per second.|
