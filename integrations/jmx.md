@@ -60,7 +60,6 @@ Determine what type of agent you wish to use from: [https://jolokia.org/agent.ht
              http://www.mulesoft.org/schema/mule/management
        http://www.mulesoft.org/schema/mule/management/current/mule-management.xsd">
 
-   <!-- .... -->
    <custom-agent name="jolokia-agent" class="org.jolokia.mule.JolokiaMuleAgent">
       <spring:property name="port" value="8899"/>
    </custom-agent>
