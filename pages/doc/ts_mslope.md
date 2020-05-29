@@ -4,7 +4,7 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_mslope.html
-summary: Reference to the mslope function
+summary: Reference to the mslope() function
 ---
 
 ## Summary
@@ -51,3 +51,5 @@ The following screenshot shows the result of `mslope()` for a simple metric.
 ![mslope function](images/ts_mslope.png)
 
 ## See Also
+
+* The [`deriv()` function](ts_deriv.html) returns the per-second rate of change for each time series described by the tsExpression.

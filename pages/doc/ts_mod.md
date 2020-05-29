@@ -4,14 +4,14 @@ keywords: query language reference
 tags: [reference page]
 sidebar: doc_sidebar
 permalink: ts_mod.html
-summary: Reference to the pow() function
+summary: Reference to the mod() function
 ---
 ## Summary
 ```
-mod( )
+mod(<base-tsExpression>, <div-tsExpression>[, inner])
 ```
 
-Modulo function. 
+Modulo arithmetic function.
 
 ## Parameters
 
@@ -22,10 +22,10 @@ Modulo function.
 </thead>
 <tr>
 <td markdown="span"> [base-tsExpression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression describing a constant or a time series of values to be raised to the exponent. </td></tr>
+<td markdown="span">Expression describing a constant or a time series to divide by the second expression. </td></tr>
 <tr>
-<td markdown="span"> [exponent-tsExpression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression describing a constant or a time series of values to use as the exponent. </td></tr>
+<td markdown="span"> [div-tsExpression](query_language_reference.html#query-expressions)</td>
+<td markdown="span">Expression to use as the divisor. </td></tr>
 <tr>
 <td>inner</td>
 <td>Results in an inner join.</td></tr>
@@ -34,14 +34,11 @@ Modulo function.
 
 ## Description
 
-The `pow()` function produces a time series in which the data values are the values specified by the base expression, raised to a power specified by the exponent expression.
+The `mod()` returns the remainder after dividing one number by another. For example, `mod(10, 3)` returns 1 and `mod(4, 2)` returns 0.
 
-Either or both parameters may describe a time series or a constant value, and either may be fractional or negative. Wavefront does not currently support imaginary numbers, so `pow(-1, 0.5)` returns no data.
+Either or both parameters may describe a time series or a constant value, and either may be fractional or negative.
 
-By default, the chart legend displays a rounded version of the result. You can cause the legend to display the result with more precision by holding down the shift key when you hover over the time series.
 
+<!---
 ## Examples
-
-Here we see the result (in orange) of using `pow()` to raise the values of a time series (in blue) to the 3rd power. That is, for each data value _`v`_ in the input series, the result series returns <code><em>v</em><sup>3</sup></code>.
-
-![ts exp ts](images/ts_pow_time_series.png)
+--->

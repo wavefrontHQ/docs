@@ -449,6 +449,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
 <ul><li markdown="span">`+`, `-`, `*`, `/`: Operate on pairs of time series that have matching metric, source, and point tag combinations. If either side of the operator is a 'singleton' -- that is, a single series with a unique metric/source/point tag combination -- it automatically matches up with every time series on the other side of the operator.</li>
 <li markdown="span">`[+]`, `[-]`, `[*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
+<p markdown="span">In addition, Wavefront supports the [pow()](ts_pow.html) and [mod()](ts_mod.html) functions, which support power of and modulo arithmetic operations. </p>
 
 <li markdown="span">**Comparison operators** -- Compare corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator.</li>
 <ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported Wavefront operator.</li>

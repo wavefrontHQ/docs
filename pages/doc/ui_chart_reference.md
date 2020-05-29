@@ -1471,10 +1471,10 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 <td>Allows you to specify the maximum number of slices for the chart. If there are more slices than the maximum, the values of all other slices are combined and have the label "Other" by default. You can change that label.   </td>
 </tr>
 <tr><td>Min</td>
-<td>Allows you to filter the chart by value. Only values greater than Min are shown.</td>
+<td>Allows you to filter the chart by value. Only values greater than or equal to Min are shown.</td>
 </tr>
 <tr><td>Max</td>
-<td>Allows you to filter the chart by value. Only values smaller than Max are shown. </td>
+<td>Allows you to filter the chart by value. Only values smaller than or equal to Max are shown. </td>
 </tr>
 </tbody>
 </table>
@@ -1482,7 +1482,7 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 <a id="pie_drilldown_link_tab">
 <p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
 
-The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the gauge chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
 
 <p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
 

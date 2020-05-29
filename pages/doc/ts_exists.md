@@ -10,7 +10,7 @@ summary: Reference to the exists() function
 ```
 exists(<tsExpression>)
 ```
-Returns 1 if any time series described by the expression exists, and returns 0 otherwise. 
+Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
 A time series exists if it has reported a data value in the last 4 weeks.
 ## Parameters
 <table style="width: 100%;">
@@ -42,7 +42,7 @@ exists(ts(inv_1_get_count, status="7**" and operation="*" and cname="${environme
 ```
 
 This query returns 1 if at least one time series has a value reported within the last 4 weeks. Otherwise, the query returns 0 if the values of all of the time series are older than 4 weeks.
-Because this query returns either 1 or 0, it is useful as a conditional expression in an `if()` function. 
+Because this query returns either 1 or 0, it is useful as a conditional expression in an `if()` function.
 
 For clarity, we'll name this query `hasData` so we can easily refer to it in the following examples.
 
@@ -61,7 +61,7 @@ In this example,
 
 ### Example 2
 
-This example tests `hasData` to see whether its underlying metrics are reporting data, and uses the result to choose between two other previously defined queries named `queryOfInterest` and `substituteQuery`: 
+This example tests `hasData` to see whether its underlying metrics are reporting data, and uses the result to choose between two other previously defined queries named `queryOfInterest` and `substituteQuery`:
 
 ```
 if(${hasData}, ${queryOfInterest}, ${substituteQuery})
@@ -70,3 +70,7 @@ if(${hasData}, ${queryOfInterest}, ${substituteQuery})
 In this example:
 * `hasData` evaluates to 1 (true) if its underlying metrics are reporting, so `if()` returns the results of `queryOfInterest`.
 * `hasData` evaluates to 0 (false) if its underlying metrics are not reporting, so `if()` returns the results of `substituteQuery`.
+
+## See Also
+
+The [`missing()` function](ts_missing.html) lets you check whether a function returned data in a specified time window. 

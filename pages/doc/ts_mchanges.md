@@ -12,7 +12,7 @@ summary: Reference to the mchanges() function
 ```
 mchanges(<timeWindow>, <tsExpression>)
 ```
-Returns the number of times a counter changed directions (going up or going down) within the specified time window.
+Returns the number of times a metric changed value (going up or going down) within the specified time window.
 
 This function corresponds to the Prometheus `changes()` function
 
@@ -28,20 +28,21 @@ This function corresponds to the Prometheus `changes()` function
 <td>Amount of time in the moving time window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
-<td>Expression that describes the time series you want the number of counter direction changes for. </td></tr>
+<td>Expression that describes the time series you want the number of changes in the given time window. </td></tr>
 </tbody>
 </table>
 
 ## Description
 
-The `mchanges()` function reports how often a time series falls or climbs within a specified time window. You typically use `mchanges()` with counter metrics to determine how often a counter changed direction in a moving time window. For example, `mchanges(10m, ts(my.metric))` returns, at each point, the number of times that a counter changed direction over the last 10 minutes.
+The `mchanges()` function reports how often a time series value changes within a specified moving time window. For example, `mchanges(10m, ts(my.metric))` returns, at each point, the number of times that `mymetric` changed direction over the last 10 minutes.
 
 You can use this function to see whether a service experiences great fluctuations in either direction.
 
-Although you can apply `flapping()` to any kind of metric, the typical use is to analyze the behavior of counter metrics, which are metrics that report cumulative totals (increasing values) over time.
-
-A counter metric normally produces an monotonically increasing or decreasing series of data values.
 
 ## Example
 
 <!---Need a good example that shows changes and difference between flapping and mchanges --->
+
+## See Also
+
+* The [`flapping` function](ts_flapping.html) returns the number of times a counter has reset within the specified time window.

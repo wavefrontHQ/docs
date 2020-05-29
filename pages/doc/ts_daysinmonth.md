@@ -38,10 +38,3 @@ String identifier or alias for a time zone, such as `"US/Pacific"`. Names are ca
 The `daysInMonth()` standard time function returns number of days in a month for the timestamp of the specified time zone. The values returned are integer only and are in the range 28-31.
 
 You can optionally pass in an expression.
-
-<!---
-## Examples
-
-
-## See Also
---->

@@ -17,8 +17,6 @@ clampMin(<min>, <tsExpression>)
 * The `clampMin()` function changes any point smaller than `min` to `min`
 
 
-
-
 ## Parameters
 
 <table>
@@ -46,3 +44,7 @@ Allows you to add a specified bound to your data points.
 * `clampMin()` sets a lower bound. For example, `clampMin(24, ts(xx))` changes any data points that are smaller than 24 to 24.
 
 ## Examples
+
+In the following example, we look at a simple latency metric for one source (blue line). Then we use `clampMax` to set all values over 180 to 180 (green line).
+
+![clamp max example](images/ts_clampmax.png)

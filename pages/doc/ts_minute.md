@@ -38,9 +38,11 @@ The `minute()` standard time function returns the day of the month in the specif
 
 You can optionally pass in an expression.
 
-<!---
 ## Examples
 
+The following two single-stat charts show how many minutes after the hour it is in Berlin and in Darwin using the following 2 queries:
+* `minute("Australia/Darwin")`
+* `minute("Europe/Berlin")`
 
-## See Also
---->
+
+![minute](images/ts_minute.png)

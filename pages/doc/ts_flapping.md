@@ -51,4 +51,4 @@ We can use `flapping()` to show that counter reset twice (blue line and axis on 
 
 ## See Also
 
-The `[mchanges() function](ts_mchanges.html)` counts not only how often a counter reset has occurred, but counts each time the counter reverses direction (up or down).
+The `[mchanges() function](ts_mchanges.html)` reports how often a time series value changes within a specified moving time window. 

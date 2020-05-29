@@ -18,7 +18,7 @@ complement(<tsExpression1>, <tsExpression2>, ...)
 Functions that let you
 
 * `union()` is similar to the AND operator and lets you combine time series.
-* `intersect()` is similar to the OR operator.
+* `intersect()` is similar to the OR operator .
 * `complement()` indicates an UNLESS relationship between two time series.
 
 For each function, you have to specify at least two expressions. You can specify additional expressions.
