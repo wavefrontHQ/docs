@@ -126,7 +126,7 @@ Here's an example where the Wavefront UI displays a message that starts like thi
 
 Some of the series are not included in all queries because there was no match.
 * Some expressions limit the environment to `env="dev"`
-* Other expressions don't use the filter. 
+* Other expressions don't use the filter.
 When part of a query uses a filter, but another part doesn't, then the whole query uses the filter. In this example, all queries will be limited to `env="dev"`
 
 <a name="point_tags"></a>
@@ -143,9 +143,15 @@ In this example, the `env` point tag key takes the values `"production"` and `"d
 
 Series matching occurs only for exact matches. This also means that if two series have the same source\|metric\|point tag but one of the series includes an additional point tag that the other series does not have, series matching does not include the series with the additional point tag in the results.
 
-## Series Matching with the "by" Construct
+## Series Matching with the "by" or "without" Constructs
 
-In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. You can use the `by` construct to perform matching using the element of your choice to get results for those series. (**Note:** As an alternative, you can use [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose point tags do not correspond exactly.)
+In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator.
+* You can use the `by` construct to perform matching using the element of your choice to get results for those series.
+* You can use the `without` construct to exclude the element of your choice from the match.
+
+This section explains the concepts using the `by` construct.
+
+{% include note.html content="As an alternative for using `by`, you can use [`join(...INNER JOIN...)`](query_language_series_joining.html) if you need to match up series whose point tags do not correspond exactly." %}
 
 Suppose you’re interested in the set of hosts that have a `cpu.idle` of more than 50 and a `build.version` equal to 1000. You start with a set of hosts and run the following query:
 
