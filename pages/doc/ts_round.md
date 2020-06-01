@@ -36,7 +36,11 @@ The `round()` function returns the nearest integer for each data value in the ti
 `round()` returns a separate series of results for each time series described by the expression.
 
 
-## Example 1: Use round() for Precision
+## Examples
+
+The two different signatures of the function are usually used in different use cases.
+
+### Example 1: Use round() for Precision
 
 One use of `round()` is for achieving precision.  For example, suppose that a series `mySeries` returns 0.564, 0.435, 0.777. The math you need to do requires 1 decimal point. You can use `round()` with the `nearestNumber` parameter like this:
 
@@ -46,7 +50,7 @@ round(0.5, mySeries)
 This call returns  `0.5, 0.5. 1.0`.
 
 
-## Example 2: Visualize round() Results
+### Example 2: Visualize round() Results
 
 Here's a query that returns a time series that reports positive fractional values between .2 and 1.2. Here's the chart, with the color set to purple.
 ![round before](images/ts_round_before.png)
