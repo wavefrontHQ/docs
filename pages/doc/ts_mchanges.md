@@ -39,9 +39,18 @@ The `mchanges()` function reports how often a time series value changes within a
 You can use this function to see whether a service experiences great fluctuations in either direction.
 
 
-## Example
+## Examples
 
-<!---Need a good example that shows changes and difference between flapping and mchanges --->
+In the following example, `mchanges()` shows changes in the `cpu.usage` metric for a 3m `timeWindow`.
+* At the beginning we see growth because every second adds points to those in the previous 3m time window. As the number of points increases, the number of changes increases correspondingly.
+* When the number of points in the 3m time window becomes constant, the number of changes also becomes constant.
+* In time windows where the `cpu.usage` metric has two or three equal values, the result of `mchanges()` goes down.
+
+![mchanges example](images/ts_mchanges_1.png)
+
+In the following example `sin(time())` returns metrics with constantly changing values (blue line). As a result, `mchanges()` returns a constant value as well (red line).
+
+![mchanges example using sin curve](images/ts_mchanges_2.png)
 
 ## See Also
 

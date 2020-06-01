@@ -26,7 +26,6 @@ A query expression describes data of a particular type: time series, histogram s
 </thead>
 <tbody>
 
-<!--- tsExpression ----------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tsExpression&gt;</span></td>
 <td>
@@ -1298,7 +1297,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 </tr>
 
 <tr>
-<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong> <strong>&lt; &lbrack;,seasonLength&gt;&rbrack;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
+<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong> <strong>&lt; &lbrack;,seasonLength&gt;&rbrack;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;smoothingFactor&gt;, &lt;trendFactor&gt;, &lt;seasonalityFactor&gt;</strong>&rbrack;)</a>
 </td>
 <td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters double exponential smoothing algorithm. Optionally supports the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>
