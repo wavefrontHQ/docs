@@ -229,6 +229,10 @@ entries:
     - title: Manage External Links
       url: /external_links_managing.html
       output: web
+      
+    - title: Managing External Logs
+      url: /log_integration.html
+      output: web
 
   - title: Query Language
     output: web

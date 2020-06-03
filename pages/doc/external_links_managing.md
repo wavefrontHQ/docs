@@ -6,9 +6,7 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between Wavefront and external systems. If you use logging systems such as Scalr, ELK, or Splunk, you can construct a meaningful URL to navigate from Wavefront to a log entry.
-
-Here's a video to get you started:
+External links provide integration between Wavefront and external systems. Here's a video to get you started:
 
 <p><a href="https://youtu.be/oufjL7nM0LQ"><img src="/images/v_external_links.png" style="width: 700px;"/></a>
 </p>
@@ -40,8 +38,8 @@ Users with **External Links** permission can create and modify external links.
 1. Select **Browse > External Links**.
 1. Click **Create External Link**.
 1. Specify a link name and description.
-2. Specify the [Link URL template]().
-3. (Optional) If you want to limit which series show the external link, [specify a filter]. a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu.
+2. Specify the [Link URL template](#link-url-template-syntax).
+3. (Optional) If you want to limit which series show the external link, [specify a filter](#filter-regex-syntax). a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu.
 4. Click **Save**.
 
 ### Link URL Template Syntax
