@@ -6,18 +6,22 @@ sidebar: doc_sidebar
 permalink: log_integration.html
 summary: Learn how to manage and view external logs.
 ---
-The log integration lets you drill down from Wavefront to a log entry if you are using a logging systems such as Scalyr, ELK, or Splunk.
+The log integration lets you drill down from Wavefront to a log entry if you are using a logging system such as Scalyr, ELK, or Splunk.
 
-Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. Log integration allow you to click through from a Wavefront series directly to a related entry in your
+Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. Log integration allows you to click through from a Wavefront series directly to a related entry in your
 logging system.
 
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage external links](external_links_managing.html) and create log integrations. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+{% include note.html content="While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage external links](external_links_managing.html) and create log integrations. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible."%}
+
+{% include tip.html content="Log integrations and [external links](external_links_managing.html) work the same way but, they will be listed under different sections when you right click on a time series.
+![log integration and external links](images/log_integration_intro.png)"
+%}
 
 ## Navigate to External Logs
 
 All users can use the right-click menu on a time series to navigate to an integration log.
-* By default, integration logs shows up on all time series.
-* If you specify a filter, the **Log Integration** menu only shows up on specified time series.
+* By default, integration logs show up on all the time series.
+* If you specify a filter, the **Log Integration** menu only shows up on the specified time series.
 
 **To navigate to an external link:**
 1. Right-click a series.
@@ -106,7 +110,7 @@ Users with **External Links** permission can create and modify integration logs.
         <div role="tabpanel" class="tab-pane" id="templateexample">
 
           <ul>
-          <li>Here's the simplest possible example, directing you to the `example.com` domain.
+          <li>Here's the simplest possible example, directing you to the <code>example.com</code> domain.
 
           <pre>
 https://example.com/&lcub;&lcub;source&rcub;&rcub;
@@ -191,5 +195,4 @@ http://&lt;hostname&gt;?time:(from:'&lcub;&lcub;#functions.epochMillisToISO}}&lc
 ## Manage Log Integrations
 
 To update or delete a log integration, click **Browse** > **External Links**. This page lists all the log integrations and [external links](external_links_managing.html) you have created.
-Example:
 ![List of external links and log integrations](images/external_links_list.png)
