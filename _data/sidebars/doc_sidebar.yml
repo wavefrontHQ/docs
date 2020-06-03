@@ -230,7 +230,7 @@ entries:
       url: /external_links_managing.html
       output: web
       
-    - title: Managing External Logs
+    - title: Access and Examine External Logs
       url: /log_integration.html
       output: web
 

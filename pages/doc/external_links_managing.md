@@ -56,11 +56,11 @@ The link URL template uses [Mustache syntax](https://mustache.github.io/). The t
     </tr>
     <tr>
     <td>startEpochMillis</td>
-    <td>Starting time of the chart window, in milliseconds from the UNIX epoch.</td>
+    <td>Start time of the chart window, in Epoch time.</td>
     </tr>
     <tr>
     <td>endEpochMillis</td>
-    <td>Ending time of the chart window, in milliseconds from the UNIX epoch.</td>
+    <td>End time of the chart window, in Epoch time.</td>
     </tr>
     <tr>
     <td>&lt;pointTagName1&gt;, &lt;pointTagName2&gt;,...</td>
