@@ -14,7 +14,6 @@ mslope(<timeWindow>, <tsExpression>)
 
 Per-second derivative of the linear regression of the time series over the specified time window.
 
-This function is similar to calling Prometheus `deriv(v range-vector)`
 
 <table style="width: 100%;">
 <tbody>

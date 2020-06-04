@@ -14,8 +14,6 @@ mchanges(<timeWindow>, <tsExpression>)
 ```
 Returns the number of times a metric changed value (going up or going down) within the specified time window.
 
-This function corresponds to the Prometheus `changes()` function
-
 ## Parameters
 
 <table>

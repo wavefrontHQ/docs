@@ -13,7 +13,6 @@ linearforecast(<forecastOffset>, <historyLength>, <tsExpression>)
 ```
 Predicts the value of the time series using simple linear regression.
 
-This function is similar to the Prometheus `predict_linear` function.
 
 <table style="width: 100%;">
 <tbody>
