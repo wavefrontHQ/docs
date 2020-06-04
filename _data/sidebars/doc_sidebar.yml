@@ -630,7 +630,11 @@ entries:
     output: web
     folderitems:
 
-      - title: Intro Videos
+      - title: "Intro Videos"
+        url: /videos_howto_start.html
+        output: web
+
+      - title: "Basic Concepts Videos"
         url: /videos_quickstart.html
         output: web
 
