@@ -197,8 +197,12 @@ From the Traces browser, you can:
   - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
 * Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
-
-You can toggle the panel size for the traces list, service map, or trace details.
+  You can toggle the panel size for the traces list, service map, or trace details.
+* Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon. 
+  * Click the expand icon to expand the RED metrics and view them next to the trace list, and click the same icon again to restore to the default view.
+    ![partial expand red metrics](images/tracing_ui_partial_expand_red_metrics.png)
+  * Click the expand icon to expand the trace hierarchy and view them next to the trace list, and click the same icon again to restore to the default view.
+    ![partial expand trace hierachy](images/tracing_ui_partial_expand_trace_hierarchy.png)
 
 ### Query for a List of Traces
 
