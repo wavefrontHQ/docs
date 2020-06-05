@@ -143,11 +143,9 @@ In this example, the `env` point tag key takes the values `"production"` and `"d
 
 Series matching occurs only for exact matches. This also means that if two series have the same source\|metric\|point tag but one of the series includes an additional point tag that the other series does not have, series matching does not include the series with the additional point tag in the results.
 
-## Series Matching with the "by" or "without" Constructs
+## Series Matching with the "by" Construct
 
-In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator.
-* You can use the `by` construct to perform matching using the element of your choice to get results for those series.
-* You can use the `without` construct to exclude the element of your choice from the match.
+In some cases, series matching with point tags results in no data because not all of the tags exist on both sides of the operator. You can use the `by` construct to perform matching using the element of your choice to get results for those series.
 
 This section explains the concepts using the `by` construct.
 
