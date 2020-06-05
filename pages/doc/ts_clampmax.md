@@ -26,7 +26,7 @@ clampMin(<min>, <tsExpression>)
 </thead>
 <tr>
 <td>max</td>
-<td>For clampMin(), changes all values that are larger than max to max.</td></tr>
+<td>For clampMax(), changes all values that are larger than max to max.</td></tr>
 <tr>
 <td>min</td>
 <td>For clampMin(), changes all values that are smaller than min to min.</td></tr>
@@ -47,4 +47,4 @@ Allows you to add a specified bound to your data points.
 
 In the following example, we look at a simple latency metric for one source (blue line). Then we use `clampMax` to set all values over 180 to 180 (green line).
 
-![clamp max example](images/ts_clampmax.png)
+![clamp max example](images/ts_clamp_max.png)

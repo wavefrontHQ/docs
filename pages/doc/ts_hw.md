@@ -9,12 +9,12 @@ summary: Reference to the hw() function
 
 ## Summary
 ```
-hw(<historyLength>, <tsExpression> [,<smoothingFactor>, <trendFactor>])
+hw(<historyLength>, <tsExpression>, <smoothingFactor>, <trendFactor>)
 hw(<historyLength>, <seasonLength>, <samplingRate>, <tsExpression> [, <smoothingFactor>, <trendFactor>, <seasonalityFactor>])
 ```
 Returns a smoothed version of the time series described by the expression, and forecasts future points using the Holt-Winters algorithm.
 * For double exponential smoothing use `smoothingFactor` and `trendFactor`.
-* If you have seasonal data, use triple exponential smoothing with `smoothingFactor`, `trendFactor`, `seasonalityFactor`.
+* If you have seasonal data, use triple exponential smoothing with `seasonLength`. You can optionally specify `smoothingFactor`, `trendFactor`, and `seasonalityFactor`.
 
 <table style="width: 100%;">
 <tbody>
@@ -42,14 +42,18 @@ Returns a smoothed version of the time series described by the expression, and f
 </td>
 </tr>
 <tr>
-<td>smoothingFactor, trendFactor, seasonalityFactor</td>
-<td>Optional coefficients that the Holt-Winters algorithm uses to determine how stable and how reactive its forecast is.  The values range between 0 and 1, with smaller numbers weighing historical data more, and larger numbers weighing recent data more.
+<td>smoothingFactor, trendFactor</td>
+<td>Coefficients that the Holt-Winters algorithm uses to determine how stable and how reactive its forecast is.  The values range between 0 and 1, with smaller numbers weighing historical data more, and larger numbers weighing recent data more. Required for double-exponential smoothing and optional for triple-exponential smoothing.
 <ul>
 <li>smoothingFactor specifies how much old data is important relative to new data </li>
 <li>trendFactor specifies how important the trend is. </li>
-<li>seasonalityFactor weighs the seasonality.  </li>
 </ul>
-See "Using Optional Parameters to Affect hw()" below for details.
+See "Using Parameters to Affect hw()" below for details.
+</td>
+</tr>
+<tr>
+<td>seasonalityFactor</td>
+<td>Optional. Used for triple-exponential smoothing to weigh the seasonality.  The values range between 0 and 1, with smaller numbers weighing historical data more, and larger numbers weighing recent data more.
 </td>
 </tr>
 </tbody>
@@ -57,9 +61,9 @@ See "Using Optional Parameters to Affect hw()" below for details.
 
 ## Description
 
-The `hw` function supports smoothing and prediction based on existing data. An optional `seasonalityFactor` parameter is available for triple exponential smoothing.
-
-If you don't specify the `smoothingFactor`, `trendFactor`, and `seasonalityFactor` parameters, the algorithm uses an optimization method called Nelder-Mead.  Because Nelder-Mead finds local optima the same query might return two different results if the function is run twice.
+The `hw` function supports smoothing and prediction based on existing data.
+* For double-exponential smoothing, `smoothingFactor` and `trendFactor` are required.
+* For triple-exponential smoothing, a `seasonLength` parameter is required. The `smoothingFactor`, `trendFactor`, and `seasonalityFactor` parameters are optional. If not specified, the algorithm uses an optimization method called Nelder-Mead.  Because Nelder-Mead finds local optima the same query might return two different results if the function is run twice.
 
 ### Holt-Winters Triple Exponential Smoothing
 
@@ -77,9 +81,13 @@ Use double exponential smoothing if you have data with only trend and no seasona
 
 {% include note.html content="This double exponential smoothing method is only for data with additive trend not with multiplicative trend." %}
 
-## Using Optional Parameters to Affect hw()
+## Using Parameters to Affect hw()
 
-For triple exponential smoothing, you can use the optional `smoothingFactor`, `trendFactor`, and `seasonalityFactor` parameters that the algorithm uses to determine how stable and how reactive the forecast is.
+You use parameters to influence how stable and how reactive the forecast is.
+
+For **double exponential smoothing**, `smoothingFactor` and `trendFactor` are required.
+
+For **triple exponential smoothing**, `smoothingFactor`, `trendFactor`, and `seasonalityFactor` are optional.
 
 - **smoothingFactor** affects the weighted average of the points themselves.  The weight of every point decays exponentially the further back the point is.  When a new point is added to the weighted average, the weight of the new point is smoothingFactor, and the weight of the old average is `(1 – smoothingFactor)`.  Therefore, higher values of smoothingFactor cause the algorithm to weight newer points more, making the forecast more reactive and less stable.
 

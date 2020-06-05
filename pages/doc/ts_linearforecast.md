@@ -37,7 +37,7 @@ Predicts the value of the time series using simple linear regression.
 
 ## Description
 
-Predicts the value for `tsExpression` using simple linear regression. The query goes `forecastOffset`  into the future and  Use `historyLength` to specify how far back the forecast should go to with the prediction algorithm.
+Predicts the value for `tsExpression` using simple linear regression. The query goes `forecastOffset`  into the future and uses `historyLength` to specify how far back the prediction algorithm should go to do the forecast. 
 
 This function can be useful for resource limit alerts, where fixed thresholds or percentage thresholds tend to have false positives and false negatives depending on the size of the resource you are working with.  Here `linearforecast()` works better for all sizes.
 
