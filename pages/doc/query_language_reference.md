@@ -476,7 +476,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 
 ## Aggregation Functions
 
-[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
+[**Aggregation functions**](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
 * Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
 * Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 

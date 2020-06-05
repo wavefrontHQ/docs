@@ -1437,6 +1437,8 @@ Chart description which shows up as hover text when users move the mouse over th
 
 A pie chart shows the relative size of your data as pie slices. You can show either a pie chart or a donut chart. You can customize the width of the donut ring (by percentage) and, the percentile shown for the number, and more.
 
+The collage above shows both a pie chart and a donut chart for the same data. 
+
 
 
 <a id="pie_format_tab">
