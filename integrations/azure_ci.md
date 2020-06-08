@@ -48,3 +48,15 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.containerinstance.containergroups.cpuusage.*| CPU usage on all cores in millicores. <br/>Statistics: count|
+|azure.containerinstance.containergroups.memoryusage.*| Total memory usage in byte. <br/>Statistics: count|
+|azure.containerinstance.containergroups.networkbytesreceivedpersecond.*| The network bytes received per second. <br/>Statistics: count|
+|azure.containerinstance.containergroups.networkbytestransmittedpersecond.*| The network bytes transmitted per second. <br/>Statistics: count|

@@ -48,3 +48,20 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.network.applicationgateways.avgrequestcountperhealthyhost.*| Average request count per minute per healthy backend host in a pool. <br/>Statistics: count|
+|azure.network.applicationgateways.cpuutilization.*| Current CPU utilization of the Application Gateway. <br/>Statistics: count|
+|azure.network.applicationgateways.currentconnections.*| Count of current connections established with Application Gateway. <br/>Statistics: count|
+|azure.network.applicationgateways.failedrequests.*| Count of failed requests that Application Gateway has served. <br/>Statistics: count|
+|azure.network.applicationgateways.healthyhostcount.*| Number of healthy backend hosts. <br/>Statistics: count|
+|azure.network.applicationgateways.responsestatus.*| HTTP response status returned by Application Gateway. <br/>Statistics: count|
+|azure.network.applicationgateways.throughput.*| Number of bytes per second the Application Gateway has served. <br/>Statistics: count|
+|azure.network.applicationgateways.totalrequests.*| Count of successful requests that Application Gateway has served. <br/>Statistics: count|
+|azure.network.applicationgateways.unhealthyhostcount.*| Number of unhealthy backend hosts. <br/>Statistics: count|

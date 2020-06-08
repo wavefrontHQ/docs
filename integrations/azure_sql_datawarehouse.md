@@ -48,3 +48,21 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.sql.servers.databases.blocked_by_firewall.*| <br/>Statistics: count|
+|azure.sql.servers.databases.connection_failed.*| <br/>Statistics: count|
+|azure.sql.servers.databases.connection_successful.*| <br/>Statistics: count|
+|azure.sql.servers.databases.cpu_percent.*| <br/>Statistics: count|
+|azure.sql.servers.databases.deadlock.*| <br/>Statistics: count|
+|azure.sql.servers.databases.log_write_percent.*| <br/>Statistics: count|
+|azure.sql.servers.databases.physical_data_read_percent.*| <br/>Statistics: count|
+|azure.sql.servers.databases.sessions_percent.*| <br/>Statistics: count|
+|azure.sql.servers.databases.workers_percent.*| <br/>Statistics: count|
+|azure.sql.servers.databases.xtp_storage_percent.*| <br/>Statistics: count|

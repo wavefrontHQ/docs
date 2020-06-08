@@ -48,3 +48,20 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.network.loadbalancers.allocatedsnatports.*|Statistics: average, count, maximum, minimum|
+|azure.network.loadbalancers.bytecount.*|Statistics: average, count|
+|azure.network.loadbalancers.dipavailability.*|Statistics: average, count|
+|azure.network.loadbalancers.packetcount.*|Statistics: average, count|
+|azure.network.loadbalancers.snatconnectioncount.*|Statistics: average, count|
+|azure.network.loadbalancers.syncount.*|Statistics: average, count|
+|azure.network.loadbalancers.usedsnatports.*|Statistics: average, count, maximum, minimum|
+|azure.network.loadbalancers.vipavailability.*|Statistics: average, count|
