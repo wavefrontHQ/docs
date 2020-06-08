@@ -111,4 +111,4 @@ When you click the link, you are taken to the Services dashboard where you can:
 * You can't customize the default Wavefront Service dashboard. If you want to customize the dashboard, you need to clone and edit it. For details, see [Create and Customize Dashboards](ui_dashboards.html).
 * You can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html). 
     {% include note.html content="Alerts are not supported on this freemium cluster."%} 
-* Try out the pet clinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://VMware.zoom.us/j/95063371096?pwd=QUxWVGR6alhKU2R4NzQzOEFLWmdGQT09) for details.
+* Try out the pet clinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
