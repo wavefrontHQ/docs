@@ -48,3 +48,27 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.web.sites.appconnections.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.averagememoryworkingset.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.bytesreceived.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.bytessent.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.cputime.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.currentassemblies.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.filesystemusage.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.handles.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.iootherbytespersecond.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.iootheroperationspersecond.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.ioreadbytespersecond.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.ioreadoperationspersecond.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.memoryworkingset.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.privatebytes.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.threads.*|Statistics: average, count, maximum, minimum|
+|azure.web.sites.totalappdomains.*|Statistics: average, count, maximum, minimum|

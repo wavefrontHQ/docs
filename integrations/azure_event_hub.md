@@ -48,3 +48,39 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.eventhub.namespaces.activeconnections.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.connectionsclosed.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.connectionsopened.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehabl.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehambs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehamsgs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehinmbs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehinmsgs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehoutbytes.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehoutmbs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.ehoutmsgs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.failreq.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.incomingbytes.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.incomingmessages.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.incomingrequests.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.inmsgs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.inreqs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.interr.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.miscerr.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.outgoingbytes.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.outgoingmessages.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.outmsgs.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.servererrors.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.size.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.successfulrequests.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.succreq.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.svrbsy.*|Statistics: average, count, maximum, minimum|
+|azure.eventhub.namespaces.usererrors.*|Statistics: average, count, maximum, minimum|

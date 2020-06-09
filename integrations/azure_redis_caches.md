@@ -48,3 +48,46 @@ The process first creates an Azure Active Directory application that represents 
 
 
 
+undefined
+
+## Metrics
+
+See [Azure documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|azure.cache.redis.cachehits.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cachehits0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cachelatency.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cachemisses.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cachemisses0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cacheread.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cacheread0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cachewrite.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.cachewrite0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.connectedclients.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.connectedclients0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.errors.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.evictedkeys.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.evictedkeys0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.expiredkeys.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.expiredkeys0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.getcommands.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.getcommands0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.operationspersecond.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.operationspersecond0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.percentprocessortime.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.percentprocessortime0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.serverload.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.serverload0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.setcommands.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.setcommands0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.totalcommandsprocessed.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.totalcommandsprocessed0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.totalkeys.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.totalkeys0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.usedmemory.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.usedmemory0.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.usedmemorypercentage.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.usedmemoryrss.*|Statistics: average, count, maximum, minimum|
+|azure.cache.redis.usedmemoryrss0.*|Statistics: average, count, maximum, minimum|
