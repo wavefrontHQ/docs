@@ -42,13 +42,13 @@ Returns a smoothed version of the time series described by the expression, and f
 </td>
 </tr>
 <tr>
-<td>smoothingFactor, trendFactor</td>
-<td>Coefficients that the Holt-Winters algorithm uses to determine how stable and how reactive its forecast is.  The values range between 0 and 1, with smaller numbers weighing historical data more, and larger numbers weighing recent data more. Required for double-exponential smoothing and optional for triple-exponential smoothing.
-<ul>
-<li>smoothingFactor specifies how much old data is important relative to new data </li>
-<li>trendFactor specifies how important the trend is. </li>
-</ul>
-See "Using Parameters to Affect hw()" below for details.
+<td>smoothingFactor</td>
+<td>Specifies how much old data is important relative to new data. The values range between 0 and 1, with 1 assigning the most importance to old data.
+See "Using Parameters to Affect hw()" below for details.</td>
+</tr>
+<tr>
+<td>trendFactor</td>
+<td>trendFactor specifies how important the trend is. The values range between 0 and 1, with 1 used for the most important trend. See "Using Parameters to Affect hw()" below for details.
 </td>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ For example, assume that at certain times of the day a set of virtual machines e
 
 ### Holt-Winters Double Exponential Smoothing
 
-Use double exponential smoothing if you have data with only trend and no seasonality. The `smoothingFactor` parameter lets you specify how much old data is important relative to new data (same as `smoothingFactor`). The `trendFactor` parameter lets you specify how important the trend is (same as `trendFactor`).
+Use double exponential smoothing if you have data with only trend and no seasonality. The `smoothingFactor` parameter lets you specify how much old data is important relative to new data. The `trendFactor` parameter lets you specify how important the trend is.
 
 {% include note.html content="This double exponential smoothing method is only for data with additive trend not with multiplicative trend." %}
 
@@ -85,7 +85,7 @@ Use double exponential smoothing if you have data with only trend and no seasona
 
 You use parameters to influence how stable and how reactive the forecast is.
 
-For **double exponential smoothing**, `smoothingFactor` and `trendFactor` are required.
+For **double exponential smoothing**, `smoothingFactor` and `trendFactor` are required and `seasonalityFactor` is not supported.
 
 For **triple exponential smoothing**, `smoothingFactor`, `trendFactor`, and `seasonalityFactor` are optional.
 
