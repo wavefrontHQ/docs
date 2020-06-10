@@ -190,6 +190,23 @@ The **Show Events** dropdown in the middle of the time bar allows you to overlay
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
 
+## Export to PDF
+
+Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">For any chart, <strong>Export PDF</strong> is now available from the ellipsis menu in the top right. </td>
+<td width="50%"><img src="/images/export_pdf_dashboard.png" alt="Export PDF from dashboard"/> </td>
+</tr>
+<tr>
+<td width="50%">Click on the chart name and select the <strong>Export PDF</strong> icon in the top right. </td>
+<td width="50%"><img src="/images/export_pdf_chart.png" alt="Export PDF from chart"/></td>
+</tr>
+</tbody>
+</table>
+
 ## Do More!
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc, you can also
