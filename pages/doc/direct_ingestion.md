@@ -11,6 +11,8 @@ You use the direct data ingestion mechanism to send data directly to the Wavefro
 
 {% include shared/badge.html content="You need [Direct Data Ingestion permission](permissions_overview.html) to perform direct data ingestion." %}
 
+{% include shared/badge.html content="If you're using Wavefront as part of a free trial or Freemium offering, there are limits on how much data you can add to Wavefront using direct ingestions. Contact support@wavefront.com if you need a higher limit. " %}
+
 ## Background
 
 Most customers set up Wavefront so that the host, application, or custom code sends metrics to a [Wavefront proxy](proxies.html) installed in their environment. The proxy forwards metrics to the Wavefront service. In production environments, two proxies behind a load balancer guarantee availability and prevent data loss.
