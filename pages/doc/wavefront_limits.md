@@ -7,8 +7,6 @@ summary: Limits and recommendations to promote efficient resource use.
 ---
 For best performance and cost reduction, Wavefront supports limits. Some limits are recommendations--if your environment exceeds the limits, you'll see significant performance issues. Other limits result in an error if you exceed the limit.
 
-{% include note.html content="If you see errors because of limits, get in touch. You might need changes to the sizing your your cluster or to your approch to querying. " %}
-
 
 ## Concurrent Query Limits
 
