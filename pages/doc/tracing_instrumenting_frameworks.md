@@ -145,7 +145,7 @@ After your recompiled application starts running, start [exploring your custom t
 
 ### Instrument Your Application with the Wavefront Sender SDKs
 
-Wavefront offers many SDKs to help instrument your application and to successfully send data to Wavefront. We recommend using the Wavefront Open Tracing SDKs to send trace data to Wavefront from your applications, but, if you want to be more flexible with sending data to Wavefront, you can use the Wavefront Sender SDKs. See [SDKs for Sending Raw Data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for details.
+For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Sending Raw Data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for background.
 
 <div class="row">
  <div class="col-md-2 col-sm-6">
@@ -195,13 +195,13 @@ Wavefront offers many SDKs to help instrument your application and to successful
  </div>
 </div>
 
-{% include note.html content="The Sender SDKs are configured to send raw data to Wavefront and are not specifically configured to send trace data. Therefore, you will not see span level RED metrics on Wavefront when sending data via the Sender SDKs. See [Traces, Spans, and RED Metrics](trace_data_details.html) to understand the basics of spans, traces, and RED metrics." %}
+{% include note.html content="This section explains how to send traces and spans, however, you won’t see span-level RED metrics by default if you use a Sender SDK. " %}
 
 Follow the steps given below to configure your application to send span level RED metrics to Wavefront.
 
 1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
-1. Add the `customTracingListenerPorts` configuration to your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file and define the port or a comma-separated list of ports that you want to send the trace data. The default port is 30001.
+1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration on your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file. The default port is 30001.
   ```xml
   ## port for sending custom spans using the sender sdk
   customTracingListenerPorts=30001
