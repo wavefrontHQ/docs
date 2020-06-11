@@ -71,18 +71,18 @@ Starting with 2020.22, the alert target mustache syntax supports 2 variables:
 * The `url` variable
 * The `charturl` variable
 
-**Alert Notifications Created Before 2020.14**
+**Alert Notifications Created Before 2020.22**
 
 For any alerts that were created before 2020.14, the `url` variable points to the alert chart. Users who click a link in an alert notification are directed to the chart.
 
-**Alert Notifications Created in 2020.14 and later**
+**Alert Notifications Created in 2020.22 and later**
 
-* Simple notification **emails** now include a **View Alert Chart** link that takes you directly to the chart view that was the link target before 2020.14.
+* Simple notification **emails** now include a **View Alert Chart** link that takes you directly to the chart view that was the link target before 2020.22.
 * For Pagerduty, alert target (webhook), and  templated email notifications::
   - The link  target of the `url` mustache template variable directs to the new Alert Viewer. 
-  - A new mustache context variable `chartUrl` will take you directly to the chart view that was the link target before 2020.14. 
+  - A new mustache context variable `chartUrl` will take you directly to the chart view that was the link target before 2020.22. 
 
-{% include note.html content="When you upgrade to 2020.14, already-created alert targets will not be updated to use `chartUrl`. To give users the option to view the chart in Chart Editor, edit existing alert targets." %} 
+{% include note.html content="When you upgrade to 2020.22, already-created alert targets will not be updated to use `chartUrl`. To give users the option to view the chart in Chart Editor, edit existing alert targets." %} 
 
 
 ## Examine All Alerts in the Alerts Browser
