@@ -143,7 +143,7 @@ If you need application observability, but don't want to instrument code for you
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
 
-### Instrument Your Application with the Wavefront Sender SDKs
+### Instrument Your Application with Wavefront Sender SDKs
 
 For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Sending Raw Data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for background.
 
@@ -195,9 +195,7 @@ For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Se
  </div>
 </div>
 
-{% include note.html content="This section explains how to send traces and spans, however, you won’t see span-level RED metrics by default if you use a Sender SDK. " %}
-
-Follow the steps given below to configure your application to send span level RED metrics to Wavefront.
+When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics.
 
 1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
