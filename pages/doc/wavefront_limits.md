@@ -24,22 +24,12 @@ Customer concurrent query limit exceeded. Please try again later. Contact suppor
 ```
 
 ### Per User Concurrent Query Limit
-Starting with release 2020.22.x, Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your processes) and we’ll discuss options with you.
+Starting with release 2020.22.x, Wavefront enforces a limit on per-user concurrent queries. The default limit is 100. Contact us if you believe that the setting doesn’t make sense for one of your users (for example, one of your service accounts) and we’ll discuss options with you.
 
 The following error results if one of the users exceeds this limit:
 ```
 HTTP 429 TOO_MANY_REQUESTS
 “User concurrent query limit exceeded. Please try again later. Contact support@wavefront.com for help.”
-```
-
-
-### Per Query Server Concurrent Query Limit
-
-??Should customers see errors related with this??
-
-```
-HTTP 503 SERVICE_UNAVAILABLE
-“Service temporarily overloaded. Please try again later. Contact support@wavefront.com for help.”
 ```
 
 
