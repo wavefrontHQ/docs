@@ -61,3 +61,44 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.compute.firewall.dropped_bytes_count_rate| Delta count of incoming bytes dropped by the firewall. |
+|gcp.compute.firewall.dropped_packets_count_rate|Delta count of incoming packets dropped by the firewall.|
+|gcp.compute.instance.cpu.reserved_cores|Number of vCPUs reserved on the host of the instance.|
+|gcp.compute.instance.cpu.scheduler_wait_time_rate|Wait time is the time a vCPU is ready to run, but unexpectedly not scheduled to run. |
+|gcp.compute.instance.cpu.usage_time_rate| Delta vCPU usage for all vCPUs, in vCPU-seconds.|
+|gcp.compute.instance.cpu.utilization| Fractional utilization of allocated CPU on this instance. |
+|gcp.compute.instance.disk.max_read_bytes_count|Disk's maximum per-second read throughput over a period of time specified by the user.|
+|gcp.compute.instance.disk.max_read_ops_count|Disk's maximum per-second read requests count over a period of time specified by the user. |
+|gcp.compute.instance.disk.max_write_bytes_count| Disk's maximum per-second write throughput over a period of time specified by the user. |
+|gcp.compute.instance.disk.max_write_ops_count| Disk's maximum per-second write requests count over a period of time specified by the user.|
+|gcp.compute.instance.disk.read_bytes_count_rate| Delta count of bytes read from disk. Sampled every 60 seconds.|
+|gcp.compute.instance.disk.read_ops_count_rate| Delta count of disk read IO operations.|
+|gcp.compute.instance.disk.throttled_read_bytes_count_rate| Delta count of bytes in throttled read operations.|
+|gcp.compute.instance.disk.throttled_read_ops_count_rate| Delta count of throttled read operations.|
+|gcp.compute.instance.disk.throttled_write_bytes_count_rate| Delta count of bytes in throttled write operations.|
+|gcp.compute.instance.disk.throttled_write_ops_count_rate| Delta count of throttled write operations.|
+|gcp.compute.instance.disk.write_bytes_count_rate| Delta count of bytes written to disk.|
+|gcp.compute.instance.disk.write_ops_count_rate| Delta count of disk write IO operations. |
+|gcp.compute.instance.integrity.early_boot_validation_status| The validation status of early boot integrity policy.|
+|gcp.compute.instance.integrity.late_boot_validation_status| The validation status of late boot integrity policy.|
+|gcp.compute.instance.memory.balloon.ram_size| The total amount of memory in the VM. |
+|gcp.compute.instance.memory.balloon.ram_used| Memory currently used in the VM.|
+|gcp.compute.instance.memory.balloon.swap_in_bytes_count_rate| The amount of memory read into the guest from its own swap space.|
+|gcp.compute.instance.memory.balloon.swap_out_bytes_count_rate| The amount of memory written from the guest to its own swap space.|
+|gcp.compute.instance.network.received_bytes_count_rate| Delta count of bytes received from the network.|
+|gcp.compute.instance.network.received_packets_count_rate| Delta count of packets received from the network. |
+|gcp.compute.instance.network.sent_bytes_count_rate| Delta count of bytes sent over the network.|
+|gcp.compute.instance.network.sent_packets_count_rate| Delta count of packets sent over the network.|
+|gcp.compute.instance.uptime_rate| How long the VM has been running, in seconds.|
+|gcp.compute.instance_group.size| The number of VMs in the instance group.|
+|gcp.compute.mirroring.dropped_packets_count_rate| Delta count of dropped mirrored packets.|
+|gcp.compute.mirroring.mirrored_bytes_count_rate| Delta count of mirrored bytes.|
+|gcp.compute.mirroring.mirrored_packets_count_rate| Delta count of mirrored packets.|

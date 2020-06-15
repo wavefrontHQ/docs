@@ -61,3 +61,21 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+  
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.storage.api.request_count_rate| Delta count of API calls, grouped by the API method name and response code.|
+|gcp.storage.authn.authentication_count_rate| Count of HMAC/RSA signed requests grouped by authentication method and access ID.|
+|gcp.storage.authz.acl_based_object_access_count_rate| Delta count of requests that result in an object being granted access solely due to object ACLs.|
+|gcp.storage.authz.acl_operations_count_rate| Usage of ACL operations broken down by type.|
+|gcp.storage.authz.object_specific_acl_mutation_count_rate| Delta count of changes made to object specific ACLs.|
+|gcp.storage.network.received_bytes_count_rate| Delta count of bytes received over the network, grouped by the API method name and response code. |
+|gcp.storage.network.sent_bytes_count_rate| Delta count of bytes sent over the network, grouped by the API method name and response code.|
+|gcp.storage.storage.object_count| Total number of objects per bucket, grouped by storage class.|
+|gcp.storage.storage.total_byte_seconds| Total daily storage in byte*seconds used by the bucket, grouped by storage class.|
+|gcp.storage.storage.total_bytes| Total size of all objects in the bucket, grouped by storage class.|

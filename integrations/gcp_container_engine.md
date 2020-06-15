@@ -61,3 +61,20 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.container.container.cpu.reserved_cores| Number of cores of CPU reserved for the container. |
+|gcp.container.container.cpu.usage_time| Cumulative CPU usage on all cores in seconds. |
+|gcp.container.container.cpu.utilization| The percentage of the allocated CPU that is currently in use on the container.|
+|gcp.container.container.disk.bytes_total| Total number of bytes of capacity on the disk identified by label ‘device_name’. |
+|gcp.container.container.disk.bytes_used| Total number of bytes used on the disk identified by label ‘device_name’. |
+|gcp.container.container.memory.bytes_total| Memory limit of the container in bytes. |
+|gcp.container.container.memory.bytes_used|Memory usage in bytes, broken down by type: evictable and non-evictable. |
+|gcp.container.container.memory.page_fault_count_rate| Number of page faults, broken down by type: major and minor.|
+|gcp.container.container.uptime|Number of seconds since the container started. |

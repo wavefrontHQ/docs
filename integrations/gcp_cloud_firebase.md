@@ -61,3 +61,14 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+  
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.firebasedatabase.storage.total_bytes| The size of the Firebase database storage. |
+|gcp.firebasehosting.storage.limit| The storage limit for the Firebase database.|
+|gcp.firebasehosting.storage.total_bytes| The size of the Firebase Hosting storage.|

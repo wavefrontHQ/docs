@@ -61,3 +61,35 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.    
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.appengine.flex.autoscaler.capacity| Utilization capacity multiplied by number of serving VMs.|
+|gcp.appengine.flex.autoscaler.connections.current| Number of current reading and writing connections per App Engine flexible environment instance. Intended to be used for autoscaling. |
+|gcp.appengine.flex.autoscaler.current_utilization| The sum of the utilization of a specified metric for all serving VMs. |
+|gcp.appengine.flex.autoscaler.server.request_count_count| Request counts for an App Engine flexible environment instance.Intended to be used for autoscaling. |
+|gcp.appengine.flex.autoscaler.server.request_count_rate| Request rate for an App Engine flexible environment instance.Intended to be used for autoscaling. |
+|gcp.appengine.flex.connections.current| Number of current active connections per App Engine flexible environment version. |
+|gcp.appengine.flex.cpu.reserved_cores| Total number of CPU cores allocated to an App Engine flexible environment version.|
+|gcp.appengine.flex.cpu.utilization| Fractional utilization of allocated CPU across an AppEngine flexible environment version. Values are typically numbers between 0.0 and 1.0 (but some machine types allow bursting above 1.0). Charts display the values as a percentage between 0% and 100% (or more).|
+|gcp.appengine.flex.disk.read_bytes_count_count| Delta count of bytes read from disk across an App Engine flexible environment version.|
+|gcp.appengine.flex.disk.read_bytes_count_rate| Rate at which the bytes are read from disk across an App Engine flexible environment version. |
+|gcp.appengine.flex.disk.write_bytes_count_count| Delta count of bytes written from disk across an App Engine flexible environment version.  |
+|gcp.appengine.flex.disk.write_bytes_count_rate| Rate at which the bytes are written from disk across an App Engine flexible environment version. |
+|gcp.appengine.flex.instance.connections.current| Number of current active connections per App Engine flexible environment instance.|
+|gcp.appengine.flex.instance.cpu.utilization| Fractional CPU utilization for all cores on a single AppEngine flexible instance. Values are typically numbers between 0.0 and 1.0 for a single core (but might exceed 1.0 in total). Charts display the values as a percentage between 0% and 100% (or more).|
+|gcp.appengine.flex.instance.network.received_bytes_count_count| Delta count of incoming network bytes in an App Engine flexible instance.|
+|gcp.appengine.flex.instance.network.received_bytes_count_rate| Rate of the incoming network bytes in an App Engine flexible instance.|
+|gcp.appengine.flex.instance.network.sent_bytes_count_count| Delta count of outgoing network bytes in an App Engine flexible instance.|
+|gcp.appengine.flex.instance.network.sent_bytes_count_rate| Rate of the outgoing network bytes in an App Engine flexible instance.|
+|gcp.appengine.flex.network.received_bytes_count_count| Delta count of incoming network bytes across all VMs in an App Engine flexible environment version.|
+|gcp.appengine.flex.network.received_bytes_count_rate| Rate of the incoming network bytes across all VMs in an App Engine flexible environment version.|
+|gcp.appengine.flex.network.sent_bytes_count_count| Delta count of outgoing network bytes across all VMs in an App Engine flexible environment version.|
+|gcp.appengine.flex.network.sent_bytes_count_rate| Rate of the outgoing network bytes across all VMs in an App Engine flexible environment version.|
+|gcp.appengine.system.instance_count| Number of instances that exist.|
+|gcp.appengine.system.memory.usage| Total memory used by running instances.|
