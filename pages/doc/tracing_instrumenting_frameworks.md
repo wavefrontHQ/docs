@@ -195,7 +195,7 @@ For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Se
  </div>
 </div>
 
-When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics.
+When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics using a custom tracing port.
 
 1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
