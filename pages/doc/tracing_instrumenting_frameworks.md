@@ -202,7 +202,7 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
 1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration on your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
   ```xml
   ## port for sending custom spans using the sender sdk 
-  ## you can use a port that you prefer. in this example port 3001 is used 
+  ## you can use a port that you prefer. in this example port 30001 is used 
   customTracingListenerPorts=30001
   ```
 1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port you want to send the data so that span level RED metrics will be gathered from your application.
