@@ -143,6 +143,93 @@ If you need application observability, but don't want to instrument code for you
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
 
+### Instrument Your Application with Wavefront Sender SDKs
+
+For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Sending Raw Data to Wavefront](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for background.
+
+<div class="row">
+ <div class="col-md-2 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-sdk-java">
+            <img src="/images/icons_svg_java.png" alt="Java logo">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-2 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-sdk-python">
+            <img src="/images/icons_svg_phython.png" alt="Python">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-2 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-sdk-go">
+            <img src="/images/icons_svg_go.png" alt="Go">
+            </a>
+         </div>
+     </div>
+ </div>
+ <div class="col-md-2 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-sdk-csharp">
+            <img src="/images/icons_svg_.net.png" alt="Net">
+            </a>
+         </div>
+     </div>
+ </div> 
+ <div class="col-md-2 col-sm-6">
+     <div class="panel panel-default text-center">
+         <div class="panel-body">
+            <a href="https://github.com/wavefrontHQ/wavefront-sdk-cpp">
+            <img src="/images/icons_cplus.png" alt="C++">
+            </a>
+         </div>
+     </div>
+ </div>
+</div>
+
+When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics using a custom tracing port.
+
+1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
+1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
+1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration on your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
+  ```xml
+  ## port for sending custom spans using the sender sdk 
+  ## you can use a port that you prefer. in this example port 30001 is used 
+  customTracingListenerPorts=30001
+  ```
+1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port you want to send the data so that span level RED metrics will be gathered from your application.
+  <br/>Example: Configuring your Java application to send trace data via the `tracingPort`.
+    ```java 
+    // set up wavefront sender for Proxy based ingestion
+    WavefrontSender wavefrontSender = new WavefrontClient.Builder(proxyHost).
+            tracingPort(30001). // customTracingListenerPorts configured in your wavefront.conf file
+            metricsPort(metricsPort).
+            distributionPort(distributionPort).
+            messageSizeBytes(messageSizeInBytes).
+            batchSize(batchSize).
+            flushIntervalSeconds(flushIntervalSeconds).
+            maxQueueSize(queueSize).
+            build(); // Returns a WavefrontClient
+            
+    // now send distributed tracing spans as below
+    wavefrontSender.sendSpan("getAllUsers", 1552949776000L, 343, "localhost",
+          UUID.fromString(UUID.randomUUID()),
+          UUID.fromString(UUID.randomUUID()),
+          ImmutableList.<UUID>builder().add(UUID.fromString(
+            "2f64e538-9457-11e8-9eb6-529269fb1459")).build(), null,
+          ImmutableList.<Pair<String, String>>builder().
+            add(new Pair<>("application", "Wavefront")).
+            add(new Pair<>("http.method", "GET")).build(), null);
+    ```
+
 ## A Closer Look at an Instrumented Microservice
 
 When an application consists of multiple microservices, you instrument each microservice separately by setting up one or more Wavefront SDKs. Doing so causes several helper objects to be created in the instrumented microservice. These helper objects work together to create and send metrics, histograms, and trace data to Wavefront.

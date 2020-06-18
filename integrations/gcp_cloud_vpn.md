@@ -61,3 +61,24 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.vpn.network.dropped_received_packets_count_count| Ingress (received from peer VPN) packets dropped for tunnel. |
+|gcp.vpn.network.dropped_received_packets_count_rate| Rate at which the ingress (received from peer VPN) packets were dropped for tunnel. |
+|gcp.vpn.network.dropped_sent_packets_count_count| Egress (directed to peer VPN) packets dropped for tunnel. |
+|gcp.vpn.network.dropped_sent_packets_count_rate| Rate at which the Egress (directed to peer VPN) packets were dropped for tunnel. |
+|gcp.vpn.network.received_bytes_count_count| Ingress (received from peer VPN) bytes for tunnel. |
+|gcp.vpn.network.received_bytes_count_rate| Rate at which Ingress (received from peer VPN) bytes for tunnel. |
+|gcp.vpn.network.received_packets_count_count| Ingress (received from peer VPN) packets for tunnel. |
+|gcp.vpn.network.received_packets_count_rate| Rate at which Ingress (received from peer VPN) packets for tunnel. |
+|gcp.vpn.network.sent_bytes_count_count| Egress (directed to peer VPN) bytes for tunnel.|
+|gcp.vpn.network.sent_bytes_count_rate| Rate at which Egress (directed to peer VPN) bytes for tunnel.|
+|gcp.vpn.network.sent_packets_count_count| Egress (directed to peer VPN) packets for tunnel. |
+|gcp.vpn.network.sent_packets_count_rate| Rate at which Egress (directed to peer VPN) packets for tunnel. |
+|gcp.vpn.tunnel_established| Indicates successful tunnel establishment if > 0. |

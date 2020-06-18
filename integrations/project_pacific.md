@@ -1,8 +1,8 @@
 ---
-title: Amazon EKS Integration
+title: Project Pacific Integration
 tags: [integrations list]
-permalink: amazon_eks.html
-summary: Learn about the Wavefront Amazon EKS Integration.
+permalink: project_pacific.html
+summary: Learn about the Wavefront Project Pacific Integration.
 ---
 ## Kubernetes Integration
 

@@ -132,7 +132,12 @@ Customize other aspects of the [template](https://docs.wavefront.com/alert_targe
 {% include image.md width="90" src="images/msteams_alert_target.png" %}
 1. Click **Save**.
 
-### Step 3. Add the Microsoft Teams Alert Target to a Wavefront Alert
+### Step 3. Test the Saved Alert Target (Optional)
+1. In Wavefront, select the ellipsis (3 dots) to the left of your saved alert target.
+1. Click **Test** to send a test notification message to your Team.
+1. Go to Teams and verify that the sample notification has been received.
+
+### Step 4. Add the Microsoft Teams Alert Target to a Wavefront Alert
 
 {% include alerts.md %}
 {% include webhooks_select.md %}

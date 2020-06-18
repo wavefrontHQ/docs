@@ -61,3 +61,17 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.logging.billing.bytes_ingested_rate||
+|gcp.logging.billing.monthly_bytes_ingested||
+|gcp.logging.byte_count_rate||
+|gcp.logging.dropped_log_entry_count_rate||
+|gcp.logging.log_entry_count_rate||
+|gcp.logging.logs_based_metrics_error_count_rate||

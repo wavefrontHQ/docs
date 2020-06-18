@@ -61,3 +61,12 @@ See [Google Cloud Platform Overview and Permissions](http://docs.wavefront.com/i
 
 
 
+undefined
+
+## Metrics
+
+See [Google Cloud metrics documentation](https://cloud.google.com/monitoring/api/metrics_gcp) for Metrics descriptions.  
+
+|Metric Name|Description|
+| :--- | :--- |
+|gcp.router.nat.nat_allocation_failed| Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway. |

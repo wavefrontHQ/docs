@@ -43,31 +43,35 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 This integration uses the [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to monitor your Kubernetes clusters.
 
-See **OpenShift Installation** below for installing the Collector in an OpenShift environment.
+* **Most users** follow the steps under *Kubernetes Quick Install Using Helm* or the *Kubernetes Manual Install*.
+* **OpenShift users** follow ONLY the steps under *OpenShift Installation*.
+* **vSphere Project Pacific users**
+  1. [Connect to the cluster control plane](https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-kubernetes/GUID-C099E736-43A6-464C-9BFA-29B8509F0DA1.html).
+  2. Follow the steps under *Kubernetes Quick Install Using Helm* or the *Kubernetes Manual Install*.
 
 ### Kubernetes Quick Install Using Helm
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
-1. Add the Wavefront helm repo:{% raw %}
+2. Add the Wavefront helm repo:{% raw %}
 ```
 helm repo add wavefront https://wavefronthq.github.io/helm/
 helm repo update
 ```
 {% endraw %}
-1. To deploy the Wavefront Collector and Wavefront Proxy:
+3. To deploy the Wavefront Collector and Wavefront Proxy:
 
-   Using helm 2:{% raw %}
-```
-helm install wavefront/wavefront --name wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
-```
+    Using helm 2:{% raw %}
+    ```
+    helm install wavefront/wavefront --name wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
+    ```
 {% endraw %}
-   Using helm 3:{% raw %}
-```
-kubectl create namespace wavefront
-helm install wavefront wavefront/wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
-```
+    Using helm 3:{% raw %}
+    ```
+    kubectl create namespace wavefront
+    helm install wavefront wavefront/wavefront --set wavefront.url=https://YOUR_CLUSTER.wavefront.com --set wavefront.token=YOUR_API_TOKEN --set clusterName=<YOUR_CLUSTER_NAME> --namespace wavefront
+    ```
 {% endraw %}
 
-**Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property.
+**Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For Project Pacific, add `--set projectPacific.enabled=true` along with helm install command.
 
 Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
 
@@ -86,6 +90,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 
 1. Download the following deployment files to a directory named `wavefront-collector-dir` on your system:
   * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/0-collector-namespace.yaml)
+  * [0-project-pacific-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/project-pacific/0-project-pacific-rolebinding.yaml) [**Note:** Download this file only for Project Pacific].
   * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/1-collector-cluster-role.yaml)
   * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/2-collector-rbac.yaml)
   * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/3-collector-service-account.yaml)
@@ -100,7 +105,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 
 To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
 
-### Deploy the kube-state-metrics Service (Optional)
+### Step 3. (Optional) Deploy the kube-state-metrics Service
 
 The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
 
@@ -111,14 +116,6 @@ To deploy kube-state-metrics:
 
 The `kube-state-metrics` service should now be running on your cluster. The Wavefront Collector will automatically discover and start collecting metrics from the kube-state-metrics service.
 
-### Application and Service Auto Discovery
-The Wavefront Collector can [auto discover](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#rule-based-discovery) applications and services within a Kubernetes environment and automatically start collecting metrics.
-
-The default configuration file includes [discovery configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/d6a73808a32d72d9268e8c18204287f9515ad413/deploy/kubernetes/4-collector-config.yaml#L96) for a number of common applications such as Consul, Redis, Memcached, etc. Uncomment the configurations for the applications you wish to monitor, and customize the rules as relevant to your environment.
-
-### Troubleshooting
-If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
-
 ### OpenShift Installation
 Follow these steps for installing the Wavefront Collector in an OpenShift environment. Refer to the **Kubernetes Quick Install using Helm** or **Kubernetes Manual Install** for installing the collector in all other Kubernetes environments.
 
@@ -126,7 +123,17 @@ The collector supports monitoring of Openshift clusters:
   * To monitor Openshift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
   * To monitor Openshift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on Openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
 
-### Horizontal Pod Autoscaling (HPA)
+### After Installation
+
+#### Troubleshooting
+If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
+
+#### Application and Service Auto Discovery
+The Wavefront Collector can [auto discover](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#rule-based-discovery) applications and services within a Kubernetes environment and automatically start collecting metrics.
+
+The default configuration file includes [discovery configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/5fa51a5158a8adc603a93244917f27e53453b3c2/deploy/kubernetes/4-collector-config.yaml#L83) for a number of common applications such as Consul, Redis, Memcached, etc. Uncomment the configurations for the applications you wish to monitor, and customize the rules as relevant to your environment.
+
+#### Horizontal Pod Autoscaling (HPA)
 Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
 
 ## Table of Contents
