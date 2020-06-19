@@ -45,7 +45,7 @@ Wavefront supports Prometheus functions out of the box, with the following minor
 <li>Prometheus computes topk() and bottomk() at the point level. It picks the top points at each <strong>timestamp</strong>.</li>
 <li>Wavefront computes topk() and bottomk() at <strong>time series level</strong>. It returns the top or bottom series (based on the avg/min/max... value). </li>
 </ul>
-<p>On the Wavefront query line, topk() and bottomk() always return results based on the time series. 
+<p>On the Wavefront query line, topk() and bottomk() always return results based on the time series. </p>
 </td></tr>
 </tbody>
 </table>
