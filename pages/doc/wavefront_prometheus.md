@@ -37,8 +37,19 @@ Wavefront supports Prometheus functions out of the box, with the following minor
 </td>
 <td width="75%">The Prometheus <strong>count_values</strong> aggregation function is not supported. <a href="proxies_histograms.html">Wavefront histograms</a> and <a href="query_language_reference.html#histogram-functions">histogram functions</a> allow you to perform the corresponding tasks -- and more!
 </td></tr>
+<tr>
+<td width="25%"><strong>topk(), bottomk()</strong>
+</td>
+<td width="75%">The topk() and bottomk() functions work slightly differently in Prometheus and Wavefront.
+<ul>
+<li>Prometheus computes topk() and bottomk() at the point level. It picks the top points at each <strong>timestamp</strong>.</li>
+<li>Wavefront computes topk() and bottomk() at <strong>time series level</strong>. It returns the top or bottom series (based on the avg/min/max... value). </li>
+</ul>
+<p>On the Wavefront query line, topk() and bottomk() always return results based on the time series. 
+</td></tr>
 </tbody>
 </table>
+
 
 
 ## Limitations
