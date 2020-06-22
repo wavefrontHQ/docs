@@ -175,7 +175,7 @@ To filter out some lines, you specify a minimum or maximum. By default, Wavefron
 
 ![min hides lines](images/charts_set_min.png)
 
-### Use ICE/Binary Prefixes in Y Axis and Legends
+### Use IEC/Binary Prefixes in Y Axis and Legends
 
 You can control how units display in the Y axis. Changes affect *only the display* of data.
 
@@ -202,7 +202,7 @@ Here's how two charts might look:
 
 Dynamic units adjust the scaling prefixes and units and result in a clearer display. The change depends on the type of metric and the corresponding unit.
 
-**SI or ICE/Binary Dynamic Units**
+**SI or IEC/Binary Dynamic Units**
 
 When an axis is labeled with a unit that starts with one of the SI or IEC/Binary prefixes, the display logic:
 1. First normalizes the data value with the labeled prefix.
