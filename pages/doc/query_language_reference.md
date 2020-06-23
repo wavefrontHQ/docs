@@ -662,7 +662,7 @@ Filtering functions help you select a subset of the time series that are returne
 </tr>
 <tr>
 <td markdown="span"><a href="ts_globalFilter.html">globalFilter(<strong>&lt;tsExpression | hsExpression&gt;,<br> &lt;filter1&gt;</strong> [and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
-<td>Suppresses any time series or histogram in the specified expression that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters.
+<td>Retains only the time series or histograms in <strong>tsExpression</strong> that match one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters.
 </td>
 </tr>
 <tr>
