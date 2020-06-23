@@ -28,7 +28,7 @@ Log in to your Wavefront instance and follow the instructions in the **Setup** t
 Create a file called `snmp.conf` in `/etc/telegraf/telegraf.d` and enter the following snippet:
 {% raw %}
 ```
-[[[inputs.snmp]]
+[[inputs.snmp]]
    agents = [ "your.snmp.agent:161" ]
    version = 2
    community = "public"
@@ -268,3 +268,4 @@ To poll multiple SNMP metrics from a single Telegraf agent, you can configure ad
 ### Step 3. Restart Telegraf
 
 Run `sudo service telegraf restart` to restart your agent.
+
