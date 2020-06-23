@@ -23,7 +23,7 @@ Starting with release 2020.26, Wavefront includes support for Prometheus queries
 
 ## How Prometheus Queries Can Differ in Wavefront.
 
-Wavefront supports all Prometheus functions out of the box. There are a small number of differences. 
+Wavefront supports all Prometheus functions out of the box. There are a small number of differences.
 
 <table style="width: 100%;">
 <tbody>
@@ -53,9 +53,9 @@ Wavefront supports all Prometheus functions out of the box. There are a small nu
 <td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
 </td></tr>
 <tr>
-<td><strong>= ~ !~</strong>
+<td><strong>=~, !~</strong>
 </td>
-<td>Wavefront does not support instant vector selectors (=, ~, !~) for regex matching in labels.
+<td>Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#wildcards-aliases-and-variables) in Prometheus queries. 
 </td></tr>
 <tr>
 <td><strong>subquery</strong>
