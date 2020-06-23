@@ -507,36 +507,49 @@ entries:
     output: web
     folderitems:
 
-    - title: Distributed Tracing Basics
-      url: /tracing_basics.html
+    - title: Overview
+      url: /tracing_overview.html
+      output: web
+      
+    - title: Key Concepts
+      url: /tracing_concepts.html
       output: web
 
-    - title: Instrumenting Your App for Tracing
+    - title: Instrumenting Your App
       url: /tracing_instrumenting_frameworks.html
       output: web
 
     - title: Obtaining 3rd Party Traces
       url: /tracing_integrations.html
       output: web
-
-    - title: Tracing Best Practices
-      url: /tracing_best_practices.html
-      output: web
-
-    - title: Trace Sampling
-      url: /trace_data_sampling.html
-      output: web
-
+      
     - title: Visualizing Trace Data
       url: /tracing_ui_overview.html
+      output: web
+
+    - title: Intelligent Trace Sampling
+      url: /trace_data_sampling.html
       output: web
 
     - title: Querying Trace Data
       url: /trace_data_query.html
       output: web
+      
+      subfolders:
+      - title: Tutorials
+        output: web
+        subfolderitems:
 
-    - title: Traces, Spans, and RED Metrics
-      url: /trace_data_details.html
+         - title: Java Application
+           url: /tracing_java_tutorial.html
+           output: web
+
+         - title: Jeager Integration
+           url: /tracing_jeager_tutorial.html
+           output: web
+           
+    - title: Tracing Best Practices
+      url: /tracing_best_practices.html
       output: web
 
       subfolders:
