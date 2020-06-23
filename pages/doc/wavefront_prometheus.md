@@ -21,9 +21,9 @@ Starting with release 2020.26, Wavefront includes support for Prometheus queries
 
 ![Prometheus query](images/prometheus_sample.png)
 
-## Differences Between Prometheus and ts() Queries
+## How Prometheus Queries Can Differ in Wavefront.
 
-Wavefront supports Prometheus functions out of the box, with the following minor differences.
+Wavefront supports all Prometheus functions out of the box. There are a small number of differences. 
 
 <table style="width: 100%;">
 <tbody>
@@ -46,6 +46,21 @@ Wavefront supports Prometheus functions out of the box, with the following minor
 <li>Wavefront computes topk() and bottomk() at <strong>time series level</strong>. It returns the top or bottom series (based on the avg/min/max... value). </li>
 </ul>
 <p>On the Wavefront query line, topk() and bottomk() always return results based on the time series. </p>
+</td></tr>
+<tr>
+<td width="25%"><strong>ignore, on, group_left, group_right</strong>
+</td>
+<td width="75%">Wavefront does not support ignore, on, group_left, group_right for vector matching with Prometheus queries.
+</td></tr>
+<tr>
+<td><strong>= ~ !~</strong>
+</td>
+<td>Wavefront does not support instant vector selectors (=, ~, !~) for regex matching in labels.
+</td></tr>
+<tr>
+<td><strong>subquery</strong>
+</td>
+<td>Wavefront does not currently support the Prometheus subquery feature.
 </td></tr>
 </tbody>
 </table>
