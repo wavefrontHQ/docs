@@ -6,12 +6,16 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between Wavefront and external systems. Here's a video to get you started:
+External links provide integration between Wavefront and external systems.
+* **External links** are general purpose: you can link through to any type of system accessible from a URL.
+* The **Log integration** lets you drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk. See [Access and Examine External Logs](log_integration.html) for details.
+
+
+Here's a video to get you started with external links:
 
 <p><a href="https://youtu.be/oufjL7nM0LQ"><img src="/images/v_external_links.png" style="width: 700px;"/></a>
 </p>
 
-External links are general purpose: you can link through to any type of system accessible from a URL. If you want to drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk, use a log integration. See [Access and Examine External Logs](log_integration.html) for details.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
