@@ -104,15 +104,15 @@ If you want to use these metrics inside Wavefront:
 
 For example:
 1. You start with data metrics like this:
+
    **data:**`mavg(5m, rate(ts(“metric1_seconds.*" and not “metric1_seconds.count" and not “metric1_seconds.sum" )))`
 2. You use `taggify()` to extract the bucket information.
+
    **taggify**: `sum(taggify(${data}, metric, le, "^metric1_seconds.(.*)$", "$1"), le)`
 3. Now you can apply `cumulativeHisto` and other functions to the result.
-   **target_data**: `percentile(95, cumulativeHisto(${tagged}))` 
 
-### Using taggify() with cumulative_histo()
+   **target_data**: `percentile(95, cumulativeHisto(${tagged}))`
 
-The Telegraf Prometheus plugin includes bucket information, . They can use taggify to extract the bucket information as a le tag and then use cumulativeHisto:
 
 ## Example
 
