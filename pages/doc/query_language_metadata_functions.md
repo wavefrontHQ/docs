@@ -367,7 +367,7 @@ For any of these queries, your hover legend will show a new column labeled `vers
 You can next `taggify` calls. For example,
 
 ```
-taggify(taggify(default(0, ts(production.infra.aws.ec2.instance.pulldeploy.failed.count.sum, asg="buildslave*")),source,temp_asg,2,'.'),tagk,temp_asg,my_asg,0,'-')
+taggify(taggify(default(0, ts(production.infra.aws.ec2.instance.pulldeploy.failed.count.sum, asg="build_secondary*")),source,temp_asg,2,'.'),tagk,temp_asg,my_asg,0,'-')
 ```
 
 extracts `asg` from the source.
