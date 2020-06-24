@@ -11,7 +11,7 @@ External links provide integration between Wavefront and external systems. Here'
 <p><a href="https://youtu.be/oufjL7nM0LQ"><img src="/images/v_external_links.png" style="width: 700px;"/></a>
 </p>
 
-External links are general purpose: you can link through to any type of system accessible from a URL. If you want to drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk, use a log integration. See [Access and Examine External Logs](log_integration.html)for details.
+External links are general purpose: you can link through to any type of system accessible from a URL. If you want to drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk, use a log integration. See [Access and Examine External Logs](log_integration.html) for details.
 
 <div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
@@ -179,7 +179,7 @@ Filters are optional but allow you to show the external link only on certain tim
 
 ### Filter Regex Example
 
-When you specify a filter, only time series that match the filter show the external link option.
+When you specify a filter, only time series that match the filter shows the external link option.
 
 The following screenshot shows an example that specifies all three types of filters.
 
