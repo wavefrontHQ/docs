@@ -87,6 +87,32 @@ The `cumulativeHisto()` function itself doesn't perform interpolation because th
 
 See [Standard Versus Raw Aggregation Functions](query_language_aggregate_functions.html).
 
+### Using taggify() with Prometheus Metrics from Telegraf
+
+When you use telegraf to collect Prometheus histogram metrics, the metrics include the bucket bounds as part of the metric names. For example:
+
+```
+source.source_http_requests_latency_including_all_seconds.2.5
+source.source_http_requests_latency_including_all_seconds.5.0
+source.source_http_requests_latency_including_all_seconds.10.0
+```
+
+If you want to use these metrics inside Wavefront:
+
+1. Extract the buckets as tags using `taggify()`
+2. Apply `cumulativeHisto()`
+
+For example:
+1. You start with data metrics like this:
+   **data:**`mavg(5m, rate(ts(“metric1_seconds.*" and not “metric1_seconds.count" and not “metric1_seconds.sum" )))`
+2. You use `taggify()` to extract the bucket information.
+   **taggify**: `sum(taggify(${data}, metric, le, "^metric1_seconds.(.*)$", "$1"), le)`
+3. Now you can apply `cumulativeHisto` and other functions to the result.
+   **target_data**: `percentile(95, cumulativeHisto(${tagged}))` 
+
+### Using taggify() with cumulative_histo()
+
+The Telegraf Prometheus plugin includes bucket information, . They can use taggify to extract the bucket information as a le tag and then use cumulativeHisto:
 
 ## Example
 
