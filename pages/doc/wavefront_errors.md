@@ -67,7 +67,7 @@ com/sunnylabs/GraphiteValidator : Unsupported major.minor version 51.0" in <code
 <tr>
 <td>You see "Exception in thread "Thread-2" java.net.BindException: Address already in use" in <code>wavefront.log</code>.</td>
 <td>You already have another process listening on port 2878, or may have started two proxies accidentally.</td>
-<td>Use the <code>ps</code> command to find and kill any existing proxies, and then start the proxy again.</td>
+<td>Use the <code>ps</code> command to find and delete any existing proxies, and then start the proxy again.</td>
 </tr>
 <tr>
 <td>You can't run <code>telnet localhost 2878</code>; the connection is refused.</td>
