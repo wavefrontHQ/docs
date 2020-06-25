@@ -25,7 +25,7 @@ If your system accepts incoming traffic, you can download the proxy file as foll
 
 1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](http://packagecloud.io/wavefront/proxy).
 2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`.
-    {% include note.html content="<br/>If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`." %} 
+    {% include note.html content="<br/>If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`." %}
 
 ### Step 2: Determine Proxy Settings
 
@@ -57,6 +57,18 @@ Before you can customize the proxy configuration, you have to find the values fo
 <td markdown="span">**enable graphite**</td>
 <td markdown="span">Whether to enable the Graphite format. See the [Graphite integration](graphite.html) for details on Graphite configuration.  </td>
 <td>cust42ProxyHost</td>
+</tr>
+<tr>
+<td markdown="span">**tlsPorts**</td>
+<td markdown="span">Comma-separated list of ports to be used for incoming HTTPS connections. </td>
+</tr>
+<tr>
+<td markdown="span">**privateKeyPath**</td>
+<td markdown="span">Path to PKCS#8 private key file in PEM format. Incoming HTTPS connections access this private key. </td>
+</tr>
+<tr>
+<td markdown="span">**privateCertPath**</td>
+<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming HTTPS connections access this certificate. </td>
 </tr>
 </tbody>
 </table>
