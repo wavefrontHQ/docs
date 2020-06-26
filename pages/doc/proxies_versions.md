@@ -11,6 +11,13 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
+## Version 8.0
+
+Three new parameters support incoming HTTPS connections:
+* tlsPorts
+* privateKeyPath
+* privateCertPath
+
 ## Version 7.0
 
 - The Wavefront proxy listener port (2878) can now be used as a direct ingestion endpoint for all data (metrics, histograms, spans/span logs)
