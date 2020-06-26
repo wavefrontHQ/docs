@@ -190,19 +190,36 @@ The **Show Events** dropdown in the middle of the time bar allows you to overlay
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
 
-## Export to PDF
+## Export to CSV or PDF
 
-Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF.
+Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF or CSV.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">For any chart, <strong>Export PDF</strong> is now available from the ellipsis menu in the top right. </td>
-<td width="50%"><img src="/images/export_pdf_dashboard.png" alt="Export PDF from dashboard"/> </td>
+<td width="50%">
+<ol>
+<li>Click a chart name to put the chart into Edit mode. </li>
+<li>Select <strong>Export PDF</strong> or <strong>Export CSV</strong></li>.
+</ol> </td>
+<td width="50%"><img src="/images/export_pdf_csv.png" alt="Export PDF or CSV from chart in Edit mode"/> </td>
 </tr>
 <tr>
-<td width="50%">Click on the chart name and select the <strong>Export PDF</strong> icon in the top right. </td>
-<td width="50%"><img src="/images/export_pdf_chart.png" alt="Export PDF from chart"/></td>
+<td width="50%">
+<ol>
+<li>From any dashboard, click a chart's ellipsis menu. </li>
+<li>Select <strong>Export CSV</strong> to export the chart's content.</li>
+</ol> </td>
+<td width="50%"><img src="/images/export_csv_chart.png" alt="Export PDF from chart"/></td>
+</tr>
+<tr>
+<td width="50%">
+<ol>
+<li>Click a dashboard's ellipsis menu. </li>
+<li>Select <strong>Export PDF</strong> to export the whole dashboard to PDF.</li>
+</ol>
+</td>
+<td width="50%"><img src="/images/export_pdf_dashboard.png" alt="Export PDF from chart"/></td>
 </tr>
 </tbody>
 </table>
