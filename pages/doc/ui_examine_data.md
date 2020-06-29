@@ -192,7 +192,9 @@ See [Displaying Event Overlays in Charts](charts_events_displaying.html#controll
 
 ## Export to CSV or PDF
 
-Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF or CSV.
+
+* Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF.
+* Starting with release 2020.26, you can export charts to CSV, regardless of whether the chart is in Edit mode.
 
 <table style="width: 100%;">
 <tbody>
