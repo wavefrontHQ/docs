@@ -156,6 +156,10 @@ Installation and configuration is similar to environments with full network acce
 
 By default Wavefront proxy can accept incoming TCP and HTTP requests on the port specified by `pushListenerPorts`. You can also configure the proxy to accept only connections with a certificate and key.
 
+In that case:
+1. Specify that you want to open the port with the `pushListenerPorts` config parameter.
+2. Specify the `tlsPorts`, `privateKeyPath`, and `privateCertPath` parameters.
+
 The following parameters support TLS/SS. You can specify those parameters in the configuration file or by running `bin/autoconf-wavefront-proxy.sh`, as discussed above.
 
 <table style="width: 100%;">

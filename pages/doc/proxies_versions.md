@@ -18,6 +18,8 @@ Three new parameters support incoming HTTPS connections:
 * privateKeyPath
 * privateCertPath
 
+See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#proxy-custom-install-with-incoming-tlsssl) for details. 
+
 ## Version 7.0
 
 - The Wavefront proxy listener port (2878) can now be used as a direct ingestion endpoint for all data (metrics, histograms, spans/span logs)
