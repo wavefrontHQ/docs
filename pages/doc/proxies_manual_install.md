@@ -103,14 +103,6 @@ If you want to edit the configuration file manually:
    <code>graphitePorts=2003
    </code>
    </td></tr>
-   <tr>
-   <td markdown="span">Use SSL/TLS</td>
-   <td>To limit incoming traffic to connections that use SSL/TLS, configure the following parameters.
-   <code>tlsPorts=          #ports_to_open
-   privateKeyPath=    #location_of_private_key_file
-   privateCertPath=   #location_of_certificate_file
-   </code>
-   </td></tr>
    </tbody>
    </table>
 
@@ -160,6 +152,30 @@ Installation and configuration is similar to environments with full network acce
    export JAVA_HOME=${PROXY_JAVA_HOME:-$proxy_jre_dir}   <-- set to location of currently installed JRE
 ```
 
+## Proxy Custom Install with Incoming TLS/SSL
+
+By default Wavefront proxy can accept incoming TCP and HTTP requests on the port specified by `pushListenerPorts`. You can also configure the proxy to accept only connections with a certificate and key.
+
+The following parameters support TLS/SS. You can specify those parameters in the configuration file or by running `bin/autoconf-wavefront-proxy.sh`, as discussed above.
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr></thead>
+<tr>
+<td markdown="span">**tlsPorts**</td>
+<td markdown="span">Comma-separated list of ports to be used for incoming TLS/SSL connections. </td>
+</tr>
+<tr>
+<td markdown="span">**privateKeyPath**</td>
+<td markdown="span">Path to PKCS#8 private key file in PEM format. Incoming TLS/SSL connections access this private key. </td>
+</tr>
+<tr>
+<td markdown="span">**privateCertPath**</td>
+<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
+</tr>
+</tbody>
+</table>
 
 ## Testing Proxy Host Connectivity
 
