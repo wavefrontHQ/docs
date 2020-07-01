@@ -11,14 +11,11 @@ This page gives an overview of important changes for the most recent Wavefront p
 * For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
 * For information on earlier changes, see the [Wavefront Proxy Release Notes Archive](proxies_versions_archived.html)
 
-## Version 8.0
+## Version 8.x
 
-Three new parameters support incoming HTTPS connections:
-* tlsPorts
-* privateKeyPath
-* privateCertPath
+Miscellaneous improvements including three new parameters support incoming TLS connections. See the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases) for details. 
 
-See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#proxy-custom-install-with-incoming-tlsssl) for details. 
+See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#proxy-custom-install-with-incoming-tlsssl) for details.
 
 ## Version 7.0
 
