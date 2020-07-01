@@ -116,19 +116,19 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
     <th width="30%">Version</th></tr>
     </thead>
     <tr>
-      <td>wavefront-opentracing-sdk-java</td>
+      <td>Java Open Tracing SDK</td>
       <td>v2.0 or Latest</td>
     </tr>
     <tr>
-      <td>wavefront-opentracing-sdk-csharp</td>
+      <td>C# Open Tracing SDK</td>
       <td>v2.0.0 or Latest</td>
     </tr>
     <tr>
-      <td>wavefront-opentracing-sdk-go</td>
+      <td>Go Open Tracing SDK</td>
       <td>v0.9.0 or Latest</td>
     </tr>
     <tr>
-      <td>wavefront-opentracing-sdk-python</td>
+      <td>Python Open Tracing SDK</td>
       <td>v2.0.0 or Latest</td>
     </tr>
   </table>
