@@ -152,52 +152,6 @@ When you click on a service's **Details**, you can examine a dashboard of metric
 
 The default, read-only dashboard for a service lets you explore that service, however, you can't make changes to the dashboard.
 
-{{site.data.alerts.note}}
-Starting with <a href="2020.26.x_release_notes.html">release 2020-26.x</a> the <b>span.kind</b> filter is introduced to the default service dashboard. If the spans from your Open Tracing application does not have the <code>span.kind</code> point tag, you don't see data on the dashboard. 
-<ul>
-  <li>
-  This will not affect you if you cloned the default service dashboard before the 2020-26.x release and customized it to meet your requirements. 
-  </li>
-  <li>
-  If you are using the default service dashboard after the 2020-26.x release, you need to use the recommended Open tracing SDK versions or the Wavefront proxy versions listed below.
-  </li>
-  </ul>
-{{site.data.alerts.end}}
-
-<table style="width: 80%;">
-  
-  <thead>
-  <tr>
-    <th width="50%">SDK or Proxy</th>
-    <th width="30%">Version</th>
-  </tr>
-  </thead>
-  <tr>
-    <td>Wavefront proxy</td>
-    <td>7.0 or later</td>
-  </tr>
-  <tr>
-    <td>Java Open Tracing SDK</td>
-    <td>v2.0 or Latest</td>
-  </tr>
-  <tr>
-    <td>Go Open Tracing SDK</td>
-    <td>v0.9.0 or Latest </td>
-  </tr>
-  <tr>
-    <td>Python Open Tracing SDK</td>
-    <td>v2.0.0 OR Latest</td>
-  </tr>
-  <tr>
-    <td>C# Open Tracing SDK</td>
-    <td>v2.0.0 or Latest</td>
-  </tr>
-  <tr>
-    <td>Java tracing agent</td>
-    <td>v1.1.0 or Latest</td>
-  </tr>
-</table>
-
 ![examine services](images/tracing_services.png)
 
 {% include note.html content="You can add these charts to a dashboard and customize them using [Tracing Templates](ui_dashboards.html#create-a-dashboard-from-a-tracing-template). " %}
@@ -227,6 +181,47 @@ The standard dashboard for services is read-only. To create a customizable copy:
 <!---(Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)-->
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
+
+### Troubleshooting 
+
+**Don't see data on the default service dashboard?**
+
+Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, you don't see data on the default service dashboard. The Open Tracing SDK and Wavefront proxy versions listed below adds the `span.kind` tag to the spans by default. Therefore, use the recommended versions to see data on the default service dashboard.
+
+<table style="width: 80%;">
+  
+  <thead>
+  <tr>
+    <th width="50%">SDK or Proxy</th>
+    <th width="30%">Version</th>
+  </tr>
+  </thead>
+  <tr>
+    <td markdown="span">[Wavefront proxy](proxies_installing.html)</td>
+    <td>7.0 or later</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Java OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
+    <td>v2.0 or Latest</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Go OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
+    <td>v0.9.0 or Latest </td>
+  </tr>
+  <tr>
+    <td markdown="span">[Python OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
+    <td>v2.0.0 OR Latest</td>
+  </tr>
+  <tr>
+    <td markdown="span">[C# OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
+    <td>v2.0.0 or Latest</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java)</td>
+    <td>v1.1.0 or Latest</td>
+  </tr>
+</table>
+
 
 ## Tracing Browser
 

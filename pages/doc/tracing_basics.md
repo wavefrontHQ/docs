@@ -106,6 +106,8 @@ The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wave
 
 You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application.
 
+{% include note.html content="If you don't see data on the default service dashboard, see [Troubleshooting](tracing_ui_overview.html#troubleshooting) for details."%}
+
 ### Start by Looking for a Trace
 
 You can view trace data by [looking for a trace](trace_data_query.html).

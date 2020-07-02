@@ -34,14 +34,7 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 
 1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). 
     {{site.data.alerts.note}}
-      <ul>
-        <li>
-          If you want to use span logs, you need proxy version 5.0 or later.
-        </li>
-        <li>
-        Starting with <a href="2020.26.x_release_notes.html">release 2020-26.x</a> the <b>span.kind</b> filter is introduced to the default service dashboard. If the spans from your Open Tracing application does not have the <code>span.kind</code> point tag, you don't see data on the dashboard. Wavefront proxy version 7.0 adds the <code>span.kind</code> tag to the spans by default. Therefore, make sure to use it or the latest version
-        </li>
-      </ul>
+      If you want to use span logs, you need proxy version 5.0 or later.
     {{site.data.alerts.end}}
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
 3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#set-the-listener-port-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
@@ -107,32 +100,6 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
         </div>
     </div>
   </div>
-  
-{% include note.html content="Starting with [release 2020-26.x](2020.26.x_release_notes.html) the **span.kind** filter is introduced to the default service dashboard. If the spans from your Open Tracing application do not have the `span.kind` point tag, you don't see data on the default service dashboard. The Open Tracing SDK versions listed below adds the `span.kind` tag to the spans by default. Therefore, make sure your application uses the recommended SDK versions to see data on the default service dashboard." %}
-
-  <table style="width: 80%;">
-    <thead>
-    <tr><th width="50%">SDK</th>
-    <th width="30%">Version</th></tr>
-    </thead>
-    <tr>
-      <td>Java Open Tracing SDK</td>
-      <td>v2.0 or Latest</td>
-    </tr>
-    <tr>
-      <td>C# Open Tracing SDK</td>
-      <td>v2.0.0 or Latest</td>
-    </tr>
-    <tr>
-      <td>Go Open Tracing SDK</td>
-      <td>v0.9.0 or Latest</td>
-    </tr>
-    <tr>
-      <td>Python Open Tracing SDK</td>
-      <td>v2.0.0 or Latest</td>
-    </tr>
-  </table>
-
 
 ### Instrument Your OpenTracing Java Application Without Writing Code
 
@@ -149,8 +116,6 @@ If you need application observability, but don't want to instrument code for you
        </div>
    </div>
  </div>
- 
-{% include note.html content=" Starting with [release 2020-26.x](2020.26.x_release_notes.html) the **span.kind** filter is introduced to the default service dashboard. If the spans from your Open Tracing application do not have the `span.kind` point tag, you don't see data on the default service dashboard. The Open Tracing agent v1.1.0 adds the `span.kind` tag to the spans by default. Therefore, make sure to use it."%}
 
 ### Send Trace Data to Wavefront via Applications Integrated with Jaeger or Zipkin
 
@@ -236,7 +201,6 @@ For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Se
 When you use a Sender SDK, you won’t see span-level RED metrics by default. This section explains how to send span-level RED metrics using a custom tracing port.
 
 1. [Prepare to send data via the Wavefront proxy](#to-prepare-a-wavefront-proxy).
-    {% include note.html content=" Starting with [release 2020-26.x](2020.26.x_release_notes.html) the **span.kind** filter is introduced to the default service dashboard. If the spans from your Open Tracing application do not have the `span.kind` point tag, you don't see data on the default service dashboard. Wavefront proxy version 7.0 adds the `span.kind` tag to the spans by default. Therefore, make sure to use it or the latest version."%}
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
 1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration on your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
   ```xml
