@@ -514,14 +514,23 @@ entries:
     - title: Key Concepts
       url: /tracing_concepts.html
       output: web
+      
+      subfolders:
+      - title: Send Data To Wavefront
+        output: web
+        subfolderitems:
 
-    - title: Instrumenting Your App
-      url: /tracing_instrumenting_frameworks.html
-      output: web
+          - title: Instrumenting Your App
+            url: /tracing_instrumenting_frameworks.html
+            output: web
 
-    - title: Obtaining 3rd Party Traces
-      url: /tracing_integrations.html
-      output: web
+          - title: Obtaining 3rd Party Traces
+            url: /tracing_integrations.html
+            output: web
+            
+          - title: Architecture of an Instrumented Microservice
+            url: /opentracing_sdk_architecture.html
+            output: web  
       
     - title: Visualizing Trace Data
       url: /tracing_ui_overview.html
@@ -540,11 +549,11 @@ entries:
         output: web
         subfolderitems:
 
-         - title: Java Application
+         - title: Using An OpenTracing SDK
            url: /tracing_java_tutorial.html
            output: web
 
-         - title: Jeager Integration
+         - title: Using An Integration
            url: /tracing_jeager_tutorial.html
            output: web
            
