@@ -202,23 +202,23 @@ Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind
   </tr>
   <tr>
     <td markdown="span">[Java OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-    <td>v2.0 or Latest</td>
+    <td>v2.0 or later</td>
   </tr>
   <tr>
     <td markdown="span">[Go OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
-    <td>v0.9.0 or Latest </td>
+    <td>v0.9.0 or later</td>
   </tr>
   <tr>
     <td markdown="span">[Python OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
-    <td>v2.0.0 or Latest</td>
+    <td>v2.0.0 or later</td>
   </tr>
   <tr>
     <td markdown="span">[C# OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
-    <td>v2.0.0 or Latest</td>
+    <td>v2.0.0 or later</td>
   </tr>
   <tr>
     <td markdown="span">[Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java)</td>
-    <td>v1.1.0 or Latest</td>
+    <td>v1.1.0 or later</td>
   </tr>
 </table>
 
