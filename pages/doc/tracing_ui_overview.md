@@ -210,7 +210,7 @@ Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind
   </tr>
   <tr>
     <td markdown="span">[Python OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
-    <td>v2.0.0 OR Latest</td>
+    <td>v2.0.0 or Latest</td>
   </tr>
   <tr>
     <td markdown="span">[C# OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
