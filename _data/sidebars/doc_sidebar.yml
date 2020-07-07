@@ -225,7 +225,7 @@ entries:
     - title: Manage External Links
       url: /external_links_managing.html
       output: web
-      
+
     - title: Access and Examine External Logs
       url: /log_integration.html
       output: web
@@ -481,6 +481,10 @@ entries:
 
       - title: Monitor and Scale Kubernetes
         url: /wavefront_kubernetes.html
+        output: web
+
+      - title: Kubernetes FAQ
+        url: /wf_kubernetes_faq.html
         output: web
 
       - title: Kubernetes Videos
