@@ -297,7 +297,8 @@ To view your data, you first run your project and then click the link that direc
 
 Add the following custom configurations to the `application.properties` file.
 
-* **Invite users and let them send data to the same cluster**<br/>
+* **Invite users and let them send data to the same cluster**
+
   1. Click the link that was printed on your console and navigate to the Wavefront Service dashboard:
       {% include note.html content="Save the link that you used to access the Service dashboard." %}
       1. Click the gear icon and select **Account Management**.
@@ -309,15 +310,23 @@ Add the following custom configurations to the `application.properties` file.
       management.metrics.export.wavefront.api-token=<Enter_Token>
       management.metrics.export.wavefront.uri=https://wavefront.surf
       ```
+  1. If you are using the freemium account and want the single-use login URL to show on the terminal each time you start the application, add `wavefront.freemium-account` to the `application.properties` file and set it to `true`.
+    ```
+    wavefront.freemium-account=true
+    ```
+      {% include tip.html content="If you don’t want Wavefront to auto-negotiation a freemium account for you, set the value to `false`."%}
   1. Restart your application.
-  1. Navigate to the Wavefront Service dashboard using the link that you saved previously.
-<a name="proxy"></a>
-* **Send data to Wavefront using the Wavefront Proxy** <br/>Copy and paste the following property.
+
+* **Send data to Wavefront using the Wavefront proxy** 
+  
+  Copy and paste the following property.
   {% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and after. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
   ```
   management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
   ```
-* **Use the Wavefront Actuator endpoint to access the dashboard** <br/>
+  
+* **Use the Wavefront Actuator endpoint to access the dashboard** 
+
   If you have a web app, you can expose the Wavefront Actuator endpoint at `/actuator/wavefront` to access your Wavefront dashboard.
   <br/>Example:
   ```
@@ -325,7 +334,8 @@ Add the following custom configurations to the `application.properties` file.
   ```
 
 * **Specify application and service names**
-    <br/>If you have more than one Spring Boot application, you can specify the names of the application and the service in the `application.properties` file.
+
+  If you have more than one Spring Boot application, you can specify the names of the application and the service in the `application.properties` file.
     <br/>Example:
     ```
     wavefront.application.name=my-application
@@ -344,6 +354,36 @@ Add the following custom configurations to the `application.properties` file.
       You can configure the cluster and shard the same way. This information is used to tag metrics and traces.
     * If you want to take full control over [`ApplicationTags`](tracing_instrumenting_frameworks.html#application-tags), you can create a `@Bean`.
     * If you want to customize the instance that is auto-configured, add an `ApplicationTagsBuilderCustomizer` bean.
+
+* **Disable integration tests from sending data to Wavefront**
+
+  Add `management.metrics.export.wavefront.enabled` to your integration tests and set it to `false` to stop it from sending data to Wavefront.
+  
+  {% include note.html content="If you use the [Spring Initializer](https://start.spring.io/) to create your new Spring Boot application and add the Wavefront dependency, this configuration is added by default to all your integration tests."%}
+  
+  Example: Disable all integration tests from sending data to Wavefront by updating the `application.properties` file.
+  ```
+  management.metrics.export.wavefront.enabled=false
+  ```
+  
+  Example: Disable a specific integration test from sending data to Wavefront.
+  ```
+  package com.example.demo;
+
+  import org.junit.jupiter.api.Test;
+  import org.springframework.boot.test.context.SpringBootTest;
+  import org.springframework.test.context.TestPropertySource;
+
+  @TestPropertySource(properties = "management.metrics.export.wavefront.enabled=false")
+  @SpringBootTest
+  class DemoApplicationTests {
+
+  	@Test
+  	void contextLoads() {
+  	}
+
+  }
+  ```
 
 {% include note.html content="For details on customizing exported metrics, check the [Spring Boot reference guide](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-wavefront)."%}
 

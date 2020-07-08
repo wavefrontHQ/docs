@@ -42,11 +42,16 @@ All users can customize their dashboards. Learn how to find a section, filter us
 ![dashboard browser annotated](images/dashboard_browser.png)
 
 
-## Set the Dashboard Time Window
+## Set the Time Window
 
-By default dashboards show a two-hour time window in each chart, and display real-time (live) data. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+By default, dashboards:
+* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* Display real-time (live) data.
+* Update charts every 30s.
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
+
+{% include note.html content="When you change the time window, the refresh rate changes as well. For example, if you select a 10 minute time window, the charts in the dashboard refresh every second." %}
 
 **To change the dashboard time window:**
 

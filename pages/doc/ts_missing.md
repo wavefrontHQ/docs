@@ -32,10 +32,9 @@ Checks whether there are any data points in the specified time window.
 
 ## Description
 
-Allows you to check whether a time series returns data in a specified time window. For example `missing(5m, ts(my_metric))` returns 1 if `my_metric` returned data in the last 5 minutes.
+Checks whether a time series returned data in a specified time window. For example `missing(5m, ts(my_metric))` returns 1 if `my_metric` returned no data in the last 5 minutes.
 
 Using `mcount(<window>, <exp>) = 0` in a query gives you similar results, however, such a query does not work if the expression doesn't exist at all. In contrast, `missing()` works with non-existing metrics.
-
 
 <!---
 ## Examples
