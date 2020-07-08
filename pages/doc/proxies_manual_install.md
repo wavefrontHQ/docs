@@ -25,7 +25,7 @@ If your system accepts incoming traffic, you can download the proxy file as foll
 
 1. Download the proxy `.rpm` or `.deb` file from [packagecloud.io/wavefront/proxy](http://packagecloud.io/wavefront/proxy).
 2. Run `sudo rpm -U <name_of_file.rpm>` or `sudo dpkg -i <name_of_file.deb>`.
-    {% include note.html content="<br/>If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`." %} 
+    {% include note.html content="<br/>If no Java JRE is in the path, this command installs JRE locally under `/opt/wavefront/wavefront-proxy/proxy-jre`." %}
 
 ### Step 2: Determine Proxy Settings
 
@@ -58,26 +58,54 @@ Before you can customize the proxy configuration, you have to find the values fo
 <td markdown="span">Whether to enable the Graphite format. See the [Graphite integration](graphite.html) for details on Graphite configuration.  </td>
 <td>cust42ProxyHost</td>
 </tr>
+<tr>
+<td markdown="span">**tlsPorts**</td>
+<td markdown="span">Comma-separated list of ports to be used for incoming HTTPS connections. </td>
+</tr>
+<tr>
+<td markdown="span">**privateKeyPath**</td>
+<td markdown="span">Path to PKCS#8 private key file in PEM format. Incoming HTTPS connections access this private key. </td>
+</tr>
+<tr>
+<td markdown="span">**privateCertPath**</td>
+<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming HTTPS connections access this certificate. </td>
+</tr>
+</tbody>
+</table>
 </tbody>
 </table>
 
 ### Step 3: Make Configuration Changes
 
 You can make configuration changes by editing the config file or by running a script.
+
 #### Option 1: Editing the Config File
 
 If you want to edit the configuration file manually:
 
-1. Find, uncomment and modify the following lines:
-   ```
-   server=
+1. Find, uncomment and modify the configuration:
+   <table>
+   <tbody>
+   <thead>
+   <tr><th width="20%">Change to Make</th><th width="80%">Config Parameters</th></tr>
+   </thead>
+   <tr>
+   <td markdown="span">Change target. </td>
+   <td>
+   <code>server=
    hostname=
    token=
-   ```
-   If you want to use Graphite, specify the Graphite configuration section starting with:
-   ```
-   #graphitePorts=2003
-   ```
+   </code>
+   </td></tr>
+   <tr>
+   <td markdown="span">Use Graphite</td>
+   <td>If you want to use Graphite, specify the Graphite configuration section starting with:
+   <code>graphitePorts=2003
+   </code>
+   </td></tr>
+   </tbody>
+   </table>
+
 2. Start the Wavefront proxy service:
    ```
    sudo service wavefront-proxy start
@@ -124,6 +152,34 @@ Installation and configuration is similar to environments with full network acce
    export JAVA_HOME=${PROXY_JAVA_HOME:-$proxy_jre_dir}   <-- set to location of currently installed JRE
 ```
 
+## Proxy Custom Install with Incoming TLS/SSL
+
+By default Wavefront proxy can accept incoming TCP and HTTP requests on the port specified by `pushListenerPorts`. You can also configure the proxy to accept only connections with a certificate and key.
+
+In that case:
+1. Specify that you want to open the port with the `pushListenerPorts` config parameter.
+2. Specify the `tlsPorts`, `privateKeyPath`, and `privateCertPath` parameters.
+
+The following parameters support TLS/SS. You can specify those parameters in the configuration file or by running `bin/autoconf-wavefront-proxy.sh`, as discussed above.
+
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr></thead>
+<tr>
+<td markdown="span">**tlsPorts**</td>
+<td markdown="span">Comma-separated list of ports to be used for incoming TLS/SSL connections. </td>
+</tr>
+<tr>
+<td markdown="span">**privateKeyPath**</td>
+<td markdown="span">Path to PKCS#8 private key file in PEM format. Incoming TLS/SSL connections access this private key. </td>
+</tr>
+<tr>
+<td markdown="span">**privateCertPath**</td>
+<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
+</tr>
+</tbody>
+</table>
 
 ## Testing Proxy Host Connectivity
 

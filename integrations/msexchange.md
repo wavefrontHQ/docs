@@ -196,6 +196,53 @@ Edit the `telegraf.conf` file located in `Program Files\Telegraf` and enter the 
 
 ```
 {% endraw %}
+
+Add one of the following snippets to enable the `Transport Queues` performance counters:
+- For MSExchange Server 2010{% raw %}
+```
+   [[inputs.win_perf_counters.object]]
+     ObjectName = "MSExchangeTransport Queues(_total)"
+     Counters = ["Aggregate Delivery Queue Length", "Active Remote Delivery Queue Length",
+                 "Active Mailbox Delivery Queue Length", "Submission Queue Length",
+                 "Active Non-Smtp Delivery Queue Length", "Retry Mailbox Delivery Queue Length",
+                 "Retry Non-Smtp Delivery Queue Length", "Retry Remote Delivery Queue Length",
+                 "Unreachable Queue Length", "Largest Delivery Queue Length", "Poison Queue Length"]
+     Instances = ["*"]
+     Measurement = "msexchange.transport"
+```
+{% endraw %}
+- For MSExchange Servers 2013, 2016 and 2019:{% raw %}
+```
+   [[inputs.win_perf_counters.object]]
+     ObjectName = "MSExchangeTransport Queues"
+     Counters = ["Active Mailbox Delivery Queue Length", "Active Non-Smtp Delivery Queue Length",
+                 "Aggregate Shadow Queue Length", "Categorizer Job Availability",
+                 "Delay Queue Length", "External Active Remote Delivery Queue Length",
+                 "External Aggregate Delivery Queue Length (All External Total)",
+                 "External Largest Delivery Queue Length", "External Largest Unlocked Delivery Queue Length",
+                 "External Retry Remote Delivery Queue Length", "Internal Active Remote Delivery Queue Length",
+                 "Internal Aggregate Delivery Queue Length (All External Total)",
+                 "Internal Largest Delivery Queue Length", "Internal Largest Unlocked Delivery Queue Length",
+                 "Internal Retry Remote Delivery Queue Length", "Items Completed Delivery Per Second",
+                 "Items Completed Delivery Total", "Items Deleted By Admin Total",
+                 "Items Queued For Delivery Expired Total", "Items Queued for Delivery Per Second",
+                 "Items Queued For Delivery Total", "Items Resubmitted Total", "Locks Expired In Delivery Total",
+                 "Messages Completed Delivery Per Second", "Messages Completed Delivery Total",
+                 "Messages Completed Categorization", "Messages Deferred during Categorization",
+                 "Messages Delayed Per Second", "Messages Delayed Total", "Messages Queued for Delivery",
+                 "Messages Queued for Delivery Per Second",  "Messages Queued For Delivery Total",
+                 "Messages Resubmitted during Categorization", "Messages Submitted Per Second",
+                 "Messages Submitted Recently", "Messages Submitted Total", "Poison Queue Length",
+                 "Retry Mailbox Delivery Queue Length", "Retry Non-Smtp Delivery Queue Length",
+                 "Shadow Queue Auto Discards Total", "Submission Queue Items Expired Total",
+                 "Submission Queue Length", "Submission Queue Locks Expired Total",
+                 "Throttled Fork Agent Queued Messages", "Throttled Fork Agent Queued Recipients",
+                 "Total Extra Connections for Idle Queues", "Unreachable Queue Length"]
+     Instances = ["_total"]
+     Measurement = "msexchange.transport"
+```
+{% endraw %}
+
 **Note:** Make sure all `[[inputs.win_perf_counters.object]]` configuration snippets are inside the `[[inputs.win_perf_counters]]` configuration section. If there are any `[[inputs.win_perf_counters.object]]` configuration snippets added prior to enabling Microsoft Exchange, move those snippets into the `[[inputs.win_perf_counters]]`. 
    
 ### Step 4. Restart Telegraf
