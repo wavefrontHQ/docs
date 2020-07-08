@@ -186,7 +186,7 @@ After you save the clone, you can find it by name from the **Dashboards** menu o
 
 **Don't see data on the default service dashboard?**
 
-Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, you don't see data on the default service dashboard. The Open Tracing SDK and Wavefront proxy versions listed below adds the `span.kind` tag to the spans by default. Therefore, use the recommended versions to see data on the default service dashboard.
+Starting with the next release (release 2020-26.x), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, you don't see data on the default service dashboard. The OpenTracing SDK and Wavefront proxy versions listed below adds the `span.kind` tag to the spans by default. Therefore, use the recommended versions to see data on the default service dashboard.
 
 <table style="width: 80%;">
 
