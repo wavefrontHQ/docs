@@ -94,4 +94,4 @@ Now we apply `rate()` to our original query to find out how fast the counter gro
 
 * [`ratediff()` Function](ts_ratediff.html)
 
-* The [discussion of counters](metric_types.html#counters) explains how to use `rate()` and `ratediff()` for counters
+* The [discussion of counters](delta_counters.html#using-cumulative-counters) explains how to use `rate()` and `ratediff()` for counters

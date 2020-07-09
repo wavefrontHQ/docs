@@ -63,74 +63,28 @@ A gauge shows the current value for each point in time. Think of a thermometer t
 
 Many metrics that come into Wavefront are gauges. For example, Wavefront internal metrics include `~alert.checking_frequency.{id}` and `~alert.query_time.{alert_id}`.
 
-## Counters
+## Cumulative Counters
 
-Counters show information over time. Think of a person with a counter at the entrance to a concert. The counter shows the total number of people that have entered so far.
+Cumulative counters (counters) show information over time. Think of a person with a counter at the entrance to a concert. The counter shows the total number of people that have entered so far.
 
-Counter metrics usually increase over time but might reset back to zero, for example, when a service or system restarts. Users can wrap [**rate()**](ts_rate.html) around a counter if they want to ignore temporary 0 values and see only the positive rate of change.
+Counter metrics usually increase over time but might reset back to zero, for example, when a service or system restarts. Users can wrap [**rate()**](ts_rate.html) around a counter if they want to ignore temporary 0 values and see only the positive rate of change. [Using Cumulative Counters](delta_counters.html#using-cumulative-counters) gives several examples.
 
 Wavefront internal metrics that are counters include `~metric.new_host_ids` and `~query.requests`.
 
-### Counter Example (Count Total)
-
-In most cases, you can get the information you need from a counter as follows:
-
-1. A counter usually represents something like "how many requests have been processed" or "how many errors happened". You get the metric like this:
-```
-   ts(~sample.network.bytes.received)
-```
-2. You use the `rate()`function to get the corresponding per-second rate so you know, for example, "how many requests have been processed per second?"  or "How many errors are happening per second":
-```
-   rate(ts(~sample.network.bytes.received))
-```
-3. There are often multiple time series that have the counter (e.g. coming from different sources). Each time series reports the count of the requests received or errors. If you're interested in the total count across your system, you can use `sum()` to sum it up into a single time series.
-```
-sum(rate(ts(~sample.network.bytes.received)))
-```
-
-###  Counter Example (Count Total Over Time Period)
-
-If you want to count the total number of occurrences of a certain time period, the syntax is slightly more complex. Because counters commonly reset to zero, you need a query that counts the total number of increments over the time period you're looking at. You want to ignore any counter resets.
-
-Here, we want to get the number of errors for 1 day.
-
-1. We start by wrapping the counter with `ratediff()`, which, in contrast to `rate()` returns the absolute difference between incrementing data points without dividing by the number of seconds between them.
-```
-   ratediff(ts(the.counter))
-```
-2. We use `align` to group the data values of the time series into buckets 1 minute.
-```
-   align(1m, sum, ratediff(ts(the.counter)))
-```
-3. We use `rawsum()` to combine all time series into one series, and to not use interpolation.
-```
-    rawsum(align(1m, sum, ratediff(ts(the.counter))))
-```
-4. Finally, we get the result for 1 day by using the `msum()` function.
-```
-    msum(1d, rawsum(align(1m, sum, ratediff(ts(the.counter)))))
-```
-
-### Gauge into Counter
-
-To turn a gauge into a counter, you can use query language functions such as [integral](ts_integral.html). For example, you could convert a `~alert.checking_frequency.My_ID` to see the trend in checking frequency instead of the raw data.
-```
-    integral(ts(~alert.checking_frequency.My_ID))
-```
-
 ## Delta Counters
 
-[Delta counters](delta_counters.html) are well suited for the kind of bursty traffic you typically get in a Function-as-a-Service environment. Many functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing metric points to collision.
+[Delta counters](delta_counters.html)  bin to a minute timestamp and treat write operations to the same bin as deltas. They are well suited for the kind of bursty traffic you typically get in a Function-as-a-Service environment. Many functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing metric points to collision.
 
 For example, instead of one person with a counter standing at a concert entrance, is an example. No single person can capture the composite count,  so you add up the counters. In the same way, the Wavefront service can aggregate delta counter information.
 
-If a metric starts with a delta character, the Wavefront service considers that metric a delta metric. The Wavefront service aggregates delta metric points and stores the aggregated point.
+To have Wavefront treat a metric as a delta counter, you have several choices:
+* Use the `cs()` instead of the `ts()` function.
+* Add a delta character to the metric.
 
-The following illustration compares a counter and a delta counter.
-* The *counter* mycounter sends 3 data points to the Wavefront service. Wavefront stores each value with its timestamp. When you run a query, such as `integral()`, the Wavefront service fetches the stored values, aggregates them, and returns the result.
-* In the *delta counter* use case, a FaaS environment runs the function in multiple function invocation instances and sends the points to the Wavefront service. The Wavefront service aggregates the points and stores the result. When the user runs a query, the Wavefront service fetches the already aggregated value.
+The Wavefront service aggregates delta metric points and stores the aggregated point.
 
-![counters_delta_counters](images/counter_delta_counter.png)
+[Using Delta Counters](delta_counters.html#using-delta-counters) gives details and best practices. 
+
 
 ## Histograms
 

@@ -96,4 +96,4 @@ Notice:
 
 * [`rate()` Function](ts_rate.html)
 
-* The [discussion of counters](metric_types.html#counters) explains how to use `rate()` and `ratediff()` for counters
+* The [discussion of counters](delta_counters.html#using-cumulative-counters) explains how to use `rate()` and `ratediff()` for counters
