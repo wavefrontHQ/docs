@@ -51,9 +51,9 @@ If your metric includes zero values, or if blips in the network might result in 
 Your data might already come in as counters, for example, the uptime for a system. You can explicitly set up a counter to count tasks completed, errors occurred, etc. For example, `sum(ts(cpu.idle))` is a counter metric. It increases over time, and never reports zero values. 
 
 For alerts, follow these guidelines:
-* Counters are especially helpful for alerts: Even if there's a break in the data flow, the alert doesn't immediately get triggered. 
+* (Cumulative) counters are especially helpful for alerts: Even if there's a break in the data flow, the alert doesn't immediately get triggered. 
 
-* If a counter doesn't make sense, deltas might work. Delta metrics record changes between the last metric and the current metric. Delta metrics that report zero values are better than deltas that don't report zero values.
+* If a counter doesn't make sense, a [delta counter](delta_counters.html#counters-and-delta-counters-basics) might work. Delta counters record changes between the last metric and the current metric. Delta counters that report zero values are better than deltas that don't report zero values.
 
 If you know your data, you can pick a suitable metric to get the best results for your alert. Or you can use functions like `sum` to create your own counter.
 

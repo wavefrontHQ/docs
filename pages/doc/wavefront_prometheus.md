@@ -63,7 +63,6 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 </tbody>
 </table>
 
-
 ## Limitations
 
 While you can run queries directly in the Wavefront Query Editor, there are currently a few limitations.
