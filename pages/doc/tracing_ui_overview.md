@@ -186,7 +186,9 @@ After you save the clone, you can find it by name from the **Dashboards** menu o
 
 **Don't see RED metrics or see incorrect RED metrics on your charts?**
 
-Starting with the next release (release 2020-26.x), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default service dashboard will be incorrect, or you will not see RED metrics on your charts. The OpenTracing SDK and Wavefront proxy versions listed below adds the `span.kind` tag to the spans by default. Therefore, use the recommended versions to see accurate data on the default service dashboard.
+Starting with the next release (release 2020-26.x), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default service dashboard will be incorrect, or you will not see RED metrics on your charts. 
+
+The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind` tag to the spans. Use the recommended versions to see accurate data on the default service dashboard.
 
 {% include note.html content="If you are using [Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) and sending data via the Wavefront Proxy, make sure to update to the latest proxy version."%}
 
