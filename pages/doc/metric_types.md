@@ -1,5 +1,5 @@
 ---
-title: Metrics
+title: Metric Types
 keywords: data
 tags: [data]
 sidebar: doc_sidebar
@@ -79,11 +79,10 @@ For example, instead of one person with a counter standing at a concert entrance
 
 To have Wavefront treat a metric as a delta counter, you have several choices:
 * Use the `cs()` instead of the `ts()` function.
-* Add a delta character to the metric.
+* Add a delta character prefix to the metric.
 
-The Wavefront service aggregates delta metric points and stores the aggregated point.
 
-[Using Delta Counters](delta_counters.html#using-delta-counters) gives details and best practices. 
+[Using Delta Counters](delta_counters.html#using-delta-counters) gives details and best practices.
 
 
 ## Histograms
