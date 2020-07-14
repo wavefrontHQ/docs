@@ -102,17 +102,25 @@ entries:
       url: /wavefront_data_ingestion.html
       output: web
 
+    - title: Wavefront Data Format
+      url: /wavefront_data_format.html
+      output: web
+
+    - title: Wavefront Data Best Practices
+      url: /wavefront_data_naming.html
+      output: web
+
       subfolders:
-      - title: Data Format & Metrics, Sources, and Tags
+      - title: Metrics, Sources, and Tags
         output: web
         subfolderitems:
 
-        - title: Wavefront Data Format
-          url: /wavefront_data_format.html
+        - title: Metrics Overview
+          url: /metric_types.html
           output: web
 
-        - title: Metrics
-          url: /metric_types.html
+        - title: Counter Metrics
+          url: /delta_counters.html
           output: web
 
         - title: Sources
@@ -123,13 +131,10 @@ entries:
           url: /tags_overview.html
           output: web
 
+        - title: "Advanced: Derived Metrics"
+          url: /derived_metrics.html
+          output: web
 
-    - title: Wavefront Data Naming Best Practices
-      url: /wavefront_data_naming.html
-      output: web
-
-
-      subfolders:
       - title: Proxies
         output: web
         subfolderitems:
@@ -158,20 +163,8 @@ entries:
           url: /wavefront_cli.html
           output: web
 
-      - title: Advanced Data Ingestion
-        output: web
-        subfolderitems:
-
-        - title: Direct Data Ingestion
+        - title: Proxy & Direct Ingestion
           url: /direct_ingestion.html
-          output: web
-
-        - title: Derived Metrics
-          url: /derived_metrics.html
-          output: web
-
-        - title: Delta Counters
-          url: /delta_counters.html
           output: web
 
       - title: Histograms
