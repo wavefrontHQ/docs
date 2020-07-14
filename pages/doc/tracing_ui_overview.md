@@ -182,6 +182,51 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
+### Troubleshooting 
+
+**Don't see RED metrics or see incorrect RED metrics on your charts?**
+
+Starting with the next release (release 2020-26.x), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default service dashboard will be incorrect, or you will not see RED metrics on your charts. 
+
+The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind` tag to the spans. Use the recommended versions to see accurate data on the default service dashboard.
+
+{% include note.html content="If you are using [Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) and sending data via the Wavefront Proxy, make sure to update to the latest proxy version."%}
+
+<table style="width: 80%;">
+
+  <thead>
+  <tr>
+    <th width="50%">SDK or Proxy</th>
+    <th width="30%">Version</th>
+  </tr>
+  </thead>
+  <tr>
+    <td markdown="span">[Wavefront proxy](proxies_installing.html)</td>
+    <td>7.0 or later</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Java OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
+    <td>v2.0 or later</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Go OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>
+    <td>v0.9.0 or later</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Python OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-python)</td>
+    <td>v2.0.0 or later</td>
+  </tr>
+  <tr>
+    <td markdown="span">[C# OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-csharp)</td>
+    <td>v2.0.0 or later</td>
+  </tr>
+  <tr>
+    <td markdown="span">[Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java)</td>
+    <td>v1.1.0 or later</td>
+  </tr>
+</table>
+
+
 ## Tracing Browser
 
 In the Traces browser, you can explore the context and the details of your application's traces.
