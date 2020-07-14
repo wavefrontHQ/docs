@@ -17,7 +17,9 @@ Wavefront supports different CLIs for different tasks.
 
 ## External CLIs for the REST API
 
-Several Wavefront customers have generated CLIs from our REST API and made them available on Github:
+Several Wavefront customers have generated CLIs from our REST API and made them available on Github.
+
+{% include note.html content="These external CLIs are not supported or maintained by Wavefront." %}
 
 * Robert Fisher of [Sysdef Ltd.](https://sysdef.xyz.com) created a [Ruby CLI](https://github.com/snltd/wavefront-cli) and gives installation instructions, examples, and more in [this post](https://sysdef.xyz/post/2017-07-26-wavefront-cli)
   We show how to use it in our blog post [Commanding the Waves Using the Wavefront CLI](https://www.wavefront.com/commanding-the-waves-using-wavefront-cli/)

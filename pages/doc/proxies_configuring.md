@@ -276,6 +276,18 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 <td>4.1</td>
 </tr>
 <tr>
+<td markdown="span">privateKeyPath</td>
+<td markdown="span">Path to PKCS#8 private key file in PEM format. Incoming TLS/SSL connections access this private key. </td>
+<td> </td>
+<td>8.0</td>
+</tr>
+<tr>
+<td markdown="span">privateCertPath</td>
+<td markdown="span">Path to X.509 certifivate chain file in PEM format. Incoming TLS/SSL connections access this certificate. </td>
+<td> </td>
+<td>8.0</td>
+</tr>
+<tr>
 <td>proxyHost</td>
 <td>HTTP proxy host to be used in configurations when direct HTTP connections to Wavefront servers are not possible. Must be used with proxyPort.</td>
 <td>A string.
@@ -363,7 +375,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
-<td markdown="span">Port to listen on for incoming data.  A single port definition can accept both HTTP and TCP data.  For HTTP data, make a POST to this proxy port with an empty header, and the line terminated [data format](wavefront_data_format.html). <br/>Default: 2878.</td>
+<td markdown="span">Port to listen on for incoming data.  A single port definition can accept both HTTP and TCP data.  For HTTP data, make a POST to this proxy port with an empty header, and the line terminated [data format](wavefront_data_format.html). If you want to use HTTPS/TSL, set the tlsPort, privateKeyPath, and privateCertPath as well.  <br/>Default: 2878.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878,2879,2880</div></td>
@@ -486,6 +498,12 @@ Ex: 0 </td>
 <td>&nbsp;</td>
 </tr>
 <tr>
+<td markdown="span">tlsPorts</td>
+<td markdown="span">Comma-separated list of ports to be used for incoming TLS/SSL connections. To set up a port to use TLS/SSL, you specify pushListenerPorts, tlsPorts, privateKeyPath, and privateCertPath. </td>
+<td> </td>
+<td>8.0</td>
+</tr>
+<tr>
 <td>whitelistRegex</td>
 <td>Regex pattern (java.util.regex). Input lines are checked against the pattern as they come in and before the prefix is prepended. Only input lines that match are accepted. </td>
 <td>Valid regex pattern.
@@ -522,7 +540,7 @@ Ex: 0 </td>
 </thead>
 <tbody>
 <tr>
-<a name="traceJaegerHttpListenerPorts"></a> 
+<a name="traceJaegerHttpListenerPorts"></a>
 <td>traceJaegerHttpListenerPorts</td>
 <td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
@@ -883,31 +901,31 @@ You can log all the raw blocked data separately or log different entities into t
 * **Log the block data separately** <br/>
   Follow these steps:
   1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` configuration file.
-  2. To log all the block data, uncomment the corresponding section. 
+  2. To log all the block data, uncomment the corresponding section.
       ```
       <AsyncLogger name="RawBlockPoints" level="WARN" additivity="false">
          <AppenderRef ref="BlockedPointsFile" />
       </AsyncLogger>
       ```
   By default, blocked point entries are logged to the `<wavefront_log_path>/wavefront-blocked-points.log` file and the log file is rolled over every day when its size reaches 100MB. When there are 31 log files, older files are deleted. You can customize the configurations to suit your environment.
-  
+
 * **Set up separate log files for blocked entities**<br/>
   Follow these steps:
     1. Uncomment or add the configurations under Appenders and Loggers in the [`<wavefront_config_path>`](#paths)`/log4j2.xml` configuration file.
         ```
-          <!-- Log the blocked histograms. If you don't need a separate log file for it, 
+          <!-- Log the blocked histograms. If you don't need a separate log file for it,
           don't add this configuration to the file.-->
           <AsyncLogger name="RawBlockedHistograms" level="WARN" additivity="false">
              <AppenderRef ref="[Enter_Your_File_Name]"/>
          </AsyncLogger>
-                
-         <!-- Logs the blocked points for spans. If you don't need a separate log file for it, 
+
+         <!-- Logs the blocked points for spans. If you don't need a separate log file for it,
          don't add this configuration to the file.-->
          <AsyncLogger name="RawBlockedSpans" level="WARN" additivity="false">
              <AppenderRef ref="[Enter_Your_File_Name]"/>
          </AsyncLogger>
-         
-         <AsyncLogger name="RawBlockPoints" level="WARN" ADDITIVITY="FALSE"/> 
+
+         <AsyncLogger name="RawBlockPoints" level="WARN" ADDITIVITY="FALSE"/>
        	   <AppenderRef ref=”BlockedPointsFile”/>
          </AsyncLogger>
         ```
@@ -915,10 +933,10 @@ You can log all the raw blocked data separately or log different entities into t
         Example:
         ```
           blockedPointsLoggerName = RawBlockedPoints
-          
+
           # Add this if you added the appender for histograms in the log4j2.xml file.
           blockedHistogramsLoggerName = RawBlockedHistograms (RawBlockedPoints by default)
-          
+
           # Add this if you added the appender for spans in the log4j2.xml file.
           blockedSpansLoggerName = RawBlockedSpans (RawBlockedPoints by default)
         ```
