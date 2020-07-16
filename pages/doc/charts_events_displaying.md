@@ -51,8 +51,7 @@ There can be alert generated system events, or events that are manually created 
   <tr>
     <td markdown="span">
       **Display events based on source events**:<br/> Select the **Display Source Events** checkbox in the [chart's' Format tab](ui_chart_reference.html#general) to display events related to alerts that fired for sources in the chart.
-      For example, if the query used in the chart uses metrics that have the application source tag, and these applications have events related to alerts that fired, you see these marked on the chart. See [Metric Data Format](wavefront_data_format.html#metrics) for details.
-      
+      <br/><br/>For example, if the query used in the chart uses metrics that have the application source tag, and these applications have events related to alerts that fired, you see these marked on the chart. See [Metric Data Format](wavefront_data_format.html#metrics) for details.
     </td>
     <td markdown="span">
       ![Select display source events](/images/events_display_source_events.png)
@@ -62,7 +61,7 @@ There can be alert generated system events, or events that are manually created 
     <td markdown="span">
       **Add an events() query to view specific events on a chart**:<br/> Add an [events() query](events_queries.html) to the chart. An `events()` query cannot be the only query on a chart. At least one `ts()` query must be enabled on the chart so that the `events()` query results display.
       <br/><br/>
-      For example, `events(severity="warn")` shows all the warning events on your chart.
+      For example, `events(name="Latency Alert" and type="alert")` shows all the warning events on your chart.
     </td>
     <td markdown="span">
       ![Add an events query to the chart](/images/events_events_query_charts.png)
@@ -84,7 +83,7 @@ There can be alert generated system events, or events that are manually created 
        For example, `events(name="High CPU Usage")` shows events that have the name `High CPU Usage` on all the charts of the dashboard.
     </td>
     <td markdown="span">
-      ![Add an events query to the dashboard settings](/images/events_dashboard_settings_events_query.png)
+      ![Add an events query to the dashboard settings](/images/v2_dashboard_prefs.png)
     </td>
   </tr>
 </table>

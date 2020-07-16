@@ -285,7 +285,7 @@ For each dashboard, you can customize display preferences.
 <ul><li>Set the default time window. You can later override the time window.  </li>
 <li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="show hide variable icon" /> icon.  </li>
-<li>display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
+<li>Display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
 For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specifying-an-events-query-for-a-dashboard">Controlling Events Overlays</a>
 </li>
 </ul>
