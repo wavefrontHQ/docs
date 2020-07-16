@@ -182,6 +182,42 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
 
+### Save Charts in the Service Dashboard
+
+You can view the query used in a chart and save a chart on the default service dashboard to your dashboard.
+
+<table style="width: 100%;">
+  <tr>
+    <td width="45%">
+      <ol>
+        <li>
+          Click the chart name to view the chart in edit mode and to view the query used in the chart.
+        </li>
+        <li>
+          Click <strong>Save</strong>.
+        </li>
+        <li>
+          Save the chart to a dashboard: 
+          <ul>
+            <li>
+              To save to an existing dashboard, start typing the name of the dashboard, select a dashboard, and click <strong>Insert</strong>.
+            </li>
+            <li>
+              Click <strong>Save to New Dashboard</strong>, enter the dashboard name and URL, and click <strong>Create</strong>. Specify only the URL string; do not include https://.
+            </li>
+          </ul>
+        </li>
+        <li>
+          When the target dashboard opens in edit mode, click and drag the chart to the location of your choice and click <strong>Save</strong> at the top.
+        </li>
+      </ol>
+    </td>
+    <td markdown="span" width="55%">
+      ![Save the chart to a dashboard](/images/tracing_save_charts_to_dashboard.png)
+    </td>
+  </tr>
+</table>
+
 ### Troubleshooting 
 
 **Don't see RED metrics or see incorrect RED metrics on your charts?**
