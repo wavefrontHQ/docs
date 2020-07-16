@@ -115,15 +115,19 @@ entries:
         output: web
         subfolderitems:
 
-        - title: Metrics Overview
+        - title: Metric Types
           url: /metric_types.html
+          output: web
+
+        - title: "Metrics & Metrics Browser"
+          url: /metrics_managing.html
           output: web
 
         - title: Counter Metrics
           url: /delta_counters.html
           output: web
 
-        - title: Sources
+        - title: "Sources & Sources Browser"
           url: /sources_managing.html
           output: web
 

@@ -103,73 +103,11 @@ Wavefront follows the OpenTracing standard for representing and manipulating tra
 
 Because requests normally consist of other requests, a trace actually consists of a tree of spans.
 
-## Metrics Browser
-
-Use the Metrics Browser to see which metrics are available in your environment and to hide and redisplay metrics.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<strong>To view, hide, and redisplay metrics</strong>
-<ol>
-<li>Select <strong>Browse > Metrics</strong></li>
-<li>Use the options on the left to narrow down your search.</li></ol></td>
-<td width="40%"><img src="/images/browse_metrics.png" alt="browse metrics"></td>
-</tr>
-</tbody>
-</table>
-
-
-## Hiding and Unhiding Metrics
-
-You can _manually_ hide metrics from the Metrics browser and in the autocomplete dropdown associated with queries. Manually hiding metrics does not permanently delete a metric or metric namespace.
-
-{% include shared/permissions.html entity="metrics" entitymgmt="Metric" %}
-
-{% include tip.html content="While hidden metrics are removed from the autocomplete dropdown, those metrics can still be used in a ts() query when data values are present." %}
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<strong>To hide one or more metrics:</strong>
-<ol>
-<li>Select <strong>Browse > Metrics</strong></li>
-<li>Click the <strong>Manage Hidden Metrics</strong> button</li>
-<li>In the dialog type a complete metrics name (e.g. <code>requests.latency</code>) or a metric prefix (e.g. <code>requests.</code>, <code>cpu.loadavg.</code>).
-<ul>
-<li>This field does not support auto-complete, so you have to type the entire metric name or metric prefix.</li>
-<li>The text is case sensitive.</li>
-<li>Wildcards are not supported. The star <code>*</code> character is considered part of the text string.</li>
-
-</ul></li>
-<li>Press Enter to add the metric(s) to the list and click <strong>Save</strong>.</li>
-</ol> </td>
-<td width="40%"><img src="/images/hide_metrics.png" alt="hide metrics"></td>
-</tr>
-</tbody>
-</table>
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="60%">
-<strong>To view hidden metrics:</strong>
-<ol>
-<li>Select <strong>Browse > Metrics</strong></li>
-<li>Click the <strong>Manage Hidden Metrics</strong> button.</li>
-<li>Click the <strong>Unhide</strong> button to the right of the metric or metric prefix to unhide and click <strong>Save</strong>.</li>
-</ol>
-The selected metrics and metric prefixes appear again as long as they have had at least 1 reported data value in the last 4 weeks. Otherwise, these metric/metric prefixes are considered obsolete metrics and Wavefront hides them. You can show obsolete metrics for individual charts or alerts. </td>
-<td width="40%"><img src="images/viewing_hidden_metrics.png" alt="view hidden metrics"></td>
-</tr>
-</tbody>
-</table>
 
 ## Learn More!
 
 Search this doc set for details on any of the metric types, or read this:
-* [Delta counters](delta_counters.html) are used by the [AWS Lambda Functions Integration](aws-lambda-functions.html) and discussed in more detail in [AWS Lambda Integration Details](integrations_aws_lambda.html)
+* [Metrics and the Metrics Browser] examines the structure of a metric and explains how to use the Metrics Browser. 
+* [Cumulative Counters and Delta Counters](delta_counters.html) discusses the 2 kinds of counters that Wavefront supports and includes examples for both types.
 * [Histograms](proxies_histograms.html) are useful for distribution of metrics in high-velocity environment. We support a set of [query language functions just for histograms](query_language_reference.html#histogram-functions).
 * Our [Tracing UI](/tracing_ui_overview.html) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.
