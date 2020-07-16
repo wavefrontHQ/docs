@@ -35,18 +35,24 @@ The event severity determines the color of the overlay:
 
 ## Controlling Event Overlays
 
-Take a look at how you can configure charts and the dashboard to control when and how event overlays display in charts:
+Events can make your charts look cluttered. There are several options to control what’s shown on a chart:
+* Options for individual charts
+* Options that apply to the whole dashboard
 
-### Configuring Individual Charts
+### Configuring Event Overlays for Individual Charts
+
+There can be alert generated system events, or events that are manually created by a user. For details, see [Event Sources and Types](events.html#event-sources-and-types). You can configure a chart to show specific events.
 
 <table style="width: 100%;">
   <tr>
-    <th width="40%"> Action</th>
-    <th width="60%"> Results</th>
+    <th width="45%"> Action</th>
+    <th width="55%"> Results</th>
   </tr>
   <tr>
     <td markdown="span">
-      **Step 1**: Select the **Display Source Events** checkbox in the chart configuration [General options](ui_chart_reference.html#general) to display events related to alerts that fired for sources that display in the chart.
+      **Display events based on source events**:<br/> Select the **Display Source Events** checkbox in the [chart's' Format tab](ui_chart_reference.html#general) to display events related to alerts that fired for sources in the chart.
+      For example, if the query used in the chart uses metrics that have the application source tag, and these applications have events related to alerts that fired, you see these marked on the chart. See [Metric Data Format](wavefront_data_format.html#metrics) for details.
+      
     </td>
     <td markdown="span">
       ![Select display source events](/images/events_display_source_events.png)
@@ -54,7 +60,7 @@ Take a look at how you can configure charts and the dashboard to control when an
   </tr>
   <tr>
     <td markdown="span">
-      **Step 2**: Add an [events() query](events_queries.html) to the chart. An `events()` query cannot be the only query on a chart. At least one `ts()` query must be enabled on the chart so that the `events()` query results display.
+      **Add an events() query to view specific events on a chart**:<br/> Add an [events() query](events_queries.html) to the chart. An `events()` query cannot be the only query on a chart. At least one `ts()` query must be enabled on the chart so that the `events()` query results display.
       <br/><br/>
       For example, `events(severity="warn")` shows all the warning events on your chart.
     </td>
@@ -64,12 +70,12 @@ Take a look at how you can configure charts and the dashboard to control when an
   </tr>
 </table>
 
-### Configuring Dashboards
+### Specifying an Events Query for a Dashboard
 
 <table style="width: 100%;">
   <tr>
-    <th width="40%"> Action</th>
-    <th width="60%"> Results</th>
+    <th width="45%"> Action</th>
+    <th width="55%"> Results</th>
   </tr>
   <tr>
     <td markdown="span">
@@ -89,8 +95,8 @@ Let's look at how you can view the events you added to the charts and dashboards
 
 <table style="width: 100%;">
   <tr>
-    <th width="40%"> Show Events Options</th>
-    <th width="60%"> Results</th>
+    <th width="45%"> Show Events Options</th>
+    <th width="55%"> Results</th>
   </tr>
   <tr>
     <td markdown="span">
@@ -102,7 +108,7 @@ Let's look at how you can view the events you added to the charts and dashboards
   </tr>
   <tr>
     <td markdown="span">
-       **From Dashboard Settings**: Displays events based on the `events()` query set in the dashboard preferences. The source events are not displayed in this option.
+       **From Dashboard Settings**: Displays events based on the `events()` query specified in dashboard settings. The source events are not displayed in this option.
     </td>
     <td markdown="span">
       ![](/images/events_show_events_dashboard_settings.png)
@@ -110,7 +116,7 @@ Let's look at how you can view the events you added to the charts and dashboards
   </tr>
   <tr>
     <td markdown="span">
-       **From Chart & Dashboard**: Displays events based on the selection of the **Display Source Events** checkbox and the global `events()` query.
+       **From Chart & Dashboard**: Displays events based on the selection of the **Display Source Events** checkbox and the global `events()` query specified in dashboard settings.
     </td>
     <td markdown="span">
       ![](/images/events_show_events_charts_and_dashboards.png)
