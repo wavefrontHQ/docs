@@ -184,7 +184,7 @@ After you save the clone, you can find it by name from the **Dashboards** menu o
 
 ### Save Charts in the Service Dashboard
 
-You can view the query used in a chart and save a chart on the default service dashboard to your dashboard.
+View queries used in the charts of the default service dashboard and save these charts to your dashboard.
 
 <table style="width: 100%;">
   <tr>
