@@ -6,62 +6,28 @@ sidebar: doc_sidebar
 permalink: sources_managing.html
 summary: Learn about sources and how to manage them.
 ---
-A source is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS service properties or dimensions](integrations_aws_metrics.html#aws_sources).
+A source is a unique application, host, container, or instance that emits metrics. The source is explicitly set in the `source` field of a [Wavefront data format](wavefront_data_format.html) metric. For AWS integrations, the source is extracted from [AWS Cloud Watch service properties or dimensions](integrations_aws_metrics.html#aws_sources).
 
-
-[Wavefront Query Language](query_language_reference.html) supports filtering by source and filtering by source tags.
-
-
-
-To view and manage sources, select **Browse > Sources**.
+* To view and manage sources, select **Browse > Sources**.
+* To filter and group in charts, use the Wavefront query language. You can filter by source and [filter and group by source tags](tags_overview.html#source-tags).
 
 {% include shared/permissions.html entity="sources" entitymgmt="Source Tag" %}
 
-## Source Browser
+## Examine Sources in the Source Browser
 
-You can view and manage sources from the source browser. It is possible to hide sources. While hidden sources are removed from autocomplete, they can still be used in a query when data values are present.
+If you don't see metrics in charts that filter by source, you can examine sources in the Source browser.
 
+{% include note.html content="In contrast to metrics, Wavefront doesn't filter out sources that are older than 4 weeks. " %}
 
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
-<strong>To browse and manage source</strong>
-<ol>
-<li>Select <strong>Browse > Sources</strong>.</li>
-<li>Use the options on the left to narrow down your search.</li></ol></td>
-<td width="50%"><img src="/images/browse_sources.png" alt="browse sources"></td>
-</tr>
-</tbody>
-</table>
+### Step 1: Find a Source
 
-## Add and Edit Source Descriptions
-
-Source descriptions are a great way to add details, such as the role, availability zone, or running applications, to a source.
+When you select **Browse > Sources** the Sources browser offers many options to zoom in on the sources you're interested in.
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="50%">
-<strong>To add or edit a source description:</strong>
-<ol>
-<li>Select <strong>Browse > Sources</strong>.</li>
-<li>Select a source.</li>
-<li>Click <strong>Add a Description</strong>.</li></ol>
-All users can now view the description. </td>
-<td width="50%"><img src="/images/add_source_description.png" alt="add a source description"></td>
-</tr>
-</tbody>
-</table>
-
-## Obsolete, Recent Metrics, and Metrics Stopped Sources
-
-The Sources browser includes a Status option that lets you select sources by status.
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="50%">
+Filter sources by status. In contrast to metrics, sources are not excluded after 4 weeks of not reporting metrics, but you can filter sources by status.
 <ul>
 <li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for more than 4 weeks.</li>
 <li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. </li>
@@ -69,19 +35,31 @@ The Sources browser includes a Status option that lets you select sources by sta
 </ul> </td>
 <td width="50%"><img src="/images/sources_status.png" alt="hide sources"></td>
 </tr>
+<tr>
+<td width="50%">
+Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.</td>
+<td width="50%"><img src="/images/sources_tag_paths.png" alt="multiple tags for selection"></td>
+</tr>
 </tbody>
 </table>
 
-We support `~status` metrics that map to what you see in the UI:
+The following `~status` metrics map to what you see in the UI:
 * `~status.error` maps to **Obsolete**
 * `~status.new` and `~status.ok` map to **Recent Metrics**
 * `~status.stopped` maps to **Metrics Stopped**
 
+### Step 2: Examine the Source
 
+When you select a source in the Sources browser, you can examinine it in more detail on a second page.
+
+
+![Sources exploration page with 2 sources selected in left panel and charts created. Also highlighting point rate chart and Alerts Fired chart ](/images/sources_exploration.png)
 
 ## Hide and Unhide Sources
 
-With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down. When applying source filters to the Metrics browser or a ts() expression, this can lead to several sources being included in the autocomplete dropdown even when they are no longer reporting data. After 4 weeks of inactivity we remove those sources from the autocomplete dropdown, but you can also manually hide them from the UI or API.
+With more and more companies using dynamic services such as AWS, it's typical to have sources constantly being spun up and shut down.
+* In the Sources browser, all sources are included unless you explicitly exclude Obsolete sources.
+* In the Metrics browser or Query Editor, sources that haven't sent points for 4 weeks are no longer shown in the autocomplete dropdown. You can also manually hide sources by using the UI or API.
 
 {% include note.html content="While hidden sources are removed from the autocomplete dropdown, those sources can still be used in a ts() query when data values are present." %}
 
@@ -111,6 +89,22 @@ With more and more companies using dynamic services such as AWS, it's typical to
 </tbody>
 </table>
 
-## Managing Source Tags
 
-See [Organizing with Tags](tags_overview.html).
+## Add and Edit Source Descriptions
+
+Source descriptions are a great way to add details, such as the role, availability zone, or running applications, to a source.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<strong>To add or edit a source description:</strong>
+<ol>
+<li>Select <strong>Browse > Sources</strong>.</li>
+<li>Select a source.</li>
+<li>Click <strong>Add a Description</strong>.</li></ol>
+All users can now view the description. </td>
+<td width="50%"><img src="/images/add_source_description.png" alt="add a source description"></td>
+</tr>
+</tbody>
+</table>

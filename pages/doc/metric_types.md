@@ -14,6 +14,8 @@ Wavefront supports monitoring time series, histograms, and traces.
 * **[Wavefront histograms](proxies_histograms.html)** let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure–-particularly metrics that are gathered across many distributed sources.
 * **[Distributed tracing](tracing_basics.html)** enables you to track the flow of work that is performed by an application as it processes a user request. We support the OpenTracing standard. You can either visualize and examine traces coming from a 3rd-party system such as Jaeger or Zipkin, or instrument your application for tracing using one of our SDKs.
 
+{% include tip.html content="Wavefront co-founder Clement Pang recently wrote [a Medium article](https://medium.com/@clementpang/thoughts-from-the-front-line-why-wavefront-3d807e2106f) that explains different metric types and why they are so powerful." %}
+
 ## Summary of Metric Types
 
 The following table gives an overview of metric types. We introduce each type in more detail below.
@@ -107,7 +109,7 @@ Because requests normally consist of other requests, a trace actually consists o
 ## Learn More!
 
 Search this doc set for details on any of the metric types, or read this:
-* [Metrics and the Metrics Browser] examines the structure of a metric and explains how to use the Metrics Browser. 
+* [Metrics and the Metrics Browser] examines the structure of a metric and explains how to use the Metrics Browser.
 * [Cumulative Counters and Delta Counters](delta_counters.html) discusses the 2 kinds of counters that Wavefront supports and includes examples for both types.
 * [Histograms](proxies_histograms.html) are useful for distribution of metrics in high-velocity environment. We support a set of [query language functions just for histograms](query_language_reference.html#histogram-functions).
 * Our [Tracing UI](/tracing_ui_overview.html) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.
