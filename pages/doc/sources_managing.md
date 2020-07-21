@@ -17,7 +17,7 @@ A source is a unique application, host, container, or instance that emits metric
 
 If you don't see metrics in charts that filter by source, you can examine sources in the Source browser.
 
-{% include note.html content="In contrast to metrics, Wavefront doesn't filter out sources that are older than 4 weeks. " %}
+{% include note.html content="In the Sources browser Wavefront doesn't filter out sources that are older than 4 weeks." %}
 
 ### Step 1: Find a Source
 
