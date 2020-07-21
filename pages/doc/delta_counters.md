@@ -64,10 +64,9 @@ Delta counters make monitoring easy for this use case. The Wavefront service agg
 
 ## Using Delta Counters
 
-To use delta counters, you have several options:
-* Use the `cs()` function if you want to treat a set of metrics as delta counters.
-* Use one of our sample libraries. See <strong>SDKs</strong> below.
-* Send metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
+To use delta counters:
+* Always **send** metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
+* To **query** delta counter metrics, use `cs()` or an SDK:
 
 ### The cs() Function
 
