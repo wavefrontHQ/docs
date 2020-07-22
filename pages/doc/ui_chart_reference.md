@@ -1437,7 +1437,7 @@ Chart description which shows up as hover text when users move the mouse over th
 
 A pie chart shows the relative size of your data as pie slices. You can show either a pie chart or a donut chart. You can customize the width of the donut ring (by percentage) and, the percentile shown for the number, and more.
 
-The collage above shows both a pie chart and a donut chart for the same data. 
+The collage above shows both a pie chart and a donut chart for the same data.
 
 
 
@@ -1477,6 +1477,63 @@ us to aggregate the raw data values reported in each 30 second interval, and dis
 </tr>
 <tr><td>Max</td>
 <td>Allows you to filter the chart by value. Only values smaller than or equal to Max are shown. </td>
+</tr>
+</tbody>
+</table>
+
+<a id="line_plot_legend_tab">
+<p><span style="font-size: large; font-weight: 600">Legend Tab</span></p>
+
+Controls the legend displayed for the chart.
+
+When you look at the chart, you can also control the legend with these keyboard shortcuts:
+* **Shift-P** -- Pin the legend.
+* **Shift** -- Show detailed units in the legend.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Options</td>
+<td>You can select all or none of the Legend options.
+<ul>
+<li>Fixed Legend -- Even if you don't select this option, you can use Shift-P with the mouse cursor in the chart to add a fixed legend.  </li>
+<li>Non-summarized Stats -- Whether to report summarized or raw values for all metric values and statistics. When this setting is disabled, the legend reports summarized values according to the <strong>Summarization</strong> setting. </li>
+<li>Disable Legend on Hover -- Select to disable the legend on hover.   </li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>Position of the fixed legend.</td>
+</tr>
+<tr>
+<td>Display</td>
+<td>The values and statistics to display in the legend: current, mean, median, sum, min, max, and count.
+</td>
+</tr>
+<tr>
+<td>Filter</td>
+<td>The value and number of metrics displayed in the legend. Specify:
+<ul>
+<li>Top or Bottom</li>
+<li>Number of metrics</li>
+<li>Value or statistic</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Point Tag Display Options </td>
+<td>Offers these options:
+<ul><li>
+<strong>Show All</strong></li>
+<li><strong>Top X </strong>: Shows the top X (e.g. top 5) point tags.
+</li>
+<li><strong>Custom</strong>: Allows you to specify selected point tags.
+</li>
+</ul></td>
 </tr>
 </tbody>
 </table>
