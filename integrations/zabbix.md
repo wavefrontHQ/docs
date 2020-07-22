@@ -7,9 +7,12 @@ summary: Learn about the Wavefront Zabbix Integration.
 ## Zabbix Integration
 
 Wavefront provides a data adapter for Zabbix that allows you to easily send data to Wavefront. If you are already using Zabbix for monitoring, then you can use our adapter to send the same metrics to Wavefront without any configuration changes to your existing Zabbix environment. The Zabbix Database Adapter polls your Zabbix database at a configurable interval and sends new metrics to Wavefront.
-## Zabbix Setup
 
-Tested against Zabbix 2.2 with MySQL back end. The script is written in Python and has been tested on Python 2.7.6 and Python 3.4.0.
+In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a screenshot of the dashboard displaying Zabbix metrics.
+
+{% include image.md src="images/zabbix_dashboard.png" width="80" %}
+
+## Zabbix Setup
 
 
 
@@ -55,3 +58,85 @@ Metrics in Wavefront are strings separated by a . character, e.g. `system.cpu.lo
 
 The script saves the latest clock interval that it has processed in the files `last_history_clock.hist` and `last_historyuint_clock.hist` in the same working directory as the script is run from. The initial clock time is “now”. If you want to start retrieving values from some point in the past, create those files and enter your preferred start time.
 
+
+
+
+
+## Metrics
+  
+
+|Metric Name|Description|
+| :--- | :--- |
+|zabbix.agent.ping||
+|zabbix.kernel.maxfiles||
+|zabbix.kernel.maxproc||
+|zabbix.net.if.in.ens160||
+|zabbix.net.if.out.ens160||
+|zabbix.preprocessing_queue||
+|zabbix.proc.num||
+|zabbix.proc.num.run||
+|zabbix.process.alert.manager.avg.busy||
+|zabbix.process.alerter.avg.busy||
+|zabbix.process.configuration.syncer.avg.busy||
+|zabbix.process.discoverer.avg.busy||
+|zabbix.process.escalator.avg.busy||
+|zabbix.process.history.syncer.avg.busy||
+|zabbix.process.housekeeper.avg.busy||
+|zabbix.process.http.poller.avg.busy||
+|zabbix.process.icmp.pinger.avg.busy||
+|zabbix.process.poller.avg.busy||
+|zabbix.process.preprocessing.manager.avg.busy||
+|zabbix.process.preprocessing.worker.avg.busy||
+|zabbix.process.proxy.poller.avg.busy||
+|zabbix.process.self-monitoring.avg.busy||
+|zabbix.process.task.manager.avg.busy||
+|zabbix.process.timer.avg.busy||
+|zabbix.process.trapper.avg.busy||
+|zabbix.process.unreachable.poller.avg.busy||
+|zabbix.queue||
+|zabbix.queue.10m||
+|zabbix.rcache.buffer.pused||
+|zabbix.system.boottime||
+|zabbix.system.cpu.intr||
+|zabbix.system.cpu.load.percpu.avg1||
+|zabbix.system.cpu.load.percpu.avg15||
+|zabbix.system.cpu.load.percpu.avg5||
+|zabbix.system.cpu.switches||
+|zabbix.system.cpu.util.guest||
+|zabbix.system.cpu.util.guest_nice||
+|zabbix.system.cpu.util.idle||
+|zabbix.system.cpu.util.interrupt||
+|zabbix.system.cpu.util.iowait||
+|zabbix.system.cpu.util.nice||
+|zabbix.system.cpu.util.softirq||
+|zabbix.system.cpu.util.steal||
+|zabbix.system.cpu.util.system||
+|zabbix.system.cpu.util.user||
+|zabbix.system.localtime||
+|zabbix.system.swap.size.free||
+|zabbix.system.swap.size.pfree||
+|zabbix.system.swap.size.total||
+|zabbix.system.uptime||
+|zabbix.system.users.num||
+|zabbix.vcache.buffer.pused||
+|zabbix.vcache.cache.hits||
+|zabbix.vcache.cache.misses||
+|zabbix.vcache.cache.mode||
+|zabbix.vfs.file.cksum.etc.passwd||
+|zabbix.vfs.fs.inode.pfree||
+|zabbix.vfs.fs.size.free||
+|zabbix.vfs.fs.size.pfree||
+|zabbix.vfs.fs.size.total||
+|zabbix.vfs.fs.size.used||
+|zabbix.vm.memory.size.available||
+|zabbix.vm.memory.size.total||
+|zabbix.wcache.history.pused||
+|zabbix.wcache.index.pused||
+|zabbix.wcache.trend.pused||
+|zabbix.wcache.values||
+|zabbix.wcache.values.float||
+|zabbix.wcache.values.log||
+|zabbix.wcache.values.not.supported||
+|zabbix.wcache.values.str||
+|zabbix.wcache.values.text||
+|zabbix.wcache.values.uint||
