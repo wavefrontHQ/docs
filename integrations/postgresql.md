@@ -88,3 +88,42 @@ Create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter t
 
 Run `sudo service telegraf restart` to restart your agent.
 
+## Metrics
+
+For details about these metrics, see the [PostgreSQL Statistics Collector](https://www.postgresql.org/docs/current/monitoring-stats.html) documentation.
+
+|Metric Name|Description|
+| :--- | :--- |
+|postgresql.blk.*|Read and write time for a block.|
+|postgresql.blk.read.time||
+|postgresql.blk.write.time||
+|postgresql.blks.*|Number of blocks hit and read.|
+|postgresql.blks.hit||
+|postgresql.blks.read||
+|postgresql.buffers.*|Buffer metrics. |
+|postgresql.buffers.alloc||
+|postgresql.buffers.backend||
+|postgresql.buffers.backend.fsync||
+|postgresql.buffers.checkpoint||
+|postgresql.buffers.clean||
+|postgresql.checkpoint.*|Checkpoint metrics. |
+|postgresql.checkpoint.sync.time||
+|postgresql.checkpoint.write.time||
+|postgresql.checkpoints.req||
+|postgresql.checkpoints.timed||
+|postgresql.conflicts|Number of queries that were canceled due to recovery conflicts.|
+|postgresql.datid||
+|postgresql.deadlocks|Number of deadlocks.|
+|postgresql.maxwritten.clean|Number of times the background writer stopped a cleaning scan because it had written too many buffers.|
+|postgresql.numbackends|Number of buffers written directly by a backend.|
+|postgresql.temp.*|Temp metrics.|
+|postgresql.temp.bytes||
+|postgresql.temp.files||
+|postgresql.tup.*|Metrics for the number of rows deleted, fetched, inserted, etc.|
+|postgresql.tup.deleted||
+|postgresql.tup.fetched||
+|postgresql.tup.inserted||
+|postgresql.tup.returned||
+|postgresql.tup.updated||
+|postgresql.xact.commit|Number of committed transactions.|
+|postgresql.xact.rollback|Number of rolled back transactions. |
