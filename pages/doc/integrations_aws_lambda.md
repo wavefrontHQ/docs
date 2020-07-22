@@ -26,7 +26,7 @@ While it's convenient to stop worrying about function execution, you might want 
 
 ## How to Use Wavefront to Monitor AWS Lambda
 
-To support monitoring serverless environments, Wavefront supports [delta counter](delta_counters.html). With delta counters, Wavefront performs server-side aggregation. That eliminates metric point collisions during bursty traffic. See our blog [Monitoring Apps in the Serverless World](https://www.wavefront.com/monitoring-applications-in-the-serverless-world-part-1-of-2/)
+To support monitoring serverless environments, Wavefront includes a metric type called [delta counter](delta_counters.html). With delta counters, Wavefront points are aggregated to the minute bucket. That avoids point collisions.
 
 The Wavefront AWS Lambda Function integration and the SDKs listed above make it easy to collect standard metrics and custom metrics.
 
@@ -39,7 +39,7 @@ The Wavefront AWS Lambda Function integration and the SDKs listed above make it 
 <td>AWS Lambda standard metrics</td>
 <td markdown="span">We collect AWS Lambda standard metrics for you. You can see these metrics in the integration's dashboard, and use them in queries and alerts. 
 
-Some metrics are (cumulative) counters, others are delta counters. </td></tr>
+Some metrics are counters, others are delta counters. </td></tr>
 <tr>
 <td>AWS Lambda custom business metrics</td>
 <td markdown="span">The [AWS Lambda Functions integration](aws-lambda-functions.html) includes pointers to instructions for using Python, Go, or Node.js to retrieve business metrics for your Lambda function. </td></tr>

@@ -31,11 +31,21 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 </tbody>
 </table>
 
-The following illustration compares a counter and a delta counter.
-* The *counter* mycounter sends 3 data points to the Wavefront service. Wavefront stores each value with its timestamp. When you run a query, such as `integral()`, the Wavefront service fetches the stored values, aggregates them, and returns the result.
-* In the *delta counter* use case, a FaaS environment runs the function in multiple function invocation instances and sends the points to the Wavefront service. The Wavefront service aggregates the points and stores the result. When the user runs a query, the Wavefront service fetches the already aggregated value.
+### Example
 
-![counters_delta_counters](images/counter_delta_counter.png)
+The following illustration shows contrasts cumulative counters and delta counters:
+
+* Error data are being collectd. 15 errors in the first minute, 17 in the second, and 8 in the third.
+* The top row shows cumulative counter behavior:
+  - The running total of the errors (5, 17, 30) is ingested and stored. In many cases, the data actually come in like this.
+  - The `ts()` query shows a chart with values increasing over time.
+  - To get the rate (errors per second) we wrap the query with `rate()`
+* The bottom row shows delta counter behavior.
+  - The delta for the errors is ingested. In addition, all errors for 1 minutes are binned (not shown here).
+  - The `cs()` query shows a chart with the delta values.
+  - To get the rate (errors per second) we divide the query by 60. The result is the same as using `rate()` with the `ts()` query.
+
+![counter ingestion, query with ts and cs, and getting the rate for each. Detals in explanation](images/counters_and_delta_counters.png)
 
 ### Where Are Cumulative Counters Useful?
 
@@ -104,16 +114,6 @@ ALT_DELTA_PREFIX = u"\u0394"
 
 {% include note.html content="In queries, you don't have to specify the delta character prefix. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`." %}
 
-### Best Practices
-
-Delta counters are like other counters in many ways.
-* You can apply query language functions such as `rate()` to a delta counter.
-* You can create alerts that use delta counters in the condition, for example, to monitor whether the counter goes beyond a certain threshold.
-
-
-Delta counters have some special characeristics.
-* The timestamp of a delta counter is the time at which the point was *aggregated* by the Wavefront service. For regular counters, the timestamp is the time when the point is *emitted*.
-* If the source for your delta counters stops reporting, Wavefront continues reporting once a minute for 1 hour. If the source does not report for an hour, Wavefront resets the delta counter to 0, stops aggregating, and stops reporting.
 
 ## Using Cumulative Counters
 
