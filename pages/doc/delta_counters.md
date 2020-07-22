@@ -20,7 +20,7 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 <tr><th width="20%">Type</th><th width="60%">Description</th><th width="20%">Function</th></tr>
 </thead>
 <tr><td>Cumulative counter</td>
-<td markdown="span">Counters that increase in value over time, for example, the total number of errors or bytes received. 
+<td markdown="span">Counters that increase in value over time, for example, the total number of errors or bytes received.
 </td>
 <td><strong>ts()</strong> </td></tr>
 <tr>
@@ -84,9 +84,22 @@ If you use the `cs()` function (instead of the `ts()` function) with a query, Wa
 * Bin to a minute timestamp
 * Treat write operations to the same bin as deltas.
 
-### SDKs
+### SDKs and Examples
 
 You can use our SDKs to make your metric a delta counter.
+
+<strong>SDKs</strong>
+
+
+Java - [Wavefront Dropwizard Metrics SDK](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
+Java - [Spring Micrometer](https://micrometer.io/)
+C# - [Wavefront App Metrics Reporter](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)
+Python - [wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)
+Go - [go-metrics-wavefront](https://github.com/wavefrontHQ/go-metrics-wavefront)
+
+<strong>Examples</strong>
+
+The following SDKs have explicit examples for delta counters.
 
 **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
   - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
