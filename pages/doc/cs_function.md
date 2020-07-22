@@ -33,8 +33,6 @@ The `cs()` function returns one or more delta counter time series.
 * A time series is a sequence of data points that each consists of a data value and a timestamp. Every time series is identified by a unique combination of metric name, source name, and point tag values.
 * [Delta counters](delta_counters.html) bin to a minute timestamp and treat write operations to the same bin as deltas.
 
-Delta counters are especially well suited to function-as-a-service environments, or generally to situations with extremely large amounts of metrics.
-
 You can group and filter `cs()` time series, just like [ts() time series](ts_function.html), to limit the search space.
 
 ## Examples

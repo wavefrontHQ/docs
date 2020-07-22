@@ -20,7 +20,7 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 <tr><th width="20%">Type</th><th width="60%">Description</th><th width="20%">Function</th></tr>
 </thead>
 <tr><td>Cumulative counter</td>
-<td markdown="span">For monitoring over long periods of time, where a small number of metrics lost to collision are not a problem.
+<td markdown="span">Counters that increase in value over time, for example, the total number of errors or bytes received. 
 </td>
 <td><strong>ts()</strong> </td></tr>
 <tr>
