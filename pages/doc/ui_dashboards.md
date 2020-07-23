@@ -278,16 +278,19 @@ For each dashboard, you can customize display preferences.
 <tr>
 <td width="40%">
 <strong>To set the dashboard display preferences</strong>:
-<ol><li>Display a dashboard and select <strong>Edit</strong>. </li>
+<ol><li>Navigate to a dashboard, click the ellipsis menu in the top right corner of the dashboard.</li>
+<li>Click <strong>Edit</strong>. </li>
 <li>Click <strong>Settings</strong>.</li>
 <li>Make selections in the dialog:
 <ul><li>Set the default time window. You can later override the time window.  </li>
-<li>Hide the variables for the dashboard by default. Users can still show the variables bar using the icon.  </li>
+<li>Hide the variables for the dashboard by default. Users can still show the variables bar using the <img src="/images/show_hide_variable_icon.png"
+style="vertical-align:text-bottom;width:25px" alt="show hide variable icon" /> icon.  </li>
+<li>Display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
+For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#specifying-an-events-query-for-a-dashboard">Controlling Events Overlays</a>
+</li>
 </ul>
 </li>
 <li>Click <strong>Accept</strong>, and click <strong>Save</strong> </li>
-<li>Optionally, you can display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
-For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#controlling-event-overlays">Controlling Events Overlays</a>.</li>
 </ol></td>
 <td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
 </tr>
