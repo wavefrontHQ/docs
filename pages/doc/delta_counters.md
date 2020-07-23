@@ -90,23 +90,20 @@ You can use our SDKs to make your metric a delta counter.
 
 <strong>SDKs</strong>
 
-
-Java - [Wavefront Dropwizard Metrics SDK](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
-Java - [Spring Micrometer](https://micrometer.io/)
-C# - [Wavefront App Metrics Reporter](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)
-Python - [wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)
-Go - [go-metrics-wavefront](https://github.com/wavefrontHQ/go-metrics-wavefront)
+* Java - [Wavefront Dropwizard Metrics SDK](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
+* Java - [Spring Micrometer](https://micrometer.io/)
+* C# - [Wavefront App Metrics Reporter](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)
+* Python - [wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)
+* Go - [go-metrics-wavefront](https://github.com/wavefrontHQ/go-metrics-wavefront)
 
 <strong>Examples</strong>
 
-The following SDKs have explicit examples for delta counters.
-
-**AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
+* **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
   - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
   - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
   - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
 
-**Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/wavefront-pyformance).
+* **Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/wavefront-pyformance).
 
 
 ### Delta Counter Proxy Configuration Properties
