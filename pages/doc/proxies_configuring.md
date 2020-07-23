@@ -544,26 +544,26 @@ Ex: 0 </td>
 Sets the headroom multiplier for traffic shaping when there's backlog.  
 <br/>Default: 1.15 (15% headroom)
 </td>
-<td>Number from 1.0 to 1.99 <br/>Ex: 1.05 (5% headroom) </td>
+<td>Number from 1.0 to 1.99 <br/>Ex: 1.05 (5% headroom) <a name="sqsBuffer"></a></td>
 <td>9.0</td>
 </tr>
 <tr>
-<td>sqsBuffer</td>
+<td>sqsBuffer </td>
 <td>Use AWS SQS for buffering transmissions. 
  <br/>Default: false</td>
-<td>true or false</td>
+<td>true or false <a name="sqsQueueNameTemplate"></a></td>
 <td>9.0</td>
 </tr>
 <tr>
 <td>sqsQueueNameTemplate</td>
 <td>The replacement pattern for naming the SQS queues.</td>
-<td>Ex: <code>wf-proxy-&#123;&#123;id&#125;&#125;-&#123;&#123;entity&#125;&#125;-&#123;&#123;port&#125;&#125;</code> results in a queue named <code>wf-proxy-id-points-2878</code> </td>
+<td>Ex: <code>wf-proxy-&#123;&#123;id&#125;&#125;-&#123;&#123;entity&#125;&#125;-&#123;&#123;port&#125;&#125;</code> results in a queue named <code>wf-proxy-id-points-2878</code>  <a name="sqsQueueIdentifier"></a></td>
 <td>9.0</td>
 </tr>
 <tr>
 <td>sqsQueueIdentifier</td>
 <td>An identifier for identifying the proxies in SQS.</td>
-<td>A string <br/> Ex: wavefront </td>
+<td>A string <br/> Ex: wavefront <a name="sqsQueueRegion"></a></td>
 <td>9.0</td>
 </tr>
 <tr>
@@ -936,12 +936,16 @@ Ex: 40</td>
 
 If the Wavefront proxy is unable to post received data to the Wavefront servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Wavefront servers is available again. If this buffering occurs, you'll see lines like this in `wavefront.log`:
 
-    2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
+```
+2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
+```
 
 By default, there are 4 threads (and 4 buffer files) waiting to retry points once the connections are up; this line shows how many blocks of points have been stored by each thread (in this case, the first thread has 1 block of queued points, while the second, third, and fourth threads all have 0 blocks). These lines are only printed when there are points in the queue; you'll never see a line with all 0's in the queue sizes. Once the connection to the Wavefront servers has been established, and all the threads have sent the past data to us, you'll see a single line like this in `wavefront.log`:
 
-    2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
-    
+```
+2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
+```
+{% include note.html content="If you have an AWS Simple Queue Service (SQS), you can add an SQS for the proxy so that the data is not lost when there is a data outage or when proxies are backing up. To send data to an AWS SQS, configure the [`sqsBuffer`](#sqsBuffer), [`sqsQueueNameTemplate`](#sqsQueueNameTemplate), [`sqsQueueIdentifier`](#sqsQueueIdentifier), and [`sqsQueueRegion`](#sqsQueueRegion) properties in the `<wf_config_path>/wavefront.conf` file." %}
 
 ## Logging
 
