@@ -70,6 +70,7 @@ You define the proxy preprocessor rules in a rule configuration file, usually `<
     </div>
 
     <div role="tabpanel" class="tab-pane" id="beta">
+    <p> The proposed preprocessor rules, which are in the BETA stage, are a simpler version of the current preprocessor rules in Wavefront.</p>
       <pre>
 # rules for port 2878
 '2878':
