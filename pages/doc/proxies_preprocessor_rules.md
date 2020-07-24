@@ -24,7 +24,13 @@ You can optionally limit when a rule applies using the `if` parameter (proxy 7.0
 
 You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify rule filenames in your [proxy configuration](proxies_configuring.html#proxy-configuration). An example rule file could look like this:
 
-```yaml
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#current" data-toggle="tab">Current Preprocessor Rule Format</a></li>
+    <li><a href="#beta" data-toggle="tab">Preprocessor Rule Format in BETA</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="current">
+        <pre>
 # rules for port 2878
 '2878':
   # replace bad characters ("&", "$", "!", "@") with underscores in the entire point line string
@@ -35,27 +41,59 @@ You define the proxy preprocessor rules in a rule configuration file, usually `<
     search  : "[&\\$!@]"
     replace : "_"
 
-  #  remove "az" point tag if its value starts with "dev"
-  ################################################################
-  - rule    : drop-az-tag
-    action  : dropTag
-    tag     : az
-    match   : dev.*
-
 # rules for port 4242
 '4242':
-  #  remove "az" point tag if its value starts with "dev"
+  #  set debug to true if the test includes the source name production, has metrics that starts 
+  with foometrics or foometric.prod.
   ################################################################
-  - rule    : drop-az-tag
-    action  : dropTag
-    tag     : az
-    match   : dev.*
+  - rule: test-allow
+  action: allow
+  if:
+    all:
+      - any:
+        - all:
+          - contains:
+              scope: sourceName
+              value: "prod"
+          - startsWith
+              scope: metricName
+              value: "foometric."
+        - startsWith:
+            scope: metricName
+            value: "foometric.prod."
+       - none:
+         - equals:
+             scope: debug
+             value: ["true"]
+        </pre>
+        <p>You can define separate rules for each listening port.  The example above defines rules for port 2878  and port 4242.</p>
+    </div>
 
-  ...
-```
+    <div role="tabpanel" class="tab-pane" id="beta">
+      <pre>
+# rules for port 2878
+'2878':
+  # replace bad characters ("&", "$", "!", "@") with underscores in the entire point line string
+  ################################################################
+  - rule    : replace-badchars
+    action  : replaceRegex
+    if: (&#123;&#123;pointLine&#125;&#125; contains “[&\\$!@]”) replaceWith “_”
+  
+# rules for port 4242
+'4242':
+  #  set debug to true if the test includes the source name production, has metrics that starts 
+  with foometrics or foometric.prod.
+  ################################################################
+  - rule: test-allow
+  action: allow
+  if: > 
+        ((&#123;&#123;sourceName&#125;&#125; contains “prod” and &#123;&#123;metricName&#125;&#125; startsWith “foometric.”) 
+         or &#123;&#123;metricName&#125;&#125; startsWith “fooMetric.prod.”) and not &#123;&#123;debug&#125;&#125; = “true”
 
-You can define separate rules for each listening port.  The example above defines 2 rules for port 2878 and 1 rule for port 4242.
-
+    </pre>
+    <p>You can define separate rules for each listening port.  The example above defines rules for port 2878 and port 4242.</p>
+    </div>
+  </div>
 
 ### Rule Parameters
 

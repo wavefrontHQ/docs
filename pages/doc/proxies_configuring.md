@@ -945,7 +945,7 @@ By default, there are 4 threads (and 4 buffer files) waiting to retry points onc
 ```
 2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
 ```
-{% include note.html content="If you have an AWS Simple Queue Service (SQS), you can add an SQS for the proxy so that the data is not lost when there is a data outage or when proxies are backing up. To send data to an AWS SQS, configure the [`sqsBuffer`](#sqsBuffer), [`sqsQueueNameTemplate`](#sqsQueueNameTemplate), [`sqsQueueIdentifier`](#sqsQueueIdentifier), and [`sqsQueueRegion`](#sqsQueueRegion) properties in the `<wf_config_path>/wavefront.conf` file." %}
+{% include note.html content="**BETA**: If you have an AWS Simple Queue Service (SQS), you can add an SQS for the proxy so that the data is not lost when there is a data outage or when proxies are backing up. To send data to an AWS SQS, configure the [`sqsBuffer`](#sqsBuffer), [`sqsQueueNameTemplate`](#sqsQueueNameTemplate), [`sqsQueueIdentifier`](#sqsQueueIdentifier), and [`sqsQueueRegion`](#sqsQueueRegion) properties in the `<wf_config_path>/wavefront.conf` file." %}
 
 ## Logging
 
