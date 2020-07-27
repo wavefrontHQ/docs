@@ -44,7 +44,7 @@ For example, you could use an expression such as `between(weekday("America/Chica
 
 **Example 1: Showing Days of the Week**
 
-This chart shows data for several weeks. 1 represents Sunday and 7 represents Saturday.
+This chart shows data for several weeks. 1 represents Monday and 7 represents Sunday.
 ![weekday](images/ts_weekday.png)
 
 **Example 2: Defining an Alert that Fires on Particular Days**
