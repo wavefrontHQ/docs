@@ -392,13 +392,13 @@ You can perform queries over [RED metric counters and histograms](#red-metric-co
 Find at the per-minute error rate for a specific operation executing on a specific cluster:
 
 ```
-rate(ts(tracing.derived.beachshirts.shopping.orderShirts.error.count and cluster=us-east-1)) * 60
+cs(tracing.derived.beachshirts.shopping.orderShirts.error.count and cluster=us-east-1)
 ```
 
 Find the per-minute error rate for traces that begin with a specific operation:
 
 ```
-rate(ts(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)) * 60
+cs(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)
 ```
 
 Use a [histogram query](visualize_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
@@ -412,11 +412,11 @@ percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.
 Wavefront supports 2 alternatives for specifying the RED metric counters and histograms in a query:
 * Use the metric name, for example:
   ```
-  ts(tracing.derived.beachshirts.delivery.dispatch.error.count)
+  cs(tracing.derived.beachshirts.delivery.dispatch.error.count)
   ```
 * Use the point tags `application`, `service`, and `operationName` that Wavefront automatically associates with the metric, for example:
   ```
-  ts(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
+  cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
   ```
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
