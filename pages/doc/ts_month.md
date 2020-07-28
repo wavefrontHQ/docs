@@ -8,7 +8,7 @@ summary: Reference to the month() function
 ---
 ## Summary
 ```
-month(<timeZone>)
+month(<timeZone> [,<tsExpression])
 ```
 Returns the month of the year in the specified time zone.
 
@@ -22,6 +22,10 @@ Returns the month of the year in the specified time zone.
 <td markdown="span">
 String identifier or alias for a time zone, such as `"US/Pacific"`. Names are case sensitive and must be enclosed in quotes. For a list of valid time zone identifiers and their aliases, see  [http://joda-time.sourceforge.net/timezones.html](http://joda-time.sourceforge.net/timezones.html).
 </td></tr>
+<tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Optional expression to which you want to apply this function. </td>
+</tr>
 </tbody>
 </table>
 

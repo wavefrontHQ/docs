@@ -6,8 +6,74 @@ summary: Release Notes Archive for older Wavefront proxy versions.
 ---
 This page gives an overview of changes for older Wavefront proxy releases.
 
-* For information on recent versions, see the [Wavefront Proxy Release Notes](proxies_versions.html)
-* For details, see the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases).
+{% include note.html content="Starting with Version 9, the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases) is the single source of truth for proxy release notes. We no longer update this archive. " %}
+
+## Version 8.2 (See Github for Newer Versions!)
+
+Miscellaneous improvements including three new parameters support incoming TLS connections. See the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases) for details.
+
+See [Proxy Custom Install with Incoming TLS/SSL](proxies_manual_install.html#proxy-custom-install-with-incoming-tlsssl) for details.
+
+## Version 7.0
+
+- The Wavefront proxy listener port (2878) can now be used as a direct ingestion endpoint for all data (metrics, histograms, spans/span logs)
+- New preprocessor features:
+  * conditional logic for rules with [`if` parameter](proxies_preprocessor_rules.html#limit-when-a-rule-applies-if-operator).
+  * global and multi-port rules
+  * interactive rules tester
+- New proxy installs use Java 11 runtime
+
+
+## Version 6.1
+
+- Significantly improved data parsing performance and throughput.
+- Redesigned and improved storage engine for spooling data to disk.
+  {% include note.html content="Proxy 6.1 and later stores spooled data differently from previous versions. If the proxies in your environment have accumulated a substantial backlog, drain the backlog before upgrading to version 6.1 or later." %}
+- New custom tracing listener port and configurations added to the [Wavefront proxy configuration file](proxies_configuring.html).
+- [Jaeger integration can now receive data via HTTP](proxies_configuring.html#traceJaegerHttpListenerPorts).
+- Log blocked points for [histograms and spans into separate log files](proxies_configuring.html#logging).
+- [Ability to export data that is queued at the proxy](proxies_installing.html#export-data-queued-at-the-proxy).
+- Deprecated configuration options:
+  - `retryThreads` configuration option is deprecated as it is no longer applicable to the new storage engine.
+  - `pushLogLevel` configuration option is deprecated as logging levels are configured through log4j2 configurations.
+
+## Version 5.7
+
+- Miscellaneous improvements and bug fixes.
+- New [proxy preprocessor rule](proxies_preprocessor_rules.html) `spanRenameTag`.
+
+## Version 5.5
+
+- Proxy version 5.1 had an issue with brand new non-containerized installs due to incorrect default location for buffer files. This release fixes that problem.
+
+## Version 5.1
+
+This version includes support for the following new functionality:
+
+- Support for span logs. Both proxy version 5.1 and Wavefront service version 2019.30 or later are required for span logs.
+- Delta counter aggregation at the proxy. Previously, only the service performed delta counter aggregation.
+- New `add` functionality when [sending SourceTag or SourceDescription directly to the proxy](tags_overview.html#manage-sourcetag-and-sourcedescription-properties-at-the-proxy).
+- Hot reload for proxy preprocessor rules. Proxy checks for changes to the file every 5 seconds, so proxy restart is no longer required.
+- Several bug fixes and improvements related to ingestion and tracing.
+
+## Version 4.38
+
+* Wavefront histogram support for log ingestion
+* Support HTTP payloads for raw log ingestion
+* Miscellaneous bug fixes
+
+## Version 4.36
+* Generate RED metrics from tracing spans.
+
+## Version 4.35
+* First class integration for Zipkin. Anyone using Zipkin can substitute a Wavefront proxy for the Zipkin HTTP collector to send data to Wavefront.
+* Fixes minor Jaeger integration issues.
+
+## Version 4.34
+* Support for trace sampling.
+
+## Version 4.33
+* First class integration for Jaeger. Anyone using Jaeger can point their agent to the Wavefront proxy instead of the Jaeger collector to send data to Wavefront.
 
 
 ## Version 4.32

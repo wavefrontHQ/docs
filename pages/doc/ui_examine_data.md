@@ -42,11 +42,16 @@ All users can customize their dashboards. Learn how to find a section, filter us
 ![dashboard browser annotated](images/dashboard_browser.png)
 
 
-## Set the Dashboard Time Window
+## Set the Time Window
 
-By default dashboards show a two-hour time window in each chart, and display real-time (live) data. Charts are updated every 30s. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+By default, dashboards:
+* Show a two-hour time window in each chart. You can configure the default time window as part of the [Dashboard Display Preferences](ui_dashboards.html#set-dashboard-display-preferences).
+* Display real-time (live) data.
+* Update charts every 30s.
 
 You can select a larger or smaller time window or view past data instead of real-time data with the time bar controls.
+
+{% include note.html content="When you change the time window, the refresh rate changes as well. For example, if you select a 10 minute time window, the charts in the dashboard refresh every second." %}
 
 **To change the dashboard time window:**
 
@@ -189,6 +194,23 @@ The **Show Events** dropdown in the middle of the time bar allows you to overlay
 ![time window](images/display_events_v2.png)
 
 See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
+
+## Export to PDF
+
+Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">For any chart, <strong>Export PDF</strong> is now available from the ellipsis menu in the top right. </td>
+<td width="50%"><img src="/images/export_pdf_dashboard.png" alt="Export PDF from dashboard"/> </td>
+</tr>
+<tr>
+<td width="50%">Click on the chart name and select the <strong>Export PDF</strong> icon in the top right. </td>
+<td width="50%"><img src="/images/export_pdf_chart.png" alt="Export PDF from chart"/></td>
+</tr>
+</tbody>
+</table>
 
 ## Do More!
 

@@ -41,7 +41,7 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 
 ## Description
 
-The `default()` function allows you to specify the value that you would like to assign to gaps of missing data on a chart. This is the only missing data function that allows you to specify the value you’d like to assign to gaps of missing data.
+The `default()` function allows you to specify the value that you would like to assign to gaps of missing data on a chart. This is the only missing data function that allows you to specify the value you’d like to assign to gaps of missing data. The `default()` function only fills the gaps after a data point, not after a given timestamp.
 
 For the simplest case, you can use `default()` to set the default value of a query to 0 if the specified metric does not exist:
 

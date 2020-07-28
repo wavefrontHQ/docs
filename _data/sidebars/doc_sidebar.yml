@@ -27,10 +27,6 @@ entries:
       output: web
 
     - title: "Intro Videos"
-      url: /videos_howto_start.html
-      output: web
-
-    - title: "Basic Concepts Videos"
       url: /videos_quickstart.html
       output: web
 
@@ -70,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2020-22.x Release Notes
+      url: /2020.22.x_release_notes.html
+      output: web
+
     - title: 2020-14.x Release Notes
       url: /2020.14.x_release_notes.html
       output: web
@@ -84,10 +84,6 @@ entries:
 
     - title: 2019-52.x Release Notes
       url: /2019.52.x_release_notes.html
-      output: web
-
-    - title: 2019-46.x Release Notes
-      url: /2019.46.x_release_notes.html
       output: web
 
     - title: Wavefront Proxy Release Notes
@@ -228,6 +224,10 @@ entries:
 
     - title: Manage External Links
       url: /external_links_managing.html
+      output: web
+
+    - title: Access and Examine External Logs
+      url: /log_integration.html
       output: web
 
   - title: Query Language
@@ -483,6 +483,10 @@ entries:
         url: /wavefront_kubernetes.html
         output: web
 
+      - title: Kubernetes FAQ
+        url: /wf_kubernetes_faq.html
+        output: web
+
       - title: Kubernetes Videos
         url: /videos_kubernetes.html
         output: web
@@ -662,7 +666,7 @@ entries:
 
       - title: "Basic Concepts Videos"
         url: /videos_quickstart.html
-        output: web  
+        output: web
 
       - title: Wavefront and Data Videos
         url: /videos_data.html

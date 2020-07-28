@@ -90,7 +90,16 @@ You use an expression to describe the set of time series to be aggregated. When 
 
 ## Grouping the Aggregation Results
 
-Each aggregation function accepts a 'group by' parameter that allows you to subdivide the input time series into groups, and request separate aggregates for each group. The chart displays a separate line corresponding to each group. For example, you can use a 'group by' parameter with `sum()` or `rawsum()` produce a separate subtotal for each group of time series that are reported from a common source. The chart for such a query displays one line corresponding to each source. When used without a 'group by' parameter, an aggregation function returns a single series of results.
+Each aggregation function accepts a 'group by' parameter that allows you to subdivide the input time series into groups, and request separate aggregates for each group.
+
+A chart displays a separate line for each group when you use a 'group by' parameter with an aggregation function. For example, assume your environment uses an `az` point tag to group by availability zone. You call:
+```
+sum(ts(~sample.cpu.loadavg.1m), az)
+```
+The call groups the result of the call to `sum()` into two time series, one for each availability zone.
+
+
+{% include note.html content="Wavefront has supported grouping by using an implicit parameter from the beginning. Starting with release 2020.22.x, we also support an explicit `by` parameter and an explicit `without` parameter." %}
 
 <table>
 <tbody>
@@ -111,7 +120,7 @@ Each aggregation function accepts a 'group by' parameter that allows you to subd
 
 <tr>
 <td markdown="span">**sourceTags**</td>
-<td markdown="span">Group the series that are reported from sources with the same source tag names. A source tag is used only if it is explicitly specified in the ts() expression.</td>
+<td markdown="span">Group the series that are reported from sources with the same source tag names. A source tag is valid <strong>only</strong> if it is explicitly specified in the ts() expression.</td>
 <td markdown="span">`sum(ts(cpu.loadavg.1m, tag=prod or tag=db),sourceTags)`</td>
 </tr>
 
@@ -128,6 +137,19 @@ Each aggregation function accepts a 'group by' parameter that allows you to subd
 </tr>
 </tbody>
 </table>
+
+### Grouping with `by` or `without`
+
+Starting with release 2020.22.x, the query line supports two new keywords:
+* The `by` keyword has the same result as the comma in a query. The following two queries are equivalent:
+```
+sum(ts(~sample.cpu.loadavg.1m), az, sources)
+sum(ts(~sample.cpu.loadavg.1m) by (az, sources))
+```
+
+* The `without` keyword allows you to group by all possible group by parameters except for those listed. The following example groups by all available grouping parameters *except for* sources and source tags. In this case, that means grouping by the two point tag keys `az` and `env`.
+
+![group without example](images/group_without.png)
 
 ### A Closer Look at the `sourceTags` Parameter
 

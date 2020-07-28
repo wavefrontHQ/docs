@@ -37,7 +37,7 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefro
 
 You can deploy the adapter using helm or kubectl. See the [reference documentation](https://istio.io/docs/reference/config/policy-and-telemetry/adapters/wavefront/) for available configuration parameters.
 
-* Helm: The preferred way to deploy the adapter. See the [helm quick start](https://github.com/vmware/wavefront-adapter-for-istio/tree/master/install/wavefront#quick-start) for details.
+* Helm: The preferred way to deploy the adapter. See the [Helm Hub](https://hub.helm.sh/charts/wavefront/wavefront-adapter-for-istio) for details.
 * kubectl: See the [standard installation](https://github.com/vmware/wavefront-adapter-for-istio#standard-installation) instructions.
 
 You have to update the `source` parameter to your cluster or application name. How you do that depends on whether you use the proxy or direct ingestion:

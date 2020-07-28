@@ -8,7 +8,7 @@ summary: Reference to the isToday() function
 ---
 ## Summary
 ```
-isToday(<timeZone>)
+isToday(<timeZone> [,<tsExpression])
 ```
 Tests for the current day in the specified time zone.
 ## Parameters
@@ -21,6 +21,10 @@ Tests for the current day in the specified time zone.
 <td markdown="span">
 String identifier or alias for a time zone, such as `"US/Pacific"`. Names are case sensitive and must be enclosed in quotes. For a list of valid time zone identifiers and their aliases, see  [http://joda-time.sourceforge.net/timezones.html](http://joda-time.sourceforge.net/timezones.html).
 </td></tr>
+<tr>
+<td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
+<td>Optional expression to which you want to apply this function. </td>
+</tr>
 </tbody>
 </table>
 
@@ -32,7 +36,6 @@ The `isToday()` standard time function test whether the times shown on the chart
 `isToday()` automatically adjusts its return values for daylight savings time.
 
 `isToday()` is particularly useful when you want to see data values that are reported only on the current day.
-
 
 
 ## Examples

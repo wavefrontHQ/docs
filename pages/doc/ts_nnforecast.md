@@ -42,7 +42,7 @@ In charts, we adjust the time window so that you see the forecast in 1/3 of the 
 
 ![nnforecast example](images/ts_nnforecast_new.png)
 
-If the function cannot find enough historical data to produce a forecast for the requested period, then the function returns no result.
+The historical period has to be at least 2x the forecast period. If the function cannot find enough historical data to produce a forecast for the requested period, then the function returns no result.
 
 ## Examples
 

@@ -6,25 +6,23 @@ sidebar: doc_sidebar
 permalink: external_links_managing.html
 summary: Learn how to manage external links.
 ---
-External links provide integration between Wavefront and external systems. If you use logging systems such as Scalr, ELK, or Splunk, you can construct a meaningful URL to navigate from Wavefront to a log entry.
+External links provide integration between Wavefront and external systems.
+* **External links** are general purpose: you can link through to any type of system accessible from a URL.
+* The **Log integration** lets you drill down from a Wavefront time series to a log entry in a logging system such as Scalyr, ELK, or Splunk. See [Access and Examine External Logs](log_integration.html) for details.
 
-Here's a video to get you started:
+
+Here's a video to get you started with external links:
 
 <p><a href="https://youtu.be/oufjL7nM0LQ"><img src="/images/v_external_links.png" style="width: 700px;"/></a>
 </p>
 
-Suppose while analyzing metrics data you find an anomaly such as an unexpected drop in transaction rate. You want to look at corresponding log entries. External links allow you to click through from a Wavefront series directly to a related entry in your
-logging system.
 
-External links are general purpose: you can link through to any type of system accessible from a URL, not just logs.
-
-
-<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to [manage](external_links_managing.html) external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
+<div markdown="span" class="alert alert-info" role="alert">While every Wavefront user can view external links, you must have [External Links Management permission](permissions_overview.html) to manage external links. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible.</div>
 
 ## Navigate to an External Link
 
 All users can use the right-click menu on a time series to navigate to an external link.
-* By default, the external link shows up on all time series.
+* By default, the external link shows up on all the time series.
 * If the creator of the external link specified a filter, the **External Link** menu only shows the link on specified time series.
 
 **To navigate to an external link:**
@@ -40,8 +38,8 @@ Users with **External Links** permission can create and modify external links.
 1. Select **Browse > External Links**.
 1. Click **Create External Link**.
 1. Specify a link name and description.
-2. Specify the [Link URL template]().
-3. (Optional) If you want to limit which series show the external link, [specify a filter]. a Javascript regular expression that the series must match. For example, if you specify a point tag filter of `env=production`, then only series with that point tag filter show that external link option on the right-button menu.
+2. Specify the [Link URL template](#link-url-template-syntax).
+3. (Optional) Specify a filter to limit the external link from showing on a time series. For example, if you specify a point tag filter of `env=production`, you will only see the specified external link when you right click on a time series that has data related to that point tag.
 4. Click **Save**.
 
 ### Link URL Template Syntax
@@ -58,11 +56,11 @@ The link URL template uses [Mustache syntax](https://mustache.github.io/). The t
     </tr>
     <tr>
     <td>startEpochMillis</td>
-    <td>Starting time of the chart window, in milliseconds from the UNIX epoch.</td>
+    <td>Start time of the chart window, in Epoch time.</td>
     </tr>
     <tr>
     <td>endEpochMillis</td>
-    <td>Ending time of the chart window, in milliseconds from the UNIX epoch.</td>
+    <td>End time of the chart window, in Epoch time.</td>
     </tr>
     <tr>
     <td>&lt;pointTagName1&gt;, &lt;pointTagName2&gt;,...</td>
@@ -185,7 +183,7 @@ Filters are optional but allow you to show the external link only on certain tim
 
 ### Filter Regex Example
 
-When you specify a filter, only time series that match the filter show the right-button menu for the external link.
+When you specify a filter, only time series that match the filter shows the external link option.
 
 The following screenshot shows an example that specifies all three types of filters.
 

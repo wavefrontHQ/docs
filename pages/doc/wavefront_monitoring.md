@@ -58,7 +58,10 @@ These charts use the following metrics:
 
    For example, use `~externalservices.ec2.points` for the EC2 points.
    - `externalservices.points.reported` -- shows how you get billed for external services.
-- **Data Scan Rate** - `~query.summaries_scanned`, the per second rate at which data points are being queried out of Wavefront through dashboards, alerts, custom charts, or API calls.
+- **Data Scan Rate**
+  - `~query.summaries_scanned`, the per-second rate at which metrics are being queried through dashboards, custom charts, or API calls.
+  - `~query.spans_scanned`, the per-second rate at which spans are being queried through dashboards, custom charts, or API calls.
+  - `~query.histograms_scanned`, the per-second rate at which histograms are being queried through dashboards, custom charts, or API calls
 
 
 ### Wavefront Stats
@@ -93,7 +96,7 @@ The metrics used in this section are:
 
 If you're interested in histogram ingestion by source, clone this dashboard and add a chart that uses the `~histogram.counter` metric.
 
-- `~histogram.counter` - Number of histograms being collected. Does not include internal histogram data.  
+- `~histogram.counter` - Number of histograms being collected. Does not include internal histogram data.
 
 ## Using Internal Metrics to Optimize Performance
 

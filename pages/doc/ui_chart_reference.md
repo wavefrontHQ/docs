@@ -71,7 +71,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="line_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -95,7 +95,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -231,7 +231,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="point_plot_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -255,7 +255,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -412,7 +412,7 @@ The following stack types are supported.
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -436,7 +436,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -579,7 +579,7 @@ You can also use events() queries to <a href="charts_events_displaying.html">Dis
 <a id="stacked_column_axis_tab">
 <p><span style="font-size: large; font-weight: 600">Axis Tab</span></p>
 
-The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use ICE/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
+The Axis tab lets you customize the Y axis. The customization is the same for both Line Plot and Point Plot. See [Use a Logarithmic Y Axis for Skewed Data](ui_charts.html#use-a-logarithmic-y-axis-for-skewed-data) and  [Use IEC/Binary Prefixes in Y Axes and Legends](ui_charts.html#use-icebinary-prefixes-in-y-axis-and-legends) for instructions.
 
 <table>
 <tbody>
@@ -603,7 +603,7 @@ The Axis tab lets you customize the Y axis. The customization is the same for bo
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -781,7 +781,7 @@ You can specify a minimum of 200 milliseconds to show only values of interest:
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -1217,7 +1217,7 @@ The Axis tab lets you change the Y axis, and both the X axis dimensions and unit
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -1303,7 +1303,7 @@ The Axis tab lets you change the Y axis, and both the X axis and Y axis dimensio
 <li>Time - Ranges from yoctoseconds (ys) to years (yr)</li>
 <li>IEC/Binary - data size in IEC/Binary units. Ranges from B (bytes) to YiB</li>
 <li>SI - data rate in SI units. Ranges from bps (bits/s) to Ybps. For details on SI units, see Wikipedia or a similar source. </li>
-<p>If you select <strong>ICE/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
+<p>If you select <strong>IEC/Binary Unit Prefixes</strong>, then Wavefront uses 1024 instead of 1000 as the step to the next unit prefix. </p>
 </ul>
 <p>For details on unit prefixes and dynamic units, see <a href="ui_charts.html#units-in-chart-axes-and-legends">Units in Chart Axes and Legends</a>. </p>
 </td>
@@ -1408,6 +1408,112 @@ Chart description which shows up as hover text when users move the mouse over th
 </tr>
 </tbody>
 </table>
+
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table style="width: 100%;">
+  <tbody>
+  <tr><td width="90%">&nbsp;</td><td width="10%"><a href="ui_chart_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+  </tbody>
+</table>
+
+## Pie and Donut Chart
+
+![pie](images/pie_chart.png)
+
+A pie chart shows the relative size of your data as pie slices. You can show either a pie chart or a donut chart. You can customize the width of the donut ring (by percentage) and, the percentile shown for the number, and more.
+
+The collage above shows both a pie chart and a donut chart for the same data. 
+
+
+
+<a id="pie_format_tab">
+<p><span style="font-size: large; font-weight: 600">Format Tab</span></p>
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Type</td>
+<td>Select a pie chart or donut chart. If you pick a donut chart, you can set a ratio to make the ring thicker or thinner.   </td>
+</tr>
+<tr>
+<td>Summarization</td>
+<td><a href="ui_charts_faq.html#what-do-the-summarization-options-do"> Summarization method</a> for grouping raw, reported data points, and for mapping them to displayable values.
+
+Suppose the horizontal scale for your chart is "240 point buckets across, 1 bucket – 30 sec (est)". Choosing <strong>Median</strong> causes
+us to aggregate the raw data values reported in each 30 second interval, and display the median value as the bucket point.</td>
+</tr>
+<tr>
+<td>Show Percentage</td>
+<td>Let's you show percentage labels for your chart.</td>
+</tr>
+<tr>
+<td>Decimal Precision</td>
+<td>How many digits to show after the decimal point for the percentage and for the value.  </td>
+</tr>
+<tr>
+<td>Group Slices</td>
+<td>Allows you to specify the maximum number of slices for the chart. If there are more slices than the maximum, the values of all other slices are combined and have the label "Other" by default. You can change that label.   </td>
+</tr>
+<tr><td>Min</td>
+<td>Allows you to filter the chart by value. Only values greater than or equal to Min are shown.</td>
+</tr>
+<tr><td>Max</td>
+<td>Allows you to filter the chart by value. Only values smaller than or equal to Max are shown. </td>
+</tr>
+</tbody>
+</table>
+
+<a id="pie_drilldown_link_tab">
+<p><span style="font-size: large; font-weight: 600">Drilldown Link Tab</span></p>
+
+The **[Drilldown Link](ui_charts_faq.html#how-do-drilldown-links-work)** tab allows you to specify a target dashboard that displays when a user clicks on the chart. You can optionally customize the target dashboard. For example, you can specify a constant `us-west-2` to be used as a variable.
+
+<p><span style="font-size: large; font-weight: 600">Description Tab</span></p>
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+Chart description which shows up as hover text when users move the mouse over the chart name.</td>
+<td width="40%"><img src="/images/description_hover_text.png" alt="description of chart"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<p><span style="font-size: large; font-weight: 600">Advanced Tab</span></p>
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Option</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td>Include Obsolete Metrics</td>
+<td>Select this check box to display metrics that have not reported data values in the last 4 weeks. Selecting this option is useful if you are looking at data from 4 or more weeks ago; however, performance is slower when this option is turned on.</td>
+</tr>
+
+</tbody>
+</table>
+
+
 
 
 

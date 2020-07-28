@@ -26,7 +26,6 @@ A query expression describes data of a particular type: time series, histogram s
 </thead>
 <tbody>
 
-<!--- tsExpression ----------------->
 <tr>
 <td><span style="color:#3a0699;font-weight:bold">&lt;tsExpression&gt;</span></td>
 <td>
@@ -449,6 +448,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">**Arithmetic operators** - Perform addition, subtraction, multiplication, or division on corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator. </li>
 <ul><li markdown="span">`+`, `-`, `*`, `/`: Operate on pairs of time series that have matching metric, source, and point tag combinations. If either side of the operator is a 'singleton' -- that is, a single series with a unique metric/source/point tag combination -- it automatically matches up with every time series on the other side of the operator.</li>
 <li markdown="span">`[+]`, `[-]`, `[*]`, `[/]`: Perform strict 'inner join' versions of the arithmetic operators. <span>Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
+<p markdown="span">In addition, Wavefront supports the [pow()](ts_pow.html) and [mod()](ts_mod.html) functions, which support power of and modulo arithmetic operations. </p>
 
 <li markdown="span">**Comparison operators** -- Compare corresponding values of time series that are described by the `tsExpression` arguments on either side of the operator.</li>
 <ul><li markdown="span">`<`, `<=`, `>`, `>=`, `!=`, `=`: Returns 1 if the condition is true. Otherwise returns 0. Double equals (==) is not a supported Wavefront operator.</li>
@@ -476,7 +476,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 
 ## Aggregation Functions
 
-[Aggregation functions](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
+[**Aggregation functions**](query_language_aggregate_functions.html) are a way to combine (aggregate) multiple time series into a single result series. Wavefront provides two types of aggregation functions. They handle data points that do not line up differently:
 * Standard aggregation functions like `sum()` interpolate values wherever necessary in each input series. Then the aggregation function itself is applied to the interpolated series.
 * Raw aggregation functions like `rawsum()` do not interpolate the underlying series before aggregation.
 
@@ -599,6 +599,18 @@ Filtering functions help you select a subset of the time series that are returne
 </thead>
 <tbody>
 <tr>
+<td markdown="span"><a href="ts_clampmax.html">clampMax(<strong>max</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Changes any point larger than <strong>max</strong> to <strong>max</strong></td>
+</tr>
+<tr>
+<td markdown="span"><a href="ts_clampmax.html">clampMin(<strong>min</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Changes any point smaller than <strong>min</strong> to <strong>min</strong></td>
+</tr>
+<tr>
+<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
+<td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
+</tr>
+<tr>
 <td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
 <td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
@@ -662,7 +674,7 @@ Filtering functions help you select a subset of the time series that are returne
 </tr>
 <tr>
 <td markdown="span"><a href="ts_globalFilter.html">globalFilter(<strong>&lt;tsExpression | hsExpression&gt;,<br> &lt;filter1&gt;</strong> [and|or [not] <strong>&lt;filter2&gt;</strong>] ... )</a></td>
-<td>Suppresses any time series or histogram in the specified expression that matches one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters.
+<td>Retains only the time series or histograms in <strong>tsExpression</strong> that match one or more specified filters, which can include any combination of metric names, sources (<strong>source=</strong>), source tags (<strong>tag=</strong>), or point tags. Use Boolean operators to combine multiple filters.
 </td>
 </tr>
 <tr>
@@ -713,7 +725,7 @@ Standard time functions can help you:
 </thead>
 <tbody>
 <tr>
-<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt;</strong>,&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_rate.html">rate(&lbrack;<strong>&lt;timeWindow&gt; </strong>&rbrack; <strong>&lt;,tsExpression&gt;</strong>)</a></td>
 <td>Returns the per-second change of the time series described by <strong>tsExpression</strong>. Recommended for counter metrics that report only increasing data values over regular time intervals. Handles counter resets.</td>
 </tr>
 <tr>
@@ -737,35 +749,43 @@ Standard time functions can help you:
 <td>Returns a data value reported at a particular time by the time series described by <strong>tsExpression</strong>. The returned value is displayed continuously across the chart, so you can use it as a reference value for comparing against other queries. </td>
 </tr>
 <tr>
-<td><a href="ts_atEpoch.html">atEpoch(<strong>&lt;epochTime&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_atEpoch.html">atEpoch(<strong>&lt;epochTime&gt;</strong> <strong>&lt;, tsExpression&gt;</strong>)</a></td>
 <td>Returns the value at the specified time for the time series described by the expression. The returned value is displayed continuously across the chart, so you can use it as a reference value.</td>
 </tr>
 <tr>
-<td><a href="ts_year.html">year(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_year.html">year(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the year in the specified time zone. Years are returned as 4-digit numbers in the Gregorian calendar.</td>
 </tr>
 <tr>
-<td><a href="ts_month.html">month(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_month.html">month(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the month of the year in the specified time zone. Months are returned as whole numbers from 1 (January) through 12 (December).</td>
 </tr>
 <tr>
-<td><a href="ts_dayOfYear.html">dayOfYear(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_daysInMonth.html">daysInMonth(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
+<td>Returns the number of days in a month for the timestamp of the specified time zone. The values returned are integer only and are in the range 28-31.</td>
+</tr>
+<tr>
+<td><a href="ts_dayOfYear.html">dayOfYear(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt; &rbrack;</strong>)</a></td>
 <td>Returns the day of the year in the specified time zone. Days of the year are returned as whole numbers from 1 to 366.</td>
 </tr>
 <tr>
-<td><a href="ts_day.html">day(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_day.html">day(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the day of the month in the specified time zone. Days of the month are returned as whole numbers from 1 to 31.</td>
 </tr>
 <tr>
-<td><a href="ts_weekday.html">weekday(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_weekday.html">weekday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Returns the day of the week in the specified time zone. Days of the week are returned as whole numbers from 1 (Monday) to 7 (Sunday).</td>
 </tr>
 <tr>
-<td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong>)</a></td>
-<td>Returns the hour within the day in the specified time zone. Hours are returned as decimal values from 0.0 to 24.0. </td>
+<td><a href="ts_hour.html">hour(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
+<td>Returns the minute of the hour for the timestamp specified by timeZome. The values returned are integer only and are in the range 0-59. </td>
 </tr>
 <tr>
-<td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong>)</a></td>
+<td><a href="ts_minute.html">minute(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
+<td>Returns the minute of the hour for the timestamp specified by timeZome. The values returned are integer only and are in the range 0-59. </td>
+</tr>
+<tr>
+<td><a href="ts_isToday.html">isToday(<strong>&lt;timezone&gt;</strong> <strong>&lbrack;,&lt;tsExpression&gt;&rbrack;</strong>)</a></td>
 <td>Tests for the current day in the specified time zone. Return values are 1 for times during the current day, or 0 for times before or after today. </td>
 </tr>
 <tr>
@@ -805,6 +825,10 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="ts_mslope.html">mslope(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the per-second derivative of the linear regression of the time series over the specified time window.</td>
+</tr>
 <tr>
 <td><a href="ts_mavg.html">mavg(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the moving average of each series for the specified time window.</td>
@@ -859,8 +883,12 @@ These functions output continuous time series, with the exception of `integral()
 <td>Returns the moving sum over time for the given expression over the time window of the current chart window.</td>
 </tr>
 <tr>
-<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td><a href="ts_mchanges.html">mchanges(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the number of times a counter has reset within the specified time window.</td>
+</tr>
+<tr>
+<td><a href="ts_flapping.html">flapping(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the number of times a counter changed directions (going up or going down) within the specified time window.</td>
 </tr>
 <tr>
 <td><a href="ts_any.html">any(<strong>&lt;timeWindow&gt;, &lt;tsExpression&gt;</strong>)</a></td>
@@ -872,6 +900,8 @@ These functions output continuous time series, with the exception of `integral()
 </tr>
 </tbody>
 </table>
+
+
 
 <table style="width: 100%;">
 <tbody>
@@ -976,8 +1006,8 @@ Rounding and mathematical functions let you transform the data values in time se
 </tr>
 </thead>
 <tr>
-<td><a href="ts_round.html">round(<strong>&lt;tsExpression&gt;</strong>)</a></td>
-<td>Returns the nearest integer for each data value in the specified time series.
+<td><a href="ts_round.html">round(<strong>&lbrack;&lt;toMultiple&gt;,&rbrack;</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<td>Returns the nearest integer for each data value in the specified time series. The optional toMultiple parameter supports rounding to the multiple of a specified number.
 </td>
 </tr>
 <tr>
@@ -1245,6 +1275,7 @@ String manipulation functions can help you:
 ## Predictive Functions
 Predictive functions enable you to forecast data values and find outlier data values in the specified time series.
 
+
 <table style="width: 100%;">
 <colgroup>
 <col width="45%" />
@@ -1257,6 +1288,8 @@ Predictive functions enable you to forecast data values and find outlier data va
 </tr>
 </thead>
 <tbody>
+
+
 <tr>
 <td><a href="ts_anomalous.html">anomalous(<strong>&lt;testWindow&gt;</strong>, &lbrack;<strong>&lt;confidenceFactor&gt;</strong>,&rbrack; &lbrack;<strong>&lt;historyWindow&gt;</strong>, &lbrack;<strong>&lt;alignWindow&gt;</strong>,&rbrack;&rbrack; <strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
@@ -1264,17 +1297,24 @@ Predictive functions enable you to forecast data values and find outlier data va
 </tr>
 
 <tr>
-<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong>, <strong>&lt;seasonLength&gt;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;alpha&gt;, &lt;beta&gt;, &lt;gamma&gt;</strong>&rbrack;)</a>
+<td><a href="ts_hw.html">hw(<strong>&lt;historyLength&gt;</strong> <strong>&lt; &lbrack;,seasonLength&gt;&rbrack;</strong>, <strong>&lt;samplingRate&gt;</strong>, <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>&lt;smoothingFactor&gt;, &lt;trendFactor&gt;, &lt;seasonalityFactor&gt;</strong>&rbrack;)</a>
 </td>
-<td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
+<td>Returns a smoothed version of each time series described by the expression, and forecasts its future points using the Holt-Winters double exponential smoothing algorithm. Optionally supports the Holt-Winters triple exponential smoothing algorithm for seasonal data.</td>
 </tr>
 <tr>
 <td><a href="ts_nnforecast.html"><strong>nnforecast(&lt;forecastPeriod&gt;, [&lt;confidenceFactor&gt;,] &lt;tsExpression&gt;, [with_bounds])</strong></a>
 </td>
 <td>Forecasts future data values for each time series described by the expression. It uses hypothesis testing and neural networks for prediction. </td>
 </tr>
+<tr>
+<td><a href="ts_linearforecast.html"><strong>linearforecast(&lt;forecastOffset&gt;, &lt;historyLength&gt;, &lt;tsExpression&gt;)</strong></a>
+</td>
+<td>Predicts the value of the points in the time series using simple linear regression. Similar to the Prometheus <strong>predict_linear()</strong> function. </td>
+</tr>
 </tbody>
 </table>
+
+
 
 <table style="width: 100%;">
 <tbody>
@@ -1300,6 +1340,15 @@ Predictive functions enable you to forecast data values and find outlier data va
 <a href="ts_collect.html">collect(<strong>&lt;tsExpression1&gt;</strong>, <br> <strong>&lt;tsExpression2&gt;</strong> &lsqb;, <strong>&lt;tsExpression3&gt;, ...</strong>&rsqb;)</a>
 </td>
 <td>Returns a single <strong>tsExpression</strong> that is the combination of two or more <strong>tsExpressions</strong>.</td>
+</tr>
+<tr>
+<td>
+<a href="ts_missing.html">missing(<strong>&lt;timeWindow&gt;</strong>, <strong>&lt;tsExpression&gt;</strong>)</a>
+</td>
+<td>Checks whether there are any data points in the specified time window.<ul>
+<li>If there are no data points, returns 1.</li>
+<li>Otherwise, returns a Double.NaN (i.e. empty time series)</li>
+</ul></td>
 </tr>
 <tr>
 <td>

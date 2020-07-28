@@ -22,6 +22,12 @@ summary: Use Chart Builder to display the data you're interested in.
 </table>
 
 
+## Video
+
+Here's a 90 second overview of some of the main features.
+
+<iframe src="https://bcove.video/2Xx9IPz" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+
 ## Get Started
 
 When you create a new chart or edit an existing chart, we open Chart Builder:
