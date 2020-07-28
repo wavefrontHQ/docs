@@ -47,8 +47,8 @@ You can start with Wavefront either as part of a free trial or as a new customer
 </tr>
 <tr>
 <td>Histogram length limit</td>
-<td>Maximum number of characters for a histogram name.</td>
-<td>128</td>
+<td>Maximum number of characters for a histogram name. <br/>The maximum number of characters for a histogram name before release 2020-22.x was 128.</td>
+<td>256</td>
 </tr>
 <tr>
 <td>Span length limit</td>

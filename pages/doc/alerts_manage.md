@@ -158,6 +158,8 @@ You can add a new or existing alert tag at any time:
 
 For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast`. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
 
+{% include tip.html content="Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example." %}
+
 ### Multi-Level Alert Tags
 
 You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and:
