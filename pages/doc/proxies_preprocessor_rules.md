@@ -26,7 +26,7 @@ You define the proxy preprocessor rules in a rule configuration file, usually `<
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#current" data-toggle="tab">Current Preprocessor Rule Format</a></li>
-    <li><a href="#beta" data-toggle="tab">Proxy 9 and later (BETA)</a></li>
+    <li><a href="#beta" data-toggle="tab">Proxy 9 and Later (BETA)</a></li>
 </ul>
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="current">
