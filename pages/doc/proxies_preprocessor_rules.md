@@ -26,7 +26,7 @@ You define the proxy preprocessor rules in a rule configuration file, usually `<
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#current" data-toggle="tab">Current Preprocessor Rule Format</a></li>
-    <li><a href="#beta" data-toggle="tab">Preprocessor Rule Format in BETA</a></li>
+    <li><a href="#beta" data-toggle="tab">Proxy 9 and later (BETA)</a></li>
 </ul>
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="current">
@@ -70,7 +70,7 @@ You define the proxy preprocessor rules in a rule configuration file, usually `<
     </div>
 
     <div role="tabpanel" class="tab-pane" id="beta">
-    <p> The proposed preprocessor rules, which are in the BETA stage, are a simpler version of the current preprocessor rules in Wavefront.</p>
+    <p> The new preprocessor rules, which are in BETA, are a simpler version of the current preprocessor rules in Wavefront.</p>
       <pre>
 # rules for port 2878
 '2878':
