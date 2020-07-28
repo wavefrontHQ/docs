@@ -511,10 +511,10 @@ You can use RED metrics in the alert conditions for trace-data alerts. You norma
 2. Click on the ellipsis menu next to name of the alert you want to customize, and select **Clone**.
 3. On the **Create Alert** page, modify the alert condition and any other properties to suit your use case.
 
-For example, you might want to alert only on RED metrics from a specific service of a specific application:
+For example, you might want to alert only on RED metrics from a specific service of a specific application every second:
 
 ```
-limit(500, rate(ts(tracing.derived.beachshirts.delivery.*.error.count)))
+limit(500, cs(tracing.derived.beachshirts.delivery.*.error.count)/60)
 ```
 
 <!--- Verify integration name --->
