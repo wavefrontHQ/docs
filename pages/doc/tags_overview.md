@@ -14,6 +14,8 @@ Watch the following video for an introduction to point tags and source tags:
 
 See [Wavefront Data Naming](wavefront_data_naming.html) for examples of tags and tag naming.
 
+{% include tip.html content="Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example that uses alert tags." %}
+
 ## Tags Basics
 
 You use tags in several ways:
@@ -119,11 +121,11 @@ You use point tags to add extra dimensions to your data, and can then focus your
 * [Pairing Up Matching Series](query_language_series_matching.html) discusses how implicit series matching lets you operate on pairs of time series that have corresponding sources and point tags.
 
 <a name="entity_tags"></a>
-## Object Tags
+## Object Tags: Tags on Alerts, Dashboards, Events, and Sources
 
-Object tags apply to Wavefront objects: alerts, dashboards, events, and sources.
+Object tags include [alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags), dashboard tags, event tags, and [source tags](tags_overview.html#source-tags).
 
-{% include note.html content="While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
+{% include note.html content="While every Wavefront user can view Wavefront objects, you must have [Alert, Dashboard, Event, or Source Tag Management permission](permissions_overview.html) to manage those objects and related object tags. If you do not have permission, the UI menu selections, buttons, and links you use to perform management tasks are not visible." %}
 
 ### Manage Object Tags
 
