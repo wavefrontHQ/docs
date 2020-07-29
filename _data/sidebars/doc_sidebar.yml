@@ -150,8 +150,12 @@ entries:
           url: /proxies_configuring.html
           output: web
 
-        - title: Proxy Preprocessor Rules
+        - title: Preprocessor Rules
           url: /proxies_preprocessor_rules.html
+          output: web
+              
+        - title: Rule Conditions
+          url: /proxies_preprocessor_rule_conditions.html
           output: web
 
         - title: Wavefront Integration CLI
