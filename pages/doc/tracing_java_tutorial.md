@@ -44,30 +44,30 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
     import com.wavefront.sdk.proxy.WavefrontProxyClient;
     ```
 1. Configure the application to send data to Wavefront via the Wavefront proxy or direct ingestion.
-<ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
-    <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
-</ul>
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="sleuth">
-        <p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
-          <pre>
-&lt;dependency&gt;
-&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-&lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-&lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-        </pre>
-    </div>
+    <ul id="profileTabs" class="nav nav-tabs">
+        <li class="active"><a href="#proxy" data-toggle="tab">Wavefront Proxy</a></li>
+        <li><a href="#direct_ingestion" data-toggle="tab">Direct Ingestion</a></li>
+    </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="proxy">
+            <p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+              <pre>
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
+    &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
+    &lt;/dependency&gt;
+            </pre>
+        </div>
 
-    <div role="tabpanel" class="tab-pane" id="opentracing">
-    <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
-      <pre>
-&lt;dependency&gt;
-&lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
-&lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
-&lt;version&gt;0.5.3&lt;/version&gt;
-&lt;/dependency&gt;
-    </pre>
-    </div>
-  </div>
+        <div role="tabpanel" class="tab-pane" id="direct_ingestion">
+        <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+          <pre>
+    &lt;dependency&gt;
+    &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
+    &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
+    &lt;version&gt;0.5.3&lt;/version&gt;
+    &lt;/dependency&gt;
+        </pre>
+        </div>
+      </div>
