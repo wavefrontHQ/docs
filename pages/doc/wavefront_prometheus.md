@@ -15,7 +15,7 @@ Starting with release 2020.26, Wavefront includes support for PromQL. You can ru
 2. Start typing your PromQL query.
 3. Make changes to the visualization.
   * See [Create and Customize Charts](ui_charts.html) for an intro.
-  * See [Chart Reference](ui_chart_reference) for details.
+  * See [Chart Reference](ui_chart_reference.html) for details.
 
 ![Prometheus query](images/prometheus_sample.png)
 
