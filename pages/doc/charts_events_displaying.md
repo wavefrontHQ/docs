@@ -33,13 +33,13 @@ The event severity determines the color of the overlay:
 
 <a name="dashboards_events"></a>
 
-## Controlling Event Overlays
+## Control Event Overlays
 
 Events can make your charts look cluttered. There are several options to control what’s shown on a chart:
 * Options for individual charts
 * Options that apply to the whole dashboard
 
-### Configuring Event Overlays for Individual Charts
+### Configure Event Overlays for Individual Charts
 
 There can be alert generated system events, or events that are manually created by a user. For details, see [Event Sources and Types](events.html#event-sources-and-types). You can configure a chart to show specific events.
 
@@ -69,7 +69,7 @@ There can be alert generated system events, or events that are manually created 
   </tr>
 </table>
 
-### Specifying an Events Query for a Dashboard
+### Specify an Events() Query for a Dashboard
 
 <table style="width: 100%;">
   <tr>
@@ -83,7 +83,7 @@ There can be alert generated system events, or events that are manually created 
        For example, `events(name="High CPU Usage")` shows events that have the name `High CPU Usage` on all the charts of the dashboard.
     </td>
     <td markdown="span">
-      ![Add an events query to the dashboard settings](/images/v2_dashboard_prefs.png)
+      ![Add an events query to the dashboard settings](/images/events_dashboard_settings_events_query.png)
     </td>
   </tr>
 </table>

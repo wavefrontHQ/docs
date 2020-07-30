@@ -274,7 +274,7 @@ For each dashboard, you can customize display preferences.
 <li>Click <strong>Settings</strong></li>
 <li>Make selections in the dialog, click <strong>Accept</strong>, and click <strong>Save</strong> </li>
 <li>Optionally, you can display the <a href="events.html">Events</a> on charts using the Show Events dropdown.<br>
-For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#controlling-event-overlays">Controlling Events Overlays</a>.</li>
+For more information on the options listed in the Show Events dropdown, see <a href="charts_events_displaying.html#control-event-overlays">Control Events Overlays</a>.</li>
 </ol></td>
 <td width="60%"><img src="/images/v2_dashboard_prefs.png" alt="set dashboard prefs"></td>
 </tr>
