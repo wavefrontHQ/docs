@@ -33,11 +33,11 @@ It often makes sense to collect both counter metrics and delta counter metrics -
 
 ### Example
 
-The following illustration shows contrasts cumulative counters and delta counters:
+The following illustration contrasts cumulative counters and delta counters:
 
-* Error data are being collectd. 15 errors in the first minute, 17 in the second, and 8 in the third.
-* The top row shows cumulative counter behavior:
-  - The running total of the errors (5, 17, 30) is ingested and stored. In many cases, the data actually come in like this.
+* Error data are being sent to Wavefront. 15 errors in the first minute, 17 in the second, and 8 in the third.
+* The top row shows cumulative counter behavior. In many cases, the data actually come in as cumulative counters:
+  - The running total of the errors (5, 17, 30) is ingested and stored.
   - The `ts()` query shows a chart with values increasing over time.
   - To get the rate (errors per second) we wrap the query with `rate()`
 * The bottom row shows delta counter behavior.
