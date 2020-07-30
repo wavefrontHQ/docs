@@ -7,7 +7,7 @@ permalink: metrics_managing.html
 summary: Understand metrics structure and how to explore metrics in the Metrics Browser
 ---
 
-Wavefront provides observability for several different [metric types](metrics.html) including time series metrics, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the metrics browser.
+Wavefront provides observability for several different [metric types](metric_types.html) including time series metrics, histograms, and traces/spans. This page looks at the anatomy of a time series metric and shows you how to explore it in the metrics browser.
 
 ## Video
 
