@@ -29,18 +29,38 @@ All users can customize their dashboards. Learn how to find a section, filter us
 
 
 
-## Get Started
+## Get Started: Dashboard Browser
+
+From the Dashboard Browser, you can find dashboards using filters and tags. Users with **Dashboard** permissions can also look at versions, grand and remove access, and clone dashboards.
 
 1. Log in to Wavefront.
 2. Select **Dashboards > All Dashboards**
-3. In the dashboards browser:
+3. In the Dashboard Browser:
     * Use the search bar at the top to find a dasbhoard.
-    * Use the options on the left to narrow down the options that the dashboard browser displays.
-    * Use the three horizontal dots for dashboard management.
+    * Use the options on the left to limit what the Dashboard Browser displays.
+    * Use the three horizontal dots (ellipsis) menu for dashboard management.
     * Add new or existing tags to make finding dashboards easier.
 
 ![dashboard browser annotated](images/dashboard_browser.png)
 
+
+## Get Started: Dashboards
+
+After you've selected a dashboard, it displays in your browser.
+* **Default time setting** for all charts is 2 hours, live data, with a refresh every 30 seconds.
+* **Refresh rate** is determined by the time window. A smaller time window refreshes more often. You can force a refresh.
+* **Lazy load** means that charts refresh as you scroll to them to avoid extra computational burden. Sections can improve load behavior -- you can focus on what you need instead of scrolling through charts you don't want to see.
+
+Here's the anatomy of a dashboard:
+
+![dashboard annotated](images/ui_dashboard_anatomy.png)
+
+You can customize what you see, open charts, and more.
+* Select [predefined variables or use a filter](dashboards_variables.html) to limit the display.
+* Use the **Jump To** menu and select a section.
+* Use the menu in the top right to export to PDF, look at the version history, and edit or clone the dashboard. Menu options are limited for system dashboards and for users who don't have Dashboard permission.
+* Use the menu to **Delete** a dashboard. Deleted dashboards are available from a trash icon for 30 days before they are deleted permanently.
+* [Share a link](ui_sharing.html) to the dashboard (all users) and [modify access](access.html) (Dashboard permission required).
 
 ## Set the Time Window
 
@@ -189,14 +209,19 @@ Here's a video that illustrates chart time windows. The video uses the v1 UI, bu
 
 ## Display Events on Charts
 
-The **Show Events** dropdown in the middle of the time bar allows you to overlay [events](charts_events_displaying.html) on the X-axis of charts.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+The <strong>Show Events</strong> dropdown in the upper right of the menu bar time bar allows you to <a href="charts_events_displaying.html">toggle event overlays</a> on the X-axis of charts.</td>
+<td width="40%">
+<img src="images/display_events_v2.png" align="center" valign="center" alt="Show Events menu"></td>
+</tr>
+</tbody>
+</table>
 
-![time window](images/display_events_v2.png)
-
-See [Displaying Event Overlays in Charts](charts_events_displaying.html#controlling-events-overlays) for details.
 
 ## Export to CSV or PDF
-
 
 * Starting with release 2020.22.x, you can export what you see in a dashboard or chart to PDF.
 * Starting with release 2020.26, you can export charts to CSV, regardless of whether the chart is in Edit mode.
