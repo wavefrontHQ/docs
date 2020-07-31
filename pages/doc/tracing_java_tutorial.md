@@ -24,7 +24,7 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
 ## Instrument the Sample Applications
 
 1. Open `dropwizard-app` in your preferred Java IDE.
-1. Add the Wavefront OpenTracing SDK dependency to the `pom.xml` file:
+1. Add the Wavefront OpenTracing SDK dependency to the `pom.xml` file and import the changes to your application:
     ```
     <dependencies>
       <dependency>
@@ -53,7 +53,7 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
         <div role="tabpanel" class="tab-pane active" id="proxy">
               <ol>
                 <li>
-                  On the host that will run the proxy, <a href="proxies_installing.html#proxy-installation">install the proxy</a>. For this tutorial let's install a the Wavefront Proxy on Docker.
+                  <a href="proxies_installing.html#proxy-installation">Install the Wavefront proxy</a>. For this tutorial let's install the Wavefront Proxy on Docker.
                   <pre>
 docker run -d \
    -e WAVEFRONT_URL=https://&#123;your_cluster_name&#125;/api/ \
@@ -66,7 +66,8 @@ docker run -d \
    -p 40000:40000 \
    wavefronthq/proxy:latest
                   </pre>
-                  <p>Replace <code>&#123;your_cluster_name&#125;</code> and <code>&#123;your_token&#125;</code> with the name of your cluster and token. <br/>If you are not sure of your cluster name or token, open the Wavefront application UI, select <b>Browse</b> > <b>Proxies</b> > <b>Add New Proxy</b> and click the <b>Docker</b> tab. Copy the values for <code>WAVEFRONT_URL</code> and <code>WAVEFRONT_TOKEN</code>, and replace the values in the above example.</p>
+                  <p>Replace <code>&#123;your_cluster_name&#125;</code> and <code>&#123;your_token&#125;</code> with the name of your Wavefront cluster and API token. 
+                  <br/><b>Note</b>: If you are not sure of your cluster name or token, open the Wavefront application UI, select <b>Browse</b> > <b>Proxies</b> > <b>Add New Proxy</b> and click the <b>Docker</b> tab. Copy the values for <code>WAVEFRONT_URL</code> and <code>WAVEFRONT_TOKEN</code>, and replace the values in the above example.</p>
                   
                 </li>
                 <li>
@@ -79,7 +80,7 @@ docker run -d \
                       Assign a name for the application. This will help you identify the application in Wavefront and view the data that was sent. For this example, let's use <code>foo-beachshirts</code>. You can replace <code>foo</code> with your name too.
                     </li>
                   </ul>
-                  <p>Example:</p>
+                  <p>Your code looks like this:</p>
                   <pre>
 public static Tracer init(String service) {
     WavefrontProxyClient.Builder wfProxyClientBuilder = new WavefrontProxyClient.
@@ -100,14 +101,44 @@ public static Tracer init(String service) {
         </div>
 
         <div role="tabpanel" class="tab-pane" id="direct_ingestion">
-        <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
-          <pre>
-    &lt;dependency&gt;
-    &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
-    &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
-    &lt;version&gt;0.5.3&lt;/version&gt;
-    &lt;/dependency&gt;
-        </pre>
+        <ol>
+          <li>
+            <a href="wavefront_api.html#generating-an-api-token">Generate a Wavefront API token</a>. 
+            <br/>You need the Wavefront API token and your cluster name to configure the <code>Tracer init(String service)</code> method.
+            <img src="images/tracing_SDK_tutorial_direct_ingestion.png">
+          </li>
+          <li>
+            Open the <code>common/src/main/java/com/wfsample/common/Tracing.java</code> file and update the following:
+            <ul>
+              <li>
+                Change the <code>Tracer init(String service)</code> method to return a WavefrontTracer.
+              </li>
+              <li>
+                Replace <code>https://{cluster}.wavefront.com</code> with your Wavefront cluster name and <code>&lt;wf_API_token&gt;</code> with the Wavefront API token.
+              </li>
+              <li>
+                Assign a name for the application. This will help you identify the application in Wavefront and view the data that was sent. For this example, let's use <code>foo-beachshirts</code>. You can replace <code>foo</code> with your name too.
+              </li>
+            </ul>
+            <p>Example:</p>
+            <pre>
+public static Tracer init(String service) {
+ WavefrontDirectIngestionClient.Builder wfDirectIngestionClientBuilder = 
+         new WavefrontDirectIngestionClient.Builder(
+         "https://{cluster}.wavefront.com", <wf_API_token>);
+ WavefrontSender wavefrontSender = wfDirectIngestionClientBuilder.build();
+ String applicationName = "foo-beachshirts";
+ ApplicationTags applicationTags = new ApplicationTags.Builder(applicationName,
+         service).build();
+ Reporter wfSpanReporter = new WavefrontSpanReporter.Builder().
+         build(wavefrontSender);
+ WavefrontTracer.Builder wfTracerBuilder = new WavefrontTracer.
+         Builder(wfSpanReporter, applicationTags);
+ return wfTracerBuilder.build();
+}
+            </pre>
+            </li>
+        </ol>
         </div>
       </div>
       
