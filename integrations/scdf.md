@@ -68,12 +68,12 @@ Setting up Spring Cloud Data Flow locally could be useful for testing and develo
 
 ### General Installation Instructions
 
- 1. Follow the general [SCDF installation instructions](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/installation/) for setting up Data Flow on the selected platform (e.g. Local, Kuberneted or Cloud Foundry).
+ 1. Follow the general [SCDF installation instructions](https://dataflow.spring.io/docs/installation/) for setting up Data Flow on the selected platform (e.g. Local, Kuberneted or Cloud Foundry).
 
  2. Set the configuration properties given below. You have several options:
  * Add the properties to your `Spring Cloud Data Flow` server configuration.
- * For the `Cloud Foundry` platform, set the properties inside the [SPRING_APPLICATION_JSON](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/installation/cloudfoundry/cf-cli/#configuration-for-wavefront) environment variable.
- * For the `Kubernetes` platform add the properties to the `src/kubernetes/server/server-config.yaml` [configuration](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/feature-guides/streams/monitoring/#kubernetes).
+ * For the `Cloud Foundry` platform, set the properties inside the [SPRING_APPLICATION_JSON](https://dataflow.spring.io/docs/installation/cloudfoundry/cf-cli/#configuration-for-wavefront) environment variable.
+ * For the `Kubernetes` platform add the properties to the `src/kubernetes/server/server-config.yaml` [configuration](https://dataflow.spring.io/docs/feature-guides/streams/monitoring/#kubernetes).
  * For the `Local` platform follow the instructions in the Docker Compose Installation section below.
 {% raw %}
 ```yaml
@@ -112,20 +112,19 @@ spring:
 
 ### Docker Compose Installation
 
-Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/installation/local/docker/) to let you quickly install Spring Cloud Data Flow, Skipper, MySQL and Apache Kafka on your local machine and to [configure Wavefront monitoring](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/installation/local/docker-customize/#wavefront).
+Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow.spring.io/docs/installation/local/docker/) to let you quickly install Spring Cloud Data Flow, Skipper, MySQL and Apache Kafka on your local machine and to [configure Wavefront monitoring](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront).
 
- 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
- 2. Follow the [Data Flow with Wavefront metrics collection](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/installation/local/docker-customize/#wavefront) installation instructions.
+ 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
+ 2. Follow the [Data Flow with Wavefront metrics collection](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront) installation instructions.
  3. When you stop seeing additional log messages on the command prompt, open the Spring Cloud Data Flow dashboard at http://localhost:9393/dashboard.
 
 Here is a quick start, single-line command:
 {% raw %}
 ```
-wget https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml \
-wget https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml \
-export DATAFLOW_VERSION=2.6.0-SNAPSHOT \
-export SKIPPER_VERSION=2.5.0-M2 \
-export STREAM_APPS_URI=https://dataflow.spring.io/Einstein-BUILD-SNAPSHOT-stream-applications-kafka-maven \
+wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose.yml \
+wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose-wavefront.yml \
+export DATAFLOW_VERSION=2.6.0 \
+export SKIPPER_VERSION=2.5.0 \
 export WAVEFRONT_KEY=YOUR_API_TOKEN \
 export WAVEFRONT_URI=https://YOUR_CLUSTER.wavefront.com \
 export WAVEFRONT_SOURCE=scdf-docker-compose \
@@ -190,7 +189,7 @@ The following table explains all the metrics in details:
 
 ## Spring Cloud Task Metrics
 
-[Spring Cloud Task Monitoring Documentation](https://dataflow.spring.io/docs/2.6.0.SNAPSHOT/feature-guides/batch/monitoring/)
+[Spring Cloud Task Monitoring Documentation](https://dataflow.spring.io/docs/feature-guides/batch/monitoring/)
 
 Spring Cloud Task provides support for monitoring batch jobs and short-lived task applications using Micrometer. 
 All metrics provided by the framework are registered in Micrometer’s global registry under the `spring.cloud.task` prefix. 
@@ -203,7 +202,7 @@ The following table explains all the metrics in details:
 
 ## Spring Boot Metrics
 
-[Spring Boot Metrics Documentation](https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/reference/html/production-ready-features.html#production-ready-metrics-meter)
+[Spring Boot Metrics Documentation](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/html/production-ready-features.html#production-ready-metrics-meter)
 
 Spring Boot registers the following core metrics when applicable:
 
@@ -260,7 +259,7 @@ Spring Boot registers the following core metrics when applicable:
 | process.start.time | fixed gauge representing the application’s absolute start time|  
 | process.uptime | gauge representing the application’s uptime |
 
-* [Spring MVC Metrics](https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/production-ready-features.html#production-ready-metrics-spring-mvc)
+* [Spring MVC Metrics](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/html/production-ready-features.html#production-ready-metrics-spring-mvc)
 
 Auto-configuration enables the instrumentation of requests handled by Spring MVC. 
 When `management.metrics.web.server.request.autotime.enabled` is `true`, this instrumentation occurs for all requests.
