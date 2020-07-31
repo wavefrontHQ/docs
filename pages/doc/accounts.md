@@ -57,7 +57,8 @@ When you invite a (human) user to Wavefront, what that new user can do depends o
   * Share links to dashboards and charts with other users
   * Access the user profile from the gear icon
 
-  **Note:** It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited.
+{% include note.html content="It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited." %}
+
 
 - **New User Permissions:** Users with Accounts, Groups & Roles permission can view and modify new user default permissions from the System Preferences menu item available from gear icon. These permissions *do not* apply to service accounts.
 - **New User Default Groups:** Users with Accounts, Groups & Roles permission can set up a default groups for new users from the System Preferences menu item available from the gear icon. All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
@@ -65,6 +66,8 @@ When you invite a (human) user to Wavefront, what that new user can do depends o
 ## Service Accounts
 
 A service account can be used to automate management of objects like dashboard, alerts, etc. A service account can't perform the **UI operations** that all user accounts can [perform by default](accounts.html#what-can-a-new-user-do).
+
+{% include note.html content="Service accounts must have **Metrics** permission to run queries. " %}
 
 * A service account uses a **token** to authenticate.
 * A service account must have **permissions** to perform tasks. For dashboards and alerts, the service account must also have [access](access.html).
