@@ -13,7 +13,16 @@ Derived metrics allow you to run a query and ingest it back into Wavefront. All 
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
 
-{% include note.html content="The minimum reporting interval for derived metric is 1 minute.  If the query that is used in the derived metric reports data points more than once within a minute, then we summarize with `mean()` aggregation and align to 1 minute time buckets." %}
+{{site.data.alerts.note}}
+  <ul>
+    <li>
+      The minimum reporting interval for a derived metric is 1 minute. If the query that is used in the derived metric reports data points more than once within a minute, Wavefront summarizes it using the <code>mean()</code> aggregation and aligns it to 1 minute time buckets.
+    </li>
+    <li>
+      Starting with <a href="2020.26.x_release_notes.html">release 2020-26.x</a>, metrics that are not reported for 4 weeks or more (obsolete metrics) are removed from derived metrics.  
+    </li>
+  </ul>
+{{site.data.alerts.end}}
 
 ## Use Cases
 

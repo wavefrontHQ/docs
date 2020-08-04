@@ -319,9 +319,9 @@ The predefined charts let you view:
 
 ### RED Metric Counters and Histograms
 
-The types of RED metrics that we show in the [predefined charts](#predefined-charts) are rates and 95th percentile distributions. These metrics are themselves based on underlying counters and histograms that Wavefront automatically derives from spans. You can use these underlying counters and histograms in [RED metrics queries](#red-metrics-queries), for example, to create alerts on trace data.
+The types of RED metrics that we show in the [predefined charts](#predefined-charts) are rates and 95th percentile distributions. These metrics are themselves based on underlying delta counters and histograms that Wavefront automatically derives from spans. You can use these underlying delta counters and histograms in [RED metrics queries](#red-metrics-queries), for example, to create alerts on trace data.
 
-Wavefront constructs the names of the underlying counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
+Wavefront constructs the names of the underlying delta counters and histograms as shown in the table below. The name components `<application>`, `<service>`, and `<operationName>` are string values that Wavefront obtains from the spans on which the metrics are derived. If necessary, Wavefront modifies these strings to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). Wavefront also associates each metric with point tags `application`, `service`, and `operationName`, and assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
 
 {% include warning.html content="Do not configure the Wavefront proxy to add prefixes to metric names. Doing so will change the names of the RED metric counters and histograms, and prevent these metrics from appearing in the Wavefront UI, e.g., in [predefined charts](#predefined-charts)." %}
 
@@ -337,13 +337,13 @@ Wavefront constructs the names of the underlying counters and histograms as show
 <tbody>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.invocation.count`  </td>
-<td markdown="span">Counter</td>
-<td markdown="span">The number of times that the specified operation is invoked. <br>Used in the Request Rate chart that is generated for a service. </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of times that the specified operation is invoked. You can query delta counters using `cs()` queries. <br>Used in the Request Rate chart that is generated for a service. </td>
 </tr>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.error.count`   </td>
-<td markdown="span">Counter</td>
-<td markdown="span">The number of invoked operations that have errors (i.e., spans with `error=true`). <br>Used in the Error Rate chart that is generated for a service. </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of invoked operations that have errors (i.e., spans with `error=true`). You can query delta counters using `cs()` queries.<br>Used in the Error Rate chart that is generated for a service. </td>
 </tr>
 <tr>
 <td markdown="span">`tracing.derived.<application>.<service>.<operationName>.duration.micros.m`  </td>
@@ -366,14 +366,14 @@ Wavefront constructs the names of the underlying counters and histograms as show
 <tbody>
 <tr>
 <td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.invocation.count`  </td>
-<td markdown="span">Counter</td>
-<td markdown="span">The number of traces that start with the specified root operation. </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of traces that start with the specified root operation. You can query delta counters using `cs()` queries.</td>
 </tr>
 <tr>
 <td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.error.count`   </td>
-<td markdown="span">Counter</td>
+<td markdown="span">Delta counter</td>
 <td markdown="span">The number of traces that start with the root operation, and contain one or more spans with errors
-(i.e., spans with `error=true`). </td>
+(i.e., spans with `error=true`). You can query delta counters using `cs()` queries.</td>
 </tr>
 <tr>
 <td markdown="span">`tracing.root.derived.<application>.<service>.<operationName>.duration.millis.m`  </td>
@@ -392,13 +392,13 @@ You can perform queries over [RED metric counters and histograms](#red-metric-co
 Find at the per-minute error rate for a specific operation executing on a specific cluster:
 
 ```
-rate(ts(tracing.derived.beachshirts.shopping.orderShirts.error.count and cluster=us-east-1)) * 60
+cs(tracing.derived.beachshirts.shopping.orderShirts.error.count and cluster=us-east-1)
 ```
 
 Find the per-minute error rate for traces that begin with a specific operation:
 
 ```
-rate(ts(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)) * 60
+cs(tracing.root.derived.beachshirts.shopping.orderShirts.error.count)
 ```
 
 Use a [histogram query](visualize_histograms.html#querying-histogram-metrics) to return durations at the 75th percentile for an operation in a service. (The predefined charts display only the 95th percentile.)
@@ -412,11 +412,11 @@ percentile(75, hs(tracing.derived.beachshirts.delivery.dispatch.duration.micros.
 Wavefront supports 2 alternatives for specifying the RED metric counters and histograms in a query:
 * Use the metric name, for example:
   ```
-  ts(tracing.derived.beachshirts.delivery.dispatch.error.count)
+  cs(tracing.derived.beachshirts.delivery.dispatch.error.count)
   ```
 * Use the point tags `application`, `service`, and `operationName` that Wavefront automatically associates with the metric, for example:
   ```
-  ts(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
+  cs(tracing.derived.*.invocation.count, application="beachshirts" and service="delivery" and operationName="dispatch")
   ```
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
@@ -511,10 +511,10 @@ You can use RED metrics in the alert conditions for trace-data alerts. You norma
 2. Click on the ellipsis menu next to name of the alert you want to customize, and select **Clone**.
 3. On the **Create Alert** page, modify the alert condition and any other properties to suit your use case.
 
-For example, you might want to alert only on RED metrics from a specific service of a specific application:
+For example, you might want to alert only on RED metrics from a specific service of a specific application every second:
 
 ```
-limit(500, rate(ts(tracing.derived.beachshirts.delivery.*.error.count)))
+limit(500, cs(tracing.derived.beachshirts.delivery.*.error.count)/60)
 ```
 
 <!--- Verify integration name --->

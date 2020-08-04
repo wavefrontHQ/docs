@@ -1,17 +1,59 @@
 ---
-title: Delta Counters
+title: Cumulative Counters and Delta Counters
 keywords: metrics
 tags:
 sidebar: doc_sidebar
 permalink: delta_counters.html
-summary: Learn when and how to use delta counters.
+summary: Learn when and how to use cumulative counters and delta counters.
 ---
-Wavefront supports [several types of metrics](metric_types.html). Counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. Delta counters make counter functionality available for serverless Function-as-a-service environments and some other use cases.
+Wavefront supports [several types of metrics](metric_types.html), including 2 kinds of counters.
+* **Cumulative counters** (usually called **counters** in this doc set) monotonically increasing counters. They're useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function.
+* **Delta counters** (sometimes called periodic counters) measure the **change** since a metric was last recorded. For example, metrics for request count could be delta counters. Each value records how many requests were received since the last data point was recorded.
 
-For example, users who are monitoring an environment where multiple sources perform the same function can't use regular counters. Lost points because of collision are likely. Wavefront solves the problem by performing the aggregation on the server side.
+## Counters and Delta Counters Basics
 
+It often makes sense to collect both counter metrics and delta counter metrics -- though in some serverless environments only delta counters are available. Starting with release 2020.26, you use a different function for the different types of counters.
 
-## Where Are Delta Counters Useful?
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Type</th><th width="60%">Description</th><th width="20%">Function</th></tr>
+</thead>
+<tr><td>Cumulative counter</td>
+<td markdown="span">Counters that increase in value over time, for example, the total number of errors or bytes received.
+</td>
+<td><strong>ts()</strong> </td></tr>
+<tr>
+<td markdown="span">Delta counter</td>
+<td>Delta counters bin to a minute timestamp and treat writes to the same bin as deltas. Accurately accumulate points when shorts bursts of high-volume traffic is experienced and collisions can become a problem.</td>
+<td><strong>cs()</strong></td>
+</tr>
+</tbody>
+</table>
+
+### Example
+
+The following illustration contrasts cumulative counters and delta counters:
+
+* Error data are being sent to Wavefront. 15 errors in the first minute, 17 in the second, and 8 in the third.
+* The top row shows cumulative counter behavior. In many cases, the data actually come in as cumulative counters:
+  - The running total of the errors (5, 17, 30) is ingested and stored.
+  - The `ts()` query shows a chart with values increasing over time.
+  - To get the rate (errors per second) we wrap the query with `rate()`
+* The bottom row shows delta counter behavior.
+  - The delta for the errors is ingested. In addition, all errors for 1 minutes are binned (not shown here).
+  - The `cs()` query shows a chart with the delta values.
+  - To get the rate (errors per second) we divide the query by 60. The result is the same as using `rate()` with the `ts()` query.
+
+![counter ingestion, query with ts and cs, and getting the rate for each. Detals in explanation](images/counters_and_delta_counters.png)
+
+### Where Are Cumulative Counters Useful?
+
+Counters show information over time and are useful for aggregating metrics information. Counter metrics usually increase over time but might reset back to zero, for example, when a service or system restarts. Users can wrap [**rate()**](ts_rate.html) around a counter if they want to ignore temporary 0 values.
+
+### Where Are Delta Counters Useful?
+
+Users who are monitoring an environment where multiple sources perform the same function can't use cumulative counters. Lost points because of collision are likely. Wavefront solves the problem by performing the aggregation on the server side. Delta counters are therefore especially suitable for serverless Function-as-a-service environments and some other use cases.
 
 Delta counters are useful if you want to combine points that come in at the same time from several sources. For example:
 
@@ -20,15 +62,10 @@ Delta counters are useful if you want to combine points that come in at the same
 ![telegraf and delta_counters](images/delta_metrics_telegraph.png)
 * You want to aggregate counters across multiple apps. For example, Wavefront uses delta counters for the [logs to metrics Wavefront integration](integrations_log_data.html).
 
-For more on delta counter use cases, see our blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/)
+For more on delta counter use cases, see the blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/)
 
-### Collecting Counter Metrics and Delta Counter Metrics
 
-Even in a serverless environment, it makes sense to collect both counter metrics and delta counter metrics.
-* Use regular counters for monitoring over long periods of time, where a small number of metrics lost to collision are not a problem.
-* Use delta counters to accurately accumulate points when shorts bursts of high-volume traffic is experienced and collisions can become a problem.
-
-### Example: Monitoring AWS Lambda
+### Example: Monitoring AWS Lambda with Delta Counters
 
 AWS Lambda allows you to specify functions that you want to run -- and then you can stop worrying about the function execution. For example, assume that you want to generate a thumbnail each time any of your users uploads images to a folder. You can write a Lambda function that monitors the folders and takes care of thumbnail generation for you. AWS runs as many of the functions as necessary to handle the current workload, and you don't have to worry about scaling up or down.
 
@@ -37,9 +74,37 @@ Delta counters make monitoring easy for this use case. The Wavefront service agg
 
 ## Using Delta Counters
 
-To use delta counters, you have several options:
-* Start with our sample libraries.
-* Send metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
+To use delta counters:
+* Always **send** metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
+* To **query** delta counter metrics, use `cs()` or an SDK:
+
+### The cs() Function
+
+If you use the `cs()` function (instead of the `ts()` function) with a query, Wavefront treats the incoming data as delta counters:
+* Bin to a minute timestamp
+* Treat write operations to the same bin as deltas.
+
+### SDKs and Examples
+
+You can use our SDKs to make your metric a delta counter.
+
+<strong>SDKs</strong>
+
+* Java - [Wavefront Dropwizard Metrics SDK](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)
+* Java - [Spring Micrometer](https://micrometer.io/)
+* C# - [Wavefront App Metrics Reporter](https://github.com/wavefrontHQ/wavefront-appmetrics-sdk-csharp)
+* Python - [wavefront-pyformance](https://github.com/wavefrontHQ/wavefront-pyformance)
+* Go - [go-metrics-wavefront](https://github.com/wavefrontHQ/go-metrics-wavefront)
+
+<strong>Examples</strong>
+
+* **AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
+  - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
+  - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
+  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
+
+* **Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/wavefront-pyformance).
+
 
 ### Delta Counter Proxy Configuration Properties
 
@@ -48,34 +113,65 @@ We support the following [proxy configuration properties](proxies_configuring.ht
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
 - **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds.
 
-### SDKs
-You can use our SDKs to make your metric a delta counter.
-
-**AWS Lambda SDKs** - These AWS Lambda wrappers illustrate how to use delta counters:
-  - [Wavefront Go Wrapper for AWS Lamda](https://github.com/wavefrontHQ/wavefront-lambda-go)
-  - [Wavefront Node.js Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-nodejs)
-  - [Wavefront Python Wrapper for AWS Lambda](https://github.com/wavefrontHQ/wavefront-lambda-python)
-
-**Python Client** - For an example of using delta counters without an integration, see the [delta.py file](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py), which is part of the [wavefront_pyformance module](https://github.com/wavefrontHQ/wavefront-pyformance).
-
 ### Delta Prefix
 
-If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, you must prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
+Before Wavefront supported the `cs()` function, it was necessary to use a delta (∆) character prefix to have data treated as delta counters. The prefix is still supported, but no longer necessary if you use the `cs()` function. If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, you can still prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
 
 ```
 DELTA_PREFIX = u"\u2206"
 ALT_DELTA_PREFIX = u"\u0394"
 ```
 
-{% include note.html content="In queries, you don't have to specify the delta character. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`." %}
-
-### Best Practices
-
-Delta counters are like other counters in many ways.
-* You can apply query language functions such as `rate()` to a delta counter.
-* You can create alerts that use delta counters in the condition, for example, to monitor whether the counter goes beyond a certain threshold.
+{% include note.html content="In queries, you don't have to specify the delta character prefix. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`." %}
 
 
-Delta counters have some special characeristics.
-* The timestamp of a delta counter is the time at which the point was *aggregated* by the Wavefront service. For regular counters, the timestamp is the time when the point is *emitted*.
-* If the source for your delta counters stops reporting, Wavefront continues reporting once a minute for 1 hour. If the source does not report for an hour, Wavefront resets the delta counter to 0, stops aggregating, and stops reporting.
+## Using Cumulative Counters
+
+Cumulative counters are for incrementally increasing values such as the number of bytes received.
+
+### Counter Example (Count Total)
+
+In most cases, you can get the information you need from a counter as follows:
+
+1. A counter usually represents something like "how many requests have been processed" or "how many errors happened". You get the metric like this:
+```
+   ts(~sample.network.bytes.received)
+```
+2. You use the `rate()`function to get the corresponding per-second rate so you know, for example, "how many requests have been processed per second?"  or "How many errors are happening per second":
+```
+   rate(ts(~sample.network.bytes.received))
+```
+3. There are often multiple time series that have the counter (e.g. coming from different sources). Each time series reports the count of the requests received or errors. If you're interested in the total count across your system, you can use `sum()` to sum it up into a single time series.
+```
+sum(rate(ts(~sample.network.bytes.received)))
+```
+
+###  Counter Example (Count Total Over Time Period)
+
+If you want to count the total number of occurrences of a certain time period, the syntax is slightly more complex. Because counters commonly reset to zero, you need a query that counts the total number of increments over the time period you're looking at. You want to ignore any counter resets.
+
+Here, we want to get the number of errors for 1 day.
+
+1. We start by wrapping the counter with `ratediff()`, which, in contrast to `rate()` returns the absolute difference between incrementing data points without dividing by the number of seconds between them.
+```
+   ratediff(ts(the.counter))
+```
+2. We use `align` to group the data values of the time series into buckets 1 minute.
+```
+   align(1m, sum, ratediff(ts(the.counter)))
+```
+3. We use `rawsum()` to combine all time series into one series, and to not use interpolation.
+```
+    rawsum(align(1m, sum, ratediff(ts(the.counter))))
+```
+4. Finally, we get the result for 1 day by using the `msum()` function.
+```
+    msum(1d, rawsum(align(1m, sum, ratediff(ts(the.counter)))))
+```
+
+### Gauge into Counter
+
+To turn a gauge into a counter, you can use query language functions such as [integral](ts_integral.html). For example, you could convert a `~alert.checking_frequency.My_ID` to see the trend in checking frequency instead of the raw data.
+```
+    integral(ts(~alert.checking_frequency.My_ID))
+```

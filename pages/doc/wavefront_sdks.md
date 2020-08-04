@@ -7,7 +7,7 @@ permalink: wavefront_sdks.html
 summary: Learn about Wavefront SDKs that enable applications to report metrics, histograms, and trace data.
 ---
 
-Wavefront supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Wavefront for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub. 
+Wavefront supports a suite of open source SDKs that developers can use to instrument applications for observability. The instrumented application collects and sends metrics, histograms, and/or trace data to Wavefront for storage and visualization. The SDKs are available for most popular programming languages, and are available in GitHub.
 
 Watch this video to listen to our co-founder Clement Pang talk about how Wavefront expands application monitoring with its observability SDKs:
 
@@ -16,10 +16,10 @@ Watch this video to listen to our co-founder Clement Pang talk about how Wavefro
 
 ## What Do You Want to Collect?
 
-Wavefront observability SDKs let you instrument your application to collect and send different kinds of observability data. 
-For the most gain with the least amount of work: 
-* Start with Wavefront SDKs for instrumenting frameworks, if your application uses any of the supported frameworks.  
-* Introduce other Wavefront SDKs to augment areas of your code that are not be handled by a supported framework. 
+Wavefront observability SDKs let you instrument your application to collect and send different kinds of observability data.
+For the most gain with the least amount of work:
+* Start with Wavefront SDKs for instrumenting frameworks, if your application uses any of the supported frameworks.
+* Introduce other Wavefront SDKs to augment areas of your code that are not be handled by a supported framework.
 
 
 <!--- Writer note: If you add any languages to this table, add links in the corresponding sections below. --->
@@ -37,7 +37,7 @@ For the most gain with the least amount of work:
 
 <tr>
 <td markdown="span">[OpenTracing SDK](#sdks-for-collecting-trace-data)</td>
-<td align="justify">Implements the OpenTracing specification. Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td> 
+<td align="justify">Implements the OpenTracing specification. Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td>
 <td>
   <ul>
     <li>
@@ -58,7 +58,7 @@ For the most gain with the least amount of work:
 
 <tr>
 <td markdown="span">[Metrics SDK](#sdks-for-collecting-metrics-and-histograms)</td>
-<td align="justify">Implements a standard metrics library. Lets you define, collect, and report custom business metrics and histograms from any part of your application code.   </td> 
+<td align="justify">Implements a standard metrics library. Lets you define, collect, and report custom business metrics and histograms from any part of your application code.   </td>
 <td>
 <ul>
   <li>
@@ -79,7 +79,7 @@ For the most gain with the least amount of work:
 
 <tr>
 <td markdown="span">[Sender SDK](#sdks-for-sending-raw-data-to-wavefront)  </td>
-<td align="justify">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront. 
+<td align="justify">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront.
 </td>
 <td>
 <ul>
@@ -108,8 +108,8 @@ For the most gain with the least amount of work:
 ## SDKs For Collecting Trace Data
 
 Wavefront provides SDKs that implement the [OpenTracing](https://www.opentracing.io) specification for creating, sampling, and reporting spans and traces. You use these SDKs to instrument critical areas in your code to send custom trace data to Wavefront:
-* You can use a Wavefront OpenTracing SDK alone, to instrument an entire application. 
-* You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework. 
+* You can use a Wavefront OpenTracing SDK alone, to instrument an entire application.
+* You can use a Wavefront OpenTracing SDK along with a framework SDK, to instrument any functions that are not handled by the instrumented framework.
 
 
 Wavefront provides OpenTracing SDKs for:
@@ -163,18 +163,18 @@ Wavefront provides OpenTracing SDKs for:
 
   {% include tip.html content="If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/)." %}
 
-A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts). 
+A Wavefront OpenTracing SDK derives [RED metrics](trace_data_details.html#red-metrics-derived-from-spans) from the spans that are sent from the instrumented application. These RED metrics show the request Rate, Errors, and Duration that are obtained from the reported spans. These out-of-the-box metrics are derived from your spans automatically, with no additional configuration or instrumentation on your part. You can view the RED metrics for each service's operations in [predefined charts](trace_data_details.html#predefined-charts).
 
 Sample use cases:
 * Suppose your application is already instrumented with a 3rd party distributed tracing system. If that 3rd party system is OpenTracing-compliant, you can replace it with the Wavefront OpenTracing SDK in the same language.
 
-* Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs of the microservice, you'd like to see if anything is holding up the database write operation. You can use an OpenTracing SDK to instrument the operation so that it adds spans to the microservice's traces. 
+* Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs of the microservice, you'd like to see if anything is holding up the database write operation. You can use an OpenTracing SDK to instrument the operation so that it adds spans to the microservice's traces.
 
 ## SDKs For Collecting Metrics and Histograms
 
-Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics and histograms to Wavefront: 
-* You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice. 
-* You can use a metrics SDK and a framework SDK to instrument any functions that are not handled by the instrumented framework. 
+Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics and histograms to Wavefront:
+* You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice.
+* You can use a metrics SDK and a framework SDK to instrument any functions that are not handled by the instrumented framework.
 
 Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
 <div class="row">
@@ -227,7 +227,7 @@ Wavefront provides metrics SDKs for Java, .Net/C#, and Python:
 
 
 Different metrics SDKs provide different capabilities:
-* Some SDKs let you instrument functions with counters, delta counters, meters, gauges, timers, and histograms. These SDKs require some code changes beyond setting up helper objects. In particular, you'll need to instantiate objects for each type of metric you want to collect, and modify each function of interest.
+* Some SDKs let you instrument functions with (cumulative) counters, delta counters, meters, gauges, timers, and histograms. These SDKs require some code changes beyond setting up helper objects. In particular, you'll need to instantiate objects for each type of metric you want to collect, and modify each function of interest.
 * Some SDKs automatically collect and report metrics and histograms from your application's runtime system. The specific metrics depend on the programming language.
 
 Sample use case:
@@ -235,7 +235,7 @@ Sample use case:
 
 ## SDKs for Sending Raw Data to Wavefront
 
-Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Wavefront. 
+Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Wavefront.
 
 Wavefront provides sender SDKs for:
 
@@ -275,7 +275,7 @@ Wavefront provides sender SDKs for:
             </a>
          </div>
      </div>
- </div> 
+ </div>
  <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">

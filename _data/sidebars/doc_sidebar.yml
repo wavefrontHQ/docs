@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2020-26.x Release Notes
+      url: /2020.26.x_release_notes.html
+      output: web
+
     - title: 2020-22.x Release Notes
       url: /2020.22.x_release_notes.html
       output: web
@@ -80,10 +84,6 @@ entries:
 
     - title: 2020-06.x Release Notes
       url: /2020.06.x_release_notes.html
-      output: web
-
-    - title: 2019-52.x Release Notes
-      url: /2019.52.x_release_notes.html
       output: web
 
     - title: Wavefront Proxy Release Notes
@@ -102,20 +102,32 @@ entries:
       url: /wavefront_data_ingestion.html
       output: web
 
+    - title: Wavefront Data Format
+      url: /wavefront_data_format.html
+      output: web
+
+    - title: Wavefront Data Best Practices
+      url: /wavefront_data_naming.html
+      output: web
+
       subfolders:
-      - title: Data Format & Metrics, Sources, and Tags
+      - title: Metrics, Sources, and Tags
         output: web
         subfolderitems:
 
-        - title: Wavefront Data Format
-          url: /wavefront_data_format.html
-          output: web
-
-        - title: Metrics
+        - title: Metric Types
           url: /metric_types.html
           output: web
 
-        - title: Sources
+        - title: "Metrics & Metrics Browser"
+          url: /metrics_managing.html
+          output: web
+
+        - title: Counter Metrics
+          url: /delta_counters.html
+          output: web
+
+        - title: "Sources & Sources Browser"
           url: /sources_managing.html
           output: web
 
@@ -123,13 +135,10 @@ entries:
           url: /tags_overview.html
           output: web
 
+        - title: "Advanced: Derived Metrics"
+          url: /derived_metrics.html
+          output: web
 
-    - title: Wavefront Data Naming Best Practices
-      url: /wavefront_data_naming.html
-      output: web
-
-
-      subfolders:
       - title: Proxies
         output: web
         subfolderitems:
@@ -158,20 +167,8 @@ entries:
           url: /wavefront_cli.html
           output: web
 
-      - title: Advanced Data Ingestion
-        output: web
-        subfolderitems:
-
-        - title: Direct Data Ingestion
+        - title: Proxy & Direct Ingestion
           url: /direct_ingestion.html
-          output: web
-
-        - title: Derived Metrics
-          url: /derived_metrics.html
-          output: web
-
-        - title: Delta Counters
-          url: /delta_counters.html
           output: web
 
       - title: Histograms

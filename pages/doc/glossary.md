@@ -75,6 +75,11 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <td>A time series that contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value for each moment in time that can be represented on the X-axis of a chart. <strong>See also:</strong> Discrete time series.</td>
 </tr>
 <tr>
+<td markdown="span">&nbsp;</td>
+<td markdown="span">[**Counter**](delta_counters.html)</td>
+<td><strong>A cumulative counter, or simply counter, is a monotonically increasing counter. These counters are useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function. See also:**Delta counter.**</td>
+</tr>
+<tr>
 <td><strong><big>D</big></strong></td>
 <td>&nbsp;</td>
 <td>&nbsp;</td></tr>
@@ -91,7 +96,7 @@ This glossary introduces common Wavefront terms. Click the links or search this 
 <tr>
 <td>&nbsp;</td>
 <td markdown="span">[**Delta counter**](delta_counters.html)</td>
-<td>Wavefront delta counters make counter functionality available for serverless Function-as-a-Service environments and some other use cases. Delta counters are useful if you want to combine points that come in at the same time from several sources.</td>
+<td>Delta counters bin metrics to a minute timestamp and they treat write operations to the same bin as deltas. Wavefront delta counters are especially useful in serverless Function-as-a-Service environments or if you want to combine points that come in at the same time from several sources. Use a `cs()` query to have your metric treated as a delta counter. See also:**Delta counter.**</td>
 </tr>
 <tr>
 <td>&nbsp;</td>

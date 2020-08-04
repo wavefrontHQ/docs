@@ -14,7 +14,7 @@ We have a separate set of [Alert Recipes](alerts_recipes.html) but you can use m
 
 ## Queries for Counting
 
-Customers often ask us about counting, for example, they might want to know how many times a counter increased in the last five minutes. Look at the detailed examples in [Counters](metric_types.html#counters) for answers to those questions.
+Customers often ask us about counting, for example, they might want to know how many times a counter increased in the last five minutes. Look at the detailed examples in [Counters](delta_counters.html#using-cumulative-counters) for answers to those questions.
 
 ## Queries for Comparing Time Series
 
