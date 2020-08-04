@@ -8,7 +8,7 @@ summary: Reference to the cs() function
 ---
 ## Summary
 ```
-ts(<deltaMetricName> [and|or [not] <deltaMetricName2>] ...
+cs(<deltaMetricName> [and|or [not] <deltaMetricName2>] ...
   [,|and|or [not] source="<sourceName>"] ...
   [and|or [not] tag="<sourceTag>"] ...
   [and|or [not] <pointTagKey>="<pointTagValue>"] ...)
@@ -16,7 +16,7 @@ ts(<deltaMetricName> [and|or [not] <deltaMetricName2>] ...
 
 Returns the time series that match the specified delta metric name, optionally filtered by sources and point tags.
 * Use `cs()` to display delta counter metrics in a time series chart or to specify the series to other functions.
-* Use `ts()` to display the time series in a time series chart, or to specify the series to other functions.
+* Use [the ts() function](ts_function.html) to display the time series in a time series chart, or to specify the series to other functions.
 
 
 
