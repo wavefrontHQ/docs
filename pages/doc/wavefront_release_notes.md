@@ -16,4 +16,4 @@ These pages list new and updated features in the Wavefront service.
 - [2019-52.x Release Notes](2019.52.x_release_notes.html)
 - [2019-46.x Release Notes](2019.46.x_release_notes.html)
 
-For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc. 
+For Wavefront Proxy, your go-to place is the [Wavefront proxy github page](https://GitHub.com/wavefrontHQ/java/releases). On that page, you can see releases in progress and GA versions. If proxy changes are important for the service, we update this doc set, for example, with new configuration parameters, ports, etc. 
