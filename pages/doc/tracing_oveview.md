@@ -7,7 +7,7 @@ permalink: tracing_overview.html
 summary: Collect and visualize trace data from your applications.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code.
+Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code. Wavefront supports OpenTracing and OpenTelemetry for tracing.
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
 
@@ -39,6 +39,8 @@ An application must be instrumented for tracing before it can send trace data to
 
 ### Already Instrumented
 If you have already instrumented your code with [Jaeger](jaeger.html) or [Zipkin](zipkin.html), you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
+
+{% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merge to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration." %}
 
 ### Not Instrumented 
 If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
