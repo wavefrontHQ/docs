@@ -89,19 +89,29 @@ For any alerts that were created before 2020.14, the `url` variable points to th
 
 To view all alerts on your cluster, click the **Alerts** button to display the Alerts browser. You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE.
 
+
 ### View an Alert
 
 The Alert browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
 ![Alert firing](images/alert_firing.png)
 
-<!---
-The **Firings** column shows how many times an alert changed from non-firing to firing in the last day, week, and month.
---->
+Here's a summary of what you can do:
+* Click the ellipsis (three dots) for a menu.
+* Click the chart icon next to the status for alert details. If the alert is firing, the Alert Viewer displays.
+* View the alert condition and points.
+* Below the severity:
+  - View the last affected series, including the affected sources and point tags.
+  - View the targets.
+  For multi-threshold alerts, you see this information for each severity.
+* Examine [alert tags](alerts_manage.html#organize-related-alerts-with-alert-tags) or add a tag to make filtering for the alert easier.
+
 
 ### View Alert Details
 
-To view alert details, click the chart icon in the State column in the Alerts browser. A chart displays with these queries:
+To view alert details, click the chart icon in the State column in the Alerts browser.
+* If the alert is in FIRING state, the Alert Viewer displays
+* If the alert is not in FIRING state, chart displays with these queries:
 
 - **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
