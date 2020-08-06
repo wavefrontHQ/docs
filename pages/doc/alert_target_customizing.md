@@ -1026,10 +1026,13 @@ For this case (limit 10, failing sources 8) `failingLimitExceed` is `false` beca
 
 ## Utility Functions for Readability
 
-You can use alert target utility functions to make the output of the alert target more readable.
+You can use alert target utility functions to make the output of the alert target more readable. This section doesn't include examples, but many other examples include these functions.
+
 * Use `jsonEscape` if you send notifications to a messaging platform that uses JSON.
 * Use `xml11Escape` or `xml10Escape` if you send notifications to a messaging platform that uses XML.
 * Use `trimTrailingComma` if you send notifications to a messaging platform that does not automatically suppress a literal comma after the final element of a list.
+* Use `convertWhiteSpace` to convert characters that cause problems in a JSON file (`\t` `\n` `\x0B` `\f` `\r` etc.) to white space.
+
 
 <table>
 <colgroup>
@@ -1096,6 +1099,18 @@ Input:\\
 `"(Host: "xyz", Label: 3.0),   "`\\
 Output:\\
 `"(Host: "xyz", Label: 3.0)   "`
+</td>
+</tr>
+<tr>
+<td markdown="span">`convertWhiteSpace`
+</td>
+<td markdown="span">Converts characters that cause problems in a JSON file (`\t` `\n` `\x0B` `\f` `\r` etc.) to white space.
+</td>
+<td markdown="span">
+Input:\\
+`Give me space! \r Now!`\\
+Output:\\
+`Give me space!  Now!`
 </td>
 </tr>
 </tbody>
