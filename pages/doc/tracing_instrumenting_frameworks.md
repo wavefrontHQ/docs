@@ -233,3 +233,7 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
             add(new Pair<>("application", "Wavefront")).
             add(new Pair<>("http.method", "GET")).build(), null);
     ```
+
+## Next Steps 
+
+Examine traces, spans, and RED metric sent by your application. See [Visualizing Traces, Spans, and RED Metrics](tracing_ui_overview.html) for details.

@@ -509,11 +509,11 @@ entries:
     folderitems:
 
     - title: Overview
-      url: /tracing_overview.html
+      url: /tracing_basics.html
       output: web
       
     - title: Key Concepts
-      url: /tracing_concepts.html
+      url: /trace_data_details.html
       output: web
       
       subfolders:
@@ -529,15 +529,15 @@ entries:
             url: /tracing_integrations.html
             output: web
             
-          - title: Architecture of an Instrumented Microservice
-            url: /opentracing_sdk_architecture.html
+          - title: Customize Spans and Alerts for RED Metrics
+            url: /tracing_customize_spans_and_alerts.html 
             output: web  
       
     - title: Visualizing Trace Data
       url: /tracing_ui_overview.html
       output: web
 
-    - title: Intelligent Trace Sampling
+    - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
 

@@ -1,13 +1,11 @@
 ---
-title: Customize Spans and Alerts for RED Metrics
+title: Customize Span Tags for RED Metrics
 keywords: data, distributed tracing, red metrics, customize
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_customize_spans_and_alerts.html
 summary: Customize span level tags and alerts for RED metrics
 ---
-
-## Custom Span-Level Tags for RED Metrics
 
 Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](tracing_concepts.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
 
@@ -88,17 +86,3 @@ traceDerivedCustomTagKeys=env
     Example:
     ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
     For details on querying for RED metrics, see the section above on [RED Metrics Queries](#red-metrics-queries).
-
-## Custom Alerts on RED Metrics
-
-You can use RED metrics in the alert conditions for trace-data alerts. You normally create trace-data alerts by cloning and customizing predefined alerts as follows:
-
-1. Search for **Tracing Metrics Alert** in the Alerts browser to display the predefined trace-data alerts.
-2. Click on the ellipsis menu next to name of the alert you want to customize, and select **Clone**.
-3. On the **Create Alert** page, modify the alert condition and any other properties to suit your use case.
-
-For example, you might want to alert only on RED metrics from a specific service of a specific application:
-
-```
-limit(500, rate(ts(tracing.derived.beachshirts.delivery.*.error.count)))
-```
