@@ -46,14 +46,14 @@ For metrics that do not report at a fixed interval, alerts are only useful if y
 
 **Question:** Does the metric report only non-zero values, or does it also report zero values?
 
-If your metric includes zero values, or if blips in the network might result in temporary zero values, Wavefront Support recommends that you use counter metrics. A counter is a cumulative metric that represents a single numerical value that only ever goes up.
+If your metric includes zero values, or if blips in the network might result in temporary zero values, Wavefront Support recommends that you use [cumulative counter metrics](delta_counters.html), which represent increasing numerical values.
 
-Your data might already come in as counters, for example, the uptime for a system. You can explicitly set up a counter to count tasks completed, errors occurred, etc. For example, `sum(ts(cpu.idle))` is a counter metric. It increases over time, and never reports zero values. 
+Your data might already come in as counters, for example, the uptime for a system. Or you can explicitly set up a counter to count tasks completed, errors occurred, etc. For example, `sum(ts(cpu.idle))` is a counter metric. It increases over time, and never reports zero values. 
 
 For alerts, follow these guidelines:
-* Counters are especially helpful for alerts: Even if there's a break in the data flow, the alert doesn't immediately get triggered. 
+* Counters are especially helpful for alerts: Even if there's a break in the data flow, the alert doesn't immediately get triggered because a counter always has a value. You can instead have the alert check whether the value didn't change for a specified amount of time. 
 
-* If a counter doesn't make sense, deltas might work. Delta metrics record changes between the last metric and the current metric. Delta metrics that report zero values are better than deltas that don't report zero values.
+* If a counter doesn't make sense, delta counters might work. Delta counters record changes between the last metric and the current metric. Delta metrics that report zero values are more useful for alerting than deltas that don't report zero values.
 
 If you know your data, you can pick a suitable metric to get the best results for your alert. Or you can use functions like `sum` to create your own counter.
 
@@ -65,7 +65,7 @@ Wavefront considers a metric obsolete after it hasn't reported any values for 4 
 
 The Wavefront UI allows you to include or exclude obsolete metrics in several places. For alerts, you can select the **Advanced** check box **Include Obsolete Metrics**. 
 
-As discussed above, it's usually better to find a way to report values, for example by using a counter or delta metric, than to include obsolete metrics.
+As discussed above, it's usually better to find a way to report values, for example by using a counter or delta counter, than to include obsolete metrics.
 
 ### Simultaneous Metrics?
 

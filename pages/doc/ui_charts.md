@@ -75,7 +75,7 @@ In the image below, we selected a metric, narrowed down the source, and we're ju
 
 Instead of using [Chart Builder](chart_builder.html), you can click the toggle and explicitly enter [Wavefront Query Language](query_language_reference.html) expressions into the query field.
 
-{% include note.html content="After you switch, to Query Editor, you cannot return to Chart Builder." %} 
+{% include note.html content="After you switch, to Query Editor, you cannot return to Chart Builder." %}
 
 We can get the metric we selected above with the following query.
 
@@ -118,6 +118,8 @@ Users with Dashboard permissions can make many other changes such as selecting t
 
 </ul>
 {{site.data.alerts.end}}
+
+
 
 ### Change the Legend
 
@@ -179,7 +181,7 @@ To filter out some lines, you specify a minimum or maximum. By default, Wavefron
 
 You can control how units display in the Y axis. Changes affect *only the display* of data.
 
-{% include note.html content="Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows GB of memory or Gigabytes per second, then changes can result in a clearer display." %} 
+{% include note.html content="Which changes make sense depends entirely on the data you're looking at. For example, if your chart shows a percentage, changing the units changes the label, but does not change the units themselves. If your chart shows GB of memory or Gigabytes per second, then changes can result in a clearer display." %}
 
 By default, charts use SI unit prefixes, but you can change that.
 * **SI unit** prefixes (k, M, G, T, P, E, Z, Y) increment by a factor of 1000 and are used by default. For details on SI units, see Wikipedia or a similar source.

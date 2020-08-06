@@ -32,7 +32,10 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 
 ### To Prepare a Wavefront Proxy
 
-1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).  You need proxy version 4.36 or later. If you want to use span logs, you need proxy version 5.0 or later.
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). 
+    {{site.data.alerts.note}}
+      If you want to use span logs, you need proxy version 5.0 or later.
+    {{site.data.alerts.end}}
 2. On the proxy host, open the proxy configuration file `wavefront.conf` for editing. The [path to the file](proxies_configuring.html#paths) depends on the host OS.
 3. In the `wavefront.conf` file, find and uncomment the [listener-port property](proxies_installing.html#set-the-listener-port-for-metrics-histograms-and-traces) for each listener port you want to enable. The following example enables the default/recommended listener ports for metrics, histogram distributions, and trace data:
     ```

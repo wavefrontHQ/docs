@@ -14,7 +14,7 @@ traces("<fullOperationName>" [,|and|or [not] <filterName>="<filterValue>"] ...)
 
 traces(<filterName>="<filterValue>" [,|and|or [not] <filter2Name>="<filter2Value>"] ...)
 
-traces(<spansExpression>)
+traces(<spansExpression>, [<spansExpression])
 ```
 Returns the traces that contain one or more qualifying spans, where a qualifying span matches the specified operation and [span filters](#span-filters). Available only in the [Query Editor in the Traces browser](trace_data_query.html#use-query-editor-power-users). Can be combined with one or more [filtering functions](#filtering-functions).
 
@@ -40,7 +40,7 @@ Returns the traces that contain one or more qualifying spans, where a qualifying
 <td markdown="span">Value accepted by a specified **`filterName`**.</td></tr>
 <tr>
 <td markdown="span">[spansExpression](query_language_reference.html#query-expressions)</td>
-<td markdown="span">Expression that describes the set of qualifying spans. You typically specify a [`spans()`](spans_function.html) query that is wrapped in a spans filtering function. For example, the following expression describes spans that qualify by being longer than 11 seconds: <br> **`highpass(11s, spans("beachshirts.styling.makeShirts"))`**. </td>
+<td markdown="span">Expression that describes the set of qualifying spans. You typically specify a [`spans()`](spans_function.html) query that is wrapped in a spans filtering function. For example, the following expression describes spans that qualify by being longer than 11 seconds: <br> **`highpass(11s, spans("beachshirts.styling.makeShirts"))`**. You can specify more than one spansExpression. </td>
 </tr>
 </tbody>
 </table>

@@ -15,9 +15,7 @@ Click the **Setup** tab for instructions on:
 
 This integration also installs a dashboard. Here's a preview of the Istio dashboard:
 
-{% include image.md src="images/istio_1.png" width="80" %}
-{% include image.md src="images/istio_2.png" width="80" %}
-{% include image.md src="images/istio_3.png" width="80" %}
+{% include image.md src="images/istio_dashboard.png" width="80" %}
 
 ## Istio Setup
 

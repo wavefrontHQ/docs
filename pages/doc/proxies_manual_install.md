@@ -72,8 +72,6 @@ Before you can customize the proxy configuration, you have to find the values fo
 </tr>
 </tbody>
 </table>
-</tbody>
-</table>
 
 ### Step 3: Make Configuration Changes
 

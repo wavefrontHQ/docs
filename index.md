@@ -13,8 +13,8 @@ Welcome to the Tanzu Observability by Wavefront documentation site!
 * Even if you don't read docs, check out the [Query Language Reference](query_language_reference.html) or [individual reference pages](label_reference%20page.html)
 * If you're a developer:
   - Find our REST APIs [on the VMware {code} website](https://code.vmware.com/apis/714/wavefront-rest) or directly from inside the product.
-  - Look at our [public Github repositories](https://github.com/wavefrontHQ)
-* Doc Feedback? Use the button in the top right or do a PR in our [Wavefront docs github repo](https://github.com/wavefrontHQ/docs/tree/master/pages/doc)
+  - Look at our [public GitHub repositories](https://github.com/wavefrontHQ)
+* Doc Feedback? Use the button in the top right or do a PR in our [Wavefront docs GitHub repository](https://github.com/wavefrontHQ/docs/tree/master/pages/doc)
 
 You can explore the documentation in the nav bar hierarchy on the left. Each topic also has one or more labels that offer a non-hierarchical way to browse. Click the buttons below to view all topics with that label.
 

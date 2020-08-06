@@ -8,7 +8,9 @@ summary: Understand how Wavefront secures your data and supports fine-tuning sec
 
 Wavefront by VMware protects your data and includes facilities for you to customize authentication and authorization.
 
-This page gives a summary. For a detailed discussion of many aspects of security, download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/).
+This page gives a summary.
+* Download the white paper [VMware Tanzu Observability Security and Privacy](https://d1fto35gcfffzn.cloudfront.net/tanzu/observability/VMware_Tanzu_Observability_Security_and_Privacy.pdf) for a detailed discussion.
+* Download and review the [Cloud Security Alliance Consensus Assessments Initiative Questionnaire for Wavefront by VMware](https://cloudsecurityalliance.org/star/registry/vmware-inc/) for our consensus assessment questionnaire.
 
 ## Certifications
 
