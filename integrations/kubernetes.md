@@ -48,6 +48,7 @@ This integration uses the [Wavefront Collector for Kubernetes](https://github.co
 * **vSphere Project Pacific users**
   1. [Connect to the cluster control plane](https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-kubernetes/GUID-C099E736-43A6-464C-9BFA-29B8509F0DA1.html).
   2. Follow the steps under *Kubernetes Quick Install Using Helm* or the *Kubernetes Manual Install*.
+* **Tanzu Mission Control users** follow the steps given in the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-6DFB45C0-A741-4972-95EA-59B7AE581FE8.html).
 
 ### Kubernetes Quick Install Using Helm
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
@@ -135,6 +136,7 @@ The default configuration file includes [discovery configurations](https://githu
 
 #### Horizontal Pod Autoscaling (HPA)
 Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
+
 
 ## Table of Contents
 

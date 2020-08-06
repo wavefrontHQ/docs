@@ -1,8 +1,8 @@
 ---
-title: OpenShift Integration
+title: Tanzu Mission Control Integration
 tags: [integrations list]
-permalink: openshift.html
-summary: Learn about the Wavefront OpenShift Integration.
+permalink: tmc.html
+summary: Learn about the Wavefront Tanzu Mission Control Integration.
 ---
 ## Kubernetes Integration
 
