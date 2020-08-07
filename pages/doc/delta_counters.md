@@ -115,14 +115,14 @@ We support the following [proxy configuration properties](proxies_configuring.ht
 
 ### Delta Prefix
 
-Before Wavefront supported the `cs()` function, it was necessary to use a delta (∆) character prefix to have data treated as delta counters. The prefix is still supported, but no longer necessary if you use the `cs()` function. If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, you can still prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
+If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
 
 ```
 DELTA_PREFIX = u"\u2206"
 ALT_DELTA_PREFIX = u"\u0394"
 ```
 
-{% include note.html content="In queries, you don't have to specify the delta character prefix. For example, you query `∆aws.lambda.wf.invocations.count` as `ts(aws.lambda.wf.invocations.count)`." %}
+{% include note.html content="In queries, you don't have to specify the delta character prefix. For example, you query `∆aws.lambda.wf.invocations.count` as `cs(aws.lambda.wf.invocations.count)`." %}
 
 
 ## Using Cumulative Counters
