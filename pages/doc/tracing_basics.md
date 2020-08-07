@@ -40,7 +40,7 @@ An application must be instrumented for tracing before it can send trace data to
 ### Already Instrumented
 If you have already instrumented your code with [Jaeger](jaeger.html) or [Zipkin](zipkin.html), you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront. The integration sends the data through a Wavefront proxy.
 
-{% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merge to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration." %}
+{% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html) for details." %}
 
 ### Not Instrumented 
 If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).

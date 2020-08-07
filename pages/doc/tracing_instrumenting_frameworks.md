@@ -14,8 +14,6 @@ You instrument each microservice in your application with one or more [Wavefront
 * Directs you to the setup steps for each SDK
 * Provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
 
-{% include note.html content="If you have already instrumented your application for tracing with OpenTracing or OpenTelemetry using Jaeger or Zipkin, you can set up a [Wavefront integration](tracing_integrations.html) to forward the trace data to Wavefront." %}
-
 ## Step 1. Prepare to Send Data to Wavefront
 
 Choose one of the following ways to send metrics, histograms, and trace data from your application to the Wavefront service:
@@ -142,7 +140,7 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
            </div>
        </div>
      </div>
-     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merge to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration." %}
+     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html) for details." %}
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.

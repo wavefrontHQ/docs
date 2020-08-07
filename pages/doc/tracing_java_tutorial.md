@@ -6,6 +6,7 @@ sidebar: doc_sidebar
 permalink: tracing_java_tutorial.html
 summary: Configure your OpenTracing Java application to send data to Wavefront using the OpenTracing Java SDK.
 ---
+{% include important.html content="This tutorial is work in progress!" %}
 In this tutorial, you configure a sample application with the Wavefront OpenTracing Java SDK with a sample application to send data to Wavefront. Let's get started!
 
 ## Prerequisites
