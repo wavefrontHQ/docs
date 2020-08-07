@@ -524,6 +524,54 @@ Ex: 0 </td>
 <td>Buffer size in bytes. <br/> Ex: 16777216 </td>
 <td>4.38</td>
 </tr>
+<tr>
+<td>trafficShaping</td>
+<td>Enables intelligent traffic shaping based on the data receive rate over the last 5 minutes. <br/>Default: false</td>
+<td>true or false</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>trafficShapingQuantile</td>
+<td>Sets the quantile for traffic shaping. 
+<br/> Default: 75</td>
+<td> An integer <br/>Ex: 99 <br/>The 99th percentile of the received rate in the last 5 minutes, will be used as a basis for the rate limiter.
+</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>trafficShapingHeadroom</td>
+<td>
+Sets the headroom multiplier for traffic shaping when there's backlog.  
+<br/>Default: 1.15 (15% headroom)
+</td>
+<td>Number from 1.0 to 1.99 <br/>Ex: 1.05 (5% headroom) <a name="sqsBuffer"></a></td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>sqsBuffer </td>
+<td>Use AWS SQS for buffering transmissions. 
+ <br/>Default: false</td>
+<td>true or false <a name="sqsQueueNameTemplate"></a></td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>sqsQueueNameTemplate</td>
+<td>The replacement pattern for naming the SQS queues.</td>
+<td>Ex: <code>wf-proxy-&#123;&#123;id&#125;&#125;-&#123;&#123;entity&#125;&#125;-&#123;&#123;port&#125;&#125;</code> results in a queue named <code>wf-proxy-id-points-2878</code>  <a name="sqsQueueIdentifier"></a></td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>sqsQueueIdentifier</td>
+<td>An identifier for identifying the proxies in SQS.</td>
+<td>A string <br/> Ex: wavefront <a name="sqsQueueRegion"></a></td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>sqsQueueRegion</td>
+<td>The AWS Region name the queue lives in.</td>
+<td>A string <br/>Ex: us-west-2 </td>
+<td>9.0</td>
+</tr>
 </tbody>
 </table>
 
@@ -535,16 +583,16 @@ Ex: 0 </td>
 <th width="10%">Property</th>
 <th width="50%">Purpose</th>
 <th width="30%">Format /Example </th>
-<th width="10%">Since</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <a name="traceJaegerHttpListenerPorts"></a>
 <td>traceJaegerHttpListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format). <br/> Default: None.</td>
+<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format). 
+<br/> Default: None. 
+<br/> Version: Since 6.0</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>6.0 </td>
 </tr>
 <tr>
 <td>traceJaegerListenerPorts</td>
@@ -552,15 +600,23 @@ Ex: 0 </td>
 {% include warning.html content="<br/>Sending data via TChannel has been deprecated in Jaeger 1.16. Therefore, we recommend using <code>traceJaegerHttpListenerPorts</code> to receive Jaeger Thrift formatted data via HTTP." %}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>4.31</td>
+</tr>
+<tr>
+<a name="traceJaegerHttpListenerPorts"></a>
+<td>traceJaegerGrpcListenerPorts</td>
+<td markdown="span">Ports to receive Jaeger Protobuf formatted data over gRPC. 
+<br/> Default: None. 
+<br/> Version: Since 9.0</td>
+<td>Comma-separated list of available port numbers. Can be a single port.</td>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to Wavefront</a>. <br/> Default: None.
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to Wavefront</a>. 
+<br/> Default: None. 
+<br/> Version: Since 6.0
 {% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>6.0 </td>
 <a name="customTracingListenerPorts"></a>
 </tr>
 <tr>
@@ -569,51 +625,57 @@ Ex: 0 </td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 30000</div>
 <div>Ex: 30000, 30001</div></td>
-<td>4.31 </td>
 </tr>
 <tr>
 <td>traceSamplingDuration</td>
 <td markdown="span">Minimum duration of the tracing spans that can be sent to Wavefront for [trace data sampling](trace_data_sampling.html). <br/> Default: 0 (send all generated spans). </td>
 <td>Number of milliseconds.
 <div>Ex: 45</div> </td>
-<td>4.34</td>
 </tr>
 <tr>
 <td>traceSamplingRate</td>
 <td markdown="span">Percentage of all generated spans to send to Wavefront for [trace data sampling](trace_data_sampling.html). <br/> Default: 1.0 (send all generated spans). </td>
 <td>Number from 0.0 to 1.0.
 <div>Ex: .1</div></td>
-<td>4.34</td>
 </tr>
 <tr>
 <td>traceZipkinListenerPorts</td>
 <td>TCP ports to listen on for Zipkin formatted data. Recommended: The default Zipkin Collector port (9411). <br/> Default: None.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
-<td>4.35 </td>
+</tr>
+<tr>
+<td>customTracingApplicationName</td>
+<td>Custom application name for spans received on the customTracingListenerPorts that don't have the application tag. 
+<br/> Default: defaultApp.
+<br/> Version: Since 9.0</td>
+<td>customTracingApplicationName=MyApplication</td>
+</tr>
+<tr>
+<td>customTracingServiceName</td>
+<td>Custom service name for spans received on the customTracingListenerPorts that don't have the service tag.
+<br/> Default: defaultService.
+<br/> Version: Since 9.0</td>
+<td>customTracingServiceName=MyService</td>
 </tr>
 <tr>
 <td>traceJaegerApplicationName</td>
 <td>Custom application name for traces received on Jaeger's traceJaegerListenerPorts or traceJaegerHttpListenerPorts.</td>
 <td>traceJaegerApplicationName=MyJaegerDemo</td>
-<td>4.38</td>
 </tr>
 <tr>
 <td>traceZipkinApplicationName</td>
 <td>Custom application name for traces received on Zipkin's traceZipkinListenerPorts.</td>
 <td>traceZipkinApplicationName=MyZipkinDemo</td>
-<td>4.38 </td>
 </tr>
 <tr>
 <td>traceDerivedCustomTagKeys</td>
 <td>Comma separated list of custom tag keys to include as metric tags for the derived RED (Request, Error, Duration) metrics. Applicable to Jaeger and Zipkin integration only.</td>
 <td>traceDerivedCustomTagKeys=tenant, env, location</td>
-<td>4.38 </td>
 </tr>
 <tr>
 <td>traceListenerHttpBufferSize</td>
 <td>The maximum request size (in bytes) for incoming HTTP requests with tracing data. <br/>Default: 16MB</td>
 <td>Buffer size in bytes. <br/> Ex: 16777216 </td>
-<td>4.37 </td>
 </tr>
 </tbody>
 </table>
@@ -874,11 +936,16 @@ Ex: 40</td>
 
 If the Wavefront proxy is unable to post received data to the Wavefront servers, it buffers the data to disk across a number of buffer files, and then tries to resend the points once the connection to the Wavefront servers is available again. If this buffering occurs, you'll see lines like this in `wavefront.log`:
 
-    2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
+```
+2013-11-18 18:02:35,061 WARN  [com.wavefront.daemon.QueuedSshDaemonService] current retry queue sizes: [1/0/0/0]
+```
 
 By default, there are 4 threads (and 4 buffer files) waiting to retry points once the connections are up; this line shows how many blocks of points have been stored by each thread (in this case, the first thread has 1 block of queued points, while the second, third, and fourth threads all have 0 blocks). These lines are only printed when there are points in the queue; you'll never see a line with all 0's in the queue sizes. Once the connection to the Wavefront servers has been established, and all the threads have sent the past data to us, you'll see a single line like this in `wavefront.log`:
 
-    2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
+```
+2013-11-18 18:59:46,665 WARN [com.wavefront.daemon.QueuedSshDaemonService] retry queue has been cleared
+```
+{% include note.html content="**Proxy 9.0 and later (BETA)**:<br/> If you don't want to buffer the data on a file-based storage and if you have an AWS Simple Queue Service (SQS), you can add an SQS for the proxy so that the data is sent to the SQS instead of buffering the data to the local on-disk when there is a data outage or when proxies are backing up. To send data to an AWS SQS, configure the [`sqsBuffer`](#sqsBuffer), [`sqsQueueNameTemplate`](#sqsQueueNameTemplate), [`sqsQueueIdentifier`](#sqsQueueIdentifier), and [`sqsQueueRegion`](#sqsQueueRegion) properties in the `wavefront.conf` file." %}
 
 ## Logging
 

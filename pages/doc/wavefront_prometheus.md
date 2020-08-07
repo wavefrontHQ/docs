@@ -7,15 +7,23 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020.26, Wavefront includes support for PromQL. You can run PromQL queries directly in the Wavefront Query Editor. The corresponding chart shows the information you'd expect.
+Starting with release 2020.26, Wavefront includes support for PromQL. In this Beta of PromQL you can:
+* Run PromQL queries directly in the Wavefront Query Editor.
+  The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect. There is no other indication in the UI whether the query is Wavefront QL or PromQL.
+* Add charts that use PromQL to dashboards.
+* Create alerts from charts that use PromQL
+* Use PromQL queries in the query line of a Create Alert page.
 
-## How to Run PromQL Queries
+{% include note.html content="PromQL Support Beta is available on demand. Contact customer support to discuss having it enabled. " %}
+
+## How to Use PromQL Queries
 
 1. Create or edit a chart.
 2. Start typing your PromQL query.
 3. Make changes to the visualization.
   * See [Create and Customize Charts](ui_charts.html) for an intro.
   * See [Chart Reference](ui_chart_reference.html) for details.
+
 
 ![Prometheus query](images/prometheus_sample.png)
 
@@ -71,4 +79,4 @@ While you can run queries directly in the Wavefront Query Editor, there are curr
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
-* You cannot currently create an alert directly from a PromQL query. Even though the  **Create Alert** menu option is available, it's not actually supported.
+* If an alert uses a PromQL query, the Backtesting option currently doesn't work correctly.
