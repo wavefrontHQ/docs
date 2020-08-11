@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: videos_administration.html
 summary: Administrators use Wavefront Top to understand data shapes, and permissions and access for authorization.
 ---
-Joanna's video explains how to use Wavefront top to examine Wavefront spy endpoints. The Access Control video uses screen capture to show how to set access control for dashboards and alerts. 
+Joanna's video explains how to use Wavefront top to examine Wavefront spy endpoints. The Access Control video uses screen capture to show how to set access control for dashboards and alerts.  
 
 <table style="width: 100%;">
 <tbody>
