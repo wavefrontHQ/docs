@@ -22,29 +22,145 @@ Watch these videos to get you started. The videos use the v1 UI, but the basic w
 </tbody>
 </table>
 
-## Retrieve a Metric
+## Intro: Anatomy of a Query
 
-The Chart Builder UI makes it easy to show any metric that's currently flowing into your Wavefront instance. For example, you can the total number of requests typing `~sample.requ` into the **Metric** field and selecting from the auto-complete options. (The ~sample metrics are available on all Wavefront instances for experimentation).
+Before you run your first query, let's look at the anatomy of a query shown in Chart Builder:
 
-![base query](images/v2_quickstart_simple.png)
+![annotated chart builder, items discussed below](images/query_anatomy_builder.png)
 
+Each query has the following components. Only the metric is required, the other elements are optional but help you get the information you're really interested in.
+* A metric (or a constant such as `10`). In this example, `~sample.cpu.loadavg.1m`
+* One or more sources, that is, host, VM, container, etc. In this example, `app-*`. That means metrics that come from `db-*` are ignored.
+* One or more point tags. In this example, `env=production`. Point tags must be defined in your time series. If you use Chart Builder, only valid point tags are available for selection.
+* One or more functions. This example uses the `avg()` function, and the `mmedian()`` function with a 10 minute time window. The [Query Language Reference](query_language_reference.html) lists each function with a short description and points to reference pages.
 
-## Filter by Source
+Here's the same query in the Query Editor.
 
-The example chart is quite busy, but we can filter by source. The [Wavefront Data Format](wavefront_data_format.html) includes the source for each metric out of the box. Chart Builder makes it easy to filter by source.
-
-
-![filtered query](images/v2_quickstart_filtered.png)
-
-## Apply an Aggregation Function
-
-The example above selected a single source - but we can also use the wildcard character in the query line. Now, the chart becomes pretty busy again. Let's use one of the aggregation functions. We could use `avg()` to show the average value of metric across all sources. Or we can use `sum()` to get a total for all sources starting with `app-1`. Here's the chart:
-
-![summed query](images/v2_quickstart_sum.png)
+![annotated query editor, items discussed above](images/query_anatomy_editor.png)
 
 
+## Step 1: Retrieve a Metric
 
-## Further Chart Customization
+The Chart Builder UI makes it easy to show any metric that's currently flowing into your Wavefront instance. Let's explore some sample data, which are included with each Wavefront instance.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol>
+<li>Log in to your Wavefront instance, which has a URL &lt;my_instance&gt;.wavefront.com </li>
+<li>Select <strong>Dashboards > New Chart</strong>.</li>
+<li>In the Chart Builder, select the metric ~sample.cpu.loadavg.1m. Autocomplete helps with the selection. </li></ol>
+</td>
+<td width="50%">
+<img src="images/chart_builder_autocomplete.png" alt="Zoom in on data selection in chart builder, showing auto-complete."></td>
+</tr>
+</tbody>
+</table>
+
+Next, explore adding ~sample metrics. If you like, switch to Query Editor and add a constant -- but note that you can't switch back to Chart Builder!
+
+Here's an annotated screenshot of the first chart you'll see.
+
+* **Chart names** are easy to change just by typing.
+* For quick zoom in/out, use the **hover time selector**, which appears when the cursor is on the chart.
+* As you zoom in or out, the [bucket size (chart resolution)](ui_charts.html#chart-resolution) changes.
+* Use **Share chart** or **Quick share** to [share with others](ui_sharing.html).
+* Use the Query Editor toggle for some advanced query functionality
+* Notice [events](events.html) that are shown on the time line. These events are often system events associated with alerts, but can be user-defined events.
+* Be sure to **Save** the chart, either to an existing or a new dashboard.
+
+![First simple query shown in annotated chart. Items are explained in text above. ](images/query_quickstart_first_query.png)
+
+**Things to Try**
+
+* Use the Hover Time Selector to zoom in and out. You can also select-drag to see part of the chart, then click + or - to return to default settings.
+* Hover over event icons in the Y axis to get details for the event.
+* Hover over a time series to see the legend. Use Shift P to pin the legend.
+
+## Step 2: Filter by Source and Point Tag
+
+The example chart is quite busy, but we can use filters to focus in.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+1. Make sure <strong>Data</strong> is still ~sample.cpu.loadavg.1m. </td>
+<td width="40%"> </td></tr>
+<tr>
+<td>2. Click <strong>Filters</strong>, select <strong>source</strong>, and type <strong>app-&#42;</strong> to include only time series if the source name starts with <strong>app-</strong>. This query uses a wildcard character.</td>
+<td><img src="images/query_quickstart_source.png" alt="Add source to Filter"></td>
+</tr>
+<tr>
+<td>
+3. Click the <strong>Add</strong> botton and select <strong>env &gt; production</strong> as the second filter.
+</td>
+<td width="50%">
+<img src="images/query_quickstart_env.png" alt="Select env=production">
+</td>
+</tr>
+</tbody>
+</table>
+
+**Things to Try**
+
+* Explore the effect of using different source and point tag filters.
+* Add more than one filter for each category, for example, several sources.
+* Clone a query and click the Query Editor toggle `</>` to see the results in Query Editor (you can't return to Query Builder, so using a clone helps.)
+* With multiple queries in place, show and hide queries, and drag them to change query order.
+
+## Step 3: Apply an Aggregation Function
+
+[Aggregation functions](query_language_aggregate_functions.html) allow you to combine points from multiple time series, and to group the results. Let's take the average first, and then let's remove the `env` filter and instead group by environment.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+1. Make sure <strong>Data</strong> is still ~sample.cpu.loadavg.1m. </td>
+<td width="40%"> </td></tr>
+<tr>
+<td>2. Click <strong>Functions</strong>, and pick <strong>Favorites &gt; avg</strong>. The result is a single aggregated time series.
+
+In Query Editor, this query looks like this:
+<p><code>sum(ts(~sample.cpu.loadavg.1m))</code></p>
+</td>
+<td><img src="images/query_quickstart_avg.png">
+</td>
+</tr>
+<tr>
+<td>
+3. Click <strong>Functions &gt; Favorites &gt; avg</strong> again and select <strong>Group by</strong> and then <strong>env</strong>.
+
+The result is two aggregated time series. You can hover over each line to see which environment it shows.
+
+In the Query Editor, you can add the literal <strong>, pointTags</strong> (you need the comma!), so the query looks like this:
+<p><code>sum(ts(~sample.cpu.loadavg.1m), pointTags)</code></p>
+</td>
+<td>
+<img src="images/query_quickstart_group_by.png" alt="Select env=production">
+</td>
+</tr>
+<tr>
+<td>
+Add a second function. For example you can use the deriv() function to show the rate of change per second for the sum.
+<p><code>deriv(sum(ts(~sample.cpu.loadavg.1m))</code></p> </td>
+<td><img src="/images/v2_quickstart_deriv.png" alt="apply second function in chart builder"></td>
+</tr>
+</tbody>
+</table>
+
+**Things to Try**
+
+Experiment with some of our other functions, either in Chart Builder or in Query Editor.
+
+* Use one of the [Moving Window Time Functions](query_language_reference.html#moving-window-time-functions) to combine or test the values of a time series over a time sliding window.
+* Experiment with [Filtering and Comparison Functions](query_language_reference.html#filtering-and-comparison-functions). For example, use `topk()` to return the top `numberOfTimeSeries` series.
+
+
+<!---
+## Step 4: Further Chart Customization
 
 The [query language](query_language_reference.html) supports many other ways of getting just the results you want from your data. Here are some examples;
 
@@ -58,18 +174,13 @@ Add a second function. For example we can use the deriv() function to show the r
 </tr>
 <tr>
 <td width="40%">
-Because sum() is an aggregation function, you can group the results. To group by point tags, add the literal <strong>, pointTags</strong> (you need the comma!). The legend shows that we're getting results for both point tags (az and env).
-
-<p><code>sum(ts(~sample.requests.total.num), pointTags)</code></p> </td>
-<td width="60%"><img src="/images/v2_quickstart_pointTags.png" alt="group by point tags"></td>
-</tr>
-<tr>
-<td width="40%">
 You can also add a second filter. Our sample data include an env and an az point tag, and we can select one of the values of that tag. </td>
 <td width="60%"><img src="/images/v2_quickstart_tag.png" alt="group by tag"></td>
 </tr>
 </tbody>
 </table>
+--->
+
 
 
 ## Next Steps
@@ -78,14 +189,14 @@ What's next depends on the type of data you're interested in, and how you want t
 
 ### Query Types for Different Data
 
-Most Wavefront users query for metrics, but we support interacting with other data.
+Most Wavefront users query for time series metrics, but we support interacting with other data.
 
 Charts for metrics also support the following types of queries:
 * **Events**: Query Wavefront events with [`events()` queries](query_language_reference.html#event-functions).
 * **Histograms**: Query histograms with [`hs() queries`](visualize_histograms.html#querying-histogram-metrics)
 * **Traces and spans**: Query trace data from the tracing UI with the [tracing Query Builder](trace_data_query.html)
 
-### Docs, Videos, and Recipes
+### Docs, Videos, and Query Language Recipes
 
 Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
 
