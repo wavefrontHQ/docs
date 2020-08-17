@@ -11,7 +11,7 @@ summary: Reference to the exists() function
 exists(<tsExpression>)
 ```
 Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
-A time series exists if it has reported a data value in the last 4 weeks.
+A time series exists if it has reported a data value in the last day (24 hours).
 ## Parameters
 <table style="width: 100%;">
 <tbody>
@@ -27,7 +27,7 @@ A time series exists if it has reported a data value in the last 4 weeks.
 
 ## Description
 
-The `exists()` function returns 1 if any time series described by the expression exists, and returns 0 otherwise. A time series exists if it has at least one value that was reported within the last 4 weeks. The returned constant series is continuous.
+The `exists()` function returns 1 if any time series described by the expression exists, and returns 0 otherwise. A time series exists if it has at least one value that was reported within the last day (24 hours). The returned constant series is continuous.
 
 You can use `exists()` to see if a metric is obsolete or has never reported.
 
@@ -41,7 +41,7 @@ You can wrap `exists()` around an expression that returns some number of time se
 exists(ts(inv_1_get_count, status="7**" and operation="*" and cname="${environment}"))
 ```
 
-This query returns 1 if at least one time series has a value reported within the last 4 weeks. Otherwise, the query returns 0 if the values of all of the time series are older than 4 weeks.
+This query returns 1 if at least one time series has a value reported within the 1d (24 hours). Otherwise, the query returns 0 if the values of all of the time series are older than 1d (24 hours).
 Because this query returns either 1 or 0, it is useful as a conditional expression in an `if()` function.
 
 For clarity, we'll name this query `hasData` so we can easily refer to it in the following examples.
@@ -73,4 +73,4 @@ In this example:
 
 ## See Also
 
-The [`missing()` function](ts_missing.html) lets you check whether a function returned data in a specified time window. 
+The [`missing()` function](ts_missing.html) lets you check whether a function returned data in a specified time window.

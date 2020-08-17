@@ -7,15 +7,23 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020.26, Wavefront includes support for PromQL. You can run PromQL queries directly in the Wavefront Query Editor. The corresponding chart shows the information you'd expect.
+Starting with release 2020.26, Wavefront includes support for PromQL. In this Beta of PromQL you can:
+* Run PromQL queries directly in the Wavefront Query Editor.
+  The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect. There is no other indication in the UI whether the query is Wavefront QL or PromQL.
+* Add charts that use PromQL to dashboards.
+* Create alerts from charts that use PromQL
+* Use PromQL queries in the query line of a Create Alert page.
 
-## How to Run PromQL Queries
+{% include note.html content="PromQL Support Beta is available on demand. Contact customer support to discuss having it enabled. " %}
+
+## How to Use PromQL Queries
 
 1. Create or edit a chart.
 2. Start typing your PromQL query.
 3. Make changes to the visualization.
   * See [Create and Customize Charts](ui_charts.html) for an intro.
   * See [Chart Reference](ui_chart_reference.html) for details.
+
 
 ![Prometheus query](images/prometheus_sample.png)
 
@@ -53,7 +61,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <tr>
 <td><strong>=~, !~</strong>
 </td>
-<td>Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#wildcards-aliases-and-variables) in PromQL queries.
+<td markdown="span">Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#wildcards-aliases-and-variables) in PromQL queries.
 </td></tr>
 <tr>
 <td><strong>subquery</strong>
@@ -71,4 +79,21 @@ While you can run queries directly in the Wavefront Query Editor, there are curr
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
-* You cannot currently create an alert directly from a PromQL query. Even though the  **Create Alert** menu option is available, it's not actually supported.
+* If an alert uses a PromQL query, the [Backtesting option](alerts_manage.html#backtesting) currently doesn't work correctly.
+
+## How Wavefront Executes PromQL Queries
+
+The following diagram shows how Wavefront handles a Wavefront QL (`ts()`) query and a PromQL query.
+
+![Image showing TS and PromQL execution paths, explained in text](images/ts_and_promql.png)
+
+The top row shows the `ts()` query execution:
+
+1. The user enters the query into the Query Editor.
+2. The Wavefront service processes the query and shows the results in the chart, uses the result to determine whether an alert should fire, etc.
+
+The bottom row shows the PromQL query execution:
+1. The user enters the query into the Query Editor.
+2. The translation service translates the query into the corresponding `ts()` query.
+3. The translated query is automatically sent to the Wavefront service.
+4. The Wavefront service processes the query and shows the results in the chart, uses the result to determine whether an alert should fire, etc.

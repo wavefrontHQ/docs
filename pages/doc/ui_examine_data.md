@@ -31,7 +31,7 @@ All users can customize their dashboards. Learn how to find a section, filter us
 
 ## Get Started: Dashboard Browser
 
-From the Dashboard Browser, you can find dashboards using filters and tags. Users with **Dashboard** permissions can also look at versions, grand and remove access, and clone dashboards.
+From the Dashboard Browser, you can find dashboards using filters and tags. You can make a dashboard a favorite with the star icon. Users with **Dashboard** permissions can also look at versions, grand and remove access, clone dashboards, move a dashboard to the trash or access a deleted dashboard for up to 30 days.
 
 1. Log in to Wavefront.
 2. Select **Dashboards > All Dashboards**
@@ -40,9 +40,20 @@ From the Dashboard Browser, you can find dashboards using filters and tags. User
     * Use the options on the left to limit what the Dashboard Browser displays.
     * Use the three horizontal dots (ellipsis) menu for dashboard management.
     * Add new or existing tags to make finding dashboards easier.
+    * Click the star icon to make the dashboard a favorite.
+    * View dashboard tags (or, add or remove them if you have Dashboards permission).
 
-![dashboard browser annotated](images/dashboard_browser.png)
 
+![dashboard browser annotated with the items in the bullets above](images/dashboard_browser.png)
+
+### Find a Dashboard
+
+Many Wavefront users work in environments with many dashboards.
+
+**To find a dashboard**, you have these options:
+* From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
+* Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
+* From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
 
 ## Get Started: Dashboards
 
@@ -147,15 +158,6 @@ In the example on the right, a <strong>Region</strong> dashboard variable has be
 
 
 
-## Find a Dashboard
-
-Many Wavefront users work in environments with many dashboards.
-
-**To find a dashboard**, you have these options:
-* From the task bar, select **Dashboards > All Dashboards** and narrow down your search using the fields on the left.
-* Select **Dashboards > All Dashboards** and start typing the dashboard name in the Search field.
-* From within a dashboard, use the **Search Dashboards** field in the upper right to find other dashboards. The search string matches dashboard name or URL.
-
 ## Isolate Sources or Series
 
 You can focus on a particular source or series in the dashboard view or the single-chart view. The selected source(s) or series show up at the bottom of the browser window.
@@ -208,6 +210,12 @@ Here's a video that illustrates chart time windows. The video uses the v1 UI, bu
 </p>
 
 ## Display Events on Charts
+
+The charts in your can dashboard display [events](events.html).
+* Wavefront sends system events, for example, when an alert changes state.
+* In addition, users with Events permission might have added user events.
+
+All users can select which events are displayed for all charts. 
 
 <table style="width: 100%;">
 <tbody>

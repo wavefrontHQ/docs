@@ -441,7 +441,11 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">**Boolean operators** - Combine `tsExpression`s, constants, or filters, such as source names, source tags,  point tags, alert names, alert tags.</li>
 <ul>
 <li markdown="span">`and`, `AND`: Returns 1 if both arguments are nonzero. Otherwise, returns 0.</li>
-<li markdown="span">`or`, `OR`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0. </li>
+<li markdown="span">`or`, `OR`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.
+<br>
+<br>
+<strong>Note:</strong> Do not use OR with point tags. Wavefront stops executing the query if the first item fails. Instead, use <strong>collect()</strong>, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code> 
+</li>
 <li markdown="span">`not`, `NOT`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[AND]`, `[or]`, `[OR]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
 
