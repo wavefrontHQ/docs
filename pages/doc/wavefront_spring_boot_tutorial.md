@@ -28,10 +28,10 @@ Let's take a look at how you can configure your Spring Boot application with Wav
   cd spring-petclinic
   ./mvnw spring-boot:run
   ```
-  
+
 ## Send Data to Wavefront
 
-1. Open the sample pet clinic application using an IDE and add the following code: 
+1. Open the sample pet clinic application using an IDE and add the following code:
     ```
     <dependency>
       <groupId>com.wavefront</groupId>
@@ -39,7 +39,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
       <version>2.0.0</version>
     </dependency>
     ```
-          
+
 1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing.
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
@@ -75,10 +75,10 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     ```
 1. Restart the application and navigate to [http://localhost:8080](http://localhost:8080/).
 1. Add data by clicking on the pet clinic user interface.
-    For example: 
+    For example:
     1. Add an Owner and a Pet via the User Interface.
     2. Click **ERROR** to trigger errors.
-1. Click the one-time use link to access the Wavefront Service dashboard and view data. 
+1. Click the one-time use link to access the Wavefront Service dashboard and view data.
     {% include tip.html content = "Make sure to save the one-time use link so you can access the same dashboard each time you restart your application."%}
     Example:
     ```
@@ -90,10 +90,10 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     Connect to your Wavefront dashboard using this one-time use link:
     https://wavefront.surf/us/example
     ```
-  
-  {% include note.html content="See [custom configurations](#wavefront_springboot.html#optional-custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
 
-## Examine RED Metrics and Traces 
+  {% include note.html content="See [custom configurations](wavefront_springboot.html#optional-custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
+
+## Examine RED Metrics and Traces
 
 When you click the link, you are taken to the Services dashboard where you can:
 
@@ -109,6 +109,6 @@ When you click the link, you are taken to the Services dashboard where you can:
 
 * See the [Wavefront for Spring Boot FAQs](wavefront_spring_boot_faq.html).
 * You can't customize the default Wavefront Service dashboard. If you want to customize the dashboard, you need to clone and edit it. For details, see [Create and Customize Dashboards](ui_dashboards.html).
-* You can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html). 
-    {% include note.html content="Alerts are not supported on this freemium cluster."%} 
+* You can create smart alerts that dynamically filter noise and find true anomalies. For details, see [Alerts](alerts.html).
+    {% include note.html content="Alerts are not supported on this freemium cluster."%}
 * Try out the pet clinic application with the Micrometer. See [Wavefront for Spring Boot: Getting Started](https://tanzu.vmware.com/developer/guides/spring/spring-wavefront-gs/) for details.
