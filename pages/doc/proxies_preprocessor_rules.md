@@ -612,7 +612,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 </tbody>
 </table>
 
-<font size="3"><strong>Example</strong></font>
+<font size="3"><strong>Examples</strong></font>
 
 ```yaml
   # truncate the length of all metric names starting with  "metric"
@@ -624,6 +624,19 @@ Enforces string length limits for a metric name, source name, or point tag value
     actionSubtype : truncateWithEllipsis
     maxLength     : 16
     match         : "^metric.*"
+```
+
+The following example illustrates using a limitLength for a point tag. However, you must consider that the Wavefront default limit applies to the **combination** of key=value. That means even if you set the maxLength to 235, and if the point tag key has 235 characters, the service might reject what the proxy is sending if the point tag value has 22 characters (235 + 22 = 257).
+
+```yaml
+  # Make sure that the limit that you are setting is not higher
+  # than the default Wavefront limit.
+  ################################################################
+  - rule          : limit-length-example
+    action        : limitLength
+    scope         : "my_point_tag"
+    actionSubtype : truncateWithEllipsis
+    maxLength     : 235
 ```
 
 ## Span Filtering Rules
