@@ -63,7 +63,7 @@ The metrics used in this section are:
 - `~proxy.limiter.permits-denied` - Counter that shows how many points have been queued due to local proxy settings in `wavefront.conf`, i.e. the proxy rate limiting itself, not the Wavefront service pushing back.
 - `~proxy.point.badchars` - Count of points blocked because of an illegal character.
 - `~proxy.point.badtime` - Count of points blocked because of the timestamp (e.g. older than 1 year).
-- `~proxy.validationRegex.*.points-rejected` - The points rejected based on the whitelist/blacklist validation (using regex) at the Wavefront proxy.
+- `~proxy.validationRegex.*.points-rejected` - The points rejected based on the allowlist/blocklist validation (using regex) at the Wavefront proxy.
 - `~proxy.jvm.fd_usage` - % of file descriptors in use per proxy. If this metric reaches close to 100% of the allowed usage for the proxy, increase the `uLimit` on your system.
 - `~proxy.jvm.garbage-collectors.*.time` - Garbage collection (GC) activity on the proxy JVM. Anything larger than 200ms is a GC issue, anything near 1s indicates continuous full GCs in the proxy.
 - `~proxy.jvm.memory.heapMax/heapUsed` - Memory usage by the proxy process.

@@ -80,7 +80,7 @@ Direct ingestion has some benefits, but also some limitations:
 
 * No disk queueing
 * No rate limiting
-* No blacklist or whitelist
+* No blocklist or allowlist
 * No preprocessor
 * Only Wavefront data format is currently supported. No support for OpenTSB, JSON, and Pickle
 * No support for log ingestion
