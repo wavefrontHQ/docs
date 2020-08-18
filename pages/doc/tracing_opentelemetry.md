@@ -22,23 +22,40 @@ Follow these steps:
 ### Tutorial
 
 1. [Install the Wavefront Proxy](proxies_installing.html)
-1. Configure your application to sends the trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/about/) for details.
-  1. Download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector.git).
-  2. Navigate to the /example/demo directory.
-  3. Open the [prometheous.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) file and add the following configurations.
-    ```
-    remote_write:
-      - url: "http://<<hostname>>:1234/receive"
-    ```
-  **Note:** The [prometheous.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) of your `OpenTelemetry collector` must be replaced with the hostname/port of the Prometheus Storage Adapter configured on Step 3.2 below.
-  4. Run `docker-compose up -d` this sends the data of demo sample to the appropriate Prometheus backend exposed on `9090` port.
+1. Configure the demo application to send trace data to the OpenTelemetry Collector.
+    1. Clone the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector.git).
+        ```
+        git clone https://github.com/open-telemetry/opentelemetry-collector.git
+        ```
+    3. Open the opentelemetry-collector/example/demo/[prometheous.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) file and add the following configurations.
+      
+        ```yaml
+        remote_write:
+          - url: "http://localhost:1234/receive"
+        ```
+      
+        **Note:** The [prometheous.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) of your `OpenTelemetry collector` must be replaced with the hostname and port of the Prometheus Storage Adapter configured on Step 3.2 below.
+    
+    4. Navigate to the opentelemetry-collector/example/demo directory via the terminal.
+        ```
+        cd opentelemetry-collector/example/demo/
+        ```
+    5. Run `docker-compose up -d` this sends the data of demo sample to the appropriate Prometheus backend exposed on `9090` port.
 
-1. Export the data from the OpenTelemetry Collector to the Wavefront Prometheus integration. See [Making Data in Prometheus Available in Wavefront](prometheus.html#use-case-2-making-data-in-prometheus-available-in-wavefront) for details. This adapter simply takes the data being sent to it and forwards it to a Wavefront proxy. 
-  1. Download the Prometheus Storage Adapter(https://github.com/wavefrontHQ/prometheus-storage-adapter.git) to forward demo sample data.
-  2. Run the Prometheus Storage Adapter as a docker container:
-    ```
-    docker run wavefronthq/prometheus-storage-adapter -proxy=localhost -proxy-port=2878 -listen=1234 -prefix=prom -convert-paths=true
-    ```
+1. Send the data from the OpenTelemetry Collector to the Wavefront Prometheus integration. This adapter takes the data and forwards it to a Wavefront proxy. 
+    1. Clone the Wavefront [Prometheus Storage Adapter](https://github.com/wavefrontHQ/prometheus-storage-adapter.git) to forward demo sample data.
+        ```
+        git clone https://github.com/wavefrontHQ/prometheus-storage-adapter.git
+        ```
+    2. Navigate to the the prometheus-storage-adapter directory via the terminal.
+        ```
+        cd prometheus-storage-adapter
+        ```
+    2. Run the Prometheus Storage Adapter as a docker container:
+        ```
+        docker run wavefronthq/prometheus-storage-adapter -proxy=localhost -proxy-port=2878 -listen=1234 -prefix=prom -convert-paths=true
+        ```
+1. You can create [charts and dashboards](ui_examine_data.html) to see the data that was sent from your application and [create alerts](alerts.html#creating-an-alert). 
 
 ## Sending Trace Data to Wavefront
 
