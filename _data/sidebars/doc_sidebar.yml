@@ -162,7 +162,7 @@ entries:
         - title: Preprocessor Rules
           url: /proxies_preprocessor_rules.html
           output: web
-              
+
         - title: Rule Conditions
           url: /proxies_preprocessor_rule_conditions.html
           output: web
@@ -581,11 +581,23 @@ entries:
     output: web
     folderitems:
 
-      - title: Authentications with SSO Providers
-        url: /authentication.html
+      - title: Wavefront Security
+        url: /wavefront_security.html
         output: web
 
         subfolders:
+        - title: Authentication
+          output: web
+          subfolderitems:
+
+          - title: Authentication with SSO Providers
+            url: /authentication.html
+            output: web
+
+          - title: Set Up Self-Service SAML SSO
+            url: /auth_self_service_sso.html
+            output: web
+
         - title: Authorization
           output: web
           subfolderitems:
@@ -606,15 +618,14 @@ entries:
             url: /permissions_overview.html
             output: web
 
-          - title: Manage Access
+          - title: Access
             url: /access.html
             output: web
 
-      - title: Wavefront Security
-        url: /wavefront_security.html
-        output: web
+          - title: Metrics Security Policy Rules
+            url: /metrics_security.html
+            output: web
 
-        subfolders:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:
