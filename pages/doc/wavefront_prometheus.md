@@ -61,7 +61,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <tr>
 <td><strong>=~, !~</strong>
 </td>
-<td>Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#wildcards-aliases-and-variables) in PromQL queries.
+<td markdown="span">Wavefront does not support instant vector selectors (=~, !~) for regex matching in labels. However, you can use [wildcard characters](query_language_reference.html#wildcards-aliases-and-variables) in PromQL queries.
 </td></tr>
 <tr>
 <td><strong>subquery</strong>
@@ -79,4 +79,21 @@ While you can run queries directly in the Wavefront Query Editor, there are curr
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
-* If an alert uses a PromQL query, the Backtesting option currently doesn't work correctly.
+* If an alert uses a PromQL query, the [Backtesting option](alerts_manage.html#backtesting) currently doesn't work correctly.
+
+## How Wavefront Executes PromQL Queries
+
+The following diagram shows how Wavefront handles a Wavefront QL (`ts()`) query and a PromQL query.
+
+![Image showing TS and PromQL execution paths, explained in text](images/ts_and_promql.png)
+
+The top row shows the `ts()` query execution:
+
+1. The user enters the query into the Query Editor.
+2. The Wavefront service processes the query and shows the results in the chart, uses the result to determine whether an alert should fire, etc.
+
+The bottom row shows the PromQL query execution:
+1. The user enters the query into the Query Editor.
+2. The translation service translates the query into the corresponding `ts()` query.
+3. The translated query is automatically sent to the Wavefront service.
+4. The Wavefront service processes the query and shows the results in the chart, uses the result to determine whether an alert should fire, etc.

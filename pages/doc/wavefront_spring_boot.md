@@ -113,7 +113,7 @@ Initialization is different for existing or new projects.
 &lt;dependency&gt;
   &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
   &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
-  &lt;version&gt;2.0.0-RC1&lt;/version&gt;
+  &lt;version&gt;2.0.0&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre>
               </div>
@@ -123,7 +123,7 @@ Initialization is different for existing or new projects.
                 <pre>
 dependencies {
   ...
-  implementation 'com.wavefront:wavefront-spring-boot-starter:2.0.0-RC1'
+  implementation 'com.wavefront:wavefront-spring-boot-starter:2.0.0'
 }
               </pre>
               </div>

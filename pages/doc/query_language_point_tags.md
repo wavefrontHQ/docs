@@ -8,7 +8,8 @@ summary: Use point tags to fine tune queries.
 ---
 Point tags are key-value pairs (strings) that are associated with a point. Point tags provide additional context for your data and allow you to fine-tune your queries so the output shows just what you need.
 
-**Note:** If point tag values are blank or empty, errors can result. Point tag values can be zero.
+{% include note.html content="If point tag values are blank or empty, errors can result. Point tag values can be zero." %}
+
 
 ## Point Tag Basics
 
@@ -16,11 +17,13 @@ Point tags offer a powerful way of labeling data so that you can slice and dice 
 
 Many of our cloud integrations generate point tags automatically to help you filter metrics. You add point tags explicitly using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html).
 
+
 ### Point Tag Maximum
 
 Wavefront has limited the number of point tags to 20 for most clusters. Our experience has shown that a larger number of point tags does not improve the user experience, and can lead to performance problems.
 
-**Note:** If the number of point tags exceeds 20, then we drop the metrics that have those point tags.
+{% include note.html content="If the number of point tags exceeds 20, then we drop the metrics that have those point tags." %}
+
 
 ### Point Tag Example
 
@@ -57,6 +60,10 @@ For example, assume a metric `cpu.idle` and a host `web1`.  If you use that metr
 ### Don't Use Point Tags for Highly Variable Data
 
 Using point tags to store highly variable data such as timestamps, login emails, or web session IDs will eventually cause performance issues when your data are queried. That is also true if you specify a time that results in many time series being retrieved. For example `timestamp=<now>` or even `monthofyear=11` can exceed the limit. In contrast, `dayofweek=monday` or `monthofyear=jan` are acceptable.
+
+###  Don't Use Point Tags with OR Operators
+
+When you use point tags with an OR operator, Wavefront stops executing the query if the first of the ORed point tags fails. This improves efficiency but can lead to incorrect results. Use <strong>collect()</strong> with your query instead, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>
 
 ### More Info
 

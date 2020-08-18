@@ -607,7 +607,7 @@ Enforces string length limits for a metric name, source name, or point tag value
 </tr>
 <tr>
 <td>match (optional)</td>
-<td>Regular expression. If specified, limitLength applies only to tags with a value that matches this regular expression.RK>>Tags with a value or tags??</td>
+<td>Regular expression. If specified, limitLength applies only to tags with a value that matches this regular expression.v</td>
 </tr>
 </tbody>
 </table>
