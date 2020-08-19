@@ -62,7 +62,7 @@ Ex: dc=west,env=prod</td>
 <td>3.24</td>
 </tr>
 <tr>
-<td>blacklistRegex </td>
+<td>blocklistRegex </td>
 <td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
 <td>Valid regex pattern.<br/>
 Ex: Filter out points that begin with qa., development., or test.:
@@ -504,7 +504,7 @@ Ex: 0 </td>
 <td>8.0</td>
 </tr>
 <tr>
-<td>whitelistRegex</td>
+<td>allowlistRegex</td>
 <td>Regex pattern (java.util.regex). Input lines are checked against the pattern as they come in and before the prefix is prepended. Only input lines that match are accepted. </td>
 <td>Valid regex pattern.
 <div>Ex: ^(production|stage). </div>
@@ -532,7 +532,7 @@ Ex: 0 </td>
 </tr>
 <tr>
 <td>trafficShapingQuantile</td>
-<td>Sets the quantile for traffic shaping. 
+<td>Sets the quantile for traffic shaping.
 <br/> Default: 75</td>
 <td> An integer <br/>Ex: 99 <br/>The 99th percentile of the received rate in the last 5 minutes, will be used as a basis for the rate limiter.
 </td>
@@ -541,7 +541,7 @@ Ex: 0 </td>
 <tr>
 <td>trafficShapingHeadroom</td>
 <td>
-Sets the headroom multiplier for traffic shaping when there's backlog.  
+Sets the headroom multiplier for traffic shaping when there's backlog.
 <br/>Default: 1.15 (15% headroom)
 </td>
 <td>Number from 1.0 to 1.99 <br/>Ex: 1.05 (5% headroom) <a name="sqsBuffer"></a></td>
@@ -549,7 +549,7 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 </tr>
 <tr>
 <td>sqsBuffer </td>
-<td>Use AWS SQS for buffering transmissions. 
+<td>Use AWS SQS for buffering transmissions.
  <br/>Default: false</td>
 <td>true or false <a name="sqsQueueNameTemplate"></a></td>
 <td>9.0</td>
@@ -589,8 +589,8 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 <tr>
 <a name="traceJaegerHttpListenerPorts"></a>
 <td>traceJaegerHttpListenerPorts</td>
-<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format). 
-<br/> Default: None. 
+<td markdown="span">TCP ports to receive Jaeger Thrift formatted data via HTTP. The data is then sent to Wavefront in [Wavefront span format](trace_data_details.html#wavefront-span-format).
+<br/> Default: None.
 <br/> Version: Since 6.0</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 </tr>
@@ -604,15 +604,15 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 <tr>
 <a name="traceJaegerHttpListenerPorts"></a>
 <td>traceJaegerGrpcListenerPorts</td>
-<td markdown="span">Ports to receive Jaeger Protobuf formatted data over gRPC. 
-<br/> Default: None. 
+<td markdown="span">Ports to receive Jaeger Protobuf formatted data over gRPC.
+<br/> Default: None.
 <br/> Version: Since 9.0</td>
 <td>Comma-separated list of available port numbers. Can be a single port.</td>
 </tr>
 <tr>
 <td>customTracingListenerPorts</td>
-<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to Wavefront</a>. 
-<br/> Default: None. 
+<td>TCP ports to receive spans and derive RED metrics from the <a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">SDKs that send raw data to Wavefront</a>.
+<br/> Default: None.
 <br/> Version: Since 6.0
 {% include note.html content="<br/>The application name and service name tags are required to generate RED metrics. If these tags are not sent with your span, the application name defaults to <code>wfProxy</code>, and the service name defaults to <code>defaultService</code>."%}
 </td>
@@ -645,7 +645,7 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 </tr>
 <tr>
 <td>customTracingApplicationName</td>
-<td>Custom application name for spans received on the customTracingListenerPorts that don't have the application tag. 
+<td>Custom application name for spans received on the customTracingListenerPorts that don't have the application tag.
 <br/> Default: defaultApp.
 <br/> Version: Since 9.0</td>
 <td>customTracingApplicationName=MyApplication</td>

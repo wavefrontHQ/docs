@@ -191,6 +191,9 @@ lowpass(12ms, spans("beachshirts.styling.makeShirts"))
 
 Query expressions use a number of common parameters to specify names and values that describe the data of interest. You can use [wildcards](#wildcards-aliases-and-variables) to match multiple names or values.
 
+* Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
+* Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
+
 <table style="width: 100%;">
 <colgroup>
 <col width="20%" />
@@ -295,11 +298,6 @@ The default unit is minutes if the unit is not specified.
 </table>
 
 
-**Notes:**
-
-* Rules for valid names are here: [Wavefront Data Format](wavefront_data_format.html#wavefront-data-format-fields).
-
-* Enclose a metric, source, or tag name, or a tag value, in double quotes if it is also a Wavefront reserved word, such as a function name or keyword. For example, if you're using a point tag named `default`, use `"default"`.
 
 <table style="width: 100%;">
 <tbody>
@@ -444,7 +442,7 @@ All operations between `tsExpression`s are subject to the matching processes des
 <li markdown="span">`or`, `OR`: Returns 1 if at least one argument is nonzero. Otherwise, returns 0.
 <br>
 <br>
-<strong>Note:</strong> Do not use OR with point tags. Wavefront stops executing the query if the first item fails. Instead, use <strong>collect()</strong>, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code> 
+<strong>Note:</strong> Do not use OR with point tags. Wavefront stops executing the query if the first item fails. Instead, use <strong>collect()</strong>, for example, <code>collect(ts(metric, my_tag="tag1"), ts(metric, my_tag="tag2")) </code>
 </li>
 <li markdown="span">`not`, `NOT`: Use this operator to exclude a source, tag, or metric. See the examples below.</li>
 <li markdown="span">`[and]`, `[AND]`, `[or]`, `[OR]`: Perform strict 'inner join' versions of the Boolean operators. Strict operators match metric/source/point tag combinations on both sides of the operator and filter out unmatched combinations.</li></ul>
@@ -487,6 +485,8 @@ All operations between `tsExpression`s are subject to the matching processes des
 All aggregation functions provide:
 * **Filtering**: Parameters for filtering the set of input series, for example, to show only points from one source.
 * **Grouping**: Parameters for returning separate results for groups of input series that share common metric names, source names, source tags, point tags, and point-tag values. For example, if you have an `env` point tag with values `dev` and `prod`, you can return one series for all points that come from `dev` and another for all points that come from `prod`.
+
+{% include note.html content="If you want to group by source tags, you must include the source tag name (`tag=`) explicitly in the ts() expression.  See [A Closer Look at grouping with sourceTags](query_language_aggregate_functions.html#a-closer-look-at-grouping-with-sourcetags). " %}
 
 <table style="width: 100%;">
 <colgroup>
@@ -1113,7 +1113,8 @@ The `join()` function enables you to:
 
 The Wavefront `join()` function is modeled after the SQL JOIN operation, and supports inner joins, left outer joins, right outer joins, and full outer joins.
 
-**Note:** Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html).
+{% include note.html content="Using `join()` for an inner join is an explicit way to perform series matching between two groups of time series. As an alternative for certain simple use cases, you can use an operator that performs [implicit series matching](query_language_series_matching.html). " %}
+
 
 <table style="width: 100%;">
 <tbody>
@@ -1395,7 +1396,9 @@ You use histogram query functions to access the histogram distributions that Wav
 
 ### Histogram to Histogram Functions
 
-Each function in the following table returns one or more series of histogram distributions, and can therefore be used as the **hsExpression** parameter in another query. **Note:** In a time-series chart, the histogram-to-histogram functions display just the median values of the returned distributions.
+Each function in the following table returns one or more series of histogram distributions, and can therefore be used as the **hsExpression** parameter in another query.
+
+{% include note.html content="In a time-series chart, the histogram-to-histogram functions display just the median values of the returned distributions." %}
 
 <table style="width: 100%;">
 <colgroup>
@@ -1706,7 +1709,7 @@ Each function in the following table returns a set of one or more traces, and ca
 
 You use spans functions to find and filter individual [spans](tracing_basics.html#wavefront-trace-data) that your applications might be sending. Spans functions are available only in the [Query Editor of the Traces browser](trace_data_query.html#use-query-editor-power-users).
 
-**Note:** You cannot use spans functions as top-level queries. Instead, you use spans functions to produce a **spansExpression** that you specify as a parameter to a `traces()` function.
+{% include note.html content="You cannot use spans functions as top-level queries. Instead, you use spans functions to produce a **spansExpression** that you specify as a parameter to a `traces()` function. " %}
 
 <table style="width: 100%;">
 <colgroup>
