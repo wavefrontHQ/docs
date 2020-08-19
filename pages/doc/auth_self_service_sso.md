@@ -3,7 +3,7 @@ title: Set Up Self-Service SAML SSO
 keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
-permalink: auth_self_service_sso.html
+permalink: auth_self_service_sso.html 
 summary: Set up a SAML SSO provider for your environment
 ---
 
