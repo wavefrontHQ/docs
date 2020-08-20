@@ -134,7 +134,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 <thead>
 <tr><th width="20%">Property</th><th width="80%">Description</th></tr>
 </thead>
-<tr><td><strong>Email</strong></td> <td>Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content.</td></tr>
+<tr><td><strong>Email</strong></td> <td>Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content. You can specify up to 10 valid email addresses. </td></tr>
 
 <tr><td><strong>PagerDuty Key</strong></td>
 <td markdown="span">PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). Alert notifications that use these keys are sent in response to a default set of triggering events, and contain default content.</td></tr>
