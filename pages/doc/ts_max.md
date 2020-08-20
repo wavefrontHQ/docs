@@ -141,7 +141,7 @@ The following example shows the total number of sample requests.
 
 ![ts max before](images/ts_max_comparison_before.png)
 
-And here we see the only the metrics if there are more than 200 sample requests.
+And here we see the only the metrics if there are more than 250 sample requests.
 
 ![ts max 250](images/ts_max_comparison_after.png)
 
