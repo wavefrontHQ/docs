@@ -3,11 +3,14 @@ title: Set Up Self-Service SAML SSO
 keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
-permalink: auth_self_service_sso.html 
+permalink: auth_self_service_sso.html
 summary: Set up a SAML SSO provider for your environment
 ---
 
 Wavefront supports a number of third-party authentication solutions that use SAML. The SAML (Security Assertion Markup Language) standard enables an identity provider (IdP) to pass authorization credentials to service providers (SP). In environments that use SAML, users log in once and authenticate to many different services.
+
+* Self Service SAML SSO is not available for customers who have set up [multi-tenant authentication](authentication.html#multi-tenant-authentication)
+* Self Service SAML SSO is not available for trial customers
 
 {% include tip.html content="If you set up SAML SSO for your environment, user accounts can no longer sign in with their user name and password. Service accounts can continue to use their authentication tokens."%}
 
