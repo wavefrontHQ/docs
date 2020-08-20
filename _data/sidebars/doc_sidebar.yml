@@ -581,23 +581,11 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront Security
-        url: /wavefront_security.html
+      - title: Authentications with SSO Providers
+        url: /authentication.html
         output: web
 
         subfolders:
-        - title: Authentication
-          output: web
-          subfolderitems:
-
-          - title: Authentication with SSO Providers
-            url: /authentication.html
-            output: web
-
-          - title: Set Up Self-Service SAML SSO
-            url: /auth_self_service_sso.html
-            output: web
-
         - title: Authorization
           output: web
           subfolderitems:
@@ -618,14 +606,15 @@ entries:
             url: /permissions_overview.html
             output: web
 
-          - title: Access
+          - title: Manage Access
             url: /access.html
             output: web
 
-          - title: Metrics Security Policy Rules
-            url: /metrics_security.html
-            output: web
+      - title: Wavefront Security
+        url: /wavefront_security.html
+        output: web
 
+        subfolders:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:

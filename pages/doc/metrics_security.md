@@ -3,6 +3,7 @@ title: Managing Metrics Security Policy Rules
 keywords: administration
 tags: [administration]
 sidebar: doc_sidebar
+published: false
 permalink: metrics_security.html
 summary: Limit access to metrics with policy rules.
 ---
