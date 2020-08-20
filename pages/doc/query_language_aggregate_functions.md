@@ -151,7 +151,7 @@ sum(ts(~sample.cpu.loadavg.1m) by (az, sources))
 
 ![group without example](images/group_without.png)
 
-### A Closer Look at the `sourceTags` Parameter
+### A Closer Look at Grouping with `sourceTags`
 
 The `sourceTags` parameter behaves a little differently from the other grouping parameters. `sourceTags` produces a subgroup that corresponds to each source tag that is explicitly specified in the ts() expression. No other source tags are taken into account.
 

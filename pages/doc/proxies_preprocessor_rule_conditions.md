@@ -6,7 +6,13 @@ sidebar: doc_sidebar
 permalink: proxies_preprocessor_rule_conditions.html
 summary: Learn how to add conditions on Wavefront proxy preprocessor rules.
 ---
-At times, you want to apply a [proxy preprocessor rule](proxies_preprocessor_rules.html) only when multiple conditions are met or when certain conditions are met and other conditions are not met. For example, you might want to blacklist spans only if it
+You can set up your environment to apply a [proxy preprocessor rule](proxies_preprocessor_rules.html) only when multiple conditions are met or when certain conditions are met and other conditions are not met.
+
+{% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*blocklist` and `*whitelist` has been replaced with `*allowlist`. This documentation page uses the new configuration parameter names. " %}
+
+## Example
+
+For example, you might want to blocklist spans only if it
 * has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`)
 * and has no span tags that match `debug=true`
 
@@ -22,8 +28,8 @@ You can use the `if` parameter to fine-tune when a rule applies. For the example
 ## drop spans that match the following:
 ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
 '2878':
-  - rule: test-blacklist
-    action: spanBlacklistRegex
+  - rule: test-blocklist
+    action: spanBlocklistRegex
     if:
       all:
         - equals:
@@ -46,10 +52,10 @@ You can use the `if` parameter to fine-tune when a rule applies. For the example
 ## drop spans that match the following:
 ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
 '2878':
-    - rule: test-blacklist
-      action: spanBlacklistRegex
+    - rule: test-blocklist
+      action: spanBlocklistRegex
       if: >
-        &#123;&#123;http.status_code&#125;&#125; in ("302", "404") and &#123;&#123;span.kind&#125;&#125; = "server" 
+        &#123;&#123;http.status_code&#125;&#125; in ("302", "404") and &#123;&#123;span.kind&#125;&#125; = "server"
         and not &#123;&#123;debug&#125;&#125; = "true"
     </pre>
     </div>
@@ -60,17 +66,17 @@ The `if` parameter is always followed by just one operator, one of the following
 * Comparison operators with scope and value for each.
 * Logical operators followed by comparison operators with scope and value for each.
 
-### Comparison Operators
+## Comparison Operators
 
 With each comparison operator you specify the scope and the value.
 
 <p><span style="font-size: medium; font-weight: 600">Example</span></p>
 
 ```
-## Blacklist spans that have a tag "http.status_code"="302" or "http.status_code"="404"
+## Blocklist spans that have a tag "http.status_code"="302" or "http.status_code"="404"
 '2878':
-  - rule: test-spanblacklist
-    action: spanBlacklistRegex
+  - rule: test-spanblocklist
+    action: spanBlocklistRegex
     if:
       equals:
         scope: http.status_code
@@ -132,7 +138,7 @@ Comparison operators work exactly the way they do in Java.
 </tbody>
 </table>
 
-### Logical Operators
+## Logical Operators
 
 Logical operators support nesting in any proxy preprocessor rule. The logical operator always requires comparison operators with a scope and a value, as shown in the following example of nested operators.
 
@@ -142,10 +148,10 @@ In the example below, the rule applies only if at least one of the specified con
 * The env point tag is equal to `prod`
 
 ```
-## Example showing nested predicates: The below rule whitelists all "prod" metrics.
+## Example showing nested predicates: The below rule allows all "prod" metrics.
 '2878':
-  - rule: test-whitelist
-    action: whitelistRegex
+  - rule: test-allowlist
+    action: allowlistRegex
     if:
       any:
         - all:

@@ -196,13 +196,13 @@ Notes on upgrading:
 - Batch size and exponential back-off can be dynamically configured
 - Point tag key validation
 - Metric name validation performance improved
-- Whitelist/blacklist filtering performance improved
+- Allowlist/blocklist filtering performance improved
 - Support E+ and e+ annotation for floating data point values
 - Set timestamp at the proxy if data points don't have one
 
 ## Version 3.1
 - First release supported by the one-line installer, which also simplifies future upgrades to the latest version
-- Support whitelist/blacklist regular expressions to filter incoming metrics
+- Support allowlist/blocklist regular expressions to filter incoming metrics
 - OpenTSDB support
 - Metric name validation
 
