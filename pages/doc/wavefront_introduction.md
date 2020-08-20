@@ -123,10 +123,10 @@ It's easy to monitor any of the clusters with Wavefront.
 
 <table style="width: 100%;">
 <tbody>
-<tr><td markdown="span" width="50%">Step 1: A user with Administrator privileges enables the Wavefront integration in the Tanzu Mission Control. </td>
+<tr><td markdown="span" width="50%">**Step 1**: A user with Administrator privileges enables the Wavefront integration in the Tanzu Mission Control. </td>
 <td width="50%"><img src="/images/tmc_integration_enabled.png" alt="Click to enable the Wavefront integration"/> </td>
 </tr>
-<tr><td markdown="span" width="50%">Step 2: Administrators for individual clusters add the integration and start exploring the [metrics](kubernetes.html#kubernetes-source) in [predefined dashboards](kubernetes.html#dashboards). </td>
+<tr><td markdown="span" width="50%">**Step 2**: Administrators for individual clusters add the integration and start exploring the [metrics](tmc.html#kubernetes-source) in [predefined dashboards](tmc.html#dashboards). </td>
 <td width="50%"><img src="/images/tmc_add_integration.png" alt="Select add Tanzu Observability by Wavefront. "/> </td>
 </tr>
 </tbody>
