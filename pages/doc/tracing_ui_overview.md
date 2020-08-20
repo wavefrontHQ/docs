@@ -41,7 +41,7 @@ To choose your starting point for visualizing traces:<br/>
 
 The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
-![application map](images/tracing_application_map.png)
+![application map](images/tracing_app_map.png)
 
 Let's walk through the following scenario to get a quick overview of the application map. 
 

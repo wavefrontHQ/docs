@@ -301,6 +301,14 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 **Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
 
+## Edges
+
+Edges show how services and applications send requests to each other. If you hover over an edge in the application map, you see the RED metrics for that edge, which was derived using [RED metrics for edges](#red-metrics-for-edges), and if you can click on an edge, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map-beta) for details.
+
+Each arrow in the image shown below is referred to as an edge in Wavefront. 
+![an image that shows how each service communicates with each other using arrows. These arrows are called edges in wavefront.](images/tracing_edges_concept.png)
+
+To understand how to query for edges in the tracing browser, see [Use Spans to Examine Applications and Services](spans_function.html#use-spans-to-examine-applications-and-services).
 
 ## RED Metrics
 
@@ -432,6 +440,205 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
   ```
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
+
+### Aggregated RED Metrics for Services
+
+Request, Error, and Duration metrics are important indicators of your applications and services health. Wavefront computes RED metrics using [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). This process can be slow due to high cardinality from operation tags, source tags, and custom tags. Therefore, to compute RED metrics faster, wavefront introduced aggregated RED metrics, which aggregates the data received from the RED metrics derived from spans. As a result, you see the RED metrics computed faster on the default service dashboard and the application and service status dashboards.
+
+Wavefront constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name component are string values that Wavefront obtains from the spans on which the metrics are derived.  You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. Wavefront assigns the corresponding span tag values to these point tags.
+
+![the screenshot shows the filters available for an aggregated red metrics query in the chart builder.](images/tracing_aggregated_red_metrics.png)
+
+<table id = "spanaggregatedREDmetrics">
+<colgroup>
+<col width="45%"/>
+<col width="15%"/>
+<col width="40%"/>
+</colgroup>
+<thead>
+<tr><th>Aggregrated RED Metric Names</th><th>Metric Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`tracing.aggregated.derived.<application>.<service>.invocation.count`  </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of traces that start with the specified root application or service.</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.aggregated.derived.<application>.<service>.error.count`   </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of traces that start with the root application or service, and contain one or more spans with errors
+(i.e., spans with `error=true`).</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.aggregated.derived.<application>.<service>.duration.millis.m`  </td>
+<td markdown="span">Wavefront histogram</td>
+<td markdown="span">The duration of each trace, in milliseconds, aggregated in one-minute intervals. Duration is measured from the start of the earliest root span to the end of the last span in a trace.</td>
+</tr>
+</tbody>
+</table>
+
+**Examples**
+
+* Request rate or invocation count for an edge: Find the per-minute request rate for a specific application.
+  ```
+  cs(tracing.aggregated.derived.beachshirts.*.invocation.count)
+  ```
+  
+* Error percentage for an edge: Find the per-minute aggregated error rate for traces for a specific `span.kind` tag.
+  ```
+  cs(tracing.aggregated.derived.beachshirts.*.error.count, span.kind=server)
+  ```
+  
+* Duration in the form of Wavefront histograms: Find the 95th percentile of a specific service using aggregated RED metrics.
+  ```
+  alignedSummary(95, merge(hs(tracing.aggregated.derived.beachshirts.delivery.duration.micros.m)))
+  ```
+
+### RED Metrics for Edges
+
+You can create charts using the RED metrics that were derived for the edges and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
+
+![the screenshot shows the filters available for an edge derived red metrics query in the chart builder. The filers are explained after the screenshot.](images/edge_derived_red_metrics.png)
+
+<table>
+<colgroup>
+<col width="20%"/>
+<col width="80%"/>
+</colgroup>
+<tr>
+  <th>
+    Filters
+  </th>
+  <th>
+    Description
+  </th>
+</tr>
+<tr>
+  <td>
+  <code>application</code>
+  </td>
+  <td>
+  Name of the instrumented application generated the request.
+  </td>
+</tr>
+<tr>
+  <td>
+    <code>service</code>
+  </td>
+  <td>
+  Name of the instrumented microservice that generated the request.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>cluster</code>
+  </td>
+  <td>
+  Name of a group of related hosts that serves as a cluster or region in which the application that generated the request runs.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>shard</code>
+  </td>
+  <td>
+  Name of a subgroup of hosts within the cluster, for example, a mirror.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>source</code>
+  </td>
+  <td>
+  Name of a host or container on which the request is generated.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.application</code>
+  </td>
+  <td>
+  Name of the application the request is sent to.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.service</code>
+  </td>
+  <td>
+  Name of the service the request is sent to.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.cluster</code>
+  </td>
+  <td>
+  Name of a group of related hosts that serves as a cluster or region in which the application that received the request runs.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.shard</code>
+  </td>
+  <td>
+  Name of a subgroup of hosts within the cluster, for example, a mirror that received the request.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.source</code>
+  </td>
+  <td>
+  Name of a host or container on which the applications or services sent requests.
+  </td>
+</tr>
+</table>
+
+<table id = "edgederivedREDmetrics">
+<colgroup>
+<col width="45%"/>
+<col width="15%"/>
+<col width="40%"/>
+</colgroup>
+<thead>
+<tr><th>Edge Derived RED Metric Names</th><th>Metric Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`tracing.edge.derived.<application>.<service>.invocation.count`  </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of that start with the root application or service.</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.edge.derived.<application>.<service>.error.count`   </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of traces that start with the root application or service, and contain one or more spans with errors
+(i.e., spans with `error=true`).</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.edge.derived.<application>.<service>.duration.millis.m`  </td>
+<td markdown="span">Wavefront histogram</td>
+<td markdown="span">The duration of each trace, in milliseconds, aggregated in one-minute intervals. Duration is measured from the start of the earliest root span to the end of the last span in a trace.</td>
+</tr>
+</tbody>
+</table>
+
+**Examples**
+
+* Request rate or invocation count for an edge.
+  ```
+  cs(tracing.edge.derived.beachshirts.delivery.invocation.count, to.shard=primary)
+  ```
+* Error percentage for an edge. 
+  ```
+  cs(tracing.edge.derived.beachshirts.shopping.error.count, to.cluster=us-west)
+  ```
+* Duration in the form of Wavefront histograms.
+  ```
+  hs(tracing.edge.derived.beachshirts.shopping.duration.millis.m, to.service=delivery)
+  ```
 
 ### Trace Sampling and Derived RED Metrics
 
