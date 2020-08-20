@@ -443,7 +443,7 @@ The point tag technique is useful when the metric name contains string values fo
 
 ### Aggregated RED Metrics for Services
 
-Request, Error, and Duration metrics are important indicators of your applications and services health. Wavefront computes RED metrics using [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). This process can be slow due to high cardinality from operation tags, source tags, and custom tags. Therefore, to compute RED metrics faster, wavefront introduced aggregated RED metrics, which aggregates the data received from the RED metrics derived from spans. As a result, you see the RED metrics computed faster on the default service dashboard and the application and service status dashboards.
+Request, Error, and Duration metrics are important indicators of your applications and services health. Wavefront computes RED metrics using [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). Querying and aggregating these metrics (at query time) can be slow due to high cardinality from operation tags, source tags, and custom tags. Therefore, to compute RED metrics faster, wavefront introduced aggregated RED metrics, which aggregates the data received from the RED metrics derived from spans. As a result, you see the RED metrics computed faster on the default service dashboard and the application and service status dashboards.
 
 Wavefront constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name component are string values that Wavefront obtains from the spans on which the metrics are derived.  You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. Wavefront assigns the corresponding span tag values to these point tags.
 
@@ -467,7 +467,7 @@ Wavefront constructs the names of the underlying aggregated delta counters, and 
 <tr>
 <td markdown="span">`tracing.aggregated.derived.<application>.<service>.error.count`   </td>
 <td markdown="span">Delta counter</td>
-<td markdown="span">The number of traces that start with the root application or service, and contain one or more spans with errors
+<td markdown="span">The number of spans that start with the root application or service, and contain one or more spans with errors
 (i.e., spans with `error=true`).</td>
 </tr>
 <tr>
@@ -614,7 +614,7 @@ You can create charts using the RED metrics that were derived for the edges and 
 <tr>
 <td markdown="span">`tracing.edge.derived.<application>.<service>.error.count`   </td>
 <td markdown="span">Delta counter</td>
-<td markdown="span">The number of traces that start with the root application or service, and contain one or more spans with errors
+<td markdown="span">The number of spans that start with the root application or service, and contain one or more spans with errors
 (i.e., spans with `error=true`).</td>
 </tr>
 <tr>
