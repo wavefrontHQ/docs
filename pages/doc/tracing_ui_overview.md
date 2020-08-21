@@ -101,21 +101,22 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 6: Hover over an edge** <br/>
-      Hover over the edge between the styling and shopping service. You see that they send requests to each other. 
+      **Step 6: Hover over a traffic** <br/>
+      Hover over the traffic between the styling and shopping service. You see that they send requests to each other.
       
-      <br/>When you hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
+      <br/>When you hover over a traffic(the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Traffic is bidirectional if the two services send requests to each other.
       </td>
     <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      <b>Step 7: Click on an edge</b>
-      <br/>When you click on the edge between the styling and printing service, you can:
+      <b>Step 7: Click on a traffic</b>
+      <br/>When you click on the traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
+        **Note**:Currently, traffic is referred to as an edge on the application map.
       </td>
-    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an traffic that is bidirectional"/></td>
   </tr>
 </tbody>
 </table>

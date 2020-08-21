@@ -443,7 +443,7 @@ The point tag technique is useful when the metric name contains string values fo
 
 ### Aggregated RED Metrics
 
-Wavefront computes service level RED metrics by aggregating the [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). Querying and aggregating these metrics can be slow due to high cardinality from operation tags, source tags, and custom tags. Therefore, to make RED metric querying faster, wavefront introduced pre-aggregated RED metrics. Now, RED metrics queries are faster on the default service dashboard, application status, and service status.
+Wavefront computes service level RED metrics by aggregating the [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). Querying and aggregating these metrics can be slow due to high cardinality from operation tags, source tags, and custom tags. Therefore, to make RED metric querying faster, wavefront introduced pre-aggregated RED metrics.
 
 Wavefront constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name are string values that Wavefront obtains from the spans on which the metrics are derived. You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. Wavefront assigns the corresponding span tag values to these point tags.
 
@@ -497,7 +497,7 @@ Wavefront constructs the names of the underlying aggregated delta counters, and 
 
 ### RED Metrics for Traffic
  
-You can visualize traffic data in charts using traffic derived metrics and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
+You can visualize traffic data in charts using tracing traffic derived metrics and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
 
 ![the screenshot shows the filters available for a traffic derived red metrics query in the chart builder. The filers are explained after the screenshot.](images/edge_derived_red_metrics.png)
 
@@ -603,7 +603,7 @@ You can visualize traffic data in charts using traffic derived metrics and filte
 <col width="40%"/>
 </colgroup>
 <thead>
-<tr><th>Edge Derived RED Metric Names</th><th>Metric Type</th><th>Description</th></tr>
+<tr><th>Tracing Traffic Derived Metric Name</th><th>Metric Type</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr>
