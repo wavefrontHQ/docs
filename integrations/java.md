@@ -10,14 +10,79 @@ This Wavefront Java integration explains how to send Java application metrics to
 
 Wavefront provides several Java SDKs for different purposes on Github:
 
-- **[wavefront-sdk-java](https://github.com/wavefrontHQ/wavefront-sdk-java)**: Core SDK for sending different telemetry data to Wavefront. Data include metrics, delta counters, distributions, and spans.
-- **[wavefront-dropwizard-metrics-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java)**: Provides reporters and constructs such as counters, meters and histograms to periodically report application metrics and distributions to Wavefront.
-- **[wavefront-dropwizard-sdk-java](https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java)**: Provides out-of-the-box metrics for your Dropwizard application and periodically report them to Wavefront.
-- **[wavefront-runtime-sdk-jvm](https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm)**: Wavefront JVM SDK. Provides out of the box metrics for the Java Virtual Machine (JVM) that runs your Java application.
-- **[wavefront-opentracing-sdk-java](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)**: Wavefront OpenTracing Java SDK. See [our tracing documentation](https://docs.wavefront.com/tracing_basics.html) for background.
-- **[wavefront-grpc-sdk-java](https://github.com/wavefrontHQ/wavefront-grpc-sdk-java)**: Wavefront gRPC Java SDK. Provides out-of-the-box metrics, histograms, and trace data from gRPC operations in your Java application and reports that data to Wavefront.
-- **[wavefront-jaxrs-sdk-java](https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java)**: Wavefront JAX-RS Java SDK. Provides out-of-the-box trace data from JAX-RS based clients in your Java application and reports that data to Wavefront.
-- **[wavefront-jersey-sdk-java](https://github.com/wavefrontHQ/wavefront-jersey-sdk-java)**: Wavefront Jersey Java SDK. Provides out-of-the-box metrics, histograms and (optionally) traces from your Jersey-based Java application, and reports the data to Wavefront
+<table id="SDKlevels" style="width: 100%">
+<tr>
+  <th width="20%">SDK Type</th>
+  <th width="50%">SDK Description</th>
+  <th width="30%">Java SDKs</th>
+</tr>
+
+<tr>
+  <td><a href="wavefront_sdks.html#sdks-for-collecting-trace-data">OpenTracing SDK</a></td>
+  <td align="justify">Implements the OpenTracing specification. Lets you define, collect, and report custom trace data from any part of your application code. <br>Automatically derives RED metrics from the reported spans. </td> 
+  <td>
+    <ul>
+      <li>
+        <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java">OpenTracing SDK</a>
+      </li>
+      <li>
+        <a href ="https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java">Tracing Agent</a>
+      </li>
+    </ul>
+  </td>
+</tr>
+
+<tr>
+  <td><a href="wavefront_sdks.html#sdks-for-collecting-metrics-and-histograms">Metrics SDK</a></td>
+  <td align="justify">Implements a standard metrics library. Lets you define, collect, and report custom business metrics and histograms from any part of your application code.   </td> 
+  <td>
+    <ul>
+      <li>
+        <a href ="https://github.com/wavefrontHQ/wavefront-dropwizard-metrics-sdk-java">Dropwizard</a>
+      </li>
+      <li>
+        <a href ="https://github.com/wavefrontHQ/wavefront-runtime-sdk-jvm">JVM</a>
+      </li>
+    </ul>
+
+  </td>
+</tr>
+
+<tr>
+  <td><a href="wavefront_sdks.html#sdks-that-instrument-frameworks">Framework SDK</a></td>
+  <td align="justify">Reports predefined traces, metrics, and histograms from the APIs of a supported app framework. Lets you get started quickly with minimal code changes.</td>
+  <td>
+    <ul>
+      <li>
+        <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java">Dropwizard</a>
+      </li>
+      <li>
+        <a href="https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java">gRPC</a>
+      </li>
+      <li>
+        <a href="https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java">JAX-RS</a>
+      </li>
+      <li>
+      <a href="https://github.com/wavefrontHQ/wavefront-jersey-sdk-java">Jersey</a>
+      </li>
+    </ul>
+  </td>
+</tr>
+
+<tr>
+  <td><a href="wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront">Sender SDK</a></td>
+  <td align="justify">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront. 
+  </td>
+  <td>
+    <ul>
+      <li>
+        <a href ="https://github.com/wavefrontHQ/wavefront-sdk-java"> Java Sender SDK</a>
+      </li>
+    </ul>
+  </td>
+</tr>
+
+</table> 
 
 In the Setup tab, the integration includes sample code based on `wavefront-dropwizard-metrics-sdk-java` for sending metrics to a [Wavefront proxy](https://docs.wavefront.com/proxies.html) or using [direct ingestion](https://docs.wavefront.com/direct_ingestion.html).
 
