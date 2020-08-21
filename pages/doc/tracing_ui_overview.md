@@ -114,7 +114,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <br/>When you click on the traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
-        **Note**:Currently, traffic is referred to as an edge on the application map.
+        <b>Note</b>:Currently, traffic is referred to as an edge on the application map.
       </td>
     <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an traffic that is bidirectional"/></td>
   </tr>
