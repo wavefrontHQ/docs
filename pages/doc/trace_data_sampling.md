@@ -35,6 +35,8 @@ Intelligent sampling applies to entire traces after Wavefront receives them. If 
 
 Intelligent sampling is performed by the Wavefront service itself, not by the proxy or by an instrumented application. Consequently, intelligent sampling does not place any additional processing burden on your proxies or applications. Intelligent sampling does not add to your total cost of operation (TCO). If you already use one or more proxies to ingest your time-series data, you can start ingesting and sampling trace data without adding more hardware to support more proxies. 
 
+{% include note.html content="To make sure that useful spans are not sampled out and are stored in Wavefront, annotate specific spans with `debug=true`. Make sure not to overuse the annotation as Wavefront intelligent sampling gives preference to unique spans." %}
+
 You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) your span storage by checking the following internal metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place.
 <table width="100%">
 <colgroup>
@@ -55,7 +57,6 @@ You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-p
 </tr>
 </tbody>
 </table>
-
 
 
 ## Explicit Sampling Strategies
