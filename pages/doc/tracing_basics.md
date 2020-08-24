@@ -40,38 +40,43 @@ An application must be instrumented for tracing before it can send trace data to
 ### Already Instrumented
 If you have already instrumented your code with Jaeger or Zipkin, you can forward the trace data to Wavefront using an integration. The integration sends the data through a Wavefront proxy.
 
-* You can use OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html) for details.
+* You can use OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration.
+<!---
+See [OpenTelemetry](opentelemetry.html) for details.--->
 * If you have configured your applications using OpenTracing instrument your code with [Jaeger](jaeger.html) or [Zipkin](zipkin.html), you can set up a [tracing integration](tracing_integrations.html) to forward the trace data to Wavefront.
 
-### Not Instrumented 
+### Not Instrumented
 If you have not yet instrumented your code, you can add instrumentation by using [Wavefront OpenTracing SDKs or the Wavefront Java Tracing Agent](tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront).
 The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) -- through a Wavefront proxy or directly to the Wavefront service. Using a Wavefront proxy is generally recommended. <!--- See XX for guidelines for choosing a proxy vs. direct ingestion. --->
 
-## Visulaize Distributed Tracing Data in Wavefront
+## Visualize Distributed Tracing Data in Wavefront
 
 You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application.
 
 ![tracing architecture](images/tracing_ui_horizontal.png)
 
-### Application Map 
+### Application Map
 
 Get an overview of how the applications and services are linked, focus on a specific service, and view Request, Error, and Duration (RED) metrics for each service and the edges in the application using [application map](/tracing_ui_overview.html#application-map-beta). That’s not all, you can view traces for the services and edges and drill down from the application map.
-<img src="/images/application_map_intro.png" alt="application map" width="1200" height="611">
+
+![application map](/images/application_map_intro.png)
 
 ### Application Status
 
 View the status of all instrumented applications, or search for a particular application by applying filters and inspect Request Error and Duration (RED) metrics to obtain a status summary for an application.
+
 ![application status](/images/application_status_intro.png)
 
 
 ### Service Status
 
 Examine the services in the application, and inspect Request Error and Duration (RED) metrics to obtain a status summary for a service.
+
 ![service status](/images/service_status_intro.png)
 
 ### Service dashboards
 
-The default, read-only dashboard for a service lets you explore trace data sent by each service in your application. 
+The default, read-only dashboard for a service lets you explore trace data sent by each service in your application.
 ![service dahsboard](/images/service_dashboard_intro.png)
 
 ### Tracing Browser
@@ -79,7 +84,7 @@ The default, read-only dashboard for a service lets you explore trace data sent 
 The Traces browser supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details, without having to navigate between pages and pop-ups.
 ![tracing browser](/images/tracing_browser_intro.png)
 
-## Next Steps 
+## Next Steps
 
 - Familiarize yourself with the tracing concepts. See [Tracing Concepts in Wavefront](trace_data_details.html) for details.
-- A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  Wavefront limits the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling). 
+- A large-scale web application can produce a high volume of traces. Many traces might be reported every minute, and each trace might consist of many spans, each with many tags.  Wavefront limits the volume of trace data by performing [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling).
