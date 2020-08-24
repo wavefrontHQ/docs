@@ -12,7 +12,7 @@ missing(<timeWindow>, <tsExpression>)
 ```
 Checks whether there are any data points in the specified time window.
 * If there are no data points, returns 1.
-* Otherwise, returns a Double.NaN (i.e. empty time series)
+* Otherwise, returns 0.
 
 ## Parameters
 <table style="width: 100%;">
