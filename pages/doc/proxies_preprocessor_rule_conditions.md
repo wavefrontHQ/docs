@@ -8,11 +8,11 @@ summary: Learn how to add conditions on Wavefront proxy preprocessor rules.
 ---
 You can set up your environment to apply a [proxy preprocessor rule](proxies_preprocessor_rules.html) only when multiple conditions are met or when certain conditions are met and other conditions are not met.
 
-{% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*blocklist` and `*whitelist` has been replaced with `*allowlist`. This documentation page uses the new configuration parameter names. " %}
+{% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*block` and `*whitelist` has been replaced with `*allow`. This documentation page uses the new configuration parameter names. " %}
 
 ## Example
 
-For example, you might want to blocklist spans only if it
+For example, you might want to block list spans only if it
 * has span tags that match both `"span.kind"="server"` and (`"http.status_code"="302"` or `"http.status_code"="404"`)
 * and has no span tags that match `debug=true`
 
@@ -28,8 +28,8 @@ You can use the `if` parameter to fine-tune when a rule applies. For the example
 ## drop spans that match the following:
 ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
 '2878':
-  - rule: test-blocklist
-    action: spanBlocklistRegex
+  - rule: test-block-list
+    action: spanBlock
     if:
       all:
         - equals:
@@ -52,8 +52,8 @@ You can use the `if` parameter to fine-tune when a rule applies. For the example
 ## drop spans that match the following:
 ## "span.kind"="server" and ("http.status_code"="302" or "http.status_code"="404")
 '2878':
-    - rule: test-blocklist
-      action: spanBlocklistRegex
+    - rule: test-block-list
+      action: spanBlock
       if: >
         &#123;&#123;http.status_code&#125;&#125; in ("302", "404") and &#123;&#123;span.kind&#125;&#125; = "server"
         and not &#123;&#123;debug&#125;&#125; = "true"
@@ -73,10 +73,10 @@ With each comparison operator you specify the scope and the value.
 <p><span style="font-size: medium; font-weight: 600">Example</span></p>
 
 ```
-## Blocklist spans that have a tag "http.status_code"="302" or "http.status_code"="404"
+## Block list spans that have a tag "http.status_code"="302" or "http.status_code"="404"
 '2878':
-  - rule: test-spanblocklist
-    action: spanBlocklistRegex
+  - rule: test-spanblock-list
+    action: spanBlock
     if:
       equals:
         scope: http.status_code
@@ -150,8 +150,8 @@ In the example below, the rule applies only if at least one of the specified con
 ```
 ## Example showing nested predicates: The below rule allows all "prod" metrics.
 '2878':
-  - rule: test-allowlist
-    action: allowlistRegex
+  - rule: test-allow-list
+    action: allow
     if:
       any:
         - all:
