@@ -30,7 +30,7 @@ Watch [this video](https://youtu.be/Lrm8UuxrsqA) for some background on proxy vs
 
 ### To Prepare a Wavefront Proxy
 
-1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation). 
+1. On the host that will run the proxy, [install the proxy](proxies_installing.html#proxy-installation).
     {{site.data.alerts.note}}
       <ul>
       <li>If you want to use span logs, you need proxy version 5.0 or later.</li>
@@ -143,7 +143,9 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
            </div>
        </div>
      </div>
-     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html) for details." %}
+
+     <!---
+     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html) for details." %}--->
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
@@ -188,7 +190,7 @@ For maximum flexibility, you can use the Wavefront Sender SDKs. See [SDKs for Se
             </a>
          </div>
      </div>
- </div> 
+ </div>
  <div class="col-md-2 col-sm-6">
      <div class="panel panel-default text-center">
          <div class="panel-body">
@@ -207,13 +209,13 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
 1. Configure your application to send data via the Wavefront Proxy. See the SDK’s README file for details.
 1. Specify the port or a comma-separated list of ports that you want to send the trace data using the `customTracingListenerPorts` configuration on your [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file.
   ```xml
-  ## port for sending custom spans using the sender sdk 
-  ## you can use a port that you prefer. in this example port 30001 is used 
+  ## port for sending custom spans using the sender sdk
+  ## you can use a port that you prefer. in this example port 30001 is used
   customTracingListenerPorts=30001
   ```
 1. When you configure the `wavefront sender` on your application as explained in the SDK’s README file, define the port you want to send the data so that span level RED metrics will be gathered from your application.
   <br/>Example: Configuring your Java application to send trace data via the `tracingPort`.
-    ```java 
+    ```java
     // set up wavefront sender for Proxy based ingestion
     WavefrontSender wavefrontSender = new WavefrontClient.Builder(proxyHost).
             tracingPort(30001). // customTracingListenerPorts configured in your wavefront.conf file
@@ -224,7 +226,7 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
             flushIntervalSeconds(flushIntervalSeconds).
             maxQueueSize(queueSize).
             build(); // Returns a WavefrontClient
-            
+
     // now send distributed tracing spans as below
     wavefrontSender.sendSpan("getAllUsers", 1552949776000L, 343, "localhost",
           UUID.fromString(UUID.randomUUID()),
@@ -236,6 +238,6 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
             add(new Pair<>("http.method", "GET")).build(), null);
     ```
 
-## Next Steps 
+## Next Steps
 
 Examine traces, spans, and RED metric sent by your application. See [Visualizing Traces, Spans, and RED Metrics](tracing_ui_overview.html) for details.
