@@ -11,9 +11,11 @@ You can collect [traces](tracing_basics.html#wavefront-trace-data) with Jaeger o
 * Provides managed, highly scalable storage for your trace data.
 * Allows you to examine and alert on RED metrics that are derived from the spans.
 
-Suppose you have already instrumented your application using Jaeger or Zipkin with OpenTracing or OpenTelemetry. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.
+<!--Suppose you have already instrumented your application using Jaeger or Zipkin with OpenTracing or OpenTelemetry. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.-->
 
-{{site.data.alerts.note}}
+Suppose you have already instrumented your application using Jaeger or Zipkin with OpenTracing. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.
+
+<!--{{site.data.alerts.note}}
   <ul>
     <li>
       You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See <a href="opentelemetry.html">OpenTelemetry</a> for details.
@@ -22,6 +24,11 @@ Suppose you have already instrumented your application using Jaeger or Zipkin wi
       If you have not yet <a href="tracing_instrumenting_frameworks.html">instrumented your application for tracing</a>, consider doing so with one or more <a href="wavefront_sdks.html">Wavefront observability SDKs</a>.
     </li>
   </ul>
+{{site.data.alerts.end}}
+-->
+
+{{site.data.alerts.note}}
+  If you have not yet <a href="tracing_instrumenting_frameworks.html">instrumented your application for tracing</a>, consider doing so with one or more <a href="wavefront_sdks.html">Wavefront observability SDKs</a>.
 {{site.data.alerts.end}}
 
 ## Tracing-System Integrations and Exporters
