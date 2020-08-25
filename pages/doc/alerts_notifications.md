@@ -12,6 +12,7 @@ An alert reports state changes by sending notifications to one or more alert tar
 The timing of an alert notification depends on the alert target:
 
 * For simple targets (email addresses and PagerDuty keys added directly in the alert's **Target List**), a notification is sent whenever the alert is firing, updated, resolved, snoozed or in a maintenance window.
+  {% include note.html content="A maximum of 10 email targets is supported. For  multi-threshold alerts, the maximum is 10 email targets per severity. " %}
 * For [custom alert targets](webhooks_alert_notification.html), a notification is sent in response to each triggering event that is specified for the target.
 
 
