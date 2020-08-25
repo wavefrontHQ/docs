@@ -19,7 +19,7 @@ You can limit when a rule applies using the `if` parameter (proxy 7.0 and later)
 
 {% include shared/badge.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
-{% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*blocklist` and `*whitelist` has been replaced with `*allowlist`. The documentation uses the new configuration parameter names. " %}
+{% include tip.html content="Starting with Proxy 9.x, `*blacklist` has been replaced with `*block` and `*whitelist` has been replaced with `*allow`. The documentation uses the new configuration parameter names. " %}
 
 
 ## Rule Configuration File
@@ -62,7 +62,7 @@ Every rule must have
 * A `rule` parameter that contains the rule ID. Rule IDs can contain alphanumeric characters, dashes, and underscores and should be descriptive and unique within the same port. In the example above, the `drop-az-tag` rule is defined with the same identifier for both ports, 2878 and 4242.
 * An `action` parameter that contains the action to perform. Also the rule name.
 
-Additional parameters depend on the rule that you're defining, for example, a `allowlistregex` rule must have a `scope` and a `match` parameter.
+Additional parameters depend on the rule that you're defining, for example, an `allow` rule must have a `scope` and a `match` parameter.
 
 ### Regex Notes
 
@@ -90,9 +90,9 @@ For every rule the Wavefront proxy reports a counter metric  that shows how ofte
 
 ## Point Filtering Rules
 
-Point filtering rules support a more flexible version of the proxy [`allowlistRegex` and `blocklistRegex`](proxies_configuring.html#proxy-configuration) properties, and is fully backwards compatible.
+Point filtering rules support a more flexible version of the proxy [`allow` list and `block` list](proxies_configuring.html#proxy-configuration) properties, and is fully backwards compatible.
 
-### blocklistRegex
+### block
 
 Defines a regex that points must match to be filtered out.
 
@@ -112,7 +112,7 @@ Defines a regex that points must match to be filtered out.
 <tbody>
 <tr>
 <td>action</td>
-<td>blocklistRegex. </td>
+<td>block </td>
 </tr>
 <tr>
 <td>scope</td>
@@ -137,21 +137,21 @@ Defines a regex that points must match to be filtered out.
   # block all points with sourceName that starts with qa-statsd
   ###############################################################
   - rule    : example-block-qa-statsd
-    action  : blocklistRegex
+    action  : block
     scope   : sourceName
     match   : "qa-statsd.*"
 
   # block all points where "datacenter" point tag value starts with "west"
   ###############################################################
   - rule    : example-block-west
-    action  : blocklistRegex
+    action  : block
     scope   : datacenter
     match   : "west.*"
 ```
 
-### allowlistRegex
+### allow
 
-Points must match the `allowlistRegex` to be accepted. Multiple `allowlistRegex` rules are allowed. A point must match all rules.
+Points must match the `allow` list to be accepted. Multiple `allow` rules are allowed. A point must match all rules.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -169,7 +169,7 @@ Points must match the `allowlistRegex` to be accepted. Multiple `allowlistRegex`
 <tbody>
 <tr>
 <td>action</td>
-<td>allowlistRegex. </td>
+<td>allow </td>
 </tr>
 <tr>
 <td>scope</td>
@@ -194,14 +194,14 @@ Points must match the `allowlistRegex` to be accepted. Multiple `allowlistRegex`
   # only allow points that contain "prod" substring anywhere in the point line
   ###############################################################
   - rule    : example-allow-only-prod
-    action  : allowlistRegex
+    action  : allow
     scope   : pointLine
     match   : ".*prod.*"
 
   # only allow points that have a "datacenter" point tag and its value starts with "west"
   ###############################################################
   - rule    : example-allow-only-west
-    action  : allowlistRegex
+    action  : allow
     scope   : datacenter
     match   : "west.*"
 ```
@@ -646,7 +646,7 @@ The following example illustrates using a limitLength for a point tag. However, 
 
 [Wavefront distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across services by allowing you to examine traces and spans. Span filtering rules allow you to specify a block list or allow list that determine which spans the proxy sends to the Wavefront service.
 
-### spanBlocklistRegex
+### spanBlock
 
 Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
 
@@ -666,7 +666,7 @@ Defines a regex that spans must match to be filtered out. In the example below, 
 <tbody>
 <tr>
 <td>action</td>
-<td>blocklistRegex </td>
+<td>spanBlock </td>
 </tr>
 <tr>
 <td>scope</td>
@@ -690,14 +690,14 @@ Defines a regex that spans must match to be filtered out. In the example below, 
   # block all spans with sourceName that starts with qa-service
 ###############################################################
   - rule    : example-span-block-qa-services
-    action  : spanBlocklistRegex
+    action  : spanBlock
     scope   : sourceName
     match   : "qa-service.*"
 ```
 
-### spanAllowlistRegex
+### spanAllow
 
-Points must match the `spanAllowlistRegex` to be accepted. Multiple `spanAllowlistRegex` rules are allowed. A point must match all rules.
+Points must match the `spanAllow` list to be accepted. Multiple `spanAllow` rules are allowed. A point must match all rules.
 
 <font size="3"><strong>Parameters</strong></font>
 
@@ -715,7 +715,7 @@ Points must match the `spanAllowlistRegex` to be accepted. Multiple `spanAllowli
 <tbody>
 <tr>
 <td>action</td>
-<td>spanAllowlistRegex. </td>
+<td>spanAllow </td>
 </tr>
 <tr>
 <td>scope</td>
@@ -739,7 +739,7 @@ Points must match the `spanAllowlistRegex` to be accepted. Multiple `spanAllowli
   # only allow spans that contain the "prod" substring anywhere in the source
   ###############################################################
   - rule    : example-span-allow-only-prod
-    action  : spanAllowlistRegex
+    action  : spanAllow
     scope   : sourceName
     match   : ".*prod.*"
 ```

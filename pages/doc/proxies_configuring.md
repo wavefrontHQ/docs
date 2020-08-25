@@ -62,12 +62,12 @@ Ex: dc=west,env=prod</td>
 <td>3.24</td>
 </tr>
 <tr>
-<td>blocklistRegex </td>
-<td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended.</td>
+<td>block </td>
+<td>Regex pattern (java.util.regex) that input lines must match to be filtered out. Input lines are checked against the pattern as they come in and before the prefix is prepended. Renamed from <strong>blackListRegex</strong> to <strong>block</strong> in proxy 9.x</td>
 <td>Valid regex pattern.<br/>
 Ex: Filter out points that begin with qa., development., or test.:
 ^(qa|development|test).</td>
-<td>3.1</td>
+<td>3.1/9.x</td>
 </tr>
 <tr>
 <td>blockedPointsLoggerName </td>
@@ -504,8 +504,8 @@ Ex: 0 </td>
 <td>8.0</td>
 </tr>
 <tr>
-<td>allowlistRegex</td>
-<td>Regex pattern (java.util.regex). Input lines are checked against the pattern as they come in and before the prefix is prepended. Only input lines that match are accepted. </td>
+<td>allow</td>
+<td>Regex pattern (java.util.regex). Input lines are checked against the pattern as they come in and before the prefix is prepended. Only input lines that match are accepted.Renamed from <strong>whiteListRegex</strong> to <strong>allow</strong> in proxy 9.x </td>
 <td>Valid regex pattern.
 <div>Ex: ^(production|stage). </div>
 <div>Allows points that begin with production. and stage. </div></td>
