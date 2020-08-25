@@ -447,6 +447,8 @@ Wavefront computes service level RED metrics by aggregating the [RED metrics der
 
 Wavefront constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name are string values that Wavefront obtains from the spans on which the metrics are derived. You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. Wavefront assigns the corresponding span tag values to these point tags.
 
+{% include note.html content="If you want to filter RED metrics using [custom span tags](tracing_customize_spans_and_alerts.html), you need to use the [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics)." %}
+
 ![the screenshot shows the filters available for an aggregated red metrics query in the chart builder.](images/tracing_aggregated_red_metrics.png)
 
 <table id = "spanaggregatedREDmetrics">
