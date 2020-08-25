@@ -66,8 +66,8 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 2:  Customize the application map view</b> <br/>
       You can customize how you see your applications and services on the application map using the settings icon. 
       <ul>
-      <li><b>Isolated Services</b>: These are services that are not used by any of the other services in an application.</li>
-      <li><b>External Service</b>: These are external applications or services, such as Amazon services or database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
+      <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
+      <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
       <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
       </ul>
       </td>
@@ -105,21 +105,21 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 6: Hover over a traffic** <br/>
-      Hover over the traffic between the styling and shopping service. You see that they send requests to each other.
+      **Step 6: Hover over a tracing traffic** <br/>
+      Hover over the tracing traffic between the styling and shopping service. You see that they send requests to each other.
       
-      <br/>When you hover over a traffic(the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Traffic is bidirectional if the two services send requests to each other.
+      <br/>When you hover over a tracing traffic (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Tracing traffic is bidirectional if the two services send requests to each other.
       </td>
     <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      <b>Step 7: Click on a traffic</b>
-      <br/>When you click on the traffic between the styling and printing service, you can:
+      <b>Step 7: Click on a tracing traffic</b>
+      <br/>When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
       </td>
-    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an traffic that is bidirectional"/></td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
   </tr>
 </tbody>
 </table>

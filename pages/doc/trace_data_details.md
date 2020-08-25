@@ -301,14 +301,14 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 **Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
 
-## Traffic
+## Tracing Traffic
 
-Traffic shows how applications and services interact with each other. If you click on a traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map-beta) for details.
+Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map-beta) for details.
 
-Each arrow in the image shown below is referred to as traffic in Wavefront. 
-![an image that shows how each service communicates with each other using arrows. These arrows are called traffic in wavefront.](images/tracing_edges_concept.png)
+Each arrow in the image shown below is referred to as a tracing traffic in Wavefront. 
+![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
 
-To understand how to query for traffic in the tracing browser, see [Use Spans to Examine Applications and Services](spans_function.html#use-spans-to-examine-applications-and-services).
+To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](spans_function.html#use-spans-to-examine-applications-and-services).
 
 ## RED Metrics
 
@@ -447,7 +447,7 @@ Wavefront computes service level RED metrics by aggregating the [RED metrics der
 
 Wavefront constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name are string values that Wavefront obtains from the spans on which the metrics are derived. You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. Wavefront assigns the corresponding span tag values to these point tags.
 
-{% include note.html content="If you want to filter RED metrics using [custom span tags](tracing_customize_spans_and_alerts.html), you need to use the [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics)." %}
+{% include note.html content="If you want to filter RED metrics using operation names, sources, or [custom span tags](tracing_customize_spans_and_alerts.html), use [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics)." %}
 
 ![the screenshot shows the filters available for an aggregated red metrics query in the chart builder.](images/tracing_aggregated_red_metrics.png)
 
@@ -497,9 +497,9 @@ Wavefront constructs the names of the underlying aggregated delta counters, and 
   alignedSummary(95, merge(hs(tracing.aggregated.derived.beachshirts.delivery.duration.micros.m)))
   ```
 
-### RED Metrics for Traffic
+### RED Metrics for Tracing Traffic
  
-You can visualize traffic data in charts using tracing traffic derived metrics and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
+You can visualize tracing traffic data in charts using tracing traffic derived metrics and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
 
 ![the screenshot shows the filters available for a traffic derived red metrics query in the chart builder. The filers are explained after the screenshot.](images/edge_derived_red_metrics.png)
 
@@ -611,12 +611,12 @@ You can visualize traffic data in charts using tracing traffic derived metrics a
 <tr>
 <td markdown="span">`tracing.edge.derived.<application>.<service>.invocation.count`  </td>
 <td markdown="span">Delta counter</td>
-<td markdown="span">The number of traffic that start from an application and service.</td>
+<td markdown="span">The number of tracing traffic that start from an application and service.</td>
 </tr>
 <tr>
 <td markdown="span">`tracing.edge.derived.<application>.<service>.error.count`   </td>
 <td markdown="span">Delta counter</td>
-<td markdown="span">The number of traffic that starts from an application and service, that are errors.</td>
+<td markdown="span">The number of tracing traffic that starts from an application and service, that are errors.</td>
 </tr>
 <tr>
 <td markdown="span">`tracing.edge.derived.<application>.<service>.duration.millis.m`  </td>
@@ -628,11 +628,11 @@ You can visualize traffic data in charts using tracing traffic derived metrics a
 
 **Examples**
 
-* Request rate or invocation count for a traffic.
+* Request rate or invocation count for a tracing traffic.
   ```
   cs(tracing.edge.derived.beachshirts.*.invocation.count, to.shard=primary)
   ```
-* Error percentage for a traffic. 
+* Error percentage for a tracing traffic. 
   ```
   cs(tracing.edge.derived.beachshirts.shopping.error.count, cluster=us-west)
   ```
