@@ -272,7 +272,7 @@ The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind
   </tr>
   <tr>
     <td markdown="span">[Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java)</td>
-    <td>v1.1.0 or later</td>
+    <td>v1.2.0 or later</td>
   </tr>
 </table>
 
