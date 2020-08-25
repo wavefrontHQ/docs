@@ -41,13 +41,13 @@ To choose your starting point for visualizing traces:<br/>
 
 The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
-![application map](images/tracing_application_map.png)
+![application map](images/tracing_app_map.png)
 
 Let's walk through the following scenario to get a quick overview of the application map. 
 
 <table style="width: 100%;">
 <thead>
-<tr><th width="60%">Action</th><th width="40%">Result</th></tr>
+<tr><th width="55%">Action</th><th width="45%">Result</th></tr>
 </thead>
 <tbody>
   <tr>
@@ -57,18 +57,32 @@ Let's walk through the following scenario to get a quick overview of the applica
       
       You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
       </td>
-    <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/></td>
+    <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/>
+    <a name="appmap"></a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 2:  Customize the application map view</b> <br/>
+      You can customize how you see your applications and services on the application map using the settings icon. 
+      <ul>
+      <li><b>Isolated Services</b>: These are services that are not used by any of the other services in an application.</li>
+      <li><b>External Service</b>: These are external applications or services, such as Amazon services or database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
+      <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
+      </ul>
+      </td>
+    <td>  Video </td>
   </tr>
   <tr>
     <td markdown="span">
-      **Step 2: Hover over a service** <br/>
+      **Step 3: Hover over a service** <br/>
       Hover over the styling service of the beachshirts application. It highlights how the styling service communicates with the other services in the application.
       </td>
     <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      <b>Step 3: Click on a service</b>
+      <b>Step 4: Click on a service</b>
       <br/>Click on the styling service. Now, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
         <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
@@ -80,7 +94,7 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 4: Focus on a service**<br/>
+      **Step 5: Focus on a service**<br/>
       Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
       
       This will help you focus on a specific service when you have more than 10 services in your application.
@@ -89,21 +103,21 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 5: Hover over an edge** <br/>
-      Hover over the edge between the styling and shopping service. You see that they send requests to each other. 
+      **Step 6: Hover over a traffic** <br/>
+      Hover over the traffic between the styling and shopping service. You see that they send requests to each other.
       
-      <br/>When you hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
+      <br/>When you hover over a traffic(the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Traffic is bidirectional if the two services send requests to each other.
       </td>
     <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      <b>Step 6: Click on an edge</b>
-      <br/>When you click on the edge between the styling and printing service, you can:
+      <b>Step 7: Click on a traffic</b>
+      <br/>When you click on the traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
         <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
       </td>
-    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an traffic that is bidirectional"/></td>
   </tr>
 </tbody>
 </table>
@@ -242,7 +256,7 @@ The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind
   </tr>
   <tr>
     <td markdown="span">[Java OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java)</td>
-    <td>v2.0 or later</td>
+    <td>v2.1.1 or later</td>
   </tr>
   <tr>
     <td markdown="span">[Go OpenTracing SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-go)</td>

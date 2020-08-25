@@ -34,7 +34,7 @@ Filters the expression to display only the time series that do <em>not</em> matc
 
 ## Description
 
-The `removeSeries()` function filters the expression to display only the time series that do not match the specified metric, source, source tag, or point tag, or combination of these filters.
+The `removeSeries()` function filters the expression to display only the time series that do <strong><em>not</em></strong> match the specified metric, source, source tag, or point tag, or combination of these filters. To filter the expression to display only the time series that  <strong><em>match</em></strong> one or more filters, use [`retainSeries()`](ts_retainSeries.html).
 
 <!---At times, a simpler way to remove series is to use Boolean operators. For example, instead of:
 ```

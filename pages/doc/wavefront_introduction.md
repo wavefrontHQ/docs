@@ -86,15 +86,13 @@ After you've set up an alert with that information, we'll send alert notificatio
 </tbody>
 </table>
 
-### Kubernetes
+## How Does Wavefront Integrate With...?
 
-<table style="width: 100%;">
-<tbody>
-<tr><td width="50%">Use our one-click install of the <strong><a href="kubernetes.html"> Wavefront Collector for Kubernetes</a></strong> to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
-<td width="50%"><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront with Clement Pang"/></a> </td>
-</tr>
-</tbody>
-</table>
+Wavefront includes over 200 [integrations](label_integrations%20list.html) including clud providers, DevOps tools, big data, and more.
+
+[Wavefront interfaces](wavefront_interfaces.html) include SDKs available on our Github page, the Wavefront REST API, and CLIs.
+
+In addition, tight integrations with Spring Boot, Kubernetes, and Tanzu Mission Control are available.
 
 ### Spring Boot
 
@@ -106,6 +104,34 @@ After you've set up an alert with that information, we'll send alert notificatio
 
 </tbody>
 </table>
+
+### Kubernetes
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="50%">Use our one-click install of the <strong><a href="kubernetes.html"> Wavefront Collector for Kubernetes</a></strong> to collect real-time metrics from all layers of a Kubernetes environment (clusters, nodes, pods, containers and the Kubernetes control plane). You can visualize the metrics in a rich set of predefined dashboards. </td>
+<td width="50%"><a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_kubernetes_lightboard.png" alt="Kubernetes and Wavefront with Clement Pang"/></a> </td>
+</tr>
+</tbody>
+</table>
+
+### Tanzu Mission Control
+
+[VMware Tanzu Mission Control](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/index.html) is a centralized management platform for consistently operating and securing your Kubernetes infrastructure and modern applications across multiple teams and clouds. You can use Tanzu Mission Control to manage your entire Kubernetes environment, regardless of where your clusters reside.
+
+It's easy to monitor any of the clusters with Wavefront.
+
+<table style="width: 100%;">
+<tbody>
+<tr><td markdown="span" width="50%">**Step 1**: A user with Administrator privileges enables the Wavefront integration in the Tanzu Mission Control. </td>
+<td width="50%"><img src="/images/tmc_integration_enabled.png" alt="Click to enable the Wavefront integration"/> </td>
+</tr>
+<tr><td markdown="span" width="50%">**Step 2**: Administrators for individual clusters add the integration and start exploring the [metrics](tmc.html#kubernetes-source) in [predefined dashboards](tmc.html#dashboards). </td>
+<td width="50%"><img src="/images/tmc_add_integration.png" alt="Select add Tanzu Observability by Wavefront. "/> </td>
+</tr>
+</tbody>
+</table>
+
 
 
 

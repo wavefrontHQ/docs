@@ -6,19 +6,21 @@ summary: Learn about the Wavefront VMware Tanzu™ Kubernetes Grid™ Integrated
 ---
 ## VMware Tanzu™ Kubernetes Grid™ Integration
 
-VMware Tanzu™ Kubernetes Grid™ Integrated Edition, previously called VMware PKS, enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters. This integration uses [wavefront-kubernetes-collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector), which runs natively in Kubernetes and [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics), which listens to the Kubernetes API server. The integration collects detailed metrics about the containers, namespaces, nodes, pods, deployments, services and the cluster itself. See [VMware Tanzu Kubernetes Grid Integration Details](https://docs.wavefront.com/integrations_tkgi.html) for a list of predefined alerts, an architecture overview, and troubleshooting info.
+VMware Tanzu™ Kubernetes Grid™ Integrated Edition, previously called VMware PKS, enables operators to provision, operate, and manage enterprise-grade Kubernetes clusters. This integration uses the [wavefront-kubernetes-collector](https://github.com/wavefrontHQ/wavefront-kubernetes-collector), which runs natively in Kubernetes. The integration collects detailed metrics about the containers, namespaces, nodes, pods, deployments, services and the cluster itself. See [VMware Tanzu Kubernetes Grid Integration Details](https://docs.wavefront.com/integrations_tkgi.html) for a list of predefined alerts, an architecture overview, and troubleshooting info.
 
 This integration explains how to configure Tanzu Kubernetes Grid Integrated Edition monitoring with Wavefront from the PKS tile present in PCF Ops Manager. After you've completed the integration setup, you can use Wavefront to monitor the Tanzu Kubernetes Grid Integrated Edition cluster.
 
-In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of **Overview** and **Nodes** section of the dashboard.
+In addition to setting up the metrics flow, this integration also installs a dashboard. Here's a preview of the **Summary** dashboard.
 
-{% include image.md src="images/db_overview.png" width="80" %}
+{% include image.md src="images/db_summary.png" width="80" %}
 
 ## VMware Tanzu™ Kubernetes Grid™ Integrated Edition Setup
 
-  Supported Version: VMware Tanzu Kubernetes Grid Integrated Edition 1.4 and later. See the [Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
+  Supported Version: VMware Tanzu Kubernetes Grid Integrated Edition 1.9 and later. See the [Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
 
-  **Note:** VMware Tanzu Kubernetes Grid Integrated Edition was previously called VMware PKS. For setup instructions for VMware PKS 1.1, 1.2, and 1.3 versions, log in to the Wavefront instance and see **VMware PKS (Archived)**.
+  **Note:**
+  * For VMware Tanzu Kubernetes Grid Integrated Edition 1.4 through 1.8, see [VMware Tanzu Kubernetes Grid Integrated Edition (Archived)](../tkgi-archived/overview).
+  * VMware Tanzu Kubernetes Grid Integrated Edition was previously called VMware PKS. For setup instructions for VMware PKS 1.1, 1.2, and 1.3 versions, log in to the Wavefront instance and see [VMware PKS (Archived)](../pks-archived/setup).
 
 ### Configuring the Wavefront Account
 

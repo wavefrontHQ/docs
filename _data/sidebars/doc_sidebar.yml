@@ -66,6 +66,10 @@ entries:
       url: /wavefront_release_notes.html
       output: web
 
+    - title: 2020-30.x Release Notes
+      url: /2020.30.x_release_notes.html
+      output: web
+
     - title: 2020-26.x Release Notes
       url: /2020.26.x_release_notes.html
       output: web
@@ -80,10 +84,6 @@ entries:
 
     - title: 2020-10.x Release Notes
       url: /2020.10.x_release_notes.html
-      output: web
-
-    - title: 2020-06.x Release Notes
-      url: /2020.06.x_release_notes.html
       output: web
 
     - title: Wavefront Proxy Release Notes
@@ -512,36 +512,45 @@ entries:
     output: web
     folderitems:
 
-    - title: Distributed Tracing Basics
+    - title: Overview
       url: /tracing_basics.html
       output: web
 
-    - title: Instrumenting Your App for Tracing
-      url: /tracing_instrumenting_frameworks.html
+    - title: Key Concepts
+      url: /trace_data_details.html
       output: web
 
-    - title: Obtaining 3rd Party Traces
-      url: /tracing_integrations.html
-      output: web
+      subfolders:
+      - title: Send Data To Wavefront
+        output: web
+        subfolderitems:
 
-    - title: Tracing Best Practices
-      url: /tracing_best_practices.html
+          - title: Instrumenting Your App
+            url: /tracing_instrumenting_frameworks.html
+            output: web
+
+          - title: Obtaining 3rd Party Traces
+            url: /tracing_integrations.html
+            output: web
+
+          - title: Customize Spans and Alerts for RED Metrics
+            url: /tracing_customize_spans_and_alerts.html
+            output: web
+
+    - title: Visualizing Trace Data
+      url: /tracing_ui_overview.html
       output: web
 
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web
 
-    - title: Visualizing Trace Data
-      url: /tracing_ui_overview.html
-      output: web
-
     - title: Querying Trace Data
       url: /trace_data_query.html
       output: web
 
-    - title: Traces, Spans, and RED Metrics
-      url: /trace_data_details.html
+    - title: Tracing Best Practices
+      url: /tracing_best_practices.html
       output: web
 
       subfolders:
@@ -581,23 +590,11 @@ entries:
     output: web
     folderitems:
 
-      - title: Wavefront Security
-        url: /wavefront_security.html
+      - title: Authentications with SSO Providers
+        url: /authentication.html
         output: web
 
         subfolders:
-        - title: Authentication
-          output: web
-          subfolderitems:
-
-          - title: Authentication with SSO Providers
-            url: /authentication.html
-            output: web
-
-          - title: Set Up Self-Service SAML SSO
-            url: /auth_self_service_sso.html
-            output: web
-
         - title: Authorization
           output: web
           subfolderitems:
@@ -618,14 +615,15 @@ entries:
             url: /permissions_overview.html
             output: web
 
-          - title: Access
+          - title: Manage Access
             url: /access.html
             output: web
 
-          - title: Metrics Security Policy Rules
-            url: /metrics_security.html
-            output: web
+      - title: Wavefront Security
+        url: /wavefront_security.html
+        output: web
 
+        subfolders:
         - title: Monitoring & Troubleshooting
           output: web
           subfolderitems:

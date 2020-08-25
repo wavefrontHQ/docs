@@ -11,11 +11,11 @@ summary: Reference to the retainSeries() function
 ```
 retainSeries(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
-where <filterN> is: 
-    <metricName> | source="<sourceName>" | tag="<sourceTagName>" | <pointTagKey>="<pointTagValue>" 
+where <filterN> is:
+    <metricName> | source="<sourceName>" | tag="<sourceTagName>" | <pointTagKey>="<pointTagValue>"
 ```
 
-Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, source tags, or point tags.  
+Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, source tags, or point tags.
 
 ## Parameters
 <table style="width: 100%;">
@@ -35,7 +35,7 @@ Filters the expression to display only the time series that match one or more fi
 
 ## Description
 
-The `retainSeries()` function filters the expression to display only the time series that match the specified metric, source, source tag, point tag, or combination of these filters. 
+The `retainSeries()` function filters the expression to display only the time series that match the specified metric, source, source tag, point tag, or combination of these filters. To filter the expression to display only the time series that do <strong><em>not</em></strong> match one or more filters, use [`removeSeries()`](ts_removeSeries.html).
 
 You might be able to use the `retainSeries()` function to retain only the series that have the synthetic point tag that you define, for example, in conjunction with `taggify()`.
 

@@ -68,7 +68,7 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 * Use proxy [configuration properties](proxies_configuring.html#general-proxy-properties-and-examples) to set ports, connect times, and more.
 
-* Use an [allowlist regx or blocklist regx](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
+* Use an [allow list regx or block list regx](proxies_preprocessor_rules.html#point-filtering-rules) to control traffic to the Wavefront proxy.
 
 
 
