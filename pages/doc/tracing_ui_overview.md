@@ -71,7 +71,9 @@ Let's walk through the following scenario to get a quick overview of the applica
       <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
       </ul>
       </td>
-    <td>  Video </td>
+    <td> 
+      <iframe src="https://bcove.video/34vKPYb" width="400" height="275" allowfullscreen="true" alt="application map settings"></iframe>
+    </td>
   </tr>
   <tr>
     <td markdown="span">
