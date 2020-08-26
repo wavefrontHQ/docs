@@ -8,7 +8,8 @@ summary: Reference to the anomalous() function
 ---
 ## Summary
 ```
-anomalous(<testWindow>, [<confidenceFactor>,] [<historyWindow>, [<alignWindow>,]] <tsExpression>)
+anomalous([<anomalousType>,]<testWindow>, [<confidenceFactor>,] <historyWindow>, <tsExpression>
+[,boundaryOptions])
 ```
 Returns the percentage of anomalous points in each time series described by the expression. Points are considered anomalous if their values fall outside an expected range, as determined by the given confidence factor.
 
@@ -18,6 +19,9 @@ Returns the percentage of anomalous points in each time series described by the 
 <thead>
 <tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
 </thead>
+<tr><td markdown="span">anomalousType</td>
+<td markdown="span">Optional type of anomalies to focus on. Use **low** to focus on lower bound violations. Use **high** to focus on upper bound violations. By default, both low and high anomalies are shown.
+</td></tr>
 <tr><td markdown="span">testWindow</td>
 <td markdown="span">Length of the _test window_, which is the moving [time window](query_language_reference.html#common-parameters) to check for anomalous points. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is minutes if the unit is not specified.
 </td></tr>
@@ -28,12 +32,17 @@ Default is 0.99 if this parameter is not specified.
 <tr><td markdown="span">historyWindow</td>
 <td markdown="span">Amount of time in the _history window_, which is the [time window](query_language_reference.html#common-parameters) immediately preceding the chart window. Points in the chart window and the history window are the basis for computing the expected values in the test window. You can specify a time measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is 1 day (1d) if this parameter is not specified.
 </td></tr>
-<tr><td markdown="span">alignWindow</td>
-<td markdown="span">Size (duration) of the buckets for summarizing data values, to regularize the reporting interval of the time series. The reported values in a bucket are summarized by averaging. You can specify a [time window](query_language_reference.html#common-parameters) measurement based on the clock or calendar (1s, 1m, 1h, 1d, 1w), the window length (1vw) of the chart, or the bucket size (1bw) of the chart. Default is the bucket size of the chart (1bw), if this parameter is not specified. You must specify `historyWindow` as well if you want to use this parameter.
-</td></tr>
 <tr>
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression describing the time series to inspect for anomalous points. </td></tr>
+<tr>
+<td markdown="span">boundaryOptions</td>
+<td>Determines whether confidence boundaries are show.
+<ul>
+<li><strong>with_bounds</strong> shows both the input time series and the confidence boundaries. </li>
+<li><strong>only_bounds</strong> shows only confidence boundaries.  </li>
+</ul>
+</td></tr>
 </tbody>
 </table>
 
@@ -41,6 +50,8 @@ Default is 0.99 if this parameter is not specified.
 ## Description
 
 The `anomalous()` function analyzes data points in the time series described by the expression, and returns the percentage of points that have anomalous (unexpected) values. Values are considered anomalous if they fall outside a range of expected values. By default, `anomalous()` uses a range that is predicted with 0.99 (99%) confidence.
+
+`anomalous()` always returns results between 0 and 1. If there is no anomaly between the underlying values (all values are NaN), `anomalous()` returns all zeros. 
 
 `anomalous()` analyzes successive groups of data points in a time series, and returns the percentage of anomalous points for each group. You define the groups by specifying the `testWindow` parameter. For example, `anomalous(10m, ts(my.metric))` returns, for each data point, the percentage of data points with anomalous values that were reported during the 10 minutes before that data point. If 4 out of 10 points in a test window have anomalous values, the result returned for that test window is `0.40`.
 
@@ -69,8 +80,6 @@ If the range is narrow, many points lie outside it, and the reported percentages
 `anomalous()` uses a forecasting algorithm that bases its predictions on actual values reported by the time series. These values come from data points reported in the chart window and data points reported in a history window immediately preceding the chart. In effect, the history window provides a minimum amount of past data for `anomalous()` to base its predictions on, regardless of the size of the chart's time window.
 
 By default, the history window is one day long. You can fine tune the forecast by adding an optional `historyWindow` parameter to specify a longer or shorter history window. A longer history window supports more accurate prediction, although the query might take longer.
-
-If the data points used for prediction have missing data or an irregular reporting interval, you can smooth over the gaps by specifying an optional `alignWindow` parameter. This also smooths the gaps in the results. If you specify `alignWindow`, you must specify `historyWindow` as well.
 
 For example, `anomalous(5m, 2w, 1m, ts(my.metric))` predicts the expected values based on 2 weeks's worth of actual data points in addition to the data shown in the chart, and aligns the input and output data points at 1-minute intervals.
 
