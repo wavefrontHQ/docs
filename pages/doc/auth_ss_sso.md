@@ -4,7 +4,6 @@ keywords:
 tags: [integrations, administration]
 sidebar: doc_sidebar
 permalink: auth_self_service_sso.html
-published: false
 summary: Set up a SAML SSO provider for your environment
 ---
 
