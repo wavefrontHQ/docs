@@ -198,7 +198,7 @@ Charts for metrics also support the following types of queries:
 
 ### Docs, Videos, and Query Language Recipes
 
-Wavefront documentation includes videos, tutorials, reference, and guides on the query language.
+Wavefront documentation includes videos, tutorials, reference, and guides on the query language. 
 
 - **[Query Language Videos](videos_query_language.html)** get you started and [Use Case Videos](wavefront_use_cases.html) show off some compelling examples.
 - **[Query builder](query_language_query_builder.html)** (for v1) and **[Chart builder](chart_builder.html)** (for v2) can help you come up to speed quickly while using the product.
