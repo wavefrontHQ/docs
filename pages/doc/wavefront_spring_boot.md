@@ -107,14 +107,17 @@ Customize the configuration file (integration Setup tab) or set up Maven or Grad
 
 Anyone can get started using the Wavefront Spring Boot Starter.
 
-* If you are starting a new project, add the Wavefront dependency using [https://start.spring.io](https://start.spring.io).
-* If you are configuring an existing application, you only need to add a few lines to your build.
+* The easiest way to get started is to create a new project on [start.spring.io](https://start.springboot.io).
+  - Select Spring Boot 2.3 or later and your favorite build system
+  - Include at least the `Wavefront` entry.
+  - If you want to opt-in for tracing support, add the `Spring Cloud Sleuth` entry as well.
+* If you already have a Spring Boot application, you can also use [start.spring.io](https://start.springboot.io) to explore the project from your browser. You can determine the setup for the Spring Boot generation that your  project is using.
 
 Here are some things to know before you start:
 
 * **Ingestion Method**: Wavefront for Spring Boot sends data to Wavefront via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
 * **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#wf_instance).
-* **Account**: By default the starter will auto-negotiate an account and save the API token in the `~/.wavefront_freemium` file in your home directory. You can modify the default to be directed to your Wavefront instance (see Step 2 below).
+* **Account**: By default the starter sends you to the Freemium instance,  auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Wavefront instance (see Step 2 below) you need to include an API token for that instance.
 
 <!---
 ![Ways to get started with the Wavefront for Spring Boot offering](/images/spring_boot_getting_started.png)--->
@@ -126,9 +129,37 @@ Here are some things to know before you start:
 * Maven 3.3+ or Gradle 6.3 or later
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
 
-### Step 1: Initialize Your Project
+### Step 0: Import the wavefront-spring-boot BOM
 
-Initialization is different for existing or new projects.
+Before you start, import the BOM. This example uses the 2.0.0 version of `wavefront-spring-boot`. Go to the [start.pring.io](https://start.spring.io/) to explore other version options.
+
+```
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.wavefront</groupId>
+      <artifactId>wavefront-spring-boot</artifactId>
+      <version>2.0.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
+
+If you are using Gradle, make sure your project uses the  `io.spring.dependency-management` plugin and add the following to your build.gradle file:
+
+```
+dependencyManagement {
+  imports {
+    mavenBom "com.wavefront:wavefront-spring-boot-bom:2.0.0"
+  }
+}
+```
+
+### Step 1: Add wavefront-spring-boot-starter to Your Project
+
+Adding `wavefront-spring-boot-starter` is different for existing or new projects.
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#existing" data-toggle="tab">Initialize an Existing Project</a></li>
@@ -145,22 +176,21 @@ Initialization is different for existing or new projects.
           </ul>
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="maven">
-                  <p>Open your application and add the following code to your <code>pom.xml</code> file. Replace $releaseVersion with the current version of the project.  </p>
+                  <p>Open your application and add the following code to your <code>pom.xml</code> file.   </p>
                     <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
   &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
-  &lt;version&gt;$releaseVersion&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre>
               </div>
 
               <div role="tabpanel" class="tab-pane" id="gradle">
-              <p>Open your application and add the following code to your <code>build.gradle</code> file. Replace $releaseVersion with the current version of the project.  </p>
+              <p>Open your application and add the following code to your <code>build.gradle</code> file.  </p>
                 <pre>
 dependencies {
   ...
-  implementation 'com.wavefront:wavefront-spring-boot-starter:$releaseVersion'
+  implementation 'com.wavefront:wavefront-spring-boot-starter'
 }
               </pre>
               </div>
@@ -168,7 +198,7 @@ dependencies {
         </li>
 
       <li>
-        Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing.
+        If you want to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing, add the following dependencies.
           <ul id="profileTabs" class="nav nav-tabs">
               <li class="active"><a href="#sleuthnew" data-toggle="tab">Spring Cloud Sleuth</a></li>
               <li><a href="#opentracingnew" data-toggle="tab">OpenTracing</a></li>
@@ -181,7 +211,6 @@ dependencies {
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
   &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-  &lt;version&gt;$release_version&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre></li>
 
@@ -189,7 +218,7 @@ dependencies {
                     <pre>
 dependencies {
   ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:$release_version'
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 }
                   </pre></li></ul>
 
@@ -241,20 +270,19 @@ dependencies {
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="sleuth">
                     <ul>
-                    <li><p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. Replace $releaseVersion with the current version.</p>
+                    <li><p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
                       <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
   &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-  &lt;version&gt;$releaseVersion&lt;/version&gt;
 &lt;/dependency&gt;
                     </pre></li>
 
-                    <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. Replace $releaseVersion with the current version.</p>
+                    <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
                       <pre>
 dependencies {
   ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:$releaseVersion'
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 }
                     </pre></li></ul>
 
@@ -349,77 +377,84 @@ To view your data, you first run your project from the command line, and then cl
 
 Add the following custom configurations to the `application.properties` file.
 
-* **Invite users and let them send data to the same cluster**
+<p><span style="font-size: large; font-weight: 600">Invite Users</span></p>
 
-  1. Click the link that was printed on your console and navigate to the Wavefront Service dashboard:
-      {% include note.html content="Save the link that you used to access the Service dashboard." %}
-      1. Click the gear icon and select **Account Management**.
-      1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
+You can invite users and let them send data to the same cluster:
+
+1. Click the link that was printed on your console and navigate to the Wavefront Service dashboard:
+    {% include note.html content="Save the link that you used to access the Service dashboard." %}
+    1. Click the gear icon and select **Account Management**.
+    1. Click **Invite New Users** and specify a comma-separated list of email addresses.<br/>
         ![Invite Users](/images/spring_boot_invite_users.png)
-    The users will get an email with a link to reset their password. They can then access your dashboard.
-  1. Information about the token and URL are displayed on your terminal. Add them to your project’s `application.properties` file.
-      ```
-      management.metrics.export.wavefront.api-token=<Enter_Token>
-      management.metrics.export.wavefront.uri=https://wavefront.surf
-      ```
-  1. If you are using the freemium account and want the single-use login URL to show on the terminal each time you start the application, add `wavefront.freemium-account` to the `application.properties` file and set it to `true`.
+  The users will get an email with a link to reset their password. They can then access your dashboard.
+1. Information about the token and URL are displayed on your terminal. Add them to your project’s `application.properties` file.
     ```
-    wavefront.freemium-account=true
+    management.metrics.export.wavefront.api-token=<Enter_Token>
+    management.metrics.export.wavefront.uri=https://wavefront.surf
     ```
-      {% include tip.html content="If you don’t want Wavefront to auto-negotiation a freemium account for you, set the value to `false`."%}
-  1. Restart your application.
-
-* **Send data to Wavefront using the Wavefront proxy**
-
-  Copy and paste the following property.
-  {% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and later. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
+1. If you are using the freemium account and want the single-use login URL to show on the terminal each time you start the application, add `wavefront.freemium-account` to the `application.properties` file and set it to `true`.
   ```
-  management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
+  wavefront.freemium-account=true
   ```
+    {% include tip.html content="If you don’t want Wavefront to auto-negotiation a freemium account for you, set the value to `false`."%}
+1. Restart your application.
 
-* **Use the Wavefront Actuator endpoint to access the dashboard**
+<p><span style="font-size: large; font-weight: 600">Use the Wavefront Proxy</span></p>
 
-  If you have a web app, you can expose the Wavefront Actuator endpoint at `/actuator/wavefront` to access your Wavefront dashboard.
-  <br/>Example:
-  ```
-  management.endpoints.web.exposure.include=health,info,...,wavefront
-  ```
+The [Wavefront proxy](proxies.html)  ingests data and forwards them to the Wavefront service in a secure, fast, and reliable manner. It prevents data loss, simplifies firewall configuration, and allows you to filter or enrich data before they arrive at the Wavefront service.
 
-* **Specify application and service names**
+Copy and paste the following property.  {% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and later. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
+```
+management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
+```
 
-  If you have more than one Spring Boot application, you can specify the names of the application and the service in the `application.properties` file.
-    <br/>Example:
-    ```
-    wavefront.application.name=my-application
-    wavefront.application.service=my-service
-    ```
+<p><span style="font-size: large; font-weight: 600">Access the Dashboard with the Actuator Endpoint</span></p>
 
-    Example: If you are using a YAML file.
-    ```
-    wavefront:
-      application:
-        name: my-application
-        service: my-service
-    ```
-    Optionally:
-    * If you configured `spring.application.name` in your application, it is automatically used as the service name.
-      You can configure the cluster and shard the same way. This information is used to tag metrics and traces.
-    * If you want to take full control over [`ApplicationTags`](tracing_instrumenting_frameworks.html#application-tags), you can create a `@Bean`.
-    * If you want to customize the instance that is auto-configured, add an `ApplicationTagsBuilderCustomizer` bean.
 
-* **Disable integration tests from sending data to Wavefront**
+If you have a web app, you can expose the Wavefront Actuator endpoint at `/actuator/wavefront` to access your Wavefront dashboard.
+<br/>Example:
+```
+management.endpoints.web.exposure.include=health,info,...,wavefront
+```
 
-  Add `management.metrics.export.wavefront.enabled` to your integration tests and set it to `false` to stop it from sending data to Wavefront.
+<p><span style="font-size: large; font-weight: 600">Specify Application and Service Names</span></p>
 
-  {% include note.html content="If you use the [Spring Initializer](https://start.spring.io/) to create your new Spring Boot application and add the Wavefront dependency, this configuration is added by default to all your integration tests."%}
+If you have more than one Spring Boot application, you can specify the names of the application and the service in the `application.properties` file.
+<br/>Example:
+```
+wavefront.application.name=my-application
+wavefront.application.service=my-service
+```
 
-  Example: Disable all integration tests from sending data to Wavefront by updating the `application.properties` file.
-  ```
-  management.metrics.export.wavefront.enabled=false
-  ```
+Example: If you are using a YAML file.
+```
+wavefront:
+  application:
+    name: my-application
+    service: my-service
+```
 
-  Example: Disable a specific integration test from sending data to Wavefront.
-  ```
+Optionally:
+* If you configured `spring.application.name` in your application, it is automatically used as the service name.
+
+You can configure the cluster and shard the same way. This information is used to tag metrics and traces.
+* If you want to take full control over [`ApplicationTags`](tracing_instrumenting_frameworks.html#application-tags), you can create a `@Bean`.
+* If you want to customize the instance that is auto-configured, add an `ApplicationTagsBuilderCustomizer` bean.
+
+<!---
+<p><span style="font-size: large; font-weight: 600">Disable Integration Tests from Sending data to Wavefront</span></p>
+
+Add `management.metrics.export.wavefront.enabled` to your integration tests and set it to `false` to stop it from sending data to Wavefront.
+
+{% include note.html content="If you use the [Spring Initializer](https://start.spring.io/) to create your new Spring Boot application and add the Wavefront dependency, this configuration is added by default to all your integration tests."%}
+
+Example: Disable all integration tests from sending data to Wavefront by updating the `application.properties` file.
+```
+management.metrics.export.wavefront.enabled=false
+```
+
+Example: Disable a specific integration test from sending data to Wavefront.
+```
   package com.example.demo;
 
   import org.junit.jupiter.api.Test;
@@ -437,7 +472,7 @@ Add the following custom configurations to the `application.properties` file.
   }
   ```
 
-{% include note.html content="For details on customizing exported metrics, check the [Spring Boot reference guide](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-wavefront)."%}
+{% include note.html content="For details on customizing exported metrics, check the [Spring Boot reference guide](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-metrics-export-wavefront)."%}--->
 
 ## Wavefront Spring Boot Integration
 
