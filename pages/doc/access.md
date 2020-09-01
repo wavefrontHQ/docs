@@ -12,6 +12,8 @@ Admins who need finer-grained control can manage access on a per-object basis. W
 
 {% include note.html content="Permission and access control are additive. To make changes to a dashboard, you must have Dashboards permission and View and Modify access for that dashboard" %}
 
+{% include tip.html content="In addition to access control, we also support [metrics security policy rules](metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
+
 This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security system preference. You can manage access for alerts the same way.
 
 <p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Wavefront access control"/></a>

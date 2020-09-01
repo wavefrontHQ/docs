@@ -13,7 +13,37 @@ In a large enterprise, certain data are confidential. Wavefront allows you to li
 * **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to the Finance department.
 * **Metrics Security Policy Rules** support even fine-grained control. For example, you can give access to the Finance_2020 dashboard to the Finance team, but you can set up policy rules so that certain metrics are visible only to the leadership team.
 
-{% include note.html content="You must have Metrics permission to set up Metrics Security Policy rules. " %}
+{% include note.html content="Only a Super Admin user or a user with Metrics permission can create and manage Metrics Security Policy rules." %}
+
+## How Metrics Security Policy Rules Protect Sensitive Data
+
+Metrics security rules allow fine-grained support for limiting access to sensitive data.
+
+### Block or Allow Access
+
+Wavefront supports rules that block access and rules that allow access. When an account attempts to access data, the backend looks at the rules in priority order.
+
+For example, assume you have two rules:
+* Rule 1 blocks access to all data that start with `revenue*` to all users.
+* Rule 2 allows access to data that start with `revenue*` to users in the Finance group.
+
+In that case, all users in the Finance group can access data that start with `revenue*`.
+
+If you reverse the rule order, you block access to all users, and even the users in the Finance group can no longer access the `revenue*` data.
+
+
+### Sensitive Data Become Invisible
+
+Data protected by a metrics security policy rule can become completely invisible to users:
+
+
+
+* Not visible in charts. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message on a white background.
+* Not visible in alerts. The alert fires based on the complete set of metrics, but if certain users don't have access to some of the metrics they do not see them in alert notifications or alert charts. A checkbox allows administrators to hide alert details to avoid confusion.
+* Not visible in auto-complete in Chart Builder, Query Editor, Metrics browser, etc.
+
+* Alerts
+*
 
 ## Create a Metrics Security Policy Rule
 
@@ -30,8 +60,8 @@ When you create a Metrics Security Policy rule, you specify the metrics you want
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
      * If you want to specify multiple key=value pairs, select on the right whether you want to combine them with `and` or `or`.
   5. Specify the Access definition for the rule.
-    1. Select **Allow** or **Block**.
-    2. Select an account name, a group, or a role that you want to block or grant visibility into this metric.
+     1. Select **Allow** or **Block**.
+     2. Select an account name, a group, or a role that you want to block or grant visibility into this metric.
   3. Click **OK.**
 
 ## Manage Metrics Security Policy Rules
