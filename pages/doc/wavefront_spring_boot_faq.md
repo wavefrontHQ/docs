@@ -11,7 +11,7 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 
 * **Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
 
-* **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. We ask that you tell us more about yourself when signing up for a trial.
+* **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information. 
 
   Once you've signed up, you can retrieve an API token and configure it in your `application.properties` file:
   ```
@@ -59,7 +59,7 @@ Starting in September 2020, we support the [Wavefront Spring Boot starter](https
 
 Starting in September 2020, the Spring Boot Starter directs you to the Spring Boot Inventory dashboard that allows you to examine certain metrics that Micrometer collects by default.
 
-If applications are enabled for tracing, you can click the link in the Tracing section to be directed to the Tracing dashboard. 
+If applications are enabled for tracing, you can click the link in the Tracing section to be directed to the Tracing dashboard.
 
 ![Spring Boot inventory screenshot](images/springboot_metrics_callout.png)
 
