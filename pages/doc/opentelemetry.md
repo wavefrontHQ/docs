@@ -32,7 +32,7 @@ This tutorial uses the OpenTelemetry Collector demo. <!--For steps on how to con
         ```
         git clone https://github.com/open-telemetry/opentelemetry-collector.git
         ```
-    3. Open the opentelemetry-collector/example/demo/[prometheous.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) file and add the following configurations.
+    3. Open the opentelemetry-collector/examples/demo/[prometheus.yaml](https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/master/examples/demo/prometheus.yaml) file and add the following configurations.
       
         ```yaml
         remote_write:
@@ -41,9 +41,9 @@ This tutorial uses the OpenTelemetry Collector demo. <!--For steps on how to con
       
         {% include note.html content="The IP address and port configured in the prometheus.yaml file needs to match configurations in the Prometheus Storage Adapter configured in Step 3 below." %}
     
-    4. Navigate to the opentelemetry-collector/example/demo directory via the terminal.
+    4. Navigate to the opentelemetry-collector/examples/demo directory via the terminal.
         ```
-        cd opentelemetry-collector/example/demo/
+        cd opentelemetry-collector/examples/demo/
         ```
     5. Run `docker-compose up -d` to start the OpenTelemetry Collector and Prometheus Server. The Prometheus server is exposed on port `9090`.
 
