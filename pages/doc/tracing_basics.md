@@ -7,7 +7,7 @@ permalink: tracing_basics.html
 summary: Collect and visualize trace data from your applications.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code. 
+Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code.
 
 Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code. Wavefront supports OpenTracing and OpenTelemetry for tracing.
 
@@ -59,7 +59,7 @@ You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html)
 
 Get an overview of how the applications and services are linked, focus on a specific service, and view Request, Error, and Duration (RED) metrics for each service and the edges in the application using [application map](/tracing_ui_overview.html#application-map-beta). That’s not all, you can view traces for the services and edges and drill down from the application map.
 
-![application map](/images/application_map_intro.png)
+![application map](/images/Application_map_intro.png)
 
 ### Application Status
 
