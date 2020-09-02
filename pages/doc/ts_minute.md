@@ -34,7 +34,7 @@ String identifier or alias for a time zone, such as `"US/Pacific"`. Names are ca
 
 ## Description
 
-The `minute()` standard time function returns the day of the month in the specified time zone. The values returned are integer only and are in the range 0-59.
+The `minute()` standard time function returns the minute of the hour for the timestamp specified by `timeZome`. The values returned are integer only and are in the range 0-59.
 
 You can optionally pass in an expression.
 
