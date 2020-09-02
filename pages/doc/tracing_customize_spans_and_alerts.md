@@ -7,7 +7,7 @@ permalink: tracing_customize_spans_and_alerts.html
 summary: Customize span level tags and alerts for RED metrics
 ---
 
-Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](tracing_concepts.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
+Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
 
 The following custom span tags are supported by default.
 
@@ -59,14 +59,14 @@ wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList(
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
-        
+
         <div role="tabpanel" class="tab-pane" id="zipkin">
             <p>If you are using Zipkin, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
             <pre>
 traceDerivedCustomTagKeys=env
             </pre>
         </div>
-        
+
         <div role="tabpanel" class="tab-pane" id="springboot">
         <p> Add the configuration shown below to your application's <code>application.properties</code> file.</p>
             <pre>

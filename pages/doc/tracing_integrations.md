@@ -87,7 +87,7 @@ For example, a span with two span tags `service=notify` and `service=backend` is
 
 Wavefront automatically derives RED metrics from the spans that are sent from the instrumented application services. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
 
-Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics](tracing_concepts.html#red-metrics).
+Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics](trace_data_details.html#red-metrics).
 
 {% include note.html content="The level of detail for the RED metrics is affected by any sampling that is done by your 3rd party distributed tracing system. See [Trace Sampling and RED Metrics from an Integration](#trace-sampling-and-red-metrics-from-an-integration), below." %}
 
@@ -108,7 +108,7 @@ For example, if you add the following properties, the Wavefront proxy generates 
 ```
 traceDerivedCustomTagKeys=tenant, env, location
 ```
-{% include note.html content="For faster performance, index only low-cardinality custom span tags. A low cardinality tag has comparatively few unique values that can be assigned to it. See [Indexed and Unindexed Span Tags](tracing_concepts.html#indexed-and-unindexed-span-tags) for details." %}
+{% include note.html content="For faster performance, index only low-cardinality custom span tags. A low cardinality tag has comparatively few unique values that can be assigned to it. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details." %}
 
 ### Custom Application Names
 
@@ -171,7 +171,7 @@ Follow these steps:
 1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
-  
+
     ```
     <Appenders>
        <RollingFile name="[Enter_Your_File_Name]" fileName="${log-path}/wavefront-jaeger-data.log" filePattern="${log-path}/wavefront-jaeger-data-%d{yyyy-MM-dd}-%i.log">
@@ -195,7 +195,7 @@ Follow these steps:
 
 3. Add the logger name for `JaegerDataLogger` inside `<Loggers>`.<br/>
     Example:
-    
+
       ```
       <!-- Set level="ALL" to log Jeager data to a file. -->
       <Loggers>
@@ -213,7 +213,7 @@ Follow these steps:
 1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
-  
+
     ```
     <Appenders>
        <RollingFile name="[Enter_Your_File_Name]" fileName="${log-path}/wavefront-zipkin-data.log" filePattern="${log-path}/wavefront-zipkin-data-%d{yyyy-MM-dd}-%i.log">
@@ -234,7 +234,7 @@ Follow these steps:
     </Appenders>
     ```
     {% include note.html content="See the [log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/appenders.html) for information on each parameter."%}
-    
+
 3. Add the logger name for `ZipkinDataLogger` under `<Loggers>`.<br/>
     Example:
     ```
@@ -245,7 +245,7 @@ Follow these steps:
        </AsyncLogger>
     </Loggers>
     ```
-    
+
 4. Save the file.
 
 ## Alternatives to Integrations
