@@ -42,12 +42,12 @@ This is the default dashboard when you run the Spring Boot initializer. </li>
 <td width="50%"><img src="/images/springboot_metrics.png" alt="screenshot of spring boot dashboard">
 </td></tr>
 <tr>
-<td width="50%">The <strong>Spring Boot Application dashboard</strong> allows you to examine RED metrics and traces for your application(s). You can access this dashboard if trace data are flowing:
+<td width="50%">The <strong> Wavefront Tracing Browser</strong> allows you to examine traces for your application(s). You can access this browser if trace data are flowing:
 <ul><li>From the Spring Boot Inventory dashboard. </li>
 <li>From the Spring Boot integration's <strong>Dashboards</strong> tab.</li></ul>
 <img src="/images/springboot_trace_data.png" alt="Tracing section has link to Application Dashboard">
 </td>
-<td width="50%"><img src="/images/springboot_tracing.png" alt="screenshot of spring boot dashboard">
+<td width="50%"><img src="/images/springboot_span_logs_pet_clinic.png" alt="screenshot of the tracing browser">
 </td></tr>
 </tbody>
 </table>
@@ -103,7 +103,7 @@ Customize the configuration file (integration Setup tab) or set up Maven or Grad
 
 
 
-## Wavefront Spring Boot Starter Setup
+<!-- ## Wavefront Spring Boot Starter Setup
 
 Anyone can get started using the Wavefront Spring Boot Starter.
 
@@ -117,7 +117,7 @@ Here are some things to know before you start:
 
 * **Ingestion Method**: Wavefront for Spring Boot sends data to Wavefront via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
 * **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#wf_instance).
-* **Account**: By default the starter sends you to the Freemium instance,  auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Wavefront instance (see Step 2 below) you need to include an API token for that instance.
+* **Account**: By default the starter sends you to the Freemium instance,  auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Wavefront instance (see Step 2 below) you need to include an API token for that instance. -->
 
 <!---
 ![Ways to get started with the Wavefront for Spring Boot offering](/images/spring_boot_getting_started.png)--->
@@ -128,46 +128,61 @@ Here are some things to know before you start:
 * Java 8 or above
 * Maven 3.3+ or Gradle 6.3 or later
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
+  
+Here are some things to know before you start:
 
-### Step 0: Import the wavefront-spring-boot BOM
+* **Ingestion Method**: Wavefront for Spring Boot sends data to Wavefront via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
+* **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#wf_instance).
+* **Account**: By default the starter sends you to the Freemium instance,  auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Wavefront instance (see Step 2 below) you need to include an API token for that instance.
 
-Before you start, import the BOM. This example uses the 2.0.0 version of `wavefront-spring-boot`. Go to the [start.pring.io](https://start.spring.io/) to explore other version options.
+### Step 1: Initialize and Configure Your Project
 
-```
-<dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>com.wavefront</groupId>
-      <artifactId>wavefront-spring-boot</artifactId>
-      <version>2.0.0</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
-</dependencyManagement>
-```
-
-If you are using Gradle, make sure your project uses the  `io.spring.dependency-management` plugin and add the following to your build.gradle file:
-
-```
-dependencyManagement {
-  imports {
-    mavenBom "com.wavefront:wavefront-spring-boot-bom:2.0.0"
-  }
-}
-```
-
-### Step 1: Add wavefront-spring-boot-starter to Your Project
-
-Adding `wavefront-spring-boot-starter` is different for existing or new projects.
+Initialize a new project using the Spring Initializer or add the required dependencies to an existing Spring projects to start sending data to Wavefront.
 
 <ul id="profileTabs" class="nav nav-tabs">
-    <li class="active"><a href="#existing" data-toggle="tab">Initialize an Existing Project</a></li>
-    <li><a href="#new" data-toggle="tab">Initialize a New Project</a></li>
+    <li class="active">
+      <a href="#new" data-toggle="tab">Initialize a New Project</a>
+    </li>
+    <li>
+      <a href="#existing" data-toggle="tab">Initialize an Existing Project</a>
+    </li>
 </ul>
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="existing">
+  <div role="tabpanel" class="tab-pane active" id="new">
+    <p>Follow these steps:</p>
+    <ol>
+      <li markdown="span">
+        Navigate to [https://start.spring.io](https://start.spring.io/).
+      </li>
+      <li markdown="span">
+        Select Spring 2.3.0 or later as the Spring Boot version and define the other parameters for your project.
+          <br/> ![Spring Initializr](images/spring_boot_initializr.png)
+      </li>
+      <li markdown="span">
+        Click **Add dependency** and select Wavefront from the dependency list.
+          <br/> ![Wavefront dependency](/images/sping_boot_wavefront_depdendency.png)
+      </li>
+      <li markdown="span">
+        Optionally, add Spring Cloud Sleuth as a dependency to send trace data to Wavefront.
+        <br/> ![Slueth dependency](/images/sping_boot_slueth_depdendency.png)
+      </li>
+      <li>
+        Click <b>Generate</b> to download the project as a zip file.
+        {{site.data.alerts.tip}}
+          To check out all the dependencies and the versions used in your project click <b>Explore</b>.
+        {{site.data.alerts.end}}
+      </li>
+      <li>
+         Open the project, add the application logic, and start the project.<br/>
+      </li>
+    </ol>
+  </div>
+  
+    <div role="tabpanel" class="tab-pane"  id="existing">
       <p>Follow these steps:</p>
+      {{site.data.alerts.tip}}
+        <p>Each dependency version needs to be compatible with the Spring Boot release version. To use the correct dependency versions, follow the steps given under the <b>Initialize a New Project</b> section, and then click <b>Explore</b>. You see the dependency versions used in the pom.xml file or the build.gradle file. <br/>Replace <b><code>$releaseVersion</code></b> with the dependency versions you see.</p>
+      {{site.data.alerts.end}}
       <ol>
         <li> Add the Wavefront dependency.
           <ul id="profileTabs" class="nav nav-tabs">
@@ -181,6 +196,7 @@ Adding `wavefront-spring-boot-starter` is different for existing or new projects
 &lt;dependency&gt;
   &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
   &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
+  &lt;version&gt;$releaseVersion&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre>
               </div>
@@ -190,12 +206,48 @@ Adding `wavefront-spring-boot-starter` is different for existing or new projects
                 <pre>
 dependencies {
   ...
-  implementation 'com.wavefront:wavefront-spring-boot-starter'
+  implementation 'com.wavefront:wavefront-spring-boot-starter:$releaseVersion'
 }
               </pre>
               </div>
             </div>
         </li>
+        
+      <li>
+        Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
+        <ul id="profileTabs" class="nav nav-tabs">
+            <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
+            <li><a href="#gradlebom" data-toggle="tab">Gradle</a></li>
+        </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="mavenbom">
+                  <pre>
+&lt;dependencyManagement&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
+      &lt;artifactId&gt;wavefront-spring-boot&lt;/artifactId&gt;
+      &lt;version&gt;$releaseVersion&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+      &lt;scope&gt;import&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+                </pre>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="gradlebom">
+            <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+              <pre>
+dependencyManagement {
+  imports {
+    mavenBom "com.wavefront:wavefront-spring-boot-bom:$releaseVersion"
+  }
+}
+            </pre>
+            </div>
+          </div>
+      </li>  
 
       <li>
         If you want to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing, add the following dependencies.
@@ -211,6 +263,7 @@ dependencies {
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
   &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
+  &lt;version&gt;$releaseVersion&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre></li>
 
@@ -218,7 +271,7 @@ dependencies {
                     <pre>
 dependencies {
   ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:$releaseVersion'
 }
                   </pre></li></ul>
 
@@ -246,75 +299,6 @@ dependencies {
         </li></ol>
 
     </div>
-
-    <div role="tabpanel" class="tab-pane" id="new">
-      <p>Follow these steps:</p>
-      <ol>
-        <li markdown="span">
-          Navigate to [https://start.spring.io](https://start.spring.io/).
-        </li>
-        <li markdown="span">
-          Define the project name, Spring version, and other parameters.
-            <br/> ![Spring Initializr](images/spring_boot_initializr.png)
-        </li>
-        <li markdown="span">
-          Click **Add dependency**, select Wavefront from the dependency list, and click **Generate**.
-            <br/> ![Wavefront dependency](/images/sping_boot_wavefront_depdendency.png)
-        </li>
-        <li>
-          Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing.
-            <ul id="profileTabs" class="nav nav-tabs">
-                <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
-                <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
-            </ul>
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="sleuth">
-                    <ul>
-                    <li><p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
-                      <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-&lt;/dependency&gt;
-                    </pre></li>
-
-                    <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
-                      <pre>
-dependencies {
-  ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-}
-                    </pre></li></ul>
-
-                </div>
-
-                <div role="tabpanel" class="tab-pane" id="opentracing">
-                <ul><li><p markdown="span"><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. The logs generated by the logger in your application will be automatically converted to span logs, and you can view the span logs in the [Wavefront Tracing Browser](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs).</p>
-                  <pre>
-&lt;dependency&gt;
-  &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
-  &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
-  &lt;version&gt;0.5.3&lt;/version&gt;
-&lt;/dependency&gt;
-                </pre></li>
-
-                <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
-                  <pre>
-dependencies {
-  ...
-  implementation 'io.opentracing.contrib:opentracing-spring-cloud-starter:0.5.3'
-  }
-                </pre></li></ul>
-                </div>
-              </div>
-        </li>
-        <li>
-           Add the application logic and start the project.<br/>
-           You need a tracing application to view the trace data in Wavefront, else some of the charts will not show data.
-        </li>
-      </ol>
-
-    </div>
   </div>
 
 ### Step 2 (Optional): Specify Your Wavefront Instance
@@ -326,8 +310,8 @@ management.metrics.export.wavefront.api-token=$API_Token
 management.metrics.export.wavefront.uri=$wavefront_instance
 ```
 
-* $API_Token is a valid [API token for your Wavefront instance](users_account_managing.html#generate-an-api-token).
-* $wavefront_instance is the name of your Wavefront instance, for example, `example.wavefront.com`.
+* `$API_Token` is a valid [API token for your Wavefront instance](users_account_managing.html#generate-an-api-token).
+* `$wavefront_instance` is the name of your Wavefront instance, for example, `example.wavefront.com`.
 
 
 ### Step 3:  View Your Data on Wavefront
@@ -366,8 +350,13 @@ To view your data, you first run your project from the command line, and then cl
       ```
 1. Add data to your application before you start to view the data on Wavefront.
     {% include tip.html content="Try out the [Wavefront for Spring Boot Tutorial](wavefront_springboot_tutorial.html)."%}
-1. Click the link (for example, `https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application. If your application uses trace data, click the link in the Tracing section of the dashboard to be directed to the Wavefront Spring Boot Application dashboard.
-    {% include note.html content="Want to see the cool information you can gather from the Application Dashboard? See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard)." %}
+1. Click the link (for example, `https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application.
+    <br/>Example:
+    ![Spring Boot metrics dashbaord](images/springboot_metrics.png)
+    If your application uses trace data, click the link in the Tracing section of the dashboard to be directed to the Wavefront Spring Boot Application dashboard.
+    <br/>Example:
+    ![Spring Boot tracing browser](images/springboot_span_logs_pet_clinic.png)
+    {% include note.html content="Want to see the cool information you can gather from the Tracing Browser? See [Explore the Tracing Browser](tracing_ui_overview.html#tracing-browser)." %}
 <!---
 <iframe width="768" height="432" src="https://www.youtube.com/embed/K-cviV9mKKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 --->
