@@ -6,6 +6,7 @@ sidebar: doc_sidebar
 permalink: metrics_security.html
 summary: Limit access to metrics with policy rules.
 ---
+
 In a large enterprise, certain data are confidential. Wavefront allows you to limit who can see or modify data in several ways.
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify Wavefront objects. For example, only users with **Dashboards** permission can modify dashboards.
@@ -36,26 +37,63 @@ If you reverse the rule order, you block access to all users, and even the users
 
 Data protected by a metrics security policy rule can become completely invisible to users:
 
-
-
 * Not visible in charts. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message on a white background.
 * Not visible in alerts. The alert fires based on the complete set of metrics, but if certain users don't have access to some of the metrics they do not see them in alert notifications or alert charts. A checkbox allows administrators to hide alert details to avoid confusion.
 * Not visible in auto-complete in Chart Builder, Query Editor, Metrics browser, etc.
 
-* Alerts
-*
+For alerts, it can be confusing if a user receives a notification and cannot actually see all the metrics that (together) caused the alert. There's a new option that sends a simplified alert notification that doesn't include the potentially confusing image.
+
+## Best Practices for Policy Rules
+
+Before you start, consider best practices.
+
+### Block, Allow, and Other Options
+
+Wavefront offers a lot of flexibility in rule creation:
+
+![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
+
+**Metrics Dimensions** allow you to determine what to filter or allow.
+{% include tip.html content="Press enter after adding a metrics dimension." %}
+  - Specify one or more metric prefixes. You can specify exact match (e.g. `requests` or `request.`) or wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
+  - Optionally specify sources or point tag to narrow down the metrics. For example, you could block visibility into production environments for some developers, or block some development environments for contractors.
+  - For sources and point tags, you can select `or` or `and`.
+* **Access** allows you to allow or block access, either for accounts and/or groups or for roles. You can specify more than one account, group, or role
+
+### Rule Priority and Rule Pairs
+
+Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
+
+* First block access to all metrics for a group (Priority 2)
+* Allow access to a small set of metrics (e.g. `*developer*`) for that group (Priority 1)
+
+Because Priority 1 overrides Priority 2, the group has access to a small set of metrics. If you flip the Priority, then the group has no access to any metrics.
+
+## Example: Limited Access for Engineering
+
+Consider this simplistic example:
+
+* An environment include metrics that the developer team needs to see and some financial metrics that only the CFO and finance team should see.
+* Your main priority is to protect the sensitive metrics, so you create 2 rules:
+  1. `Block All Metrics` blocks all metrics for users in the Developer group.
+  2. `Allow Infra and Related Metrics` gives the Developer group access to the metrics that they need to see.
+
+![two rules, described above, shown in UI](images/m_security_rules.png)
+
+
 
 ## Create a Metrics Security Policy Rule
 
 When you create a Metrics Security Policy rule, you specify the metrics you want to protect (or make available) and the account, group, or role that should have access (or no access) to those metrics.
 
-{% include note.html content="You must have **Metrics** permission to create a Metrics Security Policy rule." %}
+{% include note.html content="Only the Super Admin user or user with **Metrics** permissions can view, create, and manage metrics security policy rules. " %}
 
 1. From the gear icon, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
   1. Specify a descriptive name. Users might later modify the rule, so a clear name is essential.
   2. Add a description. The description is visible only when you edit the rule. The name is visible on the Metrics Security Policy page.
   3. Specify the metrics that you want to protect (or make available) by using a metrics prefix. You can specify the metric (e.g. `~sample.network.bytes.sent`) or a wildcard match (e.g. `~sample.network.bytes.*` or `~sample.network.*`)
+     {% include tip.html content="Press enter after adding a metrics dimension." %}
   4. Optionally, specify one or more sources and point tags.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
      * If you want to specify multiple key=value pairs, select on the right whether you want to combine them with `and` or `or`.
