@@ -11,9 +11,9 @@ Product versions and features move to end-of-life as part of the normal software
 
 ## Lifecycle Stages
 
-To help you plan for end-of-life dates, this page uses the folloing terms:
+To help you plan for end-of-life dates, this page uses the following terms:
 
-* **Deprecated**. Feature, component, platform, or functionality that Wavefront is planning to remove in a future release. Deprecated features are supported but no longer recommended. Bug fixes are at Wavefront's discretion. In particular, Wavefront may require migration to the new feature in lieu of fixing a bug in a deprecated feature. Wavefront identifies deprecated features in the release notes for the release in which the feature is deprecated.
+* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. Wavefront eventually removes deprecated features. Bug fixes are at Wavefront's discretion. In particular, Wavefront may require migration to the new feature in lieu of fixing a bug in a deprecated feature. Wavefront identifies deprecated features in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions. 
 *  **End-of-life**. No longer supported. Feature, component, platform, or functionality is no longer supported and may be removed from the product at any time.
 
 
@@ -29,7 +29,7 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 </thead>
 <tbody>
 <tr>
-<td>5.x</td>
+<td>5.x, 6.x, 7.x, 8.x</td>
 <td>Deprecated</td>
 <td>TBD</td>
 </tr>
