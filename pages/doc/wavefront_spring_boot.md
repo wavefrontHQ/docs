@@ -133,6 +133,18 @@ Getting started is easy. Here are some things to know before you start:
 ### Prerequisites for Wavefront Spring Boot Starter
 
 * Spring Boot 2.3.0 or above
+  <a name="versionCompatibility"></a>
+  <table style="width: 70%;">
+  <tbody>
+  <thead>
+  <tr><th width="35%">Wavefront for Spring Boot Version</th><th width="35%">Spring Boot Version</th></tr>
+  </thead>
+  <tr>
+  <td>2.0.1</td>
+  <td>2.3.x</td>
+  </tr>
+  </tbody>
+  </table>
 * Java 8 or above
 * Maven 3.3+ or Gradle 6.3 or later
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
@@ -188,9 +200,6 @@ Initialize a new project using the Spring Initializer or add the required depend
   
     <div role="tabpanel" class="tab-pane"  id="existing">
       <p>Follow these steps:</p>
-      {{site.data.alerts.tip}}
-        <p>Each dependency version needs to be compatible with the Spring Boot release version. To use the correct dependency versions, follow the steps given under the <b>Initialize a New Project</b> section, and then click <b>Explore</b>. You see the dependency versions used in the pom.xml file or the build.gradle file. <br/>Replace <b><code>$releaseVersion</code></b> with the dependency versions you see.</p>
-      {{site.data.alerts.end}}
       <ol>
         <li> Add the Wavefront dependency.
           <ul id="profileTabs" class="nav nav-tabs">
@@ -204,7 +213,6 @@ Initialize a new project using the Spring Initializer or add the required depend
 &lt;dependency&gt;
   &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
   &lt;artifactId&gt;wavefront-spring-boot-starter&lt;/artifactId&gt;
-  &lt;version&gt;$releaseVersion&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre>
               </div>
@@ -223,6 +231,9 @@ dependencies {
         
       <li>
         Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
+        {{site.data.alerts.tip}}
+          <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
+        {{site.data.alerts.end}}
         <ul id="profileTabs" class="nav nav-tabs">
             <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
             <li><a href="#gradlebom" data-toggle="tab">Gradle</a></li>
@@ -230,8 +241,10 @@ dependencies {
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="mavenbom">
                   <pre>
+
 &lt;dependencyManagement&gt;
   &lt;dependencies&gt;
+  .....
     &lt;dependency&gt;
       &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
       &lt;artifactId&gt;wavefront-spring-boot&lt;/artifactId&gt;
@@ -239,6 +252,7 @@ dependencies {
       &lt;type&gt;pom&lt;/type&gt;
       &lt;scope&gt;import&lt;/scope&gt;
     &lt;/dependency&gt;
+  .....  
   &lt;/dependencies&gt;
 &lt;/dependencyManagement&gt;
                 </pre>
@@ -266,22 +280,65 @@ dependencyManagement {
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="sleuthnew">
                   <ul>
-                  <li><p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+                  <li><b>Maven</b></li>
+                    <ol>
+                    <li>Open your application and add the following code to your <code>pom.xml</code> file. 
                     <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
   &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-  &lt;version&gt;$releaseVersion&lt;/version&gt;
 &lt;/dependency&gt;
                   </pre></li>
-
-                  <li><p><b>Gradle</b>:<br/>Open your application and add the following code to your <code>build.gradle</code> file. </p>
+                  
+                  <li>
+                    Import the Spring Cloud Bill of Materials (BOM) to your project.
+                    {{site.data.alerts.tip}}
+                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#release-trains" target="_blank">Spring Cloud Release Train</a> to get the correct dependency version.</p>
+                    {{site.data.alerts.end}}
+                    <pre>
+&lt;dependencyManagement&gt;
+  &lt;dependencies&gt;
+  .....
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+      &lt;version&gt;$springCloudVersion&lt;/version&gt;
+      &lt;type&gt;pom&lt;/type&gt;
+      &lt;scope&gt;import&lt;/scope&gt;
+    &lt;/dependency&gt;
+  .....
+  &lt;dependencies&gt;
+&lt;dependencyManagement&gt;
+                    </pre>
+                  </li>
+                  </ol>
+                  </ul>
+                  
+                  <ul>
+                  <li><b>Gradle</b></li>
+                  <ol>
+                  <li>Open your application and add the following code to your <code>build.gradle</code> file.
                     <pre>
 dependencies {
   ...
-  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:$releaseVersion'
+  implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 }
-                  </pre></li></ul>
+                  </pre></li>
+                  <li>
+                    Import the Spring Cloud Bill of Materials (BOM) to your project. Add the following code under &lt;dependencyManagement&gt;.
+                    {{site.data.alerts.tip}}
+                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#release-trains" target="_blank">Spring Cloud Release Train</a> to get the correct dependency version.</p>
+                    {{site.data.alerts.end}}
+                    <pre>
+dependencyManagement {
+  imports {
+    ...
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+}
+                    </pre>
+                  </li>
+                  </ol>
+                  </ul>
 
               </div>
 
