@@ -28,7 +28,7 @@ The following table gives an overview of metric types. We introduce each type in
 <tr>
 <td>Gauge</td>
 <td>Shows current value for each point in time.</td>
-<td>CPU load, network connections</td>
+<td>CPU load, network connections.</td>
 </tr>
 <tr>
 <td>Counter</td>
@@ -38,7 +38,7 @@ The following table gives an overview of metric types. We introduce each type in
 <tr>
 <td>Delta counter</td>
 <td>Useful for monitoring bursty traffic in a Function-as-a-Service (serverless) environment. </td>
-<td>Shows how many times an FaaS function executed (or failed). </td>
+<td>Shows how many times a FaaS function executed (or failed). </td>
 </tr>
 <tr>
 <td>Histogram</td>
@@ -48,7 +48,7 @@ The following table gives an overview of metric types. We introduce each type in
 <tr>
 <td>Trace</td>
 <td>A trace shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans.</td>
-<td>You can think of a trace as a tree of related spans. The trace has a unique trace ID, which is shared by each member span in the tree. See <a href="tracing_basics.html#sample-application">"Sample Application</a> for an example.</td>
+<td>You can think of a trace as a tree of related spans. The trace has a unique trace ID, which is shared by each member span in the tree. See <a href="tracing_basics.html#sample-application">Sample Application</a> for an example.</td>
 </tr>
 <tr>
 <td>Span</td>

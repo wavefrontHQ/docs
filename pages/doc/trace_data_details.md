@@ -1,17 +1,42 @@
 ---
-title: Traces, Spans, and RED Metrics
+title: Distributed Tracing Key Concepts
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: trace_data_details.html
-summary: Wavefront spans format and the RED metrics derived from spans.
+summary: Get to know the concepts around distributed tracing in Wavefront.
 ---
+Wavefront follows the [OpenTracing](https://opentracing.io/) and [OpenTelemetry](https://opentelemetry.io/) standards for representing and manipulating trace data.
 
-A [trace](tracing_basics.html#wavefront-trace-data) shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request.
+## Traces 
+A trace shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request.
+
+
+This diagram illustrates a trace for a particular request that started with the Shopping service's `orderShirts` request and finished with the Delivery service's `dispatch` request.
+
+![tracing trace spans](images/tracing_trace_spans.png)
+
+* This trace consists of 9 member spans, one for each operation performed in the request. The span for the first request (namely, the Shopping service's `orderShirts` span) is the root span of the trace.
+
+* Several of the spans in our sample trace have parent-child relationships to other spans in the trace. For example, the Styling service’s makeShirts span has two child spans (printShirts and giftWrap), and each of these spans has a child span of its own.
+
+* A parent-child relationship exists between two spans when one operation passes data or control to another, either in the same service or in a different one.
+A parent span with multiple children represents a request that invokes multiple operations, either serially or in parallel.
+You can think of the trace as a tree of related spans. The trace has a unique trace ID, which is shared by each member span in the tree.
+
+* Trace IDs are not normally displayed because they are long and hard to remember. For convenience, we refer to a trace by using the service and operation of its root span. This means we use shopping: orderShirts as the label for the entire trace, as well as for its root span.
+
+* Different traces have the same label if they represent different calls to the same operation. For example, a new, separate trace begins every time the Shopping service’s orderShirts API is called. The trace in our example is just one of potentially thousands of traces that start with a call to orderShirts. Each such trace has a unique trace ID, and normally has a different start time and duration.
 
 Spans are the fundamental units of trace data. This page provides details about the Wavefront format of a span, as well as the RED metrics that Wavefront automatically derives from spans. These details are mainly useful for developers who need to perform advanced customization.
 
-## Wavefront Span Format
+## Spans
+
+A Wavefront trace consists of one or more spans, which are the individual segments of work in the trace. Each span represents time spent by an operation in a service (often a microservice).
+
+Spans are the fundamental units of trace data. This page provides details about the Wavefront format of a span, as well as the RED metrics that Wavefront automatically derives from spans. These details are mainly useful for developers who need to perform advanced customization.
+
+### Wavefront Span Format
 
 A well-formed Wavefront span consists of fields and span tags that capture span attributes. These attributes enable Wavefront to identify and describe the span, organize it into a trace, and display the trace according to the service and application that emitted it. Some attributes are required by the OpenTracing specification and others are required by Wavefront.
 
@@ -276,8 +301,16 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 **Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
 
+## Tracing Traffic
 
-## RED Metrics Derived From Spans
+Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map-beta) for details.
+
+Each arrow in the image shown below is referred to as a tracing traffic in Wavefront. 
+![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
+
+To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](spans_function.html#use-spans-to-examine-applications-and-services).
+
+## RED Metrics
 
 If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically aggregates and displays RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
 
@@ -299,23 +332,10 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
 
   Wavefront derives trace RED metrics from each trace's root span and end span. (If a trace has multiple root spans, the earliest is used.) You need to [query for trace metrics](#red-metrics-queries) to visualize them.
 
-**Note:** For traces that consist entirely of synchronous member spans, trace RED metrics are equivalent to the corresponding span RED metrics. For traces that have asynchronous member spans, trace RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span.
-
-### Predefined Charts
-Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts:
-
-1. Select **Applications > Application Status** in the Wavefront task bar. If necessary, scroll to find your application and its services.
-2. Click on the service you want to see metrics for.
-3. If you instrumented your application with a Wavefront SDK, look for the charts in the **Overview** section. (If you used a tracing-system integration, the charts are in the only section on the page.)
-
-The predefined charts let you view:
-* The per-minute Request Rate, per-minute Error Rate, and Duration (P95) for all requests that are processed by the service.
-* The "top" operations each category: the most frequently invoked operations, the operations with the most errors, and the slowest operations. You can click on an operation in one of these charts to view the just the traces that contain spans for that operation.
-
-![tracing overview RED metrics](images/tracing_overview_RED_metrics.png)
+{% include note.html content="For traces that consist entirely of synchronous member spans, trace RED metrics are equivalent to the corresponding span RED metrics. For traces that have asynchronous member spans, trace RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span." %}
 
 
-**Note:** A service page also displays RED metrics that are collected and sent by the [framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks). These SDKs report the RED metrics directly from the instrumented framework APIs, instead of deriving them from the reported spans. (Other metrics and histograms might be sent as well.)
+Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts, see the [service dashboard](/tracing_ui_overview.html#service-dashboard).
 
 ### RED Metric Counters and Histograms
 
@@ -421,104 +441,205 @@ Wavefront supports 2 alternatives for specifying the RED metric counters and his
 
 The point tag technique is useful when the metric name contains string values for `<application>`, `<service>`, and `<operationName>` that have been modified to comply with the Wavefront [metric name format](wavefront_data_format.html#wavefront-data-format-fields). The point tag value always corresponds exactly to the span tag values.
 
-### Custom Span-Level Tags for RED Metrics
+### Aggregated RED Metrics
 
-Wavefront derives RED metrics for spans that have the `application`, `service`, `cluster`, `shard`, `component`, or `operationName` span tags by default. See the section above on [Indexed and Unindexed Span Tags](#indexed-and-unindexed-span-tags) for details. If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics.
+Wavefront computes service level RED metrics by aggregating the [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics). Querying and aggregating these metrics can be slow due to high cardinality from operation tags, source tags, and custom tags. Therefore, to make RED metric querying faster, wavefront introduced pre-aggregated RED metrics.
 
-The following custom span tags are supported by default.
+Wavefront constructs the names of the underlying aggregated delta counters, and histograms as shown in the table below. The `<application>` and `<service>` in the name are string values that Wavefront obtains from the spans on which the metrics are derived. You can filter the aggregated RED metrics using the `application`, `service`, `cluster`, `shard`, `source`, and `span.kind` point tags. Wavefront assigns the corresponding span tag values to these point tags.
 
-<table>
+{% include note.html content="If you want to filter RED metrics using operation names, sources, or [custom span tags](tracing_customize_spans_and_alerts.html), use [RED metrics derived from spans](#span-red-metrics-and-trace-red-metrics)." %}
+
+![the screenshot shows the filters available for an aggregated red metrics query in the chart builder.](images/tracing_aggregated_red_metrics.png)
+
+<table id = "spanaggregatedREDmetrics">
 <colgroup>
-<col width="30"/>
-<col width="70%"/>
+<col width="45%"/>
+<col width="15%"/>
+<col width="40%"/>
 </colgroup>
 <thead>
-<tr><th>Custom span tag</th><th>Description</th></tr>
+<tr><th>Aggregated RED Metric Names</th><th>Metric Type</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr>
-<td markdown="span">`span.kind`</td>
-<td markdown="span">Filter spans based on the span type. The default value is `none`.
-<br/>Example: `client` for a client-side span and `server` for a server-side span.</td>
+<td markdown="span">`tracing.aggregated.derived.<application>.<service>.invocation.count`  </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of spans for the specified application and service.</td>
 </tr>
 <tr>
-<td markdown="span">`http.status_code`</td>
-<td markdown="span">Filter spans based on the error code. <br/>Example: `404` or `500`</td>
+<td markdown="span">`tracing.aggregated.derived.<application>.<service>.error.count`   </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of spans that have errors for the specified application and service.
+(i.e., spans with `error=true`).</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.aggregated.derived.<application>.<service>.duration.millis.m`  </td>
+<td markdown="span">Wavefront histogram</td>
+<td markdown="span">The duration of each spans, in microseconds, aggregated in one-minute intervals. Duration is measured from the start of the earliest root span to the end of the last span in a trace.</td>
 </tr>
 </tbody>
 </table>
 
-Follow the steps given below to propagate custom span tags when sending data from your application. Once the data is in Wavefront, you can use queries to create custom dashboards that help you filter and view the information you need. Let's look at a sample scenario that adds a custom span tag where you can compare the data in the production and staging environments.
+**Examples**
 
-1. Create a custom span-level tag. Assume you have a span that has the `env=` span tag.
-    {% include note.html content="When adding custom span-level tags, make sure that it is of low cardinality. A tag with low cardinality has comparatively few unique values that can be assigned to it." %}
+* Request rate or invocation count for an edge: Find the per-minute request rate for a specific application.
+  ```
+  cs(tracing.aggregated.derived.beachshirts.*.invocation.count)
+  ```
+  
+* Error percentage for an edge: Find the per-minute aggregated error rate for traces for a specific `span.kind` tag.
+  ```
+  cs(tracing.aggregated.derived.beachshirts.shopping.error.count, span.kind=server)
+  ```
+  
+* Duration in the form of Wavefront histograms: Find the 95th percentile of a specific service using aggregated RED metrics.
+  ```
+  alignedSummary(95, merge(hs(tracing.aggregated.derived.beachshirts.delivery.duration.micros.m)))
+  ```
 
-    <ul id="profileTabs" class="nav nav-tabs">
-        <li class="active"><a href="#tracingApplication" data-toggle="tab">Wavefront OpenTracing SDK</a></li>
-        <li><a href="#jaeger" data-toggle="tab">Jaeger</a></li>
-        <li><a href="#zipkin" data-toggle="tab">Zipkin</a></li>
-        <li><a href="#springboot" data-toggle="tab">Spring Boot</a></li>
-        <li><a href="#customProxy" data-toggle="tab">Custom Proxy Port</a></li>
-    </ul>
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tracingApplication">
-            <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
-            <p>Example:</p>
-            <pre>
-wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));
-            </pre>
-            <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="jaeger">
-        <p>If you are using Jaeger, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-        
-        <div role="tabpanel" class="tab-pane" id="zipkin">
-            <p>If you are using Zipkin, you send data to Wavefront using <a href="proxies.html">Wavefront proxy</a>. Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-        
-        <div role="tabpanel" class="tab-pane" id="springboot">
-        <p> Add the configuration shown below to your application's <code>application.properties</code> file.</p>
-            <pre>
-wavefront.tracing.red-metrics-custom-tag-keys=env
-            </pre>
+### RED Metrics for Tracing Traffic
+ 
+You can visualize tracing traffic data in charts using tracing traffic derived metrics and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
 
-        </div>
-        <div role="tabpanel" class="tab-pane" id="customProxy">
-        <p> Add the configuration shown below to the <code>&lt;wavefront_config_path&gt;/wavefront.conf</code> file. See <a href="proxies_configuring.html#paths">Paths</a> to find out where the file is saved.</p>
-            <pre>
-traceDerivedCustomTagKeys=env
-            </pre>
-        </div>
-      </div>
-1. Save the changes, restart the application, and send data to Wavefront.
-1. Once the data is in Wavefront, create a chart that compares the data sent by each environment.
-    Example:
-    ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
-    For details on querying for RED metrics, see the section above on [RED Metrics Queries](#red-metrics-queries).
+![the screenshot shows the filters available for a traffic derived red metrics query in the chart builder. The filers are explained after the screenshot.](images/edge_derived_red_metrics.png)
 
-### Custom Alerts on RED Metrics
+<table>
+<colgroup>
+<col width="20%"/>
+<col width="80%"/>
+</colgroup>
+<tr>
+  <th>
+    Point Tags
+  </th>
+  <th>
+    Description
+  </th>
+</tr>
+<tr>
+  <td>
+  <code>application</code>
+  </td>
+  <td>
+  Name of the application the request is sent from.
+  </td>
+</tr>
+<tr>
+  <td>
+    <code>service</code>
+  </td>
+  <td>
+  Name of the microservice that request is sent from.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>cluster</code>
+  </td>
+  <td>
+  Name of a group of related hosts that serves as a cluster or region in which the application that sent the request runs.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>shard</code>
+  </td>
+  <td>
+  Name of a subgroup of hosts within the cluster that sent the request, for example, a mirror.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>source</code>
+  </td>
+  <td>
+  Name of a host or container on which the applications or services sent requests.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.application</code>
+  </td>
+  <td>
+  Name of the application the request is sent to.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.service</code>
+  </td>
+  <td>
+  Name of the service the request is sent to.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.cluster</code>
+  </td>
+  <td>
+  Name of a group of related hosts that serves as a cluster or region in which the application that received the request runs.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.shard</code>
+  </td>
+  <td>
+  Name of a subgroup of hosts within the cluster that received the request, for example, a mirror.
+  </td>
+</tr>
+<tr>
+  <td>
+  <code>to.source</code>
+  </td>
+  <td>
+  Name of a host or container on which the applications or services received requests.
+  </td>
+</tr>
+</table>
 
-You can use RED metrics in the alert conditions for trace-data alerts. You normally create trace-data alerts by cloning and customizing predefined alerts as follows:
+<table id = "edgederivedREDmetrics">
+<colgroup>
+<col width="45%"/>
+<col width="15%"/>
+<col width="40%"/>
+</colgroup>
+<thead>
+<tr><th>Tracing Traffic Derived Metric Name</th><th>Metric Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`tracing.edge.derived.<application>.<service>.invocation.count`  </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of tracing traffic that start from an application and service.</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.edge.derived.<application>.<service>.error.count`   </td>
+<td markdown="span">Delta counter</td>
+<td markdown="span">The number of tracing traffic that starts from an application and service, that are errors.</td>
+</tr>
+<tr>
+<td markdown="span">`tracing.edge.derived.<application>.<service>.duration.millis.m`  </td>
+<td markdown="span">Wavefront histogram</td>
+<td markdown="span">The duration of the request in milliseconds, aggregated in one-minute intervals.</td>
+</tr>
+</tbody>
+</table>
 
-1. Search for **Tracing Metrics Alert** in the Alerts browser to display the predefined trace-data alerts.
-2. Click on the ellipsis menu next to name of the alert you want to customize, and select **Clone**.
-3. On the **Create Alert** page, modify the alert condition and any other properties to suit your use case.
+**Examples**
 
-For example, you might want to alert only on RED metrics from a specific service of a specific application every second:
-
-```
-limit(500, cs(tracing.derived.beachshirts.delivery.*.error.count)/60)
-```
-
-<!--- Verify integration name --->
-**Note:** If all you need to do is change thresholds or notification targets, you can do so by [editing the Alerts for Tracing RED Metrics integration](tracing_basics.html#trace-data-alerts) directly.
+* Request rate or invocation count for a tracing traffic.
+  ```
+  cs(tracing.edge.derived.beachshirts.*.invocation.count, to.shard=primary)
+  ```
+* Error percentage for a tracing traffic. 
+  ```
+  cs(tracing.edge.derived.beachshirts.shopping.error.count, cluster=us-west)
+  ```
+* Duration in the form of Wavefront histograms.
+  ```
+  hs(tracing.edge.derived.beachshirts.shopping.duration.millis.m, to.service=delivery)
+  ```
 
 ### Trace Sampling and Derived RED Metrics
 
@@ -526,25 +647,84 @@ If you have instrumented your application with a Wavefront observability SDK, Wa
 
 If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
+## Application Tags
 
-<!---
-<table>
-<colgroup>
-<col width="18%"/>
-<col width="50%"/>
-<col width="32%"/>
-</colgroup>
-<thead>
-<tr><th>Menu</th><th>Description</th><th>Example</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span"> </td>
-<td markdown="span"> </td>
-<td markdown="span"> </td>
-</tr>
-</tbody>
-</table>
+An ApplicationTags object  describes your application to Wavefront. Wavefront requires tags that describe the structure of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront.
+
+Application tags and their values are encapsulated in an `ApplicationTags` object in your microservice's code. You specify a separate `ApplicationTags` object, with a separate set of tag values, for each microservice you instrument. The tags include information about the way your application is structured and deployed, so your code normally obtains tag values from a configuration file at runtime. The configuration file might be provided by the Wavefront SDK, or it might be part of a custom configuration mechanism that is implemented by your application. (Only SDKs with quickstart setup steps provide a configuration file.)
+
+{% include note.html content="You can use an `ApplicationTags` object to store any additional custom tags that you want to associate with reported metrics or trace data." %}
+
+### How Wavefront Uses Application Tags
+
+Wavefront uses application tags to aggregate and filter data at different levels of granularity.
+
+* **Required tags** enable you to drill down into the data for a particular service:
+    - `application` - Name that identifies the application, for example, `beachshirts`. All microservices in the same application should use the same `application` name.
+    - `service` - Name that identifies the microservice, for example, `shopping`. Each microservice should have its own `service` name.
+
+  ![tracing app services](images/tracing_app_services_page.png)
 
 
---->
+* **Optional tags** enable you to use the physical topology of your application to further filter your data:
+  - `cluster` - Name of a group of related hosts that serves as a cluster or region in which the application will run, for example, `us-west`.
+  - `shard` - Name of a mirror or other subgroup of hosts within a cluster, for example, `primary`.
+
+  ![tracing service filter](images/tracing_service_filter_page.png)
+
+## Span Logs
+
+The OpenTracing standard supports [span logs](https://opentracing.io/docs/overview/spans/#logs). You can use a Wavefront SDK to instrument your application to include span log information.
+
+{% include note.html content="Span logs are disabled by default and require Wavefront proxy version 5.0 or later. Contact [support@wavefront.com](mailto:support@wavefront.com) to enable the feature." %}
+
+You can instrument your application to emit one or more logs with a span, and examine the logs from the Tracing UI. For details on how to add a `log()` method for a specific SDK, see the OpenTracing SDK.
+
+Here's an example that adds span logs to [the best practices example](tracing_best_practices.html#best-practices-for-wavefront-observability-sdks-3) to emit a span log in case of an exception:
+
+![span log example](images/span_log_example.png)
+
+Span logs are especially useful for recording additional information about errors within the span.
+
+
+## Helper Objects That Collect and Transfer Data
+The actual helper objects in a microservice depends on the SDKs you set up. A typical set of helper objects includes some or all of the following:
+{% include note.html content="When you use multiple Wavefront SDKs to instrument a microservice, certain helper objects belong to exactly one SDK, and other helper objects are shared."%}
+
+### Wavefront Sender
+
+When you instrument an application, you set up a mechanism for sending metrics and trace data to the Wavefront service, as described in [Step 1, Prepare to Send Metrics to Wavefront,](#step-1-prepare-to-send-data-to-wavefront) above. Choose between:
+
+* Sending data directly to the Wavefront service, also called [direct ingestion](direct_ingestion.html).
+* Sending data to a [Wavefront proxy](proxies.html), which then forwards the data to the Wavefront service.
+
+Your choice is represented in your code as Wavefront Sender object.
+(Most Wavefront SDKs define objects of type `WavefrontSender` or simply `Sender`. A few SDKs define a pair of separate `Client` objects.) A Wavefront sender encapsulates the settings you supply when you instrument your microservice. The settings in your code must match the information you provided in [Step 1](#step-1-prepare-to-send-data-to-wavefront) above.
+
+{% include note.html content="You can use a Wavefront sender to tune performance by setting the frequency for flushing data to the Wavefront proxy or the Wavefront service. If you are using direct ingestion, you can also change the defaults for batching up the data to be sent." %}
+
+<!--- change links when proxy/dir ing decision is in a single section --->
+
+### WavefrontTracer and WavefrontSpanReporter
+
+Wavefront uses a pair of objects to create and report trace data:
+
+* A `WavefrontTracer` creates spans and traces.
+* A `WavefrontSpanReporter` forwards the trace data to the Wavefront sender.
+
+A `WavefrontSpanReporter` specifies the source of the reported trace data -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
+
+Trace data is reported automatically whenever spans are complete, so a `WavefrontSpanReporter` does not specify a reporting interval.
+
+{% include note.html content="If you need to debug issues with spans, you can set up a `CompositeReporter` to combine a `WavefrontSpanReporter` with a `ConsoleReporter`. A `ConsoleReporter` sends trace data to your console." %}
+
+### Wavefront Metrics Reporter Objects
+
+Wavefront uses one or more reporter objects to gather metrics and histograms and forward that data to the Wavefront sender. Different Wavefront reporter objects gather data from different components of your application. For example, a `WavefrontJvmReporter` reports runtime data from the JVM.
+
+A Wavefront reporter object specifies:
+* The reporting interval for metrics and histograms. The reporting interval controls how often data is reported to the Wavefront sender and therefore determines the timestamps of data points sent to Wavefront. The default reporting interval is once a minute.
+
+* The source of the reported metrics and histograms -- by default, the host that the code is running on. You can optionally specify a more useful source name explicitly during setup, for example, an IP address, a container or instance name, or some other unique data source. All reporter objects for a particular microservice must specify the same source.
+
+{% include note.html content="You can use a Wavefront reporter object to set a nondefault reporting interval." %}

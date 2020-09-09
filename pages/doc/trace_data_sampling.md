@@ -17,6 +17,8 @@ Sampling can give you a good idea of how your application is behaving. In additi
 * Filter out "noise" traces so you can see what's important.
 * Limit the performance impact on network bandwidth and application response times.
 
+{% include note.html content="You can configure Wavefront to keep spans in storage for 7 or 30 days. Contact [support@wavefront.com](mailto:support@wavefront.com) to configure your span storage settings."  %}
+
 ## Wavefront Intelligent Sampling
 
 Wavefront automatically performs intelligent sampling to reduce the volume of ingested traces. The goals of intelligent sampling are to retain traces that are likely to be informative, and to discard traces that are redundant or otherwise not worth inspecting. 
@@ -32,6 +34,30 @@ Wavefront uses proprietary algorithms to decide which traces to retain (sample) 
 Intelligent sampling applies to entire traces after Wavefront receives them. If you have set up an [explicit sampling strategy](#explicit-sampling-strategies), then the output of your explicit sampling strategy is the input to intelligent sampling. 
 
 Intelligent sampling is performed by the Wavefront service itself, not by the proxy or by an instrumented application. Consequently, intelligent sampling does not place any additional processing burden on your proxies or applications. Intelligent sampling does not add to your total cost of operation (TCO). If you already use one or more proxies to ingest your time-series data, you can start ingesting and sampling trace data without adding more hardware to support more proxies. 
+
+{% include note.html content="If you are troubleshooting and need specific spans in wavefront, annotate spans with `debug=true`. Make sure to remove the annotation once you are done troubleshooting and make sure not to overuse the annotation as Wavefront intelligent sampling gives preference to unique spans." %}
+
+You can [monitor](wavefront_monitoring.html#using-internal-metrics-to-optimize-performance) your span storage by checking the following internal metrics. If you have set up sampling, these metrics report the number of spans after sampling takes place.
+<table width="100%">
+<colgroup>
+<col width="50%"/>
+<col width="50%"/>
+</colgroup>
+<thead>
+<tr><th>Metric</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`~collector.tracing.spans.reported`</td>
+<td markdown="span">Number of spans per second being sent via a Wavefront proxy.</td>
+</tr>
+<tr>
+<td markdown="span">`~collector.direct-ingestion.tracing.spans.reported`</td>
+<td markdown="span">Number of spans per second being sent directly to the Wavefront service (direct ingestion).</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Explicit Sampling Strategies
 
@@ -102,7 +128,7 @@ For example, suppose you set the sampling rate to 20% and the sampling duration 
 
 As a result, the ingested sample will contain somewhat more than 20% of the generated traces, with some spans that are shorter than 45ms.
 
-**Note:** A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. 
+{% include note.html content="A span that contains an error is always sent to Wavefront, the regardless of the span's duration or whether it falls in a specified sampling percentage. " %}
 
 ## Setting Up Explicit Sampling Through the Proxy
 
