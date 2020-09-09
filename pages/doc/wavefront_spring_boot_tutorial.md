@@ -20,7 +20,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 * Spring Boot 2.3.0 or above.
 * Java 8 or above.
 * Maven 3.3+ or Gradle 6.3 or later.
-  <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
+  <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
 * Clone the sample pet clinic application.
   ```
   git clone https://github.com/spring-projects/spring-petclinic.git
@@ -38,7 +38,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     <dependency>
       <groupId>com.wavefront</groupId>
       <artifactId>wavefront-spring-boot-starter</artifactId>
-      <version>2.0.0</version>
+      <version>2.0.1</version>
     </dependency>
     ```
 

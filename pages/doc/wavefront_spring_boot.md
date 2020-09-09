@@ -147,7 +147,7 @@ Getting started is easy. Here are some things to know before you start:
   </table>
 * Java 8 or above
 * Maven 3.3+ or Gradle 6.3 or later
-  <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
+  <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
   
 
 ### Step 1: Initialize and Configure Your Project
@@ -183,7 +183,7 @@ Initialize a new project using the Spring Initializer or add the required depend
           {{site.data.alerts.end}}
       </li>
       <li markdown="span">
-        Optionally, add Spring Cloud Sleuth as a dependency to send trace data to Wavefront.
+        Optionally, to send trace data to Wavefront, add Spring Cloud Sleuth as a dependency.
         <br/> ![Slueth dependency](/images/sping_boot_slueth_depdendency.png)
       </li>
       <li>
@@ -293,7 +293,8 @@ dependencyManagement {
                   <li>
                     Import the Spring Cloud Bill of Materials (BOM) to your project.
                     {{site.data.alerts.tip}}
-                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#release-trains" target="_blank">Spring Cloud Release Train</a> to get the correct dependency version.</p>
+                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. You can run a simple command and find out the Spring Cloud version that is compatible with your Spring Boot version. See <a href="https://spring-cloud-info.cfapps.io/docs/spring-cloud-info.html#_spring_cloud_version_given_spring_boot_version">Spring Cloud Version Given Spring Boot Version</a> for details. 
+</p>
                     {{site.data.alerts.end}}
                     <pre>
 &lt;dependencyManagement&gt;
