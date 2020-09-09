@@ -7,13 +7,22 @@ summary: Learn about the Wavefront Spring Cloud Data Flow Integration.
 ## Spring Cloud Data Flow Integration
 
 Wavefront provides a comprehensive solution for monitoring [Spring Cloud Data Flow (SCDF)](https://dataflow.spring.io/). 
-This integration uses the [Micrometer Wavefront registry](https://micrometer.io/docs/registry/wavefront) to collect detailed metrics from the Stream and Task data pipelines managed by the SCDF servers.
+This integration uses the [Micrometer Wavefront registry](https://micrometer.io/docs/registry/wavefront) to collect detailed metrics from SCDF server as well as the Stream and Task data pipelines managed by the SCDF servers.
 
 The following diagram illustrates the `Spring Cloud Data Flow` metrics collection architecture:
 
 {% include image.md src="images/scdf_wavefront_architecture.png" width="45" %}
 
 The Micrometer instrumentation library powers the delivery of application metrics from Spring Boot, including metrics for message rates and errors, which are critical to the monitoring of deployed event streaming and batch data pipelines in Spring Cloud Data Flow.
+
+### Servers Monitoring
+
+All [Spring Cloud Data Flow](https://spring.io/projects/spring-cloud-dataflow)and the [Spring Cloud Skipper](https://spring.io/projects/spring-cloud-skipper) are instrumented for Wavefront metrics collection.  
+ This dashboard provides real-time visibility into the Spring Cloud Data Flow and Spring Cloud Skipper servers. 
+
+The Spring Cloud Stream applications add additioanl `application` metrcis tag, that allow metrics aggregation by server type (SCDF or Skipper):
+
+* `application`: The name of the Server (SCDF or Skipper applications name) to show metrics for.
 
 ### Streams Monitoring
 
@@ -46,6 +55,10 @@ In addition to setting up the metrics flow, this integration also installs dashb
 * **Spring Cloud Data Flow Streams**: Performance overview for all event streaming data pipelines deployed by DataFlow. One can compare the average performance per stream, CPU, memory, message throughput, latency, and other metrics.
 * **Spring Cloud Data Flow Stream Applications**: A detailed real-time performance report of all stream applications that are part of a single event streaming data pipeline. One can filter down metrics for a particular application, instance, or channel.
 * **Spring Cloud Data Flow Task Applications**: A detailed real-time performance report for all Task applications.
+
+Here's a preview of the Spring Cloud Data Flow and Skipper Server Summary dashboard:
+
+{% include image.md src="images/scdf_servers.png" width="80" %}
 
 Here's a preview of the Spring Cloud Data Flow Stream Summary dashboard:
 
