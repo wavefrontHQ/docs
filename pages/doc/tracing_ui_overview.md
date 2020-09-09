@@ -41,13 +41,13 @@ To choose your starting point for visualizing traces:<br/>
 
 The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
-![application map](images/tracing_application_map.png)
+![application map](images/tracing_app_map.png)
 
 Let's walk through the following scenario to get a quick overview of the application map. 
 
 <table style="width: 100%;">
 <thead>
-<tr><th width="60%">Action</th><th width="40%">Result</th></tr>
+<tr><th width="55%">Action</th><th width="45%">Result</th></tr>
 </thead>
 <tbody>
   <tr>
@@ -57,18 +57,34 @@ Let's walk through the following scenario to get a quick overview of the applica
       
       You can search for applications by applying one or more filters, such as the application name, cluster, shard, or any other application tag.
       </td>
-    <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/></td>
+    <td><img src="/images/tracing_appmap_search_application.png" alt="Search for the beachshirts application using tags"/>
+    <a name="appmap"></a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Step 2:  Customize the application map view</b> <br/>
+      You can customize how you see your applications and services on the application map using the settings icon. 
+      <ul>
+      <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
+      <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
+      <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
+      </ul>
+      </td>
+    <td> 
+      <iframe src="https://bcove.video/34vKPYb" width="400" height="275" allowfullscreen="true" alt="application map settings"></iframe>
+    </td>
   </tr>
   <tr>
     <td markdown="span">
-      **Step 2: Hover over a service** <br/>
+      **Step 3: Hover over a service** <br/>
       Hover over the styling service of the beachshirts application. It highlights how the styling service communicates with the other services in the application.
       </td>
     <td><img src="/images/tracing_appmap_hover_over_service.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      <b>Step 3: Click on a service</b>
+      <b>Step 4: Click on a service</b>
       <br/>Click on the styling service. Now, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
         <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
@@ -80,7 +96,7 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 4: Focus on a service**<br/>
+      **Step 5: Focus on a service**<br/>
       Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
       
       This will help you focus on a specific service when you have more than 10 services in your application.
@@ -89,21 +105,21 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
   <tr>
     <td markdown="span">
-      **Step 5: Hover over an edge** <br/>
-      Hover over the edge between the styling and shopping service. You see that they send requests to each other. 
+      **Step 6: Hover over a tracing traffic** <br/>
+      Hover over the tracing traffic between the styling and shopping service. You see that they send requests to each other.
       
-      <br/>When you hover over an edge (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Edges are bidirectional if the two services send requests to each other.
+      <br/>When you hover over a tracing traffic (the arrow that goes from one service to the other). It highlights the direction of the requests between the two services. <br/>Tracing traffic is bidirectional if the two services send requests to each other.
       </td>
     <td><img src="/images/tracing_appmap_bidirectional_edge.png" alt="Hover over the styling service"/></td>
   </tr>
   <tr>
     <td>
-      <b>Step 6: Click on an edge</b>
-      <br/>When you click on the edge between the styling and printing service, you can:
+      <b>Step 7: Click on a tracing traffic</b>
+      <br/>When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
+        <li> Navigate to the Tracing browser when you click <b>View traces for this traffic</b>.</li></ul>
       </td>
-    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click an edge that is bidirectional"/></td>
+    <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
   </tr>
 </tbody>
 </table>
@@ -170,7 +186,7 @@ On the dashboard for a particular service, you can:
   * Click a bar on a histogram.
   * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
-    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ### Custom Service Dashboard
 

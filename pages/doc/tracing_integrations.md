@@ -1,6 +1,6 @@
 ---
 title: Using Jaeger or Zipkin with Wavefront
-keywords: data, distributed tracing
+keywords: data, distributed tracing, OpenTelemetry
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_integrations.html
@@ -11,9 +11,19 @@ You can collect [traces](tracing_basics.html#wavefront-trace-data) with Jaeger o
 * Provides managed, highly scalable storage for your trace data.
 * Allows you to examine and alert on RED metrics that are derived from the spans.
 
-Suppose you have already instrumented your application using Jaeger or Zipkin. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.
+Suppose you have already instrumented your application using Jaeger or Zipkin with OpenTracing or OpenTelemetry. You can continue using that system for application development, and then switch to using Wavefront by changing a few configuration settings.
 
-**Note:** If you have not yet [instrumented your application for tracing](tracing_instrumenting_frameworks.html), consider doing so with one or more [Wavefront observability SDKs](wavefront_sdks.html).
+{{site.data.alerts.note}}
+  <ul>
+    <li>
+      You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See <a href="opentelemetry.html">OpenTelemetry</a> for details.
+    </li>
+    <li>
+      If you have not yet <a href="tracing_instrumenting_frameworks.html">instrumented your application for tracing</a>, consider doing so with one or more <a href="wavefront_sdks.html">Wavefront observability SDKs</a>.
+    </li>
+  </ul>
+{{site.data.alerts.end}}
+
 
 ## Tracing-System Integrations and Exporters
 
@@ -71,20 +81,19 @@ The proxy preserves any tags that you assigned through your distributed tracing 
 Wavefront does not allow the mandatory span tags to have multiple values. Make sure that your application does not send spans with multiple application or service tags.
 For example, a span with two span tags `service=notify` and `service=backend` is invalid.
 
-**Note:** Wavefront ignores span tags with empty values.
-
+{% include note.html content="Wavefront ignores span tags with empty values." %}
 
 ### Derived RED Metrics
 
 Wavefront automatically derives RED metrics from the spans that are sent from the instrumented application services. RED metrics are measures of the request Rate, Errors, and Duration that are obtained from the reported spans. These metrics are key indicators of the health of your services, and you can use them as context to help you discover problem traces.
 
-Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics Derived From Spans](trace_data_details.html#red-metrics-derived-from-spans).
+Wavefront stores the RED metrics along with the spans they are based on. For more details, see [RED Metrics](trace_data_details.html#red-metrics).
 
-**Note:** The level of detail for the RED metrics is affected by any sampling that is done by your 3rd party distributed tracing system. See [Trace Sampling and RED Metrics from an Integration](#trace-sampling-and-red-metrics-from-an-integration), below.
+{% include note.html content="The level of detail for the RED metrics is affected by any sampling that is done by your 3rd party distributed tracing system. See [Trace Sampling and RED Metrics from an Integration](#trace-sampling-and-red-metrics-from-an-integration), below." %}
 
 ### Custom Tags for RED Metrics
 
-Starting with Wavefront proxy version 4.38, you can include custom tags for RED metrics. To do so, add:
+Include custom tags for RED metrics using the Wavefront proxy. To do so, add:
 
 ```
 traceDerivedCustomTagKeys=<comma-separated-custom-tag-keys>
@@ -99,8 +108,7 @@ For example, if you add the following properties, the Wavefront proxy generates 
 ```
 traceDerivedCustomTagKeys=tenant, env, location
 ```
-
-**Note:** For faster performance, index only low-cardinality custom span tags. A low cardinality tag has comparatively few unique values that can be assigned to it. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details.
+{% include note.html content="For faster performance, index only low-cardinality custom span tags. A low cardinality tag has comparatively few unique values that can be assigned to it. See [Indexed and Unindexed Span Tags](trace_data_details.html#indexed-and-unindexed-span-tags) for details." %}
 
 ### Custom Application Names
 
@@ -115,7 +123,6 @@ You can specify custom application names at the level you need, like this:
 - **Proxy-level tag**: Add `traceJaegerApplicationName=<application-name>` in the proxy configuration at `/etc/wavefront/wavefront-proxy/wavefront.conf`. See [Proxy Configuration Paths](proxies_configuring.html#paths) for details on the config file location.
 
 The order of precedence is span level > process level > proxy level.
-
 
 #### Custom Application Names for Zipkin
 
@@ -132,7 +139,7 @@ You view trace data from an integration using [Wavefront charts and queries](tra
 
 If you want context for identifying problem traces, you can start by viewing the [derived RED metrics](#derived-red-metrics):
 
-1. Select **Applications > Inventory** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
+1. Select **Applications > Application Status** in the task bar, and find the application (by default, `Jaeger` or `Zipkin`).
 2. Click the application name, and find the service whose RED metrics you want to see.
 2. Click the **Details** link for the service.
 3. Select an operation from one of the charts to examine the traces for that operation.
@@ -164,7 +171,7 @@ Follow these steps:
 1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
-  
+
     ```
     <Appenders>
        <RollingFile name="[Enter_Your_File_Name]" fileName="${log-path}/wavefront-jaeger-data.log" filePattern="${log-path}/wavefront-jaeger-data-%d{yyyy-MM-dd}-%i.log">
@@ -188,7 +195,7 @@ Follow these steps:
 
 3. Add the logger name for `JaegerDataLogger` inside `<Loggers>`.<br/>
     Example:
-    
+
       ```
       <!-- Set level="ALL" to log Jeager data to a file. -->
       <Loggers>
@@ -206,7 +213,7 @@ Follow these steps:
 1. Open the [`<wavefront_config_path>`](#paths)`/log4j2.xml` file.
 2. Add the configurations to enable and manage logs under `<Appenders>`.<br/>
   Example:
-  
+
     ```
     <Appenders>
        <RollingFile name="[Enter_Your_File_Name]" fileName="${log-path}/wavefront-zipkin-data.log" filePattern="${log-path}/wavefront-zipkin-data-%d{yyyy-MM-dd}-%i.log">
@@ -227,7 +234,7 @@ Follow these steps:
     </Appenders>
     ```
     {% include note.html content="See the [log4j2 documentation](https://logging.apache.org/log4j/2.x/manual/appenders.html) for information on each parameter."%}
-    
+
 3. Add the logger name for `ZipkinDataLogger` under `<Loggers>`.<br/>
     Example:
     ```
@@ -238,13 +245,12 @@ Follow these steps:
        </AsyncLogger>
     </Loggers>
     ```
-    
+
 4. Save the file.
 
 ## Alternatives to Integrations
 
 If using the Jaeger or Zipkin integration doesn't make sense in your environment, you can still use Wavefront with those systems.
-
 
 ### Swap In a Wavefront Tracer
 If you are using Jaeger (or some other tracing system that is compliant with the [OpenTracing](https://opentracing.io) specification), you can replace the Jaeger Tracer with a Wavefront Tracer.
@@ -258,7 +264,7 @@ If Wavefront does not support an integration for your distributed tracing system
 
 For SDK setup details, see the [Wavefront sender SDK](wavefront_sdks.html#sdks-for-sending-raw-data-to-wavefront) for your programming language.
 
-**Note:** This technique does not automatically derive RED metrics from the spans.
+{%include note.html content="This technique does not automatically derive RED metrics from the spans."%}
 
 ### Use the Wavefront OpenCensus Go Exporter
 

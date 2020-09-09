@@ -78,20 +78,6 @@ For the most gain with the least amount of work:
 </tr>
 
 <tr>
-<td markdown="span">[Framework SDK](#sdks-that-instrument-frameworks) </td>
-<td align="justify">Reports predefined traces, metrics, and histograms from the APIs of a supported app framework. Lets you get started quickly with minimal code changes.</td>
-<td>
-  <ul>
-  <li><b>Java</b>:
-  <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java">Dropwizard</a> <b>|</b> <a href="https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java">gRPC</a> <b>|</b> <a href="https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java">JAX-RS</a> <b>|</b> <a href="https://github.com/wavefrontHQ/wavefront-jersey-sdk-java">Jersey</a></li>
-  <li><b>.Net/C#</b>:
-  <a href="https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp">ASP.Net core</a> </li>
-<!--- [Python](wavefront_sdks_python.html#python-sdks-that-instrument-frameworks) --->
-</ul>
-</td>
-</tr>
-
-<tr>
 <td markdown="span">[Sender SDK](#sdks-for-sending-raw-data-to-wavefront)  </td>
 <td align="justify">Lets you send raw values to Wavefront for storage as metrics, histograms, or traces, e.g., to import CSV data into Wavefront.
 </td>
@@ -247,84 +233,9 @@ Different metrics SDKs provide different capabilities:
 Sample use case:
 * Suppose you have a microservice with a critical backend operation that writes to a proprietary database. Even though you've used a framework-specific SDK to instrument the RESTful APIs, you'd also like to track how many database writes are performed. You can use a metrics SDK to instrument the write operation with a counter.
 
-## SDKs That Instrument Frameworks
-
-Most cloud-based applications consist of microservices that are built with component frameworks for managing inbound requests and outbound responses. Wavefront provides SDKs that instrument the APIs of many common microservices frameworks. If your application is built with a supported framework, you can use the corresponding Wavefront SDK to collect telemetry data from the framework's APIs, with minimal code changes.
-
-Wavefront provides SDKs that instrument the Java and .Net/C# Frameworks:
-
-**Java frameworks**
-
-<div class="row">
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-dropwizard-sdk-java">
-            <img src="/images/icons_svg_dropwizard.png" alt="Dropwizard_logo">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-gRPC-sdk-java">
-            <img src="/images/icons_svg_grpc.png" alt="Grpc">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-jaxrs-sdk-java">
-            <img src="/images/icons_svg_Java_JSX_RS.png" alt="Jax-RS">
-            </a>
-         </div>
-     </div>
- </div>
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-jersey-sdk-java">
-            <img src="images/icons_svg_jersey.png" alt="Jersey">
-            </a>
-         </div>
-     </div>
- </div>
- </div>
-
-**.NET/C# frameworks**
-
-<div class="row">
- <div class="col-md-2 col-sm-6">
-     <div class="panel panel-default text-center">
-         <div class="panel-body">
-            <a href="https://github.com/wavefrontHQ/wavefront-aspnetcore-sdk-csharp">
-            <img src="/images/icons_svg_.net.png" alt="ASP .net core">
-            </a>
-         </div>
-     </div>
- </div>
- </div>
-
-A framework SDK gets you up and running with minimal effort:
-* Setup is simple. You either edit a configuration file or instantiate a few helper objects in your code. No further coding is required.
-* The SDK automatically defines the metrics, histograms, and trace data to be collected. You simply run the recompiled application to start the flow of telemetry data to Wavefront.
-* Wavefront provides predefined charts and dashboards to help you visualize and drill down through the telemetry data.
-
-Sample use case:
-
-* Suppose you have a Java microservice that uses a Jersey-compatible framework for building RESTful web services. After you instrument your microservice with the Wavefront SDK for Jersey, your application collects predefined metrics, histograms, and trace data from the Jersey-compatible framework and sends the data to Wavefront. You can then use the following charts to view RED metrics, which measure the microservice's request Rate, number of Errors, and Duration. (SDKs for other frameworks might collect latencies, payload sizes, runtime information, and so on.)
-
-![tracing fmwk sdk](images/tracing_framework_sdk.png)
-
-{% include note.html content="If you need deeper instrumentation, you can later augment specific function calls with an SDK for collecting metrics or trace data." %}
-
 ## SDKs for Sending Raw Data to Wavefront
 
 Some Wavefront SDKs enable you to send raw values to Wavefront for ingestion as metrics, histograms, or trace data. You normally use these "sender" SDKs indirectly when you use other Wavefront SDKs that depend on them. However, you might use a sender SDK directly, for example, to create a utility that obtains existing values from a data store or CSV file, and sends those values to Wavefront.
-
 
 Wavefront provides sender SDKs for:
 
