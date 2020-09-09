@@ -186,7 +186,7 @@ On the dashboard for a particular service, you can:
   * Click a bar on a histogram.
   * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
-    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](tracing_instrumenting_frameworks.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
+    {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
 
 ### Custom Service Dashboard
 
