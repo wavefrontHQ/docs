@@ -117,7 +117,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 7: Click on a tracing traffic</b>
       <br/>When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li> Navigate to the Tracing browser when you click <b>View traces for this edge</b>.</li></ul>
+        <li> Navigate to the Tracing browser when you click <b>View traces for this traffic</b>.</li></ul>
       </td>
     <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
   </tr>
