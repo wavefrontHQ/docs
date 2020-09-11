@@ -349,7 +349,7 @@ dependencyManagement {
 &lt;dependency&gt;
   &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
   &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
-  &lt;version&gt;0.5.3&lt;/version&gt;
+  &lt;version&gt;0.5.7&lt;/version&gt;
 &lt;/dependency&gt;
               </pre></li>
 
@@ -357,7 +357,7 @@ dependencyManagement {
                 <pre>
 dependencies {
   ...
-  implementation 'io.opentracing.contrib:opentracing-spring-cloud-starter:0.5.3'
+  implementation 'io.opentracing.contrib:opentracing-spring-cloud-starter:0.5.7'
 }
               </pre></li></ul>
               </div>

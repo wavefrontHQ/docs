@@ -18,6 +18,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 ## Prerequisites
 
 * Spring Boot 2.3.0 or above.
+  {% include note.html content="This tutorial uses Spring Boot 2.3.3."%}
 * Java 8 or above.
 * Maven 3.3+ or Gradle 6.3 or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
@@ -38,8 +39,24 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     <dependency>
       <groupId>com.wavefront</groupId>
       <artifactId>wavefront-spring-boot-starter</artifactId>
-      <version>2.0.1</version>
     </dependency>
+    ```
+1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
+    {{site.data.alerts.tip}}
+      <p> Spring Boot version 2.3.3 is used for this tutorial. If you are using another version make sure the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
+    {{site.data.alerts.end}}
+    ```
+    <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.wavefront</groupId>
+        <artifactId>wavefront-spring-boot</artifactId>
+        <version>2.0.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+    </dependencyManagement>  
     ```
 
 1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing.
@@ -49,23 +66,49 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     </ul>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="sleuth">
-            <p><b>Maven</b>:<br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+        <ol>
+        <li>
+            <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
               <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
   &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-  &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
 &lt;/dependency&gt;
             </pre>
+            </li>
+            <li>
+            <p>Import the Spring Cloud Bill of Materials (BOM) to your project. Add the following code under &lt;dependencyManagement&gt;.</p>
+            {{site.data.alerts.tip}}
+              <p>Spring Boot version 2.3.3 is used for this tutorial. If you are using another version make sure the Spring Cloud dependency is compatible with the Spring Boot release version. You can run a simple command and find out the Spring Cloud version that is compatible with your Spring Boot version. See <a href="https://spring-cloud-info.cfapps.io/docs/spring-cloud-info.html#_spring_cloud_version_given_spring_boot_version">Spring Cloud Version Given Spring Boot Version</a> for details. 
+              </p>
+            {{site.data.alerts.end}}
+            <pre>
+&lt;dependencyManagement&gt;
+&lt;dependencies&gt;
+.....
+&lt;dependency&gt;
+&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+&lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+&lt;version&gt;Hoxton.SR8&lt;/version&gt;
+&lt;type&gt;pom&lt;/type&gt;
+&lt;scope&gt;import&lt;/scope&gt;
+&lt;/dependency&gt;
+.....
+&lt;dependencies&gt;
+&lt;dependencyManagement&gt;
+            </pre>
+            
+            </li>
+            </ol>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="opentracing">
-        <p><b>Maven</b>: <br/>Open your application and add the following code to your <code>pom.xml</code> file. </p>
+        <p>Open your application and add the following code to your <code>pom.xml</code> file. </p>
           <pre>
 &lt;dependency&gt;
   &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
   &lt;artifactId&gt;opentracing-spring-cloud-starter&lt;/artifactId&gt;
-  &lt;version&gt;0.5.3&lt;/version&gt;
+  &lt;version&gt;0.5.7&lt;/version&gt;
 &lt;/dependency&gt;
         </pre>
         </div>
@@ -110,15 +153,18 @@ If one or more applications are enabled for tracing, click the link in the Traci
 
 ## Examine RED Metrics and Traces
 
-When you click the link in the Spring Boot Inventory dashboard, you are taken to the Spring Boot Tracing dashboard where you can:
+When you click the link in the Spring Boot Inventory dashboard, you are taken to the Spring Boot Tracing Browser where you can:
 
-* View details specific to an application service, such as the Request, Error, and Duration (RED) metrics. See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard) for details.
-  {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
-  ![Wavefront Service dashboard](/images/springboot_service_dashboard.png)
-* Click **See All spring-petclinic Traces** to navigate to the Tracing browser and view the trace data of the `spring-petclinic` service.
+* View the trace data of the `spring-petclinic` service.
   * Once in the tracing browser, you see the traces from the application and the trace related to the error you created.
   * If you configured your application to send trace data using OpenTracing, you can see [span logs](#tracing_instrumenting_frameworks.html#span-logs) for the errors you triggered.
   ![Span logs for the pet clinic applciation](/images/springboot_span_logs_pet_clinic.png)
+  
+* View details specific to an application service, such as the Request, Error, and Duration (RED) metrics by clicking <img src="images/spring_boot_service_dashboard_from_tracing_browser.png" style="vertical-align:text-bottom;width:250px" alt="service dashboard"/> on the tracing browser. See [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard) for details.
+  {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
+  ![Wavefront Service dashboard](/images/springboot_service_dashboard.png)
+
+{% include tip.html content="To go back to the default Spring Boot Dashboard, see [Wavefront Spring Boot Integration](wavefront_springboot.html#wavefront-spring-boot-integration)." %}
 
 ## Next Steps
 
