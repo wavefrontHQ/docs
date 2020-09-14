@@ -10,9 +10,8 @@ summary: Set up your application to send metrics, histograms, and trace data to 
 You instrument your application so that [trace data](tracing_basics.html) from different parts of the stack are sent to Wavefront. Instrumentation enables you to trace a request from end to end across multiple distributed services, guided by key metrics from your application. After instrumentation, you can use our [tracing UI](tracing_ui_overview.html) to visualize a request as a trace that consists of a hierarchy of spans. This visualization helps you pinpoint where the request is spending most of its time, and discover problems.
 
 You instrument each microservice in your application with one or more [Wavefront observability SDKs](wavefront_sdks.html). This page:
-* Helps you choose the SDK(s)
-* Directs you to the setup steps for each SDK
-* Provides [an overview of what instrumentation adds to your microservices](#a-closer-look-at-an-instrumented-microservice).
+* Helps you choose the SDK(s) or integration
+* Directs you to the setup steps for each SDK or integration
 
 ## Step 1. Prepare to Send Data to Wavefront
 
@@ -144,11 +143,12 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
        </div>
      </div>
 
-     <!---
-     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html) for details." %}--->
+     
+     {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html#sending-trace-data-to-wavefront) for details." %}
+     
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
-After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics-derived-from-spans) from your trace data.
+After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics) from your trace data.
 
 ### Instrument Your Application with Wavefront Sender SDKs
 

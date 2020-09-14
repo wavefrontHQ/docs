@@ -26,7 +26,7 @@ The best practices on this page help you get optimal results from instrumenting 
 
    * If you have already instrumented your application with a 3rd party distributed tracing system such as Jaeger or Zipkin, set up a [**Wavefront integration**](tracing_integrations.html).
 
-   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) in the service's language.  Get a head start by using any [Wavefront framework SDKs](wavefront_sdks.html#sdks-that-instrument-frameworks) that are available for your service's language and frameworks. Augment the framework SDKs with the Wavefront OpenTracing SDK.
+   * **Instrument** each service with the [Wavefront OpenTracing SDK](wavefront_sdks.html##sdks-for-collecting-trace-data) in the service's language.
 
    * Use **consistent instrumentation**, either Wavefront SDKs or a 3rd party tracing system for all services that participate in the same trace. Otherwise, spans cannot link to each other across service boundaries. You can intermix different Wavefront SDKs in different programming languages.
 

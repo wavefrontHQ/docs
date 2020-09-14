@@ -40,8 +40,8 @@ extlinks:
   attributes: {rel: nofollow, target: _blank}
 
 algolia:
-  application_id: YJNSO3ALDH
-  public_key: c5d3bd7b8f39a7bbee43f36f5bb0abae
+  application_id: 6SH3RXQV5S
+  public_key: 33d852365d80a8be852f901500e4dbe4
   excluded_files:
     - 404.html
   index_name: 'documentation'
