@@ -1,4 +1,3 @@
-
 ---
 title: Create and Customize Dashboards
 tags: [getting started, dashboards, charts]

@@ -74,9 +74,15 @@ Delta counters make monitoring easy for this use case. The Wavefront service agg
 
 ## Using Delta Counters
 
-To use delta counters:
-* Always **send** metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
-* To **query** delta counter metrics, use `cs()` or an SDK:
+To take advantage of delta counters, you have to send and query them like this:
+
+- To **send** metrics as delta counters explicitly specify a delta character as the first letter of the metric name.
+- To **query** delta counter metrics
+  - Use an SDK
+  - Use `cs()` (instead of `ts()` in the Query Editor, as discussed next.
+  - Select **Delta Counters** in the Chart Builder, as shown in the following screenshot.
+
+    ![Chart Builder with delta counters selected](images/v2_add_metric.png)
 
 ### The cs() Function
 
@@ -113,7 +119,7 @@ We support the following [proxy configuration properties](proxies_configuring.ht
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
 - **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds.
 
-### Delta Prefix 
+### Delta Prefix
 
 If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
 
