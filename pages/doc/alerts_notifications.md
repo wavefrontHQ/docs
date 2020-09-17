@@ -22,6 +22,12 @@ If you have specified your email address as the alert target, you receive an ema
 
 ![alert_email](images/alert_email.png)
 
+If the alert has **Secure Metrics Details** selected, the email or Slack notification does not include metric details and alert images, and includes the text **Metrics Security Enabled** as shown in the following screenshot.
+
+Select this check box to avoid confusion if users receive an alert but cannot actually see all the metrics that caused the alert to fire.
+
+![alert email screenshot without metrics image](images/alert_email_protected.png)
+
 
 ## Chart Images in Alert Notifications
 
