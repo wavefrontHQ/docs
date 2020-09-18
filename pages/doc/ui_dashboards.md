@@ -317,7 +317,7 @@ This section shows you how to make the change from the dashboard JSON editor. Yo
 <li>Consider selecting Code view from the pull-down menu. Code view supports adding information. </li>
 <li>Consider a select all/copy/paste into a JSON editor for full validation. </li>
 <li>Add condition information, as shown in the example below, paste the revised content back into the dashboard editor, and click <strong>Accept</strong></li></ol></td>
-<td width="60%"><img src="/images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
+<td width="60%"><img src="images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
 </tr>
 </tbody>
 </table>

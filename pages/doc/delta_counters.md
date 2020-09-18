@@ -87,7 +87,7 @@ To take advantage of delta counters, you have to send and query them like this:
 <ul>
 <li>Use an SDK</li>
 <li>Use <strong>cs()</strong> (instead of <strong>ts()</strong> in the Query Editor, as discussed next.</li>
-<li>Select <strong>Delta Counters</strong> in the Chart Builder, as shown in the following screenshot. </li></ul></td>
+<li>Select <strong>Delta Counters</strong> in Chart Builder. </li></ul></td>
 <td><img src="/images/v2_add_metric.png" alt="Chart Builder with delta counters selected"/> </td>
 </tr>
 <tr>
