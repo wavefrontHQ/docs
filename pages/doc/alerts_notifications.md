@@ -18,13 +18,29 @@ The timing of an alert notification depends on the alert target:
 
 ## Sample Alert Notification
 
+How an alert notification looks depends on the setting of the **Secure Metric Details** check box.
+
+### Default Alert Notification
+
 If you have specified your email address as the alert target, you receive an email like the following whenever the alert fires:
 
 ![alert_email](images/alert_email.png)
 
-If the alert has **Secure Metrics Details** selected, the email or Slack notification does not include metric details and alert images, and includes the text **Metrics Security Enabled** as shown in the following screenshot.
+### Alert Notification with Secured Metrics Details
 
-Select this check box to avoid confusion if users receive an alert but cannot actually see all the metrics that caused the alert to fire.
+If an alert has **Secure Metrics Details** selected, the email or Slack notification
+
+* Includes the text **Metrics Security Enabled** at the top.
+* Does **not** include metric details and alert images.
+
+Select this check box to avoid confusion if some metrics in your environment are protected by metrics security policies. Here's how it works:
+
+* Alerts always check the complete set of metrics.
+* When a user opens alert-related charts,
+  - Metrics protected by metrics security policy rules are not displayed.
+  - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
+
+Not showing details in the alert notification (and adding the heading) results in a better user experience.
 
 ![alert email screenshot without metrics image](images/alert_email_protected.png)
 
