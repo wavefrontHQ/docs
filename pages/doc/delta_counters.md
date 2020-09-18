@@ -76,13 +76,28 @@ Delta counters make monitoring easy for this use case. The Wavefront service agg
 
 To take advantage of delta counters, you have to send and query them like this:
 
-- To **send** metrics as delta counters explicitly specify a delta character as the first letter of the metric name.
-- To **query** delta counter metrics
-  - Use an SDK
-  - Use `cs()` (instead of `ts()` in the Query Editor, as discussed next.
-  - Select **Delta Counters** in the Chart Builder, as shown in the following screenshot.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td>To <strong>send</strong> metrics as delta counters explicitly specify a delta character as the first letter of the metric name. </td>
+<td> </td>
+</tr>
+<tr>
+<td>To <strong>query</strong> delta counter metrics
+<ul>
+<li>Use an SDK</li>
+<li>Use `cs()` (instead of `ts()` in the Query Editor, as discussed next.</li>
+<li>Select <strong>Delta Counters</strong> in the Chart Builder, as shown in the following screenshot. </li></ul></td>
+<td><img src="/images/v2_add_metric.png" alt="Chart Builder with delta counters selected"/> </td>
+</tr>
+<tr>
+<td width="70%">To <strong>examine all delta counters</strong> in your environment, select <strong>Browse &gt; Delta Counters</strong>. The process is the same as examining metrics in the <a href="metrics_managing.html#metrics-browser"> Metrics Browser</a>.
+</td>
+<td width="30%"><img src="/images/delta_counters_browse.png" alt="Screenshot showing Browse > Delta Counters"/></td>
+</tr>
+</tbody>
+</table>
 
-    ![Chart Builder with delta counters selected](images/v2_add_metric.png)
 
 ### The cs() Function
 
