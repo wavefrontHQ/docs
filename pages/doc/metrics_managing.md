@@ -77,7 +77,7 @@ To make search easier, you can
 
 {% include tip.html content="If you select **Browse > Delta Counters" you can use the same browser to examine [delta counters](delta_counters.html). The process is exactly the same. %}
 
-![metrics browser with pointers to folder & chart icon for selection, source filter, and info button which displays sources and point tags for a metric](images/metrics_browser.png)
+![metrics browser with pointers to folder & chart icon for selection, source filter, and info button which displays sources and point tags for a metric](images/metrics_browser.png) 
 
 ### Examine Metrics
 
