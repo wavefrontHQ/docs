@@ -293,7 +293,7 @@ dependencyManagement {
                   <li>
                     Import the Spring Cloud Bill of Materials (BOM) to your project.
                     {{site.data.alerts.tip}}
-                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. You can run a simple command and find out the Spring Cloud version that is compatible with your Spring Boot version. See <a href="https://spring-cloud-info.cfapps.io/docs/spring-cloud-info.html#_spring_cloud_version_given_spring_boot_version">Spring Cloud Version Given Spring Boot Version</a> for details. 
+                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details. 
 </p>
                     {{site.data.alerts.end}}
                     <pre>
@@ -461,7 +461,7 @@ The [Wavefront proxy](proxies.html)  ingests data and forwards them to the Wavef
 
 Copy and paste the following property.  
 ```
-management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
+management.metrics.export.wavefront.uri=proxy://<Proxy_Host>:2878
 ```
 
 <p><span style="font-size: large; font-weight: 600">Access the Dashboard with the Actuator Endpoint</span></p>
