@@ -322,7 +322,7 @@ Add the following custom configurations to the `application.properties` file.
   Copy and paste the following property.
   {% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and after. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
   ```
-  management.metrics.export.wavefront.uri=http://<Proxy_Host>:2878
+  management.metrics.export.wavefront.uri=proxy://<Proxy_Host>:2878
   ```
   
 * **Use the Wavefront Actuator endpoint to access the dashboard** 
