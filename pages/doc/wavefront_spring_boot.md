@@ -293,8 +293,7 @@ dependencyManagement {
                   <li>
                     Import the Spring Cloud Bill of Materials (BOM) to your project.
                     {{site.data.alerts.tip}}
-                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details. 
-</p>
+                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details. </p>
                     {{site.data.alerts.end}}
                     <pre>
 &lt;dependencyManagement&gt;
@@ -328,7 +327,7 @@ dependencies {
                   <li>
                     Import the Spring Cloud Bill of Materials (BOM) to your project. Add the following code under &lt;dependencyManagement&gt;.
                     {{site.data.alerts.tip}}
-                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#release-trains" target="_blank">Spring Cloud Release Train</a> to get the correct dependency version.</p>
+                      <p>The Spring Cloud dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$springCloudVersion</code> with the correct dependency version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details. </p>
                     {{site.data.alerts.end}}
                     <pre>
 dependencyManagement {
