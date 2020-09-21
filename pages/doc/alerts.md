@@ -58,6 +58,12 @@ Each alert is associated with one or more alert targets. The alert target specif
 
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
 
+The **maximum number** of email alert targets is 10 for classic alerts and 10 per severity for multi-threshold alerts. If you exceed the number, you receive a message like the following:
+
+```
+{"status":{"result":"ERROR","message":"Invalid notification specified: null","code":400}}
+```   
+
 
 
 ## How Alerts Work Video
