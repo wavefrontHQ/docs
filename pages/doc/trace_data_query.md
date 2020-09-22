@@ -9,6 +9,69 @@ summary: Learn how to query for Wavefront trace data.
 
 After your application sends [trace data](tracing_basics.html#wavefront-trace-data) to Wavefront, you can examine that data in the Traces browser. By fine-tuning the trace query in the Traces browser, you find the traces that you're interested in by describing the spans they must contain.
 
+## View Tracing Critical Path Data in Charts
+
+The Wavefront tracing browser shows you all the spans that make up a trace and the critical path. The trace details panel uses an orange line to show the critical path through a trace. Analyzing the critical path of a trace can help you determine which operations took the most time, and can help you decide which operations to try to optimize. See [Tracing Browser](tracing_ui_overview.html#tracing-browser) for detail
+
+[Image]
+
+Starting with release <add release number>, you can view these data in Wavefront as metrics. 
+
+### View Data in Charts
+
+It is easier for to view this data on charts to grasp the data faster. 
+- You can also query the data to get the total time of the critical path (`total_time.millis.m`) or to get the total time of the critical path as a percentage (`time_percent.m`). 
+- You can query and view the data for the critical path in charts and create alerts. You can query the data using [derived metrics](derived_metrics.html) or the aggregated metrics, which are metrics that are aggregated before hand to reduce the compute time when running queries.
+
+    <table style="width: 100%;">
+      <tr>
+        <th width="20%">
+          Metrics Type
+        </th>
+        <th width="80%">
+          Description
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Derived metrics
+        </td>
+        <td markdown = "span">
+          Get specific metrics data for a critical path. Filter the query using the `application`, `cluster`, `shard`, `service`, `operationName`, `error`, and `source` point tags.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Aggregated metrics
+        </td>
+        <td markdown = "span">
+          Get high-level metrics for a critical path of a specific application or service. Filter queries using the `application`, `cluster`, `shard`, `service`, and `source` point tags.
+        </td>
+      </tr>
+    </table>
+
+Examples:
+
+1. Query the data for the critical path using derived metrics (absolute time)
+    ```
+    hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.count.m, operationName=ShoppingWebResource.orderShirts)
+    ```
+1. Query the data for the critical path as a percentage using aggregated metrics
+    ```
+    hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.count.m)
+    ```
+
+
+### Create Alerts
+
+[ Shavi: Tell how to create the query and create an alert with it. sent to alert page for more information.]
+
+Example: 
+```
+median(merge(hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.count.m))) > 60
+```
+
+
 ## Get Started with Trace Queries
 
 To query traces, select **Applications > Traces** and navigate to the Traces browser.
