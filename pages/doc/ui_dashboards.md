@@ -303,9 +303,12 @@ For more information on the options listed in the Show Events dropdown, see <a h
 
 ## Advanced: Edit Dashboard JSON
 
-Imagine you have a dashboard with many sections. Several of them are relevant only if certain metrics are currently shown in the charts of that dashboard section. You can conditionalize the dashboard to show a specified section only under certain conditions.
+Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately. This section shows how to make changes from the dashboard JSON editor. We use a simple example of adding a conditional section to illustrate how it works.
 
-This section shows you how to make the change from the dashboard JSON editor. You can instead make the change programmatically using the REST API.
+
+### Example: Create Conditional Dashboard Sections
+
+Imagine you have a dashboard with many sections. Several of them are relevant only if certain metrics are currently shown in the charts of that dashboard section. You can conditionalize the dashboard to show a specified section only under certain conditions.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
@@ -322,7 +325,6 @@ This section shows you how to make the change from the dashboard JSON editor. Yo
 </tbody>
 </table>
 
-### Example: Create Conditional Sections
 
 The following sample JSON includes a `sectionFilter` property that lets you show or hide the section based on a condition.
 
