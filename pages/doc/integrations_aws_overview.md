@@ -163,6 +163,9 @@ The permissions we require depend on the integration and on the service you want
     dynamodb:DescribeTable<br />
     eks:Describe*<br />
     eks:List*<br />
+    es:ListDomainNames<br />
+    es:DescribeElasticsearchDomain<br />
+    es:ListTags<br />
     </td>
 </tr>
 <tr>
@@ -198,7 +201,10 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "eks:List*",
                 "support:DescribeTrustedAdvisorChecks",
                 "support:RefreshTrustedAdvisorCheck",
-                "support:DescribeTrustedAdvisorCheckResult"
+                "support:DescribeTrustedAdvisorCheckResult",
+                "es:ListDomainNames",
+                "es:DescribeElasticsearchDomain",
+                "es:ListTags"
             ],
             "Effect": "Allow",
             "Resource": "*"
