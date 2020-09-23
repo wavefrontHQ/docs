@@ -127,7 +127,7 @@ Here are some things to know before you start:
 Getting started is easy. Here are some things to know before you start:
 
 * **Ingestion Method**: Wavefront for Spring Boot sends data to Wavefront via [direct ingestion](direct_ingestion.html) by default. You can [configure your application to send data via the Wavefront proxy](#proxy).
-* **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#wf_instance).
+* **Target**: Wavefront for Spring Boot sends data to the Wavefront Freemium instance by default. You can [configure your application to send data to your Wavefront instance](#step-2-optional-specify-your-wavefront-instance).
 * **Account**: By default the starter sends you to the Freemium instance, auto-negotiates an account, and saves the API token in the `~/.wavefront_freemium` file in your home directory. If you customize the starter to go to your Wavefront instance (see Step 2 below) you need to include an API token for that instance.
 
 ### Prerequisites for Wavefront Spring Boot Starter
@@ -232,7 +232,7 @@ dependencies {
       <li>
         Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
         {{site.data.alerts.tip}}
-          <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
+          <p>The Wavefront for Spring Boot dependency needs to be compatible with the Spring Boot release version. Therefore, replace <code>$releaseVersion</code> with the correct dependency version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
         {{site.data.alerts.end}}
         <ul id="profileTabs" class="nav nav-tabs">
             <li class="active"><a href="#mavenbom" data-toggle="tab">Maven</a></li>
@@ -418,7 +418,7 @@ To view your data, you first run your project from the command line, and then cl
 1. Click the link (for example, `https://wavefront.surf/us/<name>`) and you are taken to the Wavefront Spring Boot Inventory dashboard where you can examine the data sent by your application.
     <br/>Example:
     ![Spring Boot metrics dashbaord](images/springboot_metrics.png)
-    If your application uses trace data, click the link in the Tracing section of the dashboard to be directed to the Wavefront Spring Boot Application dashboard.
+    If your application uses trace data, click the link in the Tracing section of the dashboard to be directed to the Wavefront Tracing Browser.
     <br/>Example:
     ![Spring Boot tracing browser](images/springboot_span_logs_pet_clinic.png)
     {% include note.html content="Want to see the cool information you can gather from the Tracing Browser? See [Explore the Tracing Browser](tracing_ui_overview.html#tracing-browser)." %}
@@ -453,6 +453,7 @@ You can invite users and let them send data to the same cluster:
     {% include tip.html content="If you don’t want Wavefront to auto-negotiation a freemium account for you, set the value to `false`."%}
 1. Restart your application.
 
+<a name="proxy"></a>
 <p><span style="font-size: large; font-weight: 600">Use the Wavefront Proxy</span></p>
 
 The [Wavefront proxy](proxies.html)  ingests data and forwards them to the Wavefront service in a secure, fast, and reliable manner. It prevents data loss, simplifies firewall configuration, and allows you to filter or enrich data before they arrive at the Wavefront service.
