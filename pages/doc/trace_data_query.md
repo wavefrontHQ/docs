@@ -11,17 +11,18 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 ## View Tracing Critical Path Data in Charts
 
-The Wavefront tracing browser shows you all the spans that make up a trace and the critical path. The trace details panel uses an orange line to show the critical path through a trace. Analyzing the critical path of a trace can help you determine which operations took the most time, and can help you decide which operations to try to optimize. See [Tracing Browser](tracing_ui_overview.html#tracing-browser) for detail
+The Wavefront tracing browser shows you all the spans that make up a trace and the critical path. The trace details panel uses an orange line to show the critical path through a trace. Analyzing the critical path of a trace can help you determine which operations took the most time and can help you decide which operations to try to optimize. See [Tracing Browser](tracing_ui_overview.html#tracing-browser) for details.
 
-[Image]
+In the example given below, most of the time is spent on the `Packaging.giftWrap` span, which is sent from the `packaging` service. 
+![the image shows how the trace browser shows the critical path along the span view.](images/tracing_critical_path_break_down.png)
 
-Starting with release <add release number>, you can view these data in Wavefront as metrics. 
+Starting with release 2020-38.x, you can view these data in Wavefront as metrics and query them using the [`hs()` function](hs_function.html).
 
 ### View Data in Charts
 
-It is easier for to view this data on charts to grasp the data faster. 
-- You can also query the data to get the total time of the critical path (`total_time.millis.m`) or to get the total time of the critical path as a percentage (`time_percent.m`). 
-- You can query and view the data for the critical path in charts and create alerts. You can query the data using [derived metrics](derived_metrics.html) or the aggregated metrics, which are metrics that are aggregated before hand to reduce the compute time when running queries.
+Charts help you view the data trends and grasp the data faster. 
+- You can query the data to get the total time of the critical path (`.total_time.millis.m`) or get the total time of the critical path as a percentage (`.time_percent.m`). 
+- You can query the data using [derived metrics](derived_metrics.html) or the aggregated metrics, which are metrics that are aggregated beforehand to reduce the compute time when running queries.
 
     <table style="width: 100%;">
       <tr>
@@ -38,6 +39,10 @@ It is easier for to view this data on charts to grasp the data faster.
         </td>
         <td markdown = "span">
           Get specific metrics data for a critical path. Filter the query using the `application`, `cluster`, `shard`, `service`, `operationName`, `error`, and `source` point tags.
+          <br/><br/>Example: 
+          <code>
+tracing.critical_path.<b>derived</b>.*.total_time.millis.count.m
+          </code>
         </td>
       </tr>
       <tr>
@@ -46,13 +51,17 @@ It is easier for to view this data on charts to grasp the data faster.
         </td>
         <td markdown = "span">
           Get high-level metrics for a critical path of a specific application or service. Filter queries using the `application`, `cluster`, `shard`, `service`, and `source` point tags.
+          <br/><br/>Example:
+          <code>
+tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.count.m
+          </code>
         </td>
       </tr>
     </table>
 
 Examples:
 
-1. Query the data for the critical path using derived metrics (absolute time)
+1. Get the critical path for the `beachshirts` application's `shopping` service and filter it using the `ordershirts` operation. The query uses derived metrics and the total time of the critical path.
     ```
     hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.count.m, operationName=ShoppingWebResource.orderShirts)
     ```
@@ -61,18 +70,140 @@ Examples:
     hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.count.m)
     ```
 
-
 ### Create Alerts
 
-[ Shavi: Tell how to create the query and create an alert with it. sent to alert page for more information.]
+You can query the data of a critical path, view this data in charts, and create alerts. 
 
-Example: 
+Example: Create an alert to get notifications when the median value of the critical path exceeds 60. You need to query the data and create the alert. See [Creating Alerts](alerts.html#creating-an-alert) for details.
+
+![Shows a chart that is derived from query that shows the data where the critical path is longer than 60s. When you click the three dotted icon next to the query, you can see a list that has create alert on it. Click create alert and you are taken to the create alert dashboard.](images/tracing_critical_path_create_alerts.png)
+
+
+## Use Spans to Examine Applications and Services
+
+Use the following operators to get details or find the relationship between services in an application and their operations using the `[spans()` function](spans_function.html).
+
+<table>
+  <colgroup>
+    <col width="15%" />
+    <col width="85%" />
+  </colgroup>
+  <thead>
+    <th>Operator</th>
+    <th>Description</th>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td markdown="span">
+        **from**
+      </td>
+      <td>
+        Returns spans that are a child of or directly follow a given span
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>&lt;child_spansExpression&gt;.from(&lt;parent_spansExpression&gt;)</code>
+        </div>
+
+        <br/><b>Example</b>: <br/>Search for spans in the beachshirts application and get the following spans:
+        <ul>
+          <li>
+            Spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping-service )
+          </li>
+          <li>
+            Spans where the inventory service directly follow after the shopping-service.
+          </li>
+        </ul>
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*))</code>
+        </div>
+
+        Search for spans where the spans from the shopping service are longer than 1000 milliseconds and are the parent spans of the inventory service.
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>spans(beachshirts.inventory.*).from(highpass(1000, spans(beachshirts.shopping.*)))</code>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td markdown="span">
+        **childOf**
+      </td>
+      <td>
+        Returns spans that are a child of a given span. This concept is a result of the OpenTracing <code>ChildOf</code> relationship.
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>&lt;child_spansExpression&gt;.childOf(&lt;parent_spansExpression&gt;)</code>
+        </div>
+
+        <br/><b>Example</b>:<br/>
+        Search for spans in the beachshirts application and only get the spans where the shopping service is the parent span of the inventory service (or spans where the inventory service is the child of the shopping service).
+        <br/>
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>spans(beachshirts.inventory.*).childOf(spans(beachshirts.shopping.*))</code>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td markdown="span">
+        **followsFrom**
+      </td>
+      <td>
+        Returns spans that directly follow a given span. This concept is a result of the OpenTracing <code>followsFrom</code> relationship.
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>&lt;child_spansExpression&gt;.followsFrom(&lt;parent_spansExpression&gt;)</code>
+        </div>
+
+        <br/><b>Example</b>:
+        Search for spans in the beachshirts application and get the spans from the inventory service that directly follow the shopping service.
+        <div style="background-color: #ECF0F5; padding: 15px">
+        <code>spans(beachshirts.inventory.*).followsFrom(spans(beachshirts.shopping.*))</code>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{%include note.html content="You can chain the operators to search for spans. <br/> Example: `spans(beachshirts.inventory.*).childOf(spans(beachshirts.inventory.*)).from(spans(beachshirts.shopping.*))`"  %}
+
+{{site.data.alerts.tip}}
+Make sure to add the <code>&lt;spansExpression&gt;</code> in the correct order:
+<ul>
+  <li>
+    First the child span or the span that follows the main span.
+  </li>
+  <li>
+    Then the operator (<code>from</code>, <code>childOf</code>, or <code>followsFrom</code>).
+  </li>
+  <li>
+    Finally the parent span.
+  </li>
+</ul>
+
+<p>For example, if you use <code>(beachshirts.shoping.*).from(spans(beachshirts.inventory.*))</code>, you don’t get any results because no spans go from the inventory service to the shopping service.</p>
+{{site.data.alerts.end}}
+
+### Example
+The video given below shows you how to get the trace details from the beachshirts application where the spans match the following:
+- Spans where the shopping service is the parent span of the inventory service.
+- Spans where the inventory service directly follow after the shopping service.
+
+It uses the following queries:
+
 ```
-median(merge(hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.count.m))) > 60
+traces(spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*)))
 ```
 
+You can use any of the [trace filtering functions](traces_function.html#filtering-functions) to view trace details. To keep query execution manageable, use the `limits()` function, as shown below.
 
-## Get Started with Trace Queries
+```
+limit (100, traces(spans(beachshirts.inventory.*).from(spans(beachshirts.shopping.*))))
+```
+<iframe width="700" height="400" src="https://www.youtube.com/embed/tBQv2cb3jhk" allowfullscreen></iframe>
+
+
+
+
+## Search and Filter Traces on the Tracing Browser
 
 To query traces, select **Applications > Traces** and navigate to the Traces browser.
 
@@ -104,7 +235,7 @@ To query traces, select **Applications > Traces** and navigate to the Traces bro
   ![tracing query builder](images/tracing_query_builder_filter.png)
 3. Click **Search** in the query bar.
 
-## Select an Operation
+### Select an Operation
 
 You select an operation to display traces with at least one span that represents the work done by that operation.
 
@@ -135,7 +266,7 @@ You can select `*` instead of name components to select all operations in a serv
 
 ![tracing query builder operation menu](images/tracing_query_builder_operation_menu_all.png)
 
-## Add Filters
+### Add Filters
 
 After you have selected an operation, you can optionally add filters to further describe the traces you want to see. You can add different types of filters in any order.
 
@@ -199,7 +330,7 @@ Use this type for indexed tags that your application uses, typically `cluster`, 
 <li markdown="span">Click **Add Filter** to add another filter or click **Search**  to display results.</li>
 </ol>
 
-## Remove Filters
+### Remove Filters
 
 You can remove an individual filter:
 
@@ -221,7 +352,7 @@ You can remove an individual filter:
 </table>
 
 
-## Example
+### Example
 
 Suppose you want to find traces that contain spans for an operation called `notify`, which is called from the `notification` service of the `beachshirts` application. You're interested only in seeing traces that are emitted from a particular source and that are longer than 30 milliseconds.
 
@@ -249,7 +380,7 @@ Query Builder generates a query that includes the [`traces()` function](traces_f
 **Note:** If you change a query using Query Editor, you cannot go back to Query Builder.
 
 
-## Trace Query Results
+### Trace Query Results
 
 A trace query:
 1. Finds the spans that match the description you specify.
@@ -263,20 +394,20 @@ For example, you can query for traces with at least one member span that meets t
 
 If you also specified a minimum (or maximum) duration, the query filters out any traces that are shorter (longer) than the threshold you specified.
 
-### Graphic Representation of a Returned Trace
+#### Graphic Representation of a Returned Trace
 
 Wavefront displays a bar for each trace that is returned by a trace query. The bar's length visually indicates the trace's duration. A blue area in the bar indicates where a matching span occurs in the trace, and how much of the trace it occupies:
 
 ![tracing query results](images/tracing_query_results.png)
 
-### How Wavefront Labels a Returned Trace
+#### How Wavefront Labels a Returned Trace
 Each bar that is returned by a query represents a unique trace that has a unique trace ID. For readability, we label each trace by its root span, which is the first span in the trace. The trace's label is the name of the operation that the root span represents.
 
 For example, the two returned traces shown above both have a root span that represents work done by an operation called `ShoppingWebResource.getShoppingMenu`. However, these root spans represent different executions of the operation, with different start times. Although the two root spans have the same operation name, they mark the beginning of two different traces.
 
 **Note:** A trace's root span might differ from the span that was specified in the query. For example, suppose you query for spans that represent `getAvailableColors` operations. The query could return traces that begin with `ShoppingWebResource.getShoppingMenu`, if those traces contain a `getAvailableColors` span.
 
-## Limit and Sort the Result Set
+### Limit and Sort the Result Set
 
 The browser allows you to fine-tune what you see.
 
@@ -290,7 +421,7 @@ If you both limit and sort the query results, sorting applies after limiting. Fo
 
 **Note:** If you've enabled a sampling strategy, results are found among the spans that have actually been ingested. The query does not search through spans before they’ve been sampled.
 
-## Use Query Editor (Power Users)
+### Use Query Editor (Power Users)
 
 Query Builder works well for many use cases, but sometimes Query Editor is your best option.
 
