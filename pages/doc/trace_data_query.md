@@ -21,8 +21,8 @@ Starting with release 2020-38.x, you can view these data in Wavefront as metrics
 ### View Data in Charts
 
 Charts help you view the data trends and grasp the data faster. 
-- You can query the data to get the total time of the critical path (`.total_time.millis.m`) or get the total time of the critical path as a percentage (`.time_percent.m`). 
-- You can query the data using [derived metrics](derived_metrics.html) or the aggregated metrics, which are metrics that are aggregated beforehand to reduce the compute time when running queries.
+- You can query data to get the total time of the critical path (`.total_time.millis.m`) or get the total time of the critical path as a percentage (`.time_percent.m`). 
+- You can query data using critical path raw metrics or the critical path aggregated metrics, which are metrics that are aggregated beforehand to reduce the compute time when running queries.
 
     <table style="width: 100%;">
       <tr>

@@ -312,7 +312,7 @@ To understand how to query for tracing traffic in the tracing browser, see [Use 
 
 ## RED Metrics
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically aggregates and displays RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
+If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically aggregates and displays RED metrics for different levels of detail with no additional configuration or instrumentation on your part. 
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
@@ -640,6 +640,10 @@ You can visualize tracing traffic data in charts using tracing traffic derived m
   ```
   hs(tracing.edge.derived.beachshirts.shopping.duration.millis.m, to.service=delivery)
   ```
+
+### Tracing Critical Path Data
+
+The Wavefront tracing browser shows you all the spans that make up a trace and the critical path. The trace details panel uses an orange line to show the critical path through a trace. Starting with release 2020-38.x, you can view the critical path data in Wavefront as metrics and query them using the [`hs()` function](hs_function.html). See [View Tracing Critical Path Data in Charts](trace_data_query.html#view-tracing-critical-path-data-in-charts) for details.
 
 ### Trace Sampling and Derived RED Metrics
 
