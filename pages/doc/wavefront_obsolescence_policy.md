@@ -13,11 +13,11 @@ Product versions and features move to end-of-life as part of the normal software
 
 To help you plan for end-of-life dates, this page uses the following terms:
 
-* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. Wavefront eventually removes deprecated features. Bug fixes are at Wavefront's discretion. In particular, Wavefront may require migration to the new feature in lieu of fixing a bug in a deprecated feature. Wavefront identifies deprecated features in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions. 
+* **Deprecated**. Feature, component, platform, or functionality that may no longer be efficient or safe.  Deprecated features are supported but no longer recommended. Wavefront eventually removes deprecated features. Bug fixes are at Wavefront's discretion. In particular, Wavefront may require migration to the new feature in lieu of fixing a bug in a deprecated feature. Wavefront identifies deprecated features in the release notes for the release in which the feature is deprecated. For Wavefront proxy, the table below lists deprecated versions.
 *  **End-of-life**. No longer supported. Feature, component, platform, or functionality is no longer supported and may be removed from the product at any time.
 
 
-<h2>Wavefront Proxy</h2>
+## Wavefront Proxy
 
 Upgrade to the **latest GA release** of the Wavefront proxy to get the latest bug fixes and performance enhancements.
 
@@ -64,3 +64,9 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 </tr>
 </tbody>
 </table>
+
+## Delta Counters
+
+Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
+* The original delta counter implementation is now obsolete.
+* The original delta counter implementation is End of Live March 31, 2021. 
