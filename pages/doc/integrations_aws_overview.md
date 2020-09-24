@@ -166,6 +166,7 @@ The permissions we require depend on the integration and on the service you want
     es:ListDomainNames<br />
     es:DescribeElasticsearchDomain<br />
     es:ListTags<br />
+    iam:ListAccountAliases
     </td>
 </tr>
 <tr>
@@ -204,7 +205,8 @@ You can explicitly specify the access permissions in a custom IAM policy, as sho
                 "support:DescribeTrustedAdvisorCheckResult",
                 "es:ListDomainNames",
                 "es:DescribeElasticsearchDomain",
-                "es:ListTags"
+                "es:ListTags",
+                "iam:ListAccountAliases"
             ],
             "Effect": "Allow",
             "Resource": "*"
