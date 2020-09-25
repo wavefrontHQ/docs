@@ -132,34 +132,30 @@ Data flows from AWS to Wavefront only if the account has the required access. Yo
 
 Instead of giving Wavefront read-only access, you can instead give more limited access.
 
-The permissions we require depend on the integration and on the service you want to monitor, as shown in the following table:
+The required permissions depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
 <thead>
 <tr><th width="20%">Integration</th><th width="45%">Description</th><th width="35%">Required Permissions</th></tr>
 </thead>
 <tr>
     <td>CloudWatch</td>
-    <td>Retrieves AWS metric and dimension data. <ul>
-    <li>The <strong>es:</strong> permissions are needed if you want to extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
-    <li>The <strong>iam:</strong> permission is needed if you want to pull not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
-    </ul></td>
-    <td><p>ListMetrics<br />
+    <td>Retrieves AWS metric and dimension data. </td>
+    <td>ListMetrics<br />
       GetMetric*<br />
-      es:ListDomainNames<br />
-      es:DescribeElasticsearchDomain<br />
-      es:listTags<br />
-      iam:ListAccountAliases</p>
     </td>
 </tr>
 <tr>
     <td>CloudTrail <br /></td>
     <td>Retrieves EC2 event information and creates Wavefront System events </td>
-    <td><p>List and Get permissions on the S3 bucket where the logs are delivered.</p>
+    <td>List and Get permissions on the S3 bucket where the logs are delivered.
     </td>
 </tr>
 <tr>
     <td>AWS Metrics+ </td>
-    <td>Retrieves additional metrics using AWS APIs </td>
+    <td>Retrieves additional metrics, tags and other metadata using AWS APIs.<ul>
+    <li>The <strong>es:</strong> permissions are needed if you want to extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
+    <li>The <strong>iam:</strong> permission is needed if you want to pull not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
+    </ul> </td>
     <td>ec2:DescribeVolumes<br />
       ec2:DescribeInstances<br />
     ec2:DescribeReservedInstances <br />
@@ -169,7 +165,11 @@ The permissions we require depend on the integration and on the service you want
     dynamodb:ListTables<br />
     dynamodb:DescribeTable<br />
     eks:Describe*<br />
-    eks:List*
+    eks:List*<br />
+    es:ListDomainNames<br />
+    es:DescribeElasticsearchDomain<br />
+    es:listTags<br />
+    iam:ListAccountAliases
     </td>
 </tr>
 <tr>
