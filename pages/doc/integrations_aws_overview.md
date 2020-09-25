@@ -135,13 +135,20 @@ Instead of giving Wavefront read-only access, you can instead give more limited 
 The permissions we require depend on the integration and on the service you want to monitor, as shown in the following table:
 <table>
 <thead>
-<tr><th width="25%">Integration</th><th width="40%">Description</th><th width="45%">Required Permissions</th></tr>
+<tr><th width="20%">Integration</th><th width="45%">Description</th><th width="35%">Required Permissions</th></tr>
 </thead>
 <tr>
     <td>CloudWatch</td>
-    <td>Retrieves AWS metric and dimension data </td>
+    <td>Retrieves AWS metric and dimension data. <ul>
+    <li>The <strong>es:</strong> permissions are needed if you want to extract AWS tags and associate them (as tags) with metrics. These permissions are especially useful when you're using ElasticSearch. </li>
+    <li>The <strong>iam:</strong> permission is needed if you want to pull not only numeric account IDs but also the corresponding human-readable account IDs.   </li>
+    </ul></td>
     <td><p>ListMetrics<br />
-      GetMetric*</p>
+      GetMetric*<br />
+      es:ListDomainNames<br />
+      es:DescribeElasticsearchDomain<br />
+      es:listTags<br />
+      iam:ListAccountAliases</p>
     </td>
 </tr>
 <tr>
@@ -162,11 +169,7 @@ The permissions we require depend on the integration and on the service you want
     dynamodb:ListTables<br />
     dynamodb:DescribeTable<br />
     eks:Describe*<br />
-    eks:List*<br />
-    es:ListDomainNames<br />
-    es:DescribeElasticsearchDomain<br />
-    es:ListTags<br />
-    iam:ListAccountAliases
+    eks:List*
     </td>
 </tr>
 <tr>
