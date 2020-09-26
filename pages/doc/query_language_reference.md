@@ -615,10 +615,6 @@ Filtering functions help you select a subset of the time series that are returne
 <td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
-<td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
-</tr>
-<tr>
 <td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
 <td>Returns only the points in <strong>tsExpression2</strong> that are below <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
