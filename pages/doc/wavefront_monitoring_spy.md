@@ -122,7 +122,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Delta Counters with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Wavefront stores **post aggregation**, not the individual points that were sent to Wavefront.
+Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Wavefront stores **post aggregation**, not the individual points that were sent to Wavefront.
 
 You can use the returned list to help you answer questions like:
 * Show me some ingested delta counters with names that start with the prefix `Cust`.
@@ -133,13 +133,13 @@ You can use the returned list to help you answer questions like:
 
 ### Endpoint and Parameters for Delta Counters
 
-To get a sampling of ingested delta counters (post aggregation), use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
   ```
   https://<cluster>.wavefront.com/api/spy/deltas
   ```
 
-To get a sampling of delta counters with specific characteristics, add one or more of the following parameters:
+To get a sample of delta counters with specific characteristics, add one or more of the following parameters:
 
 <table width="100%">
 <tbody>
