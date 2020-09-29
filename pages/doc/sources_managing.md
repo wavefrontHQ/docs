@@ -37,16 +37,12 @@ Filter sources by status. In contrast to metrics, sources are not excluded after
 </tr>
 <tr>
 <td width="50%">
-Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.</td>
+Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.<br><br>
+In the screenshot on the right, we've fitered by the tag wavefront.aws.billing and selected Recent Metrics (which shows as <strong>ok</strong> in the search bar).</td>
 <td width="50%"><img src="/images/sources_tag_paths.png" alt="multiple tags for selection"></td>
 </tr>
 </tbody>
 </table>
-
-The following `~status` metrics map to what you see in the UI:
-* `~status.error` maps to **Obsolete**
-* `~status.new` and `~status.ok` map to **Recent Metrics**
-* `~status.stopped` maps to **Metrics Stopped**
 
 ### Step 2: Examine the Source
 
