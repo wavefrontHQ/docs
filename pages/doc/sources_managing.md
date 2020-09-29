@@ -29,16 +29,16 @@ When you select **Browse > Sources** the Sources browser offers many options to 
 <td width="50%">
 Filter sources by status. In contrast to metrics, sources are not excluded after 4 weeks of not reporting metrics, but you can filter sources by status.
 <ul>
-<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for more than 4 weeks.</li>
-<li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. </li>
-<li><strong>Metrics Stopped</strong>&mdash;Sources with no metrics received in the last 2 days. </li>
+<li><strong>Obsolete</strong>&mdash;Sources that didn't emit metrics for more than 4 weeks. (Maps to <code>~status.error</code>.)</li>
+<li><strong>Recent Metrics</strong>&mdash;Sources with metrics received in the last 2 days. (Maps to <code>~status.new</code> and <code>~status.ok</code>.)</li>
+<li><strong>Metrics Stopped</strong>&mdash;Sources with no metrics received in the last 2 days. (Maps to <code>~status.stopped</code>.)</li>
 </ul> </td>
 <td width="50%"><img src="/images/sources_status.png" alt="hide sources"></td>
 </tr>
 <tr>
 <td width="50%">
-Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.<br><br>
-In the screenshot on the right, we've fitered by the tag wavefront.aws.billing and selected Recent Metrics (which shows as <strong>ok</strong> in the search bar).</td>
+<p>Filter sources by tag. In most environments, administrators add source tags. You can <a href="tags_overview.html#source-tags">add source tags</a> from the UI or programmatically.</p>
+<p>In the screenshot on the right, we've fitered by the tag wavefront.aws.billing and selected Recent Metrics (which shows as <strong>ok</strong> in the search bar).</p></td>
 <td width="50%"><img src="/images/sources_tag_paths.png" alt="multiple tags for selection"></td>
 </tr>
 </tbody>
@@ -49,7 +49,7 @@ In the screenshot on the right, we've fitered by the tag wavefront.aws.billing a
 When you select a source in the Sources browser, you can examinine it in more detail on a second page.
 
 
-![Sources exploration page with 2 sources selected in left panel and charts created. Also highlighting point rate chart and Alerts Fired chart ](/images/sources_exploration.png)
+![Sources exploration page with 2 sources selected in left panel and charts created. Also highlighting point rate chart and Alerts Fired chart](/images/sources_exploration.png)
 
 ## Hide and Unhide Sources
 
