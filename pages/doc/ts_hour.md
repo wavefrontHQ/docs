@@ -38,6 +38,8 @@ The returned values are plotted against the corresponding hours of the day shown
 
 `hour()` is particularly useful when you want to define an alert that fires only during specific times of day. For example, you could use an expression such as `between(hour("US/Pacific"), 22,8)` in an alert condition to ensure that the alert fires only between 10pm and 8am Pacific Time.
 
+{% include note.html content="If you use this function in an alert, use single quotes, not double quotes around the timezone"%}
+
 ## Examples
 
 **Example 1: Showing Hours**
