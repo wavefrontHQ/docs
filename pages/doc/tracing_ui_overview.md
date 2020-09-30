@@ -66,6 +66,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 2:  Customize the application map view</b> <br/>
       You can customize how you see your applications and services on the application map using the settings icon. 
       <ul>
+      <li>ADD THE VIEW</li>
       <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
       <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
       <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
@@ -201,7 +202,7 @@ Using the table view, you can:
   
   </table>
 
-* Update the legend by clicking the settings icon:
+* Update the legend by clicking the settings icon. These settings apply to the application map, and service status view too.
   <table style = "width: 100;">
     <tr>
       <td markdown ="span">
@@ -251,10 +252,30 @@ On the page for a particular application, you can:
   - The total number of requests that are represented by the service's spans.
   - The percentage of the service's spans that contain errors.
   - The span duration (in milliseconds) at the 95th percentile across the service.
-
 * Drill down from a service box:
   - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
+  * Update the legend by clicking the settings icon. These settings apply to the application map, and table view too.
+    <table style = "width: 100;">
+      <tr>
+        <td markdown ="span">
+          **Error Percentage** <br/>
+          Update the legend to highlight the data based on the error percentage. Select **Error %** from the dropdown and customize the values of the legend. The values need to be in ascending order.
+        </td>
+        <td markdown ="span">
+          ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
+        </td>
+      </tr>
+      <tr>
+        <td markdown="span">
+          **Duration** <br/>
+          Update the legend to highlight the data based on the duration. Select **Duration** from the dropdown menu and customize the values of the legend. The values need to be in ascending order and are in milliseconds.
+        </td>
+        <td markdown ="span">
+          ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
+        </td>
+      </tr>
+    </table>
 
 
 ## Service Dashboard
