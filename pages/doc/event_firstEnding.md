@@ -31,9 +31,9 @@ The `lastEnding()` function returns  the event that ends latest, from among the 
 
 ## Description
 
-The `firstEnding()` event function inspects the specified event set, and returns the single event that has the earliest start time.
+The `firstEnding()` event function inspects the specified event set, and returns the single event that has the earliest end time.
 
-The `lastEnding()` event function inspects the specified event set, and returns the single event that has the latest start time.
+The `lastEnding()` event function inspects the specified event set, and returns the single event that has the latest end time.
 
 **Note:** If multiple events match the condition, the result is non-deterministic. Each of these functions always returns just one event, although a different event might be returned if you run the query again with the same event set.
 
