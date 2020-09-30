@@ -26,18 +26,18 @@ To choose your starting point for visualizing traces:<br/>
   <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
   <li> From the taskbar click <b>Applications</b> :
   <img src="/images/tracing_menu.png" alt="tracing menu"/>
-      <ul> <li>Select <b>Application Map</b> to <a href="#application-map">view how instrumented applications are related to each other</a> and drill down from there.</li>
-      <li> Select <b>Application Status</b> to <a href="#application-status-dashboard">view the status of your instrumented applications</a> and drill down from there. 
-          <br/>Once on Application Status, click <b>Service Status</b> to <a href="#service-status-dashboard">view the status of the services in an application</a> and drill down from there.</li>
+      <ul> <li>Select <b>Application Status</b> to <a href="#application-status">view how instrumented applications are related to each other, view the status of the applications</a> and drill down from there.</li>
       <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
       <li> Select <b>Traces</b> to start by <a href="#tracing-browser">querying for traces</a> and drill down from there.</li>
       </ul></li></ol>
 </td>
 </tr>
 </tbody>
-</table>
+</table> 
 
-## Application Map (Beta)
+## Application Status
+
+### Application Map (Beta)
 
 The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
@@ -124,24 +124,121 @@ Let's walk through the following scenario to get a quick overview of the applica
 </tbody>
 </table>
 
-    
-## Application Status
+### Table View
 
-Go to the Applications page for a top-level status overview of your instrumented applications.
+View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
-![app status](images/tracing_application_status.png)
+![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the service status view](images/tracing_table_view.png)
 
-On the Applications page, you can:
-* View the status of all instrumented applications, or search for a particular application by applying filters.
-  - Apply one or more filters to select application name, cluster, or shard and click **Apply**.
-* Inspect RED metrics to obtain a status summary for an application:
-  - The total number of requests that are represented by the application's spans.
-  - The percentage of the application's spans that contain errors.
-  - The span duration (in milliseconds) at the 95th percentile across the application.
-* Sort the displayed applications by name or by a RED metric.
-* Click an application name for an overview of its services.
+Using the table view, you can:
+* Examine the applications and services, or search for a particular application or service by applying filters.
+* Click the name of the service to [explore the dashboard for that service](#explore-the-default-service-dashboard).
+* Sort data:
+  - Sort the application and service names alphabetically.
+  - Sort the table in the ascending or descending order of the RED metrics.
+* Inspect RED metrics to obtain a status summary of a service:
+  <table style = "width: 100%;">
+    <tr>
+      <th width = "20%">Table Data</th>
+      <th width = "80%">Description</th>
+    </tr>
+    <tr>
+      <td>
+        Request Rate
+      </td>
+      <td>
+        The number of requests per minute that are represented by the service's spans.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        &#916; Request Rate
+      </td>
+      <td>
+        The change in the request rate since it was last recorded. The table view indicates if the request count has gone up or down since the last time it was recorded.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Error %
+      </td>
+      <td>
+        The percentage of the service's spans that contain errors.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        &#916; Error %
+      </td>
+      <td>
+        The change in the error percentage since it was last recorded. The table view indicates if the error percentage has gone up or down since the last time it was recorded.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Duration (P95)
+      </td>
+      <td>
+        The span duration (in milliseconds) at the 95th percentile across the service.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        &#916; Duration (P95)
+      </td>
+      <td>
+        The change in duration since it was last recorded. The table view indicates if the duration of the request has increased or decreased since the last time it was recorded.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Component
+      </td>
+      <td>
+        See the components used by the service. The beachshirts application's styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.
+      </td>
+    </tr>
+  
+  </table>
 
-## Service Status
+* Update the legend by clicking the settings icon:
+  <table style = "width: 100;">
+    <tr>
+      <td markdown ="span">
+        **Error Percentage** <br/>
+        Update the legend to highlight the data based on the error percentage. Select **Error %** from the dropdown and customize the values of the legend. The values need to be in ascending order.
+      </td>
+      <td markdown ="span">
+        ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
+      </td>
+    </tr>
+    <tr>
+      <td markdown="span">
+        **Duration** <br/>
+        Update the legend to highlight the data based on the duration. Select **Duration** from the dropdown menu and customize the values of the legend. The values need to be in ascending order and are in milliseconds.
+      </td>
+      <td markdown ="span">
+        ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
+      </td>
+    </tr>
+  </table>
+* Click the settings icon to customize the table view:
+  <table>
+    <tr>
+      <td>
+        <ul>
+          <li>Group the services by the application.</li>
+          <li>Add or remove columns by selecting or deselecting items from the table settings options.</li>
+        </ul>
+      </td>
+      <td markdown="span">
+        ![Shows the settings to customize the table view. Select or deselect the settings to customize the table.](images/tracing_table_view_table_settings.png)
+      </td>
+    </tr>
+  </table>
+
+
+### Service Status
 
 When you select an application, you get an overview of its services.
 
