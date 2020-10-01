@@ -12,6 +12,8 @@ The template is a blueprint for extracting information from the alert and assemb
 
 To customize a template, start with the default template for the alert target type, and edit that template.
 
+{% include tip.html content="If you are using JSON in your custom alert target, you must [escape all special characters](https://www.freeformatter.com/json-escape.html)" %}
+
 {% include note.html content="For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html)." %}
 
 ## About Alert Target Templates
