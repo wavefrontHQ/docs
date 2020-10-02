@@ -7,7 +7,7 @@ permalink: metrics_security.html
 summary: Limit access to metrics with policy rules.
 ---
 
-In a large enterprise, certain data are confidential. Wavefront allows you to limit who can see or modify data in several ways.
+In a large enterprise, certain data are confidential. Wavefront allows you to limit who can see or modify data in several ways. 
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify Wavefront objects. For example, only users with **Dashboards** permission can modify dashboards.
   -  Other permissions make certain information completely invisible. For example, only uses with SAML IDP Admin permission can see the **Self Service SAML** menu or access that page.
