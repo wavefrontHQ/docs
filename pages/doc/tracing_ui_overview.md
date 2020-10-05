@@ -37,6 +37,8 @@ To choose your starting point for visualizing traces:<br/>
 
 ## Application Status
 
+It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and service status view.
+
 ### Application Map (Beta)
 
 The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
@@ -66,7 +68,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 2:  Customize the application map view</b> <br/>
       You can customize how you see your applications and services on the application map using the settings icon. 
       <ul>
-      <li>ADD THE VIEW</li>
+      <li><b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Chose the layout that helps you understand how your services are linked.</li>
       <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
       <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
       <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
@@ -121,6 +123,23 @@ Let's walk through the following scenario to get a quick overview of the applica
         <li> Navigate to the Tracing browser when you click <b>View traces for this traffic</b>.</li></ul>
       </td>
     <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
+  </tr>
+  <tr>
+    <td>
+    <b>Step 8: Update the legend</b> <br/>
+    Click the settings icon and select Error or Duration. These settings apply to the table view, and service status view too.
+      <ul>
+        <li>
+          Error Percentage: Update the legend to highlight the data based on the error percentage. Select <b>Error 	&#37;</b> from the dropdown and customize the values. The values need to be in ascending order.
+        </li>
+        <li>
+          Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
+        </li>
+      </ul>
+    </td>
+    <td markdown="span">
+      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
+    </td>
   </tr>
 </tbody>
 </table>
@@ -207,7 +226,7 @@ Using the table view, you can:
     <tr>
       <td markdown ="span">
         **Error Percentage** <br/>
-        Update the legend to highlight the data based on the error percentage. Select **Error %** from the dropdown and customize the values of the legend. The values need to be in ascending order.
+        Update the legend to highlight the data based on the error percentage. Select **Error %** from the dropdown and customize the values. The values need to be in ascending order.
       </td>
       <td markdown ="span">
         ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
@@ -216,7 +235,7 @@ Using the table view, you can:
     <tr>
       <td markdown="span">
         **Duration** <br/>
-        Update the legend to highlight the data based on the duration. Select **Duration** from the dropdown menu and customize the values of the legend. The values need to be in ascending order and are in milliseconds.
+        Update the legend to highlight the data based on the duration. Select **Duration** from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
       </td>
       <td markdown ="span">
         ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
@@ -260,7 +279,7 @@ On the page for a particular application, you can:
       <tr>
         <td markdown ="span">
           **Error Percentage** <br/>
-          Update the legend to highlight the data based on the error percentage. Select **Error %** from the dropdown and customize the values of the legend. The values need to be in ascending order.
+          Update the legend to highlight the data based on the error percentage. Select **Error %** from the dropdown and customize the values. The values need to be in ascending order.
         </td>
         <td markdown ="span">
           ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
@@ -269,7 +288,7 @@ On the page for a particular application, you can:
       <tr>
         <td markdown="span">
           **Duration** <br/>
-          Update the legend to highlight the data based on the duration. Select **Duration** from the dropdown menu and customize the values of the legend. The values need to be in ascending order and are in milliseconds.
+          Update the legend to highlight the data based on the duration. Select **Duration** from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </td>
         <td markdown ="span">
           ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
@@ -413,6 +432,8 @@ From the Traces browser, you can:
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
 * Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
   You can toggle the panel size for the traces list, service map, or trace details.
+* Import traces by clicking <img src="images/tracing_import_traces.png"
+style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](#view-traces-offline).
 * Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon. 
   * Click the expand icon to expand the RED metrics and view them next to the trace list, and click the same icon again to restore to the default view.
     ![partial expand red metrics](images/tracing_ui_partial_expand_red_metrics.png)
@@ -502,3 +523,25 @@ We use the following rules to determine which spans to include in a critical pat
 4. Choose longer spans over shorter siblings.
 5. Choose later spans over earlier spans.
 6. Choose child spans instead of their parent spans.
+
+## View Traces Offline
+
+Wavefront automatically performs [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling) to reduce the volume of ingested traces. Therefore, after some time, you don't see some of your old traces due to intelligent sampling. Now, you can import trace data, save it, and view them later on when troubleshooting using spans.
+
+1. Import the Traces:
+    1. Import the traces via the [Tracing Browser](#traicng-browser) and save the JSON file.
+    1. Import traces via the API and save the response as a JSON file.
+      - Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
+        <br/>Example:
+        ![UI image showing where the API is on the Wavefront Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
+      - Use a `curl` command that has the `/api/v2/chart/api` URL.
+        <br/>Example:
+        ```
+        curl -X GET --header "Accept: application/json" --header "Authorization: Bearer 111aaa-11aa-dd333-bb444-5555edft" "https://tracing.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
+        ```
+1. Click **Applications** > **Offline Traces**.
+1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
+  <br/>Now, you see the trace data you imported. You can only upload one JSON file at a time.
+  ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
+    
+    
