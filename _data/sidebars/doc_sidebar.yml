@@ -631,7 +631,7 @@ entries:
             url: /access.html
             output: web
 
-          - title: Metrics Security Policy Rules
+          - title: Metrics Security
             url: /metrics_security.html
             output: web
 
