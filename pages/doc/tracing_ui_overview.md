@@ -291,7 +291,7 @@ On the page for a particular application, you can:
 * Drill down from a service box:
   - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
-  * Update the legend by clicking the settings icon. These settings apply to the application map, and table view too.
+* Update the legend by clicking the settings icon. These settings apply to the application map, and table view too.
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">
