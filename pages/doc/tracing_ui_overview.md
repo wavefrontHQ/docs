@@ -178,7 +178,12 @@ Using the table view, you can:
         &#916; Request Rate
       </td>
       <td>
-        The difference between the current request rate and the request rate at the time you prefer to compare it to (based on the <b>Compare</b> option you select). This change is shown as a percentage too.
+        The difference between:
+        <ul>
+          <li>The current request rate</li>
+          <li>The request rate at the Compare option time.</li>
+        </ul>
+        This difference is also shown as a percentage.
       </td>
     </tr>
     <tr>
@@ -194,7 +199,11 @@ Using the table view, you can:
         &#916; Error %
       </td>
       <td>
-        The difference between the current request rate and the request rate at the time you prefer to compare it to (based on the <b>Compare</b> option you select). This change is shown as a percentage too.
+        The difference between:
+        <ul>
+          <li>The current error percentage</li>
+          <li>The error percentage at the Compare option time.</li>
+        </ul>
       </td>
     </tr>
     <tr>
@@ -210,7 +219,12 @@ Using the table view, you can:
         &#916; Duration (P95)
       </td>
       <td>
-        The difference between the current request rate and the request rate at the time you prefer to compare it to (based on the <b>Compare</b> option you select). This change is shown as a percentage too.
+        The difference between:
+        <ul>
+          <li>The current duration (P95)</li>
+          <li>The duration (P95) at the Compare option time.</li>
+        </ul>
+        This difference is also shown as a percentage.
       </td>
     </tr>
     <tr>
