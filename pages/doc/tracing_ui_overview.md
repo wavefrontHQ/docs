@@ -156,7 +156,10 @@ Using the table view, you can:
 * Sort data:
   - Sort the application and service names alphabetically.
   - Sort the table in the ascending or descending order of the RED metrics.
-* Inspect RED metrics to obtain a status summary of a service:
+* See the change (Δ value) in the RED metrics based on the time you selected for **Compare**. 
+<br/>For example, if you select **week ago** from the **Compare** drop-down, the Δ value indicate the change in RED metrics since the data was recorded a week ago. 
+  <br/>![shows the compare option on the table view. The drop down has the values, off (if selected doesn't show the change in value), 2 hours ago, day ago, week ago, and month ago. ](images/tracing_compare_table_view.png)
+* Inspect RED metrics to obtain a status summary of a service.
   <table style = "width: 100%;">
     <tr>
       <th width = "20%">Table Data</th>
@@ -175,7 +178,7 @@ Using the table view, you can:
         &#916; Request Rate
       </td>
       <td>
-        The change in the request rate since it was last recorded. The table view indicates if the request count has gone up or down since the last time it was recorded.
+        The difference between the current request rate and the request rate at the time you prefer to compare it to (based on the <b>Compare</b> option you select). This change is shown as a percentage too.
       </td>
     </tr>
     <tr>
@@ -191,7 +194,7 @@ Using the table view, you can:
         &#916; Error %
       </td>
       <td>
-        The change in the error percentage since it was last recorded. The table view indicates if the error percentage has gone up or down since the last time it was recorded.
+        The difference between the current request rate and the request rate at the time you prefer to compare it to (based on the <b>Compare</b> option you select). This change is shown as a percentage too.
       </td>
     </tr>
     <tr>
@@ -207,7 +210,7 @@ Using the table view, you can:
         &#916; Duration (P95)
       </td>
       <td>
-        The change in duration since it was last recorded. The table view indicates if the duration of the request has increased or decreased since the last time it was recorded.
+        The difference between the current request rate and the request rate at the time you prefer to compare it to (based on the <b>Compare</b> option you select). This change is shown as a percentage too.
       </td>
     </tr>
     <tr>
@@ -215,7 +218,7 @@ Using the table view, you can:
         Component
       </td>
       <td>
-        See the components used by the service. The beachshirts application's styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.
+        See the components used by the service. For example, the beachshirts application's styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.
       </td>
     </tr>
   
@@ -508,7 +511,6 @@ Span details include:
 * A clickable link to the corresponding dashboard that lets you examine the metrics associated with the call.
 
 If your spans have been instrumented to show span logs, you can click **Logs** to fetch the logs and drill down to examine them. We don't show span logs by default for better browser performance.
-
 
 ### A Closer Look at Critical Paths
 
