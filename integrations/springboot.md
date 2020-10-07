@@ -61,3 +61,4 @@ management.metrics.export.wavefront.api-token=YOUR_API_TOKEN
 management.metrics.export.wavefront.uri=https://YOUR_CLUSTER.wavefront.com
 ```
 {% endraw %}
+

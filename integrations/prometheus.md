@@ -112,3 +112,4 @@ Save the configuration file and restart Prometheus.
 
 See the [Integrating Prometheus with Wavefront](https://www.wavefront.com/integrating-prometheus-with-wavefront) blog for more information.
 
+

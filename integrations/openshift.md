@@ -39,16 +39,6 @@ Here's a preview of the Kubernetes Pods dashboard:
 
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
 
-## Kubernetes Setup
-
-This integration uses the [Wavefront Collector for Kubernetes](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes) to monitor your Kubernetes clusters.
-
-* **Most users** follow the steps under *Kubernetes Quick Install Using Helm* or the *Kubernetes Manual Install*.
-* **OpenShift users** follow ONLY the steps under *OpenShift Installation*.
-* **vSphere Project Pacific users**
-  1. [Connect to the cluster control plane](https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-kubernetes/GUID-C099E736-43A6-464C-9BFA-29B8509F0DA1.html).
-  2. Follow the steps under *Kubernetes Quick Install Using Helm* or the *Kubernetes Manual Install*.
-* **Tanzu Mission Control users** follow the steps given in the [Tanzu Mission Control documentation](https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-6DFB45C0-A741-4972-95EA-59B7AE581FE8.html).
 
 ### Kubernetes Quick Install Using Helm
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
@@ -75,11 +65,10 @@ helm repo update
 **Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For Project Pacific, add `--set projectPacific.enabled=true` along with helm install command.
 
 Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
-
-### Kubernetes Manual Install
+#### Kubernetes Manual Install
 Follow the instructions below to manually set up Kubernetes monitoring.
 
-### Step 1. Deploy a Wavefront Proxy in Kubernetes
+##### Step 1. Deploy a Wavefront Proxy in Kubernetes
 
 1. Download [wavefront.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/wavefront-proxy/wavefront.yaml) to your system.
 2. Edit the file and set `WAVEFRONT_URL` to `https://YOUR_CLUSTER.wavefront.com/api/` and `WAVEFRONT_TOKEN` to `YOUR_API_TOKEN`.
@@ -87,18 +76,17 @@ Follow the instructions below to manually set up Kubernetes monitoring.
 
 The Wavefront proxy and a `wavefront-proxy` service should now be running in Kubernetes.
 
-### Step 2. Deploy Wavefront Collector for Kubernetes
+##### Step 2. Deploy Wavefront Collector for Kubernetes
 
-1. Download the following deployment files to a directory named `wavefront-collector-dir` on your system:
+1. Create a directory named `wavefront-collector-dir` and download the following files to that directory:
   * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/0-collector-namespace.yaml)
-  * [0-project-pacific-rolebinding.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/project-pacific/0-project-pacific-rolebinding.yaml) [**Note:** Download this file only for Project Pacific].
   * [1-collector-cluster-role.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/1-collector-cluster-role.yaml)
   * [2-collector-rbac.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/2-collector-rbac.yaml)
   * [3-collector-service-account.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/3-collector-service-account.yaml)
   * [4-collector-config.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/4-collector-config.yaml)
   * [5-collector-daemonset.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/kubernetes/5-collector-daemonset.yaml)
 
-2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` to uniquely identify your Kubernetes cluster.
+2. Edit `4-collector-config.yaml` and replace `clusterName: k8s-cluster` with the name of your Kubernetes cluster.
 
 3. If RBAC is disabled in your Kubernetes cluster, edit `5-collector-daemonset.yaml` and comment out `serviceAccountName: wavefront-collector`.
 
@@ -106,7 +94,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 
 To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
 
-### Step 3. (Optional) Deploy the kube-state-metrics Service
+##### Step 3. (Optional) Deploy the kube-state-metrics Service
 
 The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
 
@@ -115,28 +103,100 @@ To deploy kube-state-metrics:
 1. Download [kube-state.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/ksm-all-in-one/kube-state.yaml) to your system.
 2. Run `kubectl create -f </path/to>/kube-state.yaml`.
 
-The `kube-state-metrics` service should now be running on your cluster. The Wavefront Collector will automatically discover and start collecting metrics from the kube-state-metrics service.
+The `kube-state-metrics` service starts running on your cluster. The Wavefront Collector automatically discovers the service and starts collecting metrics from the kube-state-metrics service.
+### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
 
-### OpenShift Installation
-Follow these steps for installing the Wavefront Collector in an OpenShift environment. Refer to the **Kubernetes Quick Install using Helm** or **Kubernetes Manual Install** for installing the collector in all other Kubernetes environments.
+The Wavefront Collector supports monitoring of OpenShift clusters:
+  * To monitor OpenShift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
+  * To monitor OpenShift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
 
-The collector supports monitoring of Openshift clusters:
-  * To monitor Openshift Origin 3.9 follow the steps in [Installation and Configuration on OpenShift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift.md).
-  * To monitor Openshift Enterprise 3.11 follow the steps in [Installation and Configuration of Wavefront Collector Operator on Openshift](https://github.com/wavefronthq/wavefront-kubernetes-collector/tree/master/docs/openshift-operator.md)
+### Install and Configure Wavefront Operator on OpenShift Enterprise 4.x
 
-### After Installation
+This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Operator.
 
-#### Troubleshooting
-If you do not see metrics in the Kubernetes dashboard, check the logs from the collector and proxy pods.
+#### Install and Configure Wavefront Operator 
 
-#### Application and Service Auto Discovery
-The Wavefront Collector can [auto discover](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/discovery.md#rule-based-discovery) applications and services within a Kubernetes environment and automatically start collecting metrics.
+1.  Log in to OpenShift Web UI as administrator.
+2.  Create a project with name `wavefront`.
+3.  In the Left pane, navigate to **Catalog** > **OperatorHub**.
+4.  From the list of Operator types select **Monitoring** > **Wavefront**.
+5.  Click on the **Wavefront Operator** and click **Install**.
+6.  Select `wavefront` as namespace to subscribe to.
+7.  When the subscription is successful, the operator is listed under **Installed Operators** and deploys Wavefront Proxy and Wavefront Collector CRD's into the project.
+8.  Select **Installed Operators** > **Wavefront Operator** > **Wavefront Proxy** > **Create New**  to deploy the proxy.
+9.  Create Wavefront Proxy custom resource by specifying the following parameters in the proxy spec and leave rest of the values as defaults.
+    * token → YOUR_API_TOKEN
+    * url → https://YOUR_CLUSTER.wavefront.com
+10. Click **Create**.  This deploys the proxy service named `example-wavefrontproxy` with port 2878 as metric port.  In addition, Operator creates Persistent Volume Claim (PVC) with the name `wavefront-proxy-storage` using default underlying Persistent Volume (PV).
+11. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Collector** > **Create New** to deploy the collector.
+12. Click **Create** without changing any values in the proxy definition.
 
-The default configuration file includes [discovery configurations](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/5fa51a5158a8adc603a93244917f27e53453b3c2/deploy/kubernetes/4-collector-config.yaml#L83) for a number of common applications such as Consul, Redis, Memcached, etc. Uncomment the configurations for the applications you wish to monitor, and customize the rules as relevant to your environment.
+Because default parameters are used, the collector runs as a daemonset and uses `example-wavefrontproxy` as sink. The collector auto-discovers the pods and services that expose metrics and dynamically starts collecting metrics for the targets. It collects metrics from the kubernetes API server if configured.
 
-#### Horizontal Pod Autoscaling (HPA)
-Wavefront provides a HPA adapter for autoscaling your pods based on any metrics in Wavefront. See [wavefront-kubernetes-adapter](https://github.com/wavefrontHQ/wavefront-kubernetes-adapter) for details.
+Now log in to Wavefront and search for the `openshift-demo-cluster` in kubernetes integration dashboards.
 
+#### Using an Existing Proxy
+
+To configure Wavefront Collector to use a proxy that's already running in your environment, follow these steps:
+1. Download the example configuration [file](https://raw.githubusercontent.com/wavefrontHQ/wavefront-collector-for-kubernetes/master/deploy/examples/openshift-collector-configmap.yaml).
+2. Update `sinks.proxyAddress` with your existing proxy address. Please refer this [document](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/configuration.md) for more configuration options.
+3. Create a ConfigMap by selecting **Workloads** > **ConfigMap** > **Select Project** > **Create ConfigMap**, copy paste the updated configuration in to the text field and click on **Create**.
+4. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Collector** > **Create New** to deploy the collector.
+5. Set `spec.useOpenshiftDefaultConfig` to `false` and `spec.configName` to the ConfigMap name created in step 3.
+6. Click on **Create**.
+
+
+#### Advanced Wavefront Proxy Configuration
+
+You can configure the proxy to change how it processes your data, port numbers, metric prefix etc. Refer this [document](https://docs.wavefront.com/proxies_configuring.html) for more details on proxy configuration properties. Below are the steps to create ConfigMap with advanced configuration properties:
+
+1. Create a ConfigMap under the project where the operator is deployed.
+
+   Example:-{% raw %}
+   ```yaml
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: advanced-config
+     namespace: wavefront
+   data:
+     wavefront.conf: |
+       prefix = dev
+       customSourceTags = <YOUR_K8S_CLUSTER>
+   ```
+{% endraw %}
+2. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Proxy** > **Create New** to deploy the proxy.
+3. Set `spec.advanced` to the name of the ConfigMap created in Step 1.
+4. Set `spec.token` to Wavefront API token and `spec.url` to Wavefront URL.
+5. Click on **Create**.
+
+
+#### Configuring Wavefront Proxy Preprocessor Rules
+
+Preprocessor rules allow you to manipulate incoming metrics before they reach the proxy, for example, you could remove confidential text strings or replace unacceptable characters. See [Proxy Preprocessor Rules](https://docs.wavefront.com/proxies_preprocessor_rules.html) for details. Follow these steps to create a ConfigMap with custom preprocessor rules:
+
+1. Create a ConfigMap under the project where the operator is deployed.
+   
+   Example:-{% raw %}
+   ```yaml
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: preprocessor-config
+     namespace: wavefront
+   data:
+      rules.yaml: |
+        '2878':
+          - rule    : add-cluster-tag
+            action  : addTag
+            tag     : env
+            value   : dev
+   ```
+{% endraw %}
+2. Select **Installed Operators** > **Wavefront Operator** > **Wavefront Proxy** > **Create New** to deploy the proxy.
+3. Set `spec.preprocessor` to the name of the ConfigMap created in Step 1.
+4. Set `spec.token` to Wavefront API token and `spec.url` to Wavefront URL.
+5. Click on **Create**.
 
 ## Table of Contents
 

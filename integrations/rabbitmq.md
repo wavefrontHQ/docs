@@ -65,3 +65,4 @@ Configure additional `[[inputs.rabbitmq]]` entries to monitor multiple RabbitMQ 
 
 Run `sudo service telegraf restart` to restart your agent.
 
+

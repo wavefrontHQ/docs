@@ -26,3 +26,4 @@ If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) 
 Follow the instructions in [Log Data Metrics Integration](https://docs.wavefront.com/integrations_log_data.html) for configuring the grok patterns to extract metrics from log data and sending data using Filebeat or TCP.
 
 
+

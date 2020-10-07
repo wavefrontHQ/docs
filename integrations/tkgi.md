@@ -37,3 +37,4 @@ In addition to setting up the metrics flow, this integration also installs a das
 
 Wavefront monitoring will be active for any cluster that is created after you have saved the configuration settings and applied the changes.
 
+

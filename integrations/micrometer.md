@@ -213,3 +213,4 @@ new JvmThreadMetrics().bindTo(registry); (5)
   4. Gauges current CPU total and load average.
   5. Gauges thread peak, number of daemon threads, and live threads.
 
+

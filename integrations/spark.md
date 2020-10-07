@@ -46,3 +46,4 @@ Apache Spark is an open-source cluster-computing framework. This integration exp
 5. Distribute the `metrics.properties` file to all your Spark nodes.
 6. Restart your **master** and **slaves** nodes.
 
+

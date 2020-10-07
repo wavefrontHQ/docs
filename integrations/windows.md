@@ -45,3 +45,4 @@ Supported Version(s): Windows 8 and up
 3. Select *Telegraf* and click *Uninstall* at the top.
 4. Select *Wavefront Proxy* and click *Uninstall* at the top.
 
+

@@ -50,3 +50,4 @@ Run `sudo service telegraf restart` to restart your agent.
 To capture metrics from Papertrail, choose the **Webhook** service in the Webhooks section of the Papertrail web interface.
 See the [Papertrail documentation](https://help.papertrailapp.com/kb/how-it-works/web-hooks/#webhooks-operated-by-papertrail) for details on Webhook service configuration.
 
+

@@ -132,6 +132,7 @@ Use the following environment variables to configure the Wavefront endpoint, bef
 | `WAVEFRONT_URI`    | https://YOUR_CLUSTER.wavefront.com     | Wavefront entry point URI                                                                    |
 | `WAVEFRONT_SOURCE` | scdf-docker-compose          | Unique identifier for Wavefront to know the metrics are coming from this Data Flow installation |
 
+
 ## Spring Cloud Data Flow Metrics
 
 Spring Cloud Data Flow's generic performance metrics are based on Micrometer and it is registered in Micrometer’s registry with the `spring.cloud.dataflow` prefix. 
