@@ -44,3 +44,4 @@ Create a file called `solr.conf` in `/etc/telegraf/telegraf.d` and enter the fol
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 
+

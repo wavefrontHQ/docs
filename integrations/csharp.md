@@ -151,3 +151,4 @@ var scheduler = new AppMetricsTaskScheduler(TimeSpan.FromSeconds(5), async () =>
 scheduler.Start();
 ```
 {% endraw %}
+

@@ -120,3 +120,4 @@ Execute the command `sudo telegraf --config /etc/telegraf/telegraf.conf --config
 **NOTE:** Telegraf must run as a sudo user. If Telegraf runs as a service, the user under whom the service runs should have passwordless sudo capability.
 
 
+

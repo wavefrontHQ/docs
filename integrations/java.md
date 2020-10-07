@@ -138,6 +138,7 @@ metricRegistry.register("jvm.thread-states", new ThreadStatesGaugeSet());
 ```
 {% endraw %}
 
+
 ## Metrics
 
 
