@@ -43,3 +43,4 @@ See the [sfdbconfig.conf example](https://github.com/signalfx/metricproxy/blob/m
 ### Step 3. Restart Metricproxy
 
 Run `/etc/init.d/metricproxy restart`.
+

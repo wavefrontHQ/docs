@@ -98,28 +98,6 @@ management:
         api-token: YOUR_API_TOKEN
         uri: https://YOUR_CLUSTER.wavefront.com
         source: scdf-docker-compose
-spring:
-  cloud:
-    dataflow:
-      applicationProperties:
-        stream:
-          management:
-            metrics:
-              export:
-                wavefront:
-                  enabled: true
-                  api-token: YOUR_API_TOKEN
-                  uri: https://YOUR_CLUSTER.wavefront.com
-                  source: scdf-docker-compose
-        task:
-          management:
-            metrics:
-              export:
-                wavefront:
-                  enabled: true
-                  api-token: YOUR_API_TOKEN
-                  uri: https://YOUR_CLUSTER.wavefront.com
-                  source: scdf-docker-compose
 ```
 {% endraw %}
 
@@ -127,17 +105,18 @@ spring:
 
 Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow.spring.io/docs/installation/local/docker/) to let you quickly install Spring Cloud Data Flow, Skipper, MySQL and Apache Kafka on your local machine and to [configure Wavefront monitoring](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront).
 
- 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
+ 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
  2. Follow the [Data Flow with Wavefront metrics collection](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront) installation instructions.
  3. When you stop seeing additional log messages on the command prompt, open the Spring Cloud Data Flow dashboard at http://localhost:9393/dashboard.
 
 Here is a quick start, single-line command:
 {% raw %}
 ```
-wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose.yml \
-wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.0/spring-cloud-dataflow-server/docker-compose-wavefront.yml \
-export DATAFLOW_VERSION=2.6.0 \
-export SKIPPER_VERSION=2.5.0 \
+wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose.yml 
+wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose-wavefront.yml 
+
+export DATAFLOW_VERSION=2.6.2 \
+export SKIPPER_VERSION=2.5.2 \
 export WAVEFRONT_KEY=YOUR_API_TOKEN \
 export WAVEFRONT_URI=https://YOUR_CLUSTER.wavefront.com \
 export WAVEFRONT_SOURCE=scdf-docker-compose \
@@ -153,6 +132,7 @@ Use the following environment variables to configure the Wavefront endpoint, bef
 | `WAVEFRONT_URI`    | https://YOUR_CLUSTER.wavefront.com     | Wavefront entry point URI                                                                    |
 | `WAVEFRONT_SOURCE` | scdf-docker-compose          | Unique identifier for Wavefront to know the metrics are coming from this Data Flow installation |
 
+
 ## Spring Cloud Data Flow Metrics
 
 Spring Cloud Data Flow's generic performance metrics are based on Micrometer and it is registered in Micrometer’s registry with the `spring.cloud.dataflow` prefix. 
@@ -163,7 +143,7 @@ Auto-configuration enables the instrumentation of requests handled by Spring MVC
 
 | Metric Name | Description |
 |------------|---------------|
-| spring.cloud.dataflow.http.server.requests.* | Metrics for all requests handled by SCDF's Spring MVC application. Statistics: avg, count, max, sum |  
+| spring.cloud.dataflow.server.* | Metrics for all requests handled by SCDF's Spring MVC application. Statistics: avg, count, max, sum |  
 
 ## Spring Integration Metrics
 

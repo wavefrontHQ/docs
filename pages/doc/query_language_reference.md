@@ -615,10 +615,6 @@ Filtering functions help you select a subset of the time series that are returne
 <td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
 <tr>
-<td markdown="span"><a href="ts_highpass.html"> highpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
-<td>Returns only the points in <strong>tsExpression2</strong> that are above <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
-</tr>
-<tr>
 <td markdown="span"><a href="ts_lowpass.html"> lowpass(<strong>&lt;tsExpression1&gt;</strong>, <strong>&lt;tsExpression2&gt;</strong>[, <strong>inner</strong>])</a></td>
 <td>Returns only the points in <strong>tsExpression2</strong> that are below <strong>tsExpression1</strong>. <strong>tsExpression1</strong> can be a constant.</td>
 </tr>
@@ -1599,19 +1595,19 @@ Each function in the following table returns a set of one or more events, and ca
 </tr>
 <tr>
 <td><a href="event_first.html">first(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that starts earliest, from among the specified set of events.</td>
+<td>Returns the first event that started from the specified set of events.</td>
 </tr>
 <tr>
 <td><a href="event_first.html">last(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that starts latest, from among the specified set of events.</td>
+<td>Returns the most recent event that started from the specified set of events.</td>
 </tr>
 <tr>
 <td><a href="event_firstEnding.html">firstEnding(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that ends earliest, from among the specified set of events.</td>
+<td>Returns the first event that ended from the specified set of events.</td>
 </tr>
 <tr>
 <td><a href="event_firstEnding.html">lastEnding(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that starts latest, from among the specified set of events.</td>
+<td>Returns the most recent event that ended from the specified set of events.</td>
 </tr>
 </tbody>
 </table>

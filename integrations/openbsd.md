@@ -165,3 +165,4 @@ In addition to setting up the metrics flow, this integration also installs a das
 3. Restart the Collectd daemon by running the following command:
    `/etc/rc.d/collectd restart`
 
+

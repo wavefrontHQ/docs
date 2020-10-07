@@ -30,3 +30,4 @@ You do not need the optional Attribute Mapping.
 
 1. Send the IDP metadata to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up Google SSO integration for Wavefront and we'll activate the integration on our end. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through Google instead of using a password. Any new user that comes along that did not yet exist in Wavefront would just get auto-created on the Wavefront side on first authentication.
 
+

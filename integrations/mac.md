@@ -98,3 +98,4 @@ bash -c "$(curl -s https://raw.githubusercontent.com/wavefrontHQ/homebrew-wavefr
 ```
 {% endraw %}
 
+

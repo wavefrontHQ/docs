@@ -57,3 +57,4 @@ servers = ["http://yarn1.foo.com:8088/ws/v1/cluster/metrics","http://yarn2.foo.c
 
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 
+

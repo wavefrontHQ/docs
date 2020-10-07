@@ -102,3 +102,4 @@ You can specify custom application names at the level you need, like this:
 The order of precedence is span level > process level > proxy level.
 
 The [documentation](https://docs.wavefront.com/tracing_integrations.html) explains integration requirements, how to specify custom tags for RED metrics and more.
+

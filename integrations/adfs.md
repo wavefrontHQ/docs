@@ -58,3 +58,4 @@ The rule sends an email address claim in the SAML response. The new rule transfo
 1. Open `https://<FQDN of ADFS>/FederationMetadata/2007-06/FederationMetadata.xml` to retrieve the identify provider metadata file.
 1. Send the metadata file to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up ADFS SSO integration for Wavefront and we'll activate the integration on our end. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through ADFS instead of using a password. Any new user that comes along that did not yet exist in Wavefront is auto-created on the Wavefront side on first authentication.
 
+

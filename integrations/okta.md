@@ -39,3 +39,4 @@ Okta is a popular identity management product that can be integrated with Wavefr
 
 1. Send the link to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up Okta integration for Wavefront. We'll notify you as soon as we've done this. At that point the users would authenticate to Wavefront through Okta instead of using a password. Any new user that comes along that did not yet exist in Wavefront would just get auto-created on the Wavefront side on first authentication.
 
+

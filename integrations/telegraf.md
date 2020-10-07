@@ -55,6 +55,7 @@ Create a `telegraf.conf` file in `/etc/telegraf/telegraf.d` and add the followin
 
 {% include telegraf_restart.md %}
 
+
 ## Metrics
 
 This table has Telegraf integration metrics with its description. You can also see the metrics list [on the Github page](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
