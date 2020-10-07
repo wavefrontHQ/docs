@@ -11,7 +11,7 @@ In a large enterprise, certain data are confidential. Wavefront allows you to li
 * **Permissions** are **global** settings.
   - Some permissions limit who can modify Wavefront objects. For example, only users with **Dashboards** permission can modify dashboards.
   -  Other permissions make certain information completely invisible. For example, only users with SAML IDP Admin permission can see the **Self Service SAML** menu or access that page.
-* **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to the Finance department.
+* **Access Control** allows administrators with the right permissions fine-grained control over individual dashboards or alerts. For example, it's possible to limit view and modify access to a Finance_2020 dashboard to just the Finance department.
 * **Metrics Security** supports even finer-grained control. In the example above, access to the Finance_2020 dashboard is limited to the Finance department. With metrics security, you can limit access to confidential time series, histogram and delta counter metrics to the leadership team.
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
@@ -84,7 +84,7 @@ Consider this simple example:
 <tr>
 <td markdown="span">Allow Infra and Related Metrics</td>
 <td>1</td>
-<td>Metrics with point tag env=production or env=dev (but not env=finace)</td>
+<td>Metrics with point tag env=production or env=dev (but not env=finance)</td>
 <td>All accounts in Developer group.</td>
 </tr>
 </tbody>
