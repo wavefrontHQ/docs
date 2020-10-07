@@ -131,6 +131,7 @@ The following annotated screenshot gives an overview of rule management options:
 * The **Metric Prefix** column shows the metrics affected by a rule.
 * The **Access** column shows whether the rule allows or blocks access.
 
+<!---
 ## Summary
 
 ### Block, Allow, and Other Options
@@ -160,6 +161,8 @@ To protect metrics from inclusion in alert notifications, use the [**Secure Metr
 ### Derived Metrics
 
 Wavefront computes derived metrics based on all metrics, even if some metrics are protected for some accounts. Because the individual components of a derived metrics are not visible to users, no sensitive information is revealed. However, the result of a derived metrics computation might be confusing.
+
+--->
 
 
 ## Examples and Best Practices for Metrics Security
