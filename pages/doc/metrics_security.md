@@ -131,12 +131,7 @@ The following annotated screenshot gives an overview of rule management options:
 * The **Metric Prefix** column shows the metrics affected by a rule.
 * The **Access** column shows whether the rule allows or blocks access.
 
-## Best Practices for Metrics Security
-
-Before you start, plan your strategy.
-
-It usually makes sense to create one rule that blocks (or allows) access to all metrics for a group, then allow (or block) access to a subset of the metrics or of the group.
-
+## Summary
 
 ### Block, Allow, and Other Options
 
@@ -165,3 +160,59 @@ To protect metrics from inclusion in alert notifications, use the [**Secure Metr
 ### Derived Metrics
 
 Wavefront computes derived metrics based on all metrics, even if some metrics are protected for some accounts. Because the individual components of a derived metrics are not visible to users, no sensitive information is revealed. However, the result of a derived metrics computation might be confusing.
+
+
+## Examples and Best Practices for Metrics Security
+
+Before you start, plan your strategy.
+
+Initially, a single metrics security policy rule is defined:
+
+![screenshot of default single policy](images/metrics_security_default.png)
+
+All users can access all metrics, meaning **no** restrictions are in place.  Furthermore, if the single **Allow All Metrics** rule was deleted, all users would still have access to all metrics.
+
+### Example: Restrict Access to Confidential Metrics
+
+This example restricts access to specific ranges of highly-sensitive metrics, say revenue numbers, to select groups of users.
+
+![screenshot of default single policy](images/metrics_security_restrict.png)
+
+The image above shows how to restrict metrics starting with `revenue.*` to  be accessible only by members of the group `Finance`. The policy grants all users access to all other metrics.
+
+* When the metric `revenue.saas` is queried by a user in the `Finance` group, this access matches Rule 1.  The rule grants the access, so the metric is shown to the user and no other rules are consulted.
+
+* When the metric `revenue.saas` is queried by a user **not** in the `Finance` group, the access does not match Rule 1.  The engine moves on to Rule 2, which matches because all users belong to the Everyone group.  Because the rule denies the access, the metric is not shown to the user. No other rules are consulted.
+
+### Example: Restrict Access for a Group of Users
+
+This example restricts access for a group of users, making only a subset of the metrics in the system available to them.
+
+![screenshot of default single policy](images/metrics_security_group.png)
+
+The image above shows how to restricts access for users in the group `Contractors`. Those users can only query metrics tagged with the point tag `env=dev`. This policy imposes no restrictions on any other groups.
+
+* When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 and access is granted.
+* But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 acts as a catch-all for users of group `Contractors` and denies them access to this metric.
+
+### Example: Strictly Limit Access on a Need-to-Know Basis
+
+Some companies want to make any metric acceessible only to the team that needs to know about it. Access to metrics outside a team’s scope of work is disabled.  Only administrators are allowed access to all metrics.
+
+![screenshot of default single policy](images/metrics_security_need_to_know.png)
+
+The image above shows how to use use a set of rules to accomplish this.
+
+* Rule 4 (baseline) applies to any access that doesn't match a higher-up rule. It denies access to all users. Users get access only when an "exception" rule with higher priority access matches.
+* Rule 3 grants access to all metrics to users in the `Admins` group.
+* Rule 2 grants access to any metrics starting with `gadget.*` to members of the `Gadgets` group.
+* Rule 1 grants access to any metrics starting with `widget.*` to members of the `Widgets` group.
+
+In this example, ordering (priority) between rules 1 and 2 does not matter because describe rules for independent metric regions.
+
+With this policy in place:
+* Members of the `Widgets` group are granted access if the metric starts with `widget.*` (Rule 1) and denied otherwise (Rule 4).
+* Members of the `Gadgets` group are granted access if the metric starts with `gadget.*` (Rule 2) and denied otherwise (Rule 4).
+*  Members of the `Admins` group are granted access to all metrics (Rule 3).
+
+Any user not belonging to one of the groups covered by the rules have no access.
