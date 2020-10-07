@@ -1595,19 +1595,19 @@ Each function in the following table returns a set of one or more events, and ca
 </tr>
 <tr>
 <td><a href="event_first.html">first(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that starts earliest, from among the specified set of events.</td>
+<td>Returns the first event that started from the specified set of events.</td>
 </tr>
 <tr>
 <td><a href="event_first.html">last(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that starts latest, from among the specified set of events.</td>
+<td>Returns the most recent event that started from the specified set of events.</td>
 </tr>
 <tr>
 <td><a href="event_firstEnding.html">firstEnding(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that ends earliest, from among the specified set of events.</td>
+<td>Returns the first event that ended from the specified set of events.</td>
 </tr>
 <tr>
 <td><a href="event_firstEnding.html">lastEnding(<strong>&lt;eventsExpression&gt;</strong>)</a></td>
-<td>Returns the event that ends latest, from among the specified set of events.</td>
+<td>Returns the most recent event that ended from the specified set of events.</td>
 </tr>
 </tbody>
 </table>
