@@ -261,6 +261,7 @@ Edit the `/etc/telegraf/telegraf.conf` to modify Telegraf agent level settings:
 Run `sudo service telegraf restart` to restart your Telegraf agent.
 
 
+
 ## Metrics for vSphere
 
 The following table lists metrics that the integration collected from a specific environment, and gives a good overview of what to expect. Your environment might include fewer metrics or additional metrics, depending on setup.

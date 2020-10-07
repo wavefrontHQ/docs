@@ -25,3 +25,4 @@ This integration uses various Telegraf input plugins and offers several setup op
 
 {% include telegraf.md %}
 
+

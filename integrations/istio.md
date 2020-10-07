@@ -69,6 +69,7 @@ Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes#wavefro
 
 Follow these [steps](https://github.com/wavefrontHQ/wavefront-kubernetes/tree/master/istio) to allow Istio to re-direct its traces to the Wavefront proxy.
 
+
 ## Metrics
 
 |Metric Name|Description|

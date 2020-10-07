@@ -9,6 +9,9 @@ summary: Learn about the Wavefront Dynatrace Integration.
 Dynatrace is an AI-powered, full-stack, automated performance management solution.  This integration configures the `Wavefront Collector for Dynatrace` to collect the metrics from Dynatrace and sends them to Wavefront.
 ## Setup
 
+### Prerequisite
+By default, API access is limited to 50 requests per minute in a Dynatrace SaaS environment. Wavefront Collector for Dynatrace works well with no API limit. Contact Dynatrace to remove the API limit from your account.
+
 ### Step 1. Install and Configure Wavefront Proxy
 If you have not already done so, install a Wavefront proxy.
 
@@ -77,4 +80,5 @@ Use `dtcollector.conf` to manage the log and other settings.
 
 ### Step 6. Log File Location
 Log file will be located at `/var/log/wavefront/dynatrace/dynatrace.log`.
+
 

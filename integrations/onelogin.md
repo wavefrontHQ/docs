@@ -30,3 +30,4 @@ OneLogin is a popular identity management product that can be integrated with Wa
 1. Copy the **Issuer URL** and send that URL to [support@wavefront.com](mailto:support@wavefront.com).
 2. When Wavefront receives the issuer URL, they will add your account as a provider and notify you. Going forward, users who log in to Wavefront authenticate through OneLogin instead of using a password. Any new user that does not yet exist in Wavefront is auto-created inside Wavefront when that user first authenticates successfully to OneLogin.
 
+

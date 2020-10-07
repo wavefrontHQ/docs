@@ -88,6 +88,7 @@ Create a file called `postgresql.conf` in `/etc/telegraf/telegraf.d` and enter t
 
 Run `sudo service telegraf restart` to restart your agent.
 
+
 ## Metrics
 
 For details about these metrics, see the [PostgreSQL Statistics Collector](https://www.postgresql.org/docs/current/monitoring-stats.html) documentation.
