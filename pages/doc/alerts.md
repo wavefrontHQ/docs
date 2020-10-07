@@ -193,7 +193,7 @@ The display expression can include any valid Wavefront Query Language construct,
 
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, consider sending simplified chart images to recipients of an alert. Otherwise, the alert recipient might receive an alert even if the recipient does not have access to all of the metrics that caused the alert.
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -202,7 +202,7 @@ The display expression can include any valid Wavefront Query Language construct,
 </thead>
 <tr>
 <td><strong>Secure Metric Details</strong></td>
-<td>If checked, alert notifications exclde metric details and alert images. This is a workaround for metrics security policy rules. </td>
+<td>If checked, alert notifications do not show metric details and alert images. </td>
 </tr>
 </tbody>
 </table>
@@ -329,7 +329,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </li>
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, consider sending simplified chart images to recipients of an alert. Otherwise, the alert recipient might receive an alert even if the recipient does not have access to all of the metrics that caused the alert.
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -338,7 +338,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </thead>
 <tr>
 <td><strong>Secure Metric Details</strong></td>
-<td>If checked, alert notifications exclde metric details and alert images. This is a workaround for metrics security policy rules. </td>
+<td>If checked, alert notifications do not show metric details and alert images. </td>
 </tr>
 </tbody>
 </table>

@@ -71,12 +71,12 @@ Our fine-grained **[access control](access.html)** allows administrators to prot
 
 ## Metrics Security Policy Rules
 
-Users with **Metrics** permission and the Super Admin users can create and manage  [metrics security policy rules](metrics_security.html).
+Any Super Admin user or users with **Metrics** permission can view, create, and manage  [metrics security policy rules](metrics_security.html).
 
-Data protected by a metrics security policy rule are protected:
-* Not visible in charts. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message on a white background.
-* Not visible in alerts. The alert fires based on the complete set of metrics, but if certain users don't have access to some of the metrics they do not see them in alert notifications or alert charts. A checkbox allows administrators to hide alert details to avoid confusion.
-* Not visible in auto-complete in Chart Builder, Query Editor, Metrics browser, etc.
+Data protected by a metrics security policy rule can become completely invisible to users. 
+* **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
+* **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
+* **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
 ## Authorization FAQs
 

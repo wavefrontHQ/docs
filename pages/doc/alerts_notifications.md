@@ -33,7 +33,7 @@ If an alert has **Secure Metrics Details** selected, the email or Slack notifica
 * Includes the text **Metrics Security Enabled** at the top.
 * Does **not** include metric details and alert images.
 
-Select this check box to avoid confusion if some metrics in your environment are protected by metrics security policies. Here's how it works:
+Select this check box if some metrics in your environment are protected by [metrics security policy rules](metrics_security.html). Here's how it works:
 
 * Alerts always check the complete set of metrics.
 * When a user opens alert-related charts,

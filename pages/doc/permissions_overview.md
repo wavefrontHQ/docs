@@ -11,7 +11,7 @@ Permissions allow administrators to control access to Wavefront feature sets. Ad
 
 {% include shared/badge.html content="Every Wavefront user can [perform certain tasks](accounts.html#what-can-a-new-user-do). However, you must have the appropriate permission to manage objects. If you do not have permission, UI menu selections and buttons required to perform management tasks are not visible." %}
 
-{% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html). To access metrics protected by metrics [security policy rules](metrics_security.html), the service account might need explicit permission. " %}
+{% include note.html content="A service account must have **permissions** to perform tasks. To run queries, a service account must have **Metrics** permission. To manage dashboards and alerts, the service account might need both permissions and [access](access.html). " %}
 
 The following list gives an overview of permissions. To learn more, click the link.
 
