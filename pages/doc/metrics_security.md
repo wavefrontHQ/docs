@@ -55,13 +55,36 @@ After the rules are in force, only users in the Finance group can access data th
 
 ### Sensitive Data Become Invisible
 
-Data protected by a metrics security policy rule can become completely invisible to users.
+Data protected by a metrics security policy rule can become invisible to users.
 
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
 * **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
 
+### Rule Priority and Rule Pairs
+
+Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
+
+* First block access to all metrics for a group (Priority 2)
+* Allow access to a small set of metrics (e.g. `*dev*`) for that group (Priority 1)
+
+Because Priority 1 overrides Priority 2, the group has access to a small set of metrics.
+
+See the Examples below for some scenarios.
+
+### Alert Notifications
+
+To protect metrics from inclusion in alert notifications, use the [**Secure Metrics Details** check box](alerts_notifications.html#alert-notification-with-secured-metrics-details). Wavefront looks at all metrics when determining when an alert status should change and shows them in alert notifications.
+
+### Derived Metrics and Events
+
+The current implementation does not protect metrics in Derived Metrics or in Events.
+
+
+
 <!--Include text of warning message-->
+
+<!---
 
 ## Example: Limited Access for Engineering
 
@@ -92,6 +115,7 @@ Consider this simple example:
 
 
 ![two rules, described above, shown in UI](images/m_security_rules.png)
+--->
 
 
 ## Create a Metrics Security Policy Rule
@@ -99,6 +123,19 @@ Consider this simple example:
 When you create a Metrics Security Policy rule, you specify the metrics you want to protect (or make available) and the account, group, or role that should (or should not) have access to those metrics.
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
+
+Here's an annotated screenshot that shows the main actions:
+
+![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
+
+
+When you create a rule, plan your strategy.
+
+* **Metrics Dimensions** allow you to determine what to block or allow.
+  - Specify one or more metric prefixes. You can specify exact an match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
+  - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you could block visibility into production environments for some developers, or block some development environments metrics for contractors.
+* **Access** allows you to allow or block access for a combination of accounts and/or groups or for roles.
+
 
 1. From the gear icon, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
@@ -131,43 +168,10 @@ The following annotated screenshot gives an overview of rule management options:
 * The **Metric Prefix** column shows the metrics affected by a rule.
 * The **Access** column shows whether the rule allows or blocks access.
 
-<!---
-## Summary
 
-### Block, Allow, and Other Options
+## Example for Metrics Security Policies
 
-Wavefront offers a lot of flexibility in rule creation:
-
-![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
-
-* **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify exact an match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
-  - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you could block visibility into production environments for some developers, or block some development environments metrics for contractors.
-* **Access** allows you to allow or block access for a combination of accounts and/or groups or for roles.
-
-### Rule Priority and Rule Pairs
-
-Rules are evaluated in priority order. In many cases, it's useful to think of pairs of rules, for example:
-
-* First block access to all metrics for a group (Priority 2)
-* Allow access to a small set of metrics (e.g. `*dev*`) for that group (Priority 1)
-
-Because Priority 1 overrides Priority 2, the group has access to a small set of metrics.
-
-### Alert Notifications
-
-To protect metrics from inclusion in alert notifications, use the [**Secure Metrics Details** check box](alerts_notifications.html#alert-notification-with-secured-metrics-details). Wavefront looks at all metrics when determining when an alert status should change and shows them in alert notifications.
-
-### Derived Metrics
-
-Wavefront computes derived metrics based on all metrics, even if some metrics are protected for some accounts. Because the individual components of a derived metrics are not visible to users, no sensitive information is revealed. However, the result of a derived metrics computation might be confusing.
-
---->
-
-
-## Examples and Best Practices for Metrics Security
-
-Before you start, plan your strategy.
+Before you start, plan your strategy. Here are some common scenarios.
 
 Initially, a single metrics security policy rule is defined:
 
@@ -183,9 +187,9 @@ This example restricts access to specific ranges of highly-sensitive metrics, sa
 
 The image above shows how to restrict metrics starting with `revenue.*` to  be accessible only by members of the group `Finance`. The policy grants all users access to all other metrics.
 
-* When the metric `revenue.saas` is queried by a user in the `Finance` group, this access matches Rule 1.  The rule grants the access, so the metric is shown to the user and no other rules are consulted.
+* When the metric `revenue.saas` is queried by a user in the `Finance` group, this access matches Rule 1 (**Finance Group can access Revenue**).  The rule grants the access, so the metric is shown to the user and no other rules are consulted.
 
-* When the metric `revenue.saas` is queried by a user **not** in the `Finance` group, the access does not match Rule 1.  The engine moves on to Rule 2, which matches because all users belong to the Everyone group.  Because the rule denies the access, the metric is not shown to the user. No other rules are consulted.
+* When the metric `revenue.saas` is queried by a user **not** in the `Finance` group, the access does **not** match Rule 1.  The engine moves on to Rule 2 (**No one else can access Revenue**), which matches because all users belong to the Everyone group.  Because the rule denies the access, the metric is not shown to the user. No other rules are consulted.
 
 ### Example: Restrict Access for a Group of Users
 
@@ -195,8 +199,8 @@ This example restricts access for a group of users, making only a subset of the 
 
 The image above shows how to restricts access for users in the group `Contractors`. Those users can only query metrics tagged with the point tag `env=dev`. This policy imposes no restrictions on any other groups.
 
-* When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 and access is granted.
-* But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 acts as a catch-all for users of group `Contractors` and denies them access to this metric.
+* When a user belonging to group `Contractors` runs a query for `cpu.usage` tagged with `env=dev`, this access matches Rule 1 (**Contractors can access dev environment metrics**) and access is granted.
+* But when the user issues a query for `cpu.usage` tagged with `env=prod`, this access does not match Rule 1. Rule 2 (**Contractors cannot access any other metrics**) acts as a catch-all for users of group `Contractors` and denies them access to this metric.
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
@@ -206,10 +210,10 @@ Some companies want to make any metric acceessible only to the team that needs t
 
 The image above shows how to use use a set of rules to accomplish this.
 
-* Rule 4 (baseline) applies to any access that doesn't match a higher-up rule. It denies access to all users. Users get access only when an "exception" rule with higher priority access matches.
-* Rule 3 grants access to all metrics to users in the `Admins` group.
-* Rule 2 grants access to any metrics starting with `gadget.*` to members of the `Gadgets` group.
-* Rule 1 grants access to any metrics starting with `widget.*` to members of the `Widgets` group.
+* Rule 4 (**Block All Metrics by default**) applies to any access that doesn't match a higher-up rule. It denies access to all users. Users get access only when an "exception" rule with higher priority access matches.
+* Rule 3 (**Allow All Metrics to Admins**) grants access to all metrics to users in the `Admins` group.
+* Rule 2 (**Allow Gadgets Team access to Gadget Metrics**) grants access to any metrics starting with `gadget.*` to members of the `Gadgets` group.
+* Rule 1 (**Allow Widgets Team access to Widget Metrics**) grants access to any metrics starting with `widget.*` to members of the `Widgets` group.
 
 In this example, ordering (priority) between rules 1 and 2 does not matter because describe rules for independent metric regions.
 

@@ -623,16 +623,16 @@ entries:
             url: /accounts.html
             output: web
 
-          - title: Permissions Reference
-            url: /permissions_overview.html
-            output: web
-
           - title: Access
             url: /access.html
             output: web
 
           - title: Metrics Security
             url: /metrics_security.html
+            output: web
+
+          - title: Permissions Reference
+            url: /permissions_overview.html
             output: web
 
         - title: Monitoring & Troubleshooting
