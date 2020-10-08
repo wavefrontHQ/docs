@@ -37,9 +37,9 @@ To choose your starting point for visualizing traces:<br/>
 
 ## Application Status
 
-It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and service status view.
+It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
-### Application Map (Beta)
+### Application Map
 
 The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
@@ -127,7 +127,7 @@ Let's walk through the following scenario to get a quick overview of the applica
   <tr>
     <td>
     <b>Step 8: Update the legend</b> <br/>
-    Click the settings icon and select Error or Duration. These settings apply to the table view, and service status view too.
+    Click the settings icon and select Error or Duration. These settings can be configured by each user and apply to the table view, and grid view too.
       <ul>
         <li>
           Error Percentage: Update the legend to highlight the data based on the error percentage. Select <b>Error 	&#37;</b> from the dropdown and customize the values. The values need to be in ascending order.
@@ -148,7 +148,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
-![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the service status view](images/tracing_table_view.png)
+![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
@@ -238,7 +238,7 @@ Using the table view, you can:
   
   </table>
 
-* Update the legend by clicking the settings icon. These settings apply to the application map, and service status view too.
+* Update the legend by clicking the settings icon. These settings can be configured by each user and apply to the application map, and grid view too.
   <table style = "width: 100;">
     <tr>
       <td markdown ="span">
@@ -275,7 +275,7 @@ Using the table view, you can:
   </table>
 
 
-### Service Status
+### Grid View
 
 When you select an application, you get an overview of its services.
 
@@ -291,7 +291,7 @@ On the page for a particular application, you can:
 * Drill down from a service box:
   - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
-* Update the legend by clicking the settings icon. These settings apply to the application map, and table view too.
+* Update the legend by clicking the settings icon. These settings can be configured by each user and apply to the application map, and table view too.
     <table style = "width: 100;">
       <tr>
         <td markdown ="span">
@@ -449,7 +449,7 @@ From the Traces browser, you can:
   - Use the [trace details panel](#examine-trace-details) to examine the individual spans in the trace.
 * Examine a trace's percentile indicator to see how the trace's duration compares to the durations of the other listed traces.
   You can toggle the panel size for the traces list, service map, or trace details.
-* Import traces by clicking <img src="images/tracing_import_traces.png"
+* Export traces by clicking <img src="images/tracing_import_traces.png"
 style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save the JSON file, and view them later using [Offline Traces](#view-traces-offline).
 * Easily analyze your traces hierarchy and RED metrics by clicking the expand or restore icon. 
   * Click the expand icon to expand the RED metrics and view them next to the trace list, and click the same icon again to restore to the default view.
@@ -542,11 +542,11 @@ We use the following rules to determine which spans to include in a critical pat
 
 ## View Traces Offline
 
-Wavefront automatically performs [intelligent sampling](trace_data_sampling.html#wavefront-intelligent-sampling) to reduce the volume of ingested traces. Therefore, after some time, you don't see some of your old traces due to intelligent sampling. Now, you can import trace data, save it, and view them later on when troubleshooting using spans.
+You can export traces from Wavefront and save them locally as JSON files and view them later using the **Offline Traces**.
 
-1. Import the Traces:
-    1. Import the traces via the [Tracing Browser](#traicng-browser) and save the JSON file.
-    1. Import traces via the API and save the response as a JSON file.
+1. Export Traces:
+    - Export the traces via the [Tracing Browser](#traicng-browser) and save the JSON file.
+    - Export traces via the API and save the response as a JSON file.
       - Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
         <br/>Example:
         ![UI image showing where the API is on the Wavefront Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
@@ -555,9 +555,10 @@ Wavefront automatically performs [intelligent sampling](trace_data_sampling.html
         ```
         curl -X GET --header "Accept: application/json" --header "Authorization: Bearer 111aaa-11aa-dd333-bb444-5555edft" "https://tracing.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
         ```
-1. Click **Applications** > **Offline Traces**.
-1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
-  <br/>Now, you see the trace data you imported. You can only upload one JSON file at a time.
+1. Upload the JSON file and view trace data. You can only upload one JSON file at a time.
+    1. Click **Applications** > **Offline Traces**.
+    1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
+  <br/>Now, you see the trace data you imported. 
   ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
     
     
