@@ -41,7 +41,10 @@ It is important to get an overview of the services and applications that send da
 
 ### Application Map
 
-The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
+The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map. 
+
+Use <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 ![application map](images/tracing_app_map.png)
 
@@ -102,7 +105,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       **Step 5: Focus on a service**<br/>
       Click on a service and then click <b>Focus on service</b> to focus on the styling service of the beachshirts application.<br/>
       
-      This will help you focus on a specific service when you have more than 10 services in your application.
+      This will help you focus on a specific service when you have many services in your application.
       </td>
     <td><img src="/images/tracing_appmap_focus_service.png" alt="Focus on the styling service"/></td>
   </tr>
@@ -170,7 +173,7 @@ Using the table view, you can:
         Request Rate
       </td>
       <td>
-        The number of requests per minute that are represented by the service's spans.
+        The request rate of the service.
       </td>
     </tr>
     <tr>
@@ -211,7 +214,7 @@ Using the table view, you can:
         Duration (P95)
       </td>
       <td>
-        The span duration (in milliseconds) at the 95th percentile across the service.
+        The span duration at the 95th percentile across the service.
       </td>
     </tr>
     <tr>
@@ -264,7 +267,7 @@ Using the table view, you can:
     <tr>
       <td>
         <ul>
-          <li>Group the services by the application.</li>
+          <li>Group the services by the application or ungroup the services.</li>
           <li>Add or remove columns by selecting or deselecting items from the table settings options.</li>
         </ul>
       </td>
@@ -273,6 +276,8 @@ Using the table view, you can:
       </td>
     </tr>
   </table>
+* Use <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 
 ### Grid View
@@ -285,9 +290,9 @@ On the page for a particular application, you can:
 * Examine the services in the application, or search for a particular service by applying filters.
 * View the inventory of component frameworks that each service is built on.
 * Inspect RED metrics to obtain a status summary for a service:
-  - The total number of requests that are represented by the service's spans.
+  - The request rate of the service.
   - The percentage of the service's spans that contain errors.
-  - The span duration (in milliseconds) at the 95th percentile across the service.
+  - The span duration at the 95th percentile across the service.
 * Drill down from a service box:
   - Click the name of the service or **Details** to [explore the dashboard for that service](#explore-the-default-service-dashboard).
   - Click **All Traces** to [explore the traces](#explore-traces) that originate in that service.
@@ -336,8 +341,11 @@ On the dashboard for a particular service, you can:
 * Select **Detailed View** or **Summarized View** to change the level of detail for charts.
 <a name="Tracesbrowser"></a>
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
+* Use <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 * Navigate to the Traces browser.
   * Click a bar on a histogram.
+  * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
   * Click a bar on a TopK chart.
   * Click the vertical ellipsis in the top right of any chart, click **Traces**, and click a service.
     {% include note.html content="If you don’t see **Traces**, check whether your metrics include `application` and `service point` tags.<br/><br/> These tags are defined when you instrument your application for tracing via [Application tags](trace_data_details.html#application-tags). If your application is already sending this data into Wavefront via the Wavefront proxy, you can add point tags using [Wavefront proxy preprocessor rules](proxies_preprocessor_rules.html#addtag-and-addtagifnotexists)." %}
@@ -456,6 +464,8 @@ style="vertical-align:text-bottom;width:25px" alt="import tracing icon"/>, save 
     ![partial expand red metrics](images/tracing_ui_partial_expand_red_metrics.png)
   * Click the expand icon to expand the trace hierarchy and view them next to the trace list, and click the same icon again to restore to the default view.
     ![partial expand trace hierachy](images/tracing_ui_partial_expand_trace_hierarchy.png)
+* Use <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 ### Query for a List of Traces
 
@@ -553,7 +563,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
       - Use a `curl` command that has the `/api/v2/chart/api` URL.
         <br/>Example:
         ```
-        curl -X GET --header "Accept: application/json" --header "Authorization: Bearer 111aaa-11aa-dd333-bb444-5555edft" "https://tracing.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
+        curl -X GET --header "Accept: application/json" --header "Authorization: Bearer <Wavefront_Token>" "https://<Tenant_Name>.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
         ```
 1. Upload the JSON file and view trace data. You can only upload one JSON file at a time.
     1. Click **Applications** > **Offline Traces**.
