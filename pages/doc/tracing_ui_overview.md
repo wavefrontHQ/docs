@@ -542,7 +542,7 @@ We use the following rules to determine which spans to include in a critical pat
 
 ## View Traces Offline
 
-You can export traces from Wavefront and save them locally as JSON files and view them later using the **Offline Traces**.
+You can export traces from Wavefront, save them locally as JSON files, and view them later using the **Offline Traces**.
 
 1. Export Traces:
     - Export the traces via the [Tracing Browser](#traicng-browser) and save the JSON file.
