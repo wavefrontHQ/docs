@@ -11,18 +11,18 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 ## View Tracing Critical Path Data in Charts
 
-The Wavefront tracing browser shows you all the spans that make up a trace and the critical path. The trace details panel uses an orange line to show the critical path through a trace. Analyzing the critical path of a trace can help you determine which operations took the most time and can help you decide which operations to try to optimize. See [Tracing Browser](tracing_ui_overview.html#tracing-browser) for details.
+The Wavefront tracing browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Tracing Browser](tracing_ui_overview.html#tracing-browser) for details.
 
-In the example given below, most of the time is spent on the `Packaging.giftWrap` span, which is sent from the `packaging` service. 
+In the screenshot below, most of the time is spent on the `Packaging.giftWrap` span, which is sent from the `packaging` service. 
 ![the image shows how the trace browser shows the critical path along the span view.](images/tracing_critical_path_break_down.png)
 
-Starting with release 2020-38.x, you can view these data in Wavefront as metrics and query them using the [`hs()` function](hs_function.html).
+Starting with release 2020-38.x, you can view critical path data in Wavefront as histogram metrics and query them using the [`hs()` function](hs_function.html). 
 
-### View Data in Charts
+### View Critical Path Data in Charts
 
-Charts help you view the data trends and grasp the data faster. 
-- You can query data to get the total time of the critical path (`.total_time.millis.m`) or get the total time of the critical path as a percentage (`.time_percent.m`). 
-- You can query data using critical path raw metrics or the critical path aggregated metrics, which are metrics that are aggregated beforehand to reduce the compute time when running queries.
+Charts help you view the data trends and grasp data faster. 
+- Get the total time of the critical path (`.total_time.millis.m`) or get the total time of the critical path as a percentage (`.time_percent.m`). 
+- Use critical path raw metrics or the critical path aggregated metrics, which are metrics that are aggregated beforehand to reduce the compute time when running queries.
 
     <table style="width: 100%;">
       <tr>
@@ -70,7 +70,7 @@ Examples:
     hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.count.m)
     ```
 
-### Create Alerts
+### Create Alerts for Critical Path Data
 
 You can query the data of a critical path, view this data in charts, and create alerts. 
 
