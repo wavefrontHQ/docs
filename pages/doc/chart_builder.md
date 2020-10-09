@@ -50,16 +50,17 @@ Advanced functionionality such as chart variables, is available only in the [Que
 
 You always start by selecting a metric, and can then refine what's visible in the chart with filters and functions.
 
-### Select Metrics
+### Select Data
 
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td width="40%">You have these options:
 <ul>
-<li>Start typing the metric name in the search box.</li>
+<li>Start typing a name in the search box.</li>
+<li>Select a metric type, that is, <strong>Metrics</strong>, <strong>Delta Counters</strong>, or <strong>Histograms</strong> and select from the menu. </li>
 <li>Select <strong>Integrations</strong>, pick an integration, and then select a metric. </li>
-<li>Select <strong>Browse</strong> and select from all metrics in your environment. </li></ul></td>
+<li>Click <strong>Browse</strong> and select from all metrics in your environment. </li></ul></td>
 <td width="60%"><img src="/images/v2_add_metric.png" alt="add a metric"></td>
 </tr>
 </tbody>

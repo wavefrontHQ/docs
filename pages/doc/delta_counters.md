@@ -74,9 +74,30 @@ Delta counters make monitoring easy for this use case. The Wavefront service agg
 
 ## Using Delta Counters
 
-To use delta counters:
-* Always **send** metrics as delta counters explicitly by specifying a delta character as the first letter of the metric name.
-* To **query** delta counter metrics, use `cs()` or an SDK:
+To take advantage of delta counters, you have to send and query them like this:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td>To <strong>send</strong> metrics as delta counters explicitly specify a delta character as the first letter of the metric name. </td>
+<td> </td>
+</tr>
+<tr>
+<td>To <strong>query</strong> delta counter metrics
+<ul>
+<li>Use an SDK</li>
+<li>Use <strong>cs()</strong> (instead of <strong>ts()</strong> in the Query Editor, as discussed next.</li>
+<li>Select <strong>Delta Counters</strong> in Chart Builder. </li></ul></td>
+<td><img src="/images/v2_add_metric.png" alt="Chart Builder with delta counters selected"/> </td>
+</tr>
+<tr>
+<td width="60%">To <strong>examine all delta counters</strong> in your environment, select <strong>Browse &gt; Delta Counters</strong>. The process is the same as examining metrics in the <a href="metrics_managing.html#metrics-browser"> Metrics Browser</a>.
+</td>
+<td width="40%"><img src="/images/delta_counters_browse.png" alt="Screenshot showing Browse > Delta Counters"/></td>
+</tr>
+</tbody>
+</table>
+
 
 ### The cs() Function
 
@@ -113,7 +134,7 @@ We support the following [proxy configuration properties](proxies_configuring.ht
 - **deltaCounterPorts**: Comma-separated list of ports that accept only delta counter data.
 - **deltaCounterAggregationInterval**: Time that the proxy spends aggregating data before sending them to the Wavefront Service. Default is 30 seconds.
 
-### Delta Prefix 
+### Delta Prefix
 
 If you want to send metrics as delta counters to the Wavefront proxy or directly to the Wavefront service, prefix each metric with a delta (∆) character, as shown in the following [sample code snippet](https://github.com/wavefrontHQ/wavefront-pyformance/blob/master/wavefront_pyformance/delta.py).
 

@@ -77,6 +77,8 @@ The Wavefront proxy uses HTTPS, and we offer options to secure it further:
 
 Wavefront supports both user accounts and service accounts. User accounts [must authenticate](authentication.html) with a user name and passwords, service accounts authenticate with a revokable token. Wavefront customers can use the authentication provided by Wavefront or use one of our supported authentication integration. We support several authentication solutions including AzureAD, Google ID, and Okta.
 
+Starting with release 2020.38, we support [self-service SAML SSO](auth_self_service_sso.html) setup.
+
 If a customer's chosen authentication solution supports two-factor authentication, Wavefront requires two-factor authentication for login.
 
 Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-authentication). Users in different teams inside the company can authenticate to different tenants and cannot access the other tenant's data.
@@ -86,9 +88,11 @@ Large customers can request [multi-tenant SSO](authentication.html#multi-tenant-
 
 Wavefront supports multi-level authorization:
 * **Roles and permissions** determine which groups or users can manage which objects or perform certain tasks. For example, you could create a ReadOnly role with no permissions and assign it to a Novice group, or create a Developers role, assign Dashboards, Alerts, Proxy, Metrics, and Embed Chart permission, and assign it to a developers group.
-* **Access control** applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
+* [**Access control**](access.html) applies to individual objects (dashboards or alerts). Privileged groups or users can revoke grant access to individual groups or users. To support this feature, Wavefront includes a [Super Admin](users_roles.html#who-is-the-super-admin-user) user.
+  Wavefront supports a [high security mode](access.html#changing-the-access-control-preference) where only the object creator and Super Admin user can view and modify new dashboards.
+* [**Metrics security policy rules**](metrics_security.html) allow fine-grained control over metrics visibility in dashboards, charts, alerts, etc.
 
-Wavefront supports a [high security mode](access.html#changing-the-access-control-preference) where only the object creator and Super Admin user can view and modify new dashboards.
+
 
 If you use the REST API, you must pass in an API token and must also have the necessary permissions to perform the task, for example, Dashboard permissions to modify dashboards.
 

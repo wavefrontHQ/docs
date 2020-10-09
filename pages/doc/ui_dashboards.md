@@ -300,3 +300,70 @@ For more information on the options listed in the Show Events dropdown, see <a h
 
 
 {% include shared/system_dashboard.html %}
+
+## Advanced: Edit Dashboard JSON
+
+Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately. This section shows how to make changes from the dashboard JSON editor. We use a simple example of adding a conditional section to illustrate how it works.
+
+
+### Example: Create Conditional Dashboard Sections
+
+Imagine you have a dashboard with many sections. Several of them are relevant only if certain metrics are currently shown in the charts of that dashboard section. You can conditionalize the dashboard to show a specified section only under certain conditions.
+
+{% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol><li>To put the dashboard in Edit mode, click the three dots and select <strong>Edit</strong>, and then click <strong>JSON</strong>. </li>
+<li>Consider selecting Code view from the pull-down menu. Code view supports adding information. </li>
+<li>Consider a select all/copy/paste into a JSON editor for full validation. </li>
+<li>Add condition information, as shown in the example below, paste the revised content back into the dashboard editor, and click <strong>Accept</strong></li></ol></td>
+<td width="60%"><img src="images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
+</tr>
+</tbody>
+</table>
+
+
+The following sample JSON includes a `sectionFilter` property that lets you show or hide the section based on a condition.
+
+```
+sections: [
+  {
+    name: string  // Section name, if not specified, the text "Untitled" is shown in the section header
+    rows: array   // Array of visual components in this section
+    // This property is optional.  If specified, then query is required.
+    sectionFilter: {
+      // Query to run to determine if the section should be shown.  The section is shown if the last
+      // value in the time series is non-zero.
+      query: string
+      // Text to show as tooltip when users mouse over the condition check-circle icon.
+      // If not specified, then the query is shown as the tooltip.
+      // This property is optional.
+      description: string
+      // Time in seconds to add to start time for condition query.  By default, condition query uses
+      // the dashboard time window, but you can use this property to increase the time window of the
+      // condition query.
+      // This property is optional.
+      leadingTimeWindowSec: integer
+    }
+  }
+]
+```
+
+
+The following JSON snippet allows you to Modify the Jump To label in case a condition specified by `sectionFilter` has been met. Badge colors correspond to colors used by alerts.
+
+```
+dashboardAttributes: {
+  // Text to replace the "Jump To" label on the dashboard view page.
+  // This property is optional.
+  jumpToLabel: string
+  // When section conditions are met, a count badge is rendered to the right of the "Jump To"
+  // dropdown control.  The default badge style is SMOKE.  Users can customize this style by setting
+  // the badge color here.  Valid values are SEVERE, WARN, INFO, SUCCESS, and SMOKE.
+  // This property is optional.
+  conditionBadgeColor: string
+}
+```

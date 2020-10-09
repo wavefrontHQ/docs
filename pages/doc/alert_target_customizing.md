@@ -1032,6 +1032,7 @@ You can use alert target utility functions to make the output of the alert targe
 * Use `xml11Escape` or `xml10Escape` if you send notifications to a messaging platform that uses XML.
 * Use `trimTrailingComma` if you send notifications to a messaging platform that does not automatically suppress a literal comma after the final element of a list.
 * Use `convertWhiteSpace` to convert characters that cause problems in a JSON file (`\t` `\n` `\x0B` `\f` `\r` etc.) to white space.
+* Use `convertEpochMillisToSeconds` to convert Epoch milliseconds to seconds. This is useful if you want to create an alert target that includes a URL, which can't include milliseconds.
 
 
 <table>
@@ -1110,7 +1111,17 @@ Output:\\
 Input:\\
 `Give me space! \r Now!`\\
 Output:\\
-`Give me space!  Now!`
+`Give me space!  Now!`\\
+</td>
+</tr>
+<tr>
+<td markdown="span">`convertEpochMillisToSeconds`
+</td>
+<td markdown="span">Convert Epoch milliseconds to seconds. This is useful if you want to create an alert target that includes a URL. URLs can't include milliseconds. 
+</td>
+<td markdown="span">
+Input:1600273622000
+Output:1600273622
 </td>
 </tr>
 </tbody>
