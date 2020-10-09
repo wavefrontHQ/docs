@@ -8,7 +8,53 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-## April - July 2019
+## October 2019 - October 2020
+
+Added the following integrations in October 2019 - October 2020:
+
+* Dynatrace
+* AppDynamics
+* Catchpoint
+* VMware vRealize Log Insight Cloud
+* Spring Boot
+* Tanzu Mission Control
+* Spring Cloud Data Flow
+
+Made improvements to the following integrations in October 2019 - October 2020:
+
+* Kubernetes integration now works with:
+  - OpenShift Operator 3.x
+  - OpenShift Operator 4.x
+  - Rancher
+  - Project Pacific (vSphere with Kubernetes)
+* AWS CloudWatch integration refresh -- new API
+* Istio integration -- new adapter
+* Zabbix integration
+* Logstash integration
+* Tanzu Kuernetes Grid Integrated Edition (formerly PKS) -- Now includes an **Alerts** tab with predifined alerts
+
+Made significant improvements to the dashboards of the following integrations:
+
+* Wavefront Tutorial dashboards (upgrade for V2 UI)
+* Pivotal Cloud Foundry dashboards
+* Kubernetes dashboard
+* vSphere dashboards
+* Go SDK integration -- now emits runtime metrics, captured in a dashboard
+* Python SDK integration -- now emits runtime metrics, captured in a dashboard
+
+The following authentication integrations have been revised to support self-service SAML SSO
+
+* VMware Workspace ONE Access
+* PingOne
+
+Many integrations now include information about the metrics that Wavefront collects even when metrics are not flowing. The information is available from the integration's  **Metrics** tab and from the documentation that's generated from the integration.
+
+Here's an example of what you see for the Amazon CloudFront integration:
+
+![screenshot with a table of metric name and description (statistics captured)](images/metrics_tab.png)
+
+
+## April - October 2019
 
 We added the following integrations in April - July 2019:
 
