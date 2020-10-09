@@ -141,7 +141,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       </ul>
     </td>
     <td markdown="span">
-      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
+      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_legend_settings_app_map.png)
     </td>
   </tr>
 </tbody>
@@ -284,7 +284,7 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 When you select an application, you get an overview of its services.
 
-![app services](images/tracing_app_services.png)
+![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_app_services.png)
 
 On the page for a particular application, you can:
 * Examine the services in the application, or search for a particular service by applying filters.
@@ -556,7 +556,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
 
 1. Export Traces:
     - Export the traces via the [Tracing Browser](#traicng-browser) and save the JSON file.
-    - Export traces via the API and save the response as a JSON file.
+    - Export traces via the API.
       - Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
         <br/>Example:
         ![UI image showing where the API is on the Wavefront Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
@@ -565,7 +565,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
         ```
         curl -X GET --header "Accept: application/json" --header "Authorization: Bearer <Wavefront_Token>" "https://<Tenant_Name>.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
         ```
-1. Upload the JSON file and view trace data. You can only upload one JSON file at a time.
+1. Upload the JSON file or feed the JSON response from the API to offline traces, and view trace data. You can only upload one JSON file at a time.
     1. Click **Applications** > **Offline Traces**.
     1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
   <br/>Now, you see the trace data you imported. 
