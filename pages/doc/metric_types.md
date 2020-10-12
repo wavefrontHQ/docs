@@ -77,7 +77,7 @@ Wavefront internal metrics that are counters include `~metric.new_host_ids` and 
 
 [Delta counters](delta_counters.html)  bin to a minute timestamp and treat write operations to the same bin as deltas. They are well suited for the kind of bursty traffic you typically get in a Function-as-a-Service environment. Many functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing metric points to collision.
 
-For example, instead of one person with a counter standing at a concert entrance, you have someone take turns at the concert entrance to count the number of people that entered. No single person can capture the composite count, so you add up the counters. In the same way, the Wavefront service can aggregate delta counter information.
+For example, instead of one person with a counter standing at a single concert entrance, several people count, each at one entrance gate. Eventually the results from the counters can be added for total attendance. In the same way, the Wavefront service can aggregate delta counter information.
 
 To have Wavefront treat a metric as a delta counter, you have several choices:
 * Use the `cs()` instead of the `ts()` function.
