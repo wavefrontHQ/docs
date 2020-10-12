@@ -48,7 +48,7 @@ The following table gives an overview of metric types. We introduce each type in
 <tr>
 <td>Trace</td>
 <td>A trace shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans.</td>
-<td>You can think of a trace as a tree of related spans. The trace has a unique trace ID, which is shared by each member span in the tree. See <a href="tracing_basics.html#sample-application">Sample Application</a> for an example.</td>
+<td>You can think of a trace as a tree of related spans. The trace has a unique trace ID, which is shared by each member span in the tree.</td>
 </tr>
 <tr>
 <td>Span</td>
@@ -77,7 +77,7 @@ Wavefront internal metrics that are counters include `~metric.new_host_ids` and 
 
 [Delta counters](delta_counters.html)  bin to a minute timestamp and treat write operations to the same bin as deltas. They are well suited for the kind of bursty traffic you typically get in a Function-as-a-Service environment. Many functions execute simultaneously and it's not possible to monitor bursty traffic like that without losing metric points to collision.
 
-For example, instead of one person with a counter standing at a concert entrance, is an example. No single person can capture the composite count,  so you add up the counters. In the same way, the Wavefront service can aggregate delta counter information.
+For example, instead of one person with a counter standing at a single concert entrance, several people count, each at one entrance gate. Eventually the results from the counters can be added for total attendance. In the same way, the Wavefront service can aggregate delta counter information.
 
 To have Wavefront treat a metric as a delta counter, you have several choices:
 * Use the `cs()` instead of the `ts()` function.
@@ -99,9 +99,9 @@ To address high frequency data, Wavefront supports histograms – a mechanism to
 
 Wavefront follows the OpenTracing standard for representing and manipulating trace data.
 
-* A **trace** represents an individual workflow in an application. A trace shows you how a particular request propagates through your application or among a set of services.
+* A [**trace**](trace_data_details.html#traces) represents an individual workflow in an application. A trace shows you how a particular request propagates through your application or among a set of services.
 
-* **Spans**  are the individual segments of work in the trace. A Wavefront trace consists of one or more spans. Each span represents time spent by an operation in a service (often a microservice).
+* [**Spans**](trace_data_details.html#spans)  are the individual segments of work in the trace. A Wavefront trace consists of one or more spans. Each span represents time spent by an operation in a service (often a microservice).
 
 Because requests normally consist of other requests, a trace actually consists of a tree of spans.
 
@@ -109,7 +109,7 @@ Because requests normally consist of other requests, a trace actually consists o
 ## Learn More!
 
 Search this doc set for details on any of the metric types, or read this:
-* [Metrics and the Metrics Browser] examines the structure of a metric and explains how to use the Metrics Browser.
+* [Metrics and the Metrics Browser](metrics_managing.html) examines the structure of a metric and explains how to use the Metrics Browser.
 * [Cumulative Counters and Delta Counters](delta_counters.html) discusses the 2 kinds of counters that Wavefront supports and includes examples for both types.
 * [Histograms](proxies_histograms.html) are useful for distribution of metrics in high-velocity environment. We support a set of [query language functions just for histograms](query_language_reference.html#histogram-functions).
 * Our [Tracing UI](/tracing_ui_overview.html) lets you drill down from the service level to the individual spans and examine outliers to find bottlenecks.
