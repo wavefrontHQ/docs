@@ -80,6 +80,23 @@ To protect metrics from inclusion in alert notifications, use the [**Secure Metr
 
 The current implementation does not protect metrics in Derived Metrics or in Events.
 
+### Warning Messages for Protected Metrics
+
+* **Charts in Dashboard** if certain charts in a dashboard are protected, each chart display that information.
+  * **Some metrics protected**. If some metrics in a chart are protected, the chart shows metrics but includes the following Warning message.
+   ```
+   Some metrics returned by this query might be excluded due to metrics security policy rules.
+   ```
+   * **All metrics protected**. If all metrics in a chart are protected, the chart shows only the following message:
+   ```
+   All metrics in this chart are excluded due to metrics security policy rules.
+   ```
+* **Chart edit**. When you edit a chart and your query result include protected metrics, the following message is displayed below the query.
+
+   ```
+   All metrics returned by this query are excluded due to metrics security policy rules.
+   ```
+
 
 
 <!--Include text of warning message-->
