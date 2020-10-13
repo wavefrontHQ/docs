@@ -659,7 +659,7 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tr>
 <tr>
 <td markdown="span">`tags`</td>
-<td markdown="span">Iterator that returns a list of the point tags associated with the time series being visited. Each point tag is formatted like this:  `key=value`
+<td markdown="span">Iterator that returns a list of the point tags associated with the time series being visited. Each point tag is formatted like this:  `key=value`. To access the value of a specific point tag, use this syntax: `{{#tags}}{{pointTagKey}}{{/tags}}`
 </td>
 </tr>
 <tr>
@@ -689,7 +689,7 @@ This portion of the Generic Webhook alert target template shows how to use the `
 "failingAlertSeries": [
   {{#trimTrailingComma}}
     {{#failingAlertSeries}}
-      "Source: {{host}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}}, Firing: {{firing}}",
+      "Source: {{host}}, Label: {{label}}, All Tags: {{tags}}, Env: {{#tags}}{{env}}{{/tags}}, Observed: {{observed}}, Firing: {{firing}}",
     {{/failingAlertSeries}}
   {{/trimTrailingComma}}
 ]
@@ -703,7 +703,7 @@ The preceding template might yield the following message:
 {% raw %}
 ```handlebars
 "failingAlertSeries": [
-    "Source: raspberrypi, Label: humidity, Tags: {env=production, az=us-west-2}, Observed: 5, Firing: 2"]
+    "Source: raspberrypi, Label: humidity, All Tags: {env=production, az=us-west-2}, Env: production, Observed: 5, Firing: 2"]
 ```
 {% endraw %}
 
