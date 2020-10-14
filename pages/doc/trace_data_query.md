@@ -50,7 +50,7 @@ tracing.critical_path.<b>derived</b>.*.total_time.millis.count.m
           Aggregated metrics
         </td>
         <td markdown = "span">
-          Get high-level metrics for a critical path of a specific application or service. Filter queries using the `application`, `cluster`, `shard`, `service`, and `source` point tags.
+          Get high-level metrics for a critical path of a specific application or service. Filter queries using the `application`, `cluster`, `shard`, and `service` point tags.
           <br/><br/>Example:
           <code>
 tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.count.m
