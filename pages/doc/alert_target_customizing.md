@@ -659,7 +659,7 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tr>
 <tr>
 <td markdown="span">`tags`</td>
-<td markdown="span">Iterator that returns a list of the point tags associated with the time series being visited. Each point tag is formatted like this:  `key=value`. To access the value of a specific point tag, use this syntax: `{{#tags}}{{pointTagKey}}{{/tags}}`
+<td>Iterator that returns a list of the point tags associated with the time series being visited. Each point tag is formatted like this:  <code>key=value</code>. To access the value of a specific point tag, use this syntax: <code>&#123;&#123;#tags&#125;&#125;&#123;&#123;pointTagKey&#125;&#125;&#123;&#123;/tags&#125;&#125;</code>
 </td>
 </tr>
 <tr>
