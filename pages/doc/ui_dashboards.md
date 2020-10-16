@@ -297,20 +297,77 @@ For more information on the options listed in the Show Events dropdown, see <a h
 </tbody>
 </table>
 
-
-
 {% include shared/system_dashboard.html %}
 
-## Advanced: Edit Dashboard JSON
+## Conditional Dashboard Sections
+
 
 Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately. This section shows how to make changes from the dashboard JSON editor. We use a simple example of adding a conditional section to illustrate how it works.
 
+### Example: Change Dashboard Jump Label and Badge Color on First View
 
+You can conditionalize the dashboard to show a specified section only under certain conditions. In this example, we'll show how to highlight a section in the Jump To menu on first view.
+
+{% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
+
+First, we use the following JSON snippet to add a label and a badge to the label:
+
+```
+{
+  "name": "Example Dashboard",
+  ...
+  "dashboardAttributes": {
+    "jumpToLabel": "New Label",
+    "conditionBadgeColor": "SEVERE"
+  }
+  ...
+}
+```
+
+Then we add a section filter for the **Proxy Troubleshootig** secton to the dashboard with the following JSON snippet. We use a query that is always true (`1 > 0`):
+
+```
+"sections": [
+  {
+    "name": "Proxy Troubleshooting",
+    ...
+    "sectionFilter": {
+        "query": "1 > 0",
+        "description": "Condition for this section was met"
+    }
+    ...
+  }
+  ...
+]
+```
+
+After you've saved these changes, the Jump To menu appears as follows:
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">The first JSON snippet adds <strong>NEW LABEL</strong> and highlights it in red.</td>
+<td width="50%"><img src="images/condition_label.png" alt="Jump to menu with highlighted number and Proxy Troubleshooting highlighted."/></td>
+</tr>
+<tr>
+<td width="40%">Hover text indicates the condition has been met. </td>
+<td width="60%"><img src="images/condition_hover_text.png" alt="Hover text indicates condition has been met."/></td>
+</tr>
+<tr>
+<td width="40%">The second time the user looks at dashboard <strong>Proxy Troubleshooting</strong> is still highlighted and <strong>Proxies overview</strong> is visible again. </td>
+<td width="60%"><img src="images/condition_not_met.png" alt="Proxies overview is in menu again."/></td>
+</tr>
+</tbody>
+</table>
+
+
+<!---
 ### Example: Create Conditional Dashboard Sections
 
 Imagine you have a dashboard with many sections. Several of them are relevant only if certain metrics are currently shown in the charts of that dashboard section. You can conditionalize the dashboard to show a specified section only under certain conditions.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
+
 
 <table style="width: 100%;">
 <tbody>
@@ -367,3 +424,4 @@ dashboardAttributes: {
   conditionBadgeColor: string
 }
 ```
+--->

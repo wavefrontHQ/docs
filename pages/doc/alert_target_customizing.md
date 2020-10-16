@@ -1117,7 +1117,7 @@ Output:\\
 <tr>
 <td markdown="span">`convertEpochMillisToSeconds`
 </td>
-<td markdown="span">Convert Epoch milliseconds to seconds. This is useful if you want to create an alert target that includes a URL. URLs can't include milliseconds. 
+<td markdown="span">Convert Epoch milliseconds to seconds. This is useful if you want to create an alert target that includes a URL. URLs can't include milliseconds.
 </td>
 <td markdown="span">
 Input:1600273622000
