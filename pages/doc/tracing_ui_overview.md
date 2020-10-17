@@ -24,7 +24,7 @@ Wavefront offers the following dashboards and browsers to view information on yo
 <td width="45%">
 To choose your starting point for visualizing traces:<br/>
   <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
-  <li> From the taskbar click <b>Applications</b> :
+  <li> From the taskbar, click <b>Applications</b> :
   <img src="/images/tracing_menu.png" alt="tracing menu"/>
       <ul> <li>Select <b>Application Status</b> to <a href="#application-status">view how instrumented applications are related to each other, view the status of the applications</a> and drill down from there.</li>
       <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
@@ -41,10 +41,14 @@ It is important to get an overview of the services and applications that send da
 
 ### Application Map
 
-The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map. 
+The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
-Use <img src="images/tracing_link_icon.png"
-style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
+See the application map:
+1. In your web browser, go to your Wavefront cluster and log in. 
+1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_appmap_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/>
+1. Optionally, use <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 ![application map](images/tracing_app_map.png)
 
@@ -151,11 +155,16 @@ Let's walk through the following scenario to get a quick overview of the applica
 
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
+See the table view:
+1. In your web browser, go to your Wavefront cluster and log in. 
+1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_table_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/>
+
 ![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
-* Click the name of the service to [explore the dashboard for that service](#explore-the-default-service-dashboard).
+* Click the name of the service to [drill down to the service dashboard](#explore-the-default-service-dashboard).
 * Sort data:
   - Sort the application and service names alphabetically.
   - Sort the table in the ascending or descending order of the RED metrics.
@@ -284,6 +293,11 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 When you select an application, you get an overview of its services.
 
+See the grid view:
+1. In your web browser, go to your Wavefront cluster and log in. 
+1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_grid_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/>
+
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_app_services.png)
 
 On the page for a particular application, you can:
@@ -321,7 +335,16 @@ On the page for a particular application, you can:
 
 ## Service Dashboard
 
-When you click on a service's **Details**, you can examine a dashboard of metrics to identify potential hot spots, and then drill down to the Traces browser.
+Use the service dashboard identify potential hot spots, and then drill down to the Traces browser.
+
+See the service dashboard:
+
+* Option 1:
+  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. From the taskbar, click **Applications** > **Service Dashboard**.
+  
+* Option 2:
+  Drill down to the service dashboard from the application map, table view, or grid view.
 
 ### Explore the Default Service Dashboard
 
@@ -445,8 +468,14 @@ The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind
 
 In the Traces browser, you can explore the context and the details of your application's traces.
 
-* Navigate from the service's page to display traces for operations you selected.
-* Select **Applications > Traces** from the task bar to display an empty page that you populate by [querying](trace_data_query.html).
+See the tracing browser:
+
+* Option 1:
+  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. From the taskbar, click **Applications** > **Traces**.
+  
+* Option 2:
+  Drill down to the tracing browser from the service dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
 
