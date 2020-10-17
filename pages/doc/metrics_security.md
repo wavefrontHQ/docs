@@ -22,7 +22,7 @@ Metrics security policy rules allows fine-grained support for limiting access to
 
 ### Block or Allow Access
 
-With metrics security policy rules you can block or allow access
+With a metrics security policy you can block or allow access:
 * To metrics, optionally filtered by source and/or point tag
 * Based on groups, roles, and/or individual users.
 
@@ -74,7 +74,7 @@ See the Examples below for some scenarios.
 
 ### Alert Notifications
 
-To protect metrics from inclusion in alert notifications, use the [**Secure Metrics Details** check box](alerts_notifications.html#alert-notification-with-secured-metrics-details). Wavefront looks at all metrics when determining when an alert status should change and shows them in alert notifications.
+To protect metrics from inclusion in alert notifications, use the **Secure Metrics Details** check box. Wavefront looks at all metrics when determining when an alert status should change and shows them in alert notifications. When the check box is selected, [details are not shown](alerts_notifications.html#alert-notification-with-secured-metrics-details) in the notification.
 
 ### Derived Metrics and Events
 
@@ -82,7 +82,7 @@ The current implementation does not protect metrics in Derived Metrics or in Eve
 
 ### Warning Messages for Protected Metrics
 
-* **Charts in Dashboard** if certain charts in a dashboard are protected, each chart display that information.
+* **Charts in Dashboard**. If certain charts in a dashboard are protected, each chart display that information.
   * **Some metrics protected**. If some metrics in a chart are protected, the chart shows metrics but includes the following Warning message.
    ```
    Some metrics returned by this query might be excluded due to metrics security policy rules.
@@ -91,15 +91,12 @@ The current implementation does not protect metrics in Derived Metrics or in Eve
    ```
    All metrics in this chart are excluded due to metrics security policy rules.
    ```
-* **Chart edit**. When you edit a chart and your query result include protected metrics, the following message is displayed below the query.
+* **Chart in Edit Mode**. When you edit a chart and your query result include protected metrics, the following message is displayed below the query.
 
    ```
    All metrics returned by this query are excluded due to metrics security policy rules.
    ```
 
-
-
-<!--Include text of warning message-->
 
 <!---
 
@@ -149,8 +146,8 @@ Here's an annotated screenshot that shows the main actions:
 When you create a rule, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
-  - Specify one or more metric prefixes. You can specify exact an match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
-  - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you could block visibility into production environments for some developers, or block some development environments metrics for contractors.
+  - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
+  - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts and/or groups or for roles.
 
 
@@ -162,7 +159,7 @@ When you create a rule, plan your strategy.
   4. Describe the metrics:
      * You can specify the full metric name or use a wildcard character in metric names, sources, or point tags. The wildcard character alone (`*`) means all metrics.
      * Specify key=value pairs, for example, `source="app-24"` or `env=dev`.
-     * If you want to specify multiple key=value pairs, select on the right whether you want to combine them with `and` or `or`.
+     * If you want to specify multiple key=value pairs, select whether you want to combine them with `and` or `or` using the dropdown menu on the right.
   5. Specify the Access definition for the rule.
      1. Select **Allow** or **Block** from the menu.
      2. Specifying accounts, groups, or roles.
@@ -176,7 +173,7 @@ The following annotated screenshot gives an overview of rule management options:
 
 <!---Have to change screenshot to show Save instead of Apply--->
 
-* In the top row, you can click **Create Rule**. Each newly newly created rule has Priority 1 by default, which means it overrides all other rules. Drag and drop rules to change priority.
+* In the top row, you can click **Create Rule**. Each newly created rule has Priority 1 by default, which means it overrides all other rules. Drag and drop rules to change priority.
 * The **Version History** button allows you to revert to an earlier version of the policy.
 * Information on who last edited the security policy and when that happened is always included.
 * Select one or more rules by clicking the check box, then use the icons above to clone or delete selected rules. You can change several rules, and then click **Save** to commit the changes.
@@ -221,11 +218,11 @@ The image above shows how to restricts access for users in the group `Contractor
 
 ### Example: Strictly Limit Access on a Need-to-Know Basis
 
-Some companies want to make any metric acceessible only to the team that needs to know about it. Access to metrics outside a team’s scope of work is disabled.  Only administrators are allowed access to all metrics.
+Some companies want to make metric accessible only to the team that needs to know about it. Access to metrics outside a team’s scope of work is disabled.  Only administrators are allowed access to all metrics.
 
 ![screenshot of default single policy](images/metrics_security_need_to_know.png)
 
-The image above shows how to use use a set of rules to accomplish this.
+The image above shows how to use a set of rules to accomplish this.
 
 * Rule 4 (**Block All Metrics by default**) applies to any access that doesn't match a higher-up rule. It denies access to all users. Users get access only when an "exception" rule with higher priority access matches.
 * Rule 3 (**Allow All Metrics to Admins**) grants access to all metrics to users in the `Admins` group.
@@ -237,6 +234,5 @@ In this example, ordering (priority) between rules 1 and 2 does not matter becau
 With this policy in place:
 * Members of the `Widgets` group are granted access if the metric starts with `widget.*` (Rule 1) and denied otherwise (Rule 4).
 * Members of the `Gadgets` group are granted access if the metric starts with `gadget.*` (Rule 2) and denied otherwise (Rule 4).
-*  Members of the `Admins` group are granted access to all metrics (Rule 3).
-
-Any user not belonging to one of the groups covered by the rules have no access.
+* Members of the `Admins` group are granted access to all metrics (Rule 3).
+* Users who don’t belong to the groups covered by the rules have no access.
