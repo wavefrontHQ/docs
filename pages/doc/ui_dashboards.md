@@ -299,18 +299,93 @@ For more information on the options listed in the Show Events dropdown, see <a h
 
 {% include shared/system_dashboard.html %}
 
-## Conditional Dashboard Sections
+## Edit the Dashboard JSON
 
-
-Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately. This section shows how to make changes from the dashboard JSON editor. We use a simple example of adding a conditional section to illustrate how it works.
-
-### Example: Change Dashboard Jump Label and Badge Color on First View
-
-You can conditionalize the dashboard to show a specified section only under certain conditions. In this example, we'll show how to highlight a section in the Jump To menu on first view.
+Most users create and edit dashboards by using the Wavefront UI or automate the process with the Wavefront REST API. But at times, it's convenient to edit the dashboard JSON directly from the UI and see results immediately.
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
-First, we use the following JSON snippet to add a label and a badge to the label:
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol><li>To put the dashboard in Edit mode, click the three dots and select <strong>Edit</strong>, and then click <strong>JSON</strong>. </li>
+<li>Consider selecting Code view from the pull-down menu. Code view supports adding information. </li>
+<li>Consider a select all/copy/paste into a JSON editor for full validation. </li>
+<li>Add condition information, as shown in the example below, paste the revised content back into the dashboard editor, and click <strong>Accept</strong></li></ol></td>
+<td width="50%"><img src="images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
+</tr>
+</tbody>
+</table>
+
+## Conditional Dashboard Sections
+
+Starting with release 2020.38, you can make dashboard sections conditional by using the JSON editor. If a dashboard has conditional sections:
+* Each section is shown only if the condition is met, and invisible in the Jump To menu and the dashboard.
+* If the condition is met:
+  - The Jump To menu shows a number to indicate how many conditional sections are displayed. Default color is grey.
+  - Hover text indicates that the section is conditional.
+
+ The following JSON snippets shows dashboard attributes and dashboard sections to use for conditional sections.
+
+### Customize Dashboard Attributes
+
+
+{% raw %}
+ ```handlebars
+ dashboardAttributes: {
+   // Text to replace the "Jump To" label on the dashboard view page.
+   // This property is optional.
+   jumpToLabel: string
+   // When section conditions are met, a count badge is rendered to the right of the "Jump To"
+   // dropdown control.  The default badge style is SMOKE.  Users can customize this style by setting
+   // the badge color here.  Valid values are SEVERE, WARN, INFO, SUCCESS, and SMOKE.
+   // This property is optional.
+   conditionBadgeColor: string
+ }
+ ```
+ {% endraw %}
+
+### Customize Dashboard Sections to Be Conditional
+
+{% raw %}
+ ```handlebars
+ sections: [
+   {
+     name: string  // Section name, if not specified, the text "Untitled" is shown in the section header
+     rows: array   // Array of visual components in this section
+     // This property is optional.  If specified, then query is required.
+     sectionFilter: {
+       // Query to run to determine if the section should be shown.  The section is shown if the last
+       // value in the time series is non-zero.
+       query: string
+       // Text to show as tooltip when users mouse over the condition check-circle icon.
+       // If not specified, then the query is shown as the tooltip.
+       // This property is optional.
+       description: string
+       // Time in seconds to add to start time for condition query.  By default, condition query uses
+       // the dashboard time window, but you can use this property to increase the time window of the
+       // condition query.
+       // This property is optional.
+       leadingTimeWindowSec: integer
+     }
+   }
+ ]
+ ```
+ {% endraw %}
+
+### Example: Add Conditional Sections
+
+This somewhat contrived example:
+* Uses a condition that's always true for the `Proxy Troubleshooting` section.
+* Uses condition that's always false for the `Proxies: overview` section.
+* Uses the SEVERE color to show conditional sections are included.
+* Specifies hover text in the `description` field.
+
+
+{% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
+
+Here's the snippet that sets the number on the jumpToLabel. The snippet also changes the label from `Jump To` to `New Label`, a good way to make sure things are working while experimenting.
 
 ```
 {
@@ -324,7 +399,7 @@ First, we use the following JSON snippet to add a label and a badge to the label
 }
 ```
 
-Then we add a section filter for the **Proxy Troubleshootig** secton to the dashboard with the following JSON snippet. We use a query that is always true (`1 > 0`):
+Here's the section filter that shows the **Proxy Troubleshootig** section. We use a query that is always true (`1 > 0`):
 
 ```
 "sections": [
@@ -341,74 +416,32 @@ Then we add a section filter for the **Proxy Troubleshootig** secton to the dash
 ]
 ```
 
+
+
 After you've saved these changes, the Jump To menu appears as follows:
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">The first JSON snippet adds <strong>NEW LABEL</strong> and highlights it in red.</td>
+<td width="50%">The first JSON snippet uses <strong>NEW LABEL</strong> and highlights the number of conditional sections that are shown in red (SEVERE).</td>
 <td width="50%"><img src="images/condition_label.png" alt="Jump to menu with highlighted number and Proxy Troubleshooting highlighted."/></td>
 </tr>
 <tr>
 <td width="40%">Hover text indicates the condition has been met. </td>
 <td width="60%"><img src="images/condition_hover_text.png" alt="Hover text indicates condition has been met."/></td>
 </tr>
-<tr>
-<td width="40%">The second time the user looks at dashboard <strong>Proxy Troubleshooting</strong> is still highlighted and <strong>Proxies overview</strong> is visible again. </td>
-<td width="60%"><img src="images/condition_not_met.png" alt="Proxies overview is in menu again."/></td>
-</tr>
 </tbody>
 </table>
 
 
 <!---
-### Example: Create Conditional Dashboard Sections
-
-Imagine you have a dashboard with many sections. Several of them are relevant only if certain metrics are currently shown in the charts of that dashboard section. You can conditionalize the dashboard to show a specified section only under certain conditions.
-
-{% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
 
-<table style="width: 100%;">
-<tbody>
+
 <tr>
-<td width="40%">
-<ol><li>To put the dashboard in Edit mode, click the three dots and select <strong>Edit</strong>, and then click <strong>JSON</strong>. </li>
-<li>Consider selecting Code view from the pull-down menu. Code view supports adding information. </li>
-<li>Consider a select all/copy/paste into a JSON editor for full validation. </li>
-<li>Add condition information, as shown in the example below, paste the revised content back into the dashboard editor, and click <strong>Accept</strong></li></ol></td>
-<td width="60%"><img src="images/dashboard_code_view.png" alt="Switch from Tree view to Code view"/></td>
+<td width="40%">Then we edit the JSON to show the <strong>Proxies overview</strong> section as well. </td>
+<td width="60%"><img src="images/condition_not_met.png" alt="Proxies overview is in menu again."/></td>
 </tr>
-</tbody>
-</table>
-
-
-The following sample JSON includes a `sectionFilter` property that lets you show or hide the section based on a condition.
-
-```
-sections: [
-  {
-    name: string  // Section name, if not specified, the text "Untitled" is shown in the section header
-    rows: array   // Array of visual components in this section
-    // This property is optional.  If specified, then query is required.
-    sectionFilter: {
-      // Query to run to determine if the section should be shown.  The section is shown if the last
-      // value in the time series is non-zero.
-      query: string
-      // Text to show as tooltip when users mouse over the condition check-circle icon.
-      // If not specified, then the query is shown as the tooltip.
-      // This property is optional.
-      description: string
-      // Time in seconds to add to start time for condition query.  By default, condition query uses
-      // the dashboard time window, but you can use this property to increase the time window of the
-      // condition query.
-      // This property is optional.
-      leadingTimeWindowSec: integer
-    }
-  }
-]
-```
-
 
 The following JSON snippet allows you to Modify the Jump To label in case a condition specified by `sectionFilter` has been met. Badge colors correspond to colors used by alerts.
 
