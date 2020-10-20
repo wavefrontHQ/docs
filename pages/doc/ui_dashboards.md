@@ -324,7 +324,8 @@ Starting with release 2020.38, you can make dashboard sections conditional by us
 * Each section is shown only if the condition is met, and invisible in the Jump To menu and the dashboard.
 * If the condition is met:
   - The Jump To menu shows a number to indicate how many conditional sections are displayed. Default color is grey.
-  - Hover text indicates that the section is conditional.
+  - A customizable tooltip indicates that the section is conditional.
+  - The number and tooltip also display next to the conditioinal section.
 
  The following JSON snippets shows dashboard attributes and dashboard sections to use for conditional sections.
 
@@ -379,14 +380,14 @@ Starting with release 2020.38, you can make dashboard sections conditional by us
 This somewhat contrived example:
 * Uses a condition that's always true for the `Proxy Troubleshooting` section.
 * Uses the SEVERE color to show conditional sections are included.
-* Specifies hover text in the `description` field.
+* Specifies the tooltip in the `description` field.
 
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
 Here's the snippet that:
 * Changes the label from `Jump To` to `New Label`, a good way to make sure things are working while experimenting.
-* Sets the color for the condition badge, a small circle with the number of conditions inside.
+* Sets the color for the condition badge, a small circle with the number of conditions inside. If the condition is met, the badge is shown on the Jump To menu and on next to the conditional section.
 
 ```
 {
@@ -400,7 +401,7 @@ Here's the snippet that:
 }
 ```
 
-Here's the section filter that shows the **Proxy Troubleshootig** section. We use a query that is always true (`1 > 0`):
+Here's the section filter that conditionally shows the **Proxy Troubleshootig** section. This example uses a query that is always true (`1 > 0`), and includes the tooltip text `Condition for this section was met`.
 
 ```
 "sections": [
