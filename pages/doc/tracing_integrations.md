@@ -146,7 +146,7 @@ If you want context for identifying problem traces, you can start by viewing the
 
 If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html):
 1. Select **Applications > Traces** in the task bar.
-2. In the Traces browser, [submit a trace query](trace_data_query.html) by selecting the operations and filters that describe the spans of interest.
+2. In the Traces Browser, [submit a trace query](trace_data_query.html) by selecting the operations and filters that describe the spans of interest.
 3. Click **Search**.
 
 

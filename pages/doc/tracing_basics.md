@@ -7,8 +7,6 @@ permalink: tracing_basics.html
 summary: Collect and visualize trace data from your applications.
 ---
 
-Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code.
-
 Distributed tracing enables you to track the flow of work that is performed by an application as it processes a request. This visibility can help you find errors and performance problems in your code. Wavefront supports OpenTracing and OpenTelemetry for tracing.
 
 In an application that consists of multiple services, an incoming request typically starts a chain of requests that are propagated from one service to the next.  Distributed tracing gives you end-to-end visibility into that chain across services, even when those services are running in different environments.
@@ -74,15 +72,15 @@ Examine the services in the application, and inspect Request Error and Duration 
 
 ![service status](/images/service_status_intro.png)
 
-### Service dashboards
+### Service Dashboards
 
 The default, read-only dashboard for a service lets you explore trace data sent by each service in your application.
 ![service dahsboard](/images/service_dashboard_intro.png)
 
-### Tracing Browser
+### Traces Browser
 
-The Traces browser supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details, without having to navigate between pages and pop-ups.
-![tracing browser](/images/tracing_browser_intro.png)
+The Traces Browser supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details, without having to navigate between pages and pop-ups.
+![traces browser](/images/tracing_browser_intro.png)
 
 ## Next Steps
 
