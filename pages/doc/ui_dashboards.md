@@ -378,14 +378,15 @@ Starting with release 2020.38, you can make dashboard sections conditional by us
 
 This somewhat contrived example:
 * Uses a condition that's always true for the `Proxy Troubleshooting` section.
-* Uses condition that's always false for the `Proxies: overview` section.
 * Uses the SEVERE color to show conditional sections are included.
 * Specifies hover text in the `description` field.
 
 
 {% include warning.html content="Editing the dashboard JSON might have unintended consequences. Use the JSON editor only if you have some experience with JSON. " %}
 
-Here's the snippet that sets the number on the jumpToLabel. The snippet also changes the label from `Jump To` to `New Label`, a good way to make sure things are working while experimenting.
+Here's the snippet that:
+* Changes the label from `Jump To` to `New Label`, a good way to make sure things are working while experimenting.
+* Sets the color for the condition badge, a small circle with the number of conditions inside.
 
 ```
 {
@@ -416,19 +417,15 @@ Here's the section filter that shows the **Proxy Troubleshootig** section. We us
 ]
 ```
 
-
-
-After you've saved these changes, the Jump To menu appears as follows:
+After you've saved these changes:
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="50%">The first JSON snippet uses <strong>NEW LABEL</strong> and highlights the number of conditional sections that are shown in red (SEVERE).</td>
-<td width="50%"><img src="images/condition_label.png" alt="Jump to menu with highlighted number and Proxy Troubleshooting highlighted."/></td>
-</tr>
-<tr>
-<td width="40%">Hover text indicates the condition has been met. </td>
-<td width="60%"><img src="images/condition_hover_text.png" alt="Hover text indicates condition has been met."/></td>
+<td width="50%">The Jump To menu uses the NEW LABEL text and shows 1 to indicate there's one conditional section, in red (SEVERE).
+<img src="images/condition_label.png" alt="Jump to menu with highlighted number and Proxy Troubleshooting highlighted."/></td>
+<td width="50%">Hover text alerts the user that the section is conditional -- you can change the text as appropriate.
+<img src="images/condition_hover_text.png" alt="Hover text indicates condition has been met."/></td>
 </tr>
 </tbody>
 </table>
