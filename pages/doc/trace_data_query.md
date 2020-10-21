@@ -78,7 +78,7 @@ tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.m
           Relative time 
         </td>
         <td markdown = "span">
-          Get the total time spent on a critical path as a percentage using `.time_percent.m`. 
+          Get the total time spent on a critical path as a percentage when compared to the end to end trace duration using `.time_percent.m`. 
           <br/>Let's look at a scenario where all the traces have the same critical path duration, but the time spent by the operations vary on the critical path. Now, you can visualize this data as a percentage using `time_percent.m` and compare how an operation/s performed on each trace.
         </td>
       </tr>
