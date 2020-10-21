@@ -96,7 +96,7 @@ The screenshot below shows you the critical path for the `beachshirts` applicati
       hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.m, operationName=ShoppingWebResource.orderShirts)
       ```
       
-    * **Relative time**: When compared to the total critical path time, which is 1.73 seconds, the `ordershirts` operation spends 5.8% of the time on the critical path.
+    * **Relative time**: When compared to the total trace duration, which is 1.73 seconds, the `ordershirts` operation spends 5.8% of the time on the critical path.
       ```
       hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.m, operationName=ShoppingWebResource.orderShirts)
       ```
@@ -108,7 +108,7 @@ The screenshot below shows you the critical path for the `beachshirts` applicati
       ```
       hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.total_time.millis.m)
       ```
-    * **Relative time**: When compared to the total critical path time, which is 1.73 seconds, the shopping service spends 8.7% of the time on the critical path.
+    * **Relative time**: When compared to the total trace duration, which is 1.73 seconds, the shopping service spends 8.7% of the time on the critical path.
       ```
       hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.m)
       ```
