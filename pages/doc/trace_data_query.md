@@ -101,7 +101,7 @@ The screenshot below shows you the critical path for the `beachshirts` applicati
       hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.m, operationName=ShoppingWebResource.orderShirts)
       ```
 
-* **Aggregated metrics**: Using aggregated metrics, let's find out the time taken by the shopping service on the critical path. Aggregated metrics give you the average time taken by each service on the critical path. 
+* **Aggregated metrics**: Using aggregated metrics, let's find out the time taken by the shopping service on the critical path. Aggregated metrics give you the total time taken by each service on the critical path. 
   <br/>Let's assume that the operations of the shopping service spend time as follows: `ordershirts` - 0.1 seconds, `GET-style/{id}/make` - 0.02 seconds, and `POST-delivery/{orderNum}`- 0.03 seconds. 
   
     * **Absolute time**: The shopping service spends 0.15 (0.1 + 0.02 + 0.03) seconds on the critical path.
