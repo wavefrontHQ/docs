@@ -64,11 +64,9 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 </tbody>
 </table>
 
-<!---
+
 ## Delta Counters
 
 Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
 * The original delta counter implementation is now obsolete.
 * The original delta counter implementation is End of Live March 31, 2021.
-
---->

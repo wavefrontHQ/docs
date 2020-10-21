@@ -31,7 +31,13 @@ Made improvements to the following integrations in October 2019 - October 2020:
 * Istio integration -- new adapter
 * Zabbix integration
 * Logstash integration
-* Tanzu Kuernetes Grid Integrated Edition (formerly PKS) -- Now includes an **Alerts** tab with predifined alerts
+* Tanzu Kubernetes Grid Integrated Edition (formerly PKS) -- Now includes an **Alerts** tab with predefined alerts
+* Kubernetes integration guided user experience:
+  - Provides streamlined instructions based on where you install the Wavefront Collector for Kubernetes
+  - Verifies you've configured the Kubernetes integration correctly during setup
+  - Shows the list of your Kubernetes clusters and their statuses in the integrations setup page
+
+  ![screenshot showing options to install in Tanzu, Kubernetes, or Openshift cluster](images/kubernetes_revamp.png)
 
 Made significant improvements to the dashboards of the following integrations:
 
