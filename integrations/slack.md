@@ -6,10 +6,21 @@ summary: Learn about the Wavefront Slack Integration.
 ---
 ## Slack Integration
 
-Slack is a popular communication platform. Wavefront and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your Slack channels. An alert notification sent to a Slack channel looks like:
+Slack is a popular communication platform. Wavefront supports sending a Wavefront/Slack webhook integration and a URL unfurler for Slack users who paste Wavefront links into Slack messages.
+
+### Slack Webhook Integration for Alert Notifications
+
+Wavefront and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your Slack channels. An alert notification sent to a Slack channel looks like:
 
 {% include image.md width="50" src="images/slack_alert.png" %}
-## Slack Setup
+
+### Slack URL Unfurler
+
+After a privileged user has added the Wavefront application to Slack, all Slack users will be prompted the next time they post a Wavefront URL. They can decide to unfurl the URL to show an image, unfurl all Wavefront URLs, or not unfurl Wavefront URLs. Here's a Slack message with an unfurled chart image:
+
+{% include image.md width="50" src="images/unfurled_chart.png" %}
+
+## Slack Webhook Integration Setup
 
 
 
@@ -22,7 +33,7 @@ Slack is a popular communication platform. Wavefront and Slack both support webh
 {% include image.md width="10" src="images/configure_apps.png" %}
 1. On the App Directory page, click the **Custom Integrations** and then **Incoming WebHooks** links:
 {% include image.md width="30" src="images/incoming_webhooks.png" %}
-1. Click the **Add Configuration** button.  
+1. Click the **Add Configuration** button.
 1. In the Post to Channel dropdown list, select the Slack channel where your incoming webhook will post messages to and click the **Add Incoming WebHooks integration** button:
 {% include image.md width="30" src="images/webhook_testing.png" %}
 1. Customize the incoming webhook.
@@ -46,5 +57,18 @@ Slack is a popular communication platform. Wavefront and Slack both support webh
 {% include alerts.md %}
 {% include webhooks_select.md %}
 
+## Slack URL Unfurler Setup
+
+To implement URL Unfurl functionality for links to Wavefront pages, follow these steps:
+
+1. A Slack admin user with the right privileges installs the Wavefront application into Slack. Who that person is depends on the Slack setup at your site.
+1. After that, any user who pastes a link to a Wavefront instance -- usually a link to a chart -- into Slack is prompted as follows:
+  * Unfurl links to Wavefront instances
+  * Don't unfurl links to this Wavefront instance
+  * Don't unfurl links.
+
+  The following image illustrates this:
+
+  {% include image.md width="50" src="images/slack_user_message.png" %}
 
 
