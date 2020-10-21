@@ -37,7 +37,7 @@ Charts help you view the data trends and grasp data faster.
           Get specific metrics data for a critical path. Filter the query using the `application`, `cluster`, `shard`, `service`, `operationName`, `error`, and `source` point tags.
           <br/><br/>Example: 
           <code>
-tracing.critical_path.<b>derived</b>.*.total_time.millis.count.m
+tracing.critical_path.<b>derived</b>.*.total_time.millis.m
           </code>
         </td>
       </tr>
@@ -49,7 +49,7 @@ tracing.critical_path.<b>derived</b>.*.total_time.millis.count.m
           Get high-level metrics for a critical path of a specific application or service. Filter queries using the `application`, `cluster`, `shard`, and `service` point tags.
           <br/><br/>Example:
           <code>
-tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.count.m
+tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.m
           </code>
         </td>
       </tr>
@@ -93,12 +93,12 @@ The screenshot below shows you the critical path for the `beachshirts` applicati
 
     * **Absolute time**: Let's assume the `ordershirts` operation spends 0.1 seconds or 100 milliseconds on the critical path.
       ```
-      hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.count.m, operationName=ShoppingWebResource.orderShirts)
+      hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.m, operationName=ShoppingWebResource.orderShirts)
       ```
       
     * **Relative time**: When compared to the total critical path time, which is 1.73 seconds, the `ordershirts` operation spends 5.8% of the time on the critical path.
       ```
-      hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.mm, operationName=ShoppingWebResource.orderShirts)
+      hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.m, operationName=ShoppingWebResource.orderShirts)
       ```
 
 * **Aggregated metrics**: Using aggregated metrics, let's find out the time taken by the shopping service on the critical path. Aggregated metrics give you the average time taken by each service on the critical path. 
@@ -106,12 +106,12 @@ The screenshot below shows you the critical path for the `beachshirts` applicati
   
     * **Absolute time**: The shopping service spends 0.15 (0.1 + 0.02 + 0.03) seconds on the critical path.
       ```
-      hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.total_time.millis.count.m)
+      hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.total_time.millis.m)
       ```
     * **Relative time**: When compared to the total critical path time, which is 1.73 seconds, the shopping service spends 8.7% of the time on the critical path.
-        ```
-        hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.count.m)
-        ```
+      ```
+      hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.m)
+      ```
 
 ### Create Alerts for Critical Path Data
 
