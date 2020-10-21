@@ -69,10 +69,10 @@ The link URL template uses [Mustache syntax](https://mustache.github.io/). The t
     </tbody>
 </table>
 
-You can apply functions to transform the URL. All functions begin with the namespace `functions`.
+You can apply functions to transform the URL. All functions begin with the namespace `functions`. Simple examples are in the next section. 
 <table>
     <thead>
-    <tr><th width="60%">Function</th><th width="40%">Description</th></tr>
+    <tr><th width="50%">Function</th><th width="50%">Description</th></tr>
     </thead>
     <tbody>
     <tr>
@@ -86,6 +86,10 @@ You can apply functions to transform the URL. All functions begin with the names
     <tr>
     <td>epochMillisToISO</td>
     <td markdown="span">Converts epoch milliseconds to an [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Dates) representation.</td>
+    </tr>
+    <tr>
+    <td>dateTimeFormat</td>
+    <td markdown="span">Takes an Epoch time and formats it according to the format specified in format using Java's joda Date Time Format. </td>
     </tr>
     <tr>
     <td>epochMillisEra,epochMilliscenturyOfEra,
@@ -106,6 +110,7 @@ You can apply functions to transform the URL. All functions begin with the names
     </tr>
     </tbody>
 </table>
+
 
 ### Link URL Template Examples
 
@@ -147,6 +152,16 @@ The following external link URL template references the point tag name `service`
 {% raw %}
 ```handlebars
 http://<hostname>?time:(from:'{{#functions.epochMillisToISO}}{{startEpochMillis}}{{/functions.epochMillisToISO}}',to:'{{#functions.epochMillisToISO}}{{endEpochMillis}}{{/functions.epochMillisToISO}}'))&{{#functions.urlEncode}}host:{{source}} AND source:"/mnt/logs/{{service}}.log"{{/functions.urlEncode}}'))
+```
+{% endraw %}
+
+To get a date in this format: `2020-07-16T21:00:00.000Z` you could do this:
+```handlebars
+{% raw %}
+{{#functions.dateTimeFormat}}
+  {{#functions.format}}YYYY-MM-dd'T':HH:mm:ss.SSS'Z'{{/functions.format}}
+  {{startEpochMillis}}
+{{/functions.dateTimeFormat}}
 ```
 {% endraw %}
 

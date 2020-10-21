@@ -24,11 +24,11 @@ Wavefront offers the following dashboards and browsers to view information on yo
 <td width="45%">
 To choose your starting point for visualizing traces:<br/>
   <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
-  <li> From the taskbar click <b>Applications</b> :
+  <li> From the taskbar, click <b>Applications</b> :
   <img src="/images/tracing_menu.png" alt="tracing menu"/>
       <ul> <li>Select <b>Application Status</b> to <a href="#application-status">view how instrumented applications are related to each other, view the status of the applications</a> and drill down from there.</li>
       <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
-      <li> Select <b>Traces</b> to start by <a href="#tracing-browser">querying for traces</a> and drill down from there.</li>
+      <li> Select <b>Traces</b> to start by <a href="#traces-browser">querying for traces</a> and drill down from there.</li>
       </ul></li></ol>
 </td>
 </tr>
@@ -41,10 +41,14 @@ It is important to get an overview of the services and applications that send da
 
 ### Application Map
 
-The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map. 
+The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
 
-Use <img src="images/tracing_link_icon.png"
-style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
+See the application map:
+1. In your web browser, go to your Wavefront cluster and log in. 
+1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_appmap_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/>
+1. Optionally, use <img src="images/tracing_link_icon.png"
+style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
 ![application map](images/tracing_app_map.png)
 
@@ -94,8 +98,8 @@ Let's walk through the following scenario to get a quick overview of the applica
       <br/>Click on the styling service. Now, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
         <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
-        <li> Navigate to the Service dashboard when you click <b>View Service dashboard</b>.</li>
-        <li> Navigate to the Tracing browser when you click <b>View traces for service</b>.</li>
+        <li> Navigate to the Service Dashboard when you click <b>View Service Dashboard</b>.</li>
+        <li> Navigate to the Traces Browser when you click <b>View traces for service</b>.</li>
         <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li></ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
@@ -123,7 +127,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 7: Click on a tracing traffic</b>
       <br/>When you click on the tracing traffic between the styling and printing service, you can:
         <ul><li>View Request, Error, and Duration (RED) metrics for the specific edge.</li>
-        <li> Navigate to the Tracing browser when you click <b>View traces for this traffic</b>.</li></ul>
+        <li> Navigate to the Traces Browser when you click <b>View traces for this traffic</b>.</li></ul>
       </td>
     <td><img src="/images/tracing_application_map_edge.png" alt="The pop up when you click a tracing traffic that is bidirectional"/></td>
   </tr>
@@ -141,7 +145,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       </ul>
     </td>
     <td markdown="span">
-      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_table_view_error_legend.png)
+      ![Shows the settings to update the legend for the error %. You need to select error % from the drop down and then add the values in ascending order.](images/tracing_legend_settings_app_map.png)
     </td>
   </tr>
 </tbody>
@@ -151,11 +155,16 @@ Let's walk through the following scenario to get a quick overview of the applica
 
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
+See the table view:
+1. In your web browser, go to your Wavefront cluster and log in. 
+1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_table_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/>
+
 ![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
 Using the table view, you can:
 * Examine the applications and services, or search for a particular application or service by applying filters.
-* Click the name of the service to [explore the dashboard for that service](#explore-the-default-service-dashboard).
+* Click the name of the service to [drill down to the Service Dashboard](#explore-the-default-service-dashboard).
 * Sort data:
   - Sort the application and service names alphabetically.
   - Sort the table in the ascending or descending order of the RED metrics.
@@ -284,7 +293,12 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 When you select an application, you get an overview of its services.
 
-![app services](images/tracing_app_services.png)
+See the grid view:
+1. In your web browser, go to your Wavefront cluster and log in. 
+1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_grid_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/>
+
+![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_app_services.png)
 
 On the page for a particular application, you can:
 * Examine the services in the application, or search for a particular service by applying filters.
@@ -321,7 +335,16 @@ On the page for a particular application, you can:
 
 ## Service Dashboard
 
-When you click on a service's **Details**, you can examine a dashboard of metrics to identify potential hot spots, and then drill down to the Traces browser.
+Use the Service Dashboard identify potential hot spots, and then drill down to the Traces Browser.
+
+See the Service Dashboard:
+
+* Option 1:
+  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. From the taskbar, click **Applications** > **Service Dashboard**.
+  
+* Option 2:
+  Drill down to the Service Dashboard from the application map, table view, or grid view.
 
 ### Explore the Default Service Dashboard
 
@@ -343,7 +366,7 @@ On the dashboard for a particular service, you can:
 * Examine the TopK charts to find out which operations are potential hot spots. The bars represent operations that execute in this component of the service.
 * Use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
-* Navigate to the Traces browser.
+* Navigate to the Traces Browser.
   * Click a bar on a histogram.
   * Select a region of the histogram chart and click **Search Traces** to view the traces for the selected duration.
   * Click a bar on a TopK chart.
@@ -358,11 +381,11 @@ The standard dashboard for services is read-only. To create a customizable copy:
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
 <!---(Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)-->
 
-After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces browser.
+After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces Browser.
 
 ### Save Charts in the Service Dashboard
 
-View queries used in the charts of the default service dashboard and save these charts to your dashboard.
+View queries used in the charts of the default Service Dashboard and save these charts to your dashboard.
 
 <table style="width: 100%;">
   <tr>
@@ -400,9 +423,9 @@ View queries used in the charts of the default service dashboard and save these 
 
 **Don't see RED metrics or see incorrect RED metrics on your charts?**
 
-Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default service dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default service dashboard will be incorrect, or you will not see RED metrics on your charts. 
+Starting with [release 2020-26.x](2020.26.x_release_notes.html), the **span.kind** filter is introduced to the default Service Dashboard. As a result, if the spans from your OpenTracing application don't have the `span.kind` point tag, the RED metrics you see on the default Service Dashboard will be incorrect, or you will not see RED metrics on your charts. 
 
-The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind` tag to the spans. Use the recommended versions to see accurate data on the default service dashboard.
+The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind` tag to the spans. Use the recommended versions to see accurate data on the default Service Dashboard.
 
 {% include note.html content="If you are using [Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks) and sending data via the Wavefront Proxy, make sure to update to the latest proxy version."%}
 
@@ -441,16 +464,22 @@ The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind
 </table>
 
 
-## Tracing Browser
+## Traces Browser
 
-In the Traces browser, you can explore the context and the details of your application's traces.
+In the Traces Browser, you can explore the context and the details of your application's traces.
 
-* Navigate from the service's page to display traces for operations you selected.
-* Select **Applications > Traces** from the task bar to display an empty page that you populate by [querying](trace_data_query.html).
+See the Traces Browser:
+
+* Option 1:
+  1. In your web browser, go to your Wavefront cluster and log in. 
+  1. From the taskbar, click **Applications** > **Traces**.
+  
+* Option 2:
+  Drill down to the Traces Browser from the Service Dashboard, application map, table view, or grid view.
 
 ![explore trace browser](images/tracing_traces_browser.png)
 
-From the Traces browser, you can:
+From the Traces Browser, you can:
 * Query for traces and view the query results in the [traces list](#query-for-a-list-of-traces).
 * Select a trace in the list and:
   - Use the [service map panel](#investigate-the-service-map-for-a-trace) to investigate the services that contribute spans to the trace.
@@ -469,7 +498,7 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 ### Query for a List of Traces
 
-In the Traces browser, you can [use the query builder or query editor](trace_data_query.html) to query for traces that include spans for a particular operation.
+In the Traces Browser, you can [use the query builder or query editor](trace_data_query.html) to query for traces that include spans for a particular operation.
 
 You can view the results in a traces list.
 
@@ -488,7 +517,7 @@ You can use the trace list to:
 
 ### Investigate the Service Map for a Trace
 
-In the Traces browser, use the service map to investigate the services that contribute spans to a selected trace.
+In the Traces Browser, use the service map to investigate the services that contribute spans to a selected trace.
 
 ![explore service map](images/tracing_traces_browser_service_map.png)
 
@@ -510,7 +539,7 @@ Watch this video to see how a service map can help you pinpoint a performance bo
 
 ### Examine Trace Details
 
-In the Traces browser, use the trace details panel to examine the spans that belong to a selected trace. Some of these spans may represent operations executed by other services.
+In the Traces Browser, use the trace details panel to examine the spans that belong to a selected trace. Some of these spans may represent operations executed by other services.
 
 ![trace details](images/tracing_traces_browser_trace_details.png)
 
@@ -555,8 +584,8 @@ We use the following rules to determine which spans to include in a critical pat
 You can export traces from Wavefront, save them locally as JSON files, and view them later using the **Offline Traces**.
 
 1. Export Traces:
-    - Export the traces via the [Tracing Browser](#traicng-browser) and save the JSON file.
-    - Export traces via the API and save the response as a JSON file.
+    - Export the traces via the [Traces Browser](#traces-browser) and save the JSON file.
+    - Export traces via the API.
       - Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
         <br/>Example:
         ![UI image showing where the API is on the Wavefront Swagger UI.](images/tracing_import_tracing_swagger_UI.png)
@@ -565,7 +594,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
         ```
         curl -X GET --header "Accept: application/json" --header "Authorization: Bearer <Wavefront_Token>" "https://<Tenant_Name>.wavefront.com/api/v2/chart/api?q=limit(100%2C%20traces(spans(%22beachshirts.shopping.*%22)))&s=1601894248&g=d&view=METRIC&sorted=false&cached=true&useRawQK=false"
         ```
-1. Upload the JSON file and view trace data. You can only upload one JSON file at a time.
+1. Upload the JSON file or feed the JSON response from the API to offline traces, and view trace data. You can only upload one JSON file at a time.
     1. Click **Applications** > **Offline Traces**.
     1. Click **Upload JSON**, select the JSON file you saved that has the imported trace data, and click **Open**.
   <br/>Now, you see the trace data you imported. 

@@ -7,7 +7,9 @@ permalink: authentication.html
 summary: Learn how to enable authentication and multi-tenant authentication.
 ---
 
-Wavefront supports authentication through your identity provider (IDP). For several popular IDPs we support integrations.
+Wavefront supports authentication through your identity provider (IDP).
+* For several popular IDPs we support integrations.
+* Starting with release 2020.38, the integration includes steps for setting up [self-service SAML SSO](auth_self_service_sso.html)
 
 Most Wavefront customers use single-tenant authentication. If your company wants to set up a different tenant for different teams, a multi-tenant setup might make sense.
 

@@ -120,6 +120,75 @@ Suppose you have a Wavefront instance named `ex1`.
 </tbody>
 </table>
 
+## Get Ingested Delta Counters with Spy
+
+Your Wavefront instance includes an HTTP endpoint that returns a sample of ingested [delta counters](delta_counters.html). The data you see are the aggregated points in each minute bucket that Wavefront stores **post aggregation**, not the individual points that were sent to Wavefront.
+
+You can use the returned list to help you answer questions like:
+* Show me some ingested delta counters with names that start with the prefix `Cust`.
+* Show me some ingested delta counters with source names that start with the prefix `web`.
+*	What are some delta counters that are tagged with `env`?
+
+{% include note.html content="Delta counters are not yet available from Wavefront Top."%}
+
+### Endpoint and Parameters for Delta Counters
+
+To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
+
+  ```
+  https://<cluster>.wavefront.com/api/spy/deltas
+  ```
+
+To get a sample of delta counters with specific characteristics, add one or more of the following parameters:
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+</thead>
+<tr><td markdown="span">counter</td>
+<td markdown="span">List a delta counter only if its name starts with the specified case-sensitive prefix <br> E.g., `counter=Cust` matches counters named `Customer`, `Customers`, `Customer.alerts`, but not `customer`.</td></tr>
+<tr><td markdown="span">host</td>
+<td>List a delta counter only if its source name starts with the specified case-sensitive prefix. </td></tr>
+<tr><td markdown="span">counterTagKey</td>
+<td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counteragKey=env&counterTagKey=datacenter` </td></tr>
+<tr><td markdown="span">sampling</td>
+<td markdown="span">0 to 1, with 0.01 being 1%.  </td></tr>
+</tbody>
+</table>
+
+
+### Example Requests for Delta Counters
+
+Suppose you have a Wavefront instance named `ex1`.
+
+<table width="100%">
+<tbody>
+<thead>
+<tr><th width="30%">List Sample of<br>These Delta Counters</th><th width="70%">With This Query URL</th></tr>
+</thead>
+<tr>
+<td markdown="span">Any ingested delta counters. </td>
+<td><code>http://ex1.wavefront.com/api/spy/deltas</code>
+</td>
+</tr>
+<tr>
+<td markdown="span">Ingested delta counters with names that start with `Cust`. </td>
+<td><code>http://ex1.wavefront.com/api/spy/deltas?counter=Cust</code>
+</td>
+</tr>
+<tr>
+<td>Ingested delta counters that have tags named <code>env</code> and <code>loc</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/deltas?counterTagKey=env&counterTagKey=loc</code>
+</td>
+</tr>
+<tr>
+<td>Ingested delta counters from a source whose name starts with <code>web1</code>.</td>
+<td><code>http://ex1.wavefront.com/api/spy/deltas?host=web1</code>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Get Ingested Histograms with Spy
 

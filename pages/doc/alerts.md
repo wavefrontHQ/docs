@@ -60,14 +60,15 @@ Each alert is associated with one or more alert targets. The alert target specif
 
 The **maximum number** of email alert targets is 10 for classic alerts and 10 per severity for multi-threshold alerts. If you exceed the number, you receive a message like the following:
 
-```
-{"status":{"result":"ERROR","message":"Invalid notification specified: null","code":400}}
-```   
+
+`{"status":{"result":"ERROR","message":"Invalid notification specified: null","code":400}}`
 
 
 
 ## How Alerts Work Video
+
 In this video, Clement explains how classic alerts work:
+
 <p><a href="https://www.youtube.com/watch?v=VjmWExKiYYg&index=1&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K"><img src="/images/v_alerting_clement.png" style="width: 700px;"/></a>
 </p>
 
@@ -84,6 +85,7 @@ You can create a classic alert with a single severity level (e.g. SEVERE) or a m
 
 
 ### Creating a Classic Alert
+
 Required fields for a classic alert are:
 * Alert name (default is New Alert)
 * Alert condition
@@ -134,30 +136,6 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </table>
 </li>
 
-<li>(Recommended) Specify a list of alert targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets across the following types. Use commas to separate targets of the same type.
-<table id="alert-targets">
-<tbody>
-<thead>
-<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
-</thead>
-<tr><td><strong>Email</strong></td> <td>Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content. You can specify up to 10 valid email addresses. </td></tr>
-
-<tr><td><strong>PagerDuty Key</strong></td>
-<td markdown="span">PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). Alert notifications that use these keys are sent in response to a default set of triggering events, and contain default content.</td></tr>
-
-<tr><td><strong>Alert Target</strong></td>
-<td>Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
-
-<ul>
-<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
-<li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
-</ul>
-</td>
-</tr>
-
-</tbody>
-</table>
-</li>
 <li>(Recommended) Specify a <strong>Display Expression</strong>. Defaults to the value of the condition expression, either 0 or 1. Specify a display expression to get more details when the alert changes state.
 
 The display expression can include any valid Wavefront Query Language construct, and typically captures the underlying time series that the condition expression is testing. The results of the display expression are:
@@ -184,6 +162,47 @@ The display expression can include any valid Wavefront Query Language construct,
 <tr>
 <td><strong>Tags</strong></td>
 <td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>(Recommended) Specify a list of alert targets to notify when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets across the following types. Use commas to separate targets of the same type.
+<table id="alert-targets">
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr><td><strong>Email</strong></td> <td>Valid email addresses. Alert notifications are sent to these addresses in response to a default set of triggering events, and contain default HTML-formatted content. You can specify up to 10 valid email addresses. </td></tr>
+
+<tr><td><strong>PagerDuty Key</strong></td>
+<td markdown="span">PagerDuty keys obtained by following the steps for the [PagerDuty integration](pagerduty.html). Alert notifications that use these keys are sent in response to a default set of triggering events, and contain default content.</td></tr>
+
+<tr><td><strong>Alert Target</strong></td>
+<td>Names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you have previously created to:
+
+<ul>
+<li  markdown="span">Configure webhook notifications for pager services and communication channels. Follow the steps for the [VictorOps integration](victorops.html), [Slack integration](slack.html), or [HipChat integration](hipchat.html) for notifications on these popular messaging platforms. </li>
+<li>Configure email or PagerDuty notifications with nondefault content or triggers. </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+
+
+<li>
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Secure Metric Details</strong></td>
+<td>If checked, alert notifications do not show metric details and alert images. </td>
 </tr>
 </tbody>
 </table>
@@ -304,6 +323,22 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 <tr>
 <td><strong>Tags</strong></td>
 <td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="20%">Property</th><th width="80%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Secure Metric Details</strong></td>
+<td>If checked, alert notifications do not show metric details and alert images. </td>
 </tr>
 </tbody>
 </table>

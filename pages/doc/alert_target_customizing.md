@@ -659,7 +659,7 @@ Use the following variables within the section of an [alert-series iterator](#al
 </tr>
 <tr>
 <td markdown="span">`tags`</td>
-<td markdown="span">Iterator that returns a list of the point tags associated with the time series being visited. Each point tag is formatted like this:  `key=value`
+<td>Iterator that returns a list of the point tags associated with the time series being visited. Each point tag is formatted like this:  <code>key=value</code>. To access the value of a specific point tag, use this syntax: <code>&#123;&#123;#tags&#125;&#125;&#123;&#123;pointTagKey&#125;&#125;&#123;&#123;/tags&#125;&#125;</code>
 </td>
 </tr>
 <tr>
@@ -689,7 +689,7 @@ This portion of the Generic Webhook alert target template shows how to use the `
 "failingAlertSeries": [
   {{#trimTrailingComma}}
     {{#failingAlertSeries}}
-      "Source: {{host}}, Label: {{label}}, Tags: {{tags}}, Observed: {{observed}}, Firing: {{firing}}",
+      "Source: {{host}}, Label: {{label}}, All Tags: {{tags}}, Env: {{#tags}}{{env}}{{/tags}}, Observed: {{observed}}, Firing: {{firing}}",
     {{/failingAlertSeries}}
   {{/trimTrailingComma}}
 ]
@@ -703,7 +703,7 @@ The preceding template might yield the following message:
 {% raw %}
 ```handlebars
 "failingAlertSeries": [
-    "Source: raspberrypi, Label: humidity, Tags: {env=production, az=us-west-2}, Observed: 5, Firing: 2"]
+    "Source: raspberrypi, Label: humidity, All Tags: {env=production, az=us-west-2}, Env: production, Observed: 5, Firing: 2"]
 ```
 {% endraw %}
 
@@ -1032,6 +1032,7 @@ You can use alert target utility functions to make the output of the alert targe
 * Use `xml11Escape` or `xml10Escape` if you send notifications to a messaging platform that uses XML.
 * Use `trimTrailingComma` if you send notifications to a messaging platform that does not automatically suppress a literal comma after the final element of a list.
 * Use `convertWhiteSpace` to convert characters that cause problems in a JSON file (`\t` `\n` `\x0B` `\f` `\r` etc.) to white space.
+* Use `convertEpochMillisToSeconds` to convert Epoch milliseconds to seconds. This is useful if you want to create an alert target that includes a URL, which can't include milliseconds.
 
 
 <table>
@@ -1110,7 +1111,17 @@ Output:\\
 Input:\\
 `Give me space! \r Now!`\\
 Output:\\
-`Give me space!  Now!`
+`Give me space!  Now!`\\
+</td>
+</tr>
+<tr>
+<td markdown="span">`convertEpochMillisToSeconds`
+</td>
+<td markdown="span">Convert Epoch milliseconds to seconds. This is useful if you want to create an alert target that includes a URL. URLs can't include milliseconds.
+</td>
+<td markdown="span">
+Input:1600273622000
+Output:1600273622
 </td>
 </tr>
 </tbody>

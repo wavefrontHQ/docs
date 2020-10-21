@@ -40,7 +40,7 @@ Here's a preview of the Kubernetes Pods dashboard:
 {% include image.md src="images/db_kubernetes_pods.png" width="80" %}
 
 
-### Kubernetes Quick Install Using Helm
+## Kubernetes Quick Install Using Helm
 1. Ensure that you have installed [helm](https://helm.sh/docs/intro/).
 2. Add the Wavefront helm repo:{% raw %}
 ```
@@ -65,10 +65,10 @@ helm repo update
 **Note:** The `clusterName` property refers to the Kubernetes cluster, for example, `dev-cluster`. You must set this property. For Project Pacific, add `--set projectPacific.enabled=true` along with helm install command.
 
 Refer to the Wavefront [helm chart](https://github.com/wavefrontHQ/helm/tree/master/wavefront) for further options.
-#### Kubernetes Manual Install
+## Kubernetes Manual Install
 Follow the instructions below to manually set up Kubernetes monitoring.
 
-##### Step 1. Deploy a Wavefront Proxy in Kubernetes
+### Step 1. Deploy a Wavefront Proxy in Kubernetes
 
 1. Download [wavefront.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes/master/wavefront-proxy/wavefront.yaml) to your system.
 2. Edit the file and set `WAVEFRONT_URL` to `https://YOUR_CLUSTER.wavefront.com/api/` and `WAVEFRONT_TOKEN` to `YOUR_API_TOKEN`.
@@ -76,7 +76,7 @@ Follow the instructions below to manually set up Kubernetes monitoring.
 
 The Wavefront proxy and a `wavefront-proxy` service should now be running in Kubernetes.
 
-##### Step 2. Deploy Wavefront Collector for Kubernetes
+### Step 2. Deploy Wavefront Collector for Kubernetes
 
 1. Create a directory named `wavefront-collector-dir` and download the following files to that directory:
   * [0-collector-namespace.yaml](https://raw.githubusercontent.com/wavefrontHQ/wavefront-kubernetes-collector/master/deploy/kubernetes/0-collector-namespace.yaml)
@@ -94,7 +94,7 @@ The Wavefront proxy and a `wavefront-proxy` service should now be running in Kub
 
 To verify the collector is deployed, run `kubectl get pods -n wavefront-collector`.
 
-##### Step 3. (Optional) Deploy the kube-state-metrics Service
+### Step 3. (Optional) Deploy the kube-state-metrics Service
 
 The Wavefront Collector natively collects various [metrics](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source) about the state of Kubernetes resources. You can optionally deploy the third party [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) service to collect additional metrics.
 
@@ -104,6 +104,10 @@ To deploy kube-state-metrics:
 2. Run `kubectl create -f </path/to>/kube-state.yaml`.
 
 The `kube-state-metrics` service starts running on your cluster. The Wavefront Collector automatically discovers the service and starts collecting metrics from the kube-state-metrics service.
+## Use OpenShift To Install Kubernetes
+
+This page contains the Installation and Configuration steps for full-stack monitoring of OpenShift clusters using Wavefront Operator.
+
 ### Install and Configure Wavefront Operator on OpenShift Enterprise 3.x
 
 The Wavefront Collector supports monitoring of OpenShift clusters:
@@ -198,7 +202,7 @@ Preprocessor rules allow you to manipulate incoming metrics before they reach th
 4. Set `spec.token` to Wavefront API token and `spec.url` to Wavefront URL.
 5. Click on **Create**.
 
-## Table of Contents
+## Metrics
 
 * [Kubernetes Source](#kubernetes-source)
 * [Kubernetes State Source](#kubernetes-state-source)
@@ -209,7 +213,7 @@ Preprocessor rules allow you to manipulate incoming metrics before they reach th
 
 This information comes directly from the [Wavefront Collector for Kubernetes github page](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md)
 
-## Kubernetes Source
+### Kubernetes Source
 
 These metrics are collected from the `/stats/summary` endpoint on each [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) running on a node.
 
@@ -279,7 +283,7 @@ Metrics collected per type:
 | <cluster, ns, node>.pod.count | Pod counts by cluster, namespaces and nodes. |
 | <cluster, ns, node>.pod_container.count | Container counts by cluster, namespaces and nodes. |
 
-## Kubernetes State Source
+### Kubernetes State Source
 
 These are cluster level metrics about the state of Kubernetes objects collected by the Collector leader instance.
 
@@ -310,11 +314,11 @@ These are cluster level metrics about the state of Kubernetes objects collected 
 | HorizontalPodAutoscaler | hpa.max_replicas | Upper limit for the number of replicas to which the autoscaler can scale up. |
 | HorizontalPodAutoscaler | hpa.current_replicas | Current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler. |
 
-## Prometheus Source
+### Prometheus Source
 
 Varies by scrape target.
 
-## Systemd Source
+### Systemd Source
 
 These are Linux systemd metrics that can be collected by each Collector instance.
 
@@ -330,7 +334,7 @@ These are Linux systemd metrics that can be collected by each Collector instance
 | kubernetes.systemd.socket.current.connections | Current number of socket connections. |
 | kubernetes.systemd_socket_refused_connections_total | Total number of refused socket connections. |
 
-## Telegraf Source
+### Telegraf Source
 
 Host metrics:
 
@@ -370,7 +374,7 @@ Application metrics:
 | riak | [metrics list](https://github.com/influxdata/telegraf/tree/1.10.4/plugins/inputs/riak#measurements--fields) |
 | zookeeper | [metrics list](https://github.com/influxdata/telegraf/tree/1.10.4/plugins/inputs/zookeeper#metrics) |
 
-## Collector Health Metrics
+### Collector Health Metrics
 
 These are internal metrics about the health and configuration of the Wavefront Collector.
 

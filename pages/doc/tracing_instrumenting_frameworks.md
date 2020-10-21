@@ -56,7 +56,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 
 {% include note.html content="If you can not find the SDK you were looking for, see all the [SDKs provided by Wavefront](wavefront_sdks.html#what-do-you-want-to-collect)." %}
 
-{% include tip.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Tracing browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
+{% include tip.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Traces Browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
 
 ### Instrument Your Application with OpenTracing SDKs
 
