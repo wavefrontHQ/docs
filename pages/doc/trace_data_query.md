@@ -13,16 +13,12 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 The Wavefront Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_ui_overview.html#traces-browser) for details.
 
-In the screenshot below, most of the time is spent on the `Packaging.giftWrap` span, which is sent from the `packaging` service. 
-![the image shows how the trace browser shows the critical path along the span view.](images/tracing_critical_path_break_down.png)
-
 Starting with release 2020-38.x, you can view critical path data in Wavefront as histogram metrics and query them using the [`hs()` function](hs_function.html). 
 
 ### View Critical Path Data in Charts
 
 Charts help you view the data trends and grasp data faster. 
-- Get the total time of the critical path (`.total_time.millis.m`) or get the total time of the critical path as a percentage (`.time_percent.m`). 
-- Use critical path raw metrics or the critical path aggregated metrics, which are metrics that are aggregated beforehand to reduce the compute time when running queries.
+* Use critical path raw metrics or the critical path aggregated metrics, which are metrics aggregated beforehand to reduce the compute time when running queries.
 
     <table style="width: 100%;">
       <tr>
@@ -35,13 +31,13 @@ Charts help you view the data trends and grasp data faster.
       </tr>
       <tr>
         <td>
-          Derived metrics
+          Granular metrics
         </td>
         <td markdown = "span">
           Get specific metrics data for a critical path. Filter the query using the `application`, `cluster`, `shard`, `service`, `operationName`, `error`, and `source` point tags.
           <br/><br/>Example: 
           <code>
-tracing.critical_path.<b>derived</b>.*.total_time.millis.count.m
+tracing.critical_path.<b>derived</b>.*.total_time.millis.m
           </code>
         </td>
       </tr>
@@ -53,22 +49,69 @@ tracing.critical_path.<b>derived</b>.*.total_time.millis.count.m
           Get high-level metrics for a critical path of a specific application or service. Filter queries using the `application`, `cluster`, `shard`, and `service` point tags.
           <br/><br/>Example:
           <code>
-tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.count.m
+tracing.critical_path.<b>aggregated</b>.<b>derived</b>.*.time_percent.m
           </code>
+        </td>
+      </tr>
+    </table>
+    
+* Get the time spent on the critical path as an absolute value or as a percentage.
+    <table style="width: 100%;">
+      <tr>
+        <th width="20%">
+          Time Spent
+        </th>
+        <th width="80%">
+          Description
+        </th>
+      </tr>
+      <tr>
+        <td width="20%">
+          Absolute time 
+        </td>
+        <td markdown = "span" width="80%">
+          Get the total time spent on a critical path using `.total_time.millis.m`.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Relative time 
+        </td>
+        <td markdown = "span">
+          Get the total time spent on a critical path as a percentage when compared to the end to end trace duration using `.time_percent.m`. 
+          <br/>Let's look at a scenario where all the traces have the same critical path duration, but the time spent by the operations vary on the critical path. Now, you can visualize this data as a percentage using `time_percent.m` and compare how an operation/s performed on each trace.
         </td>
       </tr>
     </table>
 
 Examples:
 
-1. Get the critical path for the `beachshirts` application's `shopping` service and filter it using the `ordershirts` operation. The query uses derived metrics and the total time of the critical path.
-    ```
-    hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.count.m, operationName=ShoppingWebResource.orderShirts)
-    ```
-1. Query the data for the critical path as a percentage using aggregated metrics
-    ```
-    hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.count.m)
-    ```
+The screenshot below shows you the critical path for the `beachshirts` application's `shopping` service.
+![the image shows how the trace browser shows the critical path along the span view.](images/tracing_critical_path_break_down.png)
+
+*  **Granular metrics**: Using granular metrics, let's filter the query to get critical path data for the `ordershirts` operation. 
+
+    * **Absolute time**: Let's assume the `ordershirts` operation spends 0.1 seconds or 100 milliseconds on the critical path.
+      ```
+      hs(tracing.critical_path.derived.beachshirts.shopping.total_time.millis.m, operationName=ShoppingWebResource.orderShirts)
+      ```
+      
+    * **Relative time**: When compared to the total trace duration, which is 1.73 seconds, the `ordershirts` operation spends 5.8% of the time on the critical path.
+      ```
+      hs(tracing.critical_path.derived.beachshirts.shopping.time_percent.m, operationName=ShoppingWebResource.orderShirts)
+      ```
+
+* **Aggregated metrics**: Using aggregated metrics, let's find out the time taken by the shopping service on the critical path. Aggregated metrics give you the total time taken by each service on the critical path. 
+  <br/>Let's assume that the operations of the shopping service spend time as follows: `ordershirts` - 0.1 seconds, `GET-style/{id}/make` - 0.02 seconds, and `POST-delivery/{orderNum}`- 0.03 seconds. 
+  
+    * **Absolute time**: The shopping service spends 0.15 (0.1 + 0.02 + 0.03) seconds on the critical path.
+      ```
+      hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.total_time.millis.m)
+      ```
+    * **Relative time**: When compared to the total trace duration, which is 1.73 seconds, the shopping service spends 8.7% of the time on the critical path.
+      ```
+      hs(tracing.critical_path.aggregated.derived.beachshirts.shopping.time_percent.m)
+      ```
 
 ### Create Alerts for Critical Path Data
 
