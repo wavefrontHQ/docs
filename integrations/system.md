@@ -11,6 +11,8 @@ The Wavefront Usage and Proxy Metrics dashboard, part of the Wavefront Usage int
 The Wavefront Ingestion (PPS) Usage Breakdown dashboard provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types.
 Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage.
 
+The Wavefront Metrics Breakdown dashboard breaks down metrics usage based on integrations with the ability to drill-down further into the metric namespaces.
+
 Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront_monitoring.html#using-internal-metrics-to-optimize-performance)
 
 
