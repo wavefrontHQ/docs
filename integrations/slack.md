@@ -61,7 +61,7 @@ After a privileged user has added the Wavefront application to Slack, all Slack 
 
 To implement URL Unfurl functionality for links to Wavefront pages, follow these steps:
 
-1. A Slack admin user with the right privileges installs the Wavefront application into Slack. Who that person is depends on the Slack setup at your site.
+1. A Slack admin user with the right privileges <a href="https://slack.com/oauth/v2/authorize?client_id=2279130001.809926228192&scope=commands,links:write,users:read&user_scope=links:read"> installs the Wavefront application into Slack</a>. Who that person is depends on the Slack setup at your site.
 1. After that, any user who pastes a link to a Wavefront instance -- usually a link to a chart -- into Slack is prompted as follows:
   * Unfurl links to Wavefront instances
   * Don't unfurl links to this Wavefront instance
