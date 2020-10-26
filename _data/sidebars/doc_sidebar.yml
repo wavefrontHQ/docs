@@ -492,6 +492,10 @@ entries:
         url: /wavefront_kubernetes_faq.html
         output: web
 
+      - title: Kubernetes Troubleshooting
+        url: /wf_kubernetes_troubleshooting.html
+        output: web
+
       - title: Kubernetes Videos
         url: /videos_kubernetes.html
         output: web
