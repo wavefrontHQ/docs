@@ -20,9 +20,12 @@ The Wavefront Collector emits [internal metrics](https://github.com/wavefrontHQ/
 
 The Wavefront Collector metrics dashboard in the Kubernetes integration shows these metrics.
 
+![screenshot of Kubernetes metrics](images/kubernetes_monitoring.png)
+
+
 This section explains how to further troubleshoot issues with your Kubernetes integration based on the symptoms you see.
 
-## Symptom: No Data flowing into Wavefront
+## Symptom: No Data Flowing into Wavefront
 
 Likely Causes:
 1. The Wavefront Collector is not running
@@ -31,7 +34,7 @@ Likely Causes:
 
 Follow the steps below to troubleshoot.
 
-### Verify the Wavefront Collector is Running
+### Verify the Wavefront Collector Is Running
 
 * Run `kubectl get daemonset wavefront-collector -n NAMESPACE` to verify all collector instances are ready and available.
 * Run `kubectl get pods -l app.kubernetes.io/component=collector -n <NAMESPACE>` to verify there are no restarts amongst the Collector pods.
@@ -45,7 +48,7 @@ Follow the steps below to troubleshoot.
 
 Refer to this [documentation](https://docs.wavefront.com/monitoring_proxies.html) for monitoring and troubleshooting the proxy.
 
-### Verify the Collector can Connect to the Proxy
+### Verify the Collector Can Connect to the Proxy
 
 Check the Collector logs for any errors when sending points to the Proxy.
 
@@ -61,7 +64,7 @@ Likely causes:
 3. Issues with leader election or the leader Collector instance
 4. Points being blocked at the Wavefront Proxy
 
-### Collector instance issues
+### Collector Instance Issues
 
 The behavior of individual Collector instances (memory usage etc.) can differ based on how much data they are collecting, whether it's a leader instance etc.
 
