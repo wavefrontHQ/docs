@@ -71,7 +71,7 @@ Use these metrics to help troubleshoot issues with data collection:
 Check the source of these metrics to identify the specific Kubernetes node on which the Collector is running. Then check the logs for that Collector instance for further troubleshooting.
 
 ### Leader election issues
-Since the Wavefront Collector runs as a DaemonSet, leader election is used to select a single instance for collecting data from cluster level components (non pod related) such as service endpoints, static sources (not configured via auto discovery) and events.
+Since the Wavefront Collector runs as a DaemonSet, leader election is used to select a single instance for collecting data from cluster level components (non pod related) such as service endpoints, [object states](https://github.com/wavefrontHQ/wavefront-collector-for-kubernetes/blob/master/docs/metrics.md#kubernetes-state-source), static sources (not configured via auto discovery) and events.
 
 If you're noticing issues with collecting data from such components:
 1. Verify a leader instance exists
