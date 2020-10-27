@@ -76,6 +76,6 @@ The data from agents such as collectd, Telegraf, etc. are sent to the Wavefront 
 mcount(5m,sum(rate(ts(~proxy.check-in)), sources))=0 and mcount(1h, sum(rate(ts(~proxy.check-in)), sources)) !=0
 ```
 
-This query uses the `~agent.check-in` metric to verify that the agents are reporting. By applying a second argument to the alert query, you capture any time series that reported at least 1 value  in the last hour and that stopped reporting in the last 5 minutes.
+This query uses the `~proxy.check-in` metric to verify that the agents are reporting. By applying a second argument to the alert query, you capture any time series that reported at least 1 value  in the last hour and that stopped reporting in the last 5 minutes.
 
 Examine the Wavefront System Usage dashboard for your instance for proxy monitoring examples.

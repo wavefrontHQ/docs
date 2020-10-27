@@ -56,7 +56,7 @@ See the Histogram Configuration Properties table below for properties specific t
 <tbody>
 <tr>
 <td>agentMetricsPointTags</td>
-<td>Point tags and their values to be passed along with <code>~agent./</code> metrics. <br/>Default: None.</td>
+<td>Point tags and their values to be passed along with <code>~proxy./</code> metrics (<code>~agent./</code> metrics are still supported but deprecated). <br/>Default: None.</td>
 <td>Comma-separated list of key-value pairs.<br/>
 Ex: dc=west,env=prod</td>
 <td>3.24</td>

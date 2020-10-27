@@ -20,7 +20,7 @@ Recalculation happens at different times for [discrete and for continous time se
 
 For example, the chart below shows the 24 hour moving average of the points received from the following queries:
 
-|Rate| `sum(rate(ts(~agent.points.2878.received)))`|
+|Rate| `sum(rate(ts(~proxy.points.2878.received)))`|
 
 |Moving avg| `mavg(24h, ${rate})`|
 
@@ -68,7 +68,7 @@ We use the `hour()` function to sample the average every day at midnight. This r
 
 In the chart below, we show the data point sampled at midnight. the green circles show the sampled data. We use `next()` to display the information for the entire day, as in the following queries. The corresponding chart is immediately below.
 
-|Rate| `sum(rate(ts(~agent.points.2878.received)))`|
+|Rate| `sum(rate(ts(~proxy.points.2878.received)))`|
 
 |Moving avg| `mavg(24h, ${rate})`|
 
@@ -118,7 +118,7 @@ For the same time series, we show a 5-minute moving percentile. The result is th
 
 ![moving_percentile](images/5min_50th_moving.png)
 
-If you want to find a 50th percentile of points in fixed 5-minute window, you can use `align(5m,...)` to sample, followed by `next()` to display the 50th percentile for the entire 5-minute window. The example uses `align()` instead of a time function. The screenshot shows all 3 functions. 
+If you want to find a 50th percentile of points in fixed 5-minute window, you can use `align(5m,...)` to sample, followed by `next()` to display the 50th percentile for the entire 5-minute window. The example uses `align()` instead of a time function. The screenshot shows all 3 functions.
 
 ![tumbling_percentile](images/5min_50th_tumbling.png)
 

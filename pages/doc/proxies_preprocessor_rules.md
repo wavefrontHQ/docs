@@ -10,10 +10,8 @@ The Wavefront proxy includes a preprocessor that applies rules before data is se
 
 We support:
 
-* Point filtering rules
-* Point altering rules
-* Span filtering rules (new in proxy 4.38)
-* Span altering rules (new in proxy 4.38)
+* Point filtering and point altering rules
+* Span filtering and span altering rules
 
 You can limit when a rule applies using the `if` parameter (proxy 7.0 and later). See [Preprocessor Rule Conditions](proxies_preprocessor_rule_conditions.html) for details.
 
@@ -24,7 +22,11 @@ You can limit when a rule applies using the `if` parameter (proxy 7.0 and later)
 
 ## Rule Configuration File
 
-You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify rule filenames in your [proxy configuration](proxies_configuring.html#proxy-configuration). An example rule file could look like this:
+You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify rule filenames in your [proxy configuration](proxies_configuring.html#proxy-configuration).
+
+<!--- HELP! That link doesn't give me enough info on where the rule lives and how to change its name. --->
+
+An example rule file could look like this:
 
 ```yaml
 # rules for port 2878
@@ -74,6 +76,7 @@ Additional parameters depend on the rule that you're defining, for example, an `
 
 To enable the preprocessor:
 1. Add (or uncomment) the `preprocessorConfigFile` property in the [Wavefront proxy configuration file](proxies_configuring.html).
+<!---HELP again, need to be clearer on file name/location & possible rename--->
 2. Set `preprocessorConfigFile` to a valid path to the rules configuration file.
 
 ### Validation and Changes to the Preprocessor File
@@ -86,7 +89,7 @@ For earlier versions of the proxy, you have to [restart the proxy](proxies_insta
 
 ### Metrics for Rules
 
-For every rule the Wavefront proxy reports a counter metric  that shows how often the rule has been successfully applied. The rule ID becomes part of the proxy metric `~agent.preprocessor.<ruleID>.count`, for example, `~agent.preprocessor.replace-badchars.count`. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details.
+For every rule, the Wavefront proxy reports the counter metric`~proxy.preprocessor.<ruleID>.count`. The rule ID becomes part of the proxy metric, for example, `~proxy.preprocessor.replace-badchars.count`. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details.
 
 ## Point Filtering Rules
 
