@@ -17,9 +17,7 @@ Wavefront collects several categories of internal metrics. This section gives an
 - `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance.
 - `~collector` - metrics processed at the collector gateway to the Wavefront instance. Includes spans.
 - `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source.
-- `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor.
-  {% include note.html content="Proxy metrics historically had the prefix `~agent` and queries support both `~proxy` and `~agent`. Query errors still refer to the `~agent` prefix. For example - `No metrics matching - [~agent.points.*.received]`." %}
-  See [Monitoring Wavefront Proxies](monitoring_proxies.html).
+- `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor. See [Monitoring Wavefront Proxies](monitoring_proxies.html).
 - `~wavefront` - set of gauges that track metrics about your use of Wavefront.
 - `~http.api` - namespace for looking at API request metrics.
 
