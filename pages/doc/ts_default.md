@@ -13,7 +13,9 @@ default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)
 
 Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
 
-**Note:** Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations.
+{% include note.html content="Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations" %}
+
+
 
 ## Parameters
 
@@ -49,13 +51,15 @@ For the simplest case, you can use `default()` to set the default value of a que
 
 `default(0, ts(my.metric))`
 
-**Note:** In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead.
+{% include note.html content="In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead." %}
 
 `if(exists(ts(my.metric)), ts(my.metric), 0)`
 
-### Using default() With orElse
+### Using default() With .orElse
 
 While the `default()` function allows you to specify a value for missing points on a chart, the function shows NO DATA if the time series reported no data at all in the specified time window. In that situation, you can use `default()` with the `.orElse` operator to specify a value to return is no data are found.
+
+{% include note.html content="A typical use case for `orElse` is together with `default()` but you can use `.orElse` with other functions." %}
 
 
 ## Examples
@@ -81,13 +85,13 @@ If we wrap `default()` and specify 0 as the default, missing data are replaced w
   default(100, ts('metric_not_there').orElse(25))
   ```
 
-You can chain multiple `orElse` operators. In the following example:
+You can use `.orElse` without `default()` and you can chain multiple `.orElse` operators. In the following example:
 ```
 ts(&lt;metric_not_there&gt;).orElse(ts(&lt;metric_sometimes_there&gt;)).orElse(25)
 ```
 For this example:
-* If `metric_not_there` has no value, the function returns the value of `(ts(&lt;metric_sometimes_there&gt;))`
-* If `(ts(&lt;metric_sometimes_there&gt;))` also has no value, the function returns 25.
+* If `metric_not_there` has no value, the function returns the value of `(ts(<metric_sometimes_there>))`
+* If `(ts(<metric_sometimes_there>))` also has no value, the function returns 25.
 
 
 ## Caveats
