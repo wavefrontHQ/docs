@@ -8,7 +8,7 @@ summary: Reference to the default() function
 ---
 ## Summary
 ```
-default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)
+default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData])
 ```
 
 Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
@@ -38,6 +38,10 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression in which you want to replace gaps in data with a default value. </td>
 </tr>
+<tr>
+<td markdown="span">.orElse</td>
+<td>Operator that allows you to specify a default value even if the time series did not report any data in the specified time window. </td>
+</tr>
 </tbody>
 </table>
 
@@ -64,7 +68,7 @@ While the `default()` function allows you to specify a value for missing points 
 
 ## Examples
 
-### Basic Usage of default()
+### Examples for Basic Usage of default()
 
 The first screenshot shows two time series. The lines are dashed when there are no data:
 
