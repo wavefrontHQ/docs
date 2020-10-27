@@ -49,8 +49,7 @@ Follow the steps given below to propagate custom span tags when sending data fro
             <p>The <a href="tracing_instrumenting_frameworks.html#step-2-get-data-flowing-into-wavefront">Tracing SDK</a> provides a <code>WavefrontTracer</code> to create spans and send them to Wavefront. It also automatically generates and reports RED metrics from your spans. Add the following configuration when building the <code>WavefrontTracer</code>.</p>
             <p>Example:</p>
             <pre>
-wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));
-            </pre>
+wfTracerBuilder.redMetricsCustomTagKeys(new HashSet&lt;String&gt;(Arrays.asList("env")));</pre>
             <p>See the specific GitHub repository for language-specific examples on how to configure your application with the Wavefront OpenTracing SDK.</p>
         </div>
         <div role="tabpanel" class="tab-pane" id="jaeger">
@@ -82,7 +81,5 @@ traceDerivedCustomTagKeys=env
         </div>
       </div>
 1. Save the changes, restart the application, and send data to Wavefront.
-1. Once the data is in Wavefront, create a chart that compares the data sent by each environment.
-    Example:
+1. Once the data is in Wavefront, create a chart that compares the data sent by each environment. Here's an example:
     ![create a chart with custom span tags](/images/tracing_custom_span_tags.png)
-    For details on querying for RED metrics, see the section above on [RED Metrics Queries](#red-metrics-queries).
