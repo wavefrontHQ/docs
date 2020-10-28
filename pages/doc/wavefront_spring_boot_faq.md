@@ -68,4 +68,4 @@ If you create a new project using [https://start.spring.io](https://start.spring
 That is because the default project stops soon as it starts without a web service. As a result, data is not sent to Wavefront. To avoid this, add a dependency under the Web category, such as the Spring Web dependency, along with the wavefront dependency, and generate a new project.
 
 ### How do I get help?
-Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #springboot public channel.
+Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #springboot public channel.
