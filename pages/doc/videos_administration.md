@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: videos_administration.html
 summary: Administrators use Wavefront Top to understand data shapes, and permissions and access for authorization.
 ---
-Joanna's video explains how to use Wavefront top to examine Wavefront spy endpoints. The Access Control video uses screen capture to show how to set access control for dashboards and alerts.  
+Joanna's video explains how to use Wavefront top to examine Wavefront spy endpoints. The Access Control video uses screen capture to show how to set access control for dashboards and alerts.
 
 <table style="width: 100%;">
 <tbody>
@@ -20,6 +20,11 @@ Joanna's video explains how to use Wavefront top to examine Wavefront spy endpoi
 <td><br>
 <p>Access control, added in Spring 2019, allows users with Accounts & Groups permissions to add or revoke access for one or more dashboards. You can add and revoke access for groups or individual users. The video explains how to use access control and also discusses the Everyone group and the Super Admin user. </p>
 </td>
+</tr>
+<tr>
+<td width="30%"><strong><font color="blue">Metrics Security Policy</font></strong><br>
+<iframe src="https://bcove.video/2JgVcXq" width="400" height="225" allowfullscreen="true" alt="Secure your environment with metrics security policy rules"></iframe></td>
+<td width="70%"><br><p>In addition to global permissions and specific access control for dashboards & charts, Wavefront lets users with Metrics permission create metrics security policy rules.</p> </td>
 </tr>
 </tbody>
 </table>

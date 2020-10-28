@@ -16,6 +16,14 @@ In a large enterprise, certain data are confidential. Wavefront allows you to li
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
 
+## Video: Metrics Security Policy
+
+Watch this video for an overview.
+
+<p>
+<iframe src="https://bcove.video/2JgVcXq" width="700" height="400" allowfullscreen="true" alt="Metrics Security Policy video"></iframe>
+</p>
+
 ## How Metrics Security Protects Sensitive Data
 
 Metrics security policy rules allows fine-grained support for limiting access to sensitive data.
@@ -134,7 +142,7 @@ Consider this simple example:
 
 ## Create a Metrics Security Policy Rule
 
-Privileged users can create rules, change rule priority, and change the scope of each rule. 
+Privileged users can create rules, change rule priority, and change the scope of each rule.
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
 
