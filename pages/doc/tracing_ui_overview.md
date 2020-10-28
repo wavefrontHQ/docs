@@ -41,7 +41,7 @@ It is important to get an overview of the services and applications that send da
 
 ### Application Map
 
-The application map not only gives you an overview of how the applications and services are linked, it lets you, focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the edges in the application. You can also view traces for the services and edges and drill down from the application map.
+The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
 
 See the application map:
 1. In your web browser, go to your Wavefront cluster and log in. 

@@ -557,10 +557,6 @@ entries:
       url: /trace_data_query.html
       output: web
 
-    - title: Tracing Best Practices
-      url: /tracing_best_practices.html
-      output: web
-
       subfolders:
       - title: Tracing Functions
         output: web
@@ -573,6 +569,14 @@ entries:
           - title: spans() Function
             url: /spans_function.html
             output: web
+            
+    - title: Tracing Best Practices
+      url: /tracing_best_practices.html
+      output: web
+      
+    - title: Tracing FAQ
+      url: /tracing_faq.html
+      output: web
 
   - title: API, SDKs, and CLI
     output: web
