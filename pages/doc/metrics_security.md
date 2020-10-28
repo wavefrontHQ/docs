@@ -134,22 +134,22 @@ Consider this simple example:
 
 ## Create a Metrics Security Policy Rule
 
-When you create a Metrics Security Policy rule, you specify the metrics you want to protect (or make available) and the account, group, or role that should (or should not) have access to those metrics.
+Privileged users can create rules, change rule priority, and change the scope of each rule. 
 
 {% include note.html content="Only a Super Admin user or users with **Metrics** permission can view, create, and manage metrics security policy. " %}
 
-Here's an annotated screenshot that shows the main actions:
+### Plan Your Strategy
 
-![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
-
-
-When you create a rule, plan your strategy.
+Before you create rules, plan your strategy.
 
 * **Metrics Dimensions** allow you to determine what to block or allow.
   - Specify one or more metric prefixes. You can specify an exact match (e.g. `requests` or `request.`) or a wildcard match (e.g. `*.cpuloadav*`, `cpu.*`).
   - Specify a combination of metric sources or point tags to narrow down the metrics. For example, you can block visibility into production environments for some developers, or block some development environments metrics for contractors.
 * **Access** allows you to allow or block access for a combination of accounts and/or groups or for roles.
 
+See the Examples further below.
+
+### Create One or More Rules
 
 1. From the gear icon, select **Metrics Security Policy** and click **Create Rule**
 2. In the **Create Rule** dialog, specify the rule parameters.
@@ -164,6 +164,14 @@ When you create a rule, plan your strategy.
      1. Select **Allow** or **Block** from the menu.
      2. Specifying accounts, groups, or roles.
   3. Click **OK.**
+
+
+Here's an annotated screenshot that shows the main actions:
+
+![Annotated Edit Rule screenshot. Highlights Press Enter in Prefix / Source and Point Tag section](images/metrics_s_edit_rule.png)
+
+
+
 
 ## Manage Metrics Security Policy Rules
 

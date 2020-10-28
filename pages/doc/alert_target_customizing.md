@@ -257,7 +257,7 @@ Here is sample alert target output generated with the preceding template:
   "severityInfo": false,
   "severityWarn": false,
   "severitySevere": false,
-  "condition": "rate(ts(~agent.points.2878.received)) > 4",
+  "condition": "rate(ts(~proxy.points.2878.received)) > 4",
   "url": "https://yourcompany.wavefront.com/u/LPc1zR8k9X",
   "createdTime": "04/15/2016 23:11:22 0000",
   "startedTime": "09/12/2016 21:47:39 0000",
@@ -265,7 +265,7 @@ Here is sample alert target output generated with the preceding template:
   "endedTime": "",
   "snoozedUntilTime": "",
   "subject": "[SMOKE] OPENED: Alert on Data rate ( Test)",
-  "hostsFailingMessage": "localhost (~agent.points.2878.received)",
+  "hostsFailingMessage": "localhost (~proxy.points.2878.received)",
   "errorMessage": "",
   "additionalInformation": "An alert to test a webhook integration with HipChat"
   }
@@ -578,13 +578,13 @@ Here is a sample alert target output generated with the preceding template:
 ```handlebars
 {
   "failingSeries": [
-     ["localhost", "~agent.points.2878.received", ["env=dev","az=us-west-1"]],
-     ["db-1", "~agent.points.2878.received", ["env=prod","az=us-west-2"]]
+     ["localhost", "~proxy.points.2878.received", ["env=dev","az=us-west-1"]],
+     ["db-1", "~proxy.points.2878.received", ["env=prod","az=us-west-2"]]
   ],
   "inMaintenanceSeries": [],
   "newlyFailingSeries": [
-     ["localhost", "~agent.points.2878.received", ["env=dev","az=us-west-1"]],
-     ["db-1", "~agent.points.2878.received", ["env=prod","az=us-west-2"]]
+     ["localhost", "~proxy.points.2878.received", ["env=dev","az=us-west-1"]],
+     ["db-1", "~proxy.points.2878.received", ["env=prod","az=us-west-2"]]
   ],
   "recoveredSeries": []
   }

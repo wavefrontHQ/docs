@@ -8,12 +8,14 @@ summary: Reference to the default() function
 ---
 ## Summary
 ```
-default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression>)
+default([<timeWindow>,] [<delayTime>,] <defaultValue>, <tsExpression> [.orElse<defaultIfNoData])
 ```
 
 Fills in gaps in the time series described by `tsExpression`, by inserting data points with the value `defaultValue`. Specify `timeWindow` to fill in data for just a limited period of time after each existing point. Specify `delayTime` to allow a gap before the inserted data.
 
-**Note:** Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations.
+{% include note.html content="Despite its apparent simplicity, the `default()` function is one of the most misunderstood functions in Wavefront's query language. See the **Caveats** section below for recommendations" %}
+
+
 
 ## Parameters
 
@@ -36,6 +38,10 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 <td markdown="span"> [tsExpression](query_language_reference.html#query-expressions)</td>
 <td>Expression in which you want to replace gaps in data with a default value. </td>
 </tr>
+<tr>
+<td markdown="span">.orElse</td>
+<td>Operator that allows you to specify a default value even if the time series did not report any data in the specified time window. </td>
+</tr>
 </tbody>
 </table>
 
@@ -43,17 +49,26 @@ Fills in gaps in the time series described by `tsExpression`, by inserting data 
 
 The `default()` function allows you to specify the value that you would like to assign to gaps of missing data on a chart. This is the only missing data function that allows you to specify the value you’d like to assign to gaps of missing data. The `default()` function only fills the gaps after a data point, not after a given timestamp.
 
+### Basic Usage
+
 For the simplest case, you can use `default()` to set the default value of a query to 0 if the specified metric does not exist:
 
 `default(0, ts(my.metric))`
 
-**Note:** In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead.
+{% include note.html content="In certain situations we don't recommend using `default()`. See the list of **Caveats** below. In that case, use the following query instead." %}
 
 `if(exists(ts(my.metric)), ts(my.metric), 0)`
 
+### Using default() With .orElse
+
+While the `default()` function allows you to specify a value for missing points on a chart, the function shows NO DATA if the time series reported no data at all in the specified time window. In that situation, you can use `default()` with the `.orElse` operator to specify a value to return is no data are found.
+
+{% include note.html content="A typical use case for `orElse` is together with `default()` but you can use `.orElse` with other functions." %}
 
 
 ## Examples
+
+### Examples for Basic Usage of default()
 
 The first screenshot shows two time series. The lines are dashed when there are no data:
 
@@ -62,6 +77,26 @@ The first screenshot shows two time series. The lines are dashed when there are 
 If we wrap `default()` and specify 0 as the default, missing data are replaced with 0 in the display.
 
 ![ts_default image](images/ts_default.png)
+
+### Examples for default() with .orElse
+
+* If the time series exists in the time window, `default()` fills in the values and `.orElse` is not needed (does nothing).
+  ```
+  default(100, ts(&lt;mymetric&gt;).orElse(25))
+  ```
+* If the time series does **not** exist in the time window, NO DATA is shown by default. However, `.orElse` specifies a value of 25, which is shown for the time series.
+  ```
+  default(100, ts('metric_not_there').orElse(25))
+  ```
+
+You can use `.orElse` without `default()` and you can chain multiple `.orElse` operators. In the following example:
+```
+ts(&lt;metric_not_there&gt;).orElse(ts(&lt;metric_sometimes_there&gt;)).orElse(25)
+```
+For this example:
+* If `metric_not_there` has no value, the function returns the value of `(ts(<metric_sometimes_there>))`
+* If `(ts(<metric_sometimes_there>))` also has no value, the function returns 25.
+
 
 ## Caveats
 
