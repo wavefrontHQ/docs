@@ -120,7 +120,7 @@ You can add newly-created charts and existing charts to a dashboard.
 
 When you edit a dashboard, you can make changes to the dashboard description, name, [dashboard variables](dashboards_variables.html), sections, and charts.
 
-1. Put the dashboard into Edito mode:
+1. Put the dashboard into Edit mode:
 -   From the All Dashboards page, locate the dashboard, click the three dots on the left and and select **Edit**.
 ![edit dashboard](images/dashboard_edit.png)
 -   From a dashboard, click the pencil icon on the right side below the task bar, and select **Edit**.
