@@ -18,7 +18,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 ## Prerequisites
 
 * Spring Boot 2.3.0 or above.
-  {% include note.html content="This tutorial uses Spring Boot 2.3.3."%}
+  {% include note.html content="This tutorial uses Spring Boot 2.3.4."%}
 * Java 8 or above.
 * Maven 3.3+ or Gradle 6.3 or later.
   <br/>See [System Requirements](https://docs.spring.io/spring-boot/docs/2.3.x/reference/html/getting-started.html#getting-started-system-requirements) in the Spring Boot documentation.
@@ -43,7 +43,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     ```
 1. Import the Wavefront for Spring Boot Bill of Materials (BOM) to your project.
     {{site.data.alerts.tip}}
-      <p> Spring Boot version 2.3.3 is used for this tutorial. If you are using another version make sure the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
+      <p> Spring Boot version 2.3.4 is used for this tutorial. If you are using another version make sure the Wavefront for Spring Boot dependency is compatible with the Spring Boot release version. See <a href="wavefront_springboot.html#versionCompatibility">System Requirements</a> to get the correct dependency version.</p>
     {{site.data.alerts.end}}
     ```
     <dependencyManagement>
@@ -51,7 +51,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
       <dependency>
         <groupId>com.wavefront</groupId>
         <artifactId>wavefront-spring-boot</artifactId>
-        <version>2.0.1</version>
+        <version>2.0.2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -79,7 +79,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
             <li>
             <p>Import the Spring Cloud Bill of Materials (BOM) to your project. Add the following code under &lt;dependencyManagement&gt;.</p>
             {{site.data.alerts.tip}}
-              <p>Spring Boot version 2.3.3 is used for this tutorial. If you are using another version make sure the Spring Cloud dependency is compatible with the Spring Boot release version. You can run a simple command and find out the Spring Cloud version that is compatible with your Spring Boot version. See <a href="https://spring-cloud-info.cfapps.io/docs/spring-cloud-info.html#_spring_cloud_version_given_spring_boot_version">Spring Cloud Version Given Spring Boot Version</a> for details. 
+              <p>Spring Boot version 2.3.4 is used for this tutorial. If you are using another version make sure the Spring Cloud dependency is compatible with the Spring Boot release version. See <a href="https://spring.io/projects/spring-cloud#getting-started">Getting Started on the Spring Cloud documentation</a> for details.
               </p>
             {{site.data.alerts.end}}
             <pre>
@@ -136,7 +136,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     https://wavefront.surf/us/example
     ```
 
-  {% include note.html content="See [custom configurations](wavefront_springboot.html#optional-custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
+  {% include note.html content="See [custom configurations](wavefront_springboot.html#custom-configurations) to send data using the Wavefront proxy, invite users and let them add data to your cluster, and much more."%}
 
 ## Examine Inventory Data
 
