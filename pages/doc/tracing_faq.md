@@ -18,7 +18,7 @@ If you want to filter RED metrics data using a span tag that is not a default sp
 
 ## How do I customize the application name when my application uses a Zipkin library?
 
-To override the default application name when using the [zipkin-js](https://github.com/openzipkin/zipkin-js) or an OpenTracing or OpenTelemetry Zipkin libraries, use any of the following options:
+To override the default application name when using [zipkin-js](https://github.com/openzipkin/zipkin-js), OpenTracing Zipkin libraries, or OpenTelemetry Zipkin libraries, use any of the following options:
 
 * Add the following span tag to the application logic.
   ```
@@ -29,7 +29,7 @@ To override the default application name when using the [zipkin-js](https://gith
   ```
   traceZipkinApplicationName = <Enter_Application_Name>
   ```
-  {% include note.html content="You cannot have more than 1 application sending traces to the same proxy because this configuration can override only one application name. Therefore, make sure to have 1 application per proxy."%}
+  {% include note.html content="You cannot have more than 1 application sending traces to the same proxy because this configuration can override only one application name."%}
   
 ## How do I send spans to Wavefront?
 
