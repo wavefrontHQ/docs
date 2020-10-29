@@ -200,7 +200,7 @@ Use the following command to export the data that is queued at the proxy. Once t
       </td>
       <td markdown="span">
       When set to false, exports the data and removes the data from the backlog. Default is true.  <br/>
-      {% include note.html content=" Make a backup of the files you export. If you set `exportQueueRetainData` to false, the exported files are the only copies you have of the backlog." %}
+      **Note**: Make a backup of the files you export. If you set <code>exportQueueRetainData</code> to false, the exported files are the only copies you have of the backlog.
       </td>
     </tr>
   </tbody>
