@@ -141,7 +141,7 @@ Getting started is easy. Here are some things to know before you start:
   </thead>
   <tr>
   <td>2.0.2</td>
-  <td>2.3.x and 2.4.x</td>
+  <td>2.3.x</td>
   </tr>
   </tbody>
   </table>
