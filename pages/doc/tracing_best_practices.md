@@ -48,16 +48,11 @@ For reliable performance, use a Wavefront proxy to send trace data to Wavefront.
   **Java example:** Instantiate a singleton `WavefrontSender`
 
 ```java
-  // Create the builder with the proxy hostname or address
-  WavefrontProxyClient.Builder wfProxyClientBuilder = new WavefrontProxyClient.Builder(proxyHostName);
+  WavefrontClientFactory wavefrontClientFactory = new WavefrontClientFactory();
+  wavefrontClientFactory.addClient("https://someToken@DOMAIN.wavefront.com");
+  wavefrontClientFactory.addClient("proxy://our.proxy.lb.com:2878");
 
-  // Set the listening ports for metrics, histograms, and trace data
-  wfProxyClientBuilder.metricsPort(2878);        // same as pushListenerPorts= in proxy config
-  wfProxyClientBuilder.distributionPort(2878);   // supported because we do proxy aggregation
-  wfProxyClientBuilder.tracingPort(30000);      // same as traceListenerPorts= in proxy config
-
-  // Create the WavefrontProxyClient
-  WavefrontSender wavefrontSender = wfProxyClientBuilder.build();
+  WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 ```
 
 **Note:** Complete setup steps are in the [README file for your Wavefront SDK on GitHub](tracing_instrumenting_frameworks.html#step-2-instrument-your-application).

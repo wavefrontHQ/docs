@@ -140,7 +140,7 @@ Getting started is easy. Here are some things to know before you start:
   <tr><th width="35%">Wavefront for Spring Boot Version</th><th width="35%">Spring Boot Version</th></tr>
   </thead>
   <tr>
-  <td>2.0.1</td>
+  <td>2.0.2</td>
   <td>2.3.x</td>
   </tr>
   </tbody>
@@ -431,7 +431,7 @@ To view your data, you first run your project from the command line, and then cl
 
 Add the following custom configurations to the `application.properties` file.
 
-<p><span style="font-size: large; font-weight: 600">Invite Users</span></p>
+<p><span style="font-size: large; font-weight: 500">Invite Users</span></p>
 
 You can invite users and let them send data to the same cluster:
 
@@ -454,17 +454,17 @@ You can invite users and let them send data to the same cluster:
 1. Restart your application.
 
 <a name="proxy"></a>
-<p><span style="font-size: large; font-weight: 600">Use the Wavefront Proxy</span></p>
+<p><span style="font-size: large; font-weight: 500">Use the Wavefront Proxy</span></p>
 
 The [Wavefront proxy](proxies.html)  ingests data and forwards them to the Wavefront service in a secure, fast, and reliable manner. It prevents data loss, simplifies firewall configuration, and allows you to filter or enrich data before they arrive at the Wavefront service.
-{% include note.html content="Supported with [Wavefront Proxy version 7.0](proxies_versions.html) and later. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
+{% include note.html content="Supported with Wavefront Proxy version 7.0 and later. Before sending data via the proxy you need to [Install and Manage Wavefront Proxies](proxies_installing.html)."%}
 
 Copy and paste the following property.  
 ```
 management.metrics.export.wavefront.uri=proxy://<Proxy_Host>:2878
 ```
 
-<p><span style="font-size: large; font-weight: 600">Access the Dashboard with the Actuator Endpoint</span></p>
+<p><span style="font-size: large; font-weight: 500">Access the Dashboard with the Actuator Endpoint</span></p>
 
 
 If you have a web app, you can expose the Wavefront Actuator endpoint at `/actuator/wavefront` to access your Wavefront dashboard.
@@ -473,7 +473,7 @@ If you have a web app, you can expose the Wavefront Actuator endpoint at `/actua
 management.endpoints.web.exposure.include=health,info,...,wavefront
 ```
 
-<p><span style="font-size: large; font-weight: 600">Specify Application and Service Names</span></p>
+<p><span style="font-size: large; font-weight: 500">Specify Application and Service Names</span></p>
 
 If you have more than one Spring Boot application, you can specify the names of the application and the service in the `application.properties` file.
 <br/>Example:
@@ -494,7 +494,7 @@ Optionally:
 * If you configured `spring.application.name` in your application, it is automatically used as the service name.
 
 You can configure the cluster and shard the same way. This information is used to tag metrics and traces.
-* If you want to take full control over [`ApplicationTags`](tracing_instrumenting_frameworks.html#application-tags), you can create a `@Bean`.
+* If you want to take full control over [`ApplicationTags`](trace_data_details.html#application-tags), you can create a `@Bean`.
 * If you want to customize the instance that is auto-configured, add an `ApplicationTagsBuilderCustomizer` bean.
 
 <!---
