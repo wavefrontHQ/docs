@@ -470,6 +470,7 @@ The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind
   </tr>
 </table>
 
+<a name="traces"></a>
 
 ## Traces Browser
 
@@ -585,6 +586,8 @@ We use the following rules to determine which spans to include in a critical pat
 4. Choose longer spans over shorter siblings.
 5. Choose later spans over earlier spans.
 6. Choose child spans instead of their parent spans.
+
+<a name="offline_traces"></a>
 
 ## View Traces Offline
 
