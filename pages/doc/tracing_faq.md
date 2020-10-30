@@ -25,7 +25,7 @@ To override the default application name when using [zipkin-js](https://github.c
   application=<applicationName>
   ```
 
-* If you are using the Wavefront proxy and don't want to modify your code, open the [`<wavefront_config_path>`](#paths)`/wavefront.conf` file, and update or add the following configuration.
+* If you are using the Wavefront proxy and don't want to modify your code, open the [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file, and update or add the following configuration.
   * Zipkin
     ```
     traceZipkinApplicationName = <Enter_Application_Name>
