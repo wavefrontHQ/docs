@@ -168,6 +168,12 @@ Use the following command to export the data that is queued at the proxy. Once t
 ```
 /opt/wavefront/wavefront-proxy/proxy-jre/java -jar /opt/wavefront/wavefront-proxy/wavefront-push-agent.jar --f /etc/wavefront/wavefront-proxy/wavefront.conf --exportQueuePorts <ports> --exportQueueOutputFile <outputFileNamePrefix> --exportQueueRetainData false
 ```
+
+If your proxy is containerized, the command should be similar to the following. Since containers are stateless, restarting a proxy container will normally result in a loss of any data in the proxy's queues. Exporting the queued data prior to persistent storage restart will help retain data.
+```
+java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-proxy.jar --exportQueuePorts <ports> --exportQueueOutputFile <outputFileNamePrefix> --exportQueueRetainData false
+```
+
 <table>
   <colgroup>
     <col width="25%"/>
@@ -191,14 +197,14 @@ Use the following command to export the data that is queued at the proxy. Once t
       <code>exportQueueOutputFile</code>
       </td>
       <td>
-        Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.&lt;FILE_NAME&gt;.txt
+        Prefix you want the output files to have. If the prefix is wfproxy, the name of the file is wfproxy.&lt;DATA TYPE&gt;.&lt;PORT&gt;.&lt;QUEUE #&gt;.txt
       </td>
     </tr>
     <tr>
       <td>
         <code>exportQueueRetainData</code>
       </td>
-      <td markdown="span">
+      <td>
       When set to false, exports the data and removes the data from the backlog. Default is true.  <br/>
       **Note**: Make a backup of the files you export. If you set <code>exportQueueRetainData</code> to false, the exported files are the only copies you have of the backlog.
       </td>
@@ -216,6 +222,8 @@ The example:
 * Exports the data queued at ports 2878 and 3000.
 * Creates output files that have the prefix wfproxy, such as wfproxy.points.2878.0.txt.
 *	Deletes all data that’s currently in the proxy queue.
+
+Since the exported file is a newline delimited plaintext file, it can be directly resent to the proxy. It is also possible to directly make changes to the data before resending it to the proxy.
 
 ### Test a Proxy
 
