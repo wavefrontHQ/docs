@@ -43,14 +43,16 @@ It is important to get an overview of the services and applications that send da
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
 
+This video highlights the application map features and settings:
+
+<iframe src="https://bcove.video/3oDxXaa" width="700" height="400" allowfullscreen="true" alt="Wavefront intro how-to"></iframe>
+
 See the application map:
 1. In your web browser, go to your Wavefront cluster and log in. 
 1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_appmap_view_icon.png"
 style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/>
 1. Optionally, use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
-
-![application map](images/tracing_app_map.png)
 
 Let's walk through the following scenario to get a quick overview of the application map. 
 
