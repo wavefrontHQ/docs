@@ -8,15 +8,15 @@ summary: Get answers to your questions about Wavefront distributed tracing
 ---
 This page has some special tips to help you instrument your applications and send trace data to Wavefront.
 
-## How do I send custom span level RED metrics using a Wavefront Sender SDK?
+## How do I send custom span level RED metrics?
 
 For details on how to send span-level RED metrics using a custom tracing port, see [Instrument Your Application with Wavefront Sender SDKs](tracing_instrumenting_frameworks.html#instrument-your-application-with-wavefront-sender-sdks).
 
 ## How do I filter RED metrics using custom span tags?
 
-If you want to filter RED metrics data using a span tag that is not a default span tag, you need to propagate it as a custom span tag to the RED metrics. For details, see [Custom Span-Level Tags for RED Metrics](tracing_customize_spans_and_alerts.html).
+If you want to filter RED metrics data using a non-default span tag, propagate the tag as a custom span tag to the RED metrics. See [Custom Span-Level Tags for RED Metrics](tracing_customize_spans_and_alerts.html).
 
-## How do I customize the application name when using a Zipkin or Jaeger library?
+## How do I customize the application name (Zipkin or Jaeger)?
 
 To override the default application name when using [zipkin-js](https://github.com/openzipkin/zipkin-js), OpenTracing Zipkin/Jaeger libraries, or OpenTelemetry Zipkin/Jaeger libraries, use any of the following options:
 
@@ -34,13 +34,13 @@ To override the default application name when using [zipkin-js](https://github.c
     ```
     traceJaegerApplicationName = <Enter_Application_Name>
     ```
-  {% include note.html content="You cannot have more than one application sending traces to the same proxy because this configuration can override only one application name."%}
+  {% include note.html content="Only one application can send traces to a proxy because there’s only one application name per proxy. "%}
   
 ## How do I emit spans in the Wavefront format?
 
 If you are not using a [Wavefront SDK](wavefront_sdks.html), OpenTracing library, or OpenTelemetry library, you can still send spans to Wavefront using the Wavefront proxy.
 
-Send spans to the Wavefront proxy's `customTracingListenerPorts` port in the Wavefront spans format. Open the [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file, and update or add the `customTracingListenerPorts` configuration.
+Send spans to the Wavefront proxy's `customTracingListenerPorts` port in the Wavefront spans format. Open the [`<wavefront_config_path>`](proxies_configuring.html#paths)`/wavefront.conf` file, and update or add the `customTracingListenerPorts` property.
 
 Given below is an example of the Wavefront span format:
 ```
