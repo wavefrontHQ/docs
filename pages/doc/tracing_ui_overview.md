@@ -39,6 +39,8 @@ To choose your starting point for visualizing traces:<br/>
 
 It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
+<a name="app_map"></a>
+
 ### Application Map
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
@@ -49,8 +51,8 @@ This video highlights the application map features and settings:
 
 See the application map:
 1. In your web browser, go to your Wavefront cluster and log in. 
-1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_appmap_view_icon.png"
-style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/>
+1. From the taskbar, click **Applications** > **Application Status** and select the Application Map icon ( <img src="images/tracing_appmap_appmap_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the application map view"/> )
 1. Optionally, use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:20px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
@@ -153,14 +155,16 @@ Let's walk through the following scenario to get a quick overview of the applica
 </tbody>
 </table>
 
+<a name="table_view"></a>
+
 ### Table View
 
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
 See the table view:
 1. In your web browser, go to your Wavefront cluster and log in. 
-1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_table_view_icon.png"
-style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/>
+1. From the taskbar, click **Applications** > **Application Status** and select the Table View icon ( <img src="images/tracing_appmap_table_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
 ![the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view](images/tracing_table_view.png)
 
@@ -290,6 +294,7 @@ Using the table view, you can:
 * Use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
+<a name="grid_view"></a>
 
 ### Grid View
 
@@ -297,8 +302,8 @@ When you select an application, you get an overview of its services.
 
 See the grid view:
 1. In your web browser, go to your Wavefront cluster and log in. 
-1. From the taskbar, click **Applications** > **Application Status** > <img src="images/tracing_appmap_grid_view_icon.png"
-style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/>
+1. From the taskbar, click **Applications** > **Application Status** and select the Grid View icon ( <img src="images/tracing_appmap_grid_view_icon.png"
+style="vertical-align:text-bottom;width:28px" alt="icon to click to get the table view"/> )
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_app_services.png)
 
@@ -465,6 +470,7 @@ The OpenTracing SDK and Wavefront proxy versions listed below add the `span.kind
   </tr>
 </table>
 
+<a name="traces"></a>
 
 ## Traces Browser
 
@@ -580,6 +586,8 @@ We use the following rules to determine which spans to include in a critical pat
 4. Choose longer spans over shorter siblings.
 5. Choose later spans over earlier spans.
 6. Choose child spans instead of their parent spans.
+
+<a name="offline_traces"></a>
 
 ## View Traces Offline
 
