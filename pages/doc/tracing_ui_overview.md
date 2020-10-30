@@ -39,6 +39,8 @@ To choose your starting point for visualizing traces:<br/>
 
 It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
+<a name="app_map"></a>
+
 ### Application Map
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
@@ -152,6 +154,8 @@ Let's walk through the following scenario to get a quick overview of the applica
   </tr>
 </tbody>
 </table>
+
+<a name="table_view"></a>
 
 ### Table View
 
@@ -290,6 +294,7 @@ Using the table view, you can:
 * Use <img src="images/tracing_link_icon.png"
 style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link"/> to get a link and share what you’re seeing right now (NON-LIVE display) with other users.
 
+<a name="grid_view"></a>
 
 ### Grid View
 
