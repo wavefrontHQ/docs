@@ -19,8 +19,8 @@ In addition to setting up the metrics flow, this integration also installs a das
   Supported Version: VMware Tanzu Kubernetes Grid Integrated Edition 1.9 and later. See the [Documentation](https://docs.vmware.com/en/VMware-Pivotal-Container-Service/index.html) for details.
 
   **Note:**
-  * For VMware Tanzu Kubernetes Grid Integrated Edition 1.4 through 1.8, see [VMware Tanzu Kubernetes Grid Integrated Edition (Archived)](../tkgi-archived/overview).
-  * VMware Tanzu Kubernetes Grid Integrated Edition was previously called VMware PKS. For setup instructions for VMware PKS 1.1, 1.2, and 1.3 versions, log in to the Wavefront instance and see [VMware PKS (Archived)](../pks-archived/setup).
+  * For VMware Tanzu Kubernetes Grid Integrated Edition 1.4 through 1.8, see VMware Tanzu Kubernetes Grid Integrated Edition (Archived).
+  * VMware Tanzu Kubernetes Grid Integrated Edition was previously called VMware PKS. For setup instructions for VMware PKS 1.1, 1.2, and 1.3 versions, log in to the Wavefront instance and see VMware PKS (Archived).
 
 ### Configuring the Wavefront Account
 
