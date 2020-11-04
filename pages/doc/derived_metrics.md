@@ -9,6 +9,9 @@ summary: Learn how to save a query so it runs once a minute, and how to use the 
 
 Derived metrics allow you to run a query and ingest it back into Wavefront. All users can then use the result of the query, that is, the derived metric, in their queries.
 
+Starting with release 2020-42.x, you can create a derive metric from a time series metric or a histogram.
+
+
 <div markdown="span" class="alert alert-info">You must have [Derived Metrics permissions](permissions_overview.html) to create and manage derived metrics.</div>
 
 Derived metrics created and metrics points scanned apply to your data ingestion and data scan rates.
@@ -19,7 +22,7 @@ Derived metrics created and metrics points scanned apply to your data ingestion 
       The minimum reporting interval for a derived metric is 1 minute. If the query that is used in the derived metric reports data points more than once within a minute, Wavefront summarizes it using the <code>mean()</code> aggregation and aligns it to 1 minute time buckets.
     </li>
     <li>
-      Starting with <a href="2020.26.x_release_notes.html">release 2020-26.x</a>, metrics that are not reported for 4 weeks or more (obsolete metrics) are removed from derived metrics.  
+      Metrics that are not reported for 4 weeks or more (obsolete metrics) are removed from derived metrics.
     </li>
   </ul>
 {{site.data.alerts.end}}
@@ -37,8 +40,8 @@ The screenshot below shows how you can create a derived metric from a complex qu
 ![registered query](images/registered_query.png)
 
 Other examples might include:
-* Creating new metrics from `ts()` expressions that do transformations such as collapsing multiple series into one, retagging series using `taggify()`, or doing joins to create new synthetic series.
-* Creating new metrics from `ts()` expressions that do complex filtering of data using joins and other techniques.
+* Creating new metrics from `ts()` expressions or `hs()` expressions that do transformations such as collapsing multiple series into one, retagging series using `taggify()`, or doing joins to create new synthetic series.
+* Creating new metrics from `ts()` expressions or `hs()` expressions that do complex filtering of data using joins and other techniques.
 
 ### Performance Improvements
 
@@ -70,7 +73,7 @@ You can customize how often the derived metric executes, and how many minutes of
 
 * **Include results in the last N minutes**: By default, Wavefront uses the last 5 minutes as the time window for the derived metrics query to account for possible delays in the upstream metric pipeline. The results of the query are ingested back into Wavefront and  overwrite existing data in the last N minutes for the derived metric. You can adjust the time window of the query with this setting.
 
-{% include note.html content="We recommend that the **Includes...** setting is always larger than the **Execute** setting." %} 
+{% include note.html content="We recommend that the **Includes...** setting is always larger than the **Execute** setting." %}
 
 ## Creating and Managing Derived Metrics
 
@@ -78,7 +81,9 @@ To create a derived metric:
 
 1. Select **Browse > Derived Metrics**.
 2. Click **Create Derived Metric**.
-3. Specify the query and make sure you include an `aliasMetric` -- you later use that name for the derived metric.
-4. If you want, change the times for results inclusion and for query execution. If your environment might have queueing problems, increase the results inclusion time.
+3. Specify the query.
+   * You can specify a `ts()` query or an `hs()` query. 
+   * Include an `aliasMetric` -- you use that name for the derived metric.
+4. If you want, change the times for results inclusion and for query execution. If your environment has queueing problems, increase the results inclusion time.
 
 {% include note.html content="An error results if you attempt to ingest a metric into itself. Use `aliasMetric` or `aliasSource` to have a different name for the metric (and optional source)." %}
