@@ -533,19 +533,27 @@ entries:
         output: web
         subfolderitems:
 
-          - title: Instrumenting Your App
+          - title: Instrument Your App
             url: /tracing_instrumenting_frameworks.html
             output: web
 
-          - title: Obtaining 3rd Party Traces
+          - title: Obtain 3rd Party Traces
             url: /tracing_integrations.html
             output: web
 
           - title: Customize Spans and Alerts for RED Metrics
             url: /tracing_customize_spans_and_alerts.html
             output: web
+            
+          - title: Configure External Nodes
+            url: /tracing_external_nodes.html
+            output: web
+          
+          - title: Configure Apdex Settings
+            url: /tracing_apdex.html
+            output: web
 
-    - title: Visualizing Trace Data
+    - title: Visualize Trace Data
       url: /tracing_ui_overview.html
       output: web
 
@@ -553,12 +561,12 @@ entries:
       url: /trace_data_sampling.html
       output: web
 
-    - title: Querying Trace Data
+    - title: Query Trace Data
       url: /trace_data_query.html
       output: web
 
       subfolders:
-      - title: Tracing Functions
+      - title: Trace Functions
         output: web
         subfolderitems:
 

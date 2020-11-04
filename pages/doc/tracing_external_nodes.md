@@ -4,16 +4,16 @@ keywords: data, distributed tracing, OpenTelemetry, opentracing, aws, java
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_external_nodes.html
-summary: 
+summary: Configure your application to show external services or applications
 ---
 
 Wavefront has out of the box support to identify Java AWS services and Java databases on the [application map view](tracing_ui_overview.html#application-map). You can configure your OpenTracing or OpenTelemetry application to identify other external services or applications your service communicates it, using the customized approach.
 
-## Out-of-the-Box AWS and Database Nodes
+## Configure Out-of-the-Box AWS and Database Services
 
 Let's take a look at span tags, SDKs, and libraries your application needs to have to see the AWS and Java database nodes on the application map view.
 
-### External AWS Nodes for Java Applications
+### External AWS Services for Java Applications
 
 Follow the steps given below for Wavefront to identify the AWS nodes:
 
@@ -74,7 +74,7 @@ You can see the above span tags on the Trace Browser too. It has to be a span wi
 Example:
 ![Shows the details of a trace that has the span tags component, span.kind, and peer.service.](images/tracing_external_aws_tracing_browser.png)
   
-### External DB Nodes for Java Applications
+### External DB Services for Java Applications
 
 Follow the steps given below for Wavefront to identify the database (DB) nodes:
 
