@@ -651,6 +651,18 @@ If you have instrumented your application with a Wavefront observability SDK, Wa
 
 If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
+## External Services
+
+External applications or services, such as AWS services or Database services, your application communicates with are denoted as external services or applications on the application map. For details on configuring out-of-the-box external services or configuring the application to show customized external services, see [Configure External Nodes](tracing_external_nodes.html).
+
+The image given below shows the external AWS services your services communicate with.
+![Shows the application map view that has two external AWS services.](images/tracing_aws_external_nodes.png)
+
+## Apdex 
+
+The Application Performance Index ([Apdex](https://www.apdex.org/overview.html)) helps you understand how the response time of a service compares to the predefined response time threshold.
+Wavefront detects the application trace data that is sent to Wavefront as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only users that have super admin permissions can configure the threshold value. For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
+
 ## Application Tags
 
 An ApplicationTags object  describes your application to Wavefront. Wavefront requires tags that describe the structure of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront.

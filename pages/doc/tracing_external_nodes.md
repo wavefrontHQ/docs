@@ -24,7 +24,7 @@ Follow the steps given below for Wavefront to identify the AWS nodes:
 
 Now, you see the AWS external node on the application map.
 Example:
-![Shows the application map view that has two external AWS nodes.](images/tracing_aws_external_nodes.png)
+![Shows the application map view that has two external AWS services.](images/tracing_aws_external_nodes.png)
 
 Once the data is sent to Wavefront and if the spans have the tags mentioned below, you see the AWS external nodes on the application map. The values for the span tags are assigned using the OpenTracing Java AWS SDK.
 
