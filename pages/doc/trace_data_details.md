@@ -656,7 +656,7 @@ If you have instrumented your application using a 3rd party distributed tracing 
 External applications or services, such as AWS services or Database services, your application communicates with are denoted as external services or applications on the application map. For details on configuring out-of-the-box external services or configuring the application to show customized external services, see [Configure External Nodes](tracing_external_nodes.html).
 
 The image given below shows the external AWS services your services communicate with.
-![Shows the application map view that has two external AWS services.](images/tracing_aws_external_nodes.png)
+![Shows the application map view that has two external AWS services.](images/tracing_key_concepts_external_nodes.png)
 
 ## Apdex 
 

@@ -15,7 +15,7 @@ You can measure the performance of a service using Request, Error, and Duration 
 
 When you send your applications trace data to Wavefront, the application data is detected as first-class citizens using the traces, and the Apdex score is calculated using the threshold value (T) you define. 
 
-The default threshold value (T) is set to 100ms and only users that have [super admin permissions](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
+The default threshold value (T) is set to 100ms, and only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
 
 ### Apdex score 
 
@@ -39,7 +39,7 @@ The table below gives you a description of the terms used in the equation.
       Apdex<sub>T</sub>
     </td>
     <td markdown="span">
-      The Apdex score is calculated based on the [response time threshold (T) you define](#configure-the-threshold-t-value).
+      The Apdex score is calculated based on the response time threshold (T). Only super admin user's can define this value. See [Configure the Threshold (T) Value](#configure-the-threshold-t-value).
     </td>
   </tr>
   <tr>
@@ -138,7 +138,7 @@ Wavefront uses the Apdex score range given below to help you understand how your
   </tr>
 </table>
 
-### Example of an Apdex score
+### Example
 
 Let's take a look at an example to get familiar with how the Apdex score is calculated.
 
@@ -154,7 +154,7 @@ Based on the Apdex score, you now know that the `shopping` service is doing good
 
 ## Configure the Threshold (T) Value
 
-You need to configure the response time threshold (T) for your services using any of the options listed below. The default threshold value (T) is set to 100 ms. Only users that have [super admin permissions](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
+You need to configure the response time threshold (T) for your services using any of the options listed below. The default threshold value (T) is set to 100 ms. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
 
 * Configure using the **Application Configuration** page.
 * Configure using the legend on the application status page that has the application map, table view, or grid view.
@@ -163,11 +163,10 @@ You need to configure the response time threshold (T) for your services using an
 
 Follow these steps:
 
-{% include note.html content="Only users that have [super admin permissions](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). If you don't have the permissions, you see the following message: **You don't have permission to update this page**."%}
-
 1. Click **Applications** > **Application Configurations**. You see a list of the applications that send trace data to Wavefront.
 1. Click on the application that has the services you want to configure. Now, you see a list of all the services in the application.
 1. Click the icon with the three vertical dots next to the service name and click **Edit**.
+    {% include note.html content="Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). If you are not a Super Admin user, you see the following message: **You don't have permission to update this page**."%}
     ![The image shows where to click to edit the threshold value.](images/tracing_apdex_configuration_edit_service.png)
 1. Update the **Threshold** value and click **Save**.
     ![The image shows where to update the threshold value. It has a blue outline to highlight the threshold value.](images/tracing_configure_apdex_threshold.png)
@@ -176,12 +175,11 @@ Follow these steps:
 
 You can update the response time threshold (T) using the Settings icon on the app map, table view, or grid view on the Application Status page.
 
-{% include note.html content="Only users that have [super admin permissions](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). If you don't have permission, you don't see the **Configure Apdex** setting."%}
-
 1. Click **Applications** > **Application Status**
 1. Click the settings icon on the app map, table view, or grid view.
 1. Under **Legend Settings** select **Apdex**.
 1. Click **Configure Apdex**. <br/>
+    {% include note.html content="Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). If you are not a Super Admin user, you don't see **Configure Apdex**."%}
     ![The image the setting and the legend setting with apdex selected from the drop down. The configure apdex section is highlighted with a blue box. You need to click it to update the threshold value.](images/tracing_apdex_legeng_configure_apdex.png)
     <br/>Now, you see a list of all the services that send trace data to Wavefront. You can sort the table by the service name, application name, service status (active or inactive), apdex score, and the threshold (T) value.
 1. Click the icon with the three vertical dots next to the service name and click **Edit**.
