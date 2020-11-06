@@ -545,8 +545,8 @@ entries:
             url: /tracing_customize_spans_and_alerts.html
             output: web
             
-          - title: Configure External Nodes
-            url: /tracing_external_nodes.html
+          - title: Configure External Services
+            url: /tracing_external_services.html
             output: web
           
           - title: Configure Apdex Settings
