@@ -22,7 +22,7 @@ To make Wavefront identify the AWS services:
 1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
 1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) using the Wavefront proxy or direct ingestion.
 
-Now, you see the AWS external node on the application map.
+Now, you see the AWS external services on the application map.
 <br/>Example:
 
 ![Shows the application map view that has two external AWS services.](images/tracing_aws_external_nodes.png)
@@ -85,7 +85,7 @@ To make Wavefront identify the database (DB) services, follow these steps:
 1. Instrument your Java application using the [Wavefront OpenTracing Java SDK](https://github.com/wavefrontHQ/wavefront-opentracing-sdk-java) or the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java).
 1. [Prepare to send data to Wavefront](tracing_instrumenting_frameworks.html#step-1-prepare-to-send-data-to-wavefront) using the Wavefront proxy or direct ingestion.
 
-Now, you see the database node on the application map.
+Now, you see the database services on the application map.
 <br/>Example:
 
 ![shows the application map with the external services ungrouped. You see the different names you give the database using the db.instance span tag. ](images/tracing_external_nodes_database.png)

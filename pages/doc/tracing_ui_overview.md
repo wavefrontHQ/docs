@@ -304,7 +304,7 @@ Using the table view, you can:
         Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). See [Configure Apdex Settings](tracing_apdex.html).
       </td>
       <td markdown ="span">
-        ![Shows the settings to select apdex from the drop down.](images/)
+        ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
       </td>
     </tr>
   </table>
@@ -374,7 +374,7 @@ On the page for a particular application, you can:
           Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). See [Configure Apdex Settings](tracing_apdex.html).
         </td>
         <td markdown ="span">
-          ![Shows the settings to select apdex from the drop down.](images/)
+          ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
         </td>
       </tr>
     </table>

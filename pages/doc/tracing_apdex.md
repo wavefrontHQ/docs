@@ -39,7 +39,7 @@ The table below gives you a description of the terms used in the equation.
       Apdex<sub>T</sub>
     </td>
     <td markdown="span">
-      The Apdex score is calculated based on the response time threshold (T). Only super admin user's can define this value. See [Configure the Threshold (T) Value](#configure-the-threshold-t-value).
+      The Apdex score is calculated based on the response time threshold (T). Only super admin users can define this value. See [Configure the Threshold (T) Value](#configure-the-threshold-t-value).
     </td>
   </tr>
   <tr>
@@ -81,7 +81,7 @@ The table below gives you a description of the terms used in the equation.
 
 The Apdex score varies from 0 to 1. 
 * If the score is 0, all the requests of the service did not satisfy the response time threshold (T) you defined. 
-* If the score is 1, all the requests of the service satisfied the T.
+* If the score is 1, all the requests of the service satisfy T.
 
 Wavefront uses the Apdex score range given below to help you understand how your service is performing:
 
@@ -150,7 +150,7 @@ The `shopping` service in the `beachsirts` application handles 300 requests duri
 
   <p><span style="font-size: large; font-weight: 300"><b>Apdex<sub>T</sub></b> = ( 230 + (40/2)) / 300 = <b>0.83</b></span></p>
 
-Based on the Apdex score, you now know that the `shopping` service is doing good.
+Based on the Apdex score, you now know that the performance of the `shopping` service is good.
 
 ## Configure the Threshold (T) Value
 
@@ -166,7 +166,7 @@ Follow these steps:
 1. Click **Applications** > **Application Configurations**. You see a list of the applications that send trace data to Wavefront.
 1. Click on the application that has the services you want to configure. Now, you see a list of all the services in the application.
 1. Click the icon with the three vertical dots next to the service name and click **Edit**.
-    {% include note.html content="Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). If you are not a Super Admin user, you see the following message: **You don't have permission to update this page**."%}
+    {% include note.html content="Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the Apdex threshold. If you are not a Super Admin user, you see the following message: **You don't have permission to update this page**."%}
     ![The image shows where to click to edit the threshold value.](images/tracing_apdex_configuration_edit_service.png)
 1. Update the **Threshold** value and click **Save**.
     ![The image shows where to update the threshold value. It has a blue outline to highlight the threshold value.](images/tracing_configure_apdex_threshold.png)
@@ -175,9 +175,9 @@ Follow these steps:
 
 You can update the response time threshold (T) using the Settings icon on the app map, table view, or grid view on the Application Status page.
 
-1. Click **Applications** > **Application Status**
+1. Click **Applications** > **Application Status**.
 1. Click the settings icon on the app map, table view, or grid view.
-1. Under **Legend Settings** select **Apdex**.
+1. Under **Legend Settings**, select **Apdex**.
 1. Click **Configure Apdex**. <br/>
     {% include note.html content="Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). If you are not a Super Admin user, you don't see **Configure Apdex**."%}
     ![The image the setting and the legend setting with apdex selected from the drop down. The configure apdex section is highlighted with a blue box. You need to click it to update the threshold value.](images/tracing_apdex_legeng_configure_apdex.png)
