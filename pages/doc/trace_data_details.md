@@ -651,6 +651,13 @@ If you have instrumented your application with a Wavefront observability SDK, Wa
 
 If you have instrumented your application using a 3rd party distributed tracing system, Wavefront derives the RED metrics _after_ sampling has occurred. The Wavefront proxy receives only a subset of the generated spans, and the derived RED metrics will reflect just that subset. See [Trace Sampling and RED Metrics from an Integration](tracing_integrations.html#trace-sampling-and-red-metrics-from-an-integration).
 
+## External Services
+
+On the application map, external applications or services are highlighted with special icons. For example, in the screenshot below, the application communicates with AWS Lambda, 
+Amazon Simple Notification Service (SNS), and external databases. For details, see [Configure External Services](tracing_external_services.html).
+
+![Shows the application map view that has two external AWS services.](images/tracing_key_concepts_external_nodes.png)
+
 ## Application Tags
 
 An ApplicationTags object  describes your application to Wavefront. Wavefront requires tags that describe the structure of your application. These application tags are associated with the metrics and trace data that the instrumented microservices in your application send to Wavefront.
