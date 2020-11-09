@@ -171,10 +171,6 @@ entries:
           url: /proxies_preprocessor_rule_conditions.html
           output: web
 
-        - title: Wavefront Integration CLI
-          url: /wavefront_cli.html
-          output: web
-
         - title: Proxy & Direct Ingestion
           url: /direct_ingestion.html
           output: web
@@ -544,7 +540,7 @@ entries:
           - title: Customize Spans and Alerts for RED Metrics
             url: /tracing_customize_spans_and_alerts.html
             output: web
-            
+
           - title: Configure External Services
             url: /tracing_external_services.html
             output: web
@@ -573,11 +569,11 @@ entries:
           - title: spans() Function
             url: /spans_function.html
             output: web
-            
+
     - title: Tracing Best Practices
       url: /tracing_best_practices.html
       output: web
-      
+
     - title: Tracing FAQ
       url: /tracing_faq.html
       output: web
