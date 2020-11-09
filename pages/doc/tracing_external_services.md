@@ -141,3 +141,125 @@ You can also see the above span tags on the Trace Browser for any span without e
 <br/>Example:
 
 ![Shows the details of a trace that has the span tags component, db.type, and db.instance.](images/tracing_db_traces_browser.png)
+
+## Configuring Custom External services
+
+In addition to the out-of-the-box Java AWS and database service, Wavefront can identify your external applications or service. For example, you can see how your application communicates with an Azure service on the application map. For Wavefront to identify custom external service, you need the required span tags. You can add the optional span tags to define your external service.
+
+### Required Span Tags
+
+<table style="width: 100;">
+  <tr>
+    <th width="25%">
+      Span Tag
+    </th>
+    <th width="75%">
+      Description
+    </th>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `_outboundExternalService`
+    </td>
+    <td markdown="span">
+      Assign the name of the service the external service sends the request to.
+      For example, if the azure service sends requests to the `printing` service, you need to assign `printing` as the value.
+      <br/>![TO BE ADDED](images/)
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `_inboundExternalService`
+    </td>
+    <td markdown="span">
+      Assign the name of the service the external service receives requests from.
+      For example, if the azure service receives requests from the `styling` service, you need to assign `styling` as the value.
+      <br/>![TO BE ADDED](images/)
+    </td>
+  </tr>
+</table>
+
+{% include note.html content=" If your external service has both the `_outboundExternalService` and `_inboundExternalService` span tags, Wavefront only uses the `_outboundExternalService` span tag to show data on the application map." %}
+
+### Optional Span Tags
+
+<table style="width: 100;">
+  <tr>
+    <th width="25%">
+      Span Tag
+    </th>
+    <th width="75%">
+      Description
+    </th>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `_externalApplication`
+    </td>
+    <td markdown="span">
+      Optionally, use this span tag to define the name of the application if the external service is on a different application. If you don't assign a value, the value defaults to the application that emitted the span.
+      <br/>For example, if the `styling` service on the `beachsirts` application sends requests to the `stylinDB` on the `beachops` application, you need to define `beachops` as the value for this tag. The application map looks as follows:
+      <br/>![TO BE ADDED](images/)
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `_externalHost`
+    </td>
+    <td markdown="span">
+      Optionally, use this span tag if the external service is on a different host or container from the service it sends request to/receives requests from. If you don't define a value, it defaults to the `externalHost`.
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `_externalComponent`
+    </td>
+    <td markdown="span">
+      Optionally, use this span tag to add a new component. If you don't define a value, it defaults to `externalComponent`.
+      <br/>For example, click a custom external service on the application map and hover over the icons. The name you see is derived from the value you assign this tag.
+      <br/>![TO BE ADDED](images/)
+      <br/>Wavefront assigns a default icon for customized components. If you want to add your icon, contact [support@wavefront.com](mailto:support@wavefront.com).
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `_externalCategory`
+    </td>
+    <td markdown="span">
+      Optionally, use this span tag to create a new category. If you don't define a value, it defaults to `externalCategory`. You see the category, when you select **Group External Services** from the application map settings.
+      <br/>![TO BE ADDED](images/)
+      <br/>Wavefront assigns a default icon for customized categories. If you want to add your icon, contact [support@wavefront.com](mailto:support@wavefront.com). 
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `peer.service`
+    </td>
+    <td markdown="span">
+      Optionally, if you want to specify a specific service you can use this spa tag. For example, if you are using the Active Directory of the Azure service, use this span tag to specify it.
+      Example: `peer.service=AzureAD`
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `db.type`
+    </td>
+    <td markdown="span"> 
+      Optionally, define the database type that your service is sending/receiving data, such as `sql`, `cassandra`, `hbase`, or `redis`.
+    </td>
+  </tr>
+  <tr>
+    <td markdown="span">
+      `db.instance`
+    </td>
+    <td markdown="span">
+      Optionally, define the name of the database instance that your service is sending/receiving data.
+    </td>
+  </tr>
+</table>
+
+### Example
+You can also see the above span tags on the Trace Browser for any span without errors.
+<br/>Example:
+
+![TO BE ADDED](images/)

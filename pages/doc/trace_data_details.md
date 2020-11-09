@@ -299,7 +299,7 @@ Wavefront uses indexes to optimize the performance of queries that filter on cer
 
 For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
-**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
+**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact [support@wavefront.com](mailto:support@wavefront.com) to request indexing for that span tag.
 
 ## Tracing Traffic
 
