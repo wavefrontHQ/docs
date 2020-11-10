@@ -38,7 +38,22 @@ After you've completed the Wavefront integration for PingOne for Enterprise setu
 
 ### Step 3. Upload Identity Provider Metadata into Wavefront
 
+**Wavefront version 2020.30 and earlier**
+
 1. Send the downloaded metadata from Step 2 to support@wavefront.com with a request to set up the PingOne integration for Wavefront. We'll activate the integration on our end and will notify you as soon as we've done this.
+
+
+**Wavefront version 2020.34 and later**
+
+1. Log in to Wavefront with a user account for which `SAML IDP Admin` permission is enabled.
+2. Click on the gear icon on top right corner and navigate to **Self Service SAML**.
+3. Select **Identity Provider** as **PingOne** from the list.
+4. Copy the downloaded metadata from Step 2 into the **Configure Connection** text box.
+5. Click **Test** to test the validity of metadata. A new browser window opens with PingOne login page.
+
+   **Note:** The **Save** button is disabled until you've completed a test successfully.
+
+6. Log in to PingOne. After the login is successful, click **Save**.
 
 Going forward, users who attempt to log in to Wavefront are redirected to PingOne. If a user can authenticate to PingOne but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
