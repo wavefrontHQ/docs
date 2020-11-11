@@ -173,7 +173,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       This span tag helps you identify the direction of the tracing traffic when an external service sends requests to a service in your application. 
-      <br/>For example, an external Azure service sends requests to the `styling` service. Wavefront now has spans that show the `styling` service receiving requests. Add the `_outboundExternalService` to the existing spans to show that the external Azure service is sending requests to the `styling` service.
+      <br/>For example, an external Azure service sends requests to the `styling` service. Wavefront now has spans that show the `styling` service receiving requests. Add the `_inboundExternalService` to the existing spans to show that the external Azure service is sending requests to the `styling` service.
       <br/>![TO BE ADDED](images/)
     </td>
   </tr>

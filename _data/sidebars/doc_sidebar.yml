@@ -573,10 +573,6 @@ entries:
           - title: spans() Function
             url: /spans_function.html
             output: web
-            
-          - title: apdex() Function
-            url: /apdex_function.html
-            output: web
 
     - title: Tracing Best Practices
       url: /tracing_best_practices.html
