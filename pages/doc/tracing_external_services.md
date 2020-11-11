@@ -142,7 +142,7 @@ You can also see the above span tags on the Trace Browser for any span without e
 
 ![Shows the details of a trace that has the span tags component, db.type, and db.instance.](images/tracing_db_traces_browser.png)
 
-## Configuring Custom External services
+## Configuring Custom External Services
 
 In addition to the out-of-the-box Java AWS and database service, Wavefront can identify your external applications or service. For example, you can see how your application communicates with an Azure service on the application map. For Wavefront to identify custom external service, you need the required span tags. You can add the optional span tags to define your external service.
 
@@ -207,7 +207,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
       `_externalHost`
     </td>
     <td markdown="span">
-      Optionally, use this span tag if the external service is on a different host or container from the service it sends request to/receives requests from. If you don't define a value, it defaults to the `externalHost`.
+      Optionally, use this span tag if the external service is on a different host or container from the service it sends requests to/receives requests from. If you don't define a value, it defaults to the `externalHost`.
     </td>
   </tr>
   <tr>
@@ -226,7 +226,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
       `_externalCategory`
     </td>
     <td markdown="span">
-      Optionally, use this span tag to create a new category. If you don't define a value, it defaults to `externalCategory`. You see the category, when you select **Group External Services** from the application map settings.
+      Optionally, use this span tag to create a new category. If you don't define a value, it defaults to `externalCategory`. You see the category when you select **Group External Services** from the application map settings.
       <br/>![TO BE ADDED](images/)
       <br/>Wavefront assigns a default icon for customized categories. If you want to add your icon, contact [support@wavefront.com](mailto:support@wavefront.com). 
     </td>

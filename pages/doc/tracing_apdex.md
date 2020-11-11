@@ -13,7 +13,7 @@ The Application Performance Index ([Apdex](https://www.apdex.org/overview.html))
 
 You can measure the performance of a service using Request, Error, and Duration (RED) metrics for a given time frame. But it is hard to compare these values and understand how each service performs. Apdex helps you compare the response time of a service based on the response time threshold you define.
 
-When you send your applications trace data to Wavefront, the application data is detected as first-class citizens using the traces, and the Apdex score is calculated using the threshold value (T) you define. 
+When you send your applications trace data to Wavefront, the application data is detected as first-class citizens using the traces, and the Apdex score is calculated using the threshold value (T) you define. Use [`apdex()`](apdex_function.html) to query the apdex score of a service, view the results in charts, and create alerts. 
 
 The default threshold value (T) is set to 100ms, and only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T).
 
@@ -187,3 +187,6 @@ You can update the response time threshold (T) using the Settings icon on the ap
 1. Update the **Threshold** value and click **Save**.
     ![The image shows where to update the threshold value. It has a blue outline to highlight the threshold value.](images/tracing_configure_apdex_threshold.png)
  
+## See Also
+
+[Learn how to use apdex() and apdexLatencies() functions](apdex_function.html), to see apdex score data on charts, and create alerts.
