@@ -142,7 +142,7 @@ You can also see the above span tags on the Trace Browser for any span without e
 
 ![Shows the details of a trace that has the span tags component, db.type, and db.instance.](images/tracing_db_traces_browser.png)
 
-## Configuring Custom External Services
+## Configure Custom External Services
 
 In addition to the out-of-the-box Java AWS and database service, Wavefront can identify your external applications or service. For example, you can see how your application communicates with an Azure service on the application map. For Wavefront to identify custom external service, you need the required span tags. You can add the optional span tags to define your external service.
 
