@@ -49,11 +49,11 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 </tr>
 <tr>
 <td width="50%">
-<strong>Affected Point Tags</strong> help you determine what is failing. When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order on the Alert Viewer. These point tags become a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than the other tags.</td>
+<strong>Affected</strong> helps you determine what is failing. When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order on the Alert Viewer. These point tags become a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than the other tags.</td>
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 <tr>
-<td width="50%"><strong>Past Firings</strong> shows past firings with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity.
+<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details. 
 </td>
 <td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Data section"></td>
 </tr>
