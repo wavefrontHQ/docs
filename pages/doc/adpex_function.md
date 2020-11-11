@@ -111,9 +111,9 @@ You can get the apdex score for more than one application using the advanced que
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_basic_query.png)
     
 * Use the advanced query to find the apdex score of the services in the beachsirts application every 30 minutes.
-    ```
-    apdex(align(30m, hs(tracing.aggregated.derived.*.duration.micros.m)))
-    ```
+    <pre>
+apdex(align(30m, merge(hs(tracing.aggregated.derived.*.duration.micros.m), application, service)))
+    </pre>
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_advanced_query_30_minute_bucket.png)
     
 * Use the advanced query to get the apdex score of the `beachshirts` application's `shopping` service for the given time window (1vw). Let's use the Gauge chart.

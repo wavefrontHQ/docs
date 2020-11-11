@@ -1769,7 +1769,7 @@ You can use the basic or advanced `apdex()` function to get the apdex score of a
 <a href="apdex_function.html#apdex-function">apdex(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
 <br> [,|and|or [not] <strong>&lt;T&gt;, &lt;4T&gt;</strong>, <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
-<td>The basic `apdex()` query that returns the apdex score of a specific service over time.</td>
+<td markdown="span">The basic `apdex()` query that returns the apdex score of a specific service over time.</td>
 </tr>
 <tr>
 <td><a href="apdex_function.html#apdex-function">apdex(<strong>&lt;hsExpression&gt;</strong>
