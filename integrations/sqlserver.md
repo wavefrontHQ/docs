@@ -23,7 +23,16 @@ This integration is supported only on Windows.
 
 ### Step 1: Set up a Wavefront Proxy
 
-If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
+- If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network, install a proxy.
+- If you are using **MSSQL Server 13** configure the following [preprocessor rule](https://docs.wavefront.com/proxies_preprocessor_rules.html) for the Wavefront proxy.{% raw %}
+    ```
+    - rule    : remove-empty-pont-tags
+      action  : replaceRegex
+      scope   : pointLine
+      search  : "\\s([\"\\.a-zA-Z0-9_-]*)=('[\\s]*'|\"[\\s]*\"|$|\\s)"
+      replace : " "
+    ```
+{% endraw %}
 
 ### Step 2: Install the Telegraf Agent
 
