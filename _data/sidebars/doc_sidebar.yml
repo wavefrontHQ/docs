@@ -575,7 +575,7 @@ entries:
             output: web
             
           - title: apdex() Function
-            url: /apdex_function.html
+            url: /hs_apdex_function.html
             output: web
 
     - title: Tracing Best Practices

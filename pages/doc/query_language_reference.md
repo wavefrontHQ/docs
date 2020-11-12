@@ -1766,19 +1766,19 @@ You can use the basic or advanced `apdex()` function to get the apdex score of a
 
 <tr>
 <td>
-<a href="apdex_function.html#apdex-function">apdex(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
+<a href="hs_apdex_function.html">apdex(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
 <br> [,|and|or [not] <strong>&lt;T&gt;, &lt;4T&gt;</strong>, <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
 </td>
 <td markdown="span">The basic `apdex()` query that returns the apdex score of a specific service over time.</td>
 </tr>
 <tr>
-<td><a href="apdex_function.html#apdex-function">apdex(<strong>&lt;hsExpression&gt;</strong>
+<td><a href="hs_apdex_function.html">apdex(<strong>&lt;hsExpression&gt;</strong>
 <br> [,|and|or [not] <strong>&lt;applicationName&gt;, &lt;serviceName&gt;, &lt;T&gt;, &lt;4T&gt;</strong>,<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
 <td markdown="span">The advanced `apdex()` query that returns the apdex score of a specific service.
 </td>
 </tr>
 <tr>
-<td><a href="apdex_function.html#apdexlatency-functions">apdexLatency<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
+<td><a href="hs_apdex_latency_function.html">apdexLatency(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
 <br> [,|and|or [not] <strong>satisfied, tolerating</strong>)</a></td>
 <td markdown="span">Returns the satisfied threshold (T) and the tolerating threshold, which is four time the satisfied threshold.
 </td>
