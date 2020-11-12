@@ -1,7 +1,7 @@
 ---
 title: Kubernetes Troubleshooting
 keywords: containers, kubernetes
-tags:
+tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wf_kubernetes_troubleshooting.html
 summary: Get help when you have problems with your Kubernetes setup.
