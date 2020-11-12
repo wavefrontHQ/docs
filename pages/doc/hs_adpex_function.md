@@ -20,13 +20,13 @@ Use the basic or advanced query format.
 * **Basic Query**
   
   ```
-  apdex([T, | T, 4T] application=<application_name>, service=<service_name>)
+  apdex([T, | T, 4T,] application=<application_name>, service=<service_name>)
   ```
 
 * **Advanced Query**
   
   ```
-  apdex([T, | T, 4T] <histogram_series>)
+  apdex([T, | T, 4T,] <histogram_series>)
   apdex(application=<application_name>, service=<service_name>, <histogram_series>)
   ```
 
