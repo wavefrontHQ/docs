@@ -1746,3 +1746,48 @@ You use spans functions to find and filter individual [spans](tracing_basics.htm
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
+## <span id="apdexFunctions"></span>Apdex Functions
+
+You can use the basic or advanced `apdex()` function to get the apdex score of a specific service.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+<a href="hs_apdex_function.html">apdex(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
+<br> [,|and|or [not] <strong>&lt;T&gt;, &lt;4T&gt;</strong>, <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
+</td>
+<td markdown="span">The basic `apdex()` query that returns the apdex score of a specific service over time.</td>
+</tr>
+<tr>
+<td><a href="hs_apdex_function.html">apdex(<strong>&lt;hsExpression&gt;</strong>
+<br> [,|and|or [not] <strong>&lt;applicationName&gt;, &lt;serviceName&gt;, &lt;T&gt;, &lt;4T&gt;</strong>,<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
+<td markdown="span">The advanced `apdex()` query that returns the apdex score of a specific service.
+</td>
+</tr>
+<tr>
+<td><a href="hs_apdex_latency_function.html">apdexLatency(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
+<br> [,|and|or [not] <strong>satisfied, tolerating</strong>)</a></td>
+<td markdown="span">Returns the satisfied threshold (T) and the tolerating threshold, which is four time the satisfied threshold.
+</td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>

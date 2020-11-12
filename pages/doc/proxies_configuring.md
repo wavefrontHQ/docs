@@ -375,7 +375,7 @@ Default: &lt;cfg_path&gt;/logsIngestion.yaml.</td>
 </tr>
 <tr>
 <td>pushListenerPorts</td>
-<td markdown="span">Port to listen on for incoming data.  A single port definition can accept both HTTP and TCP data.  For HTTP data, make a POST to this proxy port with an empty header, and the line terminated [data format](wavefront_data_format.html). If you want to use HTTPS/TSL, set the tlsPort, privateKeyPath, and privateCertPath as well.  <br/>Default: 2878.</td>
+<td markdown="span">Port to listen on for incoming data.  A single port definition can accept both HTTP and TCP data.  For HTTP data, make a POST to this proxy port with an empty header, and the line terminated [data format](wavefront_data_format.html). If you want to use HTTPS/TLS, set the tlsPort, privateKeyPath, and privateCertPath as well.  <br/>Default: 2878.</td>
 <td>Comma-separated list of available port numbers. Can be a single port.
 <div>Ex: 2878</div>
 <div>Ex: 2878,2879,2880</div></td>

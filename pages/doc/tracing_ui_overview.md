@@ -100,11 +100,14 @@ Let's walk through the following scenario to get a quick overview of the applica
     <td>
       <b>Step 4: Click on a service</b>
       <br/>Click on the styling service. Now, you can:
-        <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
-        <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
-        <li> Navigate to the Service Dashboard when you click <b>View Service Dashboard</b>.</li>
-        <li> Navigate to the Traces Browser when you click <b>View traces for service</b>.</li>
-        <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li></ul>
+        <ul>
+          <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
+          <li>See how the service is performing using the <a href="tracing_apdex.html">Apdex score</a>.</li>
+          <li> View how a specific service communicates with the other services in an application when you click <b>Focus</b>.</li>
+          <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
+          <li> Navigate to the Traces Browser when you click <b>Traces</b>.</li>
+          <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
+        </ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
   </tr>
@@ -146,6 +149,9 @@ Let's walk through the following scenario to get a quick overview of the applica
         <li>
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
+        <li>
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization.html#who-is-the-super-admin-user">Super Admin users</a> can configure the threshold (T). See <a href="tracing_apdex.html">Configure Apdex Settings</a>.
+        </li>
       </ul>
     </td>
     <td markdown="span">
@@ -177,11 +183,27 @@ Using the table view, you can:
 * See the change (Δ value) in the RED metrics based on the time you selected for **Compare**. 
 <br/>For example, if you select **week ago** from the **Compare** drop-down, the Δ value indicate the change in RED metrics since the data was recorded a week ago. 
   <br/>![shows the compare option on the table view. The drop down has the values, off (if selected doesn't show the change in value), 2 hours ago, day ago, week ago, and month ago. ](images/tracing_compare_table_view.png)
-* Inspect RED metrics to obtain a status summary of a service.
+* Inspect the Adex score and RED metrics to obtain a status summary of a service.
   <table style = "width: 100%;">
     <tr>
       <th width = "20%">Table Data</th>
       <th width = "80%">Description</th>
+    </tr>
+    <tr>
+      <td>
+        Apdex
+      </td>
+      <td markdown="span">
+        Shows you how the response time of a service compares to the predefined response time threshold. See [Apdex Score](tracing_apdex.html#overview).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Apdex Threshold
+      </td>
+      <td markdown="span">
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold. See [Configure Apdex Settings](tracing_apdex.html).
+      </td>
     </tr>
     <tr>
       <td>
@@ -276,6 +298,15 @@ Using the table view, you can:
         ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
       </td>
     </tr>
+    <tr>
+      <td markdown="span">
+        **Apdex** <br/>
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). See [Configure Apdex Settings](tracing_apdex.html).
+      </td>
+      <td markdown ="span">
+        ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
+      </td>
+    </tr>
   </table>
 * Click the settings icon to customize the table view:
   <table>
@@ -335,6 +366,15 @@ On the page for a particular application, you can:
         </td>
         <td markdown ="span">
           ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
+        </td>
+      </tr>
+      <tr>
+        <td markdown="span">
+          **Apdex** <br/>
+          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). See [Configure Apdex Settings](tracing_apdex.html).
+        </td>
+        <td markdown ="span">
+          ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
         </td>
       </tr>
     </table>

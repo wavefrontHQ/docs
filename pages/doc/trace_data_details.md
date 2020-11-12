@@ -299,7 +299,7 @@ Wavefront uses indexes to optimize the performance of queries that filter on cer
 
 For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
-**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
+**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact [support@wavefront.com](mailto:support@wavefront.com) to request indexing for that span tag.
 
 ## Tracing Traffic
 
@@ -657,6 +657,13 @@ On the application map, external applications or services are highlighted with s
 Amazon Simple Notification Service (SNS), and external databases. For details, see [Configure External Services](tracing_external_services.html).
 
 ![Shows the application map view that has two external AWS services.](images/tracing_key_concepts_external_nodes.png)
+
+## Apdex 
+
+The Application Performance Index ([Apdex](https://www.apdex.org/overview.html)) helps you understand how the response time of a service compares to the predefined response time threshold.
+Wavefront detects the application trace data that is sent to Wavefront as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only users that have super admin permissions can configure the threshold value. For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
+
+![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
 
 ## Application Tags
 

@@ -544,8 +544,12 @@ entries:
           - title: Configure External Services
             url: /tracing_external_services.html
             output: web
+          
+          - title: Configure Apdex Settings
+            url: /tracing_apdex.html
+            output: web
 
-    - title: Visualizing Trace Data
+    - title: Visualize Trace Data
       url: /tracing_ui_overview.html
       output: web
 
@@ -553,12 +557,12 @@ entries:
       url: /trace_data_sampling.html
       output: web
 
-    - title: Querying Trace Data
+    - title: Query Trace Data
       url: /trace_data_query.html
       output: web
 
       subfolders:
-      - title: Tracing Functions
+      - title: Trace Functions
         output: web
         subfolderitems:
 
@@ -568,6 +572,10 @@ entries:
 
           - title: spans() Function
             url: /spans_function.html
+            output: web
+            
+          - title: apdex() Function
+            url: /hs_apdex_function.html
             output: web
 
     - title: Tracing Best Practices
