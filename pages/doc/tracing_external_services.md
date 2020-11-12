@@ -163,8 +163,8 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Identifies the direction of the tracing traffic when a service in your application sends requests to an external service. 
-      <br/>For example, the `printing` service sends requests to an external Azure service. Wavefront now has spans that show this data. Add `_outboundExternalService` to the existing spans to show that the `printing` service is sending requests to the external Azure service.
-      <br/>![TO BE ADDED](images/)
+      <br/>For example, the `delivery` service sends requests to an external Redis database. Wavefront now has spans that show this data. Add `_outboundExternalService` to the existing spans to show that the `delivery` service is sending requests to the external Redis service.
+      <br/>![Shows the direction of the arrow from the delivery service to the Redis external database.](images/tracing_custom_external_services_inbound_service.png)
     </td>
   </tr>
   <tr>
@@ -173,8 +173,8 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Identifies the direction of the tracing traffic when an external service sends requests to a service in your application. 
-      <br/>For example, an external Azure service sends requests to the `styling` service. Wavefront now has spans that show the `styling` service receiving requests. Add `_outboundExternalService` to the existing spans to show that the external Azure service is sending requests to the `styling` service.
-      <br/>![TO BE ADDED](images/)
+      <br/>For example, an external load balancer sends requests to the `shopping` service. Wavefront now has spans that show the `shopping` service receiving requests. Add `_outboundExternalService` to the existing spans to show that the external load balancer is sending requests to the `shopping` service.
+      <br/>![Shows the direction of the arrow from the external load balancer service to the shopping service.](images/tracing_custom_external_services_outbound_service.png)
     </td>
   </tr>
 </table>
@@ -198,8 +198,8 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Defines the name of the application if the external service is on a different application. If you don't assign a value, the value defaults to the application that emitted the span.
-      <br/>For example, if the `styling` service on the `beachshirts` application sends requests to the `stylingDB` service on the `beachops` application, you need to define `beachops` as the value for this tag. The application map looks as follows:
-      <br/>![TO BE ADDED](images/)
+      <br/>For example, if the `shopping` service on the `beachshirts` application receives requests from a load balancer the `Proxy` application, you need to define `Proxy` as the value for this tag. The application map looks as follows:
+      <br/>![Show the shopping service of the beachshirts application receiving requests from a load balancer of the proxy applcaition.](images/tracing_custom_external_services_external_applcaiton.png)
     </td>
   </tr>
   <tr>
@@ -217,7 +217,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     <td>
       Use this span tag to add a new component. If you don't define a value, the value defaults to <code>externalComponent</code>.
       <br/>For example, click a custom external service on the application map and hover over the icons. The name you see is derived from the value you assign this tag.
-      <br/><img src="images/" alt="TO BE ADDED"/>
+      <br/><img src="images/tracing_custom_external_services_external_component.png" alt="Shows the nginx icon when you click on the external loadbalancer"/>
       {{site.data.alerts.note}}
         Wavefront assigns a default icon for customized components. If you want to add your icon, contact <a href="support@wavefront.com">mailto:support@wavefront.com</a>.
       {{site.data.alerts.end}} 
@@ -229,7 +229,6 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td>
       Use this span tag to create a new category. If you don't define a value, the value defaults to <code>externalCategory</code>. You see the category when you select <b>Group External Services</b> from the application map settings.
-      <br/><img src="images/" alt="TO BE ADDED"/>
       {{site.data.alerts.note}}
         Wavefront assigns a default icon for customized categories. If you want to add your icon, contact <a href="support@wavefront.com">mailto:support@wavefront.com</a>.
       {{site.data.alerts.end}} 
@@ -237,8 +236,6 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
   </tr>
 </table>
 
-### Example
-You can also see the above span tags on the Trace Browser for any span without errors.
-<br/>Example:
+**Example**
 
-![TO BE ADDED](images/)
+![The application map with the custom Redis database, Nginx load balancer, and an out-of-the-box Amazon SNS service.](images/tracing_custom_external_services_final.png)
