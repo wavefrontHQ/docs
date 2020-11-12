@@ -9,7 +9,7 @@ summary: Learn how to use Wavefront histograms.
 ---
 Wavefront histograms let you compute, store, and use distributions of metrics rather than single metrics. Histograms are useful for high-velocity metrics about your applications and infrastructure – particularly those gathered across many distributed sources. You can send histograms to a Wavefront proxy or use direct ingestion.
 
-This page explain how to send histogram distributions to Wavefront. After the data are available, you can [visualize histogram distributions](visualize_histograms.html) using Histogram charts or Heatmap charts. 
+This page explain how to send histogram distributions to Wavefront. After the data are available, you can [visualize histogram distributions](visualize_histograms.html) using Histogram charts or Heatmap charts.
 
 ## Getting Started
 
@@ -30,59 +30,16 @@ timestamp, and source. Using "normal" metrics, we can't measure this because, ra
 One approach to dealing with high frequency data is to calculate an aggregate statistic, such as a percentile, at each source and send only that data. The problem with this approach is that performing an aggregate of a percentile (such as
 a 95th percentile from a variety of sources) does not yield an accurate and valid percentile with high velocity metrics. That might mean that even though you have an outlier in some of the source data, it becomes obscured by all the other data.
 
-To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. A Wavefront histogram is a distribution of metrics collected and computed by the Wavefront proxy (4.12 and later), or sent to the Wavefront service via direct ingestion. To indicate that metrics should be treated as histogram data, the user can:
-* Send the metrics to a histogram proxy port -- either 2878 (Wavefront proxy 4.29 or later) or 40000 (earlier proxy versions).
+To address high frequency data, Wavefront supports histograms -- a mechanism to compute, store, and use distributions of metrics. You have several options:
+* Send the metrics to a histogram proxy port. The Wavefront service:
+  - Converts the metrics to histogram distributions
+  - Adds the extension `.m`, `.h`. or `.d` (for minute, hour, or day distributions).
+* Convert the metric to histogram format on your side and send them in histogram format (prefix `M!`, `H!`, or `D!`, discussed below)
 * Specify `f=histogram` as part of the [direct ingestion command](direct_ingestion.html#histogram-distribution).
 
-The Wavefront service rewrites the metric by adding the extension `.m`, `.h`. or `.d`. You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using Histogram charts or other chart types.
-
-## Wavefront Histogram Distributions
-
-Wavefront creates distributions by aggregating metrics into bins. The following figure illustrates a distribution of 205 points that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
-
-![histogram](images/histogram.png)
-
-The following table lists the distribution of one metric at successive minutes. The first row of the table contains the distribution illustrated in the figure. The following rows show how the distribution evolves over successive minutes.
-
-<table width="100%">
-<colgroup>
-<col width="40%" />
-<col width="60%" />
-</colgroup>
-<thead>
-<tr><th>Time (minute)</th><th>Distribution (number of points)</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>[2, 1, 9, 20, 31, 40, 40, 29, 19, 10, 2, 2]</td>
-</tr>
-<tr>
-<td>2</td>
-<td>[2, 1, 9, 22, 31, 38, 41, 28, 17, 11, 3, 2]</td>
-</tr>
-<tr>
-<td>3</td>
-<td>[1, 2, 10, 21, 31, 39, 40, 29, 19, 10, 1, 2]</td>
-</tr>
-<tr>
-<td>4</td>
-<td>[2, 1, 9, 19, 29, 40, 41, 31,  20, 10, 1, 2]</td>
-</tr>
-</tbody>
-</table>
+You can query histograms with a set of [functions](query_language_reference.html#histogram-functions) and display them using a histogram charts or heatmap or other chart types.
 
 
-The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. In the algorithm, bin size is not uniform (unlike the histogram illustrated above). However, the bin size that the algorithm selects is irrelevant.
-
-Wavefront histograms do not store each actual data point value that is fed to it. Instead, histograms store the quantiles calculated from histogram points, which are estimates within a certain margin of error.
-
-
-## Histogram Metric Aggregation Intervals
-
-Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.
-
-The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 is assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
 
 ## Sending Histogram Distributions
 
@@ -203,6 +160,55 @@ Send [**distribution data format**](#sending-histogram-distributions) histogram 
 Send [**Wavefront data format**](wavefront_data_format.html) histogram data only to a minute, hour, or day port.
 * If you send Wavefront data format histogram data to the distribution port, the points are rejected as invalid input format and logged.
 * If you send Wavefront data format histogram data to port 2878 (instead of a min, hour, or day port), the data is not ingested as histogram data but as regular Wavefront data format metrics.
+
+## How Wavefront Creates Histogram Distributions
+
+Wavefront creates distributions by aggregating metrics into bins. The following figure illustrates a distribution of 205 points that range in value from 0 to 120 at t = 1 minute, into bins of size 10.
+
+![histogram](images/histogram.png)
+
+The following table lists the distribution of one metric at successive minutes. The first row of the table contains the distribution illustrated in the figure. The following rows show how the distribution evolves over successive minutes.
+
+<table width="100%">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead>
+<tr><th>Time (minute)</th><th>Distribution (number of points)</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[2, 1, 9, 20, 31, 40, 40, 29, 19, 10, 2, 2]</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[2, 1, 9, 22, 31, 38, 41, 28, 17, 11, 3, 2]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[1, 2, 10, 21, 31, 39, 40, 29, 19, 10, 1, 2]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[2, 1, 9, 19, 29, 40, 41, 31,  20, 10, 1, 2]</td>
+</tr>
+</tbody>
+</table>
+
+### Histogram Bin Size
+
+The Wavefront histogram bin size is computed using a [T-digest algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf), which retains better accuracy at the distribution edges where outliers typically arise. In the algorithm, bin size is not uniform (unlike the histogram illustrated above). However, the bin size that the algorithm selects is irrelevant.
+
+Wavefront histograms do not store each actual data point value that is fed to it. Instead, histograms store the quantiles calculated from histogram points, which are estimates within a certain margin of error.
+
+
+### Histogram Metric Aggregation Intervals
+
+Wavefront supports aggregating metrics by the minute, hour, or day. Intervals start and end on the minute, hour, or day, depending on the granularity that you choose. For example, day-long intervals start at the beginning of each day, UTC time zone.
+
+The aggregation intervals do not overlap.  If you are aggregating by the minute, a value reported at 13:58:37 is assigned to the interval `[13:58:00;13:59:00]`. If no metrics are sent during an interval, no histogram points are recorded.
 
 ## Monitoring Histogram Points
 
