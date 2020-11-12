@@ -45,7 +45,7 @@ To avoid performance issues, follow best practices.
 
 ### Enclose Point Tag Values in Double Quotes
 
-Double quotes are required if the point tag value includes certian characters such as spaces, but are recommended in all cases. For example, use `"my test"` instead of `my test`.
+Double quotes are required if the point tag value includes certain characters such as spaces, but are recommended in all cases. For example, use `"my test"` instead of `my test`.
 
 ### Don't Use More Than 20 Point Tag Keys
 
