@@ -173,7 +173,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Identifies the direction of the tracing traffic when an external service sends requests to a service in your application. 
-      <br/>For example, an external load balancer sends requests to the `shopping` service. Wavefront now has spans that show the `shopping` service receiving requests. Add `_outboundExternalService` to the existing spans to show that the external load balancer is sending requests to the `shopping` service.
+      <br/>For example, an external load balancer sends requests to the `shopping` service. Wavefront now has spans that show the `shopping` service receiving requests. Add `_inboundExternalService` to the existing spans to show that the external load balancer is sending requests to the `shopping` service.
       <br/>![Shows the direction of the arrow from the external load balancer service to the shopping service.](images/tracing_custom_external_services_outbound_service.png)
     </td>
   </tr>
@@ -228,7 +228,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
       `_externalCategory`
     </td>
     <td>
-      Use this span tag to create a new category. If you don't define a value, the value defaults to <code>externalCategory</code>. You see the category when you select <b>Group External Services</b> from the application map settings.
+      Use this span tag to create a new category. If you don't define a value, the value defaults to <code>externalCategory</code>.
       {{site.data.alerts.note}}
         Wavefront assigns a default icon for customized categories. If you want to add your icon, contact <a href="support@wavefront.com">mailto:support@wavefront.com</a>.
       {{site.data.alerts.end}} 
