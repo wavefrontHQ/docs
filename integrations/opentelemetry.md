@@ -21,7 +21,7 @@ Here's how it works:
 Follow these steps:
 
 1. [Install the Wavefront Proxy](https://docs.wavefront.com/proxies_installing.html).
-1. Configure your application to send the metrics/trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/about/) for details.
+1. Configure your application to send the metrics/trace data to the OpenTelemetry Collector. See the [OpenTelemetry documentation](https://opentelemetry.io/docs/collector/) for details.
 1. Export the data from the OpenTelemetry Collector to the Wavefront Prometheus Storage Adapter. 
 
 ### Tutorial
