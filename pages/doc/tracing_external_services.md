@@ -217,9 +217,9 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     <td>
       Use this span tag to add a new component. If you don't define a value, the value defaults to <code>externalComponent</code>.
       <br/>For example, click a custom external service on the application map and hover over the icons. The name you see is derived from the value you assign this tag.
-      <br/><img src="images/tracing_custom_external_services_external_component.png" alt="Shows the nginx icon when you click on the external loadbalancer"/>
+      <br/><img src="images/tracing_custom_external_services_external_component.png" alt="Shows the nginx icon when you click on the external load balancer"/>
       {{site.data.alerts.note}}
-        Wavefront assigns a default icon for customized components. If you want to add your icon, contact <a href="support@wavefront.com">mailto:support@wavefront.com</a>.
+        Wavefront assigns a default icon for customized components. If you want to add your icon, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
       {{site.data.alerts.end}} 
     </td>
   </tr>
@@ -230,7 +230,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     <td>
       Use this span tag to create a new category. If you don't define a value, the value defaults to <code>externalCategory</code>.
       {{site.data.alerts.note}}
-        Wavefront assigns a default icon for customized categories. If you want to add your icon, contact <a href="support@wavefront.com">mailto:support@wavefront.com</a>.
+        Wavefront assigns a default icon for customized categories. If you want to add your icon, contact <a href="mailto:support@wavefront.com">support@wavefront.com</a>.
       {{site.data.alerts.end}} 
     </td>
   </tr>
