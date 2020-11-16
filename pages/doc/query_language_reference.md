@@ -269,13 +269,18 @@ Example:
 source="appServer15"   // include only data from a source called appServer15
 </pre>
 </li>
-
-<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value.
-Example:
+<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value. Example
 <pre>
 source!="appServer15"  // include data from any source except appServer15
 </pre>
 </li>
+<li>Use  <strong>?=</strong> to get everything that has mytagvalue or doesn't have myTagKey.
+Example:
+<pre>
+myTagKey?="mytagvalue" // everything that has mytagvalue or doesn't have myTagKey
+</pre>
+</li>
+
 </ul>
 
 
