@@ -177,6 +177,8 @@ Based on the Apdex score, you now know that the performance of the `shopping` se
 * Using the **Application Configuration** page.
 * Using the legend on the application status page that has the application map, table view, or grid view.
 
+{% include note.html  content="When the response time threshold (T) of a service is updated, the Apdex score is recalculated using the new T."%}
+
 ### Update the Application Configuration Page
 
 Follow these steps:
