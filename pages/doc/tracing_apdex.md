@@ -87,13 +87,16 @@ Wavefront uses the following Apdex score range to help you understand how your s
 
 {% include note.html content="The Apdex score is rounded to two decimal points." %}
 
-<table style="width: 60%;">
+<table style="width: 70%;">
   <tr>
-    <th width="30%">
+    <th width="20%">
       Range
     </th>
     <th width="30%">
       Service Performance
+    </th>
+    <th width="20%">
+      Color
     </th>
   </tr>
   <tr>
@@ -103,6 +106,9 @@ Wavefront uses the following Apdex score range to help you understand how your s
     <td>
       Excellent
     </td>
+    <td>
+      <img src="images/tracing_apdex_excellent.png" alt="blue for Excellent" style="vertical-align:top;"/>
+    </td>
   </tr>
   <tr>
     <td>
@@ -110,6 +116,9 @@ Wavefront uses the following Apdex score range to help you understand how your s
     </td>
     <td>
       Good
+    </td>
+    <td>
+      <img src="images/tracing_apdex_good.png" alt="blue for Excellent" style="vertical-align:top;"/>
     </td>
   </tr>
   <tr>
@@ -119,6 +128,9 @@ Wavefront uses the following Apdex score range to help you understand how your s
     <td>
       Fair
     </td>
+    <td>
+      <img src="images/tracing_apdex_fair.png" alt="blue for Excellent" style="vertical-align:top;"/>
+    </td>
   </tr>
   <tr>
     <td>
@@ -127,13 +139,19 @@ Wavefront uses the following Apdex score range to help you understand how your s
     <td>
       Poor
     </td>
+    <td>
+      <img src="images/tracing_apdex_poor.png" alt="blue for Excellent" style="vertical-align:top;"/>
+    </td>
   </tr>
   <tr>
     <td> 
       0.49 - 0
     </td>
     <td>
-      Bad
+      Unacceptable
+    </td>
+    <td>
+      <img src="images/tracing_apdex_unacceptable.png" alt="blue for Excellent" style="vertical-align:top;"/>
     </td>
   </tr>
 </table>
