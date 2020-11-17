@@ -727,7 +727,7 @@ The Wavefront proxy must authenticate outbound traffic to the Wavefront service.
 </thead>
 <tr>
 <td>authMethod</td>
-<td>Authentication is done by a token. The proxy is looking for tokens in the querystring ("token=" and "api_key=" parameters) and in request headers ("X-AUTH-TOKEN: ", "Authorization: Bearer", "Authorization: " headers). TCP streams are disabled when authentication is turned on. <br/>Default: NONE.</td>
+<td>Authentication is done by a token. Specify the tokens either in the query string ("token=" and "api_key=" parameters) or in the request headers ("X-AUTH-TOKEN: ", "Authorization: Bearer", "Authorization: " headers). TCP streams are disabled when authentication is turned on. <br/>Default: NONE.</td>
 <td>Allowed authMethod: NONE, STATIC_TOKEN, HTTP_GET, OAUTH2.<br/>
 Ex: OAUTH2</td>
 </tr>
