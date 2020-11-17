@@ -31,24 +31,8 @@ An [Azure AD Premium subscription](https://www.microsoft.com/en-us/cloud-platfor
 
 ### Step 2. Send Identity Provider Metadata to Wavefront
 
-**Wavefront version 2020.30 and earlier**
-
 1. Send the metadata XML file that you saved earlier to [support@wavefront.com](mailto:support@wavefront.com) with a request to set up Azure AD integration for Wavefront. 
 
 After we've completed the setup, users can authenticate to Wavefront through Azure AD instead of using a password. New Azure AD users are auto-created on the Wavefront side when they authenticate for the first time.
-
-**Wavefront version 2020.34 and later**
-
-1. Log in to Wavefront with a user account for which `SAML IDP Admin` permission is enabled.
-2. Click on the gear icon on top right corner and navigate to **Self Service SAML**.
-3. Select **Identity Provider** as **Azure AD** from the list.
-4. Copy the downloaded metadata from Step 2 into the **Configure Connection** text box.
-5. Click **Test** to test the validity of metadata. A new browser window opens with Azure AD login page.
-
-   **Note:** The **Save** button is disabled until you've completed a test successfully.
-
-6. Log in to Azure AD. After the login is successful, click **Save**.
-
-Going forward, users who attempt to log in to Wavefront are redirected to Azure AD. If a user can authenticate to Azure AD but is not currently a Wavefront user, that user is auto-created on the Wavefront side. Password authentication is no longer supported.
 
 
