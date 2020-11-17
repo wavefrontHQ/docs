@@ -12,7 +12,11 @@ frequencyHisto([<timeWindow>,] [<bucketName>,] <tsExpression>
    [,metrics|sources|sourceTags|pointTags|<pointTagKey>] )
 ```
 
-Converts a histogram coming from Google Cloud Platform, Telegraf, or any other source to Wavefront histogram format. Users can then manipulate the histogram with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
+Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, Wavefront will additionally ingest bucket counts for GCP distributions, with metric namegcp.<metric>.bucket.
+
+Enabling GCP Detailed Histogram Metrics will increase your ingestion rate and cost.
+
+Users can manipulate the resulting histograms with [Wavefront histogram query functions](query_language_reference.html#histogram-functions).
 
 
 ## Parameters

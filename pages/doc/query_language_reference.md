@@ -269,13 +269,18 @@ Example:
 source="appServer15"   // include only data from a source called appServer15
 </pre>
 </li>
-
-<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value.
-Example:
+<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value. Example
 <pre>
 source!="appServer15"  // include data from any source except appServer15
 </pre>
 </li>
+<li>Use  <strong>?=</strong> to get everything that has mytagvalue or doesn't have myTagKey.
+Example:
+<pre>
+myTagKey?="mytagvalue" // everything that has mytagvalue or doesn't have myTagKey
+</pre>
+</li>
+
 </ul>
 
 
@@ -1526,6 +1531,11 @@ Each histogram output conversion function in the following table takes a time se
 <td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
+<tr>
+<td><a href="ts_frequencyHisto.html">frequencyHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td>Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, Wavefront will additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
+</td>
+</tr>
 
 
 </tbody>
@@ -1766,21 +1776,13 @@ You can use the basic or advanced `apdex()` function to get the apdex score of a
 
 <tr>
 <td>
-<a href="hs_apdex_function.html">apdex(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
-<br> [,|and|or [not] <strong>&lt;T&gt;, &lt;4T&gt;</strong>, <strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a>
+<a href="hs_apdex_function.html">apdex([T, | T, 4T, ]<strong>application=&lt;applicationName&gt;</strong>, <strong>service=&lt;serviceName&gt;</strong>, <strong>&lbrack; &lt;histogramSeries&gt;&rbrack;</strong></a>
 </td>
-<td markdown="span">The basic `apdex()` query that returns the apdex score of a specific service over time.</td>
+<td markdown="span">Returns the apdex score of a specific service over time. Optionally supports histogram series.  </td>
 </tr>
 <tr>
-<td><a href="hs_apdex_function.html">apdex(<strong>&lt;hsExpression&gt;</strong>
-<br> [,|and|or [not] <strong>&lt;applicationName&gt;, &lt;serviceName&gt;, &lt;T&gt;, &lt;4T&gt;</strong>,<strong>&lt;filterName&gt;</strong>="<strong>&lt;filterValue&gt;</strong>"] ...)</a></td>
-<td markdown="span">The advanced `apdex()` query that returns the apdex score of a specific service.
-</td>
-</tr>
-<tr>
-<td><a href="hs_apdex_latency_function.html">apdexLatency(<strong>&lt;applicationName&gt;, &lt;serviceName&gt;</strong>
-<br> [,|and|or [not] <strong>satisfied, tolerating</strong>)</a></td>
-<td markdown="span">Returns the satisfied threshold (T) and the tolerating threshold, which is four time the satisfied threshold.
+<td><a href="hs_apdex_latency_function.html">apdexLatency(<strong>application=&lt;applicationName&gt;, service=&lt;serviceName&gt;</strong> <strong>&lbrack;satisfied | tolerating&rbrack;</strong>)</a></td>
+<td markdown="span">Returns the apdex threshold defined for the service or application.
 </td>
 </tr>
 </tbody>

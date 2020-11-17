@@ -63,7 +63,7 @@ Fields must be space separated and each line must be terminated with the newline
 <td>metricValue</td>
 <td>Yes</td>
 <td>Value of the metric.</td>
-<td markdown="span">Number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. In charts, the Wavefront UI represents values using SI and IEC/Binary units. See [Units in Chart Axes and Legends](ui_charts.html#units-in-chart-axes-and-legends).</td>
+<td markdown="span">Number that can be parsed into a double-precision floating point number or a long integer. It can be positive, negative, or 0. In charts, the Wavefront UI represents values using SI and IEC/Binary units.</td>
 </tr>
 <tr>
 <td>timestamp</td>
