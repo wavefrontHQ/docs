@@ -46,9 +46,10 @@ For each function, you have to specify at least two `ts()` expressions as parame
 
 Allows you to perform logical set operations on two or more time series. These operators match the [PromQL Logical/Set Binary Operators](https://prometheus.io/docs/prometheus/latest/querying/operators/#logical-set-binary-operators) `or` (union), `unless` (complement), `and` (intersection).
 
-* `union()` takes at least 2 time series as parameters and teturns the all the points from the first time series plus  all point in the other time series which do not have matching point tags.
-* `intersect()` takes at least 2 time series as parameters and returns the points of the first series for which there are points with matching tag sets in the other time series.
-* `complement()` takes at least 2 time series as parameters and returns the points of the first series for which there are no points in other series that have exactly matchin point tags.
+* `union()` takes at least 2 time series as parameters and returns the points from the first time series plus all points in the other time series which do not have exactly matching point tags.
+* `intersect()` takes at least 2 time series as parameters and returns the points of the first series for which there are points with exactly matching point tags in the other time series.
+* `complement()` takes at least 2 time series as parameters and returns the points of the first series for which there are no points in the other series that have exactly matching point tags.
+
 
 
 <!---
