@@ -118,6 +118,7 @@ If all or many jobs showing as impacted, there is likely an issue with Diego. * 
 * Verify that app routes are functional by making a request to an app, pushing an app and pinging it, or if applicable, checking that your smoke tests have passed. If one or a few jobs showing as impacted, there is likely a connectivity issue and the impacted job should be investigated further.
 
 ## PAS Garden Health Check Failed
+
 The Diego Cell periodically checks its health against the Garden back end. For Diego Cells, 0 means healthy, and 1 means unhealthy. Set an alert for further investigation if multiple unhealthy Diego Cells are detected in the given time window. If one Diego Cell is impacted, it does not participate in auctions, but end-user impact is usually low. If multiple Diego Cells are impacted, this can indicate a larger problem with Diego, and should be considered a more critical investigation need.
 1. Investigate Diego Cell servers for faults and errors.
 2. If a particular Diego Cell or Diego Cells appear problematic:
@@ -126,3 +127,65 @@ The Diego Cell periodically checks its health against the Garden back end. For D
   3. Pull the BBS logs over that same time interval.
   4. Contact Pivotal Support.
 3. As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
+
+## PAS Gorouter 502 Bad Gatewaypreview
+
+The number of bad gateways, or 502 responses, from the Gorouter itself, emitted per Gorouter instance. The Gorouter emits a 502 bad gateway error when it has a route in the routing table and, in attempting to make a connection to the back end, finds that the back end does not exist.
+
+Use: Indicates that route tables might be stale. Stale routing tables suggest an issue in the route register management plane, which indicates that something has likely changed with the locations of the containers. Always investigate unexpected increases in this metric.
+
+Actions: Check the Gorouter and Route Emitter logs to see if they are experiencing issues when connecting to NATS. Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing. Look broadly at the health of all VMs, particularly Diego-related VMs. If problems persist, pull Gorouter and Route Emitter logs and contact Pivotal Support to say there has been an unusual increase in Gorouter bad gateway responses.
+* First inspect logs for network issues and indications of misbehaving backends.
+* If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.
+* Resolve high utilization by scaling the Gorouter.
+
+## PAS Gorouter File Descriptor
+
+Number of file descriptors currently used by the Gorouter job. Indicates an impending issue with the Gorouter. Without proper mitigation, it is possible for an unresponsive app to eventually exhaust available Gorouter file descriptors and cause route starvation for other apps running on PAS. Under heavy load, this unmitigated situation can also result in the Gorouter losing its connection to NATS and all routes being pruned.
+
+While a drop in gorouter.total_routes or an increase in `gorouter.ms_since_last_registry_update` helps to surface that the issue may already be occurring, alerting on `gorouter.file_descriptors` indicates that such an issue is impending.
+
+The Gorouter limits the number of file descriptors to 100,000 per job. Once the limit is met, the Gorouter is unable to establish any new connections. To reduce the risk of DDoS attacks, Pivotal recommends doing one or both of the following:
+* Within PAS, set Maximum connections per back end to define how many requests can be routed to any particular app instance. This prevents a single app from using all Gorouter connections. The value specified should be determined by the operator based on the use cases for that foundation. For example, Pivotal sets the number of connections to 500 for Pivotal Web Services.
+* Add rate limiting at the load balancer level.
+
+## PAS Gorouter Handling Latency
+
+Measures the amount of time a Gorouter takes to handle requests to backend endpoints, including both apps, CC and UAA. This is a 30-minute moving average round trip response time, including route handling. It indicates how Gorouter jobs in PAS impact overall responsiveness. Latencies above 100 ms can indicate problems with the network, misbehaving backends, or a need to scale the Gorouter due to traffic congestion.
+
+ACTIONS:
+* First inspect logs for network issues and indications of misbehaving backends.
+* If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.
+* Resolve high utilization by scaling the Gorouter.
+
+## PAS Gorouter Throughput
+
+Measures the number of requests completed by the Gorouter VM, emitted per Gorouter instance. The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of `gorouter.total_requests` and deriving back to 1s, or `gorouter.total_requests.delta)/5`, as this is a 5-second metric.
+
+For optimizing the Gorouter, consider the requests-per-second derived metric in the context of router latency and Gorouter VM CPU utilization. From performance and load testing of the Gorouter, Pivotal has observed that at approximately 2500 requests per second, latency can begin to increase.
+
+ACTIONS:
+
+To increase throughput and maintain low latency, scale the Gorouters either horizontally or vertically and ensure that the `system.cpu.user` metric for the Gorouter stays in the suggested range of 60-70% CPU Utilization. For more information about the `system.cpu.user` metric, see VM CPU Utilization.
+
+## PAS Locks Held by Auctioneer
+
+Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
+
+1. Run monit status on the Diego Database VM to check for failing processes.
+2. If there are no failing processes, then review the logs for Auctioneer. Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as cf push.
+3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.
+
+## PAS Locks Held by BBS
+Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the active BBS server holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers a BBS-level version of the Locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS. Therefore, the expected value is 1. The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
+
+1. Run monit status on the Diego database VM to check for failing processes.
+2. If there are no failing processes, then review the logs for BBS.
+  * A healthy BBS shows obvious activity around starting or claiming LRPs.
+  * An unhealthy BBS leads to the Auctioneer showing minimal or no activity. The BBS sends work to the Auctioneer.
+3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact Pivotal Support.
+
+## PAS UAA Latency is Elevated
+A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response. 
+
+Restart the UAA instances to solve this problem: `bosh -e prod -d cf-cfapps-io2 restart uaa` Restarting the instances will cause any active sessions to be lost, which will cause users to have to log in again.
