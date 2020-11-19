@@ -549,10 +549,30 @@ entries:
             url: /tracing_apdex.html
             output: web
 
-    - title: Visualize Trace Data
-      url: /tracing_ui_overview.html
-      output: web
+      - title: Visualize Trace Data
+        output: web
+        subfolderitems:
 
+          - title: Application Status
+            url: /tracing_ui_overview.html
+            output: web
+
+          - title: Service Dashboard
+            url: /tracing_service_dashboard.html
+            output: web
+
+          - title: Traces Browser
+            url: /tracing_traces_browser.html
+            output: web
+
+          - title: Offline Traces
+            url: /tracing_view_offline_traces.html
+            output: web
+          
+          - title: Application Configuration
+            url: /tracing_apdex.html
+            output: web      
+      
     - title: Trace Sampling
       url: /trace_data_sampling.html
       output: web

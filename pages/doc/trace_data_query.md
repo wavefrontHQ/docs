@@ -11,7 +11,7 @@ After your application sends [trace data](tracing_basics.html#wavefront-trace-da
 
 ## View Tracing Critical Path Data in Charts
 
-The Wavefront Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_ui_overview.html#traces-browser) for details.
+The Wavefront Traces Browser shows you all the spans that make up a trace. By examining the critical path, you can find operations that took a long time, decide which operations to optimize, and then examine optimization results. See [Traces Browser](tracing_traces_browser.html) for details.
 
 Starting with release 2020-38.x, you can view critical path data in Wavefront as histogram metrics and query them using the [`hs()` function](hs_function.html). 
 
@@ -270,7 +270,7 @@ To query traces, select **Applications > Traces** and navigate to the Traces Bro
   </ul>
 {{site.data.alerts.end}}
 
-{% include tip.html content="To get the ID of a trace, go to the trace details panel, expand a service, and click **Tags**. See [Drill Down Into Spans and View Metrics and Span Logs](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs)." %}
+{% include tip.html content="To get the ID of a trace, go to the trace details panel, expand a service, and click **Tags**. See [Drill Down Into Spans and View Metrics and Span Logs](tracing_traces_browser.html#drill-down-into-spans-and-view-metrics-and-span-logs)." %}
 
 **Query traces using an operation**: 
 1. Click **Operation** and select an operation.

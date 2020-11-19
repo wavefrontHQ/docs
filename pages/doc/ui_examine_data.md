@@ -268,4 +268,7 @@ The <strong>Show Events</strong> dropdown in the upper right of the menu bar tim
 
 In addition to examining time series data, drilling down on exactly the information you need, creating alerts, etc, you can also
 * View [histogram metrics in charts](proxies_histograms.html#viewing-histogram-metrics)
-* Look at tracing data with our [distributed tracing UI](tracing_ui_overview.html)
+* Examine traces, spans, and RED metric sent by your application. 
+  * See [Application Status](tracing_ui_overview.html).
+  * See [Service Dashboard](tracing_service_dashboard.html).
+  * See [Traces Browser](tracing_traces_browser.html).

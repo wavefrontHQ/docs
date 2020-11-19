@@ -56,7 +56,7 @@ Wavefront provides SDKs that implement the [OpenTracing](https://opentracing.io)
 
 {% include note.html content="If you can not find the SDK you were looking for, see all the [SDKs provided by Wavefront](wavefront_sdks.html#what-do-you-want-to-collect)." %}
 
-{% include tip.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_ui_overview.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Traces Browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
+{% include tip.html content="Wavefront can only retrieve up to 1000 spans for a given trace, and you only see up to 1000 spans when you [drill down into spans](tracing_traces_browser.html#drill-down-into-spans-and-view-metrics-and-span-logs) via the Traces Browser. Therefore, as a best practice and for optimal performance, configure your application to have less than 1000 spans in a trace." %}
 
 ### Instrument Your Application with OpenTracing SDKs
 
@@ -148,7 +148,7 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
      
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
-After your recompiled application starts running, start [exploring your custom trace data](tracing_ui_overview.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics) from your trace data.
+After your recompiled application starts running, start [exploring your custom trace data](tracing_traces_browser.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics) from your trace data.
 
 ### Instrument Your Application with Wavefront Sender SDKs
 
@@ -240,4 +240,7 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
 
 ## Next Steps
 
-Examine traces, spans, and RED metric sent by your application. See [Visualizing Traces, Spans, and RED Metrics](tracing_ui_overview.html) for details.
+Examine traces, spans, and RED metric sent by your application. 
+* See [Application Status](tracing_ui_overview.html).
+* See [Service Dashboard](tracing_service_dashboard.html).
+* See [Traces Browser](tracing_traces_browser.html).
