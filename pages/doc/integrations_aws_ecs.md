@@ -93,7 +93,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
         "memory": "512"
   }
    ```
-  2. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address and the `storage_driver_wf_metric_port` to the port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
+1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
 2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information. Most fields are self-evident, here are a few.
   * **Cluster**--Select the cluster on which your task has to run.
