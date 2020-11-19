@@ -83,11 +83,12 @@ Setting up Spring Cloud Data Flow locally could be useful for testing and develo
 
  1. Follow the general [SCDF installation instructions](https://dataflow.spring.io/docs/installation/) for setting up Data Flow on the selected platform (e.g. Local, Kuberneted or Cloud Foundry).
 
- 2. Set the configuration properties given below. You have several options:
- * Add the properties to your `Spring Cloud Data Flow` server configuration.
- * For the `Cloud Foundry` platform, set the properties inside the [SPRING_APPLICATION_JSON](https://dataflow.spring.io/docs/installation/cloudfoundry/cf-cli/#configuration-for-wavefront) environment variable.
- * For the `Kubernetes` platform add the properties to the `src/kubernetes/server/server-config.yaml` [configuration](https://dataflow.spring.io/docs/feature-guides/streams/monitoring/#kubernetes).
- * For the `Local` platform follow the instructions in the Docker Compose Installation section below.
+ 2. Set the configuration properties given below. You have several options: 
+  * Add the properties to your `Spring Cloud Data Flow` server configuration.
+  * For the `Cloud Foundry` platform, set the properties inside the [SPRING_APPLICATION_JSON](https://dataflow.spring.io/docs/installation/cloudfoundry/cf-cli/#configuration-for-wavefront) environment variable.
+  * For the `Kubernetes` platform add the properties to the `src/kubernetes/server/server-config.yaml` [configuration](https://dataflow.spring.io/docs/feature-guides/streams/monitoring/#kubernetes).
+  
+ 3. For the `Local` platform follow the instructions in the Docker Compose Installation section below:
 {% raw %}
 ```yaml
 management:
