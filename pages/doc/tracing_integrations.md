@@ -135,7 +135,7 @@ The order of precedence is span level > proxy level.
 
 ## Visualizing Trace Data from an Integration
 
-You view trace data from an integration using [Wavefront charts and queries](tracing_ui_overview.html).
+You view trace data from an integration using the [Application Status](tracing_ui_overview.html), [Service Dashboard](tracing_service_dashboard.html). and [Traces Browser](tracing_traces_browser.html).
 
 If you want context for identifying problem traces, you can start by viewing the [derived RED metrics](#derived-red-metrics):
 
@@ -144,9 +144,9 @@ If you want context for identifying problem traces, you can start by viewing the
 2. Click the **Details** link for the service.
 3. Select an operation from one of the charts to examine the traces for that operation.
 
-If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html):
+If you want to view trace data directly, you can start by submitting [a trace query](trace_data_query.html#search-and-filter-traces-on-the-traces-browser):
 1. Select **Applications > Traces** in the task bar.
-2. In the Traces Browser, [submit a trace query](trace_data_query.html) by selecting the operations and filters that describe the spans of interest.
+2. In the Traces Browser, [submit a trace query](trace_data_query.html#search-and-filter-traces-on-the-traces-browser) by selecting the operations and filters that describe the spans of interest.
 3. Click **Search**.
 
 

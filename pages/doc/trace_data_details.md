@@ -303,7 +303,7 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 ## Tracing Traffic
 
-Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map-beta) for details.
+Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map) for details.
 
 Each arrow in the image shown below is referred to as a tracing traffic in Wavefront. 
 ![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
@@ -335,7 +335,7 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
 {% include note.html content="For traces that consist entirely of synchronous member spans, trace RED metrics are equivalent to the corresponding span RED metrics. For traces that have asynchronous member spans, trace RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span." %}
 
 
-Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts, see the [service dashboard](/tracing_ui_overview.html#service-dashboard).
+Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts, see the [service dashboard](/tracing_service_dashboard.html).
 
 ### RED Metric Counters and Histograms
 

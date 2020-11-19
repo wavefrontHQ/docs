@@ -1,47 +1,17 @@
 ---
-title: Visualizing Traces, Spans, and RED Metrics
+title: Application Status
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Explore traces and spans from the Wavefront UI.
+summary: Get an overview of the services and applications that send data to Wavefront.
 ---
-
-The Wavefront tracing UI enables exploration of your apps and services. Once your application is instrumented for tracing, you can examine traces, spans, and RED metrics, moving easily from one browser page to the next.
-
-This page explains how you can examine trace data from our UI. You'll learn how to query for traces, examine details, find potential problems, and more.
-
-## Choose Your Starting Point
-
-Wavefront offers the following dashboards and browsers to view information on your applications and services and you can navigate from one to another to gather more information:
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="55%">
-<img src="images/tracing_ui.png" alt="tracing user interfaces"/>
-</td>
-<td width="45%">
-To choose your starting point for visualizing traces:<br/>
-  <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
-  <li> From the taskbar, click <b>Applications</b> :
-  <img src="/images/tracing_menu.png" alt="tracing menu"/>
-      <ul> <li>Select <b>Application Status</b> to <a href="#application-status">view how instrumented applications are related to each other, view the status of the applications</a> and drill down from there.</li>
-      <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
-      <li> Select <b>Traces</b> to start by <a href="#traces-browser">querying for traces</a> and drill down from there.</li>
-      </ul></li></ol>
-</td>
-</tr>
-</tbody>
-</table> 
-
-## Application Status
 
 It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
-### Application Map
+## Application Map
 
 The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
 
@@ -163,7 +133,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 
 <a name="table_view"></a>
 
-### Table View
+## Table View
 
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
@@ -327,7 +297,7 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 <a name="grid_view"></a>
 
-### Grid View
+## Grid View
 
 When you select an application, you get an overview of its services.
 
@@ -379,6 +349,7 @@ On the page for a particular application, you can:
       </tr>
     </table>
 
+<!--
 
 ## Service Dashboard
 
@@ -426,7 +397,6 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
-<!---(Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)-->
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces Browser.
 
@@ -650,4 +620,4 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
   <br/>Now, you see the trace data you imported. 
   ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
     
-    
+  -->  
