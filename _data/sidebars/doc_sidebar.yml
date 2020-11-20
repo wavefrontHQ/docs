@@ -544,10 +544,6 @@ entries:
           - title: Configure External Services
             url: /tracing_external_services.html
             output: web
-          
-          - title: Configure Apdex Settings
-            url: /tracing_apdex.html
-            output: web
 
       - title: Visualize Trace Data
         output: web
@@ -569,7 +565,7 @@ entries:
             url: /tracing_view_offline_traces.html
             output: web
           
-          - title: Application Configuration
+          - title: Configure Apdex Settings
             url: /tracing_apdex.html
             output: web      
       
