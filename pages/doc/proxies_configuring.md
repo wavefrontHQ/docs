@@ -113,43 +113,7 @@ You can log all the raw blocked data separately or log different entities into t
 
     <a name="docker"></a>
 
-## Configure a Proxy in a Docker Container
 
-You can use the in-product Docker with cAdvisor or Kubernetes integration if you want to set up a proxy in a container. You can then customize that proxy.
-
-{%include note.html content ="This section deals primarily with Docker. For Kubernetes, see the Kubernetes integration and [Kubernetes doc pages](label_kubernetes.html) "%}
-
-### Proxy Versions for Containers
-For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
-The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
-
-### Restrict Memory Usage for a Docker Container
-
-To restrict memory usage of the container using Docker, you need to add a `JAVA_HEAP_USAGE` environment variable and restrict memory using the `-m` or `--memory` options for the docker `run` command.  The container memory contraint should be at least 350mb larger than the JAVA_HEAP_USAGE environment variable.
-
-To restrict a container's memory usage to 2g with Docker run:
-
-```docker run -d --name wavefront-proxy ... -e JAVA_HEAP_USAGE="1650m" -m 2g ...```
-
-To limit memory usage of the container in Kubernetes use the `resources.limits.memory` property of a container definition. See the [Kubernetes doc](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/).
-
-### Customize Proxy Settings for Docker
-
-When you run a Wavefront proxy inside a Docker container, you can tweak proxy configuration settings that are properties in the `wavefront.conf` file directly from the Docker `run` command. You use the WAVEFRONT_PROXY_ARGS environment variable and pass in the property name as a long form argument, preceded by `--`.
-
-For example, add `-e WAVEFRONT_PROXY_ARGS="--pushRateLimit 1000"` to your docker `run` command to specify a rate limit of 1000 pps for the proxy.
-
-See the [Wavefront Proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) for a full list.
-
-### Log Customization for Docker Containers
-
-You can customize logging by mounting a customized `log4j2.xml` file. Here's an example for Docker:
-
-```
---mount type=bind, src=<absolute_path>/log4j2.xml, dst=/etc/wavefront/wavefront-proxy/log4j2.xml
-```
-
-See **Logging** above for additional background.
 
 ## Configuration Properties
 
@@ -1153,6 +1117,120 @@ Ex: 40</td>
 <td>pushRelayHistogramAggregatorFlushSecs</td>
 <td>Since 6.0. Interval in milliseconds to check for histograms that have accumulated at the relay ports before sending data to Wavefront. Only applicable if the pushRelayHistogramAggregator is set to true. <br/> Default: 70.</td>
 <td>Number of milliseconds.<br/> Ex: 80</td>
+</tr>
+</tbody>
+</table>
+
+## Configure a Proxy in a Docker Container
+
+You can use the in-product Docker with cAdvisor or Kubernetes integration if you want to set up a proxy in a container. You can then customize that proxy.
+
+{%include note.html content ="This section deals primarily with Docker. For Kubernetes, see the Kubernetes integration and [Kubernetes doc pages](label_kubernetes.html) "%}
+
+### Proxy Versions for Containers
+For containers, the proxy image version is determined by the `image` property in the configuration file. You can set this to `image: wavefronthq/proxy:latest`, or specify a proxy version explicitly.
+The proxies are not stateful. Your configuration is managed in your `yaml` file. It's safe to use  `proxy:latest` -- we ensure that proxies are backward compatible.
+
+### Restrict Memory Usage for a Docker Container
+
+To restrict memory usage of the container using Docker, you need to add a `JAVA_HEAP_USAGE` environment variable and restrict memory using the `-m` or `--memory` options for the docker `run` command.  The container memory contraint should be at least 350mb larger than the JAVA_HEAP_USAGE environment variable.
+
+To restrict a container's memory usage to 2g with Docker run:
+
+```docker run -d --name wavefront-proxy ... -e JAVA_HEAP_USAGE="1650m" -m 2g ...```
+
+To limit memory usage of the container in Kubernetes use the `resources.limits.memory` property of a container definition. See the [Kubernetes doc](https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/).
+
+### Customize Proxy Settings for Docker
+
+When you run a Wavefront proxy inside a Docker container, you can tweak proxy configuration settings that are properties in the `wavefront.conf` file directly from the Docker `run` command. You use the WAVEFRONT_PROXY_ARGS environment variable and pass in the property name as a long form argument, preceded by `--`.
+
+For example, add `-e WAVEFRONT_PROXY_ARGS="--pushRateLimit 1000"` to your docker `run` command to specify a rate limit of 1000 pps for the proxy.
+
+See the [Wavefront Proxy configuration file](https://github.com/wavefrontHQ/java/blob/master/pkg/etc/wavefront/wavefront-proxy/wavefront.conf.default) for a full list.
+
+### Log Customization for Docker Containers
+
+You can customize logging by mounting a customized `log4j2.xml` file. Here's an example for Docker:
+
+```
+--mount type=bind, src=<absolute_path>/log4j2.xml, dst=/etc/wavefront/wavefront-proxy/log4j2.xml
+```
+
+See **Logging** above for additional background.
+
+## Authenticate Incoming HTTP Requests at the Proxy
+
+Proxy authentication properties support authentication of incoming HTTP requests at the proxy. Below are the steps for different supported methods.
+
+
+### Auth Method: Static Token
+
+ **Required properties**: `authStaticToken `
+
+In order for data sent via HTTP to the proxy to be accepted, the request will need to include a token matching whatever is configured for  `authStaticToken`. The token can be specified in the header or in the query string.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="50%">Step</th><th width="50%">Example</th></tr>
+</thead>
+<tr>
+<td markdown="span">1. Set `authMethod` to `STATIC_TOKEN`. </td>
+<td><code>authMethod=STATIC_TOKEN</code></td>
+</tr>
+<tr>
+<td markdown="span">2.  Set <code>authStaticToken</code> to a value that will be used as the authentication token.</td>
+<td><code>authStaticToken=token1234abcd</code></td>
+</tr>
+<tr>
+<td markdown="span">3.  Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+
+### Auth Method: HTTP_Get or OAUTH2 
+
+ Required properties: `authTokenIntrospectionServiceUrl`
+
+ Optional properties: `authTokenIntrospectionAuthorizationHeader`, `authResponseRefreshInterval`, `authResponseMaxTtl` 
+
+If you have a service that can validate tokens, use this approach.
+* Use OAUTH2 if your Introspection Service is RFC7662 compliant.
+* Otherwise, use HTTP_GET.
+
+For either method, the service must return a 2xx code for valid tokens. According to the standard, OAUTH2-compliant services return a JSON object that contains the active field.
+
+<table>
+<tbody>
+<thead>
+<tr><th width="50%">Step</th><th width="50%">Example</th></tr>
+</thead>
+<tr>
+<td markdown="span">1. Set `authMethod` to `HTTP_GET` or `OAUTH2`. </td>
+<td><code>authMethod=OAUTH2</code></td>
+</tr>
+<tr>
+<td markdown="span">2. Set `authTokenIntrospectionServiceUrl` to the appropriate token validation endpoint for your introspection service. Use &#10100;&#10100;token&#10101;&#10101; as the placeholder for the token.</td>
+<td><code>authTokenIntrospectionServiceUrl= https://auth.acme.corp/api/token/&#10100;&#10100;token/validate&#10101;&#10101;</code></td>
+</tr>
+<tr>
+<td markdown="span">3. If the token validation endpoint requires authentication, specify authTokenIntrospectionAuthorizationHeader.   </td>
+<td>authTokenIntrospectionAuthorizationHeader= Authorization: Bearer token123xyz </td>
+</tr>
+<tr>
+<td markdown="span">4.  Optionally, set `authResponseRefreshInterval` to specify how long to cache token validation results, in seconds, before re-authenticating against the introspection service. Default is 600 seconds (10 minutes).</td>
+<td>authResponseRefreshInterval=300 </td>
+</tr>
+<tr>
+<td markdown="span">5. Optionally, set `authResponseMaxTtl` to specify the maximum amount of time, in seconds, to cache token validation results if the introspection service cannot be reached. Default is 86400 seconds (1 day).</td>
+<td>authResponseMaxTtl=21600  </td>
+</tr>
+<tr>
+<td markdown="span">6.  Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
+<td>&nbsp;</td>
 </tr>
 </tbody>
 </table>
