@@ -10,5 +10,3 @@ folder: labels
 {% capture c %}{{site.data.labels.charts}}{% endcapture %}
 
 {% include labellogic.html content=c %}
-
-

@@ -87,8 +87,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_charts.html" class="btn btn-primary btn-block">Charts</a></p>
-             <p>{{site.data.labels.charts}}</p>
+             <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
+             <p>{{site.data.labels.dashboards}}</p>
          </div>
      </div>
  </div>
@@ -101,8 +101,8 @@ You can explore the documentation in the nav bar hierarchy on the left. Each top
              </span>
          </div>
          <div class="panel-body">
-             <p><a href="label_dashboards.html" class="btn btn-primary btn-block">Dashboards</a></p>
-             <p>{{site.data.labels.dashboards}}</p>
+             <p><a href="label_tracing.html" class="btn btn-primary btn-block">Tracing</a></p>
+             <p>{{site.data.labels.tracing}}</p>
          </div>
      </div>
  </div>
