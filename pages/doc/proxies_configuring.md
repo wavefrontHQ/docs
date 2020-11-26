@@ -678,7 +678,7 @@ Sets the headroom multiplier for traffic shaping when there's backlog.
 
 Because the proxy is running in your local network by default, communication **to** the proxy is un-authenticated. If you want to authenticate inbound traffic to the proxy, use the settings in this section.
 
-The Wavefront proxy must authenticate outbound traffic to the Wavefront service.
+The Wavefront proxy must authenticate outbound traffic to the Wavefront service. See [Authenticate Incoming HTTP Requests at the Proxy](proxies_configuring.html#authenticate-incoming-http-requests-at-the-proxy) for step-by-step instructions. 
 
 <table style="width: 100%;">
 <tbody>
@@ -1161,10 +1161,10 @@ See **Logging** above for additional background.
 
 ## Authenticate Incoming HTTP Requests at the Proxy
 
-Proxy authentication properties support authentication of incoming HTTP requests at the proxy. Below are the steps for different supported methods.
+The Wavefront proxy can be configured to authenticate inbound traffic. Below are the steps for setting up the different supported authentication methods.
 
 
-### Auth Method: Static Token
+### Authentication Method Static Token
 
  **Required properties**: `authStaticToken `
 
@@ -1191,7 +1191,7 @@ In order for data sent via HTTP to the proxy to be accepted, the request will ne
 </table>
 
 
-### Auth Method: HTTP_Get or OAUTH2 
+### Authentication Method HTTP_Get or OAUTH2 
 
  Required properties: `authTokenIntrospectionServiceUrl`
 
@@ -1213,20 +1213,20 @@ For either method, the service must return a 2xx code for valid tokens. Accordin
 <td><code>authMethod=OAUTH2</code></td>
 </tr>
 <tr>
-<td markdown="span">2. Set `authTokenIntrospectionServiceUrl` to the appropriate token validation endpoint for your introspection service. Use &#10100;&#10100;token&#10101;&#10101; as the placeholder for the token.</td>
-<td><code>authTokenIntrospectionServiceUrl= https://auth.acme.corp/api/token/&#10100;&#10100;token/validate&#10101;&#10101;</code></td>
+<td markdown="span">2. Set `authTokenIntrospectionServiceUrl` to the appropriate token validation endpoint for your introspection service. Use &#123;&#123;token&#125;&#125; as the placeholder for the token.</td>
+<td><code>authTokenIntrospectionServiceUrl=<br/> https://auth.acme.corp/api/token/&#123;&#123;token/validate&#125;&#125;</code></td>
 </tr>
 <tr>
-<td markdown="span">3. If the token validation endpoint requires authentication, specify authTokenIntrospectionAuthorizationHeader.   </td>
-<td>authTokenIntrospectionAuthorizationHeader= Authorization: Bearer token123xyz </td>
+<td markdown="span">3. If the token validation endpoint requires authentication, specify <code>authTokenIntrospectionAuthorizationHeader</code>.   </td>
+<td><code>authTokenIntrospectionAuthorizationHeader=<br/>Authorization: Bearer token123xyz </code></td>
 </tr>
 <tr>
 <td markdown="span">4.  Optionally, set `authResponseRefreshInterval` to specify how long to cache token validation results, in seconds, before re-authenticating against the introspection service. Default is 600 seconds (10 minutes).</td>
-<td>authResponseRefreshInterval=300 </td>
+<td><code>authResponseRefreshInterval=300 </code></td>
 </tr>
 <tr>
 <td markdown="span">5. Optionally, set `authResponseMaxTtl` to specify the maximum amount of time, in seconds, to cache token validation results if the introspection service cannot be reached. Default is 86400 seconds (1 day).</td>
-<td>authResponseMaxTtl=21600  </td>
+<td><code>authResponseMaxTtl=21600  </code></td>
 </tr>
 <tr>
 <td markdown="span">6.  Ensure that valid data sent to the proxy has the appropriate token included with the request.</td>
