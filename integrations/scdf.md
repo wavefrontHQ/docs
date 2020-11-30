@@ -15,12 +15,16 @@ The following diagram illustrates the `Spring Cloud Data Flow` metrics collectio
 
 The Micrometer instrumentation library powers the delivery of application metrics from Spring Boot, including metrics for message rates and errors, which are critical to the monitoring of deployed event streaming and batch data pipelines in Spring Cloud Data Flow.
 
+For Streaming data pipelines that use Kafka message binder, the native Apache Kafka Client metrics are collected and plotted in a dedicated dashboard:
+
+{% include image.md src="images/scdf_kafka_stream_metrics_architecture.png" width="45" %}
+
 ### Servers Monitoring
 
-All [Spring Cloud Data Flow](https://spring.io/projects/spring-cloud-dataflow)and the [Spring Cloud Skipper](https://spring.io/projects/spring-cloud-skipper) are instrumented for Wavefront metrics collection.  
+All [Spring Cloud Data Flow](https://spring.io/projects/spring-cloud-dataflow) and the [Spring Cloud Skipper](https://spring.io/projects/spring-cloud-skipper) are instrumented for Wavefront metrics collection.  
  This dashboard provides real-time visibility into the Spring Cloud Data Flow and Spring Cloud Skipper servers. 
 
-The Spring Cloud Stream applications add additioanl `application` metrcis tag, that allow metrics aggregation by server type (SCDF or Skipper):
+The Spring Cloud Stream applications add an additional `application` metrics tag, that allows metrics aggregation by server type (SCDF or Skipper):
 
 * `application`: The name of the Server (SCDF or Skipper applications name) to show metrics for.
 
@@ -52,11 +56,13 @@ The Spring Cloud Task applications add several task-specific tags that allow met
 
 In addition to setting up the metrics flow, this integration also installs dashboards:
 
-* **Spring Cloud Data Flow Streams**: Performance overview for all event streaming data pipelines deployed by DataFlow. One can compare the average performance per stream, CPU, memory, message throughput, latency, and other metrics.
+* **Spring Cloud Data Flow and Skipper Servers**: Real-time visibility into the Spring Cloud Data Flow and Spring Cloud Skipper servers.
+* **Spring Cloud Data Flow Streams Summary**: Performance overview for all event streaming data pipelines deployed by DataFlow. One can compare the average performance per stream, CPU, memory, message throughput, latency, and other metrics.
 * **Spring Cloud Data Flow Stream Applications**: A detailed real-time performance report of all stream applications that are part of a single event streaming data pipeline. One can filter down metrics for a particular application, instance, or channel.
+* **Spring Cloud Data Flow Kafka Stream Applications**: A detailed real-time performance report of all Kafka stream applications that are part of a single event streaming data pipeline. One can filter down metrics for a particular application, instance, or channel.
 * **Spring Cloud Data Flow Task Applications**: A detailed real-time performance report for all Task applications.
 
-Here's a preview of the Spring Cloud Data Flow and Skipper Server Summary dashboard:
+Here's a preview of the Spring Cloud Data Flow and Skipper Server dashboard:
 
 {% include image.md src="images/scdf_servers.png" width="80" %}
 
@@ -67,6 +73,10 @@ Here's a preview of the Spring Cloud Data Flow Stream Summary dashboard:
 Here's a preview of the Spring Cloud Data Flow Stream applications dashboard:
 
 {% include image.md src="images/scdf_applications.png" width="80" %}
+
+Here's a preview of the Spring Cloud Data Flow Kafka Stream applications dashboard:
+
+{% include image.md src="images/scdf_kafka_applications.png" width="80" %}
 
 Here's a preview of the Spring Cloud Data Flow Task applications dashboard:
 
@@ -81,7 +91,7 @@ Setting up Spring Cloud Data Flow locally could be useful for testing and develo
 
 ### General Installation Instructions
 
- 1. Follow the general [SCDF installation instructions](https://dataflow.spring.io/docs/installation/) for setting up Data Flow on the selected platform (e.g. Local, Kuberneted or Cloud Foundry).
+ 1. Follow the general [SCDF installation instructions](https://dataflow.spring.io/docs/installation/) for setting up Data Flow on the selected platform (e.g. Local, Kubernetes or Cloud Foundry).
 
  2. Set the configuration properties given below. You have several options: 
   * Add the properties to your `Spring Cloud Data Flow` server configuration.
@@ -106,17 +116,17 @@ management:
 
 Spring Cloud Data Flow provides a [Docker Compose Installation](https://dataflow.spring.io/docs/installation/local/docker/) to let you quickly install Spring Cloud Data Flow, Skipper, MySQL and Apache Kafka on your local machine and to [configure Wavefront monitoring](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront).
 
- 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
+ 1. Download the [docker-compose.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml) and [docker-compose-wavefront.yml](https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml) files.
  2. Follow the [Data Flow with Wavefront metrics collection](https://dataflow.spring.io/docs/installation/local/docker-customize/#wavefront) installation instructions.
  3. When you stop seeing additional log messages on the command prompt, open the Spring Cloud Data Flow dashboard at http://localhost:9393/dashboard.
 
 Here is a quick start, single-line command:
 {% raw %}
 ```
-wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose.yml 
-wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v2.6.2/spring-cloud-dataflow-server/docker-compose-wavefront.yml 
+wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml 
+wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml 
 
-export DATAFLOW_VERSION=2.6.2 \
+export DATAFLOW_VERSION=2.6.3 \
 export SKIPPER_VERSION=2.5.2 \
 export WAVEFRONT_KEY=YOUR_API_TOKEN \
 export WAVEFRONT_URI=https://YOUR_CLUSTER.wavefront.com \
@@ -124,6 +134,13 @@ export WAVEFRONT_SOURCE=scdf-docker-compose \
 docker-compose -f ./docker-compose.yml -f ./docker-compose-wavefront.yml up
 ```
 {% endraw %}
+
+**Note**: The Kafka Stream dashboard requires Spring Boot 2.3.4 (or newer) streaming applications. To test this dashboard at the moment you need to switch to the latest streaming apps:
+{% raw %}
+```
+export STREAM_APPS_URI=https://repo.spring.io/libs-snapshot-local/org/springframework/cloud/stream/app/stream-applications-descriptor/2020.0.0-SNAPSHOT/stream-applications-descriptor-2020.0.0-SNAPSHOT.stream-apps-kafka-maven
+```
+{% endraw %} 
 
 Use the following environment variables to configure the Wavefront endpoint, before you start the `docker-compose`:
 
@@ -163,6 +180,77 @@ The following table explains all the metrics in details:
 | spring.integration.channels | Number of MessageChannels in the application |
 | spring.integration.handlers | Number of MessageHandlers in the application |
 | spring.integration.sources  | Number of MessageSources in the application |
+
+
+## Kafka Client Metrics
+
+Applicable for all Spring Cloud Stream (SCS) applications configured with Kafka binder. The Spring Kafka framework, used internally by SCS, provides [micrometer Kafka Client metrics](https://docs.spring.io/spring-kafka/docs/latest-ga/reference/html/#micrometer-native). Later expose Apache Kafka native  [Producers](https://kafka.apache.org/documentation/#producer_monitoring), [Consumers](https://kafka.apache.org/documentation/#consumer_monitoring) and [Streams](https://docs.confluent.io/current/streams/monitoring.html) metrics.
+
+* Kafka Records
+
+The `Record` stand for a single `Message` exchanged between the `Producer` and the `Consumer` applications using the Kafka Brokers.
+
+
+| Metric Name | Description |
+|------------|---------------|
+| kafka.producer.record.send.rate | The average number of records sent per second for a topic |
+| kafka.consumer.fetch.manager.records.consumed.rate | Average number of records consumed per second for a specific topic or across all topics | 
+| kafka.producer.record.size.* | Size of the records sent per second for a topic: avg, max |
+| kafka.producer.record.error.rate | Average record sends per second that result in errors |
+| kafka.producer.record.retry.rate | Average number of re-tried record sends per-second |
+| kafka_consumer.fetch.manager.records.lag.* | Number of messages consumer is behind producer, either for a specific partition or across all partitions on this client: avg, max |
+
+* Kafka Producer
+
+Producers' `send request` represents a single interaction between a Producer application and Kafka Broker. To exchange one `Record` (e.g. message) usually, multiple requests are performed between the producer and the brokers.
+
+
+| Metric Name | Description |
+|------------|---------------|
+| kafka.producer.request.rate | The average number of requests sent per second to the broker |
+| kafka.producer.response.rate | The average number of responses received per second |
+| kafka.producer.request.latency.* | The request latency in ms: avg, max |
+| kafka.producer.io.wait.time.ns.avg | The average length of time the I/O thread spent waiting for a socket ready for reads or writes in nanoseconds |
+| kafka.producer.io.wait.ratio | The fraction of time the I/O thread spent waiting |
+| kafka.producer.network.io.rate | The average number per second of network operations, reads or writes, on all connections |
+| kafka.producer.compression.rate.avg | The ratio of data compression in the batches of data the producer sends to the broker. A higher compression rate indicates greater efficiency |
+| kafka.producer.batch.size.avg | Average number of bytes sent per partition per request (e.g. data size send to different partition on the topic) |
+| kafka.producer.outgoing.byte.rate | The average number of outgoing bytes sent per second to all servers - e.g. the producer network throughput |
+| kafka.producer.requests.in.flight | Current number of outstanding requests awaiting a response |
+| kafka.spring.cloud.stream.binder.kafka.offsetproducer.waiting.threads | Number of user threads blocked waiting for buffer memory to enqueue their records |
+
+* Kafka Consumer
+
+Consumer `fetch request` represents a single interaction between a Kafka Broker and a Consumer application. Retrieving a single `Record` (e.g. message) may involve multiple fetch requests.
+
+| Metric Name | Description |
+|------------|---------------|
+| kafka.consumer.fetch.manager.fetch.rate | Number of fetch requests per second from the consumer |
+| kafka.consumer.fetch.manager.fetch.latency.* | Time taken for any fetch request: avg, max |
+| kafka.consumer.fetch.manager.bytes.consumed.rate | Average number of bytes consumed per second for a specific topic or across all topics |
+
+* Kafka Stream - Thread
+
+| Metric Name | Description |
+|------------|---------------|
+| kafka.stream.thread.[commit|poll|process|punctuate].rate | The average number of respective operations per second across all tasks |
+| kafka.stream.thread.[commit|poll|process|punctuate].latency.avg | The average execution time in ms, for the respective operation, across all running tasks of this thread |
+| kafka.stream.thread.task.created.rate | The average number of newly-created tasks per second |
+| kafka.stream.thread.task.closed.rate | The average number of tasks closed per second |
+
+* Kafka Stream - Task & Process Node
+
+The metrics are only available if the recording level (e.g. `metrics.recording.level` configuration option) is set to `debug`.
+
+| Metric Name | Description |
+|------------|---------------|
+| kafka.stream.task.[commit|process].rate | The average number of respective operations per second across all tasks |
+| kafka.stream.task.[commit|process].latency.avg | The average execution time in ns, for the respective operation for this task |
+| kafka.stream.task.dropped.records.rate | The average number of records dropped within this task |
+| kafka.stream.task.record.lateness.* | The observed lateness (stream time - record timestamp) for this task: avg, max |
+| kafka.stream.task.enforced.processing.rate | The average number of enforced processings per second for this task |
+| kafka.stream.processor.node.process.rate | The average number of records processed per second by a source node |
+
 
 ## Spring Batch Metrics
 
