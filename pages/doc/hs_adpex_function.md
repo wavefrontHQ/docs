@@ -61,10 +61,16 @@ Use the basic or advanced query format.
     <td markdown="span">
       `T`
     </td>
-    <td markdown="span">
+    <td>
       Satisfied threshold. 
-      * If you don't specify the value, it uses the value you define under [Application Configurations](tracing_apdex.html#configure-the-threshold-t-value) or the default value of 100ms. 
-      * If you specify the value, it overrides the value you define under Application Configurations.
+      <ul>
+        <li>
+          If you don't specify the value, it uses the value you define under <a href="tracing_apdex.html#configure-the-threshold-t-value">Application Configurations</a> or the default value of 100ms.
+        </li>
+        <li>
+          If you specify the value, it overrides the value you define under Application Configurations.
+        </li>
+      </ul>
     </td>
   </tr>
   <tr>

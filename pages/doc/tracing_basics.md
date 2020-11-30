@@ -55,7 +55,7 @@ You use the Wavefront UI to visualize the trace data that you collect from your 
 
 ### Application Status
 
-Get an overview of how the applications and services are linked, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view. See [Application Status](tracing_ui_overview.html)
+Get an overview of how the applications and services are linked, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view. See [Application Status](tracing_ui_overview.html).
 
 * [**Application Map**](tracing_ui_overview.html#application-map) map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application.
 

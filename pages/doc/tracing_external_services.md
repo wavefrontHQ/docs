@@ -92,7 +92,7 @@ Now, you see the database services on the application map.
 
 #### Required Span Tags
 
-You will see external database services on the application map if the spans have the following tags. The values for the span tags are assigned using the OpenTracing or OpenTelemetry library.
+You will see external database services on the application map if the spans have the following tags. The values for the span tags are assigned using the OpenTracing, OpenTelemetry, or Spring Cloud Sleuth library.
 
 <table style="width; 100;">
   <tr>
@@ -108,7 +108,7 @@ You will see external database services on the application map if the spans have
       `component`
     </td>
     <td markdown="span">
-     The value `java-jdbc` is assigned by the OpenTracing or OpenTelemetry library.
+     The value `java-jdbc` is assigned by the library.
      
      Example: `component=java-jdbc`
     </td>
@@ -118,7 +118,7 @@ You will see external database services on the application map if the spans have
       `db.type`
     </td>
     <td markdown="span">
-      The type of the database that you configure your application, such as MySQL, Oracle, is assigned by the OpenTracing or OpenTelemetry library. The value assigned here determines the component icon you see when you click on the external database service.
+      The type of the database that you configure your application, such as MySQL, Oracle, is assigned by the library. The value assigned here determines the component icon you see when you click on the external database service.
       
       Example: `db.type=postgresql`
       
@@ -130,7 +130,7 @@ You will see external database services on the application map if the spans have
       `db.instance`
     </td>
     <td markdown="span">
-      The name you give your database is assigned by the OpenTracing or OpenTelemetry library. In the screenshot above, the user created a PostgreSQL database and named it stylingDB. Therefore, the OpenTracing or OpenTelemetry library assigns `stylingDB` to the `db.instance` span tag.
+      The name you give your database is assigned by the library. In the screenshot above, the user created a PostgreSQL database and named it stylingDB. Therefore, the library assigns `stylingDB` to the `db.instance` span tag.
       
       Example: `db.instance=stylingDB`
     </td>
@@ -198,7 +198,7 @@ In addition to the out-of-the-box Java AWS and database service, Wavefront can i
     </td>
     <td markdown="span">
       Defines the name of the application if the external service is on a different application. If you don't assign a value, the value defaults to the application that emitted the span.
-      <br/>For example, if the `shopping` service on the `beachshirts` application receives requests from a load balancer the `Proxy` application, you need to define `Proxy` as the value for this tag. The application map looks as follows:
+      <br/>For example, if the `shopping` service on the `beachshirts` application receives requests from a load balancer in the `Proxy` application, you need to define `Proxy` as the value for this tag. The application map looks as follows:
       <br/>![Show the shopping service of the beachshirts application receiving requests from a load balancer of the proxy applcaition.](images/tracing_custom_external_services_external_applcaiton.png)
     </td>
   </tr>

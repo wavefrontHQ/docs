@@ -12,7 +12,7 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
 ## Export Traces
 
 Follow the steps to export traces via the traces browser or the Wavefront API:
-* Export the traces via the [Traces Browser](#traces-browser) and save the JSON file.
+* Export the traces via the [Traces Browser](tracing_traces_browser.html) and save the JSON file.
 * Export traces via the API.
   * Use the Wavefront Swagger UI. See [API Documentation (Wavefront Instance)](wavefront_api.html#api-documentation-wavefront-instance) for details on navigating to the Wavefront Swagger UI.
     <br/>Example:
