@@ -91,7 +91,7 @@ If we wrap `default()` and specify 0 as the default, missing data are replaced w
 
 You can use `.orElse` without `default()` and you can chain multiple `.orElse` operators. In the following example:
 ```
-ts(&lt;metric_not_there&gt;).orElse(ts(&lt;metric_sometimes_there&gt;)).orElse(25)
+ts(<metric_not_there>).orElse(ts(<metric_sometimes_there>)).orElse(25)
 ```
 For this example:
 * If `metric_not_there` has no value, the function returns the value of `(ts(<metric_sometimes_there>))`
