@@ -49,7 +49,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 2:  Customize the application map view</b> <br/>
       You can customize how you see your applications and services on the application map using the settings icon. 
       <ul>
-      <li><b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Chose the layout that helps you understand how your services are linked.</li>
+      <li><b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Choose the layout that helps you understand how your services are linked.</li>
       <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
       <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
       <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
