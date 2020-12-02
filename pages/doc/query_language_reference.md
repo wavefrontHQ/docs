@@ -1353,7 +1353,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 </ul></td>
 </tr>
 <tr>
-<td>
+<td> 
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
