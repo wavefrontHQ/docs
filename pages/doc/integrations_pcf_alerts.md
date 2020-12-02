@@ -26,6 +26,10 @@ If the ActiveLocks count is not equal to the expected value, there is likely a p
 5. The TPS Watcher is primarily active when app instances crash. Therefore, if the TPS Watcher is suspected, review the most recent logs.
 6. If you are unable to resolve on-going excessive active locks, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.
 
+## PAS Auctioneer Fetch State Duration Taking Too Long
+
+App stage requests for Diego may be failing. Consult your Pivotal Expert.
+
 ## PAS Auctioneer LRP Auctions Failed
 
 The number of Long Running Process (LRP) instances that the Auctioneer failed to place on Diego Cells.
@@ -82,6 +86,10 @@ Total number of LRP instances that are no longer desired but still have a BBS re
 
 This Delta reflects a DOWNWARD trend for app instances started or stopped. It helps to provide a picture of the overall (lack of) growth trend of the environment for capacity planning. You may want to alert on delta values outside of an expected range.
 
+## PAS BBS Task Count is Elevated
+
+This elevated BBS task metric is a KPI tracked by the internal Pivotal Web Services team. Contact the Diego team to investigate if the cause is not clear.
+
 ## PAS BBS Time to Handle Requests
 
 The maximum observed latency time over the past 60 seconds that the BBS took to handle requests across all its API endpoints. If this metric rises, the PAS API is slowing. Response to certain cf CLI commands is slow if request latency is high.
@@ -99,13 +107,89 @@ Time that the BBS took to run its LRP convergence pass. If the convergence run b
 3. Consider vertically scaling the PAS backing database, if `system.cpu` and `system.memory` metrics for the database instances are high.
 4. If that does not solve the issue, pull the BBS logs and contact Pivotal Support for additional troubleshooting.
 
-## PAS Cloud Controller and Diego Not in Syncpreview
+## PAS BOSH VM CPU Used
+
+Percentage of CPU spent in user processes. Set an alert and investigate further if the CPU utilization is too high for a job.
+
+For monitoring Gorouter performance, CPU utilization of the Gorouter VM is the key capacity scaling indicator Pivotal recommends. For more information, see Router VM CPU Utilization in Key Capacity Scaling Indicators.
+
+## PAS BOSH VM Disk Used
+
+Percentage of the system disk used on the VM. Set an alert to indicate when the system disk is almost full. Investigate what is filling the jobs system partition.
+
+This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+
+## PAS BOSH VM Ephemeral Disk Used
+
+Percentage of the ephemeral disk used on the VM. Set an alert and investigate if the ephemeral disk usage is too high for a job over an extended period.
+
+1. Run bosh vms --details to view jobs on affected deployments.
+2. Determine the cause of the data consumption, and, if appropriate, increase disk space or scale out the affected jobs.
+
+This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+
+## PAS BOSH VM Health
+
+This is the most important BOSH metric to monitor. It indicates if the VM emitting the metric is healthy. Review this metric for all VMs to estimate the overall health of the system.
+
+* 1 means the system is healthy.
+* 0 means the system is not healthy.
+
+Multiple unhealthy VMs signals problems with the underlying IAAS layer.
+
+## PAS BOSH VM Memory Used
+
+Percentage of memory used on the VM.
+
+## PAS BOSH VM Persistent Disk Used
+
+Percentage of the persistent disk used on the VM. Set an alert and investigate if the persistent disk usage is too high for a job over an extended period.
+1. Run `bosh vms --details` to view jobs on affected deployments.
+2. Determine cause of the data consumption, and, if appropriate, increase disk space or scale out the affected jobs.
+
+This partition should not typically fill because BOSH deploys jobs to use ephemeral and persistent disks.
+
+## PAS Cloud Controller and Diego Not in Sync
 
 Indicates if the `cf-apps` Domain is up-to-date, meaning that PAS app requests from Cloud Controller are synchronized to bbs.LRPsDesired (Diego-desired AIs) for execution.
 * 1 means cf-apps Domain is up-to-date
 * No data received means cf-apps Domain is not up-to-date: If the cf-apps Domain does not stay up-to-date, changes requested in the Cloud Controller are not guaranteed to propagate throughout the system. If the Cloud Controller and Diego are out of sync, then apps running could vary from those desired.
   - 1. Check the BBS and Clock Global (Cloud Controller clock) logs.
   - 2. If the problem continues, pull the BBS logs and Clock Global (Cloud Controller clock) logs and contact Pivotal Support to say that the `cf-apps` domain is not being kept fresh.
+
+## PAS Diego Cell Container Capacity
+
+Percentage of remaining container capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
+
+* The metric `rep.CapacityRemainingContainers` indicates the remaining number of containers this Diego Cell can host.
+* The metric `rep.CapacityTotalContainer` indicates the total number of containers this Diego Cell can host.
+
+Recommended threshold: < avg(35%)
+
+## PAS Diego Cell Disk Capacity
+
+Percentage of remaining disk capacity for a given Diego Cell. Monitor this derived metric across all Diego Cells in a deployment.
+* The metric `rep.CapacityRemainingDisk` indicates the remaining amount in MiB of disk available for this Diego Cell to allocate to containers.
+* The metric `rep.CapacityTotalDisk` indicates the total amount in MiB of disk available for this Diego Cell to allocate to containers.
+
+Recommended threshold: < avg(35%)
+
+## PAS Diego Cell Memory Capacity
+
+Percentage of remaining memory capacity for a given Diego cell. Monitor this derived metric across all Diego cells in a deployment.
+* The metric `rep.CapacityRemainingMemory` indicates the remaining amount in MiB of memory available for this Diego Cell to allocate to containers.
+* The metric `rep.CapacityTotalMemory` indicates the total amount in MiB of memory available for this Diego Cell to allocate to containers.
+
+Recommended threshold: < avg(35%)
+
+## PAS Diego Cell Replication Bulk Sync Duration
+
+Time that the Diego Cell Rep took to sync the ActualLRPs that it claimed with its actual garden containers.  Sync times that are too high can indicate issues with the BBS.
+Yellow: warning (2265 5 s)
+Red: critical (2265 10 s)
+
+ACTION: Investigate BBS logs for faults and errors. If a one or more Diego cells appear problematic, pull the logs for those Diego cells and the BBS logs before contacting Pivotal Support.
+
 
 ## PAS Diego Cell Route Emitter Sync Duration
 
@@ -128,7 +212,7 @@ The Diego Cell periodically checks its health against the Garden back end. For D
   4. Contact Pivotal Support.
 3. As a last resort, if you cannot wait for Pivotal Support, it sometimes helps to recreate the Diego Cell by running bosh recreate. For information about the bosh recreate command syntax, see Deployments in Commands in the BOSH documentation. Warning: Recreating a Diego Cell destroys its logs. To enable a root cause analysis of the Diego Cell’s problem, save out its logs before running `bosh recreate`.
 
-## PAS Gorouter 502 Bad Gatewaypreview
+## PAS Gorouter 502 Bad Gateway
 
 The number of bad gateways, or 502 responses, from the Gorouter itself, emitted per Gorouter instance. The Gorouter emits a 502 bad gateway error when it has a route in the routing table and, in attempting to make a connection to the back end, finds that the back end does not exist.
 
@@ -158,6 +242,12 @@ ACTIONS:
 * If it appears that the Gorouter needs to scale due to ongoing traffic congestion, do not scale on the latency metric alone. You should also look at the CPU utilization of the Gorouter VMs and keep it within a maximum 60-70% range.
 * Resolve high utilization by scaling the Gorouter.
 
+## PAS Gorouter Server Error
+
+The number of requests completed by the Gorouter VM for HTTP status family 5xx, server errors, emitted per Gorouter instance.
+
+A repeatedly crashing app is often the cause of a big increase in 5xx responses. However, response issues from apps can also cause an increase in 5xx responses. Always investigate an unexpected increase in this metric.
+
 ## PAS Gorouter Throughput
 
 Measures the number of requests completed by the Gorouter VM, emitted per Gorouter instance. The aggregation of these values across all Gorouters provide insight into the overall traffic flow of a deployment. Unusually high spikes, if not known to be associated with an expected increase in demand, could indicate a DDoS risk. For performance and capacity management, consider this metric a measure of router throughput per job, converting it to requests-per-second, by looking at the delta value of `gorouter.total_requests` and deriving back to 1s, or `gorouter.total_requests.delta)/5`, as this is a 5-second metric.
@@ -168,15 +258,27 @@ ACTIONS:
 
 To increase throughput and maintain low latency, scale the Gorouters either horizontally or vertically and ensure that the `system.cpu.user` metric for the Gorouter stays in the suggested range of 60-70% CPU Utilization. For more information about the `system.cpu.user` metric, see VM CPU Utilization.
 
+## PAS Gorouter Time Since Last Route Register Received
+
+Time since the last route register was received, emitted per Gorouter instance. Indicates if routes are not being registered to apps correctly.
+Red critical: > 30 sec
+
+ACTIONS:
+* Search the Gorouter and Route Emitter logs for connection issues to NATS.
+* Check the BOSH logs to see if the NATS, Gorouter, or Route Emitter VMs are failing.
+* Look more broadly at the health of all VMs, particularly Diego-related VMs.
+* If problems persist, pull the Gorouter and Route Emitter logs and contact Pivotal Support to say there are consistently long delays in route registry.
+
 ## PAS Locks Held by Auctioneer
 
 Whether an Auctioneer instance holds the expected Auctioneer lock (in Locket). 1 means the active Auctioneer holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers an Auctioneer-level version of the Locket metrics. Although it is emitted per Auctioneer instance, only 1 active lock is held by Auctioneer. Therefore, the expected value is 1. The metric may occasionally be 0 when the Auctioneer instances are performing a leader transition, but a prolonged value of 0 indicates an issue with Auctioneer.
 
 1. Run monit status on the Diego Database VM to check for failing processes.
-2. If there are no failing processes, then review the logs for Auctioneer. Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as cf push.
+2. If there are no failing processes, then review the logs for Auctioneer. Recent logs for Auctioneer should show all but one of its instances are currently waiting on locks, and the active Auctioneer should show a record of when it last attempted to execute work. This attempt should correspond to app development activity, such as `cf push`.
 3. If you are unable to resolve the issue, pull logs from the Diego BBS and Auctioneer VMs, which includes the Locket service component logs, and contact Pivotal Support.
 
 ## PAS Locks Held by BBS
+
 Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the active BBS server holds the lock, and 0 means the lock was lost. This metric is complimentary to Active Locks, and it offers a BBS-level version of the Locket metrics. Although it is emitted per BBS instance, only 1 active lock is held by BBS. Therefore, the expected value is 1. The metric may occasionally be 0 when the BBS instances are performing a leader transition, but a prolonged value of 0 indicates an issue with BBS.
 
 1. Run monit status on the Diego database VM to check for failing processes.
@@ -186,6 +288,7 @@ Whether a BBS instance holds the expected BBS lock (in Locket). 1 means the acti
 3. If you are unable to resolve the issue, pull logs from the Diego BBS, which include the Locket service component logs, and contact Pivotal Support.
 
 ## PAS UAA Latency is Elevated
-A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response. 
+
+A quick way to confirm user-impacting behavior is to try `login.run.pivotal.io` and see if you receive a delayed response.
 
 Restart the UAA instances to solve this problem: `bosh -e prod -d cf-cfapps-io2 restart uaa` Restarting the instances will cause any active sessions to be lost, which will cause users to have to log in again.
