@@ -110,7 +110,7 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the appl
   ![The screenshots shows grid layout selected for the service layout of the foo-beachsirts application.](images/tracing_java_tutorial_service_layout.png)
 1. Click on the **styling** service and click **Dashboard**. 
   <br/>![The screenshot shows the pop up that comes when you click the styling service. The dashboard link is highlighted.](images/tracing_java_tutorial_cick_service.png)
-1. You are taken to the [Service Dashboard](tracing_service_dashboard.html) of the styling service. The default, read-only dashboard for a service lets you explore trace data sent by each service in your application. 
+1. You are taken to the [Service Dashboard](tracing_service_dashboard.html) of the styling service. The default, read-only dashboard for a service lets you explore RED metrics derived from trace data as well as component metrics data sent by each service in your application. 
 1. Click **See All styling Traces**.
   ![The screenshot shows the service dashboard for the styling service. The See all styling traces just below Overview is highlighted.](images/tracing_java_tutorial_drilldown_to_traces_bowser.png)
 1. You are taken to the [Traces Browser](tracing_traces_browser.html). 
