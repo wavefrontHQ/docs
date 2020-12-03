@@ -18,24 +18,44 @@ See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on inves
 
 The Wavefront Usage integration includes the following dashboards:
 
+<table style="width: 100%;">
+<tbody>
+<thead>
+<tr><th width="30%">Dashboard</th><th width="30%">Focus</th><th width="40%">Description</th></tr>
+</thead>
+<tr>
+<td><strong>Wavefront Usage and Proxy Metrics</strong></td>
+<td>Find <strong>reasons for system slowdown</strong>.</td>
+<td>Provides visibility into your use of the Wavefront service via internal metrics that we collect for you automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.</td></tr>
+<tr>
+<td><strong>Wavefront Metrics Breakdown</strong></td>
+<td>Explore the <strong>trend</strong> of your metrics ingestion rate.</td>
+<td>Tracks the number of metrics received for the first 3 levels of your metric namespace. You can also view the breakdown of histograms, spans and delta counters.</td></tr>
+<tr>
+<td><strong>Wavefront Ingestion (PPS) Usage Breakdown</strong></td>
+<td>Investigate Wavefront usage for <strong>each user and ingestion policy</strong>.</td>
+<td markdown="span">Provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage. You can implement [ingestion policies](ingestion_policies.html) if you see problems in this dashboard.</td></tr>
+<tr>
+<td><strong>PPS P95 Usage Dashboard</strong></td>
+<td>Monitor your <strong>monthly usage</strong> and see when your usage reaches 95% of contracted PPS.
+</td>
+<td markdown="span">Displays a detailed breakdown of your monthly usage. This enables you to take appropriate action when usage reaches around 95% of your target/committed usage.</td></tr>
+
+</tbody>
+</table>
+
+<!---
 * **Wavefront Usage and Proxy Metrics** provides visibility into your use of the Wavefront service via internal metrics that we collect for you automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.
 * **Wavefront Metrics Breakdown** tracks the number of metrics received for the first 3 levels of your metric namespace. You can also view the breakdown of histograms, spans and delta counters.
 * **Wavefront Ingestion (PPS) Usage Breakdown** provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage. You can implement [ingestion policies](ingestion_policies.html) if you see problems in this dashboard.
-* **PPS P95 Usage Dashboard** displays a detailed breakdown of your monthly usage. This enables you to take appropriate action when usage reaches around 95% of your target/committed usage.
+* **PPS P95 Usage Dashboard** displays a detailed breakdown of your monthly usage. This enables you to take appropriate action when usage reaches around 95% of your target/committed usage.--->
 
 ### Wavefront Usage and Proxy Metrics Dashboard
 
-images/usage_and_proxy_metrics.png
+The Wavefront Usage and Proxy Metrics dashboard helps you find reasons for system slowdown.
 
-The [Wavefront Usage integration](system.html) provides the Wavefront System Usage dashboard that displays metrics that help you find reasons for system slowdown. You can examine many aspects or your Wavefront Instance. We'll look at  the following sections here:
-* Overall Data Rate
-* Wavefront Stats
-* AWS Integration
-* Ingestion Rate by Source
+The charts show internal metrics information and allow you to examine many aspects of your Wavefront instance. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the **Proxy Health** and **Proxy Troubleshooting** sections.
 
-See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on the following sections:
-* Proxy Health
-* Proxy Troubleshooting
 
 #### Overall Data Rate
 
