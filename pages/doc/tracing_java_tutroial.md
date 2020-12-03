@@ -6,17 +6,17 @@ sidebar: doc_sidebar
 permalink: tracing_java_tutorial.html
 summary: Configure your OpenTracing Java application to send data to Wavefront using the OpenTracing Java SDK.
 ---
-In this tutorial, you configure a sample application with the Wavefront OpenTracing Java SDK with a sample application to send data to Wavefront. Let's get started!
+In this tutorial, you configure a sample application with the Wavefront OpenTracing Java SDK. The application will send data to Wavefront. Let’s get started!
 
 ## Prerequisites
 
-* Java 8 or above.
-* Install the Docker platform to run the Wavefront proxy.
-* Clone the sample application. 
+* Java 8 or later.
+* Install the Docker platform. You’ll later run the Wavefront proxy on Docker.
+* Clone the sample application. Open the command prompt and run the following command: 
   ```
   git clone https://github.com/wavefrontHQ/distributed-tracing-sample-apps.git
   ```
-  This repository has many sample. Navigate to the dropwizard-app application using the terminal.
+  This repository has many sample applications. Navigate to the dropwizard-app application.
   ```
   cd distributed-tracing-sample-apps/Wavefront-DT/dropwizard-app/
   ```
@@ -35,7 +35,7 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
     </dependencies>
     ```
 1. Configure the application to send data to Wavefront via the Wavefront proxy.
-    1. <a href="proxies_installing.html#proxy-installation">Install the Wavefront proxy</a>. For this tutorial let's install the Wavefront Proxy on Docker.
+    1. <a href="proxies_installing.html#proxy-installation">Install the Wavefront proxy</a>. For this tutorial let's install the Wavefront proxy on Docker.
         ```
         docker run -d \
           -e WAVEFRONT_URL=<your_cluster_name> \
@@ -46,10 +46,10 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
         ```
         {% include note.html content="Replace `<your_cluster_name>` and `<your_token>` with the name of your Wavefront cluster and API token."%}
         
-        {%include tip.html content="If you are not sure of your cluster name or token, open the Wavefront application UI, click **Browse** > **Proxies** > **Add New Proxy**, and click the **Docker** tab. Copy the command and run it."%}
+        {%include tip.html content="If you are not sure of your cluster name or token, open the Wavefront application UI, click **Browse** > **Proxies** > **Add New Proxy**, and click the **Docker** tab. Copy the command on the tab and run it."%}
     
     1. Open the <code>common/src/main/java/com/wfsample/common/Tracing.java</code> file and update the following:
-        * Make sure it has the following dependencies.
+        * Make the following dependencies are set.
           ```
           import com.wavefront.opentracing.WavefrontTracer;
           import com.wavefront.opentracing.reporting.Reporter;
@@ -59,7 +59,7 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
           import com.wavefront.sdk.common.clients.WavefrontClientFactory;
           ```
         * Change the <code>Tracer init(String service)</code> method to return a WavefrontTracer.
-        * Assign a name for the application. This will help you identify the application in Wavefront and view the data that was sent. For this example, let's use <code>foo-beachshirts</code>. You can replace <code>foo</code> with your name too.
+        * Assign a name for the application. This will help you identify the application in Wavefront and view the data that was sent. For this example, let's use <code>foo-beachshirts</code> or use a name you like.
       
         Your code looks as follows:
         ```
@@ -80,13 +80,13 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
           }
         ```
 1. Run `mvn clean install` from the root directory of the project.
-1. Start the `shopping`, `styling`, and `delivery` services using the commands given below. Run them from the root directory of the project
+1. Start the `shopping`, `styling`, and `delivery` services by running the following commands from the root directory of the project.
     ```
     java -jar ./shopping/target/shopping-1.0-SNAPSHOT.jar server ./shopping/app.yaml
     java -jar ./styling/target/styling-1.0-SNAPSHOT.jar server ./styling/app.yaml
     java -jar ./delivery/target/delivery-1.0-SNAPSHOT.jar server ./delivery/app.yaml
     ```
-1. Run the `./loadgen.sh` script to order a shirt and call the shop, style, and deliver services. Let's run it every 5 seconds
+1. Run the `./loadgen.sh` script. The script will order a shirt and call the shop, style, and deliver services. Let's run it every 5 seconds
     ```
     ./loadgen.sh 5
     ```
@@ -110,7 +110,9 @@ style="vertical-align:text-bottom;width:28px" alt="icon to click to get the appl
   ![The screenshots shows grid layout selected for the service layout of the foo-beachsirts application.](images/tracing_java_tutorial_service_layout.png)
 1. Click on the **styling** service and click **Dashboard**. 
   <br/>![The screenshot shows the pop up that comes when you click the styling service. The dashboard link is highlighted.](images/tracing_java_tutorial_cick_service.png)
-1. You are taken to the [Service Dashboard](tracing_service_dashboard.html) of the styling service. The default, read-only dashboard for a service lets you explore RED metrics derived from trace data as well as component metrics data sent by each service in your application. 
+1. You are taken to the [Service Dashboard](tracing_service_dashboard.html) of the styling service. The default, read-only dashboard for a service lets you explore:
+  * RED metrics derived from trace data
+  * Component metrics data sent by each service in your application. 
 1. Click **See All styling Traces**.
   ![The screenshot shows the service dashboard for the styling service. The See all styling traces just below Overview is highlighted.](images/tracing_java_tutorial_drilldown_to_traces_bowser.png)
 1. You are taken to the [Traces Browser](tracing_traces_browser.html). 
