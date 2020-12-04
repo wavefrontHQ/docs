@@ -7,12 +7,13 @@ summary: Monitor and troubleshoot your Wavefront instance and see PPS info.
 ---
 
 You can use the Wavefront Usage integration dashboards to:
-* Examine your Wavefront instance and Wavefront proxy if performance seems to be deterioating.
-* See the PPS status of your cluster.
+* Examine your Wavefront instance and Wavefront proxy in charts that show internal metrics.
+* See the PPS (points per second) for the Wavefront instance and proxy.
+* Examine PPS based on ingestion policies.
 
-In addition, you can create your own dashboards, charts, and alerts using internal metrics to investigate the problem.
+In addition, you can create your own dashboards, charts, and alerts using internal metrics (discussed below) to investigate the problem.
 
-See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy issues.
+See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details on investigating proxy usage.
 
 ## Learn About Wavefront Usage with Dashboards
 
@@ -25,7 +26,7 @@ The Wavefront Usage integration includes the following dashboards:
 </thead>
 <tr>
 <td><strong>Wavefront Usage and Proxy Metrics</strong></td>
-<td>Find <strong>reasons for system slowdown</strong>.</td>
+<td>Examine <strong>usage data</strong>.</td>
 <td>Provides visibility into your use of the Wavefront service via internal metrics that we collect for you automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.</td></tr>
 <tr>
 <td><strong>Wavefront Metrics Breakdown</strong></td>
@@ -33,7 +34,7 @@ The Wavefront Usage integration includes the following dashboards:
 <td>Tracks the number of metrics received for the first 3 levels of your metric namespace. You can also view the breakdown of histograms, spans and delta counters.</td></tr>
 <tr>
 <td><strong>Wavefront Ingestion (PPS) Usage Breakdown</strong></td>
-<td>Investigate Wavefront usage for <strong>each user and ingestion policy</strong>.</td>
+<td>Investigate Wavefront usage for <strong>each account and ingestion policy</strong>.</td>
 <td markdown="span">Provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage. You can implement [ingestion policies](ingestion_policies.html) if you see problems in this dashboard.</td></tr>
 <tr>
 <td><strong>PPS P95 Usage Dashboard</strong></td>
@@ -118,7 +119,7 @@ The metrics used in this section are:
 
 This dashboard helps you explore the *trend* of your metrics ingestion rate.
 
-Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The . character separates the levels. For example for a metric named disk.space.total.bytes, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
+Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named disk.space.total.bytes, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
 
 ![screenshot of part of dashboard](/images/metrics_breakdown.png)
 
@@ -126,9 +127,9 @@ Wavefront automatically tracks the number of metrics received for the first 3 le
 
 This dashboard helps you investigate Wavefront usage for each user and ingestion policy.
 
-As a Wavefront administrator, you’re interested in usage patterns for the whole company, but also for different teams in the company. You can create ingestion policies and assign accounts (user or service accounts) to each policy to see which teams use which part of total ingestion. You can even drill down to individual users from this Ingestion (PPS) Usage dashboard.
+Wavefront supports creation of ingestion policies. You create policies and assign accounts (user or service accounts) to each policy and examine which teams use which part of total ingestion in this Ingestion (PPS) Usage dashboard. You can even drill down and examine usage of individual users.
 
-The dashboard includes a link to the **Ingestion Policies** page so you can examine or modify [ingestion policies](ingestion_policies.html)
+The dashboard includes a link to the **Ingestion Policies** page so you can create, examine, or modify [ingestion policies](ingestion_policies.html)
 
 ![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
 
