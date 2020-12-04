@@ -58,7 +58,7 @@ For the most gain with the least amount of work:
 
 <tr>
 <td markdown="span">[Metrics SDK](#sdks-for-collecting-metrics-and-histograms)</td>
-<td align="justify">Implements a standard metrics library. Lets you define, collect, and report custom business metrics and histograms from any part of your application code.   </td>
+<td align="justify">Implements a standard metrics library. Lets you define, collect, and report custom business metrics, delta counters, and histograms from any part of your application code.   </td>
 <td>
 <ul>
   <li>
@@ -172,7 +172,7 @@ Sample use cases:
 
 ## SDKs For Collecting Metrics and Histograms
 
-Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics and histograms to Wavefront:
+Wavefront provides SDKs that implement standard metrics libraries in popular programming languages. You use these SDKs to instrument critical areas in your code, to collect and send custom business metrics, delta counters, and histograms to Wavefront:
 * You can use a metrics SDK alone, to instrument an entire application to report the metrics of your choice.
 * You can use a metrics SDK and a framework SDK to instrument any functions that are not handled by the instrumented framework.
 
