@@ -916,7 +916,7 @@ These functions output continuous time series, with the exception of `integral()
 
 ## Missing Data Functions
 
-Missing data functions allow you to interpolate data points in time series that have gaps.
+Missing data functions allow you to interpolate data points in time series that have gaps. To check for missing functions see the [`missing()` function](ts_missing.html) and the [`exists()` function](ts_exists.html).
 
 <table style="width: 100%;">
 <colgroup>
@@ -1354,11 +1354,11 @@ Predictive functions enable you to forecast data values and find outlier data va
 </td>
 <td>Checks whether there are any data points in the specified time window.<ul>
 <li>If there are no data points, returns 1.</li>
-<li>Otherwise, returns a Double.NaN (i.e. empty time series)</li>
+<li>Otherwise, returns 0.</li>
 </ul></td>
 </tr>
 <tr>
-<td>
+<td> 
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
