@@ -81,12 +81,14 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
         ```
 1. Run `mvn clean install` from the root directory of the project.
 1. Start the `shopping`, `styling`, and `delivery` services by running the following commands from the root directory of the project.
+    {% include note.html content="Run each command on a separate terminal." %}
+    
     ```
     java -jar ./shopping/target/shopping-1.0-SNAPSHOT.jar server ./shopping/app.yaml
     java -jar ./styling/target/styling-1.0-SNAPSHOT.jar server ./styling/app.yaml
     java -jar ./delivery/target/delivery-1.0-SNAPSHOT.jar server ./delivery/app.yaml
     ```
-1. Run the `./loadgen.sh` script. The script will order a shirt and call the shop, style, and deliver services. Let's run it every 5 seconds
+1. Run the `./loadgen.sh` script on a new terminal. The script will order a shirt and call the shop, style, and deliver services. Let's run it every 5 seconds.
     ```
     ./loadgen.sh 5
     ```
