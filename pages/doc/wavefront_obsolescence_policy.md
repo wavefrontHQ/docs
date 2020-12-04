@@ -70,3 +70,82 @@ The following proxy versions are scheduled to be deprecated or moved to end-of-l
 Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_release_notes.html).
 * The original delta counter implementation is now obsolete.
 * The original delta counter implementation is End of Live March 31, 2021.
+
+## Required Changes to Delta Counters
+
+As of release 2020.38, any ingested Delta Counters are stored in both the previous `ts()` format as well as the new native `cs()` format.
+
+Starting in April 2021, Wavefront will no longer store delta counters in two different formats, and `ts()` queries on delta counters will no longer work. You have to revise delta counter queries.
+
+### How to Find Queries that Might Need Modification
+
+1. Find delta counters from the UI or using Spy.
+    * From the Wavefront UI, click **Browse > Delta Counters** and examine your data.
+    * From your Web broser, use the [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live Delta Counter ingestion.
+2. Search for any of those named counters on the **Alerts** page to find relevant Alerts
+3. On the **All Dashboards** page, using the Metrics Search to find relevant dashboards.
+
+### How to Modify the Queries
+
+1. Replace `ts()` with `cs()` if the query targets delta counter data. Filtering works as before, so nothing within the parenthesis needs to change.
+2. Remove `rate()` or `ratediff()` functions from your delta counter queries.
+
+   Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1 minute rate and doesn't require the `rate()` function.
+
+   If you do want to know the per-second rate of change, divide the result by 60.
+
+3. Remove `align()` from your delta counter queries.
+
+   `cs()` data is always minutely aligned and [raw or standard aggregations](https://docs.wavefront.com/query_language_aggregate_functions.html#aggregating-when-data-points-do-not-line-up) give the same results.
+
+### Examples
+
+In the following examples, `errors.count` is a delta counter:
+
+<table class="width: 100%;">
+<thead>
+<tr><th width="33%">Original Query</th><th width="33%">New Query</th><th width="34%">Explanation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ts(errors.count)</code></td>
+<td><code>cs(errors.count)</code></td>
+<td>In the simplest case, just change `ts()` to `cs()`</td>
+</tr>
+<tr>
+<td><code>rate(ts(errors.count))</code></td>
+<td><code>cs(errors.count) / 60</code></td>
+<td>To produce per-second rate of change like the `rate()` function the `cs()` divide by 60.</td>
+</tr>
+<tr>
+<td><code>ratediff(ts(errors.count))</code></td>
+<td><code>cs(errors.count)</code></td>
+<td markdown="span">In the case of `ratediff()`, no per/second conversion is done. Remove the `ratediff()` function from the query.</td>
+</tr>
+</tbody>
+</table>
+
+<!--- The following example for 67.x and later:
+`rawsum(align(1m, rate(ts(errors.count))))` becomes `sum(cs(errors.count)) / 60` - In this case the query can be simplified as raw aggregate functions and `align()` are not necessary. However, `rawsum(align(1m, cs(errors.count))) / 60` would still be a valid query.--->
+
+### Background: Original and New Delta Counter Implementation
+
+Wavefront [delta counters](delta_counters.html) allow you to measure the number of times something occurred over time without needing to keep track of the number of occurrences to date yourself.
+
+At ingestion time, a delta counter must have a ∆ character at the beginning. Just like any other measurement data in Wavefront a delta counter series is uniquely identified by its name, source and any point tags.
+
+#### Example
+
+For example, imagine we are trying to track the total number of errors that occur across lambda functions running in a given AWS region. Each invocation of the function would measure how many errors occurred during that run and would emit that to Wavefront.
+
+If 5 errors were encountered during a given run a Lambda running in the us-west-2 region would send: `∆errors.count 5 source=lambda region=us-west-2`. Wavefront automatically aggregates any increments received for that same counter allowing you to know the total number of errors that occurred over time, across any number of lambda invocations without any function needing to keep track of that overall state!
+
+#### Original Implementation
+
+Wavefront originally stored delta values internally as regular metrics emitted every minutes.
+
+For the above example if the data measured across 3 minutes had been a total of: 10 errors in minute 1, 15 errors in minute 2, and 5 errors in minute 3 then if you queried `ts(errors.count)` for that time range you would see a monotonically increasing count showing 10, 25, 30 across those 3 minutes.
+
+#### New Implementation
+
+Now we have a new data type specifically for storing delta counters. Data ingestion of delta counters remains unchanged (∆ character indicates delta counter) but the data is now queried via `cs()` instead of `ts()`. The original delta counters still report minutely, but instead of maintaining a monotonically increasing count they report the total number of increments that occurred within each minute. In out example, `cs(errors.count)` displays values of 10, 15, and 5.
