@@ -4,6 +4,7 @@ keywords: containers, kubernetes
 tags: [containers, kubernetes]
 sidebar: doc_sidebar
 permalink: wf_kubernetes_faq.html
+published: false 
 summary: Get answers about viewing Kubernetes metrics in Wavefront
 ---
 

@@ -93,7 +93,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
         "memory": "512"
   }
    ```
-  2. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address and port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
+1. In the JSON form, set the `storage_driver_wf_proxy_host` property to the proxy address. If you want to use a custom port, set the `storage_driver_wf_metric_port` to the port of your Wavefront instance. Use the format `<wavefront_proxy_IP>:<port>` and click **Save**.
 1. Click **Create** at the bottom of the Task Definition form.
 2. After the task is created, click **View Task Definition**, select **Actions > Run Task** and specify the task information. Most fields are self-evident, here are a few.
   * **Cluster**--Select the cluster on which your task has to run.
@@ -109,7 +109,7 @@ After you've performed the setup, you can view and examine the data in our AWS F
 
 Wavefront maintains an image of cAdvisor that includes a Wavefront storage driver. These steps create an ECS task definition that ensures the Wavefront cAdvisor container automatically runs on each EC2 instance in your ECS cluster.
 
-After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard and the AWS Fargate dashboard. 
+After you've performed the setup, you can view and examine the data in our AWS EC2 dashboard in your Wavefront instance. The screenshots at the bottom of this page show the AWS EC2 dashboard and the AWS Fargate dashboard.
 
 1. Within AWS Services, navigate to **ECS**.
 1. Click **Task Definitions**, then **Create new Task Definition**.

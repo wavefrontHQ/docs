@@ -299,11 +299,11 @@ Wavefront uses indexes to optimize the performance of queries that filter on cer
 
 For performance reasons, Wavefront automatically indexes built-in span tags with low cardinality. (A tag with low cardinality has comparatively few unique values that can be assigned to it.) So, for example, a tag like `spanId` is not indexed.
 
-**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact Wavefront support to request indexing for that span tag.
+**Note:** Wavefront does not automatically index any custom span tags that you might have added when you instrumented your application. If you plan to use a low-cardinality custom span tag in queries, contact [support@wavefront.com](mailto:support@wavefront.com) to request indexing for that span tag.
 
 ## Tracing Traffic
 
-Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map-beta) for details.
+Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map) for details.
 
 Each arrow in the image shown below is referred to as a tracing traffic in Wavefront. 
 ![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
@@ -335,7 +335,7 @@ Wavefront uses ingested spans to derive RED metrics for two kinds of request:
 {% include note.html content="For traces that consist entirely of synchronous member spans, trace RED metrics are equivalent to the corresponding span RED metrics. For traces that have asynchronous member spans, trace RED metrics provide more accurate measures of trace duration, especially when a trace's root span ends before a child span." %}
 
 
-Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts, see the [service dashboard](/tracing_ui_overview.html#service-dashboard).
+Wavefront automatically generates charts to display the span RED metrics for a particular service. To view these charts, see the [service dashboard](/tracing_service_dashboard.html).
 
 ### RED Metric Counters and Histograms
 
@@ -657,6 +657,13 @@ On the application map, external applications or services are highlighted with s
 Amazon Simple Notification Service (SNS), and external databases. For details, see [Configure External Services](tracing_external_services.html).
 
 ![Shows the application map view that has two external AWS services.](images/tracing_key_concepts_external_nodes.png)
+
+## Apdex 
+
+The Application Performance Index ([Apdex](https://www.apdex.org/overview.html)) helps you understand how the response time of a service compares to the predefined response time threshold.
+Wavefront detects the application trace data that is sent to Wavefront as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only users that have super admin permissions can configure the threshold value. For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
+
+![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
 
 ## Application Tags
 

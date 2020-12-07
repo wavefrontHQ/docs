@@ -49,38 +49,47 @@ The Wavefront OpenTracing SDKs let you to [choose how to send trace data to Wave
 
 ## Visualize Distributed Tracing Data in Wavefront
 
-You use the [Wavefront UI to visualize the trace data](tracing_ui_overview.html) that you collect from your instrumented application.
+You use the Wavefront UI to visualize the trace data that you collect from your instrumented application. Wavefront offers the following dashboards and browsers to view information on your applications and services and you can navigate from one to another to gather more information:
 
-![tracing architecture](images/tracing_ui_horizontal.png)
-
-### Application Map
-
-Get an overview of how the applications and services are linked, focus on a specific service, and view Request, Error, and Duration (RED) metrics for each service and the edges in the application using [application map](/tracing_ui_overview.html#application-map-beta). That’s not all, you can view traces for the services and edges and drill down from the application map.
-
-![application map](/images/Application_map_intro.png)
+<img src="images/tracing_ui.png" alt="tracing user interfaces"/>
 
 ### Application Status
 
-View the status of all instrumented applications, or search for a particular application by applying filters and inspect Request Error and Duration (RED) metrics to obtain a status summary for an application.
+Get an overview of how the applications and services are linked, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view and grid view. See [Application Status](tracing_ui_overview.html).
 
-![application status](/images/application_status_intro.png)
+* [**Application Map**](tracing_ui_overview.html#application-map) map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application.
 
+  ![application map](/images/Application_map_intro.png)
 
-### Service Status
+* [**Table view**](tracing_ui_overview.html#table-view) lists the applications and services in the form of a table. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
+  <img src="/images/tracing_table_view_releasnotes.png" alt="the image shows the table view of all the applications that send data to Wavefront. It has helpers to show you what to do with each UI section. For example, how to filter applications or services, change the table settings or the legend settings, and how to change back to the application map view or the grid view"/>
 
-Examine the services in the application, and inspect Request Error and Duration (RED) metrics to obtain a status summary for a service.
+* [**Grid view**](tracing_ui_overview.html#grid-view) lists the application and services in a grid. You can see the RED metrics for each of the application’s services.
+  <img src="/images/tracing_grid_view_releasenotes.png" alt="grid view of the services grouped by the application"/>
 
-![service status](/images/service_status_intro.png)
 
 ### Service Dashboards
 
-The default, read-only dashboard for a service lets you explore trace data sent by each service in your application.
+The default, read-only [dashboard for a service](tracing_service_dashboard.html) lets you explore trace data sent by each service in your application.
 ![service dahsboard](/images/service_dashboard_intro.png)
 
 ### Traces Browser
 
-The Traces Browser supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details, without having to navigate between pages and pop-ups.
+The [Traces Browser](tracing_traces_browser.html) supports a streamlined task flow for examining traces. You can perform trace queries, view query results, expand traces to see their member spans, and expand individual spans to see their details without having to navigate between pages and pop-ups.
 ![traces browser](/images/tracing_browser_intro.png)
+
+### Offline Traces
+
+You can export traces from Wavefront, save them locally as JSON files, and view them later using [Offline Traces](tracing_view_offline_traces.html).
+
+![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
+
+### Application Configuration
+
+The Apdex score helps you compare the response time of a service based on the response time threshold that you define. Define the response time threshold for each service using the <a href="tracing_apdex.html">Application Configuration page</a>.
+
+![The image shows where to click to edit the threshold value.](images/tracing_edit_service_legend_settings.png)
+
 
 ## Next Steps
 

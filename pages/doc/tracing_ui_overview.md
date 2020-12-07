@@ -1,49 +1,19 @@
 ---
-title: Visualizing Traces, Spans, and RED Metrics
+title: Application Status
 keywords: data, distributed tracing
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_ui_overview.html
-summary: Explore traces and spans from the Wavefront UI.
+summary: Get an overview of the services and applications that send data to Wavefront.
 ---
-
-The Wavefront tracing UI enables exploration of your apps and services. Once your application is instrumented for tracing, you can examine traces, spans, and RED metrics, moving easily from one browser page to the next.
-
-This page explains how you can examine trace data from our UI. You'll learn how to query for traces, examine details, find potential problems, and more.
-
-## Choose Your Starting Point
-
-Wavefront offers the following dashboards and browsers to view information on your applications and services and you can navigate from one to another to gather more information:
-
-<table style="width: 100%;">
-<tbody>
-<tr>
-<td width="55%">
-<img src="images/tracing_ui.png" alt="tracing user interfaces"/>
-</td>
-<td width="45%">
-To choose your starting point for visualizing traces:<br/>
-  <ol> <li>In your web browser, go to your Wavefront cluster and log in.</li>
-  <li> From the taskbar, click <b>Applications</b> :
-  <img src="/images/tracing_menu.png" alt="tracing menu"/>
-      <ul> <li>Select <b>Application Status</b> to <a href="#application-status">view how instrumented applications are related to each other, view the status of the applications</a> and drill down from there.</li>
-      <li> Select <b>Service Dashboard</b> to <a href="#service-dashboard">view the status of a service in your application</a> and drill down from there.</li>
-      <li> Select <b>Traces</b> to start by <a href="#traces-browser">querying for traces</a> and drill down from there.</li>
-      </ul></li></ol>
-</td>
-</tr>
-</tbody>
-</table> 
-
-## Application Status
 
 It is important to get an overview of the services and applications that send data to Wavefront, understand the health of each service, and troubleshoot when your applications or services run into issues. You can get an overview and see the overall health of each application using the application map, table view, and grid view.
 
 <a name="app_map"></a>
 
-### Application Map
+## Application Map
 
-The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
+The application map gives you an overview of how the applications and services are linked, lets you focus on a specific service, view Request, Error, and Duration (RED) metrics for each service, and the tracing traffic in the application. You can also, drill down to the Service Dashboard and Tracing Browser.
 
 This video highlights the application map features and settings:
 
@@ -79,7 +49,7 @@ Let's walk through the following scenario to get a quick overview of the applica
       <b>Step 2:  Customize the application map view</b> <br/>
       You can customize how you see your applications and services on the application map using the settings icon. 
       <ul>
-      <li><b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Chose the layout that helps you understand how your services are linked.</li>
+      <li><b>Service layout</b>: View the services in the default, concentric, circle, or grid layout. Choose the layout that helps you understand how your services are linked.</li>
       <li><b>Isolated Services</b>: These are services that don't interact with any other services or applications.</li>
       <li><b>External Service</b>: These are external applications or services, such as AWS services or Database services, your application communicates with. You can group these services too. If you want to group all the database services and view it as a single external service, select <b>Group External Services</b>.</li>
       <li><b>Show Service Labels</b>: When you have many services in an application, the service names on the application map look cluttered. To get a clear view of your application and services, disable the <b>Show Service Labels</b> option.</li>
@@ -100,11 +70,14 @@ Let's walk through the following scenario to get a quick overview of the applica
     <td>
       <b>Step 4: Click on a service</b>
       <br/>Click on the styling service. Now, you can:
-        <ul><li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
-        <li> View how a specific service communicates with the other services in an application when you click <b>Focus on service</b>.</li>
-        <li> Navigate to the Service Dashboard when you click <b>View Service Dashboard</b>.</li>
-        <li> Navigate to the Traces Browser when you click <b>View traces for service</b>.</li>
-        <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li></ul>
+        <ul>
+          <li>View Request, Error, and Duration (RED) metrics of the specific service.</li>
+          <li>See how the service is performing using the <a href="tracing_apdex.html">Apdex score</a>.</li>
+          <li> View how a specific service communicates with the other services in an application when you click <b>Focus</b>.</li>
+          <li> Navigate to the Service Dashboard when you click <b>Dashboard</b>.</li>
+          <li> Navigate to the Traces Browser when you click <b>Traces</b>.</li>
+          <li> See the components used by the service. The styling service uses the OpenTracing, Java, Dropwizard, and Jersey components.</li>
+        </ul>
       </td>
     <td><img src="/images/tracing_application_map_service.png" alt="Popup when you click on a service"/></td>
   </tr>
@@ -146,6 +119,9 @@ Let's walk through the following scenario to get a quick overview of the applica
         <li>
           Duration: Update the legend to highlight the data based on the duration. Select <b>Duration</b> from the dropdown menu and customize the values. The values need to be in ascending order and in milliseconds.
         </li>
+        <li>
+          Apdex: Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only <a href="authorization.html#who-is-the-super-admin-user">Super Admin users</a> can configure the threshold (T). See <a href="tracing_apdex.html">Configure Apdex Settings</a>.
+        </li>
       </ul>
     </td>
     <td markdown="span">
@@ -157,7 +133,7 @@ Let's walk through the following scenario to get a quick overview of the applica
 
 <a name="table_view"></a>
 
-### Table View
+## Table View
 
 View the list of applications and services. You can see the Request, Error, and Duration (RED) metrics at a glance and sort the data.
 
@@ -177,11 +153,27 @@ Using the table view, you can:
 * See the change (Δ value) in the RED metrics based on the time you selected for **Compare**. 
 <br/>For example, if you select **week ago** from the **Compare** drop-down, the Δ value indicate the change in RED metrics since the data was recorded a week ago. 
   <br/>![shows the compare option on the table view. The drop down has the values, off (if selected doesn't show the change in value), 2 hours ago, day ago, week ago, and month ago. ](images/tracing_compare_table_view.png)
-* Inspect RED metrics to obtain a status summary of a service.
+* Inspect the Adex score and RED metrics to obtain a status summary of a service.
   <table style = "width: 100%;">
     <tr>
       <th width = "20%">Table Data</th>
       <th width = "80%">Description</th>
+    </tr>
+    <tr>
+      <td>
+        Apdex
+      </td>
+      <td markdown="span">
+        Shows you how the response time of a service compares to the predefined response time threshold. See [Apdex Score](tracing_apdex.html#overview).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Apdex Threshold
+      </td>
+      <td markdown="span">
+        The threshold Apdex threshold of the service. The default threshold value is set to 100ms, and only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold. See [Configure Apdex Settings](tracing_apdex.html).
+      </td>
     </tr>
     <tr>
       <td>
@@ -276,6 +268,15 @@ Using the table view, you can:
         ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
       </td>
     </tr>
+    <tr>
+      <td markdown="span">
+        **Apdex** <br/>
+        Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). See [Configure Apdex Settings](tracing_apdex.html).
+      </td>
+      <td markdown ="span">
+        ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
+      </td>
+    </tr>
   </table>
 * Click the settings icon to customize the table view:
   <table>
@@ -296,7 +297,7 @@ style="vertical-align:text-bottom;width:25px" alt="icon to click to get the link
 
 <a name="grid_view"></a>
 
-### Grid View
+## Grid View
 
 When you select an application, you get an overview of its services.
 
@@ -337,8 +338,18 @@ On the page for a particular application, you can:
           ![Shows the settings to update the legend for the duration. You need to select duration from the drop down and then add the values in ascending order.](images/tracing_table_view_duration_legend.png)
         </td>
       </tr>
+      <tr>
+        <td markdown="span">
+          **Apdex** <br/>
+          Update the legend to highlight the data based on the Apdex score. Select <b>Apdex</b> from the dropdown menu. Only [Super Admin users](authorization.html#who-is-the-super-admin-user) can configure the threshold (T). See [Configure Apdex Settings](tracing_apdex.html).
+        </td>
+        <td markdown ="span">
+          ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
+        </td>
+      </tr>
     </table>
 
+<!--
 
 ## Service Dashboard
 
@@ -386,7 +397,6 @@ The standard dashboard for services is read-only. To create a customizable copy:
 
 1. Click **Clone** from the ellipsis menu.
 2. In the cloned dashboard, add your own charts or customize the RED metrics charts. 
-<!---(Use the [ts_countersum](ts_countersum.html) function to display RED metrics.)-->
 
 After you save the clone, you can find it by name from the **Dashboards** menu of the task bar, and you can use it to drill down to the Traces Browser.
 
@@ -610,4 +620,4 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
   <br/>Now, you see the trace data you imported. 
   ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
     
-    
+  -->  

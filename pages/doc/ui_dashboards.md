@@ -105,8 +105,7 @@ The Wavefront service dashboard includes a set of charts to monitor the trace da
 </table>
 
 **Take a look at the cool actions you can do using these charts:**
-* [Navigate to the Tracing UI from the Service Dashboard](tracing_ui_overview.html#navigate-to-the-tracing-ui-from-the-service-metrics-dashboard).
-* [Explore the Default Service Dashboard](tracing_ui_overview.html#explore-the-default-service-dashboard).
+* [Explore the Default Service Dashboard](tracing_service_dashboard.html) and navigate to the Tracing UI from the Service Dashboard
 * To delete or edit a chart, see [Clone, Delete, or Edit a Chart](#clone-delete-or-edit-a-chart).
 
 ## Edit or Clone a Dashboard

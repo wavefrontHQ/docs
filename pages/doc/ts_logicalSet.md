@@ -15,13 +15,13 @@ intersect(<tsExpression1>, <tsExpression2>, ...)
 complement(<tsExpression1>, <tsExpression2>, ...)
 ```
 
-Functions that let you
+Functions that let you perform logical set operations, similar to the PromQL [PromQL Logical/Set Binary Operators](https://prometheus.io/docs/prometheus/latest/querying/operators/#logical-set-binary-operators)
 
-* `union()` is similar to the AND operator and lets you combine time series.
-* `intersect()` is similar to the OR operator .
+* `union()` is similar to the OR operator and lets you combine time series.
+* `intersect()` is similar to the AND operator.
 * `complement()` indicates an UNLESS relationship between two time series.
 
-For each function, you have to specify at least two expressions. You can specify additional expressions.
+For each function, you have to specify at least two `ts()` expressions as parameters. You can specify additional `ts()` expressions.
 
 
 ## Parameters
@@ -44,11 +44,13 @@ For each function, you have to specify at least two expressions. You can specify
 
 ## Description
 
-Allows you to perform logical set operations on two or more time series.
+Allows you to perform logical set operations on two or more time series. These operators match the [PromQL Logical/Set Binary Operators](https://prometheus.io/docs/prometheus/latest/querying/operators/#logical-set-binary-operators) `or` (union), `unless` (complement), `and` (intersection).
 
-* `union()` takes at least 2 time series as parameters and returns
-* `complement()` takes at least 2 time series as parameters and returns
-* `intersect()` takes at least 2 time series as parameters and returns
+* `union()` takes at least 2 time series as parameters and returns the points from the first time series plus all points in the other time series which do not have exactly matching point tags.
+* `intersect()` takes at least 2 time series as parameters and returns the points of the first series for which there are points with exactly matching point tags in the other time series.
+* `complement()` takes at least 2 time series as parameters and returns the points of the first series for which there are no points in the other series that have exactly matching point tags.
+
+
 
 <!---
 ## Examples

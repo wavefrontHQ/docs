@@ -269,13 +269,18 @@ Example:
 source="appServer15"   // include only data from a source called appServer15
 </pre>
 </li>
-
-<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value.
-Example:
+<li>Use  <strong>!=</strong> to specify a filter that is set to any value except the specified value. Example
 <pre>
 source!="appServer15"  // include data from any source except appServer15
 </pre>
 </li>
+<li>Use  <strong>?=</strong> to get everything that has mytagvalue or doesn't have myTagKey.
+Example:
+<pre>
+myTagKey?="mytagvalue" // everything that has mytagvalue or doesn't have myTagKey
+</pre>
+</li>
+
 </ul>
 
 
@@ -1526,6 +1531,11 @@ Each histogram output conversion function in the following table takes a time se
 <td>Returns a cumulative histogram that comes, for example, from Prometheus or Telegraf, in Wavefront. You can then visualize the histogram in Wavefront charts using functions such as <strong>percentile</strong>.
 </td>
 </tr>
+<tr>
+<td><a href="ts_frequencyHisto.html">frequencyHisto(&lbrack;<strong>timeWindow</strong>&rbrack;, &lbrack;<strong>&lt;bucketName&gt;, </strong> &rbrack; <strong>&lt;tsExpression&gt;</strong> &lbrack;<strong>,metrics|sources|sourceTags|pointTags|&lt;pointTagKey&gt;</strong> &rbrack;)</a></td>
+<td>Converts a histogram coming from Google Cloud Platform(GCP) to Wavefront histogram format. When GCP Detailed Histogram Metrics is enabled, Wavefront will additionally ingest bucket counts for GCP distributions, with metric namegcp.&lt;metric&gt;.bucket. Enabling this increases ingestion rate and cost.
+</td>
+</tr>
 
 
 </tbody>
@@ -1736,6 +1746,43 @@ You use spans functions to find and filter individual [spans](tracing_basics.htm
 <tr>
 <td><a href="ts_lowpass.html">lowpass(<strong>&lt;spanDuration&gt;</strong>, <strong>&lt;spansExpression&gt;</strong>)</a></td>
 <td markdown="span">Filters the spans returned by **spansExpression** to include only spans that are shorter than **spanDuration**.
+</td>
+</tr>
+</tbody>
+</table>
+
+<table style="width: 100%;">
+<tbody>
+<tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
+</tbody>
+</table>
+
+## <span id="apdexFunctions"></span>Apdex Functions
+
+You can use the basic or advanced `apdex()` function to get the apdex score of a specific service.
+
+<table style="width: 100%;">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>
+<a href="hs_apdex_function.html">apdex([T, | T, 4T, ]<strong>application=&lt;applicationName&gt;</strong>, <strong>service=&lt;serviceName&gt;</strong>, <strong>&lbrack; &lt;histogramSeries&gt;&rbrack;</strong></a>
+</td>
+<td markdown="span">Returns the apdex score of a specific service over time. Optionally supports histogram series.  </td>
+</tr>
+<tr>
+<td><a href="hs_apdex_latency_function.html">apdexLatency(<strong>application=&lt;applicationName&gt;, service=&lt;serviceName&gt;</strong> <strong>&lbrack;satisfied | tolerating&rbrack;</strong>)</a></td>
+<td markdown="span">Returns the apdex threshold defined for the service or application.
 </td>
 </tr>
 </tbody>

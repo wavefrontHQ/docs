@@ -11,7 +11,7 @@ summary: Reference to the filter() function
 filter(<tsExpression>, <filter1> [and|or [not] <filter2>] ... )
 
 where <filterN> is:
-    <metricName> | source="<sourceName>" | <pointTagKey>="<pointTagValue>"
+    <metricName> | source="<sourceName>" | <pointTagKey>="<pointTagValue>" | sourcetags
 ```
 Filters the expression to display only the time series that match one or more filters, which might be any combination of metric names, source names, or point tags.
 
@@ -26,7 +26,7 @@ Filters the expression to display only the time series that match one or more fi
 <td>Expression that describes the time series you want to filter.</td>
 </tr>
 <tr>
-<td>&lt;metricName&gt;&vert;source=&vert;tag=&vert;&lt;pointTagKey&gt;=</td>
+<td>&lt;metricName&gt;&vert;source=&vert;tag=&vert;&lt;pointTagKey&gt;&vert;sourcetags</td>
 <td markdown="span">A metric, source, source tag, or point tag to filter by. You must specify at least one filter, which can be of any type. Use Boolean operators to combine multiple filters. For example, <br>**(source=app-1 or source=app-2) and env=dev**.</td></tr>
 </tbody>
 </table>
@@ -39,16 +39,6 @@ The `filter()` function filters the expression to display only the time series t
 
 The advantage of using `filter()` is that it's very clear that the filtering is going on; that helps other users understand your query.
 
-<!---The following content from QL Reference - need to verify this is still true.
-
-### Source and Source Tag Filters
-
-Each unique metric measures the performance of one or more sources of data. When no source or source tag filters are applied to a ts() expression, the associated chart displays a data stream for each unique time series. You can limit the resulting data streams to a single reporting source using source filters, either by using `source=` as part of the `ts()` expression itself, or by using the `filter()` function. Apply quotes around the source name to avoid edge case errors.
-
-While `source=` filters allow you to limit the resulting data to a single source, source tag filters allow you to limit the resulting data to a set of arbitrary sources. You [apply source tags](https://docs.wavefront.com/proxies_configuring.html#sending-source-tags-and-source-descriptions-through-the-wavefront-proxy) to a source from the **Sources** page or with an API call.
-
-When you apply a source tag to a source, that source is grouped with other sources that include the same source tag. You can then use a source tag filter in a `ts()` expression by typing `tag=` followed by the name of the source tag. The data displayed on the chart updates to display only those reporting sources that are included in the specified source tag. Adding a set of quotes around the source tag name avoids edge case errors. -->
-
 
 ### Point Tag Filters
 
@@ -58,6 +48,23 @@ Point tags are tied to individual data values, and allow you to create queries b
 ```
 ts(“cpu.loadavg.1m”, source=“app-1” and app=“blue”)
 ```
+
+### Source Tag Filters
+
+Without using `filter()` you can focus your search using `sourcetags` like this:
+
+```
+sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags)
+```
+
+This query returns the sum for all time series with points that are tagged with `prod` and also with either `sf` or `la`, and groups the result by source tag, so you see 3 lines, one for each tag.
+
+If you only want to see the `sf` and `la` line (don't want to see the `prod` tag) you can fine-tune the query by using `filter()` and including `not` with the `sourcetags` filter:
+
+```
+filter(sum(ts(collector.points.reported, tag=prod and (tag=sf or tag=ny)), sourcetags), not prod)
+```
+
 
 ## Examples
 

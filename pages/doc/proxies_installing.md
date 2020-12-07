@@ -13,7 +13,7 @@ We offer several [deployment options](proxies.html#proxy-deployment-options). Du
 ## Proxy Host Requirements
 
 - Internet access - run `timeout 3s curl -fIsS <wavefront_api_url>` from the host and make sure you get a response and not a timeout.
-- Networking - For **metrics**, the proxy uses port 2878 by default. Make sure this port is reachable from other machines on your network. If you want to change this default, the [proxy configuration file](proxies_configuring) has options.
+- Networking - For **metrics**, the proxy uses port 2878 by default. Make sure this port is reachable from other machines on your network. If you want to change this default, the [proxy configuration file](proxies_configuring.html) has options.
 - Memory - The proxy does not use a lot of CPU, memory, or storage. However, we recommend running the proxy on a host with at least 4GB of free memory.
 - Operating system - Wavefront proxy is a Java application and can run on operating systems supported by Java. Java 8 or later is required, the latest version of Java is recommended.
 

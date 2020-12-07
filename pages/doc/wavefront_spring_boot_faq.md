@@ -11,7 +11,7 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 
 * **Freemium cluster** <br/>The freemium cluster supports limited data ingestion throughput with 5-day retention and no SLA guarantees. It allows developers to try out Wavefront without having to sign up or provide an email address.
 
-* **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information. 
+* **Wavefront trial** <br/>The Wavefront trial allows you to experience the full power of the Wavefront platform by bringing in data from your cloud environments (AWS/GCP/Azure/vSphere), Kubernetes, over 200 integrations, and large-scale service fleets into a single observability platform. You can also create smart alerts that dynamically filter noise and capture true anomalies. When you sign up for a trial, we'll ask for some (minimal) information.
 
   Once you've signed up, you can retrieve an API token and configure it in your `application.properties` file:
   ```
@@ -68,4 +68,4 @@ If you create a new project using [https://start.spring.io](https://start.spring
 That is because the default project stops soon as it starts without a web service. As a result, data is not sent to Wavefront. To avoid this, add a dependency under the Web category, such as the Spring Web dependency, along with the wavefront dependency, and generate a new project.
 
 ### How do I get help?
-Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #springboot public channel.
+Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel.

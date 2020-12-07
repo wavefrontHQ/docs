@@ -10,7 +10,7 @@ summary: Watch some videos, run a query, apply filters and functions, and more.
 The Wavefront Query Language lets you retrieve and display the data that has been ingested into Wavefront.
 * **Time series data** The query language is particularly well suited to time series data, because it accommodates the periodicity, potential irregularity, and streaming nature of that data type.
 * **Histograms** The query language includes functions for [manipulating histograms](query_language_reference.html#histogram-functions).
-* **Traces and spans** Use the [tracing UI](tracing_ui_overview.html) to query traces and spans.
+* **Traces and spans** Use the [tracing UI](tracing_traces_browser.html) to query traces and spans.
 
 This page uses the v2 UI, which allows you to examine your data with [chart builder](chart_builder.html) and perform advanced exploration with [query editor](query_editor.html).
 

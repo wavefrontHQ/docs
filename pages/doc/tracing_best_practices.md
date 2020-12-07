@@ -1,7 +1,7 @@
 ---
 title: Tracing Best Practices
 keywords: data, distributed tracing
-tags: [tracing]
+tags: [tracing, best practice]
 sidebar: doc_sidebar
 permalink: tracing_best_practices.html
 summary: Best practices for collecting and sending trace data from an application to Wavefront.
