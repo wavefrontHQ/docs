@@ -135,9 +135,9 @@ The dashboard includes a link to the **Ingestion Policies** page so you can crea
 
 ### PPS P95 Usage vs. Committed Dashboard
 
-This dashboards helps you monitor your *monthly usage*.
+This dashboards helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
-Using this dashboard you can ensure that you're not ingesting more PPS than your contracted rate allows. The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. You can then take appropriate action when your usage reaches around 95% of your target.
+The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. You can then take appropriate action when your usage reaches around 95% of your target.
 
 For example:
 * Examine who is using a high percentage of the PPS in the  **Wavefront Ingestion (PPS) Usage Breakdown** dashboard.

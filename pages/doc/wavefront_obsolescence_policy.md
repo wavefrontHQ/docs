@@ -1,10 +1,10 @@
 ---
-title: Wavefront Obsolescence Policy
+title: Wavefront Obsolescence and Remediation
 keywords: release notes
 tags: [release notes]
 sidebar: doc_sidebar
 permalink: wavefront_obsolescence_policy.html
-summary: Learn about the Wavefront policy for retiring features.
+summary: Learn about deprecated and EOL features and how to prevent potential problems.
 ---
 Product versions and features move to end-of-life as part of the normal software development lifecycle, security improvements, and other factors. To support planning for upgrades, this document provides information on upcoming lifecycle changes. While every effort is made to provide sufficient notice of changes, security issues or other factors may occasionally lead to accelerated end-of-life dates.
 
@@ -73,7 +73,7 @@ Wavefront delta counter behavior changed with [Release 2020.26](2020.26.x_releas
 
 ## Required Changes to Delta Counters
 
-As of release 2020.38, any ingested Delta Counters are stored in both the previous `ts()` format as well as the new native `cs()` format.
+As of release 2020.38, any ingested [delta counters](delta_counters.html) are stored in both the previous `ts()` format as well as the new native `cs()` format.
 
 Starting in April 2021, Wavefront will no longer store delta counters in two different formats, and `ts()` queries on delta counters will no longer work. You have to revise delta counter queries.
 
@@ -81,13 +81,13 @@ Starting in April 2021, Wavefront will no longer store delta counters in two dif
 
 1. Find delta counters from the UI or using Spy.
     * From the Wavefront UI, click **Browse > Delta Counters** and examine your data.
-    * From your Web broser, use the [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live Delta Counter ingestion.
+    * From your Web broser, use [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
 2. Search for any of those named counters on the **Alerts** page to find relevant Alerts
-3. On the **All Dashboards** page, using the Metrics Search to find relevant dashboards.
+3. On the **All Dashboards** page, use the Metrics Search to find relevant dashboards.
 
 ### How to Modify the Queries
 
-1. Replace `ts()` with `cs()` if the query targets delta counter data. Filtering works as before, so nothing within the parenthesis needs to change.
+1. Replace `ts()` with `cs()` if the query targets delta counter data. Filtering works as before, so nothing within the parentheses needs to change.
 2. Remove `rate()` or `ratediff()` functions from your delta counter queries.
 
    Any `cs()` query tracks the total increments per minute, so `cs()` data is already a 1 minute rate and doesn't require the `rate()` function.
@@ -104,23 +104,23 @@ In the following examples, `errors.count` is a delta counter:
 
 <table class="width: 100%;">
 <thead>
-<tr><th width="33%">Original Query</th><th width="33%">New Query</th><th width="34%">Explanation</th></tr>
+<tr><th width="30%">Original Query</th><th width="30%">New Query</th><th width="40%">Explanation</th></tr>
 </thead>
 <tbody>
 <tr>
 <td><code>ts(errors.count)</code></td>
 <td><code>cs(errors.count)</code></td>
-<td>In the simplest case, just change `ts()` to `cs()`</td>
+<td>In the simplest case, just change <code>ts()</code> to <code>cs()</code></td>
 </tr>
 <tr>
 <td><code>rate(ts(errors.count))</code></td>
 <td><code>cs(errors.count) / 60</code></td>
-<td>To produce per-second rate of change like the `rate()` function the `cs()` divide by 60.</td>
+<td>To produce per-second rate of change like the <code>rate()</code> function the <code>cs()</code> divide by 60.</td>
 </tr>
 <tr>
 <td><code>ratediff(ts(errors.count))</code></td>
 <td><code>cs(errors.count)</code></td>
-<td markdown="span">In the case of `ratediff()`, no per/second conversion is done. Remove the `ratediff()` function from the query.</td>
+<td markdown="span">In the case of <code>ratediff()</code>, no per/second conversion is done. Remove the <code>ratediff()</code> function from the query.</td>
 </tr>
 </tbody>
 </table>
