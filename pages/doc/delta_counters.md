@@ -10,6 +10,14 @@ Wavefront supports [several types of metrics](metric_types.html), including 2 ki
 * **Cumulative counters** (usually called **counters** in this doc set) monotonically increasing counters. They're useful for aggregating metric information such as the number of hits on a web page, how many users log into a portal, etc. They're usually used with `rate()` or a similar function.
 * **Delta counters** (sometimes called periodic counters) measure the **change** since a metric was last recorded. For example, metrics for request count could be delta counters. Each value records how many requests were received since the last data point was recorded.
 
+## Video
+
+Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.
+
+<p>
+<iframe src="https://bcove.video/39DNLom" width="700" height="400" allowfullscreen="true" alt="delta counters video, part animation, part screen capture"></iframe>
+</p>
+
 ## Counters and Delta Counters Basics
 
 It often makes sense to collect both counter metrics and delta counter metrics -- though in some serverless environments only delta counters are available. Starting with release 2020.26, you use a different function for the different types of counters.

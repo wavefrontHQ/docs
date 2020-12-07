@@ -18,6 +18,15 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 <td width="30%"><br><p>This 90 second introduction shows how Wavefront users create dashboards and charts, add alerts, and expand to 3D observability with histograms and spans. </p> </td>
 </tr>
 <tr>
+<td><strong><font color="blue">Browsing Your Data</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3lHbhDd" width="550" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+</td>
+<td><br>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
+</td>
+</tr>
+<tr>
 <td><strong><font color="blue">Customize Dashboards</font></strong><br>
 <br>
 <iframe src="https://bcove.video/2Wux6eP" width="550" height="275" allowfullscreen="true" alt="customizing dashboard video"></iframe></td>

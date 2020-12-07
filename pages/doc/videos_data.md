@@ -16,6 +16,15 @@ Learn about getting data into Wavefront and get background info on time series a
 <td width="70%"><br><p>Wavefront gives observability into your cloud environment and packaged applications. To get data into Wavefront, use an integration with preconfigured dashboards or one of the Wavefront SDKs. Send data from several sources to a Wavefront proxy or use direct ingestion. Finally, add dashboards, charts, and alerts to monitor exactly what you need.</p> </td>
 </tr>
 <tr>
+<td><strong><font color="blue">Browsing your Data</font></strong><br>
+<br>
+<iframe src="https://bcove.video/3lHbhDd" width="400" height="225" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+</td>
+<td><br>
+<p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
+</td>
+</tr>
+<tr>
 <td width="30%"><strong><font color="blue">Wavefront Proxy</font></strong><br> <a href="https://youtu.be/Lrm8UuxrsqA" target="_blank"><img src="/images/v_proxy_clement.png " alt="Wavefront proxy video"/></a></td>
 <td width="70%"><br><p>Clement contrasts using a Wavefront proxy with using direct ingestion, discusses proxy benefits, and goes over the architecture of most production systems, which includes a fleet of proxies behind a load balancer. The result is more resilience and a better user experience. </p> </td>
 </tr>
@@ -43,14 +52,18 @@ Learn about getting data into Wavefront and get background info on time series a
 </td>
 </tr>
 <tr>
-<td><strong><font color="blue">Browsing Metrics</font></strong><br><a href="https://vmwarelearningzone.vmware.com/oltpublish/site/openlearn.do?dispatch=previewLesson&id=633ceb73-dc7a-11e7-a6ac-0cc47a352510&inner=true&player2=true" target="_blank"><img src="/images/v_browse_metrics.png" alt="browsing metrics"/></a></td>
-<td><br>
-<p>Jason shows how you can use the Metrics browser to view metrics that you can query for. He explains why Wavefront obsoletes metrics, and then drills down into a metric. He displays the sources for a metric, and then visualizes the metric in a chart. He also searches for metrics, and then explores how to use Hide Metrics to remove metrics from view.</p>
-</td>
-</tr>
-<tr>
 <td><strong><font color="blue">Wavefront Histograms</font></strong><br> <a href="https://www.youtube.com/watch?v=syIKQ2oZk9s&list=PLmp0id7yKiEdaWcjNtGikcyqpNcPNbn_K&index=16" target="_blank"><img src="/images/v_data_into_wavefront.png" alt="getting data into wavefront"/></a></td>
 <td><br><p>Clement explains how Wavefront histograms can help you observe measurements that happen at a high frequency. You learn how Wavefront organizes these high frequency metrics into bins, and how you can use the query language to work with the resulting histograms.  </p> </td>
 </tr>
+<tr>
+<td><strong><font color="blue">Cumulative Counters and Delta Counters</font></strong><br>
+<br>
+<iframe src="https://bcove.video/39DNLom" width="400" height="225" allowfullscreen="true" alt="delta counters video, part animation, part screen capture"></iframe>
+</td>
+<td><br>
+<p>Learn the difference between cumulative counters and delta counters and see how to manage delta counters from the UI.</p>
+</td>
+</tr>
+
 </tbody>
 </table>
