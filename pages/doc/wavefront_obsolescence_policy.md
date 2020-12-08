@@ -81,7 +81,7 @@ Starting in April 2021, Wavefront will no longer store delta counters in two dif
 
 1. Find delta counters from the UI or using Spy.
     * From the Wavefront UI, click **Browse > Delta Counters** and examine your data.
-    * From your Web broser, use [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
+    * From your Web browser, use [Delta Counter Spy](https://docs.wavefront.com/wavefront_monitoring_spy.html#get-ingested-delta-counters-with-spy) to view live delta counter ingestion.
 2. Search for any of those named counters on the **Alerts** page to find relevant Alerts
 3. On the **All Dashboards** page, use the Metrics Search to find relevant dashboards.
 
@@ -138,7 +138,7 @@ At ingestion time, a delta counter must have a ∆ character at the beginning. J
 
 For example, imagine we are trying to track the total number of errors that occur across lambda functions running in a given AWS region. Each invocation of the function would measure how many errors occurred during that run and would emit that to Wavefront.
 
-If 5 errors were encountered during a given run a Lambda running in the us-west-2 region would send: `∆errors.count 5 source=lambda region=us-west-2`. Wavefront automatically aggregates any increments received for that same counter allowing you to know the total number of errors that occurred over time, across any number of lambda invocations without any function needing to keep track of that overall state!
+If 5 errors were encountered during a given run, a Lambda running in the `us-west-2` region would send: `∆errors.count 5 source=lambda region=us-west-2`. Wavefront automatically aggregates any increments received for that same counter allowing you to know the total number of errors that occurred over time, across any number of lambda invocations without any function needing to keep track of that overall state!
 
 #### Original Implementation
 

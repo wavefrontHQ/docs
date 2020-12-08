@@ -20,7 +20,7 @@ This page collects some videos that show basic tasks. A 90 second intro, intro v
 <tr>
 <td><strong><font color="blue">Browsing Your Data</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3lHbhDd" width="550" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe src="https://bcove.video/3n13ulm" width="550" height="275" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
 </td>
 <td><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>

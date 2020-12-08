@@ -13,20 +13,22 @@ Wavefront provides observability for several different [metric types](metric_typ
 
 The following videos get you started:
 
+
+
 <table style="width: 100%;">
 <tbody>
 <tr>
 <td><strong><font color="blue">Browsing Your Data</font></strong><br>
 <br>
-<iframe src="https://bcove.video/3lHbhDd" width="400" height="225" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
+<iframe src="https://bcove.video/3n13ulm" allowfullscreen="true" alt="browse metrics from source browser or metrics browser"></iframe>
 </td>
 <td><br>
 <p>90-second video that shows how you can find and examine metrics from the Sources browser and from the Metrics browser. </p>
 </td>
 </tr>
 <tr>
-<td width="50%"><strong><font color="blue">About Cardinality</font></strong><br> <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" alt="Lightboard video about cardinality"/></a></td>
-<td width="50%"><br><p>Wavefront chief architect and co-founder Clement Pang explains why the concept of cardinality is so important for observability, what high cardinality means, and why Wavefront deals so well with high cardinality input.</p> </td>
+<td><strong><font color="blue">About Cardinality</font></strong><br> <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" alt="Lightboard video about cardinality"/></a></td>
+<td><br><p>Wavefront chief architect and co-founder Clement Pang explains why the concept of cardinality is so important for observability, what high cardinality means, and why Wavefront deals so well with high cardinality input.</p> </td>
 </tr>
 </tbody>
 </table>
