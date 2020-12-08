@@ -1,6 +1,6 @@
 ---
 title: Instrumenting Your OpenTracing Java Application
-keywords:
+keywords: tracing tutorial
 tags: [best practice]
 sidebar: doc_sidebar
 permalink: tracing_java_tutorial.html
