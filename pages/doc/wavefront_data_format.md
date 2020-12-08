@@ -146,6 +146,7 @@ Most of our discussion of the histogram and span data formats is on the pages li
 ### Span Data Format Syntax
 
 [The span format](trace_data_details.html#wavefront-span-format) supports several predefined span tags.
+{% include note.html content="Wavefront drops spans that have the <code>$</code> character in the span tags or values." %}
 
 ```
 <operationName> source=<source> <spanTags> <start_milliseconds> <duration_milliseconds>
