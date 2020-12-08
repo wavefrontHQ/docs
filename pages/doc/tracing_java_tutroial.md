@@ -1,5 +1,5 @@
 ---
-title: Instrumenting Your OpenTracing Java Application
+title: Tracing Tutorial
 keywords: tracing tutorial
 tags: [best practice]
 sidebar: doc_sidebar
