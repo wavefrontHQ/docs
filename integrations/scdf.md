@@ -126,8 +126,8 @@ Here is a quick start, single-line command:
 wget -O docker-compose.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose.yml 
 wget -O docker-compose-wavefront.yml https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/master/spring-cloud-dataflow-server/docker-compose-wavefront.yml 
 
-export DATAFLOW_VERSION=2.6.3 \
-export SKIPPER_VERSION=2.5.2 \
+export DATAFLOW_VERSION=2.7.0 \
+export SKIPPER_VERSION=2.6.0 \
 export WAVEFRONT_KEY=YOUR_API_TOKEN \
 export WAVEFRONT_URI=https://YOUR_CLUSTER.wavefront.com \
 export WAVEFRONT_SOURCE=scdf-docker-compose \
@@ -186,7 +186,7 @@ The following table explains all the metrics in details:
 
 Applicable for all Spring Cloud Stream (SCS) applications configured with Kafka binder. The Spring Kafka framework, used internally by SCS, provides [micrometer Kafka Client metrics](https://docs.spring.io/spring-kafka/docs/latest-ga/reference/html/#micrometer-native). Later expose Apache Kafka native  [Producers](https://kafka.apache.org/documentation/#producer_monitoring), [Consumers](https://kafka.apache.org/documentation/#consumer_monitoring) and [Streams](https://docs.confluent.io/current/streams/monitoring.html) metrics.
 
-* Kafka Records
+### Kafka Records
 
 The `Record` stand for a single `Message` exchanged between the `Producer` and the `Consumer` applications using the Kafka Brokers.
 
@@ -200,7 +200,7 @@ The `Record` stand for a single `Message` exchanged between the `Producer` and t
 | kafka.producer.record.retry.rate | Average number of re-tried record sends per-second |
 | kafka_consumer.fetch.manager.records.lag.* | Number of messages consumer is behind producer, either for a specific partition or across all partitions on this client: avg, max |
 
-* Kafka Producer
+### Kafka Producer
 
 Producers' `send request` represents a single interaction between a Producer application and Kafka Broker. To exchange one `Record` (e.g. message) usually, multiple requests are performed between the producer and the brokers.
 
@@ -219,7 +219,7 @@ Producers' `send request` represents a single interaction between a Producer app
 | kafka.producer.requests.in.flight | Current number of outstanding requests awaiting a response |
 | kafka.spring.cloud.stream.binder.kafka.offsetproducer.waiting.threads | Number of user threads blocked waiting for buffer memory to enqueue their records |
 
-* Kafka Consumer
+### Kafka Consumer
 
 Consumer `fetch request` represents a single interaction between a Kafka Broker and a Consumer application. Retrieving a single `Record` (e.g. message) may involve multiple fetch requests.
 
@@ -229,23 +229,23 @@ Consumer `fetch request` represents a single interaction between a Kafka Broker 
 | kafka.consumer.fetch.manager.fetch.latency.* | Time taken for any fetch request: avg, max |
 | kafka.consumer.fetch.manager.bytes.consumed.rate | Average number of bytes consumed per second for a specific topic or across all topics |
 
-* Kafka Stream - Thread
+### Kafka Stream - Thread
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.stream.thread.[commit|poll|process|punctuate].rate | The average number of respective operations per second across all tasks |
-| kafka.stream.thread.[commit|poll|process|punctuate].latency.avg | The average execution time in ms, for the respective operation, across all running tasks of this thread |
+| kafka.stream.thread.[commit or poll or process or punctuate].rate | The average number of respective operations per second across all tasks |
+| kafka.stream.thread.[commit or poll or process or punctuate].latency.avg | The average execution time in ms, for the respective operation, across all running tasks of this thread |
 | kafka.stream.thread.task.created.rate | The average number of newly-created tasks per second |
 | kafka.stream.thread.task.closed.rate | The average number of tasks closed per second |
 
-* Kafka Stream - Task & Process Node
+### Kafka Stream - Task & Process Node
 
 The metrics are only available if the recording level (e.g. `metrics.recording.level` configuration option) is set to `debug`.
 
 | Metric Name | Description |
 |------------|---------------|
-| kafka.stream.task.[commit|process].rate | The average number of respective operations per second across all tasks |
-| kafka.stream.task.[commit|process].latency.avg | The average execution time in ns, for the respective operation for this task |
+| kafka.stream.task.[commit or process].rate | The average number of respective operations per second across all tasks |
+| kafka.stream.task.[commit or process].latency.avg | The average execution time in ns, for the respective operation for this task |
 | kafka.stream.task.dropped.records.rate | The average number of records dropped within this task |
 | kafka.stream.task.record.lateness.* | The observed lateness (stream time - record timestamp) for this task: avg, max |
 | kafka.stream.task.enforced.processing.rate | The average number of enforced processings per second for this task |
@@ -288,11 +288,9 @@ The following table explains all the metrics in details:
 
 Spring Boot registers the following core metrics when applicable:
 
-* JVM metrics, report utilization of:
-  * Various memory and buffer pools
-  * Statistics related to garbage collection
-  * Threads utilization
-  * Number of classes loaded/unloaded
+### JVM metrics
+
+Reports metrcis for memory and buffer pools, garbage collection statistics, threads utilization, class loaders.
 
 | Metric Name | Description | 
 |------------|---------------|
@@ -314,43 +312,48 @@ Spring Boot registers the following core metrics when applicable:
 | jvm.threads.peak |  The peak number of threads in this JVM |
 | jvm.threads.states | Reports threads states |
    
-* CPU metrics
+### CPU metrics
 
 | Metric Name | Description | 
 |------------|---------------|
 | process.cpu.usage | Percentage of CPU usage |
 
-* File descriptor metrics
+### File descriptor metrics
 
 | Metric Name | Description | 
 |------------|---------------|
 | process.files.max | Maximum allowed file descriptors count |
 | process.files.open | Open file descriptors count |
 
-* Log4j2 metrics: record the number of events logged to Log4j2 at each level
-* Logback metrics: record the number of events logged to Logback at each level
+### Log4j2 and Logback metrics 
+
+Records the number of events logged to Log4j2 and Logback at each level.
 
 | Metric Name | Description | 
 |------------|---------------|
 | logback.events |  | 
 
-* Uptime metrics: report a gauge for uptime and a fixed gauge representing the application’s absolute start time
+### Uptime metrics 
+
+Reports a gauge for uptime and a fixed gauge representing the application’s absolute start time.
 
 | Metric Name | Description | 
 |------------|---------------|
 | process.start.time | fixed gauge representing the application’s absolute start time|  
 | process.uptime | gauge representing the application’s uptime |
 
-* [Spring MVC Metrics](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/html/production-ready-features.html#production-ready-metrics-spring-mvc)
+### Spring MVC Metrics
 
-Auto-configuration enables the instrumentation of requests handled by Spring MVC. 
+Auto-configuration enables the instrumentation of requests handled by [Spring MVC Metrics](https://docs.spring.io/spring-boot/docs/2.3.2.RELEASE/reference/html/production-ready-features.html#production-ready-metrics-spring-mvc). 
 When `management.metrics.web.server.request.autotime.enabled` is `true`, this instrumentation occurs for all requests.
 
 | Metric Name | Description | 
 |------------|---------------|
 | http.server.requests.*  | Statistics: avg, count, max, sum |  
 
-* Tomcat metrics (`server.tomcat.mbeanregistry.enabled` must be set to true for all Tomcat metrics to be registered)
+### Tomcat metrics 
+
+The `server.tomcat.mbeanregistry.enabled` must be set to true for all Tomcat metrics to be registered.
 
 | Metric Name | Description | 
 |------------|---------------|
