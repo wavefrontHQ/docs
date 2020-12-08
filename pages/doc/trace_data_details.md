@@ -117,7 +117,17 @@ Span tags are special tags associated with a span and are key-value pairs.
 - **Required**. Many of the span tags are required for a span to be valid.
 - **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names.
 
-{% include note.html content="Make sure your span tags are within the maximum character limit as explained below." %}
+{{site.data.alerts.note}}
+<ul>
+  <li>
+    Wavefront drops spans that have the <code>$</code> character in the span tag or span value.
+  </li>
+  <li>
+    Make sure your span tags are within the maximum character limit as explained below.
+  </li>
+</ul>
+{{site.data.alerts.end}}
+
 The following table lists the maximum number of characters you can assign a span tag.
 <table>
 <colgroup>
@@ -676,6 +686,8 @@ Application tags and their values are encapsulated in an `ApplicationTags` objec
 ### How Wavefront Uses Application Tags
 
 Wavefront uses application tags to aggregate and filter data at different levels of granularity.
+
+{% include note.html content="Wavefront drops spans that have the <code>$</code> character in the application tags or values." %}
 
 * **Required tags** enable you to drill down into the data for a particular service:
     - `application` - Name that identifies the application, for example, `beachshirts`. All microservices in the same application should use the same `application` name.
