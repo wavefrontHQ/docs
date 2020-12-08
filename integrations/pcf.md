@@ -4,11 +4,11 @@ tags: [integrations list]
 permalink: pcf.html
 summary: Learn about the Wavefront Pivotal Cloud Foundry Integration.
 ---
-### Pivotal Cloud Foundry Integration
+## Pivotal Cloud Foundry Integration
 
 Pivotal Cloud Foundry (PCF) is a popular platform for building cloud-native applications. The PCF integration is full-featured implementation offering pre-defined dashboards and alert conditions and is fully configurable.
 
-## Dashboards
+### Dashboards
 
 The PCF integration is a set of dashboards that give an overview of your PCF deployment and specific PCF components:
 
