@@ -35,7 +35,8 @@ In this tutorial, you configure a sample application with the Wavefront OpenTrac
     </dependencies>
     ```
 1. Configure the application to send data to Wavefront via the Wavefront proxy.
-    1. <a href="proxies_installing.html#proxy-installation">Install the Wavefront proxy</a>. For this tutorial let's install the Wavefront proxy on Docker.
+    1.  For this tutorial, let's install the Wavefront proxy on Docker. 
+        <br/>See [Install the Wavefront proxy](proxies_installing.html#proxy-installation) to find other options for installing the proxy on your environment.
         ```
         docker run -d \
           -e WAVEFRONT_URL=<your_cluster_name> \
