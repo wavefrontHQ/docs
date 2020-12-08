@@ -8,9 +8,32 @@ summary: New and changed Wavefront integrations.
 ---
 Wavefront continuously adds new integrations to the existing set, and improves available integrations. We update our [**complete list of all integrations**](https://docs.wavefront.com/label_integrations%20list.html) each time we add new integrations.
 
-## October 2019 - October 2020
+## October 2020 - December 2020
 
-Added the following integrations in October 2019 - October 2020:
+
+Added the following integrations in October 2020 - December 2020:
+
+* Concourse CI
+* OpenTelemetry
+
+
+Made improvements to the following integrations in October 2020 - December 2020:
+
+* Spring Cloud Data Flow –- New preconfigured dashboard to monitor Native Kafka client.
+* Kubernetes –- New setup UI.
+* Slack –- URL unfurler
+* Wavefront Usage
+  - New dashboard to show Wavefront usage for each user and ingestion policy.
+  - New dashboard to show Wavefront monthly usage against commitment.
+* Google Cloud Platform (GCP) – Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
+* Azure Storage – Preconfigured dashboard now supports monitoring of the Classic storage type.
+
+
+
+
+## October 2019 - September 2020
+
+Added the following integrations in October 2019 - September 2020:
 
 * Dynatrace
 * AppDynamics
