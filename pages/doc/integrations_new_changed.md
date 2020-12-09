@@ -11,7 +11,7 @@ Wavefront continuously adds new integrations to the existing set, and improves a
 ## October 2020 - December 2020
 
 
-Added the following integrations in October 2020 - December 2020:
+Added the following integrations in October 2020 - November 2020:
 
 * Concourse CI
 * OpenTelemetry
@@ -22,9 +22,10 @@ Made improvements to the following integrations in October 2020 - December 2020:
 * Spring Cloud Data Flow –- New preconfigured dashboard to monitor Native Kafka client.
 * Kubernetes –- New setup UI.
 * Slack –- URL unfurler
-* Wavefront Usage
-  - New dashboard to show Wavefront usage for each user and ingestion policy.
-  - New dashboard to show Wavefront monthly usage against commitment.
+* Wavefront Usage new dashboards:
+  - **Wavefront Ingestion (PPS) Usage Breakdown** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
+  - **PPS Tanzu Observability P95** Wavefront monthly usage against commited rate.
+  - **Wavefront Metrics Breakdown**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
 * Google Cloud Platform (GCP) – Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
 * Azure Storage – Preconfigured dashboard now supports monitoring of the Classic storage type.
 

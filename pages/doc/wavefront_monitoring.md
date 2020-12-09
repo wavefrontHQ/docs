@@ -1,5 +1,5 @@
 ---
-title: Monitor Wavefront Service
+title: Monitor Wavefront Your Service
 tags: [administration, dashboards]
 sidebar: doc_sidebar
 permalink: wavefront_monitoring.html
@@ -7,9 +7,10 @@ summary: Monitor and troubleshoot your Wavefront instance and see PPS info.
 ---
 
 You can use the Wavefront Usage integration dashboards to:
-* Examine your Wavefront instance and Wavefront proxy in charts that show internal metrics.
-* See the PPS (points per second) for the Wavefront instance and proxy.
-* Examine PPS based on ingestion policies.
+* Get usage information for your Wavefront instance and Wavefront proxy.
+* Drill down into the metrics namespaces to discover trends.
+* Examine PPS based on predefined ingestion policies.
+* See whether ingested metrics are at 95% of committed rate. Optionally get alerts if that happens.
 
 In addition, you can create your own dashboards, charts, and alerts using internal metrics (discussed below) to investigate the problem.
 
@@ -27,20 +28,20 @@ The Wavefront Usage integration includes the following dashboards:
 <tr>
 <td><strong>Wavefront Usage and Proxy Metrics</strong></td>
 <td>Examine <strong>usage data</strong>.</td>
-<td>Provides visibility into your use of the Wavefront service via internal metrics that we collect for you automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.</td></tr>
+<td>Provides visibility into your use of the Wavefront service via internal metrics that Wavefront collects automatically. Preconfigured charts monitor the data ingestion rate for points, spans and distributions, the data scan rate, and different proxy metrics.</td></tr>
 <tr>
 <td><strong>Wavefront Metrics Breakdown</strong></td>
-<td>Explore the <strong>trend</strong> of your metrics ingestion rate.</td>
-<td>Tracks the number of metrics received for the first 3 levels of your metric namespace. You can also view the breakdown of histograms, spans and delta counters.</td></tr>
+<td>Explore metrics namespaces to see the <strong>trend</strong> of your metrics ingestion rate.</td>
+<td>Tracks the number of time series metrics received for the first 3 levels of your metric namespace. Also tracks the breakdown of histograms, spans and delta counters.</td></tr>
 <tr>
 <td><strong>Wavefront Ingestion (PPS) Usage Breakdown</strong></td>
-<td>Investigate Wavefront usage for <strong>each account and ingestion policy</strong>.</td>
+<td>In environments where ingestion policies are defined, investigate usage for <strong>each account and ingestion policy</strong>.</td>
 <td markdown="span">Provides a granular breakdown of Wavefront ingestion across your organization by ingestion policies, accounts, sources, and types. Use this dashboard to identify who is contributing the most to your Wavefront usage and manage your overall usage. You can implement [ingestion policies](ingestion_policies.html) if you see problems in this dashboard.</td></tr>
 <tr>
-<td><strong>PPS P95 Usage Dashboard</strong></td>
-<td>Monitor your <strong>monthly usage</strong> and see when your usage reaches 95% of contracted PPS.
+<td><strong>PPS Tanzu Observability P95 Usage Dashboard</strong></td>
+<td>Avoid <strong>exceeding the committed rate</strong> for your instance by exploring dashboards and creating alerts.
 </td>
-<td markdown="span">Displays a detailed breakdown of your monthly usage. This enables you to take appropriate action when usage reaches around 95% of your target/committed usage.</td></tr>
+<td markdown="span">Displays a detailed breakdown of your monthly usage. Enables you to take appropriate action when usage reaches around 95% of your committed usage.</td></tr>
 
 </tbody>
 </table>
@@ -117,7 +118,7 @@ The metrics used in this section are:
 
 ### Wavefront Metric Namespace Breakdown Dashboard
 
-This dashboard helps you explore the *trend* of your metrics ingestion rate.
+This dashboard helps you drill down into the metrics namespace and explore the **trend** of your metrics ingestion rate.
 
 Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, which can be queried with `cs(~metric.global.namespace.*)`. The period (`.`) character separates the levels. For example for a metric named disk.space.total.bytes, the first level is disk, the second is space, and the third is total. This dashboard includes chart to explore those metrics and trends.
 
@@ -133,11 +134,11 @@ The dashboard includes a link to the **Ingestion Policies** page so you can crea
 
 ![screenshot of part of the dashboard](/images/ingestion_pps_usage_breakdown.png)
 
-### PPS P95 Usage vs. Committed Dashboard
+### PPS Tanzu Observability P95 Usage vs. Committed Dashboard
 
 This dashboards helps you monitor your **monthly usage** and ensure that you're not ingesting more PPS than your contracted rate allows.
 
-The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. You can then take appropriate action when your usage reaches around 95% of your target.
+The dashboard gives a detailed breakdown of your Tanzu Observability monthly usage against commitment. When your usage reaches around 95% of your committed rate, you can then take appropriate action.
 
 For example:
 * Examine who is using a high percentage of the PPS in the  **Wavefront Ingestion (PPS) Usage Breakdown** dashboard.
@@ -146,6 +147,16 @@ For example:
 {% include note.html content="The information contained in this dashboard has a 24 hour latency."%}
 
 ![screenshot of part of the dashboard](/images/p95_dashboard.png)
+
+## Scenario: Avoid Exceeding the Committed Rate
+
+Customers often tell us that they want to make sure they don't exceen their committed monthly PPS (points per second). Follow these steps to monitor usage and take corrective action.
+
+1. The new `PPS Tanzu Observability P95 Usage vs. Committed` dashboard includes charts that show how close you are to consuming 95% of your contracted rate. You can add alerts to charts in this dashboard to get notifications.
+2. If you need to reduce usage, you have several options:
+   * Start examining ingestion from the Wavefront Usage and Proxy Metrics dashboard. The [internal metrics](wavefront_monitoring.html#internal-metrics-overview) shown in this dashboard highlight
+   * Use the **Wavefront Metrics Breakdown** dashboard to drill down into the metrics. Wavefront automatically tracks the number of metrics received for the first 3 levels of your metric namespace as delta counters, and this dashboard presents the metrics in an easy-to-use way.
+   * Finally, if you suspect that much of your usage comes from certain accounts (human or service accounts) consider setting up one or more ingestion policies. With these policies in place, each account cannot consume more than the rate that is preset in the policy.
 
 
 ## Customize Usage Information with Wavefront Internal Metrics
@@ -160,7 +171,7 @@ Wavefront collects several categories of internal metrics. They are used extensi
 
 We collect the following metrics.
 
-- `~alert*` - set of metrics that allows you to examine the effect of alerts on your Wavefront instance.
+- `~alert*` - a set of metrics that allows you to examine the effect of alerts on your Wavefront instance.
 - `~collector` - metrics processed at the collector gateway to the Wavefront instance. Includes spans.
 - `~metric` - total unique sources and metrics.  You can compute the rate of metric creation from each source.
 - `~proxy` - metric rate received and sent from each Wavefront proxy, blocked and rejected metric rates, buffer metrics, and JVM stats of the proxy. Also includes counts of metrics affected by the proxy preprocessor. See [Monitoring Wavefront Proxies](monitoring_proxies.html).
@@ -172,7 +183,7 @@ If you have an [AWS integration](integrations_aws_metrics.html), metrics with th
 - `~externalservices` - metric rates, API requests, and events from AWS CloudWatch, AWS CloudTrail, and AWS Metrics+.
 
 There's also a metric you can use to monitor ongoing events and make sure the number does not exceed 1000:
-- `~events.num-ongoing-events` - Returns the number of [ongoing events](events.html#event-states).
+- `~events.num-ongoing-events` - returns the number of [ongoing events](events.html#event-states).
 
 
 ### Useful Internal Metrics for Optimizing Performance
