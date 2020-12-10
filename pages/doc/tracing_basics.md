@@ -84,11 +84,13 @@ You can export traces from Wavefront, save them locally as JSON files, and view 
 
 ![Shows how the offline traces look once you upload the JSOn file that has the imported trace details.](images/tracing_offline_tracing_view.png)
 
+<!---
 ### Application Configuration
 
 The Apdex score helps you compare the response time of a service based on the response time threshold that you define. Define the response time threshold for each service using the <a href="tracing_apdex.html">Application Configuration page</a>.
 
 ![The image shows where to click to edit the threshold value.](images/tracing_edit_service_legend_settings.png)
+--->
 
 
 ## Next Steps
