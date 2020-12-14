@@ -1358,7 +1358,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 </ul></td>
 </tr>
 <tr>
-<td> 
+<td>
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
@@ -1757,6 +1757,7 @@ You use spans functions to find and filter individual [spans](tracing_basics.htm
 </tbody>
 </table>
 
+<!---
 ## <span id="apdexFunctions"></span>Apdex Functions
 
 You can use the basic or advanced `apdex()` function to get the apdex score of a specific service.
@@ -1793,3 +1794,5 @@ You can use the basic or advanced `apdex()` function to get the apdex score of a
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
+--->

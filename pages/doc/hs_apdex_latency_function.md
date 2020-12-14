@@ -3,6 +3,7 @@ title: apdexLatency Function
 keywords: data, distributed tracing, apdex
 tags: [tracing]
 sidebar: doc_sidebar
+published: false
 permalink: hs_apdex_latency_function.html
 summary: Learn how to use the apdexLatency() function.
 ---
@@ -12,7 +13,7 @@ The `apdexLatency()` function gets you the Apdex threshold defined for the servi
 ## Summary
 
 ```
-apdexLatency(application=<application_name>, service=<service_name>, [satisfied | tolerating]) 
+apdexLatency(application=<application_name>, service=<service_name>, [satisfied | tolerating])
 ```
 ## Parameters
 
@@ -68,7 +69,7 @@ The `apdexLatency()` function gets you the satisfied threshold and tolerating th
     ```
     apdexLatency(application=beachshirts, service=shopping)
     ```
-    
+
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_latency_query.png)
 
 * Get only the satisfied threshold for the `beachshirts` application's `shopping` service.
@@ -77,8 +78,8 @@ The `apdexLatency()` function gets you the satisfied threshold and tolerating th
     ```
 
     ![The screenshot shows the above query and the chart that is generated for it.](images/tracing_apdex_latency_satisfied_threshold_only.png)
-    
-## See Also 
+
+## See Also
 
 * Get an overview of how the Apdex score is calculated and [Configure Apdex Settings](tracing_apdex.html).
 * Learn how to use the [apdex()](hs_apdex_function.html) function, to see Apdex score data on charts, and create alerts.
