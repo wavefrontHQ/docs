@@ -247,7 +247,7 @@ dependencies {
   .....
     &lt;dependency&gt;
       &lt;groupId&gt;com.wavefront&lt;/groupId&gt;
-      &lt;artifactId&gt;wavefront-spring-boot&lt;/artifactId&gt;
+      &lt;artifactId&gt;wavefront-spring-boot-bom&lt;/artifactId&gt;
       &lt;version&gt;$releaseVersion&lt;/version&gt;
       &lt;type&gt;pom&lt;/type&gt;
       &lt;scope&gt;import&lt;/scope&gt;
