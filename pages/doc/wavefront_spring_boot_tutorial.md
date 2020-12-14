@@ -50,7 +50,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
     <dependencies>
       <dependency>
         <groupId>com.wavefront</groupId>
-        <artifactId>wavefront-spring-boot</artifactId>
+        <artifactId>wavefront-spring-boot-bom</artifactId>
         <version>2.0.2</version>
         <type>pom</type>
         <scope>import</scope>

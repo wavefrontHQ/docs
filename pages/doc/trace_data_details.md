@@ -117,7 +117,6 @@ Span tags are special tags associated with a span and are key-value pairs.
 - **Required**. Many of the span tags are required for a span to be valid.
 - **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names.
 
-{% include note.html content="Make sure your span tags are within the maximum character limit as explained below." %}
 The following table lists the maximum number of characters you can assign a span tag.
 <table>
 <colgroup>
