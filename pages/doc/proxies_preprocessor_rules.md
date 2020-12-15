@@ -104,14 +104,6 @@ A preprocessor rule typically specifies rules for a specific port. The example a
      #  value   : eks-dev
 ```
 
-
-
-
-This is an example of multiple ports:
-https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default#L302
-
-Options
-
 ## Enabling the Preprocessor
 
 To enable the preprocessor:
