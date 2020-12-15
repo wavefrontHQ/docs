@@ -22,9 +22,11 @@ You can limit when a rule applies using the `if` parameter (proxy 7.0 and later)
 
 ## Rule Configuration File
 
-You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify rule filenames in your [proxy configuration](proxies_configuring.html#proxy-configuration).
+You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax.
 
-<!--- HELP! That link doesn't give me enough info on where the rule lives and how to change its name. --->
+If you want to change the name of the preprocessor rule file, you can specify the filename using the `preprocessorConfigFile` parameter in your [proxy configuration file](proxies_configuring.html#proxy-configuration).
+
+### Example
 
 An example rule file could look like this:
 
@@ -71,6 +73,44 @@ Additional parameters depend on the rule that you're defining, for example, an `
 -   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
 -   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains `stage` substring is `.*stage.*`.
 -   Regex patterns in the `replaceRegex` rule `search` parameter are a substring match. If `search` is "A" and `replace` is "B", all A's are replaced with B's.
+
+### Applying Rules to Multiple Ports
+
+A preprocessor rule typically specifies rules for a specific port. The example above specifies the rule for port 2878. Starting with proxy v7.x, you can:
+* Use the `global` keyword to specify rules for all ports. For example:
+
+```
+   # rules that apply to all ports
+   'global':
+
+     # Example no-op rule
+     #################################################################
+     - rule    : example-rule-do-nothing
+       action  : count
+```
+
+* Specify rules for multiple ports with a comma-separated list. For example:
+
+```
+   ## Multiport preprocessor rules
+   ## The following rules will apply to ports 2979, 2980 and 4343
+
+   '2979, 2980, 4343':
+
+     ## Add k8s cluster name point tag for all points across multiple ports.
+     #- rule    : example-rule-delete-merenametag-k8s-cluster
+     #  action  : addTag
+     #  tag     : k8scluster
+     #  value   : eks-dev
+```
+
+
+
+
+This is an example of multiple ports:
+https://github.com/wavefrontHQ/wavefront-proxy/blob/master/pkg/etc/wavefront/wavefront-proxy/preprocessor_rules.yaml.default#L302
+
+Options
 
 ## Enabling the Preprocessor
 
