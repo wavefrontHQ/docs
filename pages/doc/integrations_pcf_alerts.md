@@ -9,6 +9,8 @@ summary: Details for Pivotal Cloud Foundry Alerts
 
 The Pivotal Cloud Foundry (PCF) integration includes a a rich set of alerts out of the box. You can preview the alerts in the **Alerts** tab of the integration. This page gives details for each alert.
 
+{% include tip.html content="This functionality will be available for all Wavefront instances soon." %}
+
 ## PAS Active Locks Alerts
 
 Total count of how many locks the system components are holding.
