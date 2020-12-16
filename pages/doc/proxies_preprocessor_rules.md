@@ -119,6 +119,23 @@ Starting with proxy version 5.0, changes to the preprocessor file take effect sh
 
 For earlier versions of the proxy, you have to [restart the proxy](proxies_installing.html#start-and-stop-a-proxy) before the changes take effect.
 
+### Interactive Testing of Preprocessor Rules
+
+You can test a preprocessor rule before sending data to Wavefront using `-testPreprocessorForPort <port>`.
+
+How you run the proxy in test mode depends on whether you're using the JVM bundled with the Wavefront proxy. In that case, if the proxy installer detects that java v8, 9, 10 or, 11 already exists in the users path that version of Java is used.
+
+To run in test mode with the bundled VM:
+```shell
+java -jar  /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar -f /etc/wavefront/wavefront-proxy/wavefront.conf --testPreprocessorForPort 2878
+```
+
+To run in test mode and specify the path explicitly:
+```shell
+/opt/wavefront/wavefront-proxy/proxy-jre/bin/java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar \
+  -f /etc/wavefront/wavefront-proxy/wavefront.conf --testPreprocessorForPort 2878
+```
+
 ### Metrics for Rules
 
 For every rule, the Wavefront proxy reports the counter metric`~proxy.preprocessor.<ruleID>.count`. The rule ID becomes part of the proxy metric, for example, `~proxy.preprocessor.replace-badchars.count`. See [Monitoring Wavefront Proxies](monitoring_proxies.html) for details.
