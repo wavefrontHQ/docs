@@ -53,67 +53,71 @@ Follow these steps for sending metrics to a Wavefront proxy. See Option 2 for se
 
 If you do not have a [Wavefront proxy](https://docs.wavefront.com/proxies.html) installed on your network and reachable from your Java application, install a proxy. You configure the Wavefront proxy hostname and port (by default 2878) when you create the reporter.
 
-#### Step 2. Create a Wavefront Proxy Reporter and Register Metrics
-
+#### Step 2. Initialize the WavefrontClient and send data via Wavefront Proxy
 To create a reporter which will emit data to a Wavefront proxy every 5 seconds:{% raw %}
 ```
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.MetricRegistry;
 import com.wavefront.dropwizard.metrics.DropwizardMetricsReporter;
-import com.wavefront.sdk.proxy.WavefrontProxyClient;
+import com.wavefront.sdk.common.clients.WavefrontClientFactory;
+import com.wavefront.sdk.common.WavefrontSender;
 import java.util.concurrent.TimeUnit;
 
 MetricRegistry metricRegistry = new MetricRegistry();
 Counter evictions = metricRegistry.counter("cache-evictions");
 evictions.inc();
 
-String proxyHost = "wavefront.proxy.hostname";
-int metricsPort = 2878;
+WavefrontClientFactory wavefrontClientFactory = new WavefrontClientFactory();
+// Add a client with the following URL format: "proxy://<your.proxy.fqdn>:<somePort>"
+// to send data to proxies
+wavefrontClientFactory.addClient(wavefrontURL);
 
-WavefrontProxyClient wavefrontProxyClient = new WavefrontProxyClient.Builder(proxyHost).
-    metricsPort(metricsPort).
-    build();
+WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 
 DropwizardMetricsReporter reporter = DropwizardMetricsReporter.forRegistry(metricRegistry).
     withSource("app-1.company.com").
     prefixedWith("service").
     withReporterPointTag("dc", "us-west-2").
     withReporterPointTag("env", "staging").
-    build(wavefrontProxyClient);
+    build(wavefrontSender);
 
 reporter.start(5, TimeUnit.SECONDS);
 ```
 {% endraw %}
 
 ### Option 2. Create a Wavefront Direct Reporter and Register Metrics
-
-You can send metrics directly to a Wavefront service, discussed next. Option 1 above explains how to send metrics to a Wavefront proxy.
-
-To create a reporter which will emit data to a Wavefront service every 5 seconds:
-{% raw %}
+To create a reporter which will emit data to a Wavefront service every 5 seconds:{% raw %}
 ```
 import com.codahale.metrics.Counter;
 import com.codahale.metrics.MetricRegistry;
 import com.wavefront.dropwizard.metrics.DropwizardMetricsReporter;
-import com.wavefront.sdk.direct.ingestion.WavefrontDirectIngestionClient;
+import com.wavefront.sdk.common.clients.WavefrontClientFactory;
+import com.wavefront.sdk.common.WavefrontSender;
 import java.util.concurrent.TimeUnit;
-
-String wavefrontServer = "https://YOUR_CLUSTER.wavefront.com";
-String token = "YOUR_API_TOKEN";
 
 MetricRegistry metricRegistry = new MetricRegistry();
 Counter evictions = metricRegistry.counter("cache-evictions");
 evictions.inc();
 
-WavefrontDirectIngestionClient wavefrontDirectIngestionClient =
-    new WavefrontDirectIngestionClient.Builder(wavefrontServer, token).build();
+WavefrontClientFactory wavefrontClientFactory = new WavefrontClientFactory();
+
+// Create a factory and add a client with the following URL format: "http://TOKEN@DOMAIN.wavefront.com"
+// and a Wavefront API token with direct ingestion permission
+wavefrontClientFactory.addClient(wavefrontURL,
+  20_000,           // This is the max batch of data sent per flush interval
+  100_000,          // This is the size of internal buffer beyond which data is dropped
+  2,                // Together with the batch size controls the max theoretical throughput of the sender
+  Integer.MAX_VALUE // The maximum message size in bytes we will push with on each flush interval
+);
+
+WavefrontSender wavefrontSender = wavefrontClientFactory.getClient();
 
 DropwizardMetricsReporter reporter = DropwizardMetricsReporter.forRegistry(metricRegistry).
     withSource("app-1.company.com").
     prefixedWith("service").
     withReporterPointTag("dc", "us-west-2").
     withReporterPointTag("env", "staging").
-    build(wavefrontDirectIngestionClient);
+    build(wavefrontSender);
 
 reporter.start(5, TimeUnit.SECONDS);
 ```

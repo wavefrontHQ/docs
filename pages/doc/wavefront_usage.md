@@ -14,7 +14,7 @@ You can examine the performance of your Wavefront instance using [wftop](), [Wav
 
 ## Ingestion Policy Basics
 
-Ingestion policies allow you to group users and then examine their usage in the **Wavefront Ingestion (PPS) Usage Breakdown** for your cluster. For example, you can create a policy, add all users that joined in the last 6 months, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training.
+Ingestion policies allow you to group users and then examine their usage in the **Wavefront Ingestion Policy Explorer** for your cluster. For example, you can create a policy, add all users that joined in the last 6 months, and examine whether they show unusually high usage because they're not yet experienced. If yes, you could provide additional training.
 
 ### Permissions
 
@@ -54,7 +54,7 @@ All users can go to the
 
 1. Find the Wavefront Usage integration.
    1. Select **Integrations** in the menu bar, type **Wavefront Usage**, and select the integration.
-   2. Click **Dashboards** and select **Wavefront Ingestion (PPS) Usage Breakdown**.
+   2. Click **Dashboards** and select **Wavefront Ingestion Policy Explorer**.
 2. Use the dashboard to explore the policies.
 
 Here's a simple example we've used in our demos:

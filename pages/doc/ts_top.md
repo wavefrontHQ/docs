@@ -8,7 +8,7 @@ summary: Reference to the top() function
 ---
 ## Summary
 ```
-top(<numberOfTimeSeries>, [mean|median|min|max|sum|count, [<timeWindow>,]] <tsExpression>)
+top(<numberOfTimeSeries>, [mean|median|min|max|sum|count|last, [<timeWindow>,]] <tsExpression>)
 ```
 
 Ranks the time series described by the expression, and returns 1 for the specified number of top-ranked series, and 0 for the other series. Ranking for a time series is based on its last data value in the current chart, or on a summarization of its last data values over a specified time window.
@@ -24,7 +24,7 @@ Ranks the time series described by the expression, and returns 1 for the specifi
 <td>numberOfTimeSeries</td>
 <td>Number of top-ranked time series to be returned as 1.  </td></tr>
 <tr>
-<td>mean&vert;median&vert;min&vert;max&vert;sum&vert;count </td>
+<td>mean&vert;median&vert;min&vert;max&vert;sum&vert;count&vert;last</td>
 <td>Summarization method to use for combining data values in a time series.
 These are similar to the <a href="ui_chart_reference.html#general"><strong>Summarize by</strong> options</a> you can set for a chart.
 Default is to rank each series according to the value of its last (rightmost) data point on the current chart, if this parameter is not specified.</td>
@@ -86,7 +86,7 @@ The following table shows how the parameters of `top()` affect the results.
 
 ## Examples
 
-**Unfiltered Series** 
+**Unfiltered Series**
 
 <!--- requests: ts(~sample.requests.total.num, source=app-11, source=app-12, source=app-13) --->
 This chart shows 3 time series that report the total number of requests from 3 sources. We will filter these series in the following examples.
