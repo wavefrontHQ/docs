@@ -70,6 +70,8 @@ Additional parameters depend on the rule that you're defining, for example, an `
 
 ### Regex Notes
 
+Wavefront uses Java-style regex pattern. For details see [the Java documentation] (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html). 
+
 -   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
 -   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains `stage` substring is `.*stage.*`.
 -   Regex patterns in the `replaceRegex` rule `search` parameter are a substring match. If `search` is "A" and `replace` is "B", all A's are replaced with B's.
