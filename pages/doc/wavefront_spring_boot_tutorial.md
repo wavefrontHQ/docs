@@ -56,10 +56,11 @@ Let's take a look at how you can configure your Spring Boot application with Wav
         <scope>import</scope>
       </dependency>
     </dependencies>
-    </dependencyManagement>  
+    </dependencyManagement>
     ```
 
-1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing.
+1. Add the following dependency to send trace data to Wavefront using Spring Cloud Sleuth or OpenTracing. Pick either Spring Cloud Sleuth or OpenTracing and use it across all your microservices.
+
     <ul id="profileTabs" class="nav nav-tabs">
         <li class="active"><a href="#sleuth" data-toggle="tab">Spring Cloud Sleuth</a></li>
         <li><a href="#opentracing" data-toggle="tab">OpenTracing</a></li>
@@ -97,7 +98,7 @@ Let's take a look at how you can configure your Spring Boot application with Wav
 &lt;dependencies&gt;
 &lt;dependencyManagement&gt;
             </pre>
-            
+
             </li>
             </ol>
         </div>
@@ -159,7 +160,7 @@ When you click the link in the Spring Boot Inventory dashboard, you are taken to
   * Once in the Traces Browser, you see the traces from the application and the trace related to the error you created.
   * If you configured your application to send trace data using OpenTracing, you can see [span logs](#tracing_instrumenting_frameworks.html#span-logs) for the errors you triggered.
   ![Span logs for the pet clinic applciation](/images/springboot_span_logs_pet_clinic.png)
-  
+
 * View details specific to an application service, such as the Request, Error, and Duration (RED) metrics by clicking <img src="images/spring_boot_service_dashboard_from_tracing_browser.png" style="vertical-align:text-bottom;width:250px" alt="service dashboard"/> on the Traces Browser. See [Explore the Default Service Dashboard](tracing_service_dashboard.html) for details.
   {% include note.html content="<br/>When your application sends data for the first time, they appear after about 1 minute. If you see data from the **beachshirts** sample application, refresh the page or go to **Application** > **Application status** to view the status of your application."%}
   ![Wavefront Service dashboard](/images/springboot_service_dashboard.png)

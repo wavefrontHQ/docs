@@ -70,7 +70,7 @@ Additional parameters depend on the rule that you're defining, for example, an `
 
 ### Regex Notes
 
-Wavefront uses Java-style regex pattern. For details see [the Java documentation] (https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html). 
+Wavefront uses Java-style regex pattern. For details see [the Java documentation](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html).
 
 -   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
 -   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains `stage` substring is `.*stage.*`.
@@ -700,6 +700,9 @@ The following example illustrates using a limitLength for a point tag. However, 
 
 [Wavefront distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across services by allowing you to examine traces and spans. Span filtering rules allow you to specify a block list or allow list that determine which spans the proxy sends to the Wavefront service.
 
+{% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
+
+
 ### spanBlock
 
 Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
@@ -801,6 +804,8 @@ Points must match the `spanAllow` list to be accepted. Multiple `spanAllow` rule
 ## Span Altering Rules
 
 Span altering rules allow you to add, remove, or update span tags.
+
+{% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
 ### spanReplaceRegex
 
