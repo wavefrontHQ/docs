@@ -332,14 +332,12 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 </ul>
 {{site.data.alerts.end}}
 
-<!---
+
 ## List Sources and Source Tags of an Alert's Time Series
 
 You can use iterators to visit each time series in the indicated [category](#series-category) and return
 * The string name of the series' source (host). Any time series not associated with a source is skipped.
 * The string names of the source tags associated with each of sources. For example, corresponding to the `failingHosts` iterator, we support a `FailingHostSourceTags` iterator that returns the source tags associated with each failing host.
-
-### Source Iterators--->
 
 
 ## List Sources of an Alert's Time Series
