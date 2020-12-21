@@ -70,7 +70,7 @@ Initially, all users can *view* all dashboards and alerts. In addition, global p
 
 Administrators can restrict access for new dashboards and alerts:
 
-1. Click the gear icon and select **System Preferences**.
+1. Click the gear icon and select **Organization Settings**.
 2. Click the **Security** tab and select **Grant Modify Access To: Creator**
 
 After the change to the preference, access to new dashboards and new alerts is initially limited to the dashboard creator and Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.

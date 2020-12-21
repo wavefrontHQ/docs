@@ -7,14 +7,16 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020.26, Wavefront includes support for PromQL. In this Beta of PromQL you can:
-* Run PromQL queries directly in the Wavefront Query Editor.
-  The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect. There is no other indication in the UI whether the query is Wavefront QL or PromQL.
-* Add charts that use PromQL to dashboards.
-* Create alerts from charts that use PromQL
-* Use PromQL queries in the query line of a Create Alert page.
+Starting with release 2020.26, Wavefront has supported PromQL queries. In release 2020-46.x, we added admin-level preferences and a query line GUI. Here's what's supported:
+* Administrators have control over user defaults:
+  - Administrators can set the Organization Settings New User Defaults to allow users to write queries in PromQL.
+  - If queries in PromQL are enabled, administrators can set other options.
+* Users can then type either PromQL or WQL (Wavefront Query Language) queries into the Query Editor.
+  - The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect.
+  - If the Query Editor encounters PromQL, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to WQL and translate the query if the want.
+  - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
-{% include note.html content="PromQL Support Beta is available on demand. Contact customer support to discuss having it enabled. " %}
+{% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
 
 ## How to Use PromQL Queries
 
