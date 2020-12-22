@@ -23,7 +23,7 @@ In Wavefront, we enhance the data with tags, so that it has more context. For ex
 
 Containerized environments typically also include the container ID and pod name: 
 
-`cpu.usage.user 24 1529590428 host=mysystem service=auth env=prod containerid=6af39d33 podname=auth-coreapp-6m984d`
+`cpu.usage.user 24 1529590428 source=mysystem service=auth env=prod containerid=6af39d33 podname=auth-coreapp-6m984d`
 
 ## Timeseries Data Cardinality on Containers
 
