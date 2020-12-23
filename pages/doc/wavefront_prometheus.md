@@ -18,11 +18,53 @@ Starting with release 2020.26, Wavefront has supported PromQL queries. In releas
 
 {% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
 
-## How to Use PromQL Queries
+## Set PromQL Site Preferences (Administrator Only)
 
-1. Create or edit a chart.
-2. Start typing your PromQL query.
-3. Make changes to the visualization.
+Administrator users can change the Query Settings to support PromQL.
+* If **PromQL Support** is *not* enabled, other users cannot use PromQL or change PromQL preferences.
+* If **PromQL Support** is enabled, admins can set additional New User Default query settings, and other users can override those settings.
+
+To set PromQL preferences:
+
+1. From the gear icon, select **Organization Settings**
+2. Inside **Query Settings**, select the **Users can write queries in PromQL** check box.
+3. Select the default query language for new users.
+4. Enable **Always save queries as WQL** if you expect that some users prefer WQL.
+5. Enable **Show WQL translation** to show hover text with a translation to WQL for all PromQL queries. Enable this check box if you expect users want to learn WQL.
+
+## Set PromQL Preferences (All Users)
+
+If your site administrator has enabled PromQL Support, you can control some aspects of PromQL.
+
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact your site admin." %}
+
+
+1. From the gear icon, select your name.
+2. In the **Query Settings** section, select
+    * The default query language
+    * The default way of building queries. Select Query Builder if you expect to user PromQL frequently. Chart Buider was designed for WQL and doesn't support PromQL.
+    * Whether to show a translation to WQL as hover text.
+
+## Use PromQL in Charts and Alerts
+
+This example shows how the Query Editor
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol><li>Create or edit a chart or alert.</li>
+<li>Start typing your PromQL query. Query Editor recognizes the PromQL query (ts() is not part of the query) and highlights the WQL button to let you switch. </li>
+<li>Switch to PromQL to see the WQL query as hover text. You can also convert from here.  </li>
+<li>Finally, return to WQL is that's your primary mode of working. </li></ol></td>
+<td width="60%"><img src="/images/promql_button.png" alt="metric only in query line, WQL is highlighted">
+<img src="/images/promql_hover.png" alt="query line in promql, with hover text ">
+</td>
+</tr>
+</tbody>
+</table>
+
+Next, you can make changes to the visualization.
   * See [Create and Customize Charts](ui_charts.html) for an intro.
   * See [Chart Reference](ui_chart_reference.html) for details.
 
