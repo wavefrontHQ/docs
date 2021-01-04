@@ -52,7 +52,7 @@ Wavefront supports high cardinality for time series data, because the data is ve
 
 <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
-Wavefront usually deals gracefully with high cardinality, bacuse it has the following features:
+Wavefront usually deals gracefully with high cardinality, because it has the following features:
 
 **Applies top-down and bottom-up indexes**
 
