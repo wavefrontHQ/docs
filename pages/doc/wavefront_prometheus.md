@@ -13,7 +13,7 @@ Starting with release 2020.26, Wavefront has supported PromQL queries. In releas
   - If queries in PromQL are enabled, administrators can set other options.
 * Users can then type either PromQL or WQL (Wavefront Query Language) queries into the Query Editor.
   - The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect.
-  - If the Query Editor encounters PromQL, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to WQL and translate the query if the want.
+  - If the Query Editor encounters PromQL, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to WQL and translate the query if they want.
   - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
 {% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
@@ -30,7 +30,7 @@ To set PromQL preferences:
 2. Inside **Query Settings**, select the **Users can write queries in PromQL** check box.
 3. Select the default query language for new users.
 4. Enable **Always save queries as WQL** if you expect that some users prefer WQL.
-5. Enable **Show WQL translation** to show hover text with a translation to WQL for all PromQL queries. Enable this check box if you expect users want to learn WQL.
+5. Enable **Show WQL translation** to show a translation hint for all PromQL queries. The translation hint appears if a user is in the Query Editor, the QueryEditor is in PromQL mode, and the query is valid PromQL syntax. Enable this check box if you expect users want to learn WQL.
 
 ## Set PromQL Preferences (All Users)
 
@@ -55,7 +55,7 @@ This example shows how the Query Editor
 <td width="40%">
 <ol><li>Create or edit a chart or alert.</li>
 <li>Start typing your PromQL query. Query Editor recognizes the PromQL query (ts() is not part of the query) and highlights the WQL button to let you switch. </li>
-<li>Switch to PromQL to see the WQL query as hover text. You can also convert from here.  </li>
+<li>Switch to PromQL to see the WQL query as translation hint hover text. You can also convert from here.  </li>
 <li>Finally, return to WQL is that's your primary mode of working. </li></ol></td>
 <td width="60%"><img src="/images/promql_button.png" alt="metric only in query line, WQL is highlighted">
 <img src="/images/promql_hover.png" alt="query line in promql, with hover text ">
@@ -67,7 +67,6 @@ This example shows how the Query Editor
 Next, you can make changes to the visualization.
   * See [Create and Customize Charts](ui_charts.html) for an intro.
   * See [Chart Reference](ui_chart_reference.html) for details.
-
 
 ![Prometheus query](images/prometheus_sample.png)
 
@@ -117,9 +116,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 ## Limitations
 
-While you can run queries directly in the Wavefront Query Editor, there are currently a few limitations.
 
-* Autocomplete is not currently supported for PromQL functions and operators. However, autocomplete for metrics that you use inside your query continues to be supported.
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
