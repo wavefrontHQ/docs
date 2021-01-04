@@ -17,7 +17,7 @@ Generally, timeseries data in a simple form is labeled as a name, value, and tim
 
 `cpu.usage.user 24 1529590428`
 
-In Wavefront, we enhance the data with tags, so that it has more context. For example, 
+In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example, 
 
 `cpu.usage.user 24 1529590428 source=mysystem service=auth env=prod`
 
@@ -56,7 +56,7 @@ Wavefront usually deals gracefully with high cardinality, bacuse it has the foll
 
 **Applies top-down and bottom-up indexes**
 
-Top-down indexes are the so-called metric source tags. In Wavefront, instead of just using the metric name as the primary key, the source is also considered a first-class citizen and is part of the primary metric host tag index. This improves performance and retrievability of data.
+Top-down indexes are the so-called metric source tags. In Wavefront, instead of just using the metric name as the primary key, the source is also considered a first-class citizen and is part of the primary metric host tag index. This improves the Wavefront performance and retrievability of data.
 
 A second tag value index allows for queries filtered by tag values to retain high performance. The combination of 2 primary indexes (metric and source) for timeseries data allows for greater cardinality with no impact on the data ingestion or query performance.
 
