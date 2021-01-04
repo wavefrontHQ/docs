@@ -4,7 +4,6 @@ keywords: data, distributed tracing, apdex
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: hs_apdex_function.html
-published: false
 summary: Learn how to use the apdex() function.
 ---
 
