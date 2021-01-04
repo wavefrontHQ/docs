@@ -6,14 +6,14 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how Wavefront deals with cardinality.
 ---
-High cardinality can cause a system slowdown and metrics retrieval issues. Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering.
+Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. However, high cardinality can cause a system slowdown and metrics retrieval issues. 
 
 
-## Data Cardinality
+## What Is Data Cardinality?
 
-Data cardinality is the number of values in a set. When applied to databases, data cardinality is the number of distinct values in a table column, relative to the number of rows in the table. The more distinct values that you have, the higher cardinality is. In monitoring, data cardinality refers to the number of series in a timeseries database.
+Data cardinality is the number of values in a set. For example, in a database, data cardinality is the number of distinct values in a table column, relative to the number of rows in the table. The more distinct values that you have, the higher cardinality is. In monitoring, data cardinality refers to the number of series in a timeseries.
 
-Timeseries data in a simple form is labeled as a name, value, and timestamp. For example,  
+Generally, timeseries data in a simple form is labeled as a name, value, and timestamp. For example,  
 
 `cpu.usage.user 24 1529590428`
 
@@ -48,33 +48,37 @@ When you deploy a large system, there’s a rapid burst of new index entries, wh
 ## Wavefront and High Cardinality
 
 
-As long as the data that you monitor is timeseries data, Wavefront supports high cardinality because the data is very easily manipulated and easily retrieved. If you have event data, which appears once or twice in the system, the database no longer stores this data as timeseries information. In such a case, or if you want to look into individual requests, use the distributed tracing offering which allows you to drill down into such data. For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
+Wavefront supports high cardinality for time series data, because the data is very easily manipulated and easily retrieved. If you have data points, which appear once or twice in the system, the database no longer stores this data as timeseries information. In such a case, or if you want to look into individual data points, for example single user requests, you should use the distributed tracing offering which allows you to drill down into such data. For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
 
 <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
-Wavefront overcomes high cardinality issues in several ways:
+Wavefront usually deals gracefully with high cardinality, bacuse it has the following features:
 
 **Applies top-down and bottom-up indexes**
 
-Top-down indexes are the so-called metric host tags. While most of the other timeseries systems do not treat the host or source as a first-class key, in Wavefront instead of just using the metric name as the primary key, the host or source is also considered a first-class citizen and is part of the primary metric host tag index. 
+Top-down indexes are the so-called metric source tags. In Wavefront, instead of just using the metric name as the primary key, the source is also considered a first-class citizen and is part of the primary metric host tag index. This improves performance and retrievability of data.
 
-A second tag value index allows for queries filtered by tag values to retain high performance. The combination of 2 primary indexes for timeseries data allows for greater cardinality with no impact on the data ingestion or query performance.
+A second tag value index allows for queries filtered by tag values to retain high performance. The combination of 2 primary indexes (metric and source) for timeseries data allows for greater cardinality with no impact on the data ingestion or query performance.
 
 **Keeps the most recent indexes**
 
-In Wavefront real-time monitoring is with highest priority. Indexes that deal with real-time data are kept in fast memory. Wavefront moves the indexes that have not received new data for 4 weeks to older storage. Containerized environments benefit greatly from this because of the ephemeral nature of the generated indexes.
+In Wavefront, indexes that deal with current data are kept in fast memory. Wavefront moves the indexes that have not received new data for 4 weeks to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
 
 **Uses correlated tagging**
 
 Some metrics always have the same combination of tag keys and values. Data ingestion heuristics can spot when the same combination of tags is routinely indexed. Wavefront correlates tags and optimizes index creation and usage to increase the performance for metrics with the same combination of tags.
 
-**Uses a dynamic programming query planner**
+**Uses a dynamic query planner**
 
-Most queries are run repeatedly, iteratively, are similar, and streaming. For example, queries such as `*.system.cpu.*, env=prod` would damage many systems when fetching proper indexes.
+Most queries are similar and run repeatedly, iteratively, and streaming. For example, queries such as `*.system.cpu.*, env=prod` would damage many systems when fetching proper indexes.
 
-Wavefront uses a dynamic programming query planner which allows to:
+Wavefront uses a dynamic query planner in the backend which:
 
-* Break down a complex search into simple sub-searches.
-* Solve each sub-search once and store the results.
+* Breaks down a complex search into simple sub-searches.
+* Solves each sub-search once and store the results.
 
-The dynamic programming query planner allows for greater query performance at a cost of more storage and works with metric, host, and tag values.
+The dynamic query planner allows for greater query performance at a cost of more storage and works with metric, host, and tag values.
+
+**Uses FoundationDB as an underlying database**
+
+FoundationDB provides amazing performance on commodity hardware. It is an open-source database that allows you to support very heavy loads.
