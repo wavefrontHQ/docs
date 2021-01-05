@@ -9,7 +9,7 @@ summary: Run PromQL queries in the Wavefront Query Editor
 
 Starting with release 2020.26, Wavefront has supported PromQL queries. In release 2020-46.x, we added admin-level organization settings and a query line GUI that includes a translation option. Here's what's supported:
 * Administrators have control over user defaults:
-  - Administrators can set the Organization Settings New User Defaults to allow users to write queries in PromQL.
+  - Administrators can set on the Organization Settings page (New User Defaults) to allow users to write queries in PromQL.
   - If queries in PromQL are enabled, administrators can set other options.
 * Users can then type either PromQL or WQL (Wavefront Query Language) queries into the Query Editor.
   - The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect.
