@@ -14,12 +14,12 @@ Admins who need finer-grained control can manage access on a per-object basis. W
 
 {% include tip.html content="In addition to access control, we also support [metrics security policy rules](metrics_security.html) which allow fine-grained control over which users can see which metrics." %}
 
-This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security system preference. You can manage access for alerts the same way.
+This video shows how to limit access for a dashboard, how to give access (share) that dashboard, and how to set the Security organization setting. You can manage access for alerts the same way. The video uses the 2020 version of the UI, which doesn't include PromQL, but **Security** configuration did not change.
 
 <p><a href="https://youtu.be/45E4pkann0E"><img src="images/v_access.png" style="width: 700px;" alt="Wavefront access control"/></a>
 </p>
 
-{% include note.html content="After the Access security preference is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
+{% include note.html content="After the Access organization setting is set to Creator in an environment, only the creator of a new object and Super Admin can view and modify new objects initially. Those users can give access to the object with other groups or users." %}
 
 
 ## How Access Control Works
@@ -33,10 +33,10 @@ Wavefront supports granting and revoking access to dashboards and alerts.
   - Restrict or grant access for individual alerts from the Alerts browser.
   - Select the Share icon on individual alerts to change who has access.
 
-In high-security environments, administrators change a security preference. After that change:
+In high-security environments, administrators change a security organization setting. After that change:
 * Each *new* object (dashboard or alert) is visible only to the creator and to Super Admin users.
 * The object creator or a Super Admin user can then share new dashboards with groups or users.
-* If the administrator changes the Security preference back to allow Everyone access, then the objects that were created while the strict security preference was set continue to be governed by access control.
+* If the administrator changes the Security organization setting back to allow Everyone access, then the objects that were created while the strict security organization setting was set continue to be governed by access control.
 
 ## Change Access for One or More Dashboards or Alerts
 
@@ -62,7 +62,7 @@ You can change access for an individual dashboard or alert from the Edit page of
 
 
 
-## Change the Access Control Security Preference
+## Change the Access Control Security Organization Setting
 
 Initially, all users can *view* all dashboards and alerts. In addition, global permissions apply:
 * Users with Dashboard permission can modify all dashboards
@@ -73,9 +73,9 @@ Administrators can restrict access for new dashboards and alerts:
 1. Click the gear icon and select **Organization Settings**.
 2. Click the **Security** tab and select **Grant Modify Access To: Creator**
 
-After the change to the preference, access to new dashboards and new alerts is initially limited to the dashboard creator and Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.
+After the change, access to new dashboards and new alerts is initially limited to the dashboard creator and Super Admin users. Those users can share the objects with other groups or individual users by giving View access or View & Modify access.
 
-{% include note.html content="A security preference change applies only to dashboards and alerts created after the change. If you change the setting to **Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Creator** keep the restricted access." %}
+{% include note.html content="A change to an Organization Setting applies only to dashboards and alerts created after the change. If you change the setting to **Creator**, only new dashboards and alerts have restricted access. If you later change the setting to **Everyone**, all dashboards and alerts that were created while the setting was **Creator** keep the restricted access." %}
 
 ## Making Orphan Dashboards or Alerts Visible
 

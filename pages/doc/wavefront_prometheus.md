@@ -7,7 +7,7 @@ permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020.26, Wavefront has supported PromQL queries. In release 2020-46.x, we added admin-level preferences and a query line GUI. Here's what's supported:
+Starting with release 2020.26, Wavefront has supported PromQL queries. In release 2020-46.x, we added admin-level organization settings and a query line GUI that includes a translation option. Here's what's supported:
 * Administrators have control over user defaults:
   - Administrators can set the Organization Settings New User Defaults to allow users to write queries in PromQL.
   - If queries in PromQL are enabled, administrators can set other options.
@@ -18,13 +18,13 @@ Starting with release 2020.26, Wavefront has supported PromQL queries. In releas
 
 {% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
 
-## Set PromQL Site Preferences (Administrator Only)
+## Set PromQL Organization Settings (Administrator Only)
 
-Administrator users can change the Query Settings to support PromQL.
-* If **PromQL Support** is *not* enabled, other users cannot use PromQL or change PromQL preferences.
+Users with **Accounts, Groups & Roles**  permissions can toggle the **Organization Settings** to support PromQL.
+* If **PromQL Support** is *not* enabled, other users cannot use PromQL or change PromQL user preferences.
 * If **PromQL Support** is enabled, admins can set additional New User Default query settings, and other users can override those settings.
 
-To set PromQL preferences:
+To set PromQL settings for your organization:
 
 1. From the gear icon, select **Organization Settings**
 2. Inside **Query Settings**, select the **Users can write queries in PromQL** check box.
@@ -32,12 +32,11 @@ To set PromQL preferences:
 4. Enable **Always save queries as WQL** if you expect that some users prefer WQL.
 5. Enable **Show WQL translation** to show a translation hint for all PromQL queries. The translation hint appears if a user is in the Query Editor, the QueryEditor is in PromQL mode, and the query is valid PromQL syntax. Enable this check box if you expect users want to learn WQL.
 
-## Set PromQL Preferences (All Users)
+## Set PromQL User Preferences (All Users)
 
-If your site administrator has enabled PromQL Support, you can control some aspects of PromQL.
+If an administrator has enabled PromQL Support (discussed above), each user can control some aspects of PromQL.
 
-{% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact your site admin." %}
-
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact a site admin." %}
 
 1. From the gear icon, select your name.
 2. In the **Query Settings** section, select
@@ -138,3 +137,10 @@ The bottom row shows the PromQL query execution:
 2. The translation service translates the query into the corresponding `ts()` query.
 3. The translated query is automatically sent to the Wavefront service.
 4. The Wavefront service processes the query and shows the results in the chart, uses the result to determine whether an alert should fire, etc.
+
+## More Info
+
+New to Wavefront? Here are some links to get you started:
+* [Creating an Alert](alerts.html#creating-an-alert)
+* [Query Language Quickstart](query_language_getting_started.html)
+* [Query Languag Videos](videos_query_language.html)

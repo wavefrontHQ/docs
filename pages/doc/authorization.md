@@ -67,13 +67,13 @@ For example, assume the marketing team asks Pat to give a demo, and Pat is assig
 Our fine-grained **[access control](access.html)** allows administrators to protect sensitive information, for example, to restrict access to certain dashboards to the Finance team.
 
 * **Access control on individual objects** -- While permissions are global and apply, for example, to all dashboards, access control allows you to restrict who can view or view and modify individual objects (initially dashboards and alerts).
-* **Security preference for new objects** -- In high security environments, administrator can set a security preference so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.
+* **Security setting for new objects** -- In high security environments, administrator can set a security setting so that all new dashboards and new alerts are accessible only to the creator and to Super Admin users.
 
 ## Metrics Security Policy Rules
 
 Any Super Admin user or users with **Metrics** permission can view, create, and manage  [metrics security policy rules](metrics_security.html).
 
-Data protected by a metrics security policy rule can become completely invisible to users. 
+Data protected by a metrics security policy rule can become completely invisible to users.
 * **Not visible in charts**. The chart either includes a warning that some metrics are protected, or, if all metrics are protected, the chart shows only the message.
 * **Not visible in alerts** (if **Secure Metrics Details** is checked for the alert). The alert fires based on the complete set of metrics, and the complete set is shown in notification images by default. A checkbox allows administrators to [hide alert details](alerts_notifications.html#alert-notification-with-secured-metrics-details) so that confidential metric are not shown.
 * **Not visible in auto-complete** in Chart Builder, Query Editor, Metrics browser, etc.
