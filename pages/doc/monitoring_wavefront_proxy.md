@@ -6,7 +6,7 @@ permalink: monitoring_proxies.html
 summary: Learn how to monitor Wavefront proxies.
 ---
 
-The Wavefront Usage integration includes a **Wavefront Usage and Proxy Metrics** dashboard that includes several sections with dashboards for examining proxy health.
+The Wavefront Usage integration includes a **Wavefront Service and Proxy Data** dashboard that includes several sections with dashboards for examining proxy health.
 
 ![proxy health](images/proxy_health_example.png)
 

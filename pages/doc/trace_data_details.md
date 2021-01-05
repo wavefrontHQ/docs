@@ -8,7 +8,7 @@ summary: Get to know the concepts around distributed tracing in Wavefront.
 ---
 Wavefront follows the [OpenTracing](https://opentracing.io/) and [OpenTelemetry](https://opentelemetry.io/) standards for representing and manipulating trace data.
 
-## Traces 
+## Traces
 A trace shows you how a request propagates from one microservice to the next in a distributed application. The basic building blocks of a trace are its spans, where each span corresponds to a distinct invocation of an operation that executes as part of the request.
 
 
@@ -117,7 +117,6 @@ Span tags are special tags associated with a span and are key-value pairs.
 - **Required**. Many of the span tags are required for a span to be valid.
 - **Optional (Custom)**. An application can be instrumented to include custom span tags as well. Custom tag names must not use the reserved span tag names.
 
-{% include note.html content="Make sure your span tags are within the maximum character limit as explained below." %}
 The following table lists the maximum number of characters you can assign a span tag.
 <table>
 <colgroup>
@@ -305,14 +304,14 @@ For performance reasons, Wavefront automatically indexes built-in span tags with
 
 Tracing traffic shows how applications and services interact with each other. If you click on a tracing traffic, you can drill down to the trace browser. See [Application Map](tracing_ui_overview.html#application-map) for details.
 
-Each arrow in the image shown below is referred to as a tracing traffic in Wavefront. 
+Each arrow in the image shown below is referred to as a tracing traffic in Wavefront.
 ![an image that shows how each service communicates with each other using arrows. These arrows are called tracing traffic in wavefront.](images/tracing_edges_concept.png)
 
 To understand how to query for tracing traffic in the tracing browser, see [Use Spans to Examine Applications and Services](trace_data_query.html#use-spans-to-examine-applications-and-services).
 
 ## RED Metrics
 
-If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically aggregates and displays RED metrics for different levels of detail with no additional configuration or instrumentation on your part. 
+If you instrument your application with a [tracing-system integration](tracing_integrations.html#tracing-system-integrations) or with a [Wavefront OpenTracing SDK](wavefront_sdks.html#sdks-for-collecting-trace-data), Wavefront derives RED metrics from the spans that are sent from the instrumented application. Wavefront automatically aggregates and displays RED metrics for different levels of detail with no additional configuration or instrumentation on your part.
 
 RED metrics are key indicators of the health of your services, and you can use them to help you discover problem traces. RED metrics are measures of:
 
@@ -486,19 +485,19 @@ Wavefront constructs the names of the underlying aggregated delta counters, and 
   ```
   cs(tracing.aggregated.derived.beachshirts.*.invocation.count)
   ```
-  
+
 * Error percentage for an edge: Find the per-minute aggregated error rate for traces for a specific `span.kind` tag.
   ```
   cs(tracing.aggregated.derived.beachshirts.shopping.error.count, span.kind=server)
   ```
-  
+
 * Duration in the form of Wavefront histograms: Find the 95th percentile of a specific service using aggregated RED metrics.
   ```
   alignedSummary(95, merge(hs(tracing.aggregated.derived.beachshirts.delivery.duration.micros.m)))
   ```
 
 ### RED Metrics for Tracing Traffic
- 
+
 You can visualize tracing traffic data in charts using tracing traffic derived metrics and filter them using the point tags listed below. Wavefront assigns the corresponding span tag values to these point tags. The span tag values are used without modification.
 
 ![the screenshot shows the filters available for a traffic derived red metrics query in the chart builder. The filers are explained after the screenshot.](images/edge_derived_red_metrics.png)
@@ -632,7 +631,7 @@ You can visualize tracing traffic data in charts using tracing traffic derived m
   ```
   cs(tracing.edge.derived.beachshirts.*.invocation.count, to.shard=primary)
   ```
-* Error percentage for a tracing traffic. 
+* Error percentage for a tracing traffic.
   ```
   cs(tracing.edge.derived.beachshirts.shopping.error.count, cluster=us-west)
   ```
@@ -653,15 +652,20 @@ If you have instrumented your application using a 3rd party distributed tracing 
 
 ## External Services
 
-On the application map, external applications or services are highlighted with special icons. For example, in the screenshot below, the application communicates with AWS Lambda, 
+On the application map, external applications or services are highlighted with special icons. For example, in the screenshot below, the application communicates with AWS Lambda,
 Amazon Simple Notification Service (SNS), and external databases. For details, see [Configure External Services](tracing_external_services.html).
 
 ![Shows the application map view that has two external AWS services.](images/tracing_key_concepts_external_nodes.png)
 
-## Apdex 
+## Apdex
 
 The Application Performance Index ([Apdex](https://www.apdex.org/overview.html)) helps you understand how the response time of a service compares to the predefined response time threshold.
-Wavefront detects the application trace data that is sent to Wavefront as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only users that have super admin permissions can configure the threshold value. For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
+Wavefront detects the application trace data that is sent to Wavefront as first-class citizens and calculates the Apdex score using the threshold value (T) you define. The default threshold value (T) is set to 100ms, and only users that have super admin permissions can configure the threshold value.
+
+This functionality is being rolled out with Wavefront release 2020.42. 
+<!---
+For details on the Apdex score and configuring the response time threshold (T), see [Configure Apdex Settings](tracing_apdex.html).
+--->
 
 ![The image shows the setting and the legend setting with apdex selected from the drop down.](images/apdex_score_legend_colors.png)
 

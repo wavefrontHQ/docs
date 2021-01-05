@@ -645,7 +645,7 @@ Filtering functions help you select a subset of the time series that are returne
 </tr>
 <tr>
 <td><a href="ts_topk.html">topk(<strong>&lt;numberOfTimeSeries&gt;</strong>,
-<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<br><strong>[mean|median|min|max|sum|count|last, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
@@ -655,7 +655,7 @@ Filtering functions help you select a subset of the time series that are returne
 </tr>
 <tr>
 <td><a href="ts_top.html">top(<strong>&lt;numberOfTimeSeries&gt;</strong>,
-<br><strong>[mean|median|min|max|sum|count, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
+<br><strong>[mean|median|min|max|sum|count|last, [&lt;timeWindow&gt;,]]</strong> <strong>&lt;tsExpression&gt;</strong>)</a></td>
 <td>Returns 1 for the top <strong>numberOfTimeSeries</strong> time series described by <strong>tsExpression</strong>, and 0 for the remaining series. Ranking for a series is based on its last displayed data value or on data values summarized over a time window.</td>
 </tr>
 <tr>
@@ -1358,7 +1358,7 @@ Predictive functions enable you to forecast data values and find outlier data va
 </ul></td>
 </tr>
 <tr>
-<td> 
+<td>
 <a href="ts_exists.html">exists(<strong>&lt;tsExpression&gt;</strong>)</a>
 </td>
 <td>Returns 1 if any time series described by the expression exists, and returns 0 otherwise.
@@ -1756,6 +1756,7 @@ You use spans functions to find and filter individual [spans](tracing_basics.htm
 <tr><td width="90%">&nbsp;</td><td width="10%"><a href="query_language_reference.html"><img src="/images/to_top.png" alt="click for top of page"/></a></td></tr>
 </tbody>
 </table>
+
 
 ## <span id="apdexFunctions"></span>Apdex Functions
 

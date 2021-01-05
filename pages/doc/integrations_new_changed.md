@@ -23,9 +23,9 @@ Made improvements to the following integrations in October 2020 - December 2020:
 * Kubernetes –- New setup UI.
 * Slack –- URL unfurler
 * Wavefront Usage new dashboards:
-  - **Wavefront Ingestion (PPS) Usage Breakdown** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
-  - **PPS Tanzu Observability P95** Wavefront monthly usage against commited rate.
-  - **Wavefront Metrics Breakdown**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
+  - **Wavefront Ingestion Policy Explorer** In environments where [ingestion policies](ingestion_policies.html) have been configured, shows usage for each user and ingestion policy.
+  - **Committed Rate and Monthly Usage (PPS P95)** dashboard shows Wavefront monthly usage against commited rate.
+  - **Wavefront Namespace Usage Explorer**: Tracks the number of metrics received for the first 3 levels of your metric namespace.
 * Google Cloud Platform (GCP) – Fixed dashboard queries in Google Kubernetes Engine (GKE) dashboard
 * Azure Storage – Preconfigured dashboard now supports monitoring of the Classic storage type.
 

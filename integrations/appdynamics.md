@@ -13,12 +13,5 @@ This integration can be configured to pull all application metrics from AppDynam
 
 Metrics that originate from AppDynamics are prefixed with `appdynamics.apps.` in Wavefront. After you set up the integration, you can browse the available metrics in the metrics browser.
 
-## AppDynamics Integration
-
-
-
-[[appdynamicsSetup]]
-
-
 
 

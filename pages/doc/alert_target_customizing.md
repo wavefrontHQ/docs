@@ -332,17 +332,15 @@ The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&
 </ul>
 {{site.data.alerts.end}}
 
-<!---
+
 ## List Sources and Source Tags of an Alert's Time Series
 
 You can use iterators to visit each time series in the indicated [category](#series-category) and return
 * The string name of the series' source (host). Any time series not associated with a source is skipped.
 * The string names of the source tags associated with each of sources. For example, corresponding to the `failingHosts` iterator, we support a `FailingHostSourceTags` iterator that returns the source tags associated with each failing host.
 
-### Source Iterators--->
 
-
-## List Sources of an Alert's Time Series
+### List Sources of an Alert's Time Series
 
 You can use iterators to visit each time series in the indicated [category](#series-category) and return the string name of the series' source (host). Any time series not associated with a source is skipped.
 
@@ -374,36 +372,6 @@ You can use iterators to visit each time series in the indicated [category](#ser
 </tbody>
 </table>
 
-<!---
-### Source Tag Iterators
-<table>
-<colgroup>
-<col width="30%"/>
-<col width="70%"/>
-</colgroup>
-<thead>
-<tr><th>Iterator</th><th>Definition</th></tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span">`failingHostSourceTags`</td>
-<td>Iterator that returns source tags that are associated with the sources for each failing time series.</td>
-</tr>
-<tr>
-<td markdown="span">`inMaintenanceHostSourceTags`</td>
-<td>Iterator that returns source tags that are associated with the sources for each source that is in a maintenance window.</td>
-</tr>
-<tr>
-<td markdown="span">`newlyFailingHostSourceTags`</td>
-<td markdown="span">Iterator that returns source tags that are associated with the sources of each time series that has failed since the previous notification.</td>
-</tr>
-<tr>
-<td markdown="span">`recoveredHostSourceTags`</td>
-<td>Iterator that returns the source tags associated with the sources of each time series that has recovered since the previous notification.</td>
-</tr>
-</tbody>
-</table>
---->
 
 **Example: Accessing Alert Sources in a Generic Webhook Alert Target Template**
 
@@ -497,6 +465,41 @@ Here is a sample alert target output generated with the preceding template:
 {% endraw %}
 
 Notice that the template provides literal text for enclosing each source name in quotation marks, for separating the source names with commas, and for enclosing the list in square brackets. The `trimTrailingComma` function suppresses the comma after the last source name.
+
+### List Source Tags of an Alert's Time Series
+
+You can use iterators to list the string names of the source tags associated with each of an alert's sources. For example, corresponding to the `failingHosts` iterator, we support a `FailingHostSourceTags` iterator that returns the source tags associated with each failing source.
+
+
+<table>
+<colgroup>
+<col width="30%"/>
+<col width="70%"/>
+</colgroup>
+<thead>
+<tr><th>Iterator</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">`failingHostSourceTags`</td>
+<td>Iterator that returns source tags that are associated with the sources for each failing time series.</td>
+</tr>
+<tr>
+<td markdown="span">`inMaintenanceHostSourceTags`</td>
+<td>Iterator that returns source tags that are associated with the sources for each source that is in a maintenance window.</td>
+</tr>
+<tr>
+<td markdown="span">`newlyFailingHostSourceTags`</td>
+<td markdown="span">Iterator that returns source tags that are associated with the sources of each time series that has failed since the previous notification.</td>
+</tr>
+<tr>
+<td markdown="span">`recoveredHostSourceTags`</td>
+<td>Iterator that returns the source tags associated with the sources of each time series that has recovered since the previous notification.</td>
+</tr>
+</tbody>
+</table>
+
+
 
 ## List the Definitions of an Alert's Time Series
 

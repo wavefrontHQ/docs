@@ -152,6 +152,8 @@ echo -e "test.metric 1 source=test_host\n" | nc <wavefront_proxy_address> 2878
 
 Wavefront frequently releases new proxy versions with new features. See the [Wavefront proxy github page](https://github.com/wavefrontHQ/java/releases) for details.
 
+{% include note.html content="Upgrading a proxy with a large proxy queue is not a good idea. The proxy will queue your data until the upgrade is complete, but the short-term result can be an even bigger proxy queue." %}
+
 **Upgrade from the UI**
 
 To upgrade from the UI, select **Browse > Proxies > Add New Proxy**. If an older version of the proxy exists, this process replaces it.
@@ -206,8 +208,7 @@ sudo yum remove telegraf</code></td></tr>
 
 ## See Also
 
-Advanced users can customize the proxy in different ways:
-
+Advanced users can export proxy data to a file and perform other customizations. 
 * [Export Data Queued at the Proxy](https://help.wavefront.com/hc/en-us/articles/360052251811-How-to-export-data-queued-at-the-Proxy)
 * [Install a Proxy in Non-Default Environments](proxies_manual_install.html)
 * Use the [proxy configuration file](proxies_configuring.html) to customize proxy behavior for metrics, histograms, and traces.

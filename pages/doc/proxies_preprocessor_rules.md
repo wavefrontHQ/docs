@@ -22,9 +22,11 @@ You can limit when a rule applies using the `if` parameter (proxy 7.0 and later)
 
 ## Rule Configuration File
 
-You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax. You can specify rule filenames in your [proxy configuration](proxies_configuring.html#proxy-configuration).
+You define the proxy preprocessor rules in a rule configuration file, usually `<wavefront_config_path>/preprocessor_rules.yaml`, using YAML syntax.
 
-<!--- HELP! That link doesn't give me enough info on where the rule lives and how to change its name. --->
+If you want to change the name of the preprocessor rule file, you can specify the filename using the `preprocessorConfigFile` parameter in your [proxy configuration file](proxies_configuring.html#proxy-configuration).
+
+### Example
 
 An example rule file could look like this:
 
@@ -68,9 +70,41 @@ Additional parameters depend on the rule that you're defining, for example, an `
 
 ### Regex Notes
 
+Wavefront uses Java-style regex pattern. For details see [the Java documentation](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html).
+
 -   Backslashes in regex patterns must be double-escaped. For example, to match a dot character ("."), use `\\.`.
 -   Regex patterns in the `match` parameter are a full match. For example, a regex to block the point line that contains `stage` substring is `.*stage.*`.
 -   Regex patterns in the `replaceRegex` rule `search` parameter are a substring match. If `search` is "A" and `replace` is "B", all A's are replaced with B's.
+
+### Applying Rules to Multiple Ports
+
+A preprocessor rule typically specifies rules for a specific port. The example above specifies the rule for port 2878. Starting with proxy v7.x, you can:
+* Use the `global` keyword to specify rules for all ports. For example:
+
+```
+   # rules that apply to all ports
+   'global':
+
+     # Example no-op rule
+     #################################################################
+     - rule    : example-rule-do-nothing
+       action  : count
+```
+
+* Specify rules for multiple ports with a comma-separated list. For example:
+
+```
+   ## Multiport preprocessor rules
+   ## The following rules will apply to ports 2979, 2980 and 4343
+
+   '2979, 2980, 4343':
+
+     ## Add k8s cluster name point tag for all points across multiple ports.
+     #- rule    : example-rule-delete-merenametag-k8s-cluster
+     #  action  : addTag
+     #  tag     : k8scluster
+     #  value   : eks-dev
+```
 
 ## Enabling the Preprocessor
 
@@ -86,6 +120,23 @@ The rules file is validated when the proxy starts. The proxy aborts the start-up
 Starting with proxy version 5.0, changes to the preprocessor file take effect shortly after you save the file.
 
 For earlier versions of the proxy, you have to [restart the proxy](proxies_installing.html#start-and-stop-a-proxy) before the changes take effect.
+
+### Interactive Testing of Preprocessor Rules
+
+You can test a preprocessor rule before sending data to Wavefront using `-testPreprocessorForPort <port>`.
+
+How you run the proxy in test mode depends on whether you're using the JVM bundled with the Wavefront proxy. In that case, if the proxy installer detects that java v8, 9, 10 or, 11 already exists in the users path that version of Java is used.
+
+To run in test mode with the bundled VM:
+```shell
+java -jar  /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar -f /etc/wavefront/wavefront-proxy/wavefront.conf --testPreprocessorForPort 2878
+```
+
+To run in test mode and specify the path explicitly:
+```shell
+/opt/wavefront/wavefront-proxy/proxy-jre/bin/java -jar /opt/wavefront/wavefront-proxy/bin/wavefront-push-agent.jar \
+  -f /etc/wavefront/wavefront-proxy/wavefront.conf --testPreprocessorForPort 2878
+```
 
 ### Metrics for Rules
 
@@ -649,6 +700,9 @@ The following example illustrates using a limitLength for a point tag. However, 
 
 [Wavefront distributed tracing](tracing_basics.html) gives you end-to-end visibility into an entire request across services by allowing you to examine traces and spans. Span filtering rules allow you to specify a block list or allow list that determine which spans the proxy sends to the Wavefront service.
 
+{% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
+
+
 ### spanBlock
 
 Defines a regex that spans must match to be filtered out. In the example below, we don't allow spans with a source name that starts with `qa-service`.
@@ -750,6 +804,8 @@ Points must match the `spanAllow` list to be accepted. Multiple `spanAllow` rule
 ## Span Altering Rules
 
 Span altering rules allow you to add, remove, or update span tags.
+
+{% include tip.html content="The span filtering rules and span altering rules apply to data coming from any supported source, including Jaeger and Zipkin." %}
 
 ### spanReplaceRegex
 

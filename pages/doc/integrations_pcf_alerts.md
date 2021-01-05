@@ -3,11 +3,14 @@ title: Pivotal Cloud Foundry Alerts
 keywords:
 tags: [integrations, proxies]
 sidebar: doc_sidebar
+published: false
 permalink: integrations_pcf_alerts.html
 summary: Details for Pivotal Cloud Foundry Alerts
 ---
 
 The Pivotal Cloud Foundry (PCF) integration includes a a rich set of alerts out of the box. You can preview the alerts in the **Alerts** tab of the integration. This page gives details for each alert.
+
+{% include tip.html content="This functionality will be available for all Wavefront instances soon." %}
 
 ## PAS Active Locks Alerts
 

@@ -15,6 +15,8 @@ Many Wavefront queries operate on and return data as one or more time series. Ea
 
 * A _continuous time series_ contains one data point per second. Because Wavefront accepts and stores data at up to 1 second resolution, a continuous time series has a data value corresponding to every moment in time that can be represented on the X-axis of a chart.
 
+{% include tip.html content="Raw aggregation functions directly applied to continuous functions (like `msum()`) can behave differently than raw aggregation functions applied directly to non-continuous functions. See the discussion below." %}
+
 ## Example
 
 The following chart shows a point plot for the results of two queries. The query labeled **Discrete** returns multiple time series, each consisting of data points that occur 1 minute apart (at 9:30, 9:31, 9:32, and so on). The query labeled **Continuous** returns the constant value `160` for every second in the chart.
@@ -68,7 +70,9 @@ Different functions use different techniques to calculate the values of interpol
 * When the `last()` function inserts a new point with a particular timestamp, the value assigned to that point is taken from the last actual, reported point before it.
 * When the [`interpolate()`](ts_interpolate.html) function inserts a new point with a particular timestamp, the value assigned to that point is an estimate of what the input series would have reported at that time, based on the values of the actual, reported points on either side.
 
-**Note:** Interpolation is used for different purposes by different functions. For example:
+{% include note.html content="Some functions use interpolation to fill gaps to produce a continuous time series, while standard aggregation functions use interpolation to fill specific gaps in an input series before including it in an aggregation. " %}
+
+For example:
 * Functions such as `last()`, `interpolate()`, and the others [summarized below](#summary-of-functions-that-return-continuous-time-series) use interpolation to fill in all gaps to produce a result series that is guaranteed to be continuous.
 * Standard aggregation functions such as [`sum()`](ts_sum.html) and [`avg()`](ts_avg.html) use interpolation to fill in specific gaps in an input series before including that series in the aggregation. The result series produced by an aggregation function is normally discrete. [Aggregating Time Series](query_language_aggregate_functions.html) gives more details.
 
