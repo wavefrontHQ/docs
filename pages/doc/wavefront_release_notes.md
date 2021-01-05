@@ -1,16 +1,15 @@
 ---
 title: Wavefront Release Notes
 keywords:
-tags: [release notes]
+tags: 
 sidebar: doc_sidebar
 permalink: wavefront_release_notes.html
 summary: Learn about new and updated features in Wavefront.
 ---
 
 These pages list new and updated features in the Wavefront service.
-<!---[2020-42.x Release Notes](2020.42.x_release_notes.html)
---->
 
+- [2020-42.x Release Notes](2020.42.x_release_notes.html)
 - [2020-38.x Release Notes](2020.38.x_release_notes.html)
 - [2020-30.x Release Notes](2020.30.x_release_notes.html)
 - [2020-26.x Release Notes](2020.26.x_release_notes.html)

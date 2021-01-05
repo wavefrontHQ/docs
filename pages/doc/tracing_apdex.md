@@ -4,7 +4,6 @@ keywords: data, distributed tracing, adpex
 tags: [tracing]
 sidebar: doc_sidebar
 permalink: tracing_apdex.html
-published: false
 summary: Get an overview of how the Apdex score is calculated and Configure Apdex Settings.
 ---
 

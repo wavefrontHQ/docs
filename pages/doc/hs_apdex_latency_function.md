@@ -3,7 +3,6 @@ title: apdexLatency Function
 keywords: data, distributed tracing, apdex
 tags: [tracing]
 sidebar: doc_sidebar
-published: false
 permalink: hs_apdex_latency_function.html
 summary: Learn how to use the apdexLatency() function.
 ---
