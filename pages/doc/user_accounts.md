@@ -63,15 +63,15 @@ When you invite a (human) user to Wavefront, what that new user can do depends o
 
   **Note:** It's possible that [access to dashboards and alerts](access.html#how-access-control-works) is limited.
 
-- **New User Permissions:** Users with Accounts, Groups & Roles permission can view and modify new user default permissions from the System Preferences menu item available from gear icon. These permissions *do not* apply to service accounts.
-- **New User Default Groups:** Users with Accounts, Groups & Roles permission can set up a default groups for new users from the System Preferences menu item available from the gear icon. All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
+- **New User Permissions:** Users with Accounts, Groups & Roles permission can view and modify new user default permissions from the Organization Settings menu item available from gear icon. These permissions *do not* apply to service accounts.
+- **New User Default Groups:** Users with Accounts, Groups & Roles permission can set up a default groups for new users from the Organization Settings menu item available from the gear icon. All new user accounts get all permissions assigned to the default user groups. These permissions *do not* apply to service accounts.
 
 <!---Too much detail
 ## Set Default Permissions for New Users
 
 You can set default permissions for new users. By default, all new users can perform a set of new user actions discussed above. In addition, you can create a set of default permissions that are assigned to every new user added to the system from that point on:
 
-1. Click the gear icon and select **System Preferences**.
+1. Click the gear icon and select **Organization Settings**.
 2. Click **New User Defaults** and check the set of permissions you want to grant to new users.
 
 The default permissions affect new user accounts that you create after you made the change.
@@ -84,7 +84,7 @@ Each new user is assigned to the Everyone group.
 
 To add any new user to additional groups:
 
-1. Click the gear icon and select **System Preferences**.
+1. Click the gear icon and select **Organization Settings**.
 2. In the Default User Groups field
   * Start typing the name of additional groups to add groups.
   * Click the **x** next to a group name to remove a group. You cannot remove the Everyone group.
