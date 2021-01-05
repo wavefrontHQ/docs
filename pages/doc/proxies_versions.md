@@ -1,7 +1,7 @@
 ---
 title: Wavefront Proxy Release Notes
 keywords:
-tags: [proxies, release notes]
+tags: [proxies]
 sidebar: doc_sidebar
 permalink: proxies_versions.html
 summary: Information about Release Notes for different Wavefront proxy versions.
