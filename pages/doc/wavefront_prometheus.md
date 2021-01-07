@@ -2,28 +2,69 @@
 title: Using PromQL in Wavefront
 keywords: query language
 sidebar: doc_sidebar
-published: true
 permalink: wavefront_prometheus.html
 summary: Run PromQL queries in the Wavefront Query Editor
 ---
 
-Starting with release 2020.26, Wavefront includes support for PromQL. In this Beta of PromQL you can:
-* Run PromQL queries directly in the Wavefront Query Editor.
-  The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect. There is no other indication in the UI whether the query is Wavefront QL or PromQL.
-* Add charts that use PromQL to dashboards.
-* Create alerts from charts that use PromQL
-* Use PromQL queries in the query line of a Create Alert page.
+Starting with release 2020.26, Wavefront has supported PromQL queries. In release 2020-46.x, we added admin-level organization settings and a query line GUI that includes a translation option. Here's what's supported:
+* Administrators have control over user defaults:
+  - Administrators can set on the Organization Settings page (New User Defaults) to allow users to write queries in PromQL.
+  - If queries in PromQL are enabled, administrators can set other options.
+* Users can then type either PromQL or WQL (Wavefront Query Language) queries into the Query Editor.
+  - The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect.
+  - If the Query Editor encounters PromQL, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to WQL and translate the query if they want.
+  - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
-{% include note.html content="PromQL Support Beta is available on demand. Contact customer support to discuss having it enabled. " %}
+{% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
 
-## How to Use PromQL Queries
+## Set PromQL Organization Settings (Administrator Only)
 
-1. Create or edit a chart.
-2. Start typing your PromQL query.
-3. Make changes to the visualization.
+Users with **Accounts, Groups & Roles**  permissions can toggle the **Organization Settings** to support PromQL.
+* If **PromQL Support** is *not* enabled, other users cannot use PromQL or change PromQL user preferences.
+* If **PromQL Support** is enabled, admins can set additional New User Default query settings, and other users can override those settings.
+
+To set PromQL settings for your organization:
+
+1. From the gear icon, select **Organization Settings**
+2. Inside **Query Settings**, select the **Users can write queries in PromQL** check box.
+3. Select the default query language for new users.
+4. Enable **Always save queries as WQL** if you expect that some users prefer WQL.
+5. Enable **Show WQL translation** to show a translation hint for all PromQL queries. The translation hint appears if a user is in the Query Editor, the QueryEditor is in PromQL mode, and the query is valid PromQL syntax. Enable this check box if you expect users want to learn WQL.
+
+## Set PromQL User Preferences (All Users)
+
+If an administrator has enabled PromQL Support (discussed above), each user can control some aspects of PromQL.
+
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact a site admin." %}
+
+1. From the gear icon, select your name.
+2. In the **Query Settings** section, select
+    * The default query language
+    * The default way of building queries. Select Query Builder if you expect to user PromQL frequently. Chart Buider was designed for WQL and doesn't support PromQL.
+    * Whether to show a translation to WQL as hover text.
+
+## Use PromQL in Charts and Alerts
+
+This example shows how the Query Editor
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%">
+<ol><li>Create or edit a chart or alert.</li>
+<li>Start typing your PromQL query. Query Editor recognizes the PromQL query (ts() is not part of the query) and highlights the WQL button to let you switch. </li>
+<li>Switch to PromQL to see the WQL query as translation hint hover text. You can also convert from here.  </li>
+<li>Finally, return to WQL is that's your primary mode of working. </li></ol></td>
+<td width="60%"><img src="/images/promql_button.png" alt="metric only in query line, WQL is highlighted">
+<img src="/images/promql_hover.png" alt="query line in promql, with hover text ">
+</td>
+</tr>
+</tbody>
+</table>
+
+Next, you can make changes to the visualization.
   * See [Create and Customize Charts](ui_charts.html) for an intro.
   * See [Chart Reference](ui_chart_reference.html) for details.
-
 
 ![Prometheus query](images/prometheus_sample.png)
 
@@ -73,9 +114,7 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 
 ## Limitations
 
-While you can run queries directly in the Wavefront Query Editor, there are currently a few limitations.
 
-* Autocomplete is not currently supported for PromQL functions and operators. However, autocomplete for metrics that you use inside your query continues to be supported.
 * The Wavefront query language supports [using a query name as a chart variable](query_editor.html#use-chart-variables) in other queries for the same chart.
   - You can use a query name as a chart variable in a PromQL query if the named query was also a PromQL query.
   - You cannot use a query name as a chart variable if the named query is a Wavefront QL query.
@@ -97,3 +136,10 @@ The bottom row shows the PromQL query execution:
 2. The translation service translates the query into the corresponding `ts()` query.
 3. The translated query is automatically sent to the Wavefront service.
 4. The Wavefront service processes the query and shows the results in the chart, uses the result to determine whether an alert should fire, etc.
+
+## More Info
+
+New to Wavefront? Here are some links to get you started:
+* [Creating an Alert](alerts.html#creating-an-alert)
+* [Query Language Quickstart](query_language_getting_started.html)
+* [Query Languag Videos](videos_query_language.html)

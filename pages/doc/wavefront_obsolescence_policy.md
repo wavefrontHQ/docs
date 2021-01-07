@@ -1,7 +1,7 @@
 ---
 title: Wavefront Obsolescence and Remediation
 keywords: release notes
-tags: [release notes]
+tags: 
 sidebar: doc_sidebar
 permalink: wavefront_obsolescence_policy.html
 summary: Learn about deprecated and EOL features and how to prevent potential problems.
