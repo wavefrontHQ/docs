@@ -14,4 +14,15 @@ This integration can be configured to pull all application metrics from AppDynam
 Metrics that originate from AppDynamics are prefixed with `appdynamics.apps.` in Wavefront. After you set up the integration, you can browse the available metrics in the metrics browser.
 
 
+## AppDynamics Setup
+
+Follow the steps given below to give Wavefront access to AppDynamics account:
+
+1. Log in to your Wavefront instance.
+1. From the taskbar, click **Integrations** and search for **AppDynamics**.
+1. Click the **AppDynamics** tile.
+1. Click the **Setup** tab and click **Add Integration**.
+1. Fill in the details and click **Register**.
+
+Now, you see the metrics from your AppDynamics account in Wavefront.
 
