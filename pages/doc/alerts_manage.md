@@ -7,14 +7,17 @@ permalink: alerts_manage.html
 summary: Learn how to examine and fine-tune alerts.
 ---
 
-Alerts help you find the root cause of a problem quickly.
+Alerts notify when there's a problem, and support finding the root cause of a problem quickly.
 
-When you receive an alert notification, the notification includes a link to the Alert Viewer, where you can drill down and examine related information. From the Alerts Browser, you can check and modify all alerts.
+Wavefront has two GUIs:
+* **Alert Viewer:** When you receive an alert notification, the notification includes a link to the Alert Viewer.
+  - Drill down into the alert cause (source, point tags, etc.)
+  - Examine related information.
 
-* In Alert Viewer, view related events, point tags, and more
-* In Alerts Browser, investigate all alerts and their state, history, and more.
-* In Alerts Browser, clone, edit, or delete alerts.
-
+* **Alerts Browser:** Allows you to investigate and manage all alerts.
+  - Investigate all alerts and their state, history, and more.
+  - Clone, edit, or delete one or more alerts.
+  - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html)
 
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
@@ -22,7 +25,7 @@ When you receive an alert notification, the notification includes a link to the 
 
 ## Examine an Alert in Alert Viewer
 
-When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information that Alert Viewer displays help you determine what's going on.
+When you receive an alert notification, it includes a link to the alert in Alert Viewer. The related information in Alert Viewer can help you determine what's going on.
 
 ![annotated alert viewer](images/alert_viewer.png)
 
@@ -49,11 +52,12 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 </tr>
 <tr>
 <td width="50%">
-<strong>Affected</strong> helps you determine what is failing. When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order on the Alert Viewer. These point tags become a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than the other tags.</td>
+<strong>Affected</strong> helps you determine what is failing. <br/><br/>
+When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order on the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than the other tags.</td>
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 <tr>
-<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details. 
+<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
 </td>
 <td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Data section"></td>
 </tr>
@@ -67,32 +71,44 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 
 ### How Alert Notifications Include Links
 
-Starting with 2020.22, the alert target mustache syntax supports 2 variables:
+The alert target mustache syntax supports 2 variables:
 * The `url` variable
 * The `charturl` variable
 
-**Alert Notifications Created Before 2020.22**
-
-For any alerts that were created before 2020.14, the `url` variable points to the alert chart. Users who click a link in an alert notification are directed to the chart.
-
-**Alert Notifications Created in 2020.22 and later**
-
-* Simple notification **emails** now include a **View Alert Chart** link that takes you directly to the chart view that was the link target before 2020.22.
-* For Pagerduty, alert target (webhook), and  templated email notifications::
+* Simple notification **emails** now include a **View Alert Chart** link that takes you directly to the chart view.
+* For Pagerduty, alert target (webhook), and  templated email notifications:
   - The link  target of the `url` mustache template variable directs to the new Alert Viewer. 
-  - A new mustache context variable `chartUrl` will take you directly to the chart view that was the link target before 2020.22. 
+  - A new mustache context variable `chartUrl` takes you directly to the chart view. 
 
-{% include note.html content="When you upgrade to 2020.22, already-created alert targets will not be updated to use `chartUrl`. To give users the option to view the chart in Chart Editor, edit existing alert targets." %} 
-
-
-## Examine All Alerts in the Alerts Browser
-
-To view all alerts on your cluster, click the **Alerts** button to display the Alerts browser. You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE.
+{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartURL` to send users to the chart editor." %} 
 
 
-### View an Alert
+## Examine and Manage All Alerts in Alerts Browser
 
-The Alert browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
+You can view and manage all alerts from the Alerts Browser.
+
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<br/>
+Click <strong>Alerts</strong> in the task bar to display the Alerts browser. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
+<td width="40%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in task bar."></td>
+</tr>
+<tr>
+<td width="60%">
+<br/>
+To find exactly the alert(s) you need, type the alert name in the search field or filter, for example, by <strong>State</strong>, <strong>Severity</strong>, or alert tag. For example, you could show alerts that are both FIRING and SEVERE.</td>
+<td width="40%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
+</tr>
+</tbody>
+</table>
+
+
+
+### Examine an Alert
+
+The Alerts browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
 ![Alert firing](images/alert_firing.png)
 
@@ -111,12 +127,12 @@ Here's a summary of what you can do:
 
 To view alert details, click the chart icon in the State column in the Alerts browser.
 * If the alert is in FIRING state, the Alert Viewer displays
-* If the alert is not in FIRING state, chart displays with these queries:
+* If the alert is not in FIRING state, a chart displays with these queries:
 
 - **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
 
-For example, for the alert shown above, the chart displays:
+For example, for the alert shown above, the chart looks like this:
 
 ![Alert queries](images/v2_alert_queries.png)
 
@@ -134,7 +150,6 @@ Alert history shows:
 * A description of the changes.
 You can revert back to or clone a past alert version.
 
-You can also see at a glance [all firing alerts](alerts_states_lifecycle.html#viewing-firing-alerts) from the alert icon in the task bar.
 
 ## Clone or Delete an Alert
 

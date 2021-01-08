@@ -8,11 +8,11 @@ summary: Run PromQL queries in the Wavefront Query Editor
 
 Starting with release 2020.26, Wavefront has supported PromQL queries. In release 2020-46.x, we added admin-level organization settings and a query line GUI that includes a translation option. Here's what's supported:
 * Administrators have control over user defaults:
-  - Administrators can set on the Organization Settings page (New User Defaults) to allow users to write queries in PromQL.
-  - If queries in PromQL are enabled, administrators can set other options.
+  - On the Organization Settings page (New User Defaults) administrators can enable users to write queries in PromQL.
+  - If queries in PromQL are enabled, administrators can also set other options.
 * Users can then type either PromQL or WQL (Wavefront Query Language) queries into the Query Editor.
-  - The Query Editor parses the query correctly depending on the syntax elements (PromQL or Wavefront QL) it encounters. The corresponding chart shows the information you'd expect.
-  - If the Query Editor encounters PromQL, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to WQL and translate the query if they want.
+  - The Query Editor parses the query correctly depending on the syntax elements (PromQL or WQL) it encounters. The corresponding chart shows the information you'd expect.
+  - If the Query Editor encounters a new PromQL query, users can click a button to be in PromQL mode. In PromQL mode, users can see the translation to WQL and translate the query if they want.
   - Users can add charts that use PromQL to dashboards, create alerts from charts that use PromQL, and use PromQL queries in the query line of a Create Alert page.
 
 {% include note.html content="Your Wavefront site administrator controls PromQL behavior. If you don't have some of the features, get in touch with the site administrator." %}
@@ -20,8 +20,8 @@ Starting with release 2020.26, Wavefront has supported PromQL queries. In releas
 ## Set PromQL Organization Settings (Administrator Only)
 
 Users with **Accounts, Groups & Roles**  permissions can toggle the **Organization Settings** to support PromQL.
-* If **PromQL Support** is *not* enabled, other users cannot use PromQL or change PromQL user preferences.
-* If **PromQL Support** is enabled, admins can set additional New User Default query settings, and other users can override those settings.
+* If **PromQL Support** is *not enabled*, other users cannot use PromQL or change PromQL user preferences.
+* If **PromQL Support** is *enabled*, administrators can set additional New User Default query settings, and other users can override those settings.
 
 To set PromQL settings for your organization:
 
@@ -29,18 +29,21 @@ To set PromQL settings for your organization:
 2. Inside **Query Settings**, select the **Users can write queries in PromQL** check box.
 3. Select the default query language for new users.
 4. Enable **Always save queries as WQL** if you expect that some users prefer WQL.
-5. Enable **Show WQL translation** to show a translation hint for all PromQL queries. The translation hint appears if a user is in the Query Editor, the QueryEditor is in PromQL mode, and the query is valid PromQL syntax. Enable this check box if you expect users want to learn WQL.
+5. Enable **Show WQL translation** to show a translation hint for all PromQL queries. Enable this check box if you expect users want to learn WQL. The translation hint appears only if:
+   * The user is in the Query Editor
+   * The Query Editor is in PromQL mode
+   * The query is valid PromQL syntax.
 
 ## Set PromQL User Preferences (All Users)
 
 If an administrator has enabled PromQL Support (discussed above), each user can control some aspects of PromQL.
 
-{% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact a site admin." %}
+{% include note.html content="If you can only choose between Query Editor and Chart Builder, PromQL is not supported on your Wavefront instance. Contact a site administrator with **Accounts, Groups, and Roles** permission." %}
 
 1. From the gear icon, select your name.
 2. In the **Query Settings** section, select
     * The default query language
-    * The default way of building queries. Select Query Builder if you expect to user PromQL frequently. Chart Buider was designed for WQL and doesn't support PromQL.
+    * The default way of building queries. Select Query Editor if you expect to user PromQL frequently. Chart Buider was designed for WQL and doesn't support PromQL.
     * Whether to show a translation to WQL as hover text.
 
 ## Use PromQL in Charts and Alerts
@@ -52,9 +55,9 @@ This example shows how the Query Editor
 <tr>
 <td width="40%">
 <ol><li>Create or edit a chart or alert.</li>
-<li>Start typing your PromQL query. Query Editor recognizes the PromQL query (ts() is not part of the query) and highlights the WQL button to let you switch. </li>
-<li>Switch to PromQL to see the WQL query as translation hint hover text. You can also convert from here.  </li>
-<li>Finally, return to WQL is that's your primary mode of working. </li></ol></td>
+<li>Enter a PromQL query -- that could just be a metric name. Query Editor recognizes the PromQL query (ts() is not part of the query) and highlights the WQL button to let you switch. </li>
+<li>Switch to PromQL to see the WQL query as translation hint hover text.  </li>
+<li>Finally, return to WQL is that's your primary mode of working. The query is translated to WQL unless there's a syntax error. A small number of PromQL constructs are not supported, as discussed below. </li></ol></td>
 <td width="60%"><img src="/images/promql_button.png" alt="metric only in query line, WQL is highlighted">
 <img src="/images/promql_hover.png" alt="query line in promql, with hover text ">
 </td>
@@ -77,17 +80,17 @@ Wavefront supports most PromQL functions and operators out of the box. There are
 <tr>
 <td width="25%"><strong>sort(), sort_desc()</strong>
 </td>
-<td width="75%">PromQL sort() and  sort_desc() show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
+<td width="75%">PromQL <strong>sort()</strong> and  <strong>sort_desc()</strong> show the data order in the Console view. Because Wavefront visualizes queries in charts instead of a console, we don't support this option.
 </td></tr>
 <tr>
 <td width="25%"><strong>count_values()</strong>
 </td>
-<td width="75%">The PromQL <strong>count_values</strong> aggregation function is not supported. <a href="proxies_histograms.html">Wavefront histograms</a> and <a href="query_language_reference.html#histogram-functions">histogram functions</a> allow you to perform the corresponding tasks -- and more!
+<td width="75%">The PromQL count_values aggregation function is not supported. <a href="proxies_histograms.html">Wavefront histograms</a> and <a href="query_language_reference.html#histogram-functions">histogram functions</a> allow you to perform the corresponding tasks -- and more!
 </td></tr>
 <tr>
 <td width="25%"><strong>topk(), bottomk()</strong>
 </td>
-<td width="75%">The topk() and bottomk() functions work slightly differently in PromQL and Wavefront query language.
+<td width="75%">The topk() and bottomk() functions work slightly differently in PromQL and WQL.
 <ul>
 <li>PromQL computes topk() and bottomk() at the point level. It picks the top points at each <strong>timestamp</strong>.</li>
 <li>Wavefront computes topk() and bottomk() at <strong>time series level</strong>. It returns the top or bottom series (based on the avg/min/max... value). </li>
