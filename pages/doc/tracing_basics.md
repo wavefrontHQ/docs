@@ -68,10 +68,15 @@ Get an overview of how the applications and services are linked, understand the 
   <img src="/images/tracing_grid_view_releasenotes.png" alt="grid view of the services grouped by the application"/>
 
 
-### Service Dashboards
+### Service Dashboard
 
 The default, read-only [dashboard for a service](tracing_service_dashboard.html) lets you explore trace data sent by each service in your application.
 ![service dahsboard](/images/service_dashboard_intro.png)
+
+### Operations Dashboard
+
+The [Operations Dashboard](tracing_operations_dashboard.html) shows the RED metrics for each operation. You can view data for each operations using the filters and drill down to the traces browser.
+![operations dashboard](images/tracing_operations_dashboard.png)
 
 ### Traces Browser
 
