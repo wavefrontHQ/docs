@@ -6,8 +6,7 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how Wavefront deals with cardinality.
 ---
-Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. However, high cardinality can cause a system slowdown and metrics retrieval issues. 
-
+Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. The ingestion rates which Wavefront can handle can be more than 4 million metrics per second. Wavefront can handle the cardinality of more than 100,000 containers, and has the querying capacity to support more than 1000 users. Even though we can handle much more data than other monitoring solutions, high cardinality can cause system slowdown and metrics retrieval issues. 
 
 ## What Is Data Cardinality?
 
@@ -16,6 +15,8 @@ Data cardinality is the number of values in a set. For example, in a database, d
 Generally, timeseries data in a simple form is labeled as a name, value, and timestamp. For example,  
 
 `cpu.usage.user 24 1529590428`
+
+**/Note to self/:  Understand how this works.**
 
 In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example, 
 
@@ -38,7 +39,7 @@ Point tags are important for several reasons:
 
 For more information about point tags, see [Fine Tune Queries with Point Tags](query_language_point_tags.html).
 
-## Timeseries Data Cardinality
+## What Is Timeseries Data Cardinality?
 
 Almost all timeseries databases are key-value systems and each unique combination of metric and point tags requires an index entry. When the number of index entries increases, the ingestion and query performance suffer because the read and write operations require scanning larger spaces. 
 
@@ -82,3 +83,5 @@ The dynamic query planner allows for greater query performance at a cost of more
 **Uses FoundationDB as an underlying database**
 
 FoundationDB provides amazing performance on commodity hardware. It is an open-source database that allows you to support very heavy loads.
+
+## Optimizing Your Data for Wavefront
