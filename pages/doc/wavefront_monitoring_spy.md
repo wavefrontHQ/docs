@@ -74,16 +74,23 @@ To get a sampling of points with specific characteristics, add one or more of th
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="15%">Parameter</th><th width="15%">Type</th><th width="70%">Description</th></tr>
 </thead>
 <tr><td markdown="span">metric</td>
+<td>string, optional</td>
 <td markdown="span">List a point only if its metric name starts with the specified case-sensitive prefix. <br> E.g., `metric=Cust` matches metrics named `Customer`, `Customers`, `Customer.alerts`, but not `customer`.</td></tr>
 <tr><td markdown="span">host</td>
+<td>string, optional</td>
 <td>List a point only if its source name starts with the specified case-sensitive prefix. </td></tr>
 <tr><td markdown="span">pointTagKey</td>
+<td>string, optional</td>
 <td markdown="span">List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., `pointTagKey=env&pointTagKey=datacenter` </td></tr>
 <tr><td markdown="span">sampling</td>
+<td>decimal, optional</td>
 <td markdown="span">0 to 1, with 0.01 being 1%.  </td></tr>
+<tr><td markdown="span">wavefrontSource</td>
+<td>string, optional</td>
+<td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source<&gt;></td></tr>
 </tbody>
 </table>
 
