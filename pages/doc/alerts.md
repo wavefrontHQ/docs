@@ -6,7 +6,13 @@ sidebar: doc_sidebar
 permalink: alerts.html
 summary: Learn how alerts work, and how to create and examine them.
 ---
-With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies. When you create an alert, you specify one or more alert targets that receive the alert notification(s). You can view an image of the chart in the alert notification, and click a link to see the alert in context. The end result is fewer false alerts and faster remediation when real issues occur.
+With Wavefront, you can create smart alerts that dynamically filter noise and capture true anomalies.
+* Specify one or more **alert targets** that receive the alert notification(s).
+* Create a **multi-threshold alert** to notify different targets depending on alert severity.
+* View an image of the chart in the alert notification, and click a link to see the alert in context.
+* Examin firing alerts in **Alert Viewer** to get context.
+
+The end result is fewer false alerts and faster remediation when real issues occur.
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you." %}
 
@@ -42,18 +48,23 @@ The rest of this page explains how you can fine-tune the process to get just the
 
 ### Alert Condition
 
-The alert condition is a ts() expression that defines the threshold for an alert.
-* If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all data values that satisfy the condition are marked as `true` (1) and all data values that do not satisfy the condition are marked as `false` (0).
-* If the Condition field is set to a ts() expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are neither true nor false.
+The alert condition defines the threshold for an alert. It's often a ts() expression, but hs() and other expressions are supported as well.
+* If an alert's **Condition** field is set to a conditional expression, for example `ts("requests.latency") > 195`, then:
+  - all data values that satisfy the condition are marked as `true` (1)
+  - all data values that do not satisfy the condition are marked as `false` (0)
+* If the Condition field is set to a non-conditional expression, for example `ts("cpu.loadavg.1m")`, then:
+  - all _non-zero_ data values are marked as `true`
+  - all zero data values are marked as `false`
+  - If there is _no reported data_, then values are neither true nor false.
 
 An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
-* A **classic alert** send a notification with the specified severity to all specified targets.
+* A **classic alert** sends a notification with the specified severity to all specified targets.
 * A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state.
 
 ### Alert Target
 
 Each alert is associated with one or more alert targets. The alert target specifies who to notify when the alert changes state.
-* For classic alerts, you specify a severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
+* For classic alerts, you specify a (single) severity and one or more corresponding alert targets. You can set up email, PagerDuty, and custom alert targets.
 * For multi-threshold alerts, you can specify a different alert target for each threshold, for example, an email target when the alert reaches the INFO threshold and a PagerDuty target when the alert reaches the SEVERE threshold. You can specify only custom alert targets, but it's easy to set up a custom email or PagerDuty alert target.
 
    {% include note.html content="Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity. " %}
@@ -78,7 +89,6 @@ In this video, Jason explains classic alerts while he's showing them in the UI:
 </p>
 
 
-
 ## Creating an Alert
 
 You can create a classic alert with a single severity level (e.g. SEVERE) or a multi-threshold alert, which allows you to customize alert behavior for different thresholds. For each threshold, you select a corresponding severity and one or more targets to notify in case the threshold is met.
@@ -91,7 +101,7 @@ Required fields for a classic alert are:
 * Alert condition
 * Alert severity
 
-You also specify one or more alert targets to notify when the alert fires.
+To notify alert targets when the alert changes state, you can specify targets during alert creation or later.
 
 To create a classic alert:
 
@@ -193,7 +203,7 @@ The display expression can include any valid Wavefront Query Language construct,
 
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
+(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -303,10 +313,11 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </table>
 </li>
 
-<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. You can specify up to ten different targets for each severity. Use commas to separate targets. You cannot specify an email address or PagerDuty key. Instead, you specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. <br/>
+<li>(Recommended) Specify a list of alert targets for each severity. Wavefront notifies the target(s) when the alert changes state, for example, from CHECKING to FIRING, or when the alert is snoozed. Specify names of <a href="webhooks_alert_notification.html">custom alert targets</a> that you already created. You can specify up to ten different targets for each severity. You cannot specify an email address or PagerDuty key directly.<br/>
 <br/>
-{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to all notifications at their severity and above. For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
+{% include note.html content="You cannot associate an alert target with more than one severity. Alert targets subscribe to **all** notifications at their severity and above.<br/> <br/>
 
+For example, an alert target for an INFO severity receives all notifications for INFO, SMOKE, WARN,  and SEVERE. Because notifications potentially go to targets of different severities, you cannot associate an alert target with more than one severity." %}
 </li>
 
 <li>
@@ -322,14 +333,14 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Tags</strong></td>
-<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
+<td markdown="span">Tags assigned to the alert. You can enter existing alert tags or create new alert tags. See [Organizing Related Alerts with Alert Tags](alerts_manage.html#organize-related-alerts-with-alert-tags). </td>
 </tr>
 </tbody>
 </table>
 </li>
 
 <li>
-(Optional) If you are protecting metrics with <a href="metrics_security.html">metrics security policies</a> in your environment, check the **Secure Metrics Details** check box. A simplified alert notification is sent.
+(Optional) If you are protecting metrics in your environment with <a href="metrics_security.html">metrics security policies</a> , check the <strong>Secure Metrics Details</strong> check box. A simplified alert notification is sent.
 
 <table>
 <tbody>
@@ -375,6 +386,6 @@ This video shows how to create a multi-threshold alert:
 </p>
 
 ## Do More!
-* Use Alert Viewer to drill down to the root cause.
-* Clone, delete, or edit an alert.
+* Use [Alert Viewer](alerts_manage.html#examine-an-alert-in-alert-viewer) to drill down to the root cause.
+* Clone, delete, or edit an alert, discussed in [Manage Alerts](alerts_manage.html).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html)
