@@ -85,16 +85,30 @@ The alert target mustache syntax supports 2 variables:
 
 ## Examine and Manage All Alerts in Alerts Browser
 
-To view or manage all alerts on your cluster, click **Alerts** in the task bar to display the Alerts browser. Colored numbers next to **Alerts** show how many alerts are currently firing at which severity.
+You can view and manage all alerts from the Alerts Browser.
 
-alerts_taskbar.png
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<br/>
+Click <strong>Alerts</strong> in the task bar to display the Alerts browser. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
+<td width="40%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in task bar."></td>
+</tr>
+<tr>
+<td width="60%">
+<br/>
+To find exactly the alert(s) you need, type the alert name in the search field or filter, for example, by <strong>State</strong>, <strong>Severity</strong>, or alert tag. For example, you could show alerts that are both FIRING and SEVERE.</td>
+<td width="40%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
+</tr>
+</tbody>
+</table>
 
-You can use alert names or alert tags to [search or filter](wavefront_searching.html) the list of alerts. You can also filter the list by **State** and **Severity**, to view, for example, just the alerts that are both FIRING and SEVERE.
 
 
-### View an Alert
+### Examine an Alert
 
-The Alert browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
+The Alerts browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
 ![Alert firing](images/alert_firing.png)
 
@@ -113,12 +127,12 @@ Here's a summary of what you can do:
 
 To view alert details, click the chart icon in the State column in the Alerts browser.
 * If the alert is in FIRING state, the Alert Viewer displays
-* If the alert is not in FIRING state, chart displays with these queries:
+* If the alert is not in FIRING state, a chart displays with these queries:
 
 - **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
 
-For example, for the alert shown above, the chart displays:
+For example, for the alert shown above, the chart looks like this:
 
 ![Alert queries](images/v2_alert_queries.png)
 
@@ -136,7 +150,6 @@ Alert history shows:
 * A description of the changes.
 You can revert back to or clone a past alert version.
 
-You can also see at a glance [all firing alerts](alerts_states_lifecycle.html#viewing-firing-alerts) from the alert icon in the task bar.
 
 ## Clone or Delete an Alert
 
