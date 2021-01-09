@@ -152,7 +152,7 @@ For example, the following integration is in the Error state because metrics hav
 
 ## More Info
 
-On our [wavefront.com](http://www.wavefront.com){:target="_blank" rel="noopenner noreferrer"} site we have several blog posts with use cases and background info:
-* [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://www.wavefront.com/gcp-metrics/){:target="_blank" rel="noopenner noreferrer"}
-* [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://www.wavefront.com/mongodb-metrics/){:target="_blank" rel="noopenner noreferrer"}
-* [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://www.wavefront.com/monitoring-apache-http-server-wavefront-metrics-driven-analytics/){:target="_blank" rel="noopenner noreferrer"}
+On our [tanzu/observability](https://tanzu.vmware.com/observability) pages we have several blog posts with use cases and background info:
+* [Google Cloud Monitoring Using Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/google-cloud-monitoring-using-wavefront-metrics-driven-analytics)
+* [Monitor MongoDB Metrics for Better Scaling and Optimized Database Performance](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-mongodb-metrics-for-better-scaling-and-optimized-database-performance)
+* [Monitoring Apache HTTP Server with Wavefront Metrics-Driven Analytics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apache-http-server-with-wavefront-metrics-driven-analytics)

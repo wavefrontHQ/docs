@@ -70,7 +70,7 @@ Delta counters are useful if you want to combine points that come in at the same
 ![telegraf and delta_counters](images/delta_metrics_telegraph.png)
 * You want to aggregate counters across multiple apps. For example, Wavefront uses delta counters for the [logs to metrics Wavefront integration](integrations_log_data.html).
 
-For more on delta counter use cases, see the blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://www.wavefront.com/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters/)
+For more on delta counter use cases, see the blog [Monitoring Apps in the Serverless World: Introducing Wavefront Delta Counters](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitoring-apps-in-the-serverless-world-part-2-introducing-wavefront-delta-counters)
 
 
 ### Example: Monitoring AWS Lambda with Delta Counters

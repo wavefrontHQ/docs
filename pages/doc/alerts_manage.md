@@ -7,9 +7,7 @@ permalink: alerts_manage.html
 summary: Learn how to examine and fine-tune alerts.
 ---
 
-Alerts notify when there's a problem, and support finding the root cause of a problem quickly.
-
-Wavefront has two GUIs:
+Alerts notify when there's a problem, and support finding the root cause of a problem quickly. Wavefront has two GUIs:
 * **Alert Viewer:** When you receive an alert notification, the notification includes a link to the Alert Viewer.
   - Drill down into the alert cause (source, point tags, etc.)
   - Examine related information.
@@ -18,7 +16,6 @@ Wavefront has two GUIs:
   - Investigate all alerts and their state, history, and more.
   - Clone, edit, or delete one or more alerts.
   - Snooze alerts or put them in [maintenance mode](maintenance_windows_managing.html)
-
 
 {% include note.html content="All users can view alerts. You need Alerts permissions to create and modify alerts. If some of the alerts in your environment are under [access control](access.html), you can view or view and modify those alerts only if they've been shared with you.  " %}
 
@@ -139,10 +136,21 @@ For example, for the alert shown above, the chart looks like this:
 
 ### View Alert History
 
-Alert history shows the changes that have been made to an alert over time. To access the alert history, click the three dots to the left of the alert in the Alerts browser and click **Versions**:
 
-![Alert queries](images/alert_history.png)
 
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<br/>
+Alert history shows the changes that have been made to an alert over time.<br/>
+
+To access the alert history, click the three dots to the left of the alert in the Alerts browser and click <strong>Versions</strong>.
+</td>
+<td width="40%"><img src="images/alert_history.png" alt="alert history selected in menu"></td>
+</tr>
+</tbody>
+</table>
 
 Alert history shows:
 * Which user made the changes.
@@ -154,13 +162,26 @@ You can revert back to or clone a past alert version.
 ## Clone or Delete an Alert
 
 If you want to make copies of an existing alert, then change the copy slightly, you can clone the alert.
-1. Cick the **Alerts** button to display the Alerts page.
-2. Click the 3 dots to the left of the alert.
 
-   ![Alert cloning](images/clone_alert.png)
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">
+<br/>
+<ol>
+<li>Cick the <strong>Alerts</strong> button to display the Alerts page. </li>
+<li> Click the 3 dots to the left of the alert.</li>
+<ul>
+<li>To clone an alert, click <strong>Clone</strong>, make changes when prompted, and click <strong>Save</strong>. </li>
+<li>To delete an alert, click <strong>Delete</strong> and confirm the deletion. </li>
+</ul>
+</ol>
+</td>
+<td width="40%"><img src="images/clone_alert.png" alt="ellipsis menu with Clone selected"></td>
+</tr>
+</tbody>
+</table>
 
-   * To clone an alert, click **Clone**, make changes when prompted, and click **Save**.
-   * To delete an alert, click **Delete** and confirm the deletion.
 
 ## Edit an Alert
 
@@ -230,6 +251,6 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 
 ## Do More!
 
-* Read the [blog about Alert Viewer](https://www.wavefront.com/wavefront-introduces-alert-viewer-enabling-faster-ai-driven-incident-triaging/) from December 2019
+* Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019
 * Create a [classic alert](alerts.html#creating-a-classic-alert) or a [multi-threshold alert](alerts.html#creating-a-multi-threshold-alert).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html)

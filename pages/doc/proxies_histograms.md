@@ -18,8 +18,8 @@ Watch this video for an introduction to histograms:
 </p>
 
 The following blog posts give some background information:
-* [What if I Told You Your Monitoring Data is Lying: Why Histograms are Critical for Accurate Reporting of Hi-Velocity Metrics](https://www.wavefront.com/why-histograms-critical-for-reporting-hi-velocity-metrics/)
-* [How the Metric Histogram Type Works: True Visibility into High-Velocity Application Metrics](https://www.wavefront.com/metric-histogram-type-works-true-visibility-high-velocity-application-metrics-part-2-2-2-2/)
+* [What if I Told You Your Monitoring Data is Lying: Why Histograms are Critical for Accurate Reporting of Hi-Velocity Metrics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/what-if-i-told-you-your-monitoring-data-is-lying-why-histograms-are-critical-for-accurate-reporting-of-hi-velocity-metrics-part-1-of-2)
+* [How the Metric Histogram Type Works: True Visibility into High-Velocity Application Metrics](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/how-the-metric-histogram-type-works-true-visibility-into-high-velocity-application-metrics-part-2-of-2)
 
 
 ## Why Use Histograms?

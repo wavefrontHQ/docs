@@ -19,7 +19,7 @@ This page explains how to create and manage a custom alert target.
 
 * You can further [customize the contents](alert_target_customizing.html) of the alert notifications using Moustache syntax.
 
-* Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://www.wavefront.com/engineering-tips-series-wavefronts-devops-team-uses-alert-targets-provide-exceptional-quality-services-customers/) explains how alert targets help Wavefront to keep things running smoothly.
+* Our blog post [Engineering Tips Series: How Wavefront's Devops Team Uses Alert Targets to Provide Exceptional Quality of Services to Customers](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/engineering-tips-series-how-wavefront-s-devops-team-uses-alert-targets-to-provide-exceptional-quality-of-services-to-customers) explains how alert targets help Wavefront to keep things running smoothly.
 
 * For the following integrations, you can follow the steps in the integration. Log in to your Wavefront instance or look at the following pages:
   - [PagerDuty Integration](pagerduty.html)
@@ -191,7 +191,7 @@ The process for creating an alert target is similar for the different types of t
         |source|&lt;source name&gt; |
         |metric|&lt;metric name&gt;|
         |&lt;point tag name&gt;|&lt;point tag value&gt;|
-  
+
   {% include note.html content="You must specify either default recipients or recipients determined by routing." %}
 
   The screenshot below shows this for alert targets of type email.
