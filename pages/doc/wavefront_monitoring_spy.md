@@ -65,32 +65,41 @@ Your Wavefront instance includes an HTTP endpoint that returns a sampling of the
 
 To get a sampling of ingested data points, use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```
+```
   https://<cluster>.wavefront.com/api/spy/points
-  ```
+```
 
 To get a sampling of points with specific characteristics, add one or more of the following parameters:
 
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="15%">Type</th><th width="70%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="20%">Type</th><th width="60%">Description</th></tr>
 </thead>
-<tr><td markdown="span">metric</td>
+<tr><td markdown="span">**metric**</td>
 <td>string, optional</td>
 <td markdown="span">List a point only if its metric name starts with the specified case-sensitive prefix. <br> E.g., `metric=Cust` matches metrics named `Customer`, `Customers`, `Customer.alerts`, but not `customer`.</td></tr>
-<tr><td markdown="span">host</td>
+<tr><td markdown="span">**host**</td>
 <td>string, optional</td>
 <td>List a point only if its source name starts with the specified case-sensitive prefix. </td></tr>
-<tr><td markdown="span">pointTagKey</td>
+<tr><td markdown="span">**pointTagKey**</td>
 <td>string, optional</td>
 <td markdown="span">List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., `pointTagKey=env&pointTagKey=datacenter` </td></tr>
-<tr><td markdown="span">sampling</td>
+<tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
 <td markdown="span">0 to 1, with 0.01 being 1%.  </td></tr>
-<tr><td markdown="span">wavefrontSource</td>
+<tr><td markdown="span">**wavefrontSource**</td>
 <td>string, optional</td>
-<td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source<&gt;></td></tr>
+<td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
+<tr><td markdown="span">**usage**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether usage information is shown. </td></tr>
+<tr><td markdown="span">**usageThresholdDays**</td>
+<td>integer, optional</td>
+<td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
+<tr><td markdown="span">**includeScalingFactor**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
 
@@ -142,25 +151,41 @@ You can use the returned list to help you answer questions like:
 
 To get a sample of ingested delta counters (post aggregation), use the following endpoint. Replace `<cluster>` with the name of your Wavefront instance:
 
-  ```
-  https://<cluster>.wavefront.com/api/spy/deltas
-  ```
+```
+https://<cluster>.wavefront.com/api/spy/deltas
+```
 
 To get a sample of delta counters with specific characteristics, add one or more of the following parameters:
 
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="20%">Type</th><th width="60%">Description</th></tr>
 </thead>
-<tr><td markdown="span">counter</td>
+<tr><td markdown="span">**counter**</td>
+<td>string, optional</td>
 <td markdown="span">List a delta counter only if its name starts with the specified case-sensitive prefix <br> E.g., `counter=Cust` matches counters named `Customer`, `Customers`, `Customer.alerts`, but not `customer`.</td></tr>
-<tr><td markdown="span">host</td>
+<tr><td markdown="span">**host**</td>
+<td>string, optional</td>
 <td>List a delta counter only if its source name starts with the specified case-sensitive prefix. </td></tr>
-<tr><td markdown="span">counterTagKey</td>
+<tr><td markdown="span">**counterTagKey**</td>
+<td>string, optional</td>
 <td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counteragKey=env&counterTagKey=datacenter` </td></tr>
-<tr><td markdown="span">sampling</td>
+<tr><td markdown="span">**sampling**</td>
+<td>decimal, optional</td>
 <td markdown="span">0 to 1, with 0.01 being 1%.  </td></tr>
+<tr><td markdown="span">**wavefrontSource**</td>
+<td>string, optional</td>
+<td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
+<tr><td markdown="span">**usage**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether usage information is shown. </td></tr>
+<tr><td markdown="span">**usageThresholdDays**</td>
+<td>integer, optional</td>
+<td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
+<tr><td markdown="span">**includeScalingFactor**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
 
@@ -221,17 +246,32 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="20%">Parameter</th><th width="80%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="20%">Type</th><th width="60%">Description</th></tr>
 </thead>
-<tr><td markdown="span">histogram</td>
+<tr><td markdown="span">**histogram**</td>
+<td>string, optional</td>
 <td markdown="span">List a histogram only if its name starts with the specified case-sensitive prefix. <br> E.g., `histogram=orderShirt` matches histograms named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
-<tr><td markdown="span">host</td>
+<tr><td markdown="span">**host**</td>
+<td>string, optional</td>
 <td>List a histogram only if the name of its source starts with the specified case-sensitive prefix. </td></tr>
-<tr><td markdown="span">histogramTagKey</td>
+<tr><td markdown="span">**histogramTagKey**</td>
+<td>string, optional</td>
 <td markdown="span">List a histogram only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. `histogramTagKey=cluster&histogramTagKey=shard` </td></tr>
-<tr><td markdown="span">sampling</td>
-<td markdown="span">0 to 1, with 0.01 being 1% (the default). Sampling rate affects the display. For example, if you set the rate to 30, then spy only shows 30% of results.
- </td></tr>
+<tr><td markdown="span">**sampling**</td>
+<td>decimal, optional</td>
+<td markdown="span">0 to 1, with 0.01 being 1% (the default). Sampling rate affects the display. For example, if you set the rate to 30, then spy only shows 30% of results.</td></tr>
+<tr><td markdown="span">**wavefrontSource**</td>
+<td>string, optional</td>
+<td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
+<tr><td markdown="span">**usage**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether usage information is shown. </td></tr>
+<tr><td markdown="span">**usageThresholdDays**</td>
+<td>integer, optional</td>
+<td markdown="span">If **usage** is set to true, specifies the number of days to look back to determine whether data has been accessed; defaults to 7</td></tr>
+<tr><td markdown="span">**includeScalingFactor**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
 
@@ -292,15 +332,19 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="20%">Type</th><th width="60%">Description</th></tr>
 </thead>
-<tr><td markdown="span">name</td>
+<tr><td markdown="span">**name**</td>
+<td>string, optional</td>
 <td markdown="span">List a span only if its operation name starts with the specified case-sensitive prefix. <br> E.g., `name=orderShirt` matches spans named `orderShirt` and `orderShirts`, but not `OrderShirts`.</td></tr>
-<tr><td markdown="span">host</td>
+<tr><td markdown="span">**hostPrefix**</td>
+<td>string, optional</td>
 <td>List a span only if the name of its source starts with the specified case-sensitive prefix. </td></tr>
-<tr><td markdown="span">spanTagKey</td>
+<tr><td markdown="span">**spanTagKey**</td>
+<td>string, optional</td>
 <td markdown="span">List a span only if it has the specified span tag key. Add this parameter multiple times to specify multiple span tags, e.g. `spanTagKey=cluster&spanTagKey=shard` </td></tr>
-<tr><td markdown="span">sampling</td>
+<tr><td markdown="span">**sampling**</td>
+<td>decimal, optional</td>
 <td markdown="span">0 to 1, with 0.01 being 1%.
  </td></tr>
 </tbody>
@@ -365,9 +409,10 @@ By default, the sampling rate is 1%, which means Wavefront returns 1% of the dat
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="20%">Type</th><th width="60%">Description</th></tr>
 </thead>
-<tr><td markdown="span">sampling</td>
+<tr><td markdown="span">**sampling**</td>
+<td>decimal, optional</td>
 <td markdown="span">0 to 1, with 0.01 being 1%.
  </td></tr>
 </tbody>
@@ -399,9 +444,13 @@ To get ID assignments for a specific type of new item, add one or more of the fo
 <table width="100%">
 <tbody>
 <thead>
-<tr><th width="15%">Parameter</th><th width="85%">Description</th></tr>
+<tr><th width="20%">Parameter</th><th width="20%">Type</th><th width="60%">Description</th></tr>
 </thead>
-<tr><td markdown="span">type</td>
+<tr><td markdown="span">**name**</td>
+<td>string, optional </td>
+<td>Case-sensitive prefix for the items that you are interested in. </td></tr>
+<tr><td markdown="span">**type**</td>
+<td>string, optional </td>
 <td>
 Type of new items you want to see ID assignments for:
 <ul><li>
@@ -417,15 +466,15 @@ HOST - Source names
 STRING - Point tags or span tags, represented as a single string containing a unique key-value pair, e.g. `env=prod`, `env=dev`, etc.
 </li>
 </ul>
-
 </td></tr>
-<tr><td markdown="span">name</td>
-<td>Case-sensitive prefix for the items that you are interested in. </td></tr>
-<tr><td markdown="span">sampling</td>
+<tr><td markdown="span">**sampling**</td>
+<td>decimal, optional </td>
 <td markdown="span">0 to 1, with 0.01 being 1% </td></tr>
+<tr><td markdown="span">**includeScalingFactor**</td>
+<td>boolean, optional</td>
+<td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
 </tbody>
 </table>
-
 
 
 ### Example Requests for New IDs
