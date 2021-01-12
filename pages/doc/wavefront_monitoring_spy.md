@@ -87,7 +87,7 @@ To get a sampling of points with specific characteristics, add one or more of th
 <td markdown="span">List a point only if it has the specified point tag key. Add this parameter multiple times to specify multiple point tags, e.g., `pointTagKey=env&pointTagKey=datacenter` </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
-<td markdown="span">0 to 1, with 0.01 being 1%.  </td></tr>
+<td markdown="span">0 to .05, with 0.05 being 5%.  </td></tr>
 <tr><td markdown="span">**wavefrontSource**</td>
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
@@ -173,7 +173,7 @@ To get a sample of delta counters with specific characteristics, add one or more
 <td markdown="span">List a delta counter only if it has the specified tag key. Add this parameter multiple times to specify multiple point tags, e.g., `counteragKey=env&counterTagKey=datacenter` </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
-<td markdown="span">0 to 1, with 0.01 being 1%.  </td></tr>
+<td markdown="span">0 to .05, with 0.05 being 5%  </td></tr>
 <tr><td markdown="span">**wavefrontSource**</td>
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
@@ -224,7 +224,7 @@ Suppose you have a Wavefront instance named `ex1`.
 
 ## Get Ingested Histograms with Spy
 
-Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics. Sampling rate here is a display sampling rate (1% by default). For example, if you set the rate to 0.3, then spy shows 30% of results. By default, sampling rate is 1%, which means we return 1% of the data.
+Your Wavefront instance includes an HTTP endpoint that returns a sampling of ingested histograms with specified characteristics.
 
 You can use the returned list of histograms to help you answer questions like this:
 
@@ -259,7 +259,7 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <td markdown="span">List a histogram only if it has the specified tag key. Add this parameter multiple times to specify multiple tags, e.g. `histogramTagKey=cluster&histogramTagKey=shard` </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
-<td markdown="span">0 to 1, with 0.01 being 1% (the default). Sampling rate affects the display. For example, if you set the rate to 30, then spy only shows 30% of results.</td></tr>
+<td markdown="span">0 to .05, with 0.05 being 5%</td></tr>
 <tr><td markdown="span">**wavefrontSource**</td>
 <td>string, optional</td>
 <td markdown="span">Filter for only points that are ingested through a particular proxy or user's token. To filter for a certain proxy, use this syntax: <code>proxy::&lt;proxy_source&gt;</td></tr>
@@ -345,7 +345,7 @@ To get a sampling of spans with specific characteristics, add one or more of the
 <td markdown="span">List a span only if it has the specified span tag key. Add this parameter multiple times to specify multiple span tags, e.g. `spanTagKey=cluster&spanTagKey=shard` </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
-<td markdown="span">0 to 1, with 0.01 being 1%.
+<td markdown="span">0 to .05, with 0.05 being 5%.
  </td></tr>
 </tbody>
 </table>
@@ -413,7 +413,7 @@ By default, the sampling rate is 1%, which means Wavefront returns 1% of the dat
 </thead>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional</td>
-<td markdown="span">0 to 1, with 0.01 being 1%.
+<td markdown="span">0 to .05, with 0.05 being 5%.
  </td></tr>
 </tbody>
 </table>
@@ -469,7 +469,7 @@ STRING - Point tags or span tags, represented as a single string containing a un
 </td></tr>
 <tr><td markdown="span">**sampling**</td>
 <td>decimal, optional </td>
-<td markdown="span">0 to 1, with 0.01 being 1% </td></tr>
+<td markdown="span">0 to .05, with 0.05 being 5%</td></tr>
 <tr><td markdown="span">**includeScalingFactor**</td>
 <td>boolean, optional</td>
 <td markdown="span">Flag that determines whether the number of data ingesters is included in the output.</td></tr>
