@@ -75,8 +75,8 @@ The default, read-only [dashboard for a service](tracing_service_dashboard.html)
 
 ### Operations Dashboard
 
-The [Operations Dashboard](tracing_operations_dashboard.html) shows the RED metrics for each operation. You can view data for each operations using the filters and drill down to the traces browser.
-![operations dashboard](images/tracing_operations_dashboard.png)
+The [Operations Dashboard](tracing_operation_dashboard.html) shows the RED metrics for each operation. You can view data for each operations using the filters and drill down to the traces browser.
+![operations dashboard](images/tracing_operations_dashboard_intro.png)
 
 ### Traces Browser
 
