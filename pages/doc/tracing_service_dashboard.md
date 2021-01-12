@@ -7,7 +7,7 @@ permalink: tracing_service_dashboard.html
 summary: Identify potential hot spots of a service.
 ---
 
-Use the Service Dashboard identify potential hot spots, and then drill down to the Traces Browser.
+Use the Service Dashboard to identify potential hot spots, and then drill down to the Traces Browser.
 
 ## Explore the Default Service Dashboard
 
