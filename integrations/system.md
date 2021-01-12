@@ -17,5 +17,7 @@ The **Committed Rate and Monthly Usage (PPS P95)** displays a detailed breakdown
 
 Wavefront internal metrics have the following [prefixes](https://docs.wavefront.com/wavefront_monitoring.html#using-internal-metrics-to-optimize-performance)
 
+To modify the **Wavefront Usage alerts**, install them and clone them. You must update the required fields in cloned alerts.
+
 
 
