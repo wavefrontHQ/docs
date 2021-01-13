@@ -22,7 +22,7 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 30 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
-Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
+Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
 
 ### Why do I not see a link to access the Wavefront service on start-up?
 
@@ -32,7 +32,7 @@ Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #sp
 
 ### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
 * If you are just trying out Wavefront, see [Manage Service Accounts](accounts.html#service-accounts) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
+* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
 
 ### How do I set up an email/password login to the account?
 
