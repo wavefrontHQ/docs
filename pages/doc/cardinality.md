@@ -6,7 +6,7 @@ sidebar: doc_sidebar
 permalink: cardinality.html
 summary: Learn about how Wavefront deals with cardinality.
 ---
-Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. The ingestion rates which Wavefront can handle can be more than 4 million metrics per second. Wavefront can handle the cardinality of more than 100,000 containers, and has the querying capacity to support more than 1000 users. Even though we can handle much more data than other monitoring solutions, high cardinality can cause system slowdown and metrics retrieval issues. 
+Wavefront supports high cardinality when dealing with timeseries data and infinite cardinality in its distributed tracing offering. The ingestion rates which Wavefront can handle can be more than 4 million metrics per second. Wavefront can handle the cardinality of more than 200,000 concurrently running containers per Kubernetes cluster. Wavefront has the querying capacity to support more than 1000 users. Even though Wavefront can handle much more data than other monitoring solutions, high cardinality can cause system slowdown and metrics retrieval issues. 
 
 ## What Is Data Cardinality?
 
@@ -16,7 +16,7 @@ Generally, timeseries data in a simple form is labeled as a name, value, and tim
 
 `cpu.usage.user 24 1529590428`
 
-**/Note to self/:  Understand how this works.**
+**/Question/:  Shouldn't the next thing be the source instead of 1529590428?**
 
 In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example, 
 
@@ -24,11 +24,13 @@ In Wavefront, we enhance the data with tags and indexes, so that it has more con
 
 Containerized environments typically also include the container ID and pod name: 
 
+**/Question/:  How do we use pod names? Shouldn’t be source, but does it make sense to use it as a point tag?**
+
 `cpu.usage.user 24 1529590428 source=mysystem service=auth env=prod containerid=6af39d33 podname=auth-coreapp-6m984d`
 
 ## Timeseries Data Cardinality on Containers
 
-Containerized environments are dynamic, ephemeral, and rapidly scaling. In containerized environments, the container IDs often change, which may cause high cardinality in the system. To add additional context on the deployments, a point tag is usually  also added. Thus, the number of unique combinations of point tags might increase exponentially.
+Containerized environments are dynamic, ephemeral, and rapidly scaling. In containerized environments, the container IDs often change, which might cause high cardinality in the system. To add additional context on the deployments, a point tag is usually  also added. Thus, the number of unique combinations of point tags might increase exponentially.
 
 Point tags are important for several reasons:
 
@@ -49,11 +51,11 @@ When you deploy a large system, there’s a rapid burst of new index entries, wh
 ## Wavefront and High Cardinality
 
 
-Wavefront supports high cardinality for time series data, because the data is very easily manipulated and easily retrieved. If you have data points, which appear once or twice in the system, the database no longer stores this data as timeseries information. In such a case, or if you want to look into individual data points, for example single user requests, you should use the distributed tracing offering which allows you to drill down into such data. For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
+Wavefront supports high cardinality for time series data because the data is very easily manipulated and easily retrieved. If you have data points, which appear once or twice in the system, the database no longer stores this data as timeseries information. In such a case, or if you want to look into individual data points, for example single user requests, you should use the distributed tracing offering which allows you to drill down into such data. For more information, watch the following video, in which the Wavefront co-founder Clement Pang explains cardinality.
 
 <a href="https://youtu.be/8wKPkrIiXKw" target="_blank"><img src="/images/v_cardinality.png" style="width: 700px;" alt="about cardinality"/></a>
 
-Wavefront usually deals gracefully with high cardinality, because it has the following features:
+Wavefront usually deals gracefully with high cardinality because it has the following features:
 
 **Applies top-down and bottom-up indexes**
 
@@ -64,6 +66,8 @@ A second tag value index allows for queries filtered by tag values to retain hig
 **Keeps the most recent indexes**
 
 In Wavefront, indexes that deal with current data are kept in fast memory. Wavefront moves the indexes that have not received new data for 4 weeks to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
+
+**/Question/:  Where do we store obsolete data?**
 
 **Uses correlated tagging**
 
@@ -82,6 +86,10 @@ The dynamic query planner allows for greater query performance at a cost of more
 
 **Uses FoundationDB as an underlying database**
 
+**/Question/:  Is it okay to include information about the database here?**
+
 FoundationDB provides amazing performance on commodity hardware. It is an open-source database that allows you to support very heavy loads.
 
 ## Optimizing Your Data for Wavefront
+
+**/Question/: Need some guidance for customers. How do they optimize the data so that they avoid high cardinality issues?**
