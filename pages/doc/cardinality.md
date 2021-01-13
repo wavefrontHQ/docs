@@ -16,15 +16,13 @@ Generally, timeseries data in a simple form is labeled as a name, value, and tim
 
 `cpu.usage.user 24 1529590428`
 
-**/Question/:  Shouldn't the next thing be the source instead of 1529590428?**
-
 In Wavefront, we enhance the data with tags and indexes, so that it has more context. For example, 
 
 `cpu.usage.user 24 1529590428 source=mysystem service=auth env=prod`
 
 Containerized environments typically also include the container ID and pod name: 
 
-**/Question/:  How do we use pod names? Shouldn’t be source, but does it make sense to use it as a point tag?**
+**/Question/: How do we use the pod names in Wavefront? Does it make sense to use the pod name as a point tag or we can use it as a source?**
 
 `cpu.usage.user 24 1529590428 source=mysystem service=auth env=prod containerid=6af39d33 podname=auth-coreapp-6m984d`
 
@@ -67,7 +65,7 @@ A second tag value index allows for queries filtered by tag values to retain hig
 
 In Wavefront, indexes that deal with current data are kept in fast memory. Wavefront moves the indexes that have not received new data for 4 weeks to older storage. Containerized environments benefit especially from this because of the ephemeral nature of the generated indexes.
 
-**/Question/:  Where do we store obsolete data?**
+**/Question/:  Where do we store obsolete data? Does it make sense to tell customers where obsolete data is stored?**
 
 **Uses correlated tagging**
 
@@ -86,9 +84,9 @@ The dynamic query planner allows for greater query performance at a cost of more
 
 **Uses FoundationDB as an underlying database**
 
-**/Question/:  Is it okay to include information about the database here?**
+**/Question/:  Is it okay to include the information that Wavefront uses FoundationDB?**
 
-FoundationDB provides amazing performance on commodity hardware. It is an open-source database that allows you to support very heavy loads.
+FoundationDB provides excellent performance on commodity hardware. It is an open-source database that allows you to support very heavy loads.
 
 ## Optimizing Your Data for Wavefront
 
