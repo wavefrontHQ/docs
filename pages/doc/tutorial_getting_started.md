@@ -15,7 +15,7 @@ This tutorial uses Wavefront sample data to get you started.
 
 To complete these tasks you need:
 <ul>
-<li><strong>Access to a Wavefront instance</strong>. If your company doesn't have one, sign up for a <a href="https://www.wavefront.com/sign-up/" target="_blank" rel="noopenner noreferrer">free trial</a></li>
+<li><strong>Access to a Wavefront instance</strong>. If your company doesn't have one, sign up for a <a href="https://tanzu.vmware.com/observability">free trial</a></li>
 <li><strong>Dashboard permission and Alert permission</strong>. Trial users have these permissions. If you're not in a trial, your Wavefront administrator can grant the permissions if you don't have them.</li>
 </ul></td>
 <td width="20%"><a href="tutorial_getting_started_v1.html"><img src="/images/classic_button.png" alt="click here for the classic doc"/></a></td>
@@ -29,7 +29,7 @@ To complete these tasks you need:
 
 This doc set and the VMware Learning Zone include videos that help you understand basic concepts, learn the mechanics of customizing the Wavefront UI, and use advanced features.
 
-Start with [Basic Concept](videos_quickstart.html) videos and [Getting Started](videos_howto_start.html) videos that explain the basics. Then move on to learn in more detail about [dashboards and charts](videos_dashboards_charts.html), [alerts](videos_alerts.html) and more. 
+Start with [Basic Concept](videos_quickstart.html) videos and [Getting Started](videos_howto_start.html) videos that explain the basics. Then move on to learn in more detail about [dashboards and charts](videos_dashboards_charts.html), [alerts](videos_alerts.html) and more.
 
 ## Review Sample Dashboards and Metrics
 

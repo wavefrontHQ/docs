@@ -103,7 +103,7 @@ Choose the Wavefront OpenTracing SDK for your microservice's programming languag
 
 ### Instrument Your OpenTracing Java Application Without Writing Code
 
-If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://www.wavefront.com/wavefront-tracing-agent-for-java/).
+If you need application observability, but don't want to instrument code for your Java microservices, use the [Wavefront Java Tracing Agent](https://github.com/wavefrontHQ/wavefront-opentracing-bundle-java). For more information, see [this blog post on the Wavefront Java Tracing Agent](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/wavefront-introduces-java-tracing-agent-delivering-out-of-the-box-application-observability).
 
 <div class="row">
    <div class="col-md-3 col-sm-6">
@@ -143,9 +143,9 @@ If you have already instrumented your application with Jaeger or Zipkin follow t
        </div>
      </div>
 
-     
+
      {% include note.html content="You can use OpenTracing or OpenTelemetry (OpenTracing and OpenCensus have merged to form OpenTelemetry) to send traces to Wavefront using the Jaeger or Zipkin integration. See [OpenTelemetry](opentelemetry.html#sending-trace-data-to-wavefront) for details." %}
-     
+
  2. Optionally, add custom tags, applications names, or use an alternative for the Jaeger or Zipkin integration. See [Using Jaeger or Zipkin with Wavefront](tracing_integrations.html) for details.
 
 After your recompiled application starts running, start [exploring your custom trace data](tracing_traces_browser.html) and the [metrics and histograms that are automatically derived](trace_data_details.html#red-metrics) from your trace data.
@@ -240,7 +240,7 @@ When you use a Sender SDK, you won’t see span-level RED metrics by default. Th
 
 ## Next Steps
 
-Examine traces, spans, and RED metric sent by your application. 
+Examine traces, spans, and RED metric sent by your application.
 * See [Application Status](tracing_ui_overview.html).
 * See [Service Dashboard](tracing_service_dashboard.html).
 * See [Traces Browser](tracing_traces_browser.html).

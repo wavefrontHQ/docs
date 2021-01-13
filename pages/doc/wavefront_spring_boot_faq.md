@@ -22,7 +22,7 @@ summary: Get answers to your questions about Wavefront for Spring Boot
 
 While this is subject to changes at any time, we currently retain 5 days of data and offer no SLA on the free Wavefront cluster. Production Wavefront clusters currently offer 18 months of full-resolution (no downsampling) data retention for metrics, 6 months for histograms, and 30 days for spans. We also have a 99.95% uptime guarantee, as well as High Availability (HA) and Disaster Recovery (DR) options.
 
-Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #springboot public channel for more information.
+Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
 
 ### Why do I not see a link to access the Wavefront service on start-up?
 
@@ -32,7 +32,7 @@ Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #spr
 
 ### How do I ensure I send data to the same account all the time (across multiple machines and deployments)?
 * If you are just trying out Wavefront, see [Manage Service Accounts](accounts.html#service-accounts) to create a service account that has a static token for reporting. Once you have the token, add it to the `application.properties` file.
-* If you want to use Wavefront in a larger deployment, sign-up for a Wavefront trial at [www.wavefront.com](https://www.wavefront.com) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](https://www.wavefront.com/slack-us) and join the #springboot public channel for more information.
+* If you want to use Wavefront in a larger deployment, sign up for [a Wavefront trial] (https://tanzu.vmware.com/observability) and see [Manage Service Accounts](accounts.html#service-accounts) to learn how to create a service account. Next, add the token and URL to the `application.properties` file. We can help you with sizing and designing large-scale collection architectures for metrics, histograms, and traces. Reach out to us on [Slack](www.wavefront.com/join-public-slack) and join the #springboot public channel for more information.
 
 ### How do I set up an email/password login to the account?
 
@@ -53,7 +53,7 @@ Starting in September 2020, we support the [Wavefront Spring Boot starter](https
 * **Wavefront Spring Boot Integration** Wavefront customers and trial users can access the Wavefront Spring Boot integration directly from their clusters.
 * **Wavefront for Spring Boot Starter**<br/> If you configure your application with the Wavefront for Spring Boot starter, you can send metrics, histograms, and traces/spans to the Wavefront service. Once the data is in Wavefront, you can view your data, find hotspots, and gather more data.
   - **Freemium** All users can run the Spring Boot Starter with the default settings to view their data in the Wavefront Freemium instance. Certain limitations apply, for example, alerts are not available, but you don't have to sign up.
-  - **Wavefront Customer or Trial User** Wavefront customers or trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial here](https://www.wavefront.com/sign-up/).
+  - **Wavefront Customer or Trial User** Wavefront customers or trial users can modify the default Wavefront Spring Boot Starter to send data to their cluster. You can sign up for a [free 30-day trial](https://tanzu.vmware.com/observability).
 
 ### (NEW) How can I see my metrics? How can I see my traces?
 

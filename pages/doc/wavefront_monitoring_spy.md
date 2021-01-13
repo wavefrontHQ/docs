@@ -15,7 +15,7 @@ Your Wavefront instance includes HTTP `spy` endpoints for sampling the data that
 
 Use spy to extract information programmatically. This page gives details on the available endpoints and associated parameters.
 
-Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [Github](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://www.wavefront.com/wavefront-top-monitor-your-wavefront-instance-in-just-three-clicks/), or watch a short video.
+Use Wavefront top if you want a keyboard-driven UI that's similar to the Linux top UI. The tool is open source and on [Github](https://github.com/wavefrontHQ/wftop). You can also read [the blog that Joanna prepared](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/monitor-and-optimize-data-ingestion-by-wavefront-across-your-organization-introducing-wavefront-top), or watch a short video.
 
 <p><a href="https://youtu.be/XROitQwFCJs"><img src="/images/v_wftop.png" style="width: 700px;"/></a>
 </p>
