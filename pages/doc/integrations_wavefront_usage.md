@@ -12,7 +12,7 @@ On this page, we list the predefined alerts.
 
 ## Predefined Alerts for the Integration
 
-The Wavefront Usage integration provides the following monitoring alerts. These alerts are predefined, no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Wavefront UI.
+The Wavefront Usage integration provides the following monitoring alerts. These alerts are predefined and no additional setup is required. You can [create additional alerts](alerts.html#creating-an-alert) from the **Alerts** browser or from charts in the Wavefront UI.
 
 <table>
 <tbody>
@@ -37,13 +37,13 @@ The Wavefront Usage integration provides the following monitoring alerts. These 
 
 ## Wavefront Usage Monitoring Dashboards
 
-Wavefront includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards as is, or [clone and customize them](ui_dashboards.html).
+Wavefront includes several predefined dashboards for monitoring Tanzu Kubernetes Grid. You can use these dashboards, or [clone and customize them](ui_dashboards.html).
 
 We support dashboards for major functionality including:
 
-* Wavefront Service and Proxy data dashboard
+* Wavefront Service and Proxy Data dashboard
 * Wavefront Namespace Usage Explorer dashboard
 * Wavefront Ingestion Policy Explorer dashboard
 * Committed Rate and Monthly Usage (PPS P95) dashboard
 
-For more information about the dashboards and how to monitor your Wavefront service, see [Monitor and troubleshoot your Wavefront instance and see PPS info](wavefront_monitoring.html). To see the full set of dashboards, sign in to your Wavefront instance, or sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}.
+For details about the dashboards, how to troubleshoot your Wavefront service and see PPS information, see [Monitor Your Wavefront Service](wavefront_monitoring.html). To see the full set of dashboards, sign in to your Wavefront instance, or sign up for a [free trial](http://wavefront.com/sign-up/?utm_source=docs.vmware.com&utm_medium=referral&utm_campaign=docs-front-page){:target="_blank" rel="noopenner noreferrer"}.
