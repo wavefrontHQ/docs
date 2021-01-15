@@ -357,7 +357,7 @@ For details and examples, see <a href="alerts_states_lifecycle.html">Alert State
 </tr>
 <tr>
 <td><strong>Metrics</strong></td>
-<td>Whether to include obsolete metrics. Whether to include obsolete metrics. By default, alerts don't consider data that have  not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
+<td>Whether to include obsolete metrics. By default, alerts don't consider data that have not reported for 4 weeks or more. Include obsolete metrics if you use queries that aggregate data in longer time frames.</td>
 </tr>
 </tbody>
 </table>
