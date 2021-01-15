@@ -49,8 +49,8 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 </tr>
 <tr>
 <td width="50%">
-<strong>Affected</strong> helps you determine what is failing. <br/><br/>
-When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order on the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than the other tags.</td>
+Use the <strong>Affected</strong> section to determine what is failing. <br/><br/>
+When an alert fires, Wavefront analyzes the point tags that are most likely to be related to the firing alert and displays them in ranked order in the Alert Viewer. These point tags are a list of suspects for why the alert is firing. For example, if the alert is caused by an outage in region=us-west-2, Wavefront ranks this tag higher than other tags.</td>
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 <td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Data section"></td>
 </tr>
 <tr>
-<td width="50%">In the <strong>Data</strong> section you can examine the query (or queries), filter what's displayed, and open the alert query in Chart Editor.
+<td width="50%">In the <strong>Data</strong> section, examine the query (or queries), filter what's displayed, and open the alert query in Chart Editor.
 </td>
 <td width="50%"><img src="/images/alert_viewer_data.png" alt="Data section"></td>
 </tr>
@@ -87,16 +87,19 @@ You can view and manage all alerts from the Alerts Browser.
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="60%">
+<td width="50%">
 <br/>
-Click <strong>Alerts</strong> in the task bar to display the Alerts browser. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
-<td width="40%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in task bar."></td>
+To examine alerts in the Alerts Browser, click <strong>Alerts</strong> in the task bar. Colored numbers next to <strong>Alerts</strong> show how many alerts are currently firing at which severity.</td>
+<td width="50%"><img src="/images/alerts_taskbar.png" alt="multiple firing alert numbers in different colors next to text Alerts in task bar."></td>
 </tr>
 <tr>
-<td width="60%">
+<td width="50%">
 <br/>
-To find exactly the alert(s) you need, type the alert name in the search field or filter, for example, by <strong>State</strong>, <strong>Severity</strong>, or alert tag. For example, you could show alerts that are both FIRING and SEVERE.</td>
-<td width="40%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
+To find exactly the alert(s) you need you can:
+<ul><li>Type the alert name in the search field</li>
+<li>Use a filter, for example, select <strong>State</strong>, <strong>Severity</strong>, or alert tag. </li></ul>
+For example, you could show alerts that are both FIRING and SEVERE.</td>
+<td width="50%"><img src="/images/alert_firing_severe.png" alt="Firing and Severe selected in filter bar on left."></td>
 </tr>
 </tbody>
 </table>
@@ -105,9 +108,9 @@ To find exactly the alert(s) you need, type the alert name in the search field o
 
 ### Examine an Alert
 
-The Alerts browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
+The Alerts Browser shows the properties and current state of an alert. For example, an alert that is firing looks like this:
 
-![Alert firing](images/alert_firing.png)
+![Screenshot with speech bubbles highlighting UI element - text below describes](images/alert_firing.png)
 
 Here's a summary of what you can do:
 * Click the ellipsis (three dots) for a menu.
@@ -143,7 +146,7 @@ For example, for the alert shown above, the chart looks like this:
 <tr>
 <td width="60%">
 <br/>
-Alert history shows the changes that have been made to an alert over time.<br/>
+Alert history shows the changes that have been made to an alert over time.<br/><br/>
 
 To access the alert history, click the three dots to the left of the alert in the Alerts browser and click <strong>Versions</strong>.
 </td>
@@ -156,12 +159,12 @@ Alert history shows:
 * Which user made the changes.
 * The date and time the changes were made.
 * A description of the changes.
-You can revert back to or clone a past alert version.
+You can revert back to a past alert version or clone a past alert version.
 
 
 ## Clone or Delete an Alert
 
-If you want to make copies of an existing alert, then change the copy slightly, you can clone the alert.
+To make copies of an existing alert, then change the copy, you can clone an alert.
 
 <table style="width: 100%;">
 <tbody>
@@ -170,7 +173,7 @@ If you want to make copies of an existing alert, then change the copy slightly, 
 <br/>
 <ol>
 <li>Cick the <strong>Alerts</strong> button to display the Alerts page. </li>
-<li> Click the 3 dots to the left of the alert.</li>
+<li>Click the 3 dots to the left of the alert.</li>
 <ul>
 <li>To clone an alert, click <strong>Clone</strong>, make changes when prompted, and click <strong>Save</strong>. </li>
 <li>To delete an alert, click <strong>Delete</strong> and confirm the deletion. </li>
@@ -193,42 +196,55 @@ You can change an alert at any time.
 
 ## Organize Related Alerts With Alert Tags
 
-You can use alert tags to organize related alerts into categories. Alert tags let you:
+You can use alert tags to organize related alerts into categories. Alert tags are especially useful for setting up [maintenance  windows](maintenance_windows_managing.html#using-maintenance-windows). You can:
 * [Search or filter](wavefront_searching.html) the list of alerts in the Alerts browser to show only a category of alerts.
-* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html).
+* Suppress a category of alerts during a [maintenance window](maintenance_windows_managing.html#using-maintenance-windows).
 * [Reference a group of alert metrics](alerts_dependencies.html#referencing-alert-metrics) in a single expression.
 
-You can add a new or existing alert tag at any time:
-* Set the **Tags** property when you create or edit the alert.
-* Click **+** at the bottom of the alert when you view it in the Alerts browser.
+### Manage Alert Tags
 
-For example, you might assign tags like `networkOps`, `underDevelopment`, and `eastCoast`. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="70%">
+<br/>
+You can add a new or existing alert tag at any time:
+<ul>
+<li>Set the <strong>Tags</strong> property when you create or edit the alert. </li>
+<li>Click plus (<strong>+</strong> at the bottom of the alert in the Alerts Browser.</li>
+<li>Select one or more alert in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong></li>
+</ul>
+<p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
+</td>
+<td width="30%"><img src="images/alert_tag_add.png" alt="Alerts Browser, + selected for single alert, Add Existing Tag and Create New Tag options"></td>
+</tr>
+</tbody>
+</table>
+
+
 
 {% include tip.html content="Read the blog post [Skyline Resolves Production Incidents Faster with Alert-Based Health Dashboards](https://tanzu.vmware.com/content/blog/skyline-resolves-production-incidents-faster-with-alert-based-health-dashboards) for a discussion of a real-world example." %}
 
-### Multi-Level Alert Tags
+### Use Multi-Level Alert Tags
 
-You can use alert tag paths for categories that have multiple levels. For example, suppose you have created a group of alerts that you use as demo examples, and:
+If your environment has a nested set of categories, you can use alert tag paths. For example, suppose you have created a group of alerts that you use as demo examples, and:
 * Within the demo group, some alerts monitor network activity, while others monitor request latency.
 * Within each subgroup, some alerts monitor production applications, while others monitor development applications.
 
-To help you manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
+To manage these alerts, you assign the tag paths `example.network.prod`, `example.network.dev`, `example.latency.prod`, and `example.latency.dev`. The Alerts Browser below shows the tag paths as a hierarchy under **Tag Paths** on the left. You can click **example** and then **network** to view all alerts that have a tag path that starts with `example.network`.
 
 ![Alert tag path](images/alert_tag_path.png)
 
-In tasks such as creating a maintenance window, you can use a wildcard to match tag path components:
+Use a wildcard to match tag path components, for example, when creating a maintenance window:
 * `example.*.*` matches the entire group of demo alerts.
 * `example.latency.*` matches all of the alerts that monitor request latency.
 * `example.*.prod` matches all of the production alerts.
 
-<!---
-**Note** In simple use cases, you can organize related alerts by assigning them names that contain a common string. You can view just the related alerts by typing the common string in the search field. For example, searching for the string `Latency` might let you view alerts named `Latency Alert`, `Latency Dev Alert`, `Realtime latency`, and so on.
---->
 
 
 ## Alert Events
 
-As alerts fire, update, and resolve, [events](events.html) are created in Wavefront. You can optionally display those events as [icons](charts_events_displaying.html) on a chart's X-axis:
+Wavefront creates [events](events.html) as alerts fire, update, and resolve. You can optionally [display those events](charts_events_displaying.html) as icons on a chart's X-axis:
 
 ![event icons](images/event_icons.png)
 
@@ -252,5 +268,5 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 ## Do More!
 
 * Read the [blog about Alert Viewer](https://tanzu.vmware.com/content/vmware-tanzu-observability-blog/faster-ai-driven-incident-triaging-wavefront-alert-viewer) from December 2019
-* Create a [classic alert](alerts.html#creating-a-classic-alert) or a [multi-threshold alert](alerts.html#creating-a-multi-threshold-alert).
+* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html)

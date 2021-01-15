@@ -12,7 +12,9 @@ Here's a video to get you started:
 
 ## Alert Lifecycle Basics
 
-The alert lifecycle determines which events the alert triggers, and which alert targets get notifications. Classic and multi-threshold alerts are exactly the same in terms of events. However, when notifications are sent to which target differs for classic alerts and for multi-threshold alerts.
+The alert lifecycle determines:
+*  Which **events** the alert triggers, and which alert targets get notifications. Classic and multi-threshold alerts are exactly the same.
+*  When **notifications** are sent to which target. Classic and multi-threshold alerts differ, as follows:
 
 ### When Classic Alerts Notify Targets
 
@@ -23,7 +25,9 @@ Classic alerts notify all targets at the same time when the alert changes state:
 
 ### When Multi-Threshold Alerts Notify Targets
 
-A multi-threshold alert supports multiple severities with different alert targets. Let's look at an example:
+A multi-threshold alert supports multiple severities with different alert targets. Each time the alert fires, it notifies all alert targets for each severity that has a condition that's met.
+
+Let's look at an example:
 
 |ts expression |`ts(cpu.loadavg.1m)`|
 |operator | >|
@@ -50,29 +54,29 @@ An alert can be in one of the following states:
 </thead>
 <tr>
 <td><strong>CHECKING</strong></td>
-<td>We check whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Alert fires</strong> property.
-Alerts can't be in the CHECKING and the FIRING state at the same time even though firing alerts are being checked to determine if firing conditions are still being met.  An alert resolves and transitions back to CHECKING when no true values are present within the time window, or when the time window contains no data.</td></tr>
+<td>Wavefront checks whether the <strong>Condition</strong> is met for the amount of time specified by the <strong>Alert fires</strong> property.<br/> <br/>
+If an alert is in the FIRING state, it cannot be in the CHECKING state at the same time but Wavefront checks firing alerts to determine if firing conditions are still met.  A FIRING alert resolves and transitions back to CHECKING when the condition does not evaluate to <strong>true</strong> in the time window, or when the time window contains no data.</td></tr>
 <tr>
 <td><strong>FIRING</strong></td>
-<td>The alert is meeting the <strong>Condition</strong> for the amount of time specified by the <strong>Alert fires</strong> property. An alert transitions to FIRING when the condition evaluates to at least one true value and no false values during a fixed time window.</td>
+<td>The alert meets the <strong>Condition</strong> for the amount of time specified by the <strong>Alert fires</strong> property. An alert transitions to FIRING when the condition has at least one true value and no false values during a fixed time window.</td>
 </tr>
 <tr>
 <td><strong>NO DATA</strong></td>
 <td markdown="span">The series for which an alert is defined is not reporting data.
-You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select **Alert Has No Data** in the corresponding [Alert Target](/webhooks_alert_notification.html#creating-an-alert-target). For those alert targets, select **Alert Has No Data Resolved** if you want to send a notification when the alert exits the NO DATA state.</td></tr>
+You can set up an alert that triggers if the alert is in a NO DATA state for a specified amount of time. If you do, select **Alert Has No Data** in the corresponding [Alert Target](webhooks_alert_notification.html#create-a-custom-alert-target). For those alert targets, select **Alert Has No Data Resolved** if you want to send a notification when the alert exits the NO DATA state.</td></tr>
 <tr>
 <td><strong>IN MAINTENANCE</strong></td>
-<td>The alert has an alert tag or a source or set of sources included in a source tag associated with an ongoing maintenance window.
-<ul><li>If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE.</li>
-<li>If an alert has a subset of reporting sources associated with an ongoing maintenance window but the other sources are firing, the state displays as FIRING/IN MAINTENANCE.</li></ul>
- </td>
+<td>The alert is associated with a <a href="maintenance_windows_managing.html#using-maintenance-windows">maintenance window</a>.
+<ul>
+<li>If an alert has a subset of reporting sources associated with in an ongoing maintenance window, then the state displays as CHECKING/IN MAINTENANCE.</li>
+<li>If an alert has a subset of reporting sources associated with an ongoing maintenance window but other sources are firing, the state displays as FIRING/IN MAINTENANCE.</li></ul></td>
 </tr>
 <tr>
 <td><strong>INVALID</strong></td>
 <td>The alert is timing out ( > 5 min query execution) or queries include inactive metrics or sources. When an alert is in the INVALID state, it is checked approximately every 15 minutes, instead of the specified checking frequency (see next section).</td></tr>
 <tr>
 <td><strong>SNOOZED</strong></td>
-<td>The alert is not checked.</td></tr>
+<td>The alert is not checked because the user set it to SNOOZED.</td></tr>
 </tbody>
 </table>
 
@@ -94,7 +98,7 @@ The data granularity for alert checking is 1 minute. The alert checking process:
 
 If the ts() expression returns a single data value per minute, the summarization values and the returned values are the same.
 
-{% include note.html content="If you want a different summarization strategy, then you can explicitly use the [`align()`](ts_align.html) function in your alert condition, with parameters specifying a 1-minute time window and your preferred summarization method." %} 
+{% include note.html content="If you want a different summarization strategy, then you can explicitly use the [`align()`](ts_align.html) function in your alert condition, with parameters specifying a 1-minute time window and your preferred summarization method." %}
 
 **Example 1**
 
