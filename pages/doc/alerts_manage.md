@@ -53,7 +53,7 @@ Examine <strong>Related Firing Alerts</strong>. When an alert fires, Wavefront s
 <td width="50%"><img src="/images/alert_viewer_point_tags.png" alt="Affected point tags example"></td>
 </tr>
 <tr>
-<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details. 
+<td width="50%"><strong>Other Firings</strong> shows past firings of the same alert with a link to the corresponding firing in the Alert Viewer. For multi-threshold alerts, you can see the severity. Click the links to see details.
 </td>
 <td width="50%"><img src="/images/alert_viewer_past_firings.png" alt="Data section"></td>
 </tr>
@@ -216,5 +216,5 @@ Backtesting does not always exactly match the actual alert firing. For example, 
 ## Do More!
 
 * Read the [blog about Alert Viewer](https://www.wavefront.com/wavefront-introduces-alert-viewer-enabling-faster-ai-driven-incident-triaging/) from December 2019
-* Create a [classic alert](alerts.html#creating-a-classic-alert) or a [multi-threshold alert](alerts.html#creating-a-multi-threshold-alert).
+* Create a [classic alert](alerts.html#create-a-classic-alert) or a [multi-threshold alert](alerts.html#create-a-multi-threshold-alert).
 * Learn about [alert states and life-cycle](alerts_states_lifecycle.html)
