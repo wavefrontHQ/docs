@@ -52,7 +52,7 @@ The alert condition is a query language expression that defines the threshold fo
 * If an alert's Condition field is set to a conditional expression, for example `ts("requests.latency") > 195`, then all data values that satisfy the condition are marked as `true` (1) and all data values that do not satisfy the condition are marked as `false` (0).
 * If the Condition field is set to a base ts(), hs(), etc. expression, for example `ts("cpu.loadavg.1m")`, then all _non-zero_ data values are marked as `true` and all zero data values are marked as `false`. If there is _no reported data_, then values are neither true nor false.
 
-An alert [fires](alerts_states_lifecycle.html#when-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
+An alert [fires](alerts_states_lifecycle.html#when-do-alerts-fire) when a metric stays at a value that indicates a problem for the specified amount of time.
 * A **classic alert** sends a notification with the specified severity to all specified targets.
 * A **multi-threshold alert** allows you to specify multiple severities and a different target for each severity. Each target is notified if the condition is met when the alert changes state.
 
