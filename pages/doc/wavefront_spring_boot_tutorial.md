@@ -1,7 +1,7 @@
 ---
 title: Wavefront for Spring Boot Tutorial
 keywords:
-tags: [best practice]
+tags: [tutorials]
 sidebar: doc_sidebar
 permalink: wavefront_springboot_tutorial.html
 summary: Configure Wavefront for Spring Boot with a sample application.
