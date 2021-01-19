@@ -119,7 +119,7 @@ Suppose you want to return an entire summarized minute value as false if there's
 
 `align(1m, min, ts(my.metric) > 4)`.
 
-When my.metric reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the alert checking process:
+When `my.metric` reports the data values (9, 9, 9, 3, 9) between 12:11:00pm and 12:11:59pm, the alert checking process:
 1. Compares each value to the condition (>4)
 2. Returns a true (1) or false (0) value.
 
@@ -185,7 +185,7 @@ Click FIRING to filter the list of alerts</td>
 ## When Do Alerts Resolve?
 
 An alert resolves when:
-* Either there are either no true values present within the given **Alert resolves** time window
+* Either there are no true values present within the given **Alert resolves** time window
 * Or the **Alert resolves** time window contains no data.
 
 By default, the **Alert resolves** time window is the same length as the **Alert fires** time window.
