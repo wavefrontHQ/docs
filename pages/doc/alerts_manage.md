@@ -26,7 +26,7 @@ When you receive an alert notification, it includes a link to the alert in Alert
 
 ![annotated alert viewer](images/alert_viewer.png)
 
-### What You Can Do
+### Solve Problems with Alert Viewer
 
 <table style="width: 100%;">
 <tbody>
@@ -68,16 +68,14 @@ When an alert fires, Wavefront analyzes the point tags that are most likely to b
 
 ### How Alert Notifications Include Links
 
-The alert target mustache syntax supports 2 variables:
-* The `url` variable
-* The `charturl` variable
+The alert target mustache syntax supports a `url` variable and a  `charturl`.
 
-* Simple notification **emails** now include a **View Alert Chart** link that takes you directly to the chart view.
+* Simple notification **emails** include a **View Alert Chart** link that takes you to the chart view.
 * For Pagerduty, alert target (webhook), and  templated email notifications:
-  - The link  target of the `url` mustache template variable directs to the new Alert Viewer. 
-  - A new mustache context variable `chartUrl` takes you directly to the chart view. 
+  - The link  target of the `url` mustache template variable directs to the Alert Viewer. 
+  - The mustache context variable `chartUrl` takes you directly to the chart view. 
 
-{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartURL` to send users to the chart editor." %} 
+{% include note.html content="Alert targets created before release 2020.22 will use `url` instead of `chartUrl`. Edit the alert target to use `chartUrl` to send users to the chart editor." %} 
 
 
 ## Examine and Manage All Alerts in Alerts Browser
@@ -132,9 +130,9 @@ To view alert details, click the chart icon in the State column in the Alerts br
 - **&lt;Alert name&gt;** - the alert's Display Expression, if there is one. Otherwise, the alert condition.
 - **Past Firings** - an [events() query](events_queries.html) that shows past firings of the alert.
 
-For example, for the alert shown above, the chart looks like this:
+For example, for the `Latency Dev Alert` shown above, the chart looks like this:
 
-![Alert queries](images/v2_alert_queries.png)
+![Chart with 2 queries corresponding to alert shown in first section](images/v2_alert_queries.png)
 
 
 ### View Alert History
@@ -211,8 +209,8 @@ You can use alert tags to organize related alerts into categories. Alert tags ar
 You can add a new or existing alert tag at any time:
 <ul>
 <li>Set the <strong>Tags</strong> property when you create or edit the alert. </li>
-<li>Click plus (<strong>+</strong> at the bottom of the alert in the Alerts Browser.</li>
-<li>Select one or more alert in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong></li>
+<li>Click plus (<strong>+</strong>) at the bottom of the alert in the Alerts Browser.</li>
+<li>Select one or more alerts in the Alerts Browser and click <strong>+Tag</strong> or <strong>-Tag</strong></li>
 </ul>
 <p>For example, you might assign tags like networkOps, underDevelopment, and eastCoast. All users can later search for one or more of these tags to find any other alerts that are in the same category or combination of categories.</p>
 </td>
@@ -263,7 +261,7 @@ To change the events display:
    - **Actual Firings**  - Displays past alert-generated event icons on the chart. You will see how often the alert actually fired within the given chart time window.
    - **Backtesting** - Displays hypothetical alert-generated event icons on the chart. You can see how often an alert  would fire within the chart time window based on the condition and the **Alert Fires** field.
 
-Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. And even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
+Backtesting does not always exactly match the actual alert firing. For example, if data comes in late, backtest events won't match the actual alert firing. Even if data are meeting the alert condition for the "condition is true for x mins" amount of time, the alert itself might not fire because the alert check, determined by the alert check interval, happens too soon or too late. For both cases, backtesting shows the alert as firing while the actual alert might not show as firing.
 
 ## Do More!
 
