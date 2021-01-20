@@ -7,25 +7,35 @@ permalink: alert_target_customizing.html
 summary: Learn how to customize alert notifications by modifying alert target templates.
 ---
 
-A custom alert target provides a template for specifying the contents of the notifications to be sent when an alert changes state.
-The template is a blueprint for extracting information from the alert and assembling the notification.
+An alert target provides a template that specifies how Wavefront extracts information from the alert, and how to assemble the notification from the alert information.
 
-To customize a template, start with the default template for the alert target type, and edit that template.
+You can customize the predefined template for the alert target type by making and saving changes. The template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
 {% include note.html content="For general information about setting up custom alert targets, see [Creating and Managing Custom Alert Targets](webhooks_alert_notification.html)." %}
 
 ## About Alert Target Templates
 
-The template defined by a custom alert target describes the contents of the notifications that will be sent whenever an alert transition triggers an event of interest. A template identifies the information you want to extract from the transitioned alert, and embeds that information in a formatted structure that is sent to the target's messaging platform. The messaging platform interprets the structure and displays it as a readable notification. For example:
+
+The template defined by a custom alert target describes the contents of the notifications that will be sent whenever an alert transition triggers an event.
+
+Here's what happens:
+1. The alert triggers an event.
+2. The alert template
+   * Identifies the information you want to extract from the alert
+   * Embeds that information in a formatted structure appropriate for the target's messaging platform.
+3. Wavefront sends the formatted information to the target.
+4. The messaging platform interprets the structure and displays it as a readable notification.
+
+For example:
 
 * A template for an HTML email alert target specifies the HTML structure that will be sent as the message body, and specifies the alert information to be included within that structure. Each piece of alert information is inserted as a value of an HTML element or attribute.
 
 * A template for a Slack alert target specifies the JSON structure that will be POSTed to the Slack endpoint, and specifies the alert information to be included within that structure. Each piece of alert information is inserted as a value of a Slack-defined JSON attribute.
 
-A custom alert target's template uses [Mustache syntax](https://mustache.github.io/) to combine literal text with Wavefront-defined _variables_ and _functions_ to produce the structures to be sent to the receiving messaging platform.
 
 ### Predefined Templates
-Wavefront provides a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it to add, remove, or rearrange alert information and structural elements. You can even use a predefined template as a guide for composing your own template.
+
+Wavefront provides a predefined template for each type of custom alert target. You can use the predefined template as is, or you can customize it.
 
 You can [inspect](#display-and-edit-predefined-templates) a predefined template to see:
 
@@ -39,35 +49,42 @@ The predefined Slack, HipChat, and VictorOps templates contain JSON attributes d
 
 ### Template Variables
 
-Wavefront defines template variables for accessing information about [the alert](#listing-information-about-the-alert) and about [the time series tested by the alert](#listing-information-about-the-alerts-time-series). When the alert triggers a notification, Wavefront replaces the variables in the template with strings that represent the requested values. 
+Wavefront defines template variables for accessing [information about the alert](#obtain-information-about-the-alert) and about [the time series tested by the alert](#obtain-information-about-the-alerts-time-series). When the alert triggers a notification, Wavefront replaces the variables in the template with strings that represent the requested values. 
 
-How you use a variable depends on whether it is:
-* A _property_, which accesses a single value. For example, `alertID` accesses a single string that represents the alert's unique ID.
-* An _iterator_, which accesses a value that is a list of elements. For example, `alertTags` accesses a list of 0 or more strings that represents tags associated with the alert.
+We support property and iterator variables, which are used differently.
 
-The following snippet shows the basic [Mustache](https://mustache.github.io/) syntax for a property and an iterator:
+* A _property_ variable accesses a single value. For example, `alertID` accesses a single string that represents the alert's unique ID.
 
-{% raw %}
-```handlebars
-{{{alertId}}}     {{! a property}}
+   Each property is enclosed in 3 pairs of curly braces. (In an HTML email template, you can use 2 pairs of curly braces around a property.)
 
-{{#alertTags}}    {{! an iterator}}
-    {{{.}}}
-{{/alertTags}}
-```
-{% endraw %}
+  {% raw %}
+  ```handlebars
+  {{{alertId}}}     {{! a property}}
+  ```
+  {% endraw %}
 
-Mustache supports several variations in each case, but this example shows the most commonly used syntax in the alert target templates:
+* An _iterator_ variable accesses a value that is a list of elements. For example, `alertTags` accesses a list of 0 or more strings that represents tags associated with the alert.
 
-* Each property is enclosed in 3 pairs of curly braces. (In an HTML email template, you can use 2 pairs of curly braces around a property.)
+   Each iterator is used in a Mustache _section_, with the iterator's name appearing on either end. Because an iterator successively visits each element in its list, you can use {% raw %} `{{{.}}}` {% endraw %} within the section to indicate the element currently being visited. The section normally contains additional literal text and functions to format each visited element, such as a following comma or other separator character.
 
-* Each iterator is used in a Mustache _section_, with the iterator's name appearing on either end. Because an iterator successively visits each element in its list, you can use {% raw %} `{{{.}}}` {% endraw %} within the section to indicate the element currently being visited. The section normally contains additional literal text and functions to format each visited element, such as a following comma or other separator character. Examples are shown below.
+  {% raw %}
+  ```handlebars
+  {{#alertTags}}    {{! an iterator}}
+      {{{.}}}
+  {{/alertTags}}
+  ```
+  {% endraw %}
+
+
+[Mustache](https://mustache.github.io/) supports several variations in each case.
+
+
 
 ### Template Functions
 
 Wavefront defines template functions for performing various tasks, such as [tailoring the notification content to the trigger type](#tailor-content-to-the-trigger-type), [limiting the number of elements an iterator can return](#limit-list-sizes), and [assisting with JSON or XML formatting](#utility-functions-for-readability).
 
-The following snippet shows the basic [Mustache](https://mustache.github.io/) syntax for two functions:
+The following snippet shows the basic Mustache syntax for two functions:
 
 {% raw %}
 ```handlebars
@@ -87,14 +104,20 @@ Like iterators, a function is used in a Mustache section, with the function's na
 
 To display and edit a predefined template for a new or existing custom alert target:
 
-1. [Create](webhooks_alert_notification.html#creating-a-custom-alert-target) or [view](webhooks_alert_notification.html#viewing-a-custom-alert-target) the custom alert target.
-2. In the **Body Template** field, click **Template** and select one of the predefined templates.
-3. Add, remove, or rearrange alert information and structural elements of the predefined template, or replace the predefined template with a template of your own.
-4. Scroll to the end of the **Body Template** field and click **Save**.
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="50%">
+<ol><li><a href="webhooks_alert_notification.html#hcreate-a-custom-alert-target">Create</a> or <a href="webhooks_alert_notification.html#edit-a-custom-alert-target">edit</a> the custom alert target. </li>
+<li>In the <strong>Body Template</strong> field, click <strong>Template</strong> and select one of the predefined templates. The alert target's type determines the available predefined templates. On the right are the choices for a custom alert target of type <strong>Email</strong>:</li>
+<li>Add, remove, or rearrange alert information and structural elements of the predefined template, or replace the predefined template with a template of your own. </li>
+<li>Scroll to the end of the <strong>Body Template</strong> field and click <strong>Save</strong>.</li></ol></td>
+<td width="50%"><img src="images/alert_target_predefined_template.png" alt="predifined alert target screenshot"></td>
+</tr>
+</tbody>
+</table>
 
-The custom alert target's **Type** determines the list of available predefined templates. For example, here are the choices for a custom alert target of type **Email**:
 
-![predefined alert target](images/alert_target_predefined_template.png)
 
 ## Obtain Information About the Alert
 
@@ -321,7 +344,7 @@ Wavefront defines variables for obtaining information about the time series that
 The names of the iterators follow this convention: <code>&lt;seriesCategory&gt;&lt;InfoIndicator&gt;</code>. For example:
 <ul>
   <li>
-    <code>failingHosts</code> is an iterator that lists the <a href="#list-the-sources-of-an-alerts-time-series">host name</a>of each failing time series.
+    <code>failingHosts</code> is an iterator that lists the <a href="#list-the-sources-of-an-alerts-time-series">host name</a> of each failing time series.
   </li>
   <li>
     <code>inMaintenanceSeries</code> is an iterator that lists the <a href="#list-the-definitions-of-an-alerts-time-series">defining information</a> of each time series whose source is in maintenance.
@@ -714,9 +737,11 @@ The preceding template might yield the following message:
 
 Statistics provide a profile of the values in a time series during the checking time window immediately preceding a notification. For example, the alert might be set up to fire when a condition is true for 10 minutes. During a 10 minute period where the condition is true, a time series likely have multiple values. You can use statistics to find out, e.g., the largest of these values, or the last value to be reported during the **Alert fires** time window.
 
-Statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
+For classic alerts, statistics are normally useful only if you have set the alert's [**Display Expression** field](alerts.html#alert-properties) with a display expression that captures the underlying time series being tested by the condition expression. If the alert has no display expression, statistics are based on the values that are returned by the alert's condition expression. Because the condition expression returns either 0 or not 0, that information is not useful.
 
-Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any punctuation, separators, or labels.
+Multi-threshold alerts include a predefined display expression.
+
+Use the following variables within the section of an [alert-series iterator](#alert-series-iterators) to specify the statistics that you want to include for each visited series. You can use any subset of these variables in any order. Use literal text around these items if you want to format them with any punctuation, separators, or labels.
 
 <table>
 <colgroup>
@@ -1132,7 +1157,7 @@ Output:1600273622
 
 ## Add Chart Images to Older Custom Alert Targets
 
-As of 2018-26.x, the predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
+The predefined template for a custom HTML email target or a custom Slack target automatically includes the `imageLinks` variable for producing a [chart image](alerts.html#chart-images-in-alert-notifications) in alert notifications. However, if you created a custom email alert target or a custom Slack alert target before 2018-26.x, you must explicitly update the alert target's template to include a chart image in the alert notifications.
 
 {% include note.html content="You do not need to update pre-existing custom alert targets of type PagerDuty. All PagerDuty notifications sent in 2018-26.x or later will include chart images." %}
 
@@ -1140,7 +1165,7 @@ As of 2018-26.x, the predefined template for a custom HTML email target or a cus
 
 To update a custom email alert target that was created before 2018-26.x:
 
-1. Open the custom alert target for [editing](webhooks_alert_notification.html#editing-a-custom-alert-target).
+1. Open the custom alert target for [editing](webhooks_alert_notification.html#edit-a-custom-alert-target).
 1. Select **HTML Format**. (All custom email alert targets created before 2018-26.x are plain text.)
 1. In the **Body Template** box, insert a snippet such as the following:
 

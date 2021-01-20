@@ -28,19 +28,19 @@ If you have specified your email address as the alert target, you receive an ema
 
 ### Alert Notification with Secured Metrics Details
 
-If an alert has **Secure Metrics Details** selected, the email or Slack notification
+If an alert has **Secure Metrics Details** selected, the email or Slack notification:
 
 * Includes the text **Metrics Security Enabled** at the top.
 * Does **not** include metric details and alert images.
 
-Select this check box if some metrics in your environment are protected by [metrics security policy rules](metrics_security.html). Here's how it works:
+When you select **Create Alert** and **Edit Alert** you can select a **Secure Metrics Details** check box. Here's how it works:
 
 * Alerts always check the complete set of metrics.
 * When a user opens alert-related charts,
   - Metrics protected by metrics security policy rules are not displayed.
   - A notification that some metrics are hidden due to metrics security policies is shown on the chart.
 
-Not showing details in the alert notification (and adding the heading) results in a better user experience.
+{% include tip.html content="If you environment protects some metrics using metrics security policy rules, then the user experience is much better if you select the check box." %}
 
 ![alert email screenshot without metrics image](images/alert_email_protected.png)
 
@@ -58,14 +58,15 @@ For performance reasons, a chart image is included only if the alert's condition
 Chart images are automatically included in notifications for:
 * Simple alert targets (email addresses and PagerDuty keys that are added directly in the alert's target list).
 * [Custom alert targets](webhooks_alert_notification.html) for PagerDuty notifications.
-* (Version 2018-26.x and later) Predefined templates for custom HTML email targets and for Slack targets.
+* Predefined templates for custom HTML email targets and for Slack targets.
 
 You can optionally include chart images in notifications for [custom alert targets](webhooks_alert_notification.html) for other messaging platforms.
 
 {% include note.html content="If you created a custom alert target before 2018-26.x and you want to include chart images in notifications to that target, you must edit the alert target's template.  See [Adding Chart Images to Older Custom Alert Targets](alert_target_customizing.html#adding-chart-images-to-older-custom-alert-targets) for sample setup instructions for updating an email alert target." %}
 
-(Version 2018-26.x and later) You exclude chart images from notifications to custom HTML email or Slack targets by removing the corresponding variable from their templates. You cannot remove chart images from custom PagerDuty alert targets.
-
+If you want to exclude chart images:
+* Remove the corresponding variable from the templates for custom HTML email or Slack targets.
+*  You cannot remove chart images for custom PagerDuty alert targets.
 
 ## Interactive Charts Linked by Alert Notifications
 
@@ -82,7 +83,9 @@ The interactive chart viewed through an alert notification shows the results of 
 
 Interactive charts enable you to investigate your data by performing additional queries, changing the time window, and so on.
 
-Note that interactive charts always show the current state of your data as of the time you bring up the chart, which could be somewhat later than the event that triggered the alert. Consequently, although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it could be backfilled with data values that were reported during that time window, but were not ingested until later. The presence of delayed and then backfilled data could obscure the reason why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), you can inspect a [chart image](#chart-images-in-alert-notifications) included in the notification.
+Interactive charts always show the **current state** of your data at the time you bring up the chart. That could be somewhat later than the event that triggered the alert.
+
+Although the interactive chart is set to a custom date showing the time window in which the alert was triggered, it might have been backfilled with data values that were reported during that time window, but were not ingested until later. The presence of delayed and then backfilled data can obscure why the alert fired. If you suspect a [misfiring alert](alerts_states_lifecycle.html#did-my-alert-misfire), inspect the chart image included in the notification, which shows the state when the alert fired.
 
 ## PagerDuty Notifications
 
