@@ -6,7 +6,9 @@ summary: Learn about the Wavefront Slack Integration.
 ---
 ## Slack Integration
 
-Slack is a popular communication platform. Wavefront supports sending a Wavefront/Slack webhook integration and a URL unfurler for Slack users who paste Wavefront links into Slack messages.
+Slack is a popular communication platform. Wavefront integrates with Slack in two different ways: 
+* Wavefront/Slack webhooks let you send **alert notifications** to Slack. 
+* The Wavefront URL unfurler for Slack is for users who paste **Wavefront links into Slack messages**.
 
 ### Slack Webhook Integration for Alert Notifications
 
@@ -21,6 +23,8 @@ After a privileged user has added the Wavefront application to Slack, all Slack 
 {% include image.md width="50" src="images/unfurled_chart.png" %}
 
 ## Slack Webhook Integration Setup
+
+Wavefront and Slack both support webhooks so you can easily configure an incoming webhook in Slack and an outgoing webhook in Wavefront to pass the notifications from Wavefront alerts into your Slack channels. 
 
 
 
@@ -57,9 +61,11 @@ After a privileged user has added the Wavefront application to Slack, all Slack 
 {% include alerts.md %}
 {% include webhooks_select.md %}
 
+Setup of your Slack Webhook is now complete. Going forward, specified users receive alert notifications in Slack. 
+
 ## Slack URL Unfurler Setup (Chart Images in Slack)
 
-It's now possible to include chart images in Slack by setting up the Slack URL Unfurler. Currently only `*.wavefront.com` domain can be unfurled.  
+The Slack URL Unfurler has completely different functionality from the Webhook setup. It supports including chart images in Slack. When a user copies a link to a Wavefront chart into Slack, other users can see the chart image in Slack without having to click a link. Currently only `*.wavefront.com` domain can be unfurled.  
 
 To implement URL Unfurl functionality for links to Wavefront pages, follow these steps:
 
