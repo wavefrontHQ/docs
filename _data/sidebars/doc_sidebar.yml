@@ -65,7 +65,7 @@ entries:
         output: web
         subfolderitems:
 
-        - title: "Hello Wavefront!"
+        - title: "Dashboards & Alerts Tutorial"
           url: /tutorial_getting_started.html
           output: web
 

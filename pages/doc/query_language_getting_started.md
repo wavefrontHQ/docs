@@ -1,5 +1,5 @@
 ---
-title: Query Language Quickstart
+title: Query Language Tutorial
 keywords: query language
 tags: [query language, getting started, videos]
 sidebar: doc_sidebar

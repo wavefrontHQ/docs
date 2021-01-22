@@ -7,16 +7,16 @@ permalink: tutorial_overview.html
 summary: Come up to speed with tutorials in product, Github, and docs.
 ---
 
-Learn Wavefront with using in-product or external resources:
-* In-product:  Getting Started workflow, tutorial and tour integrations, help panel, integration setup examples
-* External: Tutorials, github examples, FAQs and Recipes, Swagger API, videos
+Learn Wavefront with in-product or external resources:
+* **Learn Wavefront in Wavefront**:  Getting Started workflow, tutorial and tour integrations, help panel, integration setup examples.
+* **Tutorials, Videos, and More**: Tutorials, Reference documentation, FAQs and Recipes, videos, and more.
 
 ## Learn Wavefront in Wavefront
 
 <table style="width: 100%;">
 <tbody>
 <tr>
-<td width="40%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert. All trial users go through this flow. All other users can click Getting Started in the task bar
+<td width="40%">The Getting Started onboarding flow helps you get data into Wavefront, build a dashboard, and create an alert. All trial users go through this flow. All other users can click <strong>Getting Started</strong> in the task bar.
 </td>
 <td width="60%"><img src="/images/get_started.png" alt="screenshot of Getting Started second screen"></td>
 </tr>
@@ -26,7 +26,7 @@ The Tutorial integration allows you to experiment with charts and alerts to lear
 <ul><li>In the task bar, click <strong>Integrations</strong>. </li>
 <li>Click <strong>Tutorial</strong> and select <strong>Dashboards</strong>.</li>
 <li>Follow the instructions on the left to explore the charts (with sample data) on the right.</li> </ul>
-You can use the customer-wide or user-level preferences to control whether **Getting Started** is visible in the task bar.</td>
+You can use the customer-wide or user-level preferences to control whether <strong>Getting Started</strong> is visible in the task bar.</td>
 
 <td width="50%"><img src="/images/tutorial_integration.png" alt="all tutorial dashboards"></td>
 </tr>
@@ -36,7 +36,7 @@ The Tour integration is a deep dive into additional functionality. You can explo
 <ul><li>In the task bar, click <strong>Integrations</strong>. </li>
 <li>Search for and click <strong>Tour Pro</strong> and click <strong>Dashboards</strong>.</li>
 <li>Click any of the dashboards to explore -- they can be used independently.</li></ul></td>
-<td width="50%"><img src="/images/tour_exampe.png" alt="screenshot of cluster metrics exploration dashboard"></td>
+<td width="50%"><img src="/images/tour_example.png" alt="screenshot of cluster metrics exploration dashboard"></td>
 </tr>
 <tr>
 <td>
@@ -46,97 +46,72 @@ The Help panel is available for most screens when you click the question mark <s
 </tbody>
 </table>
 
-<!---
-<a name="overview-documents"></a>
 
-## Overview Documents <i class="fa-check-circle fa" style="color: green;"/>
+## Learn with Tutorials & Videos
 
-The following docs are great for learning what Wavefront is, how to get data into Wavefront, what you can do based on your assigned permissions, and how to organize and search in Wavefront. These docs also explore the main objects in Wavefront: charts, dashboards, alerts, events, and integrations.
+This doc set includes a set of tutorials for common use cases and links to short videos that help you get up to speed quickly.
 
-- [What is Wavefront?](wavefront_introduction.html)
-- [Getting Data into Wavefront](wavefront_data_ingestion.html)
-- [Permissions Overview](permissions_overview.html)
-- [Organizing with Tags](tags_overview.html)
-- [Searching Wavefront](wavefront_searching.html)
-- [Charts](ui_charts.html)
-- [Dashboards](ui_dashboards.html)
-- [Alerts](alerts.html)
-- [Events](events.html)
-- [Integrations](integrations.html)
 
-## More Docs and Videos
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="40%"><br/><br/>
+Tutorials use simple examples to get you up to speed with the different Wavefront components. <br/><br/>
+We're continually adding to this set -- let us know what else you'd like to see.
+</td>
+<td width="60%"><a href="query_language_getting_started.html"><img src="/images/query_language_tutorial.png" alt="Screenshot of QL tutorial"/></a></td>
+</tr>
+<tr><br/><br/>
+<td>Wavefront docs have included videos from the start. Different videos have different focus.
+<ul><li>Lightboard videos give conceptual background</li>
+<li>Our task-focus videos show how to get things done.</li></ul>
 
-Here are some links to popular docs and videos. You can also search this doc set (top right) to find what you need.
+Here are some task-focus <a href="videos_howto_start.html"> intro videos</a>. Click links in that section for more. </td>
+<td width="50%"><a href="https://youtu.be/90mw6Vcmlt4" target="_blank"><img src="/images/v_intro_clement.png" alt="Introduction to Wavefront video"/></a></td>
+</tr>
+</tbody>
+</table>
 
-### Videos
+## Find Reference Documentation, FAQs, and Best Practices
 
-You can find most videos on our [videos](label_videos.html) page. We've also included those videos on pages where they're most useful.
+Our docs include reference documentation for API, query language, and chart options. Our customer success team helped with FAQs and best practices.
 
-### Charts and Dashboards
-
-Dashboards make it possible to save multiple charts in a single location for future use. The following topics and video help you learn how to create and use charts and dashboards in Wavefront.
-
-- [Examine Telemetry Data](ui_examine_data.html)
-- [Creating a Chart](ui_charts.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Customizing a charts](ui_charts.html#customize-a-chart)
-
-### Query Language
-
-The Wavefront Query Language is the foundation of charts and alerts in Wavefront. The following topics help you learn the query language.
-
-- [Getting Started with Wavefront Query Language](query_language_getting_started.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Query Builder](query_language_query_builder.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Wavefront Query Language Quick Reference](query_language_reference.html)
-- [When Multiple Series Match (Or Not)](query_language_series_matching.html)
-- [Fine Tune Queries With Point Tags](query_language_point_tags.html)
-
-We also have a complete list of [Query Language Reference Pages](label_reference%20page.html).
-
-### Alerts and Events
-
-Alerts and events make it possible to track critical changes in your environment. The following topics help you learn about alerts and events in Wavefront.
-
-- [Alerting States and Lifecycle](alerts_states_lifecycle.html) <i class="fa-check-circle fa" style="color: green;"/>
-- [Creating an Alert](alerts.html#creating-an-alert)
--  [Displaying Events in Charts](charts_events_displaying.html)
-
-### Release Notes
-
-Release notes summarize the features added to each release and changes to existing features.
-
-- [Wavefront Release Notes](wavefront_release_notes.html)
-
-## Getting Started Dashboards
-
-Every Wavefront instance contains dashboards to help new users learn about Wavefront and to explore use cases and example dashboards.
-To access any of these dashboards:
-* Select **Dashboards > All Dashboards** and click the **~welcome.tour** or **~welcome.tutorial** tag or
-* Select **Integrations** and click the **Tour** or **Tutorial** tile.
-
-{% include shared/system_dashboard.html %}
-
-### Tour Dashboards
-
-Tour dashboards give an overview of Wavefront features and illustrate how to use them to address operational challenges. These dashboards are identified by the dashboard tag **~welcome.tour**.
-
-- Tour: Welcome to Wavefront - gives an overview of benefits and capabilities.
-- Tour: The Needle in a Haystack - demonstrates how to find an anomalous event.
-- Tour: The Perfect Alert - demonstrates how to create an alert that fires only when there's really a problem.
-- Tour: Analyzing an Event's Impact - demonstrates how to discover the effect of a code push on metrics.
-- Tour: Data Exploration and Capacity Planning - demonstrates how to correlate metrics with each other.
-- Tour: Week over Week Anomaly Detection - demonstrates how to use historical data to establish a pattern and then create a visualization that captures when a service issue occurred.
-- Tour: Sample Cluster Metrics - displays metrics from a cluster containing several types of sources (application server, database, host, network, etc.).
-- Tour: Sample Telegraf Metrics - displays metrics from hosts where the Telegraf collector agent is used for system metric collection.
-
-### Tutorial Dashboards
-
-Tutorial dashboards illustrate how to use Wavefront features to construct queries, display data returned from queries, and create alerts. These dashboards are identified by the dashboard tag **~welcome.tutorial**.
-
-- Tutorial: Introduction to Wavefront - contains links to getting started dashboards and documentation.
-- Tutorial: Getting Started with Wavefront Query Language - contains charts that illustrate different elements of the Wavefront Query Language.
-- Tutorial: Dashboard Basics: Chart Types - introduces dashboard chart types and options: line, point, stacked area, scatter, etc.
-- Tutorial: Creating Alerts - explains how to create an alert and configure notification of the alert.
-- Tutorial: Code Push Event - explains how to use the Wavefront Query Language to develop queries that explore the effect of a code push event on a collection of servers.
-- Tutorial: Use Case: Anomaly Detection - describes how to use the Wavefront Query Language to investigate anomalous application behavior.
-
---->
+<table style="width: 100%;">
+<tbody>
+<tr>
+<td width="60%">REST API reference documentation is available:
+<ul><li>From the gear icon in the top left inside the product (see screenshot). This option shows you the current version on your cluster.</li>
+<li>From the <a href="https://code.vmware.com/apis/714/wavefront-rest">VMware Code website</a>. This option shows the most recent version.</li>
+</ul>
+</td>
+<td width="40%"><img src="/images/api_documentation.png" alt="gear icon menu with API Documentation selected"></td>
+</tr>
+<tr>
+<td markdown="span">Query language reference documentation is available [in this doc set](query_language_reference.html). Click any link to see a function page with examples for that function, as shown in the screenshot on the right.
+</td>
+<td><a href="query_language_reference.html" target="_blank"><img src="/images/query_language_example.png"  alt="screenshot of Aggregation functions section, with 2 functions with links"/></a></td>
+</tr>
+<tr>
+<td>The Chart Reference has details for each chart type.</td>
+<td><a href="ui_chart_reference.html" target="_blank"><img src="/images/chart_reference.png"  alt="TOC of chart reference"/></a></td>
+</tr>
+<tr>
+<td>Our engineering and customer success teams continually update the best practices information. Those doc pages have a label. Use the Best Practices tile in docs.wavefront.com or pick one of these popular Best Practices pages. Here's a short list
+<ul><li><a href="alerts_best_practices.html">Alerts Best Practices</a> </li>
+<li><a href="alerts_recipes.html">Alerts Recipes</a> </li>
+<li><a href="query_language_recipes.html">Query Language Recipes</a> </li>
+<li><a href="wavefront_data_naming.html">Data Naming Best Practices</a> </li>
+<li><a href="tracing_best_practices.html">Tracing Best Practices</a> </li></ul></td>
+<td><a href="label_best%20practice.html" target="_blank"><img src="/images/best_practices_tile.png"  alt="screenshot of tile, best practices highlighted"/></a></td>
+</tr>
+<tr>
+<td>Our FAQ info helps both users who are new to Wavefront and users who know exactly what they want. We're updating this list as we hear from you in conversations or on Slack.
+<ul><li><a href="ui_charts_faq.html">Wavefront Charts FAQs </a>explains how to set color mapping, how to define drilldown links, and more.  </li>
+<li><a href="wavefront_kubernetes_faq.html">Wavefront and Kubernetes FAQ</a> addresses common questions like integrating with third-party applications. </li>
+<li><a href="tracing_faq.html">Tracing FAQ</a> helps with common tasks like filtering RED metrics with custom span tags.  </li>
+<li><a href="wavefront_spring_boot_faq.html">Wavefront and Spring Boot FAQ</a> explains differences between Freemium and trial clusters, how to visualize metrics and traces, and more. </li>
+</ul></td>
+<td><img src="/images/wavefront_charts_faq.png" alt="screenshot of TOC of chart FAQ"></td>
+</tr>
+</tbody>
+</table>
